@@ -63,7 +63,7 @@ function Creature:onTargetCombat(target)
 		end
 	end
 
-	target:registerEvent("ReflectSystem")
+	target:registerEvent("monsters_reflect_system")
 	
 	if target:isPlayer() then
 		if self:isMonster() then
