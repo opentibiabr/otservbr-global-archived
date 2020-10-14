@@ -39,6 +39,8 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         reporter: github-pr-check
+        flags: --linelength=120
+        filter: -whitespace/tab
 
     - name: cppcheck
       env:
