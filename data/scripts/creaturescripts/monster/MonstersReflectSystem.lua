@@ -27,11 +27,11 @@ local monsterlist = {
 }
 function ReflectSystem.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 local monster = monsterlist[creature:getName()]
-if not monster or primaryType == COMBAT_HEALING then
+if not monster then
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
 if attacker then
-	if primaryDamage > 0 then
+	if primaryDamage < 0 then
 		if monster[1] == "all" or isInArray(monster[1], primaryType) then
 			local dmgP = math.ceil(primaryDamage*(monster[2]/100))
 			doTargetCombatHealth(creature, attacker, primaryType, -dmgP, -dmgP)
@@ -40,7 +40,7 @@ if attacker then
 			end
 		end
 	end
-	if secondaryDamage > 0 then
+	if secondaryDamage < 0 then
 		if monster[1] == "all" or isInArray(monster[1], secondaryType) then
 			local dmgS = math.ceil(secondaryDamage*(monster[2]/100))
 			doTargetCombatHealth(creature, attacker, secondaryType, -dmgS, -dmgS)
