@@ -78,7 +78,7 @@ local function transferFactory(playerName, amount, fromGuildId, info)
                 info.message = 'We are sorry to inform you that we could not fulfil your request, because we could not find the recipient guild.'
                 local inbox = player:getInbox()
                 local receipt = getReceipt(info)
-                inbox:addItemEx(receipt, INDEX_WHEREEVER, FLAG_NOLIMIT)
+                inbox:addItemEx(receipt, INDEX_WHEREVER, FLAG_NOLIMIT)
             end
         else
             local fromBalance = getGuildBalance(fromGuildId)
@@ -96,7 +96,7 @@ local function transferFactory(playerName, amount, fromGuildId, info)
             if player then
                 local inbox = player:getInbox()
                 local receipt = getReceipt(info)
-                inbox:addItemEx(receipt, INDEX_WHEREEVER, FLAG_NOLIMIT)
+                inbox:addItemEx(receipt, INDEX_WHEREVER, FLAG_NOLIMIT)
             end
         end
     end
@@ -213,7 +213,7 @@ local function creatureSayCallback(cid, type, msg)
 
             local inbox = player:getInbox()
             local receipt = getReceipt(info)
-            inbox:addItemEx(receipt, INDEX_WHEREEVER, FLAG_NOLIMIT)
+            inbox:addItemEx(receipt, INDEX_WHEREVER, FLAG_NOLIMIT)
         elseif msgcontains(msg, 'no') then
             npcHandler:say('As you wish. Is there something else I can do for you?', cid)
         end
@@ -339,7 +339,7 @@ local function creatureSayCallback(cid, type, msg)
 
             local inbox = player:getInbox()
             local receipt = getReceipt(info)
-            inbox:addItemEx(receipt, INDEX_WHEREEVER, FLAG_NOLIMIT)
+            inbox:addItemEx(receipt, INDEX_WHEREVER, FLAG_NOLIMIT)
             npcHandler.topic[cid] = 0
         elseif msgcontains(msg, 'no') then
             npcHandler:say('As you wish. Is there something else I can do for you?', cid)
@@ -464,7 +464,7 @@ local function creatureSayCallback(cid, type, msg)
                 info.success = false
                 local inbox = player:getInbox()
                 local receipt = getReceipt(info)
-                inbox:addItemEx(receipt, INDEX_WHEREEVER, FLAG_NOLIMIT)
+                inbox:addItemEx(receipt, INDEX_WHEREVER, FLAG_NOLIMIT)
             else
                 getGuildIdByName(transfer[cid], transferFactory(player:getName(), tonumber(count[cid]), guild:getId(), info))
             end

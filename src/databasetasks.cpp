@@ -24,11 +24,9 @@
 
 extern Dispatcher g_dispatcher;
 
-DatabaseTasks::DatabaseTasks() {
-  db_ = &Database::getInstance();
-}
+DatabaseTasks::DatabaseTasks() { db_ = &Database::getInstance(); }
 
-bool DatabaseTasks::SetDatabaseInterface(Database *database) {
+bool DatabaseTasks::SetDatabaseInterface(Database* database) {
   if (database == nullptr) {
     return false;
   }
@@ -37,92 +35,86 @@ bool DatabaseTasks::SetDatabaseInterface(Database *database) {
   return true;
 }
 
-void DatabaseTasks::start()
-{
+void DatabaseTasks::start() {
   if (db_ == nullptr) {
     return;
   }
-	db_->connect();
-	ThreadHolder::start();
+  db_->connect();
+  ThreadHolder::start();
 }
 
-void DatabaseTasks::startThread()
-{
-	ThreadHolder::start();
+void DatabaseTasks::startThread() { ThreadHolder::start(); }
+
+void DatabaseTasks::threadMain() {
+  std::unique_lock<std::mutex> taskLockUnique(taskLock, std::defer_lock);
+  while (getState() != THREAD_STATE_TERMINATED) {
+    taskLockUnique.lock();
+    if (tasks.empty()) {
+      taskSignal.wait(taskLockUnique);
+    }
+
+    if (!tasks.empty()) {
+      DatabaseTask task = std::move(tasks.front());
+      tasks.pop_front();
+      taskLockUnique.unlock();
+      runTask(task);
+    } else {
+      taskLockUnique.unlock();
+    }
+  }
 }
 
-void DatabaseTasks::threadMain()
-{
-	std::unique_lock<std::mutex> taskLockUnique(taskLock, std::defer_lock);
-	while (getState() != THREAD_STATE_TERMINATED) {
-		taskLockUnique.lock();
-		if (tasks.empty()) {
-			taskSignal.wait(taskLockUnique);
-		}
+void DatabaseTasks::addTask(
+    std::string query,
+    std::function<void(DBResult_ptr, bool)> callback /* = nullptr*/,
+    bool store /* = false*/) {
+  bool signal = false;
+  taskLock.lock();
+  if (getState() == THREAD_STATE_RUNNING) {
+    signal = tasks.empty();
+    tasks.emplace_back(std::move(query), std::move(callback), store);
+  }
+  taskLock.unlock();
 
-		if (!tasks.empty()) {
-			DatabaseTask task = std::move(tasks.front());
-			tasks.pop_front();
-			taskLockUnique.unlock();
-			runTask(task);
-		} else {
-			taskLockUnique.unlock();
-		}
-	}
+  if (signal) {
+    taskSignal.notify_one();
+  }
 }
 
-void DatabaseTasks::addTask(std::string query, std::function<void(DBResult_ptr, bool)> callback/* = nullptr*/, bool store/* = false*/)
-{
-	bool signal = false;
-	taskLock.lock();
-	if (getState() == THREAD_STATE_RUNNING) {
-		signal = tasks.empty();
-		tasks.emplace_back(std::move(query), std::move(callback), store);
-	}
-	taskLock.unlock();
-
-	if (signal) {
-		taskSignal.notify_one();
-	}
-}
-
-void DatabaseTasks::runTask(const DatabaseTask& task)
-{
+void DatabaseTasks::runTask(const DatabaseTask& task) {
   if (db_ == nullptr) {
     return;
   }
   bool success;
-	DBResult_ptr result;
-	if (task.store) {
-		result = db_->storeQuery(task.query);
-		success = true;
-	} else {
-		result = nullptr;
-		success = db_->executeQuery(task.query);
-	}
+  DBResult_ptr result;
+  if (task.store) {
+    result = db_->storeQuery(task.query);
+    success = true;
+  } else {
+    result = nullptr;
+    success = db_->executeQuery(task.query);
+  }
 
-	if (task.callback) {
-		g_dispatcher.addTask(createTask(std::bind(task.callback, result, success)));
-	}
+  if (task.callback) {
+    g_dispatcher.addTask(createTask(std::bind(task.callback, result, success)));
+  }
 }
 
-void DatabaseTasks::flush()
-{
-	std::unique_lock<std::mutex> guard{ taskLock };
-	while (!tasks.empty()) {
-		auto task = std::move(tasks.front());
-		tasks.pop_front();
-		guard.unlock();
-		runTask(task);
-		guard.lock();
-	}
+void DatabaseTasks::flush() {
+  std::unique_lock<std::mutex> guard{taskLock};
+  while (!tasks.empty()) {
+    auto task = std::move(tasks.front());
+    tasks.pop_front();
+    guard.unlock();
+    runTask(task);
+    guard.lock();
+  }
 }
 
-void DatabaseTasks::shutdown()
-{
-	taskLock.lock();
-	setState(THREAD_STATE_TERMINATED);
-	taskLock.unlock();
-	flush();
-	taskSignal.notify_one();
+void DatabaseTasks::shutdown() {
+  taskLock.lock();
+  setState(THREAD_STATE_TERMINATED);
+  taskLock.unlock();
+  flush();
+  taskSignal.notify_one();
 }

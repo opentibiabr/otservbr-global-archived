@@ -22,22 +22,23 @@
 
 #include "enums.h"
 
-class IOStash
-{
-public:
-	static IOStash& getInstance() {
-		static IOStash instance;
-		return instance;
-	}
+class IOStash {
+ public:
+  static IOStash& getInstance() {
+    static IOStash instance;
+    return instance;
+  }
 
-	static StashItemList getStoredItems(uint32_t playerId);
-	static bool withdrawItem(uint32_t playerId, uint16_t itemId, uint16_t count);
-	static uint16_t getStashSize(StashItemList itemList);
-	static uint16_t getStashItemCount(uint32_t playerId, uint32_t spriteId);
-	static std::map<uint16_t, std::pair<bool, uint32_t>> stashContainer(uint32_t playerId, std::map<uint16_t, std::pair<bool, uint32_t>> itemDict, uint16_t stashSize);
+  static StashItemList getStoredItems(uint32_t playerId);
+  static bool withdrawItem(uint32_t playerId, uint16_t itemId, uint16_t count);
+  static uint16_t getStashSize(StashItemList itemList);
+  static uint16_t getStashItemCount(uint32_t playerId, uint32_t spriteId);
+  static std::map<uint16_t, std::pair<bool, uint32_t>> stashContainer(
+      uint32_t playerId, std::map<uint16_t, std::pair<bool, uint32_t>> itemDict,
+      uint16_t stashSize);
 
-private:
-	IOStash() = default;
+ private:
+  IOStash() = default;
 };
 
 #endif

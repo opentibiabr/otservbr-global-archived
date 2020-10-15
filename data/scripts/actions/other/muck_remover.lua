@@ -22,7 +22,7 @@ function muckRemover.onUse(player, item, fromPosition, target, toPosition, isHot
 		randomItem = config[i]
 		if chance >= randomItem.from and chance <= randomItem.to then
 			if toPosition.x == CONTAINER_POSITION then
-				target:getParent():addItem(randomItem.itemId, randomItem.count or 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
+				target:getParent():addItem(randomItem.itemId, randomItem.count or 1, INDEX_WHEREVER, FLAG_NOLIMIT)
 			else
 				Game.createItem(randomItem.itemId, randomItem.count or 1, toPosition)
 			end

@@ -8,7 +8,7 @@ cmake_minimum_required(VERSION 3.5)
 set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
 
 # specify the C++ standard
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # If CMake version is less than 3.15, the if block will be true, and the policy

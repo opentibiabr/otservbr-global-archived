@@ -63,7 +63,6 @@ Account::Account(std::string name) {
   db_tasks_ = &g_databaseTasks;
 }
 
-
 /*******************************************************************************
  * Interfaces
  ******************************************************************************/
@@ -86,15 +85,13 @@ error_t Account::SetDatabaseTasksInterface(DatabaseTasks *database_tasks) {
   return ERROR_NO;
 }
 
-
 /*******************************************************************************
  * Coins Methods
  ******************************************************************************/
 
 error_t Account::GetCoins(uint32_t *coins) {
-
   if (db_ == nullptr || coins == nullptr || id_ == 0) {
-      return ERROR_NOT_INITIALIZED;
+    return ERROR_NOT_INITIALIZED;
   }
 
   std::ostringstream query;
@@ -102,7 +99,7 @@ error_t Account::GetCoins(uint32_t *coins) {
 
   DBResult_ptr result = db_->storeQuery(query.str());
   if (!result) {
-      return ERROR_DB;
+    return ERROR_DB;
   }
 
   *coins = result->getNumber<uint32_t>("coins");
@@ -110,11 +107,10 @@ error_t Account::GetCoins(uint32_t *coins) {
 }
 
 error_t Account::AddCoins(uint32_t amount) {
-
   if (db_tasks_ == nullptr) {
-      return ERROR_NULLPTR;
+    return ERROR_NULLPTR;
   }
-  if (amount == 0)  {
+  if (amount == 0) {
     return ERROR_NO;
   }
 
@@ -133,12 +129,11 @@ error_t Account::AddCoins(uint32_t amount) {
 }
 
 error_t Account::RemoveCoins(uint32_t amount) {
-
   if (db_tasks_ == nullptr) {
-      return ERROR_NULLPTR;
+    return ERROR_NULLPTR;
   }
 
-  if (amount == 0)  {
+  if (amount == 0) {
     return ERROR_NO;
   }
 
@@ -150,7 +145,7 @@ error_t Account::RemoveCoins(uint32_t amount) {
   }
 
   std::ostringstream query;
-  query << "UPDATE `accounts` SET `coins` = "<< (current_coins - amount)
+  query << "UPDATE `accounts` SET `coins` = " << (current_coins - amount)
         << " WHERE `id` = " << id_;
 
   db_tasks_->addTask(query.str());
@@ -160,24 +155,23 @@ error_t Account::RemoveCoins(uint32_t amount) {
 
 error_t Account::RegisterCoinsTransaction(CoinTransactionType type,
                                           uint32_t coins,
-                                          const std::string& description) {
-
+                                          const std::string &description) {
   if (db_ == nullptr) {
-      return ERROR_NULLPTR;
+    return ERROR_NULLPTR;
   }
 
   std::ostringstream query;
   query << "INSERT INTO `coins_transactions` (`account_id`, `type`, `amount`,"
-          " `description`) VALUES (" << id_ << ", " << static_cast<uint16_t>(type) << ", "<< coins
-          << ", " << db_->escapeString(description) << ")";
+           " `description`) VALUES ("
+        << id_ << ", " << static_cast<uint16_t>(type) << ", " << coins << ", "
+        << db_->escapeString(description) << ")";
 
   if (!db_->executeQuery(query.str())) {
-      return ERROR_DB;
+    return ERROR_DB;
   }
 
   return ERROR_NO;
 }
-
 
 /*******************************************************************************
  * Database
@@ -196,7 +190,7 @@ error_t Account::LoadAccountDB() {
 error_t Account::LoadAccountDB(std::string name) {
   std::ostringstream query;
   query << "SELECT * FROM `accounts` WHERE `name` = "
-      << db_->escapeString(name);
+        << db_->escapeString(name);
   return this->LoadAccountDB(query);
 }
 
@@ -208,18 +202,18 @@ error_t Account::LoadAccountDB(uint32_t id) {
 
 error_t Account::LoadAccountDB(std::ostringstream &query) {
   if (db_ == nullptr) {
-      return ERROR_NULLPTR;
+    return ERROR_NULLPTR;
   }
 
   DBResult_ptr result = db_->storeQuery(query.str());
   if (!result) {
-      return false;
+    return false;
   }
 
   this->SetID(result->getNumber<uint32_t>("id"));
   this->SetName(result->getString("name"));
-  this->SetAccountType(static_cast<AccountType>(
-                                          result->getNumber<int32_t>("type")));
+  this->SetAccountType(
+      static_cast<AccountType>(result->getNumber<int32_t>("type")));
   this->SetPassword(result->getString("password"));
   this->SetPremiumRemaningDays(result->getNumber<uint16_t>("premdays"));
   this->SetPremiumLastDay(result->getNumber<time_t>("lastday"));

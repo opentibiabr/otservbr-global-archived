@@ -22,18 +22,20 @@
 
 #include <random>
 
-#include <regex>
 #include <boost/algorithm/string.hpp>
-#include "position.h"
+#include <regex>
 #include "const.h"
 #include "enums.h"
+#include "position.h"
 
-void printXMLError(const std::string& where, const std::string& fileName, const pugi::xml_parse_result& result);
+void printXMLError(const std::string& where, const std::string& fileName,
+                   const pugi::xml_parse_result& result);
 
 std::string transformToSHA1(const std::string& input);
 std::string generateToken(const std::string& secret, uint32_t ticks);
 
-void replaceString(std::string& str, const std::string& sought, const std::string& replacement);
+void replaceString(std::string& str, const std::string& sought,
+                   const std::string& replacement);
 void trim_right(std::string& source, char t);
 void trim_left(std::string& source, char t);
 void toLowerCaseString(std::string& source);
@@ -43,10 +45,11 @@ std::string asUpperCaseString(std::string source);
 using StringVector = std::vector<std::string>;
 using IntegerVector = std::vector<int32_t>;
 
-StringVector explodeString(const std::string& inString, const std::string& separator, int32_t limit = -1);
+StringVector explodeString(const std::string& inString,
+                           const std::string& separator, int32_t limit = -1);
 IntegerVector vectorAtoi(const StringVector& stringVector);
 constexpr bool hasBitSet(uint32_t flag, uint32_t flags) {
-	return (flags & flag) != 0;
+  return (flags & flag) != 0;
 }
 
 std::mt19937& getRandomGenerator();
@@ -95,8 +98,8 @@ itemAttrTypes stringToItemAttribute(const std::string& str);
 
 const char* getReturnMessage(ReturnValue value);
 
-void capitalizeWords(std::string &source);
-NameEval_t validateName(const std::string &name);
+void capitalizeWords(std::string& source);
+NameEval_t validateName(const std::string& name);
 
 bool isCaskItem(uint16_t itemId);
 

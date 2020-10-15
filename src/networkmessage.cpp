@@ -24,85 +24,78 @@
 #include "container.h"
 #include "creature.h"
 
-int32_t NetworkMessage::decodeHeader()
-{
-	int32_t newSize = buffer[0] | buffer[1] << 8;
-	info.length = newSize;
-	return info.length;
+int32_t NetworkMessage::decodeHeader() {
+  int32_t newSize = buffer[0] | buffer[1] << 8;
+  info.length = newSize;
+  return info.length;
 }
 
-std::string NetworkMessage::getString(uint16_t stringLen/* = 0*/)
-{
-	if (stringLen == 0) {
-		stringLen = get<uint16_t>();
-	}
+std::string NetworkMessage::getString(uint16_t stringLen /* = 0*/) {
+  if (stringLen == 0) {
+    stringLen = get<uint16_t>();
+  }
 
-	if (!canRead(stringLen)) {
-		return std::string();
-	}
+  if (!canRead(stringLen)) {
+    return std::string();
+  }
 
-	char* v = reinterpret_cast<char*>(buffer) + info.position; //does not break strict aliasing
-	info.position += stringLen;
-	return std::string(v, stringLen);
+  char* v = reinterpret_cast<char*>(buffer) +
+            info.position;  // does not break strict aliasing
+  info.position += stringLen;
+  return std::string(v, stringLen);
 }
 
-Position NetworkMessage::getPosition()
-{
-	Position pos;
-	pos.x = get<uint16_t>();
-	pos.y = get<uint16_t>();
-	pos.z = getByte();
-	return pos;
+Position NetworkMessage::getPosition() {
+  Position pos;
+  pos.x = get<uint16_t>();
+  pos.y = get<uint16_t>();
+  pos.z = getByte();
+  return pos;
 }
 
-void NetworkMessage::addString(const std::string& value)
-{
-	size_t stringLen = value.length();
-	if (!canAdd(stringLen + 2) || stringLen > 8192) {
-		return;
-	}
+void NetworkMessage::addString(const std::string& value) {
+  size_t stringLen = value.length();
+  if (!canAdd(stringLen + 2) || stringLen > 8192) {
+    return;
+  }
 
-	add<uint16_t>(stringLen);
-	memcpy(buffer + info.position, value.c_str(), stringLen);
-	info.position += stringLen;
-	info.length += stringLen;
+  add<uint16_t>(stringLen);
+  memcpy(buffer + info.position, value.c_str(), stringLen);
+  info.position += stringLen;
+  info.length += stringLen;
 }
 
-void NetworkMessage::addDouble(double value, uint8_t precision/* = 2*/)
-{
-	addByte(precision);
-	add<uint32_t>((value * std::pow(static_cast<float>(10), precision)) + std::numeric_limits<int32_t>::max());
+void NetworkMessage::addDouble(double value, uint8_t precision /* = 2*/) {
+  addByte(precision);
+  add<uint32_t>((value * std::pow(static_cast<float>(10), precision)) +
+                std::numeric_limits<int32_t>::max());
 }
 
-void NetworkMessage::addBytes(const char* bytes, size_t size)
-{
-	if (!canAdd(size) || size > 8192) {
-		return;
-	}
+void NetworkMessage::addBytes(const char* bytes, size_t size) {
+  if (!canAdd(size) || size > 8192) {
+    return;
+  }
 
-	memcpy(buffer + info.position, bytes, size);
-	info.position += size;
-	info.length += size;
+  memcpy(buffer + info.position, bytes, size);
+  info.position += size;
+  info.length += size;
 }
 
-void NetworkMessage::addPaddingBytes(size_t n)
-{
-	if (!canAdd(n)) {
-		return;
-	}
+void NetworkMessage::addPaddingBytes(size_t n) {
+  if (!canAdd(n)) {
+    return;
+  }
 
-	memset(buffer + info.position, 0x33, n);
-	info.length += n;
+  memset(buffer + info.position, 0x33, n);
+  info.length += n;
 }
 
-void NetworkMessage::addPosition(const Position& pos)
-{
-	add<uint16_t>(pos.x);
-	add<uint16_t>(pos.y);
-	addByte(pos.z);
+void NetworkMessage::addPosition(const Position& pos) {
+  add<uint16_t>(pos.x);
+  add<uint16_t>(pos.y);
+  addByte(pos.z);
 }
 
-void NetworkMessage::addItemId(uint16_t itemId)
-{
-	add<uint16_t>(Item::items[itemId].clientId);
+void NetworkMessage::addItemId(uint16_t itemId) {
+  add<uint16_t>(Item::items[itemId].clientId);
 }

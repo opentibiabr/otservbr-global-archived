@@ -21,40 +21,46 @@
 #define FS_DATABASETASKS_H_9CBA08E9F5FEBA7275CCEE6560059576
 
 #include <condition_variable>
-#include "thread_holder_base.h"
 #include "database.h"
 #include "enums.h"
+#include "thread_holder_base.h"
 
 struct DatabaseTask {
-	DatabaseTask(std::string&& initQuery, std::function<void(DBResult_ptr, bool)>&& initCallback, bool initStore) :
-		query(std::move(initQuery)), callback(std::move(initCallback)), store(initStore) {}
+  DatabaseTask(std::string&& initQuery,
+               std::function<void(DBResult_ptr, bool)>&& initCallback,
+               bool initStore)
+      : query(std::move(initQuery)),
+        callback(std::move(initCallback)),
+        store(initStore) {}
 
-	std::string query;
-	std::function<void(DBResult_ptr, bool)> callback;
-	bool store;
+  std::string query;
+  std::function<void(DBResult_ptr, bool)> callback;
+  bool store;
 };
 
-class DatabaseTasks : public ThreadHolder<DatabaseTasks>
-{
-	public:
-		DatabaseTasks();
-    bool SetDatabaseInterface(Database *database);
-    void start();
-    void startThread();
-    void flush();
-    void shutdown();
+class DatabaseTasks : public ThreadHolder<DatabaseTasks> {
+ public:
+  DatabaseTasks();
+  bool SetDatabaseInterface(Database* database);
+  void start();
+  void startThread();
+  void flush();
+  void shutdown();
 
-		void addTask(std::string query, std::function<void(DBResult_ptr, bool)> callback = nullptr, bool store = false);
+  void addTask(std::string query,
+               std::function<void(DBResult_ptr, bool)> callback = nullptr,
+               bool store = false);
 
-		void threadMain();
-	private:
-		void runTask(const DatabaseTask& task);
+  void threadMain();
 
-		Database *db_;
-		std::thread thread;
-		std::list<DatabaseTask> tasks;
-		std::mutex taskLock;
-		std::condition_variable taskSignal;
+ private:
+  void runTask(const DatabaseTask& task);
+
+  Database* db_;
+  std::thread thread;
+  std::list<DatabaseTask> tasks;
+  std::mutex taskLock;
+  std::condition_variable taskSignal;
 };
 
 extern DatabaseTasks g_databaseTasks;

@@ -6,9 +6,9 @@
 #ifndef SRC_ACCOUNT_HPP_
 #define SRC_ACCOUNT_HPP_
 
+#include <limits.h>
 #include <string>
 #include <vector>
-#include <limits.h>
 
 #include "database.h"
 #include "databasetasks.h"
@@ -39,10 +39,7 @@ enum AccountType : uint8_t {
   ACCOUNT_TYPE_GOD = 5
 };
 
-enum CoinTransactionType : uint8_t {
-  COIN_ADD = 1,
-  COIN_REMOVE = 2
-};
+enum CoinTransactionType : uint8_t { COIN_ADD = 1, COIN_REMOVE = 2 };
 
 typedef struct {
   std::string name;
@@ -96,7 +93,6 @@ class Account {
    */
   error_t SetDatabaseTasksInterface(DatabaseTasks *db_tasks);
 
-
   /***************************************************************************
    * Coins Methods
    **************************************************************************/
@@ -135,8 +131,7 @@ class Account {
    * @return error_t ERROR_NO(0) Success, otherwise Fail.
    */
   error_t RegisterCoinsTransaction(CoinTransactionType type, uint32_t coins,
-                                  const std::string &description);
-
+                                   const std::string &description);
 
   /***************************************************************************
    * Database
@@ -173,26 +168,25 @@ class Account {
    */
   error_t SaveAccountDB();
 
-
   /***************************************************************************
    * Setters and Getters
    **************************************************************************/
 
   error_t GetID(uint32_t *id);
 
-  error_t SetName(std::string  name);
+  error_t SetName(std::string name);
   error_t GetName(std::string *name);
 
-  error_t SetPassword(std::string  password);
+  error_t SetPassword(std::string password);
   error_t GetPassword(std::string *password);
 
-  error_t SetPremiumRemaningDays(uint32_t  days);
+  error_t SetPremiumRemaningDays(uint32_t days);
   error_t GetPremiumRemaningDays(uint32_t *days);
 
-  error_t SetPremiumLastDay(time_t  last_day);
+  error_t SetPremiumLastDay(time_t last_day);
   error_t GetPremiumLastDay(time_t *last_day);
 
-  error_t SetAccountType(AccountType  account_type);
+  error_t SetAccountType(AccountType account_type);
   error_t GetAccountType(AccountType *account_type);
 
   error_t GetAccountPlayers(std::vector<Player> *players);

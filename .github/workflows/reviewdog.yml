@@ -27,21 +27,6 @@ jobs:
         mkdir -p $HOME/bin && curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b $HOME/bin
         echo ::add-path::$HOME/bin
 
-    - name: misspell
-      uses: reviewdog/action-misspell@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        locale: "US"
-        reporter: github-pr-check
-
-    - name: cpplint
-      uses: reviewdog/action-cpplint@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        reporter: github-pr-check
-        flags: --linelength=120
-        filter: -whitespace/tab
-
     - name: cppcheck
       env:
         REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -73,3 +58,18 @@ jobs:
         cd ${{ runner.workspace }}/otservbr-global
         xmllint --version
         reviewdog -reporter=github-pr-check -runners=xmllint
+
+    - name: misspell
+      uses: reviewdog/action-misspell@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        locale: "US"
+        exclude: ".github"
+        reporter: github-pr-check
+
+    - name: cpplint
+      uses: reviewdog/action-cpplint@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        reporter: github-pr-check
+        filter: "-build/include_subdir,-readability/multiline_string,-build/include_order,-whitespace/tab,-readability/inheritance,-runtime/references,-readability/todo,-build/include_what_you_use"

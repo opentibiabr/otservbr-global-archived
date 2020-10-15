@@ -25,25 +25,24 @@
 class NetworkMessage;
 class OutputMessage;
 
-class ProtocolLogin : public Protocol
-{
-	public:
-		// static protocol information
-		enum {server_sends_first = false};
-		enum {protocol_identifier = 0x01};
-		enum {use_checksum = true};
-		static const char* protocol_name() {
-			return "login protocol";
-		}
+class ProtocolLogin : public Protocol {
+ public:
+  // static protocol information
+  enum { server_sends_first = false };
+  enum { protocol_identifier = 0x01 };
+  enum { use_checksum = true };
+  static const char* protocol_name() { return "login protocol"; }
 
-		explicit ProtocolLogin(Connection_ptr loginConnection) : Protocol(loginConnection) {}
+  explicit ProtocolLogin(Connection_ptr loginConnection)
+      : Protocol(loginConnection) {}
 
-		void onRecvFirstMessage(NetworkMessage& msg);
+  void onRecvFirstMessage(NetworkMessage& msg);
 
-	private:
-		void disconnectClient(const std::string& message, uint16_t version);
+ private:
+  void disconnectClient(const std::string& message, uint16_t version);
 
-		void getCharacterList(const std::string& accountName, const std::string& password, uint16_t version);
+  void getCharacterList(const std::string& accountName,
+                        const std::string& password, uint16_t version);
 };
 
 #endif

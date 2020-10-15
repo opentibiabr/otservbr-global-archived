@@ -23,91 +23,73 @@
 #include "connection.h"
 #include "xtea.h"
 
-class Protocol : public std::enable_shared_from_this<Protocol>
-{
-	public:
-		explicit Protocol(Connection_ptr initConnection) : connection(initConnection) {}
-		virtual ~Protocol() = default;
+class Protocol : public std::enable_shared_from_this<Protocol> {
+ public:
+  explicit Protocol(Connection_ptr initConnection)
+      : connection(initConnection) {}
+  virtual ~Protocol() = default;
 
-		// non-copyable
-		Protocol(const Protocol&) = delete;
-		Protocol& operator=(const Protocol&) = delete;
+  // non-copyable
+  Protocol(const Protocol&) = delete;
+  Protocol& operator=(const Protocol&) = delete;
 
-		virtual void parsePacket(NetworkMessage&) {}
+  virtual void parsePacket(NetworkMessage&) {}
 
-		virtual void onSendMessage(const OutputMessage_ptr& msg);
-		void onRecvMessage(NetworkMessage& msg);
-		virtual void onRecvFirstMessage(NetworkMessage& msg) = 0;
-		virtual void onConnect() {}
+  virtual void onSendMessage(const OutputMessage_ptr& msg);
+  void onRecvMessage(NetworkMessage& msg);
+  virtual void onRecvFirstMessage(NetworkMessage& msg) = 0;
+  virtual void onConnect() {}
 
-		bool isConnectionExpired() const {
-			return connection.expired();
-		}
+  bool isConnectionExpired() const { return connection.expired(); }
 
-		Connection_ptr getConnection() const {
-			return connection.lock();
-		}
+  Connection_ptr getConnection() const { return connection.lock(); }
 
-		uint32_t getIP() const;
+  uint32_t getIP() const;
 
-		//Use this function for autosend messages only
-		OutputMessage_ptr getOutputBuffer(int32_t size);
+  // Use this function for autosend messages only
+  OutputMessage_ptr getOutputBuffer(int32_t size);
 
-		OutputMessage_ptr& getCurrentBuffer() {
-			return outputBuffer;
-		}
+  OutputMessage_ptr& getCurrentBuffer() { return outputBuffer; }
 
-		void send(OutputMessage_ptr msg) const {
-			if (auto conn = getConnection()) {
-				conn->send(msg);
-			}
-		}
+  void send(OutputMessage_ptr msg) const {
+    if (auto conn = getConnection()) {
+      conn->send(msg);
+    }
+  }
 
-	protected:
-		void disconnect() const {
-			if (auto conn = getConnection()) {
-				conn->close();
-			}
-		}
-		void enableXTEAEncryption() {
-			encryptionEnabled = true;
-		}
-		void setXTEAKey(xtea::key key) {
-			this->key = std::move(key);
-		}
-		void disableChecksum() {
-			checksumEnabled = false;
-		}
-		void enableCompact() {
-			compactCrypt = true;
-		}
-		bool isCompact() {
-			return compactCrypt;
-		}
+ protected:
+  void disconnect() const {
+    if (auto conn = getConnection()) {
+      conn->close();
+    }
+  }
+  void enableXTEAEncryption() { encryptionEnabled = true; }
+  void setXTEAKey(xtea::key key) { this->key = std::move(key); }
+  void disableChecksum() { checksumEnabled = false; }
+  void enableCompact() { compactCrypt = true; }
+  bool isCompact() { return compactCrypt; }
 
-		static bool RSA_decrypt(NetworkMessage& msg);
+  static bool RSA_decrypt(NetworkMessage& msg);
 
-		void setRawMessages(bool value) {
-			rawMessages = value;
-		}
+  void setRawMessages(bool value) { rawMessages = value; }
 
-		virtual void release() {}
+  virtual void release() {}
 
-	private:
-		void XTEA_encrypt(OutputMessage& msg) const;
-		bool XTEA_decrypt(NetworkMessage& msg) const;
+ private:
+  void XTEA_encrypt(OutputMessage& msg) const;
+  bool XTEA_decrypt(NetworkMessage& msg) const;
 
-		friend class Connection;
+  friend class Connection;
 
-		OutputMessage_ptr outputBuffer;
+  OutputMessage_ptr outputBuffer;
 
-		const ConnectionWeak_ptr connection;
-		xtea::key key;
-		uint32_t sequenceNumber = 0;
-		bool encryptionEnabled = false;
-		bool checksumEnabled = true;
-		bool compactCrypt = false;
-		bool rawMessages = false;
+  const ConnectionWeak_ptr connection;
+  xtea::key key;
+  uint32_t sequenceNumber = 0;
+  bool encryptionEnabled = false;
+  bool checksumEnabled = true;
+  bool compactCrypt = false;
+  bool rawMessages = false;
 };
 
 #endif

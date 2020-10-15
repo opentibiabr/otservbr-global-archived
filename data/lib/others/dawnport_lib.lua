@@ -12,7 +12,7 @@ function dawnportAddFirstItems(player, item, slot)
 	for slot, item in pairs(firstItems.slots) do
 		local ret = player:addItemEx(item, false, sot)
 		if not ret then
-			player:addItemEx(item, false, INDEX_WHEREEVER, 0)
+			player:addItemEx(item, false, INDEX_WHEREVER, 0)
 		end
 	end
 end
@@ -97,7 +97,7 @@ function dawnportAddItems(player, vocation)
 		end
 		if giveItem then
 			if extra then
-				player:addItemEx(Game.createItem(info[1], info[2]), INDEX_WHEREEVER, 0)
+				player:addItemEx(Game.createItem(info[1], info[2]), INDEX_WHEREVER, 0)
 			else
 				local ret = player:addItem(info[1], info[2], false, 1, slot)
 				if not ret then

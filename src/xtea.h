@@ -27,6 +27,6 @@ using key = std::array<uint32_t, 4>;
 void encrypt(uint8_t* data, size_t length, const key& k);
 void decrypt(uint8_t* data, size_t length, const key& k);
 
-} // namespace xtea
+}  // namespace xtea
 
-#endif // TFS_XTEA_H
+#endif  // TFS_XTEA_H

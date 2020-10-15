@@ -20,166 +20,159 @@
 #ifndef FS_FILELOADER_H_9B663D19E58D42E6BFACFE5B09D7A05E
 #define FS_FILELOADER_H_9B663D19E58D42E6BFACFE5B09D7A05E
 
+#include <boost/iostreams/device/mapped_file.hpp>
 #include <limits>
 #include <vector>
-#include <boost/iostreams/device/mapped_file.hpp>
 
 class PropStream;
 
 namespace OTB {
 using MappedFile = boost::iostreams::mapped_file_source;
-using ContentIt  = MappedFile::iterator;
+using ContentIt = MappedFile::iterator;
 using Identifier = std::array<char, 4>;
 
-struct Node
-{
-	Node() = default;
-	Node(Node&&) = default;
-	Node& operator=(Node&&) = default;
-	Node(const Node&) = delete;
-	Node& operator=(const Node&) = delete;
+struct Node {
+  Node() = default;
+  Node(Node&&) = default;
+  Node& operator=(Node&&) = default;
+  Node(const Node&) = delete;
+  Node& operator=(const Node&) = delete;
 
-	using ChildrenVector = std::vector<Node>;
+  using ChildrenVector = std::vector<Node>;
 
-	ChildrenVector children;
-	ContentIt propsBegin;
-	ContentIt propsEnd;
-	uint8_t type;
-	enum NodeChar: uint8_t
-	{
-		ESCAPE = 0xFD,
-		START = 0xFE,
-		END = 0xFF,
-	};
+  ChildrenVector children;
+  ContentIt propsBegin;
+  ContentIt propsEnd;
+  uint8_t type;
+  enum NodeChar : uint8_t {
+    ESCAPE = 0xFD,
+    START = 0xFE,
+    END = 0xFF,
+  };
 };
 
 struct LoadError : std::exception {
-	const char* what() const noexcept override = 0;
+  const char* what() const noexcept override = 0;
 };
 
 struct InvalidOTBFormat final : LoadError {
-	const char* what() const noexcept override {
-		return "Invalid OTBM file format";
-	}
+  const char* what() const noexcept override {
+    return "Invalid OTBM file format";
+  }
 };
 
 class Loader {
-	MappedFile fileContents;
-	Node root;
-	std::vector<char> propBuffer;
-public:
-	Loader(const std::string& fileName, const Identifier& acceptedIdentifier);
-	bool getProps(const Node& node, PropStream& props);
-	const Node& parseTree();
+  MappedFile fileContents;
+  Node root;
+  std::vector<char> propBuffer;
+
+ public:
+  Loader(const std::string& fileName, const Identifier& acceptedIdentifier);
+  bool getProps(const Node& node, PropStream& props);
+  const Node& parseTree();
 };
 
-} //namespace OTB
+}  // namespace OTB
 
 enum FILELOADER_ERRORS {
-	ERROR_NONE,
-	ERROR_INVALID_FILE_VERSION,
-	ERROR_CAN_NOT_OPEN,
-	ERROR_CAN_NOT_CREATE,
-	ERROR_EOF,
-	ERROR_SEEK_ERROR,
-	ERROR_NOT_OPEN,
-	ERROR_INVALID_NODE,
-	ERROR_INVALID_FORMAT,
+  ERROR_NONE,
+  ERROR_INVALID_FILE_VERSION,
+  ERROR_CAN_NOT_OPEN,
+  ERROR_CAN_NOT_CREATE,
+  ERROR_EOF,
+  ERROR_SEEK_ERROR,
+  ERROR_NOT_OPEN,
+  ERROR_INVALID_NODE,
+  ERROR_INVALID_FORMAT,
 };
 
-class PropStream
-{
-	public:
-		void init(const char* a, size_t size) {
-			p = a;
-			end = a + size;
-		}
+class PropStream {
+ public:
+  void init(const char* a, size_t size) {
+    p = a;
+    end = a + size;
+  }
 
-		size_t size() const {
-			return end - p;
-		}
+  size_t size() const { return end - p; }
 
-		template <typename T>
-		bool read(T& ret) {
-			if (size() < sizeof(T)) {
-				return false;
-			}
+  template <typename T>
+  bool read(T& ret) {
+    if (size() < sizeof(T)) {
+      return false;
+    }
 
-			memcpy(&ret, p, sizeof(T));
-			p += sizeof(T);
-			return true;
-		}
+    memcpy(&ret, p, sizeof(T));
+    p += sizeof(T);
+    return true;
+  }
 
-		bool readString(std::string& ret) {
-			uint16_t strLen;
-			if (!read<uint16_t>(strLen)) {
-				return false;
-			}
+  bool readString(std::string& ret) {
+    uint16_t strLen;
+    if (!read<uint16_t>(strLen)) {
+      return false;
+    }
 
-			if (size() < strLen) {
-				return false;
-			}
+    if (size() < strLen) {
+      return false;
+    }
 
-			char* str = new char[strLen + 1];
-			memcpy(str, p, strLen);
-			str[strLen] = 0;
-			ret.assign(str, strLen);
-			delete[] str;
-			p += strLen;
-			return true;
-		}
+    char* str = new char[strLen + 1];
+    memcpy(str, p, strLen);
+    str[strLen] = 0;
+    ret.assign(str, strLen);
+    delete[] str;
+    p += strLen;
+    return true;
+  }
 
-		bool skip(size_t n) {
-			if (size() < n) {
-				return false;
-			}
+  bool skip(size_t n) {
+    if (size() < n) {
+      return false;
+    }
 
-			p += n;
-			return true;
-		}
+    p += n;
+    return true;
+  }
 
-	private:
-		const char* p = nullptr;
-		const char* end = nullptr;
+ private:
+  const char* p = nullptr;
+  const char* end = nullptr;
 };
 
-class PropWriteStream
-{
-	public:
-		PropWriteStream() = default;
+class PropWriteStream {
+ public:
+  PropWriteStream() = default;
 
-		// non-copyable
-		PropWriteStream(const PropWriteStream&) = delete;
-		PropWriteStream& operator=(const PropWriteStream&) = delete;
+  // non-copyable
+  PropWriteStream(const PropWriteStream&) = delete;
+  PropWriteStream& operator=(const PropWriteStream&) = delete;
 
-		const char* getStream(size_t& size) const {
-			size = buffer.size();
-			return buffer.data();
-		}
+  const char* getStream(size_t& size) const {
+    size = buffer.size();
+    return buffer.data();
+  }
 
-		void clear() {
-			buffer.clear();
-		}
+  void clear() { buffer.clear(); }
 
-		template <typename T>
-		void write(T add) {
-			char* addr = reinterpret_cast<char*>(&add);
-			std::copy(addr, addr + sizeof(T), std::back_inserter(buffer));
-		}
+  template <typename T>
+  void write(T add) {
+    char* addr = reinterpret_cast<char*>(&add);
+    std::copy(addr, addr + sizeof(T), std::back_inserter(buffer));
+  }
 
-		void writeString(const std::string& str) {
-			size_t strLength = str.size();
-			if (strLength > std::numeric_limits<uint16_t>::max()) {
-				write<uint16_t>(0);
-				return;
-			}
+  void writeString(const std::string& str) {
+    size_t strLength = str.size();
+    if (strLength > std::numeric_limits<uint16_t>::max()) {
+      write<uint16_t>(0);
+      return;
+    }
 
-			write(static_cast<uint16_t>(strLength));
-			std::copy(str.begin(), str.end(), std::back_inserter(buffer));
-		}
+    write(static_cast<uint16_t>(strLength));
+    std::copy(str.begin(), str.end(), std::back_inserter(buffer));
+  }
 
-	private:
-		std::vector<char> buffer;
+ private:
+  std::vector<char> buffer;
 };
 
 #endif
