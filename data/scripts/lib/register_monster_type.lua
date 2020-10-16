@@ -132,6 +132,9 @@ registerMonsterType.flags = function(mtype, mask)
 		if mask.flags.canWalkOnPoison ~= nil then
 			mtype:canWalkOnPoison(mask.flags.canWalkOnPoison)
 		end
+		if mask.flags.isBlockable ~= nil then
+			mtype:isBlockable(mask.flags.isBlockable)
+		end
 	end
 end
 registerMonsterType.light = function(mtype, mask)
