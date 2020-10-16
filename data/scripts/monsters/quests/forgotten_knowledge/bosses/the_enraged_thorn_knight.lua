@@ -52,7 +52,9 @@ monster.flags = {
 	canWalkOnPoison = true
 }
 
-monster.events = {"HealthForgotten"}
+monster.events = {
+	"HealthForgotten"
+}
 
 monster.light = {
 	level = 0,

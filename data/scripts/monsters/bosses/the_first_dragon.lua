@@ -52,6 +52,10 @@ monster.flags = {
 	canWalkOnPoison = true
 }
 
+monster.events = {
+	"First Dragon Death"
+}
+
 monster.light = {
 	level = 0,
 	color = 0

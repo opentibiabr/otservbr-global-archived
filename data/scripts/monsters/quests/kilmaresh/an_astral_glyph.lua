@@ -46,6 +46,10 @@ monster.flags = {
 	canWalkOnPoison = true
 }
 
+monster.events = {
+	"AstralGlyphDeath"
+}
+
 monster.light = {
 	level = 0,
 	color = 0

@@ -46,7 +46,9 @@ monster.flags = {
 	canWalkOnPoison = true
 }
 
-monster.events = {"DistortedSource"}
+monster.events = {
+	"DistortedSource"
+}
 
 monster.light = {
 	level = 0,

@@ -52,7 +52,9 @@ monster.flags = {
 	canWalkOnPoison = false
 }
 
-monster.events = {"TheRavagerDeath"}
+monster.events = {
+	"TheRavagerDeath"
+}
 
 monster.light = {
 	level = 0,

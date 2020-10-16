@@ -43,7 +43,9 @@ monster.flags = {
 	canWalkOnPoison = true
 }
 
-monster.events = {"EnergyPrism"}
+monster.events = {
+	"EnergyPrism"
+}
 
 monster.light = {
 	level = 0,

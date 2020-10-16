@@ -135,7 +135,7 @@ monster.attacks = {
 	{name ="combat", interval = 2500, chance = 20, minDamage = -200, maxDamage = -480, type = COMBAT_PHYSICALDAMAGE, range = 7, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -250, maxDamage = -500, type = COMBAT_PHYSICALDAMAGE, range = 7, effect = CONST_ME_SOUND_RED, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -200, maxDamage = -450, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_LOSEENERGY, target = false},
-	{name ="combat", interval = 3000, chance = 15, minDamage = -100, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 3000, chance = 15, minDamage = -100, maxDamage = -200, type = COMBAT_PHYSICALDAMAGE, range = 7, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = -400, duration = 20000},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -70, maxDamage = -320, type = COMBAT_MANADRAIN, effect = CONST_ME_HITAREA, target = true},
 	{name ="combat", interval = 2000, chance = 5, target = false}

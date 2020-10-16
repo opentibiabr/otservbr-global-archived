@@ -52,7 +52,9 @@ monster.flags = {
 	canWalkOnPoison = false
 }
 
-monster.events = {"CracklerTransform"}
+monster.events = {
+	"CracklerTransform"
+}
 
 monster.light = {
 	level = 0,

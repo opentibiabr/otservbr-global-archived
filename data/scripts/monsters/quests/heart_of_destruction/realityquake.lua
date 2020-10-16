@@ -46,7 +46,9 @@ monster.flags = {
 	canWalkOnPoison = false
 }
 
-monster.events = {"HeartBossDeath"}
+monster.events = {
+	"HeartBossDeath"
+}
 
 monster.light = {
 	level = 0,
@@ -118,5 +120,23 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
+
+mType.onThink = function(monster, interval)
+end
+
+mType.onAppear = function(monster, creature)
+	if monster:getType():isRewardBoss() then
+		monster:setReward(true)
+	end
+end
+
+mType.onDisappear = function(monster, creature)
+end
+
+mType.onMove = function(monster, creature, fromPosition, toPosition)
+end
+
+mType.onSay = function(monster, creature, type, message)
+end
 
 mType:register(monster)

@@ -99,7 +99,7 @@ monster.defenses = {
 	defense = 31,
 	armor = 22,
 	{name ="combat", interval = 2000, chance = 15, minDamage = 145, maxDamage = 200, type = COMBAT_HEALING, effect = CONST_ME_SOUND_BLUE, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = 0, effect = CONST_ME_DRAWBLOOD}
+	{name ="melee", interval = 2000, chance = 10, minDamage = 0, maxDamage = 0, effect = CONST_ME_DRAWBLOOD}
 }
 
 monster.elements = {

@@ -52,6 +52,10 @@ monster.flags = {
 	canWalkOnPoison = false
 }
 
+monster.events = {
+	"FeroxaTransform"
+}
+
 monster.light = {
 	level = 0,
 	color = 0
@@ -69,7 +73,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -1400, maxDamage = -1800, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -700, maxDamage = -1250, type = COMBAT_DEATHDAMAGE, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -700, maxDamage = -1250, type = COMBAT_MANADRAIN, effect = CONST_ME_ICETORNADO, target = true},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -700, maxDamage = -1250, range = 6, shootEffect = CONST_ANI_ARROW, effect = CONST_ME_EXPLOSIONAREA, target = true}
+	{name ="combat", interval = 2000, chance = 20, minDamage = -700, maxDamage = -1250, type = COMBAT_EARTHDAMAGE, range = 6, shootEffect = CONST_ANI_ARROW, effect = CONST_ME_EXPLOSIONAREA, target = true}
 }
 
 monster.defenses = {

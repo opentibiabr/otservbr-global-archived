@@ -66,7 +66,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, target = false}
+	{name ="combat", interval = 2000, chance = 100, target = false}
 }
 
 monster.defenses = {
@@ -93,23 +93,5 @@ monster.immunities = {
 	{type = "invisible", condition = false},
 	{type = "bleed", condition = false}
 }
-
-mType.onThink = function(monster, interval)
-end
-
-mType.onAppear = function(monster, creature)
-	if monster:getType():isRewardBoss() then
-		monster:setReward(true)
-	end
-end
-
-mType.onDisappear = function(monster, creature)
-end
-
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-end
 
 mType:register(monster)

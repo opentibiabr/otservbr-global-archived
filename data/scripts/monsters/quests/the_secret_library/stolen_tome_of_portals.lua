@@ -43,6 +43,10 @@ monster.flags = {
 	canWalkOnPoison = false
 }
 
+monster.events = {
+	"gorzindelDeath"
+}
+
 monster.light = {
 	level = 0,
 	color = 0

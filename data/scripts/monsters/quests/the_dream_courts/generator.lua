@@ -60,7 +60,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 10, minDamage = -206, maxDamage = -252, effect = CONST_ME_GREEN_RINGS, target = false}
+	{name ="combat", interval = 2000, chance = 10, minDamage = -206, maxDamage = -252, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_GREEN_RINGS, target = false}
 }
 
 monster.defenses = {

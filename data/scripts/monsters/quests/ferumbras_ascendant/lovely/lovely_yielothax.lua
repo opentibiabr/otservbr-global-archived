@@ -88,8 +88,8 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 70, attack = 50, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 18, minDamage = -70, maxDamage = -130, type = COMBAT_LIFEDRAIN, length = 4, spread = 3, effect = CONST_ME_ENERGYAREA, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -50, maxDamage = -150, type = COMBAT_MANADRAIN, length = 5, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -75, maxDamage = -120, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_HITBYPOISON, target = true},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -120, maxDamage = -215, effect = CONST_ME_HITBYPOISON, target = false},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -75, maxDamage = -120, type = COMBAT_EARTHDAMAGE, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_HITBYPOISON, target = true},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -120, maxDamage = -215, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_HITBYPOISON, target = false},
 	-- poison
 	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 13, minDamage = -50, maxDamage = -50, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_HITBYPOISON, target = true}
 }

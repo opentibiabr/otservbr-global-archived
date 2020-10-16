@@ -63,9 +63,9 @@ monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Olho por Olho!", yell = false},
-	{text = "Estou olhando para você!", yell = false},
-	{text = "Deixe-me dar uma olhada em você!", yell = false},
-	{text = "Você tem o olhar!", yell = false}
+	{text = "Estou olhando para voce!", yell = false},
+	{text = "Deixe-me dar uma olhada em voce!", yell = false},
+	{text = "Voce tem o olhar!", yell = false}
 }
 
 monster.loot = {

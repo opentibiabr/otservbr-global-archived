@@ -49,7 +49,9 @@ monster.flags = {
 	canWalkOnPoison = false
 }
 
-monster.events = {"CorruptedSoul"}
+monster.events = {
+	"CorruptedSoul"
+}
 
 monster.light = {
 	level = 0,

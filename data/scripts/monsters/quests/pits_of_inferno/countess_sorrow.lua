@@ -58,8 +58,8 @@ monster.light = {
 }
 
 monster.summons = {
-	{name = "Phantasm", chance = 7,000000000000001, interval = 2000, max = 3},
-	{name = "Phantasm summon", chance = 7,000000000000001, interval = 2000, max = 3}
+	{name = "Phantasm", chance = 7, interval = 2000, max = 3},
+	{name = "Phantasm summon", chance = 7, interval = 2000, max = 3}
 }
 
 monster.voices = {

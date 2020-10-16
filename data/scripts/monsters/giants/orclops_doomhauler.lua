@@ -91,7 +91,8 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 35, minDamage = -117, maxDamage = -220, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = true},
-	{name ="curse", interval = 2000, chance = 50, minDamage = -100, maxDamage = -200, shootEffect = CONST_ANI_WHIRLWINDCLUB, effect = CONST_ME_EXPLOSIONAREA, target = true}
+	-- curse
+	{name ="combat", type = COMBAT_FIX_ME, interval = 2000, chance = 50, minDamage = -100, maxDamage = -200, shootEffect = CONST_ANI_WHIRLWINDCLUB, effect = CONST_ME_EXPLOSIONAREA, target = true}
 }
 
 monster.defenses = {

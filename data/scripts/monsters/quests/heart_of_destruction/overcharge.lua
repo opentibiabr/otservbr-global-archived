@@ -52,7 +52,9 @@ monster.flags = {
 	canWalkOnPoison = false
 }
 
-monster.events = {"OverchargeDeath"}
+monster.events = {
+	"OverchargeDeath"
+}
 
 monster.light = {
 	level = 0,
