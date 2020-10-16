@@ -44,6 +44,7 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 3,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
 	canWalkOnPoison = false
