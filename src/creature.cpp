@@ -888,7 +888,7 @@ void Creature::getPathSearchParams(const Creature*, FindPathParams& fpp) const
 	fpp.clearSight = true;
 	fpp.maxSearchDist = 12;
 	fpp.minTargetDist = 1;
-	fpp.maxTargetDist = 6;
+	fpp.maxTargetDist = 1;
 }
 
 void Creature::goToFollowCreature()
