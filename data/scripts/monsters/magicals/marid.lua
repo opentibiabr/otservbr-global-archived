@@ -76,7 +76,7 @@ monster.loot = {
 	{id = "gold coin", chance = 60000, maxCount = 30},
 	{id = "blue gem", chance = 110},
 	{id = "hailstorm rod", chance = 770},
-	{id = 2374, chance = 5000},
+	{id = 2070, chance = 5000},
 	{id = "heavy machete", chance = 4530},
 	{id = "mystic turban", chance = 290},
 	{id = "blueberry", chance = 65000, maxCount = 29},
@@ -96,8 +96,8 @@ monster.attacks = {
 	{name ="speed", interval = 2000, chance = 15, speedChange = -650, duration = 1500},
 	{name ="drunk", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
 	{name ="outfit", interval = 2000, chance = 1},
-	{name ="combat", interval = 2000, chance = 15, range = 5, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -30, maxDamage = -90, type = COMBAT_ENERGYDAMAGE, effect = CONST_ME_ENERGYHIT, target = false}
+	{name ="combat", interval = 2000, chance = 15, minDamage = -30, maxDamage = -90, type = COMBAT_ENERGYDAMAGE, effect = CONST_ME_ENERGYHIT, target = false},
+	{script ="djinn electrify", interval = 2000, chance = 15, range = 5}
 }
 
 monster.defenses = {
