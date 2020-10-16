@@ -19,6 +19,13 @@ function swimming.onStepIn(creature, item, position, fromPosition)
 		creature:removeCondition(conditions[i])
 	end
 	creature:addCondition(condition)
+
+	local summons = creature:getSummons()
+	if #summons >= 1 then
+        for _, summon in pairs(summons) do
+            summon:remove()
+        end
+	end
 	return true
 end
 
