@@ -103,6 +103,18 @@ local function creatureSayCallback(cid, type, msg)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			player:teleportTo(Town(town[cid]):getTemplePosition())
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+
+			local items = {
+				[VOCATION.CLIENT_ID.SORCERER] = 2190,
+				[VOCATION.CLIENT_ID.DRUID] = 2182
+			}
+			local itemId = items[player:getVocation():getClientId()]
+			if player:isMage() and player:getStorageValue(Storage.firstMageWeapon) == -1 then
+				player:addItem(itemId, 1)
+				player:setStorageValue(Storage.firstMageWeapon, 1)
+			end
+
+			
 		else
 			npcHandler:say("THEN WHAT? {KNIGHT}, {PALADIN}, {SORCERER}, OR {DRUID}?", cid)
 			npcHandler.topic[cid] = 2
