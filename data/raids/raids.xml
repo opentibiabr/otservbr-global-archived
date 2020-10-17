@@ -78,7 +78,7 @@
 	<raid name="The Welter" file="port_hope/the_welter.xml" interval2="440" margin="60"/>
 	<!-- Rookgaard -->
 	<raid name="Munster" file="rookgaard/munster.xml" interval2="500" margin="40" />
-	<raid name="Rats" file="rookgaard/rats.xml" interval2="500" margin="70" />
+	<raid name="Rats" file="rookgaard/rats.xml" interval2="500" margin="80" />
 	<raid name="Rottie The Rotworm katana" file="rookgaard/rottie1.xml" interval2="500" margin="70" />
 	<raid name="Rottie The Rotworm spidercave" file="rookgaard/rottie2.xml" interval2="300" margin="70" />
 	<raid name="Apprentice Sheng" file="rookgaard/sheng.xml" interval2="500" margin="70" />
@@ -98,14 +98,14 @@
 	<raid name="Zushuka" file="svargrond/zushuka.xml" interval2="6000" margin="60"/>
 	<!-- Thais -->
 	<raid name="Cyclops" file="thais/cyclops.xml" interval2="500" margin="30" />
-	<raid name="OrcsThais" file="thais/orcs.xml" interval2="500" margin="70" />
+	<raid name="OrcsThais" file="thais/orcs.xml" interval2="600" margin="90" />
 	<raid name="RatsThais" file="thais/rats.xml" interval2="500" margin="80" />
 	<raid name="Wild Horses" file="thais/wild_horses.xml" interval2="500" margin="80" />
 	<!-- Venore -->
 	<raid name="Dharalion" file="venore/dharalion.xml" interval2="500" margin="70" />
 	<raid name="Elves" file="venore/elves.xml" interval2="500" margin="80" />
 	<raid name="Fernfang" file="venore/fernfang.xml" interval2="1440" margin="80" />
-	<raid name="Citizen" file="venore/feverish_citizen.xml" interval2="500" margin="40" />
+	<raid name="Citizen" file="venore/feverish_citizen.xml" interval2="500" margin="80" />
 	<raid name="Hunters" file="venore/hunter.xml" interval2="500" margin="65" />
 	<raid name="Orc Backpack" file="venore/orc_backpack.xml" interval2="300" margin="110" />
 	<raid name="The Old Widow" file="venore/the_old_widow.xml" interval2="1440" margin="60" />

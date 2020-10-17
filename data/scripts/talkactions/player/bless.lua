@@ -4,4 +4,4 @@ function bless.onSay(player, words, param)
 	return Blessings.BuyAllBlesses(player)
 end
 
-bless:register()
+--bless:register()
