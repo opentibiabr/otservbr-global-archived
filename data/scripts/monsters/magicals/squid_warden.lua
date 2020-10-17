@@ -82,7 +82,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 15, minDamage = -100, maxDamage = -200, type = COMBAT_ICEDAMAGE, range = 7, shootEffect = CONST_ANI_ICE, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -200, maxDamage = -680, type = COMBAT_ICEDAMAGE, range = 7, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -200, maxDamage = -375, type = COMBAT_ICEDAMAGE, length = 3, spread = 2, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -230, maxDamage = -480, type = COMBAT_ICEDAMAGE, range = 7, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICETORNADO, target = false}
+	{name ="combat", interval = 2000, chance = 12, minDamage = -230, maxDamage = -480, type = COMBAT_ICEDAMAGE, range = 7, radius = 3, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICETORNADO, target = false}
 }
 
 monster.defenses = {

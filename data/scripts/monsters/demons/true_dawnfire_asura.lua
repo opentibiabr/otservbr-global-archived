@@ -91,8 +91,8 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -100, type = COMBAT_MANADRAIN, range = 7, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -50, maxDamage = -200, type = COMBAT_LIFEDRAIN, length = 4, spread = 2, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="combat", interval = 1000, chance = 15, minDamage = 120, maxDamage = 450, type = COMBAT_FIREDAMAGE, length = 1, spread = 0, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 1000, chance = 10, minDamage = 150, maxDamage = 350, type = COMBAT_DEATHDAMAGE, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 2000, chance = 10, minDamage = 100, maxDamage = 300, type = COMBAT_DEATHDAMAGE, effect = CONST_ME_BLACKSMOKE, target = false},
+	{name ="combat", interval = 1000, chance = 10, minDamage = 150, maxDamage = 350, type = COMBAT_DEATHDAMAGE, radius = 3, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", interval = 2000, chance = 10, minDamage = 100, maxDamage = 300, type = COMBAT_DEATHDAMAGE, radius = 4, effect = CONST_ME_BLACKSMOKE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = -100, duration = 30000}
 }
 

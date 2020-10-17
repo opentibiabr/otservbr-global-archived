@@ -76,7 +76,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 8, minDamage = -106, maxDamage = -169, type = COMBAT_LIFEDRAIN, range = 7, effect = CONST_ME_MAGIC_RED, target = true},
 	{name ="combat", interval = 2000, chance = 7, minDamage = -162, maxDamage = -228, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_HITBYPOISON, target = false},
 	{name ="combat", interval = 2000, chance = 9, minDamage = -134, maxDamage = -148, type = COMBAT_ICEDAMAGE, length = 8, spread = 3, effect = CONST_ME_BUBBLES, target = false},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -101, maxDamage = -149, type = COMBAT_ICEDAMAGE, effect = CONST_ME_BUBBLES, target = false},
+	{name ="combat", interval = 2000, chance = 12, minDamage = -101, maxDamage = -149, type = COMBAT_ICEDAMAGE, radius = 3, effect = CONST_ME_BUBBLES, target = false},
 	{name ="speed", interval = 2000, chance = 20, speedChange = -300, duration = 3000}
 }
 

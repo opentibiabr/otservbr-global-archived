@@ -107,10 +107,10 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 17, minDamage = -500, maxDamage = -1000, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -7000, maxDamage = -10000, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -1000, maxDamage = -3000, type = COMBAT_FIREDAMAGE, length = 10, spread = 3, effect = CONST_ME_FIREATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -200, maxDamage = -400, type = COMBAT_FIREDAMAGE, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 19, minDamage = -150, maxDamage = -300, type = COMBAT_FIREDAMAGE, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_HITBYFIRE, target = true},
-	{name ="firefield", interval = 2000, chance = 12, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true}
+	{name ="combat", interval = 2000, chance = 20, minDamage = -200, maxDamage = -400, type = COMBAT_FIREDAMAGE, radius = 3, effect = CONST_ME_MAGIC_RED, target = false},
+	{name ="combat", interval = 2000, chance = 19, minDamage = -150, maxDamage = -300, type = COMBAT_FIREDAMAGE, radius = 4, effect = CONST_ME_EXPLOSIONHIT, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, radius = 1, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_HITBYFIRE, target = true},
+	{name ="firefield", interval = 2000, chance = 12, radius = 3, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true}
 }
 
 monster.defenses = {

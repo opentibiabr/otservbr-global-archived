@@ -45,10 +45,11 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name = "melee", type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -600, effect = CONST_ME_DRAWBLOOD, interval = 2*1000},
-	{name = "combat", type = COMBAT_DEATHDAMAGE,  interval = 2*1000, chance = 17, range = 4, target = true, minDamage = -300, maxDamage = -600, radius = 1, shootEffect = CONST_ANI_SUDDENDEATH , effect = CONST_ME_MORTAREA},
-	{name = "combat", type = COMBAT_DEATHDAMAGE,  interval = 2*1000, chance = 15, minDamage = -300, maxDamage = -600, radius = 4, effect = CONST_ME_MORTAREA},
-	{name = "combat", type = COMBAT_FIREDAMAGE,  interval = 2*1000, chance = 20, range = 4, target = true, minDamage = -300, maxDamage = -600, radius = 3, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 18, minDamage = -300, maxDamage = -600, type = COMBAT_DEATHDAMAGE, range = 5, shootEffect = CONST_ANI_SUDDENDEATH, target = false},
+	{name ="combat", interval = 2000, chance = 22, minDamage = -300, maxDamage = -600, type = COMBAT_DEATHDAMAGE, range = 5, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -300, maxDamage = -600, type = COMBAT_FIREDAMAGE, range = 5, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
+	{name ="combat", interval = 2000, chance = 12, minDamage = -300, maxDamage = -600, type = COMBAT_DEATHDAMAGE, range = 5, length = 5, spread = 3, effect = CONST_ME_WHITE_ENERGY_SPARK, target = true}
 }
 
 monster.defenses = {

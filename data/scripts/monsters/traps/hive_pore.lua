@@ -68,7 +68,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 0,
 	armor = 0,
-	{name ="combat", interval = 30000, chance = 100, effect = CONST_ME_HITBYPOISON, target = false}
+	{name ="combat", interval = 30000, chance = 100, radius = 3, effect = CONST_ME_HITBYPOISON, target = false}
 }
 
 monster.elements = {

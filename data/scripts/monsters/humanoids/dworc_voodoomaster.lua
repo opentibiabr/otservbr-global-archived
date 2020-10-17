@@ -82,8 +82,8 @@ monster.attacks = {
 	{name ="speed", interval = 2000, chance = 10, speedChange = -800, duration = 5000},
 	{name ="drunk", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_TELEPORT, target = false},
 	{name ="outfit", interval = 2000, chance = 10},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -6, maxDamage = -18, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="poisonfield", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_POISON, target = true}
+	{name ="combat", interval = 2000, chance = 10, minDamage = -6, maxDamage = -18, type = COMBAT_EARTHDAMAGE, radius = 6, effect = CONST_ME_GREEN_RINGS, target = false},
+	{name ="poisonfield", interval = 2000, chance = 10, range = 7, radius = 1, shootEffect = CONST_ANI_POISON, target = true}
 }
 
 monster.defenses = {

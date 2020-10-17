@@ -87,10 +87,10 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 1000, chance = 12, minDamage = -200, maxDamage = -750, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 3000, chance = 17, minDamage = -400, maxDamage = -500, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="drunk", interval = 3000, chance = 11, effect = CONST_ME_POISONAREA, target = false},
+	{name ="drunk", interval = 3000, chance = 11, radius = 6, effect = CONST_ME_POISONAREA, target = false},
 	{name ="speed", interval = 1000, chance = 25, speedChange = -350, duration = 30000},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 30, minDamage = -35, maxDamage = -35, target = false}
+	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 30, minDamage = -35, maxDamage = -35, radius = 5, target = false}
 }
 
 monster.defenses = {

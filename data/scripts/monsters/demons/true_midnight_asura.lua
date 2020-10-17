@@ -98,7 +98,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, minDamage = 100, maxDamage = 400, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = 100, maxDamage = 400, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_BLACKSMOKE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = -100, duration = 30000},
-	{name ="drunk", interval = 2000, chance = 10, range = 3, effect = CONST_ME_STUN, target = true}
+	{name ="drunk", interval = 2000, chance = 10, range = 3, radius = 4, effect = CONST_ME_STUN, target = true}
 }
 
 monster.defenses = {

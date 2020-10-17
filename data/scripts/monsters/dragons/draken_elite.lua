@@ -91,7 +91,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -354, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -240, maxDamage = -550, type = COMBAT_FIREDAMAGE, length = 4, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -200, maxDamage = -300, type = COMBAT_FIREDAMAGE, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -280, maxDamage = -410, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_POFF, target = true},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -280, maxDamage = -410, type = COMBAT_EARTHDAMAGE, radius = 4, effect = CONST_ME_POFF, target = true},
 	{name ="combat", interval = 2000, chance = 10, target = false},
 	-- poison
 	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -250, maxDamage = -320, range = 7, shootEffect = CONST_ANI_POISON, target = true}

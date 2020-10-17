@@ -94,13 +94,13 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -480, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 5, minDamage = -300, maxDamage = -400, type = COMBAT_PHYSICALDAMAGE, range = 7, effect = CONST_ME_DRAWBLOOD, target = true},
+	{name ="combat", interval = 2000, chance = 5, minDamage = -300, maxDamage = -400, type = COMBAT_PHYSICALDAMAGE, range = 7, radius = 4, effect = CONST_ME_DRAWBLOOD, target = true},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -125, maxDamage = -600, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false},
-	{name ="combat", interval = 2000, chance = 5, minDamage = -100, maxDamage = -390, type = COMBAT_EARTHDAMAGE, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
+	{name ="combat", interval = 2000, chance = 5, minDamage = -100, maxDamage = -390, type = COMBAT_EARTHDAMAGE, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
 	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -180, type = COMBAT_EARTHDAMAGE, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -150, maxDamage = -690, type = COMBAT_EARTHDAMAGE, length = 8, spread = 3, effect = CONST_ME_POISONAREA, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -300, maxDamage = -700, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -100, maxDamage = -200, type = COMBAT_LIFEDRAIN, effect = CONST_ME_MAGIC_RED, target = false},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -100, maxDamage = -200, type = COMBAT_LIFEDRAIN, radius = 3, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="combat", interval = 2000, chance = 10, target = false}
 }
 
