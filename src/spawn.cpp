@@ -28,7 +28,6 @@
 #include "pugicast.h"
 #include "events.h"
 
-extern Events* g_events;
 extern ConfigManager g_config;
 extern Monsters g_monsters;
 extern Game g_game;
