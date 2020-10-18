@@ -316,26 +316,15 @@ function readSpell(incomingLua)
 			if incomingLua.effect then
 				spell:setCombatEffect(incomingLua.effect)
 			end
-			if incomingLua.condition then
-				if incomingLua.condition.type then
-					spell:setConditionType(incomingLua.condition.type)
-				end
-				if incomingLua.condition.duration then
-					spell:setConditionDuration(incomingLua.condition.duration)
-				end
-				if incomingLua.condition.interval then
-					spell:setConditionTickInterval(incomingLua.condition.interval)
-				end
-	
-				spell:setConditionDamage(incomingLua.condition.minDamage, incomingLua.condition.minDamage, 0)
-			end
 		else
 			spell:setType(incomingLua.name)
 			if incomingLua.type then
 				if incomingLua.name == "combat" then
 					spell:setCombatType(incomingLua.type)
-				else
+				elseif incomingLua.name == "condition" then
 					spell:setConditionType(incomingLua.type)
+				else 
+					print("[Warning - register_monster_type] Monster \"".. mtype:name() .. "\": Loading spell \"".. incomingLua.name .. "\". Parameter type applies only for condition and combat.")
 				end
 			end
 			if incomingLua.interval then
@@ -382,6 +371,22 @@ function readSpell(incomingLua)
 			if incomingLua.shootEffect then
 				spell:setCombatShootEffect(incomingLua.shootEffect)
 			end
+		end
+
+		-- This is for a complex spell, that has combat damage AND some condition
+		-- For example scorpions, which attack and cause poison on attack
+		if incomingLua.condition then
+			if incomingLua.condition.type then
+				spell:setConditionType(incomingLua.condition.type)
+			end
+			if incomingLua.condition.duration then
+				spell:setConditionDuration(incomingLua.condition.duration)
+			end
+			if incomingLua.condition.interval then
+				spell:setConditionTickInterval(incomingLua.condition.interval)
+			end
+
+			spell:setConditionDamage(incomingLua.condition.totalDamage, incomingLua.condition.totalDamage, 0)
 		end
 	elseif incomingLua.script then
 		spell:setScriptName("monster/" .. incomingLua.script .. ".lua")

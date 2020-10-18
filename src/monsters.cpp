@@ -597,24 +597,6 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 				sb.maxCombatValue = -Weapons::getMaxMeleeDamage(spell->skill, spell->attack);
 			}
 
-			ConditionType_t conditionType = CONDITION_NONE;
-			int32_t minDamage = 0;
-			int32_t maxDamage = 0;
-			uint32_t tickInterval = 2000;
-
-			if (spell->conditionType != CONDITION_NONE) {
-				conditionType = spell->conditionType;
-
-				minDamage = spell->conditionMinDamage;
-				maxDamage = minDamage;
-				if (spell->tickInterval != 0) {
-					tickInterval = spell->tickInterval;
-				}
-
-				Condition* condition = getDamageCondition(conditionType, maxDamage, minDamage, spell->conditionStartDamage, tickInterval);
-				combat->addCondition(condition);
-			}
-
 			sb.range = 1;
 			combat->setParam(COMBAT_PARAM_TYPE, COMBAT_PHYSICALDAMAGE);
 			combat->setParam(COMBAT_PARAM_BLOCKARMOR, 1);
@@ -692,32 +674,9 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 		} else if (tmpName == "energyfield") {
 			combat->setParam(COMBAT_PARAM_CREATEITEM, ITEM_ENERGYFIELD_PVP);
 		} else if (tmpName == "condition") {
-			uint32_t tickInterval = 2000;
-
 			if (spell->conditionType == CONDITION_NONE) {
 				std::cout << "[Error - Monsters::deserializeSpell] - " << description << " - Condition is not set for: " << spell->name << std::endl;
 			}
-
-			if (spell->tickInterval != 0) {
-				int32_t value = spell->tickInterval;
-				if (value > 0) {
-					tickInterval = value;
-				}
-			}
-
-			int32_t minDamage = std::abs(spell->conditionMinDamage);
-			int32_t maxDamage = std::abs(spell->conditionMaxDamage);
-			int32_t startDamage = 0;
-
-			if (spell->conditionStartDamage != 0) {
-				int32_t value = std::abs(spell->conditionStartDamage);
-				if (value <= minDamage) {
-					startDamage = value;
-				}
-			}
-
-			Condition* condition = getDamageCondition(spell->conditionType, maxDamage, minDamage, startDamage, tickInterval);
-			combat->addCondition(condition);
 		} else if (tmpName == "strength") {
 			//
 		} else if (tmpName == "effect") {
@@ -735,6 +694,36 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 		if (spell->effect != CONST_ME_NONE) {
 			combat->setParam(COMBAT_PARAM_EFFECT, spell->effect);
 		}
+
+        // A condition is a condition is a condition
+        // If a spell has a condition, it always applies, no matter the origin
+        if (spell->conditionType != CONDITION_NONE) {
+            int32_t minDamage = std::abs(spell->conditionMinDamage);
+			int32_t maxDamage = std::abs(spell->conditionMaxDamage);
+			int32_t startDamage = 0;
+			uint32_t tickInterval = 2000;
+
+			if (spell->tickInterval != 0) {
+				int32_t value = spell->tickInterval;
+				if (value > 0) {
+					tickInterval = value;
+				}
+			}
+
+			if (spell->conditionStartDamage != 0) {
+				int32_t value = std::abs(spell->conditionStartDamage);
+				if (value <= minDamage) {
+					startDamage = value;
+				}
+			}
+
+            if (maxDamage == 0) {
+                maxDamage = minDamage;
+            }
+
+			Condition* condition = getDamageCondition(spell->conditionType, maxDamage, minDamage, startDamage, tickInterval);
+			combat->addCondition(condition);
+        }
 
 		combat->setPlayerCombatValues(COMBAT_FORMULA_DAMAGE, sb.minCombatValue, 0, sb.maxCombatValue, 0);
 		combatSpell = new CombatSpell(combat.release(), spell->needTarget, spell->needDirection);
