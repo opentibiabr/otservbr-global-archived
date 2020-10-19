@@ -695,18 +695,17 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 			combat->setParam(COMBAT_PARAM_EFFECT, spell->effect);
 		}
 
-		// If a spell has a condition, it always applies, no matter the origin
+		// If a spell has a condition, it always applies, no matter what kind of spell it is
 		if (spell->conditionType != CONDITION_NONE) {
 			int32_t minDamage = std::abs(spell->conditionMinDamage);
 			int32_t maxDamage = std::abs(spell->conditionMaxDamage);
-			int32_t startDamage = 0;
+			int32_t startDamage = std::abs(spell->conditionStartDamage);
 			uint32_t tickInterval = 2000;
 
 			if (spell->tickInterval > 0) {
 				tickInterval = spell->tickInterval;
 			}
 
-			int32_t startDamage = std::abs(spell->conditionStartDamage);
 			if (startDamage > minDamage) {
 				startDamage = 0;
 			}
