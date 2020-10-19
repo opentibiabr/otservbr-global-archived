@@ -86,14 +86,14 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 100, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 280, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -100, maxDamage = -350, type = COMBAT_FIREDAMAGE, range = 7, radius = 4, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
 	{name ="combat", interval = 2500, chance = 12, minDamage = -100, maxDamage = -460, type = COMBAT_FIREDAMAGE, range = 7, radius = 2, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 10, range = 7, target = false}
+	{name ="diabolic imp skill reducer", interval = 2000, chance = 10, range = 7, target = false}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
 	{name ="combat", interval = 2000, chance = 35, minDamage = 275, maxDamage = 840, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 21, target = false},
+	{name ="the imperor summon", interval = 2000, chance = 21, target = false},
 	{name ="speed", interval = 2000, chance = 12, speedChange = 1496, duration = 5000},
 	{name ="invisible", interval = 2000, chance = 11, effect = CONST_ME_TELEPORT}
 }

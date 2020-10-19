@@ -77,7 +77,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -600, type = COMBAT_PHYSICALDAMAGE, length = 10, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
 	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -800, type = COMBAT_HOLYDAMAGE, radius = 4, effect = CONST_ME_HOLYDAMAGE, target = true},
 	{name ="combat", interval = 2000, chance = 25, minDamage = -150, maxDamage = -300, type = COMBAT_PHYSICALDAMAGE, length = 2, spread = 0, effect = CONST_ME_HITAREA, target = false},
-	{name ="combat", interval = 2000, chance = 40, target = false}
+	{name ="anomaly break", interval = 2000, chance = 40, target = false}
 }
 
 monster.defenses = {

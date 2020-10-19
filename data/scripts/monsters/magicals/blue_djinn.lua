@@ -84,8 +84,8 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, minDamage = -60, maxDamage = -105, type = COMBAT_DEATHDAMAGE, range = 7, radius = 1, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = true},
 	{name ="drunk", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
 	{name ="outfit", interval = 2000, chance = 1},
-	{name ="combat", interval = 2000, chance = 15, range = 5, target = false},
-	{name ="combat", interval = 2000, chance = 10, target = false}
+	{name ="djinn electrify", interval = 2000, chance = 15, range = 5, target = false},
+	{name ="djinn cancel invisibility", interval = 2000, chance = 10, target = false}
 }
 
 monster.defenses = {

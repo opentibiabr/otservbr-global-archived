@@ -90,7 +90,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 25, minDamage = -240, maxDamage = -600, type = COMBAT_HOLYDAMAGE, radius = 5, shootEffect = CONST_ANI_HOLY, effect = CONST_ME_HOLYDAMAGE, target = true},
 	{name ="combat", interval = 2000, chance = 25, minDamage = -200, maxDamage = -450, type = COMBAT_EARTHDAMAGE, length = 4, spread = 2, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="combat", interval = 2000, chance = 25, minDamage = -240, maxDamage = -600, type = COMBAT_DEATHDAMAGE, radius = 5, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = true},
-	{name ="combat", interval = 2000, chance = 40, target = false}
+	{name ="anomaly break", interval = 2000, chance = 40, target = false}
 }
 
 monster.defenses = {

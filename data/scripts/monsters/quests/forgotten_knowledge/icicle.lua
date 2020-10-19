@@ -68,7 +68,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 199,
 	armor = 199,
-	{name ="combat", interval = 2000, chance = 25, target = false}
+	{name ="icecle heal", interval = 2000, chance = 25, target = false}
 }
 
 monster.elements = {

@@ -96,7 +96,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 70,
 	armor = 70,
-	{name ="combat", interval = 2000, chance = 10, target = false}
+	{name ="time guardian lost time", interval = 2000, chance = 10, target = false}
 }
 
 monster.elements = {

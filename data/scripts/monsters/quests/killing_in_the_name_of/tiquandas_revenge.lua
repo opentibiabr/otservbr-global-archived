@@ -80,7 +80,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 31,
 	armor = 30,
-	{name ="combat", interval = 1200, chance = 35, minDamage = 600, maxDamage = 800, target = false}
+	{name ="ultimate healing", interval = 1200, chance = 35, minDamage = 600, maxDamage = 800, target = false}
 }
 
 monster.elements = {

@@ -120,7 +120,7 @@ monster.defenses = {
 	defense = 65,
 	armor = 55,
 	{name ="combat", interval = 3000, chance = 35, minDamage = 400, maxDamage = 6000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 5000, chance = 5, target = false},
+	{name ="shulgrax summon", interval = 5000, chance = 5, target = false},
 	{name ="speed", interval = 4000, chance = 80, speedChange = 440, duration = 6000}
 }
 

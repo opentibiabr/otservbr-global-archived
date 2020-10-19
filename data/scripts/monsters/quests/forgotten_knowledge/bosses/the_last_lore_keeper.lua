@@ -97,7 +97,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 20, minDamage = -640, maxDamage = -800, type = COMBAT_LIFEDRAIN, radius = 5, effect = CONST_ME_SMALLCLOUDS, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -420, maxDamage = -954, type = COMBAT_ENERGYDAMAGE, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -640, maxDamage = -800, type = COMBAT_EARTHDAMAGE, radius = 5, effect = CONST_ME_STONES, target = true},
-	{name ="combat", interval = 2000, chance = 20, target = false}
+	{name ="medusa paralyze", interval = 2000, chance = 20, target = false}
 }
 
 monster.defenses = {

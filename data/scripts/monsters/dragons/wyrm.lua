@@ -97,7 +97,7 @@ monster.defenses = {
 	defense = 35,
 	armor = 35,
 	{name ="combat", interval = 2000, chance = 15, minDamage = 100, maxDamage = 150, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 2000, chance = 10, radius = 1, effect = CONST_ME_SOUND_YELLOW, target = false}
+	{name ="effect", interval = 2000, chance = 10, radius = 1, effect = CONST_ME_SOUND_YELLOW, target = false}
 }
 
 monster.elements = {

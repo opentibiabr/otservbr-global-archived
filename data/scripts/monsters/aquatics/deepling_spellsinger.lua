@@ -86,7 +86,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 20, minDamage = -90, maxDamage = -130, type = COMBAT_DROWNDAMAGE, radius = 4, effect = CONST_ME_BUBBLES, target = true},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -60, maxDamage = -140, type = COMBAT_LIFEDRAIN, range = 7, effect = CONST_ME_SMALLPLANTS, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -60, maxDamage = -140, type = COMBAT_MANADRAIN, range = 7, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="combat", interval = 2000, chance = 5, range = 5, target = false}
+	{name ="deepling spellsinger skill reducer", interval = 2000, chance = 5, range = 5, target = false}
 }
 
 monster.defenses = {

@@ -72,7 +72,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 50,
 	armor = 35,
-	{name ="combat", interval = 2000, chance = 40, effect = CONST_ME_MAGIC_RED, target = false}
+	{name ="heal monster 9x9", interval = 2000, chance = 40, effect = CONST_ME_MAGIC_RED, target = false}
 }
 
 monster.elements = {

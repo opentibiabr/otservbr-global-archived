@@ -94,7 +94,7 @@ monster.defenses = {
 	defense = 55,
 	armor = 50,
 	{name ="speed", interval = 2000, chance = 12, speedChange = 1250, duration = 10000},
-	{name ="combat", interval = 2000, chance = 20, target = false}
+	{name ="feroxa summon", interval = 2000, chance = 20, target = false}
 }
 
 monster.elements = {

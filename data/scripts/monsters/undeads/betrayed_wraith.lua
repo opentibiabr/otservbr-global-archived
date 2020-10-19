@@ -84,7 +84,7 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 10, target = false},
+	{name ="betrayed wraith skill reducer", interval = 2000, chance = 10, target = false},
 	{name ="speed", interval = 2000, chance = 20, speedChange = -600, duration = 3000}
 }
 

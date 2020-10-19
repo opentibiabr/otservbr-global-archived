@@ -102,7 +102,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, minDamage = -250, maxDamage = -450, type = COMBAT_ENERGYDAMAGE, length = 6, spread = 3, effect = CONST_ME_PURPLEENERGY, target = true},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -350, maxDamage = -550, type = COMBAT_ENERGYDAMAGE, length = 8, spread = 3, effect = CONST_ME_YELLOWENERGY, target = true},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -100, maxDamage = -250, type = COMBAT_ENERGYDAMAGE, radius = 3, effect = CONST_ME_ENERGYHIT, target = true},
-	{name ="combat", interval = 2000, chance = 10, range = 5, target = false},
+	{name ="demon outcast skill reducer", interval = 2000, chance = 10, range = 5, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -80, maxDamage = -150, type = COMBAT_MANADRAIN, radius = 4, effect = CONST_ME_MAGIC_GREEN, target = false}
 }
 

@@ -72,7 +72,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 50,
 	armor = 35,
-	{name ="combat", interval = 2000, chance = 40, radius = 8, target = false}
+	{name ="cults of tibia armor buff", interval = 2000, chance = 40, radius = 8, target = false}
 }
 
 monster.elements = {

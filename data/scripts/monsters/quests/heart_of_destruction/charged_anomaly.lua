@@ -72,8 +72,8 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 25, minDamage = -500, maxDamage = -900, type = COMBAT_ENERGYDAMAGE, radius = 3, effect = CONST_ME_BIGCLOUDS, target = false},
 	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -700, type = COMBAT_ENERGYDAMAGE, length = 7, spread = 3, effect = CONST_ME_ENERGYAREA, target = false},
 	{name ="combat", interval = 2000, chance = 25, minDamage = -500, maxDamage = -800, type = COMBAT_ENERGYDAMAGE, length = 7, spread = 3, effect = CONST_ME_YELLOWENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 40, target = false},
-	{name ="combat", interval = 9000, chance = 100, target = false}
+	{name ="anomaly break", interval = 2000, chance = 40, target = false},
+	{name ="charge vortex", interval = 9000, chance = 100, target = false}
 }
 
 monster.defenses = {

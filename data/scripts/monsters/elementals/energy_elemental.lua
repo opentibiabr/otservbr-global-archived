@@ -83,7 +83,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -175, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -125, maxDamage = -252, type = COMBAT_ENERGYDAMAGE, range = 7, radius = 2, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -100, maxDamage = -130, type = COMBAT_ENERGYDAMAGE, range = 7, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_ENERGYHIT, target = true},
-	{name ="combat", interval = 2000, chance = 20, target = false}
+	{name ="energy elemental electrify", interval = 2000, chance = 20, target = false}
 }
 
 monster.defenses = {

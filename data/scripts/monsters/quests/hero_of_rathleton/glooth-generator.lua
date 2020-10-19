@@ -66,7 +66,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 50,
 	armor = 50,
-	{name ="combat", interval = 1000, chance = 100, target = false}
+	{name ="glooth-generator summon", interval = 1000, chance = 100, target = false}
 }
 
 monster.elements = {

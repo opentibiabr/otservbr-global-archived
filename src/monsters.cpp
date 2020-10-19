@@ -527,27 +527,12 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 	}
 
 	sb.speed = spell->interval;
-
-	if (spell->chance > 100) {
-		sb.chance = 100;
-	} else {
-		sb.chance = spell->chance;
-	}
-
-	if (spell->range > (Map::maxViewportX * 2)) {
-		spell->range = Map::maxViewportX * 2;
-	}
-	sb.range = spell->range;
-
-	sb.minCombatValue = spell->minCombatValue;
-	sb.maxCombatValue = spell->maxCombatValue;
-	if (std::abs(sb.minCombatValue) > std::abs(sb.maxCombatValue)) {
-		int32_t value = sb.maxCombatValue;
-		sb.maxCombatValue = sb.minCombatValue;
-		sb.minCombatValue = value;
-	}
-
+	sb.chance = std::min((int) spell->chance, 100);
+	sb.range = std::min((int) spell->range, Map::maxViewportX * 2);
+	sb.minCombatValue = std::min(spell->minCombatValue, spell->maxCombatValue);
+	sb.maxCombatValue = std::max(spell->minCombatValue, spell->maxCombatValue);
 	sb.spell = g_spells->getSpellByName(spell->name);
+
 	if (sb.spell) {
 		return true;
 	}

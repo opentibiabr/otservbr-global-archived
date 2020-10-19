@@ -124,7 +124,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1990, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 1000, chance = 13, minDamage = -300, maxDamage = -600, type = COMBAT_MANADRAIN, range = 7, target = false},
 	{name ="combat", interval = 1000, chance = 6, minDamage = -150, maxDamage = -350, type = COMBAT_MANADRAIN, radius = 5, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 1000, chance = 6, radius = 5, effect = CONST_ME_HITAREA, target = false},
+	{name ="effect", interval = 1000, chance = 6, radius = 5, effect = CONST_ME_HITAREA, target = false},
 	{name ="combat", interval = 1000, chance = 34, minDamage = -310, maxDamage = -600, type = COMBAT_FIREDAMAGE, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
 	{name ="firefield", interval = 1000, chance = 10, range = 7, radius = 4, shootEffect = CONST_ANI_FIRE, target = true},
 	{name ="combat", interval = 1000, chance = 15, minDamage = -500, maxDamage = -850, type = COMBAT_ENERGYDAMAGE, length = 8, spread = 3, effect = CONST_ME_ENERGYHIT, target = false}

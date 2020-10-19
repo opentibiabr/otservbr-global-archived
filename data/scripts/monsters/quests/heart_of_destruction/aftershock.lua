@@ -77,8 +77,8 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 20, minDamage = -250, maxDamage = -750, type = COMBAT_PHYSICALDAMAGE, radius = 8, effect = CONST_ME_BLOCKHIT, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -150, maxDamage = -400, type = COMBAT_LIFEDRAIN, radius = 5, effect = CONST_ME_MAGIC_BLUE, target = true},
 	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -600, type = COMBAT_ENERGYDAMAGE, radius = 4, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -100, maxDamage = -900, target = false},
-	{name ="combat", interval = 2000, chance = 40, target = false}
+	{name ="aftershock wave", interval = 2000, chance = 15, minDamage = -100, maxDamage = -900, target = false},
+	{name ="anomaly break", interval = 2000, chance = 40, target = false}
 }
 
 monster.defenses = {
