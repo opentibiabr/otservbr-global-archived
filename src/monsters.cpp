@@ -726,10 +726,8 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 			std::cout << "[Error - Monsters::deserializeSpell] - " << description << " - Unknown spell name: " << spell->name << std::endl;
 		}
 
-		if (spell->needTarget) {
-			if (spell->shoot != CONST_ANI_NONE) {
-				combat->setParam(COMBAT_PARAM_DISTANCEEFFECT, spell->shoot);
-			}
+		if (spell->shoot != CONST_ANI_NONE) {
+			combat->setParam(COMBAT_PARAM_DISTANCEEFFECT, spell->shoot);
 		}
 
 		if (spell->effect != CONST_ME_NONE) {
