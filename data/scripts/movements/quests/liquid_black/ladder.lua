@@ -1,6 +1,6 @@
 local ladder = MoveEvent()
 
-function ladder.onStepIn(creature, item, fromPosition, toPosition)
+function ladder.onStepIn(creature, item, toPosition, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return true

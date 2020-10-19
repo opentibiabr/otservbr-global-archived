@@ -1,7 +1,7 @@
-local mType = Game.createMonsterType("The Sandking")
+local mType = Game.createMonsterType("The Sandking Fake")
 local monster = {}
 
-monster.description = "The Sandking"
+monster.description = "The Sandking Fake"
 monster.experience = 0
 monster.outfit = {
 	lookType = 1013,
@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 50000
 monster.maxHealth = 50000
 monster.race = "venom"
-monster.corpse = 0
+monster.corpse = 29142
 monster.speed = 250
 monster.summonCost = 0
 monster.maxSummons = 0
