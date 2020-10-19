@@ -71,9 +71,9 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 150, attack = 100, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -400, maxDamage = -600, type = COMBAT_DEATHDAMAGE, range = 1, shootEffect = CONST_ANI_POISON, target = true},
-	{name ="drunk", interval = 2000, chance = 8, effect = CONST_ME_HITBYPOISON, target = false},
+	{name ="drunk", interval = 2000, chance = 8, radius = 8, effect = CONST_ME_HITBYPOISON, target = false},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 12, minDamage = -600, maxDamage = -900, effect = CONST_ME_HITBYPOISON, target = false}
+	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 12, minDamage = -600, maxDamage = -900, radius = 8, effect = CONST_ME_HITBYPOISON, target = false}
 }
 
 monster.defenses = {

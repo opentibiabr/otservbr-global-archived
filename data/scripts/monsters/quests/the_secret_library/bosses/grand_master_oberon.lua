@@ -134,10 +134,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name = "melee", type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -700, effect = CONST_ME_DRAWBLOOD, interval = 2*1000},
-	{name = "combat", type = COMBAT_HOLYDAMAGE, chance = 80, interval = 6*1000, length = 8, spread = 0, minDamage = -1000, maxDamage = -2290, effect = CONST_ME_HOLYAREA},
-	{name = "combat", type = COMBAT_EARTHDAMAGE, chance = 20, interval = 2*1000, radius = 5, minDamage = -700, maxDamage = -1500, effect = CONST_ME_HITAREA},
-	{name = "combat", type = COMBAT_DEATHDAMAGE, chance = 10, interval = 4*1000, range = 7, minDamage = -800, maxDamage = -1500, target = true, effect = CONST_ME_MORTAREA}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1200, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 6000, chance = 80, minDamage = -1000, maxDamage = -2250, type = COMBAT_HOLYDAMAGE, length = 8, spread = 3, effect = CONST_ME_HOLYAREA, target = false},
+	{name ="combat", interval = 1000, chance = 20, minDamage = -700, maxDamage = -1450, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_HITAREA, target = false},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -800, maxDamage = -1500, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = false}
 }
 
 monster.defenses = {

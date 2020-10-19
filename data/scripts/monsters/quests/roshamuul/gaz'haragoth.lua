@@ -134,13 +134,13 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -5000, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 3000, chance = 35, minDamage = -900, maxDamage = -1100, type = COMBAT_ICEDAMAGE, range = 7, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEAREA, target = true},
+	{name ="combat", interval = 3000, chance = 35, minDamage = -900, maxDamage = -1100, type = COMBAT_ICEDAMAGE, range = 7, radius = 7, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEAREA, target = true},
 	{name ="combat", interval = 2000, chance = 13, minDamage = -100, maxDamage = -1000, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_POFF, target = false},
-	{name ="combat", interval = 2000, chance = 19, minDamage = -100, maxDamage = -800, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 1800, chance = 40, minDamage = 0, maxDamage = -1000, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 19, minDamage = -100, maxDamage = -800, type = COMBAT_DEATHDAMAGE, range = 7, radius = 6, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
+	{name ="melee", interval = 1800, chance = 40, minDamage = 0, maxDamage = -1000, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 3000, chance = 30, minDamage = -4000, maxDamage = -6000, type = COMBAT_FIREDAMAGE, length = 8, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
 	{name ="combat", interval = 2000, chance = 14, minDamage = -1600, maxDamage = -3400, type = COMBAT_FIREDAMAGE, length = 8, spread = 3, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 2500, chance = 20, minDamage = -200, maxDamage = -480, type = COMBAT_PHYSICALDAMAGE, range = 7, effect = CONST_ME_MAGIC_GREEN, target = false},
+	{name ="combat", interval = 2500, chance = 20, minDamage = -200, maxDamage = -480, type = COMBAT_PHYSICALDAMAGE, range = 7, radius = 5, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="combat", interval = 2000, chance = 24, minDamage = -1000, maxDamage = -1000, target = false},
 	{name ="combat", interval = 4000, chance = 6, target = false},
 	{name ="combat", interval = 2000, chance = 12, target = false}

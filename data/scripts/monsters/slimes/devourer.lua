@@ -95,7 +95,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 5, minDamage = -50, maxDamage = -150, target = false},
 	{name ="combat", interval = 2000, chance = 9, target = false},
 	{name ="combat", interval = 2000, chance = 11, minDamage = -50, maxDamage = -150, type = COMBAT_EARTHDAMAGE, length = 1, spread = 0, effect = CONST_ME_SMOKE, target = false},
-	{name ="combat", interval = 2000, chance = 7, minDamage = -120, maxDamage = -135, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_GREEN_RINGS, target = false}
+	{name ="combat", interval = 2000, chance = 7, minDamage = -120, maxDamage = -135, type = COMBAT_EARTHDAMAGE, radius = 4, effect = CONST_ME_GREEN_RINGS, target = false}
 }
 
 monster.defenses = {

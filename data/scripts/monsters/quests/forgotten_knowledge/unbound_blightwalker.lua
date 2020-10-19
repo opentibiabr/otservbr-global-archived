@@ -66,8 +66,8 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 88, attack = 100, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 9, minDamage = -220, maxDamage = -405, type = COMBAT_EARTHDAMAGE, range = 1, shootEffect = CONST_ANI_POISON, effect = CONST_ME_GREEN_RINGS, target = true},
 	{name ="combat", interval = 2000, chance = 10, target = false},
-	{name ="combat", interval = 2000, chance = 14, minDamage = -65, maxDamage = -135, type = COMBAT_LIFEDRAIN, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="drunk", interval = 2000, chance = 12, effect = CONST_ME_HITBYPOISON, target = false},
+	{name ="combat", interval = 2000, chance = 14, minDamage = -65, maxDamage = -135, type = COMBAT_LIFEDRAIN, radius = 4, effect = CONST_ME_MAGIC_GREEN, target = false},
+	{name ="drunk", interval = 2000, chance = 12, radius = 3, effect = CONST_ME_HITBYPOISON, target = false},
 	{name ="combat", interval = 2000, chance = 15, range = 7, target = false}
 }
 

@@ -99,10 +99,10 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -800, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -500, type = COMBAT_LIFEDRAIN, range = 4, effect = CONST_ME_MAGIC_RED, target = true},
 	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -500, type = COMBAT_DEATHDAMAGE, length = 7, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -100, type = COMBAT_DEATHDAMAGE, effect = CONST_ME_SMALLCLOUDS, target = false},
+	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -100, type = COMBAT_DEATHDAMAGE, radius = 4, effect = CONST_ME_SMALLCLOUDS, target = false},
 	-- fire
-	{name ="combat", type = COMBAT_FIREDAMAGE, interval = 3000, chance = 20, minDamage = -10, maxDamage = -10, effect = CONST_ME_EXPLOSIONHIT, target = true},
-	{name ="combat", interval = 1000, chance = 13, minDamage = -60, maxDamage = -200, type = COMBAT_MANADRAIN, effect = CONST_ME_WATERSPLASH, target = false}
+	{name ="combat", type = COMBAT_FIREDAMAGE, interval = 3000, chance = 20, minDamage = -10, maxDamage = -10, radius = 4, effect = CONST_ME_EXPLOSIONHIT, target = true},
+	{name ="combat", interval = 1000, chance = 13, minDamage = -60, maxDamage = -200, type = COMBAT_MANADRAIN, radius = 5, effect = CONST_ME_WATERSPLASH, target = false}
 }
 
 monster.defenses = {

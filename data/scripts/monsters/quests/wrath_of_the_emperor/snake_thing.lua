@@ -71,7 +71,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 35, minDamage = 0, maxDamage = -500, type = COMBAT_EARTHDAMAGE, length = 8, spread = 3, effect = CONST_ME_POISONAREA, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = -2398, type = COMBAT_MANADRAIN, length = 8, spread = 3, effect = CONST_ME_SOUND_RED, target = false},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 30, minDamage = -30, maxDamage = -60, effect = CONST_ME_POISONAREA, target = false}
+	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 30, minDamage = -30, maxDamage = -60, radius = 6, effect = CONST_ME_POISONAREA, target = false}
 }
 
 monster.defenses = {

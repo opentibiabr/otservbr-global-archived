@@ -89,7 +89,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 1000, chance = 15, minDamage = -400, maxDamage = -680, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_EARTHARROW, target = false},
 	{name ="combat", interval = 1000, chance = 10, minDamage = -400, maxDamage = -575, type = COMBAT_LIFEDRAIN, length = 5, spread = 3, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 1000, chance = 12, minDamage = -230, maxDamage = -880, type = COMBAT_PHYSICALDAMAGE, range = 7, effect = CONST_ME_GROUNDSHAKER, target = false}
+	{name ="combat", interval = 1000, chance = 12, minDamage = -230, maxDamage = -880, type = COMBAT_PHYSICALDAMAGE, range = 7, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false}
 }
 
 monster.defenses = {

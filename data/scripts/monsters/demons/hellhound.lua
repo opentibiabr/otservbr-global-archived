@@ -111,7 +111,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, minDamage = -395, maxDamage = -498, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -350, maxDamage = -660, type = COMBAT_FIREDAMAGE, length = 8, spread = 3, effect = CONST_ME_FIREAREA, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -350, maxDamage = -976, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -200, maxDamage = -403, type = COMBAT_FIREDAMAGE, effect = CONST_ME_HITBYFIRE, target = true},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -200, maxDamage = -403, type = COMBAT_FIREDAMAGE, radius = 1, effect = CONST_ME_HITBYFIRE, target = true},
 	{name ="combat", interval = 2000, chance = 5, minDamage = -300, maxDamage = -549, type = COMBAT_EARTHDAMAGE, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false}
 }
 

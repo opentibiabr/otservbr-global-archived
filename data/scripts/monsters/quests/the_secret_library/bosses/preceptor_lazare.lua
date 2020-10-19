@@ -95,7 +95,7 @@ monster.attacks = {
 	{name ="combat", interval = 1400, chance = 20, minDamage = -200, maxDamage = -800, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_INFERNALBOLT, target = false},
 	{name ="combat", interval = 1500, chance = 20, minDamage = -300, maxDamage = -1100, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_POWERBOLT, target = false},
 	{name ="combat", interval = 1600, chance = 20, minDamage = -100, maxDamage = -720, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_ENERGYBALL, target = false},
-	{name ="combat", interval = 1500, chance = 14, minDamage = -300, maxDamage = -1000, type = COMBAT_HOLYDAMAGE, range = 7, effect = CONST_ME_HOLYDAMAGE, target = false}
+	{name ="combat", interval = 1500, chance = 14, minDamage = -300, maxDamage = -1000, type = COMBAT_HOLYDAMAGE, range = 7, radius = 4, effect = CONST_ME_HOLYDAMAGE, target = false}
 }
 
 monster.defenses = {

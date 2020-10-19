@@ -90,8 +90,8 @@ monster.attacks = {
 	{name ="combat", interval = 1600, chance = 7, minDamage = -60, maxDamage = -600, type = COMBAT_PHYSICALDAMAGE, range = 1, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="combat", interval = 1000, chance = 7, minDamage = -60, maxDamage = -600, type = COMBAT_FIREDAMAGE, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = false},
 	{name ="speed", interval = 2000, chance = 13, speedChange = -850, duration = 50000},
-	{name ="combat", interval = 2000, chance = 34, minDamage = -80, maxDamage = -800, type = COMBAT_FIREDAMAGE, effect = CONST_ME_EXPLOSIONAREA, target = false},
-	{name ="firefield", interval = 1000, chance = 12, effect = CONST_ME_BLOCKHIT, target = false},
+	{name ="combat", interval = 2000, chance = 34, minDamage = -80, maxDamage = -800, type = COMBAT_FIREDAMAGE, radius = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
+	{name ="firefield", interval = 1000, chance = 12, radius = 4, effect = CONST_ME_BLOCKHIT, target = false},
 	-- fire
 	{name ="combat", type = COMBAT_FIREDAMAGE, interval = 2000, chance = 13, minDamage = -50, maxDamage = -500, length = 8, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false}
 }

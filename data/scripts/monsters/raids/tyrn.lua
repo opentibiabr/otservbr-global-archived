@@ -90,9 +90,9 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 70, attack = 130, effect = CONST_ME_DRAWBLOOD},
-	{name ="drunk", interval = 2000, chance = 8, effect = CONST_ME_SOUND_YELLOW, target = false},
+	{name ="drunk", interval = 2000, chance = 8, radius = 8, effect = CONST_ME_SOUND_YELLOW, target = false},
 	{name ="combat", interval = 2000, chance = 33, minDamage = -100, maxDamage = -190, type = COMBAT_ENERGYDAMAGE, range = 7, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_ENERGYAREA, target = true},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -200, maxDamage = -300, type = COMBAT_ENERGYDAMAGE, range = 7, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_EXPLOSIONHIT, target = true},
+	{name ="combat", interval = 2000, chance = 12, minDamage = -200, maxDamage = -300, type = COMBAT_ENERGYDAMAGE, range = 7, radius = 4, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_EXPLOSIONHIT, target = true},
 	{name ="combat", interval = 2000, chance = 11, target = false},
 	{name ="combat", interval = 2000, chance = 14, target = false}
 }
