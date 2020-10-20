@@ -97,7 +97,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 14, minDamage = -200, maxDamage = -450, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_BLACKSMOKE, target = false},
 	{name ="combat", interval = 2000, chance = 18, minDamage = -150, maxDamage = -270, type = COMBAT_ICEDAMAGE, range = 7, radius = 4, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true},
 	{name ="combat", interval = 2000, chance = 13, minDamage = -120, maxDamage = -230, type = COMBAT_ICEDAMAGE, range = 1, radius = 1, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 9, target = false}
+	{name ="the welter paralyze", interval = 2000, chance = 9, target = false}
 }
 
 monster.defenses = {
@@ -105,8 +105,8 @@ monster.defenses = {
 	armor = 27,
 	{name ="combat", interval = 2000, chance = 32, minDamage = 250, maxDamage = 600, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="combat", interval = 2000, chance = 12, minDamage = 150, maxDamage = 700, type = COMBAT_HEALING, radius = 5, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="combat", interval = 2000, chance = 9, target = false},
-	{name ="combat", interval = 2000, chance = 8, target = false}
+	{name ="the welter summon2", interval = 2000, chance = 9, target = false},
+	{name ="the welter heal", interval = 2000, chance = 8, target = false}
 }
 
 monster.elements = {

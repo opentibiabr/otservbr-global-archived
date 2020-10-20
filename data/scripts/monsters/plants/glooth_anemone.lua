@@ -95,7 +95,7 @@ monster.defenses = {
 	defense = 25,
 	armor = 15,
 	{name ="combat", interval = 2000, chance = 9, minDamage = 50, maxDamage = 100, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="combat", interval = 2000, chance = 14, target = false}
+	{name ="glooth anemone summon", interval = 2000, chance = 14, target = false}
 }
 
 monster.elements = {

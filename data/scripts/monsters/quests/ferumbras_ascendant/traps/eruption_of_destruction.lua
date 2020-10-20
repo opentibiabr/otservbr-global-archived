@@ -61,7 +61,7 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="speed", interval = 2000, chance = 25, speedChange = -600, duration = 15000},
-	{name ="combat", interval = 2000, chance = 250, minDamage = -4000, maxDamage = -6000, target = false}
+	{name ="eruption of destruction explosion", interval = 2000, chance = 250, minDamage = -4000, maxDamage = -6000, target = false}
 }
 
 monster.defenses = {

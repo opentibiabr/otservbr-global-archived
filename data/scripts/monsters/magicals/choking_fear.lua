@@ -98,7 +98,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -300, type = COMBAT_PHYSICALDAMAGE, radius = 1, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_SLEEP, target = true},
 	{name ="speed", interval = 2000, chance = 20, speedChange = -800, duration = 15000},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -130, maxDamage = -300, type = COMBAT_MANADRAIN, radius = 4, effect = CONST_ME_SOUND_RED, target = false},
-	{name ="combat", interval = 2000, chance = 20, target = false},
+	{name ="choking fear drown", interval = 2000, chance = 20, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -250, maxDamage = -500, type = COMBAT_DEATHDAMAGE, radius = 4, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true}
 }
 

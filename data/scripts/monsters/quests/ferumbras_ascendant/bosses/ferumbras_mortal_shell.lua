@@ -133,12 +133,12 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 200, effect = CONST_ME_DRAWBLOOD},
 	-- poison
 	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 20, minDamage = -250, maxDamage = -520, radius = 6, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 18, target = false},
+	{name ="ferumbras electrify", interval = 2000, chance = 18, target = false},
 	{name ="combat", interval = 2000, chance = 16, minDamage = -225, maxDamage = -410, type = COMBAT_MANADRAIN, radius = 6, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -425, maxDamage = -810, type = COMBAT_MANADRAIN, radius = 9, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="combat", interval = 2000, chance = 21, minDamage = -400, maxDamage = -650, type = COMBAT_ENERGYDAMAGE, radius = 9, effect = CONST_ME_ENERGYHIT, target = false},
 	{name ="combat", interval = 2000, chance = 21, minDamage = -200, maxDamage = -450, type = COMBAT_LIFEDRAIN, radius = 6, effect = CONST_ME_POFF, target = false},
-	{name ="combat", interval = 2000, chance = 20, range = 7, target = false},
+	{name ="ferumbras soulfire", interval = 2000, chance = 20, range = 7, target = false},
 	{name ="combat", interval = 2000, chance = 17, minDamage = -590, maxDamage = -1050, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_HITBYPOISON, target = false}
 }
 

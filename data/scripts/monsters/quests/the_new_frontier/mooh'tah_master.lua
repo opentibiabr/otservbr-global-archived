@@ -69,8 +69,8 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -500, range = 1, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -100, range = 1, target = false}
+	{name ="energy beam", interval = 2000, chance = 10, minDamage = 0, maxDamage = -500, range = 1, target = false},
+	{name ="berserk", interval = 2000, chance = 10, minDamage = 0, maxDamage = -100, range = 1, target = false}
 }
 
 monster.defenses = {

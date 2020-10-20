@@ -82,7 +82,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -220, effect = CONST_ME_DRAWBLOOD},
 	{name ="speed", interval = 1000, chance = 13, speedChange = -800, duration = 20000},
 	{name ="combat", interval = 1000, chance = 15, minDamage = -50, maxDamage = -85, type = COMBAT_ICEDAMAGE, range = 7, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 10, target = false}
+	{name ="ice golem skill reducer", interval = 2000, chance = 10, target = false}
 }
 
 monster.defenses = {

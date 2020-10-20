@@ -77,7 +77,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -450, type = COMBAT_DROWNDAMAGE, radius = 7, target = false},
 	{name ="combat", interval = 2000, chance = 7, minDamage = -210, maxDamage = -300, type = COMBAT_ENERGYDAMAGE, range = 1, radius = 1, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
 	{name ="firefield", interval = 2000, chance = 14, range = 7, radius = 1, shootEffect = CONST_ANI_FIRE, target = true},
-	{name ="combat", interval = 2000, chance = 10, range = 7, target = false},
+	{name ="demon paralyze", interval = 2000, chance = 10, range = 7, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -300, maxDamage = -480, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false}
 }
 

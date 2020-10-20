@@ -122,7 +122,7 @@ monster.defenses = {
 	armor = 188,
 	{name ="combat", interval = 2000, chance = 15, minDamage = 1000, maxDamage = 3000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 8, speedChange = 480, duration = 6000},
-	{name ="combat", interval = 2000, chance = 3, target = false}
+	{name ="razzagorn summon", interval = 2000, chance = 3, target = false}
 }
 
 monster.elements = {

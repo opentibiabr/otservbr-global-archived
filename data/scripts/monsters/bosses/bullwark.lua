@@ -84,7 +84,7 @@ monster.attacks = {
 	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 9, minDamage = -400, maxDamage = -600, radius = 8, effect = CONST_ME_ICEATTACK, target = false},
 	{name ="combat", interval = 2000, chance = 8, minDamage = -250, maxDamage = -400, type = COMBAT_PHYSICALDAMAGE, range = 7, radius = 6, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
 	{name ="combat", interval = 2000, chance = 13, minDamage = -200, maxDamage = -400, type = COMBAT_PHYSICALDAMAGE, range = 7, radius = 4, shootEffect = CONST_ANI_WHIRLWINDCLUB, effect = CONST_ME_EXPLOSIONHIT, target = true},
-	{name ="combat", interval = 2000, chance = 6, target = false}
+	{name ="bullwark paralyze", interval = 2000, chance = 6, target = false}
 }
 
 monster.defenses = {
@@ -92,7 +92,7 @@ monster.defenses = {
 	armor = 48,
 	{name ="combat", interval = 2000, chance = 1, minDamage = 4000, maxDamage = 6000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 11, speedChange = 660, duration = 7000},
-	{name ="combat", interval = 2000, chance = 9, target = false}
+	{name ="bullwark summon", interval = 2000, chance = 9, target = false}
 }
 
 monster.elements = {

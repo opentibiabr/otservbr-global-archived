@@ -98,8 +98,8 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -340, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -250, type = COMBAT_PHYSICALDAMAGE, range = 7, radius = 3, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_EXPLOSIONHIT, target = true},
 	{name ="drunk", interval = 2000, chance = 20, radius = 5, effect = CONST_ME_BLOCKHIT, target = false},
-	{name ="combat", interval = 2000, chance = 5, target = false},
-	{name ="combat", interval = 2000, chance = 5, target = false}
+	{name ="enslaved dwarf skill reducer 1", interval = 2000, chance = 5, target = false},
+	{name ="enslaved dwarf skill reducer 2", interval = 2000, chance = 5, target = false}
 }
 
 monster.defenses = {

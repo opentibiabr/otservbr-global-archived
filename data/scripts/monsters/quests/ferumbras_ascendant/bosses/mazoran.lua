@@ -111,7 +111,7 @@ monster.defenses = {
 	armor = 25,
 	{name ="combat", interval = 2000, chance = 10, minDamage = 2090, maxDamage = 4500, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 2000, chance = 35, speedChange = 700, duration = 6000},
-	{name ="combat", interval = 30000, chance = 45, target = false}
+	{name ="mazoran fire", interval = 30000, chance = 45, target = false}
 }
 
 monster.elements = {

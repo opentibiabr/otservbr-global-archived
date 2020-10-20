@@ -67,7 +67,7 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -5000, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -781, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_THROWINGKNIFE, target = false},
-	{name ="combat", interval = 2000, chance = 5, target = false}
+	{name ="dark torturer skill reducer", interval = 2000, chance = 5, target = false}
 }
 
 monster.defenses = {

@@ -70,7 +70,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 15, minDamage = -200, maxDamage = -600, type = COMBAT_PHYSICALDAMAGE, radius = 6, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_LOSEENERGY, target = true},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -300, maxDamage = -700, type = COMBAT_PHYSICALDAMAGE, length = 9, spread = 3, effect = CONST_ME_TELEPORT, target = false},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, radius = 7, effect = CONST_ME_POFF, target = false},
-	{name ="combat", interval = 2000, chance = 40, target = false}
+	{name ="anomaly break", interval = 2000, chance = 40, target = false}
 }
 
 monster.defenses = {

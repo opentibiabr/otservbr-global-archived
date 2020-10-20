@@ -81,7 +81,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 19, range = 7, target = false},
 	{name ="combat", interval = 2000, chance = 12, minDamage = -360, maxDamage = -470, type = COMBAT_LIFEDRAIN, range = 1, effect = CONST_ME_HOLYAREA, target = true},
 	{name ="speed", interval = 2000, chance = 40, speedChange = -600, duration = 20000},
-	{name ="combat", interval = 2000, chance = 30, range = 4, effect = CONST_ME_POFF, target = false}
+	{name ="silencer skill reducer", interval = 2000, chance = 30, range = 4, effect = CONST_ME_POFF, target = false}
 }
 
 monster.defenses = {

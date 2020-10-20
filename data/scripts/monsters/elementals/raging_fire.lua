@@ -66,7 +66,7 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 60, attack = 100, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 9, minDamage = -65, maxDamage = -605, type = COMBAT_FIREDAMAGE, length = 7, spread = 3, target = false},
-	{name ="combat", interval = 2000, chance = 12, target = false},
+	{name ="massive fire elemental soulfire", interval = 2000, chance = 12, target = false},
 	{name ="firefield", interval = 2000, chance = 11, range = 7, radius = 3, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_EXPLOSIONHIT, target = true},
 	{name ="firefield", interval = 2000, chance = 11, radius = 3, effect = CONST_ME_HITBYFIRE, target = false}
 }

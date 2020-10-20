@@ -130,7 +130,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 230, attack = 210, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 1000, chance = 8, minDamage = -800, maxDamage = -1900, type = COMBAT_DEATHDAMAGE, radius = 9, effect = CONST_ME_MORTAREA, target = false},
 	{name ="speed", interval = 1000, chance = 12, speedChange = -850, duration = 60000},
-	{name ="combat", interval = 1000, chance = 10, minDamage = -600, maxDamage = -1450, radius = 5, effect = CONST_ME_HITAREA, target = false},
+	{name ="strength", interval = 1000, chance = 10, minDamage = -600, maxDamage = -1450, radius = 5, effect = CONST_ME_HITAREA, target = false},
 	{name ="combat", interval = 3000, chance = 13, minDamage = -300, maxDamage = -800, type = COMBAT_FIREDAMAGE, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
 	{name ="combat", interval = 3000, chance = 8, minDamage = -600, maxDamage = -700, type = COMBAT_MANADRAIN, radius = 10, effect = CONST_ME_ENERGYAREA, target = false},
 	{name ="combat", interval = 2000, chance = 9, minDamage = -400, maxDamage = -800, type = COMBAT_ENERGYDAMAGE, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},

@@ -62,7 +62,7 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 100, attack = 100, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 17, minDamage = -40, maxDamage = -60, type = COMBAT_LIFEDRAIN, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_YALAHARIGHOST, target = false},
-	{name ="combat", interval = 2000, chance = 18, target = false}
+	{name ="white shade paralyze", interval = 2000, chance = 18, target = false}
 }
 
 monster.defenses = {

@@ -68,8 +68,8 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -150, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -400, target = false},
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400, target = false}
+	{name ="ravennouslavalurkerwave", interval = 2000, chance = 15, minDamage = 0, maxDamage = -400, target = false},
+	{name ="ravennouslavalurkerwave2", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400, target = false}
 }
 
 monster.defenses = {

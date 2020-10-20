@@ -85,7 +85,7 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -180, maxDamage = -300, type = COMBAT_ENERGYDAMAGE, range = 5, radius = 5, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_PURPLEENERGY, target = true},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -200, maxDamage = -350, target = false},
+	{name ="reality reaver wave", interval = 2000, chance = 20, minDamage = -200, maxDamage = -350, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -80, maxDamage = -200, type = COMBAT_PHYSICALDAMAGE, radius = 3, effect = CONST_ME_STUN, target = false}
 }
 

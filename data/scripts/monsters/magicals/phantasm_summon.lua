@@ -71,7 +71,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -50, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -50, maxDamage = -80, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -5, maxDamage = -80, type = COMBAT_MANADRAIN, radius = 3, effect = CONST_ME_YELLOW_RINGS, target = false},
-	{name ="combat", interval = 2000, chance = 10, target = false},
+	{name ="phantasm drown", interval = 2000, chance = 10, target = false},
 	{name ="drunk", interval = 2000, chance = 5, radius = 5, effect = CONST_ME_MAGIC_RED, target = false}
 }
 

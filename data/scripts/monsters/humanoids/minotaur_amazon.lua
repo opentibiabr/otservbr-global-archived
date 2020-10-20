@@ -96,7 +96,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 22, minDamage = 0, maxDamage = -150, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_HUNTINGSPEAR, effect = CONST_ME_EXPLOSIONAREA, target = false},
 	-- bleed
 	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 40, minDamage = -300, maxDamage = -400, radius = 4, shootEffect = CONST_ANI_THROWINGKNIFE, effect = CONST_ME_DRAWBLOOD, target = true},
-	{name ="combat", interval = 2000, chance = 15, target = false}
+	{name ="minotaur amazon paralyze", interval = 2000, chance = 15, target = false}
 }
 
 monster.defenses = {

@@ -83,7 +83,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -240, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 25, minDamage = -160, maxDamage = -250, type = COMBAT_ENERGYDAMAGE, range = 6, shootEffect = CONST_ANI_FLASHARROW, effect = CONST_ME_STUN, target = true},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -80, maxDamage = -200, type = COMBAT_LIFEDRAIN, radius = 5, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 20, target = false}
+	{name ="breach brood reducer", interval = 2000, chance = 20, target = false}
 }
 
 monster.defenses = {

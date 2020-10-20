@@ -93,7 +93,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 14, minDamage = 0, maxDamage = -150, type = COMBAT_PHYSICALDAMAGE, radius = 5, effect = CONST_ME_GREEN_RINGS, target = false},
 	-- poison
 	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 13, minDamage = -360, maxDamage = -440, radius = 5, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="combat", interval = 2000, chance = 11, target = false}
+	{name ="shlorg paralyze", interval = 2000, chance = 11, target = false}
 }
 
 monster.defenses = {

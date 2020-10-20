@@ -71,7 +71,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 0,
 	armor = 0,
-	{name ="combat", interval = 100, chance = 100, radius = 1, effect = CONST_ME_MAGIC_RED, target = false}
+	{name ="effect", interval = 100, chance = 100, radius = 1, effect = CONST_ME_MAGIC_RED, target = false}
 }
 
 monster.elements = {

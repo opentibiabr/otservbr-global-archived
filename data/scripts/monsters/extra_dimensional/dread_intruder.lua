@@ -94,7 +94,7 @@ monster.attacks = {
 	-- energy damage
 	{name ="combat", type = COMBAT_ENERGYDAMAGE, interval = 2000, chance = 20, minDamage = -400, maxDamage = -600, radius = 5, effect = CONST_ME_ENERGYHIT, target = false},
 	{name ="combat", interval = 2000, chance = 25, minDamage = -250, maxDamage = -400, type = COMBAT_DEATHDAMAGE, range = 4, radius = 4, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -550, target = false}
+	{name ="dread intruder wave", interval = 2000, chance = 25, minDamage = -350, maxDamage = -550, target = false}
 }
 
 monster.defenses = {
