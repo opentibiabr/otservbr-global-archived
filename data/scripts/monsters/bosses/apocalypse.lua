@@ -135,8 +135,8 @@ monster.attacks = {
 	{name ="combat", interval = 3000, chance = 8, minDamage = -600, maxDamage = -700, type = COMBAT_MANADRAIN, radius = 10, effect = CONST_ME_ENERGYAREA, target = false},
 	{name ="combat", interval = 2000, chance = 9, minDamage = -400, maxDamage = -800, type = COMBAT_ENERGYDAMAGE, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 5000, chance = 18, minDamage = -800, maxDamage = -1000, effect = CONST_ME_HITBYPOISON, target = false},
-	{name ="combat", interval = 2000, chance = 6, minDamage = -600, maxDamage = -1200, type = COMBAT_LIFEDRAIN, radius = 14, effect = CONST_ME_MAGIC_GREEN, target = false}
+	{name ="condition", type = CONDITION_POISON, interval = 5000, chance = 18, minDamage = -800, maxDamage = -1000, effect = CONST_ME_HITBYPOISON, target = false},
+	{name ="combat", interval = 2000, chance = 6, type = COMBAT_LIFEDRAIN, minDamage = -600, maxDamage = -1200, radius = 14, effect = CONST_ME_MAGIC_GREEN, target = false}
 }
 
 monster.defenses = {

@@ -92,7 +92,7 @@ monster.attacks = {
 	{name ="drunk", interval = 2000, chance = 15, radius = 4, effect = CONST_ME_FIREAREA, target = true},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -430, maxDamage = -550, type = COMBAT_MANADRAIN, range = 7, effect = CONST_ME_MAGIC_BLUE, target = false},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 15, minDamage = -200, maxDamage = -400, radius = 4, effect = CONST_ME_POISONAREA, target = false}
+	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 15, minDamage = -200, maxDamage = -400, radius = 4, effect = CONST_ME_POISONAREA, target = false}
 }
 
 monster.defenses = {

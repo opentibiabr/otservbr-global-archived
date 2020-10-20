@@ -87,7 +87,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 20, minDamage = -50, maxDamage = -100, type = COMBAT_LIFEDRAIN, radius = 4, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="speed", interval = 2000, chance = 10, speedChange = -600, duration = 15000},
 	-- bleed
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 15, minDamage = -120, maxDamage = -160, radius = 6, effect = CONST_ME_HITAREA, target = false}
+	{name ="condition", type = CONDITION_BLEEDING, interval = 2000, chance = 15, minDamage = -120, maxDamage = -160, radius = 6, effect = CONST_ME_HITAREA, target = false}
 }
 
 monster.defenses = {

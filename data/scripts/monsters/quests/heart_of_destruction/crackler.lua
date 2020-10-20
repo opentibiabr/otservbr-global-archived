@@ -72,7 +72,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 20, minDamage = -100, maxDamage = -300, type = COMBAT_ENERGYDAMAGE, range = 4, radius = 2, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_ENERGYHIT, target = true},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -100, maxDamage = -300, type = COMBAT_ENERGYDAMAGE, range = 4, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_YELLOWENERGY, target = true},
 	-- energy damage
-	{name ="combat", type = COMBAT_ENERGYDAMAGE, interval = 2000, chance = 15, minDamage = -400, maxDamage = -800, radius = 5, effect = CONST_ME_BLOCKHIT, target = false}
+	{name ="condition", type = CONDITION_ENERGY, interval = 2000, chance = 15, minDamage = -400, maxDamage = -800, radius = 5, effect = CONST_ME_BLOCKHIT, target = false}
 }
 
 monster.defenses = {

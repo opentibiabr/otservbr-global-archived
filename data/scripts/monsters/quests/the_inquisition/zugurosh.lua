@@ -101,8 +101,8 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -500, type = COMBAT_DEATHDAMAGE, length = 7, spread = 3, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -100, type = COMBAT_DEATHDAMAGE, radius = 4, effect = CONST_ME_SMALLCLOUDS, target = false},
 	-- fire
-	{name ="combat", type = COMBAT_FIREDAMAGE, interval = 3000, chance = 20, minDamage = -10, maxDamage = -10, radius = 4, effect = CONST_ME_EXPLOSIONHIT, target = true},
-	{name ="combat", interval = 1000, chance = 13, minDamage = -60, maxDamage = -200, type = COMBAT_MANADRAIN, radius = 5, effect = CONST_ME_WATERSPLASH, target = false}
+	{name ="condition", type = CONDITION_FIRE, interval = 3000, chance = 20, minDamage = -10, maxDamage = -10, radius = 4, effect = CONST_ME_EXPLOSIONHIT, target = true},
+	{name ="combat", interval = 1000, chance = 13, type = COMBAT_MANADRAIN, minDamage = -60, maxDamage = -200, radius = 5, effect = CONST_ME_WATERSPLASH, target = false}
 }
 
 monster.defenses = {
