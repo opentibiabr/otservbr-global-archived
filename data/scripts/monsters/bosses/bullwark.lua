@@ -90,8 +90,8 @@ monster.attacks = {
 monster.defenses = {
 	defense = 66,
 	armor = 48,
-	{name ="combat", interval = 2000, chance = 1, minDamage = 4000, maxDamage = 6000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 11, speedChange = 660, duration = 7000},
+	{name ="combat", interval = 2000, chance = 1, type = COMBAT_HEALING, minDamage = 4000, maxDamage = 6000, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="speed", interval = 2000, chance = 11, speedChange = 660, effect = CONST_ME_HITAREA, target = false, duration = 7000},
 	{name ="bullwark summon", interval = 2000, chance = 9, target = false}
 }
 

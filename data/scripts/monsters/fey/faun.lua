@@ -63,8 +63,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 45,
 	armor = 45,
-	{name = "combat", type = COMBAT_HEALING, interval = 2*1000, chance = 10, minDamage = 70, maxDamage = 90, effect = CONST_ME_PIXIE_EXPLOSION},
-	{name = "speed", type = CONDITION_PARAM_SPEED, interval = 2*1000, chance = 10, speed = 100, effect = CONST_ME_SOUND_GREEN},
+	{name ="combat", interval = 2000, chance = 15, minDamage = 75, maxDamage = 90, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

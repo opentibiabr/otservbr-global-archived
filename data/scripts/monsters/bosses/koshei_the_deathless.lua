@@ -84,7 +84,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 9, type = COMBAT_DEATHDAMAGE, minDamage = -50, maxDamage = -140, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
 	-- curse
 	{name ="condition", type = CONDITION_CURSED, interval = 3000, chance = 15, minDamage = -54, maxDamage = -54, range = 1, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -900, duration = 30000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = -900, range = 7, effect = CONST_ME_MAGIC_RED, target = false, duration = 30000}
 }
 
 monster.defenses = {

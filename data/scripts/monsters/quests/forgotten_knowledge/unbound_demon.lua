@@ -77,7 +77,7 @@ monster.defenses = {
 	armor = 40,
 	{name ="combat", interval = 2000, chance = 14, minDamage = 150, maxDamage = 250, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="demon summon", interval = 2000, chance = 8, target = false},
-	{name ="speed", interval = 2000, chance = 10, speedChange = 388, duration = 4000}
+	{name ="speed", interval = 2000, chance = 10, speedChange = 388, effect = CONST_ME_MAGIC_RED, target = false, duration = 4000}
 }
 
 monster.elements = {
