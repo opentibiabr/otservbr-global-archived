@@ -99,7 +99,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 12, minDamage = -280, maxDamage = -450, type = COMBAT_EARTHDAMAGE, range = 4, radius = 4, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_POFF, target = true},
 	{name ="soulfire", interval = 2000, chance = 10, target = false},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 11, minDamage = -20, maxDamage = -20, range = 7, shootEffect = CONST_ANI_POISON, target = false}
+	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 11, minDamage = -20, maxDamage = -20, range = 7, shootEffect = CONST_ANI_POISON, target = false}
 }
 
 monster.defenses = {

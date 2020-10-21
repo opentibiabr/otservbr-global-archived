@@ -90,7 +90,7 @@ monster.attacks = {
 	{name ="drunk", interval = 3000, chance = 11, radius = 6, effect = CONST_ME_POISONAREA, target = false},
 	{name ="speed", interval = 1000, chance = 25, speedChange = -350, duration = 30000},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 30, minDamage = -35, maxDamage = -35, radius = 5, target = false}
+	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 30, minDamage = -35, maxDamage = -35, radius = 5, target = false}
 }
 
 monster.defenses = {

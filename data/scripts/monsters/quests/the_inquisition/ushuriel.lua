@@ -112,7 +112,7 @@ monster.attacks = {
 	{name ="combat", interval = 1000, chance = 8, minDamage = 0, maxDamage = -430, type = COMBAT_ICEDAMAGE, radius = 6, effect = CONST_ME_ICETORNADO, target = false},
 	{name ="drunk", interval = 3000, chance = 11, radius = 6, effect = CONST_ME_SOUND_PURPLE, target = false},
 	-- energy damage
-	{name ="combat", type = COMBAT_ENERGYDAMAGE, interval = 2000, chance = 15, minDamage = -250, maxDamage = -250, radius = 4, effect = CONST_ME_ENERGYHIT, target = false}
+	{name ="condition", type = CONDITION_ENERGY, interval = 2000, chance = 15, minDamage = -250, maxDamage = -250, radius = 4, effect = CONST_ME_ENERGYHIT, target = false}
 }
 
 monster.defenses = {

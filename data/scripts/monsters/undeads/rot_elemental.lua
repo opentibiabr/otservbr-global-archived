@@ -85,7 +85,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 13, minDamage = -150, maxDamage = -250, type = COMBAT_EARTHDAMAGE, range = 7, radius = 3, shootEffect = CONST_ANI_GLOOTHSPEAR, effect = CONST_ME_POISONAREA, target = true},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -150, maxDamage = -230, type = COMBAT_EARTHDAMAGE, length = 6, spread = 3, effect = CONST_ME_POISONAREA, target = false},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -200, maxDamage = -300, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
+	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -200, maxDamage = -300, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
 	{name ="rot elemental paralyze", interval = 2000, chance = 11, target = false}
 }
 

@@ -97,10 +97,10 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -603, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 5, range = 5, target = false},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -920, maxDamage = -1280, range = 5, effect = CONST_ME_SMALLCLOUDS, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -80, maxDamage = -230, type = COMBAT_LIFEDRAIN, range = 7, effect = CONST_ME_MAGIC_RED, target = true},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -120, maxDamage = -250, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_LOSEENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -110, maxDamage = -180, type = COMBAT_DEATHDAMAGE, radius = 4, effect = CONST_ME_MORTAREA, target = false},
+	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -920, maxDamage = -1280, range = 5, effect = CONST_ME_SMALLCLOUDS, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -80, maxDamage = -230, range = 7, effect = CONST_ME_MAGIC_RED, target = true},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -120, maxDamage = -250, length = 8, spread = 3, effect = CONST_ME_LOSEENERGY, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -110, maxDamage = -180, radius = 4, effect = CONST_ME_MORTAREA, target = false},
 	{name ="speed", interval = 2000, chance = 20, speedChange = -800, duration = 30000}
 }
 

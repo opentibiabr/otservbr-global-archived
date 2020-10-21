@@ -108,9 +108,9 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 15, minDamage = -600, maxDamage = -780, type = COMBAT_ENERGYDAMAGE, length = 9, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -600, maxDamage = -780, type = COMBAT_ENERGYDAMAGE, length = 9, spread = 3, effect = CONST_ME_ENERGYAREA, target = false},
 	-- energy damage
-	{name ="combat", type = COMBAT_ENERGYDAMAGE, interval = 2000, chance = 20, minDamage = -2000, maxDamage = -2000, radius = 7, effect = CONST_ME_BLOCKHIT, target = false},
+	{name ="condition", type = CONDITION_ENERGY, interval = 2000, chance = 20, minDamage = -2000, maxDamage = -2000, radius = 7, effect = CONST_ME_BLOCKHIT, target = false},
 	-- bleed
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 20, minDamage = -2000, maxDamage = -2000, length = 9, spread = 3, effect = CONST_ME_BLOCKHIT, target = false}
+	{name ="condition", type = CONDITION_BLEEDING, interval = 2000, chance = 20, minDamage = -2000, maxDamage = -2000, length = 9, spread = 3, effect = CONST_ME_BLOCKHIT, target = false}
 }
 
 monster.defenses = {

@@ -78,7 +78,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -100, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_THROWINGSTAR, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -100, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_POISONARROW, target = false},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -8, maxDamage = -8, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
+	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -8, maxDamage = -8, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
 	{name ="drunk", interval = 3000, chance = 34, range = 7, target = false}
 }
 

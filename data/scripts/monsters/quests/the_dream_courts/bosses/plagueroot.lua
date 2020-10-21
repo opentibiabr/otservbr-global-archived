@@ -101,9 +101,9 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 210, attack = 260, effect = CONST_ME_DRAWBLOOD},
 	-- fire
-	{name ="combat", type = COMBAT_FIREDAMAGE, interval = 1000, chance = 7, minDamage = -200, maxDamage = -1000, range = 2, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_BLOCKHIT, target = false},
-	{name ="combat", interval = 1000, chance = 7, minDamage = -50, maxDamage = -150, type = COMBAT_PHYSICALDAMAGE, radius = 6, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 1000, chance = 50, minDamage = -20, maxDamage = -100, type = COMBAT_FIREDAMAGE, radius = 5, effect = CONST_ME_BLOCKHIT, target = false},
+	{name ="condition", type = CONDITION_FIRE, interval = 1000, chance = 7, minDamage = -200, maxDamage = -1000, range = 2, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_BLOCKHIT, target = false},
+	{name ="combat", interval = 1000, chance = 7, type = COMBAT_PHYSICALDAMAGE, minDamage = -50, maxDamage = -150, radius = 6, effect = CONST_ME_EXPLOSIONHIT, target = false},
+	{name ="combat", interval = 1000, chance = 50, type = COMBAT_FIREDAMAGE, minDamage = -20, maxDamage = -100, radius = 5, effect = CONST_ME_BLOCKHIT, target = false},
 	{name ="firefield", interval = 1000, chance = 4, radius = 8, effect = CONST_ME_EXPLOSIONHIT, target = false},
 	{name ="combat", interval = 1000, chance = 34, minDamage = -50, maxDamage = -150, type = COMBAT_FIREDAMAGE, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
 	{name ="combat", interval = 1000, chance = 13, minDamage = -50, maxDamage = -100, type = COMBAT_FIREDAMAGE, length = 8, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
