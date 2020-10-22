@@ -29,7 +29,8 @@ function playerLogin.onLogin(player)
 	local items = {
 		{2120, 1},
 		{2674, 10},
-		{8704, 2}
+		{8704, 2},
+		{2148, 3}
 	}
 	if player:getLastLoginSaved() == 0 then
 		local backpack = player:addItem(1988)
@@ -38,6 +39,9 @@ function playerLogin.onLogin(player)
 				backpack:addItem(items[i][1], items[i][2])
 			end
 		end
+
+	local town = player:getTown()
+	if town and town:getId() == TOWNS_LIST.ROOKGAARD then
 		player:addItem(2461, 1, true, 1, CONST_SLOT_HEAD)
 		player:addItem(2650, 1, true, 1, CONST_SLOT_ARMOR)
 		player:addItem(2512, 1, true, 1, CONST_SLOT_RIGHT)
@@ -45,6 +49,7 @@ function playerLogin.onLogin(player)
 		player:addItem(2649, 1, true, 1, CONST_SLOT_LEGS)
 		player:addItem(2643, 1, true, 1, CONST_SLOT_FEET)
 		player:addItem(2050, 1, true, 1, CONST_SLOT_AMMO)
+	end
 
 	else
 		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved())))
