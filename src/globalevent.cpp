@@ -334,7 +334,10 @@ bool GlobalEvent::executeRecord(uint32_t current, uint32_t old)
 {
 	//onRecord(current, old)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - GlobalEvent::executeRecord] Call stack overflow" << std::endl;
+		std::cout << "[Error - GlobalEvent::executeRecord "
+			<< getName()
+			<< "] Call stack overflow. Too many lua script calls being nested."
+			<< std::endl;
 		return false;
 	}
 
@@ -352,7 +355,10 @@ bool GlobalEvent::executeRecord(uint32_t current, uint32_t old)
 bool GlobalEvent::executeEvent() const
 {
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - GlobalEvent::executeEvent] Call stack overflow" << std::endl;
+		std::cout << "[Error - GlobalEvent::executeEvent "
+			<< getName()
+			<< "] Call stack overflow. Too many lua script calls being nested."
+			<< std::endl;
 		return false;
 	}
 

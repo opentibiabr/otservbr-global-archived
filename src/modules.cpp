@@ -175,7 +175,10 @@ void Module::executeOnRecvbyte(Player* player, NetworkMessage& msg)
 {
 	//onAdvance(player, skill, oldLevel, newLevel)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - CreatureEvent::executeAdvance] Call stack overflow" << std::endl;
+		std::cout << "[Error - CreatureEvent::executeAdvance"
+				<< " Player "
+				<< player->getName()
+				<< "] Call stack overflow. Too many lua script calls being nested." << std::endl;
 		return;
 	}
 

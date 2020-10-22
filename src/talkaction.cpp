@@ -147,7 +147,13 @@ bool TalkAction::executeSay(Player* player, const std::string& param, SpeakClass
 {
 	//onSay(player, words, param, type)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - TalkAction::executeSay] Call stack overflow" << std::endl;
+		std::cout << "[Error - TalkAction::executeSay"
+				<< " Player "
+				<< player->getName()
+				<< " words "
+				<< getWords()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 		return false;
 	}
 
