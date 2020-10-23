@@ -49,7 +49,12 @@ monster.flags = {
 	healthHidden = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
+}
+
+monster.events = {
+	"FeroxaTransform"
 }
 
 monster.light = {
