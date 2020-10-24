@@ -98,13 +98,13 @@ class Monster final : public Creature
 		int32_t getDefense() const override {
 			return mType->info.defense;
 		}
+
 		bool isPushable() const override {
 			return mType->info.pushable && baseSpeed != 0;
 		}
 		bool isAttackable() const override {
 			return mType->info.isAttackable;
 		}
-
 		bool canPushItems() const {
 			return mType->info.canPushItems;
 		}
@@ -116,9 +116,6 @@ class Monster final : public Creature
 		}
 		bool isPet() const {
 			return mType->info.isPet;
-		}
-		bool isPassive() const {
-			return mType->info.isPassive;
 		}
 		bool canSee(const Position& pos) const override;
 		bool canSeeInvisibility() const override {

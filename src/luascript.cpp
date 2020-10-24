@@ -2919,7 +2919,6 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("MonsterType", "isHealthHidden", LuaScriptInterface::luaMonsterTypeIsHealthHidden);
 
 	registerMethod("MonsterType", "isPet", LuaScriptInterface::luaMonsterTypeIsPet);
-	registerMethod("MonsterType", "isPassive", LuaScriptInterface::luaMonsterTypeIsHostile);
 	registerMethod("MonsterType", "isRewardBoss", LuaScriptInterface::luaMonsterTypeIsRewardBoss);
 
 	registerMethod("MonsterType", "respawnType", LuaScriptInterface::luaMonsterTypeRespawnType);
@@ -14157,23 +14156,6 @@ int LuaScriptInterface::luaMonsterTypeIsPet(lua_State* L)
 			pushBoolean(L, monsterType->info.isPet);
 		} else {
 			monsterType->info.isPet = getBoolean(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaMonsterTypeIsPassive(lua_State* L)
-{
-	// get: monsterType:isPassive() set: monsterType:isPassive(bool)
-	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
-	if (monsterType) {
-		if (lua_gettop(L) == 1) {
-			pushBoolean(L, monsterType->info.isPassive);
-		} else {
-			monsterType->info.isPassive = getBoolean(L, 2);
 			pushBoolean(L, true);
 		}
 	} else {

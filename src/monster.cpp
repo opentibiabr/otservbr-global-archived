@@ -693,7 +693,7 @@ bool Monster::selectTarget(Creature* creature)
 		return false;
 	}
 
-	if (isPassive() && !hasBeenAttacked(creature->getID())) {
+	if (!isHostile() && !hasBeenAttacked(creature->getID())) {
 		return false;
 	}
 

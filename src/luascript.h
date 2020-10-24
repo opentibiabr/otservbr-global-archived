@@ -1342,7 +1342,6 @@ class LuaScriptInterface
 		static int luaMonsterTypeIsHealthHidden(lua_State* L);
 
 		static int luaMonsterTypeIsPet(lua_State* L);
-		static int luaMonsterTypeIsPassive(lua_State* L);
 		static int luaMonsterTypeIsRewardBoss(lua_State* L);
 		static int luaMonsterTypeRespawnType(lua_State* L);
         static int luaMonsterTypeCanSpawn(lua_State* L);
