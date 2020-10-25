@@ -75,12 +75,12 @@ monster.attacks = {
 monster.defenses = {
 	defense = 65,
 	armor = 70,
-	{name ="combat", interval = 2000, chance = 9, minDamage = 20, maxDamage = 560, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10}
+	{name ="combat", interval = 2000, chance = 9, type = COMBAT_HEALING, minDamage = 20, maxDamage = 560, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_ENERGYHIT, target = false, duration = 10000, outfitMonster = "Lizard Snakecharmer"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_ENERGYHIT, target = false, duration = 10000, outfitMonster = "Lizard Abomination"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_ENERGYHIT, target = false, duration = 10000, outfitMonster = "Serpent Spawn"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_ENERGYHIT, target = false, duration = 10000, outfitMonster = "Draken Abomination"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_ENERGYHIT, target = false, duration = 10000, outfitMonster = "Mutated Zalamon"}
 }
 
 monster.elements = {

@@ -91,7 +91,7 @@ monster.defenses = {
 	defense = 20,
 	armor = 15,
 	{name ="invisible", interval = 2000, chance = 18, effect = CONST_ME_MAGIC_RED},
-	{name ="outfit", interval = 4000, chance = 9}
+	{name ="outfit", interval = 4000, chance = 9, effect = CONST_ME_MAGIC_RED, target = false, duration = 4000, outfitMonster = "green frog"}
 }
 
 monster.elements = {

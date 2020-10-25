@@ -76,11 +76,11 @@ monster.attacks = {
 monster.defenses = {
 	defense = 0,
 	armor = 48,
-	{name ="combat", interval = 2000, chance = 20, minDamage = 250, maxDamage = 350, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="outfit", interval = 5000, chance = 10},
-	{name ="outfit", interval = 5000, chance = 10},
-	{name ="outfit", interval = 5000, chance = 10},
-	{name ="outfit", interval = 5000, chance = 10}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 250, maxDamage = 350, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="outfit", interval = 5000, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "rat"},
+	{name ="outfit", interval = 5000, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "larva"},
+	{name ="outfit", interval = 5000, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "scorpion"},
+	{name ="outfit", interval = 5000, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "slime"}
 }
 
 monster.elements = {

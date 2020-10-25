@@ -91,8 +91,8 @@ monster.attacks = {
 monster.defenses = {
 	defense = 35,
 	armor = 35,
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 300, duration = 4000}
+	{name ="outfit", interval = 2000, chance = 10, target = false, duration = 4000, outfitMonster = "Vicious Manbat"},
+	{name ="speed", interval = 2000, chance = 15, speedChange = 300, effect = CONST_ME_MAGIC_RED, target = false, duration = 4000}
 }
 
 monster.elements = {

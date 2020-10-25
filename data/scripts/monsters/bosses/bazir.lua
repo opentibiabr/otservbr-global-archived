@@ -139,10 +139,10 @@ monster.attacks = {
 	{name ="combat", interval = 1000, chance = 10, minDamage = -400, maxDamage = -700, type = COMBAT_MANADRAIN, radius = 8, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="speed", interval = 1000, chance = 12, speedChange = -1900, duration = 60000},
 	{name ="strength", interval = 1000, chance = 8, radius = 5, effect = CONST_ME_HITAREA, target = false},
-	{name ="outfit", interval = 1000, chance = 2},
-	{name ="outfit", interval = 1000, chance = 2},
-	{name ="combat", interval = 1000, chance = 34, minDamage = -100, maxDamage = -900, type = COMBAT_FIREDAMAGE, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
-	{name ="combat", interval = 1000, chance = 15, minDamage = -500, maxDamage = -850, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false}
+	{name ="outfit", interval = 1000, chance = 2, radius = 8, effect = CONST_ME_LOSEENERGY, target = false, duration = 5000, outfitMonster = "demon"},
+	{name ="outfit", interval = 1000, chance = 2, radius = 8, effect = CONST_ME_LOSEENERGY, target = false, duration = 5000, outfitItem = 3058},
+	{name ="combat", interval = 1000, chance = 34, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -900, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
+	{name ="combat", interval = 1000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -500, maxDamage = -850, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false}
 }
 
 monster.defenses = {
@@ -153,7 +153,7 @@ monster.defenses = {
 	{name ="speed", interval = 1000, chance = 8, speedChange = 1901, duration = 5000},
 	{name ="invisible", interval = 1000, chance = 4, effect = CONST_ME_MAGIC_BLUE},
 	{name ="invisible", interval = 1000, chance = 17, effect = CONST_ME_MAGIC_BLUE},
-	{name ="outfit", interval = 1000, chance = 2}
+	{name ="outfit", interval = 1000, chance = 2, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 7000, outfitItem = 2916}
 }
 
 monster.elements = {

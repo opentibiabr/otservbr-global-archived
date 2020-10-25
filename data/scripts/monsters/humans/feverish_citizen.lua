@@ -89,7 +89,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="outfit", interval = 2000, chance = 1}
+	{name ="outfit", interval = 2000, chance = 1, radius = 3, effect = CONST_ME_GREEN_RINGS, target = false, duration = 5000, outfitMonster = "bog raider"}
 }
 
 monster.elements = {

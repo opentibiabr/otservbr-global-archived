@@ -91,11 +91,11 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -290, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1000, chance = 20, minDamage = 100, maxDamage = 720, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -600, duration = 20000},
-	{name ="combat", interval = 1000, chance = 14, minDamage = -100, maxDamage = -700, type = COMBAT_DEATHDAMAGE, length = 5, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="outfit", interval = 1000, chance = 1},
-	{name ="combat", interval = 2000, chance = 5, range = 1, target = false}
+	{name ="combat", interval = 1000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 100, maxDamage = 720, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, target = false},
+	{name ="speed", interval = 2000, chance = 15, speedChange = -600, range = 7, effect = CONST_ME_MAGIC_RED, target = false, duration = 20000},
+	{name ="combat", interval = 1000, chance = 14, type = COMBAT_DEATHDAMAGE, minDamage = -100, maxDamage = -700, length = 5, spread = 3, effect = CONST_ME_MORTAREA, target = false},
+	{name ="outfit", interval = 1000, chance = 1, radius = 1, target = true, duration = 2000, outfitMonster = "Werebadger"},
+	{name ="ghastly dragon curse", interval = 2000, chance = 5, range = 1, target = false}
 }
 
 monster.defenses = {

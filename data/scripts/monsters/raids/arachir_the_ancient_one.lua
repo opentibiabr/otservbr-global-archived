@@ -93,7 +93,7 @@ monster.defenses = {
 	armor = 30,
 	{name ="combat", interval = 1000, chance = 12, minDamage = 100, maxDamage = 235, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 3000, chance = 25, effect = CONST_ME_MAGIC_BLUE},
-	{name ="outfit", interval = 4500, chance = 30}
+	{name ="outfit", interval = 4500, chance = 30, target = false, duration = 4000, outfitMonster = "bat"}
 }
 
 monster.elements = {
