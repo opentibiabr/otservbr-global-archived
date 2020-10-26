@@ -83,15 +83,16 @@ bool Monsters::loadFromXml(bool reloading /*= false*/)
 
 bool MonsterType::canSpawn(const Position& pos)
 {
-	bool canspawn = true;
-	bool isday = g_game.gameIsDay();
-	if ((info.respawnType == RESPAWN_IN_DAY && !isday) ||
-		(info.respawnType == RESPAWN_IN_NIGHT && isday) ||
-		(info.respawnType == RESPAWN_IN_DAY_CAVE && !isday && pos.z == 7) ||
-		(info.respawnType == RESPAWN_IN_NIGHT_CAVE && isday && pos.z == 7)) {
-		canspawn = false;
+	bool canSpawn = true;
+	bool isDay = g_game.gameIsDay();
+
+	if ((isDay && info.respawnType.period == RESPAWNPERIOD_NIGHT) ||
+		(!isDay && info.respawnType.period == RESPAWNPERIOD_DAY)) {
+		// It will ignore day and night if underground
+		canSpawn = (pos.z > 7 && info.respawnType.underground);
 	}
-	return canspawn;
+
+	return canSpawn;
 }
 
 bool Monsters::reload()
@@ -895,7 +896,20 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 			} else if (strcasecmp(attrName, "canwalkonpoison") == 0) {
 				mType->info.canWalkOnPoison = attr.as_bool();
 			} else if (strcasecmp(attrName, "respawntype") == 0) {
-				mType->info.respawnType = getSpawnType(asLowerCaseString(attr.as_string()));
+				SpawnType_t spawnType = getSpawnType(asLowerCaseString(attr.as_string()));
+				if (spawnType == RESPAWN_IN_ALL) {
+					mType->info.respawnType.period = RESPAWNPERIOD_ALL;
+				} else if (spawnType == RESPAWN_IN_DAY) {
+					mType->info.respawnType.period = RESPAWNPERIOD_DAY;
+				} else if (spawnType == RESPAWN_IN_NIGHT) {
+					mType->info.respawnType.period = RESPAWNPERIOD_NIGHT;
+				} else if (spawnType == RESPAWN_IN_DAY_CAVE) {
+					mType->info.respawnType.period = RESPAWNPERIOD_DAY;
+					mType->info.respawnType.underground = true;
+				} else if (spawnType == RESPAWN_IN_NIGHT_CAVE) {
+					mType->info.respawnType.period = RESPAWNPERIOD_NIGHT;
+					mType->info.respawnType.underground = true;
+				}
 			} else {
 				std::cout << "[Warning - Monsters::loadMonster] Unknown flag attribute: " << attrName << ". " << file << std::endl;
 			}
