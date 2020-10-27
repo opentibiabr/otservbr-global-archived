@@ -6,7 +6,7 @@ function Container.createLootItem(self, item)
 	if self:getEmptySlots() == 0 then
 		return true
 	end
-
+ 
 	local itemCount = 0
 	local randvalue = getLootRandom()
 	local lootBlockType = ItemType(item.itemId)
@@ -36,6 +36,10 @@ function Container.createLootItem(self, item)
 					return false
 				end
 			end
+		end
+
+		if lootBlockType:getCharges() > 0 then
+			tmpItem:transform(item.itemId, lootBlockType:getCharges())
 		end
 
 		if item.subType ~= -1 then
