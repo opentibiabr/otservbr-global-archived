@@ -27,8 +27,12 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = false,
 	targetDistance = 1,
-	staticAttackChance = 80,
-	respawnType = "day"
+	staticAttackChance = 80
+}
+
+monster.respawnType = {
+	period = RESPAWNPERIOD_DAY,
+	underground = false
 }
 
 monster.loot = {
