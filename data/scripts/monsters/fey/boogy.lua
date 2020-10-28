@@ -49,7 +49,7 @@ monster.flags = {
 	healthHidden = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = false
 }
 
 monster.respawnType = {
