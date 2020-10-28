@@ -52,6 +52,11 @@ monster.flags = {
 	canWalkOnPoison = false
 }
 
+monster.respawnType = {
+	period = RESPAWNPERIOD_NIGHT,
+	underground = false
+}
+
 monster.light = {
 	level = 0,
 	color = 0
