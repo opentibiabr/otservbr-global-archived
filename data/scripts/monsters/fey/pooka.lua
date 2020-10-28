@@ -49,8 +49,12 @@ monster.flags = {
 	healthHidden = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	respawnType = "day"
+	canWalkOnPoison = false
+}
+
+monster.respawnType = {
+	period = RESPAWNPERIOD_DAY,
+	underground = false
 }
 
 monster.light = {
