@@ -50,7 +50,11 @@ monster.flags = {
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
 	canWalkOnPoison = false,
-	respawnType = "night"
+}
+
+monster.respawnType = {
+	period = RESPAWNPERIOD_NIGHT,
+	underground = true
 }
 
 monster.light = {
