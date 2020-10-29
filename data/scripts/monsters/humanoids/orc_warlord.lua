@@ -17,7 +17,7 @@ monster.health = 950
 monster.maxHealth = 950
 monster.race = "blood"
 monster.corpse = 6008
-monster.speed = 234
+monster.speed = 117
 monster.summonCost = 0
 monster.maxSummons = 0
 
@@ -97,8 +97,8 @@ monster.attacks = {
 }
 
 monster.defenses = {
-	defense = 35,
-	armor = 35,
+	defense = 28,
+	armor = 28,
 	{name ="invisible", interval = 2000, chance = 5, effect = CONST_ME_MAGIC_BLUE}
 }
 

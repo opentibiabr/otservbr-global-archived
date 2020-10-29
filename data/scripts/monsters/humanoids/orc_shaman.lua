@@ -17,7 +17,7 @@ monster.health = 115
 monster.maxHealth = 115
 monster.race = "blood"
 monster.corpse = 5978
-monster.speed = 140
+monster.speed = 70
 monster.summonCost = 0
 monster.maxSummons = 4
 
@@ -86,8 +86,8 @@ monster.attacks = {
 }
 
 monster.defenses = {
-	defense = 10,
-	armor = 10,
+	defense = 8,
+	armor = 8,
 	{name ="combat", interval = 2000, chance = 60, minDamage = 27, maxDamage = 43, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 

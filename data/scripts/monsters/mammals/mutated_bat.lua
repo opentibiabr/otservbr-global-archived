@@ -17,7 +17,7 @@ monster.health = 900
 monster.maxHealth = 900
 monster.race = "blood"
 monster.corpse = 9829
-monster.speed = 186
+monster.speed = 80
 monster.summonCost = 0
 monster.maxSummons = 0
 
@@ -84,7 +84,6 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 15, minDamage = -30, maxDamage = -90, type = COMBAT_DROWNDAMAGE, effect = CONST_ME_SOUND_WHITE, target = false},
 	{name ="combat", interval = 2000, chance = 10, target = false},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 15, minDamage = -190, maxDamage = -240, length = 4, spread = 3, effect = CONST_ME_POISONAREA, target = false}
 }
 
 monster.defenses = {

@@ -17,7 +17,7 @@ monster.health = 800
 monster.maxHealth = 800
 monster.race = "blood"
 monster.corpse = 6064
-monster.speed = 590
+monster.speed = 295
 monster.summonCost = 480
 monster.maxSummons = 0
 
@@ -31,7 +31,7 @@ monster.strategiesTarget = {
 }
 
 monster.flags = {
-	summonable = true,
+	summonable = false,
 	attackable = true,
 	hostile = true,
 	convinceable = true,
@@ -45,7 +45,7 @@ monster.flags = {
 	runHealth = 40,
 	healthHidden = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false
 }
 
@@ -77,12 +77,12 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -138, effect = CONST_ME_DRAWBLOOD}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -140, effect = CONST_ME_DRAWBLOOD}
 }
 
 monster.defenses = {
-	defense = 15,
-	armor = 15,
+	defense = 16,
+	armor = 16,
 	{name ="invisible", interval = 2000, chance = 20, effect = CONST_ME_MAGIC_BLUE},
 	{name ="speed", interval = 2000, chance = 15, speedChange = 400, duration = 5000}
 }

@@ -17,7 +17,7 @@ monster.health = 9000
 monster.maxHealth = 9000
 monster.race = "fire"
 monster.corpse = 17333
-monster.speed = 420
+monster.speed = 210
 monster.summonCost = 0
 monster.maxSummons = 0
 
@@ -104,8 +104,8 @@ monster.attacks = {
 }
 
 monster.defenses = {
-	defense = 60,
-	armor = 60
+	defense = 84,
+	armor = 84
 }
 
 monster.elements = {

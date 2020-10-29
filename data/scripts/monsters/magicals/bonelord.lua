@@ -17,9 +17,9 @@ monster.health = 260
 monster.maxHealth = 260
 monster.race = "venom"
 monster.corpse = 5992
-monster.speed = 150
+monster.speed = 75
 monster.summonCost = 0
-monster.maxSummons = 6
+monster.maxSummons = 2
 
 monster.changeTarget = {
 	interval = 4000,
@@ -58,7 +58,7 @@ monster.light = {
 }
 
 monster.summons = {
-	{name = "Skeleton", chance = 20, interval = 2000, max = 6}
+	{name = "Skeleton", chance = 20, interval = 2000, max = 2}
 }
 
 monster.voices = {

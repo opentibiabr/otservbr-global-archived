@@ -17,7 +17,7 @@ monster.health = 150
 monster.maxHealth = 150
 monster.race = "venom"
 monster.corpse = 8062
-monster.speed = 120
+monster.speed = 60
 monster.summonCost = 0
 monster.maxSummons = 3
 

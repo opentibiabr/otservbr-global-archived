@@ -17,7 +17,7 @@ monster.health = 240
 monster.maxHealth = 240
 monster.race = "blood"
 monster.corpse = 9107
-monster.speed = 154
+monster.speed = 77
 monster.summonCost = 0
 monster.maxSummons = 0
 
@@ -85,7 +85,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -90, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 60, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -50, maxDamage = -60, type = COMBAT_DEATHDAMAGE, length = 3, spread = 1, effect = CONST_ME_POISONAREA, target = false},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 20, minDamage = -190, maxDamage = -280, effect = CONST_ME_HITBYPOISON, target = true},
+	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 20, minDamage = -2 maxDamage = -5, effect = CONST_ME_HITBYPOISON, target = true},
 	{name ="speed", interval = 2000, chance = 10, speedChange = -600, duration = 30000}
 }
 
