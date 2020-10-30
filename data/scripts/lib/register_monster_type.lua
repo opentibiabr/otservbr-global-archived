@@ -105,9 +105,6 @@ registerMonsterType.flags = function(mtype, mask)
 		if mask.flags.pet then
 			mtype:isPet(mask.flags.pet)
 		end
-		if mask.flags.passive then
-			mtype:isPassive(mask.flags.passive)
-		end
 		if mask.flags.respawntype then
 			mtype:respawnType(mask.flags.respawntype)
 		end
