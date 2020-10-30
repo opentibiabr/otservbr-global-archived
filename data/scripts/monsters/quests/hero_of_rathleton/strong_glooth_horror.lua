@@ -58,6 +58,10 @@ monster.events = {
 	"GloothHorror"
 }
 
+monster.events = {
+	"GloothHorror"
+}
+
 monster.light = {
 	level = 0,
 	color = 0

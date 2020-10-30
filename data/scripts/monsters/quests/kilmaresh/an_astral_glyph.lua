@@ -52,6 +52,10 @@ monster.events = {
 	"AstralGlyphDeath"
 }
 
+monster.events = {
+	"AstralGlyphDeath"
+}
+
 monster.light = {
 	level = 0,
 	color = 0

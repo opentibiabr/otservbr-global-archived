@@ -1,6 +1,7 @@
-local mType = Game.createMonsterType("Zamulosh")
+local mType = Game.createMonsterType("Zamulosh2")
 local monster = {}
 
+monster.name = "Zamulosh"
 monster.description = "zamulosh"
 monster.experience = 55000
 monster.outfit = {
@@ -39,7 +40,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = false,

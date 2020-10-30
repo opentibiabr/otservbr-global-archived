@@ -1,6 +1,7 @@
-local mType = Game.createMonsterType("Feroxa")
+local mType = Game.createMonsterType("Feroxa3")
 local monster = {}
 
+monster.name = "Feroxa"
 monster.description = "Feroxa"
 monster.experience = 0
 monster.outfit = {
@@ -52,6 +53,10 @@ monster.flags = {
 	canWalkOnFire = false,
 	canWalkOnPoison = false,
 	pet = false
+}
+
+monster.events = {
+	"feroxaDeath"
 }
 
 monster.events = {

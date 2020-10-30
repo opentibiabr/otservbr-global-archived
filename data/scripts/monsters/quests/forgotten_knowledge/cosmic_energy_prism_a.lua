@@ -45,7 +45,9 @@ monster.flags = {
 	pet = false
 }
 
-monster.events = {"EnergyPrism"}
+monster.events = {
+	"EnergyPrism"
+}
 
 monster.light = {
 	level = 0,

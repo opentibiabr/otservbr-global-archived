@@ -48,7 +48,9 @@ monster.flags = {
 	pet = false
 }
 
-monster.events = {"DistortedSource"}
+monster.events = {
+	"DistortedSource"
+}
 
 monster.light = {
 	level = 0,

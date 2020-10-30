@@ -1,6 +1,7 @@
-local mType = Game.createMonsterType("Giant Spider")
+local mType = Game.createMonsterType("Giant Spider Wyda")
 local monster = {}
 
+monster.name = "Giant Spider"
 monster.description = "a giant spider"
 monster.experience = 12
 monster.outfit = {
@@ -53,7 +54,9 @@ monster.flags = {
 	pet = false
 }
 
-monster.events = {"Wyda"}
+monster.events = {
+	"Wyda"
+}
 
 monster.light = {
 	level = 0,

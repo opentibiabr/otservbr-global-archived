@@ -51,7 +51,9 @@ monster.flags = {
 	pet = false
 }
 
-monster.events = {"WhiteDeerScoutsDeath"}
+monster.events = {
+	"WhiteDeerScoutsDeath"
+}
 
 monster.light = {
 	level = 0,
