@@ -46,8 +46,9 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {

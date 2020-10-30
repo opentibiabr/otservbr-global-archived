@@ -50,7 +50,12 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
+}
+
+monster.events = {
+	"GloothHorror"
 }
 
 monster.light = {

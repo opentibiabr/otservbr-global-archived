@@ -50,7 +50,8 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.events = {"HealthForgotten"}
