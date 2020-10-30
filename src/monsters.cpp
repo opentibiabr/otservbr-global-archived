@@ -648,7 +648,18 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 			}
 
 			ConditionOutfit* condition = static_cast<ConditionOutfit*>(Condition::createCondition(CONDITIONID_COMBAT, CONDITION_OUTFIT, duration, 0));
-			condition->setOutfit(spell->outfit);
+			
+			if (spell->outfitMonster != "") {
+				condition->setLazyMonsterOutfit(spell->outfitMonster);
+			} else if (spell->outfitItem > 0) {
+				Outfit_t outfit;
+				outfit.lookTypeEx = spell->outfitItem;
+				condition->setOutfit(outfit);
+			} else {
+				std::cout << "[Error - Monsters::deserializeSpell] Missing outfit monster or item in outfit spell for: " << description << std::endl;
+				return false;
+			}
+
 			combat->setParam(COMBAT_PARAM_AGGRESSIVE, 0);
 			combat->addCondition(condition);
 		} else if (tmpName == "invisible") {

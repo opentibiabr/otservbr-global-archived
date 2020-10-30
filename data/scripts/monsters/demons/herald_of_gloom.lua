@@ -82,12 +82,12 @@ monster.defenses = {
 	armor = 50,
 	{name ="speed", interval = 1000, chance = 15, speedChange = 200, effect = CONST_ME_MAGIC_RED, target = false, duration = 20000},
 	{name ="invisible", interval = 5000, chance = 20, effect = CONST_ME_MAGIC_RED},
-	{name ="outfit", interval = 1500, chance = 20},
-	{name ="outfit", interval = 1500, chance = 10},
-	{name ="outfit", interval = 1500, chance = 10},
-	{name ="outfit", interval = 1500, chance = 10},
-	{name ="outfit", interval = 1500, chance = 10},
-	{name ="outfit", interval = 1500, chance = 10}
+	{name ="outfit", interval = 1500, chance = 20, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "nightstalker"},
+	{name ="outfit", interval = 1500, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "werewolf"},
+	{name ="outfit", interval = 1500, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "the count"},
+	{name ="outfit", interval = 1500, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "grim reaper"},
+	{name ="outfit", interval = 1500, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "tarantula"},
+	{name ="outfit", interval = 1500, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "ferumbras"}
 }
 
 monster.elements = {

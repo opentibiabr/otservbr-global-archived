@@ -97,9 +97,9 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 50, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 100, chance = 22, minDamage = -200, maxDamage = -310, type = COMBAT_PHYSICALDAMAGE, radius = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
-	{name ="outfit", interval = 1000, chance = 1},
-	{name ="combat", interval = 100, chance = 15, minDamage = -100, maxDamage = -200, type = COMBAT_LIFEDRAIN, radius = 3, effect = CONST_ME_SOUND_WHITE, target = false}
+	{name ="combat", interval = 100, chance = 22, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -310, radius = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
+	{name ="outfit", interval = 1000, chance = 1, radius = 1, target = true, duration = 2000, outfitMonster = "Werebear"},
+	{name ="combat", interval = 100, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -100, maxDamage = -200, radius = 3, effect = CONST_ME_SOUND_WHITE, target = false}
 }
 
 monster.defenses = {

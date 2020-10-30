@@ -96,11 +96,11 @@ monster.defenses = {
 	armor = 55,
 	{name ="combat", interval = 2000, chance = 35, type = COMBAT_HEALING, minDamage = 300, maxDamage = 800, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 4000, chance = 80, speedChange = 440, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10}
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_CRAPS, target = false, duration = 10000, outfitMonster = "behemoth"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_CRAPS, target = false, duration = 10000, outfitMonster = "fire devil"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_CRAPS, target = false, duration = 10000, outfitMonster = "giant spider"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_CRAPS, target = false, duration = 10000, outfitMonster = "undead dragon"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_CRAPS, target = false, duration = 10000, outfitMonster = "lost soul"}
 }
 
 monster.elements = {

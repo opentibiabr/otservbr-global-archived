@@ -98,7 +98,7 @@ monster.defenses = {
 	armor = 25,
 	{name ="combat", interval = 1000, chance = 20, minDamage = 200, maxDamage = 400, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 1000, chance = 7, effect = CONST_ME_MAGIC_BLUE},
-	{name ="outfit", interval = 1000, chance = 3}
+	{name ="outfit", interval = 1000, chance = 3, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "ancient scarab"}
 }
 
 monster.elements = {

@@ -79,7 +79,7 @@ monster.attacks = {
 	{name ="combat", interval = 6000, chance = 40, type = COMBAT_PHYSICALDAMAGE, minDamage = -20, maxDamage = -100, range = 5, radius = 1, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
 	{name ="combat", interval = 5000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -40, maxDamage = -200, range = 5, radius = 1, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_FIREAREA, target = true},
 	{name ="drunk", interval = 1000, chance = 20, range = 5, radius = 1, target = true, duration = 30000},
-	{name ="outfit", interval = 2000, chance = 50}
+	{name ="outfit", interval = 2000, chance = 50, range = 5, radius = 1, effect = CONST_ME_MAGIC_GREEN, target = true, duration = 60000, outfitMonster = "Rat"}
 }
 
 monster.defenses = {

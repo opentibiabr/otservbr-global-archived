@@ -244,6 +244,9 @@ class MonsterSpell
 		bool isMelee = false;
 
 		Outfit_t outfit = {};
+		std::string outfitMonster = "";
+		uint16_t outfitItem = 0;
+
 		ShootType_t shoot = CONST_ANI_NONE;
 		MagicEffectClasses effect = CONST_ME_NONE;
 		ConditionType_t conditionType = CONDITION_NONE;

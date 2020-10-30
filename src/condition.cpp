@@ -23,6 +23,7 @@
 #include "game.h"
 
 extern Game g_game;
+extern Monsters g_monsters;
 
 bool Condition::setParam(ConditionParam_t param, int32_t value)
 {
@@ -1461,9 +1462,17 @@ void ConditionInvisible::endCondition(Creature* creature)
 	}
 }
 
+/**
+ * ConditionOutfit
+ */ 
+
 void ConditionOutfit::setOutfit(const Outfit_t& newOutfit)
 {
 	this->outfit = newOutfit;
+}
+
+void ConditionOutfit::setLazyMonsterOutfit(const std::string& monsterName) {
+	this->monsterName = monsterName;
 }
 
 bool ConditionOutfit::unserializeProp(ConditionAttr_t attr, PropStream& propStream)
@@ -1484,6 +1493,16 @@ void ConditionOutfit::serialize(PropWriteStream& propWriteStream)
 
 bool ConditionOutfit::startCondition(Creature* creature)
 {
+	if ((outfit.lookType == 0 && outfit.lookTypeEx == 0) && !monsterName.empty()) {
+		MonsterType* monsterType = g_monsters.getMonsterType(monsterName);
+		if (monsterType) {
+			setOutfit(monsterType->info.outfit);
+		} else {
+			std::cout << "[Error - ConditionOutfit::startCondition] Monster " << monsterName << " does not exist" << std::endl;;
+			return false;
+		}
+	}
+	
 	if (!Condition::startCondition(creature)) {
 		return false;
 	}
@@ -1508,11 +1527,26 @@ void ConditionOutfit::addCondition(Creature* creature, const Condition* addCondi
 		setTicks(addCondition->getTicks());
 
 		const ConditionOutfit& conditionOutfit = static_cast<const ConditionOutfit&>(*addCondition);
-		outfit = conditionOutfit.outfit;
+		if (!conditionOutfit.monsterName.empty() && conditionOutfit.monsterName.compare(monsterName) != 0) {
+			MonsterType* monsterType = g_monsters.getMonsterType(conditionOutfit.monsterName);
+			if (monsterType) {
+				setOutfit(monsterType->info.outfit);
+			} else {
+				std::cout << "[Error - ConditionOutfit::addCondition] Monster " << monsterName << " does not exist" << std::endl;;
+				return;
+			}
+		}
+		else if (conditionOutfit.outfit.lookType != 0 || conditionOutfit.outfit.lookTypeEx != 0) {
+			setOutfit(conditionOutfit.outfit);
+		}
 
 		g_game.internalCreatureChangeOutfit(creature, outfit);
 	}
 }
+
+/**
+ *  ConditionLight
+ */ 
 
 bool ConditionLight::startCondition(Creature* creature)
 {

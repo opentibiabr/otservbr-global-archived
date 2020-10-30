@@ -326,7 +326,7 @@ function readSpell(incomingLua)
 				if incomingLua.condition.interval then
 					spell:setConditionTickInterval(incomingLua.condition.interval)
 				end
-	
+
 				spell:setConditionDamage(incomingLua.condition.minDamage, incomingLua.condition.minDamage, 0)
 			end
 		else
@@ -364,6 +364,12 @@ function readSpell(incomingLua)
 			end
 			if incomingLua.radius then
 				spell:setCombatRadius(incomingLua.radius)
+			end
+			if incomingLua.outfitMonster then
+				spell:setOutfitMonster(incomingLua.outfitMonster)
+			end
+			if incomingLua.outfitItem then
+				spell:setOutfitItem(incomingLua.outfitItem)
 			end
 			if incomingLua.minDamage and incomingLua.maxDamage then
 				if incomingLua.name == "combat" then

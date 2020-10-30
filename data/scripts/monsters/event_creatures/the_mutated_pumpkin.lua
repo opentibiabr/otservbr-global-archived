@@ -90,13 +90,13 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 105, attack = 85, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 3000, chance = 18, minDamage = -100, maxDamage = -300, type = COMBAT_MANADRAIN, range = 7, effect = CONST_ME_MAGIC_RED, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -100, maxDamage = -300, type = COMBAT_EARTHDAMAGE, radius = 7, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 3000, chance = 14, minDamage = -40, maxDamage = -300, type = COMBAT_ENERGYDAMAGE, radius = 7, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 1000, chance = 10, minDamage = -30, maxDamage = -300, type = COMBAT_DEATHDAMAGE, radius = 8, effect = CONST_ME_POFF, target = false},
-	{name ="combat", interval = 3000, chance = 12, minDamage = -100, maxDamage = -300, type = COMBAT_EARTHDAMAGE, length = 8, spread = 3, effect = CONST_ME_PLANTATTACK, target = false},
-	{name ="combat", interval = 1000, chance = 10, minDamage = -100, maxDamage = -400, type = COMBAT_LIFEDRAIN, length = 6, spread = 3, effect = CONST_ME_HITBYPOISON, target = false},
-	{name ="outfit", interval = 1000, chance = 2}
+	{name ="combat", interval = 3000, chance = 18, type = COMBAT_MANADRAIN, minDamage = -100, maxDamage = -300, range = 7, effect = CONST_ME_MAGIC_RED, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -100, maxDamage = -300, radius = 7, effect = CONST_ME_POISONAREA, target = false},
+	{name ="combat", interval = 3000, chance = 14, type = COMBAT_ENERGYDAMAGE, minDamage = -40, maxDamage = -300, radius = 7, effect = CONST_ME_ENERGYHIT, target = false},
+	{name ="combat", interval = 1000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -30, maxDamage = -300, radius = 8, effect = CONST_ME_POFF, target = false},
+	{name ="combat", interval = 3000, chance = 12, type = COMBAT_EARTHDAMAGE, minDamage = -100, maxDamage = -300, length = 8, spread = 3, effect = CONST_ME_PLANTATTACK, target = false},
+	{name ="combat", interval = 1000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -100, maxDamage = -400, length = 6, spread = 3, effect = CONST_ME_HITBYPOISON, target = false},
+	{name ="outfit", interval = 1000, chance = 2, radius = 8, effect = CONST_ME_LOSEENERGY, target = false, duration = 5000, outfitMonster = "The Mutated Pumpkin"}
 }
 
 monster.defenses = {

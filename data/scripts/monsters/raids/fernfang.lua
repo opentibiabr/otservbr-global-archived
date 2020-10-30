@@ -104,7 +104,7 @@ monster.defenses = {
 	armor = 15,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 10, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="speed", interval = 1000, chance = 7, speedChange = 280, effect = CONST_ME_MAGIC_RED, target = false, duration = 10000},
-	{name ="outfit", interval = 1000, chance = 5}
+	{name ="outfit", interval = 1000, chance = 5, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 14000, outfitMonster = "War Wolf"}
 }
 
 monster.elements = {

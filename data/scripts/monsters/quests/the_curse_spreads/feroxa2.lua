@@ -87,7 +87,7 @@ monster.defenses = {
 	defense = 55,
 	armor = 50,
 	{name ="speed", interval = 2000, chance = 12, speedChange = 1250, effect = CONST_ME_MAGIC_RED, target = false, duration = 10000},
-	{name ="outfit", interval = 2000, chance = 20},
+	{name ="outfit", interval = 2000, chance = 20, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 5000, outfitMonster = "were wolf"},
 	{name ="feroxa summon", interval = 2000, chance = 20, target = false}
 }
 
