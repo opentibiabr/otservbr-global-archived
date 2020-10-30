@@ -17,7 +17,7 @@ monster.health = 185
 monster.maxHealth = 185
 monster.race = "blood"
 monster.corpse = 5983
-monster.speed = 85
+monster.speed = 110
 monster.summonCost = 550
 monster.maxSummons = 0
 

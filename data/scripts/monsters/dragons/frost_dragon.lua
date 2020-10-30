@@ -17,7 +17,7 @@ monster.health = 1800
 monster.maxHealth = 1800
 monster.race = "undead"
 monster.corpse = 7091
-monster.speed = 106
+monster.speed = 150
 monster.summonCost = 0
 monster.maxSummons = 0
 
