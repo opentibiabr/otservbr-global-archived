@@ -64,14 +64,7 @@ enum GameState_t {
 	GAME_STATE_MAINTAIN,
 };
 
-enum LightState_t {
-	LIGHT_STATE_DAY,
-	LIGHT_STATE_NIGHT,
-	LIGHT_STATE_SUNSET,
-	LIGHT_STATE_SUNRISE,
-};
-
-static constexpr int32_t EVENT_LIGHTINTERVAL = 10000;
+static constexpr int32_t EVENT_LIGHTINTERVAL_MS = 10000;
 static constexpr int32_t EVENT_DECAYINTERVAL = 250;
 static constexpr int32_t EVENT_DECAY_BUCKETS = 4;
 static constexpr int32_t EVENT_IMBUEMENTINTERVAL = 250;
@@ -612,6 +605,8 @@ class Game
 
 		ModalWindow offlineTrainingWindow { std::numeric_limits<uint32_t>::max(), "Choose a Skill", "Please choose a skill:" };
 
+		static constexpr int32_t DAY_LENGTH_SECONDS = 3600;
+		static constexpr int32_t LIGHT_DAY_LENGTH = 1440;
 		static constexpr int32_t LIGHT_LEVEL_DAY = 250;
 		static constexpr int32_t LIGHT_LEVEL_NIGHT = 40;
 		static constexpr int32_t SUNSET = 1050;
@@ -623,10 +618,11 @@ class Game
 		WorldType_t worldType = WORLD_TYPE_PVP;
 
 		LightState_t lightState = LIGHT_STATE_DAY;
+		LightState_t currentLightState = lightState;
 		uint8_t lightLevel = LIGHT_LEVEL_DAY;
 		int32_t lightHour = SUNRISE + (SUNSET - SUNRISE) / 2;
-		// (1440 minutes/day)/(3600 seconds/day)*10 seconds event interval
-		int32_t lightHourDelta = 1400 * 10 / 3600;
+		// (1440 total light of tibian day)/(3600 real seconds each tibian day) * 10 seconds event interval
+		int32_t lightHourDelta = (LIGHT_DAY_LENGTH / DAY_LENGTH_SECONDS) * (EVENT_LIGHTINTERVAL_MS/1000);
 
 		ServiceManager* serviceManager = nullptr;
 

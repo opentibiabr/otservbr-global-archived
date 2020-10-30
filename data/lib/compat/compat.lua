@@ -213,6 +213,10 @@ do
 			self:type("record")
 			self:onRecord(value)
 			return
+		elseif key == "onPeriodChange" then
+			self:type("periodchange")
+			self:onPeriodChange(value)
+			return
 		end
 		rawset(self, key, value)
 	end

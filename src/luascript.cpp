@@ -1980,6 +1980,11 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(MONSTERS_EVENT_MOVE)
 	registerEnum(MONSTERS_EVENT_SAY)
 
+	registerEnum(LIGHT_STATE_DAY);
+	registerEnum(LIGHT_STATE_NIGHT);
+	registerEnum(LIGHT_STATE_SUNSET);
+	registerEnum(LIGHT_STATE_SUNRISE);
+
 	// _G
 	registerGlobalVariable("INDEX_WHEREEVER", INDEX_WHEREEVER);
 	registerGlobalBoolean("VIRTUAL_PARENT", true);
@@ -3173,6 +3178,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("GlobalEvent", "onStartup", LuaScriptInterface::luaGlobalEventOnCallback);
 	registerMethod("GlobalEvent", "onShutdown", LuaScriptInterface::luaGlobalEventOnCallback);
 	registerMethod("GlobalEvent", "onRecord", LuaScriptInterface::luaGlobalEventOnCallback);
+	registerMethod("GlobalEvent", "onPeriodChange", LuaScriptInterface::luaGlobalEventOnCallback);
 
 	// Weapon
 	registerClass("Weapon", "", LuaScriptInterface::luaCreateWeapon);
@@ -17289,6 +17295,8 @@ int LuaScriptInterface::luaGlobalEventType(lua_State* L)
 			global->setEventType(GLOBALEVENT_SHUTDOWN);
 		} else if (tmpStr == "record") {
 			global->setEventType(GLOBALEVENT_RECORD);
+		} else if (tmpStr == "periodchange") {
+			global->setEventType(GLOBALEVENT_PERIODCHANGE);
 		} else {
 			std::cout << "[Error - CreatureEvent::configureLuaEvent] Invalid type for global event: " << typeName << std::endl;
 			pushBoolean(L, false);

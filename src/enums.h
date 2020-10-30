@@ -587,6 +587,13 @@ struct Outfit_t {
 	uint8_t lookAddons = 0;
 };
 
+enum LightState_t {
+	LIGHT_STATE_DAY,
+	LIGHT_STATE_NIGHT,
+	LIGHT_STATE_SUNSET,
+	LIGHT_STATE_SUNRISE,
+};
+
 struct LightInfo {
 	uint8_t level = 0;
 	uint8_t color = 0;
