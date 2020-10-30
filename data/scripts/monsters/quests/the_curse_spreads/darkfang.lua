@@ -96,9 +96,9 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -290, effect = CONST_ME_DRAWBLOOD},
 	{name ="werewolf skill reducer", interval = 2000, chance = 15, range = 1, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -100, maxDamage = -300, type = COMBAT_LIFEDRAIN, radius = 8, effect = CONST_ME_SOUND_RED, target = false},
-	{name ="combat", interval = 2000, chance = 18, minDamage = 200, maxDamage = 340, type = COMBAT_PHYSICALDAMAGE, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -600, duration = 20000}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -100, maxDamage = -300, radius = 8, effect = CONST_ME_SOUND_RED, target = false},
+	{name ="combat", interval = 2000, chance = 18, type = COMBAT_PHYSICALDAMAGE, minDamage = 200, maxDamage = 340, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
+	{name ="speed", interval = 2000, chance = 15, speedChange = -600, range = 7, effect = CONST_ME_MAGIC_RED, target = false, duration = 20000}
 }
 
 monster.defenses = {

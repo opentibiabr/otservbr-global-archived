@@ -54,10 +54,11 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name = "melee", type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD, interval = 2*1000},
-	{name = "combat", type = COMBAT_ENERGYDAMAGE,  interval = 2*1000, chance = 13, target = true, range = 4, minDamage = -70, maxDamage = -96, shootEffect = CONST_ANI_LEAFSTAR, effect = CONST_ME_ENERGYHIT},
-	{name = "speed", type = CONDITION_PARAM_SPEED, chance = 20, interval = 2*1000, length = 4, spread = 3, speed = -220, effect = CONST_ME_MAGIC_GREEN},
-	{name = "pixie skill reducer", chance = 15, interval = 2*1000},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -85, maxDamage = -135, type = COMBAT_ENERGYDAMAGE, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
+	{name ="speed", interval = 2000, chance = 11, speedChange = -440, duration = 7000},
+	{name ="combat", interval = 2000, chance = 30, minDamage = 0, maxDamage = -100, type = COMBAT_ENERGYDAMAGE, range = 4, shootEffect = CONST_ANI_LEAFSTAR, target = false},
+	{name ="combat", interval = 2000, chance = 20, target = false}
 }
 
 monster.defenses = {

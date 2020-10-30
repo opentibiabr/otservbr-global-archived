@@ -148,9 +148,9 @@ monster.attacks = {
 monster.defenses = {
 	defense = 150,
 	armor = 165,
-	{name ="combat", interval = 1000, chance = 15, minDamage = 5000, maxDamage = 10000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 1000, chance = 25, minDamage = 2000, maxDamage = 3000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 1000, chance = 10, speedChange = 1800, duration = 4000}
+	{name ="combat", interval = 1000, chance = 15, type = COMBAT_HEALING, minDamage = 5000, maxDamage = 10000, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="combat", interval = 1000, chance = 25, type = COMBAT_HEALING, minDamage = 2000, maxDamage = 3000, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="speed", interval = 1000, chance = 10, speedChange = 1800, effect = CONST_ME_MAGIC_RED, target = false, duration = 4000}
 }
 
 monster.elements = {

@@ -98,8 +98,8 @@ monster.attacks = {
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{name ="combat", interval = 2000, chance = 15, minDamage = 50, maxDamage = 200, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 300, duration = 5000}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 50, maxDamage = 200, effect = CONST_ME_MAGIC_GREEN, target = false},
+	{name ="speed", interval = 2000, chance = 15, speedChange = 300, range = 7, effect = CONST_ME_SOUND_PURPLE, target = false, duration = 5000}
 }
 
 monster.elements = {

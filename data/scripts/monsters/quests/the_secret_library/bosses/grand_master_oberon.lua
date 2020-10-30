@@ -81,7 +81,9 @@ monster.health = 30000
 monster.maxHealth = monster.health
 monster.race = "blood"
 monster.corpse = 33368
-monster.speed = 290
+monster.speed = 230
+monster.summonCost = 0
+monster.maxSummons = 0
 
 monster.changeTarget = {
 	interval = 4*1000,
@@ -141,8 +143,9 @@ monster.attacks = {
 }
 
 monster.defenses = {
-	defense = 82,
-	armor = 60,
+	defense = 60,
+	armor = 82,
+	{name ="speed", interval = 1000, chance = 10, speedChange = 160, duration = 4000}
 }
 
 monster.elements = {

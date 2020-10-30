@@ -83,8 +83,8 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 15, minDamage = -45, maxDamage = -85, type = COMBAT_EARTHDAMAGE, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
 	-- poison
 	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -80, maxDamage = -100, length = 5, spread = 3, effect = CONST_ME_POISONAREA, target = false},
-	{name ="speed", interval = 2000, chance = 10, speedChange = -600, duration = 30000},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -30, maxDamage = -70, type = COMBAT_LIFEDRAIN, range = 7, radius = 3, effect = CONST_ME_MAGIC_RED, target = false},
+	{name ="speed", interval = 2000, chance = 10, speedChange = -600, range = 7, effect = CONST_ME_MAGIC_RED, target = true, duration = 30000},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -30, maxDamage = -70, range = 7, radius = 3, effect = CONST_ME_MAGIC_RED, target = false},
 	-- poison
 	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, range = 7, radius = 3, effect = CONST_ME_POISONAREA, target = false}
 }

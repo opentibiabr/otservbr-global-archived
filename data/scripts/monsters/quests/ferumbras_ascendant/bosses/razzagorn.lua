@@ -109,20 +109,20 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -1000, maxDamage = -2000, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 3000, chance = 20, minDamage = -500, maxDamage = -1000, type = COMBAT_FIREDAMAGE, length = 10, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="speed", interval = 2000, chance = 25, speedChange = -600, duration = 15000},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -500, maxDamage = -700, type = COMBAT_DEATHDAMAGE, radius = 7, effect = CONST_ME_LOSEENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -300, maxDamage = -700, type = COMBAT_FIREDAMAGE, radius = 5, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -1500, maxDamage = -1800, type = COMBAT_DEATHDAMAGE, length = 12, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -500, maxDamage = -800, type = COMBAT_FIREDAMAGE, length = 10, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -500, maxDamage = -800, type = COMBAT_ENERGYDAMAGE, length = 10, spread = 3, effect = CONST_ME_ENERGYHIT, target = false}
+	{name ="combat", interval = 3000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -1000, length = 10, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
+	{name ="speed", interval = 2000, chance = 25, speedChange = -600, radius = 7, effect = CONST_ME_GREEN_RINGS, target = false, duration = 15000},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -500, maxDamage = -700, radius = 7, effect = CONST_ME_LOSEENERGY, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -700, radius = 5, effect = CONST_ME_EXPLOSIONHIT, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -1500, maxDamage = -1800, length = 12, spread = 3, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -800, length = 10, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -500, maxDamage = -800, length = 10, spread = 3, effect = CONST_ME_ENERGYHIT, target = false}
 }
 
 monster.defenses = {
 	defense = 145,
 	armor = 188,
-	{name ="combat", interval = 2000, chance = 15, minDamage = 1000, maxDamage = 3000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 8, speedChange = 480, duration = 6000},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 1000, maxDamage = 3000, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="speed", interval = 2000, chance = 8, speedChange = 480, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000},
 	{name ="razzagorn summon", interval = 2000, chance = 3, target = false}
 }
 

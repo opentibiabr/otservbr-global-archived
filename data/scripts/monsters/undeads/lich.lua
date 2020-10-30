@@ -101,8 +101,8 @@ monster.attacks = {
 	-- poison
 	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -300, maxDamage = -400, length = 7, spread = 3, effect = CONST_ME_HITBYPOISON, target = false},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -200, maxDamage = -245, range = 1, effect = CONST_ME_MAGIC_RED, target = true},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -300, duration = 30000},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -130, maxDamage = -195, type = COMBAT_LIFEDRAIN, radius = 3, effect = CONST_ME_MAGIC_RED, target = false}
+	{name ="speed", interval = 2000, chance = 15, speedChange = -300, range = 7, effect = CONST_ME_MAGIC_RED, target = false, duration = 30000},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -130, maxDamage = -195, radius = 3, effect = CONST_ME_MAGIC_RED, target = false}
 }
 
 monster.defenses = {

@@ -79,7 +79,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 25,
 	armor = 20,
-	{name ="speed", interval = 1000, chance = 7, speedChange = 260, duration = 3000}
+	{name ="speed", interval = 1000, chance = 7, speedChange = 260, effect = CONST_ME_MAGIC_RED, target = false, duration = 3000}
 }
 
 monster.elements = {

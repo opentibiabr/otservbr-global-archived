@@ -71,9 +71,9 @@ monster.attacks = {
 	{name ="combat", interval = 1000, chance = 7, minDamage = -100, maxDamage = -300, type = COMBAT_MANADRAIN, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_POFF, target = false},
 	{name ="drunk", interval = 1000, chance = 7, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYAREA, target = false},
 	{name ="strength", interval = 1000, chance = 9, range = 7, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 1000, chance = 13, minDamage = -50, maxDamage = -100, type = COMBAT_LIFEDRAIN, radius = 8, effect = CONST_ME_LOSEENERGY, target = false},
-	{name ="combat", interval = 1000, chance = 10, minDamage = -50, maxDamage = -100, type = COMBAT_MANADRAIN, radius = 8, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="speed", interval = 1000, chance = 12, speedChange = -1900, duration = 60000},
+	{name ="combat", interval = 1000, chance = 13, type = COMBAT_LIFEDRAIN, minDamage = -50, maxDamage = -100, radius = 8, effect = CONST_ME_LOSEENERGY, target = false},
+	{name ="combat", interval = 1000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -50, maxDamage = -100, radius = 8, effect = CONST_ME_MAGIC_GREEN, target = false},
+	{name ="speed", interval = 1000, chance = 12, speedChange = -1900, radius = 6, effect = CONST_ME_POISONAREA, target = false, duration = 60000},
 	{name ="strength", interval = 1000, chance = 8, radius = 5, effect = CONST_ME_HITAREA, target = false},
 	{name ="combat", interval = 1000, chance = 34, minDamage = -100, maxDamage = -300, type = COMBAT_FIREDAMAGE, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
 	{name ="combat", interval = 1000, chance = 15, minDamage = -100, maxDamage = -250, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false}
@@ -82,8 +82,8 @@ monster.attacks = {
 monster.defenses = {
 	defense = 160,
 	armor = 160,
-	{name ="combat", interval = 1000, chance = 25, minDamage = 2000, maxDamage = 3000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 1000, chance = 8, speedChange = 1901, duration = 5000},
+	{name ="combat", interval = 1000, chance = 25, type = COMBAT_HEALING, minDamage = 2000, maxDamage = 3000, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="speed", interval = 1000, chance = 8, speedChange = 1901, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
 	{name ="invisible", interval = 1000, chance = 17, effect = CONST_ME_MAGIC_BLUE}
 }
 

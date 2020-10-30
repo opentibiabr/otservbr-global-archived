@@ -88,7 +88,7 @@ monster.attacks = {
 	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 15, minDamage = -300, maxDamage = -320, length = 6, spread = 3, effect = CONST_ME_BIGPLANTS, target = false},
 	-- poison
 	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -200, maxDamage = -220, radius = 5, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
-	{name ="speed", interval = 2000, chance = 20, speedChange = -330, duration = 5000}
+	{name ="speed", interval = 2000, chance = 20, speedChange = -330, range = 5, effect = CONST_ME_SMALLPLANTS, target = true, duration = 5000}
 }
 
 monster.defenses = {

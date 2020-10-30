@@ -92,15 +92,15 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 5, minDamage = -120, maxDamage = -700, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_DRAWBLOOD, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -120, maxDamage = -300, type = COMBAT_DEATHDAMAGE, radius = 4, effect = CONST_ME_DRAWBLOOD, target = false},
 	{name ="fury skill reducer", interval = 2000, chance = 5, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -120, maxDamage = -300, type = COMBAT_LIFEDRAIN, radius = 3, effect = CONST_ME_HITAREA, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -125, maxDamage = -250, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -800, duration = 30000}
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -120, maxDamage = -300, radius = 3, effect = CONST_ME_HITAREA, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -125, maxDamage = -250, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false},
+	{name ="speed", interval = 2000, chance = 15, speedChange = -800, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false, duration = 30000}
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 20,
-	{name ="speed", interval = 2000, chance = 15, speedChange = 800, duration = 5000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = 800, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
 
 monster.elements = {

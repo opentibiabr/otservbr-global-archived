@@ -85,7 +85,7 @@ monster.defenses = {
 	defense = 5,
 	armor = 3,
 	{name ="invisible", interval = 2000, chance = 11, effect = CONST_ME_MAGIC_BLUE},
-	{name ="speed", interval = 2000, chance = 10, speedChange = 145, duration = 4000}
+	{name ="speed", interval = 2000, chance = 10, speedChange = 145, effect = CONST_ME_MAGIC_RED, target = false, duration = 4000}
 }
 
 monster.elements = {
