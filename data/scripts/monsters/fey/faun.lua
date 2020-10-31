@@ -17,6 +17,11 @@ monster.changeTarget = {
 	chance = 10
 }
 
+monster.respawnType = {
+	period = RESPAWNPERIOD_DAY,
+	underground = false
+}
+
 monster.flags = {
 	summonable = false,
 	attackable = true,
@@ -27,12 +32,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = false,
 	targetDistance = 1,
-	staticAttackChance = 80
-}
-
-monster.respawnType = {
-	period = RESPAWNPERIOD_DAY,
-	underground = false
+	staticAttackChance = 80,
 }
 
 monster.loot = {

@@ -1414,6 +1414,9 @@ class LuaScriptInterface
         static int luaMonsterTypeStrategiesTargetDamage(lua_State* L);
         static int luaMonsterTypeStrategiesTargetRandom(lua_State* L);
 
+		static int luaMonsterTypeRespawnTypePeriod(lua_State* L);
+		static int luaMonsterTypeRespawnTypeIsUnderground(lua_State* L);
+
 		// Loot
 		static int luaCreateLoot(lua_State* L);
 		static int luaDeleteLoot(lua_State* L);

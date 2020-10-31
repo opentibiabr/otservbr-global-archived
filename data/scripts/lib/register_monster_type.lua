@@ -105,8 +105,8 @@ registerMonsterType.flags = function(mtype, mask)
 		if mask.flags.pet then
 			mtype:isPet(mask.flags.pet)
 		end
-		if mask.flags.respawntype then
-			mtype:respawnType(mask.flags.respawntype)
+		if mask.flags.respawntype or mask.flags.respawnType then
+			print("[Error - Loading monsters] Monster: \"".. mtype:name() .. "\". Deprecated flag 'respawnType', use instead table 'respawnType = { period = RespawnPeriod_t, underground = boolean}'")
 		end
 		if mask.flags.canPushCreatures ~= nil then
 			mtype:canPushCreatures(mask.flags.canPushCreatures)
@@ -167,6 +167,16 @@ registerMonsterType.strategiesTarget  = function(mtype, mask)
 		end
 		if mask.strategiesTarget.random then
 			mtype:strategiesTargetRandom(mask.strategiesTarget.random)
+		end
+	end
+end
+registerMonsterType.respawnType = function(mtype, mask)
+	if mask.respawnType then
+		if mask.respawnType.period then
+			mtype:respawnTypePeriod(mask.respawnType.period)
+		end
+		if mask.respawnType.underground then
+			mtype:respawnTypeIsUnderground(mask.respawnType.underground)
 		end
 	end
 end

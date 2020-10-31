@@ -124,7 +124,7 @@ class Monster final : public Creature
 		uint32_t getManaCost() const {
 			return mType->info.manaCost;
 		}
-		uint32_t getRespawnType() const {
+		RespawnType getRespawnType() const {
 			return mType->info.respawnType;
 		}
 		void setSpawn(Spawn* newSpawn) {
