@@ -47,11 +47,9 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 540,
 	healthHidden = false,
-	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -60,8 +58,8 @@ monster.light = {
 }
 
 monster.summons = {
-	{name = "Phantasm", chance = 7, interval = 2000, max = 3},
-	{name = "Phantasm summon", chance = 7, interval = 2000, max = 3}
+	{name = "Phantasm", chance = 7,000000000000001, interval = 2000, max = 3},
+	{name = "Phantasm summon", chance = 7,000000000000001, interval = 2000, max = 3}
 }
 
 monster.voices = {
@@ -88,11 +86,11 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 156, attack = 100, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 920, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, skill = 156, attack = 100, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 920, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -420, maxDamage = -980, type = COMBAT_LIFEDRAIN, range = 7, radius = 1, shootEffect = CONST_ANI_POISON, effect = CONST_ME_HITBYPOISON, target = true},
 	{name ="combat", interval = 2000, chance = 12, minDamage = -45, maxDamage = -90, type = COMBAT_MANADRAIN, radius = 3, effect = CONST_ME_YELLOW_RINGS, target = false},
-	{name ="phantasm drown", interval = 2000, chance = 20, target = false},
-	{name ="drunk", interval = 2000, chance = 15, range = 7, radius = 6, effect = CONST_ME_MAGIC_RED, target = false}
+	{name ="combat", interval = 2000, chance = 20, target = false},
+	{name ="drunk", interval = 2000, chance = 15, range = 7, effect = CONST_ME_MAGIC_RED, target = false}
 }
 
 monster.defenses = {
@@ -100,7 +98,7 @@ monster.defenses = {
 	armor = 25,
 	{name ="combat", interval = 2000, chance = 26, minDamage = 415, maxDamage = 625, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 2000, chance = 15, effect = CONST_ME_POFF},
-	{name ="speed", interval = 2000, chance = 11, speedChange = 736, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000}
+	{name ="speed", interval = 2000, chance = 11, speedChange = 736, duration = 6000}
 }
 
 monster.elements = {

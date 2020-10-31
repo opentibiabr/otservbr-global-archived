@@ -47,11 +47,9 @@ monster.flags = {
 	targetDistance = 4,
 	runHealth = 400,
 	healthHidden = false,
-	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -88,17 +86,17 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -240, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 160, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -240, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 160, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -100, maxDamage = -240, type = COMBAT_FIREDAMAGE, range = 7, radius = 4, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -300, maxDamage = -430, type = COMBAT_FIREDAMAGE, range = 7, radius = 2, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
-	{name ="diabolic imp skill reducer", interval = 2000, chance = 5, range = 5, target = false}
+	{name ="combat", interval = 2000, chance = 5, range = 5, target = false}
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 25,
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 650, maxDamage = 800, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 800, effect = CONST_ME_MAGIC_RED, target = false, duration = 2000},
+	{name ="combat", interval = 2000, chance = 10, minDamage = 650, maxDamage = 800, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="speed", interval = 2000, chance = 15, speedChange = 800, duration = 2000},
 	{name ="invisible", interval = 2000, chance = 10, effect = CONST_ME_TELEPORT}
 }
 

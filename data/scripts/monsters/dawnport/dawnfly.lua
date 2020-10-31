@@ -44,11 +44,9 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
-	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -73,14 +71,14 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 10, attack = 16, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 8, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, skill = 10, attack = 16, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 8, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 9, minDamage = -4, maxDamage = -8, type = COMBAT_EARTHDAMAGE, range = 7, shootEffect = CONST_ANI_POISONARROW, target = false}
 }
 
 monster.defenses = {
 	defense = 2,
 	armor = 1,
-	{name ="speed", interval = 2000, chance = 11, speedChange = 238, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
+	{name ="speed", interval = 2000, chance = 11, speedChange = 238, duration = 5000}
 }
 
 monster.elements = {

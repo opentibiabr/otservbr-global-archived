@@ -47,11 +47,9 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
-	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	pet = false
+	canWalkOnPoison = false
 }
 
 monster.light = {
@@ -73,11 +71,11 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -156, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 2, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -156, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 2, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -87, type = COMBAT_LIFEDRAIN, radius = 3, effect = CONST_ME_HITAREA, target = false},
 	{name ="combat", interval = 2000, chance = 19, minDamage = 0, maxDamage = -80, type = COMBAT_ICEDAMAGE, radius = 3, shootEffect = CONST_ANI_POISON, target = false},
 	{name ="combat", interval = 2000, chance = 7, minDamage = -56, maxDamage = -87, type = COMBAT_ICEDAMAGE, radius = 4, effect = CONST_ME_ICEAREA, target = false},
-	{name ="quara constrictor electrify", interval = 2000, chance = 10, range = 1, target = false}
+	{name ="combat", interval = 2000, chance = 10, range = 1, target = false}
 }
 
 monster.defenses = {
