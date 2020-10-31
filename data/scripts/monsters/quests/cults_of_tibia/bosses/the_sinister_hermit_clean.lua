@@ -73,13 +73,13 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -120, maxDamage = -488, type = COMBAT_EARTHDAMAGE, length = 7, spread = 8, effect = CONST_ME_SMALLPLANTS, target = false}
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -120, maxDamage = -488, length = 7, spread = 8, effect = CONST_ME_SMALLPLANTS, target = false}
 }
 
 monster.defenses = {
 	defense = 50,
 	armor = 35,
-	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = 800, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_RED, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 0, maxDamage = 800, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="shock head skill reducer 2", interval = 2000, chance = 30, radius = 8, effect = CONST_ME_MAGIC_RED, target = false}
 }
 

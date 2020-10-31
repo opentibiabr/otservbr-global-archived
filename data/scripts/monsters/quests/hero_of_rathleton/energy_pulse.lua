@@ -65,7 +65,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 1000, chance = 100, minDamage = -5000, maxDamage = -6000, target = false}
+	{name ="energy pulse explosion", interval = 1000, chance = 100, minDamage = -5000, maxDamage = -6000, target = false}
 }
 
 monster.defenses = {

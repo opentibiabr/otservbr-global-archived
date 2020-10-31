@@ -68,8 +68,8 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 15, minDamage = -130, maxDamage = -270, type = COMBAT_LIFEDRAIN, range = 1, effect = CONST_ME_MAGIC_RED, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -110, maxDamage = -270, type = COMBAT_MANADRAIN, radius = 9, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -130, maxDamage = -270, range = 1, effect = CONST_ME_MAGIC_RED, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -110, maxDamage = -270, radius = 9, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.defenses = {

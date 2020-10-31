@@ -84,7 +84,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 2000, chance = 15, minDamage = 250, maxDamage = 350, type = COMBAT_HEALING, effect = CONST_ME_INSECTS, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 250, maxDamage = 350, effect = CONST_ME_INSECTS, target = false}
 }
 
 monster.elements = {

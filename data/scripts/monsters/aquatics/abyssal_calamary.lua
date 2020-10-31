@@ -70,7 +70,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="drunk", interval = 2000, chance = 10, range = 2, target = false}
+	{name ="drunk", interval = 2000, chance = 10, range = 2, target = false, duration = 5000}
 }
 
 monster.defenses = {

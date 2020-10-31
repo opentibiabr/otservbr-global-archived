@@ -59,10 +59,6 @@ monster.events = {
 	"ZamuloshClone"
 }
 
-monster.events = {
-	"ZamuloshClone"
-}
-
 monster.light = {
 	level = 0,
 	color = 0

@@ -59,7 +59,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 15, range = 6, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_POFF, target = false}
+	{name ="dark torturer skill reducer", interval = 2000, chance = 15, range = 6, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_POFF, target = false}
 }
 
 monster.defenses = {

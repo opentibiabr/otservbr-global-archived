@@ -58,10 +58,6 @@ monster.events = {
 	"First Dragon Death"
 }
 
-monster.events = {
-	"First Dragon Death"
-}
-
 monster.light = {
 	level = 0,
 	color = 0
@@ -87,7 +83,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 64,
 	armor = 52,
-	{name ="combat", interval = 2000, chance = 15, minDamage = 1500, maxDamage = 4500, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 1500, maxDamage = 4500, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

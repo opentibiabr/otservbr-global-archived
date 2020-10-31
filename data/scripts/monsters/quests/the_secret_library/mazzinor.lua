@@ -90,9 +90,9 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 80, effect = CONST_ME_DRAWBLOOD},
 	{name ="divine missile", interval = 2000, chance = 10, minDamage = -135, maxDamage = -700, target = true},
 	{name ="berserk", interval = 2000, chance = 20, minDamage = -90, maxDamage = -500, range = 7, target = true},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -135, maxDamage = -280, type = COMBAT_LIFEDRAIN, range = 7, radius = 5, effect = CONST_ME_MAGIC_BLUE, target = true},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -210, maxDamage = -600, type = COMBAT_ENERGYDAMAGE, length = 8, spread = 3, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -210, maxDamage = -700, type = COMBAT_HOLYDAMAGE, length = 8, spread = 3, effect = CONST_ME_HOLYAREA, target = false}
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -135, maxDamage = -280, range = 7, radius = 5, effect = CONST_ME_MAGIC_BLUE, target = true},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -210, maxDamage = -600, length = 8, spread = 3, effect = CONST_ME_ENERGYAREA, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HOLYDAMAGE, minDamage = -210, maxDamage = -700, length = 8, spread = 3, effect = CONST_ME_HOLYAREA, target = false}
 }
 
 monster.defenses = {

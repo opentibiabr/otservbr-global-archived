@@ -54,11 +54,6 @@ monster.flags = {
 	pet = false
 }
 
-monster.respawnType = {
-	period = RESPAWNPERIOD_NIGHT,
-	underground = true
-}
-
 monster.light = {
 	level = 0,
 	color = 0

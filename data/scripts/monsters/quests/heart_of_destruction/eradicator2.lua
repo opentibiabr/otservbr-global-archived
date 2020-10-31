@@ -99,9 +99,9 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -300, maxDamage = -1800, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -600, maxDamage = -1000, type = COMBAT_PHYSICALDAMAGE, length = 8, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -450, maxDamage = -900, type = COMBAT_PHYSICALDAMAGE, radius = 8, effect = CONST_ME_BLOCKHIT, target = false},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -300, maxDamage = -600, type = COMBAT_HOLYDAMAGE, radius = 4, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = true},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -600, maxDamage = -1000, length = 8, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -450, maxDamage = -900, radius = 8, effect = CONST_ME_BLOCKHIT, target = false},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HOLYDAMAGE, minDamage = -300, maxDamage = -600, radius = 4, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = true},
 	{name ="big lifedrain wave", interval = 2000, chance = 20, minDamage = -700, maxDamage = -1000, target = false},
 	{name ="anomaly break", interval = 2000, chance = 40, target = false}
 }
@@ -109,7 +109,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 60,
 	armor = 60,
-	{name ="combat", interval = 2000, chance = 100, minDamage = 500, maxDamage = 1200, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_GREEN, target = false}
+	{name ="combat", interval = 2000, chance = 100, type = COMBAT_HEALING, minDamage = 500, maxDamage = 1200, effect = CONST_ME_MAGIC_GREEN, target = false}
 }
 
 monster.elements = {

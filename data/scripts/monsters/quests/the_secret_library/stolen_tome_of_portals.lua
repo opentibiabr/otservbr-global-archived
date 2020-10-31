@@ -49,10 +49,6 @@ monster.events = {
 	"gorzindelDeath"
 }
 
-monster.events = {
-	"gorzindelDeath"
-}
-
 monster.light = {
 	level = 0,
 	color = 0

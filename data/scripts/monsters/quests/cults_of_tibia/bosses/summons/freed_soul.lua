@@ -68,7 +68,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, target = false}
+	{name ="freed soul spell", interval = 2000, chance = 100, target = false}
 }
 
 monster.defenses = {

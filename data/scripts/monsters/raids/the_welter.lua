@@ -105,8 +105,8 @@ monster.attacks = {
 monster.defenses = {
 	defense = 45,
 	armor = 27,
-	{name ="combat", interval = 2000, chance = 32, minDamage = 250, maxDamage = 600, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 2000, chance = 12, minDamage = 150, maxDamage = 700, type = COMBAT_HEALING, radius = 5, effect = CONST_ME_MAGIC_GREEN, target = false},
+	{name ="combat", interval = 2000, chance = 32, type = COMBAT_HEALING, minDamage = 250, maxDamage = 600, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="combat", interval = 2000, chance = 12, type = COMBAT_HEALING, minDamage = 150, maxDamage = 700, radius = 5, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="the welter summon2", interval = 2000, chance = 9, target = false},
 	{name ="the welter heal", interval = 2000, chance = 8, target = false}
 }

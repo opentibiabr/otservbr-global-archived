@@ -73,7 +73,7 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -455, effect = CONST_ME_DRAWBLOOD},
 	{name ="melee", interval = 3000, chance = 50, minDamage = -500, maxDamage = -800, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1000, chance = 15, minDamage = -170, maxDamage = -200, type = COMBAT_ICEDAMAGE, range = 7, shootEffect = CONST_ANI_SNOWBALL, target = false}
+	{name ="combat", interval = 1000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -170, maxDamage = -200, range = 7, shootEffect = CONST_ANI_SNOWBALL, target = false}
 }
 
 monster.defenses = {

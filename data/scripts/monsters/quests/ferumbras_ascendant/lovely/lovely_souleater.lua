@@ -86,8 +86,8 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 60, attack = 60, effect = CONST_ME_DRAWBLOOD},
 	{name ="souleater drown", interval = 2000, chance = 9, target = false},
-	{name ="combat", interval = 2000, chance = 8, minDamage = -50, maxDamage = -100, type = COMBAT_ICEDAMAGE, radius = 1, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 14, minDamage = -10, maxDamage = -60, type = COMBAT_LIFEDRAIN, radius = 4, effect = CONST_ME_MAGIC_RED, target = false},
+	{name ="combat", interval = 2000, chance = 8, type = COMBAT_ICEDAMAGE, minDamage = -50, maxDamage = -100, radius = 1, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true},
+	{name ="combat", interval = 2000, chance = 14, type = COMBAT_LIFEDRAIN, minDamage = -10, maxDamage = -60, radius = 4, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="souleater wave", interval = 2000, chance = 12, minDamage = -100, maxDamage = -210, target = false}
 }
 
@@ -95,7 +95,7 @@ monster.defenses = {
 	defense = 20,
 	armor = 25,
 	{name ="invisible", interval = 2000, chance = 12, effect = CONST_ME_POFF},
-	{name ="combat", interval = 2000, chance = 16, minDamage = 130, maxDamage = 205, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_RED, target = false}
+	{name ="combat", interval = 2000, chance = 16, type = COMBAT_HEALING, minDamage = 130, maxDamage = 205, effect = CONST_ME_MAGIC_RED, target = false}
 }
 
 monster.elements = {

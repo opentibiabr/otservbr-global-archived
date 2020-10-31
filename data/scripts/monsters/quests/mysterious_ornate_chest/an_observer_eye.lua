@@ -66,7 +66,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 4, minDamage = -3000, maxDamage = -5000, type = COMBAT_ENERGYDAMAGE, range = 3, shootEffect = CONST_ANI_ENERGY, target = false}
+	{name ="combat", interval = 2000, chance = 4, type = COMBAT_ENERGYDAMAGE, minDamage = -3000, maxDamage = -5000, range = 3, shootEffect = CONST_ANI_ENERGY, target = false}
 }
 
 monster.defenses = {

@@ -2,9 +2,15 @@ local mType = Game.createMonsterType("Scar Tribe Warrior")
 local monster = {}
 
 monster.description = "a scar tribe warrior"
-monster.experience = 85
+monster.experience = 50
 monster.outfit = {
-	lookType = 7
+	lookType = 7,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
 }
 
 monster.health = 125
@@ -38,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -57,14 +65,12 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Gold Coin", minCount = 1, maxCount = 8, chance = 100000},
-	{id = "Meat", chance = 9570},
-	{id = "Studded Legs", chance = 8700},
-	{id = "Chain Armor", chance = 7830},
-	{id = "Broken Helmet", chance = 5770},
-	{id = "Orc Leather", chance = 5220},
-	{id = "Plate Shield", chance = 1740},
-	{id = "Orc Tooth", chance = 1120},
+	{id = 12409, chance = 6740},
+	{id = 2464, chance = 5620},
+	{id = 2148, chance = 100000, maxCount = 8},
+	{id = 2666, chance = 13480},
+	{id = 12435, chance = 5620},
+	{id = 12436, chance = 1120}
 }
 
 monster.attacks = {
@@ -95,20 +101,5 @@ monster.immunities = {
 	{type = "invisible", condition = false},
 	{type = "bleed", condition = false}
 }
-
-mType.onThink = function(monster, interval)
-end
-
-mType.onAppear = function(monster, creature)
-end
-
-mType.onDisappear = function(monster, creature)
-end
-
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-end
 
 mType:register(monster)
