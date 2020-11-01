@@ -51,6 +51,6 @@ function onCastSpell(player, variant)
     player:setStorageValue(Storage.PetSummon, os.time() + 15*60) -- 15 minutes from now
     player:say("My Power your Power", TALKTYPE_MONSTER_SAY)
     addEvent(removePet, 15*60*1000, mySummon:getId()) --I think this isn't necessary
-    addEvent(removePet, 14*60*1000, player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your summon will disappear in less than one minute."))
+    addEvent(function() player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your summon will disappear in less than one minute.") end, 14*60*1000)
     return combat:execute(player, variant)
 end
