@@ -931,7 +931,13 @@ bool MoveEvent::executeStep(Creature* creature, Item* item, const Position& pos)
 	//onStepIn(creature, item, pos, fromPosition)
 	//onStepOut(creature, item, pos, fromPosition)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - MoveEvent::executeStep] Call stack overflow" << std::endl;
+		std::cout << "[Error - MoveEvent::executeStep"
+				<< " Creature "
+				<< creature->getName()
+				<< " item "
+				<< item->getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 		return false;
 	}
 
@@ -969,7 +975,13 @@ bool MoveEvent::executeEquip(Player* player, Item* item, slots_t onSlot, bool is
 	//onEquip(player, item, slot, isCheck)
 	//onDeEquip(player, item, slot, isCheck)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - MoveEvent::executeEquip] Call stack overflow" << std::endl;
+		std::cout << "[Error - MoveEvent::executeEquip"
+				<< " Player "
+				<< player->getName()
+				<< " item "
+				<< item->getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 		return false;
 	}
 
@@ -1002,7 +1014,16 @@ bool MoveEvent::executeAddRemItem(Item* item, Item* fromTile, const Position& po
 	//onaddItem(moveitem, tileitem, pos)
 	//onRemoveItem(moveitem, tileitem, pos)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - MoveEvent::executeAddRemItem] Call stack overflow" << std::endl;
+		std::cout << "[Error - MoveEvent::executeAddRemItem"
+				<< " Item "
+				<< item->getName()
+				<< " item "
+				<< " on tile " 
+				<< "x:" << pos.getX() << " "
+				<< "y:" << pos.getY() << " "
+				<< "z:" << pos.getZ() << " "
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 		return false;
 	}
 

@@ -118,7 +118,13 @@ void Monster::onCreatureAppear(Creature* creature, bool isLogin)
 		// onCreatureAppear(self, creature)
 		LuaScriptInterface* scriptInterface = mType->info.scriptInterface;
 		if (!scriptInterface->reserveScriptEnv()) {
-			std::cout << "[Error - Monster::onCreatureAppear] Call stack overflow" << std::endl;
+			std::cout << "[Error - Monster::onCreatureAppear"
+				<< " Monster "
+				<< getName()
+				<< " creature "
+				<< creature->getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 			return;
 		}
 
@@ -160,7 +166,13 @@ void Monster::onRemoveCreature(Creature* creature, bool isLogout)
 		// onCreatureDisappear(self, creature)
 		LuaScriptInterface* scriptInterface = mType->info.scriptInterface;
 		if (!scriptInterface->reserveScriptEnv()) {
-			std::cout << "[Error - Monster::onCreatureDisappear] Call stack overflow" << std::endl;
+			std::cout << "[Error - Monster::onCreatureDisappear"
+				<< " Monster "
+				<< getName()
+				<< " creature "
+				<< creature->getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 			return;
 		}
 
@@ -201,7 +213,13 @@ void Monster::onCreatureMove(Creature* creature, const Tile* newTile, const Posi
 		// onCreatureMove(self, creature, oldPosition, newPosition)
 		LuaScriptInterface* scriptInterface = mType->info.scriptInterface;
 		if (!scriptInterface->reserveScriptEnv()) {
-			std::cout << "[Error - Monster::onCreatureMove] Call stack overflow" << std::endl;
+			std::cout << "[Error - Monster::onCreatureMove"
+				<< " Monster "
+				<< getName()
+				<< " creature "
+				<< creature->getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 			return;
 		}
 
@@ -283,7 +301,13 @@ void Monster::onCreatureSay(Creature* creature, SpeakClasses type, const std::st
 		// onCreatureSay(self, creature, type, message)
 		LuaScriptInterface* scriptInterface = mType->info.scriptInterface;
 		if (!scriptInterface->reserveScriptEnv()) {
-			std::cout << "[Error - Monster::onCreatureSay] Call stack overflow" << std::endl;
+			std::cout << "[Error - Monster::onCreatureSay"
+				<< " Monster "
+				<< getName()
+				<< " creature "
+				<< creature->getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 			return;
 		}
 
@@ -769,7 +793,11 @@ void Monster::onThink(uint32_t interval)
 		// onThink(self, interval)
 		LuaScriptInterface* scriptInterface = mType->info.scriptInterface;
 		if (!scriptInterface->reserveScriptEnv()) {
-			std::cout << "[Error - Monster::onThink] Call stack overflow" << std::endl;
+			std::cout << "[Error - Monster::onThink"
+				<< " Monster "
+				<< getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 			return;
 		}
 

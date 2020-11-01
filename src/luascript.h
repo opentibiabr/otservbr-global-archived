@@ -241,6 +241,9 @@ class LuaScriptInterface
 		const std::string& getLastLuaError() const {
 			return lastLuaError;
 		}
+		const std::string& getLoadingFile() const {
+			return loadingFile;
+		}
 
 		lua_State* getLuaState() const {
 			return luaState;

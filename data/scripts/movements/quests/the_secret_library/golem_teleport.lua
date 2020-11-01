@@ -1,6 +1,6 @@
 local golemTeleport = MoveEvent()
 
-function golemTeleport.onStepIn(creature, item, fromPosition, toPosition)
+function golemTeleport.onStepIn(creature, item, toPosition, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return true
