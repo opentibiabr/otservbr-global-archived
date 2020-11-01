@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -106,20 +108,20 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1088, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1000, chance = 10, minDamage = -250, maxDamage = -500, type = COMBAT_PHYSICALDAMAGE, length = 10, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 1000, chance = 8, minDamage = -30, maxDamage = -760, type = COMBAT_DEATHDAMAGE, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 9, minDamage = -200, maxDamage = -585, type = COMBAT_EARTHDAMAGE, length = 8, spread = 3, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="combat", interval = 1000, chance = 8, minDamage = 0, maxDamage = -430, type = COMBAT_ICEDAMAGE, effect = CONST_ME_ICETORNADO, target = false},
-	{name ="drunk", interval = 3000, chance = 11, effect = CONST_ME_SOUND_PURPLE, target = false},
+	{name ="combat", interval = 1000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -250, maxDamage = -500, length = 10, spread = 3, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 1000, chance = 8, type = COMBAT_DEATHDAMAGE, minDamage = -30, maxDamage = -760, radius = 5, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 2000, chance = 9, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -585, length = 8, spread = 3, effect = CONST_ME_SMALLPLANTS, target = false},
+	{name ="combat", interval = 1000, chance = 8, type = COMBAT_ICEDAMAGE, minDamage = 0, maxDamage = -430, radius = 6, effect = CONST_ME_ICETORNADO, target = false},
+	{name ="drunk", interval = 3000, chance = 11, radius = 6, effect = CONST_ME_SOUND_PURPLE, target = false},
 	-- energy damage
-	{name ="combat", type = COMBAT_ENERGYDAMAGE, interval = 2000, chance = 15, minDamage = -250, maxDamage = -250, effect = CONST_ME_ENERGYHIT, target = false}
+	{name ="condition", type = CONDITION_ENERGY, interval = 2000, chance = 15, minDamage = -250, maxDamage = -250, radius = 4, effect = CONST_ME_ENERGYHIT, target = false}
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 50,
-	{name ="combat", interval = 1000, chance = 12, minDamage = 400, maxDamage = 600, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="speed", interval = 1000, chance = 4, speedChange = 400, duration = 7000}
+	{name ="combat", interval = 1000, chance = 12, type = COMBAT_HEALING, minDamage = 400, maxDamage = 600, effect = CONST_ME_MAGIC_GREEN, target = false},
+	{name ="speed", interval = 1000, chance = 4, speedChange = 400, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 7000}
 }
 
 monster.elements = {

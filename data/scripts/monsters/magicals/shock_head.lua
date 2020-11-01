@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -72,17 +74,17 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -798, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -200, maxDamage = -300, type = COMBAT_DEATHDAMAGE, length = 5, spread = 2, effect = CONST_ME_BLACKSMOKE, target = true},
-	{name ="speed", interval = 2000, chance = 15, speedChange = -800, duration = 7500},
-	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = -350, type = COMBAT_PHYSICALDAMAGE, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_STONES, target = true},
-	{name ="combat", interval = 2000, chance = 5, range = 5, target = false},
-	{name ="combat", interval = 2000, chance = 5, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -300, length = 5, spread = 2, effect = CONST_ME_BLACKSMOKE, target = true},
+	{name ="speed", interval = 2000, chance = 15, speedChange = -800, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = true, duration = 7500},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -350, radius = 4, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_STONES, target = true},
+	{name ="shock head skill reducer 1", interval = 2000, chance = 5, range = 5, target = false},
+	{name ="shock head skill reducer 2", interval = 2000, chance = 5, target = false}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 2000, chance = 15, minDamage = 250, maxDamage = 350, type = COMBAT_HEALING, effect = CONST_ME_INSECTS, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 250, maxDamage = 350, effect = CONST_ME_INSECTS, target = false}
 }
 
 monster.elements = {

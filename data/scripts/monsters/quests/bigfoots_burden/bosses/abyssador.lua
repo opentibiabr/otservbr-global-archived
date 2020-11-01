@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -83,16 +85,16 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 3000, chance = 100, skill = 300, attack = 150, effect = CONST_ME_DRAWBLOOD},
 	-- energy damage
-	{name ="combat", type = COMBAT_ENERGYDAMAGE, interval = 1000, chance = 10, minDamage = -800, maxDamage = -800, shootEffect = CONST_ANI_POISON, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -500, maxDamage = -1600, type = COMBAT_ENERGYDAMAGE, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 1000, chance = 20, minDamage = -1000, maxDamage = -1800, length = 5, spread = 2, effect = CONST_ME_PLANTATTACK, target = false}
+	{name ="condition", type = CONDITION_ENERGY, interval = 1000, chance = 10, minDamage = -800, maxDamage = -800, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_SMALLPLANTS, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -500, maxDamage = -1600, radius = 4, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = false},
+	{name ="combat", interval = 1000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -1000, maxDamage = -1800, length = 5, spread = 2, effect = CONST_ME_PLANTATTACK, target = false}
 }
 
 monster.defenses = {
 	defense = 20,
 	armor = 15,
-	{name ="combat", interval = 1000, chance = 1, minDamage = 0, maxDamage = 300000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 5000, chance = 30, minDamage = 1000, maxDamage = 1000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="combat", interval = 1000, chance = 1, type = COMBAT_HEALING, minDamage = 0, maxDamage = 300000, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="combat", interval = 5000, chance = 30, type = COMBAT_HEALING, minDamage = 1000, maxDamage = 1000, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 2000, chance = 25, effect = CONST_ME_MAGIC_BLUE}
 }
 

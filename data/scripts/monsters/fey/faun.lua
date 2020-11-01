@@ -1,106 +1,125 @@
 local mType = Game.createMonsterType("Faun")
 local monster = {}
+
 monster.description = "a faun"
 monster.experience = 800
 monster.outfit = {
-	lookType = 980, lookHead = 61, lookBody = 96, lookLegs = 95, lookFeet = 43
+	lookType = 980,
+	lookHead = 81,
+	lookBody = 115,
+	lookLegs = 114,
+	lookFeet = 81,
+	lookAddons = 0,
+	lookMount = 0
 }
 
 monster.health = 900
-monster.maxHealth = monster.health
+monster.maxHealth = 900
 monster.race = "blood"
 monster.corpse = 29102
 monster.speed = 210
+monster.summonCost = 450
+monster.maxSummons = 0
 
 monster.changeTarget = {
-	interval = 4*1000,
+	interval = 4000,
 	chance = 10
 }
 
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
 monster.flags = {
-	summonable = false,
+	summonable = true,
 	attackable = true,
-	rewardBoss = false,
 	hostile = true,
-	convinceable = false,
+	convinceable = true,
+	pushable = false,
+	rewardBoss = false,
 	illusionable = true,
 	canPushItems = true,
 	canPushCreatures = false,
+	staticAttackChance = 90,
 	targetDistance = 1,
-	staticAttackChance = 80,
-	respawnType = RESPAWN_IN_DAY
+	runHealth = 20,
+	healthHidden = false,
+	isBlockable = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false,
+	pet = false
 }
 
-monster.loot = {
-	{id = "Gold Coin", minCount = 1, maxCount = 154, chance = 100000},
-	{id = "Dandelion Seeds", chance = 15450},
-	{id = "Strong Health Potion", minCount = 1, maxCount = 2, chance = 12100},
-	{id = "Shimmering Beetles", chance = 9760},
-	{id = "Fresh Fruit", chance = 9100},
-	{id = "Goat Grass", chance = 8350},
-	{id = "Leaf Star", minCount = 1, maxCount = 7, chance = 7560},
-	{id = "Cookie", minCount = 1, maxCount = 5, chance = 6050},
-	{id = "Panpipes", chance = 5220},
-	{id = "Small Stone", minCount = 1, maxCount = 5, chance = 5160},
-	{id = "Grapes", chance = 5050},
-	{id = "Rainbow Quartz", minCount = 1, maxCount = 3, chance = 4960},
-	{id = "Great Health Potion", minCount = 1, maxCount = 2, chance = 3260},
-	{id = "Small Enchanted Sapphire", minCount = 1, maxCount = 2, chance = 2540},
-	{id = "Wood Cape", chance = 1880},
-	{id = "Leaf Legs", chance = 580},
-	{id = "Wooden Spellbook", chance = 400},
-	{id = "Die", chance = 150},
-	{id = "Mandrake", chance = 40},
-}
-
-monster.attacks = {
-	{name = "melee", type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -360, effect = CONST_ME_DRAWBLOOD, interval = 2*1000},
-	{name = "combat", type = COMBAT_EARTHDAMAGE,  interval = 2*1000, chance = 10, range = 4, target = true, minDamage = -60, maxDamage = -100, radius = 1, shootEffect = CONST_ANI_POISON, effect = CONST_ME_GREENSMOKE},
-	{name = "drunk", type = CONDITION_DRUNK, interval = 2*1000, chance = 13, length = 5, spread = 3, duration = 5000, effect = CONST_ME_SOUND_PURPLE},
-}
-
-monster.defenses = {
-	defense = 45,
-	armor = 45,
-	{name = "combat", type = COMBAT_HEALING, interval = 2*1000, chance = 10, minDamage = 70, maxDamage = 90, effect = CONST_ME_PIXIE_EXPLOSION},
-	{name = "speed", type = CONDITION_PARAM_SPEED, interval = 2*1000, chance = 10, speed = 100, effect = CONST_ME_SOUND_GREEN},
-}
-
-monster.elements = {
-	{type = COMBAT_FIREDAMAGE, percent = -15},
-	{type = COMBAT_ENERGYDAMAGE, percent = -10},
-	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
-	{type = COMBAT_DEATHDAMAGE, percent = 20},
-	{type = COMBAT_HOLYDAMAGE, percent = 30},
-	{type = COMBAT_EARTHDAMAGE, percent = 70},
+monster.light = {
+	level = 0,
+	color = 0
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "Are you posing a threat to this realm? I suppose so.", yell = false},
-	{text = "Dance with me!", yell = false},
 	{text = "In vino veritas! Hahaha!", yell = false},
 	{text = "Wine, women and song!", yell = false}
 }
 
-monster.immunities = {
-	{type = "invisible", condition = true}
+monster.loot = {
+	{id = "gold coin", chance = 30000, maxCount = 136},
+	{id = "goat grass", chance = 5155},
+	{id = "leaf star", chance = 10000, maxCount = 7},
+	{id = "grapes", chance = 30100, maxCount = 2},
+	{id = "small enchanted sapphire", chance = 492, maxCount = 2},
+	{id = "leaf legs", chance = 492},
+	{id = "dandelion seeds", chance = 5800},
+	{id = "shimmering beetles", chance = 492},
+	{id = "panpipes", chance = 172},
+	{id = "cookie", chance = 55000, maxCount = 5},
+	{id = "great health potion", chance = 6400, maxCount = 2},
+	{id = "wooden spellbook", chance = 92},
+	{id = "strong health potion", chance = 6800, maxCount = 2},
+	{id = "fresh fruit", chance = 3400, maxCount = 3},
+	{id = "rainbow quartz", chance = 1086, maxCount = 4},
+	{id = "small stone", chance = 492, maxCount = 3},
+	{id = "wood cape", chance = 492},
+	{id = 5792, chance = 80},
+	{id = "mandrake", chance = 50}
 }
 
-mType.onThink = function(monster, interval)
-end
+monster.attacks = {
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -370, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -60, maxDamage = -115, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
+	{name ="drunk", interval = 2000, chance = 11, length = 4, spread = 2, effect = CONST_ME_SOUND_PURPLE, target = false, duration = 25000},
+	{name ="combat", interval = 2000, chance = 30, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -100, range = 7, shootEffect = CONST_ANI_LEAFSTAR, target = false}
+}
 
-mType.onAppear = function(monster, creature)
-end
+monster.defenses = {
+	defense = 45,
+	armor = 45,
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 75, maxDamage = 90, effect = CONST_ME_MAGIC_BLUE, target = false}
+}
 
-mType.onDisappear = function(monster, creature)
-end
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
+	{type = COMBAT_ENERGYDAMAGE, percent = -10},
+	{type = COMBAT_EARTHDAMAGE, percent = 70},
+	{type = COMBAT_FIREDAMAGE, percent = -15},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = 30},
+	{type = COMBAT_DEATHDAMAGE , percent = 20}
+}
 
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-end
+monster.immunities = {
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
 
 mType:register(monster)

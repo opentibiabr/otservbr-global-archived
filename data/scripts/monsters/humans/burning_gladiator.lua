@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -85,10 +87,10 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -300, maxDamage = -500, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -300, maxDamage = -500, target = false},
-	{name ="combat", interval = 2000, chance = 17, minDamage = -300, maxDamage = -500, type = COMBAT_FIREDAMAGE, effect = CONST_ME_FIREATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -300, maxDamage = -500, type = COMBAT_ENERGYDAMAGE, length = 3, spread = 0, effect = CONST_ME_ENERGYHIT, target = false}
+	{name ="firering", interval = 2000, chance = 10, minDamage = -300, maxDamage = -500, target = false},
+	{name ="firex", interval = 2000, chance = 15, minDamage = -300, maxDamage = -500, target = false},
+	{name ="combat", interval = 2000, chance = 17, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -500, radius = 2, effect = CONST_ME_FIREATTACK, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -300, maxDamage = -500, length = 3, spread = 0, effect = CONST_ME_ENERGYHIT, target = false}
 }
 
 monster.defenses = {

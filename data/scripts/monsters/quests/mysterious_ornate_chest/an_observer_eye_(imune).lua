@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("An Observer Eye")
 local monster = {}
 
-monster.description = "a An Observer Eye"
+monster.description = "an observer eye"
 monster.experience = 0
 monster.outfit = {
 	lookType = 925,
@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -66,7 +68,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 1000, chance = 100, minDamage = -3000, maxDamage = -5000, type = COMBAT_ENERGYDAMAGE, range = 30, shootEffect = CONST_ANI_ENERGY, target = false}
+	{name ="combat", interval = 1000, chance = 100, type = COMBAT_ENERGYDAMAGE, minDamage = -3000, maxDamage = -5000, range = 30, shootEffect = CONST_ANI_ENERGY, target = false}
 }
 
 monster.defenses = {

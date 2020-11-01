@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 60,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -71,21 +73,21 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2500, chance = 20, minDamage = -200, maxDamage = -600, type = COMBAT_MANADRAIN, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_CARNIPHILA, target = true},
-	{name ="combat", interval = 3500, chance = 27, minDamage = -200, maxDamage = -400, type = COMBAT_ICEDAMAGE, range = 7, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEAREA, target = true},
-	{name ="combat", interval = 3500, chance = 15, minDamage = -100, maxDamage = -400, type = COMBAT_ICEDAMAGE, range = 1, target = true},
-	{name ="combat", interval = 2300, chance = 11, minDamage = -200, maxDamage = -500, type = COMBAT_DROWNDAMAGE, range = 7, shootEffect = CONST_ANI_ICE, effect = CONST_ME_WATERSPLASH, target = true},
-	{name ="combat", interval = 2300, chance = 14, minDamage = -200, maxDamage = -600, type = COMBAT_MANADRAIN, range = 7, effect = CONST_ME_BUBBLES, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -100, maxDamage = -400, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = true},
-	{name ="combat", interval = 1200, chance = 7, minDamage = -300, maxDamage = -800, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_SMALLCLOUDS, target = false},
-	{name ="combat", interval = 2000, chance = 14, minDamage = -200, maxDamage = -500, type = COMBAT_ENERGYDAMAGE, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
-	{name ="speed", interval = 2150, chance = 16, speedChange = -600, duration = 15000}
+	{name ="combat", interval = 2500, chance = 20, type = COMBAT_MANADRAIN, minDamage = -200, maxDamage = -600, range = 7, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_CARNIPHILA, target = true},
+	{name ="combat", interval = 3500, chance = 27, type = COMBAT_ICEDAMAGE, minDamage = -200, maxDamage = -400, range = 7, radius = 4, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEAREA, target = true},
+	{name ="combat", interval = 3500, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -400, range = 1, radius = 1, target = true},
+	{name ="combat", interval = 2300, chance = 11, type = COMBAT_DROWNDAMAGE, minDamage = -200, maxDamage = -500, range = 7, radius = 4, shootEffect = CONST_ANI_ICE, effect = CONST_ME_WATERSPLASH, target = true},
+	{name ="combat", interval = 2300, chance = 14, type = COMBAT_MANADRAIN, minDamage = -200, maxDamage = -600, range = 7, radius = 7, effect = CONST_ME_BUBBLES, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -400, range = 7, radius = 1, shootEffect = CONST_ANI_LARGEROCK, target = true},
+	{name ="combat", interval = 1200, chance = 7, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -800, length = 8, spread = 3, effect = CONST_ME_SMALLCLOUDS, target = false},
+	{name ="combat", interval = 2000, chance = 14, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -500, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
+	{name ="speed", interval = 2150, chance = 16, speedChange = -600, range = 7, radius = 1, target = true, duration = 15000}
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{name ="combat", interval = 3000, chance = 40, minDamage = 800, maxDamage = 1100, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 3000, chance = 40, type = COMBAT_HEALING, minDamage = 800, maxDamage = 1100, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

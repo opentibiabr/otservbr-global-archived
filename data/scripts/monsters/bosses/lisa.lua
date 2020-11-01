@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -81,21 +83,21 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 150, attack = 100, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 900, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -200, maxDamage = -400, type = COMBAT_LIFEDRAIN, range = 7, shootEffect = CONST_ANI_GREENSTAR, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 2000, chance = 15, range = 7, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_BIGPLANTS, target = true},
-	{name ="combat", interval = 2000, chance = 15, range = 7, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_PLANTATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 13, minDamage = -100, maxDamage = -200, type = COMBAT_MANADRAIN, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 12, target = false},
-	{name ="combat", interval = 2000, chance = 15, target = false},
-	{name ="combat", interval = 2000, chance = 11, minDamage = -400, maxDamage = -900, target = false}
+	{name ="melee", interval = 2000, chance = 100, skill = 150, attack = 100, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 900, interval = 4000}},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -200, maxDamage = -400, range = 7, radius = 1, shootEffect = CONST_ANI_GREENSTAR, effect = CONST_ME_MORTAREA, target = true},
+	{name ="effect", interval = 2000, chance = 15, range = 7, radius = 6, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_BIGPLANTS, target = true},
+	{name ="effect", interval = 2000, chance = 15, range = 7, radius = 6, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_PLANTATTACK, target = true},
+	{name ="combat", interval = 2000, chance = 13, type = COMBAT_MANADRAIN, minDamage = -100, maxDamage = -200, radius = 8, effect = CONST_ME_POISONAREA, target = false},
+	{name ="lisa paralyze", interval = 2000, chance = 12, target = false},
+	{name ="lisa skill reducer", interval = 2000, chance = 15, target = false},
+	{name ="lisa wave", interval = 2000, chance = 11, minDamage = -400, maxDamage = -900, target = false}
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 5, target = false},
-	{name ="combat", interval = 1000, chance = 100, target = false}
+	{name ="lisa summon", interval = 2000, chance = 5, target = false},
+	{name ="lisa heal", interval = 1000, chance = 100, target = false}
 }
 
 monster.elements = {
