@@ -385,7 +385,11 @@ bool CombatSpell::executeCastSpell(Creature* creature, const LuaVariant& var)
 {
 	//onCastSpell(creature, var)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - CombatSpell::executeCastSpell] Call stack overflow" << std::endl;
+		std::cout << "[Error - CombatSpell::executeCastSpell"
+				<< " Creature "
+				<< creature->getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 		return false;
 	}
 
@@ -1105,7 +1109,13 @@ bool InstantSpell::executeCastSpell(Creature* creature, const LuaVariant& var)
 {
 	//onCastSpell(creature, var)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - InstantSpell::executeCastSpell] Call stack overflow" << std::endl;
+		std::cout << "[Error - InstantSpell::executeCastSpell"
+				<< " Creature "
+				<< creature->getName()
+				<< " words "
+				<< getWords()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 		return false;
 	}
 
@@ -1291,7 +1301,13 @@ bool RuneSpell::executeCastSpell(Creature* creature, const LuaVariant& var, bool
 {
 	//onCastSpell(creature, var, isHotkey)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - RuneSpell::executeCastSpell] Call stack overflow" << std::endl;
+		std::cout << "[Error - RuneSpell::executeCastSpell"
+				<< " Creature "
+				<< creature->getName() 
+				<< " runeId "
+				<< getRuneItemId()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 		return false;
 	}
 

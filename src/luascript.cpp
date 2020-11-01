@@ -18425,7 +18425,10 @@ void LuaEnvironment::executeTimerEvent(uint32_t eventIndex)
 		env->setScriptId(timerEventDesc.scriptId, this);
 		callFunction(timerEventDesc.parameters.size());
 	} else {
-		std::cout << "[Error - LuaScriptInterface::executeTimerEvent] Call stack overflow" << std::endl;
+		std::cout << "[Error - LuaScriptInterface::executeTimerEvent"
+				<< " Lua file "
+				<< getLoadingFile()
+				<< "] Call stack overflow. Too many lua script calls being nested." << std::endl;
 	}
 
 	//free resources
