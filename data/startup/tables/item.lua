@@ -3,7 +3,7 @@
 ItemAction = {
 	--Parchment room quest
 	-- data\scripts\quests\parchment_room\movement-parchment.lua
-	[104] = {
+	[10065] = {
 		itemId = 1953,
 		itemPos = {{x = 33063, y = 31624, z = 15}}
 	},
