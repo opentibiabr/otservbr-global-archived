@@ -9,6 +9,10 @@ function getDistanceBetween(firstPosition, secondPosition)
 	return posDif
 end
 
+function doComparePositions(position, positionEx)
+    return position.x == positionEx.x and position.y == positionEx.y and position.z == positionEx.z
+end
+
 function getTibiaTimerDayOrNight()
 	local light = getWorldLight()
 	if (light == 40) then

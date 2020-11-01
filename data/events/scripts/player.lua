@@ -314,6 +314,37 @@ end
 
 function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, toCylinder)
 
+	-- Parchment Room Quest
+	local demonPositions = {
+		{x = 33060, y = 31623, z= 15},
+		{x = 33066, y = 31623, z= 15},
+		{x = 33060, y = 31627, z= 15},
+		{x = 33066, y = 31627, z= 15}
+	}
+	
+	local function recreateParchment(position)
+		local item = Tile(position):getItemById(1953)
+		if item then
+			item:setActionId(10065)
+		else
+			local parchment = Game.createItem(1953, 1, position)
+			if parchment then
+				parchment:setText("Buried forever that he never shall return. Don't remove this seal or bad things may happen.")
+				parchment:setActionId(10065)
+			end
+		end
+	end
+	local itemConfigPosition = ItemAction[10065].itemPos[1]
+	local checkPosition = doComparePositions(fromPosition, itemConfigPosition)
+    if ( item:getActionId() == 10065 and checkPosition) then
+		item:removeAttribute(ITEM_ATTRIBUTE_ACTIONID)
+		addEvent(recreateParchment, 2 * 60 * 60 * 1000, position) -- 2 hours
+	
+		for i = 1, #demonPositions do
+			Game.createMonster('Demon', demonPositions[i])
+		end
+    end
+
 	-- No move items with actionID = 100
 	if item:getActionId() == NOT_MOVEABLE_ACTION then
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
