@@ -30,6 +30,7 @@ enum GlobalEvent_t {
 	GLOBALEVENT_STARTUP,
 	GLOBALEVENT_SHUTDOWN,
 	GLOBALEVENT_RECORD,
+	GLOBALEVENT_PERIODCHANGE
 };
 
 class GlobalEvent;
@@ -82,6 +83,7 @@ class GlobalEvent final : public Event
 
 		bool configureEvent(const pugi::xml_node& node) override;
 
+		bool executePeriodChange(LightState_t lightState, LightInfo lightInfo);
 		bool executeRecord(uint32_t current, uint32_t old);
 		bool executeEvent() const;
 

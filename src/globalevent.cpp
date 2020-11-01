@@ -226,6 +226,7 @@ GlobalEventMap GlobalEvents::getEventMap(GlobalEvent_t type)
 	switch (type) {
 		case GLOBALEVENT_NONE: return thinkMap;
 		case GLOBALEVENT_TIMER: return timerMap;
+		case GLOBALEVENT_PERIODCHANGE:
 		case GLOBALEVENT_STARTUP:
 		case GLOBALEVENT_SHUTDOWN:
 		case GLOBALEVENT_RECORD: {
@@ -326,8 +327,30 @@ std::string GlobalEvent::getScriptEventName() const
 		case GLOBALEVENT_SHUTDOWN: return "onShutdown";
 		case GLOBALEVENT_RECORD: return "onRecord";
 		case GLOBALEVENT_TIMER: return "onTime";
+		case GLOBALEVENT_PERIODCHANGE: return "onPeriodChange";
 		default: return "onThink";
 	}
+}
+
+bool GlobalEvent::executePeriodChange(LightState_t lightState, LightInfo lightInfo) {
+	//onPeriodChange(lightState, lightTime)
+	if (!scriptInterface->reserveScriptEnv()) {
+		std::cout << "[Error - GlobalEvent::executePeriodChange "
+			<< getName()
+			<< "] Call stack overflow. Too many lua script calls being nested."
+			<< std::endl;
+		return false;
+	}
+
+	ScriptEnvironment* env = scriptInterface->getScriptEnv();
+	env->setScriptId(scriptId, scriptInterface);
+
+	lua_State* L = scriptInterface->getLuaState();
+	scriptInterface->pushFunction(scriptId);
+
+	lua_pushnumber(L, lightState);
+	lua_pushnumber(L, lightInfo.level);
+	return scriptInterface->callFunction(2);
 }
 
 bool GlobalEvent::executeRecord(uint32_t current, uint32_t old)

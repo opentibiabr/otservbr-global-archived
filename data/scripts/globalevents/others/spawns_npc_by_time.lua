@@ -1,57 +1,67 @@
-local spawns = {
-	-- spawnByType day / night
-	[1] = {		nameAdd = "ghostly_wolf",	nameRem = "Ghostly Wolf",		spawnByType =  "night",		position = { x = 33332, y = 32052, z = 7 }	}
+-- enum LightState_t
+-- LIGHT_STATE_DAY,
+-- LIGHT_STATE_NIGHT,
+-- LIGHT_STATE_SUNSET,
+-- LIGHT_STATE_SUNRISE,
+local periods = {
+	[LIGHT_STATE_NIGHT] = "Night",
+	[LIGHT_STATE_DAY] = "Day",
+	[LIGHT_STATE_SUNRISE] = "Sunrise",
+	[LIGHT_STATE_SUNSET] = "Sunset"
 }
 
-local function typeTimeInverter(typeTime)
-	if (typeTime == "night") then
-		return "day"
-	else 
-		return "night"
-	end
-end
+local spawns = {
+	-- spawnByType day / night
+	[1] = { -- spawn in night
+		id = "ghostly_wolf",
+		name = "Ghostly Wolf",
+		spawn = LIGHT_STATE_SUNSET,
+		despawn = LIGHT_STATE_SUNRISE,
+		position = { x = 33332, y = 32052, z = 7 }
+	},
+	[2] = { -- spawn in night
+		id = "talila",
+		name = "Talila",
+		spawn = LIGHT_STATE_SUNSET,
+		despawn = LIGHT_STATE_SUNRISE,
+		position = { x=33504 , y=32222 , z=7 }
+	},
+	[3] = { -- spawn in day
+		id = "valindara",
+		name = "Valindara",
+		spawn = LIGHT_STATE_SUNRISE,
+		despawn = LIGHT_STATE_SUNSET,
+		position = { x=33504 , y=32222 , z=7 }
+	}
+}
 
-local function addNpcs(tablename, typeTime)
-	for index, value in pairs(tablename) do
-		if value.nameAdd and value.position and value.spawnByType == typeTime then
-			local spawn = Game.createNpc(value.nameAdd, value.position)
+local spawnsByTime = GlobalEvent("spawnsByTime")
+function spawnsByTime.onPeriodChange(period, light)
+	local time = getWorldTime()
+
+	print("Starting " .. periods[period] .. "... Current light is " .. light .. " and it's " .. getFormattedWorldTime(time) .. " Tibian Time.")
+
+	for index, value in pairs(spawns) do
+		if value.spawn == period then
+			-- Adding
+			local spawn = Game.createNpc(value.id, value.position)
 			if spawn then
-				print("> NPC "..value.nameAdd.."  Added!")
+				print("> NPC " .. value.name .. " added!")
 				spawn:setMasterPos(value.position)
 				spawn:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			end
-		end
-	end
-end
-
-local function removerNpcs(tablename, typeTime)
-	for index, value in pairs(tablename) do
-		if value.nameRem and value.position and value.spawnByType == typeTime then
-			local target = Npc(value.nameRem)
+		elseif value.despawn == period then
+			-- Removing
+			local target = Npc(value.name)
 			if target then
-				print("> NPC "..value.nameRem.."  Removed!")
+				print("> NPC " .. value.name .. " removed!")
 				target:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 				return target:remove()
 			end
 		end
 	end
-end
 
-local nowType = "night"
-local spawnsByTime = GlobalEvent("spawnsByTime")
-function spawnsByTime.onThink(interval, lastExecution)
-	local time = getWorldTime()
-	local light = getWorldLight()
-	local dayOrNight = getTibiaTimerDayOrNight()
-
-	if (nowType ~= dayOrNight) then
-		print("Now is ".. dayOrNight ..", Light "..light.." and Tibia Time "..getFormattedWorldTime(time).." (".. time ..").")
-		removerNpcs(spawns, typeTimeInverter(dayOrNight)) -- Remove
-		addNpcs(spawns, dayOrNight) -- Add
-		nowType = dayOrNight -- Change flag controller
-	end
 	return true
 end
 
-spawnsByTime:interval(60000)
 spawnsByTime:register()
