@@ -12,12 +12,26 @@ local periods = {
 
 local spawns = {
 	-- spawnByType day / night
-	[1] = {
+	[1] = { -- spawn in night
 		id = "ghostly_wolf",
 		name = "Ghostly Wolf",
 		spawn = LIGHT_STATE_SUNSET,
 		despawn = LIGHT_STATE_SUNRISE,
 		position = { x = 33332, y = 32052, z = 7 }
+	},
+	[2] = { -- spawn in night
+		id = "talila",
+		name = "Talila",
+		spawn = LIGHT_STATE_SUNSET,
+		despawn = LIGHT_STATE_SUNRISE,
+		position = { x=33504 , y=32222 , z=7 }
+	},
+	[3] = { -- spawn in day
+		id = "valindara",
+		name = "Valindara",
+		spawn = LIGHT_STATE_SUNRISE,
+		despawn = LIGHT_STATE_SUNSET,
+		position = { x=33504 , y=32222 , z=7 }
 	}
 }
 
