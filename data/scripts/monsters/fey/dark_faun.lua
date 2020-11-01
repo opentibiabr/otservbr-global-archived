@@ -30,11 +30,11 @@ monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
 	damage = 10,
-	random = 10,
+	random = 10
 }
 
 monster.respawnType = {
-	period = RESPAWNPERIOD_NIGHT
+	period = RESPAWNPERIOD_NIGHT,
 	underground = false
 }
 
