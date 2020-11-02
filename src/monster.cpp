@@ -515,6 +515,18 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 	std::list<Creature*> resultList;
 	const Position& myPos = getPosition();
 
+	//lets just pick the first target in the list
+	for (Creature* target : targetList) {
+		if (followCreature != target && isTarget(target)) {
+			if (searchType == TARGETSEARCH_RANDOM || canUseAttack(myPos, target)) {
+				resultList.push_back(target);
+			}
+		}
+		if (followCreature != target && selectTarget(target)) {
+			return true;
+		}
+	}
+	
 	switch (searchType) {
 		case TARGETSEARCH_DEFAULT: {
 			int32_t rnd = uniform_random(1, 100);
@@ -634,18 +646,7 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 			break;
 		}
 	}
-	
-	//lets just pick the first target in the list
-	for (Creature* target : targetList) {
-		if (followCreature != target && isTarget(target)) {
-			if (searchType == TARGETSEARCH_RANDOM || canUseAttack(myPos, target)) {
-				resultList.push_back(target);
-			}
-		}
-		if (followCreature != target && selectTarget(target)) {
-			return true;
-		}
-	}
+
 	return false;
 }
 
