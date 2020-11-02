@@ -139,14 +139,14 @@ QuestDoorAction = {
 	},
 	-- The war djin quest
 	-- Marid faction
-	[Storage.DjinnWar.Faction.MaridDoor] = {
-		itemId = false,
-		itemPos = {{x = 33106, y = 32532, z = 6}}
-	},
-	[Storage.DjinnWar.Faction.EfreetDoor] = {
-		itemId = false,
-		itemPos = {{x = 33047, y = 32626, z = 6}}
-	},
+	-- [Storage.DjinnWar.Faction.MaridDoor] = {
+	-- 	itemId = false,
+	-- 	itemPos = {{x = 33106, y = 32532, z = 6}}
+	-- },
+	-- [Storage.DjinnWar.Faction.EfreetDoor] = {
+	-- 	itemId = false,
+	-- 	itemPos = {{x = 33047, y = 32626, z = 6}}
+	-- },
 	[Storage.DjinnWar.MaridFaction.DoorToLamp] = {
 		itemId = false,
 		itemPos = {{x = 33038, y = 32632, z = 1}}
