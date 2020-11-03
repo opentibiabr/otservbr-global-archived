@@ -55,6 +55,7 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 	std::ostringstream query;
 	query << "SELECT `boostname` FROM `boosted_creature`";
 	DBResult_ptr BoostedName = db.storeQuery(query.str());
+	std::string BoostedNameGet = BoostedName->getString("boostname");
 
 	for (auto spawnNode : doc.child("spawns").children()) {
 		Position centerPos(
@@ -102,7 +103,7 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 					std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database." << std::endl;
 					return false;
 				}
-				if (nameAttribute.value() == BoostedName->getString("boostname")) {
+				if (nameAttribute.value() == BoostedNameGet) {
 					boostedrate = 2;
 				} else {
 					boostedrate = 1;
@@ -160,6 +161,7 @@ bool Spawns::loadCustomSpawnXml(const std::string& _filename)
 	std::ostringstream query;
 	query << "SELECT `boostname` FROM `boosted_creature`";
 	DBResult_ptr BoostedName = db.storeQuery(query.str());
+	std::string BoostedNameGet = BoostedName->getString("boostname");
 
 	for (pugi::xml_node spawnNode = doc.child("spawns").first_child(); spawnNode; spawnNode = spawnNode.next_sibling()) {
 		Position centerPos(
@@ -209,7 +211,7 @@ bool Spawns::loadCustomSpawnXml(const std::string& _filename)
 					std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database." << std::endl;
 					return false;
 				}
-				if (nameAttribute.value() == BoostedName->getString("boostname")) {
+				if (nameAttribute.value() == BoostedNameGet) {
 					boostedrate = 2;
 				} else {
 					boostedrate = 1;
