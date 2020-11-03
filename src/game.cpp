@@ -6615,6 +6615,8 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 		fee = 20;
 	} else if (fee > 1000) {
 		fee = 1000;
+	} else if (fee > 100000) {
+		fee = 100000;
 	}
 
 	if (type == MARKETACTION_SELL) {
