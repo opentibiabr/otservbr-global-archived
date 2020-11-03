@@ -76,14 +76,17 @@
 	<spawn centerx="1001" centery="1036" centerz="7" radius="1">
 		<npc name="Lailene" x="0" y="0" z="7" spawntime="60" />
 	</spawn>
-	<spawn centerx="32362" centery="32219" centerz="7" radius="1">
+	<spawn centerx="32357" centery="32220" centerz="7" radius="1">
 		<monster name="Training Monk" x="0" y="0" z="7" spawntime="60" />
 	</spawn>
-	<spawn centerx="32357" centery="32220" centerz="7" radius="1">
+	<spawn centerx="32362" centery="32220" centerz="7" radius="1">
 		<monster name="Training Monk" x="0" y="0" z="7" spawntime="60" />
 	</spawn>
 	<spawn centerx="32357" centery="32222" centerz="7" radius="1">
 		<monster name="Training Monk" x="0" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="32362" centery="32222" centerz="7" radius="1">
+		<npc name="mandigo" x="0" y="0" z="7" spawntime="60" />
 	</spawn>
 	<spawn centerx="32357" centery="32226" centerz="7" radius="1">
 		<monster name="Training Monk" x="0" y="0" z="7" spawntime="60" />

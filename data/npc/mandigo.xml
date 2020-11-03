@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Mandigo" script="default.lua" walkinterval="0" speed="0" walkradius="0" floorchange="0" speechbubble="2">
+	<health max="100" now="100"/>
+	<look type="153" head="78" body="116" legs="94" feet="114" addons="2" mount="0"/>
+	<parameters>
+		<!--SHOP-->
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_buyable" value="small stone,1294,3;brown mushroom,2789,10;dagger,2379,5;wooden shield,2512,15;blank rune,2260,10;bag,1987,4;orcish axe,2428,1000"/>
+	</parameters>
+</npc>

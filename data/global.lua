@@ -1,6 +1,14 @@
 math.randomseed(os.time())
 dofile('data/lib/lib.lua')
 
+-- AutoLoot config
+AUTO_LOOT_MAX_ITEMS = 10
+
+-- Reserved storage
+AUTOLOOT_STORAGE_START = 48484848
+AUTOLOOT_STORAGE_END = AUTOLOOT_STORAGE_START + AUTO_LOOT_MAX_ITEMS
+-- AutoLoot config end
+
 NOT_MOVEABLE_ACTION = 100
 PARTY_PROTECTION = 1 -- Set to 0 to disable.
 ADVANCED_SECURE_MODE = 1 -- Set to 0 to disable.
