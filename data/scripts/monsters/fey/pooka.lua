@@ -33,6 +33,11 @@ monster.strategiesTarget = {
 	random = 10,
 }
 
+monster.respawnType = {
+	period = RESPAWNPERIOD_DAY,
+	underground = false
+}
+
 monster.flags = {
 	summonable = true,
 	attackable = true,
