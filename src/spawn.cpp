@@ -101,7 +101,6 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 				
 				if (!BoostedName) {
 					std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database." << std::endl;
-					return false;
 				}
 				if (nameAttribute.value() == BoostedNameGet) {
 					boostedrate = 2;
