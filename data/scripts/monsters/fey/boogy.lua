@@ -33,6 +33,11 @@ monster.strategiesTarget = {
 	random = 10,
 }
 
+monster.respawnType = {
+	period = RESPAWNPERIOD_NIGHT,
+	underground = true
+}
+
 monster.flags = {
 	summonable = false,
 	attackable = true,
@@ -52,11 +57,6 @@ monster.flags = {
 	canWalkOnFire = false,
 	canWalkOnPoison = false,
 	pet = false
-}
-
-monster.respawnType = {
-	period = RESPAWNPERIOD_NIGHT,
-	underground = false
 }
 
 monster.light = {
