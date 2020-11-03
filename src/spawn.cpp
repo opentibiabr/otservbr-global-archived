@@ -52,6 +52,7 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 	this->filename = fromFilename;
 	loaded = true;
 
+	uint32_t eventschedule = g_game.getSpawnSchedule();
 	for (auto spawnNode : doc.child("spawns").children()) {
 		Position centerPos(
 			pugi::cast<uint16_t>(spawnNode.attribute("centerx").value()),
@@ -109,7 +110,7 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 					boostedrate = 1;
 				}
 				
-				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 1000 / (g_config.getNumber(ConfigManager::RATE_SPAWN) * boostedrate);
+				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 100000 / (g_config.getNumber(ConfigManager::RATE_SPAWN) * boostedrate * eventschedule);
 				if (interval > MINSPAWN_INTERVAL) {
 					spawn.addMonster(nameAttribute.as_string(), pos, dir, interval);
 				} else {
@@ -157,6 +158,7 @@ bool Spawns::loadCustomSpawnXml(const std::string& _filename)
 		return false;
 	}
 
+	uint32_t eventschedule = g_game.getSpawnSchedule();
 	for (pugi::xml_node spawnNode = doc.child("spawns").first_child(); spawnNode; spawnNode = spawnNode.next_sibling()) {
 		Position centerPos(
 			pugi::cast<uint16_t>(spawnNode.attribute("centerx").value()),
@@ -216,7 +218,7 @@ bool Spawns::loadCustomSpawnXml(const std::string& _filename)
 					boostedrate = 1;
 				}			
 
-				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 1000 / (g_config.getNumber(ConfigManager::RATE_SPAWN) * boostedrate);
+				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 100000 / (g_config.getNumber(ConfigManager::RATE_SPAWN) * boostedrate * eventschedule);
 				if (interval > MINSPAWN_INTERVAL) {
 					spawn.addMonster(nameAttribute.as_string(), pos, dir, interval);
 				} else {
