@@ -1,6 +1,5 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_PHYSICALDAMAGE)
-combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_POISONARROW)
 combat:setParameter(COMBAT_PARAM_BLOCKARMOR, true)
 combat:setFormula(COMBAT_FORMULA_SKILL, 0, 0, 1, 0)
 
@@ -18,9 +17,10 @@ function poisonArrow.onUseWeapon(player, variant)
 end
 
 poisonArrow:id(2545)
-poisonArrow:attack(21)
+poisonArrow:attack(91)
 poisonArrow:action("removecount")
 poisonArrow:ammoType("arrow")
 poisonArrow:shootType(CONST_ANI_POISONARROW)
 poisonArrow:maxHitChance(91)
 poisonArrow:register()
+
