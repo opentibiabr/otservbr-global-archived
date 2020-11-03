@@ -335,7 +335,7 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		end
 	end
 	local itemConfigPosition = ItemAction[10065].itemPos[1]
-	local checkPosition = doComparePositions(fromPosition, itemConfigPosition)
+	local checkPosition = fromPosition:compare(itemConfigPosition)
     if ( item:getActionId() == 10065 and checkPosition) then
 		item:removeAttribute(ITEM_ATTRIBUTE_ACTIONID)
 		addEvent(recreateParchment, 2 * 60 * 60 * 1000, position) -- 2 hours
