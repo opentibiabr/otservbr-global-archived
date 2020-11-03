@@ -29,8 +29,8 @@ extern Weapons* g_weapons;
 
 Items::Items()
 {
-	items.reserve(80000);
-	nameToItems.reserve(80000);
+	items.reserve(65000);
+	nameToItems.reserve(65000);
 }
 
 void Items::clear()
@@ -182,8 +182,8 @@ FILELOADER_ERRORS Items::loadFromOtb(const std::string& file)
 						return ERROR_INVALID_FORMAT;
 					}
 
-					if (serverId > 80000 && serverId < 80100) {
-						serverId -= 80000;
+					if (serverId > 65000 && serverId < 65100) {
+						serverId -= 65000;
 					}
 					break;
 				}
@@ -393,8 +393,8 @@ void Items::buildInventoryList()
 
 void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 {
-	if (id > 80000 && id < 80100) {
-		id -= 80000;
+	if (id > 65000 && id < 65100) {
+		id -= 65000;
 
 		if (id >= items.size()) {
 			items.resize(id + 1);
