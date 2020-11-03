@@ -35,7 +35,7 @@ monster.strategiesTarget = {
 
 monster.respawnType = {
 	period = RESPAWNPERIOD_NIGHT,
-	underground = false
+	underground = true
 }
 
 monster.flags = {
