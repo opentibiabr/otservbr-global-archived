@@ -2103,6 +2103,10 @@ void LuaScriptInterface::registerFunctions()
 	// Game
 	registerTable("Game");
 
+	registerMethod("Game", "getEventSLoot", LuaScriptInterface::luaGamegetEventSLoot);
+	registerMethod("Game", "getEventSSkill", LuaScriptInterface::luaGamegetEventSSkill);
+	registerMethod("Game", "getEventSExp", LuaScriptInterface::luaGamegetEventSExp);
+
 	registerMethod("Game", "getSpectators", LuaScriptInterface::luaGameGetSpectators);
 	registerMethod("Game", "getPlayers", LuaScriptInterface::luaGameGetPlayers);
 	registerMethod("Game", "loadMap", LuaScriptInterface::luaGameLoadMap);
@@ -4600,6 +4604,27 @@ int LuaScriptInterface::luaTableCreate(lua_State* L)
 }
 
 // Game
+int LuaScriptInterface::luaGamegetEventSLoot(lua_State* L)
+{
+	// Game.getEventSLoot()
+	lua_pushnumber(L, g_game.getLootSchedule());
+	return 1;
+}
+
+int LuaScriptInterface::luaGamegetEventSSkill(lua_State* L)
+{
+	// Game.getEventSSkill()
+	lua_pushnumber(L, g_game.getSkillSchedule());
+	return 1;
+}
+
+int LuaScriptInterface::luaGamegetEventSExp(lua_State* L)
+{
+	// Game.getEventSExp()
+	lua_pushnumber(L, g_game.getExpSchedule());
+	return 1;
+}
+
 int LuaScriptInterface::luaGameGetSpectators(lua_State* L)
 {
 	// Game.getSpectators(position[, multifloor = false[, onlyPlayer = false[, minRangeX = 0[, maxRangeX = 0[, minRangeY = 0[, maxRangeY = 0]]]]]])

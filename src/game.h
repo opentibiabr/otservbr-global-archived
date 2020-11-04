@@ -109,6 +109,9 @@ class Game
 			return worldType;
 		}
 
+		// Event schedule xml load
+		bool loadScheduleEventFromXml();
+
 		Cylinder* internalGetCylinder(Player* player, const Position& pos) const;
 		Thing* internalGetThing(Player* player, const Position& pos, int32_t index,
 								uint32_t spriteId, stackPosType_t type) const;
@@ -565,6 +568,35 @@ class Game
 		std::forward_list<Item*> toDecayItems;
 		std::forward_list<Item*> toImbuedItems;
 
+		// Event schedule
+		uint16_t getExpSchedule() const {
+			return expSchedule;
+		}
+		void setExpSchedule(uint16_t exprate) {
+			expSchedule = (expSchedule * exprate)/100;
+		}
+
+		uint16_t getLootSchedule() const {
+			return lootSchedule;
+		}
+		void setLootSchedule(uint16_t lootrate) {
+			lootSchedule = (lootSchedule * lootrate)/100;
+		}
+
+		uint32_t getSpawnSchedule() const {
+			return spawnSchedule;
+		}
+		void setSpawnSchedule(uint32_t spawnrate) {
+			spawnSchedule = (spawnSchedule * spawnrate)/100;
+		}
+
+		uint16_t getSkillSchedule() const {
+			return skillSchedule;
+		}
+		void setSkillSchedule(uint16_t skillrate) {
+			skillSchedule = (skillSchedule * skillrate)/100;
+		}
+
 	private:
 		void checkImbuements();
 		bool playerSaySpell(Player* player, SpeakClasses type, const std::string& text);
@@ -616,6 +648,12 @@ class Game
 
 		GameState_t gameState = GAME_STATE_NORMAL;
 		WorldType_t worldType = WORLD_TYPE_PVP;
+
+		// Event schedule
+		uint16_t expSchedule = 100;
+		uint16_t lootSchedule = 100;
+		uint16_t skillSchedule = 100;
+		uint32_t spawnSchedule = 100;
 
 		LightState_t lightState = LIGHT_STATE_DAY;
 		LightState_t currentLightState = lightState;
