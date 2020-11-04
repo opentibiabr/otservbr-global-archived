@@ -55,7 +55,6 @@ extern Vocations g_vocations;
 extern GlobalEvents* g_globalEvents;
 extern CreatureEvents* g_creatureEvents;
 extern Events* g_events;
-extern CreatureEvents* g_creatureEvents;
 extern Monsters g_monsters;
 extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
@@ -88,12 +87,12 @@ void Game::start(ServiceManager* manager)
 {
 	serviceManager = manager;
 
-	time_t now = time(0);
-	const tm* tms = localtime(&now);
-	int minutes = tms->tm_min;
-	lightHour = (minutes * 1440) / 60;
-
-	g_scheduler.addEvent(createSchedulerTask(EVENT_LIGHTINTERVAL, std::bind(&Game::checkLight, this)));
+	time_t now = time(0);	
+	const tm* tms = localtime(&now);	
+	int minutes = tms->tm_min;	
+	lightHour = (minutes * LIGHT_DAY_LENGTH) / 60;
+	
+	g_scheduler.addEvent(createSchedulerTask(EVENT_LIGHTINTERVAL_MS, std::bind(&Game::checkLight, this)));
 	g_scheduler.addEvent(createSchedulerTask(EVENT_CREATURE_THINK_INTERVAL, std::bind(&Game::checkCreatures, this, 0)));
 	g_scheduler.addEvent(createSchedulerTask(EVENT_DECAYINTERVAL, std::bind(&Game::checkDecay, this)));
 	g_scheduler.addEvent(createSchedulerTask(EVENT_IMBUEMENTINTERVAL, std::bind(&Game::checkImbuements, this)));
@@ -107,6 +106,86 @@ GameState_t Game::getGameState() const
 void Game::setWorldType(WorldType_t type)
 {
 	worldType = type;
+}
+
+bool Game::loadScheduleEventFromXml()
+{
+	pugi::xml_document doc;
+	pugi::xml_parse_result result = doc.load_file("data/XML/events.xml");
+	if (!result) {
+		printXMLError("Error - Game::loadScheduleEventFromXml", "data/XML/events.xml", result);
+		return false;
+	}
+
+		int16_t daysNow;
+		time_t t = time(NULL);
+		tm* timePtr = localtime(&t);
+		int16_t daysMath = ((timePtr->tm_year + 1900) * 365) + ((timePtr->tm_mon + 1) * 30) + (timePtr->tm_mday);
+
+	for (auto schedNode : doc.child("events").children()) {
+		std::string ss_d;
+		std::stringstream ss;
+
+		pugi::xml_attribute attr;
+		if ((attr = schedNode.attribute("name"))) {
+			ss_d = attr.as_string();
+			ss << "> " << ss_d << " event";
+		}
+
+		int year;
+		int day;
+		int month;
+
+		if (!(attr = schedNode.attribute("enddate"))) {
+			continue;
+		} else {
+			ss_d = attr.as_string();
+			sscanf(ss_d.c_str(), "%d/%d/%d", &month, &day, &year);
+			daysNow = ((year * 365) + (month * 30) + day);
+			if (daysMath > daysNow) {
+				continue;
+			}
+		}
+
+		if (!(attr = schedNode.attribute("startdate"))) {
+			continue;
+		} else {
+			ss_d = attr.as_string();
+			sscanf(ss_d.c_str(), "%d/%d/%d", &month, &day, &year);
+			daysNow = ((year * 365) + (month * 30) + day);
+			if (daysMath < daysNow) {
+				continue;
+			}	
+		}
+
+			for (auto schedENode : schedNode.children()) {
+				if ((schedENode.attribute("exprate"))) {
+					uint16_t exprate = pugi::cast<uint16_t>(schedENode.attribute("exprate").value());
+					g_game.setExpSchedule(exprate);
+					ss << " exp: " << (exprate - 100) << "%";
+				}
+
+				if ((schedENode.attribute("lootrate"))) {
+					uint16_t lootrate = pugi::cast<uint16_t>(schedENode.attribute("lootrate").value());
+					g_game.setLootSchedule(lootrate);
+					ss << ", loot: " << (lootrate - 100) << "%";
+				}
+
+				if ((schedENode.attribute("spawnrate"))) {
+					uint32_t spawnrate = pugi::cast<uint32_t>(schedENode.attribute("spawnrate").value());
+					g_game.setSpawnSchedule(spawnrate);
+					ss << ", spawn: "  << (spawnrate - 100) << "%";
+				}
+
+				if ((schedENode.attribute("skillrate"))) {
+					uint16_t skillrate = pugi::cast<uint16_t>(schedENode.attribute("skillrate").value());
+					g_game.setSkillSchedule(skillrate);
+					ss << ", skill: " << (skillrate - 100) << "%";
+				}
+			}
+		std::cout << ss.str() << "." << std::endl;
+	}
+	return true;
 }
 
 void Game::setGameState(GameState_t newState)
@@ -1394,6 +1473,12 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 	//destination is the same as the source?
 	if (item == toItem) {
 		return RETURNVALUE_NOERROR; //silently ignore move
+	}
+
+	// 'Move up' stackable items fix
+	//  Cip's client never sends the count of stackables when using "Move up" menu option
+	if (item->isStackable() && count == 255 && fromCylinder->getParent() == toCylinder) {
+		count = item->getItemCount();
 	}
 
 	//check if we can add this item
@@ -5982,12 +6067,12 @@ void Game::checkImbuements()
 
 void Game::checkLight()
 {
-	g_scheduler.addEvent(createSchedulerTask(EVENT_LIGHTINTERVAL, std::bind(&Game::checkLight, this)));
+	g_scheduler.addEvent(createSchedulerTask(EVENT_LIGHTINTERVAL_MS, std::bind(&Game::checkLight, this)));
 
 	lightHour += lightHourDelta;
 
-	if (lightHour > 1440) {
-		lightHour -= 1440;
+	if (lightHour > LIGHT_DAY_LENGTH) {
+		lightHour -= LIGHT_DAY_LENGTH;
 	}
 
 	if (std::abs(lightHour - SUNRISE) < 2 * lightHourDelta) {
@@ -6024,11 +6109,18 @@ void Game::checkLight()
 		lightLevel = newLightLevel;
 	}
 
-	if (lightChange) {
-		LightInfo lightInfo = getWorldLightInfo();
+	LightInfo lightInfo = getWorldLightInfo();
 
+	if (lightChange) {
 		for (const auto& it : players) {
 			it.second->sendWorldLight(lightInfo);
+		}
+	}
+
+	if (currentLightState != lightState) {
+		currentLightState = lightState;
+		for (auto& it : g_globalEvents->getEventMap(GLOBALEVENT_PERIODCHANGE)) {
+			it.second.executePeriodChange(lightState, lightInfo);
 		}
 	}
 }

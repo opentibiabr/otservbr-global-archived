@@ -1,7 +1,6 @@
 local mType = Game.createMonsterType("Butterfly")
 local monster = {}
 
-monster.name = "Butterfly"
 monster.description = "a butterfly"
 monster.experience = 0
 monster.outfit = {
@@ -46,9 +45,11 @@ monster.flags = {
 	targetDistance = 8,
 	runHealth = 2,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {

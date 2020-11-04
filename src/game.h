@@ -64,14 +64,7 @@ enum GameState_t {
 	GAME_STATE_MAINTAIN,
 };
 
-enum LightState_t {
-	LIGHT_STATE_DAY,
-	LIGHT_STATE_NIGHT,
-	LIGHT_STATE_SUNSET,
-	LIGHT_STATE_SUNRISE,
-};
-
-static constexpr int32_t EVENT_LIGHTINTERVAL = 10000;
+static constexpr int32_t EVENT_LIGHTINTERVAL_MS = 10000;
 static constexpr int32_t EVENT_DECAYINTERVAL = 250;
 static constexpr int32_t EVENT_DECAY_BUCKETS = 4;
 static constexpr int32_t EVENT_IMBUEMENTINTERVAL = 250;
@@ -115,6 +108,9 @@ class Game
 		WorldType_t getWorldType() const {
 			return worldType;
 		}
+
+		// Event schedule xml load
+		bool loadScheduleEventFromXml();
 
 		Cylinder* internalGetCylinder(Player* player, const Position& pos) const;
 		Thing* internalGetThing(Player* player, const Position& pos, int32_t index,
@@ -572,6 +568,35 @@ class Game
 		std::forward_list<Item*> toDecayItems;
 		std::forward_list<Item*> toImbuedItems;
 
+		// Event schedule
+		uint16_t getExpSchedule() const {
+			return expSchedule;
+		}
+		void setExpSchedule(uint16_t exprate) {
+			expSchedule = (expSchedule * exprate)/100;
+		}
+
+		uint16_t getLootSchedule() const {
+			return lootSchedule;
+		}
+		void setLootSchedule(uint16_t lootrate) {
+			lootSchedule = (lootSchedule * lootrate)/100;
+		}
+
+		uint32_t getSpawnSchedule() const {
+			return spawnSchedule;
+		}
+		void setSpawnSchedule(uint32_t spawnrate) {
+			spawnSchedule = (spawnSchedule * spawnrate)/100;
+		}
+
+		uint16_t getSkillSchedule() const {
+			return skillSchedule;
+		}
+		void setSkillSchedule(uint16_t skillrate) {
+			skillSchedule = (skillSchedule * skillrate)/100;
+		}
+
 	private:
 		void checkImbuements();
 		bool playerSaySpell(Player* player, SpeakClasses type, const std::string& text);
@@ -612,6 +637,8 @@ class Game
 
 		ModalWindow offlineTrainingWindow { std::numeric_limits<uint32_t>::max(), "Choose a Skill", "Please choose a skill:" };
 
+		static constexpr int32_t DAY_LENGTH_SECONDS = 3600;
+		static constexpr int32_t LIGHT_DAY_LENGTH = 1440;
 		static constexpr int32_t LIGHT_LEVEL_DAY = 250;
 		static constexpr int32_t LIGHT_LEVEL_NIGHT = 40;
 		static constexpr int32_t SUNSET = 1050;
@@ -622,11 +649,18 @@ class Game
 		GameState_t gameState = GAME_STATE_NORMAL;
 		WorldType_t worldType = WORLD_TYPE_PVP;
 
+		// Event schedule
+		uint16_t expSchedule = 100;
+		uint16_t lootSchedule = 100;
+		uint16_t skillSchedule = 100;
+		uint32_t spawnSchedule = 100;
+
 		LightState_t lightState = LIGHT_STATE_DAY;
+		LightState_t currentLightState = lightState;
 		uint8_t lightLevel = LIGHT_LEVEL_DAY;
 		int32_t lightHour = SUNRISE + (SUNSET - SUNRISE) / 2;
-		// (1440 minutes/day)/(3600 seconds/day)*10 seconds event interval
-		int32_t lightHourDelta = 1400 * 10 / 3600;
+		// (1440 total light of tibian day)/(3600 real seconds each tibian day) * 10 seconds event interval
+		int32_t lightHourDelta = (LIGHT_DAY_LENGTH / DAY_LENGTH_SECONDS) * (EVENT_LIGHTINTERVAL_MS/1000);
 
 		ServiceManager* serviceManager = nullptr;
 

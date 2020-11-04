@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -83,22 +85,22 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1013, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1000, chance = 12, minDamage = -600, maxDamage = -900, type = COMBAT_ENERGYDAMAGE, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 1000, chance = 12, minDamage = -400, maxDamage = -800, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -500, maxDamage = -800, type = COMBAT_MANADRAIN, range = 7, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 3000, chance = 35, minDamage = -200, maxDamage = -600, type = COMBAT_FIREDAMAGE, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true}
+	{name ="combat", interval = 1000, chance = 12, type = COMBAT_ENERGYDAMAGE, minDamage = -600, maxDamage = -900, radius = 7, effect = CONST_ME_ENERGYHIT, target = false},
+	{name ="combat", interval = 1000, chance = 12, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -800, radius = 7, effect = CONST_ME_SMALLPLANTS, target = false},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_MANADRAIN, minDamage = -500, maxDamage = -800, range = 7, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="combat", interval = 3000, chance = 35, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -600, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true}
 }
 
 monster.defenses = {
 	defense = 65,
 	armor = 55,
-	{name ="combat", interval = 2000, chance = 35, minDamage = 300, maxDamage = 800, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 4000, chance = 80, speedChange = 440, duration = 6000},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10}
+	{name ="combat", interval = 2000, chance = 35, type = COMBAT_HEALING, minDamage = 300, maxDamage = 800, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="speed", interval = 4000, chance = 80, speedChange = 440, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_CRAPS, target = false, duration = 10000, outfitMonster = "behemoth"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_CRAPS, target = false, duration = 10000, outfitMonster = "fire devil"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_CRAPS, target = false, duration = 10000, outfitMonster = "giant spider"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_CRAPS, target = false, duration = 10000, outfitMonster = "undead dragon"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_CRAPS, target = false, duration = 10000, outfitMonster = "lost soul"}
 }
 
 monster.elements = {

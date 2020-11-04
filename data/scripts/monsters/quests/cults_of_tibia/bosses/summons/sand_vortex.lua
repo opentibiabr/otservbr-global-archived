@@ -41,9 +41,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -61,9 +63,9 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -200, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_POFF, target = false},
-	{name ="speed", interval = 2000, chance = 20, speedChange = -650, duration = 5000},
-	{name ="drunk", interval = 2000, chance = 10, range = 1, target = true}
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -200, radius = 4, effect = CONST_ME_POFF, target = false},
+	{name ="speed", interval = 2000, chance = 20, speedChange = -650, radius = 4, effect = CONST_ME_POFF, target = false, duration = 5000},
+	{name ="drunk", interval = 2000, chance = 10, range = 1, target = true, duration = 5000}
 }
 
 monster.defenses = {
@@ -90,23 +92,5 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
-
-mType.onThink = function(monster, interval)
-end
-
-mType.onAppear = function(monster, creature)
-	if monster:getType():isRewardBoss() then
-		monster:setReward(true)
-	end
-end
-
-mType.onDisappear = function(monster, creature)
-end
-
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-end
 
 mType:register(monster)

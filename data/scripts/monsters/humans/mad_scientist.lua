@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -78,15 +80,15 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -35, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -20, maxDamage = -56, type = COMBAT_DROWNDAMAGE, range = 7, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_POFF, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -20, maxDamage = -36, type = COMBAT_EARTHDAMAGE, shootEffect = CONST_ANI_POISON, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="speed", interval = 2000, chance = 10, speedChange = -300, duration = 2000}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DROWNDAMAGE, minDamage = -20, maxDamage = -56, range = 7, radius = 3, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_POFF, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -20, maxDamage = -36, shootEffect = CONST_ANI_POISON, effect = CONST_ME_ENERGYHIT, target = false},
+	{name ="speed", interval = 2000, chance = 10, speedChange = -300, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_SMALLPLANTS, target = true, duration = 2000}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 15, minDamage = 10, maxDamage = 30, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 10, maxDamage = 30, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

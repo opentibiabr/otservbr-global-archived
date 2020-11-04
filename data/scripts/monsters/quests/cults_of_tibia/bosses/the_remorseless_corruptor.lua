@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -67,11 +69,11 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -150, maxDamage = -500, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 25, minDamage = 0, maxDamage = -500, type = COMBAT_ENERGYDAMAGE, length = 9, spread = 3, effect = CONST_ME_LOSEENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 25, target = false},
-	{name ="combat", interval = 2000, chance = 25, minDamage = 0, maxDamage = -500, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_HITAREA, target = false},
-	{name ="combat", interval = 2000, chance = 25, minDamage = 0, maxDamage = -500, type = COMBAT_PHYSICALDAMAGE, length = 9, spread = 3, effect = CONST_ME_STUN, target = false},
-	{name ="combat", interval = 2000, chance = 25, minDamage = 0, maxDamage = -500, type = COMBAT_DEATHDAMAGE, length = 9, spread = 3, effect = CONST_ME_MORTAREA, target = false}
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = 0, maxDamage = -500, length = 9, spread = 3, effect = CONST_ME_LOSEENERGY, target = false},
+	{name ="remorseless wave", interval = 2000, chance = 25, target = false},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -500, radius = 7, effect = CONST_ME_HITAREA, target = false},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -500, length = 9, spread = 3, effect = CONST_ME_STUN, target = false},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_DEATHDAMAGE, minDamage = 0, maxDamage = -500, length = 9, spread = 3, effect = CONST_ME_MORTAREA, target = false}
 }
 
 monster.defenses = {
@@ -98,23 +100,5 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
-
-mType.onThink = function(monster, interval)
-end
-
-mType.onAppear = function(monster, creature)
-	if monster:getType():isRewardBoss() then
-		monster:setReward(true)
-	end
-end
-
-mType.onDisappear = function(monster, creature)
-end
-
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-end
 
 mType:register(monster)

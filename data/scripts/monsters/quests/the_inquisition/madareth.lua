@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 1200,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -113,16 +115,16 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -2000, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -180, maxDamage = -660, type = COMBAT_ENERGYDAMAGE, effect = CONST_ME_PURPLEENERGY, target = true},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -600, maxDamage = -850, type = COMBAT_DEATHDAMAGE, length = 5, spread = 2, effect = CONST_ME_BLACKSMOKE, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = -200, type = COMBAT_MANADRAIN, effect = CONST_ME_MAGIC_RED, target = true},
-	{name ="combat", interval = 2000, chance = 5, minDamage = 0, maxDamage = -250, type = COMBAT_MANADRAIN, effect = CONST_ME_MAGIC_RED, target = true}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -180, maxDamage = -660, radius = 4, effect = CONST_ME_PURPLEENERGY, target = true},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -600, maxDamage = -850, length = 5, spread = 2, effect = CONST_ME_BLACKSMOKE, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = 0, maxDamage = -200, radius = 4, effect = CONST_ME_MAGIC_RED, target = true},
+	{name ="combat", interval = 2000, chance = 5, type = COMBAT_MANADRAIN, minDamage = 0, maxDamage = -250, radius = 5, effect = CONST_ME_MAGIC_RED, target = true}
 }
 
 monster.defenses = {
 	defense = 46,
 	armor = 48,
-	{name ="combat", interval = 3000, chance = 14, minDamage = 400, maxDamage = 900, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 3000, chance = 14, type = COMBAT_HEALING, minDamage = 400, maxDamage = 900, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

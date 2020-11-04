@@ -675,7 +675,13 @@ bool Action::executeUse(Player* player, Item* item, const Position& fromPosition
 {
 	//onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - Action::executeUse] Call stack overflow" << std::endl;
+		std::cout << "[Error - Action::executeUse"
+				<< " Player "
+				<< player->getName()
+				<< " on item "
+				<< item->getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 		return false;
 	}
 

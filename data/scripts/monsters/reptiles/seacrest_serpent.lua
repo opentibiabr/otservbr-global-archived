@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -89,17 +91,17 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 120, attack = 82, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 7, minDamage = -200, maxDamage = -260, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_SOUND_RED, target = true},
-	{name ="combat", interval = 2000, chance = 11, minDamage = -200, maxDamage = -285, type = COMBAT_LIFEDRAIN, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 30, minDamage = 0, maxDamage = -284, type = COMBAT_ICEDAMAGE, length = 8, spread = 3, effect = CONST_ME_WATERSPLASH, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -200, maxDamage = -300, type = COMBAT_PHYSICALDAMAGE, length = 4, spread = 3, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 7, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -260, range = 7, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_SOUND_RED, target = true},
+	{name ="combat", interval = 2000, chance = 11, type = COMBAT_LIFEDRAIN, minDamage = -200, maxDamage = -285, radius = 3, effect = CONST_ME_MAGIC_RED, target = false},
+	{name ="combat", interval = 2000, chance = 30, type = COMBAT_ICEDAMAGE, minDamage = 0, maxDamage = -284, length = 8, spread = 3, effect = CONST_ME_WATERSPLASH, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -300, length = 4, spread = 3, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.defenses = {
 	defense = 31,
 	armor = 22,
-	{name ="combat", interval = 2000, chance = 15, minDamage = 145, maxDamage = 200, type = COMBAT_HEALING, effect = CONST_ME_SOUND_BLUE, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = 0, effect = CONST_ME_DRAWBLOOD}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 145, maxDamage = 200, effect = CONST_ME_SOUND_BLUE, target = false},
+	{name ="melee", interval = 2000, chance = 10, minDamage = 0, maxDamage = 0, effect = CONST_ME_DRAWBLOOD}
 }
 
 monster.elements = {

@@ -1,6 +1,7 @@
-local mType = Game.createMonsterType("Feroxa")
+local mType = Game.createMonsterType("Feroxa2")
 local monster = {}
 
+monster.name = "Feroxa"
 monster.description = "Feroxa"
 monster.experience = 0
 monster.outfit = {
@@ -47,9 +48,15 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
+}
+
+monster.events = {
+	"FeroxaTransform"
 }
 
 monster.light = {
@@ -67,17 +74,17 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -1400, maxDamage = -1800, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -700, maxDamage = -1050, type = COMBAT_DEATHDAMAGE, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -700, maxDamage = -1250, type = COMBAT_MANADRAIN, length = 9, spread = 1, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -450, maxDamage = -700, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_BLOCKHIT, target = false}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -700, maxDamage = -1050, radius = 6, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -700, maxDamage = -1250, length = 9, spread = 1, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -450, maxDamage = -700, radius = 7, effect = CONST_ME_BLOCKHIT, target = false}
 }
 
 monster.defenses = {
 	defense = 55,
 	armor = 50,
-	{name ="speed", interval = 2000, chance = 12, speedChange = 1250, duration = 10000},
-	{name ="outfit", interval = 2000, chance = 20},
-	{name ="combat", interval = 2000, chance = 20, target = false}
+	{name ="speed", interval = 2000, chance = 12, speedChange = 1250, effect = CONST_ME_MAGIC_RED, target = false, duration = 10000},
+	{name ="outfit", interval = 2000, chance = 20, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 5000, outfitMonster = "were wolf"},
+	{name ="feroxa summon", interval = 2000, chance = 20, target = false}
 }
 
 monster.elements = {

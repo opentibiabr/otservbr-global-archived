@@ -18,70 +18,77 @@ local freeDummies = {32142, 32149}
 local skillRateDefault = configManager.getNumber(configKeys.RATE_SKILL)
 local magicRateDefault = configManager.getNumber(configKeys.RATE_MAGIC)
 
+local function removeExerciseWeapon(player, exercise)
+    exercise:remove(1)
+    player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training weapon vanished.")
+    stopEvent(training)
+    player:setStorageValue(Storage.isTraining,0)
+end
+
 local function start_train(pid,start_pos,itemid,fpos, bonusDummy, dummyId)
     local player = Player(pid)
     if player ~= nil then
-    if Tile(fpos):getItemById(dummyId) then
-        local pos_n = player:getPosition()
-        if start_pos:getDistance(pos_n) == 0 and getTilePzInfo(pos_n) then
-            if player:getItemCount(itemid) >= 1 then
-                local exercise = player:getItemById(itemid,true)
-                if exercise:isItem() then
-                    if exercise:hasAttribute(ITEM_ATTRIBUTE_CHARGES) then
-                        local charges_n = exercise:getAttribute(ITEM_ATTRIBUTE_CHARGES)
-                        if charges_n >= 1 then
-                            exercise:setAttribute(ITEM_ATTRIBUTE_CHARGES,(charges_n-1))
+        if Tile(fpos):getItemById(dummyId) then
+            local pos_n = player:getPosition()
+            if start_pos:getDistance(pos_n) == 0 and getTilePzInfo(pos_n) then
+                if player:getItemCount(itemid) >= 1 then
+                    local exercise = player:getItemById(itemid,true)
+                    if exercise:isItem() then
+                        if exercise:hasAttribute(ITEM_ATTRIBUTE_CHARGES) then
+                            local charges_n = exercise:getAttribute(ITEM_ATTRIBUTE_CHARGES)
+                            if charges_n >= 1 then
+                                exercise:setAttribute(ITEM_ATTRIBUTE_CHARGES,(charges_n-1))
 
-                            local voc = player:getVocation()
+                                local voc = player:getVocation()
 
-                            if skills[itemid].id == SKILL_MAGLEVEL then
-                                local magicRate = getRateFromTable(magicLevelStages, player:getMagicLevel(), magicRateDefault)
-                                if not bonusDummy then
-                                    player:addManaSpent(math.ceil(500*magicRate))
+                                if skills[itemid].id == SKILL_MAGLEVEL then
+                                    local magicRate = getRateFromTable(magicLevelStages, player:getMagicLevel(), magicRateDefault)
+                                    if not bonusDummy then
+                                        player:addManaSpent(math.ceil(500*magicRate))
+                                    else
+                                        player:addManaSpent(math.ceil(500*magicRate)*1.1) -- 10%
+                                    end
                                 else
-                                    player:addManaSpent(math.ceil(500*magicRate)*1.1) -- 10%
+                                    local skillRate = getRateFromTable(skillsStages, player:getEffectiveSkillLevel(skills[itemid].id), skillRateDefault)
+                                    if not bonusDummy then
+                                        player:addSkillTries(skills[itemid].id, 7*skillRate)
+                                    else
+                                        player:addSkillTries(skills[itemid].id, (7*skillRate)*1.1) -- 10%
+                                    end
+                                end
+                                    fpos:sendMagicEffect(CONST_ME_HITAREA)
+                                if skills[itemid].range then
+                                    pos_n:sendDistanceEffect(fpos, skills[itemid].range)
+                                end
+                                if exercise:getAttribute(ITEM_ATTRIBUTE_CHARGES) == 0 then
+                                    removeExerciseWeapon(player, exercise)
+                                else
+                                    local training = addEvent(start_train, voc:getAttackSpeed(), pid,start_pos,itemid,fpos,bonusDummy,dummyId)
+                                    player:setStorageValue(Storage.isTraining,1)
                                 end
                             else
-                                local skillRate = getRateFromTable(skillsStages, player:getEffectiveSkillLevel(skills[itemid].id), skillRateDefault)
-                                if not bonusDummy then
-                                    player:addSkillTries(skills[itemid].id, 7*skillRate)
-                                else
-                                    player:addSkillTries(skills[itemid].id, (7*skillRate)*1.1) -- 10%
-                                end
+                                removeExerciseWeapon(player, exercise)
                             end
-                                fpos:sendMagicEffect(CONST_ME_HITAREA)
-                            if skills[itemid].range then
-                                pos_n:sendDistanceEffect(fpos, skills[itemid].range)
-                            end
-                            local training = addEvent(start_train, voc:getAttackSpeed(), pid,start_pos,itemid,fpos,bonusDummy,dummyId)
-                            player:setStorageValue(Storage.isTraining,1)
-                        else
-                            exercise:remove(1)
-                            player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training weapon vanished.")
-                            stopEvent(training)
-                            player:setStorageValue(Storage.isTraining,0)
                         end
                     end
                 end
+            else
+                player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
+                stopEvent(training)
+                player:setStorageValue(Storage.isTraining,0)
             end
         else
-            player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
             stopEvent(training)
-            player:setStorageValue(Storage.isTraining,0)
-        end
-    else
-    stopEvent(training)
             player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
             player:setStorageValue(Storage.isTraining, 0)
-            end
-            else
+        end
+    else
         stopEvent(training)
         if player then
             player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
             player:setStorageValue(Storage.isTraining,0)
         end
     end
-  
     return true
 end
 

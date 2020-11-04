@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 60,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -76,22 +78,22 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -2000, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 870, interval = 4000}},
-	{name ="combat", interval = 2200, chance = 19, minDamage = 0, maxDamage = -1000, type = COMBAT_FIREDAMAGE, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
-	{name ="combat", interval = 3000, chance = 32, minDamage = -200, maxDamage = -800, type = COMBAT_MANADRAIN, range = 7, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 1300, chance = 27, minDamage = 0, maxDamage = -600, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_EXPLOSIONAREA, target = false},
-	{name ="combat", interval = 1200, chance = 6, minDamage = -300, maxDamage = -900, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 1000, chance = 5, minDamage = -500, maxDamage = -1000, type = COMBAT_FIREDAMAGE, length = 8, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 1000, chance = 5, minDamage = -1000, maxDamage = -2000, type = COMBAT_ICEDAMAGE, length = 8, spread = 3, effect = CONST_ME_ICEAREA, target = false},
-	{name ="combat", interval = 4000, chance = 10, minDamage = -500, maxDamage = -1000, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_WATERSPLASH, target = false},
-	{name ="speed", interval = 1900, chance = 14, speedChange = -600, duration = 15000}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -2000, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 870, interval = 4000}},
+	{name ="combat", interval = 2200, chance = 19, type = COMBAT_FIREDAMAGE, minDamage = 0, maxDamage = -1000, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
+	{name ="combat", interval = 3000, chance = 32, type = COMBAT_MANADRAIN, minDamage = -200, maxDamage = -800, range = 7, radius = 7, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", interval = 1300, chance = 27, type = COMBAT_EARTHDAMAGE, minDamage = 0, maxDamage = -600, radius = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
+	{name ="combat", interval = 1200, chance = 6, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -900, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 1000, chance = 5, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -1000, length = 8, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
+	{name ="combat", interval = 1000, chance = 5, type = COMBAT_ICEDAMAGE, minDamage = -1000, maxDamage = -2000, length = 8, spread = 3, effect = CONST_ME_ICEAREA, target = false},
+	{name ="combat", interval = 4000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -500, maxDamage = -1000, length = 8, spread = 3, effect = CONST_ME_WATERSPLASH, target = false},
+	{name ="speed", interval = 1900, chance = 14, speedChange = -600, range = 7, radius = 1, target = true, duration = 15000}
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{name ="combat", interval = 2000, chance = 25, minDamage = 1000, maxDamage = 2300, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 5500, chance = 10, minDamage = 14000, maxDamage = 21000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 1000, maxDamage = 2300, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="combat", interval = 5500, chance = 10, type = COMBAT_HEALING, minDamage = 14000, maxDamage = 21000, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

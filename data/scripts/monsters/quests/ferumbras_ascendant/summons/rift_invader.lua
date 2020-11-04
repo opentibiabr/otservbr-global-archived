@@ -47,12 +47,16 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
-monster.events = {"RiftInvaderDeath"}
+monster.events = {
+	"RiftInvaderDeath"
+}
 
 monster.light = {
 	level = 0,
@@ -69,17 +73,17 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 70, attack = 130, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 33, minDamage = -450, maxDamage = -550, type = COMBAT_ENERGYDAMAGE, range = 7, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 7, minDamage = -210, maxDamage = -300, type = COMBAT_ENERGYDAMAGE, range = 1, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
-	{name ="combat", interval = 2000, chance = 14, minDamage = -200, maxDamage = -300, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -300, maxDamage = -480, type = COMBAT_MANADRAIN, target = true}
+	{name ="combat", interval = 2000, chance = 33, type = COMBAT_ENERGYDAMAGE, minDamage = -450, maxDamage = -550, range = 7, radius = 5, effect = CONST_ME_ENERGYAREA, target = false},
+	{name ="combat", interval = 2000, chance = 7, type = COMBAT_ENERGYDAMAGE, minDamage = -210, maxDamage = -300, range = 1, radius = 2, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
+	{name ="combat", interval = 2000, chance = 14, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -300, range = 7, radius = 3, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -300, maxDamage = -480, target = true}
 }
 
 monster.defenses = {
 	defense = 65,
 	armor = 40,
-	{name ="combat", interval = 2000, chance = 14, minDamage = 150, maxDamage = 250, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 10, speedChange = 388, duration = 4000}
+	{name ="combat", interval = 2000, chance = 14, type = COMBAT_HEALING, minDamage = 150, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="speed", interval = 2000, chance = 10, speedChange = 388, effect = CONST_ME_MAGIC_RED, target = false, duration = 4000}
 }
 
 monster.elements = {

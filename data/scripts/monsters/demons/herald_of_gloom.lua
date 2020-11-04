@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -71,21 +73,21 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -90, effect = CONST_ME_DRAWBLOOD},
-	{name ="speed", interval = 3000, chance = 10, speedChange = -600, duration = 30000},
-	{name ="combat", interval = 2000, chance = 24, minDamage = -90, maxDamage = -170, type = COMBAT_HOLYDAMAGE, range = 4, shootEffect = CONST_ANI_SMALLHOLY, target = false}
+	{name ="speed", interval = 3000, chance = 10, speedChange = -600, range = 7, effect = CONST_ME_MAGIC_RED, target = true, duration = 30000},
+	{name ="combat", interval = 2000, chance = 24, type = COMBAT_HOLYDAMAGE, minDamage = -90, maxDamage = -170, range = 4, shootEffect = CONST_ANI_SMALLHOLY, target = false}
 }
 
 monster.defenses = {
 	defense = 55,
 	armor = 50,
-	{name ="speed", interval = 1000, chance = 15, speedChange = 200, duration = 20000},
+	{name ="speed", interval = 1000, chance = 15, speedChange = 200, effect = CONST_ME_MAGIC_RED, target = false, duration = 20000},
 	{name ="invisible", interval = 5000, chance = 20, effect = CONST_ME_MAGIC_RED},
-	{name ="outfit", interval = 1500, chance = 20},
-	{name ="outfit", interval = 1500, chance = 10},
-	{name ="outfit", interval = 1500, chance = 10},
-	{name ="outfit", interval = 1500, chance = 10},
-	{name ="outfit", interval = 1500, chance = 10},
-	{name ="outfit", interval = 1500, chance = 10}
+	{name ="outfit", interval = 1500, chance = 20, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "nightstalker"},
+	{name ="outfit", interval = 1500, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "werewolf"},
+	{name ="outfit", interval = 1500, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "the count"},
+	{name ="outfit", interval = 1500, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "grim reaper"},
+	{name ="outfit", interval = 1500, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "tarantula"},
+	{name ="outfit", interval = 1500, chance = 10, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000, outfitMonster = "ferumbras"}
 }
 
 monster.elements = {

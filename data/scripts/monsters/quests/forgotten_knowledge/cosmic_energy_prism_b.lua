@@ -38,12 +38,16 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 15,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
-monster.events = {"EnergyPrism"}
+monster.events = {
+	"EnergyPrism"
+}
 
 monster.light = {
 	level = 0,

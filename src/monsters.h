@@ -135,6 +135,7 @@ class MonsterType
 		Skulls_t skull = SKULL_NONE;
 		Outfit_t outfit = {};
 		RaceType_t race = RACE_BLOOD;
+		RespawnType respawnType = {};
 
 		LightInfo light = {};
 		uint16_t lookcorpse = 0;
@@ -150,7 +151,6 @@ class MonsterType
 		uint32_t conditionImmunities = 0;
 		uint32_t damageImmunities = 0;
 		uint32_t baseSpeed = 200;
-		uint32_t respawnType = RESPAWN_IN_ALL;
 
 		int32_t creatureAppearEvent = -1;
 		int32_t creatureDisappearEvent = -1;
@@ -180,7 +180,6 @@ class MonsterType
 		bool hiddenHealth = false;
 		bool isBlockable = false;
 		bool isPet = false;
-		bool isPassive = false;
 		bool isRewardBoss = false;
 		bool canWalkOnEnergy = true;
 		bool canWalkOnFire = true;
@@ -245,6 +244,9 @@ class MonsterSpell
 		bool isMelee = false;
 
 		Outfit_t outfit = {};
+		std::string outfitMonster = "";
+		uint16_t outfitItem = 0;
+
 		ShootType_t shoot = CONST_ANI_NONE;
 		MagicEffectClasses effect = CONST_ME_NONE;
 		ConditionType_t conditionType = CONDITION_NONE;
