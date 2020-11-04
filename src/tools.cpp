@@ -503,6 +503,11 @@ using CombatTypeNames = std::unordered_map<CombatType_t, std::string, std::hash<
 using AmmoTypeNames = std::unordered_map<std::string, Ammo_t>;
 using WeaponActionNames = std::unordered_map<std::string, WeaponAction_t>;
 using SkullNames = std::unordered_map<std::string, Skulls_t>;
+
+/**
+ * @Deprecated
+ * It will be dropped with monsters. Use RespawnPeriod_t instead.
+ */
 using SpawnTypeNames = std::unordered_map<std::string, SpawnType_t>;
 
 MagicEffectNames magicEffectNames = {
@@ -731,6 +736,10 @@ SkullNames skullNames = {
 	{"white",				SKULL_WHITE},
 };
 
+/**
+ * @Deprecated
+ * It will be dropped with monsters. Use RespawnPeriod_t instead.
+ */
 SpawnTypeNames spawnTypeNames = {
 	{"all",					RESPAWN_IN_ALL },
 	{"day",					RESPAWN_IN_DAY },
@@ -802,6 +811,10 @@ Skulls_t getSkullType(const std::string& strValue)
 	return SKULL_NONE;
 }
 
+/**
+ * @Deprecated
+ * It will be dropped with monsters. Use RespawnPeriod_t instead.
+ */
 SpawnType_t getSpawnType(const std::string& strValue)
 {
 	auto spawnType = spawnTypeNames.find(strValue);

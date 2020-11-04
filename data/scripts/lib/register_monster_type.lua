@@ -105,11 +105,8 @@ registerMonsterType.flags = function(mtype, mask)
 		if mask.flags.pet then
 			mtype:isPet(mask.flags.pet)
 		end
-		if mask.flags.passive then
-			mtype:isPassive(mask.flags.passive)
-		end
-		if mask.flags.respawntype then
-			mtype:respawnType(mask.flags.respawntype)
+		if mask.flags.respawntype or mask.flags.respawnType then
+			print("[Error - Loading monsters] Monster: \"".. mtype:name() .. "\". Deprecated flag 'respawnType', use instead table 'respawnType = { period = RespawnPeriod_t, underground = boolean}'")
 		end
 		if mask.flags.canPushCreatures ~= nil then
 			mtype:canPushCreatures(mask.flags.canPushCreatures)
@@ -131,6 +128,9 @@ registerMonsterType.flags = function(mtype, mask)
 		end
 		if mask.flags.canWalkOnPoison ~= nil then
 			mtype:canWalkOnPoison(mask.flags.canWalkOnPoison)
+		end
+		if mask.flags.isBlockable ~= nil then
+			mtype:isBlockable(mask.flags.isBlockable)
 		end
 	end
 end
@@ -167,6 +167,16 @@ registerMonsterType.strategiesTarget  = function(mtype, mask)
 		end
 		if mask.strategiesTarget.random then
 			mtype:strategiesTargetRandom(mask.strategiesTarget.random)
+		end
+	end
+end
+registerMonsterType.respawnType = function(mtype, mask)
+	if mask.respawnType then
+		if mask.respawnType.period then
+			mtype:respawnTypePeriod(mask.respawnType.period)
+		end
+		if mask.respawnType.underground then
+			mtype:respawnTypeIsUnderground(mask.respawnType.underground)
 		end
 	end
 end
@@ -278,113 +288,11 @@ end
 registerMonsterType.attacks = function(mtype, mask)
 	if type(mask.attacks) == "table" then
 		for _, attack in pairs(mask.attacks) do
-			local spell = MonsterSpell()
-			if attack.name then
-				if attack.name == "melee" then
-					spell:setType("melee")
-					if attack.attack and attack.skill then
-						spell:setAttackValue(attack.attack, attack.skill)
-					end
-					if attack.minDamage and attack.maxDamage then
-						spell:setCombatValue(attack.minDamage, attack.maxDamage)
-					end
-					if attack.interval then
-						spell:setInterval(attack.interval)
-					end
-					if attack.effect then
-						spell:setCombatEffect(attack.effect)
-					end
-					if attack.condition then
-						if attack.condition.type then
-							spell:setConditionType(attack.condition.type)
-						end
-						local startDamage = 0
-						if attack.condition.startDamage then
-							startDamage = attack.condition.startDamage
-						end
-						if attack.condition.minDamage and attack.condition.maxDamage then
-							spell:setConditionDamage(attack.condition.minDamage, attack.condition.maxDamage, startDamage)
-						end
-						if attack.condition.duration then
-							spell:setConditionDuration(attack.condition.duration)
-						end
-						if attack.condition.interval then
-							spell:setConditionTickInterval(attack.condition.interval)
-						end
-					end
-				else
-					spell:setType(attack.name)
-					if attack.type then
-						if attack.name == "combat" then
-							spell:setCombatType(attack.type)
-						else
-							spell:setConditionType(attack.type)
-						end
-					end
-					if attack.interval then
-						spell:setInterval(attack.interval)
-					end
-					if attack.chance then
-						spell:setChance(attack.chance)
-					end
-					if attack.range then
-						spell:setRange(attack.range)
-					end
-					if attack.duration then
-						spell:setConditionDuration(attack.duration)
-					end
-					if attack.speedChange then
-						spell:setConditionSpeedChange(attack.speedChange)
-					end
-					if attack.target then
-						spell:setNeedTarget(attack.target)
-					end
-					if attack.length then
-						spell:setCombatLength(attack.length)
-					end
-					if attack.spread then
-						spell:setCombatSpread(attack.spread)
-					end
-					if attack.radius then
-						spell:setCombatRadius(attack.radius)
-					end
-					if attack.minDamage and attack.maxDamage then
-						if attack.name == "combat" then
-							spell:setCombatValue(attack.minDamage, attack.maxDamage)
-						else
-							local startDamage = 0
-							if attack.startDamage then
-								startDamage = attack.startDamage
-							end
-							spell:setConditionDamage(attack.minDamage, attack.maxDamage, startDamage)
-						end
-					end
-					if attack.effect then
-						spell:setCombatEffect(attack.effect)
-					end
-					if attack.shootEffect then
-						spell:setCombatShootEffect(attack.shootEffect)
-					end
-				end
-			elseif attack.script then
-				spell:setScriptName("monster/" .. attack.script .. ".lua")
-				if attack.interval then
-					spell:setInterval(attack.interval)
-				end
-				if attack.chance then
-					spell:setChance(attack.chance)
-				end
-				if attack.minDamage and attack.maxDamage then
-					spell:setCombatValue(attack.minDamage, attack.maxDamage)
-				end
-				if attack.target then
-					spell:setNeedTarget(attack.target)
-				end
-			end
-			mtype:addAttack(spell)
+			mtype:addAttack(readSpell(attack))
 		end
 	end
 end
+
 registerMonsterType.defenses = function(mtype, mask)
 	if type(mask.defenses) == "table" then
 		if mask.defenses.defense then
@@ -395,108 +303,122 @@ registerMonsterType.defenses = function(mtype, mask)
 		end
 		for _, defense in pairs(mask.defenses) do
 			if type(defense) == "table" then
-				local spell = MonsterSpell()
-				if defense.name then
-					if defense.name == "melee" then
-						spell:setType("melee")
-						if defense.attack and defense.skill then
-							spell:setAttackValue(defense.attack, defense.skill)
-						end
-						if defense.interval then
-							spell:setInterval(defense.interval)
-						end
-						if defense.effect then
-							spell:setCombatEffect(defense.effect)
-						end
-						if defense.condition then
-							if defense.condition.type then
-								spell:setConditionType(defense.condition.type)
-							end
-							local startDamage = 0
-							if defense.condition.startDamage then
-								startDamage = defense.condition.startDamage
-							end
-							if defense.condition.minDamage and defense.condition.maxDamage then
-								spell:setConditionDamage(defense.condition.minDamage, defense.condition.maxDamage, startDamage)
-							end
-							if defense.condition.duration then
-								spell:setConditionDuration(defense.condition.duration)
-							end
-							if defense.condition.interval then
-								spell:setConditionTickInterval(defense.condition.interval)
-							end
-						end
-					else
-						spell:setType(defense.name)
-						if defense.type then
-							if defense.name == "combat" then
-								spell:setCombatType(defense.type)
-							else
-								spell:setConditionType(defense.type)
-							end
-						end
-						if defense.interval then
-							spell:setInterval(defense.interval)
-						end
-						if defense.chance then
-							spell:setChance(defense.chance)
-						end
-						if defense.range then
-							spell:setRange(defense.range)
-						end
-						if defense.duration then
-							spell:setConditionDuration(defense.duration)
-						end
-						if defense.speedChange then
-							spell:setConditionSpeedChange(defense.speedChange)
-						end
-						if defense.target then
-							spell:setNeedTarget(defense.target)
-						end
-						if defense.length then
-							spell:setCombatLength(defense.length)
-						end
-						if defense.spread then
-							spell:setCombatSpread(defense.spread)
-						end
-						if defense.radius then
-							spell:setCombatRadius(defense.radius)
-						end
-						if defense.minDamage and defense.maxDamage then
-							if defense.name == "combat" then
-								spell:setCombatValue(defense.minDamage, defense.maxDamage)
-							else
-								local startDamage = 0
-								if defense.startDamage then
-									startDamage = defense.startDamage
-								end
-								spell:setConditionDamage(defense.minDamage, defense.maxDamage, startDamage)
-							end
-						end
-						if defense.effect then
-							spell:setCombatEffect(defense.effect)
-						end
-						if defense.shootEffect then
-							spell:setCombatshootEffect(defense.shootEffect)
-						end
-					end
-				elseif defense.script then
-					spell:setScriptName("monster/" .. defense.script .. ".lua")
-					if defense.interval then
-						spell:setInterval(defense.interval)
-					end
-					if defense.chance then
-						spell:setChance(defense.chance)
-					end
-					if defense.minDamage and defense.maxDamage then
-						spell:setCombatValue(defense.minDamage, defense.maxDamage)
-					end
-					if defense.target then
-						spell:setNeedTarget(defense.target)
-					end
-				end
-				mtype:addDefense(spell)
+				mtype:addDefense(readSpell(defense))
 			end
 		end
 	end
+end
+
+function readSpell(incomingLua)
+	local spell = MonsterSpell()
+	if incomingLua.name then
+		if incomingLua.name == "melee" then
+			spell:setType("melee")
+			if incomingLua.attack and incomingLua.skill then
+				spell:setAttackValue(incomingLua.attack, incomingLua.skill)
+			end
+			if incomingLua.minDamage and incomingLua.maxDamage then
+				spell:setCombatValue(incomingLua.minDamage, incomingLua.maxDamage)
+			end
+			if incomingLua.interval then
+				spell:setInterval(incomingLua.interval)
+			end
+			if incomingLua.effect then
+				spell:setCombatEffect(incomingLua.effect)
+			end
+		else
+			spell:setType(incomingLua.name)
+			if incomingLua.type then
+				if incomingLua.name == "combat" then
+					spell:setCombatType(incomingLua.type)
+				elseif incomingLua.name == "condition" then
+					spell:setConditionType(incomingLua.type)
+				else 
+					print("[Warning - register_monster_type] Monster \"".. mtype:name() .. "\": Loading spell \"".. incomingLua.name .. "\". Parameter type applies only for condition and combat.")
+				end
+			end
+			if incomingLua.interval then
+				spell:setInterval(incomingLua.interval)
+			end
+			if incomingLua.chance then
+				spell:setChance(incomingLua.chance)
+			end
+			if incomingLua.range then
+				spell:setRange(incomingLua.range)
+			end
+			if incomingLua.duration then
+				spell:setConditionDuration(incomingLua.duration)
+			end
+			if incomingLua.speedChange then
+				spell:setConditionSpeedChange(incomingLua.speedChange)
+			end
+			if incomingLua.target then
+				spell:setNeedTarget(incomingLua.target)
+			end
+			if incomingLua.length then
+				spell:setCombatLength(incomingLua.length)
+			end
+			if incomingLua.spread then
+				spell:setCombatSpread(incomingLua.spread)
+			end
+			if incomingLua.radius then
+				spell:setCombatRadius(incomingLua.radius)
+			end
+			if incomingLua.outfitMonster then
+				spell:setOutfitMonster(incomingLua.outfitMonster)
+			end
+			if incomingLua.outfitItem then
+				spell:setOutfitItem(incomingLua.outfitItem)
+			end
+			if incomingLua.minDamage and incomingLua.maxDamage then
+				if incomingLua.name == "combat" then
+					spell:setCombatValue(incomingLua.minDamage, incomingLua.maxDamage)
+				else
+					local startDamage = 0
+					if incomingLua.startDamage then
+						startDamage = incomingLua.startDamage
+					end
+					spell:setConditionDamage(incomingLua.minDamage, incomingLua.maxDamage, startDamage)
+				end
+			end
+			if incomingLua.effect then
+				spell:setCombatEffect(incomingLua.effect)
+			end
+			if incomingLua.shootEffect then
+				spell:setCombatShootEffect(incomingLua.shootEffect)
+			end
+		end
+
+		-- This is for a complex spell, that has combat damage AND some condition
+		-- For example scorpions, which attack and cause poison on attack
+		if incomingLua.condition then
+			if incomingLua.condition.type then
+				spell:setConditionType(incomingLua.condition.type)
+			end
+			if incomingLua.condition.duration then
+				spell:setConditionDuration(incomingLua.condition.duration)
+			end
+			if incomingLua.condition.interval then
+				spell:setConditionTickInterval(incomingLua.condition.interval)
+			end
+
+			spell:setConditionDamage(incomingLua.condition.totalDamage, incomingLua.condition.totalDamage, 0)
+		end
+	elseif incomingLua.script then
+		spell:setScriptName("monster/" .. incomingLua.script .. ".lua")
+		if incomingLua.interval then
+			spell:setInterval(incomingLua.interval)
+		end
+		if incomingLua.chance then
+			spell:setChance(incomingLua.chance)
+		end
+		if incomingLua.minDamage and incomingLua.maxDamage then
+			spell:setCombatValue(incomingLua.minDamage, incomingLua.maxDamage)
+		end
+		if incomingLua.target then
+			spell:setNeedTarget(incomingLua.target)
+		end
+	end
+
+	return spell
 end

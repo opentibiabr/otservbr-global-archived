@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -84,17 +86,17 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -180, maxDamage = -300, type = COMBAT_ENERGYDAMAGE, range = 5, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_PURPLEENERGY, target = true},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -200, maxDamage = -350, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -80, maxDamage = -200, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_STUN, target = false}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -180, maxDamage = -300, range = 5, radius = 5, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_PURPLEENERGY, target = true},
+	{name ="reality reaver wave", interval = 2000, chance = 20, minDamage = -200, maxDamage = -350, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -80, maxDamage = -200, radius = 3, effect = CONST_ME_STUN, target = false}
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 45,
 	{name ="invisible", interval = 2000, chance = 15, effect = CONST_ME_POFF},
-	{name ="combat", interval = 2000, chance = 15, minDamage = 80, maxDamage = 210, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 10, speedChange = 330, duration = 8000}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 80, maxDamage = 210, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="speed", interval = 2000, chance = 10, speedChange = 330, effect = CONST_ME_HITAREA, target = false, duration = 8000}
 }
 
 monster.elements = {

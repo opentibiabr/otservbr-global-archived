@@ -44,12 +44,16 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 195,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
-monster.events = {"WhiteDeerDeath"}
+monster.events = {
+	"WhiteDeerDeath"
+}
 
 monster.light = {
 	level = 0,

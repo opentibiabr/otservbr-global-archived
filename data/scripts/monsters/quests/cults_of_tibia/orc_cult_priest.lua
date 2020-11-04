@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -80,17 +82,17 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -200, maxDamage = -310, type = COMBAT_ENERGYDAMAGE, range = 7, shootEffect = CONST_ANI_ENERGYBALL, target = false},
-	{name ="combat", interval = 2000, chance = 5, minDamage = -200, maxDamage = -250, type = COMBAT_FIREDAMAGE, range = 7, shootEffect = CONST_ANI_FIRE, target = true},
-	{name ="outfit", interval = 4000, chance = 15},
-	{name ="outfit", interval = 4000, chance = 10},
-	{name ="outfit", interval = 4000, chance = 20}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -310, range = 7, shootEffect = CONST_ANI_ENERGYBALL, target = false},
+	{name ="combat", interval = 2000, chance = 5, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -250, range = 7, radius = 1, shootEffect = CONST_ANI_FIRE, target = true},
+	{name ="outfit", interval = 4000, chance = 15, target = true, duration = 30000, outfitMonster = "orc warlord"},
+	{name ="outfit", interval = 4000, chance = 10, target = true, duration = 30000, outfitMonster = "orc shaman"},
+	{name ="outfit", interval = 4000, chance = 20, target = true, duration = 30000, outfitMonster = "orc"}
 }
 
 monster.defenses = {
 	defense = 27,
 	armor = 27,
-	{name ="combat", interval = 2000, chance = 20, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="heal monster", interval = 2000, chance = 20, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

@@ -47,12 +47,16 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
-monster.events = {"DeathPriestShargonDeath"}
+monster.events = {
+	"DeathPriestShargonDeath"
+}
 
 monster.light = {
 	level = 0,
@@ -83,14 +87,14 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 200, attack = 150, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 12, minDamage = 0, maxDamage = -660, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -350, maxDamage = -1000, type = COMBAT_HOLYDAMAGE, length = 6, spread = 2, effect = CONST_ME_PURPLEENERGY, target = false}
+	{name ="combat", interval = 2000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = 0, maxDamage = -660, range = 7, radius = 6, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 2000, chance = 18, type = COMBAT_HOLYDAMAGE, minDamage = -350, maxDamage = -1000, length = 6, spread = 2, effect = CONST_ME_PURPLEENERGY, target = false}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 25,
-	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = 699, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 0, maxDamage = 699, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

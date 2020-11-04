@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 40,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -81,16 +83,16 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -285, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 7, minDamage = -108, maxDamage = -137, type = COMBAT_ICEDAMAGE, effect = CONST_ME_ICEAREA, target = false},
-	{name ="combat", interval = 2000, chance = 25, minDamage = 0, maxDamage = -170, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_HITAREA, target = false},
-	{name ="poisonfield", interval = 2000, chance = 19, shootEffect = CONST_ANI_POISON, target = false},
-	{name ="speed", interval = 2000, chance = 18, speedChange = -360, duration = 5000}
+	{name ="combat", interval = 2000, chance = 7, type = COMBAT_ICEDAMAGE, minDamage = -108, maxDamage = -137, radius = 4, effect = CONST_ME_ICEAREA, target = false},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -170, radius = 3, effect = CONST_ME_HITAREA, target = false},
+	{name ="poisonfield", interval = 2000, chance = 19, radius = 3, shootEffect = CONST_ANI_POISON, target = false},
+	{name ="speed", interval = 2000, chance = 18, speedChange = -360, range = 7, shootEffect = CONST_ANI_SNOWBALL, target = false, duration = 5000}
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 25,
-	{name ="combat", interval = 2000, chance = 10, minDamage = 25, maxDamage = 75, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 25, maxDamage = 75, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

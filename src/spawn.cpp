@@ -51,6 +51,16 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 	this->filename = fromFilename;
 	loaded = true;
 
+	Database& db = Database::getInstance();
+	std::ostringstream query;
+	query << "SELECT `boostname` FROM `boosted_creature`";
+	DBResult_ptr BoostedName = db.storeQuery(query.str());
+	std::string BoostedNameGet = BoostedName->getString("boostname");
+
+	if (!BoostedName) {
+		std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database." << std::endl;
+	}
+
 	for (auto spawnNode : doc.child("spawns").children()) {
 		Position centerPos(
 			pugi::cast<uint16_t>(spawnNode.attribute("centerx").value()),
@@ -93,16 +103,7 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 				
 				int32_t boostedrate;
 				
-				Database& db = Database::getInstance();
-				std::ostringstream query;
-				query << "SELECT `boostname` FROM `boosted_creature`";
-				DBResult_ptr BoostedName = db.storeQuery(query.str());
-				
-				if (!BoostedName) {
-					std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database." << std::endl;
-					return false;
-				}
-				if (nameAttribute.value() == BoostedName->getString("boostname")) {
+				if (nameAttribute.value() == BoostedNameGet) {
 					boostedrate = 2;
 				} else {
 					boostedrate = 1;
@@ -156,6 +157,16 @@ bool Spawns::loadCustomSpawnXml(const std::string& _filename)
 		return false;
 	}
 
+	Database& db = Database::getInstance();
+	std::ostringstream query;
+	query << "SELECT `boostname` FROM `boosted_creature`";
+	DBResult_ptr BoostedName = db.storeQuery(query.str());
+	std::string BoostedNameGet = BoostedName->getString("boostname");
+
+	if (!BoostedName) {
+		std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database." << std::endl;
+	}
+	
 	for (pugi::xml_node spawnNode = doc.child("spawns").first_child(); spawnNode; spawnNode = spawnNode.next_sibling()) {
 		Position centerPos(
 			pugi::cast<uint16_t>(spawnNode.attribute("centerx").value()),
@@ -200,16 +211,7 @@ bool Spawns::loadCustomSpawnXml(const std::string& _filename)
 				
 				int32_t boostedrate;
 				
-				Database& db = Database::getInstance();
-				std::ostringstream query;
-				query << "SELECT `boostname` FROM `boosted_creature`";
-				DBResult_ptr BoostedName = db.storeQuery(query.str());
-				
-				if (!BoostedName) {
-					std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database." << std::endl;
-					return false;
-				}
-				if (nameAttribute.value() == BoostedName->getString("boostname")) {
+				if (nameAttribute.value() == BoostedNameGet) {
 					boostedrate = 2;
 				} else {
 					boostedrate = 1;

@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -74,15 +76,15 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 3000, chance = 15, range = 1, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_YELLOWENERGY, target = true},
-	{name ="combat", interval = 1000, chance = 15, minDamage = -70, maxDamage = -90, type = COMBAT_DROWNDAMAGE, range = 1, shootEffect = CONST_ANI_ICE, effect = CONST_ME_LOSEENERGY, target = true},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -150, maxDamage = -250, type = COMBAT_LIFEDRAIN, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_PURPLEENERGY, target = true}
+	{name ="dreadbeast skill reducer", interval = 3000, chance = 15, range = 1, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_YELLOWENERGY, target = true},
+	{name ="combat", interval = 1000, chance = 15, type = COMBAT_DROWNDAMAGE, minDamage = -70, maxDamage = -90, range = 1, shootEffect = CONST_ANI_ICE, effect = CONST_ME_LOSEENERGY, target = true},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -150, maxDamage = -250, radius = 1, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_PURPLEENERGY, target = true}
 }
 
 monster.defenses = {
 	defense = 36,
 	armor = 34,
-	{name ="combat", interval = 5000, chance = 20, minDamage = 35, maxDamage = 65, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 5000, chance = 20, type = COMBAT_HEALING, minDamage = 35, maxDamage = 65, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

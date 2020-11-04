@@ -45,9 +45,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -74,17 +76,17 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -120, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 160, interval = 4000}},
-	{name ="drunk", interval = 2000, chance = 20, range = 7, effect = CONST_ME_SOUND_RED, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -40, maxDamage = -70, type = COMBAT_LIFEDRAIN, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -60, maxDamage = -110, type = COMBAT_EARTHDAMAGE, range = 7, shootEffect = CONST_ANI_POISON, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -120, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 160, interval = 4000}},
+	{name ="drunk", interval = 2000, chance = 20, range = 7, radius = 4, effect = CONST_ME_SOUND_RED, target = false, duration = 4000},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -40, maxDamage = -70, radius = 3, effect = CONST_ME_MAGIC_RED, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -60, maxDamage = -110, range = 7, shootEffect = CONST_ANI_POISON, target = false}
 }
 
 monster.defenses = {
 	defense = 0,
 	armor = 0,
-	{name ="combat", interval = 2000, chance = 5, minDamage = 70, maxDamage = 100, type = COMBAT_HEALING, effect = CONST_ME_SOUND_WHITE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 820, duration = 5000}
+	{name ="combat", interval = 2000, chance = 5, type = COMBAT_HEALING, minDamage = 70, maxDamage = 100, effect = CONST_ME_SOUND_WHITE, target = false},
+	{name ="speed", interval = 2000, chance = 15, speedChange = 820, effect = CONST_ME_SOUND_YELLOW, target = false, duration = 5000}
 }
 
 monster.elements = {

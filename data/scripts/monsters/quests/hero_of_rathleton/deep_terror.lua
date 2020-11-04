@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -68,15 +70,15 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 130, attack = 100, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 32, minDamage = -200, maxDamage = -400, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_CARNIPHILA, target = false},
-	{name ="combat", interval = 2000, chance = 19, minDamage = -300, maxDamage = -700, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_CARNIPHILA, target = true},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -500, maxDamage = -1000, type = COMBAT_PHYSICALDAMAGE, length = 7, spread = 3, effect = CONST_ME_GROUNDSHAKER, target = false}
+	{name ="combat", interval = 2000, chance = 32, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -400, radius = 8, effect = CONST_ME_CARNIPHILA, target = false},
+	{name ="combat", interval = 2000, chance = 19, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -700, range = 7, radius = 3, shootEffect = CONST_ANI_POISON, effect = CONST_ME_CARNIPHILA, target = true},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_PHYSICALDAMAGE, minDamage = -500, maxDamage = -1000, length = 7, spread = 3, effect = CONST_ME_GROUNDSHAKER, target = false}
 }
 
 monster.defenses = {
 	defense = 35,
 	armor = 22,
-	{name ="combat", interval = 2000, chance = 11, minDamage = 500, maxDamage = 1000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 11, type = COMBAT_HEALING, minDamage = 500, maxDamage = 1000, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
@@ -98,5 +100,23 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
+
+mType.onThink = function(monster, interval)
+end
+
+mType.onAppear = function(monster, creature)
+	if monster:getType():isRewardBoss() then
+		monster:setReward(true)
+	end
+end
+
+mType.onDisappear = function(monster, creature)
+end
+
+mType.onMove = function(monster, creature, fromPosition, toPosition)
+end
+
+mType.onSay = function(monster, creature, type, message)
+end
 
 mType:register(monster)

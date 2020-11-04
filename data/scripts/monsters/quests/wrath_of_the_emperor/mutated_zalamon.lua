@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -67,20 +69,20 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -815, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -100, maxDamage = -300, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
-	{name ="speed", interval = 4000, chance = 20, speedChange = -350, duration = 12000}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = 0, maxDamage = -815, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -100, maxDamage = -300, radius = 4, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
+	{name ="speed", interval = 4000, chance = 20, speedChange = -350, range = 7, shootEffect = CONST_ANI_POISON, target = true, duration = 12000}
 }
 
 monster.defenses = {
 	defense = 65,
 	armor = 70,
-	{name ="combat", interval = 2000, chance = 9, minDamage = 20, maxDamage = 560, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10},
-	{name ="outfit", interval = 2000, chance = 10}
+	{name ="combat", interval = 2000, chance = 9, type = COMBAT_HEALING, minDamage = 20, maxDamage = 560, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_ENERGYHIT, target = false, duration = 10000, outfitMonster = "Lizard Snakecharmer"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_ENERGYHIT, target = false, duration = 10000, outfitMonster = "Lizard Abomination"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_ENERGYHIT, target = false, duration = 10000, outfitMonster = "Serpent Spawn"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_ENERGYHIT, target = false, duration = 10000, outfitMonster = "Draken Abomination"},
+	{name ="outfit", interval = 2000, chance = 10, effect = CONST_ME_ENERGYHIT, target = false, duration = 10000, outfitMonster = "Mutated Zalamon"}
 }
 
 monster.elements = {

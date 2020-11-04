@@ -44,12 +44,16 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
-monster.events = {"WhiteDeerScoutsDeath"}
+monster.events = {
+	"WhiteDeerScoutsDeath"
+}
 
 monster.light = {
 	level = 0,
@@ -78,7 +82,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="combat", interval = 4000, chance = 15, minDamage = 10, maxDamage = 40, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 4000, chance = 15, type = COMBAT_HEALING, minDamage = 10, maxDamage = 40, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

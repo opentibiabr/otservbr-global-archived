@@ -47,12 +47,16 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 800,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
-monster.events = {"TentacleDeep"}
+monster.events = {
+	"TentacleDeep"
+}
 
 monster.light = {
 	level = 0,
@@ -69,15 +73,15 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 88, attack = 100, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 10, target = false},
-	{name ="combat", interval = 2000, chance = 14, minDamage = -65, maxDamage = -135, type = COMBAT_LIFEDRAIN, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="drunk", interval = 2000, chance = 20, effect = CONST_ME_HITBYPOISON, target = false}
+	{name ="blightwalker curse", interval = 2000, chance = 10, target = false},
+	{name ="combat", interval = 2000, chance = 14, type = COMBAT_LIFEDRAIN, minDamage = -65, maxDamage = -135, radius = 4, effect = CONST_ME_MAGIC_GREEN, target = false},
+	{name ="drunk", interval = 2000, chance = 20, radius = 7, effect = CONST_ME_HITBYPOISON, target = false, duration = 35000}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 20, minDamage = 225, maxDamage = 850, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 225, maxDamage = 850, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 2,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -67,27 +69,27 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = 0, effect = CONST_ME_DRAWBLOOD},
-	{name ="outfit", interval = 2000, chance = 6},
-	{name ="outfit", interval = 2000, chance = 5},
-	{name ="outfit", interval = 2000, chance = 6},
-	{name ="outfit", interval = 2000, chance = 5},
-	{name ="outfit", interval = 2000, chance = 6},
-	{name ="outfit", interval = 2000, chance = 5},
-	{name ="outfit", interval = 2000, chance = 5},
-	{name ="outfit", interval = 2000, chance = 5},
-	{name ="outfit", interval = 2000, chance = 5},
-	{name ="outfit", interval = 2000, chance = 5},
-	{name ="outfit", interval = 2000, chance = 5},
-	{name ="outfit", interval = 2000, chance = 5},
-	{name ="outfit", interval = 2000, chance = 5},
-	{name ="outfit", interval = 2000, chance = 5},
-	{name ="outfit", interval = 2000, chance = 15}
+	{name ="outfit", interval = 2000, chance = 6, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitMonster = "bat"},
+	{name ="outfit", interval = 2000, chance = 5, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitMonster = "Thornback tortoise"},
+	{name ="outfit", interval = 2000, chance = 6, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitMonster = "orc"},
+	{name ="outfit", interval = 2000, chance = 5, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitMonster = "snake"},
+	{name ="outfit", interval = 2000, chance = 6, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitMonster = "warlock"},
+	{name ="outfit", interval = 2000, chance = 5, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitMonster = "witch"},
+	{name ="outfit", interval = 2000, chance = 5, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitMonster = "necromancer"},
+	{name ="outfit", interval = 2000, chance = 5, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitMonster = "dwarf geomancer"},
+	{name ="outfit", interval = 2000, chance = 5, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitMonster = "monk"},
+	{name ="outfit", interval = 2000, chance = 5, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitMonster = "crab"},
+	{name ="outfit", interval = 2000, chance = 5, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitMonster = "ghost"},
+	{name ="outfit", interval = 2000, chance = 5, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitMonster = "minotaur mage"},
+	{name ="outfit", interval = 2000, chance = 5, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitMonster = "green frog"},
+	{name ="outfit", interval = 2000, chance = 5, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitMonster = "parrot"},
+	{name ="outfit", interval = 2000, chance = 15, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 6000, outfitItem = 2096}
 }
 
 monster.defenses = {
 	defense = 999,
 	armor = 999,
-	{name ="combat", interval = 1000, chance = 50, minDamage = 1500, maxDamage = 2000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 1000, chance = 50, type = COMBAT_HEALING, minDamage = 1500, maxDamage = 2000, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

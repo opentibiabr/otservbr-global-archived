@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 2,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = true
 }
 
 monster.light = {
@@ -67,16 +69,16 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -200, maxDamage = -270, type = COMBAT_HOLYDAMAGE, range = 5, shootEffect = CONST_ANI_HOLY, effect = CONST_ME_HOLYAREA, target = true},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -200, maxDamage = -270, type = COMBAT_FIREDAMAGE, range = 5, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -170, maxDamage = -230, type = COMBAT_FIREDAMAGE, range = 5, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -170, maxDamage = -230, type = COMBAT_HOLYDAMAGE, range = 5, shootEffect = CONST_ANI_HOLY, effect = CONST_ME_HOLYAREA, target = true}
+	{name ="combat", interval = 2000, chance = 18, type = COMBAT_HOLYDAMAGE, minDamage = -200, maxDamage = -270, range = 5, radius = 3, shootEffect = CONST_ANI_HOLY, effect = CONST_ME_HOLYAREA, target = true},
+	{name ="combat", interval = 2000, chance = 18, type = COMBAT_FIREDAMAGE, minDamage = -200, maxDamage = -270, range = 5, radius = 3, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
+	{name ="combat", interval = 2000, chance = 18, type = COMBAT_FIREDAMAGE, minDamage = -170, maxDamage = -230, range = 5, radius = 5, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
+	{name ="combat", interval = 2000, chance = 18, type = COMBAT_HOLYDAMAGE, minDamage = -170, maxDamage = -230, range = 5, radius = 5, shootEffect = CONST_ANI_HOLY, effect = CONST_ME_HOLYAREA, target = true}
 }
 
 monster.defenses = {
 	defense = 55,
 	armor = 55,
-	{name ="combat", interval = 2000, chance = 75, minDamage = 380, maxDamage = 380, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_GREEN, target = false}
+	{name ="combat", interval = 2000, chance = 75, type = COMBAT_HEALING, minDamage = 380, maxDamage = 380, effect = CONST_ME_MAGIC_GREEN, target = false}
 }
 
 monster.elements = {
