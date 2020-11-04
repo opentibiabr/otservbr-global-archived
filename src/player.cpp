@@ -3467,7 +3467,7 @@ void Player::internalAddThing(uint32_t index, Thing* thing)
 	}
 
 	//index == 0 means we should equip this item at the most appropiate slot (no action required here)
-	if (index > 0 && index < 12) {
+	if (index >= CONST_SLOT_FIRST && index <= CONST_SLOT_LAST) {
 		if (inventory[index]) {
 			return;
 		}

@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 89,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -68,7 +70,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="drunk", interval = 2000, chance = 10, range = 2, target = false}
+	{name ="drunk", interval = 2000, chance = 10, range = 2, target = false, duration = 5000}
 }
 
 monster.defenses = {

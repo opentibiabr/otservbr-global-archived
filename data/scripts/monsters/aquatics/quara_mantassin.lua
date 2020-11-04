@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 40,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -84,7 +86,7 @@ monster.defenses = {
 	defense = 15,
 	armor = 15,
 	{name ="invisible", interval = 2000, chance = 20, effect = CONST_ME_MAGIC_BLUE},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 400, duration = 5000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = 400, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
 
 monster.elements = {

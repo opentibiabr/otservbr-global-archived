@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 4,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -77,17 +79,17 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 30, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 80, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 19, range = 7, target = false},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -360, maxDamage = -470, type = COMBAT_LIFEDRAIN, range = 1, effect = CONST_ME_HOLYAREA, target = true},
-	{name ="speed", interval = 2000, chance = 40, speedChange = -600, duration = 20000},
-	{name ="combat", interval = 2000, chance = 30, range = 4, effect = CONST_ME_POFF, target = false}
+	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 30, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 80, interval = 4000}},
+	{name ="nightstalker paralyze", interval = 2000, chance = 19, range = 7, target = false},
+	{name ="combat", interval = 2000, chance = 12, type = COMBAT_LIFEDRAIN, minDamage = -360, maxDamage = -470, range = 1, effect = CONST_ME_HOLYAREA, target = true},
+	{name ="speed", interval = 2000, chance = 40, speedChange = -600, range = 6, shootEffect = CONST_ANI_SNOWBALL, effect = CONST_ME_ICEAREA, target = true, duration = 20000},
+	{name ="silencer skill reducer", interval = 2000, chance = 30, range = 4, effect = CONST_ME_POFF, target = false}
 }
 
 monster.defenses = {
 	defense = 35,
 	armor = 30,
-	{name ="combat", interval = 2000, chance = 13, minDamage = 60, maxDamage = 130, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="combat", interval = 2000, chance = 13, type = COMBAT_HEALING, minDamage = 60, maxDamage = 130, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 2000, chance = 10, effect = CONST_ME_YELLOW_RINGS}
 }
 
@@ -110,23 +112,5 @@ monster.immunities = {
 	{type = "invisible", condition = false},
 	{type = "bleed", condition = false}
 }
-
-mType.onThink = function(monster, interval)
-end
-
-mType.onAppear = function(monster, creature)
-	if monster:getType():isRewardBoss() then
-		monster:setReward(true)
-	end
-end
-
-mType.onDisappear = function(monster, creature)
-end
-
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-end
 
 mType:register(monster)

@@ -4,7 +4,13 @@ local monster = {}
 monster.description = "a deathling scout"
 monster.experience = 6300
 monster.outfit = {
-	lookType = 1073
+	lookType = 413,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
 }
 
 monster.health = 7200
@@ -12,17 +18,23 @@ monster.maxHealth = 7200
 monster.race = "blood"
 monster.corpse = 33373
 monster.speed = 310
+monster.summonCost = 0
+monster.maxSummons = 0
 
 monster.changeTarget = {
-	interval = 4*1000,
+	interval = 4000,
 	chance = 10
+}
+
+monster.strategiesTarget = {
+	nearest = 100,
 }
 
 monster.flags = {
 	summonable = false,
 	attackable = true,
 	hostile = true,
-	isConvinceable = false,
+	convinceable = false,
 	pushable = false,
 	rewardBoss = false,
 	illusionable = false,
@@ -30,16 +42,25 @@ monster.flags = {
 	canPushCreatures = true,
 	staticAttackChance = 90,
 	targetDistance = 0,
-	runHealth = 20,
+	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = true,
-	canWalkOnPoison = false
+	canWalkOnFire = false,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
 	level = 0,
 	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+	{text = "VBOX°O", yell = false},
+	{text = "O(J-\"LJ-T =|-°", yell = false}
 }
 
 monster.loot = {
@@ -63,10 +84,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name = "melee", type = COMBAT_PHYSICALDAMAGE, interval = 2*1000, minDamage = 0, maxDamage = -330, effect = CONST_ME_DRAWBLOOD},
-	{name = "combat", type = COMBAT_PHYSICALDAMAGE, interval = 2*1000, chance = 13, range = 5, target = true, minDamage = 0, maxDamage = -350, shootEffect = CONST_ANI_HUNTINGSPEAR},
-	{name = "combat", type = COMBAT_PHYSICALDAMAGE, interval = 2*1000, chance = 13, range = 5, target = true, minDamage = 0, maxDamage = -300, radius = 1, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_EXPLOSIONAREA},
-	{name = "combat", type = COMBAT_EARTHDAMAGE, interval = 2*1000, chance = 17, radius = 4, minDamage = -340, maxDamage = -550, effect = CONST_ME_GROUNDSHAKER},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 4000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -400, range = 5, shootEffect = CONST_ANI_HUNTINGSPEAR, target = false},
+	{name ="combat", interval = 4000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -150, maxDamage = -300, range = 5, shootEffect = CONST_ANI_LARGEROCK, target = false},
+	{name ="combat", interval = 4000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -350, maxDamage = -550, radius = 3, effect = CONST_ME_POFF, target = false}
 }
 
 monster.defenses = {
@@ -93,27 +114,5 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
-
-monster.voices = {
-	interval = 5000,
-	chance = 10,
-	{text = 'VBOX°', yell = false},
-    {text = 'O(J-"LJ-T =|-°', yell = false},
-}
-
-mType.onThink = function(monster, interval)
-end
-
-mType.onAppear = function(monster, creature)
-end
-
-mType.onDisappear = function(monster, creature)
-end
-
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-end
 
 mType:register(monster)

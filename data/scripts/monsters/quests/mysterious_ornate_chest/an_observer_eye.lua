@@ -36,7 +36,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = true,
+	rewardBoss = false,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -64,7 +66,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 4, minDamage = -3000, maxDamage = -5000, type = COMBAT_ENERGYDAMAGE, range = 3, shootEffect = CONST_ANI_ENERGY, target = false}
+	{name ="combat", interval = 2000, chance = 4, type = COMBAT_ENERGYDAMAGE, minDamage = -3000, maxDamage = -5000, range = 3, shootEffect = CONST_ANI_ENERGY, target = false}
 }
 
 monster.defenses = {

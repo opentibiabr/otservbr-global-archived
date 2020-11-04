@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -87,15 +89,15 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 118, attack = 50, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 11, range = 7, target = false},
-	{name ="combat", interval = 2000, chance = 10, target = false},
-	{name ="combat", interval = 2000, chance = 9, minDamage = -100, maxDamage = -210, target = false}
+	{name ="rustheap golem electrify", interval = 2000, chance = 11, range = 7, target = false},
+	{name ="frazzlemaw paralyze", interval = 2000, chance = 10, target = false},
+	{name ="rustheap golem wave", interval = 2000, chance = 9, minDamage = -100, maxDamage = -210, target = false}
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 40,
-	{name ="speed", interval = 2000, chance = 11, speedChange = 428, duration = 6000}
+	{name ="speed", interval = 2000, chance = 11, speedChange = 428, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 6000}
 }
 
 monster.elements = {

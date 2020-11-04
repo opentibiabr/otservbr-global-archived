@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -76,23 +78,23 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 180, attack = 200, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 11, minDamage = -250, maxDamage = -500, type = COMBAT_ENERGYDAMAGE, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -450, maxDamage = -1500, type = COMBAT_MANADRAIN, length = 8, spread = 3, effect = CONST_ME_TELEPORT, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -450, maxDamage = -500, type = COMBAT_FIREDAMAGE, length = 8, spread = 3, effect = CONST_ME_FIREATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 22, target = false},
-	{name ="combat", interval = 2000, chance = 16, range = 2, target = false},
-	{name ="combat", interval = 2000, chance = 20, target = false},
-	{name ="combat", interval = 2000, chance = 9, target = false}
+	{name ="combat", interval = 2000, chance = 11, type = COMBAT_ENERGYDAMAGE, minDamage = -250, maxDamage = -500, radius = 8, effect = CONST_ME_ENERGYHIT, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -450, maxDamage = -1500, length = 8, spread = 3, effect = CONST_ME_TELEPORT, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -450, maxDamage = -500, length = 8, spread = 3, effect = CONST_ME_FIREATTACK, target = false},
+	{name ="war golem skill reducer", interval = 2000, chance = 22, target = false},
+	{name ="war golem electrify", interval = 2000, chance = 16, range = 2, target = false},
+	{name ="glooth fairy skill reducer", interval = 2000, chance = 20, target = false},
+	{name ="glooth fairy paralyze", interval = 2000, chance = 9, target = false}
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 40,
-	{name ="speed", interval = 2000, chance = 13, speedChange = 460, duration = 4000},
-	{name ="combat", interval = 2000, chance = 20, minDamage = 200, maxDamage = 250, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 30000, chance = 50, target = false},
-	{name ="combat", interval = 2000, chance = 5, target = false},
-	{name ="combat", interval = 1000, chance = 100, target = false}
+	{name ="speed", interval = 2000, chance = 13, speedChange = 460, effect = CONST_ME_MAGIC_RED, target = false, duration = 4000},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 200, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="generator", interval = 30000, chance = 50, target = false},
+	{name ="maxxenteleport", interval = 2000, chance = 5, target = false},
+	{name ="glooth fairy healing", interval = 1000, chance = 100, target = false}
 }
 
 monster.elements = {

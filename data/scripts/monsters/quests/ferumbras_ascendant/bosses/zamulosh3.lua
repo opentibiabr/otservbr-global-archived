@@ -1,6 +1,7 @@
-local mType = Game.createMonsterType("Zamulosh")
+local mType = Game.createMonsterType("Zamulosh3")
 local monster = {}
 
+monster.name = "Zamulosh"
 monster.description = "Zamulosh"
 monster.experience = 55000
 monster.outfit = {
@@ -47,9 +48,15 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
+}
+
+monster.events = {
+	"ZamuloshClone"
 }
 
 monster.light = {
@@ -92,7 +99,7 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 3000, chance = 100, minDamage = -200, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
-	{name ="speed", interval = 1000, chance = 10, speedChange = -700, duration = 8000}
+	{name ="speed", interval = 1000, chance = 10, speedChange = -700, radius = 8, effect = CONST_ME_MAGIC_RED, target = false, duration = 8000}
 }
 
 monster.defenses = {
@@ -119,23 +126,5 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
-
-mType.onThink = function(monster, interval)
-end
-
-mType.onAppear = function(monster, creature)
-	if monster:getType():isRewardBoss() then
-		monster:setReward(true)
-	end
-end
-
-mType.onDisappear = function(monster, creature)
-end
-
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-end
 
 mType:register(monster)

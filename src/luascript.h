@@ -241,6 +241,9 @@ class LuaScriptInterface
 		const std::string& getLastLuaError() const {
 			return lastLuaError;
 		}
+		const std::string& getLoadingFile() const {
+			return loadingFile;
+		}
 
 		lua_State* getLuaState() const {
 			return luaState;
@@ -1344,9 +1347,9 @@ class LuaScriptInterface
 		static int luaMonsterTypeIsHostile(lua_State* L);
 		static int luaMonsterTypeIsPushable(lua_State* L);
 		static int luaMonsterTypeIsHealthHidden(lua_State* L);
+		static int luaMonsterTypeIsBlockable(lua_State* L);
 
 		static int luaMonsterTypeIsPet(lua_State* L);
-		static int luaMonsterTypeIsPassive(lua_State* L);
 		static int luaMonsterTypeIsRewardBoss(lua_State* L);
 		static int luaMonsterTypeRespawnType(lua_State* L);
         static int luaMonsterTypeCanSpawn(lua_State* L);
@@ -1418,6 +1421,9 @@ class LuaScriptInterface
         static int luaMonsterTypeStrategiesTargetDamage(lua_State* L);
         static int luaMonsterTypeStrategiesTargetRandom(lua_State* L);
 
+		static int luaMonsterTypeRespawnTypePeriod(lua_State* L);
+		static int luaMonsterTypeRespawnTypeIsUnderground(lua_State* L);
+
 		// Loot
 		static int luaCreateLoot(lua_State* L);
 		static int luaDeleteLoot(lua_State* L);
@@ -1452,6 +1458,8 @@ class LuaScriptInterface
 		static int luaMonsterSpellSetConditionTickInterval(lua_State* L);
 		static int luaMonsterSpellSetCombatShootEffect(lua_State* L);
 		static int luaMonsterSpellSetCombatEffect(lua_State* L);
+		static int luaMonsterSpellSetOutfitMonster(lua_State* L);
+		static int luaMonsterSpellSetOutfitItem(lua_State* L);
 
 		// Party
 		static int luaPartyCreate(lua_State* L);

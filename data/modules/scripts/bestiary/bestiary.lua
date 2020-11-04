@@ -328,7 +328,7 @@ Bestiary.sendMonsterData = function(player, msg)
 	if currentLevel > 1 then
 		msg:addU16(bestiaryMonster.CharmsPoints)
 		local attackMode = 0
-		if monster:isPassive() then
+		if not monster:isHostile() then
 			attackMode = 2
 		elseif monster:targetDistance() then
 			attackMode = 1
