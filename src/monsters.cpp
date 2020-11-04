@@ -83,15 +83,16 @@ bool Monsters::loadFromXml(bool reloading /*= false*/)
 
 bool MonsterType::canSpawn(const Position& pos)
 {
-	bool canspawn = true;
-	bool isday = g_game.gameIsDay();
-	if ((info.respawnType == RESPAWN_IN_DAY && !isday) ||
-		(info.respawnType == RESPAWN_IN_NIGHT && isday) ||
-		(info.respawnType == RESPAWN_IN_DAY_CAVE && !isday && pos.z == 7) ||
-		(info.respawnType == RESPAWN_IN_NIGHT_CAVE && isday && pos.z == 7)) {
-		canspawn = false;
+	bool canSpawn = true;
+	bool isDay = g_game.gameIsDay();
+
+	if ((isDay && info.respawnType.period == RESPAWNPERIOD_NIGHT) ||
+		(!isDay && info.respawnType.period == RESPAWNPERIOD_DAY)) {
+		// It will ignore day and night if underground
+		canSpawn = (pos.z > 7 && info.respawnType.underground);
 	}
-	return canspawn;
+
+	return canSpawn;
 }
 
 bool Monsters::reload()
@@ -527,27 +528,12 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 	}
 
 	sb.speed = spell->interval;
-
-	if (spell->chance > 100) {
-		sb.chance = 100;
-	} else {
-		sb.chance = spell->chance;
-	}
-
-	if (spell->range > (Map::maxViewportX * 2)) {
-		spell->range = Map::maxViewportX * 2;
-	}
-	sb.range = spell->range;
-
-	sb.minCombatValue = spell->minCombatValue;
-	sb.maxCombatValue = spell->maxCombatValue;
-	if (std::abs(sb.minCombatValue) > std::abs(sb.maxCombatValue)) {
-		int32_t value = sb.maxCombatValue;
-		sb.maxCombatValue = sb.minCombatValue;
-		sb.minCombatValue = value;
-	}
-
+	sb.chance = std::min((int) spell->chance, 100);
+	sb.range = std::min((int) spell->range, Map::maxViewportX * 2);
+	sb.minCombatValue = std::min(spell->minCombatValue, spell->maxCombatValue);
+	sb.maxCombatValue = std::max(spell->minCombatValue, spell->maxCombatValue);
 	sb.spell = g_spells->getSpellByName(spell->name);
+
 	if (sb.spell) {
 		return true;
 	}
@@ -595,24 +581,6 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 			if (spell->attack > 0 && spell->skill > 0) {
 				sb.minCombatValue = 0;
 				sb.maxCombatValue = -Weapons::getMaxMeleeDamage(spell->skill, spell->attack);
-			}
-
-			ConditionType_t conditionType = CONDITION_NONE;
-			int32_t minDamage = 0;
-			int32_t maxDamage = 0;
-			uint32_t tickInterval = 2000;
-
-			if (spell->conditionType != CONDITION_NONE) {
-				conditionType = spell->conditionType;
-
-				minDamage = spell->conditionMinDamage;
-				maxDamage = minDamage;
-				if (spell->tickInterval != 0) {
-					tickInterval = spell->tickInterval;
-				}
-
-				Condition* condition = getDamageCondition(conditionType, maxDamage, minDamage, spell->conditionStartDamage, tickInterval);
-				combat->addCondition(condition);
 			}
 
 			sb.range = 1;
@@ -663,7 +631,18 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 			}
 
 			ConditionOutfit* condition = static_cast<ConditionOutfit*>(Condition::createCondition(CONDITIONID_COMBAT, CONDITION_OUTFIT, duration, 0));
-			condition->setOutfit(spell->outfit);
+			
+			if (spell->outfitMonster != "") {
+				condition->setLazyMonsterOutfit(spell->outfitMonster);
+			} else if (spell->outfitItem > 0) {
+				Outfit_t outfit;
+				outfit.lookTypeEx = spell->outfitItem;
+				condition->setOutfit(outfit);
+			} else {
+				std::cout << "[Error - Monsters::deserializeSpell] Missing outfit monster or item in outfit spell for: " << description << std::endl;
+				return false;
+			}
+
 			combat->setParam(COMBAT_PARAM_AGGRESSIVE, 0);
 			combat->addCondition(condition);
 		} else if (tmpName == "invisible") {
@@ -692,32 +671,9 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 		} else if (tmpName == "energyfield") {
 			combat->setParam(COMBAT_PARAM_CREATEITEM, ITEM_ENERGYFIELD_PVP);
 		} else if (tmpName == "condition") {
-			uint32_t tickInterval = 2000;
-
 			if (spell->conditionType == CONDITION_NONE) {
 				std::cout << "[Error - Monsters::deserializeSpell] - " << description << " - Condition is not set for: " << spell->name << std::endl;
 			}
-
-			if (spell->tickInterval != 0) {
-				int32_t value = spell->tickInterval;
-				if (value > 0) {
-					tickInterval = value;
-				}
-			}
-
-			int32_t minDamage = std::abs(spell->conditionMinDamage);
-			int32_t maxDamage = std::abs(spell->conditionMaxDamage);
-			int32_t startDamage = 0;
-
-			if (spell->conditionStartDamage != 0) {
-				int32_t value = std::abs(spell->conditionStartDamage);
-				if (value <= minDamage) {
-					startDamage = value;
-				}
-			}
-
-			Condition* condition = getDamageCondition(spell->conditionType, maxDamage, minDamage, startDamage, tickInterval);
-			combat->addCondition(condition);
 		} else if (tmpName == "strength") {
 			//
 		} else if (tmpName == "effect") {
@@ -726,14 +682,35 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 			std::cout << "[Error - Monsters::deserializeSpell] - " << description << " - Unknown spell name: " << spell->name << std::endl;
 		}
 
-		if (spell->needTarget) {
-			if (spell->shoot != CONST_ANI_NONE) {
-				combat->setParam(COMBAT_PARAM_DISTANCEEFFECT, spell->shoot);
-			}
+		if (spell->shoot != CONST_ANI_NONE) {
+			combat->setParam(COMBAT_PARAM_DISTANCEEFFECT, spell->shoot);
 		}
 
 		if (spell->effect != CONST_ME_NONE) {
 			combat->setParam(COMBAT_PARAM_EFFECT, spell->effect);
+		}
+
+		// If a spell has a condition, it always applies, no matter what kind of spell it is
+		if (spell->conditionType != CONDITION_NONE) {
+			int32_t minDamage = std::abs(spell->conditionMinDamage);
+			int32_t maxDamage = std::abs(spell->conditionMaxDamage);
+			int32_t startDamage = std::abs(spell->conditionStartDamage);
+			uint32_t tickInterval = 2000;
+
+			if (spell->tickInterval > 0) {
+				tickInterval = spell->tickInterval;
+			}
+
+			if (startDamage > minDamage) {
+				startDamage = 0;
+			}
+
+			if (maxDamage == 0) {
+				maxDamage = minDamage;
+			}
+
+			Condition* condition = getDamageCondition(spell->conditionType, maxDamage, minDamage, startDamage, tickInterval);
+			combat->addCondition(condition);
 		}
 
 		combat->setPlayerCombatValues(COMBAT_FORMULA_DAMAGE, sb.minCombatValue, 0, sb.maxCombatValue, 0);
@@ -873,8 +850,6 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 				mType->info.isHostile = attr.as_bool();
 			} else if (strcasecmp(attrName, "pet") == 0) {
 				mType->info.isPet = attr.as_bool();
-			} else if (strcasecmp(attrName, "passive") == 0) {
-				mType->info.isPassive = attr.as_bool();
 			} else if (strcasecmp(attrName, "illusionable") == 0) {
 				mType->info.isIllusionable = attr.as_bool();
 			} else if (strcasecmp(attrName, "convinceable") == 0) {
@@ -912,7 +887,20 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 			} else if (strcasecmp(attrName, "canwalkonpoison") == 0) {
 				mType->info.canWalkOnPoison = attr.as_bool();
 			} else if (strcasecmp(attrName, "respawntype") == 0) {
-				mType->info.respawnType = getSpawnType(asLowerCaseString(attr.as_string()));
+				SpawnType_t spawnType = getSpawnType(asLowerCaseString(attr.as_string()));
+				if (spawnType == RESPAWN_IN_ALL) {
+					mType->info.respawnType.period = RESPAWNPERIOD_ALL;
+				} else if (spawnType == RESPAWN_IN_DAY) {
+					mType->info.respawnType.period = RESPAWNPERIOD_DAY;
+				} else if (spawnType == RESPAWN_IN_NIGHT) {
+					mType->info.respawnType.period = RESPAWNPERIOD_NIGHT;
+				} else if (spawnType == RESPAWN_IN_DAY_CAVE) {
+					mType->info.respawnType.period = RESPAWNPERIOD_DAY;
+					mType->info.respawnType.underground = true;
+				} else if (spawnType == RESPAWN_IN_NIGHT_CAVE) {
+					mType->info.respawnType.period = RESPAWNPERIOD_NIGHT;
+					mType->info.respawnType.underground = true;
+				}
 			} else {
 				std::cout << "[Warning - Monsters::loadMonster] Unknown flag attribute: " << attrName << ". " << file << std::endl;
 			}

@@ -38,9 +38,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = true,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -57,7 +59,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 15, range = 6, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_POFF, target = false}
+	{name ="dark torturer skill reducer", interval = 2000, chance = 15, range = 6, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_POFF, target = false}
 }
 
 monster.defenses = {

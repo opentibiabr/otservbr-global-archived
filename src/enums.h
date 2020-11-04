@@ -502,6 +502,16 @@ enum SpeechBubble_t
 	SPEECHBUBBLE_QUESTTRADER = 4,
 };
 
+enum RespawnPeriod_t {
+	RESPAWNPERIOD_ALL,
+	RESPAWNPERIOD_DAY,
+	RESPAWNPERIOD_NIGHT
+};
+
+/**
+ * @Deprecated
+ * It will be dropped with monsters. Use RespawnPeriod_t instead.
+ */
 enum SpawnType_t
 {
 	RESPAWN_IN_ALL = 0,
@@ -587,11 +597,23 @@ struct Outfit_t {
 	uint8_t lookAddons = 0;
 };
 
+enum LightState_t {
+	LIGHT_STATE_DAY,
+	LIGHT_STATE_NIGHT,
+	LIGHT_STATE_SUNSET,
+	LIGHT_STATE_SUNRISE,
+};
+
 struct LightInfo {
 	uint8_t level = 0;
 	uint8_t color = 0;
 	constexpr LightInfo() = default;
 	constexpr LightInfo(uint8_t newLevel, uint8_t newColor) : level(newLevel), color(newColor) {}
+};
+
+struct RespawnType {
+	RespawnPeriod_t period;
+	bool underground;
 };
 
 struct ShopInfo {

@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -85,18 +87,18 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -308, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 300, interval = 4000}},
-	{name ="drunk", interval = 2000, chance = 15, effect = CONST_ME_SOUND_PURPLE, target = false},
-	{name ="combat", interval = 2000, chance = 15, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -100, maxDamage = -400, type = COMBAT_MANADRAIN, range = 7, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -300, maxDamage = -550, type = COMBAT_LIFEDRAIN, range = 7, effect = CONST_ME_MAGIC_RED, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -308, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 300, interval = 4000}},
+	{name ="drunk", interval = 2000, chance = 15, radius = 4, effect = CONST_ME_SOUND_PURPLE, target = false, duration = 6000},
+	{name ="spectre drown", interval = 2000, chance = 15, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -100, maxDamage = -400, range = 7, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -300, maxDamage = -550, range = 7, effect = CONST_ME_MAGIC_RED, target = false}
 }
 
 monster.defenses = {
 	defense = 35,
 	armor = 35,
-	{name ="combat", interval = 2000, chance = 20, minDamage = 100, maxDamage = 700, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, speedChange = 290, duration = 5000}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 100, maxDamage = 700, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="speed", interval = 2000, chance = 15, speedChange = 290, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
 
 monster.elements = {

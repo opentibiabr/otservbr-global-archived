@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -68,7 +70,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 199,
 	armor = 199,
-	{name ="combat", interval = 2000, chance = 25, target = false}
+	{name ="icecle heal", interval = 2000, chance = 25, target = false}
 }
 
 monster.elements = {

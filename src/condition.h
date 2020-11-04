@@ -355,6 +355,7 @@ class ConditionOutfit final : public Condition
 		}
 
 		void setOutfit(const Outfit_t& outfit);
+		void setLazyMonsterOutfit(const std::string& monsterName);
 
 		//serialization
 		void serialize(PropWriteStream& propWriteStream) override;
@@ -362,6 +363,7 @@ class ConditionOutfit final : public Condition
 
 	private:
 		Outfit_t outfit;
+		std::string monsterName;
 };
 
 class ConditionLight final : public Condition

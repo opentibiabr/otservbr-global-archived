@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 800,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -81,16 +83,16 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 112, attack = 85, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -120, maxDamage = -650, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_BLACKSMOKE, target = true},
-	{name ="combat", interval = 2000, chance = 11, minDamage = -330, maxDamage = -805, type = COMBAT_FIREDAMAGE, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
-	{name ="combat", interval = 2000, chance = 10, target = false},
-	{name ="combat", interval = 2000, chance = 9, minDamage = -300, maxDamage = -780, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_SMALLCLOUDS, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -120, maxDamage = -650, range = 7, radius = 5, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_BLACKSMOKE, target = true},
+	{name ="combat", interval = 2000, chance = 11, type = COMBAT_FIREDAMAGE, minDamage = -330, maxDamage = -805, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
+	{name ="undead dragon curse", interval = 2000, chance = 10, target = false},
+	{name ="combat", interval = 2000, chance = 9, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -780, length = 8, spread = 3, effect = CONST_ME_SMALLCLOUDS, target = false}
 }
 
 monster.defenses = {
 	defense = 64,
 	armor = 52,
-	{name ="combat", interval = 2000, chance = 55, minDamage = 450, maxDamage = 550, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_RED, target = false}
+	{name ="combat", interval = 2000, chance = 55, type = COMBAT_HEALING, minDamage = 450, maxDamage = 550, effect = CONST_ME_MAGIC_RED, target = false}
 }
 
 monster.elements = {
@@ -112,23 +114,5 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
-
-mType.onThink = function(monster, interval)
-end
-
-mType.onAppear = function(monster, creature)
-	if monster:getType():isRewardBoss() then
-		monster:setReward(true)
-	end
-end
-
-mType.onDisappear = function(monster, creature)
-end
-
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-end
 
 mType:register(monster)

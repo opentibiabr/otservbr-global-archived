@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 10,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -68,16 +70,16 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -350, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 19, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -250, maxDamage = -380, target = false},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -450, maxDamage = -550, type = COMBAT_EARTHDAMAGE, range = 3, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_EXPLOSIONHIT, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -210, maxDamage = -300, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_GROUNDSHAKER, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -350, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 19, interval = 4000}},
+	{name ="wave t", interval = 2000, chance = 10, minDamage = -250, maxDamage = -380, target = false},
+	{name ="combat", interval = 2000, chance = 12, type = COMBAT_EARTHDAMAGE, minDamage = -450, maxDamage = -550, range = 3, radius = 1, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_EXPLOSIONHIT, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -210, maxDamage = -300, radius = 5, effect = CONST_ME_GROUNDSHAKER, target = false}
 }
 
 monster.defenses = {
 	defense = 84,
 	armor = 84,
-	{name ="speed", interval = 2000, chance = 5, speedChange = 500, duration = 5000}
+	{name ="speed", interval = 2000, chance = 5, speedChange = 500, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
 
 monster.elements = {

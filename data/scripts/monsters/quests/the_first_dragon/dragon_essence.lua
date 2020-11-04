@@ -47,12 +47,16 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 250,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
-monster.events = {"Dragon Essence Death"}
+monster.events = {
+	"Dragon Essence Death"
+}
 
 monster.light = {
 	level = 0,
@@ -69,16 +73,16 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 80, attack = 110, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -850, maxDamage = -1250, type = COMBAT_FIREDAMAGE, length = 8, spread = 3, effect = CONST_ME_ICEAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -450, maxDamage = -720, type = COMBAT_FIREDAMAGE, range = 7, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -750, maxDamage = -880, type = COMBAT_FIREDAMAGE, length = 8, spread = 3, effect = CONST_ME_HITBYFIRE, target = false}
+	{name ="combat", interval = 2000, chance = 18, type = COMBAT_FIREDAMAGE, minDamage = -850, maxDamage = -1250, length = 8, spread = 3, effect = CONST_ME_ICEAREA, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -450, maxDamage = -720, range = 7, radius = 3, effect = CONST_ME_HITBYFIRE, target = false},
+	{name ="combat", interval = 2000, chance = 12, type = COMBAT_FIREDAMAGE, minDamage = -750, maxDamage = -880, length = 8, spread = 3, effect = CONST_ME_HITBYFIRE, target = false}
 }
 
 monster.defenses = {
 	defense = 35,
 	armor = 22,
-	{name ="combat", interval = 2000, chance = 16, minDamage = 150, maxDamage = 200, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 8, speedChange = 262, duration = 7000}
+	{name ="combat", interval = 2000, chance = 16, type = COMBAT_HEALING, minDamage = 150, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="speed", interval = 2000, chance = 8, speedChange = 262, effect = CONST_ME_MAGIC_RED, target = false, duration = 7000}
 }
 
 monster.elements = {

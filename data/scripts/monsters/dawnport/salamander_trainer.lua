@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -74,8 +76,8 @@ monster.attacks = {
 monster.defenses = {
 	defense = 13,
 	armor = 8,
-	{name ="combat", interval = 2000, chance = 25, minDamage = 10, maxDamage = 25, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="combat", interval = 2000, chance = 30, target = false}
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 10, maxDamage = 25, effect = CONST_ME_MAGIC_GREEN, target = false},
+	{name ="salamander trainer summon", interval = 2000, chance = 30, target = false}
 }
 
 monster.elements = {

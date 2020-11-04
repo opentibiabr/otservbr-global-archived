@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -72,15 +74,15 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -68, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -35, maxDamage = -70, type = COMBAT_PHYSICALDAMAGE, range = 1, shootEffect = CONST_ANI_WHIRLWINDSWORD, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -30, maxDamage = -70, type = COMBAT_FIREDAMAGE, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_EXPLOSIONHIT, target = true},
-	{name ="firefield", interval = 2000, chance = 10, range = 7, target = true}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -35, maxDamage = -70, range = 1, shootEffect = CONST_ANI_WHIRLWINDSWORD, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -30, maxDamage = -70, range = 7, radius = 2, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_EXPLOSIONHIT, target = true},
+	{name ="firefield", interval = 2000, chance = 10, range = 7, radius = 2, target = true}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="combat", interval = 1000, chance = 20, minDamage = 100, maxDamage = 220, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 1000, chance = 20, type = COMBAT_HEALING, minDamage = 100, maxDamage = 220, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

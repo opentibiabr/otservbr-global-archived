@@ -36,7 +36,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = true,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = false,
 	canPushCreatures = false,
@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -68,10 +70,10 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 30, minDamage = -600, maxDamage = -700, target = true},
-	{name ="combat", interval = 2000, chance = 30, minDamage = -800, maxDamage = -1200, length = 1, spread = 0, target = true},
-	{name ="speed", interval = 1000, chance = 12, speedChange = -250, duration = 60000},
-	{name ="firefield", interval = 1000, chance = 10, range = 7, shootEffect = CONST_ANI_FIRE, target = true}
+	{name ="ice crystal bomb", interval = 2000, chance = 30, minDamage = -600, maxDamage = -700, target = true},
+	{name ="fire wave", interval = 2000, chance = 30, minDamage = -800, maxDamage = -1200, length = 1, spread = 0, target = true},
+	{name ="speed", interval = 1000, chance = 12, speedChange = -250, radius = 6, effect = CONST_ME_HITBYFIRE, target = false, duration = 60000},
+	{name ="firefield", interval = 1000, chance = 10, range = 7, radius = 4, shootEffect = CONST_ANI_FIRE, target = true}
 }
 
 monster.defenses = {

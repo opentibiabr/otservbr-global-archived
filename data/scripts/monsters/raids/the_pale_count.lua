@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -105,9 +107,9 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 80, attack = 120, effect = CONST_ME_DRAWBLOOD},
-	{name ="speed", interval = 1000, chance = 17, speedChange = -600, duration = 1500},
-	{name ="combat", interval = 2000, chance = 21, minDamage = -130, maxDamage = -350, type = COMBAT_ICEDAMAGE, range = 6, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_GIANTICE, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -60, maxDamage = -120, type = COMBAT_MANADRAIN, range = 7, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_CARNIPHILA, target = false}
+	{name ="speed", interval = 1000, chance = 17, speedChange = -600, range = 7, radius = 4, target = true, duration = 1500},
+	{name ="combat", interval = 2000, chance = 21, type = COMBAT_ICEDAMAGE, minDamage = -130, maxDamage = -350, range = 6, radius = 2, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_GIANTICE, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -60, maxDamage = -120, range = 7, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_CARNIPHILA, target = false}
 }
 
 monster.defenses = {
@@ -134,5 +136,23 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
+
+mType.onThink = function(monster, interval)
+end
+
+mType.onAppear = function(monster, creature)
+	if monster:getType():isRewardBoss() then
+		monster:setReward(true)
+	end
+end
+
+mType.onDisappear = function(monster, creature)
+end
+
+mType.onMove = function(monster, creature, fromPosition, toPosition)
+end
+
+mType.onSay = function(monster, creature, type, message)
+end
 
 mType:register(monster)

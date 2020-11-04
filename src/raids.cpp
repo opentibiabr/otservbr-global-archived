@@ -558,10 +558,15 @@ bool ScriptEvent::configureRaidEvent(const pugi::xml_node& eventNode)
 		return false;
 	}
 
-	if (!loadScript("data/raids/scripts/" + std::string(scriptAttribute.as_string()))) {
-		std::cout << "Error: [ScriptEvent::configureRaidEvent] Can not load raid script." << std::endl;
+	std::string scriptName = std::string(scriptAttribute.as_string());
+
+	if (!loadScript("data/raids/scripts/" + scriptName)) {
+		std::cout << "Error: [ScriptEvent::configureRaidEvent] Can not load raid script " << scriptName << std::endl;
 		return false;
 	}
+
+	setScriptName(scriptName);
+
 	return true;
 }
 
@@ -574,7 +579,11 @@ bool ScriptEvent::executeEvent()
 {
 	//onRaid()
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - ScriptEvent::onRaid] Call stack overflow" << std::endl;
+		std::cout << "[Error - ScriptEvent::onRaid"
+			<< " Script "
+			<< getScriptName()
+			<< "] Call stack overflow. Too many lua script calls being nested."
+			<< std::endl;
 		return false;
 	}
 
