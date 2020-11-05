@@ -51090,11 +51090,11 @@
 	<item id="38986" article="a" name="lion rod">
 		<attribute key="weaponType" value="wand" />
 		<attribute key="loottype" value="wand" />
-		<attribute key="range" value="4" />
+		<attribute key="range" value="5" />
 		<attribute key="shootType" value="smallice" />
 		<attribute key="magiclevelpoints" value="2" />
 		<attribute key="skillcriticalchance" value="10" />
-		<attribute key="skillcriticaldamage" value="10" />
+		<attribute key="skillcriticaldamage" value="35" />
 		<attribute key="weight" value="3700" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
@@ -51104,8 +51104,8 @@
 		<attribute key="range" value="4" />
 		<attribute key="shootType" value="smallice" />
 		<attribute key="magiclevelpoints" value="2" />
-		<attribute key="skillcriticalchance" value="10" />
-		<attribute key="skillcriticaldamage" value="10" />
+		<attribute key="skilllifechance" value="100" />
+		<attribute key="skilllifeamount" value="18" />
 		<attribute key="weight" value="3300" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
