@@ -7,7 +7,7 @@ local config = {
 	[13247]	= {NAME = 'Boar', ID = 10, BREAK = true, TYPE = TYPE_MONSTER,	CHANCE = 40, FAIL_MSG = { {1, 'The boar has run away'}, {3, 'The boar attacks you.'} }, SUCCESS_MSG = 'You have tamed the boar.', ACHIEV = "Pig-Headed"},
 	[13305]	= {NAME = 'Crustacea Gigantica', ID = 7, BREAK = true, TYPE = TYPE_MONSTER, CHANCE = 40, FAIL_MSG = { {1, 'The crustacea has run away.'}, {2, 'The crustacea ate the shrimp.'} }, SUCCESS_MSG = 'You have tamed the crustacea.', ACHIEV = "Fried Shrimp"},
 	[13536] = {NAME = 'Crystal Wolf', ID = 16, BREAK = true, TYPE = TYPE_MONSTER, CHANCE = 40, FAIL_MSG = { {1, 'The wolf has run away.'} }, SUCCESS_MSG = 'You have tamed the wolf.', ACHIEV = "The Right Tone"},
-	[13537]	= {NAME = 'Donkey', ID = 13, BREAK = true, TYPE = TYPE_MONSTER, CHANCE = 40, FAIL_MSG = {	{1, 'The donkey transformation suddenly wears off.'}, {2,  'Heeee-haaa-haaa-haaw!'}, {3, 'You did not manage to feed the donkey enough apple slices.'} }, SUCCESS_MSG = 'Heeee-haaaaw!', ACHIEV = "Loyal Lad"},
+	[13537]	= {NAME = 'Donkey', ID = 13, BREAK = true, TYPE = TYPE_MONSTER, TARGET_NAME = "Incredibly Old Witch", TARGET_LOOKTYPE = 387, CHANCE = 40, FAIL_MSG = {	{1, 'The donkey transformation suddenly wears off.'}, {2,  'Heeee-haaa-haaa-haaw!'}, {3, 'You did not manage to feed the donkey enough apple slices.'} }, SUCCESS_MSG = 'Heeee-haaaaw!', ACHIEV = "Loyal Lad"},
 	[18449] = {NAME = 'Dragonling', ID = 31, BREAK = true, TYPE = TYPE_MONSTER, CHANCE = 30, FAIL_MSG = { {1, "The dragonling got scared and ran away."}, {2, "The dragonling is trying to nibble."} }, SUCCESS_MSG = "You tamed a dragonling.", ACHIEV = "Dragon Mimicry"},
 	[13294]	= {NAME = 'Draptor', ID = 6, BREAK = true, TYPE = TYPE_MONSTER, CHANCE = 40, FAIL_MSG = { {1, 'The draptor has run away.'}, {3, 'The draptor has fled.'} }, SUCCESS_MSG = 'You have tamed the draptor.', ACHIEV = "Scales and Tail"},
 	[13535]	= {NAME = 'Dromedary',  ID = 20, BREAK = true, TYPE = TYPE_MONSTER, CHANCE = 40, FAIL_MSG = { {1, 'Dromedary has run away.'} }, SUCCESS_MSG = 'You have tamed the dromedary.', ACHIEV = "Fata Morgana"},
@@ -82,14 +82,17 @@ function mounts.onUse(cid, item, fromPosition, itemEx, toPosition)
 			player:say('You can\'t tame a summon!', TALKTYPE_MONSTER_SAY)
 			return true
 		end
-
-		if mount.NAME == targetMonster:getName() then
+	
+		if mount.NAME == targetMonster:getName() or (mount.TARGET_NAME and mount.TARGET_NAME == targetMonster:getName()) then
+			if (mount.TARGET_LOOKTYPE and mount.TARGET_LOOKTYPE ~= targetMonster:getOutfit().lookType) then
+				return true
+			end
 			if rand > mount.CHANCE then
 				doFailAction(cid, mount, toPosition, item, itemEx, mount.BREAK)
 				return true
 			end
 			if mount.ACHIEV then
-			player:addAchievement(mount.ACHIEV)
+				player:addAchievement(mount.ACHIEV)
 			end
 			player:addAchievement("Natural Born Cowboy")
 			player:addMount(mount.ID)
