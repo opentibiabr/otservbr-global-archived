@@ -1,4 +1,4 @@
-local timeOnline = 5 * 1000
+local timeOnline =  60 * 60 * 1000
 local pointPlayers = {}
 
 function addPremiumPoint(PID, playerIP)
