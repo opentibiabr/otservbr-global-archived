@@ -1,6 +1,11 @@
 math.randomseed(os.time())
 dofile('data/lib/lib.lua')
 
+-- CoinsHour
+GET_DAY_STORAGE_HOURCOIN = 48485000
+MAX_STORAGE_HOURCOIN = 48485001
+MAX_COUNT_HOURCOIN = 5
+
 -- AutoLoot config
 AUTO_LOOT_MAX_ITEMS = 10
 

@@ -3499,7 +3499,7 @@ local weapons = {
 		type = WEAPON_DISTANCE,
 		level = 25,
 		unproperly = true,
-		breakChance = 3
+		breakChance = 1
 	}, -- royal spear
 	{
 		itemId = 7368,
@@ -3586,7 +3586,7 @@ local weapons = {
 		type = WEAPON_DISTANCE,
 		level = 20,
 		unproperly = true,
-		breakChance = 6
+		breakChance = 1
 	}, -- hunting spear
 	{
 		itemId = 3964,
@@ -4021,7 +4021,7 @@ local weapons = {
 	{
 		itemId = 2389,
 		type = WEAPON_DISTANCE,
-		breakChance = 3
+		breakChance = 1
 	}, -- spear
 	{
 		itemId = 2388,
@@ -4226,7 +4226,7 @@ local weapons = {
 	{
 		itemId = 1294,
 		type = WEAPON_DISTANCE,
-		breakChance = 3
+		breakChance = 1
 	} -- small stone
 }
 

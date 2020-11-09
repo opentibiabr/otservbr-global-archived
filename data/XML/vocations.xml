@@ -30,7 +30,7 @@
 		<skill id="5" multiplier="1.5" />
 		<skill id="6" multiplier="1.1" />
 	</vocation>
-	<vocation id="3" clientid="2" name="Paladin" description="a paladin" gaincap="20" gainhp="10" gainmana="15" gainhpticks="8" gainhpamount="1" gainmanaticks="4" gainmanaamount="2" manamultiplier="1.4" attackspeed="2000" basespeed="220" soulmax="100" gainsoulticks="120" fromvoc="3">
+	<vocation id="3" clientid="2" name="Paladin" description="a paladin" gaincap="20" gainhp="10" gainmana="15" gainhpticks="8" gainhpamount="1" gainmanaticks="4" gainmanaamount="2" manamultiplier="1.4" attackspeed="500" basespeed="220" soulmax="100" gainsoulticks="120" fromvoc="3">
 		<formula meleeDamage="1.0" distDamage="1.0" defense="1.0" armor="1.0" />
 		<skill id="0" multiplier="1.2" />
 		<skill id="1" multiplier="1.2" />

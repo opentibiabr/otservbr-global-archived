@@ -38,7 +38,7 @@ local bosses = {
 		flamePosition = Position(32612, 32733, 8)
 	},
 	[3231] = {
-		bossName = 'hide',
+		bossName = 'Hide',
 		storage = 34101,
 		playerPosition = Position(32815, 32703, 8),
 		bossPosition = Position(32816, 32712, 8),
@@ -331,12 +331,21 @@ local boss = MoveEvent()
 
 function boss.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
+
 	if not player then
+		player:say(
+		"NotPlayer.",
+		TALKTYPE_MONSTER_SAY
+	)
 		return true
 	end
 
 	local boss = bosses[item.uid] or bosses[item:getActionId()]
 	if not boss then
+		player:say(
+		"NotBos.",
+		TALKTYPE_MONSTER_SAY
+	)
 		return true
 	end
 
@@ -352,6 +361,10 @@ function boss.onStepIn(creature, item, position, fromPosition)
 
 	local monster = Game.createMonster(boss.bossName, boss.bossPosition)
 	if not monster then
+		player:say(
+		"NotMonster.",
+		TALKTYPE_MONSTER_SAY
+	)
 		return true
 	end
 
@@ -370,5 +383,6 @@ for index, value in pairs(bosses) do
 end
 
 boss:uid(3260, 3261, 3262)
-boss:aid(3244)
+-- boss:aid(3244)
 boss:register()
+ 
