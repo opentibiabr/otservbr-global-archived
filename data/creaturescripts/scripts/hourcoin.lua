@@ -1,16 +1,13 @@
-local timeOnline =  60 * 60 * 1000
+local timeOnline =  30 * 1000
 local pointPlayers = {}
 
 function addPremiumPoint(PID, playerIP)
     local player = Player(PID)
-    if not player then
-        return
-    end
-    
-    local maxCoins = player:getStorageValue(MAX_STORAGE_HOURCOIN)
     if player then
+        local maxCoins = player:getStorageValue(MAX_STORAGE_HOURCOIN)
         db.query("UPDATE accounts SET coins = coins + 1 WHERE id = '" ..player:getAccountId().. "';")
-        player:getPosition():sendMagicEffect(CONST_ME_STUN)
+        player:getPosition():sendMagicEffect(CONST_ME_PINK_BEAM)
+        player:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
         player:sendTextMessage(MESSAGE_STATUS_DEFAULT, "You have been online for an hour and have earned 1 Coin.")
         player:setStorageValue(MAX_STORAGE_HOURCOIN, maxCoins+1)
         if maxCoins+1 <= MAX_COUNT_HOURCOIN then
@@ -32,6 +29,9 @@ function onLogin(player)
     local geyDay = tonumber(os.date('%d', os.time()))
 
     if player:getStorageValue(GET_DAY_STORAGE_HOURCOIN) < geyDay then
+        if pointPlayers[player:getIp()] then
+            pointPlayers[playerIP] = nil
+        end
         player:setStorageValue(GET_DAY_STORAGE_HOURCOIN, geyDay)
         player:setStorageValue(MAX_STORAGE_HOURCOIN, 1)
     end
