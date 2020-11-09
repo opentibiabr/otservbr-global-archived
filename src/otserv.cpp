@@ -54,9 +54,11 @@ std::condition_variable g_loaderSignal;
 std::unique_lock<std::mutex> g_loaderUniqueLock(g_loaderLock);
 
 void startupErrorMessage(const std::string& errorStr) {
-	std::cout << "> ERROR: " << errorStr << std::endl;
-	g_loaderSignal.notify_all();
-  system("pause");
+  std::cout << "\033[1;31m>> " << errorStr << std::endl;
+  std::cout << ">> The program WILL CLOSE after receiving a key..." << "\033[0m" << std::endl;
+  g_loaderSignal.notify_all();
+  getchar();
+  exit(-1);
 }
 
 void mainLoader(int argc, char* argv[], ServiceManager* servicer);
