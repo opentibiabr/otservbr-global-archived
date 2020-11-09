@@ -3,6 +3,10 @@ local pointPlayers = {}
 
 function addPremiumPoint(PID, playerIP)
     local player = Player(PID)
+    if not player then
+        return
+    end
+    
     local maxCoins = player:getStorageValue(MAX_STORAGE_HOURCOIN)
     if player then
         db.query("UPDATE accounts SET coins = coins + 1 WHERE id = '" ..player:getAccountId().. "';")
