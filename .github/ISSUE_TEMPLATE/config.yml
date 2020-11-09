@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: OTServ Discord
-    url: https://discord.gg/3NxYnyV?utm_source=Github
-    about: If you have support and related questions, please get in contact with us via our discord server.
+  - name: 'Help / Support'
+    url: 'https://discord.gg/3NxYnyV?utm_source=Github'
+    about: If you have support question or need help, please use our Discord Server.
