@@ -55,7 +55,7 @@ std::unique_lock<std::mutex> g_loaderUniqueLock(g_loaderLock);
 
 void startupErrorMessage(const std::string& errorStr) {
   std::cout << "\033[1;31m>> " << errorStr << std::endl;
-  std::cout << ">> The program WILL CLOSE after receiving a key..." << "\033[0m" << std::endl;
+  std::cout << ">> The program will close after pressing the enter key..." << "\033[0m" << std::endl;
   g_loaderSignal.notify_all();
   getchar();
   exit(-1);
