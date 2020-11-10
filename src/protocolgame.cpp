@@ -554,6 +554,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xDC: parseAddVip(msg); break;
 		case 0xDD: parseRemoveVip(msg); break;
 		case 0xDE: parseEditVip(msg); break;
+    case 0xE5: parseCyclopediaCharacterInfo(msg); break;
 		case 0xE6: parseBugReport(msg); break;
 		case 0xE7: /* thank you */ break;
 		case 0xE8: parseDebugAssert(msg); break;
@@ -1200,6 +1201,37 @@ void ProtocolGame::parseWrapableItem(NetworkMessage& msg)
 	addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerWrapableItem, player->getID(), pos, stackpos, spriteId);
 }
 
+void ProtocolGame::parseCyclopediaCharacterInfo(NetworkMessage& msg)
+{
+	CyclopediaCharacterInfoType_t characterInfoType;
+	msg.get<uint32_t>();
+	characterInfoType = static_cast<CyclopediaCharacterInfoType_t>(msg.getByte());
+	addGameTask(&Game::playerCyclopediaCharacterInfo, player->getID(), characterInfoType);
+}
+
+void ProtocolGame::parseTournamentLeaderboard(NetworkMessage& msg)
+{
+	uint8_t ledaerboardType = msg.getByte();
+	if (ledaerboardType == 0)
+	{
+		const std::string worldName = msg.getString();
+		uint16_t currentPage = msg.get<uint16_t>();
+		(void)worldName;
+		(void)currentPage;
+	}
+	else if (ledaerboardType == 1)
+	{
+		const std::string worldName = msg.getString();
+		const std::string characterName = msg.getString();
+		(void)worldName;
+		(void)characterName;
+	}
+	uint8_t elementsPerPage = msg.getByte();
+	(void)elementsPerPage;
+
+	addGameTask(&Game::playerTournamentLeaderboard, player->getID(), ledaerboardType);
+}
+
 void ProtocolGame::parseRuleViolationReport(NetworkMessage &msg)
 {
 	uint8_t reportType = msg.getByte();
@@ -1558,6 +1590,332 @@ void ProtocolGame::sendAddMarker(const Position& pos, uint8_t markType, const st
 	msg.addPosition(pos);
 	msg.addByte(markType);
 	msg.addString(desc);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterBaseInformation()
+{
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_BASEINFORMATION);
+	msg.addByte(0x00); // No data available
+	msg.addString(player->getName());
+	msg.addString(player->getVocation()->getVocName());
+	msg.add<uint16_t>(player->getLevel());
+	AddOutfit(msg, player->getDefaultOutfit(), false);
+
+	msg.addByte(0x00); // ??
+	msg.addByte(0x00); // enable store summary & character titles
+	msg.addString(""); // character title
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterGeneralStats()
+{
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_GENERALSTATS);
+	msg.addByte(0x00); // No data available
+	msg.add<uint64_t>(player->getExperience());
+	msg.add<uint16_t>(player->getLevel());
+	msg.addByte(player->getLevelPercent());
+	msg.add<uint16_t>(100); // base xp gain rate
+	if (version >= 1215) {
+		msg.add<int32_t>(0); // tournament xp factor
+	}
+	msg.add<uint16_t>(0); // low level bonus
+	msg.add<uint16_t>(0); // xp boost
+	msg.add<uint16_t>(100); // stamina multiplier (100 = x1.0)
+	msg.add<uint16_t>(0); // xpBoostRemainingTime
+	msg.addByte(0x00); // canBuyXpBoost
+	msg.add<uint16_t>(std::min<int32_t>(player->getHealth(), std::numeric_limits<uint16_t>::max()));
+	msg.add<uint16_t>(std::min<int32_t>(player->getMaxHealth(), std::numeric_limits<uint16_t>::max()));
+	msg.add<uint16_t>(std::min<int32_t>(player->getMana(), std::numeric_limits<uint16_t>::max()));
+	msg.add<uint16_t>(std::min<int32_t>(player->getMaxMana(), std::numeric_limits<uint16_t>::max()));
+	msg.addByte(player->getSoul());
+	msg.add<uint16_t>(player->getStaminaMinutes());
+
+	Condition* condition = player->getCondition(CONDITION_REGENERATION);
+	msg.add<uint16_t>(condition ? condition->getTicks() / 1000 : 0x00);
+	msg.add<uint16_t>(player->getOfflineTrainingTime() / 60 / 1000);
+	msg.add<uint16_t>(player->getSpeed() / 2);
+	msg.add<uint16_t>(player->getBaseSpeed() / 2);
+	msg.add<uint32_t>(player->getCapacity());
+	msg.add<uint32_t>(player->getCapacity());
+	msg.add<uint32_t>(player->getFreeCapacity());
+	msg.addByte(8); // Skills count
+	msg.addByte(1); // Magic Level hardcoded skill id
+	msg.add<uint16_t>(player->getMagicLevel());
+	msg.add<uint16_t>(player->getBaseMagicLevel());
+	if (version >= 1200) {
+		msg.add<uint16_t>(player->getBaseMagicLevel());//loyalty bonus
+		msg.add<uint16_t>(player->getMagicLevelPercent() * 100);
+	}
+	else {
+		msg.addByte(player->getMagicLevelPercent());
+	}
+	for (uint8_t i = SKILL_FIRST; i < SKILL_CRITICAL_HIT_CHANCE; ++i) { //TODO: check if all clients have the same hardcoded skill ids
+		static const uint8_t HardcodedSkillIds[] = { 11, 9, 8, 10, 7, 6, 13 };
+		msg.addByte(HardcodedSkillIds[i]);
+		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
+		msg.add<uint16_t>(player->getBaseSkill(i));
+		if (version >= 1200) {
+			msg.add<uint16_t>(player->getBaseSkill(i));//loyalty bonus
+			msg.add<uint16_t>(player->getSkillPercent(i) * 100);
+		} else {
+			msg.addByte(player->getSkillPercent(i));
+		}
+	}
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterCombatStats()
+{
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_COMBATSTATS);
+	msg.addByte(0x00); // No data available
+	for (uint8_t i = SKILL_CRITICAL_HIT_CHANCE; i <= SKILL_LAST; ++i) {
+		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
+		msg.add<uint16_t>(0);
+	}
+	uint8_t haveBlesses = 0;
+	uint8_t blessings = (version >= 1130 ? 8 : 6);
+	for (uint8_t i = 1; i < blessings; i++) {
+		if (player->hasBlessing(i)) {
+			haveBlesses++;
+		}
+	}
+	msg.addByte(haveBlesses);
+	msg.addByte(blessings);
+	msg.add<uint16_t>(0); // attackValue
+	msg.addByte(0); // damageType
+	msg.addByte(0); // convertedDamage
+	msg.addByte(0); // convertedType
+	msg.add<uint16_t>(0); // armorValue
+	msg.add<uint16_t>(0); // defenseValue
+	msg.addByte(0); // combats
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterRecentDeaths()
+{
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_RECENTDEATHS);
+	msg.addByte(0x00); // No data available
+	msg.add<uint16_t>(0); // current page
+	msg.add<uint16_t>(0); // available pages
+	msg.add<uint16_t>(0); // deaths
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterRecentPvPKills()
+{
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_RECENTPVPKILLS);
+	msg.addByte(0x00); // No data available
+	msg.add<uint16_t>(0); // current page
+	msg.add<uint16_t>(0); // available pages
+	msg.add<uint16_t>(0); // kills
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterAchievements()
+{
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_ACHIEVEMENTS);
+	msg.addByte(0x00); // No data available
+	msg.add<uint16_t>(0); // total points
+	msg.add<uint16_t>(0); // total secret achievements
+	msg.add<uint16_t>(0); // achievements
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterItemSummary()
+{
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_ITEMSUMMARY);
+	msg.addByte(0x00); // No data available
+	msg.add<uint16_t>(0); // ??
+	msg.add<uint16_t>(0); // ??
+	msg.add<uint16_t>(0); // ??
+	msg.add<uint16_t>(0); // ??
+	msg.add<uint16_t>(0); // ??
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterOutfitsMounts()
+{
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITSMOUNTS);
+	msg.addByte(0x00); // No data available
+	Outfit_t currentOutfit = player->getDefaultOutfit();
+
+	uint16_t outfitSize = 0;
+	uint16_t startOutfits = msg.getBufferPosition();
+	msg.add<uint16_t>(outfitSize);
+
+	const auto& outfits = Outfits::getInstance().getOutfits(player->getSex());
+	for (const Outfit& outfit : outfits) {
+		uint8_t addons;
+		if (!player->getOutfitAddons(outfit, addons)) {
+			continue;
+		}
+		outfitSize++;
+
+		msg.add<uint16_t>(outfit.lookType);
+		msg.addString(outfit.name);
+		msg.addByte(addons);
+		msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
+		if (outfit.lookType == currentOutfit.lookType) {
+			msg.add<uint32_t>(1000);
+		} else {
+			msg.add<uint32_t>(0);
+		}
+	}
+	if (outfitSize > 0) {
+		msg.addByte(currentOutfit.lookHead);
+		msg.addByte(currentOutfit.lookBody);
+		msg.addByte(currentOutfit.lookLegs);
+		msg.addByte(currentOutfit.lookFeet);
+	}
+
+	uint16_t mountSize = 0;
+	uint16_t startMounts = msg.getBufferPosition();
+	msg.add<uint16_t>(mountSize);
+	for (const Mount& mount : g_game.mounts.getMounts()) {
+		if (player->hasMount(&mount)) {
+			mountSize++;
+
+			msg.add<uint16_t>(mount.clientId);
+			msg.addString(mount.name);
+			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
+			msg.add<uint32_t>(1000);
+		}
+	}
+
+	msg.setBufferPosition(startOutfits);
+	msg.add<uint16_t>(outfitSize);
+	msg.setBufferPosition(startMounts);
+	msg.add<uint16_t>(mountSize);
+	msg.setLength(msg.getLength() - 4); // decrease four extra bytes we made
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterStoreSummary()
+{
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_STORESUMMARY);
+	msg.addByte(0x00); // No data available
+	msg.add<uint32_t>(0); // ??
+	msg.add<uint32_t>(0); // ??
+	msg.addByte(0x00); // ??
+	msg.addByte(0x00); // ??
+	msg.addByte(0x00); // ??
+	msg.addByte(0x00); // ??
+	msg.addByte(0x00); // ??
+	msg.addByte(0x00); // ??
+	msg.addByte(0x00); // ??
+	msg.addByte(0x00); // ??
+	msg.add<uint16_t>(0); // ??
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterInspection()
+{
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_INSPECTION);
+	msg.addByte(0x00); // No data available
+	uint8_t inventoryItems = 0;
+	uint16_t startInventory = msg.getBufferPosition();
+	msg.addByte(inventoryItems);
+	for (std::underlying_type<slots_t>::type slot = CONST_SLOT_FIRST; slot <= CONST_SLOT_LAST; slot++) {
+		Item* inventoryItem = player->getInventoryItem(static_cast<slots_t>(slot));
+		if (inventoryItem) {
+			inventoryItems++;
+
+			msg.addByte(slot);
+			msg.addString(inventoryItem->getName());
+			AddItem(msg, inventoryItem);
+			msg.addByte(0); // imbuements
+
+			auto descriptions = Item::getDescriptions(Item::items[inventoryItem->getID()], inventoryItem);
+			msg.addByte(descriptions.size());
+			for (const auto& description : descriptions) {
+				msg.addString(description.first);
+				msg.addString(description.second);
+			}
+		}
+	}
+	msg.addString(player->getName());
+	AddOutfit(msg, player->getDefaultOutfit(), false);
+
+	msg.addByte(3);
+	msg.addString("Level");
+	msg.addString(std::to_string(player->getLevel()));
+	msg.addString("Vocation");
+	msg.addString(player->getVocation()->getVocName());
+	msg.addString("Outfit");
+
+	const Outfit* outfit = Outfits::getInstance().getOutfitByLookType(player->getSex(), player->getDefaultOutfit().lookType);
+	if (outfit) {
+		msg.addString(outfit->name);
+	} else {
+		msg.addString("unknown");
+	}
+	msg.setBufferPosition(startInventory);
+	msg.addByte(inventoryItems);
+	msg.setLength(msg.getLength() - 1); // decrease one extra byte we made
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterBadges()
+{
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_BADGES);
+	msg.addByte(0x00); // No data available
+	msg.addByte(0x00); // enable badges
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterTitles()
+{
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_TITLES);
+	msg.addByte(0x00); // No data available
+	msg.addByte(0x00); // ??
+	msg.addByte(0x00); // ??
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendTournamentLeaderboard()
+{
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0xC5);
+	msg.addByte(0);
+	msg.addByte(0x01); // No data available
 	writeToOutputBuffer(msg);
 }
 
