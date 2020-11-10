@@ -2,7 +2,7 @@
 name: Feature request
 about: Request larger pieces of feature. Eg. actions, interactions, mechanics, ...
 title: 'FEATURE: '
-labels: "Type: Missing Content"
+labels: "Type: Enhancement"
 assignees: ''
 ---
 
