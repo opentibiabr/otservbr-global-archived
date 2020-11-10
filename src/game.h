@@ -346,7 +346,7 @@ class Game
 
     void playerCyclopediaCharacterInfo(uint32_t playerId, CyclopediaCharacterInfoType_t characterInfoType);
 		void playerTournamentLeaderboard(uint32_t playerId, uint8_t leaderboardType);
-  
+
 		void updatePlayerSaleItems(uint32_t playerId);
 
 		bool internalStartTrade(Player* player, Player* partner, Item* tradeItem);
