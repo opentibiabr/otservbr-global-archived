@@ -1649,9 +1649,6 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats()
 	msg.add<uint16_t>(player->getBaseMagicLevel());
 	msg.add<uint16_t>(player->getBaseMagicLevel());//loyalty bonus
 	msg.add<uint16_t>(player->getMagicLevelPercent() * 100);
-	else {
-		msg.addByte(player->getMagicLevelPercent());
-	}
 	for (uint8_t i = SKILL_FIRST; i < SKILL_CRITICAL_HIT_CHANCE; ++i) { //TODO: check if all clients have the same hardcoded skill ids
 		static const uint8_t HardcodedSkillIds[] = { 11, 9, 8, 10, 7, 6, 13 };
 		msg.addByte(HardcodedSkillIds[i]);
@@ -1659,7 +1656,7 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats()
 		msg.add<uint16_t>(player->getBaseSkill(i));
 		msg.add<uint16_t>(player->getBaseSkill(i));//loyalty bonus
 		msg.add<uint16_t>(player->getSkillPercent(i) * 100);
-		}
+	}
 	writeToOutputBuffer(msg);
 }
 
