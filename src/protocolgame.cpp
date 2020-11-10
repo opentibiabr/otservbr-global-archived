@@ -1672,7 +1672,7 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats()
 		msg.add<uint16_t>(0);
 	}
 	uint8_t haveBlesses = 0;
-	uint8_t blessings = (version >= 1130 ? 8 : 6);
+	uint8_t blessings = 8;
 	for (uint8_t i = 1; i < blessings; i++) {
 		if (player->hasBlessing(i)) {
 			haveBlesses++;
