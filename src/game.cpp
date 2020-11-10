@@ -6531,8 +6531,7 @@ void Game::kickPlayer(uint32_t playerId, bool displayEffect)
 	player->kickPlayer(displayEffect);
 }
 
-void Game::playerCyclopediaCharacterInfo(uint32_t playerId, CyclopediaCharacterInfoType_t characterInfoType)
-{
+void Game::playerCyclopediaCharacterInfo(uint32_t playerId, CyclopediaCharacterInfoType_t characterInfoType) {
 	Player* player = getPlayerByID(playerId);
 	if (!player) {
 		return;
@@ -6554,8 +6553,7 @@ void Game::playerCyclopediaCharacterInfo(uint32_t playerId, CyclopediaCharacterI
 	}
 }
 
-void Game::playerTournamentLeaderboard(uint32_t playerId, uint8_t leaderboardType)
-{
+void Game::playerTournamentLeaderboard(uint32_t playerId, uint8_t leaderboardType) {
 	Player* player = getPlayerByID(playerId);
 	if (!player || leaderboardType > 1) {
 		return;
