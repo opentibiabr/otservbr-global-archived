@@ -1622,9 +1622,7 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats()
 	msg.add<uint16_t>(player->getLevel());
 	msg.addByte(player->getLevelPercent());
 	msg.add<uint16_t>(100); // base xp gain rate
-	if (version >= 1215) {
-		msg.add<int32_t>(0); // tournament xp factor
-	}
+	msg.add<int32_t>(0); // tournament xp factor
 	msg.add<uint16_t>(0); // low level bonus
 	msg.add<uint16_t>(0); // xp boost
 	msg.add<uint16_t>(100); // stamina multiplier (100 = x1.0)
@@ -1649,10 +1647,8 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats()
 	msg.addByte(1); // Magic Level hardcoded skill id
 	msg.add<uint16_t>(player->getMagicLevel());
 	msg.add<uint16_t>(player->getBaseMagicLevel());
-	if (version >= 1200) {
-		msg.add<uint16_t>(player->getBaseMagicLevel());//loyalty bonus
-		msg.add<uint16_t>(player->getMagicLevelPercent() * 100);
-	}
+	msg.add<uint16_t>(player->getBaseMagicLevel());//loyalty bonus
+	msg.add<uint16_t>(player->getMagicLevelPercent() * 100);
 	else {
 		msg.addByte(player->getMagicLevelPercent());
 	}
@@ -1661,13 +1657,9 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats()
 		msg.addByte(HardcodedSkillIds[i]);
 		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
 		msg.add<uint16_t>(player->getBaseSkill(i));
-		if (version >= 1200) {
-			msg.add<uint16_t>(player->getBaseSkill(i));//loyalty bonus
-			msg.add<uint16_t>(player->getSkillPercent(i) * 100);
-		} else {
-			msg.addByte(player->getSkillPercent(i));
+		msg.add<uint16_t>(player->getBaseSkill(i));//loyalty bonus
+		msg.add<uint16_t>(player->getSkillPercent(i) * 100);
 		}
-	}
 	writeToOutputBuffer(msg);
 }
 
