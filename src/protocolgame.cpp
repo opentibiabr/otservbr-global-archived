@@ -1414,24 +1414,19 @@ void ProtocolGame::parseSeekInContainer(NetworkMessage& msg)
 	addGameTask(&Game::playerSeekInContainer, player->getID(), containerId, index);
 }
 
-void ProtocolGame::parseInspectionObject(NetworkMessage& msg)
-{
+void ProtocolGame::parseInspectionObject(NetworkMessage& msg) {
 	uint8_t inspectionType = msg.getByte();
-	if(inspectionType == INSPECT_NORMALOBJECT)
-	{
+	if(inspectionType == INSPECT_NORMALOBJECT) {
 		Position pos = msg.getPosition();
 		g_game.playerInspectItem(player, pos);
-	}
-	else if(inspectionType == INSPECT_NPCTRADE || inspectionType == INSPECT_CYCLOPEDIA)
-	{
+	} else if(inspectionType == INSPECT_NPCTRADE || inspectionType == INSPECT_CYCLOPEDIA) {
 		uint16_t itemId = msg.get<uint16_t>();
 		uint16_t itemCount = msg.getByte();
 		g_game.playerInspectItem(player, itemId, itemCount, (inspectionType == INSPECT_CYCLOPEDIA));
 	}
 }
 
-void ProtocolGame::sendItemInspection(uint16_t itemId, uint8_t itemCount, const Item* item, bool cyclopedia)
-{
+void ProtocolGame::sendItemInspection(uint16_t itemId, uint8_t itemCount, const Item* item, bool cyclopedia) {
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0x76);
