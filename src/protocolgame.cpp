@@ -1593,15 +1593,17 @@ void ProtocolGame::sendCyclopediaCharacterBaseInformation() {
 	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_BASEINFORMATION);
-	msg.addByte(0x00); // NoDataAvailable
+	msg.addByte(0x00);
 	msg.addString(player->getName());
 	msg.addString(player->getVocation()->getVocName());
 	msg.add<uint16_t>(player->getLevel());
 	AddOutfit(msg, player->getDefaultOutfit(), false);
 
-	msg.addByte(0x00); // ??
-	msg.addByte(0x00); // EnableStoreSummary&CharacterTitles
-	msg.addString(""); // CharacterTitle
+	msg.addByte(0x00);
+  // EnableStoreSummary&CharacterTitles
+	msg.addByte(0x00);
+	// CharacterTitle
+  msg.addString("");
 	writeToOutputBuffer(msg);
 }
 
@@ -1610,17 +1612,24 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats() {
 	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_GENERALSTATS);
-	msg.addByte(0x00); // NoDataAvailable
+	msg.addByte(0x00);
 	msg.add<uint64_t>(player->getExperience());
 	msg.add<uint16_t>(player->getLevel());
 	msg.addByte(player->getLevelPercent());
-	msg.add<uint16_t>(100); // BaseXPGainRate
-	msg.add<int32_t>(0); // TournamentXPFactor
-	msg.add<uint16_t>(0); // LowLevelBonus
-	msg.add<uint16_t>(0); // XPBoost
-	msg.add<uint16_t>(100); // StaminaMultiplier(100=x1.0)
-	msg.add<uint16_t>(0); // xpBoostRemainingTime
-	msg.addByte(0x00); // canBuyXpBoost
+  // BaseXPGainRate
+	msg.add<uint16_t>(100);
+	// TournamentXPFactor
+  msg.add<int32_t>(0);
+	// LowLevelBonus
+  msg.add<uint16_t>(0);
+	// XPBoost
+  msg.add<uint16_t>(0);
+	// StaminaMultiplier(100=x1.0)
+  msg.add<uint16_t>(100);
+	// xpBoostRemainingTime
+  msg.add<uint16_t>(0);
+  // canBuyXpBoost
+	msg.addByte(0x00);
 	msg.add<uint16_t>(std::min<int32_t>(player->getHealth(), std::numeric_limits<uint16_t>::max()));
 	msg.add<uint16_t>(std::min<int32_t>(player->getMaxHealth(), std::numeric_limits<uint16_t>::max()));
 	msg.add<uint16_t>(std::min<int32_t>(player->getMana(), std::numeric_limits<uint16_t>::max()));
@@ -1636,14 +1645,14 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats() {
 	msg.add<uint32_t>(player->getCapacity());
 	msg.add<uint32_t>(player->getCapacity());
 	msg.add<uint32_t>(player->getFreeCapacity());
-	msg.addByte(8); // Skills count
-	msg.addByte(1); // Magic Level hardcoded skill id
+  msg.addByte(8); 
+	msg.addByte(1); 
 	msg.add<uint16_t>(player->getMagicLevel());
 	msg.add<uint16_t>(player->getBaseMagicLevel());
 	msg.add<uint16_t>(player->getBaseMagicLevel());//loyalty bonus
 	msg.add<uint16_t>(player->getMagicLevelPercent() * 100);
 	for (uint8_t i = SKILL_FIRST; i < SKILL_CRITICAL_HIT_CHANCE; ++i) {
-// TODO: check if all clients have the same hardcoded skill ids
+  // TODO: check if all clients have the same hardcoded skill ids
 		static const uint8_t HardcodedSkillIds[] = { 11, 9, 8, 10, 7, 6, 13 };
 		msg.addByte(HardcodedSkillIds[i]);
 		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
@@ -1659,7 +1668,7 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats() {
 	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_COMBATSTATS);
-	msg.addByte(0x00); // No data available
+	msg.addByte(0x00);
 	for (uint8_t i = SKILL_CRITICAL_HIT_CHANCE; i <= SKILL_LAST; ++i) {
 		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
 		msg.add<uint16_t>(0);
@@ -1673,13 +1682,13 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats() {
 	}
 	msg.addByte(haveBlesses);
 	msg.addByte(blessings);
-	msg.add<uint16_t>(0); // attackValue
-	msg.addByte(0); // damageType
-	msg.addByte(0); // convertedDamage
-	msg.addByte(0); // convertedType
-	msg.add<uint16_t>(0); // armorValue
-	msg.add<uint16_t>(0); // defenseValue
-	msg.addByte(0); // combats
+  msg.add<uint16_t>(0);
+  msg.addByte(0);
+  msg.addByte(0);
+	msg.addByte(0);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+  msg.addByte(0);
 	writeToOutputBuffer(msg);
 }
 
@@ -1688,10 +1697,10 @@ void ProtocolGame::sendCyclopediaCharacterRecentDeaths() {
 	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_RECENTDEATHS);
-	msg.addByte(0x00); // No data available
-	msg.add<uint16_t>(0); // current page
-	msg.add<uint16_t>(0); // available pages
-	msg.add<uint16_t>(0); // deaths
+	msg.addByte(0x00);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
 	writeToOutputBuffer(msg);
 }
 
@@ -1700,10 +1709,10 @@ void ProtocolGame::sendCyclopediaCharacterRecentPvPKills() {
 	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_RECENTPVPKILLS);
-	msg.addByte(0x00); // No data available
-	msg.add<uint16_t>(0); // current page
-	msg.add<uint16_t>(0); // available pages
-	msg.add<uint16_t>(0); // kills
+	msg.addByte(0x00);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
 	writeToOutputBuffer(msg);
 }
 
@@ -1712,10 +1721,10 @@ void ProtocolGame::sendCyclopediaCharacterAchievements() {
 	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_ACHIEVEMENTS);
-	msg.addByte(0x00); // No data available
-	msg.add<uint16_t>(0); // total points
-	msg.add<uint16_t>(0); // total secret achievements
-	msg.add<uint16_t>(0); // achievements
+	msg.addByte(0x00);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
 	writeToOutputBuffer(msg);
 }
 
@@ -1724,12 +1733,12 @@ void ProtocolGame::sendCyclopediaCharacterItemSummary() {
 	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_ITEMSUMMARY);
-	msg.addByte(0x00); // No data available
-	msg.add<uint16_t>(0); // ??
-	msg.add<uint16_t>(0); // ??
-	msg.add<uint16_t>(0); // ??
-	msg.add<uint16_t>(0); // ??
-	msg.add<uint16_t>(0); // ??
+	msg.addByte(0x00);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
 	writeToOutputBuffer(msg);
 }
 
@@ -1738,7 +1747,7 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITSMOUNTS);
-	msg.addByte(0x00); // No data available
+	msg.addByte(0x00);
 	Outfit_t currentOutfit = player->getDefaultOutfit();
 
 	uint16_t outfitSize = 0;
@@ -1788,7 +1797,7 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	msg.add<uint16_t>(outfitSize);
 	msg.setBufferPosition(startMounts);
 	msg.add<uint16_t>(mountSize);
-	msg.setLength(msg.getLength() - 4); // decrease four extra bytes we made
+	msg.setLength(msg.getLength() - 4);
 	writeToOutputBuffer(msg);
 }
 
@@ -1797,18 +1806,18 @@ void ProtocolGame::sendCyclopediaCharacterStoreSummary() {
 	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_STORESUMMARY);
-	msg.addByte(0x00); // No data available
-	msg.add<uint32_t>(0); // ??
-	msg.add<uint32_t>(0); // ??
-	msg.addByte(0x00); // ??
-	msg.addByte(0x00); // ??
-	msg.addByte(0x00); // ??
-	msg.addByte(0x00); // ??
-	msg.addByte(0x00); // ??
-	msg.addByte(0x00); // ??
-	msg.addByte(0x00); // ??
-	msg.addByte(0x00); // ??
-	msg.add<uint16_t>(0); // ??
+	msg.addByte(0x00);
+	msg.add<uint32_t>(0);
+	msg.add<uint32_t>(0);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.add<uint16_t>(0);
 	writeToOutputBuffer(msg);
 }
 
@@ -1817,7 +1826,7 @@ void ProtocolGame::sendCyclopediaCharacterInspection() {
 	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_INSPECTION);
-	msg.addByte(0x00); // No data available
+	msg.addByte(0x00);
 	uint8_t inventoryItems = 0;
 	uint16_t startInventory = msg.getBufferPosition();
 	msg.addByte(inventoryItems);
@@ -1829,7 +1838,7 @@ void ProtocolGame::sendCyclopediaCharacterInspection() {
 			msg.addByte(slot);
 			msg.addString(inventoryItem->getName());
 			AddItem(msg, inventoryItem);
-			msg.addByte(0); // imbuements
+			msg.addByte(0);
 
 			auto descriptions = Item::getDescriptions(Item::items[inventoryItem->getID()], inventoryItem);
 			msg.addByte(descriptions.size());
@@ -1857,7 +1866,7 @@ void ProtocolGame::sendCyclopediaCharacterInspection() {
 	}
 	msg.setBufferPosition(startInventory);
 	msg.addByte(inventoryItems);
-	msg.setLength(msg.getLength() - 1); // decrease one extra byte we made
+	msg.setLength(msg.getLength() - 1);
 	writeToOutputBuffer(msg);
 }
 
@@ -1866,7 +1875,7 @@ void ProtocolGame::sendCyclopediaCharacterBadges() {
 	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_BADGES);
-	msg.addByte(0x00); // No data available
+	msg.addByte(0x00);
 	msg.addByte(0x00); // enable badges
 	writeToOutputBuffer(msg);
 }
@@ -1876,9 +1885,9 @@ void ProtocolGame::sendCyclopediaCharacterTitles() {
 	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_TITLES);
-	msg.addByte(0x00); // No data available
-	msg.addByte(0x00); // ??
-	msg.addByte(0x00); // ??
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
 	writeToOutputBuffer(msg);
 }
 
@@ -1887,7 +1896,7 @@ void ProtocolGame::sendTournamentLeaderboard() {
 	msg.reset();
 	msg.addByte(0xC5);
 	msg.addByte(0);
-	msg.addByte(0x01); // No data available
+	msg.addByte(0x01);
 	writeToOutputBuffer(msg);
 }
 
