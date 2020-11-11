@@ -919,8 +919,7 @@ std::vector<std::pair<std::string, std::string>>
 		const std::string& specialDescription = item->getSpecialDescription();
 		if (!specialDescription.empty()) {
         descriptions.emplace_back("Description", specialDescription);
-    }
-		else if (!it.description.empty()) {
+    } else if (!it.description.empty()) {
         descriptions.emplace_back("Description", it.description);
     }
 
@@ -937,11 +936,10 @@ std::vector<std::pair<std::string, std::string>>
 				ss.str("");
 				ss << attack << " physical +" << it.abilities->elementDamage << ' ' << getCombatName(it.abilities->elementType);
 				descriptions.emplace_back("Attack", ss.str());
-        }
-			else {
+      } else {
 				descriptions.emplace_back("Attack", std::to_string(attack));
-        }
       }
+     }
 
 		int32_t hitChance = item->getHitChance();
 		if (hitChance != 0) {
@@ -954,10 +952,9 @@ std::vector<std::pair<std::string, std::string>>
 				ss.str("");
 				ss << defense << ' ' << std::showpos << extraDefense << std::noshowpos;
 				descriptions.emplace_back("Defense", ss.str());
-        }
-			else {
+      } else {
 				descriptions.emplace_back("Defense", std::to_string(defense));
-        }
+      }
 		}
 
 		int32_t armor = item->getArmor();
@@ -1028,17 +1025,18 @@ std::vector<std::pair<std::string, std::string>>
 				}
 
 				ss.str("");
-				ss << getCombatName(indexToCombatType(i)) << ' ' << std::showpos << it.abilities->absorbPercent[i] << std::noshowpos << '%';
+				ss << getCombatName(indexToCombatType(i)) << ' ' 
+                                            << std::showpos << it.abilities->absorbPercent[i] << std::noshowpos << '%';
 				descriptions.emplace_back("Protection", ss.str());
         }
-
 			for (size_t i = 0; i < COMBAT_COUNT; ++i) {
 				if (it.abilities->fieldAbsorbPercent[i] == 0) {
 					continue;
 				}
 
 				ss.str("");
-				ss << getCombatName(indexToCombatType(i)) << ' ' << std::showpos << it.abilities->fieldAbsorbPercent[i] << std::noshowpos << '%';
+				ss << getCombatName(indexToCombatType(i)) << ' '
+                                       << std::showpos << it.abilities->fieldAbsorbPercent[i] << std::noshowpos << '%';
 				descriptions.emplace_back("Field Protection", ss.str());
 			}
 		}
@@ -1275,7 +1273,8 @@ std::vector<std::pair<std::string, std::string>>
 				}
 
 				ss.str("");
-				ss << getCombatName(indexToCombatType(i)) << ' ' << std::showpos << it.abilities->absorbPercent[i] << std::noshowpos << '%';
+				ss << getCombatName(indexToCombatType(i)) << ' '
+											<< std::showpos << it.abilities->absorbPercent[i] << std::noshowpos << '%';
 				descriptions.emplace_back("Protection", ss.str());
 			}
 
@@ -1285,7 +1284,8 @@ std::vector<std::pair<std::string, std::string>>
 				}
 
 				ss.str("");
-				ss << getCombatName(indexToCombatType(i)) << ' ' << std::showpos << it.abilities->fieldAbsorbPercent[i] << std::noshowpos << '%';
+				ss << getCombatName(indexToCombatType(i)) << ' '
+									<< std::showpos << it.abilities->fieldAbsorbPercent[i] << std::noshowpos << '%';
 				descriptions.emplace_back("Field Protection", ss.str());
 			}
 		}
