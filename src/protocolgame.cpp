@@ -1649,7 +1649,8 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats() {
 	msg.addByte(1);
 	msg.add<uint16_t>(player->getMagicLevel());
 	msg.add<uint16_t>(player->getBaseMagicLevel());
-	msg.add<uint16_t>(player->getBaseMagicLevel()); // loyalty bonus
+  // loyalty bonus
+	msg.add<uint16_t>(player->getBaseMagicLevel());
 	msg.add<uint16_t>(player->getMagicLevelPercent() * 100);
 	for (uint8_t i = SKILL_FIRST; i < SKILL_CRITICAL_HIT_CHANCE; ++i) {
   // check if all clients have the same hardcoded skill ids
@@ -1657,7 +1658,8 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats() {
 		msg.addByte(HardcodedSkillIds[i]);
 		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
 		msg.add<uint16_t>(player->getBaseSkill(i));
-		msg.add<uint16_t>(player->getBaseSkill(i)); // loyalty bonus
+    // loyalty bonus
+		msg.add<uint16_t>(player->getBaseSkill(i));
 		msg.add<uint16_t>(player->getSkillPercent(i) * 100);
 	}
 	writeToOutputBuffer(msg);
@@ -1877,7 +1879,8 @@ void ProtocolGame::sendCyclopediaCharacterBadges() {
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_BADGES);
 	msg.addByte(0x00);
-	msg.addByte(0x00); // enable badges
+  // enable badges
+	msg.addByte(0x00);
 	writeToOutputBuffer(msg);
 }
 
