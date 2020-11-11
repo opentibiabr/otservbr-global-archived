@@ -117,7 +117,8 @@ class ProtocolGame final : public Protocol
 		void parseFollow(NetworkMessage& msg);
     
     void parseCyclopediaCharacterInfo(NetworkMessage& msg);
-		void parseTournamentLeaderboard(NetworkMessage& msg);
+		
+    void parseTournamentLeaderboard(NetworkMessage& msg);
 
 		void parseBugReport(NetworkMessage& msg);
 		void parseDebugAssert(NetworkMessage& msg);
