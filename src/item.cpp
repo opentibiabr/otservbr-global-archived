@@ -33,6 +33,7 @@
 #include "actions.h"
 #include "spells.h"
 
+#include <utility>
 extern Game g_game;
 extern Spells* g_spells;
 extern Vocations g_vocations;
@@ -1025,7 +1026,7 @@ std::vector<std::pair<std::string, std::string>>
 				}
 
 				ss.str("");
-				ss << getCombatName(indexToCombatType(i)) << ' ' 
+				ss << getCombatName(indexToCombatType(i)) << ' '
                                             << std::showpos << it.abilities->absorbPercent[i] << std::noshowpos << '%';
 				descriptions.emplace_back("Protection", ss.str());
         }
