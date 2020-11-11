@@ -20,6 +20,8 @@
 #ifndef FS_ITEM_H_009A319FB13D477D9EEFFBBD9BB83562
 #define FS_ITEM_H_009A319FB13D477D9EEFFBBD9BB83562
 
+
+
 #include "cylinder.h"
 #include "thing.h"
 #include "items.h"
@@ -27,6 +29,7 @@
 #include "tools.h"
 #include <typeinfo>
 #include <utility>
+#include <vector>
 
 #include <boost/variant.hpp>
 #include <boost/lexical_cast.hpp>
