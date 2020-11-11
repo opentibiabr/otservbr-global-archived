@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <creaturescripts>
+<event type="login" name="Access" script="access.lua" />
 <event type="login" name="HourCoin" script="hourcoin.lua" />
 <event type="kill" name="AutoLoot" script="autoloot.lua" />
 </creaturescripts>
