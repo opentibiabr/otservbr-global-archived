@@ -1,14 +1,4 @@
 -- From here down are the functions of TFS
-function getDistanceBetween(firstPosition, secondPosition)
-	local xDif = math.abs(firstPosition.x - secondPosition.x)
-	local yDif = math.abs(firstPosition.y - secondPosition.y)
-	local posDif = math.max(xDif, yDif)
-	if firstPosition.z ~= secondPosition.z then
-		posDif = posDif + 15
-	end
-	return posDif
-end
-
 function getTibiaTimerDayOrNight()
 	local light = getWorldLight()
 	if (light == 40) then

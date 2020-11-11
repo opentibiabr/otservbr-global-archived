@@ -110,6 +110,16 @@ function Position.getTile(self)
 	return Tile(self)
 end
 
+function Position:getDistanceBetween(position)
+	local xDif = math.abs(self.x - position.x)
+	local yDif = math.abs(self.y - position.y)
+	local posDif = math.max(xDif, yDif)
+	if self.z ~= position.z then
+		posDif = posDif + 15
+	end
+	return posDif
+end
+
 function Position:compare(position)
 	return self.x == position.x and self.y == position.y and self.z == position.z
 end
