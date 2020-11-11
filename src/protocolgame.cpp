@@ -1645,19 +1645,19 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats() {
 	msg.add<uint32_t>(player->getCapacity());
 	msg.add<uint32_t>(player->getCapacity());
 	msg.add<uint32_t>(player->getFreeCapacity());
-  msg.addByte(8); 
-	msg.addByte(1); 
+  msg.addByte(8);
+	msg.addByte(1);
 	msg.add<uint16_t>(player->getMagicLevel());
 	msg.add<uint16_t>(player->getBaseMagicLevel());
-	msg.add<uint16_t>(player->getBaseMagicLevel());//loyalty bonus
+	msg.add<uint16_t>(player->getBaseMagicLevel()); // loyalty bonus
 	msg.add<uint16_t>(player->getMagicLevelPercent() * 100);
 	for (uint8_t i = SKILL_FIRST; i < SKILL_CRITICAL_HIT_CHANCE; ++i) {
-  // TODO: check if all clients have the same hardcoded skill ids
+  // check if all clients have the same hardcoded skill ids
 		static const uint8_t HardcodedSkillIds[] = { 11, 9, 8, 10, 7, 6, 13 };
 		msg.addByte(HardcodedSkillIds[i]);
 		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
 		msg.add<uint16_t>(player->getBaseSkill(i));
-		msg.add<uint16_t>(player->getBaseSkill(i));//loyalty bonus
+		msg.add<uint16_t>(player->getBaseSkill(i)); // loyalty bonus
 		msg.add<uint16_t>(player->getSkillPercent(i) * 100);
 	}
 	writeToOutputBuffer(msg);
@@ -1858,7 +1858,8 @@ void ProtocolGame::sendCyclopediaCharacterInspection() {
 	msg.addString(player->getVocation()->getVocName());
 	msg.addString("Outfit");
 
-	const Outfit* outfit = Outfits::getInstance().getOutfitByLookType(player->getSex(), player->getDefaultOutfit().lookType);
+	const Outfit* outfit = Outfits::getInstance().getOutfitByLookType(player->getSex(),
+																				player->getDefaultOutfit().lookType);
 	if (outfit) {
 		msg.addString(outfit->name);
 	} else {
