@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <items>
+	<!-- liquids vial -->
+	<item id="1" name="water" />
+	<item id="2" name="blood" />
+	<item id="3" name="beer" />
+	<item id="4" name="slime" />
+	<item id="5" name="lemonade" />
+	<item id="6" name="milk" />
+	<item id="7" name="manafluid" />
+	<item id="10" name="lifefluid" />
+	<item id="11" name="oil" />
+	<item id="13" name="urine" />
+	<item id="14" name="coconut milk" />
+	<item id="15" name="wine" />
+	<item id="19" name="mud" />
+	<item id="21" name="fruit juice" />
+	<item id="26" name="lava" />
+	<item id="27" name="rum" />
+	<item id="28" name="swamp" />
+	<item id="35" name="tea" />
+	<item id="43" name="mead" />
+	
 	<item id="100" name="void" />
 	<item id="101" name="earth" />
 	<item id="103" name="dirt" />
@@ -51505,24 +51526,4 @@
 		<attribute key="slotType" value="necklace" />
 		<attribute key="weight" value="430" />
 	</item>	
-	<!-- liquids vial -->
-	<item id="40001" name="water" />
-	<item id="40002" name="blood" />
-	<item id="40003" name="beer" />
-	<item id="40004" name="slime" />
-	<item id="40005" name="lemonade" />
-	<item id="40006" name="milk" />
-	<item id="40007" name="manafluid" />
-	<item id="40010" name="lifefluid" />
-	<item id="40011" name="oil" />
-	<item id="40013" name="urine" />
-	<item id="40014" name="coconut milk" />
-	<item id="40015" name="wine" />
-	<item id="40019" name="mud" />
-	<item id="40021" name="fruit juice" />
-	<item id="40026" name="lava" />
-	<item id="40027" name="rum" />
-	<item id="40028" name="swamp" />
-	<item id="40035" name="tea" />
-	<item id="40043" name="mead" />
 </items>
