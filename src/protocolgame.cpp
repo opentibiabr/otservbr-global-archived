@@ -1593,15 +1593,15 @@ void ProtocolGame::sendCyclopediaCharacterBaseInformation() {
 	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_BASEINFORMATION);
-	msg.addByte(0x00); // No data available
+	msg.addByte(0x00); //NoDataAvailable
 	msg.addString(player->getName());
 	msg.addString(player->getVocation()->getVocName());
 	msg.add<uint16_t>(player->getLevel());
 	AddOutfit(msg, player->getDefaultOutfit(), false);
 
-	msg.addByte(0x00); // ??
-	msg.addByte(0x00); // enable store summary & character titles
-	msg.addString(""); // character title
+	msg.addByte(0x00); //??
+	msg.addByte(0x00); //EnableStoreSummary&CharacterTitles
+	msg.addString(""); //CharacterTitle
 	writeToOutputBuffer(msg);
 }
 
@@ -1610,17 +1610,17 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats() {
 	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_GENERALSTATS);
-	msg.addByte(0x00); // No data available
+	msg.addByte(0x00); //NoDataAvailable
 	msg.add<uint64_t>(player->getExperience());
 	msg.add<uint16_t>(player->getLevel());
 	msg.addByte(player->getLevelPercent());
-	msg.add<uint16_t>(100); // base xp gain rate
-	msg.add<int32_t>(0); // tournament xp factor
-	msg.add<uint16_t>(0); // low level bonus
-	msg.add<uint16_t>(0); // xp boost
-	msg.add<uint16_t>(100); // stamina multiplier (100 = x1.0)
-	msg.add<uint16_t>(0); // xpBoostRemainingTime
-	msg.addByte(0x00); // canBuyXpBoost
+	msg.add<uint16_t>(100); //BaseXPGainRate
+	msg.add<int32_t>(0); //TournamentXPFactor
+	msg.add<uint16_t>(0); //LowLevelBonus
+	msg.add<uint16_t>(0); //XPBoost
+	msg.add<uint16_t>(100); //StaminaMultiplier(100=x1.0)
+	msg.add<uint16_t>(0); //xpBoostRemainingTime
+	msg.addByte(0x00); //canBuyXpBoost
 	msg.add<uint16_t>(std::min<int32_t>(player->getHealth(), std::numeric_limits<uint16_t>::max()));
 	msg.add<uint16_t>(std::min<int32_t>(player->getMaxHealth(), std::numeric_limits<uint16_t>::max()));
 	msg.add<uint16_t>(std::min<int32_t>(player->getMana(), std::numeric_limits<uint16_t>::max()));
