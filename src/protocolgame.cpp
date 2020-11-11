@@ -1201,16 +1201,14 @@ void ProtocolGame::parseWrapableItem(NetworkMessage& msg)
 	addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerWrapableItem, player->getID(), pos, stackpos, spriteId);
 }
 
-void ProtocolGame::parseCyclopediaCharacterInfo(NetworkMessage& msg)
-{
+void ProtocolGame::parseCyclopediaCharacterInfo(NetworkMessage& msg) {
 	CyclopediaCharacterInfoType_t characterInfoType;
 	msg.get<uint32_t>();
 	characterInfoType = static_cast<CyclopediaCharacterInfoType_t>(msg.getByte());
 	addGameTask(&Game::playerCyclopediaCharacterInfo, player->getID(), characterInfoType);
 }
 
-void ProtocolGame::parseTournamentLeaderboard(NetworkMessage& msg)
-{
+void ProtocolGame::parseTournamentLeaderboard(NetworkMessage& msg) {
 	uint8_t ledaerboardType = msg.getByte();
 	if (ledaerboardType == 0)
 	{
@@ -1218,9 +1216,7 @@ void ProtocolGame::parseTournamentLeaderboard(NetworkMessage& msg)
 		uint16_t currentPage = msg.get<uint16_t>();
 		(void)worldName;
 		(void)currentPage;
-	}
-	else if (ledaerboardType == 1)
-	{
+  } else if (ledaerboardType == 1) {
 		const std::string worldName = msg.getString();
 		const std::string characterName = msg.getString();
 		(void)worldName;
