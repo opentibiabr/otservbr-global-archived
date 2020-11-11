@@ -116,7 +116,10 @@ class ProtocolGame final : public Protocol
 		void parseAttack(NetworkMessage& msg);
 		void parseFollow(NetworkMessage& msg);
 
-		void parseBugReport(NetworkMessage& msg);
+    void parseCyclopediaCharacterInfo(NetworkMessage& msg);
+    void parseTournamentLeaderboard(NetworkMessage& msg);
+
+    void parseBugReport(NetworkMessage& msg);
 		void parseDebugAssert(NetworkMessage& msg);
 		void parseRuleViolationReport(NetworkMessage &msg);
 
@@ -237,6 +240,21 @@ class ProtocolGame final : public Protocol
 
 		void sendTutorial(uint8_t tutorialId);
 		void sendAddMarker(const Position& pos, uint8_t markType, const std::string& desc);
+    
+    void sendTournamentLeaderboard();
+
+		void sendCyclopediaCharacterBaseInformation();
+		void sendCyclopediaCharacterGeneralStats();
+		void sendCyclopediaCharacterCombatStats();
+		void sendCyclopediaCharacterRecentDeaths();
+		void sendCyclopediaCharacterRecentPvPKills();
+		void sendCyclopediaCharacterAchievements();
+		void sendCyclopediaCharacterItemSummary();
+		void sendCyclopediaCharacterOutfitsMounts();
+		void sendCyclopediaCharacterStoreSummary();
+		void sendCyclopediaCharacterInspection();
+		void sendCyclopediaCharacterBadges();
+		void sendCyclopediaCharacterTitles();
 
 		void sendCreatureWalkthrough(const Creature* creature, bool walkthrough);
 		void sendCreatureShield(const Creature* creature);
