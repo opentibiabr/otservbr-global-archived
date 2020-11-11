@@ -910,18 +910,20 @@ uint32_t Item::getWeight() const
 	return weight;
 }
 
-std::vector<std::pair<std::string, std::string>> Item::getDescriptions(const ItemType& it, const Item* item /*= nullptr*/)
-{
+std::vector<std::pair<std::string, std::string>>
+											Item::getDescriptions(const ItemType& it, const Item* item /*= nullptr*/) {
 	std::ostringstream ss;
 	std::vector<std::pair<std::string, std::string>> descriptions;
 	descriptions.reserve(30);
 	if (item) {
 		const std::string& specialDescription = item->getSpecialDescription();
-		if (!specialDescription.empty()) {
-			descriptions.emplace_back("Description", specialDescription);
+		if (!specialDescription.empty())
+    {
+        descriptions.emplace_back("Description", specialDescription);
 		}
-		else if (!it.description.empty()) {
-			descriptions.emplace_back("Description", it.description);
+		else if (!it.description.empty())
+    {
+        descriptions.emplace_back("Description", it.description);
 		}
 
 		if (it.showCharges) {
