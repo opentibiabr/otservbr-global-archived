@@ -910,6 +910,476 @@ uint32_t Item::getWeight() const
 	return weight;
 }
 
+std::vector<std::pair<std::string, std::string>>
+											Item::getDescriptions(const ItemType& it, const Item* item /*= nullptr*/) {
+	std::ostringstream ss;
+	std::vector<std::pair<std::string, std::string>> descriptions;
+	descriptions.reserve(30);
+	if (item) {
+		const std::string& specialDescription = item->getSpecialDescription();
+		if (!specialDescription.empty()) {
+        descriptions.emplace_back("Description", specialDescription);
+    } else if (!it.description.empty()) {
+        descriptions.emplace_back("Description", it.description);
+    }
+
+		if (it.showCharges) {
+			int32_t charges = item->getCharges();
+			if (charges != 0) {
+				descriptions.emplace_back("Charges", std::to_string(charges));
+			}
+		}
+
+		int32_t attack = item->getAttack();
+		if (attack != 0) {
+			if (it.abilities && it.abilities->elementType != COMBAT_NONE && it.abilities->elementDamage != 0) {
+				ss.str("");
+				ss << attack << " physical +" << it.abilities->elementDamage << ' ' << getCombatName(it.abilities->elementType);
+				descriptions.emplace_back("Attack", ss.str());
+      } else {
+				descriptions.emplace_back("Attack", std::to_string(attack));
+      }
+     }
+
+		int32_t hitChance = item->getHitChance();
+		if (hitChance != 0) {
+			descriptions.emplace_back("HitChance", std::to_string(hitChance));
+		}
+
+		int32_t defense = item->getDefense(), extraDefense = item->getExtraDefense();
+		if (defense != 0 || extraDefense != 0) {
+			if (extraDefense != 0) {
+				ss.str("");
+				ss << defense << ' ' << std::showpos << extraDefense << std::noshowpos;
+				descriptions.emplace_back("Defense", ss.str());
+      } else {
+				descriptions.emplace_back("Defense", std::to_string(defense));
+      }
+		}
+
+		int32_t armor = item->getArmor();
+		if (armor != 0) {
+			descriptions.emplace_back("Armor", std::to_string(armor));
+		}
+
+		if (it.abilities) {
+			for (uint8_t i = SKILL_FIRST; i <= SKILL_LAST; i++) {
+				if (!it.abilities->skills[i]) {
+					continue;
+				}
+
+				ss.str("");
+				ss << std::showpos << it.abilities->skills[i] << std::noshowpos;
+				descriptions.emplace_back(getSkillName(i), ss.str());
+			}
+
+			for (uint8_t i = SKILL_CRITICAL_HIT_CHANCE; i <= SKILL_LAST; i++) {
+				if (!it.abilities->skills[i]) {
+					continue;
+				}
+
+				ss.str("");
+				ss << std::showpos << it.abilities->skills[i] << '%' << std::noshowpos;
+				descriptions.emplace_back(getSkillName(i), ss.str());
+			}
+
+			if (it.abilities->stats[STAT_MAGICPOINTS]) {
+				ss.str("");
+				ss << std::showpos << it.abilities->stats[STAT_MAGICPOINTS] << std::noshowpos;
+				descriptions.emplace_back("Magic Level", ss.str());
+			}
+
+			if (it.abilities->speed) {
+				ss.str("");
+				ss << std::showpos << (it.abilities->speed >> 1) << std::noshowpos;
+				descriptions.emplace_back("Speed", ss.str());
+			}
+
+			if (hasBitSet(CONDITION_DRUNK, it.abilities->conditionSuppressions)) {
+				ss.str("");
+				ss << "Hard Drinking";
+				descriptions.emplace_back("Effect", ss.str());
+			}
+
+			if (it.abilities->invisible) {
+				ss.str("");
+				ss << "Invisibility";
+				descriptions.emplace_back("Effect", ss.str());
+			}
+
+			if (it.abilities->regeneration) {
+				ss.str("");
+				ss << "Faster Regeneration";
+				descriptions.emplace_back("Effect", ss.str());
+			}
+
+			if (it.abilities->manaShield) {
+				ss.str("");
+				ss << "Mana Shield";
+				descriptions.emplace_back("Effect", ss.str());
+			}
+
+			for (size_t i = 0; i < COMBAT_COUNT; ++i) {
+				if (it.abilities->absorbPercent[i] == 0) {
+					continue;
+				}
+
+				ss.str("");
+				ss << getCombatName(indexToCombatType(i)) << ' '
+                                            << std::showpos << it.abilities->absorbPercent[i] << std::noshowpos << '%';
+				descriptions.emplace_back("Protection", ss.str());
+        }
+			for (size_t i = 0; i < COMBAT_COUNT; ++i) {
+				if (it.abilities->fieldAbsorbPercent[i] == 0) {
+					continue;
+				}
+
+				ss.str("");
+				ss << getCombatName(indexToCombatType(i)) << ' '
+                                       << std::showpos << it.abilities->fieldAbsorbPercent[i] << std::noshowpos << '%';
+				descriptions.emplace_back("Field Protection", ss.str());
+			}
+		}
+
+		if (it.isKey()) {
+			ss.str("");
+			ss << std::setfill('0') << std::setw(4) << item->getActionId();
+			descriptions.emplace_back("Key", ss.str());
+		}
+
+		if (it.isFluidContainer()) {
+			ss.str("");
+
+			uint16_t subType = item->getSubType();
+			if (subType > 0) {
+				const std::string& itemName = items[subType].name;
+				ss << (!itemName.empty() ? itemName : "Nothing");
+			} else {
+				ss << "Nothing";
+			}
+			descriptions.emplace_back("Contain", "Nothing");
+		}
+
+		if (it.isContainer()) {
+			descriptions.emplace_back("Capacity", std::to_string(item->getContainer()->capacity()));
+		}
+
+		if (it.isRune()) {
+			descriptions.emplace_back("Rune Spell Name", it.runeSpellName);
+		}
+
+		uint32_t weight = item->getWeight();
+		if (weight != 0) {
+			ss.str("");
+			if (weight < 10) {
+				ss << "0.0" << weight;
+			} else if (weight < 100) {
+				ss << "0." << weight;
+			} else {
+				std::string weightString = std::to_string(weight);
+				weightString.insert(weightString.end() - 2, '.');
+				ss << weightString;
+			}
+			ss << " oz";
+			descriptions.emplace_back("Weight", ss.str());
+		}
+
+		if (it.showDuration) {
+			ss.str("");
+			if (item->hasAttribute(ITEM_ATTRIBUTE_DURATION)) {
+				uint32_t duration = item->getDuration() / 1000;
+				ss << "Will expire in ";
+				if (duration >= 86400) {
+					uint16_t days = duration / 86400;
+					uint16_t hours = (duration % 86400) / 3600;
+					ss << days << " day" << (days != 1 ? "s" : "");
+					if (hours > 0) {
+						ss << " and " << hours << " hour" << (hours != 1 ? "s" : "");
+					}
+				} else if (duration >= 3600) {
+					uint16_t hours = duration / 3600;
+					uint16_t minutes = (duration % 3600) / 60;
+					ss << hours << " hour" << (hours != 1 ? "s" : "");
+					if (minutes > 0) {
+						ss << " and " << minutes << " minute" << (minutes != 1 ? "s" : "");
+					}
+				} else if (duration >= 60) {
+					uint16_t minutes = duration / 60;
+					ss << minutes << " minute" << (minutes != 1 ? "s" : "");
+					uint16_t seconds = duration % 60;
+					if (seconds > 0) {
+						ss << " and " << seconds << " second" << (seconds != 1 ? "s" : "");
+					}
+				} else {
+					ss << duration << " second" << (duration != 1 ? "s" : "");
+				}
+			} else {
+				ss << "Is brand-new";
+			}
+			descriptions.emplace_back("Expiration", ss.str());
+		}
+
+		if (it.wieldInfo & WIELDINFO_PREMIUM) {
+			descriptions.emplace_back("Required", "Premium");
+		}
+
+		if (it.minReqLevel != 0) {
+			descriptions.emplace_back("Required Level", std::to_string(it.minReqLevel));
+		}
+
+		if (it.minReqMagicLevel != 0) {
+			descriptions.emplace_back("Required Magic Level", std::to_string(it.minReqMagicLevel));
+		}
+
+		if (!it.vocationString.empty()) {
+			descriptions.emplace_back("Professions", it.vocationString);
+		}
+
+		std::string weaponName = getWeaponName(it.weaponType);
+		if (it.slotPosition & SLOTP_TWO_HAND) {
+			if (!weaponName.empty()) {
+				weaponName += ", two-handed";
+			} else {
+				weaponName = "two-handed";
+			}
+		}
+		if (!weaponName.empty()) {
+			descriptions.emplace_back("Weapon Type", weaponName);
+		}
+
+		if (it.slotPosition & SLOTP_BACKPACK) {
+			descriptions.emplace_back("Body Position", "Container");
+		} else if (it.slotPosition & SLOTP_HEAD) {
+			descriptions.emplace_back("Body Position", "Head");
+		} else if (it.slotPosition & SLOTP_ARMOR) {
+			descriptions.emplace_back("Body Position", "Body");
+		} else if (it.slotPosition & SLOTP_LEGS) {
+			descriptions.emplace_back("Body Position", "Legs");
+		} else if (it.slotPosition & SLOTP_FEET) {
+			descriptions.emplace_back("Body Position", "Feet");
+		} else if (it.slotPosition & SLOTP_NECKLACE) {
+			descriptions.emplace_back("Body Position", "Neck");
+		} else if (it.slotPosition & SLOTP_RING) {
+			descriptions.emplace_back("Body Position", "Finger");
+		} else if (it.slotPosition & SLOTP_AMMO) {
+			descriptions.emplace_back("Body Position", "Extra Slot");
+		} else if (it.slotPosition & SLOTP_TWO_HAND || it.slotPosition & SLOTP_LEFT || it.slotPosition & SLOTP_RIGHT) {
+			descriptions.emplace_back("Body Position", "Hand");
+		}
+	} else {
+		if (!it.description.empty()) {
+			descriptions.emplace_back("Description", it.description);
+		}
+
+		if (it.showCharges) {
+			int32_t charges = it.charges;
+			if (charges != 0) {
+				descriptions.emplace_back("Charges", std::to_string(charges));
+			}
+		}
+
+		int32_t attack = it.attack;
+		if (attack != 0) {
+			if (it.abilities && it.abilities->elementType != COMBAT_NONE && it.abilities->elementDamage != 0) {
+				ss.str("");
+				ss << attack << " physical +" << it.abilities->elementDamage << ' ' << getCombatName(it.abilities->elementType);
+				descriptions.emplace_back("Attack", ss.str());
+			} else {
+				descriptions.emplace_back("Attack", std::to_string(attack));
+			}
+		}
+
+		int32_t hitChance = it.hitChance;
+		if (hitChance != 0) {
+			descriptions.emplace_back("HitChance", std::to_string(hitChance));
+		}
+
+		int32_t defense = it.defense, extraDefense = it.extraDefense;
+		if (defense != 0 || extraDefense != 0) {
+			if (extraDefense != 0) {
+				ss.str("");
+				ss << defense << ' ' << std::showpos << extraDefense << std::noshowpos;
+				descriptions.emplace_back("Defense", ss.str());
+			} else {
+				descriptions.emplace_back("Defense", std::to_string(defense));
+			}
+		}
+
+		int32_t armor = it.armor;
+		if (armor != 0) {
+			descriptions.emplace_back("Armor", std::to_string(armor));
+		}
+
+		if (it.abilities) {
+			for (uint8_t i = SKILL_FIRST; i <= SKILL_LAST; i++) {
+				if (!it.abilities->skills[i]) {
+					continue;
+				}
+
+				ss.str("");
+				ss << std::showpos << it.abilities->skills[i] << std::noshowpos;
+				descriptions.emplace_back(getSkillName(i), ss.str());
+			}
+
+			for (uint8_t i = SKILL_CRITICAL_HIT_CHANCE; i <= SKILL_LAST; i++) {
+				if (!it.abilities->skills[i]) {
+					continue;
+				}
+
+				ss.str("");
+				ss << std::showpos << it.abilities->skills[i] << '%' << std::noshowpos;
+				descriptions.emplace_back(getSkillName(i), ss.str());
+			}
+
+			if (it.abilities->stats[STAT_MAGICPOINTS]) {
+				ss.str("");
+				ss << std::showpos << it.abilities->stats[STAT_MAGICPOINTS] << std::noshowpos;
+				descriptions.emplace_back("Magic Level", ss.str());
+			}
+
+			if (it.abilities->speed) {
+				ss.str("");
+				ss << std::showpos << (it.abilities->speed >> 1) << std::noshowpos;
+				descriptions.emplace_back("Speed", ss.str());
+			}
+
+			if (hasBitSet(CONDITION_DRUNK, it.abilities->conditionSuppressions)) {
+				ss.str("");
+				ss << "Hard Drinking";
+				descriptions.emplace_back("Effect", ss.str());
+			}
+
+			if (it.abilities->invisible) {
+				ss.str("");
+				ss << "Invisibility";
+				descriptions.emplace_back("Effect", ss.str());
+			}
+
+			if (it.abilities->regeneration) {
+				ss.str("");
+				ss << "Faster Regeneration";
+				descriptions.emplace_back("Effect", ss.str());
+			}
+
+			if (it.abilities->manaShield) {
+				ss.str("");
+				ss << "Mana Shield";
+				descriptions.emplace_back("Effect", ss.str());
+			}
+
+			for (size_t i = 0; i < COMBAT_COUNT; ++i) {
+				if (it.abilities->absorbPercent[i] == 0) {
+					continue;
+				}
+
+				ss.str("");
+				ss << getCombatName(indexToCombatType(i)) << ' '
+											<< std::showpos << it.abilities->absorbPercent[i] << std::noshowpos << '%';
+				descriptions.emplace_back("Protection", ss.str());
+			}
+
+			for (size_t i = 0; i < COMBAT_COUNT; ++i) {
+				if (it.abilities->fieldAbsorbPercent[i] == 0) {
+					continue;
+				}
+
+				ss.str("");
+				ss << getCombatName(indexToCombatType(i)) << ' '
+									<< std::showpos << it.abilities->fieldAbsorbPercent[i] << std::noshowpos << '%';
+				descriptions.emplace_back("Field Protection", ss.str());
+			}
+		}
+
+		if (it.isKey()) {
+			ss.str("");
+			ss << std::setfill('0') << std::setw(4) << 0;
+			descriptions.emplace_back("Key", ss.str());
+		}
+
+		if (it.isFluidContainer()) {
+			descriptions.emplace_back("Contain", "Nothing");
+		}
+
+		if (it.isContainer()) {
+			descriptions.emplace_back("Capacity", std::to_string(it.maxItems));
+		}
+
+		if (it.isRune()) {
+			descriptions.emplace_back("Rune Spell Name", it.runeSpellName);
+		}
+
+		uint32_t weight = it.weight;
+		if (weight != 0) {
+			ss.str("");
+			if (weight < 10) {
+				ss << "0.0" << weight;
+			} else if (weight < 100) {
+				ss << "0." << weight;
+			} else {
+				std::string weightString = std::to_string(weight);
+				weightString.insert(weightString.end() - 2, '.');
+				ss << weightString;
+			}
+			ss << " oz";
+			descriptions.emplace_back("Weight", ss.str());
+		}
+
+		if (it.showDuration) {
+			descriptions.emplace_back("Expiration", "Is brand-new");
+		}
+
+		if (it.wieldInfo & WIELDINFO_PREMIUM) {
+			descriptions.emplace_back("Required", "Premium");
+		}
+
+		if (it.minReqLevel != 0) {
+			descriptions.emplace_back("Required Level", std::to_string(it.minReqLevel));
+		}
+
+		if (it.minReqMagicLevel != 0) {
+			descriptions.emplace_back("Required Magic Level", std::to_string(it.minReqMagicLevel));
+		}
+
+		if (!it.vocationString.empty()) {
+			descriptions.emplace_back("Professions", it.vocationString);
+		}
+
+		std::string weaponName = getWeaponName(it.weaponType);
+		if (it.slotPosition & SLOTP_TWO_HAND) {
+			if (!weaponName.empty()) {
+				weaponName += ", two-handed";
+			} else {
+				weaponName = "two-handed";
+			}
+		}
+		if (!weaponName.empty()) {
+			descriptions.emplace_back("Weapon Type", weaponName);
+		}
+
+		if (it.slotPosition & SLOTP_BACKPACK) {
+			descriptions.emplace_back("Body Position", "Container");
+		} else if (it.slotPosition & SLOTP_HEAD) {
+			descriptions.emplace_back("Body Position", "Head");
+		} else if (it.slotPosition & SLOTP_ARMOR) {
+			descriptions.emplace_back("Body Position", "Body");
+		} else if (it.slotPosition & SLOTP_LEGS) {
+			descriptions.emplace_back("Body Position", "Legs");
+		} else if (it.slotPosition & SLOTP_FEET) {
+			descriptions.emplace_back("Body Position", "Feet");
+		} else if (it.slotPosition & SLOTP_NECKLACE) {
+			descriptions.emplace_back("Body Position", "Neck");
+		} else if (it.slotPosition & SLOTP_RING) {
+			descriptions.emplace_back("Body Position", "Finger");
+		} else if (it.slotPosition & SLOTP_AMMO) {
+			descriptions.emplace_back("Body Position", "Extra Slot");
+		} else if (it.slotPosition & SLOTP_TWO_HAND || it.slotPosition & SLOTP_LEFT || it.slotPosition & SLOTP_RIGHT) {
+			descriptions.emplace_back("Body Position", "Hand");
+		}
+	}
+	descriptions.shrink_to_fit();
+	return descriptions;
+}
+
 std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 								 const Item* item /*= nullptr*/, int32_t subType /*= -1*/, bool addArticle /*= true*/)
 {

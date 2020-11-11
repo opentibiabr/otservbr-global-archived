@@ -344,6 +344,9 @@ class Game
 		void playerAnswerModalWindow(uint32_t playerId, uint32_t modalWindowId, uint8_t button, uint8_t choice);
 		void playerReportRuleViolationReport(uint32_t playerId, const std::string& targetName, uint8_t reportType, uint8_t reportReason, const std::string& comment, const std::string& translation);
 
+    void playerCyclopediaCharacterInfo(uint32_t playerId, CyclopediaCharacterInfoType_t characterInfoType);
+		void playerTournamentLeaderboard(uint32_t playerId, uint8_t leaderboardType);
+
 		void updatePlayerSaleItems(uint32_t playerId);
 
 		bool internalStartTrade(Player* player, Player* partner, Item* tradeItem);
