@@ -3343,6 +3343,23 @@ void Game::playerWriteItem(uint32_t playerId, uint32_t windowTextId, const std::
 	player->setWriteItem(nullptr);
 }
 
+void Game::playerInspectItem(Player* player, const Position& pos)
+{
+	Thing* thing = internalGetThing(player, pos, 0, 0, STACKPOS_TOPDOWN_ITEM);
+	if (!thing) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	Item* item = thing->getItem();
+	if (!item) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	player->sendItemInspection(item->getClientID(), item->getItemCount(), item, false);
+}
+
 void Game::playerBrowseField(uint32_t playerId, const Position& pos)
 {
 	Player* player = getPlayerByID(playerId);
