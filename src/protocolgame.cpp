@@ -1210,8 +1210,7 @@ void ProtocolGame::parseCyclopediaCharacterInfo(NetworkMessage& msg) {
 
 void ProtocolGame::parseTournamentLeaderboard(NetworkMessage& msg) {
 	uint8_t ledaerboardType = msg.getByte();
-	if (ledaerboardType == 0)
-	{
+	if (ledaerboardType == 0) {
 		const std::string worldName = msg.getString();
 		uint16_t currentPage = msg.get<uint16_t>();
 		(void)worldName;
@@ -1589,8 +1588,7 @@ void ProtocolGame::sendAddMarker(const Position& pos, uint8_t markType, const st
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterBaseInformation()
-{
+void ProtocolGame::sendCyclopediaCharacterBaseInformation() {
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0xDA);
@@ -1607,8 +1605,7 @@ void ProtocolGame::sendCyclopediaCharacterBaseInformation()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterGeneralStats()
-{
+void ProtocolGame::sendCyclopediaCharacterGeneralStats() {
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0xDA);
@@ -1656,8 +1653,7 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterCombatStats()
-{
+void ProtocolGame::sendCyclopediaCharacterCombatStats() {
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0xDA);
@@ -1686,8 +1682,7 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterRecentDeaths()
-{
+void ProtocolGame::sendCyclopediaCharacterRecentDeaths() {
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0xDA);
@@ -1699,8 +1694,7 @@ void ProtocolGame::sendCyclopediaCharacterRecentDeaths()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterRecentPvPKills()
-{
+void ProtocolGame::sendCyclopediaCharacterRecentPvPKills() {
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0xDA);
@@ -1712,8 +1706,7 @@ void ProtocolGame::sendCyclopediaCharacterRecentPvPKills()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterAchievements()
-{
+void ProtocolGame::sendCyclopediaCharacterAchievements() {
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0xDA);
@@ -1725,8 +1718,7 @@ void ProtocolGame::sendCyclopediaCharacterAchievements()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterItemSummary()
-{
+void ProtocolGame::sendCyclopediaCharacterItemSummary() {
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0xDA);
@@ -1740,8 +1732,7 @@ void ProtocolGame::sendCyclopediaCharacterItemSummary()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterOutfitsMounts()
-{
+void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0xDA);
@@ -1800,8 +1791,7 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterStoreSummary()
-{
+void ProtocolGame::sendCyclopediaCharacterStoreSummary() {
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0xDA);
@@ -1821,8 +1811,7 @@ void ProtocolGame::sendCyclopediaCharacterStoreSummary()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterInspection()
-{
+void ProtocolGame::sendCyclopediaCharacterInspection() {
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0xDA);
@@ -1871,8 +1860,7 @@ void ProtocolGame::sendCyclopediaCharacterInspection()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterBadges()
-{
+void ProtocolGame::sendCyclopediaCharacterBadges() {
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0xDA);
@@ -1882,8 +1870,7 @@ void ProtocolGame::sendCyclopediaCharacterBadges()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterTitles()
-{
+void ProtocolGame::sendCyclopediaCharacterTitles() {
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0xDA);
@@ -1894,8 +1881,7 @@ void ProtocolGame::sendCyclopediaCharacterTitles()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendTournamentLeaderboard()
-{
+void ProtocolGame::sendTournamentLeaderboard() {
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0xC5);
