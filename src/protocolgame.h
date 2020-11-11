@@ -180,7 +180,7 @@ class ProtocolGame final : public Protocol
 		void parseOpenChannel(NetworkMessage& msg);
 		void parseOpenPrivateChannel(NetworkMessage& msg);
 		void parseCloseChannel(NetworkMessage& msg);
-    
+
     void sendItemInspection(uint16_t itemId, uint8_t itemCount, const Item* item, bool cyclopedia);
     void parseInspectionObject(NetworkMessage& msg);
 
