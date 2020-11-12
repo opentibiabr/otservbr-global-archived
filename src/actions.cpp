@@ -165,17 +165,21 @@ bool Actions::registerActionByActionId(Action* action, uint16_t actionId)
 bool Actions::registerChangeItemAction(Action* action, const pugi::xml_attribute attr, const pugi::xml_node& node, const ItemIdentifier_t& identifier)
 {
   char identifierName;
+  ActionUseMap useMap;
 
   switch (identifier)
   {
   case ItemIdentifier_t::ID:
     identifierName = 'id';
+    useMap = useItemMap;
     break;
   case ItemIdentifier_t::UID:
     identifierName = 'uid';
+    useMap = uniqueItemMap;
     break;
   case ItemIdentifier_t::AID:
     identifierName = 'aid';
+    useMap = actionItemMap;
     break;
   default:
     auto log = "Wrong identifier name";
@@ -195,7 +199,7 @@ bool Actions::registerChangeItemAction(Action* action, const pugi::xml_attribute
   auto fromItemId = pugi::cast<uint16_t>(attr.value());
   auto toItemId = pugi::cast<uint16_t>(toIdAttr.value());
   auto iterId = fromItemId;
-  auto result = useItemMap.emplace(iterId, *action);
+  auto result = useMap.emplace(iterId, *action);
   if (!result.second)
   {
     auto log = "Duplicate registered item with " + identifierName + ' : ' + iterId + ' in ' + *fromIdName + ' : ' + fromItemId + ', ' + *toIdName + ' : ' + toItemId;
@@ -205,7 +209,7 @@ bool Actions::registerChangeItemAction(Action* action, const pugi::xml_attribute
   bool success = result.second;
   while (++iterId <= toItemId)
   {
-    result = useItemMap.emplace(iterId, *action);
+    result = useMap.emplace(iterId, *action);
 
     if (!result.second)
     {
