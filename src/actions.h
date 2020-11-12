@@ -278,12 +278,59 @@ class Actions final : public BaseEvents
 
 		Action* getAction(const Item* item);
 		void clearMap(ActionUseMap& map, bool fromLua);
-    bool registerActionByItemId(Action* action, uint16_t itemId);
-    bool registerActionByUniqueId(Action* action, uint16_t uniqueId);
-    bool registerActionByActionId(Action* action, uint16_t actionId);
-    bool registerChangeItemAction(Action* action, const pugi::xml_attribute attr, const pugi::xml_node& node, const ItemIdentifier_t& identifier);
 
-    void sendWarnLog(const char* log, const char* callMember); // TODO: change to spdlog in the future
+    /**
+     * @brief Register an Action Event by itemId 
+     *
+     * E.g. <action itemid="32450" function="stash" />
+     *
+     * @param action
+     * @param itemId item that will trigger an action
+     * @return bool if it was registered (true) or not (false)
+     */
+    bool registerActionByItemId(Action* action, uint16_t itemId);
+
+    /**
+     * @brief Register an Action Event by itemId (id)
+     *
+     * E.g. <action itemid="32450" function="stash" />
+     *
+     * @param action
+     * @param itemId item that will trigger an actionEvent
+     * @return bool if it was registered (true) or not (false)
+     */
+    bool registerActionByUniqueId(Action* action, uint16_t uniqueId);
+
+    /**
+     * @brief Register an Action Event by actionId (aid)
+     *
+     * E.g. <action actionid="2000" script="system/quest_x.lua" />
+     *
+     * @param action
+     * @param actionId action that will trigger the actionEvent
+     * @return bool if it was registered (true) or not (false)
+     */
+    bool registerActionByActionId(Action* action, uint16_t actionId);
+
+    /**
+     * @brief Register an Action Event by uniqueId (uid)
+     *
+     * E.g. <action uniqueid="64140" script="system/quest_x.lua" />
+     *
+     * @param action
+     * @param uniqueId unique item that will trigger an actionEvent
+     * @return bool if it was registered (true) or not (false)
+     */
+    bool registerChangeItemAction(Action* action, const pugi::xml_attribute attr,
+                                  const pugi::xml_node& node, const ItemIdentifier_t& identifier);
+
+    /**
+     * @brief Send a warning message (log) to prompt
+     *
+     * @param logMessage message that will be sent
+     * @param callMember function that was at the time of the warning
+     */
+    void sendWarnLog(const char* logMessage, const char* callMember);
 
 		LuaScriptInterface scriptInterface;
 };

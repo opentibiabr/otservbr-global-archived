@@ -177,7 +177,7 @@ bool Actions::registerChangeItemAction(Action* action, const pugi::xml_attribute
     sendWarnLog(log.c_str(), __FUNCTION__);
     return false;
   }
-  
+
   auto fromIdName = "from" + identifierName;
   auto fromItemId = pugi::cast<uint16_t>(attr.value());
   auto toItemId = pugi::cast<uint16_t>(toIdAttr.value());
@@ -206,8 +206,8 @@ bool Actions::registerChangeItemAction(Action* action, const pugi::xml_attribute
   return success;
 }
 
-void Actions::sendWarnLog(const char* log, const char* callMember) {
-  std::cout << "[Warning - " << callMember << "] " << log << std::endl;
+void Actions::sendWarnLog(const char* logMessage, const char* callMember) {
+  std::cout << "[Warning - " << callMember << "] " << logMessage << std::endl;
 }
 
 bool Actions::registerLuaEvent(Action* event)
