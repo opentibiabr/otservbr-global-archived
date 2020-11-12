@@ -153,7 +153,7 @@ bool Actions::registerActionByUniqueId(Action* action, uint16_t uniqueId)
 
 bool Actions::registerActionByActionId(Action* action, uint16_t actionId)
 {
-  auto result = uniqueItemMap.emplace(actionId, std::move(*action));
+  auto result = actionItemMap.emplace(actionId, std::move(*action));
   if (!result.second)
   {
     auto log = "Duplicate registered item with actionid : " + actionId;
