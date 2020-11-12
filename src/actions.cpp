@@ -83,44 +83,32 @@ Event_ptr Actions::getEvent(const std::string& nodeName)
 }
 
 
-bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node)
-{
-  //event is guaranteed to be an Action
+bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node) {
+  // event is guaranteed to be an Action
   Action_ptr actionPtr{ static_cast<Action*>(event.release()) };
 
   auto action = actionPtr.get();
 
   pugi::xml_attribute attr;
-  if ((attr = node.attribute("itemid")))
-  {
+  if ((attr = node.attribute("itemid"))) {
     auto itemId = pugi::cast<uint16_t>(attr.value());
     auto result = registerActionByItemId(action, itemId);
     return result;
-  }
-  else if ((attr = node.attribute("uniqueid")))
-  {
+  } else if ((attr = node.attribute("uniqueid"))) {
     auto itemUid = pugi::cast<uint16_t>(attr.value());
     auto result = registerActionByUniqueId(action, itemUid);
     return result;
-  }
-  else if ((attr = node.attribute("actionid")))
-  {
+  } else if ((attr = node.attribute("actionid"))) {
     auto actionId = pugi::cast<uint16_t>(attr.value());
     auto result = registerActionByActionId(action, actionId);
     return result;
-  }
-  else if ((attr = node.attribute("fromid")))
-  {
+  } else if ((attr = node.attribute("fromid"))) {
     auto result = registerChangeItemAction(action, attr, node, ItemIdentifier_t::ID);
     return result;
-  }
-  else if ((attr = node.attribute("fromuid")))
-  {
+  } else if ((attr = node.attribute("fromuid"))) {
     auto result = registerChangeItemAction(action, attr, node, ItemIdentifier_t::UID);
     return result;
-  }
-  else if ((attr = node.attribute("fromaid")))
-  {
+  } else if ((attr = node.attribute("fromaid"))) {
     auto result = registerChangeItemAction(action, attr, node, ItemIdentifier_t::AID);
     return result;
   }
@@ -128,11 +116,9 @@ bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node)
   return false;
 }
 
-bool Actions::registerActionByItemId(Action* action, uint16_t itemId)
-{
+bool Actions::registerActionByItemId(Action* action, uint16_t itemId) {
   auto result = useItemMap.emplace(itemId, std::move(*action));
-  if (!result.second)
-  {
+  if (!result.second) {
     auto log = "Duplicate registered item with id : " + itemId;
     sendWarnLog(log, __FUNCTION__);
   }
@@ -140,80 +126,74 @@ bool Actions::registerActionByItemId(Action* action, uint16_t itemId)
   return result.second;
 }
 
-bool Actions::registerActionByUniqueId(Action* action, uint16_t uniqueId)
-{
+bool Actions::registerActionByUniqueId(Action* action, uint16_t uniqueId) {
   auto result = uniqueItemMap.emplace(uniqueId, std::move(*action));
-  if (!result.second)
-  {
+  if (!result.second) {
     auto log = "Duplicate registered item with uniqueid : " + uniqueId;
     sendWarnLog(log, __FUNCTION__);
   }
+
   return result.second;
 }
 
-bool Actions::registerActionByActionId(Action* action, uint16_t actionId)
-{
+bool Actions::registerActionByActionId(Action* action, uint16_t actionId) {
   auto result = actionItemMap.emplace(actionId, std::move(*action));
-  if (!result.second)
-  {
+  if (!result.second) {
     auto log = "Duplicate registered item with actionid : " + actionId;
     sendWarnLog(log, __FUNCTION__);
   }
+
   return result.second;
 }
 
-bool Actions::registerChangeItemAction(Action* action, const pugi::xml_attribute attr, const pugi::xml_node& node, const ItemIdentifier_t& identifier)
-{
-  std::string identifierName;
+bool Actions::registerChangeItemAction(Action* action, const pugi::xml_attribute attr,
+                                       const pugi::xml_node& node, const ItemIdentifier_t& identifier) {
   ActionUseMap useMap;
+  std::string identifierName;
 
-  switch (identifier)
-  {
-  case ItemIdentifier_t::ID:
-    identifierName = "id";
-    useMap = useItemMap;
-    break;
-  case ItemIdentifier_t::UID:
-    identifierName = "uid";
-    useMap = uniqueItemMap;
-    break;
-  case ItemIdentifier_t::AID:
-    identifierName = "aid";
-    useMap = actionItemMap;
-    break;
-  default:
-    auto log = "Wrong identifier name";
-    sendWarnLog(log, __FUNCTION__);
-    return false;
+  switch (identifier) {
+    case ItemIdentifier_t::ID:
+      identifierName = "id";
+      useMap = useItemMap;
+      break;
+    case ItemIdentifier_t::UID:
+      identifierName = "uid";
+      useMap = uniqueItemMap;
+      break;
+    case ItemIdentifier_t::AID:
+      identifierName = "aid";
+      useMap = actionItemMap;
+      break;
+    default:
+      auto log = "Wrong identifier name";
+      sendWarnLog(log, __FUNCTION__);
+      return false;
   }
 
   auto toIdName = "to" + identifierName;
-  auto fromIdName = "from" + identifierName;
   auto toIdAttr = node.attribute(toIdName.c_str());
   if (!toIdAttr) {
     auto log = "Missing toid in fromid : " + (std::string)attr.as_string();
     sendWarnLog(log.c_str(), __FUNCTION__);
     return false;
   }
-
+  
+  auto fromIdName = "from" + identifierName;
   auto fromItemId = pugi::cast<uint16_t>(attr.value());
   auto toItemId = pugi::cast<uint16_t>(toIdAttr.value());
   auto iterId = fromItemId;
   auto result = useMap.emplace(iterId, *action);
-  if (!result.second)
-  {
+  if (!result.second) {
     auto log = "Duplicate registered item with " + identifierName + " : " + std::to_string(iterId)
       + " in " + fromIdName + " : " + std::to_string(fromItemId) + ", " + toIdName + " : " + std::to_string(toItemId);
     sendWarnLog(log.c_str(), __FUNCTION__);
   }
 
   bool success = result.second;
-  while (++iterId <= toItemId)
-  {
+  while (++iterId <= toItemId) {
     result = useMap.emplace(iterId, *action);
 
-    if (!result.second)
-    {
+    if (!result.second) {
       auto log = "Duplicate registered item with " + identifierName + " : " + std::to_string(iterId)
         + " in " + fromIdName + " : " + std::to_string(fromItemId) + ", " + toIdName + " : " + std::to_string(toItemId);
       sendWarnLog(log.c_str(), __FUNCTION__);
@@ -226,8 +206,7 @@ bool Actions::registerChangeItemAction(Action* action, const pugi::xml_attribute
   return success;
 }
 
-void Actions::sendWarnLog(const char* log, const char* callMember)
-{
+void Actions::sendWarnLog(const char* log, const char* callMember) {
   std::cout << "[Warning - " << callMember << "] " << log << std::endl;
 }
 
