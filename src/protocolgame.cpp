@@ -1205,14 +1205,13 @@ void ProtocolGame::parseWrapableItem(NetworkMessage& msg)
 
 void ProtocolGame::parseInspectionObject(NetworkMessage& msg) {
 	uint8_t inspectionType = msg.getByte();
-	if(inspectionType == INSPECT_NORMALOBJECT)
-	{
-		Position pos = msg.getPosition();
-		g_game.playerInspectItem(player, pos);
+	if(inspectionType == INSPECT_NORMALOBJECT) {
+      Position pos = msg.getPosition();
+      g_game.playerInspectItem(player, pos);
 	} else if(inspectionType == INSPECT_NPCTRADE || inspectionType == INSPECT_CYCLOPEDIA) {
-		uint16_t itemId = msg.get<uint16_t>();
-		uint16_t itemCount = msg.getByte();
-		g_game.playerInspectItem(player, itemId, itemCount, (inspectionType == INSPECT_CYCLOPEDIA));
+      uint16_t itemId = msg.get<uint16_t>();
+      uint16_t itemCount = msg.getByte();
+      g_game.playerInspectItem(player, itemId, itemCount, (inspectionType == INSPECT_CYCLOPEDIA));
 	}
 }
 
