@@ -775,6 +775,13 @@ enum MagicEffectsType_t : uint8_t {
   MAGIC_EFFECTS_CREATE_DISTANCEEFFECT_REVERSED = 5,//needs uint8_t and deltaX(int8_t), deltaY(int8_t) after type
 };
 
+enum InspectObjectTypes : uint8_t {
+	INSPECT_NORMALOBJECT = 0,
+	INSPECT_NPCTRADE = 1,
+	INSPECT_UNKNOWN = 2,
+	INSPECT_CYCLOPEDIA = 3
+};
+
 enum CyclopediaCharacterInfoType_t : uint8_t {
 	CYCLOPEDIA_CHARACTERINFO_BASEINFORMATION = 0,
 	CYCLOPEDIA_CHARACTERINFO_GENERALSTATS = 1,
