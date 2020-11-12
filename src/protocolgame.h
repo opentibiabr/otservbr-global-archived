@@ -115,7 +115,7 @@ class ProtocolGame final : public Protocol
 		void parseFightModes(NetworkMessage& msg);
 		void parseAttack(NetworkMessage& msg);
 		void parseFollow(NetworkMessage& msg);
-    
+
     void sendItemInspection(uint16_t itemId, uint8_t itemCount, const Item* item, bool cyclopedia);
     void parseInspectionObject(NetworkMessage& msg);
 
