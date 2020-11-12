@@ -1208,7 +1208,7 @@ void ProtocolGame::parseInspectionObject(NetworkMessage& msg) {
 	if(inspectionType == INSPECT_NORMALOBJECT) {
       Position pos = msg.getPosition();
       g_game.playerInspectItem(player, pos);
-	} else if(inspectionType == INSPECT_NPCTRADE || inspectionType == INSPECT_CYCLOPEDIA) {
+	} else if (inspectionType == INSPECT_NPCTRADE || inspectionType == INSPECT_CYCLOPEDIA) {
       uint16_t itemId = msg.get<uint16_t>();
       uint16_t itemCount = msg.getByte();
       g_game.playerInspectItem(player, itemId, itemCount, (inspectionType == INSPECT_CYCLOPEDIA));
@@ -1219,7 +1219,7 @@ void ProtocolGame::sendItemInspection(uint16_t itemId, uint8_t itemCount, const 
 	NetworkMessage msg;
 	msg.reset();
 	msg.addByte(0x76);
-	msg.addByte(0x00);//item
+	msg.addByte(0x00);
 	msg.addByte(cyclopedia ? 0x01 : 0x00);
 	msg.addByte(0x01);
 
@@ -1232,7 +1232,7 @@ void ProtocolGame::sendItemInspection(uint16_t itemId, uint8_t itemCount, const 
 		msg.addString(it.name);
 		AddItem(msg, it.id, itemCount);
 	}
-	msg.addByte(0); // imbuements
+	msg.addByte(0);
 
 	auto descriptions = Item::getDescriptions(it, item);
 	msg.addByte(descriptions.size());
