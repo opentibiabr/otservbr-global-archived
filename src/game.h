@@ -600,6 +600,9 @@ class Game
 			skillSchedule = (skillSchedule * skillrate)/100;
 		}
 
+    void playerInspectItem(Player* player, const Position& pos);
+    void playerInspectItem(Player* player, uint16_t itemId, uint8_t itemCount, bool cyclopedia);
+
 	private:
 		void checkImbuements();
 		bool playerSaySpell(Player* player, SpeakClasses type, const std::string& text);
