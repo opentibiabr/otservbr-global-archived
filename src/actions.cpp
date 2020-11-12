@@ -164,21 +164,21 @@ bool Actions::registerActionByActionId(Action* action, uint16_t actionId)
 
 bool Actions::registerChangeItemAction(Action* action, const pugi::xml_attribute attr, const pugi::xml_node& node, const ItemIdentifier_t& identifier)
 {
-  char identifierName;
+  std::string identifierName;
   ActionUseMap useMap;
 
   switch (identifier)
   {
   case ItemIdentifier_t::ID:
-    identifierName = 'id';
+    identifierName = "id";
     useMap = useItemMap;
     break;
   case ItemIdentifier_t::UID:
-    identifierName = 'uid';
+    identifierName = "uid";
     useMap = uniqueItemMap;
     break;
   case ItemIdentifier_t::AID:
-    identifierName = 'aid';
+    identifierName = "aid";
     useMap = actionItemMap;
     break;
   default:
@@ -189,10 +189,10 @@ bool Actions::registerChangeItemAction(Action* action, const pugi::xml_attribute
 
   auto toIdName = "to" + identifierName;
   auto fromIdName = "from" + identifierName;
-  auto toIdAttr = node.attribute(toIdName);
+  auto toIdAttr = node.attribute(toIdName.c_str());
   if (!toIdAttr) {
-    auto log = "Missing toid in fromid : " + *attr.as_string();
-    sendWarnLog(log, __FUNCTION__);
+    auto log = "Missing toid in fromid : " + (std::string)attr.as_string();
+    sendWarnLog(log.c_str(), __FUNCTION__);
     return false;
   }
 
@@ -202,8 +202,9 @@ bool Actions::registerChangeItemAction(Action* action, const pugi::xml_attribute
   auto result = useMap.emplace(iterId, *action);
   if (!result.second)
   {
-    auto log = "Duplicate registered item with " + identifierName + ' : ' + iterId + ' in ' + *fromIdName + ' : ' + fromItemId + ', ' + *toIdName + ' : ' + toItemId;
-    sendWarnLog(log, __FUNCTION__);
+    auto log = "Duplicate registered item with " + identifierName + " : " + std::to_string(iterId)
+      + " in " + fromIdName + " : " + std::to_string(fromItemId) + ", " + toIdName + " : " + std::to_string(toItemId);
+    sendWarnLog(log.c_str(), __FUNCTION__);
   }
 
   bool success = result.second;
@@ -213,8 +214,9 @@ bool Actions::registerChangeItemAction(Action* action, const pugi::xml_attribute
 
     if (!result.second)
     {
-      auto log = "Duplicate registered item with " + identifierName + ' : ' + iterId + ' in ' + *fromIdName + ' : ' + fromItemId + ', ' + *toIdName + ' : ' + toItemId;
-      sendWarnLog(log, __FUNCTION__);
+      auto log = "Duplicate registered item with " + identifierName + " : " + std::to_string(iterId)
+        + " in " + fromIdName + " : " + std::to_string(fromItemId) + ", " + toIdName + " : " + std::to_string(toItemId);
+      sendWarnLog(log.c_str(), __FUNCTION__);
       continue;
     }
 
