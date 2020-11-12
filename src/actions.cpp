@@ -119,8 +119,8 @@ bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node) {
 bool Actions::registerActionByItemId(Action* action, uint16_t itemId) {
   auto result = useItemMap.emplace(itemId, std::move(*action));
   if (!result.second) {
-    auto log = "Duplicate registered item with id : " + itemId;
-    sendWarnLog(log, __FUNCTION__);
+    auto log = "Duplicate registered item with id : " + std::to_string(itemId);
+    sendWarnLog(log.c_str(), __FUNCTION__);
   }
 
   return result.second;
@@ -129,8 +129,8 @@ bool Actions::registerActionByItemId(Action* action, uint16_t itemId) {
 bool Actions::registerActionByUniqueId(Action* action, uint16_t uniqueId) {
   auto result = uniqueItemMap.emplace(uniqueId, std::move(*action));
   if (!result.second) {
-    auto log = "Duplicate registered item with uniqueid : " + uniqueId;
-    sendWarnLog(log, __FUNCTION__);
+    auto log = "Duplicate registered item with uniqueid : " + std::to_string(uniqueId);
+    sendWarnLog(log.c_str(), __FUNCTION__);
   }
 
   return result.second;
@@ -139,8 +139,8 @@ bool Actions::registerActionByUniqueId(Action* action, uint16_t uniqueId) {
 bool Actions::registerActionByActionId(Action* action, uint16_t actionId) {
   auto result = actionItemMap.emplace(actionId, std::move(*action));
   if (!result.second) {
-    auto log = "Duplicate registered item with actionid : " + actionId;
-    sendWarnLog(log, __FUNCTION__);
+    auto log = "Duplicate registered item with actionid : " + std::to_string(actionId);
+    sendWarnLog(log.c_str(), __FUNCTION__);
   }
 
   return result.second;

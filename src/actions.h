@@ -325,7 +325,7 @@ class Actions final : public BaseEvents
                                   const pugi::xml_node& node, const ItemIdentifier_t& identifier);
 
     /**
-     * @brief Send a warning message (log) to prompt
+     * @brief Send a warning log message to prompt
      *
      * @param logMessage message that will be sent
      * @param callMember function that was at the time of the warning
