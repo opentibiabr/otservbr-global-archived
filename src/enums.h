@@ -796,4 +796,6 @@ enum CyclopediaCharacterInfo_OutfitType_t : uint8_t {
 	CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_STORE = 2
 };
 
+enum ItemIdentifier_t { ID, UID, AID };
+
 #endif

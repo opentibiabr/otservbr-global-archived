@@ -278,6 +278,12 @@ class Actions final : public BaseEvents
 
 		Action* getAction(const Item* item);
 		void clearMap(ActionUseMap& map, bool fromLua);
+    bool registerActionByItemId(Action* action, uint16_t itemId);
+    bool registerActionByUniqueId(Action* action, uint16_t uniqueId);
+    bool registerActionByActionId(Action* action, uint16_t actionId);
+    bool registerChangeItemAction(Action* action, const pugi::xml_attribute attr, const pugi::xml_node& node, const ItemIdentifier_t& identifier);
+
+    void sendWarnLog(const char* log, const char* callMember); // TODO: change to spdlog in the future
 
 		LuaScriptInterface scriptInterface;
 };
