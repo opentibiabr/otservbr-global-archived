@@ -30,14 +30,13 @@ constexpr char ext_digits[] =
 "6061626364656667686970717273747576777879"
 "8081828384858687888990919293949596979899";
 
-namespace std
-{
-	class stringExtended
-	{
+namespace std {
+	class stringExtended {
 		public:
 			stringExtended() = default;
-			stringExtended(size_t reserveSize) { outStr.reserve(reserveSize); }
-
+			stringExtended(size_t reserveSize) {
+        outStr.reserve(reserveSize);
+      }
 			inline string::iterator begin() noexcept {
 				return outStr.begin();
 			}
@@ -94,7 +93,6 @@ namespace std
 			inline string::const_reference operator[](size_t index) const {
 				return outStr.operator[](index);
 			}
-
 			stringExtended& appendInt(uint64_t value) {
 				char str_buffer[22]; // Should be able to contain uint64_t max value + sign
 				char* ptrBufferEnd = str_buffer + 21;
@@ -125,7 +123,7 @@ namespace std
 					abs_value = 0 - abs_value;
 				}
 
-				char str_buffer[22]; // Should be able to contain uint64_t max value + sign
+				char str_buffer[22];
 				char* ptrBufferEnd = str_buffer + 21;
 				char* ptrBuffer = ptrBufferEnd;
 
@@ -161,7 +159,7 @@ namespace std
 			inline stringExtended& appendInt(int8_t value) { return appendInt(static_cast<int64_t>(value)); }
 			
 			stringExtended& appendIntShowPos(uint64_t value) {
-				char str_buffer[22]; // Should be able to contain uint64_t max value + sign
+				char str_buffer[22];
 				char* ptrBufferEnd = str_buffer + 21;
 				char* ptrBuffer = ptrBufferEnd;
 
@@ -192,7 +190,7 @@ namespace std
 					abs_value = 0 - abs_value;
 				}
 
-				char str_buffer[22]; // Should be able to contain uint64_t max value + sign
+				char str_buffer[22];
 				char* ptrBufferEnd = str_buffer + 21;
 				char* ptrBuffer = ptrBufferEnd;
 
@@ -253,12 +251,10 @@ namespace std
 			inline stringExtended& operator<<= (int16_t value) { return appendIntShowPos(value); }
 			inline stringExtended& operator<<= (int8_t value) { return appendIntShowPos(value); }
 
-			//Allow implicit conversion to std::string&
 			operator string&() { return outStr; }
 
 		private:
 			string outStr;
 	};
 };
-
 #endif
