@@ -44,6 +44,7 @@ extern Game g_game;
 extern ConfigManager g_config;
 extern Actions actions;
 extern CreatureEvents* g_creatureEvents;
+extern Vocations g_vocations;
 extern Chat* g_chat;
 extern Modules* g_modules;
 extern Spells* g_spells;
@@ -539,6 +540,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xAA: addGameTask(&Game::playerCreatePrivateChannel, player->getID()); break;
 		case 0xAB: parseChannelInvite(msg); break;
 		case 0xAC: parseChannelExclude(msg); break;
+    case 0xB1: parseHighscores(msg); break;
 		case 0xBE: addGameTask(&Game::playerCancelAttackAndFollow, player->getID()); break;
     case 0xC7: parseTournamentLeaderboard(msg); break;
 		case 0xC9: /* update tile */ break;
@@ -1207,6 +1209,118 @@ void ProtocolGame::parseCyclopediaCharacterInfo(NetworkMessage& msg) {
 	msg.get<uint32_t>();
 	characterInfoType = static_cast<CyclopediaCharacterInfoType_t>(msg.getByte());
 	addGameTask(&Game::playerCyclopediaCharacterInfo, player->getID(), characterInfoType);
+}
+
+void ProtocolGame::parseHighscores(NetworkMessage& msg)
+{
+	HighscoreType_t type = static_cast<HighscoreType_t>(msg.getByte());
+	uint8_t category = msg.getByte();
+	uint32_t vocation = msg.get<uint32_t>();
+	uint16_t page = 1;
+	const std::string worldName = msg.getString();
+	#if CLIENT_VERSION >= 1260
+	msg.getByte();//Game World Category
+	msg.getByte();//BattlEye World Type
+	#endif
+	if (type == HIGHSCORE_GETENTRIES) {
+		page = msg.get<uint16_t>();
+	}
+	uint8_t entriesPerPage = std::min<uint8_t>(30, std::max<uint8_t>(5, msg.getByte()));
+	g_game.playerHighscores(player, type, category, vocation, worldName, page, entriesPerPage);
+}
+
+void ProtocolGame::sendHighscoresNoData()
+{
+	playermsg.reset();
+	playermsg.addByte(0xB1);
+	playermsg.addByte(0x01); // No data available
+	writeToOutputBuffer(playermsg);
+}
+
+void ProtocolGame::sendHighscores(std::vector<HighscoreCharacter>& characters, uint8_t categoryId, uint32_t vocationId, uint16_t page, uint16_t pages)
+{
+	playermsg.reset();
+	playermsg.addByte(0xB1);
+	playermsg.addByte(0x00); // No data available
+
+	playermsg.addByte(1); // Worlds
+	playermsg.addString(g_config.getString(ConfigManager::SERVER_NAME)); // First World
+	playermsg.addString(g_config.getString(ConfigManager::SERVER_NAME)); // Selected World
+
+	#if CLIENT_VERSION >= 1260
+	playermsg.addByte(0xFF);//Game World Category: 0xFF(-1) - Selected World
+	playermsg.addByte(0xFF);//BattlEye World Type
+	#endif
+
+	auto vocationPosition = playermsg.getBufferPosition();
+	uint8_t vocations = 1;
+
+	playermsg.skipBytes(1); // Vocation Count
+	playermsg.add<uint32_t>(0xFFFFFFFF); // All Vocations - hardcoded
+	playermsg.addString("(all)"); // All Vocations - hardcoded
+
+	uint32_t selectedVocation = 0xFFFFFFFF;
+	const auto& vocationsMap = g_vocations.getVocations();
+	for (const auto& it : vocationsMap) {
+		const Vocation& vocation = it.second;
+		if (vocation.getFromVocation() == static_cast<uint32_t>(vocation.getId())) {
+			playermsg.add<uint32_t>(vocation.getFromVocation()); // Vocation Id
+			playermsg.addString(vocation.getVocName()); // Vocation Name
+			++vocations;
+			if (vocation.getFromVocation() == vocationId) {
+				selectedVocation = vocationId;
+			}
+		}
+	}
+	playermsg.add<uint32_t>(selectedVocation); // Selected Vocation
+
+	HighscoreCategory highscoreCategories[] =
+	{
+		{"Experience Points", HIGHSCORE_CATEGORY_EXPERIENCE},
+		{"Fist Fighting", HIGHSCORE_CATEGORY_FIST_FIGHTING},
+		{"Club Fighting", HIGHSCORE_CATEGORY_CLUB_FIGHTING},
+		{"Sword Fighting", HIGHSCORE_CATEGORY_SWORD_FIGHTING},
+		{"Axe Fighting", HIGHSCORE_CATEGORY_AXE_FIGHTING},
+		{"Distance Fighting", HIGHSCORE_CATEGORY_DISTANCE_FIGHTING},
+		{"Shielding", HIGHSCORE_CATEGORY_SHIELDING},
+		{"Fishing", HIGHSCORE_CATEGORY_FISHING},
+		{"Magic Level", HIGHSCORE_CATEGORY_MAGIC_LEVEL}
+	};
+
+	uint8_t selectedCategory = 0;
+	playermsg.addByte(sizeof(highscoreCategories) / sizeof(HighscoreCategory)); // Category Count
+	for (HighscoreCategory& category : highscoreCategories) {
+		playermsg.addByte(category.id); // Category Id
+		playermsg.addString(category.name); // Category Name
+		if (category.id == categoryId) {
+			selectedCategory = categoryId;
+		}
+	}
+	playermsg.addByte(selectedCategory); // Selected Category
+
+	playermsg.add<uint16_t>(page); // Current page
+	playermsg.add<uint16_t>(pages); // Pages
+
+	playermsg.addByte(characters.size()); // Character Count
+	for (HighscoreCharacter& character : characters) {
+		playermsg.add<uint32_t>(character.rank); // Rank
+		playermsg.addString(character.name); // Character Name
+		playermsg.addString(""); // Probably Character Title(not visible in window)
+		playermsg.addByte(character.vocation); // Vocation Id
+		playermsg.addString(g_config.getString(ConfigManager::SERVER_NAME)); // World
+		playermsg.add<uint16_t>(character.level); // Level
+		playermsg.addByte((player->getGUID() == character.id)); // Player Indicator Boolean
+		playermsg.add<uint64_t>(character.points); // Points
+	}
+
+	playermsg.addByte(0xFF); // ??
+	playermsg.addByte(0); // ??
+	playermsg.addByte(1); // ??
+	playermsg.add<uint32_t>(time(nullptr)); // Last Update
+
+	playermsg.setBufferPosition(vocationPosition);
+	playermsg.addByte(vocations);
+	writeToOutputBuffer(playermsg);
 }
 
 void ProtocolGame::parseTournamentLeaderboard(NetworkMessage& msg) {
