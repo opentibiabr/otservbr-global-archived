@@ -81,12 +81,12 @@ uint32_t IOLoginData::gameworldAuthentication(const std::string& email, const st
   return accountId;
 }
 
-uint32_t IOLoginData::getAccountIdByPlayerName(const std::string& playerName)
+uint32_t IOLoginData::getAccountIdByPlayerId(const uint32_t id)
 {
 	Database& db = Database::getInstance();
 
 	std::ostringstream query;
-	query << "SELECT `account_id` FROM `players` WHERE `name` = " << db.escapeString(playerName);
+	query << "SELECT `account_id` FROM `players` WHERE `id` = " << id;
 	DBResult_ptr result = db.storeQuery(query.str());
 	if (!result) {
 		return 0;

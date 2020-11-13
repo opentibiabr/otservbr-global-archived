@@ -111,7 +111,7 @@ void House::setOwner(uint32_t guid, bool updateDatabase/* = true*/, Player* play
 		if (!name.empty()) {
 			owner = guid;
 			ownerName = name;
-			ownerAccountId = IOLoginData::getAccountIdByPlayerName(name);
+			ownerAccountId = IOLoginData::getAccountIdByPlayerId(guid);
 		}
 	}
 
