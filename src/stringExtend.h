@@ -17,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_STRINGEXTEND_H_C5003BEA4242FA1BF0EB01601538A14ABE32BBEF0EF9666214578864
-#define FS_STRINGEXTEND_H_C5003BEA4242FA1BF0EB01601538A14ABE32BBEF0EF9666214578864
+#ifndef SRC_STRINGEXTEND_H_
+#define SRC_STRINGEXTEND_H_
 
 #include <string>
 #include <cstring>
@@ -35,7 +35,7 @@ class stringExtended {
 	public:
     stringExtended() = default;
     stringExtended(size_t reserveSize) {
-      outStr.reserve(reserveSize);
+      explicit outStr.reserve(reserveSize);
     }
     inline string::iterator begin() noexcept {
       return outStr.begin();
@@ -256,5 +256,5 @@ class stringExtended {
 	private:
     string outStr;
 	};
-};
-#endif  // FS_STRINGEXTEND_H_
+}; // namespace std
+#endif  // SRC_STRINGEXTEND_H_
