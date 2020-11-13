@@ -204,6 +204,7 @@ class DBResult
 		std::string getString(const std::string& s) const;
 		const char* getStream(const std::string& s, unsigned long& size) const;
 
+    size_t countResults() const;  
 		bool hasNext() const;
 		bool next();
 
