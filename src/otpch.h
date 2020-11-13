@@ -35,6 +35,7 @@
 #include <memory>
 #include <mutex>
 #include <sstream>
+#include "stringExtend.h"
 #include <string>
 #include <thread>
 #include <unordered_map>
