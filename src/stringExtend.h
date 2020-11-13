@@ -34,8 +34,8 @@ namespace std {
 class stringExtended {
 	public:
     stringExtended() = default;
-    stringExtended(size_t reserveSize) {
-      explicit outStr.reserve(reserveSize);
+    explicit stringExtended(size_t reserveSize) {
+      outStr.reserve(reserveSize);
     }
     inline string::iterator begin() noexcept {
       return outStr.begin();
@@ -256,5 +256,5 @@ class stringExtended {
 	private:
     string outStr;
 	};
-}; // namespace std
+};  // namespace std
 #endif  // SRC_STRINGEXTEND_H_
