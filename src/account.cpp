@@ -195,14 +195,14 @@ error_t Account::LoadAccountDB() {
 
 error_t Account::LoadAccountDB(std::string name) {
   std::ostringstream query;
-  query << "SELECT * FROM `accounts` WHERE `name` = "
+  query << "SELECT `id`, `type`, `name`, `password`, `premdays`, `lastday`, `secret` FROM `accounts` WHERE `name` = "
       << db_->escapeString(name);
   return this->LoadAccountDB(query);
 }
 
 error_t Account::LoadAccountDB(uint32_t id) {
   std::ostringstream query;
-  query << "SELECT * FROM `accounts` WHERE `id` = " << id;
+  query << "SELECT `id`, `type`, `name`, `password`, `premdays`, `lastday`, `secret` FROM `accounts` WHERE `id` = " << id;
   return this->LoadAccountDB(query);
 }
 
