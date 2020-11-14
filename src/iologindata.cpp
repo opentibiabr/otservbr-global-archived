@@ -835,10 +835,10 @@ bool IOLoginData::savePlayer(Player* player)
   query << "`looklegs` = " << static_cast<uint32_t>(player->defaultOutfit.lookLegs) << ',';
   query << "`looktype` = " << player->defaultOutfit.lookType << ',';
   query << "`lookaddons` = " << static_cast<uint32_t>(player->defaultOutfit.lookAddons) << ',';
-  query << "`lookmountbody` = " << player->defaultOutfit.lookMountBody << ',';
-	query << "`lookmountfeet` = " << player->defaultOutfit.lookMountFeet << ',';
-	query << "`lookmounthead` = " << player->defaultOutfit.lookMountHead << ',';
-	query << "`lookmountlegs` = " << player->defaultOutfit.lookMountLegs << ',';
+  query << "`lookmountbody` = " << static_cast<uint32_t>(player->defaultOutfit.lookMountBody) << ',';
+	query << "`lookmountfeet` = " << static_cast<uint32_t>(player->defaultOutfit.lookMountFeet) << ',';
+	query << "`lookmounthead` = " << static_cast<uint32_t>(player->defaultOutfit.lookMountHead) << ',';
+	query << "`lookmountlegs` = " << static_cast<uint32_t>(player->defaultOutfit.lookMountLegs) << ',';
   query << "`maglevel` = " << player->magLevel << ',';
   query << "`mana` = " << player->mana << ',';
   query << "`manamax` = " << player->manaMax << ',';
