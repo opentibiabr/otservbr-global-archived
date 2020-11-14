@@ -364,7 +364,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 
 	std::string password = sessionKey.substr(pos + 1);
 	std::string characterName = msg.getString();
-  
+
   // CLIENT_VERSION >= 1252
   // i am not sure if in the right place!
   if (operatingSystem == CLIENTOS_NEW_LINUX) {
