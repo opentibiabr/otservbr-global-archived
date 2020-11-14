@@ -784,6 +784,10 @@ Position LuaScriptInterface::getPosition(lua_State* L, int32_t arg)
 Outfit_t LuaScriptInterface::getOutfit(lua_State* L, int32_t arg)
 {
 	Outfit_t outfit;
+  outfit.lookMountFeet = getField<uint8_t>(L, arg, "lookMountFeet");
+	outfit.lookMountLegs = getField<uint8_t>(L, arg, "lookMountLegs");
+	outfit.lookMountBody = getField<uint8_t>(L, arg, "lookMountBody");
+	outfit.lookMountHead = getField<uint8_t>(L, arg, "lookMountHead");
 	outfit.lookMount = getField<uint16_t>(L, arg, "lookMount");
 	outfit.lookAddons = getField<uint8_t>(L, arg, "lookAddons");
 
@@ -794,7 +798,7 @@ Outfit_t LuaScriptInterface::getOutfit(lua_State* L, int32_t arg)
 
 	outfit.lookTypeEx = getField<uint16_t>(L, arg, "lookTypeEx");
 	outfit.lookType = getField<uint16_t>(L, arg, "lookType");
-
+  lua_pop(L, 12);
 	lua_pop(L, 8);
 	return outfit;
 }
@@ -945,6 +949,7 @@ void LuaScriptInterface::pushPosition(lua_State* L, const Position& position, in
 
 void LuaScriptInterface::pushOutfit(lua_State* L, const Outfit_t& outfit)
 {
+  lua_createtable(L, 0, 12);
 	lua_createtable(L, 0, 8);
 	setField(L, "lookType", outfit.lookType);
 	setField(L, "lookTypeEx", outfit.lookTypeEx);
@@ -954,6 +959,10 @@ void LuaScriptInterface::pushOutfit(lua_State* L, const Outfit_t& outfit)
 	setField(L, "lookFeet", outfit.lookFeet);
 	setField(L, "lookAddons", outfit.lookAddons);
 	setField(L, "lookMount", outfit.lookMount);
+  setField(L, "lookMountHead", outfit.lookMountHead);
+	setField(L, "lookMountBody", outfit.lookMountBody);
+	setField(L, "lookMountLegs", outfit.lookMountLegs);
+	setField(L, "lookMountFeet", outfit.lookMountFeet);
 }
 
 void LuaScriptInterface::pushLoot(lua_State* L, const std::vector<LootBlock>& lootList)
@@ -14038,11 +14047,15 @@ int LuaScriptInterface::luaConditionSetFormula(lua_State* L)
 int LuaScriptInterface::luaConditionSetOutfit(lua_State* L)
 {
 	// condition:setOutfit(outfit)
-	// condition:setOutfit(lookTypeEx, lookType, lookHead, lookBody, lookLegs, lookFeet[, lookAddons[, lookMount]])
+	// condition:setOutfit(lookTypeEx, lookType, lookHead, lookBody, lookLegs, lookFeet[, lookAddons[, lookMount[, lookMountHead[, lookMountBody[, lookMountLegs[, lookMountFeet]]]]]])
 	Outfit_t outfit;
 	if (isTable(L, 2)) {
 		outfit = getOutfit(L, 2);
 	} else {
+    outfit.lookMountFeet = getNumber<uint8_t>(L, 13, outfit.lookMountFeet);
+		outfit.lookMountLegs = getNumber<uint8_t>(L, 12, outfit.lookMountLegs);
+		outfit.lookMountBody = getNumber<uint8_t>(L, 11, outfit.lookMountBody);
+		outfit.lookMountHead = getNumber<uint8_t>(L, 10, outfit.lookMountHead);
 		outfit.lookMount = getNumber<uint16_t>(L, 9, outfit.lookMount);
 		outfit.lookAddons = getNumber<uint8_t>(L, 8, outfit.lookAddons);
 		outfit.lookFeet = getNumber<uint8_t>(L, 7);
