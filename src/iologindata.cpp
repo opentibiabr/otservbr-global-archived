@@ -379,6 +379,10 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   player->defaultOutfit.lookLegs = result->getNumber<uint16_t>("looklegs");
   player->defaultOutfit.lookFeet = result->getNumber<uint16_t>("lookfeet");
   player->defaultOutfit.lookAddons = result->getNumber<uint16_t>("lookaddons");
+  player->defaultOutfit.lookMountHead = result->getNumber<uint16_t>("lookmounthead");
+	player->defaultOutfit.lookMountBody = result->getNumber<uint16_t>("lookmountbody");
+	player->defaultOutfit.lookMountLegs = result->getNumber<uint16_t>("lookmountlegs");
+	player->defaultOutfit.lookMountFeet = result->getNumber<uint16_t>("lookmountfeet");
   player->currentOutfit = player->defaultOutfit;
 
   if (g_game.getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
