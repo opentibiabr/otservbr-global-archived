@@ -871,17 +871,21 @@ void ProtocolGame::parseSetOutfit(NetworkMessage& msg)
 		outfitType = msg.getByte();
 		Outfit_t newOutfit;
 		newOutfit.lookType = msg.get<uint16_t>();
-		newOutfit.lookHead = msg.getByte();
-		newOutfit.lookBody = msg.getByte();
-		newOutfit.lookLegs = msg.getByte();
-		newOutfit.lookFeet = msg.getByte();
+		newOutfit.lookHead = std::min<uint8_t>(132, msg.getByte());
+		newOutfit.lookBody = std::min<uint8_t>(132, msg.getByte());
+		newOutfit.lookLegs = std::min<uint8_t>(132, msg.getByte());
+		newOutfit.lookFeet = std::min<uint8_t>(132, msg.getByte());
 		newOutfit.lookAddons = msg.getByte();
 		if (outfitType == 0) {
 			newOutfit.lookMount = msg.get<uint16_t>();
+      newOutfit.lookMountHead = std::min<uint8_t>(132, msg.getByte());
+      newOutfit.lookMountBody = std::min<uint8_t>(132, msg.getByte());
+      newOutfit.lookMountLegs = std::min<uint8_t>(132, msg.getByte());
+      newOutfit.lookMountFeet = std::min<uint8_t>(132, msg.getByte());
+      msg.get<uint16_t>();//Familiar looktype
 		} else if (outfitType == 1) {
 			//This value probably has something to do with try outfit variable inside outfit window dialog
 			//if try outfit is set to 2 it expects uint32_t value after mounted and disable mounts from outfit window dialog
-			newOutfit.lookMount = 0;
 			msg.get<uint32_t>();
 		}
 		addGameTask(&Game::playerChangeOutfit, player->getID(), newOutfit);
@@ -1471,6 +1475,13 @@ void ProtocolGame::sendCreatureOutfit(const Creature* creature, const Outfit_t& 
 	msg.addByte(0x8E);
 	msg.add<uint32_t>(creature->getID());
 	AddOutfit(msg, outfit);
+  playermsg.add<uint16_t>(outfit.lookMount);
+  if (outfit.lookMount != 0) {
+		playermsg.addByte(outfit.lookMountHead);
+		playermsg.addByte(outfit.lookMountBody);
+		playermsg.addByte(outfit.lookMountLegs);
+		playermsg.addByte(outfit.lookMountFeet);
+	}
 	writeToOutputBuffer(msg);
 }
 
@@ -1764,7 +1775,7 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 		if (!player->getOutfitAddons(outfit, addons)) {
 			continue;
 		}
-		outfitSize++;
+		++outfitSize;
 
 		msg.add<uint16_t>(outfit.lookType);
 		msg.addString(outfit.name);
@@ -1788,7 +1799,7 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	msg.add<uint16_t>(mountSize);
 	for (const Mount& mount : g_game.mounts.getMounts()) {
 		if (player->hasMount(&mount)) {
-			mountSize++;
+			++mountSize;
 
 			msg.add<uint16_t>(mount.clientId);
 			msg.addString(mount.name);
@@ -1796,7 +1807,13 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 			msg.add<uint32_t>(1000);
 		}
 	}
-
+  if (mountSize > 0) {
+		playermsg.addByte(currentOutfit.lookMountHead);
+		playermsg.addByte(currentOutfit.lookMountBody);
+		playermsg.addByte(currentOutfit.lookMountLegs);
+		playermsg.addByte(currentOutfit.lookMountFeet);
+	}
+  playermsg.add<uint16_t>(0);
 	msg.setBufferPosition(startOutfits);
 	msg.add<uint16_t>(outfitSize);
 	msg.setBufferPosition(startMounts);
@@ -3642,6 +3659,12 @@ void ProtocolGame::sendOutfitWindow()
 	}
 
 	AddOutfit(msg, currentOutfit);
+  
+  playermsg.addByte(currentOutfit.lookMountHead);
+	playermsg.addByte(currentOutfit.lookMountBody);
+	playermsg.addByte(currentOutfit.lookMountLegs);
+	playermsg.addByte(currentOutfit.lookMountFeet);
+  playermsg.add<uint16_t>(0);
 
 	std::vector<ProtocolOutfit> protocolOutfits;
 	if (player->isAccessPlayer()) {
@@ -3674,19 +3697,24 @@ void ProtocolGame::sendOutfitWindow()
 		msg.addByte(0x00);
 	}
 
-	std::vector<const Mount*> mounts;
-	for (const Mount& mount : g_game.mounts.getMounts()) {
+	std::vector<const Mount*> protocolMounts;
+	const auto& mounts = g_game.mounts.getMounts();
+	protocolMounts.reserve(mounts.size());
+	for (const Mount& mount : mounts) {
 		if (player->hasMount(&mount)) {
-			mounts.push_back(&mount);
+			protocolMounts.push_back(&mount);
 		}
 	}
 
-	msg.add<uint16_t>(mounts.size());
-	for (const Mount* mount : mounts) {
+  
+	playermsg.add<uint16_t>(protocolMounts.size());
+	for (const Mount* mount : protocolMounts) {
 		msg.add<uint16_t>(mount->clientId);
 		msg.addString(mount->name);
 		msg.addByte(0x00);
 	}
+  
+  playermsg.add<uint16_t>(0);
 
 	msg.addByte(0x00); //Try outfit
 	msg.addByte(mounted ? 0x01 : 0x00);
@@ -4001,9 +4029,18 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 
 	if (!creature->isInGhostMode() && !creature->isInvisible()) {
 		AddOutfit(msg, creature->getCurrentOutfit());
+    AddOutfit(outfit);
+    playermsg.add<uint16_t>(outfit.lookMount);
+    if (outfit.lookMount != 0) {
+			playermsg.addByte(outfit.lookMountHead);
+			playermsg.addByte(outfit.lookMountBody);
+			playermsg.addByte(outfit.lookMountLegs);
+			playermsg.addByte(outfit.lookMountFeet);
+		}
 	} else {
 		static Outfit_t outfit;
 		AddOutfit(msg, outfit);
+    playermsg.add<uint16_t>(0);
 	}
 
 	LightInfo lightInfo = creature->getCreatureLight();
