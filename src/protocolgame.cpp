@@ -1591,7 +1591,6 @@ void ProtocolGame::sendAddMarker(const Position& pos, uint8_t markType, const st
 
 void ProtocolGame::sendCyclopediaCharacterBaseInformation() {
 	NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_BASEINFORMATION);
 	msg.addByte(0x00);
@@ -1610,7 +1609,6 @@ void ProtocolGame::sendCyclopediaCharacterBaseInformation() {
 
 void ProtocolGame::sendCyclopediaCharacterGeneralStats() {
 	NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_GENERALSTATS);
 	msg.addByte(0x00);
@@ -1668,7 +1666,6 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats() {
 
 void ProtocolGame::sendCyclopediaCharacterCombatStats() {
 	NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_COMBATSTATS);
 	msg.addByte(0x00);
@@ -1697,7 +1694,6 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats() {
 
 void ProtocolGame::sendCyclopediaCharacterRecentDeaths() {
 	NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_RECENTDEATHS);
 	msg.addByte(0x00);
@@ -1709,7 +1705,6 @@ void ProtocolGame::sendCyclopediaCharacterRecentDeaths() {
 
 void ProtocolGame::sendCyclopediaCharacterRecentPvPKills() {
 	NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_RECENTPVPKILLS);
 	msg.addByte(0x00);
@@ -1721,7 +1716,6 @@ void ProtocolGame::sendCyclopediaCharacterRecentPvPKills() {
 
 void ProtocolGame::sendCyclopediaCharacterAchievements() {
 	NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_ACHIEVEMENTS);
 	msg.addByte(0x00);
@@ -1733,7 +1727,6 @@ void ProtocolGame::sendCyclopediaCharacterAchievements() {
 
 void ProtocolGame::sendCyclopediaCharacterItemSummary() {
 	NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_ITEMSUMMARY);
 	msg.addByte(0x00);
@@ -1747,7 +1740,6 @@ void ProtocolGame::sendCyclopediaCharacterItemSummary() {
 
 void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITSMOUNTS);
 	msg.addByte(0x00);
@@ -1806,7 +1798,6 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 
 void ProtocolGame::sendCyclopediaCharacterStoreSummary() {
 	NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_STORESUMMARY);
 	msg.addByte(0x00);
@@ -1826,7 +1817,6 @@ void ProtocolGame::sendCyclopediaCharacterStoreSummary() {
 
 void ProtocolGame::sendCyclopediaCharacterInspection() {
 	NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_INSPECTION);
 	msg.addByte(0x00);
@@ -1876,7 +1866,6 @@ void ProtocolGame::sendCyclopediaCharacterInspection() {
 
 void ProtocolGame::sendCyclopediaCharacterBadges() {
 	NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_BADGES);
 	msg.addByte(0x00);
@@ -1887,7 +1876,6 @@ void ProtocolGame::sendCyclopediaCharacterBadges() {
 
 void ProtocolGame::sendCyclopediaCharacterTitles() {
 	NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_TITLES);
 	msg.addByte(0x00);
@@ -1898,7 +1886,6 @@ void ProtocolGame::sendCyclopediaCharacterTitles() {
 
 void ProtocolGame::sendTournamentLeaderboard() {
 	NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0xC5);
 	msg.addByte(0);
 	msg.addByte(0x01);
