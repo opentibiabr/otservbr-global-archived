@@ -1475,12 +1475,12 @@ void ProtocolGame::sendCreatureOutfit(const Creature* creature, const Outfit_t& 
 	msg.addByte(0x8E);
 	msg.add<uint32_t>(creature->getID());
 	AddOutfit(msg, outfit);
-  playermsg.add<uint16_t>(outfit.lookMount);
+  msg.add<uint16_t>(outfit.lookMount);
   if (outfit.lookMount != 0) {
-		playermsg.addByte(outfit.lookMountHead);
-		playermsg.addByte(outfit.lookMountBody);
-		playermsg.addByte(outfit.lookMountLegs);
-		playermsg.addByte(outfit.lookMountFeet);
+		msg.addByte(outfit.lookMountHead);
+		msg.addByte(outfit.lookMountBody);
+		msg.addByte(outfit.lookMountLegs);
+		msg.addByte(outfit.lookMountFeet);
 	}
 	writeToOutputBuffer(msg);
 }
@@ -1808,12 +1808,12 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 		}
 	}
   if (mountSize > 0) {
-		playermsg.addByte(currentOutfit.lookMountHead);
-		playermsg.addByte(currentOutfit.lookMountBody);
-		playermsg.addByte(currentOutfit.lookMountLegs);
-		playermsg.addByte(currentOutfit.lookMountFeet);
+		msg.addByte(currentOutfit.lookMountHead);
+		msg.addByte(currentOutfit.lookMountBody);
+		msg.addByte(currentOutfit.lookMountLegs);
+		msg.addByte(currentOutfit.lookMountFeet);
 	}
-  playermsg.add<uint16_t>(0);
+  msg.add<uint16_t>(0);
 	msg.setBufferPosition(startOutfits);
 	msg.add<uint16_t>(outfitSize);
 	msg.setBufferPosition(startMounts);
@@ -3660,11 +3660,11 @@ void ProtocolGame::sendOutfitWindow()
 
 	AddOutfit(msg, currentOutfit);
   
-  playermsg.addByte(currentOutfit.lookMountHead);
-	playermsg.addByte(currentOutfit.lookMountBody);
-	playermsg.addByte(currentOutfit.lookMountLegs);
-	playermsg.addByte(currentOutfit.lookMountFeet);
-  playermsg.add<uint16_t>(0);
+  msg.addByte(currentOutfit.lookMountHead);
+	msg.addByte(currentOutfit.lookMountBody);
+	msg.addByte(currentOutfit.lookMountLegs);
+	msg.addByte(currentOutfit.lookMountFeet);
+  msg.add<uint16_t>(0);
 
 	std::vector<ProtocolOutfit> protocolOutfits;
 	if (player->isAccessPlayer()) {
@@ -3707,14 +3707,14 @@ void ProtocolGame::sendOutfitWindow()
 	}
 
   
-	playermsg.add<uint16_t>(protocolMounts.size());
+	msg.add<uint16_t>(protocolMounts.size());
 	for (const Mount* mount : protocolMounts) {
 		msg.add<uint16_t>(mount->clientId);
 		msg.addString(mount->name);
 		msg.addByte(0x00);
 	}
   
-  playermsg.add<uint16_t>(0);
+  msg.add<uint16_t>(0);
 
 	msg.addByte(0x00); //Try outfit
 	msg.addByte(mounted ? 0x01 : 0x00);
@@ -4030,17 +4030,17 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 	if (!creature->isInGhostMode() && !creature->isInvisible()) {
 		AddOutfit(msg, creature->getCurrentOutfit());
     AddOutfit(outfit);
-    playermsg.add<uint16_t>(outfit.lookMount);
+    msg.add<uint16_t>(outfit.lookMount);
     if (outfit.lookMount != 0) {
-			playermsg.addByte(outfit.lookMountHead);
-			playermsg.addByte(outfit.lookMountBody);
-			playermsg.addByte(outfit.lookMountLegs);
-			playermsg.addByte(outfit.lookMountFeet);
+			msg.addByte(outfit.lookMountHead);
+			msg.addByte(outfit.lookMountBody);
+			msg.addByte(outfit.lookMountLegs);
+			msg.addByte(outfit.lookMountFeet);
 		}
 	} else {
 		static Outfit_t outfit;
 		AddOutfit(msg, outfit);
-    playermsg.add<uint16_t>(0);
+    msg.add<uint16_t>(0);
 	}
 
 	LightInfo lightInfo = creature->getCreatureLight();
