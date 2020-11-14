@@ -364,6 +364,15 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 
 	std::string password = sessionKey.substr(pos + 1);
 	std::string characterName = msg.getString();
+  
+  // i am not sure if in the right place!
+  #if CLIENT_VERSION >= 1252
+	if (operatingSystem == CLIENTOS_NEW_LINUX) {
+		//TODO: check what new info for linux is send
+		msg.getString();
+		msg.getString();
+	}
+	#endif
 
 	uint32_t timeStamp = msg.get<uint32_t>();
 	uint8_t randNumber = msg.getByte();
