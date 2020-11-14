@@ -1475,7 +1475,6 @@ void ProtocolGame::sendCreatureOutfit(const Creature* creature, const Outfit_t& 
 	msg.addByte(0x8E);
 	msg.add<uint32_t>(creature->getID());
 	AddOutfit(msg, outfit);
-  msg.add<uint16_t>(outfit.lookMount);
   if (outfit.lookMount != 0) {
 		msg.addByte(outfit.lookMountHead);
 		msg.addByte(outfit.lookMountBody);
@@ -4031,7 +4030,6 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		const Outfit_t& outfit = creature->getCurrentOutfit();
     AddOutfit(msg, outfit);
     
-    msg.add<uint16_t>(outfit.lookMount);
     if (outfit.lookMount != 0) {
 			msg.addByte(outfit.lookMountHead);
 			msg.addByte(outfit.lookMountBody);
