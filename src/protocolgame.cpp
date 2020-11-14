@@ -1232,7 +1232,6 @@ void ProtocolGame::parseHighscores(NetworkMessage& msg)
 void ProtocolGame::sendHighscoresNoData()
 {
   NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0xB1);
 	msg.addByte(0x01); // No data available
 	writeToOutputBuffer(msg);
