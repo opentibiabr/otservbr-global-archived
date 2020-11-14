@@ -62,10 +62,6 @@ void ProtocolGame::AddItem(NetworkMessage& msg, uint16_t id, uint8_t count)
 	} else if (it.isContainer() && player->getOperatingSystem() <= CLIENTOS_NEW_MAC) {
 		msg.addByte(0x00);
 	}
-
-	if (it.isAnimation) {
-		msg.addByte(0xFE); // random phase (0xFF for async)
-	}
 }
 
 void ProtocolGame::AddItem(NetworkMessage& msg, const Item* item)
@@ -101,10 +97,6 @@ void ProtocolGame::AddItem(NetworkMessage& msg, const Item* item)
 		} else {
 			msg.addByte(0x00);
 		}
-	}
-
-	if (it.isAnimation) {
-		msg.addByte(0xFE); // random phase (0xFF for async)
 	}
 }
 
