@@ -545,6 +545,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xCA: parseUpdateContainer(msg); break;
 		case 0xCB: parseBrowseField(msg); break;
 		case 0xCC: parseSeekInContainer(msg); break;
+    case 0xCD: parseInspectionObject(msg); break;
 		case 0xD2: addGameTask(&Game::playerRequestOutfit, player->getID()); break;
 		//g_dispatcher.addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player, msg, recvbyte)));
 		case 0xD3: g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::parseSetOutfit, this, msg))); break;
@@ -1200,6 +1201,46 @@ void ProtocolGame::parseWrapableItem(NetworkMessage& msg)
 	uint16_t spriteId = msg.get<uint16_t>();
 	uint8_t stackpos = msg.getByte();
 	addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerWrapableItem, player->getID(), pos, stackpos, spriteId);
+}
+
+void ProtocolGame::parseInspectionObject(NetworkMessage& msg) {
+	uint8_t inspectionType = msg.getByte();
+	if(inspectionType == INSPECT_NORMALOBJECT) {
+      Position pos = msg.getPosition();
+      g_game.playerInspectItem(player, pos);
+	} else if (inspectionType == INSPECT_NPCTRADE || inspectionType == INSPECT_CYCLOPEDIA) {
+      uint16_t itemId = msg.get<uint16_t>();
+      uint16_t itemCount = msg.getByte();
+      g_game.playerInspectItem(player, itemId, itemCount, (inspectionType == INSPECT_CYCLOPEDIA));
+	}
+}
+
+void ProtocolGame::sendItemInspection(uint16_t itemId, uint8_t itemCount, const Item* item, bool cyclopedia) {
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0x76);
+	msg.addByte(0x00);
+	msg.addByte(cyclopedia ? 0x01 : 0x00);
+	msg.addByte(0x01);
+
+	const ItemType& it = Item::items.getItemIdByClientId(itemId);
+
+	if (item) {
+		msg.addString(item->getName());
+		AddItem(msg, item);
+	} else {
+		msg.addString(it.name);
+		AddItem(msg, it.id, itemCount);
+	}
+	msg.addByte(0);
+
+	auto descriptions = Item::getDescriptions(it, item);
+	msg.addByte(descriptions.size());
+	for (const auto& description : descriptions) {
+		msg.addString(description.first);
+		msg.addString(description.second);
+	}
+	writeToOutputBuffer(msg);
 }
 
 void ProtocolGame::parseCyclopediaCharacterInfo(NetworkMessage& msg) {

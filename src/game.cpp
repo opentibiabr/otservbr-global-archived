@@ -984,6 +984,26 @@ void Game::playerTeleport(uint32_t playerId, const Position& newPosition) {
   }
 }
 
+void Game::playerInspectItem(Player* player, const Position& pos) {
+	Thing* thing = internalGetThing(player, pos, 0, 0, STACKPOS_TOPDOWN_ITEM);
+	if (!thing) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	Item* item = thing->getItem();
+	if (!item) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	player->sendItemInspection(item->getClientID(), item->getItemCount(), item, false);
+}
+
+void Game::playerInspectItem(Player* player, uint16_t itemId, uint8_t itemCount, bool cyclopedia) {
+	player->sendItemInspection(itemId, itemCount, nullptr, cyclopedia);
+}
+
 void Game::playerMoveThing(uint32_t playerId, const Position& fromPos,
                            uint16_t spriteId, uint8_t fromStackPos, const Position& toPos, uint8_t count)
 {
