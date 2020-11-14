@@ -4029,7 +4029,7 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 
 	if (!creature->isInGhostMode() && !creature->isInvisible()) {
 		AddOutfit(msg, creature->getCurrentOutfit());
-    AddOutfit(outfit);
+    AddOutfit(msg, outfit);
     msg.add<uint16_t>(outfit.lookMount);
     if (outfit.lookMount != 0) {
 			msg.addByte(outfit.lookMountHead);
