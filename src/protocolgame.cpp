@@ -367,7 +367,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 
   // CLIENT_VERSION >= 1252
   // i am not sure if in the right place!
-  if (operatingSystem == CLIENTOS_NEW_LINUX) {
+  if (operatingSystem == CLIENTOS_NEW_LINUX) {
 		//TODO: check what new info for linux is send
 		msg.getString();
 		msg.getString();
