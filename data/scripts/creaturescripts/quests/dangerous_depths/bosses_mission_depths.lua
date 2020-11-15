@@ -39,7 +39,7 @@ function bossesMissionDepth.onKill(creature, creature)
 		if teleport then
 			teleport:transform(25417)
 			teleport:setDestination(boss.toPosition)
-			addEvent(revert, 5*60*1000, boss.teleportPosition, boss.toPositionBack)
+			addEvent(revert, 20*60*1000, boss.teleportPosition, boss.toPositionBack)
 		end
 	end
 	return true
