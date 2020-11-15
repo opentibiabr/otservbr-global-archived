@@ -56,6 +56,5 @@ function entrance.onStepIn(creature, item, position, fromPosition)
 end
 
 entrance:type("stepin")
-entrance:id(24813)
 entrance:aid(24837, 24838)
 entrance:register()
