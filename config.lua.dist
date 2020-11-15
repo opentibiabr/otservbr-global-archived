@@ -20,6 +20,8 @@ redSkullDuration = 1
 blackSkullDuration = 3
 orangeSkullDuration = 7
 
+onlyInvitedCanMoveHouseItems = true
+
 -- Connection Config
 -- NOTE: maxPlayers set to 0 means no limit
 -- NOTE: MaxPacketsPerSeconds if you change you will be subject to bugs by WPE, keep the default value of 25
