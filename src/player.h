@@ -80,6 +80,10 @@ enum tradestate_t : uint8_t {
 	TRADE_TRANSFER,
 };
 
+enum PlayerAsyncOngoingTaskFlags : uint64_t {
+	PlayerAsyncTask_Highscore = 1 << 0
+};
+
 struct VIPEntry {
 	VIPEntry(uint32_t initGuid, std::string initName, std::string initDescription, uint32_t initIcon, bool initNotify) :
 		guid(initGuid), name(std::move(initName)), description(std::move(initDescription)), icon(initIcon), notify(initNotify) {}
@@ -1367,6 +1371,25 @@ class Player final : public Creature, public Cylinder
 				client->sendCyclopediaCharacterTitles();
 			}
 		}
+    void sendHighscoresNoData() {
+			if (client) {
+				client->sendHighscoresNoData();
+			}
+		}
+		void sendHighscores(std::vector<HighscoreCharacter>& characters, uint8_t categoryId, uint32_t vocationId, uint16_t page, uint16_t pages) {
+			if (client) {
+				client->sendHighscores(characters, categoryId, vocationId, page, pages);
+			}
+		}
+    void addAsyncOngoingTask(uint64_t flags) {
+			asyncOngoingTasks |= flags;
+		}
+		bool hasAsyncOngoingTask(uint64_t flags) const {
+			return (asyncOngoingTasks & flags);
+		}
+		void resetAsyncOngoingTask(uint64_t flags) {
+			asyncOngoingTasks &= ~(flags);
+		}
 		void sendTournamentLeaderboard() {
   			if (client) {
 				client->sendTournamentLeaderboard();
@@ -1696,6 +1719,7 @@ class Player final : public Creature, public Cylinder
 		int64_t nextPotionAction = 0;
 		int64_t lastQuickLootNotification = 0;
 		int64_t lastWalking = 0;
+    uint64_t asyncOngoingTasks = 0;
 
 		std::vector<Kill> unjustifiedKills;
 

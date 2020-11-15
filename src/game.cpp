@@ -6573,6 +6573,109 @@ void Game::playerCyclopediaCharacterInfo(uint32_t playerId, CyclopediaCharacterI
 	}
 }
 
+void Game::playerHighscores(Player* player, HighscoreType_t type, uint8_t category, uint32_t vocation, const std::string&, uint16_t page, uint8_t entriesPerPage)
+{
+	if (player->hasAsyncOngoingTask(PlayerAsyncTask_Highscore)) {
+		return;
+	}
+
+	std::string categoryName;
+	switch (category) {
+		case HIGHSCORE_CATEGORY_FIST_FIGHTING: categoryName = "skill_fist"; break;
+		case HIGHSCORE_CATEGORY_CLUB_FIGHTING: categoryName = "skill_club"; break;
+		case HIGHSCORE_CATEGORY_SWORD_FIGHTING: categoryName = "skill_sword"; break;
+		case HIGHSCORE_CATEGORY_AXE_FIGHTING: categoryName = "skill_axe"; break;
+		case HIGHSCORE_CATEGORY_DISTANCE_FIGHTING: categoryName = "skill_dist"; break;
+		case HIGHSCORE_CATEGORY_SHIELDING: categoryName = "skill_shielding"; break;
+		case HIGHSCORE_CATEGORY_FISHING: categoryName = "skill_fishing"; break;
+		case HIGHSCORE_CATEGORY_MAGIC_LEVEL: categoryName = "maglevel"; break;
+		default: {
+			category = HIGHSCORE_CATEGORY_EXPERIENCE;
+			categoryName = "experience";
+			break;
+		}
+	}
+
+	std::ostringstream query;
+	if (type == HIGHSCORE_GETENTRIES) {
+		uint32_t startPage = (static_cast<uint32_t>(page - 1) * static_cast<uint32_t>(entriesPerPage));
+		uint32_t endPage = startPage + static_cast<uint32_t>(entriesPerPage);
+		query << "SELECT *, @row AS `entries`, " << page << " AS `page` FROM (SELECT *, (@row := @row + 1) AS `rn` FROM (SELECT `id`, `name`, `level`, `vocation`, `" << categoryName << "` AS `points`, @curRank := IF(@prevRank = `" << categoryName << "`, @curRank, IF(@prevRank := `" << categoryName << "`, @curRank + 1, @curRank + 1)) AS `rank` FROM `players` `p`, (SELECT @curRank := 0, @prevRank := NULL, @row := 0) `r` WHERE `group_id`<3 ORDER BY `" << categoryName << "` DESC) `t`";
+		if (vocation != 0xFFFFFFFF) {
+			bool firstVocation = true;
+
+			const auto& vocationsMap = g_vocations.getVocations();
+			for (const auto& it : vocationsMap) {
+				const Vocation& voc = it.second;
+				if (voc.getFromVocation() == vocation) {
+					if (firstVocation) {
+						query << " WHERE `vocation` = " << voc.getId();
+						firstVocation = false;
+					} else {
+						query << " OR `vocation` = " << voc.getId();
+					}
+				}
+			}
+		}
+		query << ") `T` WHERE `rn` > " << startPage << " AND `rn` <= " << endPage;
+	} else if (type == HIGHSCORE_OURRANK) {
+		std::string entriesStr = std::to_string(entriesPerPage);
+		query << "SELECT *, @row AS `entries`, (@ourRow DIV " << entriesStr << ") + 1 AS `page` FROM (SELECT *, (@row := @row + 1) AS `rn`, @ourRow := IF(`id` = " << player->getGUID() << ", @row - 1, @ourRow) AS `rw` FROM (SELECT `id`, `name`, `level`, `vocation`, `" << categoryName << "` AS `points`, @curRank := IF(@prevRank = `" << categoryName << "`, @curRank, IF(@prevRank := `" << categoryName << "`, @curRank + 1, @curRank + 1)) AS `rank` FROM `players` `p`, (SELECT @curRank := 0, @prevRank := NULL, @row := 0, @ourRow := 0) `r` WHERE `group_id`<3 ORDER BY `" << categoryName << "` DESC) `t`";
+		if (vocation != 0xFFFFFFFF) {
+			bool firstVocation = true;
+
+			const auto& vocationsMap = g_vocations.getVocations();
+			for (const auto& it : vocationsMap) {
+				const Vocation& voc = it.second;
+				if (voc.getFromVocation() == vocation) {
+					if (firstVocation) {
+						query << " WHERE `vocation` = " << voc.getId();
+						firstVocation = false;
+					} else {
+						query << " OR `vocation` = " << voc.getId();
+					}
+				}
+			}
+		}
+		query << ") `T` WHERE `rn` > ((@ourRow DIV " << entriesStr << ") * " << entriesStr << ") AND `rn` <= (((@ourRow DIV " << entriesStr << ") * " << entriesStr << ") + " << entriesStr << ")";
+	}
+
+	uint32_t playerID = player->getID();
+	std::function<void(DBResult_ptr, bool)> callback = [playerID, category, vocation, entriesPerPage](DBResult_ptr result, bool) {
+		Player* player = g_game.getPlayerByID(playerID);
+		if (!player) {
+			return;
+		}
+
+		player->resetAsyncOngoingTask(PlayerAsyncTask_Highscore);
+		if (!result) {
+			player->sendHighscoresNoData();
+			return;
+		}
+
+		uint16_t page = result->getNumber<uint16_t>("page");
+		uint32_t pages = result->getNumber<uint32_t>("entries");
+		pages += entriesPerPage - 1;
+		pages /= entriesPerPage;
+
+		std::vector<HighscoreCharacter> characters;
+		characters.reserve(result->countResults());
+		do {
+			uint8_t characterVocation;
+			Vocation* voc = g_vocations.getVocation(result->getNumber<uint16_t>("vocation"));
+			if (voc) {
+				characterVocation = voc->getClientId();
+			} else {
+				characterVocation = 0;
+			}
+			characters.emplace_back(std::move(result->getString("name")), result->getNumber<uint64_t>("points"), result->getNumber<uint32_t>("id"), result->getNumber<uint32_t>("rank"), result->getNumber<uint16_t>("level"), characterVocation);
+		} while (result->next());
+		player->sendHighscores(characters, category, vocation, page, static_cast<uint16_t>(pages));
+	};
+	g_databaseTasks.addTask(std::move(query.str()), callback, true);
+	player->addAsyncOngoingTask(PlayerAsyncTask_Highscore);
+}
+
 void Game::playerTournamentLeaderboard(uint32_t playerId, uint8_t leaderboardType) {
 	Player* player = getPlayerByID(playerId);
 	if (!player || leaderboardType > 1) {

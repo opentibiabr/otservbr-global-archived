@@ -803,4 +803,43 @@ enum CyclopediaCharacterInfo_OutfitType_t : uint8_t {
 	CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_STORE = 2
 };
 
+enum HighscoreType_t : uint8_t {
+	HIGHSCORE_GETENTRIES = 0,
+	HIGHSCORE_OURRANK = 1
+};
+
+enum HighscoreCategories_t : uint8_t {
+	HIGHSCORE_CATEGORY_EXPERIENCE = 0,
+	HIGHSCORE_CATEGORY_FIST_FIGHTING,
+	HIGHSCORE_CATEGORY_CLUB_FIGHTING,
+	HIGHSCORE_CATEGORY_SWORD_FIGHTING,
+	HIGHSCORE_CATEGORY_AXE_FIGHTING,
+	HIGHSCORE_CATEGORY_DISTANCE_FIGHTING,
+	HIGHSCORE_CATEGORY_SHIELDING,
+	HIGHSCORE_CATEGORY_FISHING,
+	HIGHSCORE_CATEGORY_MAGIC_LEVEL
+};
+
+struct HighscoreCategory
+{
+	HighscoreCategory(const char* name, uint8_t id) :
+		name(name), id(id) {}
+
+	const char* name;
+	uint8_t id;
+};
+
+struct HighscoreCharacter
+{
+	HighscoreCharacter(std::string name, uint64_t points, uint32_t id, uint32_t rank, uint16_t level, uint8_t vocation) :
+		name(std::move(name)), points(points), id(id), rank(rank), level(level), vocation(vocation) {}
+
+	std::string name;
+	uint64_t points;
+	uint32_t id;
+	uint32_t rank;
+	uint16_t level;
+	uint8_t vocation;
+};
+
 #endif
