@@ -86,7 +86,7 @@ function inServiceYalaharLastFight.onUse(player, item, fromPosition, target, toP
 		effectPositions[i]:sendMagicEffect(CONST_ME_HOLYAREA)
 	end
 
-	addEvent(doChangeAzerus, 4 * 20 * 1000)
+	addEvent(doChangeAzerus, 3 * 60 * 1000)
 	addEvent(doClearAreaAzerus, 5 * 60 * 1000)
 	return true
 end
