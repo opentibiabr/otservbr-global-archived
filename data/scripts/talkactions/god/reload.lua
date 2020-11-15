@@ -67,6 +67,16 @@ function reload.onSay(player, words, param)
 
 	local reloadType = reloadTypes[param:lower()]
 	if reloadType then
+
+		-- need to clear EventCallbackData or 
+		-- we end up having duplicated events on /reload scripts
+		if param:lower() == "scripts" then
+			EventCallbackData = {}
+			for i = 1, EVENT_CALLBACK_LAST do
+				EventCallbackData[i] = {}
+			end
+		end
+
 		Game.reload(reloadType)
 		player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Reloaded %s.", param:lower()))
 		print("Reloaded: " .. param:lower() .. ".")

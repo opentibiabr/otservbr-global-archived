@@ -3839,6 +3839,8 @@ void Game::playerAcceptTrade(uint32_t playerId)
 			}
 		}
 
+		g_events->eventPlayerOnTradeCompleted(player, tradePartner, tradeItem1, tradeItem2, isSuccess);
+
 		player->setTradeState(TRADE_NONE);
 		player->tradeItem = nullptr;
 		player->tradePartner = nullptr;
@@ -4103,13 +4105,8 @@ void Game::playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count)
 		return;
 	}
 
-	if (!g_events->eventPlayerOnLookInShop(player, &it, subType)) {
-		return;
-	}
-
-	std::ostringstream ss;
-	ss << "You see " << Item::getDescription(it, 1, nullptr, subType);
-	player->sendTextMessage(MESSAGE_INFO_DESCR, ss.str());
+	const std::string& description = Item::getDescription(it, 1, nullptr, subType);
+	g_events->eventPlayerOnLookInShop(player, &it, subType, description);
 }
 
 void Game::playerLookAt(uint32_t playerId, const Position& pos, uint8_t stackPos)

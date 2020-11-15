@@ -1,48 +1,5 @@
-CONTAINER_WEIGHT_CHECK = true -- true = enable / false = disable
-CONTAINER_WEIGHT_MAX = 1000000 -- 1000000 = 10k = 10000.00 oz
-
-local storeItemID = {
-	-- registered item ids here are not tradable with players
-	-- these items can be set to moveable at items.xml
-	-- 500 charges exercise weapons
-	32384, -- exercise sword
-	32385, -- exercise axe
-	32386, -- exercise club
-	32387, -- exercise bow
-	32388, -- exercise rod
-	32389, -- exercise wand
-
-	-- 50 charges exercise weapons
-	32124, -- training sword
-	32125, -- training axe
-	32126, -- training club
-	32127, -- training bow
-	32128, -- training wand
-	32129, -- training club
-
-	-- magic gold and magic converter (activated/deactivated)
-	32109, -- magic gold converter
-	33299, -- magic gold converter
-	26378, -- gold converter
-	29020, -- gold converter
-
-	-- foods
-	35172, -- roasted wyvern wings
-	35173, -- carrot pie
-	35174, -- tropical marinated tiger
-	35175, -- delicatessen salad
-	35176, -- chilli con carniphila
-	35177, -- svargrond salmon filet
-	35178, -- carrion casserole
-	35179, -- consecrated beef
-	35180, -- overcooked noodles
-}
-
 -- Capacity imbuement store
 local STORAGE_CAPACITY_IMBUEMENT = 42154
-
--- Players cannot throw items on teleports if set to true
-local blockTeleportTrashing = true
 
 local titles = {
 	{storageID = 14960, title = " Scout"},
@@ -73,548 +30,100 @@ local function getTitle(uid)
 end
 
 function Player:onBrowseField(position)
+	if hasEventCallback(EVENT_CALLBACK_ONBROWSEFIELD) then
+		return EventCallback(EVENT_CALLBACK_ONBROWSEFIELD, self, position)
+	else
+		return true
+	end
 	return true
-end
-
-local function getHours(seconds)
-	return math.floor((seconds/60)/60)
-end
-
-local function getMinutes(seconds)
-	return math.floor(seconds/60)
-end
-
-local function getSeconds(seconds)
-	return seconds%60
-end
-
-local function getTime(seconds)
-	local hours, minutes = getHours(seconds), getMinutes(seconds)
-	if (minutes > 59) then
-		minutes = minutes-hours*60
-	end
-
-	if (minutes < 10) then
-		minutes = "0" ..minutes
-	end
-
-	return hours..":"..minutes.. "h"
-end
-
-local function getTimeinWords(secs)
-	local hours, minutes, seconds = getHours(secs), getMinutes(secs), getSeconds(secs)
-	if (minutes > 59) then
-		minutes = minutes-hours*60
-	end
-
-	local timeStr = ''
-
-	if hours > 0 then
-		timeStr = timeStr .. ' hours '
-	end
-
-	timeStr = timeStr .. minutes .. ' minutes and '.. seconds .. ' seconds.'
-
-	return timeStr
 end
 
 function Player:onLook(thing, position, distance)
-	local description = "You see "
-	if thing:isItem() then
-		if thing.actionid == 5640 then
-			description = description .. "a honeyflower patch."
-		elseif thing.actionid == 5641 then
-			description = description .. "a banana palm."
-		elseif thing.itemid >= ITEM_HEALTH_CASK_START and thing.itemid <= ITEM_HEALTH_CASK_END
-		or thing.itemid >= ITEM_MANA_CASK_START and thing.itemid <= ITEM_MANA_CASK_END
-		or thing.itemid >= ITEM_SPIRIT_CASK_START and thing.itemid <= ITEM_SPIRIT_CASK_END
-		or thing.itemid >= ITEM_KEG_START and thing.itemid <= ITEM_KEG_END then
-			description = description .. thing:getDescription(distance)
-			local charges = thing:getCharges()
-			if charges then
-				description = string.format("%s\nIt has %d refillings left.", description, charges)
-			end
-		else
-			description = description .. thing:getDescription(distance)
-		end
-
-		local itemType = thing:getType()
-		if (itemType and itemType:getImbuingSlots() > 0) then
-			local imbuingSlots = "Imbuements: ("
-			for slot = 0, itemType:getImbuingSlots() - 1 do
-				if slot > 0 then
-					imbuingSlots = string.format("%s, ", imbuingSlots)
-				end
-				local duration = thing:getImbuementDuration(slot)
-				if duration > 0 then
-					local imbue = thing:getImbuement(slot)
-					imbuingSlots = string.format("%s%s %s %s",
-						imbuingSlots, imbue:getBase().name, imbue:getName(), getTime(duration))
-				else
-					imbuingSlots = string.format("%sEmpty Slot", imbuingSlots)
-				end
-			end
-			imbuingSlots = string.format("%s).", imbuingSlots)
-			description = string.gsub(description, "It weighs", imbuingSlots.. "\nIt weighs")
-		end
-	else
-		description = description .. thing:getDescription(distance)
-		if thing:isMonster() then
-			local master = thing:getMaster()
-			if master and table.contains({'thundergiant','grovebeast','emberwing','skullfrost'}, thing:getName():lower()) then
-				description = description..' (Master: ' .. master:getName() .. '). \z
-				It will disappear in ' .. getTimeinWords(master:getStorageValue(Storage.PetSummon) - os.time())
-			end
-		end
-	end
-
-	if self:getGroup():getAccess() then
-		if thing:isItem() then
-			description = string.format("%s\nItem ID: %d", description, thing:getId())
-
-			local actionId = thing:getActionId()
-			if actionId ~= 0 then
-				description = string.format("%s, Action ID: %d", description, actionId)
-			end
-
-			local uniqueId = thing:getAttribute(ITEM_ATTRIBUTE_UNIQUEID)
-			if uniqueId > 0 and uniqueId < 65536 then
-				description = string.format("%s, Unique ID: %d", description, uniqueId)
-			end
-
-			local itemType = thing:getType()
-
-			local transformEquipId = itemType:getTransformEquipId()
-			local transformDeEquipId = itemType:getTransformDeEquipId()
-			if transformEquipId ~= 0 then
-				description = string.format("%s\nTransforms to: %d (onEquip)", description, transformEquipId)
-			elseif transformDeEquipId ~= 0 then
-				description = string.format("%s\nTransforms to: %d (onDeEquip)", description, transformDeEquipId)
-			end
-
-			local decayId = itemType:getDecayId()
-			if decayId ~= -1 then
-				description = string.format("%s\nDecays to: %d", description, decayId)
-			end
-			
-			local clientId = itemType:getClientId()
-			if clientId then
-				description = string.format("%s\nClient ID: %d", description, clientId)
-			end
-			
-		elseif thing:isCreature() then
-			local str = "%s\nHealth: %d / %d"
-			if thing:isPlayer() and thing:getMaxMana() > 0 then
-				str = string.format("%s, Mana: %d / %d", str, thing:getMana(), thing:getMaxMana())
-			end
-			description = string.format(str, description, thing:getHealth(), thing:getMaxHealth()) .. "."
-		end
-
-		description = string.format(
-		"%s\nPosition: %d, %d, %d",
-		description, position.x, position.y, position.z
-		)
-
-		if thing:isCreature() then
-			if thing:isPlayer() then
-				description = string.format("%s\nIP: %s.", description, Game.convertIpToString(thing:getIp()))
-			end
-		end
-	end
-	self:sendTextMessage(MESSAGE_INFO_DESCR, description)
+	local ret = EventCallback(EVENT_CALLBACK_ONLOOK, self, thing, position, distance)
+	self:sendTextMessage(MESSAGE_INFO_DESCR, ret)
 end
 
 function Player:onLookInBattleList(creature, distance)
-	local description = "You see " .. creature:getDescription(distance)
-	if creature:isMonster() then
-		local master = creature:getMaster()
-		local summons = {'thundergiant','grovebeast','emberwing','skullfrost'}
-		if master and table.contains(summons, creature:getName():lower()) then
-			description = description..' (Master: ' .. master:getName() .. '). \z
-				It will disappear in ' .. getTimeinWords(master:getStorageValue(Storage.PetSummon) - os.time())
-		end
-	end
-	if self:getGroup():getAccess() then
-		local str = "%s\nHealth: %d / %d"
-		if creature:isPlayer() and creature:getMaxMana() > 0 then
-			str = string.format("%s, Mana: %d / %d", str, creature:getMana(), creature:getMaxMana())
-		end
-		description = string.format(str, description, creature:getHealth(), creature:getMaxHealth()) .. "."
-
-		local position = creature:getPosition()
-		description = string.format(
-		"%s\nPosition: %d, %d, %d",
-		description, position.x, position.y, position.z
-
-		)
-
-		if creature:isPlayer() then
-			description = string.format("%s\nIP: %s", description, Game.convertIpToString(creature:getIp()))
-		end
-	end
-	self:sendTextMessage(MESSAGE_INFO_DESCR, description)
+	local ret = EventCallback(EVENT_CALLBACK_ONLOOKINBATTLELIST, self, creature, distance)
+	self:sendTextMessage(MESSAGE_INFO_DESCR, ret)
 end
 
 function Player:onLookInTrade(partner, item, distance)
-	self:sendTextMessage(MESSAGE_INFO_DESCR, "You see " .. item:getDescription(distance))
+	local description = "You see " .. item:getDescription(distance)
+	local ret = hasEventCallback(EVENT_CALLBACK_ONLOOKINTRADE) and EventCallback(EVENT_CALLBACK_ONLOOKINTRADE, self, partner, item, distance, description) or description
+	self:sendTextMessage(MESSAGE_INFO_DESCR, ret)
 end
 
-function Player:onLookInShop(itemType, count)
-	return true
-end
-
-local config = {
-	maxItemsPerSeconds = 1,
-	exhaustTime = 2000,
-}
-
-if not pushDelay then
-	pushDelay = { }
-end
-
-local function antiPush(self, item, count, fromPosition, toPosition, fromCylinder, toCylinder)
-	if toPosition.x == CONTAINER_POSITION then
-		return true
-	end
-
-	local tile = Tile(toPosition)
-	if not tile then
-		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-		return false
-	end
-
-	local cid = self:getId()
-	if not pushDelay[cid] then
-		pushDelay[cid] = {items = 0, time = 0}
-	end
-
-	pushDelay[cid].items = pushDelay[cid].items + 1
-
-	local currentTime = os.mtime()
-	if pushDelay[cid].time == 0 then
-		pushDelay[cid].time = currentTime
-	elseif pushDelay[cid].time == currentTime then
-		pushDelay[cid].items = pushDelay[cid].items + 1
-	elseif currentTime > pushDelay[cid].time then
-		pushDelay[cid].time = 0
-		pushDelay[cid].items = 0
-	end
-
-	if pushDelay[cid].items > config.maxItemsPerSeconds then
-		pushDelay[cid].time = currentTime + config.exhaustTime
-	end
-
-	if pushDelay[cid].time > currentTime then
-		self:sendCancelMessage("You can't move that item so fast.")
-		return false
-	end
-
-	return true
+function Player:onLookInShop(itemType, count, description)
+	local description = "You see " .. description
+	local ret = hasEventCallback(EVENT_CALLBACK_ONLOOKINSHOP) and EventCallback(EVENT_CALLBACK_ONLOOKINSHOP, self, itemType, count, description) or description
+	self:sendTextMessage(MESSAGE_INFO_DESCR, ret)
 end
 
 function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, toCylinder)
-
-	-- No move items with actionID = 100
-	if item:getActionId() == NOT_MOVEABLE_ACTION then
-		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-		return false
-	end
-
-	-- No move if item count > 20 items
-	local tile = Tile(toPosition)
-	if tile and tile:getItemCount() > 20 then
-		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-		return false
-	end
-
-	-- No move parcel very heavy
-	if CONTAINER_WEIGHT_CHECK and ItemType(item:getId()):isContainer()
-	and item:getWeight() > CONTAINER_WEIGHT_MAX then
-		self:sendCancelMessage("Your cannot move this item too heavy.")
-		return false
-	end
-
-	-- Loot Analyser
-	local t = Tile(fromCylinder:getPosition())
-	local corpse = t:getTopDownItem()
-	if corpse then
-		local itemType = corpse:getType()
-		if itemType:isCorpse() and toPosition.x == CONTAINER_POSITION then
-			self:sendLootStats(item)
-		end
-	end
-
-	-- Cults of Tibia begin
-	local frompos = Position(33023, 31904, 14) -- Checagem
-	local topos = Position(33052, 31932, 15) -- Checagem
-	if self:getPosition():isInRange(frompos, topos) and item:getId() == 26397 then
-		local tileBoss = Tile(toPosition)
-		if tileBoss and tileBoss:getTopCreature() and tileBoss:getTopCreature():isMonster() then
-			if tileBoss:getTopCreature():getName():lower() == 'the remorseless corruptor' then
-				tileBoss:getTopCreature():addHealth(-17000)
-				item:remove(1)
-				if tileBoss:getTopCreature():getHealth() <= 300 then
-					tileBoss:getTopCreature():remove()
-					local monster = Game.createMonster('the corruptor of souls', toPosition)
-					monster:registerEvent('CheckTile')
-					if Game.getStorageValue('healthSoul') > 0 then
-						monster:addHealth(-(monster:getHealth() - Game.getStorageValue('healthSoul')))
-					end
-					Game.setStorageValue('CheckTile', os.time()+30)
-				end
-			elseif tileBoss:getTopCreature():getName():lower() == 'the corruptor of souls' then
-				Game.setStorageValue('CheckTile', os.time()+30)
-				item:remove(1)
-			end
-		end
-	end
-	-- Cults of Tibia end
-
-	-- SSA exhaust
-	local exhaust = { }
-	if toPosition.x == CONTAINER_POSITION and toPosition.y == CONST_SLOT_NECKLACE
-	and item:getId() == ITEM_STONE_SKIN_AMULET then
-		local pid = self:getId()
-		if exhaust[pid] then
-			self:sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED)
-			return false
-		else
-			exhaust[pid] = true
-			addEvent(function() exhaust[pid] = false end, 2000, pid)
-			return true
-		end
-	end
-
-	-- Store Inbox
-	local containerIdFrom = fromPosition.y - 64
-	local containerFrom = self:getContainerById(containerIdFrom)
-	if (containerFrom) then
-		if (containerFrom:getId() == ITEM_STORE_INBOX
-		and toPosition.y >= 1 and toPosition.y <= 11 and toPosition.y ~= 3) then
-			self:sendCancelMessage(RETURNVALUE_CONTAINERNOTENOUGHROOM)
-			return false
-		end
-	end
-
-	local containerTo = self:getContainerById(toPosition.y-64)
-	if (containerTo) then
-		if (containerTo:getId() == ITEM_STORE_INBOX) or (containerTo:getParent():isContainer() and containerTo:getParent():getId() == ITEM_STORE_INBOX and containerTo:getId() ~= ITEM_GOLD_POUCH) then
-			self:sendCancelMessage(RETURNVALUE_CONTAINERNOTENOUGHROOM)
-			return false
-		end
-		-- Gold Pouch
-		if (containerTo:getId() == ITEM_GOLD_POUCH) then
-			if (not (item:getId() == ITEM_CRYSTAL_COIN or item:getId() == ITEM_PLATINUM_COIN
-			or item:getId() == ITEM_GOLD_COIN)) then
-				self:sendCancelMessage("You can move only money to this container.")
-				return false
-			end
-		end
-	end
-
-
-	-- Bath tube
-	local toTile = Tile(toCylinder:getPosition())
-	local topDownItem = toTile:getTopDownItem()
-	if topDownItem and table.contains({ BATHTUB_EMPTY, BATHTUB_FILLED }, topDownItem:getId()) then
-		return false
-	end
-
-	-- Handle move items to the ground
-	if toPosition.x ~= CONTAINER_POSITION then
+	if hasEventCallback(EVENT_CALLBACK_ONMOVEITEM) then
+		return EventCallback(EVENT_CALLBACK_ONMOVEITEM, self, item, count, fromPosition, toPosition, fromCylinder, toCylinder)
+	else
 		return true
 	end
-
-	-- Check two-handed weapons
-	if item:getTopParent() == self and bit.band(toPosition.y, 0x40) == 0 then
-		local itemType, moveItem = ItemType(item:getId())
-		if bit.band(itemType:getSlotPosition(), SLOTP_TWO_HAND) ~= 0 and toPosition.y == CONST_SLOT_LEFT then
-			moveItem = self:getSlotItem(CONST_SLOT_RIGHT)
-		elseif itemType:getWeaponType() == WEAPON_SHIELD and toPosition.y == CONST_SLOT_RIGHT then
-			moveItem = self:getSlotItem(CONST_SLOT_LEFT)
-			if moveItem and bit.band(ItemType(moveItem:getId()):getSlotPosition(), SLOTP_TWO_HAND) == 0 then
-				return true
-			end
-		end
-
-		if moveItem then
-			local parent = item:getParent()
-			if parent:getSize() == parent:getCapacity() then
-				self:sendTextMessage(MESSAGE_STATUS_SMALL, Game.getReturnMessage(RETURNVALUE_CONTAINERNOTENOUGHROOM))
-				return false
-			else
-				return moveItem:moveTo(parent)
-			end
-		end
-	end
-
-	-- Reward System
-	if toPosition.x == CONTAINER_POSITION then
-		local containerId = toPosition.y - 64
-		local container = self:getContainerById(containerId)
-		if not container then
-			return true
-		end
-
-		-- Do not let the player insert items into either the Reward Container or the Reward Chest
-		local itemId = container:getId()
-		if itemId == ITEM_REWARD_CONTAINER or itemId == ITEM_REWARD_CHEST then
-			self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-			return false
-		end
-
-		-- The player also shouldn't be able to insert items into the boss corpse
-		local tileCorpse = Tile(container:getPosition())
-		for index, value in ipairs(tileCorpse:getItems() or { }) do
-			if value:getAttribute(ITEM_ATTRIBUTE_CORPSEOWNER) == 2^31 - 1 and value:getName() == container:getName() then
-				self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-				return false
-			end
-		end
-	end
-
-	-- Do not let the player move the boss corpse.
-	if item:getAttribute(ITEM_ATTRIBUTE_CORPSEOWNER) == 2^31 - 1 then
-		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-		return false
-	end
-
-	-- Players cannot throw items on reward chest
-	local tileChest = Tile(toPosition)
-	if tileChest and tileChest:getItemById(ITEM_REWARD_CHEST) then
-		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-		self:getPosition():sendMagicEffect(CONST_ME_POFF)
-		return false
-	end
-
-	-- Players cannot throw items on teleports
-	if blockTeleportTrashing and toPosition.x ~= CONTAINER_POSITION then
-		local thing = Tile(toPosition):getItemByType(ITEM_TYPE_TELEPORT)
-		if thing then
-			self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-			self:getPosition():sendMagicEffect(CONST_ME_POFF)
-			return false
-		end
-	end
-
-	if tile and tile:getItemById(370) then -- Trapdoor
-		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-		self:getPosition():sendMagicEffect(CONST_ME_POFF)
-		return false
-	end
-
-	if not antiPush(self, item, count, fromPosition, toPosition, fromCylinder, toCylinder) then
-		return false
-	end
-
-	return true
 end
 
 function Player:onItemMoved(item, count, fromPosition, toPosition, fromCylinder, toCylinder)
+	if hasEventCallback(EVENT_CALLBACK_ONITEMMOVED) then
+		EventCallback(EVENT_CALLBACK_ONITEMMOVED, self, item, count, fromPosition, toPosition, fromCylinder, toCylinder)
+	end
 end
 
 function Player:onMoveCreature(creature, fromPosition, toPosition)
-	return true
-end
-
-local function hasPendingReport(name, targetName, reportType)
-	local f = io.open(string.format("data/reports/players/%s-%s-%d.txt", name, targetName, reportType), "r")
-	if f then
-		io.close(f)
-		return true
+	if hasEventCallback(EVENT_CALLBACK_ONMOVECREATURE) then
+		return EventCallback(EVENT_CALLBACK_ONMOVECREATURE, self, creature, fromPosition, toPosition)
 	else
-		return false
+		return true
 	end
 end
 
 function Player:onReportRuleViolation(targetName, reportType, reportReason, comment, translation)
-	local name = self:getName()
-	if hasPendingReport(name, targetName, reportType) then
-		self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your report is being processed.")
-		return
+	if hasEventCallback(EVENT_CALLBACK_ONREPORTRULEVIOLATION) then
+		EventCallback(EVENT_CALLBACK_ONREPORTRULEVIOLATION, self, targetName, reportType, reportReason, comment, translation)
 	end
-
-	local file = io.open(string.format("data/reports/players/%s-%s-%d.txt", name, targetName, reportType), "a")
-	if not file then
-		self:sendTextMessage(MESSAGE_EVENT_ADVANCE,
-			"There was an error when processing your report, please contact a gamemaster.")
-		return
-	end
-
-	io.output(file)
-	io.write("------------------------------\n")
-	io.write("Reported by: " .. name .. "\n")
-	io.write("Target: " .. targetName .. "\n")
-	io.write("Type: " .. reportType .. "\n")
-	io.write("Reason: " .. reportReason .. "\n")
-	io.write("Comment: " .. comment .. "\n")
-	if reportType ~= REPORT_TYPE_BOT then
-		io.write("Translation: " .. translation .. "\n")
-	end
-	io.write("------------------------------\n")
-	io.close(file)
-	self:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Thank you for reporting %s. Your report \z
-	will be processed by %s team as soon as possible.", targetName, configManager.getString(configKeys.SERVER_NAME)))
-	return
 end
 
 function Player:onReportBug(message, position, category)
-	if self:getAccountType() == ACCOUNT_TYPE_NORMAL then
-		return false
-	end
-
-	local name = self:getName()
-	local file = io.open("data/reports/bugs/" .. name .. " report.txt", "a")
-
-	if not file then
-		self:sendTextMessage(MESSAGE_EVENT_DEFAULT,
-			"There was an error when processing your report, please contact a gamemaster.")
+	if hasEventCallback(EVENT_CALLBACK_ONREPORTBUG) then
+		return EventCallback(EVENT_CALLBACK_ONREPORTBUG, self, message, position, category)
+	else
 		return true
 	end
-
-	io.output(file)
-	io.write("------------------------------\n")
-	io.write("Name: " .. name)
-	if category == BUG_CATEGORY_MAP then
-		io.write(" [Map position: " .. position.x .. ", " .. position.y .. ", " .. position.z .. "]")
-	end
-	local playerPosition = self:getPosition()
-	io.write(" [Player Position: " .. playerPosition.x .. ", " .. playerPosition.y .. ", " .. playerPosition.z .. "]\n")
-	io.write("Comment: " .. message .. "\n")
-	io.close(file)
-
-	self:sendTextMessage(MESSAGE_EVENT_DEFAULT,
-		"Your report has been sent to " .. configManager.getString(configKeys.SERVER_NAME) .. ".")
-	return true
 end
 
 function Player:onTurn(direction)
-	if self:getGroup():getAccess() and self:getDirection() == direction then
-		local nextPosition = self:getPosition()
-		nextPosition:getNextPosition(direction)
-
-		self:teleportTo(nextPosition, true)
+	if hasEventCallback(EVENT_CALLBACK_ONTURN) then
+		return EventCallback(EVENT_CALLBACK_ONTURN, self, direction)
+	else
+		return true
 	end
-
-	return true
 end
 
 function Player:onTradeRequest(target, item)
-	-- No trade items with actionID = 100
-	if item:getActionId() == NOT_MOVEABLE_ACTION then
-		return false
+	if hasEventCallback(EVENT_CALLBACK_ONTRADEREQUEST) then
+		return EventCallback(EVENT_CALLBACK_ONTRADEREQUEST, self, target, item)
+	else
+		return true
 	end
-
-	if isInArray(storeItemID,item.itemid) then
-		return false
-	end
-	return true
 end
 
 function Player:onTradeAccept(target, item, targetItem)
-	self:closeImbuementWindow()
-	target:closeImbuementWindow()
-	return true
+	if hasEventCallback(EVENT_CALLBACK_ONTRADEACCEPT) then
+		return EventCallback(EVENT_CALLBACK_ONTRADEACCEPT, self, target, item, targetItem)
+	else
+		return true
+	end
+end
+
+function Player:onTradeCompleted(target, item, targetItem, isSuccess)
+	if hasEventCallback(EVENT_CALLBACK_ONTRADECOMPLETED) then
+		EventCallback(EVENT_CALLBACK_ONTRADECOMPLETED, self, target, item, targetItem, isSuccess)
+	end
 end
 
 local soulCondition = Condition(CONDITION_SOUL, CONDITIONID_DEFAULT)
@@ -747,16 +256,16 @@ function Player:onGainExperience(source, exp, rawExp)
 		exp = (exp * SCHEDULE_EXP_RATE)/100
 	end
 	self:setBaseXpGain(displayRate * 100)
-	return exp
+	return hasEventCallback(EVENT_CALLBACK_ONGAINEXPERIENCE) and EventCallback(EVENT_CALLBACK_ONGAINEXPERIENCE, self, source, exp, rawExp) or exp
 end
 
 function Player:onLoseExperience(exp)
-	return exp
+	return hasEventCallback(EVENT_CALLBACK_ONLOSEEXPERIENCE) and EventCallback(EVENT_CALLBACK_ONLOSEEXPERIENCE, self, exp) or exp
 end
 
 function Player:onGainSkillTries(skill, tries)
 	if APPLY_SKILL_MULTIPLIER == false then
-		return tries
+		return hasEventCallback(EVENT_CALLBACK_ONGAINSKILLTRIES) and EventCallback(EVENT_CALLBACK_ONGAINSKILLTRIES, self, skill, tries) or tries
 	end
 
 	-- Event scheduler skill rate
@@ -768,10 +277,12 @@ function Player:onGainSkillTries(skill, tries)
 	local magicRate = configManager.getNumber(configKeys.RATE_MAGIC)
 
 	if(skill == SKILL_MAGLEVEL) then -- Magic getLevel
-		return tries * getRateFromTable(magicLevelStages, self:getMagicLevel(), magicRate)
+		tries = tries * getRateFromTable(magicLevelStages, self:getMagicLevel(), magicRate)
+		return hasEventCallback(EVENT_CALLBACK_ONGAINSKILLTRIES) and EventCallback(EVENT_CALLBACK_ONGAINSKILLTRIES, self, skill, tries) or tries
 	end
 
-	return tries * getRateFromTable(skillsStages, self:getEffectiveSkillLevel(skill), skillRate)
+	tries = tries * getRateFromTable(skillsStages, self:getEffectiveSkillLevel(skill), skillRate)
+	return hasEventCallback(EVENT_CALLBACK_ONGAINSKILLTRIES) and EventCallback(EVENT_CALLBACK_ONGAINSKILLTRIES, self, skill, tries) or tries
 end
 
 function Player:onRemoveCount(item)
