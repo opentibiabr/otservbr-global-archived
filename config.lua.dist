@@ -62,6 +62,7 @@ deathLosePercent = -1
 -- Periods: daily/weekly/monthly/yearly/never
 housePriceEachSQM = 1000
 houseRentPeriod = "never"
+houseOwnedByAccount = false
 
 -- Item Usage
 timeBetweenActions = 200
