@@ -81,19 +81,6 @@ uint32_t IOLoginData::gameworldAuthentication(const std::string& email, const st
   return accountId;
 }
 
-uint32_t IOLoginData::getAccountIdByPlayerId(const uint32_t id)
-{
-	Database& db = Database::getInstance();
-
-	std::ostringstream query;
-	query << "SELECT `account_id` FROM `players` WHERE `id` = " << id;
-	DBResult_ptr result = db.storeQuery(query.str());
-	if (!result) {
-		return 0;
-	}
-	return result->getNumber<uint32_t>("account_id");
-}
-
 account::AccountType IOLoginData::getAccountType(uint32_t accountId)
 {
   std::ostringstream query;

@@ -107,11 +107,20 @@ void House::setOwner(uint32_t guid, bool updateDatabase/* = true*/, Player* play
 	rentWarnings = 0;
 
 	if (guid != 0) {
-		std::string name = IOLoginData::getNameByGuid(guid);
+
+		Database& db = Database::getInstance();
+		std::ostringstream query;
+		query << "SELECT `name`, `account_id` FROM `players` WHERE `id` = " << guid;
+		DBResult_ptr result = db.storeQuery(query.str());
+		if (!result) {
+			return;
+		}
+		
+		std::string name = result->getString("name");
 		if (!name.empty()) {
 			owner = guid;
 			ownerName = name;
-			ownerAccountId = IOLoginData::getAccountIdByPlayerId(guid);
+			ownerAccountId =  result->getNumber<uint32_t>("account_id");
 		}
 	}
 
