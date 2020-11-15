@@ -8,7 +8,7 @@ local config = {
 	-- Number of columns
 	columns= 7,
 	-- Number of lines
-	lines= 11
+	lines= 54
 }
 
 local function isBusyable(position)
