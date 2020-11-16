@@ -53,6 +53,7 @@ class ConfigManager
 			HOUSE_OWNED_BY_ACCOUNT,
 			STOREMODULES,
 			ALLOW_BLOCK_SPAWN,
+      ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
