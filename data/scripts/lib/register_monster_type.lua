@@ -229,6 +229,11 @@ registerMonsterType.loot = function(mtype, mask)
 			end
 			if loot.subType or loot.charges then
 				parent:setSubType(loot.subType or loot.charges)
+			else
+    			local lType = ItemType(loot.id)
+				if lType and lType:getCharges() > 1 then
+        			parent:setSubType(lType:getCharges())
+				end
 			end
 			if loot.text or loot.description then
 				parent:setDescription(loot.text or loot.description)
@@ -250,6 +255,11 @@ registerMonsterType.loot = function(mtype, mask)
 					end
 					if children.subType or children.charges then
 						child:setSubType(children.subType or children.charges)
+					else
+    					local cType = ItemType(children.id)
+						if cType and cType:getCharges() > 1 then
+        					child:setSubType(cType:getCharges())
+						end
 					end
 					if children.text or children.description then
 						child:setDescription(children.text or children.description)
