@@ -804,8 +804,8 @@ function onUseCrowbar(player, item, fromPosition, target, toPosition, isHotkey)
 	elseif target.actionid == 100 then
 		if target.itemid == 2593 then
 			-- Postman quest
-			if player:getStorageValue(Storage.postman.Mission02) == 1 then
-				player:setStorageValue(Storage.postman.Mission02, 2)
+			if player:getStorageValue(Storage.Postman.Mission02) == 1 then
+				player:setStorageValue(Storage.Postman.Mission02, 2)
 				toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			end
 		elseif target.itemid == 5539 then
