@@ -363,6 +363,7 @@ c_cpp_properties.json
 ## CUSTOM
 # Files
 config.lua
+config.lua.bk
 # Extensions
 *.ini
 *.otb
