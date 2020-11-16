@@ -364,6 +364,7 @@ c_cpp_properties.json
 # Files
 config.lua
 config.lua.bk
+client_asertions.txt
 # Extensions
 *.ini
 *.otb
