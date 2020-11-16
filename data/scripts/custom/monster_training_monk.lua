@@ -35,7 +35,7 @@ monster.summons = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 100,
+	chance = 10,
 	{text = "Hit!", yell = false},
 }
 

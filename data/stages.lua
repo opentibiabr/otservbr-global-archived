@@ -6,26 +6,30 @@ experienceStages = {
 	{
 		minlevel = 1,
 		maxlevel = 10,
-		multiplier = 10
+		multiplier = 10 --5, 10
 	}, {
 		minlevel = 11,
 		maxlevel = 20,
-		multiplier = 8
+		multiplier = 8 --4, 8
 	}, {
 		minlevel = 21,
 		maxlevel = 30,
-		multiplier = 6
+		multiplier = 6 --3, 6
 	}, {
 		minlevel = 31,
 		maxlevel = 40,
-		multiplier = 4
+		multiplier = 5 --2.5, 5
 	}, {
 		minlevel = 41,
 		maxlevel = 50,
-		multiplier = 3
+		multiplier = 4 --2, 4
 	}, {
 		minlevel = 51,
-		multiplier = 2
+		maxlevel = 50,
+		multiplier = 3 --1.5, 3
+	}, {
+		minlevel = 100,
+		multiplier = 2 --1, 2
 	}
 }
 

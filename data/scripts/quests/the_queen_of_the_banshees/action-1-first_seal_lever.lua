@@ -14,13 +14,14 @@ function leverFirstSeal.onUse(player, item, fromPosition, target, toPosition, is
 			return true
 		elseif item.itemid == 1946 then
 			Position.removeItem(wall.position, 369)
+			Position.createItem(wall.position, 407)
 			Position.createItem(wall.position, 1498)
 			item:transform(32400)
 			return true
 		end
 		return false
 	end
-
+ 
 	if item.itemid == 1945 then
 		Position.removeItem(wall.position, 1498)
 		if wall.revert == true then

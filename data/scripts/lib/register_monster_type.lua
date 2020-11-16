@@ -115,7 +115,10 @@ registerMonsterType.flags = function(mtype, mask)
 			mtype:targetDistance(mask.flags.targetDistance)
 		end
 		if mask.flags.runHealth then
-			mtype:runHealth(mask.flags.runHealth)
+			if mtype:getName():lower() == 'rabbit' then
+				print('MONSTER_RUN_HEALTH_RATE: '..MONSTER_RUN_HEALTH_RATE)
+			end
+			mtype:runHealth(mask.flags.runHealth * MONSTER_RUN_HEALTH_RATE)
 		end
 		if mask.flags.staticAttackChance then
 			mtype:staticAttackChance(mask.flags.staticAttackChance)
@@ -198,8 +201,11 @@ registerMonsterType.voices = function(mtype, mask)
 end
 registerMonsterType.summons = function(mtype, mask)
 	if type(mask.summons) == "table" then
+		if mtype:getName():lower() == 'bonelord' then
+			print('MONSTER_SUMMON_MULT: '..MONSTER_SUMMON_MULT)
+		end
 		for k, v in pairs(mask.summons) do
-			mtype:addSummon(v.name, v.interval, v.chance)
+			mtype:addSummon(v.name, v.interval, v.chance*MONSTER_SUMMON_MULT)
 		end
 	end
 end

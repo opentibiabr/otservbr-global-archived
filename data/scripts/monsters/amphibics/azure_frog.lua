@@ -17,7 +17,7 @@ monster.health = 60
 monster.maxHealth = 60
 monster.race = "blood"
 monster.corpse = 6079
-monster.speed = 160
+monster.speed = 200
 monster.summonCost = 305
 monster.maxSummons = 0
 
@@ -31,7 +31,7 @@ monster.strategiesTarget = {
 }
 
 monster.flags = {
-	summonable = true,
+	summonable = false,
 	attackable = true,
 	hostile = true,
 	convinceable = true,

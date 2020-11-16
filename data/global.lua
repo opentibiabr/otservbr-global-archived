@@ -1,6 +1,12 @@
 math.randomseed(os.time())
 dofile('data/lib/lib.lua')
 
+GAMESTORE_MOUNT_DISCOUNT = 200
+GAMESTORE_OUTFIT_DISCOUNT = 200
+
+MONSTER_RUN_HEALTH_RATE = 1.5
+MONSTER_SUMMON_MULT = 500
+
 -- AutoLoot config
 AUTO_LOOT_MAX_ITEMS = 10
 
