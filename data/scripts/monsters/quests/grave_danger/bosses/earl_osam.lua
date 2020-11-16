@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Earl Osam")
 local monster = {}
 
 monster.description = "Earl Osam"
-monster.experience = 6300
+monster.experience = 44200
 monster.outfit = {
 	lookType = 1223,
 	lookHead = 95,
@@ -66,35 +66,30 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "silver token", chance = 100000, maxCount = 2},
-	{id = "platinum coin", chance = 96770, maxCount = 5},
-	{id = "ultimate spirit potion", chance = 64520, maxCount = 20},
-	{id = "ultimate mana potion", chance = 51610, maxCount = 20},
-	{id = "supreme health potion", chance = 45160, maxCount = 20},
-	{id = "crystal coin", chance = 35480, maxCount = 3},
-	{id = "piece of draconian steel", chance = 32260, maxCount = 3},
-	{id = "bullseye potion", chance = 29030, maxCount = 10},
-	{id = "red gem", chance = 29030},
-	{id = "blue gem", chance = 25810},
-	{id = "yellow gem", chance = 22580, maxCount = 2},
-	{id = 26199, chance = 19350},
-	{id = "green gem", chance = 19350, maxCount = 2},
-	{id = "glacier mask", chance = 19350},
-	{id = "warrior helmet", chance = 19350},
-	{id = 26200, chance = 19350},
-	{id = "berserk potion", chance = 16130, maxCount = 10},
-	{id = 26189, chance = 16130},
-	{id = "mastermind potion", chance = 12900, maxCount = 10},
-	{id = "gold ingot", chance = 12900},
-	{id = "violet gem", chance = 12900},
-	{id = 26198, chance = 9680},
-	{id = "piece of hell steel", chance = 9680, maxCount = 4},
-	{id = "young lich worm", chance = 6450},
-	{id = 26187, chance = 3230},
-	{id = "rotten heart", chance = 400},
-	{id = "embrace of nature", chance = 400},
-	{id = "terra helmet", chance = 150},
-	{id = "final judgement", chance = 150}
+	{id = "Platinum Coin", minCount = 1, maxCount = 5, chance = 100000},--comum
+	{id = "Crystal Coin", minCount = 0, maxCount = 2, chance = 50000},--comum
+	{id = "Supreme Health Potion", minCount = 0, maxCount = 6, chance = 35000},--comum
+	{id = "Ultimate Mana Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{id = "Ultimate Spirit Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{id = "Bullseye Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{id = "Mastermind Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{id = "Berserk Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{id = "Piece of draconian steel", minCount = 0, maxCount = 3, chance = 9000},--comum
+	{id = "Red Gem", minCount = 0, maxCount = 2, chance = 12000},--comum
+	{id = "Silver Token", minCount = 0, maxCount = 2, chance = 9500},--semiraro
+	{id = "Collar of blue plasma", chance = 5200},--semiraro
+	{id = "Collar of red plasma", chance = 5200},--semiraro
+	{id = "Ring of blue plasma", chance = 5000},--semiraro
+	{id = "Ring of red plasma", chance = 5000},--semiraro
+	{id = "Warrior Helmet", chance = 11000},--semiraro
+	{id = "Guardian Axe", chance = 6400},--semiraro
+	{id = "Gold Ingot", minCount = 0, maxCount = 1, chance = 10000},--semiraro
+	{id = "Young Lich Worm", chance = 5800},--semiraro
+	{id = "Embrace of nature", chance = 1600},--raro
+	{id = "Token of love", chance = 1200},--raro
+	{id = "Rotten Heart", chance = 1700},--raro
+	{id = "Terra helmet", chance = 730},--raro
+	{id = "Final Judgement", chance = 440},--muitoraro
 }
 
 monster.attacks = {

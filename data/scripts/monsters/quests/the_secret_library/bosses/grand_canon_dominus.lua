@@ -45,9 +45,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -62,28 +62,18 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Small Emerald", chance = 100000, maxCount = 3},
-	{id = "Small Amethyst", chance = 100000, maxCount = 3},
-	{id = "Platinum Coin", chance = 100000, maxCount = 3},
-	{id = "Assassin Star", chance = 100000, maxCount = 5},
-	{id = "Great Spirit Potion", chance = 100000, maxCount = 3},
-	{id = "gold coin", chance = 100000, maxCount = 60},
-	{id = "gold coin", chance = 100000, maxCount = 40},
-	{id = "Small Ruby", chance = 700, maxCount = 3},
-	{id = "red Gem", chance = 700, maxCount = 3},
-	{id = "Onyx Arrow", chance = 700, maxCount = 3},
-	{id = "Small Topaz", chance = 700, maxCount = 3},
-	{id = 7633, chance = 3300},
-	{id = "Violet Gem", chance = 250},
-	{id = "Green Gem", chance = 250},
-	{id = "Damaged Armor Plates", chance = 320, maxCount = 3},
-	{id = "Falcon Crest", chance = 310, maxCount = 3},
-	{id = "Patch of Fine Cloth", chance = 320},
-	{id = "Golden Armor", chance = 120},
-	{id = "Mastermind Shield", chance = 120},
-	{id = "Falcon Bow", chance = 60},
-	{id = "Falcon Wand", chance = 60},
-	{id = "Falcon Plate", chance = 60}
+	{id = "Platinum Coin", chance = 100000, maxCount = 5},--comum
+	{id = "Great Health Potion", chance = 100000, maxCount = 3},--comum
+	{id = "Assassin Star", chance = 100000, maxCount = 2},--comum
+	{id = "Small Amethyst", chance = 100000, maxCount = 2},--comum
+	{id = "Golden Armor", chance = 1700},--raro
+	{id = "Mastermind Shield", chance = 1100},--raro
+	{id = "Patch of Fine Cloth", chance = 1000},--raro
+	{id = "red Gem", chance = 1800},--raro
+	{id = "Violet Gem", chance = 1850},--raro
+	{id = "Falcon Bow", chance = 180},
+	{id = "Falcon Wand", chance = 180},
+	{id = "Falcon Plate", chance = 100}
 }
 
 monster.attacks = {
@@ -103,7 +93,7 @@ monster.defenses = {
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 50},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 50},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
@@ -111,7 +101,7 @@ monster.elements = {
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 55}
+	{type = COMBAT_DEATHDAMAGE , percent = 50}
 }
 
 monster.immunities = {

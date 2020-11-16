@@ -45,9 +45,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -62,25 +62,18 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Small Emerald", chance = 100000, maxCount = 3},
-	{id = "Small Amethyst", chance = 100000, maxCount = 3},
-	{id = "Platinum Coin", chance = 100000, maxCount = 3},
-	{id = "Assassin Star", chance = 100000, maxCount = 5},
-	{id = "Great Spirit Potion", chance = 100000, maxCount = 3},
-	{id = "gold coin", chance = 100000, maxCount = 60},
-	{id = "gold coin", chance = 100000, maxCount = 40},
-	{id = "Small Ruby", chance = 700, maxCount = 3},
-	{id = "red Gem", chance = 700, maxCount = 3},
-	{id = "Onyx Arrow", chance = 700, maxCount = 3},
-	{id = "Small Topaz", chance = 700, maxCount = 3},
-	{id = 7633, chance = 3300},
-	{id = "Violet Gem", chance = 300},
-	{id = "Green Gem", chance = 300},
-	{id = "Damaged Armor Plates", chance = 400, maxCount = 3},
-	{id = "Falcon Crest", chance = 400, maxCount = 3},
-	{id = "Patch of Fine Cloth", chance = 400},
-	{id = "Falcon Coif", chance = 60},
-	{id = "Falcon Bow", chance = 60}
+	{id = "Small Enchanted Amethyst", chance = 15000, maxCount = 3},--done
+	{id = "Platinum Coin", chance = 50000, maxCount = 3},--done
+	{id = "Great Health Potion", chance = 50000, maxCount = 3},--done
+	{id = "Small Ruby", chance = 12700, maxCount = 3},--done
+	{id = "Onyx Arrow", chance = 30000, maxCount = 3},--done
+	{id = "Golden Armor", chance = 1000},
+	{id = "Green Gem", chance = 1300},--done
+	{id = "Damaged Armor Plates", chance = 1800, maxCount = 3},--done
+	{id = "Falcon Crest", chance = 400, maxCount = 3},--done
+	{id = "Patch of Fine Cloth", chance = 2500},--done
+	{id = "Falcon Coif", chance = 200},--done
+	{id = "Falcon Bow", chance = 200}--done
 }
 
 monster.attacks = {
@@ -105,7 +98,7 @@ monster.elements = {
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 55}
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
 }
 
 monster.immunities = {
