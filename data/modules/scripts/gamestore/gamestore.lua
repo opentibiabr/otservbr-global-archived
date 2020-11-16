@@ -3262,7 +3262,7 @@ GameStore.Categories = {
  { 
    icons = { "Category_HouseFurniture.png" },
    name = "Furniture",
-   parent = "House",   
+   parent = "Houses",   
    rookgaard = true,
    state = GameStore.States.STATE_NONE,
    offers = {  
