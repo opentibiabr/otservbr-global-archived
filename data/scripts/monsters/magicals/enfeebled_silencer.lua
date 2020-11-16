@@ -85,7 +85,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 80, attack = 70, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 200, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, skill = 80, attack = 70, condition = {type = CONDITION_POISON, totalDamage = 200, interval = 4000}},
 	{name ="silencer skill reducer", interval = 2000, chance = 10, range = 3, target = false},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -40, maxDamage = -90, radius = 4, shootEffect = CONST_ANI_ONYXARROW, effect = CONST_ME_MAGIC_RED, target = true}
 }

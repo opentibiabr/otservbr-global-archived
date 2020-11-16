@@ -68,7 +68,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 30, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 80, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 30, condition = {type = CONDITION_POISON, totalDamage = 80, interval = 4000}},
 	{name ="nightstalker paralyze", interval = 2000, chance = 19, range = 7, target = false},
 	{name ="combat", interval = 2000, chance = 12, type = COMBAT_LIFEDRAIN, minDamage = -360, maxDamage = -470, radius = 5, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="speed", interval = 2000, chance = 20, speedChange = -600, range = 6, radius = 4, effect = CONST_ME_SMALLCLOUDS, target = false, duration = 20000},

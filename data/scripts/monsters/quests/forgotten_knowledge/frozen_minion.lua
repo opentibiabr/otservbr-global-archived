@@ -65,7 +65,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 50, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 50},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -150, maxDamage = -200, shootEffect = CONST_ANI_SNOWBALL, target = true},
 	{name ="frozen minion wave", interval = 2000, chance = 25, target = false},
 	{name ="frozen minion beam", interval = 2000, chance = 25, target = false}

@@ -73,7 +73,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -118, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -118},
 	{name ="outfit", interval = 3000, chance = 20, range = 7, effect = CONST_ME_MAGIC_BLUE, target = true, duration = 4000, outfitMonster = "Sheep"}
 }
 

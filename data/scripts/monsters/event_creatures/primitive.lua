@@ -90,7 +90,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -32, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -32},
 	{name ="drunk", interval = 1000, chance = 20, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
 	{name ="combat", interval = 1000, chance = 34, type = COMBAT_FIREDAMAGE, minDamage = -20, maxDamage = -20, range = 7, radius = 3, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
 	{name ="outfit", interval = 1000, chance = 2, radius = 4, effect = CONST_ME_LOSEENERGY, target = false, duration = 10000, outfitMonster = "primitive"}

@@ -61,7 +61,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 80, attack = 100, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, skill = 80, attack = 100},
 	{name ="ghastly dragon wave", interval = 2000, chance = 10, minDamage = -50, maxDamage = -250, target = false},
 	{name ="ghastly dragon curse", interval = 2000, chance = 10, range = 7, target = false},
 	-- poison

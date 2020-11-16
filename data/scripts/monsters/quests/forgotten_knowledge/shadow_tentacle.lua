@@ -68,7 +68,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 88, attack = 100, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, skill = 88, attack = 100},
 	{name ="blightwalker curse", interval = 2000, chance = 10, target = false},
 	{name ="combat", interval = 2000, chance = 14, type = COMBAT_LIFEDRAIN, minDamage = -65, maxDamage = -135, radius = 4, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="drunk", interval = 2000, chance = 20, radius = 7, effect = CONST_ME_HITBYPOISON, target = false, duration = 35000},

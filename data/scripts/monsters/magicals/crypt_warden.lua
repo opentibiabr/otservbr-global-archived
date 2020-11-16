@@ -74,7 +74,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
 	{name ="warden x", interval = 2000, chance = 15, minDamage = -250, maxDamage = -430, target = false},
 	{name ="warden ring", interval = 2000, chance = 8, minDamage = -250, maxDamage = -380, target = false},
 	{name ="combat", interval = 2000, chance = 12, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -480, radius = 2, effect = CONST_ME_GROUNDSHAKER, target = false},
