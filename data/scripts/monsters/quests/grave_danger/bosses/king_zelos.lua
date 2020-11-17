@@ -41,8 +41,7 @@ monster.flags = {
 	healthHidden = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true,
-	respawnType = RESPAWN_IN_ALL
+	canWalkOnPoison = true
 }
 
 monster.loot = {
