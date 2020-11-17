@@ -383,7 +383,7 @@ if player:getStorageValue(ACCESS_AREAS_QUEST) < 1 then
 
     -- Threatened Dreams (Access to Feyrist)
     player:setStorageValue(Storage.ThreatenedDreams.Start, 1)
-    player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 4)
+    player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 17)
 
     -- Adventurers Guild.
     player:setStorageValue(Storage.AdventurersGuild.GreatDragonHunt.WarriorSkeleton, 1)
