@@ -17,7 +17,7 @@ monster.health = 5000
 monster.maxHealth = 5000
 monster.race = "fire"
 monster.corpse = 0
-monster.speed = 58
+monster.speed = 200
 monster.summonCost = 0
 monster.maxSummons = 0
 
@@ -41,7 +41,7 @@ monster.flags = {
 	pushable = false,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = true,
+	canPushItems = false,
 	canPushCreatures = true,
 	staticAttackChance = 90,
 	targetDistance = 1,
@@ -49,7 +49,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -70,11 +70,18 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -150, effect = CONST_ME_DRAWBLOOD},
-	{name ="ravennouslavalurkerwave", interval = 2000, chance = 15, minDamage = 0, maxDamage = -100, target = false},
-	{name ="ravennouslavalurkerwave2", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, target = false}
-}
+	-- {name ="ravennouslavalurkerwave", interval = 2000, chance = 15, minDamage = 0, maxDamage = -100, target = false},
+	-- {name ="ravennouslavalurkerwave2", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, target = false},
+	-- {name ="combat", interval = 1000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -70, maxDamage = -300, range = 7, length = 3, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
+	-- {name ="combat", interval = 1000, chance = 12, type = COMBAT_FIREDAMAGE, minDamage = -10, maxDamage = -100, range = 7, length = 6, spread = 3, effect = CONST_ME_HITBYFIRE, target = false}
 
-monster.defenses = {
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -10, maxDamage = -150, radius = 4, effect = CONST_ME_FIREAREA, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -10, maxDamage = -300, range = 7, radius = 4, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
+	{name ="combat", interval = 1000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -28, maxDamage = -188, range = 7, radius = 4, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -10, maxDamage = -200, range = 7, radius = 3, effect = CONST_ME_HITBYFIRE, target = false}
+}
+ 
+monster.defenses = { 
 	defense = 33,
 	armor = 45
 }
