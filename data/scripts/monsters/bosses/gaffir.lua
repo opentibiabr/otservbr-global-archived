@@ -69,17 +69,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 100000, maxCount = 17},
-	{id = "Small Ruby", chance = 33500, maxCount = 2},
-	{id = "Small Sapphire", chance = 33500},
-	{id = "Small Topaz", chance = 33500},
-	{id = "Small Diamond", chance = 33500},
-	{id = "Terra Rod", chance = 26000, maxCount = 3},
-	{id = "Springsprout Rod", chance = 19000},
-	{id = "Great Spirit Potion", chance = 16400},
-	{id = "Spellbook of Warding", chance = 9500},
-	{id = "Ring of Healing", chance = 6400},
-	{id = "Cobra Crest", chance = 560}
+	{name = "Platinum Coin", chance = 100000, maxCount = 17},
+	{name = "Small Ruby", chance = 33500, maxCount = 2},
+	{name = "Small Sapphire", chance = 33500},
+	{name = "Small Topaz", chance = 33500},
+	{name = "Small Diamond", chance = 33500},
+	{name = "Terra Rod", chance = 26000, maxCount = 3},
+	{name = "Springsprout Rod", chance = 19000},
+	{name = "Great Spirit Potion", chance = 16400},
+	{name = "Spellbook of Warding", chance = 9500},
+	{name = "Ring of Healing", chance = 6400},
+	{name = "Cobra Crest", chance = 560}
 }
 
 monster.attacks = {

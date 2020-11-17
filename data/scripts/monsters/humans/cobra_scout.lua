@@ -65,13 +65,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 3},
-	{id = "earth arrow", chance = 9490, maxCount = 28},
-	{id = "cheesy figurine", chance = 4430},
-	{id = "cobra crest", chance = 7750},
+	{name = "platinum coin", chance = 100000, maxCount = 3},
+	{name = "earth arrow", chance = 9490, maxCount = 28},
+	{name = "cheesy figurine", chance = 4430},
+	{name = "cobra crest", chance = 7750},
 	{id = 26189, chance = 1690},
-	{id = "stone skin amulet", chance = 4430},
-	{id = "sacred tree amulet", chance = 1900}
+	{name = "stone skin amulet", chance = 4430},
+	{name = "sacred tree amulet", chance = 1900}
 }
 
 monster.attacks = {

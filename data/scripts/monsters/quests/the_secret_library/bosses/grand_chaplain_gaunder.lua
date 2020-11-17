@@ -62,16 +62,16 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Small Emerald", chance = 100000, maxCount = 3},
-	{id = "Assassin Star", chance = 100000, maxCount = 5},
-	{id = "Great Spirit Potion", chance = 100000, maxCount = 3},
-	{id = "gold coin", chance = 100000, maxCount = 60},
-	{id = "gold coin", chance = 100000, maxCount = 40},
-	{id = "Onyx Arrow", chance = 700, maxCount = 3},
+	{name = "Small Emerald", chance = 100000, maxCount = 3},
+	{name = "Assassin Star", chance = 100000, maxCount = 5},
+	{name = "Great Spirit Potion", chance = 100000, maxCount = 3},
+	{name = "gold coin", chance = 100000, maxCount = 60},
+	{name = "gold coin", chance = 100000, maxCount = 40},
+	{name = "Onyx Arrow", chance = 700, maxCount = 3},
 	{id = 7633, chance = 3300},
-	{id = "Damaged Armor Plates", chance = 350, maxCount = 3},
-	{id = "Falcon Longsword", chance = 60},
-	{id = "Falcon Shield", chance = 60}
+	{name = "Damaged Armor Plates", chance = 350, maxCount = 3},
+	{name = "Falcon Longsword", chance = 60},
+	{name = "Falcon Shield", chance = 60}
 }
 
 monster.attacks = {

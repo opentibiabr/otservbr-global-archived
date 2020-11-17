@@ -65,20 +65,20 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "berserk potion", chance = 100000, maxCount = 10},
-	{id = "crystal coin", chance = 100000},
-	{id = "energy bar", chance = 100000},
-	{id = "giant sapphire", chance = 100000},
-	{id = "gold token", chance = 100000, maxCount = 2},
-	{id = "silver token", chance = 100000, maxCount = 2},
-	{id = "royal star", chance = 100000, maxCount = 100},
-	{id = "green gem", chance = 100000, maxCount = 2},
-	{id = "huge chunk of crude iron", chance = 25100},
-	{id = "mysterious remains", chance = 25000},
-	{id = "piggy bank", chance = 12800},
-	{id = "platinum coin", chance = 12000, maxCount = 10},
-	{id = "supreme health potion", chance = 12000, maxCount = 10},
-	{id = "ultimate mana potion", chance = 12000, maxCount = 20}
+	{name = "berserk potion", chance = 100000, maxCount = 10},
+	{name = "crystal coin", chance = 100000},
+	{name = "energy bar", chance = 100000},
+	{name = "giant sapphire", chance = 100000},
+	{name = "gold token", chance = 100000, maxCount = 2},
+	{name = "silver token", chance = 100000, maxCount = 2},
+	{name = "royal star", chance = 100000, maxCount = 100},
+	{name = "green gem", chance = 100000, maxCount = 2},
+	{name = "huge chunk of crude iron", chance = 25100},
+	{name = "mysterious remains", chance = 25000},
+	{name = "piggy bank", chance = 12800},
+	{name = "platinum coin", chance = 12000, maxCount = 10},
+	{name = "supreme health potion", chance = 12000, maxCount = 10},
+	{name = "ultimate mana potion", chance = 12000, maxCount = 20}
 }
 
 monster.attacks = {

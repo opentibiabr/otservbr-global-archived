@@ -65,12 +65,12 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 3},
-	{id = "terra rod", chance = 1905},
-	{id = "cobra crest", chance = 10480},
-	{id = "terra boots", chance = 13300},
-	{id = "snakebite rod", chance = 8570},
-	{id = "terra hood", chance = 4760}
+	{name = "platinum coin", chance = 100000, maxCount = 3},
+	{name = "terra rod", chance = 1905},
+	{name = "cobra crest", chance = 10480},
+	{name = "terra boots", chance = 13300},
+	{name = "snakebite rod", chance = 8570},
+	{name = "terra hood", chance = 4760}
 }
 
 monster.attacks = {

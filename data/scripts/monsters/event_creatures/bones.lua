@@ -68,19 +68,19 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 100000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 90},
-	{id = "sword ring", chance = 10000},
-	{id = "broadsword", chance = 4000},
-	{id = "magic plate armor", chance = 2000},
-	{id = "spectral stone", chance = 800},
-	{id = "skull helmet", chance = 50000},
-	{id = "soul orb", chance = 10000},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 90},
+	{name = "sword ring", chance = 10000},
+	{name = "broadsword", chance = 4000},
+	{name = "magic plate armor", chance = 2000},
+	{name = "spectral stone", chance = 800},
+	{name = "skull helmet", chance = 50000},
+	{name = "soul orb", chance = 10000},
 	{id = 6300, chance = 4000},
-	{id = "demonic essence", chance = 1538},
+	{name = "demonic essence", chance = 1538},
 	{id = 6570, chance = 5538, maxCount = 3},
 	{id = 6571, chance = 1538},
-	{id = "dragonbone staff", chance = 50000}
+	{name = "dragonbone staff", chance = 50000}
 }
 
 monster.attacks = {

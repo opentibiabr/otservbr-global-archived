@@ -62,25 +62,25 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Small Emerald", chance = 100000, maxCount = 3},
-	{id = "Small Amethyst", chance = 100000, maxCount = 3},
-	{id = "Platinum Coin", chance = 100000, maxCount = 3},
-	{id = "Assassin Star", chance = 100000, maxCount = 5},
-	{id = "Great Spirit Potion", chance = 100000, maxCount = 3},
-	{id = "gold coin", chance = 100000, maxCount = 60},
-	{id = "gold coin", chance = 100000, maxCount = 40},
-	{id = "Small Ruby", chance = 700, maxCount = 3},
-	{id = "red Gem", chance = 700, maxCount = 3},
-	{id = "Onyx Arrow", chance = 700, maxCount = 3},
-	{id = "Small Topaz", chance = 700, maxCount = 3},
+	{name = "Small Emerald", chance = 100000, maxCount = 3},
+	{name = "Small Amethyst", chance = 100000, maxCount = 3},
+	{name = "Platinum Coin", chance = 100000, maxCount = 3},
+	{name = "Assassin Star", chance = 100000, maxCount = 5},
+	{name = "Great Spirit Potion", chance = 100000, maxCount = 3},
+	{name = "gold coin", chance = 100000, maxCount = 60},
+	{name = "gold coin", chance = 100000, maxCount = 40},
+	{name = "Small Ruby", chance = 700, maxCount = 3},
+	{name = "red Gem", chance = 700, maxCount = 3},
+	{name = "Onyx Arrow", chance = 700, maxCount = 3},
+	{name = "Small Topaz", chance = 700, maxCount = 3},
 	{id = 7633, chance = 3300},
-	{id = "Violet Gem", chance = 300},
-	{id = "Green Gem", chance = 300},
-	{id = "Damaged Armor Plates", chance = 400, maxCount = 3},
-	{id = "Falcon Crest", chance = 400, maxCount = 3},
-	{id = "Patch of Fine Cloth", chance = 400},
-	{id = "Falcon Coif", chance = 60},
-	{id = "Falcon Bow", chance = 60}
+	{name = "Violet Gem", chance = 300},
+	{name = "Green Gem", chance = 300},
+	{name = "Damaged Armor Plates", chance = 400, maxCount = 3},
+	{name = "Falcon Crest", chance = 400, maxCount = 3},
+	{name = "Patch of Fine Cloth", chance = 400},
+	{name = "Falcon Coif", chance = 60},
+	{name = "Falcon Bow", chance = 60}
 }
 
 monster.attacks = {

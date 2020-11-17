@@ -74,15 +74,15 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "pumpkin", chance = 100000},
-	{id = "yummy gummy worm", chance = 100000, maxCount = 20},
+	{name = "pumpkin", chance = 100000},
+	{name = "yummy gummy worm", chance = 100000, maxCount = 20},
 	{id = 2688, chance = 1000, maxCount = 50},
 	{id = 6569, chance = 1000, maxCount = 50},
-	{id = "spiderwebs", chance = 1000},
+	{name = "spiderwebs", chance = 1000},
 	{id = 9006, chance = 1000},
 	{id = 6492, chance = 1000},
 	{id = 6526, chance = 1000},
-	{id = "bar of chocolate", chance = 1000},
+	{name = "bar of chocolate", chance = 1000},
 	{id = 6570, chance = 1000},
 	{id = 6571, chance = 1000},
 	{id = 2096, chance = 1000}
