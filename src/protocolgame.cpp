@@ -1219,7 +1219,6 @@ void ProtocolGame::parseInspectionObject(NetworkMessage& msg) {
 
 void ProtocolGame::sendItemInspection(uint16_t itemId, uint8_t itemCount, const Item* item, bool cyclopedia) {
 	NetworkMessage msg;
-	msg.reset();
 	msg.addByte(0x76);
 	msg.addByte(0x00);
 	msg.addByte(cyclopedia ? 0x01 : 0x00);
