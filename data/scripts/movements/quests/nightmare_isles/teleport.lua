@@ -11,6 +11,7 @@ local teleports = {
 }
 
 local teleport = MoveEvent()
+local teleportexit = MoveEvent()
 
 function teleport.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
@@ -41,11 +42,37 @@ function teleport.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
+function teleportexit.onStepIn(creature, item, position, fromPosition)
+	local player = creature:getPlayer()
+	if not player then
+		return
+	end
+
+	for i = 1, #setting do
+		local table = setting[i]
+		local backStorage = table.storage
+		local posStorage = table.teleportPosition
+		if player:getStorageValue(backStorage)==1 then
+			backStor = backStorage
+			backpos = posStorage
+		end
+	end
+
+	if backpos then
+		player:teleportTo(backpos)
+		fromPosition:sendMagicEffect(CONST_ME_TELEPORT)
+		player:setStorageValue(backStor, -1)
+	end
+
+end
+
 teleport:type("stepin")
+teleportexit:type("stepin")
 
 for index, value in pairs(teleports) do
 	teleport:uid(index)
 end
+teleportexit:aid(9725)
 
-teleport:position({x= 33498, y = 32613, z = 8})
 teleport:register()
+teleportexit:register()
