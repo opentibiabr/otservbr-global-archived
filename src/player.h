@@ -80,6 +80,10 @@ enum tradestate_t : uint8_t {
 	TRADE_TRANSFER,
 };
 
+enum PlayerAsyncOngoingTaskFlags : uint64_t {
+	PlayerAsyncTask_Highscore = 1 << 0
+};
+
 struct VIPEntry {
 	VIPEntry(uint32_t initGuid, std::string initName, std::string initDescription, uint32_t initIcon, bool initNotify) :
 		guid(initGuid), name(std::move(initName)), description(std::move(initDescription)), icon(initIcon), notify(initNotify) {}
@@ -1302,6 +1306,95 @@ class Player final : public Creature, public Cylinder
 				client->sendAddMarker(pos, markType, desc);
 			}
 		}
+    void sendItemInspection(uint16_t itemId, uint8_t itemCount, const Item* item, bool cyclopedia) {
+			if (client) {
+				client->sendItemInspection(itemId, itemCount, item, cyclopedia);
+			}
+		}
+    void sendCyclopediaCharacterBaseInformation() {
+			if (client) {
+				client->sendCyclopediaCharacterBaseInformation();
+			}
+		}
+		void sendCyclopediaCharacterGeneralStats() {
+			if (client) {
+				client->sendCyclopediaCharacterGeneralStats();
+			}
+		}
+		void sendCyclopediaCharacterCombatStats() {
+			if (client) {
+				client->sendCyclopediaCharacterCombatStats();
+			}
+		}
+		void sendCyclopediaCharacterRecentDeaths() {
+			if (client) {
+				client->sendCyclopediaCharacterRecentDeaths();
+			}
+		}
+		void sendCyclopediaCharacterRecentPvPKills() {
+			if (client) {
+				client->sendCyclopediaCharacterRecentPvPKills();
+			}
+		}
+		void sendCyclopediaCharacterAchievements() {
+			if (client) {
+				client->sendCyclopediaCharacterAchievements();
+			}
+		}
+		void sendCyclopediaCharacterItemSummary() {
+			if (client) {
+				client->sendCyclopediaCharacterItemSummary();
+			}
+		}
+		void sendCyclopediaCharacterOutfitsMounts() {
+			if (client) {
+				client->sendCyclopediaCharacterOutfitsMounts();
+			}
+		}
+		void sendCyclopediaCharacterStoreSummary() {
+			if (client) {
+				client->sendCyclopediaCharacterStoreSummary();
+			}
+		}
+		void sendCyclopediaCharacterInspection() {
+			if (client) {
+				client->sendCyclopediaCharacterInspection();
+			}
+		}
+		void sendCyclopediaCharacterBadges() {
+			if (client) {
+				client->sendCyclopediaCharacterBadges();
+			}
+		}
+		void sendCyclopediaCharacterTitles() {
+			if (client) {
+				client->sendCyclopediaCharacterTitles();
+			}
+		}
+    void sendHighscoresNoData() {
+			if (client) {
+				client->sendHighscoresNoData();
+			}
+		}
+		void sendHighscores(std::vector<HighscoreCharacter>& characters, uint8_t categoryId, uint32_t vocationId, uint16_t page, uint16_t pages) {
+			if (client) {
+				client->sendHighscores(characters, categoryId, vocationId, page, pages);
+			}
+		}
+    void addAsyncOngoingTask(uint64_t flags) {
+			asyncOngoingTasks |= flags;
+		}
+		bool hasAsyncOngoingTask(uint64_t flags) const {
+			return (asyncOngoingTasks & flags);
+		}
+		void resetAsyncOngoingTask(uint64_t flags) {
+			asyncOngoingTasks &= ~(flags);
+		}
+		void sendTournamentLeaderboard() {
+  			if (client) {
+				client->sendTournamentLeaderboard();
+			}
+		}
 		void sendEnterWorld() {
 			if (client) {
 				client->sendEnterWorld();
@@ -1549,7 +1642,7 @@ class Player final : public Creature, public Cylinder
 				uint32_t flags, Creature* actor = nullptr) const override;
 		ReturnValue queryMaxCount(int32_t index, const Thing& thing, uint32_t count, uint32_t& maxQueryCount,
 				uint32_t flags) const override;
-		ReturnValue queryRemove(const Thing& thing, uint32_t count, uint32_t flags) const override;
+		ReturnValue queryRemove(const Thing& thing, uint32_t count, uint32_t flags, Creature* actor = nullptr) const override;
 		Cylinder* queryDestination(int32_t& index, const Thing& thing, Item** destItem,
 				uint32_t& flags) override;
 
@@ -1626,6 +1719,7 @@ class Player final : public Creature, public Cylinder
 		int64_t nextPotionAction = 0;
 		int64_t lastQuickLootNotification = 0;
 		int64_t lastWalking = 0;
+    uint64_t asyncOngoingTasks = 0;
 
 		std::vector<Kill> unjustifiedKills;
 

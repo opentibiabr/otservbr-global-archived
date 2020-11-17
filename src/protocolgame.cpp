@@ -44,6 +44,7 @@ extern Game g_game;
 extern ConfigManager g_config;
 extern Actions actions;
 extern CreatureEvents* g_creatureEvents;
+extern Vocations g_vocations;
 extern Chat* g_chat;
 extern Modules* g_modules;
 extern Spells* g_spells;
@@ -539,11 +540,14 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xAA: addGameTask(&Game::playerCreatePrivateChannel, player->getID()); break;
 		case 0xAB: parseChannelInvite(msg); break;
 		case 0xAC: parseChannelExclude(msg); break;
+    case 0xB1: parseHighscores(msg); break;
 		case 0xBE: addGameTask(&Game::playerCancelAttackAndFollow, player->getID()); break;
+    case 0xC7: parseTournamentLeaderboard(msg); break;
 		case 0xC9: /* update tile */ break;
 		case 0xCA: parseUpdateContainer(msg); break;
 		case 0xCB: parseBrowseField(msg); break;
 		case 0xCC: parseSeekInContainer(msg); break;
+    case 0xCD: parseInspectionObject(msg); break;
 		case 0xD2: addGameTask(&Game::playerRequestOutfit, player->getID()); break;
 		//g_dispatcher.addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player, msg, recvbyte)));
 		case 0xD3: g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::parseSetOutfit, this, msg))); break;
@@ -554,6 +558,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xDC: parseAddVip(msg); break;
 		case 0xDD: parseRemoveVip(msg); break;
 		case 0xDE: parseEditVip(msg); break;
+    case 0xE5: parseCyclopediaCharacterInfo(msg); break;
 		case 0xE6: parseBugReport(msg); break;
 		case 0xE7: /* thank you */ break;
 		case 0xE8: parseDebugAssert(msg); break;
@@ -1200,6 +1205,184 @@ void ProtocolGame::parseWrapableItem(NetworkMessage& msg)
 	addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerWrapableItem, player->getID(), pos, stackpos, spriteId);
 }
 
+void ProtocolGame::parseInspectionObject(NetworkMessage& msg) {
+	uint8_t inspectionType = msg.getByte();
+	if(inspectionType == INSPECT_NORMALOBJECT) {
+      Position pos = msg.getPosition();
+      g_game.playerInspectItem(player, pos);
+	} else if (inspectionType == INSPECT_NPCTRADE || inspectionType == INSPECT_CYCLOPEDIA) {
+      uint16_t itemId = msg.get<uint16_t>();
+      uint16_t itemCount = msg.getByte();
+      g_game.playerInspectItem(player, itemId, itemCount, (inspectionType == INSPECT_CYCLOPEDIA));
+	}
+}
+
+void ProtocolGame::sendItemInspection(uint16_t itemId, uint8_t itemCount, const Item* item, bool cyclopedia) {
+	NetworkMessage msg;
+	msg.reset();
+	msg.addByte(0x76);
+	msg.addByte(0x00);
+	msg.addByte(cyclopedia ? 0x01 : 0x00);
+	msg.addByte(0x01);
+
+	const ItemType& it = Item::items.getItemIdByClientId(itemId);
+
+	if (item) {
+		msg.addString(item->getName());
+		AddItem(msg, item);
+	} else {
+		msg.addString(it.name);
+		AddItem(msg, it.id, itemCount);
+	}
+	msg.addByte(0);
+
+	auto descriptions = Item::getDescriptions(it, item);
+	msg.addByte(descriptions.size());
+	for (const auto& description : descriptions) {
+		msg.addString(description.first);
+		msg.addString(description.second);
+	}
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::parseCyclopediaCharacterInfo(NetworkMessage& msg) {
+	CyclopediaCharacterInfoType_t characterInfoType;
+	msg.get<uint32_t>();
+	characterInfoType = static_cast<CyclopediaCharacterInfoType_t>(msg.getByte());
+	addGameTask(&Game::playerCyclopediaCharacterInfo, player->getID(), characterInfoType);
+}
+
+void ProtocolGame::parseHighscores(NetworkMessage& msg)
+{
+	HighscoreType_t type = static_cast<HighscoreType_t>(msg.getByte());
+	uint8_t category = msg.getByte();
+	uint32_t vocation = msg.get<uint32_t>();
+	uint16_t page = 1;
+	const std::string worldName = msg.getString();
+	#if CLIENT_VERSION >= 1260
+	msg.getByte();//Game World Category
+	msg.getByte();//BattlEye World Type
+	#endif
+	if (type == HIGHSCORE_GETENTRIES) {
+		page = msg.get<uint16_t>();
+	}
+	uint8_t entriesPerPage = std::min<uint8_t>(30, std::max<uint8_t>(5, msg.getByte()));
+	g_game.playerHighscores(player, type, category, vocation, worldName, page, entriesPerPage);
+}
+
+void ProtocolGame::sendHighscoresNoData()
+{
+  NetworkMessage msg;
+	msg.addByte(0xB1);
+	msg.addByte(0x01); // No data available
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendHighscores(std::vector<HighscoreCharacter>& characters, uint8_t categoryId, uint32_t vocationId, uint16_t page, uint16_t pages)
+{
+  NetworkMessage msg;
+	msg.addByte(0xB1);
+	msg.addByte(0x00); // No data available
+
+	msg.addByte(1); // Worlds
+	msg.addString(g_config.getString(ConfigManager::SERVER_NAME)); // First World
+	msg.addString(g_config.getString(ConfigManager::SERVER_NAME)); // Selected World
+
+	#if CLIENT_VERSION >= 1260
+	msg.addByte(0xFF);//Game World Category: 0xFF(-1) - Selected World
+	msg.addByte(0xFF);//BattlEye World Type
+	#endif
+
+	auto vocationPosition = msg.getBufferPosition();
+	uint8_t vocations = 1;
+
+	msg.skipBytes(1); // Vocation Count
+	msg.add<uint32_t>(0xFFFFFFFF); // All Vocations - hardcoded
+	msg.addString("(all)"); // All Vocations - hardcoded
+
+	uint32_t selectedVocation = 0xFFFFFFFF;
+	const auto& vocationsMap = g_vocations.getVocations();
+	for (const auto& it : vocationsMap) {
+		const Vocation& vocation = it.second;
+		if (vocation.getFromVocation() == static_cast<uint32_t>(vocation.getId())) {
+			msg.add<uint32_t>(vocation.getFromVocation()); // Vocation Id
+			msg.addString(vocation.getVocName()); // Vocation Name
+			++vocations;
+			if (vocation.getFromVocation() == vocationId) {
+				selectedVocation = vocationId;
+			}
+		}
+	}
+	msg.add<uint32_t>(selectedVocation); // Selected Vocation
+
+	HighscoreCategory highscoreCategories[] =
+	{
+		{"Experience Points", HIGHSCORE_CATEGORY_EXPERIENCE},
+		{"Fist Fighting", HIGHSCORE_CATEGORY_FIST_FIGHTING},
+		{"Club Fighting", HIGHSCORE_CATEGORY_CLUB_FIGHTING},
+		{"Sword Fighting", HIGHSCORE_CATEGORY_SWORD_FIGHTING},
+		{"Axe Fighting", HIGHSCORE_CATEGORY_AXE_FIGHTING},
+		{"Distance Fighting", HIGHSCORE_CATEGORY_DISTANCE_FIGHTING},
+		{"Shielding", HIGHSCORE_CATEGORY_SHIELDING},
+		{"Fishing", HIGHSCORE_CATEGORY_FISHING},
+		{"Magic Level", HIGHSCORE_CATEGORY_MAGIC_LEVEL}
+	};
+
+	uint8_t selectedCategory = 0;
+	msg.addByte(sizeof(highscoreCategories) / sizeof(HighscoreCategory)); // Category Count
+	for (HighscoreCategory& category : highscoreCategories) {
+		msg.addByte(category.id); // Category Id
+		msg.addString(category.name); // Category Name
+		if (category.id == categoryId) {
+			selectedCategory = categoryId;
+		}
+	}
+	msg.addByte(selectedCategory); // Selected Category
+
+	msg.add<uint16_t>(page); // Current page
+	msg.add<uint16_t>(pages); // Pages
+
+	msg.addByte(characters.size()); // Character Count
+	for (HighscoreCharacter& character : characters) {
+		msg.add<uint32_t>(character.rank); // Rank
+		msg.addString(character.name); // Character Name
+		msg.addString(""); // Probably Character Title(not visible in window)
+		msg.addByte(character.vocation); // Vocation Id
+		msg.addString(g_config.getString(ConfigManager::SERVER_NAME)); // World
+		msg.add<uint16_t>(character.level); // Level
+		msg.addByte((player->getGUID() == character.id)); // Player Indicator Boolean
+		msg.add<uint64_t>(character.points); // Points
+	}
+
+	msg.addByte(0xFF); // ??
+	msg.addByte(0); // ??
+	msg.addByte(1); // ??
+	msg.add<uint32_t>(time(nullptr)); // Last Update
+
+	msg.setBufferPosition(vocationPosition);
+	msg.addByte(vocations);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::parseTournamentLeaderboard(NetworkMessage& msg) {
+	uint8_t ledaerboardType = msg.getByte();
+	if (ledaerboardType == 0) {
+		const std::string worldName = msg.getString();
+		uint16_t currentPage = msg.get<uint16_t>();
+		(void)worldName;
+		(void)currentPage;
+  } else if (ledaerboardType == 1) {
+		const std::string worldName = msg.getString();
+		const std::string characterName = msg.getString();
+		(void)worldName;
+		(void)characterName;
+	}
+	uint8_t elementsPerPage = msg.getByte();
+	(void)elementsPerPage;
+
+	addGameTask(&Game::playerTournamentLeaderboard, player->getID(), ledaerboardType);
+}
+
 void ProtocolGame::parseRuleViolationReport(NetworkMessage &msg)
 {
 	uint8_t reportType = msg.getByte();
@@ -1558,6 +1741,309 @@ void ProtocolGame::sendAddMarker(const Position& pos, uint8_t markType, const st
 	msg.addPosition(pos);
 	msg.addByte(markType);
 	msg.addString(desc);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterBaseInformation() {
+	NetworkMessage msg;
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_BASEINFORMATION);
+	msg.addByte(0x00);
+	msg.addString(player->getName());
+	msg.addString(player->getVocation()->getVocName());
+	msg.add<uint16_t>(player->getLevel());
+	AddOutfit(msg, player->getDefaultOutfit(), false);
+
+	msg.addByte(0x00);
+  // EnableStoreSummary&CharacterTitles
+	msg.addByte(0x00);
+	// CharacterTitle
+  msg.addString("");
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterGeneralStats() {
+	NetworkMessage msg;
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_GENERALSTATS);
+	msg.addByte(0x00);
+	msg.add<uint64_t>(player->getExperience());
+	msg.add<uint16_t>(player->getLevel());
+	msg.addByte(player->getLevelPercent());
+  // BaseXPGainRate
+	msg.add<uint16_t>(100);
+	// TournamentXPFactor
+  msg.add<int32_t>(0);
+	// LowLevelBonus
+  msg.add<uint16_t>(0);
+	// XPBoost
+  msg.add<uint16_t>(0);
+	// StaminaMultiplier(100=x1.0)
+  msg.add<uint16_t>(100);
+	// xpBoostRemainingTime
+  msg.add<uint16_t>(0);
+  // canBuyXpBoost
+	msg.addByte(0x00);
+	msg.add<uint16_t>(std::min<int32_t>(player->getHealth(), std::numeric_limits<uint16_t>::max()));
+	msg.add<uint16_t>(std::min<int32_t>(player->getMaxHealth(), std::numeric_limits<uint16_t>::max()));
+	msg.add<uint16_t>(std::min<int32_t>(player->getMana(), std::numeric_limits<uint16_t>::max()));
+	msg.add<uint16_t>(std::min<int32_t>(player->getMaxMana(), std::numeric_limits<uint16_t>::max()));
+	msg.addByte(player->getSoul());
+	msg.add<uint16_t>(player->getStaminaMinutes());
+
+	Condition* condition = player->getCondition(CONDITION_REGENERATION);
+	msg.add<uint16_t>(condition ? condition->getTicks() / 1000 : 0x00);
+	msg.add<uint16_t>(player->getOfflineTrainingTime() / 60 / 1000);
+	msg.add<uint16_t>(player->getSpeed() / 2);
+	msg.add<uint16_t>(player->getBaseSpeed() / 2);
+	msg.add<uint32_t>(player->getCapacity());
+	msg.add<uint32_t>(player->getCapacity());
+	msg.add<uint32_t>(player->getFreeCapacity());
+  msg.addByte(8);
+	msg.addByte(1);
+	msg.add<uint16_t>(player->getMagicLevel());
+	msg.add<uint16_t>(player->getBaseMagicLevel());
+  // loyalty bonus
+	msg.add<uint16_t>(player->getBaseMagicLevel());
+	msg.add<uint16_t>(player->getMagicLevelPercent() * 100);
+	for (uint8_t i = SKILL_FIRST; i < SKILL_CRITICAL_HIT_CHANCE; ++i) {
+  // check if all clients have the same hardcoded skill ids
+		static const uint8_t HardcodedSkillIds[] = { 11, 9, 8, 10, 7, 6, 13 };
+		msg.addByte(HardcodedSkillIds[i]);
+		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
+		msg.add<uint16_t>(player->getBaseSkill(i));
+    // loyalty bonus
+		msg.add<uint16_t>(player->getBaseSkill(i));
+		msg.add<uint16_t>(player->getSkillPercent(i) * 100);
+	}
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterCombatStats() {
+	NetworkMessage msg;
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_COMBATSTATS);
+	msg.addByte(0x00);
+	for (uint8_t i = SKILL_CRITICAL_HIT_CHANCE; i <= SKILL_LAST; ++i) {
+		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
+		msg.add<uint16_t>(0);
+	}
+	uint8_t haveBlesses = 0;
+	uint8_t blessings = 8;
+	for (uint8_t i = 1; i < blessings; i++) {
+		if (player->hasBlessing(i)) {
+			haveBlesses++;
+		}
+	}
+	msg.addByte(haveBlesses);
+	msg.addByte(blessings);
+  msg.add<uint16_t>(0);
+  msg.addByte(0);
+  msg.addByte(0);
+	msg.addByte(0);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+  msg.addByte(0);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterRecentDeaths() {
+	NetworkMessage msg;
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_RECENTDEATHS);
+	msg.addByte(0x00);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterRecentPvPKills() {
+	NetworkMessage msg;
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_RECENTPVPKILLS);
+	msg.addByte(0x00);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterAchievements() {
+	NetworkMessage msg;
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_ACHIEVEMENTS);
+	msg.addByte(0x00);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterItemSummary() {
+	NetworkMessage msg;
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_ITEMSUMMARY);
+	msg.addByte(0x00);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(0);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
+	NetworkMessage msg;
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITSMOUNTS);
+	msg.addByte(0x00);
+	Outfit_t currentOutfit = player->getDefaultOutfit();
+
+	uint16_t outfitSize = 0;
+	uint16_t startOutfits = msg.getBufferPosition();
+	msg.add<uint16_t>(outfitSize);
+
+	const auto& outfits = Outfits::getInstance().getOutfits(player->getSex());
+	for (const Outfit& outfit : outfits) {
+		uint8_t addons;
+		if (!player->getOutfitAddons(outfit, addons)) {
+			continue;
+		}
+		outfitSize++;
+
+		msg.add<uint16_t>(outfit.lookType);
+		msg.addString(outfit.name);
+		msg.addByte(addons);
+		msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
+		if (outfit.lookType == currentOutfit.lookType) {
+			msg.add<uint32_t>(1000);
+		} else {
+			msg.add<uint32_t>(0);
+		}
+	}
+	if (outfitSize > 0) {
+		msg.addByte(currentOutfit.lookHead);
+		msg.addByte(currentOutfit.lookBody);
+		msg.addByte(currentOutfit.lookLegs);
+		msg.addByte(currentOutfit.lookFeet);
+	}
+
+	uint16_t mountSize = 0;
+	uint16_t startMounts = msg.getBufferPosition();
+	msg.add<uint16_t>(mountSize);
+	for (const Mount& mount : g_game.mounts.getMounts()) {
+		if (player->hasMount(&mount)) {
+			mountSize++;
+
+			msg.add<uint16_t>(mount.clientId);
+			msg.addString(mount.name);
+			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
+			msg.add<uint32_t>(1000);
+		}
+	}
+
+	msg.setBufferPosition(startOutfits);
+	msg.add<uint16_t>(outfitSize);
+	msg.setBufferPosition(startMounts);
+	msg.add<uint16_t>(mountSize);
+	msg.setLength(msg.getLength() - 4);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterStoreSummary() {
+	NetworkMessage msg;
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_STORESUMMARY);
+	msg.addByte(0x00);
+	msg.add<uint32_t>(0);
+	msg.add<uint32_t>(0);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.add<uint16_t>(0);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterInspection() {
+	NetworkMessage msg;
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_INSPECTION);
+	msg.addByte(0x00);
+	uint8_t inventoryItems = 0;
+	uint16_t startInventory = msg.getBufferPosition();
+	msg.addByte(inventoryItems);
+	for (std::underlying_type<slots_t>::type slot = CONST_SLOT_FIRST; slot <= CONST_SLOT_LAST; slot++) {
+		Item* inventoryItem = player->getInventoryItem(static_cast<slots_t>(slot));
+		if (inventoryItem) {
+			inventoryItems++;
+
+			msg.addByte(slot);
+			msg.addString(inventoryItem->getName());
+			AddItem(msg, inventoryItem);
+			msg.addByte(0);
+
+			auto descriptions = Item::getDescriptions(Item::items[inventoryItem->getID()], inventoryItem);
+			msg.addByte(descriptions.size());
+			for (const auto& description : descriptions) {
+				msg.addString(description.first);
+				msg.addString(description.second);
+			}
+		}
+	}
+	msg.addString(player->getName());
+	AddOutfit(msg, player->getDefaultOutfit(), false);
+
+	msg.addByte(3);
+	msg.addString("Level");
+	msg.addString(std::to_string(player->getLevel()));
+	msg.addString("Vocation");
+	msg.addString(player->getVocation()->getVocName());
+	msg.addString("Outfit");
+
+	const Outfit* outfit = Outfits::getInstance().getOutfitByLookType(player->getSex(),
+																				player->getDefaultOutfit().lookType);
+	if (outfit) {
+		msg.addString(outfit->name);
+	} else {
+		msg.addString("unknown");
+	}
+	msg.setBufferPosition(startInventory);
+	msg.addByte(inventoryItems);
+	msg.setLength(msg.getLength() - 1);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterBadges() {
+	NetworkMessage msg;
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_BADGES);
+	msg.addByte(0x00);
+  // enable badges
+	msg.addByte(0x00);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendCyclopediaCharacterTitles() {
+	NetworkMessage msg;
+	msg.addByte(0xDA);
+	msg.addByte(CYCLOPEDIA_CHARACTERINFO_TITLES);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	msg.addByte(0x00);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendTournamentLeaderboard() {
+	NetworkMessage msg;
+	msg.addByte(0xC5);
+	msg.addByte(0);
+	msg.addByte(0x01);
 	writeToOutputBuffer(msg);
 }
 
