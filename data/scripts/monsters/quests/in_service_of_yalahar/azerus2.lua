@@ -1,6 +1,7 @@
-local mType = Game.createMonsterType("Azerus")
+local mType = Game.createMonsterType("Azerus2")
 local monster = {}
 
+monster.name = "Azerus"
 monster.description = "Azerus"
 monster.experience = 6000
 monster.outfit = {
@@ -98,16 +99,16 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 85},
-	{type = COMBAT_ENERGYDAMAGE, percent = 85},
-	{type = COMBAT_EARTHDAMAGE, percent = 85},
-	{type = COMBAT_FIREDAMAGE, percent = 85},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 100},
+	{type = COMBAT_ENERGYDAMAGE, percent = 100},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
-	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 100},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
-	{type = COMBAT_ICEDAMAGE, percent = 85},
-	{type = COMBAT_HOLYDAMAGE , percent = 85},
-	{type = COMBAT_DEATHDAMAGE , percent = 85}
+	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_HOLYDAMAGE , percent = 100},
+	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 
 monster.immunities = {

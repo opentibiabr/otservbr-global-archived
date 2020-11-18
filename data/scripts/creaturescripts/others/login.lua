@@ -26,13 +26,33 @@ end
 
 local playerLogin = CreatureEvent("PlayerLogin")
 function playerLogin.onLogin(player)
+	local vocationSet = {
+		[1] = { -- Sorcerer
+				set = {{2190, 1}, {2643, 1}, {2649, 1}, {8820, 1}, {2175, 1}, {8819, 1}, {18559, 1}},
+		},
+		[2] = { -- Druid
+				set = {{2182, 1}, {2643, 1}, {2649, 1}, {8820, 1}, {2175, 1}, {8819, 1}, {18559, 1}},
+		},
+		[3] = { -- Paladin
+				set = {{2512, 1}, {2643, 1}, {2461, 1}, {2660, 1}, {8923, 1}, {2389, 3}, {18559, 1}}
+		},
+		[4] = { -- Knight
+				set = {{8602, 1}, {2643, 1}, {2478, 1}, {2460, 1}, {2465, 1}, {2509, 1}, {18559, 1}},
+		}
+	}
+
 	local items = {
+		{7620, 5},
+		{8704, 5},
 		{2120, 1},
-		{2674, 10},
-		{8704, 2},
+		{2674, 5},
 		{2148, 3}
 	}
+
 	if player:getLastLoginSaved() == 0 then
+		local vocation = player:getVocation():getId()
+		local targetVocation = vocationSet[vocation]
+
 		local backpack = player:addItem(1988)
 		if backpack then
 			for i = 1, #items do
@@ -40,16 +60,22 @@ function playerLogin.onLogin(player)
 			end
 		end
 
-	local town = player:getTown()
-	if town and town:getId() == TOWNS_LIST.ROOKGAARD then
-		player:addItem(2461, 1, true, 1, CONST_SLOT_HEAD)
-		player:addItem(2650, 1, true, 1, CONST_SLOT_ARMOR)
-		player:addItem(2512, 1, true, 1, CONST_SLOT_RIGHT)
-		player:addItem(2379, 1, true, 1, CONST_SLOT_LEFT)
-		player:addItem(2649, 1, true, 1, CONST_SLOT_LEGS)
-		player:addItem(2643, 1, true, 1, CONST_SLOT_FEET)
-		player:addItem(2050, 1, true, 1, CONST_SLOT_AMMO)
-	end
+		if targetVocation then
+			for i = 1, #targetVocation.set do
+				player:addItem(targetVocation.set[i][1], targetVocation.set[i][2])
+			end
+		end
+
+		local town = player:getTown()
+		if town and town:getId() == TOWNS_LIST.ROOKGAARD then
+			player:addItem(2461, 1, true, 1, CONST_SLOT_HEAD)
+			player:addItem(2650, 1, true, 1, CONST_SLOT_ARMOR)
+			player:addItem(2512, 1, true, 1, CONST_SLOT_RIGHT)
+			player:addItem(2379, 1, true, 1, CONST_SLOT_LEFT)
+			player:addItem(2649, 1, true, 1, CONST_SLOT_LEGS)
+			player:addItem(2643, 1, true, 1, CONST_SLOT_FEET)
+			player:addItem(2050, 1, true, 1, CONST_SLOT_AMMO)
+		end
 
 	else
 		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved())))

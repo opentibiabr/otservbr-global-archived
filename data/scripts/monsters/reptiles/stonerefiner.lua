@@ -48,9 +48,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -67,13 +67,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 50930, maxCount = 4},
-	{id = "rare earth", chance = 39750, maxCount = 2},
-	{id = 13757, chance = 27980, maxCount = 5},
-	{id = "glob of acid slime", chance = 23680},
-	{id = "stonerefiner's skull", chance = 20110},
-	{id = "poisonous slime", chance = 20040, maxCount = 3},
-	{id = "half-digested stones", chance = 15210, maxCount = 5}
+	{id = "platinum coin", chance = 40930, maxCount = 3},
+	{id = "rare earth", chance = 29750, maxCount = 2},
+	{id = 13757, chance = 17980, maxCount = 2}, -- coal
+	{id = "glob of acid slime", chance = 13680},
+	{id = "stonerefiner's skull", chance = 10110},
+	{id = "poisonous slime", chance = 10040, maxCount = 3},
+	{id = "half-digested stones", chance = 15210, maxCount = 3}
 }
 
 monster.attacks = {

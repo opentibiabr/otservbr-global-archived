@@ -283,6 +283,11 @@ const char* DBResult::getStream(const std::string& s, unsigned long& size) const
 	return row[it->second];
 }
 
+size_t DBResult::countResults() const
+{
+	return static_cast<size_t>(mysql_num_rows(handle));
+}
+
 bool DBResult::hasNext() const
 {
 	return row != nullptr;
