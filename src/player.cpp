@@ -1713,7 +1713,7 @@ void Player::onThink(uint32_t interval)
 		addMessageBuffer();
 	}
 
-	if (!getTile()->hasFlag(TILESTATE_NOLOGOUT) && !isAccessPlayer()) {
+	if (!getTile()->hasFlag(TILESTATE_NOLOGOUT)) {
 		idleTime += interval;
 		const int32_t kickAfterMinutes = g_config.getNumber(ConfigManager::KICK_AFTER_MINUTES);
 		if (idleTime > (kickAfterMinutes * 60000) + 60000) {
