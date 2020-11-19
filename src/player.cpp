@@ -1148,15 +1148,9 @@ void Player::sendImbuementWindow(Item* item)
 
 void Player::sendMarketEnter(uint32_t depotId)
 {
-	if (!client || !depotId) {
-		return;
+	if (client && depotId && this->getLastDepotId() != -1) {
+		client->sendMarketEnter(depotId);
 	}
-
-	if (this->getLastDepotId() == -1) {
-		return;
-	}
-
-	client->sendMarketEnter(depotId);
 }
 
 //container
