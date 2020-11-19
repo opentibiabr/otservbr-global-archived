@@ -4181,10 +4181,6 @@ void ProtocolGame::reloadCreature(const Creature* creature)
 
 void ProtocolGame::sendOpenStash()
 {
-	if (player->getLastDepotId() == -1) {
-		return;
-  	}
-
 	NetworkMessage msg;
 	msg.addByte(0x29);
 	AddPlayerStowedItems(msg);

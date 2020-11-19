@@ -1331,6 +1331,10 @@ class Player final : public Creature, public Cylinder
 		void sendOpenStash()
 		{
 			if (client) {
+				if (getLastDepotId() == -1) {
+					return;
+  				}
+
 				client->sendOpenStash();
 			}
 		}
