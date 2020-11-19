@@ -1413,14 +1413,9 @@ class Player final : public Creature, public Cylinder
 			lastPong = OTSYS_TIME();
 		}
 
-		void sendOpenStash()
-		{
-			if (client) {
-				if (getLastDepotId() == -1) {
-					return;
-  				}
-
-				client->sendOpenStash();
+		void sendOpenStash() {
+			if (client && getLastDepotId() != -1) {
+        		client->sendOpenStash();
 			}
 		}
 
