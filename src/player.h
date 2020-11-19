@@ -1200,11 +1200,7 @@ class Player final : public Creature, public Cylinder
 				client->sendCloseShop();
 			}
 		}
-		void sendMarketEnter(uint32_t depotId) const {
-			if (client) {
-				client->sendMarketEnter(depotId);
-			}
-		}
+		void sendMarketEnter(uint32_t depotId);
 		void sendMarketLeave() {
 			inMarket = false;
 			if (client) {
@@ -1276,11 +1272,7 @@ class Player final : public Creature, public Cylinder
 				client->sendOutfitWindow();
 			}
 		}
-		void sendImbuementWindow(Item* item) {
-			if (client) {
-				client->sendImbuementWindow(item);
-			}
-		}
+		void sendImbuementWindow(Item* item);
 		void sendCloseContainer(uint8_t cid) {
 			if (client) {
 				client->sendCloseContainer(cid);
