@@ -46,8 +46,8 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -62,11 +62,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2670, chance = 10000},
-	{id = 2667, chance = 9090},
-	{id = 2146, chance = 2040, maxCount = 2},
-	{id = 2147, chance = 2040, maxCount = 3},
-	{id = 2144, chance = 1369}
+	{id = 2670, chance = 9680},--shrimp
+	{id = 2667, chance = 10770},--fish
+	{id = "black pearl", chance = 1500, maxCount = 1},
+	{id = "white pearl", chance = 830, maxCount = 1},
+	{id = "small sapphire", chance = 250, maxCount = 3},
+	{id = "small ruby", chance = 500, maxCount = 3},
+	{id = "small amethyst", chance = 750, maxCount = 3}
 }
 
 monster.attacks = {
@@ -74,8 +76,8 @@ monster.attacks = {
 }
 
 monster.defenses = {
-	defense = 12,
-	armor = 12
+	defense = 13,
+	armor = 13
 }
 
 monster.elements = {
@@ -94,7 +96,7 @@ monster.elements = {
 monster.immunities = {
 	{type = "paralyze", condition = false},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = false},
+	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
 

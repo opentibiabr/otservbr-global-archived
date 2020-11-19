@@ -66,26 +66,26 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small sapphire", chance = 2890, maxCount = 3},
 	{id = "gold coin", chance = 100000, maxCount = 90},
 	{id = "gold coin", chance = 100000, maxCount = 90},
 	{id = "platinum coin", chance = 70000, maxCount = 2},
 	{id = "great mana potion", chance = 14285, maxCount = 3},
 	{id = "great health potion", chance = 14285, maxCount = 3},
-	{id = "heavy trident", chance = 1694},
-	{id = "eye of a deepling", chance = 10000},
-	{id = "deepling guard belt buckle", chance = 12500},
 	{id = "deepling breaktime snack", chance = 16666},
-	{id = "guardian axe", chance = 925},
+	{id = "deepling guard belt buckle", chance = 12500},
+	{id = "eye of a deepling", chance = 10000},
 	{id = "deepling claw", chance = 9090},
-	{id = "foxtail", chance = 10},
-	{id = "ornate crossbow", chance = 362},
+	{id = "small sapphire", chance = 2890, maxCount = 3},
+	{id = "heavy trident", chance = 1694},
+	{id = "guardian axe", chance = 925},
+	{id = "deepling squelcher", chance = 751},
 	{id = "deepling backpack", chance = 333},
-	{id = "deepling squelcher", chance = 751}
+	{id = "ornate crossbow", chance = 362},
+	{id = "foxtail", chance = 10}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -200, range = 7, shootEffect = CONST_ANI_WHIRLWINDSWORD, target = true},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DROWNDAMAGE, minDamage = -100, maxDamage = -150, range = 7, shootEffect = CONST_ANI_SPEAR, effect = CONST_ME_LOSEENERGY, target = true}
 }
@@ -98,8 +98,8 @@ monster.defenses = {
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = -20},
-	{type = COMBAT_EARTHDAMAGE, percent = -20},
+	{type = COMBAT_ENERGYDAMAGE, percent = -10},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},

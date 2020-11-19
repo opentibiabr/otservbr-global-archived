@@ -46,7 +46,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -68,22 +68,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "white pearl", chance = 5250},
-	{id = "black pearl", chance = 3150},
-	{id = "gold coin", chance = 50000, maxCount = 50},
 	{id = "gold coin", chance = 50000, maxCount = 60},
+	{id = "gold coin", chance = 40000, maxCount = 50},
+	{id = "quara eye", chance = 15930},
+	{id = "white pearl", chance = 5250},
 	{id = "small emerald", chance = 5111, maxCount = 2},
-	{id = "wand of cosmic energy", chance = 900},
-	{id = "ring of healing", chance = 1008},
-	{id = "knight armor", chance = 200},
 	{id = "shrimp", chance = 4545, maxCount = 5},
-	{id = "fish fin", chance = 1280},
-	{id = "great mana potion", chance = 3100},
-	{id = "quara eye", chance = 15930}
+	{id = "black pearl", chance = 3150},
+	{id = "great mana potion", chance = 2880},
+	{id = "fish fin", chance = 1410},
+	{id = "ring of healing", chance = 1218},
+	{id = "wand of cosmic energy", chance = 980},
+	{id = "knight armor", chance = 230}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -80, condition = {type = CONDITION_POISON, totalDamage = 100, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -80, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 100, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -180, length = 8, spread = 3, effect = CONST_ME_BUBBLES, target = false},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -90, maxDamage = -150, radius = 3, effect = CONST_ME_BUBBLES, target = false},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -170, maxDamage = -240, length = 8, spread = 3, effect = CONST_ME_HITBYPOISON, target = false},

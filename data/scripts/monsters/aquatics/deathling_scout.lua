@@ -46,7 +46,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -64,10 +64,10 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "crystalline arrow", chance = 29860, maxCount = 25},
-	{id = "Vortex Bolt", chance = 26340, maxCount = 25},
-	{id = "Small Emerald", chance = 25110, maxCount = 12},
-	{id = "Deepling Warts", chance = 24480},
+	{id = "crystalline arrow", chance = 25260, maxCount = 25},
+	{id = "Vortex Bolt", chance = 21340, maxCount = 25},
+	{id = "Small Emerald", chance = 20910, maxCount = 12},
+	{id = "Deepling Warts", chance = 20280},
 	{id = "Deeptags", chance = 15100},
 	{id = "Deepling Filet", chance = 14630},
 	{id = "Small Enchanted Sapphire", chance = 13000, maxCount = 8},
@@ -84,7 +84,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 4000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -400, range = 5, shootEffect = CONST_ANI_HUNTINGSPEAR, target = false},
 	{name ="combat", interval = 4000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -150, maxDamage = -300, range = 5, shootEffect = CONST_ANI_LARGEROCK, target = false},
 	{name ="combat", interval = 4000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -350, maxDamage = -550, radius = 3, effect = CONST_ME_POFF, target = false}
@@ -109,7 +109,7 @@ monster.elements = {
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

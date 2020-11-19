@@ -64,12 +64,12 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 76780, maxCount = 10},
-	{id = "worm", chance = 13510}
+	{id = "gold coin", chance = 75590, maxCount = 10},
+	{id = "worm", chance = 11310}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -24}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -24, effect = CONST_ME_DRAWBLOOD}
 }
 
 monster.defenses = {

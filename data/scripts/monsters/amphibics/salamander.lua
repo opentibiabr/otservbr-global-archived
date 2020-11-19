@@ -63,19 +63,19 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2120, chance = 5070},
+	{id = "gold coin", chance = 72000, maxCount = 15},
 	{id = "gold coin", chance = 72000, maxCount = 15},
 	{id = "mace", chance = 3780},
-	{id = 2419, chance = 490},
+	{id = "rope", chance = 5190},
 	{id = "bow", chance = 740},
 	{id = "brass helmet", chance = 2180},
 	{id = "arrow", chance = 7890, maxCount = 3},
 	{id = "health potion", chance = 1480},
-	{id = 19737, chance = 34920, maxCount = 5}
+	{id = "scimitar", chance = 490}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -60, condition = {type = CONDITION_POISON, totalDamage = 10, interval = 4000}}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -60, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 10, interval = 4000}}
 }
 
 monster.defenses = {

@@ -23,7 +23,7 @@ monster.maxSummons = 0
 
 monster.changeTarget = {
 	interval = 4000,
-	chance = 10
+	chance = 5
 }
 
 monster.strategiesTarget = {
@@ -42,11 +42,11 @@ monster.flags = {
 	canPushCreatures = false,
 	staticAttackChance = 90,
 	targetDistance = 1,
-	runHealth = 30,
+	runHealth = 45,
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -67,16 +67,16 @@ monster.voices = {
 
 monster.loot = {
 	{id = "gold coin", chance = 87500, maxCount = 100},
-	{id = "small amethyst", chance = 2860},
-	{id = "longsword", chance = 7761},
-	{id = "brass armor", chance = 5000},
-	{id = "shrimp", chance = 5000, maxCount = 5},
-	{id = "fish fin", chance = 430},
-	{id = "quara tentacle", chance = 14520}
+	{id = "quara tentacle", chance = 14520},
+	{id = "longsword", chance = 6931},
+	{id = "shrimp", chance = 5140, maxCount = 5},
+	{id = "brass armor", chance = 4810},
+	{id = "small amethyst", chance = 3060},
+	{id = "fish fin", chance = 490}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -150, condition = {type = CONDITION_POISON, totalDamage = 20, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -150, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 20, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -50, maxDamage = -90, radius = 3, effect = CONST_ME_HITAREA, target = false},
 	{name ="quara constrictor freeze", interval = 2000, chance = 10, target = false},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -40, maxDamage = -70, range = 7, radius = 4, effect = CONST_ME_ICEATTACK, target = false},
@@ -85,7 +85,7 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 20
+	armor = 14
 }
 
 monster.elements = {
