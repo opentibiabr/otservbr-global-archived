@@ -39,7 +39,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.events = {
@@ -72,18 +74,18 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -400, maxDamage = -1000, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -800, type = COMBAT_ENERGYDAMAGE, length = 10, spread = 3, effect = CONST_ME_LOSEENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -400, maxDamage = -1000, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_HITAREA, target = false},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -600, type = COMBAT_PHYSICALDAMAGE, length = 10, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -800, type = COMBAT_HOLYDAMAGE, effect = CONST_ME_HOLYDAMAGE, target = true},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -150, maxDamage = -300, type = COMBAT_PHYSICALDAMAGE, length = 2, spread = 0, effect = CONST_ME_HITAREA, target = false},
-	{name ="combat", interval = 2000, chance = 40, target = false}
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -350, maxDamage = -800, length = 10, spread = 3, effect = CONST_ME_LOSEENERGY, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -1000, radius = 8, effect = CONST_ME_HITAREA, target = false},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_PHYSICALDAMAGE, minDamage = -350, maxDamage = -600, length = 10, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HOLYDAMAGE, minDamage = -350, maxDamage = -800, radius = 4, effect = CONST_ME_HOLYDAMAGE, target = true},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_PHYSICALDAMAGE, minDamage = -150, maxDamage = -300, length = 2, spread = 0, effect = CONST_ME_HITAREA, target = false},
+	{name ="anomaly break", interval = 2000, chance = 40, target = false}
 }
 
 monster.defenses = {
 	defense = 100,
 	armor = 100,
-	{name ="combat", interval = 2000, chance = 15, minDamage = 300, maxDamage = 600, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 300, maxDamage = 600, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
@@ -105,5 +107,23 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
+
+mType.onThink = function(monster, interval)
+end
+
+mType.onAppear = function(monster, creature)
+	if monster:getType():isRewardBoss() then
+		monster:setReward(true)
+	end
+end
+
+mType.onDisappear = function(monster, creature)
+end
+
+mType.onMove = function(monster, creature, fromPosition, toPosition)
+end
+
+mType.onSay = function(monster, creature, type, message)
+end
 
 mType:register(monster)

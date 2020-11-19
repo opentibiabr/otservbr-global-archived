@@ -22,8 +22,19 @@ function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-
-	if(msgcontains(msg, "addon")) then
+	if (msgcontains(msg, "fur")) then
+		if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 8) then
+			npcHandler:say({
+				"A wolf whelp fur? Well, some months ago a hunter came here - a rather scruffy, smelly guy. I would have thrown him out instantly, but he had to offer some fine pelts. One of them was the fur of a very young wolf. ...",
+				"I was not delighted that he obviously killed such a young animal. When I confronted him, he said he wanted to raise it as a companion but it unfortunately died. A sad story. In the end, I bought some of his pelts, among them the whelp fur. ...",
+				"You can have it if this is important for you. I would sell it for 1000 gold. Are you interested?"
+			}, cid)
+			npcHandler.topic[cid] = 8
+		else
+			npcHandler:say("You are not on that mission.", cid)
+			npcHandler.topic[cid] = 0
+		end
+	elseif(msgcontains(msg, "addon")) then
 		if(getPlayerStorageValue(cid, Storage.Irmana1) < 1) then
 			npcHandler:say("Currently we are offering accessories for the nobleman - and, of course, noblewoman - outfit. Would you like to hear more about our offer?", cid)
 			npcHandler.topic[cid] = 1
@@ -33,7 +44,6 @@ function creatureSayCallback(cid, type, msg)
 		else
 			npcHandler:say("You have already bought the two addons.", cid)
 		end
-
 	elseif(msgcontains(msg, "yes")) then
 		if npcHandler.topic[cid] == 1 then
 			npcHandler:say("Especially for you, mylady, we are offering a pretty {hat} and a beautiful {dress} like the ones I wear. Which one are you interested in?", cid)
@@ -83,6 +93,16 @@ function creatureSayCallback(cid, type, msg)
 				doPlayerRemoveItem(cid,2652,150)
 				npcHandler:say("A 150 {Green Tunic}! Great. Here, take this green piece of cloth, I don\'t need it anyway.", cid)
 				doPlayerAddItem(cid,5910,1)
+				npcHandler.topic[cid] = 0
+			else
+				npcHandler:say('Are you trying to mess with me?!', cid)
+			end
+		elseif npcHandler.topic[cid] == 8 then
+			if player:getMoney() >= 1000 then
+				player:removeMoney(1000)
+				player:addItem(28599, 1) -- Fur of a Wolf Whelp
+				npcHandler:say("Alright. Here is the fur.", cid)
+				player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 9)
 				npcHandler.topic[cid] = 0
 			else
 				npcHandler:say('Are you trying to mess with me?!', cid)

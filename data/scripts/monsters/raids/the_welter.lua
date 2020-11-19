@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 300,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -93,20 +95,20 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 100, effect = CONST_ME_DRAWBLOOD},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 17, minDamage = -500, maxDamage = -660, length = 8, spread = 3, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="combat", interval = 2000, chance = 14, minDamage = -200, maxDamage = -450, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_BLACKSMOKE, target = false},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -150, maxDamage = -270, type = COMBAT_ICEDAMAGE, range = 7, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 13, minDamage = -120, maxDamage = -230, type = COMBAT_ICEDAMAGE, range = 1, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 9, target = false}
+	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 17, minDamage = -500, maxDamage = -660, length = 8, spread = 3, effect = CONST_ME_SMALLPLANTS, target = false},
+	{name ="combat", interval = 2000, chance = 14, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -450, length = 8, spread = 3, effect = CONST_ME_BLACKSMOKE, target = false},
+	{name ="combat", interval = 2000, chance = 18, type = COMBAT_ICEDAMAGE, minDamage = -150, maxDamage = -270, range = 7, radius = 4, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true},
+	{name ="combat", interval = 2000, chance = 13, type = COMBAT_ICEDAMAGE, minDamage = -120, maxDamage = -230, range = 1, radius = 1, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true},
+	{name ="the welter paralyze", interval = 2000, chance = 9, target = false}
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 27,
-	{name ="combat", interval = 2000, chance = 32, minDamage = 250, maxDamage = 600, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 2000, chance = 12, minDamage = 150, maxDamage = 700, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="combat", interval = 2000, chance = 9, target = false},
-	{name ="combat", interval = 2000, chance = 8, target = false}
+	{name ="combat", interval = 2000, chance = 32, type = COMBAT_HEALING, minDamage = 250, maxDamage = 600, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="combat", interval = 2000, chance = 12, type = COMBAT_HEALING, minDamage = 150, maxDamage = 700, radius = 5, effect = CONST_ME_MAGIC_GREEN, target = false},
+	{name ="the welter summon2", interval = 2000, chance = 9, target = false},
+	{name ="the welter heal", interval = 2000, chance = 8, target = false}
 }
 
 monster.elements = {

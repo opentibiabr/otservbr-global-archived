@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -72,14 +74,14 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -118, effect = CONST_ME_DRAWBLOOD},
-	{name ="outfit", interval = 3000, chance = 20}
+	{name ="outfit", interval = 3000, chance = 20, range = 7, effect = CONST_ME_MAGIC_BLUE, target = true, duration = 4000, outfitMonster = "Sheep"}
 }
 
 monster.defenses = {
 	defense = 35,
 	armor = 30,
-	{name ="combat", interval = 2000, chance = 20, minDamage = 50, maxDamage = 100, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="outfit", interval = 1500, chance = 50}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 50, maxDamage = 100, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="outfit", interval = 1500, chance = 50, effect = CONST_ME_MAGIC_BLUE, target = false, duration = 3000, outfitMonster = "Werewolf"}
 }
 
 monster.elements = {

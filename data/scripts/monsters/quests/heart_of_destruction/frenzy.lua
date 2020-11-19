@@ -47,12 +47,16 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
-monster.events = {"HeartMinionDeath"}
+monster.events = {
+	"HeartMinionDeath"
+}
 
 monster.light = {
 	level = 0,
@@ -69,15 +73,15 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1047, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -730, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = -464, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_POFF, target = false}
+	{name ="big energy purple wave2", interval = 2000, chance = 100, minDamage = 0, maxDamage = -730, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -464, radius = 4, effect = CONST_ME_ENERGYAREA, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, radius = 7, effect = CONST_ME_POFF, target = false}
 }
 
 monster.defenses = {
 	defense = 100,
 	armor = 100,
-	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = 438, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 0, maxDamage = 438, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -67,10 +69,10 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 120, attack = 80, effect = CONST_ME_DRAWBLOOD},
-	{name ="firefield", interval = 2000, chance = 11, range = 7, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 2000, chance = 9, minDamage = -390, maxDamage = -1500, type = COMBAT_FIREDAMAGE, length = 8, spread = 3, effect = CONST_ME_FIREATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -65, maxDamage = -330, type = COMBAT_FIREDAMAGE, range = 7, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 2000, chance = 10, target = false}
+	{name ="firefield", interval = 2000, chance = 11, range = 7, radius = 3, effect = CONST_ME_HITBYFIRE, target = false},
+	{name ="combat", interval = 2000, chance = 9, type = COMBAT_FIREDAMAGE, minDamage = -390, maxDamage = -1500, length = 8, spread = 3, effect = CONST_ME_FIREATTACK, target = false},
+	{name ="combat", interval = 2000, chance = 12, type = COMBAT_FIREDAMAGE, minDamage = -65, maxDamage = -330, range = 7, radius = 3, effect = CONST_ME_HITBYFIRE, target = false},
+	{name ="hellfire fighter soulfire", interval = 2000, chance = 10, target = false}
 }
 
 monster.defenses = {

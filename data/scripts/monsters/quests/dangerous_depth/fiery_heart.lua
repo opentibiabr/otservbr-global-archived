@@ -41,9 +41,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -60,7 +62,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 30, minDamage = 0, maxDamage = -550, target = false}
+	{name ="aggresivelavawave", interval = 2000, chance = 30, minDamage = 0, maxDamage = -550, target = false}
 }
 
 monster.defenses = {

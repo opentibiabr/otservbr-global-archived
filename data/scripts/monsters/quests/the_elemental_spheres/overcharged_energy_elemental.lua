@@ -4,87 +4,107 @@ local monster = {}
 monster.description = "an overcharged energy elemental"
 monster.experience = 1300
 monster.outfit = {
-	lookType = 290
+	lookType = 290,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
 }
 
 monster.health = 1200
-monster.maxHealth = monster.health
-monster.race = "energy"
+monster.maxHealth = 1200
+monster.race = "undead"
 monster.corpse = 8966
 monster.speed = 300
+monster.summonCost = 0
+monster.maxSummons = 0
 
 monster.changeTarget = {
-	interval = 4*1000,
-	chance = 10
+	interval = 20000,
+	chance = 15
+}
+
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
 }
 
 monster.flags = {
 	summonable = false,
 	attackable = true,
-	rewardBoss = false,
 	hostile = true,
 	convinceable = false,
+	pushable = false,
+	rewardBoss = false,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = false,
+	staticAttackChance = 85,
 	targetDistance = 1,
-	staticAttackChance = 80,
-	respawnType = RESPAWN_IN_ALL
+	runHealth = 1,
+	healthHidden = false,
+	isBlockable = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false,
+	pet = false
 }
 
-monster.loot = {
-	{id = 2148, minCount = 1, maxCount = 176, chance = 85090},	-- Gold Coin
-	{id = 8303, chance = 14130},								-- Energy Soil
-	{id = 7591, chance = 9750},									-- Great Health Potion
-	{id = 2150, minCount = 1, maxCount = 2, chance = 4880},		-- Small Amethyst
-	{id = 7439, chance = 1230},									-- Berserk Potion
-	{id = 2214, chance = 560},									-- Ring of Healing
-	{id = 8920, chance = 280},									-- Wand of Starstorm
-}
-
-monster.attacks = {
-	{name = "melee", type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -200, effect = CONST_ME_DRAWBLOOD, interval = 2*1000},
-	{name = "combat", type = COMBAT_ENERGYDAMAGE,  interval = 2*1000, chance = 17, range = 4, target = true, minDamage = -150, maxDamage = -420, radius = 2, shootEffect = CONST_ANI_ENERGYBALL , effect = CONST_ME_ENERGYHIT},
-	{name = "combat", type = COMBAT_ENERGYDAMAGE,  interval = 2*1000, chance = 15, range = 4, target = true, minDamage = -100, maxDamage = -250, radius = 1, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_YELLOWENERGY},
-	{name = "charged energy elemental electrify", type = CONDITION_ENERGY,  interval = 2*1000, chance = 13},
-}
-
-monster.defenses = {
-	defense = 35,
-	armor = 35,
-}
-
-monster.elements = {
-	{type = COMBAT_EARTHDAMAGE, percent = -20},
-}
-
-monster.immunities = {
-	{type = "fire", combat = true, condition = true},
-	{type = "energy", combat = true, condition = true},
-	{type = "ice", combat = true, condition = true},
-	{type = "paralyze", condition = true},
-	{type = "invisible", condition = true},
+monster.light = {
+	level = 0,
+	color = 0
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "BZZZZZZZZZZ", yell = false},
+	{text = "BZZZZZZZZZZ", yell = false}
 }
 
-mType.onThink = function(monster, interval)
-end
+monster.loot = {
+	{id = "gold coin", chance = 50000, maxCount = 100},
+	{id = "gold coin", chance = 50000, maxCount = 56},
+	{id = "small amethyst", chance = 10000, maxCount = 2},
+	{id = "berserk potion", chance = 2173},
+	{id = "great health potion", chance = 10000},
+	{id = "energy soil", chance = 14285}
+}
 
-mType.onAppear = function(monster, creature)
-end
+monster.attacks = {
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 1000, chance = 11, type = COMBAT_ENERGYDAMAGE, minDamage = 0, maxDamage = -250, radius = 4, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_PURPLEENERGY, target = false},
+	{name ="combat", interval = 1000, chance = 12, type = COMBAT_ENERGYDAMAGE, minDamage = 0, maxDamage = -300, range = 3, effect = CONST_ME_PURPLEENERGY, target = true},
+	{name ="combat", interval = 1000, chance = 12, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -200, radius = 4, effect = CONST_ME_POFF, target = false}
+}
 
-mType.onDisappear = function(monster, creature)
-end
+monster.defenses = {
+	defense = 35,
+	armor = 35,
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 90, maxDamage = 150, effect = CONST_ME_MAGIC_BLUE, target = false}
+}
 
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 100},
+	{type = COMBAT_EARTHDAMAGE, percent = -20},
+	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
+}
 
-mType.onSay = function(monster, creature, type, message)
-end
+monster.immunities = {
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = false},
+	{type = "bleed", condition = false}
+}
 
 mType:register(monster)

@@ -14,15 +14,20 @@ monster.outfit = {
 }
 
 monster.health = 50000
-monster.maxHealth = monster.health
+monster.maxHealth = 50000
 monster.race = "venom"
 monster.corpse = 36434
 monster.speed = 250
+monster.summonCost = 0
 monster.maxSummons = 5
 
 monster.changeTarget = {
-	interval = 4*1000,
+	interval = 4000,
 	chance = 10
+}
+
+monster.strategiesTarget = {
+	nearest = 100,
 }
 
 monster.flags = {
@@ -35,85 +40,93 @@ monster.flags = {
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
-	staticAttackChance = 80,
+	staticAttackChance = 90,
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
-	respawnType = RESPAWN_IN_ALL
+	isBlockable = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
+	pet = false
 }
 
-monster.loot = {
-	{id = "Platinum Coin", minCount = 5, maxCount = 5, chance = 100000},
-	{id = "Silver Token", minCount = 2, maxCount = 4, chance = 100000},
-	{id = "Great Spirit Potion", minCount = 6, maxCount = 20, chance = 59380},
-	{id = "Great Mana Potion", minCount = 6, maxCount = 20, chance = 37500},
-	{id = "Supreme Health Potion", minCount = 6, maxCount = 20, chance = 75000},
-	{id = "Yellow Gem", chance = 28130},
-	{id = "Red Gem", minCount = 1, maxCount = 2, chance = 37500},
-	{id = "Green Gem", chance = 37500},
-	{id = "Berserk Potion", minCount = 10, maxCount = 10, chance = 34380},
-	{id = "Warrior Helmet", chance = 21880},
-	{id = "Bullseye Potion", minCount = 10, maxCount = 10, chance = 9380},
-	{id = "Glacier Mask", chance = 12500},
-	{id = "Blue Gem", chance = 9380},
-	{id = "Mastermind Potion", minCount = 10, maxCount = 10, chance = 12500},
-	{id = "Piece of Hell Steel", chance = 21880},
-	{id = "Piece of Draconian Steel", chance = 21880},
-	{id = "Guardian Axe", chance = 12500},
-	{id = "Rotten Heart", chance = 9380},
-	{id = "Ancient Lich Bone", chance = 6250},
-	{id = "Giant Sapphire", chance = 6450},
-	{id = "Giant Emerald", chance = 6250},
-	{id = "Crystal Coin", minCount = 1, maxCount = 2, chance = 21880},
-	{id = "Young Lich Worm", chance = 9380},
-	{id = "Embrace of Nature", chance = 3130},
-	{id = "Terra Helmet", chance = 3130},
-	{id = "Violet Gem", chance = 3130},
-	{id = "Gold Ingot", chance = 3130},
-	{id = "Final Judgement", chance = 150},
-	{id = 26200, chance = 15630},-- collar of red plasma
-	{id = 26189, chance = 3130},-- ring of red plasma
-	{id = 26199, chance = 6250},-- collar of green plasma
-	{id = 26187, chance = 9380},-- ring of green plasma
-	{id = 26182, chance = 18750},-- collar of blue plasma
-	{id = 26186, chance = 3130},-- ring of blue plasma
+monster.light = {
+	level = 0,
+	color = 0
 }
 
 monster.summons = {
-	{name = "Frozen Soul", chance = 20, interval = 2000},
-}
-
-monster.attacks = {
-	{name = "melee", type = COMBAT_PHYSICALDAMAGE, interval = 2*1000, minDamage = 0, maxDamage = -600, effect = CONST_ME_DRAWBLOOD},
-	{name = "combat", type = COMBAT_ICEDAMAGE, interval = 2*1000, chance = 15, length = 8, spread = 0, minDamage = -400, maxDamage = -1000, effect = CONST_ME_ICEATTACK},
-	{name = "combat", type = COMBAT_EARTHDAMAGE, interval = 2*1000, chance = 10, length = 8, spread = 3, minDamage = -400, maxDamage = -1000, effect = CONST_ME_GREEN_RINGS},
-}
-
-monster.defenses = {
-	defense = 78,
-	armor = 78,
-	{name = "combat", type = COMBAT_HEALING, chance = 15, interval = 2*1000, minDamage = 350, maxDamage = 550, effect = CONST_ME_MAGIC_BLUE},
-}
-
-monster.elements = {
-	{type = COMBAT_FIREDAMAGE, percent = -10},
-	{type = COMBAT_ENERGYDAMAGE, percent = -5},
-}
-
-monster.immunities = {
-	{type = "earth", combat = true, condition = true},
-	{type = "paralyze", condition = true},
-	{type = "invisible", condition = true},
+	{name = "Frozen Soul", chance = 20, interval = 2000}
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "I ... will ... rise ... again!", yell = false},
-	{text = "I... will ... get ... you ... all!", yell = false},
+}
+
+monster.loot = {
+	{id = "silver token", chance = 100000, maxCount = 2},
+	{id = "platinum coin", chance = 96770, maxCount = 5},
+	{id = "ultimate spirit potion", chance = 64520, maxCount = 20},
+	{id = "ultimate mana potion", chance = 51610, maxCount = 20},
+	{id = "supreme health potion", chance = 45160, maxCount = 20},
+	{id = "crystal coin", chance = 35480, maxCount = 3},
+	{id = "piece of draconian steel", chance = 32260, maxCount = 3},
+	{id = "bullseye potion", chance = 29030, maxCount = 10},
+	{id = "red gem", chance = 29030},
+	{id = "blue gem", chance = 25810},
+	{id = "yellow gem", chance = 22580, maxCount = 2},
+	{id = 26199, chance = 19350},
+	{id = "green gem", chance = 19350, maxCount = 2},
+	{id = "glacier mask", chance = 19350},
+	{id = "warrior helmet", chance = 19350},
+	{id = 26200, chance = 19350},
+	{id = "berserk potion", chance = 16130, maxCount = 10},
+	{id = 26189, chance = 16130},
+	{id = "mastermind potion", chance = 12900, maxCount = 10},
+	{id = "gold ingot", chance = 12900},
+	{id = "violet gem", chance = 12900},
+	{id = 26198, chance = 9680},
+	{id = "piece of hell steel", chance = 9680, maxCount = 4},
+	{id = "young lich worm", chance = 6450},
+	{id = 26187, chance = 3230},
+	{id = "rotten heart", chance = 400},
+	{id = "embrace of nature", chance = 400},
+	{id = "terra helmet", chance = 150},
+	{id = "final judgement", chance = 150}
+}
+
+monster.attacks = {
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -400, maxDamage = -1000, length = 7, spread = 3, effect = CONST_ME_ICEATTACK, target = false},
+	{name ="combat", interval = 1800, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -1000, length = 7, spread = 2, effect = CONST_ME_POISONAREA, target = false},
+	{name ="combat", interval = 2000, chance = 30, type = COMBAT_ENERGYDAMAGE, minDamage = -260, maxDamage = -420, range = 3, effect = CONST_ME_BLUE_ENERGY_SPARK, target = true}
+}
+
+monster.defenses = {
+	defense = 25,
+	armor = 78,
+	{name ="combat", interval = 2000, chance = 35, type = COMBAT_HEALING, minDamage = 350, maxDamage = 550, effect = CONST_ME_MAGIC_BLUE, target = false}
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 20},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = true},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
 }
 
 mType.onThink = function(monster, interval)

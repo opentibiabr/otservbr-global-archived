@@ -8,7 +8,7 @@ removeChargesFromRunes = true
 removeChargesFromPotions = true
 removeWeaponAmmunition = true
 removeWeaponCharges = true
-timeToDecreaseFrags = 45 * 24 * 60 * 60
+timeToDecreaseFrags = 1 * 24 * 60 * 60
 whiteSkullTime = 15 * 60 * 1000
 stairJumpExhaustion = 2 * 1000
 experienceByKillingPlayers = false
@@ -16,9 +16,11 @@ expFromPlayersLevelRange = 75
 dayKillsToRedSkull = 3
 weekKillsToRedSkull = 5
 monthKillsToRedSkull = 10
-redSkullDuration = 30
-blackSkullDuration = 45
+redSkullDuration = 1
+blackSkullDuration = 3
 orangeSkullDuration = 7
+
+onlyInvitedCanMoveHouseItems = true
 
 -- Connection Config
 -- NOTE: maxPlayers set to 0 means no limit
@@ -62,6 +64,7 @@ deathLosePercent = -1
 -- Periods: daily/weekly/monthly/yearly/never
 housePriceEachSQM = 1000
 houseRentPeriod = "never"
+houseOwnedByAccount = false
 
 -- Item Usage
 timeBetweenActions = 200
@@ -95,8 +98,6 @@ mysqlSock = ""
 allowChangeOutfit = true
 freePremium = true
 kickIdlePlayerAfterMinutes = 15
-idleWarningTime = 10 * 60 * 1000
-idleKickTime = 15 * 60 * 1000
 maxMessageBuffer = 4
 emoteSpells = false
 classicEquipmentSlots = false

@@ -2869,7 +2869,7 @@ ReturnValue Player::queryMaxCount(int32_t index, const Thing& thing, uint32_t co
 	}
 }
 
-ReturnValue Player::queryRemove(const Thing& thing, uint32_t count, uint32_t flags) const
+ReturnValue Player::queryRemove(const Thing& thing, uint32_t count, uint32_t flags, Creature* /*= nullptr*/) const
 {
 	int32_t index = getThingIndex(&thing);
 	if (index == -1) {
@@ -3502,7 +3502,7 @@ void Player::internalAddThing(uint32_t index, Thing* thing)
 	}
 
 	//index == 0 means we should equip this item at the most appropiate slot (no action required here)
-	if (index > 0 && index < 12) {
+	if (index >= CONST_SLOT_FIRST && index <= CONST_SLOT_LAST) {
 		if (inventory[index]) {
 			return;
 		}
@@ -4184,14 +4184,6 @@ Skulls_t Player::getSkullClient(const Creature* creature) const
 			}
 		}
 
-		if (isInWar(player)) {
-			return SKULL_GREEN;
-		}
-
-		if (!player->getGuildWarVector().empty() && guild == player->getGuild()) {
-			return SKULL_GREEN;
-		}
-
 		if (player->hasKilled(this)) {
 			return SKULL_ORANGE;
 		}
@@ -4318,7 +4310,7 @@ bool Player::isPromoted() const
 double Player::getLostPercent() const
 {
 	int32_t blessingCount = 0;
-	uint8_t maxBlessing = (operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6;
+	uint8_t maxBlessing = (operatingSystem == CLIENTOS_NEW_WINDOWS || operatingSystem == CLIENTOS_NEW_MAC) ? 8 : 6;
 	for (int i = 2; i <= maxBlessing; i++) {
 		if (hasBlessing(i)) {
 			blessingCount++;

@@ -38,9 +38,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 100,
 	healthHidden = true,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -49,7 +51,7 @@ monster.light = {
 }
 
 monster.summons = {
-	{name = "Demon", chance = 7,000000000000001, interval = 2000, max = 3}
+	{name = "Demon", chance = 7, interval = 2000, max = 3}
 }
 
 monster.voices = {

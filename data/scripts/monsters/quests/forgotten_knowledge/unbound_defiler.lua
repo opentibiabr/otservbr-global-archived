@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 85,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -63,22 +65,22 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 80, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 300, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 13, minDamage = -160, maxDamage = -295, type = COMBAT_LIFEDRAIN, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_HITBYPOISON, target = true},
-	{name ="combat", interval = 2000, chance = 9, target = false},
-	{name ="combat", interval = 2000, chance = 6, target = false},
-	{name ="combat", interval = 2000, chance = 8, target = false},
+	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 80, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 300, interval = 4000}},
+	{name ="combat", interval = 2000, chance = 13, type = COMBAT_LIFEDRAIN, minDamage = -160, maxDamage = -295, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_HITBYPOISON, target = true},
+	{name ="defiler paralyze 3", interval = 2000, chance = 9, target = false},
+	{name ="defiler paralyze 1", interval = 2000, chance = 6, target = false},
+	{name ="defiler paralyze 2", interval = 2000, chance = 8, target = false},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -300, maxDamage = -500, effect = CONST_ME_HITBYPOISON, target = false},
+	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -300, maxDamage = -500, radius = 8, effect = CONST_ME_HITBYPOISON, target = false},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -400, maxDamage = -725, length = 8, spread = 3, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="combat", interval = 2000, chance = 14, minDamage = -120, maxDamage = -170, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_POISONAREA, target = false}
+	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -400, maxDamage = -725, length = 8, spread = 3, effect = CONST_ME_SMALLPLANTS, target = false},
+	{name ="combat", interval = 2000, chance = 14, type = COMBAT_EARTHDAMAGE, minDamage = -120, maxDamage = -170, radius = 3, effect = CONST_ME_POISONAREA, target = false}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 15, minDamage = 250, maxDamage = 450, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_GREEN, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 250, maxDamage = 450, effect = CONST_ME_MAGIC_GREEN, target = false}
 }
 
 monster.elements = {

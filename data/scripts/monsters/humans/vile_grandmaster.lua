@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -93,16 +95,16 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 15, target = false},
-	{name ="combat", interval = 2000, chance = 100, minDamage = 10, maxDamage = -260, effect = CONST_ME_DRAWBLOOD},
+	{name ="vile grandmaster", interval = 2000, chance = 15, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 10, maxDamage = -260, effect = CONST_ME_DRAWBLOOD},
 	-- bleed
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 20, minDamage = -150, maxDamage = -225, shootEffect = CONST_ANI_THROWINGKNIFE, effect = CONST_ME_DRAWBLOOD, target = true}
+	{name ="condition", type = CONDITION_BLEEDING, interval = 2000, chance = 20, minDamage = -150, maxDamage = -225, radius = 4, shootEffect = CONST_ANI_THROWINGKNIFE, effect = CONST_ME_DRAWBLOOD, target = true}
 }
 
 monster.defenses = {
 	defense = 50,
 	armor = 35,
-	{name ="combat", interval = 4000, chance = 15, minDamage = 220, maxDamage = 280, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 4000, chance = 15, type = COMBAT_HEALING, minDamage = 220, maxDamage = 280, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

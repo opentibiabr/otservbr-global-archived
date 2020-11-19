@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 30,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -72,11 +74,11 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -115, effect = CONST_ME_DRAWBLOOD},
-	{name ="poisonfield", interval = 2000, chance = 10, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -90, type = COMBAT_LIFEDRAIN, length = 7, spread = 3, effect = CONST_ME_HITBYPOISON, target = false},
+	{name ="poisonfield", interval = 2000, chance = 10, radius = 4, effect = CONST_ME_POISONAREA, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = 0, maxDamage = -90, length = 7, spread = 3, effect = CONST_ME_HITBYPOISON, target = false},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -40, maxDamage = -80, range = 7, shootEffect = CONST_ANI_POISON, target = false},
-	{name ="combat", interval = 2000, chance = 5, range = 5, target = false}
+	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -40, maxDamage = -80, range = 7, shootEffect = CONST_ANI_POISON, target = false},
+	{name ="lancer beetle curse", interval = 2000, chance = 5, range = 5, target = false}
 }
 
 monster.defenses = {

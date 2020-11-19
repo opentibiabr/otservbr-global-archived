@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 50,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -77,15 +79,15 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 80, attack = 100, effect = CONST_ME_DRAWBLOOD},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 15, minDamage = -440, maxDamage = -820, length = 3, spread = 2, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -290, maxDamage = -540, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_HITBYPOISON, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -190, maxDamage = -480, type = COMBAT_EARTHDAMAGE, length = 8, spread = 3, effect = CONST_ME_GREEN_RINGS, target = false}
+	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 15, minDamage = -440, maxDamage = -820, length = 3, spread = 2, effect = CONST_ME_POISONAREA, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -290, maxDamage = -540, radius = 3, effect = CONST_ME_HITBYPOISON, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -190, maxDamage = -480, length = 8, spread = 3, effect = CONST_ME_GREEN_RINGS, target = false}
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 45,
-	{name ="combat", interval = 2000, chance = 10, minDamage = 475, maxDamage = 625, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_GREEN, target = false}
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 475, maxDamage = 625, effect = CONST_ME_MAGIC_GREEN, target = false}
 }
 
 monster.elements = {

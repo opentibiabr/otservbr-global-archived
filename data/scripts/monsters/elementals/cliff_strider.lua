@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -102,11 +104,11 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -499, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = -800, type = COMBAT_PHYSICALDAMAGE, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
-	{name ="combat", interval = 2000, chance = 10, target = false},
-	{name ="combat", interval = 2000, chance = 15, range = 1, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -1000, type = COMBAT_PHYSICALDAMAGE, length = 6, spread = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -100, maxDamage = -300, type = COMBAT_MANADRAIN, effect = CONST_ME_YELLOWENERGY, target = false}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -800, radius = 4, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
+	{name ="cliff strider skill reducer", interval = 2000, chance = 10, target = false},
+	{name ="cliff strider electrify", interval = 2000, chance = 15, range = 1, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -1000, length = 6, spread = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -100, maxDamage = -300, radius = 4, effect = CONST_ME_YELLOWENERGY, target = false}
 }
 
 monster.defenses = {

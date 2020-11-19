@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 3,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -72,11 +74,11 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1700, chance = 15, minDamage = -250, maxDamage = -550, shootEffect = CONST_ANI_ENVENOMEDARROW, target = true},
-	{name ="combat", interval = 1700, chance = 25, minDamage = -250, maxDamage = -550, type = COMBAT_ENERGYDAMAGE, length = 4, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 1700, chance = 35, minDamage = -250, maxDamage = -550, type = COMBAT_DEATHDAMAGE, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 1700, chance = 35, minDamage = -250, maxDamage = -400, type = COMBAT_HOLYDAMAGE, effect = CONST_ME_HOLYAREA, target = false},
-	{name ="combat", interval = 1700, chance = 13, minDamage = -400, maxDamage = -450, type = COMBAT_ENERGYDAMAGE, range = 4, effect = CONST_ME_ENERGYAREA, target = true}
+	{name ="combat", interval = 1700, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -250, maxDamage = -550, radius = 3, shootEffect = CONST_ANI_ENVENOMEDARROW, target = true},
+	{name ="combat", interval = 1700, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -250, maxDamage = -550, length = 4, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
+	{name ="combat", interval = 1700, chance = 35, type = COMBAT_DEATHDAMAGE, minDamage = -250, maxDamage = -550, radius = 3, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 1700, chance = 35, type = COMBAT_HOLYDAMAGE, minDamage = -250, maxDamage = -400, radius = 3, effect = CONST_ME_HOLYAREA, target = false},
+	{name ="combat", interval = 1700, chance = 13, type = COMBAT_ENERGYDAMAGE, minDamage = -400, maxDamage = -450, range = 4, radius = 4, effect = CONST_ME_ENERGYAREA, target = true}
 }
 
 monster.defenses = {

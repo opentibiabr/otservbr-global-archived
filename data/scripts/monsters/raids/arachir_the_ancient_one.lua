@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -84,16 +86,16 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 70, attack = 95, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 9000, chance = 100, minDamage = -120, maxDamage = -300, type = COMBAT_DEATHDAMAGE, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 1000, chance = 12, minDamage = 0, maxDamage = -120, type = COMBAT_DEATHDAMAGE, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true}
+	{name ="combat", interval = 9000, chance = 100, type = COMBAT_DEATHDAMAGE, minDamage = -120, maxDamage = -300, radius = 3, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 1000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = 0, maxDamage = -120, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 1000, chance = 12, minDamage = 100, maxDamage = 235, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="combat", interval = 1000, chance = 12, type = COMBAT_HEALING, minDamage = 100, maxDamage = 235, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 3000, chance = 25, effect = CONST_ME_MAGIC_BLUE},
-	{name ="outfit", interval = 4500, chance = 30}
+	{name ="outfit", interval = 4500, chance = 30, target = false, duration = 4000, outfitMonster = "bat"}
 }
 
 monster.elements = {

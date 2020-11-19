@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 1,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -71,7 +73,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 0,
 	armor = 0,
-	{name ="combat", interval = 100, chance = 100, effect = CONST_ME_FIREWORK_YELLOW, target = false}
+	{name ="effect", interval = 100, chance = 100, radius = 1, effect = CONST_ME_FIREWORK_YELLOW, target = false}
 }
 
 monster.elements = {

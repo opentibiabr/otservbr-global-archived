@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -82,10 +84,10 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 50, minDamage = -400, maxDamage = -550, type = COMBAT_PHYSICALDAMAGE, range = 5, shootEffect = CONST_ANI_ROYALSPEAR, target = true},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -200, maxDamage = 500, type = COMBAT_PHYSICALDAMAGE, range = 5, shootEffect = CONST_ANI_BOLT, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -350, maxDamage = -450, type = COMBAT_ENERGYDAMAGE, range = 7, shootEffect = CONST_ANI_POWERBOLT, effect = CONST_ME_ENERGYHIT, target = true},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -250, maxDamage = -350, type = COMBAT_ENERGYDAMAGE, length = 5, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false}
+	{name ="combat", interval = 2000, chance = 50, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -550, range = 5, shootEffect = CONST_ANI_ROYALSPEAR, target = true},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = 500, range = 5, shootEffect = CONST_ANI_BOLT, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -350, maxDamage = -450, range = 7, radius = 2, shootEffect = CONST_ANI_POWERBOLT, effect = CONST_ME_ENERGYHIT, target = true},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -250, maxDamage = -350, length = 5, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false}
 }
 
 monster.defenses = {

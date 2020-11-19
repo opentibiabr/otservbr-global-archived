@@ -185,6 +185,8 @@ class ConditionRegeneration final : public ConditionGeneric
 		ConditionRegeneration(ConditionId_t initId, ConditionType_t initType, int32_t iniTicks, bool initBuff = false, uint32_t initSubId = 0):
 			ConditionGeneric(initId, initType, iniTicks, initBuff, initSubId) {}
 
+		bool startCondition(Creature* creature) override;
+		void endCondition(Creature* creature) override;
 		void addCondition(Creature* creature, const Condition* addCondition) override;
 		bool executeCondition(Creature* creature, int32_t interval) override;
 
@@ -353,6 +355,7 @@ class ConditionOutfit final : public Condition
 		}
 
 		void setOutfit(const Outfit_t& outfit);
+		void setLazyMonsterOutfit(const std::string& monsterName);
 
 		//serialization
 		void serialize(PropWriteStream& propWriteStream) override;
@@ -360,6 +363,7 @@ class ConditionOutfit final : public Condition
 
 	private:
 		Outfit_t outfit;
+		std::string monsterName;
 };
 
 class ConditionLight final : public Condition

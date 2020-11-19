@@ -1,6 +1,7 @@
-local mType = Game.createMonsterType("The Sinister Hermit")
+local mType = Game.createMonsterType("The Sinister Hermit Dirty")
 local monster = {}
 
+monster.name = "The Sinister Hermit"
 monster.description = "The Sinister Hermit"
 monster.experience = 0
 monster.outfit = {
@@ -47,9 +48,11 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -71,14 +74,14 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -120, maxDamage = -488, type = COMBAT_EARTHDAMAGE, length = 7, spread = 8, effect = CONST_ME_SMALLPLANTS, target = false}
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -120, maxDamage = -488, length = 7, spread = 8, effect = CONST_ME_SMALLPLANTS, target = false}
 }
 
 monster.defenses = {
 	defense = 50,
 	armor = 35,
-	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = 800, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 30, effect = CONST_ME_MAGIC_RED, target = false}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 0, maxDamage = 800, effect = CONST_ME_MAGIC_RED, target = false},
+	{name ="shock head skill reducer 2", interval = 2000, chance = 30, radius = 8, effect = CONST_ME_MAGIC_RED, target = false}
 }
 
 monster.elements = {
@@ -100,23 +103,5 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
-
-mType.onThink = function(monster, interval)
-end
-
-mType.onAppear = function(monster, creature)
-	if monster:getType():isRewardBoss() then
-		monster:setReward(true)
-	end
-end
-
-mType.onDisappear = function(monster, creature)
-end
-
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-end
 
 mType:register(monster)

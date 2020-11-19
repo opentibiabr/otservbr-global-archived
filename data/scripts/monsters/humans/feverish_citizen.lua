@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -83,13 +85,13 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -18, effect = CONST_ME_DRAWBLOOD},
-	{name ="drunk", interval = 2000, chance = 15, length = 3, spread = 2, effect = CONST_ME_POISONAREA, target = false}
+	{name ="drunk", interval = 2000, chance = 15, length = 3, spread = 2, effect = CONST_ME_POISONAREA, target = false, duration = 3000}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="outfit", interval = 2000, chance = 1}
+	{name ="outfit", interval = 2000, chance = 1, radius = 3, effect = CONST_ME_GREEN_RINGS, target = false, duration = 5000, outfitMonster = "bog raider"}
 }
 
 monster.elements = {

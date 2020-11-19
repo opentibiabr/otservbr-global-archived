@@ -1,6 +1,7 @@
-local mType = Game.createMonsterType("Dorokoll The Mystic")
+local mType = Game.createMonsterType("Dorokoll The Mystic Stop")
 local monster = {}
 
+monster.name = "Dorokoll The Mystic"
 monster.description = "Dorokoll The Mystic"
 monster.experience = 0
 monster.outfit = {
@@ -47,9 +48,11 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -67,7 +70,7 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 40, minDamage = 0, maxDamage = -500, type = COMBAT_MANADRAIN, effect = CONST_ME_LOSEENERGY, target = false}
+	{name ="combat", interval = 2000, chance = 40, type = COMBAT_MANADRAIN, minDamage = 0, maxDamage = -500, radius = 8, effect = CONST_ME_LOSEENERGY, target = false}
 }
 
 monster.defenses = {
@@ -94,23 +97,5 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
-
-mType.onThink = function(monster, interval)
-end
-
-mType.onAppear = function(monster, creature)
-	if monster:getType():isRewardBoss() then
-		monster:setReward(true)
-	end
-end
-
-mType.onDisappear = function(monster, creature)
-end
-
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-end
 
 mType:register(monster)

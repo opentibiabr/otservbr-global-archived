@@ -24,8 +24,10 @@
 #include "housetile.h"
 #include "house.h"
 #include "game.h"
+#include "configmanager.h"
 
 extern Game g_game;
+extern ConfigManager g_config;
 
 HouseTile::HouseTile(int32_t initX, int32_t initY, int32_t initZ, House* initHouse) :
 	DynamicTile(initX, initY, initZ), house(initHouse) {}
@@ -133,4 +135,20 @@ Tile* HouseTile::queryDestination(int32_t& index, const Thing& thing, Item** des
 	}
 
 	return Tile::queryDestination(index, thing, destItem, tileFlags);
+}
+
+ReturnValue HouseTile::queryRemove(const Thing& thing, uint32_t count, uint32_t flags, Creature* actor /*= nullptr*/) const
+{
+	const Item* item = thing.getItem();
+	if (!item) {
+		return RETURNVALUE_NOTPOSSIBLE;
+	}
+
+	if (actor && g_config.getBoolean(ConfigManager::ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS)) {
+		Player* actorPlayer = actor->getPlayer();
+		if (!house->isInvited(actorPlayer)) {
+			return RETURNVALUE_NOTPOSSIBLE;
+		}
+	}
+	return Tile::queryRemove(thing, count, flags);
 }

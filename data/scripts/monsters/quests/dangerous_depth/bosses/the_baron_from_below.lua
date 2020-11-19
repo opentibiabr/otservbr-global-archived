@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -108,11 +110,11 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -1000, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_HITAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -1000, type = COMBAT_EARTHDAMAGE, length = 8, spread = 5, effect = CONST_ME_YELLOW_RINGS, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -1000, type = COMBAT_EARTHDAMAGE, length = 8, spread = 9, effect = CONST_ME_POFF, target = false},
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1000, type = COMBAT_DEATHDAMAGE, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -1000, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_SMALLPLANTS, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -1000, radius = 8, effect = CONST_ME_HITAREA, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = 0, maxDamage = -1000, length = 8, spread = 5, effect = CONST_ME_YELLOW_RINGS, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = 0, maxDamage = -1000, length = 8, spread = 9, effect = CONST_ME_POFF, target = false},
+	{name ="combat", interval = 2000, chance = 100, type = COMBAT_DEATHDAMAGE, minDamage = 0, maxDamage = -1000, radius = 3, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = 0, maxDamage = -1000, radius = 5, effect = CONST_ME_SMALLPLANTS, target = false}
 }
 
 monster.defenses = {

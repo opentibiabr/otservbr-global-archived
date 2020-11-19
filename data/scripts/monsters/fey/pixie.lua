@@ -1,108 +1,127 @@
 local mType = Game.createMonsterType("Pixie")
 local monster = {}
+
 monster.description = "a pixie"
 monster.experience = 700
 monster.outfit = {
-	lookType = 982
+	lookType = 982,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
 }
 
 monster.health = 770
-monster.maxHealth = monster.health
+monster.maxHealth = 770
 monster.race = "blood"
 monster.corpse = 29098
 monster.speed = 240
+monster.summonCost = 450
+monster.maxSummons = 0
 
 monster.changeTarget = {
-	interval = 4*1000,
+	interval = 4000,
 	chance = 10
 }
 
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
 monster.flags = {
-	summonable = false,
+	summonable = true,
 	attackable = true,
-	rewardBoss = false,
 	hostile = true,
-	convinceable = false,
-	illusionable = false,
+	convinceable = true,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = true,
 	canPushItems = true,
 	canPushCreatures = false,
-	preyable = false,
+	staticAttackChance = 90,
 	targetDistance = 4,
-	staticAttackChance = 70,
-	runHealth = 30,
-	respawnType = RESPAWN_IN_ALL
+	runHealth = 20,
+	healthHidden = false,
+	isBlockable = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false,
+	pet = false
 }
 
-monster.loot = {
-	{id = "Gold Coin", minCount = 1, maxCount = 90, chance = 60700},
-	{id = "Wild Flowers", chance = 17760},
-	{id = "Dandelion Seeds", chance = 14410},
-	{id = "Fresh Fruit", chance = 10160},
-	{id = "Colorful Snail Shell", chance = 9670},
-	{id = "Leaf Star", minCount = 1, maxCount = 5, chance = 8910},
-	{id = "Star Herb", chance = 4640},
-	{id = 2162, chance = 4480}, -- Magic Light Wand
-	{id = "Great Mana Potion", chance = 3250},
-	{id = "Rainbow Quartz", minCount = 1, maxCount = 3, chance = 3110},
-	{id = "Red Rose", chance = 3050},
-	{id = "Small Enchanted Amethyst", minCount = 1, maxCount = 2, chance = 2090},
-	{id = "Green Mushroom", chance = 1750},
-	{id = "Strong Mana Potion", chance = 740},
-	{id = "Butterfly Ring", chance = 740},
-	{id = "Dream Blossom Staff", chance = 680},
-	{id = "Wooden Spellbook", chance = 230},
-}
-
-monster.attacks = {
-	{name = "melee", type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD, interval = 2*1000},
-	{name = "combat", type = COMBAT_ENERGYDAMAGE,  interval = 2*1000, chance = 13, target = true, range = 4, minDamage = -70, maxDamage = -96, shootEffect = CONST_ANI_LEAFSTAR, effect = CONST_ME_ENERGYHIT},
-	{name = "speed", type = CONDITION_PARAM_SPEED, chance = 20, interval = 2*1000, length = 4, spread = 3, speed = -220, effect = CONST_ME_MAGIC_GREEN},
-	{name = "pixie skill reducer", chance = 15, interval = 2*1000},
-}
-
-monster.defenses = {
-	defense = 52,
-	armor = 52,
-	{name = "combat", type = COMBAT_HEALING, interval = 2*1000, chance = 10, minDamage = 45, maxDamage = 75, effect = CONST_ME_MAGIC_BLUE},
-}
-
-monster.elements = {
-	{type = COMBAT_EARTHDAMAGE, percent = 60},
-	{type = COMBAT_HOLYDAMAGE, percent = 60},
-	{type = COMBAT_DEATHDAMAGE, percent = 30},
-	{type = COMBAT_ICEDAMAGE, percent = -5},
-	{type = COMBAT_PHYSICALDAMAGE, percent = -5},
-	{type = COMBAT_FIREDAMAGE, percent = -10}
+monster.light = {
+	level = 0,
+	color = 0
 }
 
 monster.voices = {
-	interval = 2000,
+	interval = 5000,
 	chance = 10,
-	{text = "Sweet dreams!", yell = false},
-	{text = "Let's try a step or two!", yell = false},
 	{text = "Glamour, glitter, glistering things! Do you have any of those?", yell = false},
+	{text = "Sweet dreams!", yell = false},
 	{text = "You might be a threat! I'm sorry but I can't allow you to linger here.", yell = false},
+	{text = "Let's try a step or two!", yell = false}
+}
+
+monster.loot = {
+	{id = "gold coin", chance = 30000, maxCount = 90},
+	{id = "rainbow quartz", chance = 1086, maxCount = 5},
+	{id = "butterfly ring", chance = 492},
+	{id = "wooden spellbook", chance = 92},
+	{id = "dream blossom staff", chance = 92},
+	{id = 2162, chance = 492},
+	{id = "green mushroom", chance = 492},
+	{id = "small enchanted amethyst", chance = 492, maxCount = 2},
+	{id = "small topaz", chance = 592, maxCount = 2},
+	{id = "rainbow quartz", chance = 719, maxCount = 3},
+	{id = "colourful snail shell", chance = 719},
+	{id = "star herb", chance = 719},
+	{id = "leaf star", chance = 10000, maxCount = 5},
+	{id = "red rose", chance = 30100},
+	{id = "strong mana potion", chance = 6800},
+	{id = "wild flowers", chance = 5155},
+	{id = "great mana potion", chance = 591},
+	{id = "dandelion seeds", chance = 5800},
+	{id = "fresh fruit", chance = 3400, maxCount = 2}
+}
+
+monster.attacks = {
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -85, maxDamage = -135, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
+	{name ="speed", interval = 2000, chance = 11, speedChange = -440, length = 4, spread = 2, effect = CONST_ME_MAGIC_GREEN, target = false, duration = 7000},
+	{name ="combat", interval = 2000, chance = 30, type = COMBAT_ENERGYDAMAGE, minDamage = 0, maxDamage = -100, range = 4, shootEffect = CONST_ANI_LEAFSTAR, target = false},
+	{name ="pixie skill reducer", interval = 2000, chance = 20, target = false}
+}
+
+monster.defenses = {
+	defense = 45,
+	armor = 50,
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 40, maxDamage = 75, effect = CONST_ME_MAGIC_GREEN, target = false}
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = -5},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 60},
+	{type = COMBAT_FIREDAMAGE, percent = -10},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = -5},
+	{type = COMBAT_HOLYDAMAGE , percent = 60},
+	{type = COMBAT_DEATHDAMAGE , percent = 30}
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = true},
-	{type = "invisible", condition = true}
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
 }
-
-mType.onThink = function(monster, interval)
-end
-
-mType.onAppear = function(monster, creature)
-end
-
-mType.onDisappear = function(monster, creature)
-end
-
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-end
-
 
 mType:register(monster)

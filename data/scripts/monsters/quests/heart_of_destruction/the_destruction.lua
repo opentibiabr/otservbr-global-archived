@@ -47,12 +47,16 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
-monster.events = {"HeartMinionDeath"}
+monster.events = {
+	"HeartMinionDeath"
+}
 
 monster.light = {
 	level = 0,
@@ -69,20 +73,20 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1393, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -300, maxDamage = -600, type = COMBAT_ENERGYDAMAGE, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_YELLOWENERGY, target = true},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -400, maxDamage = -800, type = COMBAT_PHYSICALDAMAGE, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_EXPLOSIONAREA, target = true},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -200, maxDamage = -400, type = COMBAT_LIFEDRAIN, length = 10, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -500, maxDamage = -900, type = COMBAT_PHYSICALDAMAGE, length = 10, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -500, maxDamage = -900, type = COMBAT_PHYSICALDAMAGE, length = 10, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 2000, chance = 40, target = false},
-	{name ="combat", interval = 2000, chance = 20, target = false}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -300, maxDamage = -600, radius = 4, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_YELLOWENERGY, target = true},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -800, radius = 4, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_EXPLOSIONAREA, target = true},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -200, maxDamage = -400, length = 10, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, radius = 8, effect = CONST_ME_MAGIC_RED, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -500, maxDamage = -900, length = 10, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -500, maxDamage = -900, length = 10, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
+	{name ="anomaly break", interval = 2000, chance = 40, target = false},
+	{name ="destruction summon", interval = 2000, chance = 20, target = false}
 }
 
 monster.defenses = {
 	defense = 100,
 	armor = 100,
-	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = 546, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_GREEN, target = false}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 0, maxDamage = 546, effect = CONST_ME_MAGIC_GREEN, target = false}
 }
 
 monster.elements = {

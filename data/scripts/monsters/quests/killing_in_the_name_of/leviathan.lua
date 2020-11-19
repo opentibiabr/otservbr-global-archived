@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 600,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -79,15 +81,15 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1000, chance = 8, minDamage = -130, maxDamage = -460, type = COMBAT_EARTHDAMAGE, length = 9, spread = 3, effect = CONST_ME_BIGPLANTS, target = false},
-	{name ="combat", interval = 1000, chance = 10, minDamage = -365, maxDamage = -491, type = COMBAT_ICEDAMAGE, length = 9, spread = 3, effect = CONST_ME_ICEAREA, target = false},
-	{name ="combat", interval = 1000, chance = 11, minDamage = -15, maxDamage = -20, type = COMBAT_DROWNDAMAGE, effect = CONST_ME_LOSEENERGY, target = true}
+	{name ="combat", interval = 1000, chance = 8, type = COMBAT_EARTHDAMAGE, minDamage = -130, maxDamage = -460, length = 9, spread = 3, effect = CONST_ME_BIGPLANTS, target = false},
+	{name ="combat", interval = 1000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -365, maxDamage = -491, length = 9, spread = 3, effect = CONST_ME_ICEAREA, target = false},
+	{name ="combat", interval = 1000, chance = 11, type = COMBAT_DROWNDAMAGE, minDamage = -15, maxDamage = -20, radius = 4, effect = CONST_ME_LOSEENERGY, target = true}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 20,
-	{name ="combat", interval = 2000, chance = 25, minDamage = 50, maxDamage = 350, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 50, maxDamage = 350, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

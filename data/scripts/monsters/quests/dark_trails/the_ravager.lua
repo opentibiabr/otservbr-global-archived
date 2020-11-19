@@ -47,12 +47,16 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
-monster.events = {"TheRavagerDeath"}
+monster.events = {
+	"TheRavagerDeath"
+}
 
 monster.light = {
 	level = 0,
@@ -80,16 +84,16 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 82, attack = 70, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 320, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -200, maxDamage = -750, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 9, minDamage = -700, maxDamage = -880, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_SMALLCLOUDS, target = false},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -400, maxDamage = -500, type = COMBAT_LIFEDRAIN, length = 7, spread = 3, effect = CONST_ME_SMOKE, target = false}
+	{name ="melee", interval = 2000, chance = 100, skill = 82, attack = 70, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 320, interval = 4000}},
+	{name ="combat", interval = 2000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -750, range = 7, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 2000, chance = 9, type = COMBAT_DEATHDAMAGE, minDamage = -700, maxDamage = -880, length = 8, spread = 3, effect = CONST_ME_SMALLCLOUDS, target = false},
+	{name ="combat", interval = 2000, chance = 18, type = COMBAT_LIFEDRAIN, minDamage = -400, maxDamage = -500, length = 7, spread = 3, effect = CONST_ME_SMOKE, target = false}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 25,
-	{name ="combat", interval = 2000, chance = 20, minDamage = 200, maxDamage = 400, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 200, maxDamage = 400, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

@@ -36,7 +36,7 @@ GameStore.OfferTypes = {
 
 GameStore.ActionType = {
 	OPEN_HOME = 0,
-	OPEN_PREMIUM = 1,
+	OPEN_PREMIUM_BOOST = 1,
 	OPEN_CATEGORY = 2,
 	OPEN_USEFUL_THINGS = 3,
 	OPEN_OFFER = 4,
@@ -293,17 +293,37 @@ function parseRequestStoreOffers(playerId, msg)
 		if category then
 			addPlayerEvent(sendShowStoreOffers, 50, playerId, "Home Offers")
 		end
-	elseif actionType == GameStore.ActionType.OPEN_PREMIUM then
-		local category = GameStore.getCategoryByName("Premium Time")
+	elseif actionType == GameStore.ActionType.OPEN_PREMIUM_BOOST then
+		local subAction = msg:getByte()
+		local category = nil
+		
+		if subAction == 0 then
+			category = GameStore.getCategoryByName("Premium Time")
+		else 
+			category = GameStore.getCategoryByName("Boosts")
+		end
 		
 		if category then
 			addPlayerEvent(sendShowStoreOffers, 50, playerId, category)
 		end
 	elseif actionType == GameStore.ActionType.OPEN_USEFUL_THINGS then
-		local category = GameStore.getCategoryByName("Useful Things")
+		local subAction = msg:getByte()
+		local redirectId = subAction
+		local category = nil
+		if subAction >= 4 then
+			category = GameStore.getCategoryByName("Blessings")
+		else
+			category = GameStore.getCategoryByName("Useful Things")
+		end
 		
+		-- Third prey slot offerId
+		-- We can't use offerId 0
+		if subAction == 0 then 
+			redirectId = 65008
+		end
+
 		if category then
-			addPlayerEvent(sendShowStoreOffers, 50, playerId, category)
+			addPlayerEvent(sendShowStoreOffers, 50, playerId, category, redirectId)
 		end
 	
 	elseif actionType == GameStore.ActionType.OPEN_OFFER then
@@ -360,7 +380,7 @@ function parseBuyStoreOffer(playerId, msg)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_INSTANT_REWARD_ACCESS then GameStore.processInstantRewardAccess(player, offer.count)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_CHARMS         then GameStore.processCharmsPurchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_BLESSINGS      then GameStore.processSignleBlessingPurchase(player, offer.blessid, offer.count)
-		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_ALLBLESSINGS   then GameStore.processAllBlessingsPurchase(player)
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_ALLBLESSINGS   then GameStore.processAllBlessingsPurchase(player, offer.count)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREMIUM        then GameStore.processPremiumPurchase(player, offer.id)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_STACKABLE      then GameStore.processStackablePurchase(player, offer.itemtype, offer.count, offer.name)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HOUSE          then GameStore.processHouseRelatedPurchase(player, offer.itemtype, offer.count)
@@ -516,14 +536,17 @@ function Player.canBuyOffer(self, offer)
 				disabledReason = "You already have Loot Pouch."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_BLESSINGS then
-			if self:hasBlessing(offer.blessid) and offer.blessid < 9 then
+			if self:getBlessingCount(offer.blessid) >= 5 then
 				disabled = 1
-				disabledReason = "You already have this Bless."
+				disabledReason = "You reached the maximum amount for this blessing."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_ALLBLESSINGS then
-			if self:hasBlessing(1) and self:hasBlessing(2) and self:hasBlessing(3) and self:hasBlessing(4) and self:hasBlessing(5) and self:hasBlessing(6) and self:hasBlessing(7) and self:hasBlessing(8) then
-				disabled = 1
-				disabledReason = "You already have all Blessings."
+			for i = 1, 8 do
+				if self:getBlessingCount(i) >= 5 then
+					disabled = 1
+					disabledReason = "You already have all Blessings."
+					break
+				end
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_OUTFIT or offer.type == GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON then
 			local outfitLookType
@@ -641,11 +664,7 @@ function sendShowStoreOffers(playerId, category, redirectId)
 	msg:addByte(GameStore.SendingPackets.S_StoreOffers)
 	msg:addString(category.name)
 
-	if redirectId ~= 0 then
-		msg:addU32(redirectId)
-	else 
-		msg:addU32(0)
-	end
+	msg:addU32(redirectId or 0)
 
 	msg:addByte(0) -- Window Type
 	msg:addByte(0) -- Collections Size
@@ -1242,26 +1261,18 @@ function GameStore.processChargesPurchase(player, itemtype, name, charges)
 end
 
 function GameStore.processSignleBlessingPurchase(player, blessId, count)
-	if not player:hasBlessing(blessId) then
-		player:addBlessing(blessId, count)
-	else
-		return error({ code = 0, message = "You already have this blessing."})
-	end
+	player:addBlessing(blessId, count)
 end
 
-function GameStore.processAllBlessingsPurchase(player)
-	if player:hasBlessing(1) and player:hasBlessing(2) and player:hasBlessing(3) and player:hasBlessing(4) and player:hasBlessing(5) and player:hasBlessing(6) and player:hasBlessing(7) and player:hasBlessing(8) then
-		return error({ code = 0, message = "You already have all blessings."})
-	else
-		player:addBlessing(1, 1)
-		player:addBlessing(2, 1)
-		player:addBlessing(3, 1)
-		player:addBlessing(4, 1)
-		player:addBlessing(5, 1)
-		player:addBlessing(6, 1)
-		player:addBlessing(7, 1)
-		player:addBlessing(8, 1)
-	end
+function GameStore.processAllBlessingsPurchase(player, count)
+	player:addBlessing(1, count)
+	player:addBlessing(2, count)
+	player:addBlessing(3, count)
+	player:addBlessing(4, count)
+	player:addBlessing(5, count)
+	player:addBlessing(6, count)
+	player:addBlessing(7, count)
+	player:addBlessing(8, count)
 end
 
 function GameStore.processInstantRewardAccess(player, offerCount)
