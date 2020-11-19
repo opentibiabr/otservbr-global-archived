@@ -4328,8 +4328,9 @@ void ProtocolGame::sendImbuementWindow(Item* item)
 	}
 
 	const ItemType& it = Item::items[item->getID()];
-	uint8_t slot = it.imbuingSlots;
+
 	bool itemHasImbue = false;
+	uint8_t slot = it.imbuingSlots;
 	for (uint8_t i = 0; i < slot; i++) {
 		uint32_t info = item->getImbuement(i);
 		if (info >> 8) {
@@ -4338,11 +4339,6 @@ void ProtocolGame::sendImbuementWindow(Item* item)
 		}
 	}
 
-	std::vector<Imbuement*> imbuements = g_imbuements->getImbuements(player, item);
-	if (!itemHasImbue && imbuements.empty()) {
-		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "You did not collect enough knowledge from the ancient Shapers. Visit the Shaper temple in Thais for help.");
-		return;
-	}
 	// Seting imbuing item
 	player->inImbuing(item);
 
@@ -4364,6 +4360,7 @@ void ProtocolGame::sendImbuementWindow(Item* item)
 		}
 	}
 
+	std::vector<Imbuement*> imbuements = g_imbuements->getImbuements(player, item);
 	std::unordered_map<uint16_t, uint16_t> needItems;
 	msg.add<uint16_t>(imbuements.size());
 	for (Imbuement* ib : imbuements) {

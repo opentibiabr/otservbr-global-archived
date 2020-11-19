@@ -273,9 +273,6 @@ local exhibits = {
 		transformDuration = 7000,
 		dir = DIRECTION_NORTH
 	},
-
-	leverDuration = 6000,
-	transformDuration = 6000
 }
 
 local function resetExhibit(exhibitPosition, actionid)
@@ -297,7 +294,9 @@ local function resetLever(leverPos)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local thaisExhibition = Action()
+
+function thaisExhibition.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 1946 then
 		return false
 	end
@@ -350,10 +349,16 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 
 	item:transform(1946)
-	addEvent(resetLever, settings.leverDuration or exhibits.leverDuration, toPosition)
+	addEvent(resetLever, 6000 or 6000, toPosition)
 
 	if not isToggle then
-		addEvent(resetExhibit, settings.transformDuration or exhibits.transformDuration, exhibitPosition, item.actionid)
+		addEvent(resetExhibit, 6000 or 6000, exhibitPosition, item.actionid)
 	end
 	return true
 end
+
+for index, value in pairs(exhibits) do
+	thaisExhibition:aid(index)
+end
+
+thaisExhibition:register()
