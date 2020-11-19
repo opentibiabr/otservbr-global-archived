@@ -48,7 +48,7 @@ monster.flags = {
 	runHealth = 20,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
 	canWalkOnPoison = false,
 	pet = false
@@ -73,13 +73,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 5878, chance = 100000},
-	{id = 2162, chance = 80000},
-	{id = 2148, chance = 30000, maxCount = 10},
-	{id = 2050, chance = 30000, maxCount = 2},
-	{id = 2649, chance = 20000},
-	{id = 2403, chance = 10000},
-	{id = 2461, chance = 10000}
+	{id = "minotaur leather", chance = 100000},
+	{id = "magic light wand", chance = 76000},
+	{id = "gold coin", chance = 38000, maxCount = 10},
+	{id = "torch", chance = 30000, maxCount = 2},
+	{id = "leather legs", chance = 23000},
+	{id = "carrot", chance = 7690},
+	{id = "leather helmet", chance = 7690},
+	{id = "knife", chance = 7690}
 }
 
 monster.attacks = {

@@ -68,10 +68,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000, maxCount = 50},
-	{id = 2168, chance = 50000},
-	{id = 3965, chance = 25000, maxCount = 4},
-	{id = 9808, chance = 14285}
+	{id = "gold coin", chance = 100000, maxCount = 50},
+	{id = "hunting spear", chance = 31250, maxCount = 4},
+	{id = "life ring", chance = 25000},
+	{id = "rusty armor", chance = 6250},
+	{id = "fish fin", chance = 1500}
 }
 
 monster.attacks = {

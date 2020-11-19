@@ -66,14 +66,15 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 58000, maxCount = 78},
-	{id = 2666, chance = 24600},
-	{id = 2428, chance = 21000},
-	{id = 11324, chance = 13000},
-	{id = 11338, chance = 6000},
-	{id = 2456, chance = 4600},
-	{id = 8857, chance = 3070},
-	{id = 11113, chance = 1500}
+	{id = "gold coin", chance = 53500, maxCount = 78},
+	{id = "meat", chance = 23390},
+	{id = "orcish axe", chance = 19350},
+	{id = "shaggy tail", chance = 13700},
+	{id = "disgusting trophy", chance = 4840},
+	{id = "bow", chance = 3230},
+	{id = "orc tooth", chance = 2420},
+	{id = "silkweaver bow", chance = 2420},
+	{id = "crossbow", chance = 1610}
 }
 
 monster.attacks = {
@@ -90,16 +91,16 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = -2},
+	{type = COMBAT_PHYSICALDAMAGE, percent = -30},
+	{type = COMBAT_ENERGYDAMAGE, percent = 5},
+	{type = COMBAT_EARTHDAMAGE, percent = -5},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 2},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE , percent = 10},
+	{type = COMBAT_DEATHDAMAGE , percent = -10}
 }
 
 monster.immunities = {

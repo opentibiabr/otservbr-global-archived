@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Chikhaton")
 local monster = {}
 
 monster.description = "Chikhaton"
-monster.experience = 20000
+monster.experience = 30000
 monster.outfit = {
 	lookType = 361,
 	lookHead = 0,
@@ -50,7 +50,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -80,7 +80,7 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 50},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 0},

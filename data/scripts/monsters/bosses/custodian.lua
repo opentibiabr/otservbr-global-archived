@@ -65,10 +65,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 25000, maxCount = 13},
-	{id = "Small Sapphire", chance = 33500},
-	{id = "Small Topaz", chance = 33500},
-	{id = "Small Diamond", chance = 33500}
+	{id = "Small Sapphire", chance = 33500}
 }
 
 monster.attacks = {
@@ -86,7 +83,7 @@ monster.defenses = {
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},

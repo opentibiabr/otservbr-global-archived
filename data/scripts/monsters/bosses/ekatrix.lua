@@ -67,14 +67,14 @@ monster.voices = {
 monster.loot = {
 	{id = "gold coin", chance = 100000, maxCount = 60},
 	{id = "witch broom", chance = 100000},
-	{id = "cape", chance = 62500},
+	{id = "cape", chance = 64500},
 	{id = "wolf tooth chain", chance = 41670},
 	{id = "broom", chance = 37500},
 	{id = "coat", chance = 37500},
 	{id = "cookie", chance = 25000, maxCount = 10},
-	{id = "star herb", chance = 8333},
-	{id = "bag of apple slices", chance = 4170},
-	{id = "necrotic rod", chance = 4170}
+	{id = "star herb", chance = 11333},
+	{id = "bag of apple slices", chance = 2940},
+	{id = "necrotic rod", chance = 2940}
 }
 
 monster.attacks = {
@@ -89,7 +89,7 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = -5},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 100},
 	{type = COMBAT_EARTHDAMAGE, percent = 20},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
@@ -97,7 +97,7 @@ monster.elements = {
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
 	{type = COMBAT_DEATHDAMAGE , percent = 0}
 }
 
