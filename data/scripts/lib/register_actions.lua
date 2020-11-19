@@ -5,7 +5,7 @@ local holeId = {
 local Itemsgrinder = {
     [7759] = {item_id = 34642, effect = CONST_ME_BLUE_FIREWORKS}, -- Sapphire dust
     [18416] = {item_id = 23876, effect = CONST_ME_GREENSMOKE} -- Pinch of crystal dust
-}
+    }
 
 local holes = {
     468, 481, 483, 7932, 23712
@@ -15,7 +15,7 @@ local JUNGLE_GRASS = {
     2782, 3985, 19433
 }
 local WILD_GROWTH = {
-    1499, 11099, 2101, 1775, 1447, 1446
+    1499, 11099, 2101, 1775, 1447, 1446, 20670
 }
 
 local fruits = {
@@ -375,7 +375,7 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
             Game.createMonster("Scarab", toPosition)
         end
         toPosition:sendMagicEffect(CONST_ME_POFF)
-        -- Rookgaard tutorial island
+    -- Rookgaard tutorial island
     elseif target.itemid == 351 and target.actionid == 8024 then
         player:addItem(12297, 1)
         player:say("You dig out a handful of earth from this sacred place.", TALKTYPE_MONSTER_SAY)
@@ -583,7 +583,7 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
         else
             player:sendTextMessage(
             MESSAGE_EVENT_ADVANCE,"You are still exhausted from earlier attempts. \z
-            Getting liquid silver out of the mountain needs concentration and a steady hand.")
+                Getting liquid silver out of the mountain needs concentration and a steady hand.")
         end
     elseif target.itemid == 3621 and target.actionid == 12026 then
         --The Ice Islands Quest, Nibelor 1: Breaking the Ice
@@ -686,7 +686,7 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
         -- Wrath of the emperor quest
         player:addItem(12295, 1)
         player:say("The cracked part of the table lets you cut out a large chunk of wood with your pick.",
-        TALKTYPE_MONSTER_SAY )
+            TALKTYPE_MONSTER_SAY )
     elseif target.itemid == 22671 then
         target:transform(392)
         target:decay()
@@ -758,7 +758,7 @@ function onUseCrowbar(player, item, fromPosition, target, toPosition, isHotkey)
             player:setStorageValue(Storage.InServiceofYalahar.SewerPipe01, 1)
             -- StorageValue for Questlog "Mission 01: Something Rotten"
             player:setStorageValue(Storage.InServiceofYalahar.Mission01,
-            player:getStorageValue(Storage.InServiceofYalahar.Mission01) + 1)
+                    player:getStorageValue(Storage.InServiceofYalahar.Mission01) + 1)
             local position = player:getPosition()
             for x = -1, 1 do
                 for y = -1, 1 do
@@ -772,7 +772,7 @@ function onUseCrowbar(player, item, fromPosition, target, toPosition, isHotkey)
             player:setStorageValue(Storage.InServiceofYalahar.SewerPipe02, 1)
             -- StorageValue for Questlog "Mission 01: Something Rotten"
             player:setStorageValue(Storage.InServiceofYalahar.Mission01,
-            player:getStorageValue(Storage.InServiceofYalahar.Mission01) + 1)
+                    player:getStorageValue(Storage.InServiceofYalahar.Mission01) + 1)
             local position = player:getPosition()
             for x = -1, 1 do
                 for y = -1, 1 do
@@ -790,7 +790,7 @@ function onUseCrowbar(player, item, fromPosition, target, toPosition, isHotkey)
             player:setStorageValue(Storage.InServiceofYalahar.SewerPipe03, 1)
             -- StorageValue for Questlog "Mission 01: Something Rotten"
             player:setStorageValue(Storage.InServiceofYalahar.Mission01,
-            player:getStorageValue(Storage.InServiceofYalahar.Mission01) + 1)
+                    player:getStorageValue(Storage.InServiceofYalahar.Mission01) + 1)
         end
     elseif target.uid == 3074 then
         if player:getStorageValue(Storage.InServiceofYalahar.SewerPipe04) < 1 then
@@ -799,13 +799,13 @@ function onUseCrowbar(player, item, fromPosition, target, toPosition, isHotkey)
             player:setStorageValue(Storage.InServiceofYalahar.SewerPipe04, 1)
             -- StorageValue for Questlog "Mission 01: Something Rotten"
             player:setStorageValue(Storage.InServiceofYalahar.Mission01,
-            player:getStorageValue(Storage.InServiceofYalahar.Mission01) + 1)
+                    player:getStorageValue(Storage.InServiceofYalahar.Mission01) + 1)
         end
     elseif target.actionid == 100 then
         if target.itemid == 2593 then
             -- Postman quest
-            if player:getStorageValue(Storage.postman.Mission02) == 1 then
-                player:setStorageValue(Storage.postman.Mission02, 2)
+            if player:getStorageValue(Storage.Postman.Mission02) == 1 then
+                player:setStorageValue(Storage.Postman.Mission02, 2)
                 toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
             end
         elseif target.itemid == 5539 then
@@ -860,7 +860,7 @@ function onUseSpoon(player, item, fromPosition, target, toPosition, isHotkey)
     elseif target.itemid == 8573 or target.itemid == 388 then
         -- What a foolish quest - mission 8 (sulphur)
         if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) ~= 21
-        or player:getStorageValue(Storage.WhatAFoolishQuest.InflammableSulphur) == 1 then
+                or player:getStorageValue(Storage.WhatAFoolishQuest.InflammableSulphur) == 1 then
             return false
         end
 
@@ -887,7 +887,7 @@ function onUseScythe(player, item, fromPosition, target, toPosition, isHotkey)
         target:transform(2737)
         target:decay()
         Game.createItem(2694, 1, toPosition)
-        -- The secret library
+    -- The secret library
     elseif toPosition == Position(32177, 31925, 7) then
         player:teleportTo({x = 32515, y = 32535, z = 12})
     else
@@ -976,29 +976,29 @@ function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHot
 end
 
 function onGrindItem(player, item, fromPosition, target, toPosition)
-    if not(target.itemid == 23942) then
-        return false
-    end
-    for index, value in pairs(Itemsgrinder) do
-        if item.itemid == index then
-            local topParent = item:getTopParent()
-            if topParent.isItem and (not topParent:isItem() or topParent.itemid ~= 460) then
-                local parent = item:getParent()
-                if not parent:isTile() and (parent:addItem(value.item_id, 1) or topParent:addItem(value.item_id, 1)) then
-                    item:remove(1)
-                    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You grind a " .. ItemType(index):getName() .. " into fine, " .. ItemType(value.item_id):getName() .. ".")
-                    doSendMagicEffect(target:getPosition(), value.effect)
-                    return true
-                else
-                    Game.createItem(value.item_id, 1, item:getPosition())
-                end
-            else
-                Game.createItem(value.item_id, 1, item:getPosition())
-            end
-            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You grind a " .. ItemType(index):getName() .. " into fine, " .. ItemType(value.item_id):getName() .. ".")
-            item:remove(1)
-            doSendMagicEffect(target:getPosition(), value.effect)
-            return
-        end
-    end
+	if not(target.itemid == 23942) then
+		return false
+	end
+	for index, value in pairs(Itemsgrinder) do
+		if item.itemid == index then 
+			local topParent = item:getTopParent()
+			if topParent.isItem and (not topParent:isItem() or topParent.itemid ~= 460) then
+				local parent = item:getParent()
+				if not parent:isTile() and (parent:addItem(value.item_id, 1) or topParent:addItem(value.item_id, 1)) then
+					item:remove(1)
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You grind a " .. ItemType(index):getName() .. " into fine, " .. ItemType(value.item_id):getName() .. ".")
+					doSendMagicEffect(target:getPosition(), value.effect)
+					return true
+				else
+					Game.createItem(value.item_id, 1, item:getPosition())
+				end
+			else
+				Game.createItem(value.item_id, 1, item:getPosition())
+			end
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You grind a " .. ItemType(index):getName() .. " into fine, " .. ItemType(value.item_id):getName() .. ".")
+			item:remove(1)
+			doSendMagicEffect(target:getPosition(), value.effect)
+			return
+		end
+	end
 end
