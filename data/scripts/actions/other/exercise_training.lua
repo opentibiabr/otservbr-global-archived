@@ -25,12 +25,12 @@ local function removeExerciseWeapon(player, exercise)
     player:setStorageValue(Storage.isTraining,0)
 end
 
-local function start_train(pid,start_pos,itemid,fpos, bonusDummy, dummyId)
-    local player = Player(pid)
+local function startTraining(playerId, startPosition, itemid, tilePosition, bonusDummy, dummyId)
+    local player = Player(playerId)
     if player ~= nil then
-        if Tile(fpos):getItemById(dummyId) then
-            local pos_n = player:getPosition()
-            if start_pos:getDistance(pos_n) == 0 and getTilePzInfo(pos_n) then
+        if Tile(tilePosition):getItemById(dummyId) then
+            local playerPosition = player:getPosition()
+            if startPosition:getDistance(playerPosition) == 0 and getTilePzInfo(playerPosition) then
                 if player:getItemCount(itemid) >= 1 then
                     local exercise = player:getItemById(itemid,true)
                     if exercise:isItem() then
@@ -56,14 +56,14 @@ local function start_train(pid,start_pos,itemid,fpos, bonusDummy, dummyId)
                                         player:addSkillTries(skills[itemid].id, (7*skillRate)*1.1) -- 10%
                                     end
                                 end
-                                    fpos:sendMagicEffect(CONST_ME_HITAREA)
+                                    tilePosition:sendMagicEffect(CONST_ME_HITAREA)
                                 if skills[itemid].range then
-                                    pos_n:sendDistanceEffect(fpos, skills[itemid].range)
+                                    playerPosition:sendDistanceEffect(tilePosition, skills[itemid].range)
                                 end
                                 if exercise:getAttribute(ITEM_ATTRIBUTE_CHARGES) == 0 then
                                     removeExerciseWeapon(player, exercise)
                                 else
-                                    local training = addEvent(start_train, voc:getAttackSpeed(), pid,start_pos,itemid,fpos,bonusDummy,dummyId)
+                                    local training = addEvent(startTraining, voc:getAttackSpeed(), playerId,startPosition,itemid,tilePosition,bonusDummy,dummyId)
                                     player:setStorageValue(Storage.isTraining,1)
                                 end
                             else
