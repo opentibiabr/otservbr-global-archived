@@ -6,7 +6,7 @@ local equipmentsTable = {
     level = 150
   }, -- lion amulet
   {
-    itemid = 38992,
+    itemid = 38993,
     type = "deequip",
     slot = "necklace",
     level = 150
