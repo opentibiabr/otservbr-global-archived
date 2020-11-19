@@ -1,10 +1,10 @@
-local mType = Game.createMonsterType("Marsh Stalker")
+local mType = Game.createMonsterType("Agressive Chicken")
 local monster = {}
 
-monster.description = "a marsh stalker"
-monster.experience = 50
+monster.description = "a agressive chicken"
+monster.experience = 0
 monster.outfit = {
-	lookType = 530,
+	lookType = 111,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -13,16 +13,16 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 100
-monster.maxHealth = 100
+monster.health = 15000
+monster.maxHealth = 15000
 monster.race = "blood"
-monster.corpse = 19708
-monster.speed = 150
-monster.summonCost = 0
+monster.corpse = 6042
+monster.speed = 128
+monster.summonCost = 220
 monster.maxSummons = 0
 
 monster.changeTarget = {
-	interval = 5000,
+	interval = 4000,
 	chance = 0
 }
 
@@ -33,16 +33,16 @@ monster.strategiesTarget = {
 monster.flags = {
 	summonable = false,
 	attackable = true,
-	hostile = true,
-	convinceable = false,
-	pushable = false,
+	hostile = false,
+	convinceable = true,
+	pushable = true,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = true,
-	canPushCreatures = true,
+	canPushItems = false,
+	canPushCreatures = false,
 	staticAttackChance = 90,
 	targetDistance = 1,
-	runHealth = 10,
+	runHealth = 15,
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
@@ -59,40 +59,31 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Rrrawk! Rrrrawk!", yell = false}
+	{text = "Gokgoooook", yell = false},
+	{text = "Cluck Cluck", yell = false}
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 64090, maxCount = 23},
-	{id = "meat", chance = 19950, maxCount = 2},
-	{id = 2667, chance = 20320, maxCount = 2},--fish
-	{id = "worm", chance = 14730, maxCount = 2},
-	{id = "marsh stalker feather", chance = 8650},
-	{id = "longsword", chance = 7560},
-	{id = "marsh stalker beak", chance = 6080},
-	{id = 2120, chance = 4830},--rope
-	{id = "seeds", chance = 110}
-}
-
-monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -10},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -8, range = 7, radius = 1, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_EXPLOSIONAREA, target = true}
+	{id = "meat", chance = 2120, maxCount = 2},
+	{id = 2695, chance = 950},
+	{id = "worm", chance = 10000, maxCount = 3},
+	{id = "chicken feather", chance = 20000}
 }
 
 monster.defenses = {
-	defense = 3,
-	armor = 3
+	defense = 5,
+	armor = 1
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = -5},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 5},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
 	{type = COMBAT_DEATHDAMAGE , percent = 0}
 }

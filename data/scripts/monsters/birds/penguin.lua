@@ -62,9 +62,9 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2667, chance = 7500, maxCount = 2},
-	{id = "rainbow trout", chance = 60},
-	{id = "green perch", chance = 140}
+	{id = 2667, chance = 7830, maxCount = 2},
+	{id = "rainbow trout", chance = 70},
+	{id = "green perch", chance = 130}
 }
 
 monster.attacks = {
@@ -78,13 +78,13 @@ monster.defenses = {
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = -5},
+	{type = COMBAT_ENERGYDAMAGE, percent = -10},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 5},
+	{type = COMBAT_ICEDAMAGE, percent = 20},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
 	{type = COMBAT_DEATHDAMAGE , percent = 0}
 }
