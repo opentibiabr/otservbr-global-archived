@@ -47,12 +47,16 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
-monster.events = {"LeidenHeal"}
+monster.events = {
+	"LeidenHeal"
+}
 
 monster.light = {
 	level = 0,
@@ -106,7 +110,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -900, effect = CONST_ME_DRAWBLOOD}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -900}
 }
 
 monster.defenses = {

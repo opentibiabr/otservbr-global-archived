@@ -7,7 +7,14 @@ CorpseAction = {
 	[20001] = {
 		itemId = false,
 		itemPos = {{x = xxxxx, y = xxxxx, z = xx}}
-	}
+	},
+
+	-- Others actions
+	-- Threatened dreams quest
+	[28600] = {
+		itemId = 28602,
+		itemPos = {{x = 32951, y = 31810, z = 7}}
+	},
 }
 
 CorpseUnique = {

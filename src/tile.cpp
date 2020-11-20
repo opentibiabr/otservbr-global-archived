@@ -609,6 +609,19 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t tileF
 		if (!hasBitSet(FLAG_IGNOREBLOCKITEM, tileFlags)) {
 			//If the FLAG_IGNOREBLOCKITEM bit isn't set we dont have to iterate every single item
 			if (hasFlag(TILESTATE_BLOCKSOLID)) {
+				// NO PVP magic wall or wild growth field check
+				if (creature && creature->getPlayer()) {
+					if (const auto fieldList = getItemList()) {
+						for (Item* findfield : *fieldList) {
+							if (findfield && (findfield->getID() == ITEM_WILDGROWTH_SAFE || findfield->getID() == ITEM_MAGICWALL_SAFE)) {
+								if (!creature->isInGhostMode()) {
+									g_game.internalRemoveItem(findfield, 1);
+								}
+								return RETURNVALUE_NOERROR;
+							}
+						}
+					}
+				}
 				return RETURNVALUE_NOTENOUGHROOM;
 			}
 		} else {
@@ -708,7 +721,7 @@ ReturnValue Tile::queryMaxCount(int32_t, const Thing&, uint32_t count, uint32_t&
 	return RETURNVALUE_NOERROR;
 }
 
-ReturnValue Tile::queryRemove(const Thing& thing, uint32_t count, uint32_t tileFlags) const
+ReturnValue Tile::queryRemove(const Thing& thing, uint32_t count, uint32_t tileFlags, Creature* /*= nullptr */) const
 {
 	int32_t index = getThingIndex(&thing);
 	if (index == -1) {

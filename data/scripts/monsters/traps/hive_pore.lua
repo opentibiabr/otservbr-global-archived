@@ -38,9 +38,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -68,7 +70,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 0,
 	armor = 0,
-	{name ="combat", interval = 30000, chance = 100, effect = CONST_ME_HITBYPOISON, target = false}
+	{name ="effect", interval = 30000, chance = 100, radius = 3, effect = CONST_ME_HITBYPOISON, target = false}
 }
 
 monster.elements = {

@@ -87,8 +87,8 @@ local function creatureSayCallback(cid, type, msg)
 					if player:getMoney() + player:getBankBalance() >= 250000000 then
 						selfSay("Take this helmet as a token of great gratitude. Let us forever remember this day, my friend. ", cid)
 						player:removeMoneyNpc(250000000)
-						player:addOutfitAddon(1210, 1)
-						player:addOutfitAddon(1211, 1)
+						player:addOutfitAddon(1210, 2)
+						player:addOutfitAddon(1211, 2)
 						player:getPosition():sendMagicEffect(171)
 						player:setStorageValue(Storage.OutfitQuest.GoldenOutfit, 2)
 						npcHandler.topic[cid] = 2
@@ -113,8 +113,8 @@ local function creatureSayCallback(cid, type, msg)
 					if player:getMoney() + player:getBankBalance() >= 250000000 then
 						selfSay("Take this boots as a token of great gratitude. Let us forever remember this day, my friend. ", cid)
 						player:removeMoneyNpc(250000000)
-						player:addOutfitAddon(1210, 2)
-						player:addOutfitAddon(1211, 2)
+						player:addOutfitAddon(1210, 1)
+						player:addOutfitAddon(1211, 1)
 						player:getPosition():sendMagicEffect(171)
 						player:setStorageValue(Storage.OutfitQuest.GoldenOutfit, 3)
 						npcHandler.topic[cid] = 2

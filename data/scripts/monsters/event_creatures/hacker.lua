@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 429,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -85,14 +87,14 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 1000, chance = 100, minDamage = 0, maxDamage = -83, effect = CONST_ME_DRAWBLOOD}
+	{name ="melee", interval = 1000, chance = 100, minDamage = 0, maxDamage = -83}
 }
 
 monster.defenses = {
 	defense = 12,
 	armor = 15,
-	{name ="speed", interval = 1000, chance = 15, SpeedChange = 290, Duration = 6000},
-	{name ="outfit", interval = 10000, chance = 15}
+	{name ="speed", interval = 1000, chance = 15, speedChange = 290, effect = CONST_ME_MAGIC_RED, target = false, duration = 6000},
+	{name ="outfit", interval = 10000, chance = 15, effect = CONST_ME_MAGIC_RED, target = false, duration = 500, outfitMonster = "pig"}
 }
 
 monster.elements = {

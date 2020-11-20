@@ -72,6 +72,10 @@ Ammo_t getAmmoType(const std::string& strValue);
 WeaponAction_t getWeaponAction(const std::string& strValue);
 Skulls_t getSkullType(const std::string& strValue);
 std::string getCombatName(CombatType_t combatType);
+/**
+ * @Deprecated
+ * It will be dropped with monsters. Use RespawnPeriod_t instead.
+ */
 SpawnType_t getSpawnType(const std::string& strValue);
 CombatType_t getCombatType(const std::string& combatname);
 

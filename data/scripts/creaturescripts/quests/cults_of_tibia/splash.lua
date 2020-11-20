@@ -7,7 +7,7 @@ function splash.onThink(creature)
 			if not creature then
 				return
 			end
-			Game.createMonster("liqour spirit", monsterPos)
+			Game.createMonster("liquor spirit", monsterPos)
 			creature:say("SPLASH!", TALKTYPE_ORANGE_2)
 			creature:addHealth((creature:getMaxHealth()) - (creature:getHealth()))
 			return true

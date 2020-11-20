@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -64,20 +66,20 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small diamond", chance = 5520, maxCount = 2},
 	{id = "gold coin", chance = 50000, maxCount = 60},
-	{id = "gold coin", chance = 48000, maxCount = 69},
-	{id = "two handed sword", chance = 2320},
-	{id = "double axe", chance = 5800},
-	{id = "scale armor", chance = 8000},
-	{id = "shrimp", chance = 4700, maxCount = 5},
-	{id = "fish fin", chance = 980},
-	{id = "northwind rod", chance = 800},
-	{id = "quara bone", chance = 10150}
+	{id = "gold coin", chance = 48000, maxCount = 72},
+	{id = "quara bone", chance = 10150},
+	{id = "scale armor", chance = 8960},
+	{id = "double axe", chance = 5770},
+	{id = "shrimp", chance = 5050, maxCount = 5},
+	{id = "small diamond", chance = 5020, maxCount = 2},
+	{id = "two handed sword", chance = 3010},
+	{id = "fish fin", chance = 1080},
+	{id = "northwind rod", chance = 960}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -193, effect = CONST_ME_DRAWBLOOD}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -193, effect = CONST_ME_DRAWBLOOD}
 }
 
 monster.defenses = {
@@ -88,7 +90,7 @@ monster.defenses = {
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = -10},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},

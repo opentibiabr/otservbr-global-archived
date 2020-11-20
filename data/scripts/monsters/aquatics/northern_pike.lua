@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 95,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -56,7 +58,8 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 25,
+	{text = "Blub!", yell = false}
 }
 
 monster.loot = {
@@ -64,12 +67,12 @@ monster.loot = {
 
 monster.defenses = {
 	defense = 5,
-	armor = 5
+	armor = 9
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_PHYSICALDAMAGE, percent = -5},
+	{type = COMBAT_ENERGYDAMAGE, percent = -5},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},

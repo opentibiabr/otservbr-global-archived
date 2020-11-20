@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -60,16 +62,16 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 88000, maxCount = 20},
-	{id = 2667, chance = 9800},
-	{id = "bloody pincers", chance = 7220},
-	{id = "chain armor", chance = 4330},
-	{id = "brass legs", chance = 2820},
-	{id = "white pearl", chance = 340}
+	{id = "gold coin", chance = 87000, maxCount = 20},
+	{id = 2667, chance = 10450},
+	{id = "bloody pincers", chance = 6980},
+	{id = "chain armor", chance = 5020},
+	{id = "brass legs", chance = 2720},
+	{id = "white pearl", chance = 620}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -111, effect = CONST_ME_DRAWBLOOD}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -111, effect = CONST_ME_DRAWBLOOD}
 }
 
 monster.defenses = {

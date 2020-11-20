@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -63,41 +65,41 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2152, chance = 100000, maxCount = 4},
-	{id = 12444, chance = 25000},
-	{id = 7591, chance = 14285, maxCount = 2},
-	{id = 2178, chance = 12500},
-	{id = 7590, chance = 9090, maxCount = 2},
-	{id = 2670, chance = 5000},
-	{id = 2149, chance = 4347},
-	{id = 9970, chance = 4347, maxCount = 2},
-	{id = 18415, chance = 3571},
-	{id = 8870, chance = 3571},
-	{id = 5914, chance = 1428},
-	{id = 2189, chance = 1428},
-	{id = 2143, chance = 719},
-	{id = 2144, chance = 719},
-	{id = 5895, chance = 719},
-	{id = 2168, chance = 719},
-	{id = 2476, chance = 719},
-	{id = 2155, chance = 719}
+	{id = "platinum coin", chance = 78000, maxCount = 4},
+	{id = "quara eye", chance = 20160},
+	{id = "mind stone", chance = 10710},
+	{id = "shrimp", chance = 7140, maxCount = 4},
+	{id = "small topaz", chance = 6800, maxCount = 2},
+	{id = "small emerald", chance = 6450, maxCount = 2},
+	{id = "great mana potion", chance = 5880, maxCount = 2},
+	{id = "spirit cloak", chance = 5650},
+	{id = "great health potion", chance = 4950, maxCount = 2},
+	{id = "yellow piece of cloth", chance = 3230},
+	{id = "green crystal shard", chance = 3000},
+	{id = "green piece of cloth", chance = 2880},
+	{id = "life ring", chance = 2190},
+	{id = "fish fin", chance = 1380},
+	{id = "giant shimmering pearl", chance = 1150},
+	{id = "wand of cosmic energy", chance = 1150},
+	{id = "green gem", chance = 460},
+	{id = "knight armor", chance = 460}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, skill = 110, attack = 90, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 5, interval = 4000}},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = -350, Duration = 15000}
+	{name ="melee", interval = 2000, chance = 100, skill = 110, attack = 90, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 5, interval = 4000}},
+	{name ="speed", interval = 2000, chance = 15, speedChange = -350, range = 7, effect = CONST_ME_MAGIC_RED, target = false, duration = 15000}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 15, minDamage = 100, maxDamage = 120, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 100, maxDamage = 120, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = -25},
-	{type = COMBAT_EARTHDAMAGE, percent = -1},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},

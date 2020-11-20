@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 1500,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -93,17 +95,17 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, skill = 200, attack = 200, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 40, minDamage = -500, maxDamage = -800, type = COMBAT_PHYSICALDAMAGE, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 30, minDamage = -300, maxDamage = -800, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -50, maxDamage = -130, type = COMBAT_MANADRAIN, range = 7, effect = CONST_ME_MAGIC_GREEN, target = true},
-	{name ="speed", interval = 2000, chance = 20, SpeedChange = -500, Duration = 20000}
+	{name ="melee", interval = 2000, chance = 100, skill = 200, attack = 200},
+	{name ="combat", interval = 2000, chance = 40, type = COMBAT_PHYSICALDAMAGE, minDamage = -500, maxDamage = -800, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 2000, chance = 30, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -800, radius = 3, effect = CONST_ME_POISONAREA, target = false},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_MANADRAIN, minDamage = -50, maxDamage = -130, range = 7, effect = CONST_ME_MAGIC_GREEN, target = true},
+	{name ="speed", interval = 2000, chance = 20, speedChange = -500, range = 7, effect = CONST_ME_MAGIC_RED, target = false, duration = 20000}
 }
 
 monster.defenses = {
 	defense = 119,
 	armor = 96,
-	{name ="combat", interval = 2000, chance = 20, minDamage = 2000, maxDamage = 3000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 2000, maxDamage = 3000, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
@@ -125,5 +127,23 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
+
+mType.onThink = function(monster, interval)
+end
+
+mType.onAppear = function(monster, creature)
+	if monster:getType():isRewardBoss() then
+		monster:setReward(true)
+	end
+end
+
+mType.onDisappear = function(monster, creature)
+end
+
+mType.onMove = function(monster, creature, fromPosition, toPosition)
+end
+
+mType.onSay = function(monster, creature, type, message)
+end
 
 mType:register(monster)

@@ -1,6 +1,6 @@
 local boat = MoveEvent()
 
-function boat.onStepIn(creature, item, fromPosition, toPosition)
+function boat.onStepIn(creature, item, toPosition, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return true

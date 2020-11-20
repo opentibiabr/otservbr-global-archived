@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -62,29 +64,29 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small sapphire", chance = 920},
 	{id = "gold coin", chance = 94000, maxCount = 30},
-	{id = "stealth ring", chance = 520},
-	{id = 2229, chance = 920},
-	{id = "two handed sword", chance = 580},
-	{id = "chain armor", chance = 4761},
-	{id = "fish fin", chance = 520},
-	{id = "mantassin tail", chance = 7780}
+	{id = "mantassin tail", chance = 7780},
+	{id = "chain armor", chance = 5061},
+	{id = 2229, chance = 990},--skull
+	{id = "small sapphire", chance = 990},
+	{id = "two handed sword", chance = 810},
+	{id = "stealth ring", chance = 710},
+	{id = "fish fin", chance = 360}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -110, effect = CONST_ME_DRAWBLOOD}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -110, effect = CONST_ME_DRAWBLOOD}
 }
 
 monster.defenses = {
 	defense = 15,
-	armor = 15
+	armor = 7
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = -10},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},

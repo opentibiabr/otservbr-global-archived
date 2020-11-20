@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Chikhaton")
 local monster = {}
 
 monster.description = "Chikhaton"
-monster.experience = 20000
+monster.experience = 30000
 monster.outfit = {
 	lookType = 361,
 	lookHead = 0,
@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -67,18 +69,18 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -1130, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -500, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1130},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -500, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = false}
 }
 
 monster.defenses = {
 	defense = 35,
 	armor = 35,
-	{name ="combat", interval = 4000, chance = 15, minDamage = 550, maxDamage = 850, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 4000, chance = 15, type = COMBAT_HEALING, minDamage = 550, maxDamage = 850, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 50},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 0},

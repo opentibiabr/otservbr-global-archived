@@ -21,19 +21,13 @@
 
 #include "items.h"
 #include "spells.h"
-#include "movement.h"
 #include "weapons.h"
 
 #include "pugicast.h"
 
-extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
 
-Items::Items()
-{
-	items.reserve(40000);
-	nameToItems.reserve(40000);
-}
+Items::Items(){}
 
 void Items::clear()
 {
@@ -90,8 +84,6 @@ bool Items::reload()
 		return false;
 	}
 
-	g_moveEvents->reload();
-	g_weapons->reload();
 	g_weapons->loadDefaults();
 	return true;
 }
@@ -186,9 +178,6 @@ FILELOADER_ERRORS Items::loadFromOtb(const std::string& file)
 						return ERROR_INVALID_FORMAT;
 					}
 
-					if (serverId > 40000 && serverId < 40100) {
-						serverId -= 40000;
-					}
 					break;
 				}
 
@@ -397,15 +386,11 @@ void Items::buildInventoryList()
 
 void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 {
-	if (id > 40000 && id < 40100) {
-		id -= 40000;
-
-		if (id >= items.size()) {
-			items.resize(id + 1);
-		}
-		ItemType& iType = items[id];
-		iType.id = id;
+	if (id >= items.size()) {
+		items.resize(id + 1);
 	}
+	ItemType& iType = items[id];
+	iType.id = id;
 
 	ItemType& it = getItemType(id);
 	if (it.id == 0) {

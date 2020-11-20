@@ -144,7 +144,7 @@ local cultsOfTibiaLevers = Action()
 function cultsOfTibiaLevers.onUse(player, item, fromPosition, itemEx, toPosition)
 	local players = {}
 	local ittable = {}
-	local blockmonsters = {"Leiden", "Wine Cask", "Liqour Spirit", "Ravennous Hunger"}
+	local blockmonsters = {"Leiden", "Wine Cask", "Liquor Spirit", "Ravennous Hunger"}
 	local convertTable = {}
 	item:transform(transformid[item:getId()])
 

@@ -12,7 +12,7 @@ function preyLootBonusKill.onKill(player, target, lastHit)
 			preyTimeLeft(player, slot) -- Slot consumption
 			local probability = math.random(0, 100)
 			if (probability < player:getPreyBonusValue(slot)) then
-				target:registerEvent('bonusPreyLootDeath')
+				target:registerEvent('BonusPreyLootDeath')
 				player:sendTextMessage(MESSAGE_HEALED, "You get extra loot due your active prey.")
 				break
 			end

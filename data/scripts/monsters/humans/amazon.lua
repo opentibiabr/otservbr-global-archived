@@ -14,7 +14,7 @@ monster.outfit = {
 }
 
 monster.health = 110
-monster.maxHealth = 7200
+monster.maxHealth = 110
 monster.race = "blood"
 monster.corpse = 20323
 monster.speed = 172
@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 4,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -76,8 +78,8 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -45, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -40, type = COMBAT_PHYSICALDAMAGE, range = 5, shootEffect = CONST_ANI_THROWINGKNIFE, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -45},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -40, range = 5, shootEffect = CONST_ANI_THROWINGKNIFE, target = false}
 }
 
 monster.defenses = {

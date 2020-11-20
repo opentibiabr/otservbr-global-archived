@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -63,35 +65,32 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 50000, maxCount = 60},
-	{id = 5883, chance = 2500},
-	{id = 2676, chance = 7500, maxCount = 2},
-	{id = 2200, chance = 3000},
-	{id = 2166, chance = 7500},
-	{id = 2463, chance = 5000}
+	{id = "gold coin", chance = 100000, maxCount = 60},
+	{id = "club ring", chance = 25000},
+	{id = "banana", chance = 25000, maxCount = 1}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, skill = 45, attack = 40, effect = CONST_ME_DRAWBLOOD}
+	{name ="melee", interval = 2000, chance = 100, skill = 45, attack = 40}
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 20,
-	{name ="speed", interval = 1000, chance = 7, SpeedChange = 260, Duration = 3000}
+	{name ="speed", interval = 1000, chance = 7, speedChange = 260, effect = CONST_ME_MAGIC_RED, target = false, duration = 3000}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
-	{type = COMBAT_ENERGYDAMAGE, percent = 5},
-	{type = COMBAT_EARTHDAMAGE, percent = 20},
-	{type = COMBAT_FIREDAMAGE, percent = 20},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 1},
+	{type = COMBAT_ENERGYDAMAGE, percent = 1},
+	{type = COMBAT_EARTHDAMAGE, percent = 1},
+	{type = COMBAT_FIREDAMAGE, percent = 1},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = -10},
+	{type = COMBAT_ICEDAMAGE, percent = -1},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_DEATHDAMAGE , percent = -1}
 }
 
 monster.immunities = {

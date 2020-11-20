@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 48500
-monster.maxHealth = 48500
+monster.health = 54500
+monster.maxHealth = 54500
 monster.race = "blood"
 monster.corpse = 36142
 monster.speed = 190
@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -67,26 +69,36 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 100000, maxCount = 17},
-	{id = "Small Ruby", chance = 33500, maxCount = 2},
-	{id = "Small Sapphire", chance = 33500},
-	{id = "Small Topaz", chance = 33500},
-	{id = "Small Diamond", chance = 33500},
-	{id = "Terra Rod", chance = 26000, maxCount = 3},
-	{id = "Springsprout Rod", chance = 19000},
-	{id = "Great Spirit Potion", chance = 16400},
-	{id = "Spellbook of Warding", chance = 9500},
-	{id = "Ring of Healing", chance = 6400},
-	{id = "Cobra Crest", chance = 560}
+	{id = "platinum coin", chance = 100000, maxCount = 17},
+	{id = "small amethyst", chance = 33500, maxCount = 2},
+	{id = "small ruby", chance = 33500, maxCount = 2},
+	{id = "small sapphire", chance = 33500},
+	{id = "small topaz", chance = 33500},
+	{id = "small diamond", chance = 33500},
+	{id = "great spirit potion", chance = 26400},
+	{id = "terra rod", chance = 24000, maxCount = 3},
+	{id = "springsprout rod", chance = 21000},
+	{id = "blue crystal shard", chance = 21000},
+	{id = "blue gem", chance = 21000},
+	{id = "cobra crest", chance = 12560},
+	{id = "violet crystal shard", chance = 14800},
+	{id = "giant shimmering pearl", chance = 14520},
+	{id = "gold ingot", chance = 14500},
+	{id = "spellbook of warding", chance = 6500},
+	{id = "ring of healing", chance = 5400},
+	{id = "terra hood", chance = 1600},
+	{id = "amulet of loss", chance = 3400},
+	{id = "wand of everblazing", chance = 2900},
+	{id = "cobra wand", chance = 400}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -550, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 8, minDamage = -450, maxDamage = -650, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_GROUNDSHAKER, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -400, maxDamage = -580, type = COMBAT_EARTHDAMAGE, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 3000, chance = 14, minDamage = -500, maxDamage = -750, type = COMBAT_FIREDAMAGE, shootEffect = CONST_ANI_FIRE, target = true},
-	{name ="combat", interval = 2000, chance = 16, minDamage = -500, maxDamage = -620, type = COMBAT_EARTHDAMAGE, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_GREEN_RINGS, target = true},
-	{name ="combat", interval = 3000, chance = 12, minDamage = -320, maxDamage = -500, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_GREEN_RINGS, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
+	{name ="combat", interval = 2000, chance = 8, type = COMBAT_PHYSICALDAMAGE, minDamage = -450, maxDamage = -650, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -580, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
+	{name ="combat", interval = 3000, chance = 14, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -750, shootEffect = CONST_ANI_FIRE, target = true},
+	{name ="combat", interval = 2000, chance = 16, type = COMBAT_EARTHDAMAGE, minDamage = -500, maxDamage = -620, radius = 4, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_GREEN_RINGS, target = true},
+	{name ="combat", interval = 3000, chance = 12, type = COMBAT_EARTHDAMAGE, minDamage = -320, maxDamage = -500, radius = 2, effect = CONST_ME_GREEN_RINGS, target = false}
 }
 
 monster.defenses = {

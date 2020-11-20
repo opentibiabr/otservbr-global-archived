@@ -54,8 +54,11 @@ std::condition_variable g_loaderSignal;
 std::unique_lock<std::mutex> g_loaderUniqueLock(g_loaderLock);
 
 void startupErrorMessage(const std::string& errorStr) {
-	std::cout << "> ERROR: " << errorStr << std::endl;
-	g_loaderSignal.notify_all();
+  std::cout << "\033[1;31m>> " << errorStr << std::endl;
+  std::cout << ">> The program will close after pressing the enter key..." << "\033[0m" << std::endl;
+  g_loaderSignal.notify_all();
+  getchar();
+  exit(-1);
 }
 
 void mainLoader(int argc, char* argv[], ServiceManager* servicer);
@@ -148,6 +151,9 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		"https://otserv.com.br/ and https://forums.otserv.com.br" << std::endl;
 	std::cout << std::endl;
 
+	std::cout << "Client Version: " << CLIENT_VERSION_STR
+													<< std::endl;
+
 	// check if config.lua or config.lua.dist exist
 	std::ifstream c_test("./config.lua");
 	if (!c_test.is_open()) {
@@ -231,6 +237,11 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	if (!Item::items.loadFromXml()) {
 		startupErrorMessage("Unable to load items (XML)!");
 		return;
+	}
+
+	std::cout << ">> Loading event scheduler" << std::endl;
+	if (!g_game.loadScheduleEventFromXml()) {
+		startupErrorMessage("Unable to load event schedule!");
 	}
 
 	std::cout << ">> Loading script systems" << std::endl;

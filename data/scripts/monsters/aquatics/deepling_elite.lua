@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 30,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -65,44 +67,44 @@ monster.voices = {
 monster.loot = {
 	{id = "gold coin", chance = 100000, maxCount = 100},
 	{id = "gold coin", chance = 100000, maxCount = 86},
-	{id = "small emerald", chance = 6290, maxCount = 2},
-	{id = "life ring", chance = 5360},
-	{id = "fish fin", chance = 2000},
-	{id = "great mana potion", chance = 24000},
 	{id = "great health potion", chance = 25000},
-	{id = "heavy trident", chance = 3380},
 	{id = "eye of a deepling", chance = 25000},
-	{id = "deepling warts", chance = 25000},
-	{id = "deeptags", chance = 21700},
-	{id = "warrior's axe", chance = 640},
-	{id = "deepling ridge", chance = 19000},
-	{id = "warrior's shield", chance = 1234},
 	{id = "deepling filet", chance = 25000},
-	{id = "vortex bolt", chance = 24000, maxCount = 5}
+	{id = "vortex bolt", chance = 24800, maxCount = 5},
+	{id = "deepling warts", chance = 24400},
+	{id = "great mana potion", chance = 24200},
+	{id = "deeptags", chance = 20600},
+	{id = "deepling ridge", chance = 19500},
+	{id = "small emerald", chance = 6890, maxCount = 2},
+	{id = "life ring", chance = 5360},
+	{id = "heavy trident", chance = 3680},
+	{id = "fish fin", chance = 2300},
+	{id = "warrior's shield", chance = 1534},
+	{id = "warrior's axe", chance = 820}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = -290, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -290, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = true}
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 45,
-	{name ="combat", interval = 2000, chance = 10, minDamage = 150, maxDamage = 200, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 150, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = -10},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 100},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_DEATHDAMAGE , percent = 10}
 }
 
 monster.immunities = {

@@ -1,12 +1,11 @@
 -- From here down are the functions of TFS
-function getDistanceBetween(firstPosition, secondPosition)
-	local xDif = math.abs(firstPosition.x - secondPosition.x)
-	local yDif = math.abs(firstPosition.y - secondPosition.y)
-	local posDif = math.max(xDif, yDif)
-	if firstPosition.z ~= secondPosition.z then
-		posDif = posDif + 15
+function getTibiaTimerDayOrNight()
+	local light = getWorldLight()
+	if (light == 40) then
+		return "night"
+	else
+		return "day"
 	end
-	return posDif
 end
 
 function getFormattedWorldTime()
@@ -21,7 +20,7 @@ function getFormattedWorldTime()
 end
 
 function getLootRandom()
-	return math.random(0, MAX_LOOTCHANCE) / configManager.getNumber(configKeys.RATE_LOOT)
+	return math.random(0, MAX_LOOTCHANCE) * 100 / (configManager.getNumber(configKeys.RATE_LOOT) * SCHEDULE_LOOT_RATE)
 end
 
 local start = os.time()

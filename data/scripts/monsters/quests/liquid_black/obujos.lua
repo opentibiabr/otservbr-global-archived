@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 35000
-monster.maxHealth = 35000
+monster.health = 33000
+monster.maxHealth = 33000
 monster.race = "blood"
 monster.corpse = 15224
 monster.speed = 560
@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 60,
 	healthHidden = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	isBlockable = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -65,37 +67,37 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 15411, chance = 100000},
-	{id = 15404, chance = 1285},
-	{id = 15412, chance = 1285}
+	{id = "Deepling Axe", chance = 1300},
+	{id = "Depth Scutum", chance = 1185},
+	{id = "Ornate Legs", chance = 700}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -1200, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 360, interval = 4000}},
-	{name ="combat", interval = 3000, chance = 23, minDamage = -200, maxDamage = -800, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 3500, chance = 20, minDamage = -200, maxDamage = -600, type = COMBAT_MANADRAIN, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_BIGCLOUDS, target = true},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -200, maxDamage = -800, type = COMBAT_EARTHDAMAGE, range = 7, shootEffect = CONST_ANI_POISONARROW, effect = CONST_ME_GREEN_RINGS, target = true},
-	{name ="combat", interval = 1200, chance = 7, minDamage = -600, maxDamage = -1300, type = COMBAT_ICEDAMAGE, length = 8, spread = 3, effect = CONST_ME_GIANTICE, target = false},
-	{name ="combat", interval = 2000, chance = 14, minDamage = -600, maxDamage = -1600, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_ICETORNADO, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1200, condition = {type = CONDITION_POISON, totalDamage = 360, interval = 4000}},
+	{name ="combat", interval = 3000, chance = 23, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -800, range = 7, radius = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", interval = 3500, chance = 20, type = COMBAT_MANADRAIN, minDamage = -200, maxDamage = -600, range = 7, radius = 6, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_BIGCLOUDS, target = true},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -800, range = 7, radius = 1, shootEffect = CONST_ANI_POISONARROW, effect = CONST_ME_GREEN_RINGS, target = true},
+	{name ="combat", interval = 1200, chance = 7, type = COMBAT_ICEDAMAGE, minDamage = -600, maxDamage = -1300, length = 8, spread = 3, effect = CONST_ME_GIANTICE, target = false},
+	{name ="combat", interval = 2000, chance = 14, type = COMBAT_LIFEDRAIN, minDamage = -600, maxDamage = -1600, length = 8, spread = 3, effect = CONST_ME_ICETORNADO, target = false}
 }
 
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{name ="combat", interval = 1000, chance = 15, minDamage = 1000, maxDamage = 2100, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 1000, chance = 15, type = COMBAT_HEALING, minDamage = 800, maxDamage = 2200, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = -20},
-	{type = COMBAT_ENERGYDAMAGE, percent = -20},
-	{type = COMBAT_EARTHDAMAGE, percent = -20},
-	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 25},
+	{type = COMBAT_ENERGYDAMAGE, percent = 15},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = 60},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 100},
-	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 20},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -20}
+	{type = COMBAT_DEATHDAMAGE , percent = 60}
 }
 
 monster.immunities = {
@@ -104,5 +106,23 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
+
+mType.onThink = function(monster, interval)
+end
+
+mType.onAppear = function(monster, creature)
+	if monster:getType():isRewardBoss() then
+		monster:setReward(true)
+	end
+end
+
+mType.onDisappear = function(monster, creature)
+end
+
+mType.onMove = function(monster, creature, fromPosition, toPosition)
+end
+
+mType.onSay = function(monster, creature, type, message)
+end
 
 mType:register(monster)

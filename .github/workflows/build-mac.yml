@@ -53,13 +53,13 @@ jobs:
         run: brew install luajit pkgconfig
         if: contains( matrix.os, 'macos')
 
-      - uses: lukka/set-shell-env@v1
-        with:
-          CXX: ${{ matrix.cxx }}
-          CC: ${{ matrix.cc }}
+      - name: Set Environment vars
+        run: |
+          echo "CXX=${{ matrix.cxx }}" >> $GITHUB_ENV
+          echo "CC=${{ matrix.cc }}" >> $GITHUB_ENV
 
       - name: Run vcpkg
-        uses: lukka/run-vcpkg@v2
+        uses: lukka/run-vcpkg@main
         with:
           vcpkgArguments: ${{ matrix.packages }}
           vcpkgDirectory: ${{ runner.workspace }}/vcpkg/
@@ -67,7 +67,7 @@ jobs:
           vcpkgGitCommitId: 7db401cb1ef1fc559ec9f9ce814d064c328fd767
 
       - name: Build with CMake
-        uses: lukka/run-cmake@v2
+        uses: lukka/run-cmake@main
         with:
           useVcpkgToolchainFile: true
           buildDirectory: ${{ runner.workspace }}/build

@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 25,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -60,12 +62,12 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "downy feather", chance = 700}
+	{id = "downy feather", chance = 1180}
 }
 
 monster.defenses = {
 	defense = 5,
-	armor = 5
+	armor = 1
 }
 
 monster.elements = {

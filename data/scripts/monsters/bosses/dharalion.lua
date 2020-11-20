@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Dharalion")
 local monster = {}
 
 monster.description = "Dharalion"
-monster.experience = 570
+monster.experience = 380
 monster.outfit = {
 	lookType = 203,
 	lookHead = 0,
@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 4,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -72,30 +74,36 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000, maxCount = 20},
-	{id = 2260, chance = 4000},
-	{id = 2682, chance = 6666},
-	{id = 2802, chance = 10000},
-	{id = 2177, chance = 2857},
-	{id = 2689, chance = 20000, maxCount = 3},
-	{id = 2652, chance = 5000},
-	{id = 2032, chance = 4000},
-	{id = 2154, chance = 1333}
+	{id = "gold coin", chance = 100000, maxCount = 100},
+	{id = "holy orchid", chance = 100000},
+	{id = "elvish talisman", chance = 88000},
+	{id = "elven astral observer", chance = 82000},
+	{id = "yellow gem", chance = 41790},
+	{id = "blank rune", chance = 25370, maxCount = 1},
+	{id = "melon", chance = 22390},
+	{id = "bread", chance = 16420},
+	{id = "elven amulet", chance = 14930},
+	{id = "great mana potion", chance = 13430},
+	{id = "life crystal", chance = 13430},
+	{id = "sling herb", chance = 8960},
+	{id = "cornucopia", chance = 7460},
+	{id = "green tunic", chance = 4480},
+	{id = "royal spear", chance = 1490, maxCount = 2}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, skill = 30, attack = 28, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1000, chance = 15, minDamage = -30, maxDamage = -60, type = COMBAT_MANADRAIN, range = 7, target = false},
-	{name ="combat", interval = 1000, chance = 13, minDamage = -70, maxDamage = -90, type = COMBAT_ENERGYDAMAGE, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 1000, chance = 10, minDamage = -80, maxDamage = -151, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, target = false},
-	{name ="combat", interval = 1000, chance = 13, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false}
+	{name ="melee", interval = 2000, chance = 100, skill = 30, attack = 28},
+	{name ="combat", interval = 1000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -30, maxDamage = -60, range = 7, target = false},
+	{name ="combat", interval = 1000, chance = 13, type = COMBAT_ENERGYDAMAGE, minDamage = -70, maxDamage = -90, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = false},
+	{name ="combat", interval = 1000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -80, maxDamage = -151, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, target = false},
+	{name ="effect", interval = 1000, chance = 13, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false}
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 15,
-	{name ="combat", interval = 1000, chance = 20, minDamage = 90, maxDamage = 120, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 1000, chance = 7, SpeedChange = 300, Duration = 10000}
+	{name ="combat", interval = 1000, chance = 20, type = COMBAT_HEALING, minDamage = 90, maxDamage = 120, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="speed", interval = 1000, chance = 7, speedChange = 300, effect = CONST_ME_MAGIC_RED, target = false, duration = 10000}
 }
 
 monster.elements = {

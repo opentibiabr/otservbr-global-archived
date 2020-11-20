@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 40,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -67,14 +69,14 @@ monster.loot = {
 	{id = "gold coin", chance = 96000, maxCount = 44},
 	{id = 2667, chance = 19730, maxCount = 3},
 	{id = "deepling scales", chance = 14500},
-	{id = "eye of a deepling", chance = 6800},
+	{id = "eye of a deepling", chance = 6500},
 	{id = "heavy trident", chance = 2720},
 	{id = "fish fin", chance = 680}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -60, maxDamage = -120, type = COMBAT_DROWNDAMAGE, range = 7, shootEffect = CONST_ANI_SPEAR, effect = CONST_ME_LOSEENERGY, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DROWNDAMAGE, minDamage = -60, maxDamage = -120, range = 7, shootEffect = CONST_ANI_SPEAR, effect = CONST_ME_LOSEENERGY, target = true}
 }
 
 monster.defenses = {

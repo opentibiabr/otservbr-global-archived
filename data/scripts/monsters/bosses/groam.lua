@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 60,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -66,15 +68,16 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000, maxCount = 50},
-	{id = 2168, chance = 50000},
-	{id = 3965, chance = 25000, maxCount = 4},
-	{id = 9808, chance = 14285}
+	{id = "gold coin", chance = 100000, maxCount = 50},
+	{id = "hunting spear", chance = 31250, maxCount = 4},
+	{id = "life ring", chance = 25000},
+	{id = "rusty armor", chance = 6250},
+	{id = "fish fin", chance = 1500}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, skill = 34, attack = 45, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1000, chance = 11, minDamage = -15, maxDamage = -100, type = COMBAT_DROWNDAMAGE, range = 5, shootEffect = CONST_ANI_SPEAR, effect = CONST_ME_LOSEENERGY, target = true}
+	{name ="melee", interval = 2000, chance = 100, skill = 34, attack = 45},
+	{name ="combat", interval = 1000, chance = 11, type = COMBAT_DROWNDAMAGE, minDamage = -15, maxDamage = -100, range = 5, shootEffect = CONST_ANI_SPEAR, effect = CONST_ME_LOSEENERGY, target = true}
 }
 
 monster.defenses = {

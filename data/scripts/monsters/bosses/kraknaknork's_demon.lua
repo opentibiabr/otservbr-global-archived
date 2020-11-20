@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	isBlockable = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -66,14 +68,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 48025, maxCount = 100},
-	{id = "gold coin", chance = 48025, maxCount = 86},
-	{id = "gold coin", chance = 24400}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -499, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 3000, chance = 20, minDamage = -10, maxDamage = -40, type = COMBAT_FIREDAMAGE, effect = CONST_ME_EXPLOSIONHIT, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -499},
+	{name ="combat", interval = 3000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -10, maxDamage = -40, radius = 4, effect = CONST_ME_EXPLOSIONHIT, target = true}
 }
 
 monster.defenses = {
@@ -82,15 +81,15 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = -5},
-	{type = COMBAT_EARTHDAMAGE, percent = -8},
-	{type = COMBAT_FIREDAMAGE, percent = 25},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = -15},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 100},
+	{type = COMBAT_ENERGYDAMAGE, percent = 100},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_MANADRAIN, percent = 100},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
+	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_HOLYDAMAGE , percent = 100},
 	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 

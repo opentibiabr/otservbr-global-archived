@@ -41,9 +41,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -60,8 +62,8 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, skill = 50, attack = 25, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 18, target = false}
+	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 25},
+	{name ="white shade paralyze", interval = 2000, chance = 18, target = false}
 }
 
 monster.defenses = {

@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 15,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -70,7 +72,7 @@ monster.loot = {
 
 monster.defenses = {
 	defense = 5,
-	armor = 5
+	armor = 1
 }
 
 monster.elements = {

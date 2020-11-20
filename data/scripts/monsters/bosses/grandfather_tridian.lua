@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 4,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -70,45 +72,40 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000, maxCount = 80},
-	{id = 2114, chance = 100000},
-	{id = 7589, chance = 5000},
-	{id = 2789, chance = 5000},
-	{id = 2187, chance = 5000},
-	{id = 2436, chance = 5000},
-	{id = 8922, chance = 5000},
-	{id = 7426, chance = 3000},
-	{id = 6087, chance = 3000},
-	{id = 6088, chance = 3000},
-	{id = 6089, chance = 3000},
-	{id = 6090, chance = 3000},
-	{id = 3955, chance = 1000}
+	{id = "gold coin", chance = 100000, maxCount = 80},
+	{id = "jewelled backpack", chance = 100000},
+	{id = "strong mana potion", chance = 5000},
+	{id = "brown mushroom", chance = 5000, maxCount = 3},
+	{id = 6087, chance = 3000},--first verse
+	{id = 6088, chance = 3000},--second verse
+	{id = 6089, chance = 3000},--third verse
+	{id = 6090, chance = 3000}--fourth verse
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -138, maxDamage = -362, type = COMBAT_LIFEDRAIN, range = 1, shootEffect = CONST_ANI_HOLY, effect = CONST_ME_HOLYAREA, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -50, type = COMBAT_LIFEDRAIN, range = 1, effect = CONST_ME_MAGIC_RED, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_LIFEDRAIN, minDamage = -138, maxDamage = -362, range = 1, radius = 1, shootEffect = CONST_ANI_HOLY, effect = CONST_ME_HOLYAREA, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = 0, maxDamage = -50, range = 1, radius = 1, effect = CONST_ME_MAGIC_RED, target = true}
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 25,
-	{name ="combat", interval = 2000, chance = 25, minDamage = 60, maxDamage = 90, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_HEALING, minDamage = 60, maxDamage = 90, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 2000, chance = 15, effect = CONST_ME_YELLOW_RINGS}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 35},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 80},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = 20},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_ICEDAMAGE, percent = 50},
+	{type = COMBAT_HOLYDAMAGE , percent = -1},
+	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 
 monster.immunities = {

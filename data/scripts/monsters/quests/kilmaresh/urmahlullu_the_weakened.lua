@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -106,10 +108,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = -50, maxDamage = -1100, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 3000, chance = 20, minDamage = -500, maxDamage = -800, type = COMBAT_FIREDAMAGE, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -550, maxDamage = -800, type = COMBAT_FIREDAMAGE, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -450, maxDamage = -600, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -50, maxDamage = -1100},
+	{name ="combat", interval = 3000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -800, radius = 4, effect = CONST_ME_FIREAREA, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -550, maxDamage = -800, radius = 3, effect = CONST_ME_FIREAREA, target = false},
+	{name ="urmahlulluring", interval = 2000, chance = 18, minDamage = -450, maxDamage = -600, target = false}
 }
 
 monster.defenses = {
@@ -136,5 +138,23 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
+
+mType.onThink = function(monster, interval)
+end
+
+mType.onAppear = function(monster, creature)
+	if monster:getType():isRewardBoss() then
+		monster:setReward(true)
+	end
+end
+
+mType.onDisappear = function(monster, creature)
+end
+
+mType.onMove = function(monster, creature, fromPosition, toPosition)
+end
+
+mType.onSay = function(monster, creature, type, message)
+end
 
 mType:register(monster)

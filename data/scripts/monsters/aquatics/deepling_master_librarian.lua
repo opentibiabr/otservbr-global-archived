@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 250,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -63,51 +65,52 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small sapphire", chance = 8440, maxCount = 3},
 	{id = "gold coin", chance = 100000, maxCount = 100},
-	{id = "platinum coin", chance = 90000, maxCount = 3},
-	{id = "life ring", chance = 3200},
-	{id = 2667, chance = 9090, maxCount = 2},
-	{id = "fish fin", chance = 1950},
-	{id = "eye of a deepling", chance = 9380},
-	{id = "deepling staff", chance = 3130},
-	{id = "necklace of the deep", chance = 1330},
+	{id = "platinum coin", chance = 89000, maxCount = 3},
 	{id = "spellsinger's seal", chance = 25000},
-	{id = "key to the Drowned Library", chance = 20000},
 	{id = "deepling filet", chance = 20000},
-	{id = "ornate crossbow", chance = 39}
+	{id = "key to the Drowned Library", chance = 20000},
+	{id = "eye of a deepling", chance = 9380},
+	{id = 2667, chance = 9090, maxCount = 2},
+	{id = "small sapphire", chance = 8440, maxCount = 3},
+	{id = "deepling staff", chance = 3130},
+	{id = "life ring", chance = 3200},
+	{id = "fish fin", chance = 1800},
+	{id = "necklace of the deep", chance = 1250},
+	{id = "ornate crossbow", chance = 35}
 }
 
+
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -210, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -260, maxDamage = -450, type = COMBAT_ICEDAMAGE, length = 10, spread = 3, effect = CONST_ME_ICETORNADO, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -150, maxDamage = -280, type = COMBAT_DROWNDAMAGE, effect = CONST_ME_BUBBLES, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -80, maxDamage = -140, type = COMBAT_LIFEDRAIN, range = 7, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -60, maxDamage = -140, type = COMBAT_MANADRAIN, range = 7, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="combat", interval = 2000, chance = 10, range = 5, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -210, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -260, maxDamage = -450, length = 10, spread = 3, effect = CONST_ME_ICETORNADO, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_DROWNDAMAGE, minDamage = -150, maxDamage = -280, radius = 4, effect = CONST_ME_BUBBLES, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -80, maxDamage = -140, range = 7, effect = CONST_ME_SMALLPLANTS, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -60, maxDamage = -140, range = 7, effect = CONST_ME_SMALLPLANTS, target = false},
+	{name ="deepling spellsinger skill reducer", interval = 2000, chance = 10, range = 5, target = false}
 }
 
 monster.defenses = {
 	defense = 20,
-	armor = 20,
-	{name ="combat", interval = 2000, chance = 15, minDamage = 40, maxDamage = 80, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	armor = 45,
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 40, maxDamage = 80, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = -10},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_DEATHDAMAGE , percent = 50}
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

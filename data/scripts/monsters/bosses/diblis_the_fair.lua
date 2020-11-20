@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -71,43 +73,44 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2229, chance = 15000},
-	{id = 7588, chance = 1500},
-	{id = 2144, chance = 8900, maxCount = 2},
-	{id = 2152, chance = 50000, maxCount = 5},
-	{id = 2148, chance = 100000, maxCount = 99},
-	{id = 9020, chance = 100000},
-	{id = 2534, chance = 2100},
-	{id = 8903, chance = 300}
+	{id = "gold coin", chance = 100000},
+	{id = "vampire lord token", chance = 100000},
+	{id = "blood preservation", chance = 94000},
+	{id = "vampire shield", chance = 22000},
+	{id = "strong health potion", chance = 18000},
+	{id = "platinum coin", chance = 12000, maxCount = 5},
+	{id = "ring of healing", chance = 12000},
+	{id = 2229, chance = 12000},
+	{id = "spellbook of lost souls", chance = 2000}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, skill = 70, attack = 95, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1000, chance = 12, minDamage = 0, maxDamage = -155, type = COMBAT_DEATHDAMAGE, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true}
+	{name ="melee", interval = 2000, chance = 100, skill = 70, attack = 95},
+	{name ="combat", interval = 1000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = 0, maxDamage = -155, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 1000, chance = 12, minDamage = 100, maxDamage = 235, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="combat", interval = 1000, chance = 12, type = COMBAT_HEALING, minDamage = 100, maxDamage = 235, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="invisible", interval = 3000, chance = 25, effect = CONST_ME_MAGIC_BLUE}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = -10},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = -10},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 40},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -15},
+	{type = COMBAT_HOLYDAMAGE , percent = -5},
 	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

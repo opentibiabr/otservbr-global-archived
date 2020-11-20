@@ -219,10 +219,18 @@ class ScriptEvent final : public RaidEvent, public Event
 			return false;
 		}
 
+		std::string& getScriptName() {
+			return scriptName;
+		}
+		void setScriptName(std::string name) {
+			scriptName = name;
+		}
+
 		bool executeEvent() override;
 
 	private:
 		std::string getScriptEventName() const override;
+		std::string scriptName;
 };
 
 #endif

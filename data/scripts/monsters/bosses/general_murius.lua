@@ -46,9 +46,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -71,32 +73,33 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000, maxCount = 90},
-	{id = 12428, chance = 100000},
-	{id = 5878, chance = 100000},
-	{id = 2152, chance = 80000, maxCount = 3},
-	{id = 2513, chance = 40000},
-	{id = 2465, chance = 60000},
-	{id = 2648, chance = 40000},
-	{id = 2387, chance = 60000},
-	{id = 7401, chance = 40000},
-	{id = 7363, chance = 40000, maxCount = 7},
-	{id = 2666, chance = 20000, maxCount = 3},
-	{id = 2547, chance = 20000, maxCount = 7},
-	{id = 7588, chance = 20000}
+	{id = "minotaur horn", chance = 100000, maxCount = 2},
+	{id = "minotaur leather", chance = 100000},
+	{id = "gold coin", chance = 92310, maxCount = 97},
+	{id = "platinum coin", chance = 92310, maxCount = 3},
+	{id = "brass armor", chance = 76920},
+	{id = "double axe", chance = 76920},
+	{id = "piercing bolt", chance = 38460, maxCount = 11},
+	{id = "meat", chance = 30770},
+	{id = "battle shield", chance = 23080},
+	{id = "chain legs", chance = 23080},
+	{id = "minotaur trophy", chance = 23080},
+	{id = "power bolt", chance = 23080, maxCount = 7},
+	{id = "fishing rod", chance = 7690},
+	{id = "strong health potion", chance = 7690}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -170, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1000, chance = 12, minDamage = 0, maxDamage = -120, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_BOLT, target = false},
-	{name ="combat", interval = 1000, chance = 10, minDamage = 0, maxDamage = -80, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_HITAREA, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -170},
+	{name ="combat", interval = 1000, chance = 12, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -120, range = 7, shootEffect = CONST_ANI_BOLT, target = false},
+	{name ="combat", interval = 1000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -80, radius = 3, effect = CONST_ME_HITAREA, target = false}
 }
 
 monster.defenses = {
 	defense = 22,
 	armor = 16,
-	{name ="combat", interval = 1000, chance = 15, minDamage = 50, maxDamage = 100, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = 275, Duration = 5000}
+	{name ="combat", interval = 1000, chance = 15, type = COMBAT_HEALING, minDamage = 50, maxDamage = 100, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="speed", interval = 2000, chance = 15, speedChange = 275, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
 
 monster.elements = {

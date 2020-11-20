@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 0,
 	runHealth = 50,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -67,25 +69,25 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 60000, maxCount = 50},
-	{id = "small emerald", chance = 121},
+	{id = "gold coin", chance = 75000, maxCount = 50},
+	{id = "hunting spear", chance = 15185, maxCount = 3},
 	{id = "life ring", chance = 2127},
-	{id = "hunting spear", chance = 14285, maxCount = 3},
-	{id = "fish fin", chance = 310},
-	{id = 9809, chance = 925},
-	{id = "flask of rust remover", chance = 111},
+	{id = "rusted armor", chance = 925},
 	{id = "heavy trident", chance = 505},
-	{id = "eye of a deepling", chance = 310}
+	{id = "eye of a deepling", chance = 310},
+	{id = "fish fin", chance = 310},
+	{id = "small emerald", chance = 121},
+	{id = "flask of rust remover", chance = 111}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -40, maxDamage = -100, type = COMBAT_DROWNDAMAGE, range = 7, shootEffect = CONST_ANI_SPEAR, effect = CONST_ME_LOSEENERGY, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DROWNDAMAGE, minDamage = -40, maxDamage = -100, range = 7, shootEffect = CONST_ANI_SPEAR, effect = CONST_ME_LOSEENERGY, target = true}
 }
 
 monster.defenses = {
 	defense = 10,
-	armor = 10
+	armor = 7
 }
 
 monster.elements = {
@@ -102,7 +104,7 @@ monster.elements = {
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

@@ -23,7 +23,7 @@ monster.maxSummons = 0
 
 monster.changeTarget = {
 	interval = 4000,
-	chance = 10
+	chance = 5
 }
 
 monster.strategiesTarget = {
@@ -42,11 +42,13 @@ monster.flags = {
 	canPushCreatures = false,
 	staticAttackChance = 90,
 	targetDistance = 1,
-	runHealth = 20,
+	runHealth = 45,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -64,29 +66,29 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 98800, maxCount = 49},
-	{id = "small amethyst", chance = 4350},
-	{id = "longsword", chance = 8310},
-	{id = "brass armor", chance = 4660},
-	{id = "shrimp", chance = 9680, maxCount = 3},
-	{id = "fish fin", chance = 290},
-	{id = "quara tentacle", chance = 15600}
+	{id = "gold coin", chance = 87620, maxCount = 100},
+	{id = "quara tentacle", chance = 14620},
+	{id = "longsword", chance = 6910},
+	{id = "shrimp", chance = 5140, maxCount = 3},
+	{id = "brass armor", chance = 4810},
+	{id = "small amethyst", chance = 3060},
+	{id = "fish fin", chance = 490}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -135, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -80, type = COMBAT_LIFEDRAIN, effect = CONST_ME_HITAREA, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -135, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = 0, maxDamage = -80, radius = 3, effect = CONST_ME_HITAREA, target = false}
 }
 
 monster.defenses = {
 	defense = 15,
-	armor = 15
+	armor = 14
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = -5},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = -10},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},

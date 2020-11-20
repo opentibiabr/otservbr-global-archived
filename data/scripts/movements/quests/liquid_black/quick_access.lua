@@ -2,7 +2,7 @@ local enterPosition = {x = 33446, y = 31288, z = 14}
 
 local quickAccess = MoveEvent()
 
-function quickAccess.onStepIn(creature, item, fromPosition, toPosition)
+function quickAccess.onStepIn(creature, item, toPosition, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return true

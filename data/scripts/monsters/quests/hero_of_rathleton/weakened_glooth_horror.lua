@@ -47,12 +47,16 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 200,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
-monster.events = {"GloothHorror"}
+monster.events = {
+	"GloothHorror"
+}
 
 monster.light = {
 	level = 0,
@@ -68,15 +72,15 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, skill = 90, attack = 100, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 17, minDamage = -300, maxDamage = -600, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 11, minDamage = -200, maxDamage = -400, type = COMBAT_DEATHDAMAGE, range = 1, shootEffect = CONST_ANI_POISON, target = true}
+	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 100},
+	{name ="combat", interval = 2000, chance = 17, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -600, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 2000, chance = 11, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -400, range = 1, shootEffect = CONST_ANI_POISON, target = true}
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 15, minDamage = 500, maxDamage = 600, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_GREEN, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 500, maxDamage = 600, effect = CONST_ME_MAGIC_GREEN, target = false}
 }
 
 monster.elements = {

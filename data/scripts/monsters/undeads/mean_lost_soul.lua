@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Mean Lost Soul")
 local monster = {}
 
 monster.description = "Mean Lost Soul"
-monster.experience = 4300
+monster.experience = 5580
 monster.outfit = {
 	lookType = 1268,
 	lookHead = 0,
@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true
+	canWalkOnPoison = true,
+	pet = false
 }
 
 monster.light = {
@@ -75,10 +77,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = -100, maxDamage = -500, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1700, chance = 15, minDamage = -300, maxDamage = -550, shootEffect = CONST_ANI_ENVENOMEDARROW, target = true},
-	{name ="combat", interval = 1700, chance = 25, minDamage = -300, maxDamage = -550, type = COMBAT_ENERGYDAMAGE, length = 4, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 1700, chance = 35, minDamage = -300, maxDamage = -550, type = COMBAT_DEATHDAMAGE, effect = CONST_ME_MORTAREA, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500},
+	{name ="combat", interval = 1700, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -550, radius = 3, shootEffect = CONST_ANI_ENVENOMEDARROW, target = true},
+	{name ="combat", interval = 1700, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -300, maxDamage = -550, length = 4, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
+	{name ="combat", interval = 1700, chance = 35, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -550, radius = 3, effect = CONST_ME_MORTAREA, target = false}
 }
 
 monster.defenses = {
@@ -87,15 +89,15 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 100},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 5},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 55},
+	{type = COMBAT_ENERGYDAMAGE, percent = 30},
+	{type = COMBAT_EARTHDAMAGE, percent = 20},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = -30},
 	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 

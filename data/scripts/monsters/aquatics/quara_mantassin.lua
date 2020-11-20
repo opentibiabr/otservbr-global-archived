@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 40,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -62,29 +64,29 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small sapphire", chance = 1000},
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 29},
-	{id = "stealth ring", chance = 960},
-	{id = "two handed sword", chance = 1010},
-	{id = "halberd", chance = 5000},
+	{id = "gold coin", chance = 5000, maxCount = 100},
+	{id = "gold coin", chance = 29000, maxCount = 29},
+	{id = "mantassin tail", chance = 12600},
+	{id = "shrimp", chance = 5170, maxCount = 5},
+	{id = "halberd", chance = 4970},
+	{id = "small sapphire", chance = 1130},
+	{id = "cape", chance = 1090},
+	{id = "stealth ring", chance = 1050},
+	{id = "two handed sword", chance = 990},
+	{id = "fish fin", chance = 610},
 	{id = "strange helmet", chance = 100},
-	{id = "cape", chance = 1050},
-	{id = "blue robe", chance = 50},
-	{id = "shrimp", chance = 5000, maxCount = 5},
-	{id = "fish fin", chance = 630},
-	{id = "mantassin tail", chance = 11600}
+	{id = "blue robe", chance = 60}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -138, effect = CONST_ME_DRAWBLOOD}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -138, effect = CONST_ME_DRAWBLOOD}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
 	{name ="invisible", interval = 2000, chance = 20, effect = CONST_ME_MAGIC_BLUE},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = 400, Duration = 5000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = 400, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
 
 monster.elements = {
@@ -103,7 +105,7 @@ monster.elements = {
 monster.immunities = {
 	{type = "paralyze", condition = false},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = false},
+	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
 

@@ -47,9 +47,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -73,8 +75,8 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 1000, chance = 100, minDamage = 0, maxDamage = -248, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1000, chance = 13, minDamage = -100, maxDamage = -160, type = COMBAT_LIFEDRAIN, effect = CONST_ME_MORTAREA, target = false}
+	{name ="melee", interval = 1000, chance = 100, minDamage = 0, maxDamage = -248},
+	{name ="combat", interval = 1000, chance = 13, type = COMBAT_LIFEDRAIN, minDamage = -100, maxDamage = -160, radius = 4, effect = CONST_ME_MORTAREA, target = false}
 }
 
 monster.defenses = {

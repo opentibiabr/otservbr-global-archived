@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -64,31 +66,31 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small diamond", chance = 5160, maxCount = 2},
 	{id = "gold coin", chance = 28000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 53},
-	{id = "double axe", chance = 3171},
-	{id = "shrimp", chance = 4860, maxCount = 5},
-	{id = "skull helmet", chance = 400},
-	{id = "fish fin", chance = 1940, maxCount = 2},
-	{id = "assassin star", chance = 590},
-	{id = "royal spear", chance = 9000, maxCount = 7},
-	{id = "relic sword", chance = 680},
-	{id = "great health potion", chance = 1000},
-	{id = "glacier robe", chance = 420},
-	{id = "quara bone", chance = 9090},
+	{id = "gold coin", chance = 50000, maxCount = 54},
+	{id = "quara bone", chance = 9860},
+	{id = "royal spear", chance = 9240, maxCount = 7},
+	{id = "small diamond", chance = 5300, maxCount = 2},
+	{id = "shrimp", chance = 4980, maxCount = 5},
+	{id = "double axe", chance = 3011},
+	{id = "fish fin", chance = 1920, maxCount = 1},
+	{id = "great health potion", chance = 1040},
+	{id = "relic sword", chance = 670},
+	{id = "assassin star", chance = 530},
+	{id = "glacier robe", chance = 440},
+	{id = "skull helmet", chance = 390},
 	{id = "giant shrimp", chance = 10}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -473, effect = CONST_ME_DRAWBLOOD}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -473, effect = CONST_ME_DRAWBLOOD}
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 45,
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = 270, Duration = 5000},
-	{name ="combat", interval = 2000, chance = 10, minDamage = 25, maxDamage = 75, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="speed", interval = 2000, chance = 15, speedChange = 270, effect = CONST_ME_MAGIC_GREEN, target = false, duration = 5000},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 25, maxDamage = 75, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

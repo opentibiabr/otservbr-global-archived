@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -62,17 +64,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 71230, maxCount = 10},
-	{id = "worm", chance = 8880}
+	{id = "gold coin", chance = 74230, maxCount = 10},
+	{id = "worm", chance = 9240}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -24, effect = CONST_ME_DRAWBLOOD}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -24, effect = CONST_ME_DRAWBLOOD}
 }
 
 monster.defenses = {
 	defense = 5,
-	armor = 5
+	armor = 8
 }
 
 monster.elements = {

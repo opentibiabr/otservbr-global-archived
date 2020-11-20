@@ -44,9 +44,11 @@ monster.flags = {
 	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
+	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
 }
 
 monster.light = {
@@ -66,33 +68,33 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "white pearl", chance = 5250},
-	{id = "black pearl", chance = 3150},
-	{id = "gold coin", chance = 50000, maxCount = 50},
 	{id = "gold coin", chance = 50000, maxCount = 60},
+	{id = "gold coin", chance = 40000, maxCount = 50},
+	{id = "quara eye", chance = 15930},
+	{id = "white pearl", chance = 5250},
 	{id = "small emerald", chance = 5111, maxCount = 2},
-	{id = "wand of cosmic energy", chance = 900},
-	{id = "ring of healing", chance = 1008},
-	{id = "knight armor", chance = 200},
 	{id = "shrimp", chance = 4545, maxCount = 5},
-	{id = "fish fin", chance = 1280},
-	{id = "great mana potion", chance = 3100},
-	{id = "quara eye", chance = 15930}
+	{id = "black pearl", chance = 3150},
+	{id = "great mana potion", chance = 2880},
+	{id = "fish fin", chance = 1410},
+	{id = "ring of healing", chance = 1218},
+	{id = "wand of cosmic energy", chance = 980},
+	{id = "knight armor", chance = 230}
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -80, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 100, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -100, maxDamage = -180, type = COMBAT_ICEDAMAGE, length = 8, spread = 3, effect = CONST_ME_BUBBLES, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -90, maxDamage = -150, type = COMBAT_ICEDAMAGE, effect = CONST_ME_BUBBLES, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -170, maxDamage = -240, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_HITBYPOISON, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -170, type = COMBAT_LIFEDRAIN, range = 7, effect = CONST_ME_MAGIC_RED, target = true},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = -600, Duration = 15000}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -80, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 100, interval = 4000}},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -100, maxDamage = -180, length = 8, spread = 3, effect = CONST_ME_BUBBLES, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -90, maxDamage = -150, radius = 3, effect = CONST_ME_BUBBLES, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -170, maxDamage = -240, length = 8, spread = 3, effect = CONST_ME_HITBYPOISON, target = false},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = 0, maxDamage = -170, range = 7, effect = CONST_ME_MAGIC_RED, target = true},
+	{name ="speed", interval = 2000, chance = 15, speedChange = -600, range = 7, effect = CONST_ME_MAGIC_RED, target = false, duration = 15000}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="combat", interval = 2000, chance = 15, minDamage = 100, maxDamage = 120, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 100, maxDamage = 120, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

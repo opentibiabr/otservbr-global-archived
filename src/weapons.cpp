@@ -139,9 +139,7 @@ bool Weapons::registerEvent(Event_ptr event, const pugi::xml_node&)
 
 bool Weapons::registerLuaEvent(Weapon* event)
 {
-	Weapon_ptr weapon{ event };
-	weapons[weapon->getID()] = weapon.release();
-
+	weapons[event->getID()] = event;
 	return true;
 }
 
@@ -542,7 +540,13 @@ bool Weapon::executeUseWeapon(Player* player, const LuaVariant& var) const
 {
 	//onUseWeapon(player, var)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - Weapon::executeUseWeapon] Call stack overflow" << std::endl;
+		std::cout << "[Error - Weapon::executeUseWeapon"
+				<< " Player " 
+				<< player->getName() 
+				<< " weaponId "
+				<< getID()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 		return false;
 	}
 
