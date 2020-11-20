@@ -37,6 +37,7 @@
 #include "scheduler.h"
 #include "modules.h"
 #include "spells.h"
+#include "weapons.h"
 #include "imbuements.h"
 #include "iostash.h"
 
@@ -1852,13 +1853,123 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats() {
 	}
 	msg.addByte(haveBlesses);
 	msg.addByte(blessings);
-  msg.add<uint16_t>(0);
-  msg.addByte(0);
-  msg.addByte(0);
-	msg.addByte(0);
-	msg.add<uint16_t>(0);
-	msg.add<uint16_t>(0);
-  msg.addByte(0);
+  const Item* weapon = player->getWeapon();
+  if (weapon) {
+    const ItemType& it = Item::items[weapon->getID()];
+    if (it.weaponType == WEAPON_WAND) {
+     msg.add<uint16_t>(it.maxHitChance);
+     msg.addByte(getCipbiaElement(it.combatType));
+     msg.addByte(0);
+      msg.addByte(CIPBIA_ELEMENTAL_UNDEFINED);
+		} else if (it.weaponType == WEAPON_DISTANCE || it.weaponType == WEAPON_AMMO) {
+			int32_t attackValue = weapon->getAttack();
+			if (it.weaponType == WEAPON_AMMO) {
+				const Item* weaponItem = player->getWeapon(true);
+				if (weaponItem) {
+					attackValue += weaponItem->getAttack();
+				}
+			}
+
+			int32_t attackSkill = player->getSkillLevel(SKILL_DISTANCE);
+			float attackFactor = player->getAttackFactor();
+			int32_t maxDamage = static_cast<int32_t>(Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, attackValue, attackFactor) * player->getVocation()->distDamageMultiplier);
+			if (it.abilities && it.abilities->elementType != COMBAT_NONE) {
+				maxDamage += static_cast<int32_t>(Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, attackValue - weapon->getAttack() + it.abilities->elementDamage, attackFactor) * player->getVocation()->distDamageMultiplier);
+			}
+			msg.add<uint16_t>(maxDamage >> 1);
+			msg.addByte(CIPBIA_ELEMENTAL_PHYSICAL);
+			if (it.abilities && it.abilities->elementType != COMBAT_NONE) {
+				msg.addByte(static_cast<uint32_t>(it.abilities->elementDamage) * 100 / attackValue);
+				msg.addByte(getCipbiaElement(it.abilities->elementType));
+			} else {
+				msg.addByte(0);
+				msg.addByte(CIPBIA_ELEMENTAL_UNDEFINED);
+			}
+		} else {
+			int32_t attackValue = std::max<int32_t>(0, weapon->getAttack());
+			int32_t attackSkill = player->getWeaponSkill(weapon);
+			float attackFactor = player->getAttackFactor();
+			int32_t maxDamage = static_cast<int32_t>(Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, attackValue, attackFactor) * player->getVocation()->meleeDamageMultiplier);
+			if (it.abilities && it.abilities->elementType != COMBAT_NONE) {
+				maxDamage += static_cast<int32_t>(Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, it.abilities->elementDamage, attackFactor) * player->getVocation()->meleeDamageMultiplier);
+			}
+			msg.add<uint16_t>(maxDamage >> 1);
+			msg.addByte(CIPBIA_ELEMENTAL_PHYSICAL);
+			if (it.abilities && it.abilities->elementType != COMBAT_NONE) {
+				msg.addByte(static_cast<uint32_t>(it.abilities->elementDamage) * 100 / attackValue);
+				msg.addByte(getCipbiaElement(it.abilities->elementType));
+			} else {
+				msg.addByte(0);
+				msg.addByte(CIPBIA_ELEMENTAL_UNDEFINED);
+			}
+		}
+	} else {
+		float attackFactor = player->getAttackFactor();
+		int32_t attackSkill = player->getSkillLevel(SKILL_FIST);
+		int32_t attackValue = 7;
+
+		int32_t maxDamage = Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, attackValue, attackFactor);
+		msg.add<uint16_t>(maxDamage >> 1);
+		msg.addByte(CIPBIA_ELEMENTAL_PHYSICAL);
+		msg.addByte(0);
+		msg.addByte(CIPBIA_ELEMENTAL_UNDEFINED);
+	}
+	msg.add<uint16_t>(player->getArmor());
+	msg.add<uint16_t>(player->getDefense());
+
+	uint8_t combats = 0;
+	auto startCombats = msg.getBufferPosition();
+	msg.skipBytes(1);
+
+	alignas(16) int16_t absorbs[COMBAT_COUNT] = {};
+	for (int32_t slot = CONST_SLOT_FIRST; slot <= CONST_SLOT_LAST; ++slot) {
+		if (!player->isItemAbilityEnabled(static_cast<slots_t>(slot))) {
+			continue;
+		}
+
+		Item* item = player->getInventoryItem(static_cast<slots_t>(slot));
+		if (!item) {
+			continue;
+		}
+
+		const ItemType& it = Item::items[item->getID()];
+		if (!it.abilities) {
+			continue;
+		}
+
+		if (COMBAT_COUNT == 12) {
+			#if defined(__SSE2__)
+			_mm_store_si128(reinterpret_cast<__m128i*>(&absorbs[0]), _mm_add_epi16(_mm_load_si128(reinterpret_cast<const __m128i*>(&absorbs[0])), _mm_loadu_si128(reinterpret_cast<const __m128i*>(&it.abilities->absorbPercent[0]))));
+			absorbs[8] += it.abilities->absorbPercent[8]; absorbs[9] += it.abilities->absorbPercent[9];
+			absorbs[10] += it.abilities->absorbPercent[10]; absorbs[11] += it.abilities->absorbPercent[11];
+			#else
+			absorbs[0] += it.abilities->absorbPercent[0]; absorbs[1] += it.abilities->absorbPercent[1];
+			absorbs[2] += it.abilities->absorbPercent[2]; absorbs[3] += it.abilities->absorbPercent[3];
+			absorbs[4] += it.abilities->absorbPercent[4]; absorbs[5] += it.abilities->absorbPercent[5];
+			absorbs[6] += it.abilities->absorbPercent[6]; absorbs[7] += it.abilities->absorbPercent[7];
+			absorbs[8] += it.abilities->absorbPercent[8]; absorbs[9] += it.abilities->absorbPercent[9];
+			absorbs[10] += it.abilities->absorbPercent[10]; absorbs[11] += it.abilities->absorbPercent[11];
+			#endif
+		} else {
+			for (size_t i = 0; i < COMBAT_COUNT; ++i) {
+				absorbs[i] += it.abilities->absorbPercent[i];
+			}
+		}
+	}
+
+	static const Cipbia_Elementals_t cipbiaCombats[] = {CIPBIA_ELEMENTAL_PHYSICAL, CIPBIA_ELEMENTAL_ENERGY, CIPBIA_ELEMENTAL_EARTH, CIPBIA_ELEMENTAL_FIRE, CIPBIA_ELEMENTAL_UNDEFINED,
+		CIPBIA_ELEMENTAL_LIFEDRAIN, CIPBIA_ELEMENTAL_UNDEFINED, CIPBIA_ELEMENTAL_HEALING, CIPBIA_ELEMENTAL_DROWN, CIPBIA_ELEMENTAL_ICE, CIPBIA_ELEMENTAL_HOLY, CIPBIA_ELEMENTAL_DEATH};
+	for (size_t i = 0; i < COMBAT_COUNT; ++i) {
+		if (absorbs[i] != 0) {
+			msg.addByte(cipbiaCombats[i]);
+			msg.addByte(std::max<int16_t>(-100, std::min<int16_t>(100, absorbs[i])));
+			++combats;
+		}
+	}
+
+	msg.setBufferPosition(startCombats);
+	msg.addByte(combats);
+      
 	writeToOutputBuffer(msg);
 }
 
