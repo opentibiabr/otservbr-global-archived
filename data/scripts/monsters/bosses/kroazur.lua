@@ -48,9 +48,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -65,24 +65,28 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2152, chance = 10000, maxCount = 7},
-	{id = 2148, chance = 10000, maxCount = 300},
-	{id = 27058, chance = 10000, maxCount = 3},
-	{id = 7368, chance = 10000, maxCount = 3},
-	{id = 7591, chance = 10000, maxCount = 2},
-	{id = 7588, chance = 10000, maxCount = 2},
-	{id = 18420, chance = 2000, maxCount = 3},
-	{id = 7762, chance = 3000, maxCount = 5},
-	{id = 27060, chance = 2000},
-	{id = 9971, chance = 3000},
-	{id = 7418, chance = 3000},
-	{id = 22396, chance = 800},
-	{id = 25377, chance = 300},
-	{id = 25172, chance = 300}
+	{id = "fairy wing", chance = 100000},
+	{id = "gold coin", chance = 100000, maxCount = 365},
+	{id = "platinum coin", chance = 100000, maxCount = 7},
+	{id = "strong health potion", chance = 91460, maxCount = 2},
+	{id = "great health potion", chance = 76330, maxCount = 3},
+	{id = "small enchanted amethyst", chance = 53560, maxCount = 5},
+	{id = "ancient coin", chance = 46980, maxCount = 3},
+	{id = "gemmed figurine", chance = 32030},
+	{id = "small enchanted emerald", chance = 11003, maxCount = 5},
+	{id = "small enchanted ruby", chance = 2000},
+	{id = "silver token", chance = 10140},
+	{id = "cluster of solace", chance = 9960},
+	{id = "red crystal fragment", chance = 9960},
+	{id = "small enchanted sapphire", chance = 8900},
+	{id = "assassin star", chance = 8540},
+	{id = "gold token", chance = 6580},
+	{id = "gold ingot", chance = 6410},
+	{id = "nightmare blade", chance = 3020}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 200, chance = 20, minDamage = 0, maxDamage = -650, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 200, chance = 20, minDamage = 0, maxDamage = -650},
 	{name ="combat", interval = 200, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -500, target = false},
 	{name ="combat", interval = 500, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -300, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = true},
 	{name ="combat", interval = 500, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -250, maxDamage = -300, radius = 8, effect = CONST_ME_MORTAREA, target = false}
@@ -96,15 +100,15 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
-	{type = COMBAT_ENERGYDAMAGE, percent = 10},
-	{type = COMBAT_EARTHDAMAGE, percent = 10},
-	{type = COMBAT_FIREDAMAGE, percent = 10},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = -10},
 	{type = COMBAT_DEATHDAMAGE , percent = 80}
 }
 

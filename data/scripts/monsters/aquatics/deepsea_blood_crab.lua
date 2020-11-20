@@ -46,7 +46,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -62,12 +62,12 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 88000, maxCount = 20},
-	{id = 2667, chance = 9800},
-	{id = "bloody pincers", chance = 7220},
-	{id = "chain armor", chance = 4330},
-	{id = "brass legs", chance = 2820},
-	{id = "white pearl", chance = 340}
+	{id = "gold coin", chance = 87000, maxCount = 20},
+	{id = 2667, chance = 10450},
+	{id = "bloody pincers", chance = 6980},
+	{id = "chain armor", chance = 5020},
+	{id = "brass legs", chance = 2720},
+	{id = "white pearl", chance = 620}
 }
 
 monster.attacks = {

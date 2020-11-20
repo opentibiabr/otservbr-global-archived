@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Freakish Lost Soul")
 local monster = {}
 
 monster.description = "Freakish Lost Soul"
-monster.experience = 6200
+monster.experience = 7020
 monster.outfit = {
 	lookType = 1268,
 	lookHead = 0,
@@ -75,7 +75,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500},
 	{name ="combat", interval = 1700, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -550, radius = 3, shootEffect = CONST_ANI_ENVENOMEDARROW, target = true},
 	{name ="combat", interval = 1700, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -150, maxDamage = -550, length = 4, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
 	{name ="combat", interval = 1700, chance = 35, type = COMBAT_DEATHDAMAGE, minDamage = -150, maxDamage = -550, radius = 4, effect = CONST_ME_MORTAREA, target = false},
@@ -88,15 +88,15 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 100},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 5},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 60},
+	{type = COMBAT_ENERGYDAMAGE, percent = 35},
+	{type = COMBAT_EARTHDAMAGE, percent = 70},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = -5},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = -40},
 	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 

@@ -49,7 +49,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -65,20 +65,25 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2152, chance = 100000, maxCount = 5},
-	{id = 12446, chance = 20000},
-	{id = 2145, chance = 11111, maxCount = 2},
-	{id = 7591, chance = 10000, maxCount = 2},
-	{id = 7590, chance = 10000, maxCount = 2},
-	{id = 2147, chance = 9090, maxCount = 2},
-	{id = 2670, chance = 7692},
-	{id = 15649, chance = 5000, maxCount = 4},
-	{id = 2156, chance = 5000},
-	{id = 2178, chance = 4166},
-	{id = 5895, chance = 1666},
-	{id = 2475, chance = 840},
-	{id = 2169, chance = 840},
-	{id = 2487, chance = 840}
+	{id = "platinum coin", chance = 80000, maxCount = 5},
+	{id = "quara pincer", chance = 18800, maxCount = 1},
+	{id = "great mana potion", chance = 9720, maxCount = 2},
+	{id = "great health potion", chance = 9010, maxCount = 2},
+	{id = "small ruby", chance = 9010, maxCount = 2},
+	{id = "small diamond", chance = 7060, maxCount = 2},
+	{id = "mind stone", chance = 6140},
+	{id = "red gem", chance = 5120},
+	{id = "shrimp", chance = 4810, maxCount = 5},
+	{id = "vortex bolt", chance = 3790, maxCount = 5},
+	{id = 7632, chance = 1430},--giant shimmering pearl(brown)
+	{id = "warrior helmet", chance = 1430},
+	{id = "fish fin", chance = 920},
+	{id = "crown armor", chance = 611},
+	{id = "time ring", chance = 410},
+	{id = "talon", chance = 310},
+	{id = "glacier robe", chance = 200},
+	{id = "giant shrimp", chance = 100},
+	{id = "twiceslicer", chance = 100}
 }
 
 monster.attacks = {
@@ -92,9 +97,9 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = -25},
-	{type = COMBAT_EARTHDAMAGE, percent = -1},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},

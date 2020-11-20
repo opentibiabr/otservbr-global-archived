@@ -46,7 +46,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -64,10 +64,10 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "crystalline arrow", chance = 29860, maxCount = 25},
-	{id = "Vortex Bolt", chance = 26340, maxCount = 25},
-	{id = "Small Emerald", chance = 25110, maxCount = 12},
-	{id = "Deepling Warts", chance = 24480},
+	{id = "crystalline arrow", chance = 25260, maxCount = 25},
+	{id = "Vortex Bolt", chance = 21340, maxCount = 25},
+	{id = "Small Emerald", chance = 20910, maxCount = 12},
+	{id = "Deepling Warts", chance = 20280},
 	{id = "Deeptags", chance = 15100},
 	{id = "Deepling Filet", chance = 14630},
 	{id = "Small Enchanted Sapphire", chance = 13000, maxCount = 8},
@@ -109,7 +109,7 @@ monster.elements = {
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

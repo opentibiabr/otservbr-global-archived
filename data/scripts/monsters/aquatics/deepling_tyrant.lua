@@ -49,7 +49,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -66,21 +66,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 100000, maxCount = 200},
+	{id = "gold coin", chance = 100000, maxCount = 100},
+	{id = "gold coin", chance = 100000, maxCount = 100},
 	{id = "platinum coin", chance = 70000, maxCount = 4},
+	{id = "deepling breaktime snack", chance = 35520},
 	{id = "great mana potion", chance = 32640, maxCount = 3},
 	{id = "great health potion", chance = 33430, maxCount = 3},
-	{id = "small sapphire", chance = 22000, maxCount = 3},
-	{id = "eye of a deepling", chance = 28850},
-	{id = "deepling guard belt buckle", chance = 23100},
-	{id = "deepling breaktime snack", chance = 34770},
-	{id = "guardian axe", chance = 1420},
 	{id = "deepling claw", chance = 29960},
-	{id = "foxtail", chance = 80},
-	{id = "heavy trident", chance = 1550},
-	{id = "deepling backpack", chance = 510},
-	{id = "deepling squelcher", chance = 1540},
-	{id = "ornate crossbow", chance = 850}
+	{id = "eye of a deepling", chance = 29610},
+	{id = "deepling guard belt buckle", chance = 23700},
+	{id = "small sapphire", chance = 9410, maxCount = 5},
+	{id = "heavy trident", chance = 3530},
+	{id = "deepling squelcher", chance = 1440},
+	{id = "guardian axe", chance = 1340},
+	{id = "ornate crossbow", chance = 1190},
+	{id = "deepling backpack", chance = 410},
+	{id = "foxtail", chance = 30}
 }
 
 monster.attacks = {
@@ -91,21 +92,21 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 45,
-	armor = 45,
+	armor = 54,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 200, maxDamage = 400, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = -10},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_DEATHDAMAGE , percent = 10}
 }
 
 monster.immunities = {

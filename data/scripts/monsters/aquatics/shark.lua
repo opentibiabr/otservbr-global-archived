@@ -46,8 +46,8 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -63,14 +63,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small sapphire", chance = 1222},
 	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 40000, maxCount = 38},
-	{id = 2667, chance = 25000, maxCount = 4},
-	{id = "fish fin", chance = 161},
-	{id = 7632, chance = 550},
-	{id = "eye of a deepling", chance = 1270},
-	{id = "deepling scales", chance = 9090}
+	{id = "gold coin", chance = 41000, maxCount = 38},
+	{id = 2667, chance = 25430, maxCount = 4},
+	{id = "deepling scales", chance = 9620},
+	{id = "eye of a deepling", chance = 1200},
+	{id = "small sapphire", chance = 1090},
+	{id = 7632, chance = 390},--giant shimmering pearl (brown)
+	{id = "fish fin", chance = 161}
 }
 
 monster.attacks = {
@@ -83,14 +83,14 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 1},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 5},
 	{type = COMBAT_ENERGYDAMAGE, percent = -5},
 	{type = COMBAT_EARTHDAMAGE, percent = 20},
-	{type = COMBAT_FIREDAMAGE, percent = 1},
+	{type = COMBAT_FIREDAMAGE, percent = 55},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
-	{type = COMBAT_ICEDAMAGE, percent = 1},
+	{type = COMBAT_ICEDAMAGE, percent = 10},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
 	{type = COMBAT_DEATHDAMAGE , percent = 0}
 }

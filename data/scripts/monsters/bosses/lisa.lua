@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 55000
-monster.maxHealth = 55000
+monster.health = 65000
+monster.maxHealth = 65000
 monster.race = "venom"
 monster.corpse = 23359
 monster.speed = 200
@@ -48,9 +48,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -65,25 +65,31 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 23515, chance = 20000, maxCount = 5},
-	{id = 23551, chance = 1000},
-	{id = 23550, chance = 1000},
-	{id = 23549, chance = 1000},
-	{id = 23514, chance = 50000, maxCount = 5},
-	{id = 23517, chance = 50000, maxCount = 5},
-	{id = 23543, chance = 2000},
-	{id = 7591, chance = 30000, maxCount = 5},
-	{id = 7590, chance = 30000, maxCount = 5},
-	{id = 8472, chance = 30000, maxCount = 5},
-	{id = 23589, chance = 800},
-	{id = 23568, chance = 100000, maxCount = 3},
-	{id = 2150, chance = 50000, maxCount = 5},
-	{id = 2147, chance = 50000, maxCount = 5},
-	{id = 9970, chance = 50000, maxCount = 5}
+	{id = "bowl of glooth soup", chance = 55000, maxCount = 5},
+	{id = "glooth sandwich", chance = 34500, maxCount = 5},
+	{id = "great health potion", chance = 33000, maxCount = 5},
+	{id = "great mana potion", chance = 33000, maxCount = 5},
+	{id = "great spirit potion", chance = 33000, maxCount = 5},
+	{id = "glooth steak", chance = 28000, maxCount = 5},
+	{id = "slimy leaf tentacles", chance = 22000, maxCount = 3},
+	{id = "small amethyst", chance = 21000, maxCount = 5},
+	{id = "small diamond", chance = 18000, maxCount = 5},
+	{id = "small ruby", chance = 16000, maxCount = 5},
+	{id = "small topaz", chance = 14800, maxCount = 5},
+	{id = "glooth club", chance = 10500},
+	{id = "glooth spear", chance = 9900},
+	{id = "glooth whip", chance = 9500},
+	{id = "glooth amulet", chance = 9000},
+	{id = "gloth axe", chance = 8000},
+	{id = "glooth blade", chance = 7000},
+	{id = "glooth cape", chance = 6000},
+	{id = "red gem", chance = 2600},
+	{id = "yellow gem", chance = 2500},
+	{id = "lisa's doll", chance = 300}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 150, attack = 100, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 900, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, skill = 150, attack = 100, condition = {type = CONDITION_POISON, totalDamage = 900, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_LIFEDRAIN, minDamage = -200, maxDamage = -400, range = 7, radius = 1, shootEffect = CONST_ANI_GREENSTAR, effect = CONST_ME_MORTAREA, target = true},
 	{name ="effect", interval = 2000, chance = 15, range = 7, radius = 6, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_BIGPLANTS, target = true},
 	{name ="effect", interval = 2000, chance = 15, range = 7, radius = 6, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_PLANTATTACK, target = true},

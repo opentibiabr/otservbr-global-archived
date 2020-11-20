@@ -65,16 +65,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 50000, maxCount = 60},
-	{id = 5883, chance = 2500},
-	{id = 2676, chance = 7500, maxCount = 2},
-	{id = 2200, chance = 3000},
-	{id = 2166, chance = 7500},
-	{id = 2463, chance = 5000}
+	{id = "gold coin", chance = 100000, maxCount = 60},
+	{id = "club ring", chance = 25000},
+	{id = "banana", chance = 25000, maxCount = 1}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 45, attack = 40, effect = CONST_ME_DRAWBLOOD}
+	{name ="melee", interval = 2000, chance = 100, skill = 45, attack = 40}
 }
 
 monster.defenses = {
@@ -84,16 +81,16 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
-	{type = COMBAT_ENERGYDAMAGE, percent = 5},
-	{type = COMBAT_EARTHDAMAGE, percent = 20},
-	{type = COMBAT_FIREDAMAGE, percent = 20},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 1},
+	{type = COMBAT_ENERGYDAMAGE, percent = 1},
+	{type = COMBAT_EARTHDAMAGE, percent = 1},
+	{type = COMBAT_FIREDAMAGE, percent = 1},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = -10},
+	{type = COMBAT_ICEDAMAGE, percent = -1},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -10}
+	{type = COMBAT_DEATHDAMAGE , percent = -1}
 }
 
 monster.immunities = {

@@ -47,7 +47,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -62,8 +62,8 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 85000, maxCount = 20},
-	{id = 2667, chance = 1300},
+	{id = "gold coin", chance = 85750, maxCount = 20},
+	{id = 2667, chance = 14300},--fish
 	{id = "bloody pincers", chance = 6190},
 	{id = "chain armor", chance = 5240},
 	{id = "brass legs", chance = 2120},

@@ -66,10 +66,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 100000, maxCount = 100},
-	{id = "gold coin", chance = 100000, maxCount = 43},
-	{id = "strong mana potion", chance = 14285},
-	{id = "giant crab pincer", chance = 5000}
+	{id = "gold coin", chance = 96000, maxCount = 100},
+	{id = "gold coin", chance = 56000, maxCount = 75},
+	{id = "strong mana potion", chance = 8885},
+	{id = "strong health potion", chance = 3880},
+	{id = "giant crab pincer", chance = 5000, maxCount = 2},
+	{id = "ring of healing", chance = 3000},
+	{id = "great mana potion", chance = 1220},
 }
 
 monster.attacks = {
@@ -78,12 +81,12 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 45,
-	armor = 30
+	armor = 40
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 12},
-	{type = COMBAT_ENERGYDAMAGE, percent = -10},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 20},
+	{type = COMBAT_ENERGYDAMAGE, percent = -5},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},

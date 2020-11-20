@@ -49,7 +49,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -67,27 +67,27 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000, maxCount = 100},
-	{id = 2152, chance = 100000, maxCount = 10},
-	{id = 2428, chance = 33000},
-	{id = 2399, chance = 22000, maxCount = 18},
-	{id = 2377, chance = 22000},
-	{id = 2489, chance = 14000},
-	{id = 7620, chance = 13000, maxCount = 3},
-	{id = 2666, chance = 10000, maxCount = 2},
-	{id = 7618, chance = 9000, maxCount = 3},
-	{id = 2667, chance = 7500},
-	{id = 2647, chance = 7500},
-	{id = 2165, chance = 5700},
-	{id = 7890, chance = 4000},
-	{id = 7412, chance = 1600},
-	{id = 2393, chance = 1600},
-	{id = 7395, chance = 1600},
-	{id = 2497, chance = 830}
+	{id = "gold coin", chance = 100000, maxCount = 100},
+	{id = "platinum coin", chance = 100000, maxCount = 10},
+	{id = "orcish axe", chance = 32910},
+	{id = "two handed sword", chance = 24680},
+	{id = "throwing star", chance = 19600, maxCount = 18},
+	{id = "mana potion", chance = 15200, maxCount = 3},
+	{id = "dark armor", chance = 14000},
+	{id = "health potion", chance = 12000, maxCount = 3},
+	{id = "fish", chance = 10300, maxCount = 1},
+	{id = "meat", chance = 10300},
+	{id = "plate legs", chance = 8100},
+	{id = "stealth ring", chance = 6960},
+	{id = "magma amulet", chance = 5700},
+	{id = "giant sword", chance = 3160},
+	{id = "crusader helmet", chance = 1900},
+	{id = "butcher's axe", chance = 1270},
+	{id = "orc trophy", chance = 1270}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -200},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -200, length = 5, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = -300, radius = 3, effect = CONST_ME_BLOCKHIT, target = false, duration = 30000}
 }
@@ -101,7 +101,7 @@ monster.defenses = {
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = -2},
+	{type = COMBAT_EARTHDAMAGE, percent = -20},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},

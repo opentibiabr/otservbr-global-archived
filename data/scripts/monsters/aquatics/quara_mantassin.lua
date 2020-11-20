@@ -46,7 +46,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -64,18 +64,18 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small sapphire", chance = 1000},
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 29},
-	{id = "stealth ring", chance = 960},
-	{id = "two handed sword", chance = 1010},
-	{id = "halberd", chance = 5000},
+	{id = "gold coin", chance = 5000, maxCount = 100},
+	{id = "gold coin", chance = 29000, maxCount = 29},
+	{id = "mantassin tail", chance = 12600},
+	{id = "shrimp", chance = 5170, maxCount = 5},
+	{id = "halberd", chance = 4970},
+	{id = "small sapphire", chance = 1130},
+	{id = "cape", chance = 1090},
+	{id = "stealth ring", chance = 1050},
+	{id = "two handed sword", chance = 990},
+	{id = "fish fin", chance = 610},
 	{id = "strange helmet", chance = 100},
-	{id = "cape", chance = 1050},
-	{id = "blue robe", chance = 50},
-	{id = "shrimp", chance = 5000, maxCount = 5},
-	{id = "fish fin", chance = 630},
-	{id = "mantassin tail", chance = 11600}
+	{id = "blue robe", chance = 60}
 }
 
 monster.attacks = {
@@ -105,7 +105,7 @@ monster.elements = {
 monster.immunities = {
 	{type = "paralyze", condition = false},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = false},
+	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
 
