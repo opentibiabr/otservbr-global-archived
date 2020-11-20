@@ -803,6 +803,33 @@ enum CyclopediaCharacterInfo_OutfitType_t : uint8_t {
 	CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_STORE = 2
 };
 
+enum CyclopediaCharacterInfo_RecentKillStatus_t : uint8_t {
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_JUSTIFIED = 0,
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_UNJUSTIFIED = 1,
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_GUILDWAR = 2,
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_ASSISTED = 3,
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_ARENA = 4
+};
+
+struct RecentDeathEntry
+{
+	RecentDeathEntry(std::string cause, uint32_t timestamp) :
+		cause(std::move(cause)), timestamp(timestamp) {}
+
+	std::string cause;
+	uint32_t timestamp;
+};
+
+struct RecentPvPKillEntry
+{
+	RecentPvPKillEntry(std::string description, uint32_t timestamp, uint8_t status) :
+		description(std::move(description)), timestamp(timestamp), status(status) {}
+
+	std::string description;
+	uint32_t timestamp;
+	uint8_t status;
+};
+
 enum HighscoreType_t : uint8_t {
 	HIGHSCORE_GETENTRIES = 0,
 	HIGHSCORE_OURRANK = 1
