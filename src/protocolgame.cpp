@@ -1938,19 +1938,13 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats() {
 		}
 
 		if (COMBAT_COUNT == 12) {
-			#if defined(__SSE2__)
-			_mm_store_si128(reinterpret_cast<__m128i*>(&absorbs[0]), _mm_add_epi16(_mm_load_si128(reinterpret_cast<const __m128i*>(&absorbs[0])), _mm_loadu_si128(reinterpret_cast<const __m128i*>(&it.abilities->absorbPercent[0]))));
-			absorbs[8] += it.abilities->absorbPercent[8]; absorbs[9] += it.abilities->absorbPercent[9];
-			absorbs[10] += it.abilities->absorbPercent[10]; absorbs[11] += it.abilities->absorbPercent[11];
-			#else
 			absorbs[0] += it.abilities->absorbPercent[0]; absorbs[1] += it.abilities->absorbPercent[1];
 			absorbs[2] += it.abilities->absorbPercent[2]; absorbs[3] += it.abilities->absorbPercent[3];
 			absorbs[4] += it.abilities->absorbPercent[4]; absorbs[5] += it.abilities->absorbPercent[5];
 			absorbs[6] += it.abilities->absorbPercent[6]; absorbs[7] += it.abilities->absorbPercent[7];
 			absorbs[8] += it.abilities->absorbPercent[8]; absorbs[9] += it.abilities->absorbPercent[9];
 			absorbs[10] += it.abilities->absorbPercent[10]; absorbs[11] += it.abilities->absorbPercent[11];
-			#endif
-		} else {
+		  } else {
 			for (size_t i = 0; i < COMBAT_COUNT; ++i) {
 				absorbs[i] += it.abilities->absorbPercent[i];
 			}
