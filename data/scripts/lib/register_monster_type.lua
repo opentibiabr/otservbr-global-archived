@@ -154,7 +154,7 @@ registerMonsterType.changeTarget = function(mtype, mask)
 		end
 	end
 end
-registerMonsterType.strategiesTarget  = function(mtype, mask)
+registerMonsterType.strategiesTarget = function(mtype, mask)
 	if mask.strategiesTarget then
 		if mask.strategiesTarget.nearest then
 			mtype:strategiesTargetNearest(mask.strategiesTarget.nearest)
@@ -218,15 +218,6 @@ registerMonsterType.loot = function(mtype, mask)
 			if not parent:setId(loot.id) then
 				lootError = true
 			end
-			if loot.chance then
-				parent:setChance(loot.chance)
-			end
-			if loot.maxCount then
-				parent:setMaxCount(loot.maxCount)
-			end
-			if loot.aid or loot.actionId then
-				parent:setActionId(loot.aid or loot.actionId)
-			end
 			if loot.subType or loot.charges then
 				parent:setSubType(loot.subType or loot.charges)
 			else
@@ -235,23 +226,50 @@ registerMonsterType.loot = function(mtype, mask)
         			parent:setSubType(lType:getCharges())
 				end
 			end
+			if loot.chance then
+				parent:setChance(loot.chance)
+			end
+			if loot.minCount then
+				parent:setMinCount(loot.minCount)
+			end
+			if loot.maxCount then
+				parent:setMaxCount(loot.maxCount)
+			end
+			if loot.aid or loot.actionId then
+				parent:setActionId(loot.aid or loot.actionId)
+			end
 			if loot.text or loot.description then
-				parent:setDescription(loot.text or loot.description)
+				parent:setText(loot.text or loot.description)
+			end
+			if loot.name then
+				parent:setNameItem(loot.name)
+			end
+			if loot.article then
+				parent:setArticle(loot.article)
+			end
+			if loot.attack then
+				parent:setAttack(loot.attack)
+			end
+			if loot.defense then
+				parent:setDefense(loot.defense)
+			end
+			if loot.extraDefense or loot.extraDef then
+				parent:setExtraDefense(loot.extraDefense or loot.extraDef)
+			end
+			if loot.armor then
+				parent:setArmor(loot.armor)
+			end
+			if loot.shootRange or loot.range then
+				parent:setShootRange(loot.shootRange or loot.range)
+			end
+			if loot.unique then
+				parent:setUnique(loot.unique)
 			end
 			if loot.child then
 				for _, children in pairs(loot.child) do
 					local child = Loot()
 					if not child:setId(children.id) then
 						lootError = true
-					end
-					if children.chance then
-						child:setChance(children.chance)
-					end
-					if children.maxCount then
-						child:setMaxCount(children.maxCount)
-					end
-					if children.aid or children.actionId then
-						child:setActionId(children.aid or children.actionId)
 					end
 					if children.subType or children.charges then
 						child:setSubType(children.subType or children.charges)
@@ -261,8 +279,44 @@ registerMonsterType.loot = function(mtype, mask)
         					child:setSubType(cType:getCharges())
 						end
 					end
+					if children.chance then
+						child:setChance(children.chance)
+					end
+					if children.minCount then
+						child:setMinCount(children.minCount)
+					end
+					if children.maxCount then
+						child:setMaxCount(children.maxCount)
+					end
+					if children.aid or children.actionId then
+						child:setActionId(children.aid or children.actionId)
+					end
 					if children.text or children.description then
-						child:setDescription(children.text or children.description)
+						child:setText(children.text or children.description)
+					end
+					if loot.name then
+						child:setNameItem(loot.name)
+					end
+					if children.article then
+						child:setArticle(children.article)
+					end
+					if children.attack then
+						child:setAttack(children.attack)
+					end
+					if children.defense then
+						child:setDefense(children.defense)
+					end
+					if children.extraDefense or children.extraDef then
+						child:setExtraDefense(children.extraDefense or children.extraDef)
+					end
+					if children.armor then
+						child:setArmor(children.armor)
+					end
+					if children.shootRange or children.range then
+						child:setShootRange(children.shootRange or children.range)
+					end
+					if children.unique then
+						child:setUnique(children.unique)
 					end
 					parent:addChildLoot(child)
 				end
