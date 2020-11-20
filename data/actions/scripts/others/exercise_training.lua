@@ -44,16 +44,16 @@ local function start_train(pid,start_pos,itemid,fpos, bonusDummy, dummyId)
                                 if skills[itemid].id == SKILL_MAGLEVEL then
                                     local magicRate = getRateFromTable(magicLevelStages, player:getMagicLevel(), magicRateDefault)
                                     if not bonusDummy then
-                                        player:addManaSpent(math.ceil(500*magicRate))
+                                        player:addManaSpent(math.ceil(20*magicRate))
                                     else
-                                        player:addManaSpent(math.ceil(500*magicRate)*1.1) -- 10%
+                                        player:addManaSpent(math.ceil(20*magicRate)*1.1) -- 10%
                                     end
                                 else
                                     local skillRate = getRateFromTable(skillsStages, player:getEffectiveSkillLevel(skills[itemid].id), skillRateDefault)
                                     if not bonusDummy then
-                                        player:addSkillTries(skills[itemid].id, 7*skillRate)
+                                        player:addSkillTries(skills[itemid].id, (skillRate))
                                     else
-                                        player:addSkillTries(skills[itemid].id, (7*skillRate)*1.1) -- 10%
+                                        player:addSkillTries(skills[itemid].id, (skillRate)*1.1) -- 10%
                                     end
                                 end
                                     fpos:sendMagicEffect(CONST_ME_HITAREA)
