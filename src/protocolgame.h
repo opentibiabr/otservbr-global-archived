@@ -251,6 +251,7 @@ class ProtocolGame final : public Protocol
     
     void sendTournamentLeaderboard();
 
+    void sendCyclopediaCharacterNoData(CyclopediaCharacterInfoType_t characterInfoType, uint8_t errorCode);
 		void sendCyclopediaCharacterBaseInformation();
 		void sendCyclopediaCharacterGeneralStats();
 		void sendCyclopediaCharacterCombatStats();
