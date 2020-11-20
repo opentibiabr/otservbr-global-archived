@@ -7953,16 +7953,9 @@ void Game::removeUniqueItem(uint16_t uniqueId)
 bool Game::reload(ReloadTypes_t reloadType)
 {
 	switch (reloadType) {
-		case RELOAD_TYPE_ACTIONS: return g_actions->reload();
 		case RELOAD_TYPE_CHAT: return g_chat->load();
 		case RELOAD_TYPE_CONFIG: return g_config.reload();
-		case RELOAD_TYPE_CREATURESCRIPTS: {
-			g_creatureEvents->reload();
-			g_creatureEvents->removeInvalidEvents();
-			return true;
-		}
 		case RELOAD_TYPE_EVENTS: return g_events->load();
-		case RELOAD_TYPE_GLOBALEVENTS: return g_globalEvents->reload();
 		case RELOAD_TYPE_ITEMS: return Item::items.reload();
 		case RELOAD_TYPE_MODULES: return g_modules->reload();
 		case RELOAD_TYPE_MOUNTS: return mounts.reload();
@@ -7981,8 +7974,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 			}
 			return true;
 		}
-
-		case RELOAD_TYPE_TALKACTIONS: return g_talkActions->reload();
 
 		case RELOAD_TYPE_SCRIPTS: {
 			// commented out stuff is TODO, once we approach further in revscriptsys
@@ -8005,17 +7996,13 @@ bool Game::reload(ReloadTypes_t reloadType)
 				std::terminate();
 			}
 
-			g_actions->reload();
 			g_config.reload();
-			g_creatureEvents->reload();
 			Npcs::reload();
 			raids.reload() && raids.startup();
-			g_talkActions->reload();
 			Item::items.reload();
 			g_weapons->clear(true);
 			g_weapons->loadDefaults();
 			mounts.reload();
-			g_globalEvents->reload();
 			g_events->load();
 			g_chat->load();
 			g_actions->clear(true);
