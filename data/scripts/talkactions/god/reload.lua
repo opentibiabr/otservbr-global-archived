@@ -1,9 +1,6 @@
 local reloadTypes = {
 	["all"] = RELOAD_TYPE_ALL,
 
-	["action"] = RELOAD_TYPE_ACTIONS,
-	["actions"] = RELOAD_TYPE_ACTIONS,
-
 	["chat"] = RELOAD_TYPE_CHAT,
 	["channel"] = RELOAD_TYPE_CHAT,
 	["chatchannels"] = RELOAD_TYPE_CHAT,
@@ -11,15 +8,9 @@ local reloadTypes = {
 	["config"] = RELOAD_TYPE_CONFIG,
 	["configuration"] = RELOAD_TYPE_CONFIG,
 
-	["creaturescript"] = RELOAD_TYPE_CREATURESCRIPTS,
-	["creaturescripts"] = RELOAD_TYPE_CREATURESCRIPTS,
-
 	["events"] = RELOAD_TYPE_EVENTS,
 
 	["global"] = RELOAD_TYPE_GLOBAL,
-
-	["globalevent"] = RELOAD_TYPE_GLOBALEVENTS,
-	["globalevents"] = RELOAD_TYPE_GLOBALEVENTS,
 
 	["items"] = RELOAD_TYPE_ITEMS,
 
@@ -42,10 +33,6 @@ local reloadTypes = {
 	["stage"] = RELOAD_TYPE_STAGES,
 	["rate"] = RELOAD_TYPE_STAGES,
 	["rates"] = RELOAD_TYPE_STAGES,
-
-	["talk"] = RELOAD_TYPE_TALKACTIONS,
-	["talkaction"] = RELOAD_TYPE_TALKACTIONS,
-	["talkactions"] = RELOAD_TYPE_TALKACTIONS,
 
 	["scripts"] = RELOAD_TYPE_SCRIPTS,
 	["libs"] = RELOAD_TYPE_GLOBAL
