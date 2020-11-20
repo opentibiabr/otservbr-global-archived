@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Skeleton Elite Warrior")
 local monster = {}
 
 monster.description = "a skeleton elite warrior"
-monster.experience = 7500
+monster.experience = 4500
 monster.outfit = {
 	lookType = 298,
 	lookHead = 0,
@@ -47,7 +47,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -66,17 +66,17 @@ monster.loot = {
 	{id = 2230, chance = 50000},
 	{id = "white mushroom", chance = 24000, maxCount = 3},
 	{id = "Soul Orb", chance = 43500, maxCount = 5},
-	{id = "Knight Axe", chance = 250},
-	{id = "pelvis bone", chance = 10630, maxCount = 10},
-	{id = "Unholy Bone", chance = 10630, maxCount = 5},
-	{id = "Skull Helmet", chance = 150},
+	{id = "Knight Axe", chance = 3250},
+	{id = "pelvis bone", chance = 2630, maxCount = 10},
+	{id = "Unholy Bone", chance = 2630, maxCount = 5},
+	{id = "Skull Helmet", chance = 350},
 	{id = "Ruthless Axe", chance = 150}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -300, maxDamage = -450, range = 1, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 1500, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -450, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -700},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -300, maxDamage = -480, range = 1, effect = CONST_ME_MAGIC_RED, target = false},
+	{name ="combat", interval = 1500, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -380, maxDamage = -520, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = false}
 }
 
 monster.defenses = {

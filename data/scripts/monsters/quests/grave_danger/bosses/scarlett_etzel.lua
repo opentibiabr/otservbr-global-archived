@@ -86,23 +86,23 @@ monster.loot = {
 	{id = "Terra Hood", chance = 7400},
 	{id = "Terra Mantle", chance = 7250},
 	{id = "Magma Amulet", chance = 5500},
-	{id = "Silver Token", chance = 5250, maxCount = 4},
+	{id = "Silver Token", chance = 6000, maxCount = 4},
 	{id = "Gold Ingot", chance = 5000},
 	{id = "Terra Amulet", chance = 4800},
 	{id = "Giant Sapphire", chance = 4800},
 	{id = "Magma Monocle", chance = 3700},
-	{id = "Cobra Club", chance = 1800},
-	{id = "Cobra Axe", chance = 1650},
-	{id = "Cobra Crossbow", chance = 715},
-	{id = "Cobra Hood", chance = 700},
-	{id = "Cobra Rod", chance = 680},
+	{id = "Cobra Club", chance = 700},
+	{id = "Cobra Axe", chance = 600},
+	{id = "Cobra Crossbow", chance = 600},
+	{id = "Cobra Hood", chance = 400},
+	{id = "Cobra Rod", chance = 650},
 	{id = "Cobra Sword", chance = 650},
-	{id = "Cobra Wand", chance = 620},
+	{id = "Cobra Wand", chance = 650},
 	{id = "The Cobra Amulet", chance = 350}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600},
 	{name ="sudden death", interval = 2000, chance = 16, minDamage = -400, maxDamage = -600, target = true},
 	{name ="combat", interval = 2000, chance = 13, type = COMBAT_HOLYDAMAGE, minDamage = -450, maxDamage = -640, length = 7, spread = 3, effect = CONST_ME_HOLYAREA, target = false},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -480, maxDamage = -630, radius = 5, effect = CONST_ME_EXPLOSIONHIT, target = false}

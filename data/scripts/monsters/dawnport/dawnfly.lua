@@ -73,7 +73,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 10, attack = 16, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 8, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, skill = 10, attack = 16, condition = {type = CONDITION_POISON, totalDamage = 8, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 9, type = COMBAT_EARTHDAMAGE, minDamage = -4, maxDamage = -8, range = 7, shootEffect = CONST_ANI_POISONARROW, target = false}
 }
 

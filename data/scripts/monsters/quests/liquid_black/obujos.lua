@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 35000
-monster.maxHealth = 35000
+monster.health = 33000
+monster.maxHealth = 33000
 monster.race = "blood"
 monster.corpse = 15224
 monster.speed = 560
@@ -48,9 +48,9 @@ monster.flags = {
 	runHealth = 60,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -67,13 +67,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 15411, chance = 100000},
-	{id = 15404, chance = 1285},
-	{id = 15412, chance = 1285}
+	{id = "Deepling Axe", chance = 1300},
+	{id = "Depth Scutum", chance = 1185},
+	{id = "Ornate Legs", chance = 700}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1200, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 360, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1200, condition = {type = CONDITION_POISON, totalDamage = 360, interval = 4000}},
 	{name ="combat", interval = 3000, chance = 23, type = COMBAT_DEATHDAMAGE, minDamage = -200, maxDamage = -800, range = 7, radius = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
 	{name ="combat", interval = 3500, chance = 20, type = COMBAT_MANADRAIN, minDamage = -200, maxDamage = -600, range = 7, radius = 6, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_BIGCLOUDS, target = true},
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -800, range = 7, radius = 1, shootEffect = CONST_ANI_POISONARROW, effect = CONST_ME_GREEN_RINGS, target = true},
@@ -84,20 +84,20 @@ monster.attacks = {
 monster.defenses = {
 	defense = 40,
 	armor = 40,
-	{name ="combat", interval = 1000, chance = 15, type = COMBAT_HEALING, minDamage = 1000, maxDamage = 2100, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 1000, chance = 15, type = COMBAT_HEALING, minDamage = 800, maxDamage = 2200, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = -20},
-	{type = COMBAT_ENERGYDAMAGE, percent = -20},
-	{type = COMBAT_EARTHDAMAGE, percent = -20},
-	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 25},
+	{type = COMBAT_ENERGYDAMAGE, percent = 15},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = 60},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 100},
-	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 20},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -20}
+	{type = COMBAT_DEATHDAMAGE , percent = 60}
 }
 
 monster.immunities = {

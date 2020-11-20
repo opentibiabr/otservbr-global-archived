@@ -47,7 +47,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -65,7 +65,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 77000, maxCount = 65}
+	{id = "gold coin", chance = 73330, maxCount = 65}
 }
 
 monster.attacks = {

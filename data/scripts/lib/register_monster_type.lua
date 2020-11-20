@@ -112,7 +112,7 @@ registerMonsterType.flags = function(mtype, mask)
 			mtype:canPushCreatures(mask.flags.canPushCreatures)
 		end
 		if mask.flags.targetDistance then
-			mtype:targetDistance(mask.flags.targetDistance)
+			mtype:targetDistance(math.max(1, mask.flags.targetDistance))
 		end
 		if mask.flags.runHealth then
 			mtype:runHealth(mask.flags.runHealth)

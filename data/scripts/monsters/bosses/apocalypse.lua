@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Apocalypse")
 local monster = {}
 
 monster.description = "Apocalypse"
-monster.experience = 35000
+monster.experience = 550000
 monster.outfit = {
 	lookType = 12,
 	lookHead = 38,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 80000
-monster.maxHealth = 80000
+monster.health = 160000
+monster.maxHealth = 160000
 monster.race = "fire"
 monster.corpse = 6068
 monster.speed = 380
@@ -23,7 +23,7 @@ monster.maxSummons = 0
 
 monster.changeTarget = {
 	interval = 5000,
-	chance = 20
+	chance = 40
 }
 
 monster.strategiesTarget = {
@@ -48,9 +48,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -69,67 +69,44 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2142, chance = 3500},
-	{id = 2231, chance = 9000},
-	{id = 2144, chance = 15000, maxCount = 15},
-	{id = 2158, chance = 1500},
-	{id = 2195, chance = 4000},
-	{id = 2192, chance = 2500},
-	{id = 2125, chance = 1500},
-	{id = 2124, chance = 5500},
-	{id = 2520, chance = 15500},
-	{id = 2462, chance = 11000},
-	{id = 2387, chance = 20000},
-	{id = 2434, chance = 4500},
-	{id = 2167, chance = 13500},
-	{id = 2432, chance = 17000},
-	{id = 2393, chance = 12500},
-	{id = 2148, chance = 99900, maxCount = 100},
-	{id = 2148, chance = 88800, maxCount = 100},
-	{id = 2148, chance = 77700, maxCount = 100},
-	{id = 2148, chance = 66600, maxCount = 100},
-	{id = 2179, chance = 8000},
-	{id = 2470, chance = 5000},
-	{id = 2033, chance = 7500},
-	{id = 2418, chance = 4500},
-	{id = 2155, chance = 1500},
-	{id = 2396, chance = 7500},
-	{id = 2177, chance = 1000},
-	{id = 2162, chance = 11500},
-	{id = 2472, chance = 3000},
-	{id = 2514, chance = 7500},
-	{id = 2164, chance = 5000},
-	{id = 2178, chance = 4000},
-	{id = 2186, chance = 3500},
-	{id = 2176, chance = 12000},
-	{id = 2171, chance = 4500},
-	{id = 2200, chance = 4500},
-	{id = 1982, chance = 2600},
-	{id = 2214, chance = 13000},
-	{id = 2123, chance = 3500},
-	{id = 2170, chance = 13000},
-	{id = 2402, chance = 15500},
-	{id = 2436, chance = 5000},
-	{id = 2150, chance = 13500, maxCount = 20},
-	{id = 2145, chance = 9500, maxCount = 5},
-	{id = 2149, chance = 15500, maxCount = 10},
-	{id = 2146, chance = 13500, maxCount = 10},
-	{id = 2182, chance = 3500},
-	{id = 2165, chance = 9500},
-	{id = 2197, chance = 4000},
-	{id = 2174, chance = 2500},
-	{id = 2151, chance = 14000, maxCount = 7},
-	{id = 2112, chance = 14500},
-	{id = 2421, chance = 13500},
-	{id = 2377, chance = 20000},
-	{id = 2185, chance = 3500},
-	{id = 3955, chance = 100},
-	{id = 2188, chance = 2500},
-	{id = 2143, chance = 12500, maxCount = 15}
+	{id = "ancient amulet", chance = 13500},
+	{id = "big bone", chance = 19000},--big bone
+	{id = "black pearl", chance = 15000, maxCount = 35},
+	{id = "boots of haste", chance = 14000},
+	{id = "crystal ball", chance = 22500},
+	{id = "crystal necklace", chance = 21500},
+	{id = "crystal ring", chance = 15500},
+	{id = "demon shield", chance = 15500},
+	{id = "devil helmet", chance = 11000},
+	{id = "dragon hammer", chance = 34500},
+	{id = "energy ring", chance = 13500},
+	{id = "fire axe", chance = 17000},
+	{id = "giant sword", chance = 12500},
+	{id = 2152, chance = 69900, maxCount = 100},--platinum coin
+	{id = 2152, chance = 68800, maxCount = 100},--platinum coin
+	{id = 2160, chance = 47700, maxCount = 40},--crystal coin
+	{id = 2160, chance = 36600, maxCount = 15},--crystal coin
+	{id = "gold ring", chance = 28000},
+	{id = "golden legs", chance = 15000},
+	{id = "giant ruby", chance = 31500},
+	{id = "giant sapphire", chance = 31500},
+	{id = "giant emerald", chance = 31500},
+	{id = "ice rapier", chance = 27500},
+	{id = "magic plate armor", chance = 13000},
+	{id = "mastermind shield", chance = 17500},
+	{id = "purple tome", chance = 12600},
+	{id = "ring of the sky", chance = 13500},
+	{id = "silver dagger", chance = 15500},
+	{id = "skull staff", chance = 25000},
+	{id = "talon", chance = 14000, maxCount = 27},
+	{id = "teddy bear", chance = 10500},
+	{id = "thunder hammer", chance = 3500},
+	{id = "voodoo doll", chance = 5100},
+	{id = "white pearl", chance = 12500, maxCount = 35}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 230, attack = 210, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, skill = 230, attack = 210},
 	{name ="combat", interval = 1000, chance = 8, type = COMBAT_DEATHDAMAGE, minDamage = -800, maxDamage = -1900, radius = 9, effect = CONST_ME_MORTAREA, target = false},
 	{name ="speed", interval = 1000, chance = 12, speedChange = -850, radius = 6, effect = CONST_ME_POISONAREA, target = false, duration = 60000},
 	{name ="strength", interval = 1000, chance = 10, minDamage = -600, maxDamage = -1450, radius = 5, effect = CONST_ME_HITAREA, target = false},

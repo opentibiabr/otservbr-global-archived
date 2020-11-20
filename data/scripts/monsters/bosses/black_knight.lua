@@ -47,9 +47,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -69,32 +69,32 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "piggy bank", chance = 210},
-	{id = 2120, chance = 16020},
-	{id = "ruby necklace", chance = 740},
 	{id = "gold coin", chance = 23000, maxCount = 80},
 	{id = "gold coin", chance = 23000, maxCount = 56},
-	{id = "boots of haste", chance = 320},
-	{id = "two handed sword", chance = 8470},
-	{id = "halberd", chance = 11850},
 	{id = "spear", chance = 30800, maxCount = 3},
-	{id = "dragon lance", chance = 110},
-	{id = "battle hammer", chance = 6980},
-	{id = "knight axe", chance = 3280},
-	{id = "steel helmet", chance = 11220},
-	{id = "plate armor", chance = 10370},
-	{id = "warrior helmet", chance = 5610},
-	{id = "knight armor", chance = 320},
-	{id = "knight legs", chance = 1050},
-	{id = "brass legs", chance = 12200},
-	{id = "dark armor", chance = 1900},
-	{id = "dark helmet", chance = 2330},
 	{id = "brown bread", chance = 21600, maxCount = 2},
-	{id = "lightning legs", chance = 950}
+	{id = 2120, chance = 16020},--rope
+	{id = "brass legs", chance = 12200},
+	{id = "halberd", chance = 11850},
+	{id = "plate armor", chance = 10370},
+	{id = "steel helmet", chance = 11220},
+	{id = "two handed sword", chance = 8470},
+	{id = "battle hammer", chance = 6910},
+	{id = "warrior helmet", chance = 4710},
+	{id = "knight axe", chance = 2630},
+	{id = "dark helmet", chance = 2430},
+	{id = "dark armor", chance = 2020},
+	{id = "knight legs", chance = 1050},
+	{id = "knight armor", chance = 750},
+	{id = "ruby necklace", chance = 750},
+	{id = "lightning legs", chance = 580},
+	{id = "boots of haste", chance = 400},
+	{id = "dragon lance", chance = 290},
+	{id = "piggy bank", chance = 120}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -200, range = 7, shootEffect = CONST_ANI_SPEAR, target = false}
 }
 

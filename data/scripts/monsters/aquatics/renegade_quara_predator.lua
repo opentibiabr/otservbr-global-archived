@@ -49,7 +49,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -65,18 +65,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2152, chance = 100000, maxCount = 4},
-	{id = 7378, chance = 50000, maxCount = 7},
-	{id = 7368, chance = 50000, maxCount = 10},
-	{id = 12447, chance = 10000},
-	{id = 2145, chance = 8333, maxCount = 2},
-	{id = 7591, chance = 8333, maxCount = 2},
-	{id = 2178, chance = 7692},
-	{id = 2670, chance = 4761},
-	{id = 5895, chance = 3703},
-	{id = 7383, chance = 2777},
-	{id = 7897, chance = 1851},
-	{id = 18413, chance = 934}
+	{id = "platinum coin", chance = 80000, maxCount = 4},
+	{id = "quara bone", chance = 10000, maxCount = 1},
+	{id = "royal spear", chance = 8000, maxCount = 7},
+	{id = "great health potion", chance = 6680, maxCount = 2},
+	{id = "mind stone", chance = 6440},
+	{id = "assassin star", chance = 5233, maxCount = 10},
+	{id = "shrimp", chance = 4510, maxCount = 5},
+	{id = "small diamond", chance = 3140, maxCount = 3},
+	{id = "fish fin", chance = 2101},
+	{id = "blue crystal shard", chance = 1290},
+	{id = "relic sword", chance = 1051},
+	{id = "skull helmet", chance = 560},
+	{id = "glacier robe", chance = 400},
+	{id = "abyss hammer", chance = 320},
+	{id = "frozen plate", chance = 160},
+	{id = "giant shrimp", chance = 80}
 }
 
 monster.attacks = {
@@ -85,7 +89,7 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 45,
-	armor = 45,
+	armor = 40,
 	{name ="speed", interval = 2000, chance = 15, speedChange = 30, effect = CONST_ME_MAGIC_GREEN, target = false, duration = 5000},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 50, maxDamage = 100, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
@@ -93,7 +97,7 @@ monster.defenses = {
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = -25},
-	{type = COMBAT_EARTHDAMAGE, percent = -1},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},

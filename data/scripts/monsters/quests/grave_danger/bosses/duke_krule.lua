@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Duke Krule")
 local monster = {}
 
 monster.description = "a Duke Krule"
-monster.experience = 6300
+monster.experience = 46300
 monster.outfit = {
 	lookType = 1221,
 	lookHead = 19,
@@ -62,45 +62,33 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "silver token", chance = 100000, maxCount = 2},
-	{id = "platinum coin", chance = 60000, maxCount = 5},
-	{id = "ultimate mana potion", chance = 60000, maxCount = 20},
-	{id = "supreme health potion", chance = 48000, maxCount = 20},
-	{id = "ultimate spirit potion", chance = 44000, maxCount = 20},
-	{id = "yellow gem", chance = 40000},
-	{id = "green gem", chance = 32000},
-	{id = "red gem", chance = 32000},
-	{id = "mastermind potion", chance = 32000, maxCount = 10},
-	{id = "crystal coin", chance = 24000},
-	{id = "bullseye potion", chance = 20000, maxCount = 10},
-	{id = "crusader helmet", chance = 20000},
-	{id = "flask of warrior's sweat", chance = 20000},
-	{id = "piece of hell steel", chance = 16000, maxCount = 4},
-	{id = 26198, chance = 16000},
-	{id = 26199, chance = 16000},
-	{id = "blue gem", chance = 12000},
-	{id = "berserk potion", chance = 12000},
-	{id = "terra hood", chance = 8000},
-	{id = "chaos mace", chance = 8000},
-	{id = 26187, chance = 8000},
-	{id = "gold ingot", chance = 8000},
-	{id = "rotten heart", chance = 4000},
-	{id = "young lich worm", chance = 4000},
-	{id = "giant sapphire", chance = 4000},
-	{id = 26189, chance = 4000},
-	{id = 26185, chance = 4000},
-	{id = "ancient liche bone", chance = 4000},
-	{id = "bear skin", chance = 4000},
-	{id = "embrace of nature", chance = 4000},
-	{id = "violet gem", chance = 4000},
-	{id = "giant emerald", chance = 4000},
-	{id = "noble amulet", chance = 300},
-	{id = "terra helmet", chance = 150},
-	{id = "final judgement", chance = 150}
+	{id = "Platinum Coin", minCount = 1, maxCount = 5, chance = 100000},--comum
+	{id = "Crystal Coin", minCount = 0, maxCount = 2, chance = 50000},--comum
+	{id = "Supreme Health Potion", minCount = 0, maxCount = 6, chance = 35000},--comum
+	{id = "Ultimate Mana Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{id = "Ultimate Spirit Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{id = "Bullseye Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{id = "Mastermind Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{id = "Berserk Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{id = "Piece of draconian steel", minCount = 0, maxCount = 3, chance = 9000},--comum
+	{id = "Green Gem", minCount = 0, maxCount = 2, chance = 12000},--comum
+	{id = "Silver Token", minCount = 0, maxCount = 2, chance = 9500},--semiraro
+	{id = "Blue Gem", chance = 11000},--semiraro
+	{id = "Crusader Helmet", chance = 6400},--semiraro
+	{id = "Gold Ingot", minCount = 0, maxCount = 1, chance = 10000},--semiraro
+	{id = "Red Gem", chance = 11000},--semiraro
+	{id = "Terra hood", chance = 7800},--semiraro
+	{id = "Yellow Gem", chance = 9500},--semiraro
+	{id = "Young Lich Worm", chance = 5800},--semiraro
+	{id = "Bear Skin", chance = 1800},--raro
+	{id = "Noble Amulet", chance = 1100},--raro
+	{id = "Rotten Heart", chance = 1700},--raro
+	{id = "Terra helmet", chance = 700},--raro
+	{id = "Final Judgement", chance = 460},--muitoraro
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -600, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -600},
 	{name ="combat", interval = 1800, chance = 60, type = COMBAT_MANADRAIN, minDamage = -400, maxDamage = -1000, length = 7, spread = 2, effect = CONST_ME_EXPLOSIONHIT, target = false},
 	{name ="combat", interval = 1800, chance = 19, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -1000, length = 7, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
 	{name ="combat", interval = 1800, chance = 40, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -500, radius = 10, effect = CONST_ME_HITBYFIRE, target = false}

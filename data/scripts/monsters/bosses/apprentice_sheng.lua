@@ -48,7 +48,7 @@ monster.flags = {
 	runHealth = 20,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
 	canWalkOnPoison = false,
 	pet = false
@@ -73,17 +73,18 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 5878, chance = 100000},
-	{id = 2162, chance = 80000},
-	{id = 2148, chance = 30000, maxCount = 10},
-	{id = 2050, chance = 30000, maxCount = 2},
-	{id = 2649, chance = 20000},
-	{id = 2403, chance = 10000},
-	{id = 2461, chance = 10000}
+	{id = "minotaur leather", chance = 100000},
+	{id = "magic light wand", chance = 76000},
+	{id = "gold coin", chance = 38000, maxCount = 10},
+	{id = "torch", chance = 30000, maxCount = 2},
+	{id = "leather legs", chance = 23000},
+	{id = "carrot", chance = 7690},
+	{id = "leather helmet", chance = 7690},
+	{id = "knife", chance = 7690}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -10, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -10},
 	{name ="energyfield", interval = 1000, chance = 8, range = 7, radius = 1, shootEffect = CONST_ANI_ENERGY, target = true},
 	{name ="combat", interval = 1000, chance = 14, type = COMBAT_ENERGYDAMAGE, minDamage = 0, maxDamage = -25, range = 7, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_ENERGYAREA, target = false},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = 0, maxDamage = -45, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = false}

@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Bullwark")
 local monster = {}
 
 monster.description = "Bullwark"
-monster.experience = 22000
+monster.experience = 16725
 monster.outfit = {
 	lookType = 607,
 	lookHead = 0,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 72000
-monster.maxHealth = 72000
+monster.health = 65000
+monster.maxHealth = 65000
 monster.race = "blood"
 monster.corpse = 23367
 monster.speed = 300
@@ -65,22 +65,28 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000, maxCount = 200},
-	{id = 2152, chance = 100000, maxCount = 5},
-	{id = 23571, chance = 100000, maxCount = 2},
-	{id = 23570, chance = 100000},
-	{id = 23590, chance = 500},
-	{id = 7591, chance = 50000, maxCount = 5},
-	{id = 7590, chance = 50000, maxCount = 5},
-	{id = 2666, chance = 50000, maxCount = 5},
-	{id = 2671, chance = 50000, maxCount = 5},
-	{id = 5878, chance = 100000},
-	{id = 2145, chance = 30000, maxCount = 5},
-	{id = 5911, chance = 5000}
+	{id = "gold coin", chance = 100000, maxCount = 200},
+	{id = "platinum coin", chance = 80000, maxCount = 5},
+	{id = "great health potion", chance = 40000, maxCount = 5},
+	{id = "great mana potion", chance = 40000, maxCount = 5},
+	{id = "great spirit potion", chance = 40000, maxCount = 5},
+	{id = "ham", chance = 35250, maxCount = 5},
+	{id = "meat", chance = 35250, maxCount = 5},
+	{id = "minotaur leather", chance = 26500, maxCount = 2},
+	{id = "moohtant horn", chance = 21000, maxCount = 2},
+	{id = "small diamond", chance = 17900, maxCount = 5},
+	{id = "small emerald", chance = 16350, maxCount = 5},
+	{id = "small ruby", chance = 15500, maxCount = 5},
+	{id = "small sapphire", chance = 14200, maxCount = 5},
+	{id = "giant pacifier", chance = 1920},
+	{id = "moohtant cudgel", chance = 1800},
+	{id = "red piece of cloth", chance = 1500},
+	{id = "yellow gem", chance = 1200},
+	{id = "one hit wonder", chance = 350}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 180, attack = 200, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, skill = 180, attack = 200},
 	{name ="combat", interval = 2000, chance = 19, type = COMBAT_LIFEDRAIN, minDamage = -200, maxDamage = -400, radius = 6, effect = CONST_ME_MAGIC_RED, target = false},
 	-- bleed
 	{name ="condition", type = CONDITION_BLEEDING, interval = 2000, chance = 9, minDamage = -400, maxDamage = -600, radius = 8, effect = CONST_ME_ICEATTACK, target = false},
@@ -99,19 +105,19 @@ monster.defenses = {
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 1},
-	{type = COMBAT_EARTHDAMAGE, percent = 100},
-	{type = COMBAT_FIREDAMAGE, percent = 1},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 15},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 1}
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
