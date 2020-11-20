@@ -1249,15 +1249,15 @@ void ProtocolGame::parseCyclopediaCharacterInfo(NetworkMessage& msg) {
 	CyclopediaCharacterInfoType_t characterInfoType;
   characterID = msg.get<uint32_t>();
 	characterInfoType = static_cast<CyclopediaCharacterInfoType_t>(msg.getByte());
-  uint16_t entries = 0, page = 0;
+  uint16_t entriesPerPage = 0, page = 0;
   if (characterInfoType == CYCLOPEDIA_CHARACTERINFO_RECENTDEATHS || characterInfoType == CYCLOPEDIA_CHARACTERINFO_RECENTPVPKILLS) {
-		entries = msg.get<uint16_t>();
-		page = msg.get<uint16_t>();
+		entriesPerPage = std::min<uint16_t>(30, std::max<uint16_t>(5, msg.get<uint16_t>()));
+		page = std::max<uint16_t>(1, msg.get<uint16_t>());
   }
   if (characterID == 0) {
-		characterID = player->getID();
+		characterID = player->getGUID();
 	}
-	g_game.playerCyclopediaCharacterInfo(player, characterID, characterInfoType, entries, page);
+	g_game.playerCyclopediaCharacterInfo(player, characterID, characterInfoType, entriesPerPage, page);
 }
 
 void ProtocolGame::parseHighscores(NetworkMessage& msg)
@@ -1272,7 +1272,7 @@ void ProtocolGame::parseHighscores(NetworkMessage& msg)
 	msg.getByte();//BattlEye World Type
 	#endif
 	if (type == HIGHSCORE_GETENTRIES) {
-		page = msg.get<uint16_t>();
+		page = std::max<uint16_t>(1, msg.get<uint16_t>());
 	}
 	uint8_t entriesPerPage = std::min<uint8_t>(30, std::max<uint8_t>(5, msg.getByte()));
 	g_game.playerHighscores(player, type, category, vocation, worldName, page, entriesPerPage);
@@ -1286,7 +1286,7 @@ void ProtocolGame::sendHighscoresNoData()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendHighscores(std::vector<HighscoreCharacter>& characters, uint8_t categoryId, uint32_t vocationId, uint16_t page, uint16_t pages)
+void ProtocolGame::sendHighscores(const std::vector<HighscoreCharacter>& characters, uint8_t categoryId, uint32_t vocationId, uint16_t page, uint16_t pages)
 {
   NetworkMessage msg;
 	msg.addByte(0xB1);
@@ -1314,14 +1314,14 @@ void ProtocolGame::sendHighscores(std::vector<HighscoreCharacter>& characters, u
 		const Vocation& vocation = it.second;
 		if (vocation.getFromVocation() == static_cast<uint32_t>(vocation.getId())) {
 			msg.add<uint32_t>(vocation.getFromVocation()); // Vocation Id
-			msg.addString(vocation.getVocName()); // Vocation Name
+			msg.addString(vocation.getVocName());  // Vocation Name
 			++vocations;
 			if (vocation.getFromVocation() == vocationId) {
 				selectedVocation = vocationId;
 			}
 		}
 	}
-	msg.add<uint32_t>(selectedVocation); // Selected Vocation
+	msg.add<uint32_t>(selectedVocation);  // Selected Vocation
 
 	HighscoreCategory highscoreCategories[] =
 	{
@@ -1339,27 +1339,27 @@ void ProtocolGame::sendHighscores(std::vector<HighscoreCharacter>& characters, u
 	uint8_t selectedCategory = 0;
 	msg.addByte(sizeof(highscoreCategories) / sizeof(HighscoreCategory)); // Category Count
 	for (HighscoreCategory& category : highscoreCategories) {
-		msg.addByte(category.id); // Category Id
-		msg.addString(category.name); // Category Name
+		msg.addByte(category.id);  // Category Id
+		msg.addString(category.name);  // Category Name
 		if (category.id == categoryId) {
 			selectedCategory = categoryId;
 		}
 	}
-	msg.addByte(selectedCategory); // Selected Category
+	msg.addByte(selectedCategory);  // Selected Category
 
-	msg.add<uint16_t>(page); // Current page
-	msg.add<uint16_t>(pages); // Pages
+	msg.add<uint16_t>(page);  // Current page
+	msg.add<uint16_t>(pages);  // Pages
 
-	msg.addByte(characters.size()); // Character Count
-	for (HighscoreCharacter& character : characters) {
-		msg.add<uint32_t>(character.rank); // Rank
-		msg.addString(character.name); // Character Name
-		msg.addString(""); // Probably Character Title(not visible in window)
-		msg.addByte(character.vocation); // Vocation Id
-		msg.addString(g_config.getString(ConfigManager::SERVER_NAME)); // World
-		msg.add<uint16_t>(character.level); // Level
-		msg.addByte((player->getGUID() == character.id)); // Player Indicator Boolean
-		msg.add<uint64_t>(character.points); // Points
+	msg.addByte(characters.size());  // Character Count
+	for (const HighscoreCharacter& character : characters) {
+		msg.add<uint32_t>(character.rank);  // Rank
+		msg.addString(character.name);  // Character Name
+		msg.addString("");  // Probably Character Title(not visible in window)
+		msg.addByte(character.vocation);  // Vocation Id
+		msg.addString(g_config.getString(ConfigManager::SERVER_NAME));  // World
+		msg.add<uint16_t>(character.level);  // Level
+		msg.addByte((player->getGUID() == character.id));  // Player Indicator Boolean
+		msg.add<uint64_t>(character.points);  // Points
 	}
 
 	msg.addByte(0xFF); // ??
@@ -1862,25 +1862,34 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats() {
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterRecentDeaths() {
+void ProtocolGame::sendCyclopediaCharacterRecentDeaths(uint16_t page, uint16_t pages, const std::vector<RecentDeathEntry>& entries) {
 	NetworkMessage msg;
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_RECENTDEATHS);
 	msg.addByte(0x00);
-	msg.add<uint16_t>(0);
-	msg.add<uint16_t>(0);
-	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(page);
+	msg.add<uint16_t>(pages);
+	msg.add<uint16_t>(entries.size());
+	for (const RecentDeathEntry& entry : entries) {
+		msg.add<uint32_t>(entry.timestamp);
+		msg.addString(entry.cause);
+	}
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterRecentPvPKills() {
+void ProtocolGame::sendCyclopediaCharacterRecentPvPKills(uint16_t page, uint16_t pages, const std::vector<RecentPvPKillEntry>& entries) {
 	NetworkMessage msg;
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_RECENTPVPKILLS);
 	msg.addByte(0x00);
-	msg.add<uint16_t>(0);
-	msg.add<uint16_t>(0);
-	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(page);
+	msg.add<uint16_t>(pages);
+	msg.add<uint16_t>(entries.size());
+	for (const RecentPvPKillEntry& entry : entries) {
+		msg.add<uint32_t>(entry.timestamp);
+		msg.addString(entry.description);
+		msg.addByte(entry.status);
+	}
 	writeToOutputBuffer(msg);
 }
 
