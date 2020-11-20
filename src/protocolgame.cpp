@@ -1245,10 +1245,19 @@ void ProtocolGame::sendItemInspection(uint16_t itemId, uint8_t itemCount, const 
 }
 
 void ProtocolGame::parseCyclopediaCharacterInfo(NetworkMessage& msg) {
+  uint32_t characterID;
 	CyclopediaCharacterInfoType_t characterInfoType;
-	msg.get<uint32_t>();
+  characterID = msg.get<uint32_t>();
 	characterInfoType = static_cast<CyclopediaCharacterInfoType_t>(msg.getByte());
-	addGameTask(&Game::playerCyclopediaCharacterInfo, player->getID(), characterInfoType);
+  uint16_t entries = 0, page = 0;
+  if (characterInfoType == CYCLOPEDIA_CHARACTERINFO_RECENTDEATHS || characterInfoType == CYCLOPEDIA_CHARACTERINFO_RECENTPVPKILLS) {
+		entries = msg.get<uint16_t>();
+		page = msg.get<uint16_t>();
+  }
+  if (characterID == 0) {
+		characterID = player->getID();
+	}
+	g_game.playerCyclopediaCharacterInfo(player, characterID, characterInfoType, entries, page);
 }
 
 void ProtocolGame::parseHighscores(NetworkMessage& msg)
@@ -1743,6 +1752,15 @@ void ProtocolGame::sendAddMarker(const Position& pos, uint8_t markType, const st
 	writeToOutputBuffer(msg);
 }
 
+void ProtocolGame::sendCyclopediaCharacterNoData(CyclopediaCharacterInfoType_t characterInfoType, uint8_t errorCode)
+{
+	NetworkMessage msg;
+	msg.addByte(0xDA);
+	msg.addByte(static_cast<uint8_t>(characterInfoType));
+	msg.addByte(errorCode);
+	writeToOutputBuffer(msg);
+}
+
 void ProtocolGame::sendCyclopediaCharacterBaseInformation() {
 	NetworkMessage msg;
 	msg.addByte(0xDA);
@@ -1753,11 +1771,9 @@ void ProtocolGame::sendCyclopediaCharacterBaseInformation() {
 	msg.add<uint16_t>(player->getLevel());
 	AddOutfit(msg, player->getDefaultOutfit(), false);
 
-	msg.addByte(0x00);
-  // EnableStoreSummary&CharacterTitles
-	msg.addByte(0x00);
-	// CharacterTitle
-  msg.addString("");
+	msg.addByte(0x00);  // hide stamina
+	msg.addByte(0x00);  // enable store summary & character titles
+  msg.addString("");  // character title
 	writeToOutputBuffer(msg);
 }
 
@@ -1829,9 +1845,9 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats() {
 	}
 	uint8_t haveBlesses = 0;
 	uint8_t blessings = 8;
-	for (uint8_t i = 1; i < blessings; i++) {
+	for (uint8_t i = 1; i < blessings; ++i) {
 		if (player->hasBlessing(i)) {
-			haveBlesses++;
+			++haveBlesses;
 		}
 	}
 	msg.addByte(haveBlesses);
@@ -1900,8 +1916,8 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	Outfit_t currentOutfit = player->getDefaultOutfit();
 
 	uint16_t outfitSize = 0;
-	uint16_t startOutfits = msg.getBufferPosition();
-	msg.add<uint16_t>(outfitSize);
+	auto startOutfits = msg.getBufferPosition();
+	msg.skipBytes(2);
 
 	const auto& outfits = Outfits::getInstance().getOutfits(player->getSex());
 	for (const Outfit& outfit : outfits) {
@@ -1929,8 +1945,8 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	}
 
 	uint16_t mountSize = 0;
-	uint16_t startMounts = msg.getBufferPosition();
-	msg.add<uint16_t>(mountSize);
+	auto startMounts = msg.getBufferPosition();
+	msg.skipBytes(2);
 	for (const Mount& mount : g_game.mounts.getMounts()) {
 		if (player->hasMount(&mount)) {
 			mountSize++;
@@ -1946,7 +1962,6 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	msg.add<uint16_t>(outfitSize);
 	msg.setBufferPosition(startMounts);
 	msg.add<uint16_t>(mountSize);
-	msg.setLength(msg.getLength() - 4);
 	writeToOutputBuffer(msg);
 }
 
@@ -1975,12 +1990,12 @@ void ProtocolGame::sendCyclopediaCharacterInspection() {
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_INSPECTION);
 	msg.addByte(0x00);
 	uint8_t inventoryItems = 0;
-	uint16_t startInventory = msg.getBufferPosition();
-	msg.addByte(inventoryItems);
+	auto startInventory = msg.getBufferPosition();
+	msg.skipBytes(1);
 	for (std::underlying_type<slots_t>::type slot = CONST_SLOT_FIRST; slot <= CONST_SLOT_LAST; slot++) {
 		Item* inventoryItem = player->getInventoryItem(static_cast<slots_t>(slot));
 		if (inventoryItem) {
-			inventoryItems++;
+			++inventoryItems;
 
 			msg.addByte(slot);
 			msg.addString(inventoryItem->getName());
@@ -2014,7 +2029,6 @@ void ProtocolGame::sendCyclopediaCharacterInspection() {
 	}
 	msg.setBufferPosition(startInventory);
 	msg.addByte(inventoryItems);
-	msg.setLength(msg.getLength() - 1);
 	writeToOutputBuffer(msg);
 }
 
