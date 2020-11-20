@@ -6561,9 +6561,10 @@ void Game::kickPlayer(uint32_t playerId, bool displayEffect)
 	player->kickPlayer(displayEffect);
 }
 
-void Game::playerCyclopediaCharacterInfo(uint32_t playerId, CyclopediaCharacterInfoType_t characterInfoType) {
-	Player* player = getPlayerByID(playerId);
-	if (!player) {
+void Game::playerCyclopediaCharacterInfo(Player* player, uint32_t characterID, CyclopediaCharacterInfoType_t characterInfoType, uint16_t, uint16_t) {
+	if (characterID != player->getID()) {
+		//For now allow viewing only our character since we don't have tournaments supported
+		player->sendCyclopediaCharacterNoData(characterInfoType, 2);
 		return;
 	}
 
@@ -6580,6 +6581,7 @@ void Game::playerCyclopediaCharacterInfo(uint32_t playerId, CyclopediaCharacterI
 	case CYCLOPEDIA_CHARACTERINFO_INSPECTION: player->sendCyclopediaCharacterInspection(); break;
 	case CYCLOPEDIA_CHARACTERINFO_BADGES: player->sendCyclopediaCharacterBadges(); break;
 	case CYCLOPEDIA_CHARACTERINFO_TITLES: player->sendCyclopediaCharacterTitles(); break;
+  default: player->sendCyclopediaCharacterNoData(characterInfoType, 1); break;
 	}
 }
 
