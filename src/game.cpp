@@ -6636,7 +6636,7 @@ void Game::playerCyclopediaCharacterInfo(Player* player, uint32_t characterID, C
 			break;
 	}
 	case CYCLOPEDIA_CHARACTERINFO_RECENTPVPKILLS: {
-			//TODO: add guildwar, assists and arena kills
+			// TODO: add guildwar, assists and arena kills
 			Database& db = Database::getInstance();
 			const std::string& escapedName = db.escapeString(player->getName());
 			std::ostringstream query;
@@ -7425,7 +7425,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 				return;
 			}
 
-			Container* inbox = thing->getItem()->getContainer(); //TODO: Not the right way to get the storeInbox
+			Container* inbox = thing->getItem()->getContainer();  // TODO: Not the right way to get the storeInbox
 			if (!inbox) {
 				player->sendStoreError(STORE_ERROR_NETWORK, "We cannot locate your store inbox, try again after relog and if this error persists, contact the system administrator.");
 				return;
@@ -7625,7 +7625,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 				message << "female.";
 			}
 			playerChangeOutfit(player->getID(),playerOutfit);
-			//TODO: add the other sex equivalent outfits player already have in the current sex.
+			// TODO: add the other sex equivalent outfits player already have in the current sex.
       account.LoadAccountDB(player->getAccount());
       account.RemoveCoins(offer->price);
       account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
@@ -7722,7 +7722,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 			player->sendStorePurchaseSuccessful(message.str(), coins);
 			return;
 		} else {
-			//TODO: BOOST_XP and BOOST_STAMINA (the support systems are not yet implemented)
+			// TODO: BOOST_XP and BOOST_STAMINA (the support systems are not yet implemented)
 			player->sendStoreError(STORE_ERROR_INFORMATION, "JLCVP: NOT YET IMPLEMENTED!");
 			return;
 		}
