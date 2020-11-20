@@ -1303,6 +1303,11 @@ class Player final : public Creature, public Cylinder
 				client->sendItemInspection(itemId, itemCount, item, cyclopedia);
 			}
 		}
+    void sendCyclopediaCharacterNoData(CyclopediaCharacterInfoType_t characterInfoType, uint8_t errorCode) {
+			if (client) {
+				client->sendCyclopediaCharacterNoData(characterInfoType, errorCode);
+			}
+		}
     void sendCyclopediaCharacterBaseInformation() {
 			if (client) {
 				client->sendCyclopediaCharacterBaseInformation();
