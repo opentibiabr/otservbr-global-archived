@@ -21,6 +21,7 @@ blackSkullDuration = 3
 orangeSkullDuration = 7
 
 onlyInvitedCanMoveHouseItems = true
+cleanProtectionZones = false
 
 -- Connection Config
 -- NOTE: maxPlayers set to 0 means no limit
