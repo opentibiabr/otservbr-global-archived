@@ -1427,6 +1427,16 @@ MonsterType* Monsters::getMonsterType(const std::string& name)
 	return &it->second;
 }
 
+MonsterType* Monsters::getMonsterTypeByRaceId(uint16_t thisrace) {
+  std::map<uint16_t, std::string> raceid_list = g_game.getBestiaryList();
+  auto it = raceid_list.find(thisrace);
+  if (it == raceid_list.end()) {
+   return nullptr;
+  }
+  MonsterType* mtype = g_monsters.getMonsterType(it->second);
+  return (mtype ? mtype : nullptr);
+}
+
 void Monsters::addMonsterType(const std::string& name, MonsterType* mType)
 {
 	// Suppress [-Werror=unused-but-set-parameter]

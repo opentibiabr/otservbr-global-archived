@@ -39,6 +39,8 @@
 #include "spells.h"
 #include "imbuements.h"
 #include "iostash.h"
+#include "IOBestiary.h"
+#include "monsters.h"
 
 extern Game g_game;
 extern ConfigManager g_config;
@@ -49,6 +51,7 @@ extern Chat* g_chat;
 extern Modules* g_modules;
 extern Spells* g_spells;
 extern Imbuements* g_imbuements;
+extern Monsters g_monsters;
 
 void ProtocolGame::AddItem(NetworkMessage& msg, uint16_t id, uint8_t count)
 {
@@ -479,6 +482,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0x14: g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::logout, getThis(), true, false))); break;
 		case 0x1D: addGameTask(&Game::playerReceivePingBack, player->getID()); break;
 		case 0x1E: addGameTask(&Game::playerReceivePing, player->getID()); break;
+		case 0x2a: addBestiaryTrackerList(msg); break;
 		case 0x28: parseStashWithdraw(msg); break;
 		case 0x32: parseExtendedOpcode(msg); break; //otclient extended opcode
 		case 0x64: parseAutoWalk(msg); break;
@@ -559,6 +563,10 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xDD: parseRemoveVip(msg); break;
 		case 0xDE: parseEditVip(msg); break;
     case 0xE5: parseCyclopediaCharacterInfo(msg); break;
+		case 0xe1: BestiarysendRaces(); break;
+		case 0xe2: BestiarysendCreatures(msg); break;
+		case 0xe3: BestiarysendMonsterData(msg); break;
+		case 0xe4: ParseSendBuyCharmRune(msg); break;
 		case 0xE6: parseBugReport(msg); break;
 		case 0xE7: /* thank you */ break;
 		case 0xE8: parseDebugAssert(msg); break;
@@ -1397,6 +1405,303 @@ void ProtocolGame::parseRuleViolationReport(NetworkMessage &msg)
 	}
 
 	addGameTask(&Game::playerReportRuleViolationReport, player->getID(), targetName, reportType, reportReason, comment, translation);
+}
+
+void ProtocolGame::BestiarysendRaces()
+{
+   IOBestiary g_bestiary;
+   NetworkMessage msg;
+   msg.addByte(0xd5);
+   msg.add<uint16_t>(BESTY_RACE_LAST);	
+   std::map<uint16_t, std::string> mtype_list = g_game.getBestiaryList();
+   for (uint16_t i = BESTY_RACE_FIRST; i <= BESTY_RACE_LAST; i++) {
+    std::string BestClass = "";
+    std::list<uint16_t> tmp_list = {};
+    uint16_t count = 0;
+    for (auto rit : mtype_list) {
+     MonsterType* mtype = g_monsters.getMonsterType(rit.second);
+     if (!mtype) {
+      return;
+     }
+     if (mtype->info.Bestiary_Race == static_cast<races_b>(i)) {
+      count += 1;
+      BestClass = mtype->info.Bestiary_class;
+     }
+    }
+    msg.addString(BestClass);
+    msg.add<uint16_t>(count);
+    uint16_t unlockedCount = g_bestiary.getBestiaryRaceUnlocked(player, static_cast<races_b>(i));
+    msg.add<uint16_t>(unlockedCount);
+   }
+   writeToOutputBuffer(msg);
+
+   // Reload charms
+   player->BestiarysendCharms();
+}
+
+void ProtocolGame::sendBestiaryEntryChanged(uint16_t raceid)
+{
+   NetworkMessage msg;
+   msg.addByte(0xd9);
+   msg.add<uint16_t>(raceid);	
+   writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::BestiarysendMonsterData(NetworkMessage& msg)
+{
+   IOBestiary g_bestiary;
+   uint16_t raceId = msg.get<uint16_t>();
+   std::string Class = "";
+   MonsterType* mtype = nullptr;
+   std::map<uint16_t, std::string> mtype_list = g_game.getBestiaryList();
+
+   auto ait = mtype_list.find(raceId);
+   if (ait != mtype_list.end()) {
+    MonsterType* mType = g_monsters.getMonsterType(ait->second);
+     if (mType) {
+      Class = mType->info.Bestiary_class;
+      mtype = mType;
+     }
+   }
+
+   if (!mtype) {
+    std::cout << "> [Bestiary]: monstertype was not found" << std::endl;
+    return;
+   }
+
+   uint32_t killCounter = player->getBestiaryKillCount(raceId);
+   uint8_t currentLevel = g_bestiary.GetKillStatus(mtype, killCounter);
+
+   NetworkMessage newmsg;
+   newmsg.addByte(0xd7);
+   newmsg.add<uint16_t>(raceId);
+   newmsg.addString(Class);
+
+   newmsg.addByte(currentLevel);
+   newmsg.add<uint32_t>(killCounter);
+
+   newmsg.add<uint16_t>(mtype->info.Bestiary_FirstUnlock);
+   newmsg.add<uint16_t>(mtype->info.Bestiary_SecondUnlock);
+   newmsg.add<uint16_t>(mtype->info.Bestiary_toKill);
+
+   newmsg.addByte(mtype->info.Bestiary_Stars);
+   newmsg.addByte(mtype->info.Bestiary_Occurrence);
+
+   std::vector<LootBlock> lootList = mtype->info.lootItems;
+   newmsg.addByte(lootList.size());
+   for (LootBlock loot : lootList) {
+    newmsg.addItemId(currentLevel > 1 ? loot.id : 0);
+    int8_t difficult = g_bestiary.calculateDifficult(loot.chance);
+    newmsg.addByte(difficult);
+    newmsg.addByte(0); // 1 if special event - 0 if regular loot (?)
+    if (currentLevel > 1) {
+     newmsg.addString(loot.name);
+     newmsg.addByte(loot.countmax > 0 ? 0x1 : 0x0);
+    }
+   }
+
+   if (currentLevel > 1) {
+    newmsg.add<uint16_t>(mtype->info.Bestiary_CharmsPoints);
+    int8_t attackmode = 0;
+    if (!mtype->info.isHostile) {
+     attackmode = 2;
+    } else if (mtype->info.targetDistance) {
+     attackmode = 1;
+    }
+
+   newmsg.addByte(attackmode);
+   newmsg.addByte(0x2);
+   newmsg.add<uint32_t>(mtype->info.healthMax);
+   newmsg.add<uint32_t>(mtype->info.experience);
+   newmsg.add<uint16_t>(mtype->info.baseSpeed);
+   newmsg.add<uint16_t>(mtype->info.armor);
+   }
+
+   if (currentLevel > 2) {
+    std::map<uint8_t, int16_t> elements = g_bestiary.getMonsterElements(mtype);
+
+    newmsg.addByte(elements.size());
+    for (auto it = std::begin(elements), end = std::end(elements); it != end; it++) {
+     newmsg.addByte(it->first);
+     newmsg.add<uint16_t>(it->second);
+    }
+
+    newmsg.add<uint16_t>(1);
+    newmsg.addString(mtype->info.Bestiary_Locations);
+   }
+
+   if (currentLevel > 3) {
+    charmRune_t mType_c = g_bestiary.getCharmFromTarget(player, mtype);
+    if (mType_c != CHARM_NONE) {
+     newmsg.addByte(1);
+     newmsg.addByte(mType_c);
+     newmsg.add<uint32_t>(player->getLevel() * 100);
+    } else {
+     newmsg.addByte(0);
+     newmsg.addByte(0);
+    }
+   }
+
+   writeToOutputBuffer(newmsg);
+}
+
+void ProtocolGame::addBestiaryTrackerList(NetworkMessage& msg)
+{
+   uint16_t thisrace = msg.get<uint16_t>();
+   std::map<uint16_t, std::string> mtype_list = g_game.getBestiaryList();
+   auto it = mtype_list.find(thisrace);
+   if (it != mtype_list.end()) {
+    MonsterType* mtype = g_monsters.getMonsterType(it->second);
+    if (mtype) {
+     player->addBestiaryTrackerList(mtype);
+    }
+   }
+}
+
+void ProtocolGame::ParseSendBuyCharmRune(NetworkMessage& msg)
+{
+   IOBestiary g_bestiary;
+   charmRune_t runeID = static_cast<charmRune_t>(msg.getByte());
+   uint8_t action = msg.getByte();
+   uint16_t raceid = msg.get<uint16_t>();
+   g_bestiary.SendBuyCharmRune(player, runeID, action, raceid);
+}
+
+void ProtocolGame::refreshBestiaryTracker(std::list<MonsterType*> trackerList)
+{
+   NetworkMessage msg;
+   IOBestiary g_bestiary;
+   msg.addByte(0xB9);
+   msg.addByte(trackerList.size());
+   for (MonsterType* mtype : trackerList) {
+    uint32_t killAmount = player->getBestiaryKillCount(mtype->info.raceid);
+    msg.add<uint16_t>(mtype->info.raceid);
+    msg.add<uint32_t>(killAmount);
+    msg.add<uint16_t>(mtype->info.Bestiary_FirstUnlock);
+    msg.add<uint16_t>(mtype->info.Bestiary_SecondUnlock);
+    msg.add<uint16_t>(mtype->info.Bestiary_toKill);
+
+    if (g_bestiary.GetKillStatus(mtype, killAmount) == 4) {
+     msg.addByte(4);
+    } else {
+     msg.addByte(0);
+    }
+   }
+   writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::BestiarysendCharms()
+{
+   IOBestiary g_bestiary;
+   int32_t removeRuneCost = player->getLevel() * 100;
+   if (player->hasCharmExpansion()) {
+    removeRuneCost = (removeRuneCost * 75)/100;
+   }
+   NetworkMessage msg;
+   msg.addByte(0xd8);
+   msg.add<uint32_t>(player->getCharmPoints());
+
+   std::vector<Bestiary*> charmList = g_game.getCharmList();
+   msg.addByte(charmList.size());
+   for (Bestiary* c_type : charmList) {
+    msg.addByte(c_type->id);
+    msg.addString(c_type->name);
+    msg.addString(c_type->description);
+    msg.addByte(0); // Unknown
+    msg.add<uint16_t>(c_type->points);
+    if (g_bestiary.hasCharmUnlockedRuneBit(c_type, player->getUnlockedRunesBit())) {
+     msg.addByte(1);
+     uint16_t raceid = player->parseRacebyCharm(c_type->id, false, 0);
+     if (raceid > 0) {
+      msg.addByte(1);
+      msg.add<uint16_t>(raceid);
+      msg.add<uint32_t>(removeRuneCost);
+     } else {
+      msg.addByte(0);
+     }
+    } else {
+     msg.addByte(0);
+     msg.addByte(0);
+    }
+   }
+   msg.addByte(4); // Unknown
+
+   std::list<uint16_t> finishedMonsters = g_bestiary.getBestiaryFinished(player);
+   std::list<charmRune_t> usedRunes = g_bestiary.getCharmUsedRuneBitAll(player);
+
+   for (charmRune_t charmRune : usedRunes) {
+    Bestiary* tmpCharm = g_bestiary.getBestiaryCharm(charmRune);
+    uint16_t tmp_raceid = player->parseRacebyCharm(tmpCharm->id, false, 0);
+    finishedMonsters.remove(tmp_raceid);
+   }
+
+   msg.add<uint16_t>(finishedMonsters.size());
+   for (uint16_t raceid_tmp : finishedMonsters) {
+    msg.add<uint16_t>(raceid_tmp);
+   }
+
+   writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::BestiarysendCreatures(NetworkMessage& msg)
+{
+   IOBestiary g_bestiary;
+   std::ostringstream ss;
+   std::map<uint16_t, std::string> race = {};
+   std::string text = "";
+   uint8_t search = msg.getByte();
+
+   if (search == 1) {
+    uint16_t monsterAmount = msg.get<uint16_t>();
+    std::map<uint16_t, std::string> mtype_list = g_game.getBestiaryList();
+    uint16_t raceid = msg.get<uint16_t>();
+    MonsterType* mtype = g_monsters.getMonsterTypeByRaceId(raceid);
+    text = mtype->info.Bestiary_class;
+    for (int8_t i = 1; i <= monsterAmount; i++) {
+     auto it = mtype_list.find(raceid);
+     if (it != mtype_list.end()) {
+      race.insert({raceid, it->second});
+     }
+    }
+   } else {
+    std::string raceName = msg.getString();
+    race = g_bestiary.findRaceByName(raceName);
+
+    if (race.size() == 0) {
+     std::cout << "> [Bestiary]: race was not found: " << raceName << " | search " << search << std::endl;
+     return;
+     text = raceName;
+    }
+
+    NetworkMessage newmsg;
+    newmsg.addByte(0xd6);
+    newmsg.addString(text);
+    newmsg.add<uint16_t>(race.size());
+    std::map<uint16_t, uint32_t> creaturesKilled = g_bestiary.getBestiaryKillCountByMonsterIDs(player, race);
+
+    for (auto it_ : race) {
+     uint16_t raceid_ = it_.first;
+     newmsg.add<uint16_t>(raceid_);
+
+     uint8_t progress = 0;
+     for (const auto& _it : creaturesKilled) {
+      if (_it.first == raceid_) {
+       MonsterType* tmpType = g_monsters.getMonsterType(it_.second);
+       if (!tmpType) {
+        return;
+       }
+       progress = g_bestiary.GetKillStatus(tmpType, _it.second);
+      }
+     }
+
+     if (progress > 0) {
+      newmsg.add<uint16_t>(static_cast<uint16_t>(progress));
+     } else {
+      newmsg.addByte(0);
+     }
+    }
+    writeToOutputBuffer(newmsg);
+   }
 }
 
 void ProtocolGame::parseBugReport(NetworkMessage& msg)

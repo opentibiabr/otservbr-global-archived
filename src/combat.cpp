@@ -25,11 +25,15 @@
 #include "weapons.h"
 #include "configmanager.h"
 #include "events.h"
+#include "monster.h"
+#include "IOBestiary.h"
+#include "monsters.h"
 
 extern Game g_game;
 extern Weapons* g_weapons;
 extern ConfigManager g_config;
 extern Events* g_events;
+extern Monsters g_monsters;
 
 CombatDamage Combat::getCombatDamage(Creature* creature, Creature* target) const
 {
@@ -530,6 +534,30 @@ void Combat::CombatConditionFunc(Creature* caster, Creature* target, const Comba
 	}
 
 	for (const auto& condition : params.conditionList) {
+		//Cleanse charm rune (target as player)
+		// consider setting the random bool here to prevent unnecessary checks! TODO
+		Player* player = target->getPlayer();
+		if (player) {
+			if (player->isImmuneCleanse(condition->getType())) {
+				player->sendCancelMessage("You are still immune against this spell."); // Check if this is the real text (prob not)
+				return;
+			} else if (caster->getMonster()) {
+				MonsterType* mType = g_monsters.getMonsterType(caster->getName());
+				if (mType) {
+					IOBestiary g_bestiary;
+					charmRune_t charm_t = g_bestiary.getCharmFromTarget(player, mType);
+					if (charm_t == CHARM_CLEANSE) {
+						Bestiary* charm = g_bestiary.getBestiaryCharm(charm_t);
+						if (charm && (charm->chance > normal_random(0, 100))) {
+							player->setImmuneCleanse(condition->getType());
+							player->sendCancelMessage(charm->cancelMsg);
+							return;
+						}
+					}
+				}			
+			}
+		}
+
 		if (caster == target || !target->isImmune(condition->getType())) {
 			Condition* conditionCopy = condition->clone();
 			if (caster) {
@@ -824,6 +852,18 @@ void Combat::doCombatHealth(Creature* caster, Creature* target, CombatDamage& da
 	if(caster && caster->getPlayer()){
 			// Critical damage
 			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
+			// Charm low blow rune)
+			// consider setting the random bool here to prevent unnecessary checks! TODO
+			IOBestiary g_bestiary;
+			MonsterType* mType = g_monsters.getMonsterType(target->getName());
+			charmRune_t charm_t = g_bestiary.getCharmFromTarget(caster->getPlayer(), mType);
+			if (charm_t == CHARM_LOW) {
+				Bestiary* charm = g_bestiary.getBestiaryCharm(charm_t);
+				if (charm) {
+					chance += charm->percent;
+				}
+			}
+
 			if (damage.primary.type != COMBAT_HEALING && chance != 0 && uniform_random(1, 100) <= chance) {
 				damage.critical = true;
 				damage.primary.value += (damage.primary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;

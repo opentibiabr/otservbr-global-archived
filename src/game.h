@@ -32,12 +32,14 @@
 #include "npc.h"
 #include "wildcardtree.h"
 #include "gamestore.h"
+#include "IOBestiary.h" 
 
 class ServiceManager;
 class Creature;
 class Monster;
 class Npc;
 class CombatInfo;
+class Bestiary;
 
 enum stackPosType_t {
 	STACKPOS_MOVE,
@@ -85,6 +87,7 @@ class Game
 		Game(const Game&) = delete;
 		Game& operator=(const Game&) = delete;
 
+		void loadBoostedCreature();
 		void start(ServiceManager* manager);
 
 		void forceAddCondition(uint32_t creatureId, Condition* condition);
@@ -468,6 +471,17 @@ class Game
 		void shutdown();
 		void ReleaseCreature(Creature* creature);
 		void ReleaseItem(Item* item);
+		void addBestiaryList(uint16_t raceid, std::string name);
+		const std::map<uint16_t, std::string>& getBestiaryList() const { return BestiaryList; }
+
+		void setBoostedName(std::string name) {
+			boostedCreature = name;
+		}
+
+		std::string getBoostedName() const {
+			return boostedCreature;
+		}
+
 		void onPressHotkeyEquip(Player* player, uint16_t spriteid);
 
 		bool canThrowObjectTo(const Position& fromPos, const Position& toPos, bool checkLineOfSight = true,
@@ -606,6 +620,16 @@ class Game
     void playerInspectItem(Player* player, const Position& pos);
     void playerInspectItem(Player* player, uint16_t itemId, uint8_t itemCount, bool cyclopedia);
 
+		void addCharmRune(Bestiary* charm)
+		{
+			CharmList.push_back(charm);
+			CharmList.shrink_to_fit();
+		}
+
+		std::vector<Bestiary*> getCharmList() {
+			return CharmList;
+		}
+
 	private:
 		void checkImbuements();
 		bool playerSaySpell(Player* player, SpeakClasses type, const std::string& text);
@@ -628,6 +652,10 @@ class Game
 
 		std::list<Item*> imbuedItems[EVENT_IMBUEMENT_BUCKETS];
 
+		std::map<uint16_t, std::string> BestiaryList;
+		std::string boostedCreature = "";
+
+		std::vector<Bestiary*> CharmList;
 		std::vector<Creature*> ToReleaseCreatures;
 		std::vector<Item*> ToReleaseItems;
 
