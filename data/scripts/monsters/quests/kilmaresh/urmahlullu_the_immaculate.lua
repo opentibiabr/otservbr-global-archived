@@ -55,7 +55,7 @@ monster.flags = {
 }
 
 monster.events = {
-	"UrmahlulluThirdDeath" 
+	"UrmahlulluFirstDeath" 
 }
 
 monster.light = {
