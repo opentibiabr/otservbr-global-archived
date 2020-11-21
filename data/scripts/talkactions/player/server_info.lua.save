@@ -18,7 +18,7 @@ function serverInfo.onSay(player, words, param)
 	end
 
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Server Info:"
-	.. "\nExp rate: " .. 4
+	.. "\nExp rate: " .. getRateFromTable(experienceStages, player:getLevel(), configManager.getNumber(configKeys.RATE_EXP)
 	.. "\nSkill rate: " .. configRateSkill
 	.. "\nMagic rate: " .. magicRate
 	.. "\nLoot rate: " .. lootRate)
