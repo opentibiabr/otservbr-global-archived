@@ -32,12 +32,14 @@
 #include "movement.h"
 #include "teleport.h"
 #include "trashholder.h"
+#include "configmanager.h"
 #include "housetile.h"
 #include "iomap.h"
 
 extern Game g_game;
 extern ConfigManager g_config;
 extern MoveEvents* g_moveEvents;
+extern ConfigManager g_config;
 
 StaticTile real_nullptr_tile(0xFFFF, 0xFFFF, 0xFF);
 Tile& Tile::nullptr_tile = real_nullptr_tile;
@@ -402,6 +404,12 @@ void Tile::onAddTileItem(Item* item)
 	for (Creature* spectator : spectators) {
 		spectator->onAddTileItem(this, cylinderMapPos);
 	}
+
+  if ((!hasFlag(TILESTATE_PROTECTIONZONE) || (g_config.getBoolean(ConfigManager::CLEAN_PROTECTION_ZONES) && hasFlag(TILESTATE_PROTECTIONZONE))) && item->isCleanable()) {
+		if (!dynamic_cast<HouseTile*>(this)) {
+			g_game.addTileToClean(this);
+		}
+	}
 }
 
 void Tile::onUpdateTileItem(Item* oldItem, const ItemType& oldType, Item* newItem, const ItemType& newType)
@@ -467,6 +475,26 @@ void Tile::onRemoveTileItem(const SpectatorHashSet& spectators, const std::vecto
 	//event methods
 	for (Creature* spectator : spectators) {
 		spectator->onRemoveTileItem(this, cylinderMapPos, iType, item);
+	}
+
+  if (!hasFlag(TILESTATE_PROTECTIONZONE) || (g_config.getBoolean(ConfigManager::CLEAN_PROTECTION_ZONES) && hasFlag(TILESTATE_PROTECTIONZONE))) {
+		auto it = getItemList();
+		if (it->empty()) {
+			g_game.removeTileToClean(this);
+			return;
+		}
+
+		bool ret = false;
+		for (auto toCheck : *it) {
+			if (toCheck->isCleanable()) {
+				ret = true;
+				break;
+			}
+		}
+
+		if (!ret) {
+			g_game.removeTileToClean(this);
+		}
 	}
 }
 
