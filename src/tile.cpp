@@ -38,7 +38,6 @@
 extern Game g_game;
 extern ConfigManager g_config;
 extern MoveEvents* g_moveEvents;
-extern ConfigManager g_config;
 
 StaticTile real_nullptr_tile(0xFFFF, 0xFFFF, 0xFF);
 Tile& Tile::nullptr_tile = real_nullptr_tile;
