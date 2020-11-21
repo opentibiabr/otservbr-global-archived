@@ -13,6 +13,21 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 111
+monster.Bestiary = {
+	class = "Bird",
+	race = BESTY_RACE_BIRD,
+	toKill = 250,
+	FirstUnlock = 10,
+	SecondUnlock = 100,
+	CharmsPoints = 5,
+	Stars = 1,
+	Occurrence = 0,
+	Locations = "Sabrehaven, Rookgaard, The McRonalds Farm in Thais, Northport, \z
+		Fibula, Carlin (killable but unreachable), Greenshore, Krimhorn, Orc Fortress, \z
+		Factory Quarter, also theres one in the farm near Edron."
+		}
+
 monster.health = 15
 monster.maxHealth = 15
 monster.race = "blood"

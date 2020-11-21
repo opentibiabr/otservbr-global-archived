@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 783
+monster.Bestiary = {
+	class = "Aquatic",
+	race = BESTY_RACE_AQUATIC,
+	toKill = 25,
+	FirstUnlock = 5,
+	SecondUnlock = 10,
+	CharmsPoints = 1,
+	Stars = 1,
+	Occurrence = 1,
+	Locations = "Fiehonja."
+		}
+
 monster.health = 95
 monster.maxHealth = 95
 monster.race = "undead"
