@@ -727,8 +727,11 @@ function Player:onGainExperience(source, exp, rawExp)
 		useStamina(self)
 		local staminaMinutes = self:getStamina()
 		if staminaMinutes > 2400 and self:isPremium() then
-			exp = exp * 1.5
-			self:setStaminaXpBoost(150)
+			-- exp = exp * 1.5
+			-- self:setStaminaXpBoost(150)
+			-- stamina boost
+			exp = exp
+			self:setStaminaXpBoost(100)
 		elseif staminaMinutes <= 840 then
 			exp = exp * 0.5 --TODO destroy loot of people with 840- stamina
 			self:setStaminaXpBoost(50)
