@@ -37,6 +37,7 @@
 #include "scheduler.h"
 #include "modules.h"
 #include "spells.h"
+#include "weapons.h"
 #include "imbuements.h"
 #include "iostash.h"
 
@@ -1245,10 +1246,19 @@ void ProtocolGame::sendItemInspection(uint16_t itemId, uint8_t itemCount, const 
 }
 
 void ProtocolGame::parseCyclopediaCharacterInfo(NetworkMessage& msg) {
+  uint32_t characterID;
 	CyclopediaCharacterInfoType_t characterInfoType;
-	msg.get<uint32_t>();
+  characterID = msg.get<uint32_t>();
 	characterInfoType = static_cast<CyclopediaCharacterInfoType_t>(msg.getByte());
-	addGameTask(&Game::playerCyclopediaCharacterInfo, player->getID(), characterInfoType);
+  uint16_t entriesPerPage = 0, page = 0;
+  if (characterInfoType == CYCLOPEDIA_CHARACTERINFO_RECENTDEATHS || characterInfoType == CYCLOPEDIA_CHARACTERINFO_RECENTPVPKILLS) {
+		entriesPerPage = std::min<uint16_t>(30, std::max<uint16_t>(5, msg.get<uint16_t>()));
+		page = std::max<uint16_t>(1, msg.get<uint16_t>());
+  }
+  if (characterID == 0) {
+		characterID = player->getGUID();
+	}
+	g_game.playerCyclopediaCharacterInfo(player, characterID, characterInfoType, entriesPerPage, page);
 }
 
 void ProtocolGame::parseHighscores(NetworkMessage& msg)
@@ -1263,7 +1273,7 @@ void ProtocolGame::parseHighscores(NetworkMessage& msg)
 	msg.getByte();//BattlEye World Type
 	#endif
 	if (type == HIGHSCORE_GETENTRIES) {
-		page = msg.get<uint16_t>();
+		page = std::max<uint16_t>(1, msg.get<uint16_t>());
 	}
 	uint8_t entriesPerPage = std::min<uint8_t>(30, std::max<uint8_t>(5, msg.getByte()));
 	g_game.playerHighscores(player, type, category, vocation, worldName, page, entriesPerPage);
@@ -1277,7 +1287,7 @@ void ProtocolGame::sendHighscoresNoData()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendHighscores(std::vector<HighscoreCharacter>& characters, uint8_t categoryId, uint32_t vocationId, uint16_t page, uint16_t pages)
+void ProtocolGame::sendHighscores(const std::vector<HighscoreCharacter>& characters, uint8_t categoryId, uint32_t vocationId, uint16_t page, uint16_t pages)
 {
   NetworkMessage msg;
 	msg.addByte(0xB1);
@@ -1305,14 +1315,14 @@ void ProtocolGame::sendHighscores(std::vector<HighscoreCharacter>& characters, u
 		const Vocation& vocation = it.second;
 		if (vocation.getFromVocation() == static_cast<uint32_t>(vocation.getId())) {
 			msg.add<uint32_t>(vocation.getFromVocation()); // Vocation Id
-			msg.addString(vocation.getVocName()); // Vocation Name
+			msg.addString(vocation.getVocName());  // Vocation Name
 			++vocations;
 			if (vocation.getFromVocation() == vocationId) {
 				selectedVocation = vocationId;
 			}
 		}
 	}
-	msg.add<uint32_t>(selectedVocation); // Selected Vocation
+	msg.add<uint32_t>(selectedVocation);  // Selected Vocation
 
 	HighscoreCategory highscoreCategories[] =
 	{
@@ -1330,27 +1340,27 @@ void ProtocolGame::sendHighscores(std::vector<HighscoreCharacter>& characters, u
 	uint8_t selectedCategory = 0;
 	msg.addByte(sizeof(highscoreCategories) / sizeof(HighscoreCategory)); // Category Count
 	for (HighscoreCategory& category : highscoreCategories) {
-		msg.addByte(category.id); // Category Id
-		msg.addString(category.name); // Category Name
+		msg.addByte(category.id);  // Category Id
+		msg.addString(category.name);  // Category Name
 		if (category.id == categoryId) {
 			selectedCategory = categoryId;
 		}
 	}
-	msg.addByte(selectedCategory); // Selected Category
+	msg.addByte(selectedCategory);  // Selected Category
 
-	msg.add<uint16_t>(page); // Current page
-	msg.add<uint16_t>(pages); // Pages
+	msg.add<uint16_t>(page);  // Current page
+	msg.add<uint16_t>(pages);  // Pages
 
-	msg.addByte(characters.size()); // Character Count
-	for (HighscoreCharacter& character : characters) {
-		msg.add<uint32_t>(character.rank); // Rank
-		msg.addString(character.name); // Character Name
-		msg.addString(""); // Probably Character Title(not visible in window)
-		msg.addByte(character.vocation); // Vocation Id
-		msg.addString(g_config.getString(ConfigManager::SERVER_NAME)); // World
-		msg.add<uint16_t>(character.level); // Level
-		msg.addByte((player->getGUID() == character.id)); // Player Indicator Boolean
-		msg.add<uint64_t>(character.points); // Points
+	msg.addByte(characters.size());  // Character Count
+	for (const HighscoreCharacter& character : characters) {
+		msg.add<uint32_t>(character.rank);  // Rank
+		msg.addString(character.name);  // Character Name
+		msg.addString("");  // Probably Character Title(not visible in window)
+		msg.addByte(character.vocation);  // Vocation Id
+		msg.addString(g_config.getString(ConfigManager::SERVER_NAME));  // World
+		msg.add<uint16_t>(character.level);  // Level
+		msg.addByte((player->getGUID() == character.id));  // Player Indicator Boolean
+		msg.add<uint64_t>(character.points);  // Points
 	}
 
 	msg.addByte(0xFF); // ??
@@ -1743,6 +1753,15 @@ void ProtocolGame::sendAddMarker(const Position& pos, uint8_t markType, const st
 	writeToOutputBuffer(msg);
 }
 
+void ProtocolGame::sendCyclopediaCharacterNoData(CyclopediaCharacterInfoType_t characterInfoType, uint8_t errorCode)
+{
+	NetworkMessage msg;
+	msg.addByte(0xDA);
+	msg.addByte(static_cast<uint8_t>(characterInfoType));
+	msg.addByte(errorCode);
+	writeToOutputBuffer(msg);
+}
+
 void ProtocolGame::sendCyclopediaCharacterBaseInformation() {
 	NetworkMessage msg;
 	msg.addByte(0xDA);
@@ -1753,11 +1772,9 @@ void ProtocolGame::sendCyclopediaCharacterBaseInformation() {
 	msg.add<uint16_t>(player->getLevel());
 	AddOutfit(msg, player->getDefaultOutfit(), false);
 
-	msg.addByte(0x00);
-  // EnableStoreSummary&CharacterTitles
-	msg.addByte(0x00);
-	// CharacterTitle
-  msg.addString("");
+	msg.addByte(0x00);  // hide stamina
+	msg.addByte(0x00);  // enable store summary & character titles
+  msg.addString("");  // character title
 	writeToOutputBuffer(msg);
 }
 
@@ -1829,42 +1846,155 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats() {
 	}
 	uint8_t haveBlesses = 0;
 	uint8_t blessings = 8;
-	for (uint8_t i = 1; i < blessings; i++) {
+	for (uint8_t i = 1; i < blessings; ++i) {
 		if (player->hasBlessing(i)) {
-			haveBlesses++;
+			++haveBlesses;
 		}
 	}
 	msg.addByte(haveBlesses);
 	msg.addByte(blessings);
-  msg.add<uint16_t>(0);
-  msg.addByte(0);
-  msg.addByte(0);
-	msg.addByte(0);
-	msg.add<uint16_t>(0);
-	msg.add<uint16_t>(0);
-  msg.addByte(0);
+  const Item* weapon = player->getWeapon();
+  if (weapon) {
+    const ItemType& it = Item::items[weapon->getID()];
+    if (it.weaponType == WEAPON_WAND) {
+     msg.add<uint16_t>(it.maxHitChance);
+     msg.addByte(getCipbiaElement(it.combatType));
+     msg.addByte(0);
+      msg.addByte(CIPBIA_ELEMENTAL_UNDEFINED);
+		} else if (it.weaponType == WEAPON_DISTANCE || it.weaponType == WEAPON_AMMO) {
+			int32_t attackValue = weapon->getAttack();
+			if (it.weaponType == WEAPON_AMMO) {
+				const Item* weaponItem = player->getWeapon(true);
+				if (weaponItem) {
+					attackValue += weaponItem->getAttack();
+				}
+			}
+
+			int32_t attackSkill = player->getSkillLevel(SKILL_DISTANCE);
+			float attackFactor = player->getAttackFactor();
+			int32_t maxDamage = static_cast<int32_t>(Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, attackValue, attackFactor, true) * player->getVocation()->distDamageMultiplier);
+			if (it.abilities && it.abilities->elementType != COMBAT_NONE) {
+				maxDamage += static_cast<int32_t>(Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, attackValue - weapon->getAttack() + it.abilities->elementDamage, attackFactor, true) * player->getVocation()->distDamageMultiplier);
+			}
+			msg.add<uint16_t>(maxDamage >> 1);
+			msg.addByte(CIPBIA_ELEMENTAL_PHYSICAL);
+			if (it.abilities && it.abilities->elementType != COMBAT_NONE) {
+				msg.addByte(static_cast<uint32_t>(it.abilities->elementDamage) * 100 / attackValue);
+				msg.addByte(getCipbiaElement(it.abilities->elementType));
+			} else {
+				msg.addByte(0);
+				msg.addByte(CIPBIA_ELEMENTAL_UNDEFINED);
+			}
+		} else {
+			int32_t attackValue = std::max<int32_t>(0, weapon->getAttack());
+			int32_t attackSkill = player->getWeaponSkill(weapon);
+			float attackFactor = player->getAttackFactor();
+			int32_t maxDamage = static_cast<int32_t>(Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, attackValue, attackFactor, true) * player->getVocation()->meleeDamageMultiplier);
+			if (it.abilities && it.abilities->elementType != COMBAT_NONE) {
+				maxDamage += static_cast<int32_t>(Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, it.abilities->elementDamage, attackFactor, true) * player->getVocation()->meleeDamageMultiplier);
+			}
+			msg.add<uint16_t>(maxDamage >> 1);
+			msg.addByte(CIPBIA_ELEMENTAL_PHYSICAL);
+			if (it.abilities && it.abilities->elementType != COMBAT_NONE) {
+				msg.addByte(static_cast<uint32_t>(it.abilities->elementDamage) * 100 / attackValue);
+				msg.addByte(getCipbiaElement(it.abilities->elementType));
+			} else {
+				msg.addByte(0);
+				msg.addByte(CIPBIA_ELEMENTAL_UNDEFINED);
+			}
+		}
+	} else {
+		float attackFactor = player->getAttackFactor();
+		int32_t attackSkill = player->getSkillLevel(SKILL_FIST);
+		int32_t attackValue = 7;
+
+		int32_t maxDamage = Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, attackValue, attackFactor, true);
+		msg.add<uint16_t>(maxDamage >> 1);
+		msg.addByte(CIPBIA_ELEMENTAL_PHYSICAL);
+		msg.addByte(0);
+		msg.addByte(CIPBIA_ELEMENTAL_UNDEFINED);
+	}
+	msg.add<uint16_t>(player->getArmor());
+	msg.add<uint16_t>(player->getDefense());
+
+	uint8_t combats = 0;
+	auto startCombats = msg.getBufferPosition();
+	msg.skipBytes(1);
+
+	alignas(16) int16_t absorbs[COMBAT_COUNT] = {};
+	for (int32_t slot = CONST_SLOT_FIRST; slot <= CONST_SLOT_LAST; ++slot) {
+		if (!player->isItemAbilityEnabled(static_cast<slots_t>(slot))) {
+			continue;
+		}
+
+		Item* item = player->getInventoryItem(static_cast<slots_t>(slot));
+		if (!item) {
+			continue;
+		}
+
+		const ItemType& it = Item::items[item->getID()];
+		if (!it.abilities) {
+			continue;
+		}
+
+		if (COMBAT_COUNT == 12) {
+			absorbs[0] += it.abilities->absorbPercent[0]; absorbs[1] += it.abilities->absorbPercent[1];
+			absorbs[2] += it.abilities->absorbPercent[2]; absorbs[3] += it.abilities->absorbPercent[3];
+			absorbs[4] += it.abilities->absorbPercent[4]; absorbs[5] += it.abilities->absorbPercent[5];
+			absorbs[6] += it.abilities->absorbPercent[6]; absorbs[7] += it.abilities->absorbPercent[7];
+			absorbs[8] += it.abilities->absorbPercent[8]; absorbs[9] += it.abilities->absorbPercent[9];
+			absorbs[10] += it.abilities->absorbPercent[10]; absorbs[11] += it.abilities->absorbPercent[11];
+		  } else {
+			for (size_t i = 0; i < COMBAT_COUNT; ++i) {
+				absorbs[i] += it.abilities->absorbPercent[i];
+			}
+		}
+	}
+
+	static const Cipbia_Elementals_t cipbiaCombats[] = {CIPBIA_ELEMENTAL_PHYSICAL, CIPBIA_ELEMENTAL_ENERGY, CIPBIA_ELEMENTAL_EARTH, CIPBIA_ELEMENTAL_FIRE, CIPBIA_ELEMENTAL_UNDEFINED,
+		CIPBIA_ELEMENTAL_LIFEDRAIN, CIPBIA_ELEMENTAL_UNDEFINED, CIPBIA_ELEMENTAL_HEALING, CIPBIA_ELEMENTAL_DROWN, CIPBIA_ELEMENTAL_ICE, CIPBIA_ELEMENTAL_HOLY, CIPBIA_ELEMENTAL_DEATH};
+	for (size_t i = 0; i < COMBAT_COUNT; ++i) {
+		if (absorbs[i] != 0) {
+			msg.addByte(cipbiaCombats[i]);
+			msg.addByte(std::max<int16_t>(-100, std::min<int16_t>(100, absorbs[i])));
+			++combats;
+		}
+	}
+
+	msg.setBufferPosition(startCombats);
+	msg.addByte(combats);
+      
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterRecentDeaths() {
+void ProtocolGame::sendCyclopediaCharacterRecentDeaths(uint16_t page, uint16_t pages, const std::vector<RecentDeathEntry>& entries) {
 	NetworkMessage msg;
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_RECENTDEATHS);
 	msg.addByte(0x00);
-	msg.add<uint16_t>(0);
-	msg.add<uint16_t>(0);
-	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(page);
+	msg.add<uint16_t>(pages);
+	msg.add<uint16_t>(entries.size());
+	for (const RecentDeathEntry& entry : entries) {
+		msg.add<uint32_t>(entry.timestamp);
+		msg.addString(entry.cause);
+	}
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCyclopediaCharacterRecentPvPKills() {
+void ProtocolGame::sendCyclopediaCharacterRecentPvPKills(uint16_t page, uint16_t pages, const std::vector<RecentPvPKillEntry>& entries) {
 	NetworkMessage msg;
 	msg.addByte(0xDA);
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_RECENTPVPKILLS);
 	msg.addByte(0x00);
-	msg.add<uint16_t>(0);
-	msg.add<uint16_t>(0);
-	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(page);
+	msg.add<uint16_t>(pages);
+	msg.add<uint16_t>(entries.size());
+	for (const RecentPvPKillEntry& entry : entries) {
+		msg.add<uint32_t>(entry.timestamp);
+		msg.addString(entry.description);
+		msg.addByte(entry.status);
+	}
 	writeToOutputBuffer(msg);
 }
 
@@ -1900,8 +2030,8 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	Outfit_t currentOutfit = player->getDefaultOutfit();
 
 	uint16_t outfitSize = 0;
-	uint16_t startOutfits = msg.getBufferPosition();
-	msg.add<uint16_t>(outfitSize);
+	auto startOutfits = msg.getBufferPosition();
+	msg.skipBytes(2);
 
 	const auto& outfits = Outfits::getInstance().getOutfits(player->getSex());
 	for (const Outfit& outfit : outfits) {
@@ -1929,8 +2059,8 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	}
 
 	uint16_t mountSize = 0;
-	uint16_t startMounts = msg.getBufferPosition();
-	msg.add<uint16_t>(mountSize);
+	auto startMounts = msg.getBufferPosition();
+	msg.skipBytes(2);
 	for (const Mount& mount : g_game.mounts.getMounts()) {
 		if (player->hasMount(&mount)) {
 			mountSize++;
@@ -1946,7 +2076,6 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	msg.add<uint16_t>(outfitSize);
 	msg.setBufferPosition(startMounts);
 	msg.add<uint16_t>(mountSize);
-	msg.setLength(msg.getLength() - 4);
 	writeToOutputBuffer(msg);
 }
 
@@ -1975,12 +2104,12 @@ void ProtocolGame::sendCyclopediaCharacterInspection() {
 	msg.addByte(CYCLOPEDIA_CHARACTERINFO_INSPECTION);
 	msg.addByte(0x00);
 	uint8_t inventoryItems = 0;
-	uint16_t startInventory = msg.getBufferPosition();
-	msg.addByte(inventoryItems);
+	auto startInventory = msg.getBufferPosition();
+	msg.skipBytes(1);
 	for (std::underlying_type<slots_t>::type slot = CONST_SLOT_FIRST; slot <= CONST_SLOT_LAST; slot++) {
 		Item* inventoryItem = player->getInventoryItem(static_cast<slots_t>(slot));
 		if (inventoryItem) {
-			inventoryItems++;
+			++inventoryItems;
 
 			msg.addByte(slot);
 			msg.addString(inventoryItem->getName());
@@ -2014,7 +2143,6 @@ void ProtocolGame::sendCyclopediaCharacterInspection() {
 	}
 	msg.setBufferPosition(startInventory);
 	msg.addByte(inventoryItems);
-	msg.setLength(msg.getLength() - 1);
 	writeToOutputBuffer(msg);
 }
 

@@ -803,6 +803,33 @@ enum CyclopediaCharacterInfo_OutfitType_t : uint8_t {
 	CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_STORE = 2
 };
 
+enum CyclopediaCharacterInfo_RecentKillStatus_t : uint8_t {
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_JUSTIFIED = 0,
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_UNJUSTIFIED = 1,
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_GUILDWAR = 2,
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_ASSISTED = 3,
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_ARENA = 4
+};
+
+struct RecentDeathEntry
+{
+	RecentDeathEntry(std::string cause, uint32_t timestamp) :
+		cause(std::move(cause)), timestamp(timestamp) {}
+
+	std::string cause;
+	uint32_t timestamp;
+};
+
+struct RecentPvPKillEntry
+{
+	RecentPvPKillEntry(std::string description, uint32_t timestamp, uint8_t status) :
+		description(std::move(description)), timestamp(timestamp), status(status) {}
+
+	std::string description;
+	uint32_t timestamp;
+	uint8_t status;
+};
+
 enum HighscoreType_t : uint8_t {
 	HIGHSCORE_GETENTRIES = 0,
 	HIGHSCORE_OURRANK = 1
@@ -840,6 +867,20 @@ struct HighscoreCharacter
 	uint32_t rank;
 	uint16_t level;
 	uint8_t vocation;
+};
+
+enum Cipbia_Elementals_t : uint8_t {
+	CIPBIA_ELEMENTAL_PHYSICAL = 0,
+	CIPBIA_ELEMENTAL_FIRE = 1,
+	CIPBIA_ELEMENTAL_EARTH = 2,
+	CIPBIA_ELEMENTAL_ENERGY = 3,
+	CIPBIA_ELEMENTAL_ICE = 4,
+	CIPBIA_ELEMENTAL_HOLY = 5,
+	CIPBIA_ELEMENTAL_DEATH = 6,
+	CIPBIA_ELEMENTAL_HEALING = 7,
+	CIPBIA_ELEMENTAL_DROWN = 8,
+	CIPBIA_ELEMENTAL_LIFEDRAIN = 9,
+	CIPBIA_ELEMENTAL_UNDEFINED = 10
 };
 
 #endif
