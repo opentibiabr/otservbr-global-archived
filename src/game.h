@@ -20,6 +20,8 @@
 #ifndef FS_GAME_H_3EC96D67DD024E6093B3BAC29B7A6D7F
 #define FS_GAME_H_3EC96D67DD024E6093B3BAC29B7A6D7F
 
+#include <unordered_set>
+
 #include "account.hpp"
 #include "combat.h"
 #include "groups.h"
