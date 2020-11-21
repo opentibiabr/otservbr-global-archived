@@ -49699,15 +49699,23 @@
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="37625" article="a" name="baby polar bear">
+		<attribute key="decayTo" value="37626" />
+		<attribute key="duration" value="2" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="37626" article="a" name="baby polar bear">
+		<attribute key="decayTo" value="37627" />
+		<attribute key="duration" value="1" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="37627" article="a" name="baby polar bear">
+		<attribute key="decayTo" value="37628" />
+		<attribute key="duration" value="1" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="37628" article="a" name="baby polar bear">
+		<attribute key="decayTo" value="37625" />
+		<attribute key="duration" value="1" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="37629" name="unknown"/>
@@ -49733,6 +49741,160 @@
 		<attribute key="decayTo" value="37643" />
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="37742" article="a" name="Guzzlemaw Grub">
+		<attribute key="decayTo" value="37645" />
+		<attribute key="duration" value="2" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37743" article="a" name="Baby Vulcongra">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37744" article="a" name="Baby Brain Squid">	
+			<attribute key="decayTo" value="37747" />
+		<attribute key="duration" value="2" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37745" article="a" name="Guzzlemaw Grub">
+		<attribute key="decayTo" value="37742" />
+		<attribute key="duration" value="2" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>	
+	<item id="37747" article="a" name="Baby Brain Squid">	
+			<attribute key="decayTo" value="37744" />
+		<attribute key="duration" value="2" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>	
+	<item id="37753" article="a" name="Demon Doll">
+		<attribute key="wrapableTo" value="26054" />
+		<attribute key="weight" value="860" />
+	</item>
+	<item id="37778" article="a" name="Vexclaw Doll">
+		<attribute key="wrapableTo" value="26054" />
+		<attribute key="weight" value="860" />
+	</item>
+	<item id="37779" article="a" name="Ogre Rowdy Doll">
+		<attribute key="wrapableTo" value="26054" />
+		<attribute key="weight" value="860" />
+	</item>
+	<item id="37780" article="a" name="Retching Horror Doll">
+		<attribute key="wrapableTo" value="26054" />
+		<attribute key="weight" value="860" />
+	</item>
+	<item id="37781" article="a" name="cozy couch">
+		<attribute key="rotateTo" value="37782" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37782" article="a" name="cozy couch">
+		<attribute key="rotateTo" value="37783" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37783" article="a" name="cozy couch">
+		<attribute key="rotateTo" value="37784" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37784" article="a" name="cozy couch">
+		<attribute key="rotateTo" value="37781" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37785" article="a" name="cozy couch left end">
+		<attribute key="rotateTo" value="37786" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37786" article="a" name="cozy couch left end">
+		<attribute key="rotateTo" value="37787" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37787" article="a" name="cozy couch left end">
+		<attribute key="rotateTo" value="37788" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37788" article="a" name="cozy couch left end">
+		<attribute key="rotateTo" value="37785" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37789" article="a" name="cozy couch right end">
+		<attribute key="rotateTo" value="37790" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37790" article="a" name="cozy couch right end">
+		<attribute key="rotateTo" value="37791" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37791" article="a" name="cozy couch right end">
+		<attribute key="rotateTo" value="37792" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37792" article="a" name="cozy couch right end">
+		<attribute key="rotateTo" value="37789" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37793" article="a" name="cozy couch round">
+		<attribute key="rotateTo" value="37794" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37794" article="a" name="cozy couch round">
+		<attribute key="rotateTo" value="37795" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37795" article="a" name="cozy couch round">
+		<attribute key="rotateTo" value="37796" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37796" article="a" name="cozy couch round">
+		<attribute key="rotateTo" value="37793" />
+		<attribute key="wrapableTo" value="26054" /> 
+	</item>
+	<item id="37797" article="a" name="cozy couch corner">
+		<attribute key="rotateTo" value="37798" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37798" article="a" name="cozy couch corner">
+		<attribute key="rotateTo" value="37799" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37799" article="a" name="cozy couch corner">
+		<attribute key="rotateTo" value="37800" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37800" article="a" name="cozy couch corner">
+		<attribute key="rotateTo" value="37793" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37801" article="a" name="carved table corner">
+		<attribute key="rotateTo" value="37802" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37802" article="a" name="carved table corner">
+		<attribute key="rotateTo" value="37803" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37803" article="a" name="carved table corner">
+		<attribute key="rotateTo" value="37804" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37804" article="a" name="carved table corner">
+		<attribute key="rotateTo" value="37801" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37805" article="a" name="carved table">
+		<attribute key="rotateTo" value="37806" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37806" article="a" name="carved table">
+		<attribute key="rotateTo" value="37807" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37807" article="a" name="carved table">
+		<attribute key="rotateTo" value="37808" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37808" article="a" name="carved table">
+		<attribute key="rotateTo" value="37805" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="37809" article="a" name="carved table center">
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item fromid="37928" toid="37931" article="a" name="lion statue" />
 	<item fromid="37932" toid="37951" article="a" name="wall" />

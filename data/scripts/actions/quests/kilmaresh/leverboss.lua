@@ -75,5 +75,5 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 	return true
 end
 
-leverboss:uid(33001)
+leverboss:uid(9545)
 leverboss:register()
