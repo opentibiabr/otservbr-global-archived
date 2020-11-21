@@ -32,7 +32,6 @@
 #include "movement.h"
 #include "teleport.h"
 #include "trashholder.h"
-#include "configmanager.h"
 #include "housetile.h"
 #include "iomap.h"
 
@@ -405,7 +404,8 @@ void Tile::onAddTileItem(Item* item)
 		spectator->onAddTileItem(this, cylinderMapPos);
 	}
 
-  if ((!hasFlag(TILESTATE_PROTECTIONZONE) || g_config.getBoolean(ConfigManager::CLEAN_PROTECTION_ZONES)) && item->isCleanable()) {
+  if ((!hasFlag(TILESTATE_PROTECTIONZONE) || g_config.getBoolean(ConfigManager::CLEAN_PROTECTION_ZONES))
+																							&& item->isCleanable()) {
 		if (!dynamic_cast<HouseTile*>(this)) {
 			g_game.addTileToClean(this);
 		}
