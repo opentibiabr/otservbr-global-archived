@@ -38,7 +38,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 					"All the players need to be level ".. config.requiredLevel .." or higher.")
 				return true
 			end
-			
+
 			if config.daily and playerTile:getStorageValue(Storage.Kilmaresh.UrmahlulluTimer)>os.time() then
 				player:getPosition():sendMagicEffect(CONST_ME_POFF)
 				player:sendCancelMessage('All players are not still ready from last battle yet.')
@@ -58,7 +58,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 
 			spec:remove()
 		end
-		
+
 		if player:getPosition()~=config.playerFirst[1] then
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You can't start a battle.")
 			return true
