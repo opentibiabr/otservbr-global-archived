@@ -7,9 +7,11 @@ local config = {
     {itemId = 2016},
 }
 
---base urmahlullu have 515000/515000 hp, next form 400000/515000, next form 300000/515000, next form 200000/515000, and last 100000/515000
+--base urmahlullu have 515000/515000 hp, next form 400000/515000, 
+-- next form 300000/515000, next form 200000/515000, and last 100000/515000
 
-function UrmahlulluChanges.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType)
+function UrmahlulluChanges.onHealthChange(creature, attacker, primaryDamage, primaryType, 
+															secondaryDamage, secondaryType)
 	if creature:getName() == 'Urmahlullu the Immaculate' then
 		if creature:getHealth()<=400000 then
 			position=creature:getPosition()
