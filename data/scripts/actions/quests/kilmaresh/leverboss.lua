@@ -26,7 +26,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 	if config.daily and player:getStorageValue(Storage.Kilmaresh.UrmahlulluTimer)>os.time() then
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
 		player:sendCancelMessage('You are still exhausted from your last battle.')
-	else	
+	else
 		if item.itemid == 9825 then
 			local storePlayers, playerTile = {}
 
@@ -38,7 +38,8 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 				end
 
 				if playerTile:getLevel() < config.requiredLevel then
-					player:sendTextMessage(MESSAGE_STATUS_SMALL, "All the players need to be level ".. config.requiredLevel .." or higher.")
+					player:sendTextMessage(MESSAGE_STATUS_SMALL,
+						"All the players need to be level ".. config.requiredLevel .." or higher.")
 					return true
 				end
 
