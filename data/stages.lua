@@ -5,7 +5,7 @@
 experienceStages = {
 	{
 		minlevel = 1,
-		multiplier = configManager.getNumber(configKeys.RATE_EXP) --2, 4
+		multiplier = 1.6 --0.8, 1.6
 	}
 }
 

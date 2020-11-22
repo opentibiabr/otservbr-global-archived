@@ -7,7 +7,7 @@ function serverInfo.onSay(player, words, param)
 	local magicRate = 1.5;
 
 
-	if (configManager.getNumber(configKeys.RATE_EXP) > 2) then
+	if (configManager.getNumber(configKeys.RATE_EXP) == 1.6) then
 		expRate = 4;
 	end
 
