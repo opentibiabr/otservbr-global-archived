@@ -23,55 +23,56 @@ local config = {
 local leverboss = Action()
 
 function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 9825 then
-		local storePlayers, playerTile = {}
+	if config.daily and player:getStorageValue(Storage.Kilmaresh.UrmahlulluTimer)>os.time() then
+		player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		player:sendCancelMessage('You are still exhausted from your last battle.')
+	else	
+		if item.itemid == 9825 then
+			local storePlayers, playerTile = {}
 
-		for i = 1, #config.playerPositions do
-			playerTile = Tile(config.playerFirst[1]):getTopCreature()
-			if not playerTile or not playerTile:isPlayer() then
-				player:sendTextMessage(MESSAGE_STATUS_SMALL, "You need 5 players.")
-				return true
+			for i = 1, #config.playerPositions do
+				playerTile = Tile(config.playerFirst[1]):getTopCreature()
+				if not playerTile or not playerTile:isPlayer() then
+					player:sendTextMessage(MESSAGE_STATUS_SMALL, "You need 5 players.")
+					return true
+				end
+
+				if playerTile:getLevel() < config.requiredLevel then
+					player:sendTextMessage(MESSAGE_STATUS_SMALL, "All the players need to be level ".. config.requiredLevel .." or higher.")
+					return true
+				end
+
+				storePlayers[#storePlayers + 1] = playerTile
 			end
 
-			if playerTile:getLevel() < config.requiredLevel then
-				player:sendTextMessage(MESSAGE_STATUS_SMALL, "All the players need to be level ".. config.requiredLevel .." or higher.")
-				return true
+			local specs, spec = Game.getSpectators(config.centerDemonRoomPosition, false, false, 14, 14, 13, 13)
+			for i = 1, #specs do
+				spec = specs[i]
+				if spec:isPlayer() then
+					player:sendTextMessage(MESSAGE_STATUS_SMALL, "A team is already inside the quest room.")
+					return true
+				end
+
+				spec:remove()
 			end
 
-			storePlayers[#storePlayers + 1] = playerTile
-		end
-
-		local specs, spec = Game.getSpectators(config.centerDemonRoomPosition, false, false, 14, 14, 13, 13)
-		for i = 1, #specs do
-			spec = specs[i]
-			if spec:isPlayer() then
-				player:sendTextMessage(MESSAGE_STATUS_SMALL, "A team is already inside the quest room.")
-				return true
+			for i = 1, #config.demonPositions do
+				Game.createMonster("Urmahlullu the Immaculate", config.demonPositions[i])
 			end
 
-			spec:remove()
-		end
-
-		for i = 1, #config.demonPositions do
-			Game.createMonster("Urmahlullu the Immaculate", config.demonPositions[i])
-		end
-
-		local players
-		for i = 1, #storePlayers do
-			players = storePlayers[i]
-			config.playerPositions[i]:sendMagicEffect(CONST_ME_POFF)
-			players:teleportTo(config.newPositions[1])
-			config.newPositions[1]:sendMagicEffect(CONST_ME_ENERGYAREA)
-			players:setDirection(DIRECTION_EAST)
-		end
-	elseif item.itemid == 9826 then
-		if config.daily then
-			player:sendTextMessage(MESSAGE_STATUS_SMALL, Game.getReturnMessage(RETURNVALUE_NOTPOSSIBLE))
-			return true
+			local players
+			for i = 1, #storePlayers do
+				players = storePlayers[i]
+				config.playerPositions[i]:sendMagicEffect(CONST_ME_POFF)
+				players:teleportTo(config.newPositions[1])
+				config.newPositions[1]:sendMagicEffect(CONST_ME_ENERGYAREA)
+				players:setDirection(DIRECTION_EAST)
+			end
+			player:setStorageValue(Storage.Kilmaresh.UrmahlulluTimer, os.time()+20*60*60) -- 20 hours
 		end
 	end
 
-	item:transform(item.itemid == 9825 and 9826 or 9825)
+	item:transform(9825)
 	return true
 end
 
