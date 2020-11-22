@@ -13,6 +13,21 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 236
+monster.Bestiary = {
+	class = "Elemental",
+	race = BESTY_RACE_ELEMENTAL,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Water Elemental Cave in Port Hope, Water Elemental Dungeon, Deeper Banuta, Malada, Ramoa, \z
+		Talahu, Folda (7 spawn on the 3rd floor), Water Elemental Cave in Outlaw Camp (only during the Down the \z
+		Drain Mini World Change), Krailos Steppe underwater cave."
+		}
+
 monster.health = 550
 monster.maxHealth = 550
 monster.race = "undead"
