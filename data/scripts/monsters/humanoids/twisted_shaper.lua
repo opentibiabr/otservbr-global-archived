@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1322
+monster.Bestiary = {
+	class = "Humanoid",
+	race = BESTY_RACE_HUMANOID,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Astral Shaper Dungeon, Old Masonry, small dungeon under the Formorgar Mines."
+		}
+
 monster.health = 2500
 monster.maxHealth = 2500
 monster.race = "blood"

@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 323
+monster.Bestiary = {
+	class = "Human",
+	race = BESTY_RACE_HUMAN,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Krimhorn, Bittermor, Ragnir, Arena and Zoo Quarter inside the Arena."
+		}
+
 monster.health = 305
 monster.maxHealth = 305
 monster.race = "blood"

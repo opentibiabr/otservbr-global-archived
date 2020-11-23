@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 324
+monster.Bestiary = {
+	class = "Giant",
+	race = BESTY_RACE_GIANT,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "Tyrsung (in the Jotunar mountain), Formorgar Glacier (single spawn), \z
+		Mammoth Shearing Factory, Chyllfroest."
+		}
+
 monster.health = 270
 monster.maxHealth = 270
 monster.race = "blood"

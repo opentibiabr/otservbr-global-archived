@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1044
+monster.Bestiary = {
+	class = "Humanoid",
+	race = BESTY_RACE_HUMANOID,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Oramond Mountain Hideout, Oramond Minotaur Camp (northern camp), \z
+		Underground Glooth Factory, Oramond Dungeon."
+		}
+
 monster.health = 3200
 monster.maxHealth = 3200
 monster.race = "blood"

@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 319
+monster.Bestiary = {
+	class = "Humanoid",
+	race = BESTY_RACE_HUMANOID,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "Inukaya, Chyllfroest, Chakoya Iceberg, Nibelor (during a quest)."
+		}
+
 monster.health = 68
 monster.maxHealth = 68
 monster.race = "blood"
