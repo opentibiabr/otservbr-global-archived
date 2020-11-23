@@ -51209,8 +51209,6 @@
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="500" />
 	</item>
-
-
 	<item id="39000" article="a" name="ramp">
 		<attribute key="floorchange" value="south" />
 	</item>
