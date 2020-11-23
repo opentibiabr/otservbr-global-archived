@@ -13,6 +13,21 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 108
+monster.Bestiary = {
+	class = "Magical",
+	race = BESTY_RACE_MAGICAL,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Hellgate, near the Hellgate Library, Deeper Banuta, behind piano in Cult Cave to the \z
+		northeast of Liberty Bay, Vandura Bonelord Cave, Goroma, Helheim, \z
+		underground of Fenrock (on the way to Beregar), Vengoth."
+		}
+
 monster.health = 500
 monster.maxHealth = 500
 monster.race = "blood"

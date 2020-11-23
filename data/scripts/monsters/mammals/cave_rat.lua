@@ -13,6 +13,21 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 56
+monster.Bestiary = {
+	class = "Mammal",
+	race = BESTY_RACE_MAMMAL,
+	toKill = 250,
+	FirstUnlock = 10,
+	SecondUnlock = 100,
+	CharmsPoints = 5,
+	Stars = 1,
+	Occurrence = 0,
+	Locations = "Almost everywhere in tibia, they seem to have a nest-like place in Greenshore, \z
+		a semi-large spawn at the entrance to the Port Hope troll cave and in cave near Ankrahmun ship. \z
+		Also appears in Rat Plague in Thais and Rat Plague in Rookgaard."
+		}
+
 monster.health = 30
 monster.maxHealth = 30
 monster.race = "blood"

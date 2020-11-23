@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 516
+monster.Bestiary = {
+	class = "Mammal",
+	race = BESTY_RACE_MAMMAL,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Alchemist Quarter, Arena and Zoo Quarter (Inside with other mutated creatures), \z
+		Muggy Plains, Souleater Mountains and Northern Zao Plantations."
+		}
+
 monster.health = 1100
 monster.maxHealth = 1100
 monster.race = "blood"

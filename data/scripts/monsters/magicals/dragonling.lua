@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 894
+monster.Bestiary = {
+	class = "Magical",
+	race = BESTY_RACE_MAGICAL,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 1,
+	Locations = "Fury Dungeon and Goroma volcano (surface floor, inner volcano) only during the \z
+		Fire from the Earth Mini World Change."
+		}
+
 monster.health = 2600
 monster.maxHealth = 2600
 monster.race = "blood"
