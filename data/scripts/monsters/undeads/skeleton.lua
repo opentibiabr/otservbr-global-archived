@@ -13,6 +13,21 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 33
+monster.Bestiary = {
+	class = "Undead",
+	race = BESTY_RACE_UNDEAD,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "In many dungeons around Tibia, like the Ancient Temple and Ghostlands. \z
+		Also found in Rookgaard tombs and north east of Port Hope, in the jungle of Tiquanda, \z
+		beneath Fenrock and in the desert Tombs, Vengoth Castle."
+		}
+
 monster.health = 50
 monster.maxHealth = 50
 monster.race = "undead"

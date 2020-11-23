@@ -13,6 +13,26 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 18
+monster.Bestiary = {
+	class = "Undead",
+	race = BESTY_RACE_UNDEAD,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "Ancient Temple in the Skeleton area, way to Mintwallin, Old Mintwallin Quest, \z
+		Alatar Lake, Magician Tower, Mount Sternum Undead Cave, Ghostlands, Hellgate, \z
+		Maze of Lost Souls, below Point of No Return in Outlaw Camp, Plains of Havoc in Necromant House, \z
+		Drefia and Drefia's underground caves, Edron ghoul hill, Venore Amazon Camp underground, \z
+		Venore Swamp Troll cave, Ghostship between Venore and Darashia, Triangle Tower, Dark Cathedral, \z
+		Ankrahmun tombs, Isle of the Kings, Treasure Island, Nargor Undead Cave, Helheim, Lion's Rock, \z
+		The Witches' Cliff (only accessible during a quest) and a cave northeast of Ab'Dendriel. \z
+		Also found behind a wall in both Rookgaard and Paradox Tower, although they cannot be reached."
+		}
+
 monster.health = 100
 monster.maxHealth = 100
 monster.race = "blood"

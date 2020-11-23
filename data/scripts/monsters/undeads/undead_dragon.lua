@@ -13,6 +13,21 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 282
+monster.Bestiary = {
+	class = "Undead",
+	race = BESTY_RACE_UNDEAD,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Helheim (single, isolated spawn), Pits of Inferno (Ashfalor's throneroom), \z
+		Demon Forge (The Shadow Nexus and The Arcanum), under Razachai (including the Inner Sanctum), \z
+		Chyllfroest, Oramond Fury Dungeon."
+		}
+
 monster.health = 8350
 monster.maxHealth = 8350
 monster.race = "undead"

@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 797
+monster.Bestiary = {
+	class = "Vermin",
+	race = BESTY_RACE_VERMIN,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 2,
+	Locations = "The Hive: east tower (beyond gates), west tower (including beyond gates), \z
+		also anywhere Hive Overseers are found (as summons), Hive Outpost."
+		}
+
 monster.health = 5000
 monster.maxHealth = 5000
 monster.race = "venom"
