@@ -360,30 +360,30 @@ class Player final : public Creature, public Cylinder
 		uint16_t getClientIcons() const;
 
 		const GuildWarVector& getGuildWarVector() const {
-			return guildWarVector;
+		return guildWarVector;
 		}
 
-        std::list<MonsterType*> getBestiaryTrackerList() const {
-         return BestiaryTracker;
-        }
+		std::list<MonsterType*> getBestiaryTrackerList() const {
+			return BestiaryTracker;
+		}
 
-        void addBestiaryTrackerList(MonsterType* mtype) {
-         auto it = std::find(BestiaryTracker.begin(), BestiaryTracker.end(), mtype);
-         if (it == BestiaryTracker.end()) {
-          BestiaryTracker.push_front(mtype);
-         } else {
-          BestiaryTracker.remove(mtype);
-         }
-          client->refreshBestiaryTracker(BestiaryTracker);
-        }
+		void addBestiaryTrackerList(MonsterType* mtype) {
+			auto it = std::find(BestiaryTracker.begin(), BestiaryTracker.end(), mtype);
+			if (it == BestiaryTracker.end()) {
+				BestiaryTracker.push_front(mtype);
+			} else {
+				BestiaryTracker.remove(mtype);
+			}
+			client->refreshBestiaryTracker(BestiaryTracker);
+		}
 
-        void sendBestiaryEntryChanged(uint16_t raceid) {
-         client->sendBestiaryEntryChanged(raceid);
-        }
+		void sendBestiaryEntryChanged(uint16_t raceid) {
+			client->sendBestiaryEntryChanged(raceid);
+		}
 
-        void refreshBestiaryTracker(std::list<MonsterType*> trackerList) {
-         client->refreshBestiaryTracker(trackerList);
-        }
+		void refreshBestiaryTracker(std::list<MonsterType*> trackerList) {
+			client->refreshBestiaryTracker(trackerList);
+		}
 
 		Vocation* getVocation() const {
 			return vocation;

@@ -131,8 +131,8 @@ class Monster final : public Creature
 			this->spawn = newSpawn;
 		}
 
-    uint32_t getReflectValue(CombatType_t combatType) const;
-    uint32_t getHealingCombatValue(CombatType_t healingType) const;
+		uint32_t getReflectValue(CombatType_t combatType) const;
+		uint32_t getHealingCombatValue(CombatType_t healingType) const;
 
 		bool canWalkOnFieldType(CombatType_t combatType) const;
 		void onAttackedCreatureDisappear(bool isLogout) override;

@@ -535,11 +535,10 @@ void Combat::CombatConditionFunc(Creature* caster, Creature* target, const Comba
 
 	for (const auto& condition : params.conditionList) {
 		//Cleanse charm rune (target as player)
-		// consider setting the random bool here to prevent unnecessary checks! TODO
 		Player* player = target->getPlayer();
 		if (player) {
 			if (player->isImmuneCleanse(condition->getType())) {
-				player->sendCancelMessage("You are still immune against this spell."); // Check if this is the real text (prob not)
+				player->sendCancelMessage("You are still immune against this spell.");
 				return;
 			} else if (caster->getMonster()) {
 				MonsterType* mType = g_monsters.getMonsterType(caster->getName());
@@ -853,7 +852,6 @@ void Combat::doCombatHealth(Creature* caster, Creature* target, CombatDamage& da
 			// Critical damage
 			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
 			// Charm low blow rune)
-			// consider setting the random bool here to prevent unnecessary checks! TODO
 			IOBestiary g_bestiary;
 			MonsterType* mType = g_monsters.getMonsterType(target->getName());
 			charmRune_t charm_t = g_bestiary.getCharmFromTarget(caster->getPlayer(), mType);

@@ -85,51 +85,51 @@ Game::~Game()
 
 void Game::loadBoostedCreature()
 {
-  Database& db = Database::getInstance();
-  std::ostringstream query;
-  query << "SELECT * FROM `boosted_creature`";
-  DBResult_ptr result = db.storeQuery(query.str());
+	Database& db = Database::getInstance();
+	std::ostringstream query;
+	query << "SELECT * FROM `boosted_creature`";
+	DBResult_ptr result = db.storeQuery(query.str());
 
-   if (!result) {
-	std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database. (CODE 01)" << std::endl;
-    return;
-   }
+	if (!result) {
+		std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database. (CODE 01)" << std::endl;
+		return;
+	}
 
-  uint16_t date = result->getNumber<uint16_t>("date");
-  std::string name = "";
-  time_t now = time(0);
-   tm *ltm = localtime(&now);
-   uint8_t today = ltm->tm_mday;
-  if (date == today) {
-	  name = result->getString("boostname");
-  } else {
-   uint16_t oldrace = result->getNumber<uint16_t>("raceid");
-   std::map<uint16_t, std::string> monsterlist = getBestiaryList();
-   uint16_t newrace = 0;
-   uint8_t k = 1;
-   while (newrace == 0 || newrace == oldrace) {
- 	  uint16_t random = normal_random(0, monsterlist.size());
- 	  for (auto it : monsterlist) {
-		  if (k == random) {
-			newrace = it.first;
-			name = it.second;	
-		  }
-		k++;
-	  }
-   }
-   query.str(std::string());
-   query << "UPDATE `boosted_creature` SET ";
-   query << "`date` = '" << ltm->tm_mday << "',";
-   query << "`boostname` = '" << name << "',";
-   query << "`raceid` = '" << newrace << "'";
-  
-   if (!db.executeQuery(query.str())) {
-	std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database. (CODE 02)" << std::endl;
-    return;
-   }
-  }
-  setBoostedName(name);
-  std::cout << ">> Boosted creature: " << name << std::endl;
+	uint16_t date = result->getNumber<uint16_t>("date");
+	std::string name = "";
+	time_t now = time(0);
+	tm *ltm = localtime(&now);
+	uint8_t today = ltm->tm_mday;
+	if (date == today) {
+		name = result->getString("boostname");
+	} else {
+		uint16_t oldrace = result->getNumber<uint16_t>("raceid");
+		std::map<uint16_t, std::string> monsterlist = getBestiaryList();
+		uint16_t newrace = 0;
+		uint8_t k = 1;
+		while (newrace == 0 || newrace == oldrace) {
+			uint16_t random = normal_random(0, monsterlist.size());
+			for (auto it : monsterlist) {
+				if (k == random) {
+					newrace = it.first;
+					name = it.second;	
+				}
+				k++;
+			}
+		}
+		query.str(std::string());
+		query << "UPDATE `boosted_creature` SET ";
+		query << "`date` = '" << ltm->tm_mday << "',";
+		query << "`boostname` = '" << name << "',";
+		query << "`raceid` = '" << newrace << "'";
+
+		if (!db.executeQuery(query.str())) {
+			std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database. (CODE 02)" << std::endl;
+			return;
+		}
+	}
+	setBoostedName(name);
+	std::cout << ">> Boosted creature: " << name << std::endl;
 }
 
 void Game::start(ServiceManager* manager)
@@ -5537,7 +5537,6 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 
 		if (!damage.extension && attacker && attacker->getMonster() && targetPlayer) {
 			// Charm rune (target as player)
-			// consider setting the random bool here to prevent unnecessary checks! TODO
 			MonsterType* mType = g_monsters.getMonsterType(attacker->getName());
 			if (mType) {
 				IOBestiary g_bestiary;
@@ -5546,7 +5545,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 					Bestiary* charm = g_bestiary.getBestiaryCharm(charm_t);
 					if (charm && charm->type == CHARM_DEFENSIVE &&(charm->chance > normal_random(0, 100))) {
 						if (g_bestiary.ParseCharmCombat(charm, targetPlayer, attacker, (damage.primary.value + damage.secondary.value))) {
-							return false; // Dodge charm only
+							return false; // Dodge charm
 						}
 					}
 				}
@@ -5737,7 +5736,6 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 			}
 
 			//Charm rune (attacker as player)
-			// consider setting the random bool here to prevent unnecessary checks! TODO
 			if (!damage.extension && target && target->getMonster() && mType) {
 				charmRune_t charm_t = g_bestiary.getCharmFromTarget(attackerPlayer, mType);
 				if (charm_t != CHARM_NONE) {
@@ -5967,7 +5965,6 @@ bool Game::combatChangeMana(Creature* attacker, Creature* target, CombatDamage& 
 
 		if (targetPlayer && attacker && attacker->getMonster()) {
 			//Charm rune (target as player)
-			// consider setting the random bool here to prevent unnecessary checks! TODO
 			MonsterType* mType = g_monsters.getMonsterType(attacker->getName());
 			if (mType) {
 				IOBestiary g_bestiary;
@@ -5976,7 +5973,7 @@ bool Game::combatChangeMana(Creature* attacker, Creature* target, CombatDamage& 
 					Bestiary* charm = g_bestiary.getBestiaryCharm(charm_t);
 					if (charm && charm->type == CHARM_DEFENSIVE && (charm->chance > normal_random(0, 100))) {
 						if (g_bestiary.ParseCharmCombat(charm, targetPlayer, attacker, manaChange)) {
-							return false; // Dodge charm only
+							return false; // Dodge charm
 						}
 					}
 				}
@@ -6408,11 +6405,11 @@ void Game::ReleaseItem(Item* item)
 
 void Game::addBestiaryList(uint16_t raceid, std::string name)
 {
-  auto it = BestiaryList.find(raceid);
-  if (it != BestiaryList.end()) {
-    return;
-  }
-  BestiaryList.insert(std::pair<uint16_t, std::string>(raceid, name));
+	auto it = BestiaryList.find(raceid);
+	if (it != BestiaryList.end()) {
+		return;
+	}
+	BestiaryList.insert(std::pair<uint16_t, std::string>(raceid, name));
 }
 
 void Game::broadcastMessage(const std::string& text, MessageClasses type) const
