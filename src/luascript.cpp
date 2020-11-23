@@ -2473,6 +2473,7 @@ void LuaScriptInterface::registerFunctions()
 	registerClass("Player", "Creature", LuaScriptInterface::luaPlayerCreate);
 	registerMetaMethod("Player", "__eq", LuaScriptInterface::luaUserdataCompare);
 
+	registerMethod("Player", "addCharmPoints", LuaScriptInterface::luaPlayeraddCharmPoints);
 	registerMethod("Player", "isPlayer", LuaScriptInterface::luaPlayerIsPlayer);
 
 	registerMethod("Player", "getGuid", LuaScriptInterface::luaPlayerGetGuid);
@@ -8747,6 +8748,26 @@ int LuaScriptInterface::luaPlayerCreate(lua_State* L)
 	if (player) {
 		pushUserdata<Player>(L, player);
 		setMetatable(L, -1, "Player");
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayeraddCharmPoints(lua_State* L)
+{
+	// player:addCharmPoints()
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		IOBestiary g_bestiary;
+		int16_t charms = getNumber<int16_t>(L, 2);
+		if (charms >= 0) {
+			g_bestiary.addCharmPoints(player, static_cast<uint16_t>(charms));			
+		} else {
+			charms = -charms;
+			g_bestiary.addCharmPoints(player, static_cast<uint16_t>(charms), true);		
+		}
+		pushBoolean(L, true);
 	} else {
 		lua_pushnil(L);
 	}
