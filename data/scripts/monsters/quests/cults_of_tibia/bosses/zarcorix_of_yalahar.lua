@@ -76,6 +76,19 @@ monster.defenses = {
 	armor = 0
 }
 
+monster.reflects = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 300},
+	{type = COMBAT_ENERGYDAMAGE, percent = 300},
+	{type = COMBAT_EARTHDAMAGE, percent = 300},
+	{type = COMBAT_FIREDAMAGE, percent = 300},
+	{type = COMBAT_LIFEDRAIN, percent = 300},
+	{type = COMBAT_MANADRAIN, percent = 300},
+	{type = COMBAT_DROWNDAMAGE, percent = 300},
+	{type = COMBAT_ICEDAMAGE, percent = 300},
+	{type = COMBAT_HOLYDAMAGE , percent = 300},
+	{type = COMBAT_DEATHDAMAGE , percent = 300}
+}
+
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},

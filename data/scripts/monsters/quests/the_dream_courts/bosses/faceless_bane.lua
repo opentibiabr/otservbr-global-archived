@@ -80,6 +80,10 @@ monster.defenses = {
 	armor = 10
 }
 
+monster.reflects = {
+	{type = COMBAT_DEATHDAMAGE , percent = 100}
+}
+
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
