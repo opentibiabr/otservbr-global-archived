@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Venore Corym Cave, Tiquanda Corym Cave, Corym Black Market, \z
-		Carlin Corym Cave/Dwarf Mines Diggers Depths Mine, Upper Spike.""
+		Carlin Corym Cave/Dwarf Mines Diggers Depths Mine, Upper Spike."
 		}
 
 monster.health = 450
