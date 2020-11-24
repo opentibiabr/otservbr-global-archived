@@ -5685,16 +5685,18 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 
 		// Using real damage
 		if (attackerPlayer) {
-			MonsterType* mType = g_monsters.getMonsterType(target->getName());
-
 			IOBestiary g_bestiary;
+			MonsterType* mType = nullptr;
+			if (target && target->getMonster()) {
+				mType = g_monsters.getMonsterType(target->getName());
+			}
 
 			//life leech
 			uint16_t lifeChance = attackerPlayer->getSkillLevel(SKILL_LIFE_LEECH_CHANCE);
       		uint16_t lifeSkill = attackerPlayer->getSkillLevel(SKILL_LIFE_LEECH_AMOUNT);
 			if (normal_random(0, 100) < lifeChance) {
 				// Vampiric charm rune
-				if (target->getMonster() && mType) {
+				if (mType) {
 					charmRune_t charm_l = g_bestiary.getCharmFromTarget(attackerPlayer, mType);
 					Bestiary* lifec = g_bestiary.getBestiaryCharm(charm_l);
 					if (charm_l == CHARM_VAMP) {
@@ -5717,7 +5719,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
       		uint16_t manaSkill = attackerPlayer->getSkillLevel(SKILL_MANA_LEECH_AMOUNT);
 			if (normal_random(0, 100) < manaChance) {
 				// Void charm rune
-				if (target->getMonster() && mType) {
+				if (mType) {
 					charmRune_t charm_v = g_bestiary.getCharmFromTarget(attackerPlayer, mType);
 					Bestiary* voidc = g_bestiary.getBestiaryCharm(charm_v);
 					if (charm_v == CHARM_VOID) {
@@ -5736,7 +5738,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 			}
 
 			//Charm rune (attacker as player)
-			if (!damage.extension && target && target->getMonster() && mType) {
+			if (!damage.extension && mType) {
 				charmRune_t charm_t = g_bestiary.getCharmFromTarget(attackerPlayer, mType);
 				if (charm_t != CHARM_NONE) {
 					Bestiary* charm = g_bestiary.getBestiaryCharm(charm_t);
