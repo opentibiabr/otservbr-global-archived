@@ -50,7 +50,7 @@
 		<vocation name="Knight" />
 		<vocation name="Elite Knight" />
 	</instant>
-	<instant group="attack" spellid="61" name="Brutal Strike" words="exori ico" lvl="16" mana="30" prem="1" range="1" needtarget="1" blockwalls="1" needweapon="1" exhaustion="6000" groupcooldown="2000" needlearn="0" script="attack/brutal strike.lua">
+	<instant group="attack" spellid="61" name="Brutal Strike" words="exori ico" lvl="16" mana="30" prem="1" range="1" needtarget="1" blockwalls="1" needweapon="1" exhaustion="4500" groupcooldown="2000" needlearn="0" script="attack/brutal strike.lua">
 		<vocation name="Knight" />
 		<vocation name="Elite Knight" />
 	</instant>
@@ -149,7 +149,7 @@
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
 	</instant>
-	<instant group="attack" spellid="111" name="Ethereal Spear" words="exori con" lvl="23" mana="25" prem="1" range="7" needtarget="1" exhaustion="2000" groupcooldown="2000" blockwalls="1" needlearn="0" script="attack/ethereal spear.lua">
+	<instant group="attack" spellid="111" name="Ethereal Spear" words="exori con" lvl="23" mana="25" prem="1" range="7" needtarget="1" exhaustion="2500" groupcooldown="2000" blockwalls="1" needlearn="0" script="attack/ethereal spear.lua">
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
 	</instant>
@@ -445,7 +445,7 @@
 		<vocation name="Knight" />
 		<vocation name="Elite Knight" />
 	</instant>
-	<instant group="attack" spellid="107" name="Whirlwind Throw" words="exori hur" lvl="28" mana="40" prem="1" range="5" needtarget="1" blockwalls="1" needweapon="1" exhaustion="6000" groupcooldown="2000" needlearn="0" script="attack/whirlwind throw.lua">
+	<instant group="attack" spellid="107" name="Whirlwind Throw" words="exori hur" lvl="28" mana="40" prem="1" range="5" needtarget="1" blockwalls="1" needweapon="1" exhaustion="4500" groupcooldown="2000" needlearn="0" script="attack/whirlwind throw.lua">
 		<vocation name="Knight" />
 		<vocation name="Elite Knight" />
 	</instant>

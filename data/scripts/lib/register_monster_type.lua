@@ -205,7 +205,7 @@ registerMonsterType.summons = function(mtype, mask)
 			print('MONSTER_SUMMON_MULT: '..MONSTER_SUMMON_MULT)
 		end
 		for k, v in pairs(mask.summons) do
-			mtype:addSummon(v.name, v.interval, v.chance*MONSTER_SUMMON_MULT)
+			mtype:addSummon(v.name, v.interval, v.chance*500)
 		end
 	end
 end

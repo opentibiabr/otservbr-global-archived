@@ -46,7 +46,7 @@ local config = {
 }
 
 local yasirEnabled = true
-local yasirChance = 33
+local yasirChance = 80
 
 local function spawnYasir(position)
 	local npc = Game.createNpc('yasir', position)

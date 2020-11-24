@@ -315,7 +315,7 @@ GameStore.Categories = {
           price = 5, 
           itemtype = 32385, 
           charges = 1000, 
-          description = "<i>Use it to train your axe fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your axe fighting skill\n{info} Works like normal training without boost\n{info} usable 500 times a piece",
+          description = "<i>Use it to train your axe fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your axe fighting skill\n{info} Works like normal training without boost\n{info} usable 1000 times a piece",
           type = GameStore.OfferTypes.OFFER_TYPE_CHARGES, 
         }, 	
         {
@@ -324,7 +324,7 @@ GameStore.Categories = {
           price = 5, 
           itemtype = 32387, 
           charges = 1000, 
-          description = "<i>Use it to train your distance fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your distance fighting skill\n{info} Works like normal training without boost\n{info} usable 500 times a piece",
+          description = "<i>Use it to train your distance fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your distance fighting skill\n{info} Works like normal training without boost\n{info} usable 1000 times a piece",
           type = GameStore.OfferTypes.OFFER_TYPE_CHARGES, 
         },
         {
@@ -333,7 +333,7 @@ GameStore.Categories = {
           price = 5, 
           itemtype = 32386, 
           charges = 1000,      
-          description = "<i>Use it to train your club fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your club fighting skill\n{info} Works like normal training without boost\n{info} usable 500 times a piece",
+          description = "<i>Use it to train your club fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your club fighting skill\n{info} Works like normal training without boost\n{info} usable 1000 times a piece",
           type = GameStore.OfferTypes.OFFER_TYPE_CHARGES, 
         },
         {
@@ -342,7 +342,7 @@ GameStore.Categories = {
           price = 5, 
           itemtype = 32388, 
           charges = 1000,      
-          description = "<i>Use it to train your magic level on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your magic level\n{info} Works like normal training without boost\n{info} usable 500 times a piece",
+          description = "<i>Use it to train your magic level on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your magic level\n{info} Works like normal training without boost\n{info} usable 1000 times a piece",
           type = GameStore.OfferTypes.OFFER_TYPE_CHARGES, 
         },
         {
@@ -351,7 +351,7 @@ GameStore.Categories = {
           price = 5, 
           itemtype = 32384, 
           charges = 1000,       
-          description = "<i>Use it to train your sword fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your sword fighting skill\n{info} Works like normal training without boost\n{info} usable 500 times a piece",
+          description = "<i>Use it to train your sword fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your sword fighting skill\n{info} Works like normal training without boost\n{info} usable 1000 times a piece",
           type = GameStore.OfferTypes.OFFER_TYPE_CHARGES, 
         },
         {
@@ -360,7 +360,7 @@ GameStore.Categories = {
           price = 5, 
           itemtype = 32389, 
           charges = 1000, 
-          description = "<i>Use it to train your magic level on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your magic level\n{info} Works like normal training without boost\n{info} usable 500 times a piece",
+          description = "<i>Use it to train your magic level on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your magic level\n{info} Works like normal training without boost\n{info} usable 1000 times a piece",
           type = GameStore.OfferTypes.OFFER_TYPE_CHARGES, 
         },	 
     },
@@ -3953,22 +3953,22 @@ GameStore.Categories = {
 		  },
   }, 
 -- Boost
- {   
-   icons = { "Category_Boosts.png" },
-   name = "Boosts",
-   offers = { 
-        {
-          icons = { "XP_Boost.png" },
-          name = "XP Boost",
-          price = 750,
-          id = 65010,
-          description = "<i>Purchase a boost that increases the experience points your character gains from hunting by 50%!</i>\n\n{character}\n{info} lasts for 1 hour hunting time\n{info} paused if stamina falls under 14 hours\n{info} can be purchased up to 5 times between 2 server saves\n{info} price increases with every purchase\n{info} cannot be purchased if an XP boost is already active",
-          type = GameStore.OfferTypes.OFFER_TYPE_EXPBOOST,			
-        },
-      },
-   rookgaard = true,
-   state = GameStore.States.STATE_NONE,
-  },
+--  {   
+--    icons = { "Category_Boosts.png" },
+--    name = "Boosts",
+--    offers = { 
+--         {
+--           icons = { "XP_Boost.png" },
+--           name = "XP Boost",
+--           price = 750,
+--           id = 65010,
+--           description = "<i>Purchase a boost that increases the experience points your character gains from hunting by 50%!</i>\n\n{character}\n{info} lasts for 1 hour hunting time\n{info} paused if stamina falls under 14 hours\n{info} can be purchased up to 5 times between 2 server saves\n{info} price increases with every purchase\n{info} cannot be purchased if an XP boost is already active",
+--           type = GameStore.OfferTypes.OFFER_TYPE_EXPBOOST,			
+--         },
+--       },
+--    rookgaard = true,
+--    state = GameStore.States.STATE_NONE,
+--   },
 -- Extras
  {
    icons = { "Category_Extras.png" },
