@@ -105,7 +105,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -1400, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -1400},
 	{name ="combat", interval = 2000, chance = 12, type = COMBAT_ENERGYDAMAGE, minDamage = -130, maxDamage = -460, length = 6, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
 	{name ="lloyd wave", interval = 2000, chance = 12, minDamage = -430, maxDamage = -560, target = false},
 	{name ="lloyd wave2", interval = 2000, chance = 12, minDamage = -230, maxDamage = -460, target = false},

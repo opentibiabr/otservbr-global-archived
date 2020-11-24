@@ -177,7 +177,7 @@ local function creatureSayCallback(cid, type, msg)
 		if msgcontains(msg, "yes") then
 			local neededCap = 0
 			for i = 1, #info.products[answerType[cid]][answerLevel[cid]].itens do
-				neededCap = neededCap + ItemType(info.products[answerType[cid]][answerLevel[cid]].itens[i]):getWeight()
+				neededCap = neededCap + ItemType(info.products[answerType[cid]][answerLevel[cid]].itens[i].id):getWeight() * info.products[answerType[cid]][answerLevel[cid]].itens[i].amount
 			end
 			if player:getFreeCapacity() > neededCap then
 				if player:getItemCount(tokenId) >= info.products[answerType[cid]][answerLevel[cid]].value then

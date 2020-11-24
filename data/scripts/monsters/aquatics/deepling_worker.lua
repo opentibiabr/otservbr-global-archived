@@ -49,7 +49,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -66,13 +66,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 70000, maxCount = 25},
-	{id = "small emerald", chance = 110, maxCount = 3},
-	{id = 2667, chance = 12020, maxCount = 3},
-	{id = "fish fin", chance = 350},
+	{id = "gold coin", chance = 75000, maxCount = 25},
+	{id = 2667, chance = 12020, maxCount = 3},--fish
+	{id = "deepling scales", chance = 6950},
 	{id = "heavy trident", chance = 510},
+	{id = "fish fin", chance = 350},
 	{id = "eye of a deepling", chance = 283},
-	{id = "deepling scales", chance = 6950}
+	{id = "small emerald", chance = 110, maxCount = 1}
 }
 
 monster.attacks = {
@@ -86,8 +86,8 @@ monster.defenses = {
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = -20},
-	{type = COMBAT_EARTHDAMAGE, percent = -20},
+	{type = COMBAT_ENERGYDAMAGE, percent = -10},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},

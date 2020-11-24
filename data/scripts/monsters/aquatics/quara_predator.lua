@@ -46,7 +46,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -66,19 +66,19 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small diamond", chance = 5160, maxCount = 2},
 	{id = "gold coin", chance = 28000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 53},
-	{id = "double axe", chance = 3171},
-	{id = "shrimp", chance = 4860, maxCount = 5},
-	{id = "skull helmet", chance = 400},
-	{id = "fish fin", chance = 1940, maxCount = 2},
-	{id = "assassin star", chance = 590},
-	{id = "royal spear", chance = 9000, maxCount = 7},
-	{id = "relic sword", chance = 680},
-	{id = "great health potion", chance = 1000},
-	{id = "glacier robe", chance = 420},
-	{id = "quara bone", chance = 9090},
+	{id = "gold coin", chance = 50000, maxCount = 54},
+	{id = "quara bone", chance = 9860},
+	{id = "royal spear", chance = 9240, maxCount = 7},
+	{id = "small diamond", chance = 5300, maxCount = 2},
+	{id = "shrimp", chance = 4980, maxCount = 5},
+	{id = "double axe", chance = 3011},
+	{id = "fish fin", chance = 1920, maxCount = 1},
+	{id = "great health potion", chance = 1040},
+	{id = "relic sword", chance = 670},
+	{id = "assassin star", chance = 530},
+	{id = "glacier robe", chance = 440},
+	{id = "skull helmet", chance = 390},
 	{id = "giant shrimp", chance = 10}
 }
 

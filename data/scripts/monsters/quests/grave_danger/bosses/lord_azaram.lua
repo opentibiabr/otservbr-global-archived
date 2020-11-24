@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Lord Azaram")
 local monster = {}
 
 monster.description = "a Lord Azaram"
-monster.experience = 6300
+monster.experience = 41950
 monster.outfit = {
 	lookType = 1223,
 	lookHead = 0,
@@ -66,45 +66,38 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 5},
-	{id = "silver token", chance = 100000, maxCount = 2},
-	{id = "ultimate spirit potion", chance = 70370, maxCount = 20},
-	{id = "ultimate mana potion", chance = 55560, maxCount = 14},
-	{id = "supreme health potion", chance = 51850, maxCount = 14},
-	{id = "red gem", chance = 40740},
-	{id = "blue gem", chance = 29630},
-	{id = "yellow gem", chance = 29630},
-	{id = "bullseye potion", chance = 25930, maxCount = 10},
-	{id = "knight armor", chance = 22220},
-	{id = "green gem", chance = 22220, maxCount = 2},
-	{id = "mastermind potion", chance = 18520, maxCount = 10},
-	{id = 26199, chance = 18520},
-	{id = "lightning headband", chance = 18520},
-	{id = "berserk potion", chance = 14810, maxCount = 10},
-	{id = "crystal coin", chance = 14810},
-	{id = 26187, chance = 11110},
-	{id = "gold ingot", chance = 11110},
-	{id = 26200, chance = 11110},
-	{id = 26189, chance = 11110},
-	{id = "huge chunk of crude iron", chance = 7410},
-	{id = "haunted blade", chance = 7410},
-	{id = "bear skin", chance = 3700},
-	{id = 26198, chance = 3700},
-	{id = "giant ruby", chance = 3700},
-	{id = "violet gem", chance = 3700},
-	{id = "young lich worm", chance = 3700},
-	{id = "rotten heart", chance = 3700},
-	{id = 26185, chance = 3700},
-	{id = "giant emerald", chance = 3700},
-	{id = "embrace of nature", chance = 1090},
-	{id = "terra helmet", chance = 400},
-	{id = "ancient liche bone", chance = 185},
-	{id = "final judgement", chance = 155},
-	{id = "noble cape", chance = 155}
+	{id = "Platinum Coin", minCount = 1, maxCount = 5, chance = 100000},--comum
+	{id = "Crystal Coin", minCount = 0, maxCount = 2, chance = 50000},--comum
+	{id = "Supreme Health Potion", minCount = 0, maxCount = 6, chance = 35000},--comum
+	{id = "Ultimate Mana Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{id = "Ultimate Spirit Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{id = "Bullseye Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{id = "Berserk Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{id = "Piece of hell steel", minCount = 0, maxCount = 4, chance = 9000},--comum
+	{id = "Red Gem", minCount = 0, maxCount = 2, chance = 12000},--comum
+	{id = "Blue Gem", minCount = 0, maxCount = 2, chance = 12000},--comum
+	{id = "Silver Token", minCount = 0, maxCount = 2, chance = 9500},--semiraro
+	{id = "Ancient liche bone", chance = 5200},--semiraro
+	{id = "Collar of blue plasma", chance = 5200},--semiraro
+	{id = "Collar of red plasma", chance = 5200},--semiraro
+	{id = "Collar of green plasma", chance = 5200},--semiraro
+	{id = "Giant Sapphire", chance = 7000},--semiraro
+	{id = "Haunted Blade", chance = 9000},--semiraro
+	{id = "Huge Chunk of Crude Iron", chance = 4500},--semiraro
+	{id = "Knight Armor", chance = 15000},--semiraro
+	{id = "Violet Gem", minCount = 0, maxCount = 1, chance = 10000},--semiraro
+	{id = "Yellow Gem", minCount = 0, maxCount = 1, chance = 10000},--semiraro
+	{id = "Ring of green plasma", chance = 5000},--semiraro
+	{id = "Ring of red plasma", chance = 5000},--semiraro
+	{id = "Young Lich Worm", chance = 5800},--semiraro
+	{id = "Bear Skin", chance = 1600},--raro
+	{id = "Noble Cape", chance = 1500},--raro
+	{id = "Terra helmet", chance = 720},--raro
+	{id = "Final Judgement", chance = 410},--muitoraro
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -600, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -600},
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -1000, length = 7, spread = 3, effect = CONST_ME_STONES, target = false},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -1000, length = 7, spread = 3, effect = CONST_ME_POISONAREA, target = false}
 }

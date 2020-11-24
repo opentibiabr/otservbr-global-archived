@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Grand Chaplain Gaunder")
 local monster = {}
 
 monster.description = "Grand Chaplain Gaunder"
-monster.experience = 14
+monster.experience = 14000
 monster.outfit = {
 	lookType = 1071,
 	lookHead = 57,
@@ -45,9 +45,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -62,22 +62,29 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Small Emerald", chance = 100000, maxCount = 3},
-	{id = "Assassin Star", chance = 100000, maxCount = 5},
-	{id = "Great Spirit Potion", chance = 100000, maxCount = 3},
-	{id = "gold coin", chance = 100000, maxCount = 60},
-	{id = "gold coin", chance = 100000, maxCount = 40},
-	{id = "Onyx Arrow", chance = 700, maxCount = 3},
-	{id = 7633, chance = 3300},
-	{id = "Damaged Armor Plates", chance = 350, maxCount = 3},
-	{id = "Falcon Longsword", chance = 60},
-	{id = "Falcon Shield", chance = 60}
+	{id = "Concentrated Demonic Blood", chance = 50000, maxCount = 2},--comum
+	{id = "Ham", chance = 50000, maxCount = 2},--comum
+	{id = "Onyx Arrow", chance = 35000, maxCount = 3},--comum
+	{id = "Small Diamond", chance = 30000, maxCount = 3},--comum
+	{id = "Small Emerald", chance = 30000, maxCount = 3},--comum
+	{id = "Small Enchanted Amethyst", chance = 20000, maxCount = 3},--comum
+	{id = "Damaged Armor Plates", chance = 2350, maxCount = 3},--raro
+	{id = "Giant Shimmering Pearl", chance = 12000, maxCount = 1},--raro
+	{id = "Knight Armor", chance = 7000},--raro
+	{id = "Patch of Fine Cloth", chance = 1800},--raro
+	{id = "Spiked Squelcher", chance = 3200},--raro
+	{id = "Titan Axe", chance = 2400},--raro
+	{id = "Falcon Battleaxe", chance = 200},--muitoraro
+	{id = "Falcon Longsword", chance = 200},--muitoraro
+	{id = "Falcon Mace", chance = 210},--muitoraro
+	{id = "Falcon Plate", chance = 100},--muitoraro
+	{id = "Falcon Shield", chance = 100}--muitoraro
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -150, maxDamage = -700, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1500, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -200, maxDamage = -890, range = 4, radius = 4, effect = CONST_ME_HITBYPOISON, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -720, range = 7, shootEffect = CONST_ANI_ETHEREALSPEAR, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -150, maxDamage = -850},
+	{name ="combat", interval = 1500, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -380, maxDamage = -890, range = 4, radius = 4, effect = CONST_ME_HITBYPOISON, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -290, maxDamage = -720, range = 7, shootEffect = CONST_ANI_ETHEREALSPEAR, target = false},
 	{name ="combat", interval = 1500, chance = 14, type = COMBAT_HOLYDAMAGE, minDamage = -300, maxDamage = -1000, length = 8, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
 	{name ="combat", interval = 1000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -200, maxDamage = -700, range = 5, radius = 3, effect = CONST_ME_SMALLCLOUDS, target = false}
 }
@@ -90,16 +97,16 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 50},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 55},
+	{type = COMBAT_ENERGYDAMAGE, percent = 15},
+	{type = COMBAT_EARTHDAMAGE, percent = 15},
+	{type = COMBAT_FIREDAMAGE, percent = 15},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 55}
+	{type = COMBAT_ICEDAMAGE, percent = 15},
+	{type = COMBAT_HOLYDAMAGE , percent = -5},
+	{type = COMBAT_DEATHDAMAGE , percent = 40}
 }
 
 monster.immunities = {

@@ -143,14 +143,8 @@ void Signals::sighupHandler()
 	//Dispatcher thread
 	std::cout << "SIGHUP received, reloading config files..." << std::endl;
 
-	g_actions->reload();
-	std::cout << "Reloaded actions." << std::endl;
-
 	g_config.reload();
 	std::cout << "Reloaded config." << std::endl;
-
-	g_creatureEvents->reload();
-	std::cout << "Reloaded creature scripts." << std::endl;
 
 	Npcs::reload();
 	std::cout << "Reloaded npcs." << std::endl;
@@ -162,17 +156,11 @@ void Signals::sighupHandler()
 	g_monsters.reload();
 	std::cout << "Reloaded spells." << std::endl;
 
-	g_talkActions->reload();
-	std::cout << "Reloaded talk actions." << std::endl;
-
 	Item::items.reload();
 	std::cout << "Reloaded items." << std::endl;
 
 	g_game.mounts.reload();
 	std::cout << "Reloaded mounts." << std::endl;
-
-	g_globalEvents->reload();
-	std::cout << "Reloaded globalevents." << std::endl;
 
 	g_events->load();
 	std::cout << "Reloaded events." << std::endl;

@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Cobra Scout")
 local monster = {}
 
 monster.description = "a cobra scout"
-monster.experience = 7920
+monster.experience = 8712
 monster.outfit = {
 	lookType = 1217,
 	lookHead = 1,
@@ -65,17 +65,26 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 3},
-	{id = "earth arrow", chance = 9490, maxCount = 28},
-	{id = "cheesy figurine", chance = 4430},
-	{id = "cobra crest", chance = 7750},
-	{id = 26189, chance = 1690},
-	{id = "stone skin amulet", chance = 4430},
-	{id = "sacred tree amulet", chance = 1900}
+	{id = "platinum coin", chance = 74000, maxCount = 9},--comum
+	{id = "earth arrow", chance = 19490, maxCount = 28},--incomum
+	{id = "stone skin amulet", chance = 6800},--incomum
+	{id = "gold ingot", chance = 5750, maxCount = 1},--incomum
+	{id = "cheesy figurine", chance = 13800},--incomum
+	{id = "opal", chance = 23800, maxCount = 5},--incomum
+	{id = "cobra crest", chance = 15450},--incomum
+	{id = "small emerald", chance = 3000, maxCount = 2},--semiraro
+	{id = "violet gem", chance = 1300},--semiraro
+	{id = "yellow gem", chance = 3060},--semiraro
+	{id = "green gem", chance = 1210},--semiraro
+	{id = "red gem", chance = 4800},--semiraro
+	{id = "sacred tree amulet", chance = 5100},--semiraro
+	{id = "green crystal shard", chance = 2130},--semiraro
+	{id = "ring of red plasma", chance = 740}--raro
 }
 
+
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
 	{name ="combat", interval = 2000, chance = 22, type = COMBAT_EARTHDAMAGE, minDamage = -350, maxDamage = -450, shootEffect = CONST_ANI_SNIPERARROW, target = true},
 	{name ="combat", interval = 2000, chance = 16, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -420, radius = 4, shootEffect = CONST_ANI_POISONARROW, effect = CONST_ME_GREEN_RINGS, target = true},
 	{name ="combat", interval = 2000, chance = 12, type = COMBAT_PHYSICALDAMAGE, minDamage = -300, maxDamage = -380, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false}

@@ -49,7 +49,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -67,20 +67,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small sapphire", chance = 2854},
-	{id = "gold coin", chance = 70000, maxCount = 60},
-	{id = "platinum coin", chance = 80000},
-	{id = "life ring", chance = 2439},
-	{id = 2667, chance = 3448},
-	{id = "fish fin", chance = 498},
-	{id = "eye of a deepling", chance = 2500},
-	{id = "deepling staff", chance = 2000},
-	{id = "necklace of the deep", chance = 813},
-	{id = "spellsinger's seal", chance = 14285},
-	{id = "key to the Drowned Library", chance = 10000},
-	{id = "deepling filet", chance = 14285},
+	{id = "platinum coin", chance = 80120},
+	{id = "gold coin", chance = 75110, maxCount = 60},
+	{id = "spellsinger's seal", chance = 15185},
+	{id = "deepling filet", chance = 14995},
+	{id = "key to the Drowned Library", chance = 10740},
+	{id = 2667, chance = 3448},--fish
+	{id = "small sapphire", chance = 2934},
+	{id = "eye of a deepling", chance = 2540},
+	{id = "life ring", chance = 2459},
+	{id = "deepling staff", chance = 2020},
+	{id = "necklace of the deep", chance = 790},
+	{id = "fish fin", chance = 520},
 	{id = "ornate crossbow", chance = 220}
 }
+
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -152, effect = CONST_ME_DRAWBLOOD},
@@ -93,13 +94,13 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 25,
-	armor = 25
+	armor = 42
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = -20},
-	{type = COMBAT_EARTHDAMAGE, percent = -20},
+	{type = COMBAT_ENERGYDAMAGE, percent = -10},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
@@ -110,7 +111,7 @@ monster.elements = {
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

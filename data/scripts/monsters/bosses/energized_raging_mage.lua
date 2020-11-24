@@ -48,9 +48,9 @@ monster.flags = {
 	runHealth = 300,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -78,7 +78,7 @@ monster.loot = {
 monster.attacks = {
 	{name ="energized raging mage skill reducer", interval = 3000, chance = 15, target = false},
 	{name ="energyfield", interval = 2000, chance = 20, range = 7, radius = 2, shootEffect = CONST_ANI_ENERGY, target = true},
-	{name ="melee", interval = 2000, chance = 100, skill = 32, attack = 37, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, skill = 32, attack = 37},
 	{name ="thunderstorm", interval = 2000, chance = 40, minDamage = -150, maxDamage = -230, range = 7, target = true},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_MANADRAIN, minDamage = -100, maxDamage = -210, range = 7, target = false},
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -300, length = 8, spread = 3, effect = CONST_ME_BIGCLOUDS, target = false}

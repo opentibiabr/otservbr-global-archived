@@ -354,7 +354,9 @@ local config = {
 	-- 65203 reservado
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local questSystem2 = Action()
+
+function questSystem2.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local useItem = config[item.uid]
 	if not useItem then
 		return true
@@ -467,3 +469,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+questSystem2:aid(2001)
+questSystem2:register()

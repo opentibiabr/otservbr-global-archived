@@ -64,24 +64,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 14},
-	{id = "crystalline arrow", chance = 29000, maxCount = 25},
-	{id = "Small Emerald", chance = 15000, maxCount = 14},
-	{id = "Deepling Filet", chance = 14630},
-	{id = "Deeptags", chance = 14100},
-	{id = "Deepling Ridge", chance = 11240},
-	{id = "Great Mana Potion", chance = 10000},
-	{id = "Great Health Potion", chance = 10000},
-	{id = "Deepling Warts", chance = 10000},
-	{id = "Vortex Bolt", chance = 6500, maxCount = 25},
-	{id = "Eye of a Deepling", chance = 6070},
-	{id = "Warrior's Shield", chance = 4200},
-	{id = "Heavy Trident", chance = 4000},
-	{id = "Warrior's Axe", chance = 4000},
-	{id = "Fish Fin", chance = 3650},
-	{id = "Life Ring", chance = 2870},
+	{id = "platinum coin", chance = 86000, maxCount = 14},
+	{id = "crystalline arrow", chance = 26000, maxCount = 25},
+	{id = "Small Emerald", chance = 14040, maxCount = 14},
+	{id = "Deepling Filet", chance = 12470},
+	{id = "Deeptags", chance = 12470},
+	{id = "Great Health Potion", chance = 9130},
+	{id = "Deepling Ridge", chance = 8840},
+	{id = "Deepling Warts", chance = 8540},
+	{id = "Great Mana Potion", chance = 8200},
+	{id = "Vortex Bolt", chance = 6380, maxCount = 25},
+	{id = "Eye of a Deepling", chance = 4760},
+	{id = "Heavy Trident", chance = 4120},
+	{id = "Warrior's Shield", chance = 3090},
+	{id = "Fish Fin", chance = 2990},
+	{id = "Warrior's Axe", chance = 2950},
 	{id = "Small Enchanted Sapphire", chance = 2220, maxCount = 4},
-	{id = "Necklace of the Deep", chance = 330}
+	{id = "Life Ring", chance = 2010},
+	{id = "Necklace of the Deep", chance = 200}
 }
 
 monster.attacks = {
@@ -110,7 +110,7 @@ monster.elements = {
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}

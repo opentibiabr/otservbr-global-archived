@@ -25,12 +25,12 @@ local function removeExerciseWeapon(player, exercise)
     player:setStorageValue(Storage.isTraining,0)
 end
 
-local function start_train(pid,start_pos,itemid,fpos, bonusDummy, dummyId)
-    local player = Player(pid)
+local function startTraining(playerId, startPosition, itemid, tilePosition, bonusDummy, dummyId)
+    local player = Player(playerId)
     if player ~= nil then
-        if Tile(fpos):getItemById(dummyId) then
-            local pos_n = player:getPosition()
-            if start_pos:getDistance(pos_n) == 0 and getTilePzInfo(pos_n) then
+        if Tile(tilePosition):getItemById(dummyId) then
+            local playerPosition = player:getPosition()
+            if startPosition:getDistance(playerPosition) == 0 and getTilePzInfo(playerPosition) then
                 if player:getItemCount(itemid) >= 1 then
                     local exercise = player:getItemById(itemid,true)
                     if exercise:isItem() then
@@ -56,14 +56,14 @@ local function start_train(pid,start_pos,itemid,fpos, bonusDummy, dummyId)
                                         player:addSkillTries(skills[itemid].id, (7*skillRate)*1.1) -- 10%
                                     end
                                 end
-                                    fpos:sendMagicEffect(CONST_ME_HITAREA)
+                                    tilePosition:sendMagicEffect(CONST_ME_HITAREA)
                                 if skills[itemid].range then
-                                    pos_n:sendDistanceEffect(fpos, skills[itemid].range)
+                                    playerPosition:sendDistanceEffect(tilePosition, skills[itemid].range)
                                 end
                                 if exercise:getAttribute(ITEM_ATTRIBUTE_CHARGES) == 0 then
                                     removeExerciseWeapon(player, exercise)
                                 else
-                                    local training = addEvent(start_train, voc:getAttackSpeed(), pid,start_pos,itemid,fpos,bonusDummy,dummyId)
+                                    local training = addEvent(startTraining, voc:getAttackSpeed(), playerId,startPosition,itemid,tilePosition,bonusDummy,dummyId)
                                     player:setStorageValue(Storage.isTraining,1)
                                 end
                             else
@@ -92,30 +92,52 @@ local function start_train(pid,start_pos,itemid,fpos, bonusDummy, dummyId)
     return true
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-    local start_pos = player:getPosition()
+local exerciseTraining = Action()
+
+function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+    local startPos = player:getPosition()
     if player:getStorageValue(Storage.isTraining) == 1 then
         player:sendTextMessage(MESSAGE_INFO_DESCR, "You are already training.")
         return false
     end
     if target:isItem() then
         if isInArray(houseDummies,target:getId()) then
-            if not skills[item.itemid].range and (start_pos:getDistance(target:getPosition()) > 1) then
+            if not skills[item.itemid].range and (startPos:getDistance(target:getPosition()) > 1) then
                 player:sendTextMessage(MESSAGE_INFO_DESCR, "Get closer to the dummy.")
                 stopEvent(training)
                 return true
             end
             player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
-            start_train(player:getId(),start_pos,item.itemid,target:getPosition(), true, target:getId())
+            startTraining(player:getId(),startPos,item.itemid,target:getPosition(), true, target:getId())
         elseif isInArray(freeDummies, target:getId()) then
-            if not skills[item.itemid].range and (start_pos:getDistance(target:getPosition()) > 1) then
+            if not skills[item.itemid].range and (startPos:getDistance(target:getPosition()) > 1) then
                 player:sendTextMessage(MESSAGE_INFO_DESCR, "Get closer to the dummy.")
                 stopEvent(training)
                 return true
             end
             player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
-            start_train(player:getId(),start_pos,item.itemid,target:getPosition(), false, target:getId())
+            startTraining(player:getId(),startPos,item.itemid,target:getPosition(), false, target:getId())
         end
     end
     return true
 end
+
+for id = 32124, 32126 do
+    exerciseTraining:id(id)
+end
+
+for id = 32127, 32129 do
+    exerciseTraining:id(id)
+    exerciseTraining:allowFarUse(true)
+end
+
+for id = 32384, 32386 do
+    exerciseTraining:id(id)
+end
+
+for id = 32387, 32389 do
+    exerciseTraining:id(id)
+    exerciseTraining:allowFarUse(true)
+end
+
+exerciseTraining:register()

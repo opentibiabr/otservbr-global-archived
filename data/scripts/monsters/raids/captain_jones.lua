@@ -74,7 +74,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -95, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 2, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -95, condition = {type = CONDITION_POISON, totalDamage = 2, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -30, maxDamage = -80, radius = 1, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -130, maxDamage = -150, range = 1, radius = 1, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_SMALLCLOUDS, target = true},
 	{name ="outfit", interval = 2000, chance = 5, range = 3, shootEffect = CONST_ANI_EXPLOSION, target = true, duration = 4000, outfitMonster = "Skeleton"}

@@ -49,7 +49,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -65,16 +65,18 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2146, chance = 10000, maxCount = 3},
-	{id = 12445, chance = 9090},
-	{id = 2178, chance = 4166},
-	{id = 2670, chance = 4166},
-	{id = 2165, chance = 4166},
-	{id = 2396, chance = 2777},
-	{id = 5895, chance = 2083},
-	{id = 2377, chance = 1369},
-	{id = 2167, chance = 689},
-	{id = 18413, chance = 689}
+	{id = "mantassin tail", chance = 14490},
+	{id = "mind stone", chance = 10370},
+	{id = "shrimp", chance = 3950, maxCount = 3},
+	{id = "small sapphire", chance = 3540, maxCount = 3},
+	{id = "stealth ring", chance = 3290},
+	{id = "ice rapier", chance = 2060},
+	{id = "blue crystal shard", chance = 1890},
+	{id = "strange helmet", chance = 1320},
+	{id = "two handed sword", chance = 820},
+	{id = "fish fin", chance = 740},
+	{id = "blue robe", chance = 660},
+	{id = "energy ring", chance = 580}
 }
 
 monster.attacks = {
@@ -83,14 +85,14 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 15,
-	armor = 15,
+	armor = 16,
 	{name ="invisible", interval = 2000, chance = 20, effect = CONST_ME_MAGIC_BLUE}
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = -25},
-	{type = COMBAT_EARTHDAMAGE, percent = -1},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
@@ -101,9 +103,9 @@ monster.elements = {
 }
 
 monster.immunities = {
-	{type = "paralyze", condition = false},
+	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = false},
+	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
 

@@ -108,6 +108,86 @@ void Game::setWorldType(WorldType_t type)
 	worldType = type;
 }
 
+bool Game::loadScheduleEventFromXml()
+{
+	pugi::xml_document doc;
+	pugi::xml_parse_result result = doc.load_file("data/XML/events.xml");
+	if (!result) {
+		printXMLError("Error - Game::loadScheduleEventFromXml", "data/XML/events.xml", result);
+		return false;
+	}
+
+		int16_t daysNow;
+		time_t t = time(NULL);
+		tm* timePtr = localtime(&t);
+		int16_t daysMath = ((timePtr->tm_year + 1900) * 365) + ((timePtr->tm_mon + 1) * 30) + (timePtr->tm_mday);
+
+	for (auto schedNode : doc.child("events").children()) {
+		std::string ss_d;
+		std::stringstream ss;
+
+		pugi::xml_attribute attr;
+		if ((attr = schedNode.attribute("name"))) {
+			ss_d = attr.as_string();
+			ss << "> " << ss_d << " event";
+		}
+
+		int year;
+		int day;
+		int month;
+
+		if (!(attr = schedNode.attribute("enddate"))) {
+			continue;
+		} else {
+			ss_d = attr.as_string();
+			sscanf(ss_d.c_str(), "%d/%d/%d", &month, &day, &year);
+			daysNow = ((year * 365) + (month * 30) + day);
+			if (daysMath > daysNow) {
+				continue;
+			}
+		}
+
+		if (!(attr = schedNode.attribute("startdate"))) {
+			continue;
+		} else {
+			ss_d = attr.as_string();
+			sscanf(ss_d.c_str(), "%d/%d/%d", &month, &day, &year);
+			daysNow = ((year * 365) + (month * 30) + day);
+			if (daysMath < daysNow) {
+				continue;
+			}	
+		}
+
+			for (auto schedENode : schedNode.children()) {
+				if ((schedENode.attribute("exprate"))) {
+					uint16_t exprate = pugi::cast<uint16_t>(schedENode.attribute("exprate").value());
+					g_game.setExpSchedule(exprate);
+					ss << " exp: " << (exprate - 100) << "%";
+				}
+
+				if ((schedENode.attribute("lootrate"))) {
+					uint16_t lootrate = pugi::cast<uint16_t>(schedENode.attribute("lootrate").value());
+					g_game.setLootSchedule(lootrate);
+					ss << ", loot: " << (lootrate - 100) << "%";
+				}
+
+				if ((schedENode.attribute("spawnrate"))) {
+					uint32_t spawnrate = pugi::cast<uint32_t>(schedENode.attribute("spawnrate").value());
+					g_game.setSpawnSchedule(spawnrate);
+					ss << ", spawn: "  << (spawnrate - 100) << "%";
+				}
+
+				if ((schedENode.attribute("skillrate"))) {
+					uint16_t skillrate = pugi::cast<uint16_t>(schedENode.attribute("skillrate").value());
+					g_game.setSkillSchedule(skillrate);
+					ss << ", skill: " << (skillrate - 100) << "%";
+				}
+			}
+		std::cout << ss.str() << "." << std::endl;
+	}
+	return true;
+}
+
 void Game::setGameState(GameState_t newState)
 {
 	if (gameState == GAME_STATE_SHUTDOWN) {
@@ -904,6 +984,26 @@ void Game::playerTeleport(uint32_t playerId, const Position& newPosition) {
   }
 }
 
+void Game::playerInspectItem(Player* player, const Position& pos) {
+	Thing* thing = internalGetThing(player, pos, 0, 0, STACKPOS_TOPDOWN_ITEM);
+	if (!thing) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	Item* item = thing->getItem();
+	if (!item) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	player->sendItemInspection(item->getClientID(), item->getItemCount(), item, false);
+}
+
+void Game::playerInspectItem(Player* player, uint16_t itemId, uint8_t itemCount, bool cyclopedia) {
+	player->sendItemInspection(itemId, itemCount, nullptr, cyclopedia);
+}
+
 void Game::playerMoveThing(uint32_t playerId, const Position& fromPos,
                            uint16_t spriteId, uint8_t fromStackPos, const Position& toPos, uint8_t count)
 {
@@ -1415,7 +1515,7 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 				return retExchangeMaxCount;
 			}
 
-			if (toCylinder->queryRemove(*toItem, toItem->getItemCount(), flags) == RETURNVALUE_NOERROR) {
+			if (toCylinder->queryRemove(*toItem, toItem->getItemCount(), flags, actor) == RETURNVALUE_NOERROR) {
 				int32_t oldToItemIndex = toCylinder->getThingIndex(toItem);
 				toCylinder->removeThing(toItem, toItem->getItemCount());
 				fromCylinder->addThing(toItem);
@@ -1455,7 +1555,7 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 
 	Item* moveItem = item;
 	//check if we can remove this item
-	ret = fromCylinder->queryRemove(*item, m, flags);
+	ret = fromCylinder->queryRemove(*item, m, flags, actor);
 	if (ret != RETURNVALUE_NOERROR) {
 		return ret;
 	}
@@ -3544,6 +3644,16 @@ void Game::playerRequestTrade(uint32_t playerId, const Position& pos, uint8_t st
 	if (tradeItem->getClientID() != spriteId || !tradeItem->isPickupable() || tradeItem->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
+	}
+  
+  if (g_config.getBoolean(ConfigManager::ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS)) {
+		if (HouseTile* houseTile = dynamic_cast<HouseTile*>(tradeItem->getTile())) {
+			House* house = houseTile->getHouse();
+			if (house && !house->isInvited(player)) {
+				player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+				return;
+			}
+		}
 	}
 
 	const Position& playerPosition = player->getPosition();
@@ -6451,6 +6561,256 @@ void Game::kickPlayer(uint32_t playerId, bool displayEffect)
 	player->kickPlayer(displayEffect);
 }
 
+void Game::playerCyclopediaCharacterInfo(Player* player, uint32_t characterID, CyclopediaCharacterInfoType_t characterInfoType, uint16_t entriesPerPage, uint16_t page) {
+	uint32_t playerGUID = player->getGUID();
+  if (characterID != playerGUID) {
+		//For now allow viewing only our character since we don't have tournaments supported
+		player->sendCyclopediaCharacterNoData(characterInfoType, 2);
+		return;
+	}
+
+	switch (characterInfoType) {
+	case CYCLOPEDIA_CHARACTERINFO_BASEINFORMATION: player->sendCyclopediaCharacterBaseInformation(); break;
+	case CYCLOPEDIA_CHARACTERINFO_GENERALSTATS: player->sendCyclopediaCharacterGeneralStats(); break;
+	case CYCLOPEDIA_CHARACTERINFO_COMBATSTATS: player->sendCyclopediaCharacterCombatStats(); break;
+  case CYCLOPEDIA_CHARACTERINFO_RECENTDEATHS: {
+    std::ostringstream query;
+    uint32_t offset = static_cast<uint32_t>(page - 1) * entriesPerPage;
+			query << "SELECT `time`, `level`, `killed_by`, `mostdamage_by`, (select count(*) FROM `player_deaths` WHERE `player_id` = " << playerGUID << ") as `entries` FROM `player_deaths` WHERE `player_id` = " << playerGUID << " ORDER BY `time` DESC LIMIT " << offset << ", " << entriesPerPage;
+
+			uint32_t playerID = player->getID();
+			std::function<void(DBResult_ptr, bool)> callback = [playerID, page, entriesPerPage](DBResult_ptr result, bool) {
+				Player* player = g_game.getPlayerByID(playerID);
+				if (!player) {
+					return;
+				}
+
+				player->resetAsyncOngoingTask(PlayerAsyncTask_RecentDeaths);
+				if (!result) {
+					player->sendCyclopediaCharacterRecentDeaths(0, 0, {});
+					return;
+				}
+
+				uint32_t pages = result->getNumber<uint32_t>("entries");
+				pages += entriesPerPage - 1;
+				pages /= entriesPerPage;
+
+				std::vector<RecentDeathEntry> entries;
+				entries.reserve(result->countResults());
+				do {
+					std::string cause1 = result->getString("killed_by");
+					std::string cause2 = result->getString("mostdamage_by");
+
+					std::ostringstream cause;
+					cause << "Died at Level " << result->getNumber<uint32_t>("level") << " by";
+					if (!cause1.empty()) {
+						const char& character = cause1.front();
+						if (character == 'a' || character == 'e' || character == 'i' || character == 'o' || character == 'u') {
+							cause << " an ";
+						} else {
+							cause << " a ";
+						}
+						cause << cause1;
+					}
+
+					if (!cause2.empty()) {
+						if (!cause1.empty()) {
+							cause << " and ";
+						}
+
+						const char& character = cause2.front();
+						if (character == 'a' || character == 'e' || character == 'i' || character == 'o' || character == 'u') {
+							cause << " an ";
+						} else {
+							cause << " a ";
+						}
+						cause << cause2;
+					}
+					cause << '.';
+					entries.emplace_back(std::move(cause.str()), result->getNumber<uint32_t>("time"));
+				} while (result->next());
+				player->sendCyclopediaCharacterRecentDeaths(page, static_cast<uint16_t>(pages), entries);
+			};
+			g_databaseTasks.addTask(std::move(query.str()), callback, true);
+			player->addAsyncOngoingTask(PlayerAsyncTask_RecentDeaths);
+			break;
+	}
+	case CYCLOPEDIA_CHARACTERINFO_RECENTPVPKILLS: {
+			// TODO: add guildwar, assists and arena kills
+			Database& db = Database::getInstance();
+			const std::string& escapedName = db.escapeString(player->getName());
+			std::ostringstream query;
+			uint32_t offset = static_cast<uint32_t>(page - 1) * entriesPerPage;
+			query << "SELECT `d`.`time`, `d`.`killed_by`, `d`.`mostdamage_by`, `d`.`unjustified`, `d`.`mostdamage_unjustified`, `p`.`name`, (select count(*) FROM `player_deaths` WHERE ((`killed_by` = " << escapedName << " AND `is_player` = 1) OR (`mostdamage_by` = " << escapedName << " AND `mostdamage_is_player` = 1))) as `entries` FROM `player_deaths` AS `d` INNER JOIN `players` AS `p` ON `d`.`player_id` = `p`.`id` WHERE ((`d`.`killed_by` = " << escapedName << " AND `d`.`is_player` = 1) OR (`d`.`mostdamage_by` = " << escapedName << " AND `d`.`mostdamage_is_player` = 1)) ORDER BY `time` DESC LIMIT " << offset << ", " << entriesPerPage;
+
+			uint32_t playerID = player->getID();
+			std::function<void(DBResult_ptr, bool)> callback = [playerID, page, entriesPerPage](DBResult_ptr result, bool) {
+				Player* player = g_game.getPlayerByID(playerID);
+				if (!player) {
+					return;
+				}
+
+				player->resetAsyncOngoingTask(PlayerAsyncTask_RecentPvPKills);
+				if (!result) {
+					player->sendCyclopediaCharacterRecentPvPKills(0, 0, {});
+					return;
+				}
+
+				uint32_t pages = result->getNumber<uint32_t>("entries");
+				pages += entriesPerPage - 1;
+				pages /= entriesPerPage;
+
+				std::vector<RecentPvPKillEntry> entries;
+				entries.reserve(result->countResults());
+				do {
+					std::string cause1 = result->getString("killed_by");
+					std::string cause2 = result->getString("mostdamage_by");
+					std::string name = result->getString("name");
+
+					uint8_t status = CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_JUSTIFIED;
+					if (player->getName() == cause1) {
+						if (result->getNumber<uint32_t>("unjustified") == 1) {
+							status = CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_UNJUSTIFIED;
+						}
+					} else if (player->getName() == cause2) {
+						if (result->getNumber<uint32_t>("mostdamage_unjustified") == 1) {
+							status = CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_UNJUSTIFIED;
+						}
+					}
+
+					std::ostringstream description;
+					description << "Killed " << name << '.';
+					entries.emplace_back(std::move(description.str()), result->getNumber<uint32_t>("time"), status);
+				} while (result->next());
+				player->sendCyclopediaCharacterRecentPvPKills(page, static_cast<uint16_t>(pages), entries);
+			};
+			g_databaseTasks.addTask(std::move(query.str()), callback, true);
+			player->addAsyncOngoingTask(PlayerAsyncTask_RecentPvPKills);
+			break;
+	}
+	case CYCLOPEDIA_CHARACTERINFO_ACHIEVEMENTS: player->sendCyclopediaCharacterAchievements(); break;
+	case CYCLOPEDIA_CHARACTERINFO_ITEMSUMMARY: player->sendCyclopediaCharacterItemSummary(); break;
+	case CYCLOPEDIA_CHARACTERINFO_OUTFITSMOUNTS: player->sendCyclopediaCharacterOutfitsMounts(); break;
+	case CYCLOPEDIA_CHARACTERINFO_STORESUMMARY: player->sendCyclopediaCharacterStoreSummary(); break;
+	case CYCLOPEDIA_CHARACTERINFO_INSPECTION: player->sendCyclopediaCharacterInspection(); break;
+	case CYCLOPEDIA_CHARACTERINFO_BADGES: player->sendCyclopediaCharacterBadges(); break;
+	case CYCLOPEDIA_CHARACTERINFO_TITLES: player->sendCyclopediaCharacterTitles(); break;
+  default: player->sendCyclopediaCharacterNoData(characterInfoType, 1); break;
+	}
+}
+
+void Game::playerHighscores(Player* player, HighscoreType_t type, uint8_t category, uint32_t vocation, const std::string&, uint16_t page, uint8_t entriesPerPage)
+{
+	if (player->hasAsyncOngoingTask(PlayerAsyncTask_Highscore)) {
+		return;
+	}
+
+	std::string categoryName;
+	switch (category) {
+		case HIGHSCORE_CATEGORY_FIST_FIGHTING: categoryName = "skill_fist"; break;
+		case HIGHSCORE_CATEGORY_CLUB_FIGHTING: categoryName = "skill_club"; break;
+		case HIGHSCORE_CATEGORY_SWORD_FIGHTING: categoryName = "skill_sword"; break;
+		case HIGHSCORE_CATEGORY_AXE_FIGHTING: categoryName = "skill_axe"; break;
+		case HIGHSCORE_CATEGORY_DISTANCE_FIGHTING: categoryName = "skill_dist"; break;
+		case HIGHSCORE_CATEGORY_SHIELDING: categoryName = "skill_shielding"; break;
+		case HIGHSCORE_CATEGORY_FISHING: categoryName = "skill_fishing"; break;
+		case HIGHSCORE_CATEGORY_MAGIC_LEVEL: categoryName = "maglevel"; break;
+		default: {
+			category = HIGHSCORE_CATEGORY_EXPERIENCE;
+			categoryName = "experience";
+			break;
+		}
+	}
+
+	std::ostringstream query;
+	if (type == HIGHSCORE_GETENTRIES) {
+		uint32_t startPage = (static_cast<uint32_t>(page - 1) * static_cast<uint32_t>(entriesPerPage));
+		uint32_t endPage = startPage + static_cast<uint32_t>(entriesPerPage);
+		query << "SELECT *, @row AS `entries`, " << page << " AS `page` FROM (SELECT *, (@row := @row + 1) AS `rn` FROM (SELECT `id`, `name`, `level`, `vocation`, `" << categoryName << "` AS `points`, @curRank := IF(@prevRank = `" << categoryName << "`, @curRank, IF(@prevRank := `" << categoryName << "`, @curRank + 1, @curRank + 1)) AS `rank` FROM `players` `p`, (SELECT @curRank := 0, @prevRank := NULL, @row := 0) `r` WHERE `group_id`<3 ORDER BY `" << categoryName << "` DESC) `t`";
+		if (vocation != 0xFFFFFFFF) {
+			bool firstVocation = true;
+
+			const auto& vocationsMap = g_vocations.getVocations();
+			for (const auto& it : vocationsMap) {
+				const Vocation& voc = it.second;
+				if (voc.getFromVocation() == vocation) {
+					if (firstVocation) {
+						query << " WHERE `vocation` = " << voc.getId();
+						firstVocation = false;
+					} else {
+						query << " OR `vocation` = " << voc.getId();
+					}
+				}
+			}
+		}
+		query << ") `T` WHERE `rn` > " << startPage << " AND `rn` <= " << endPage;
+	} else if (type == HIGHSCORE_OURRANK) {
+		std::string entriesStr = std::to_string(entriesPerPage);
+		query << "SELECT *, @row AS `entries`, (@ourRow DIV " << entriesStr << ") + 1 AS `page` FROM (SELECT *, (@row := @row + 1) AS `rn`, @ourRow := IF(`id` = " << player->getGUID() << ", @row - 1, @ourRow) AS `rw` FROM (SELECT `id`, `name`, `level`, `vocation`, `" << categoryName << "` AS `points`, @curRank := IF(@prevRank = `" << categoryName << "`, @curRank, IF(@prevRank := `" << categoryName << "`, @curRank + 1, @curRank + 1)) AS `rank` FROM `players` `p`, (SELECT @curRank := 0, @prevRank := NULL, @row := 0, @ourRow := 0) `r` WHERE `group_id`<3 ORDER BY `" << categoryName << "` DESC) `t`";
+		if (vocation != 0xFFFFFFFF) {
+			bool firstVocation = true;
+
+			const auto& vocationsMap = g_vocations.getVocations();
+			for (const auto& it : vocationsMap) {
+				const Vocation& voc = it.second;
+				if (voc.getFromVocation() == vocation) {
+					if (firstVocation) {
+						query << " WHERE `vocation` = " << voc.getId();
+						firstVocation = false;
+					} else {
+						query << " OR `vocation` = " << voc.getId();
+					}
+				}
+			}
+		}
+		query << ") `T` WHERE `rn` > ((@ourRow DIV " << entriesStr << ") * " << entriesStr << ") AND `rn` <= (((@ourRow DIV " << entriesStr << ") * " << entriesStr << ") + " << entriesStr << ")";
+	}
+
+	uint32_t playerID = player->getID();
+	std::function<void(DBResult_ptr, bool)> callback = [playerID, category, vocation, entriesPerPage](DBResult_ptr result, bool) {
+		Player* player = g_game.getPlayerByID(playerID);
+		if (!player) {
+			return;
+		}
+
+		player->resetAsyncOngoingTask(PlayerAsyncTask_Highscore);
+		if (!result) {
+			player->sendHighscoresNoData();
+			return;
+		}
+
+		uint16_t page = result->getNumber<uint16_t>("page");
+		uint32_t pages = result->getNumber<uint32_t>("entries");
+		pages += entriesPerPage - 1;
+		pages /= entriesPerPage;
+
+		std::vector<HighscoreCharacter> characters;
+		characters.reserve(result->countResults());
+		do {
+			uint8_t characterVocation;
+			Vocation* voc = g_vocations.getVocation(result->getNumber<uint16_t>("vocation"));
+			if (voc) {
+				characterVocation = voc->getClientId();
+			} else {
+				characterVocation = 0;
+			}
+			characters.emplace_back(std::move(result->getString("name")), result->getNumber<uint64_t>("points"), result->getNumber<uint32_t>("id"), result->getNumber<uint32_t>("rank"), result->getNumber<uint16_t>("level"), characterVocation);
+		} while (result->next());
+		player->sendHighscores(characters, category, vocation, page, static_cast<uint16_t>(pages));
+	};
+	g_databaseTasks.addTask(std::move(query.str()), callback, true);
+	player->addAsyncOngoingTask(PlayerAsyncTask_Highscore);
+}
+
+void Game::playerTournamentLeaderboard(uint32_t playerId, uint8_t leaderboardType) {
+	Player* player = getPlayerByID(playerId);
+	if (!player || leaderboardType > 1) {
+		return;
+	}
+
+	player->sendTournamentLeaderboard();
+}
+
 void Game::playerReportRuleViolationReport(uint32_t playerId, const std::string& targetName, uint8_t reportType, uint8_t reportReason, const std::string& comment, const std::string& translation)
 {
 	Player* player = getPlayerByID(playerId);
@@ -6610,12 +6970,9 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 		return;
 	}
 
-	uint64_t fee = (price / 100.) * amount;
-	if (fee < 20) {
-		fee = 20;
-	} else if (fee > 1000) {
-		fee = 1000;
-	}
+	uint64_t calcFee = (price / 100.) * amount;
+	uint32_t minFee = std::min<uint32_t>(100000, calcFee);
+	uint32_t fee = std::max<uint32_t>(20, minFee);
 
 	if (type == MARKETACTION_SELL) {
 
@@ -7068,7 +7425,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 				return;
 			}
 
-			Container* inbox = thing->getItem()->getContainer(); //TODO: Not the right way to get the storeInbox
+			Container* inbox = thing->getItem()->getContainer();  // TODO: Not the right way to get the storeInbox
 			if (!inbox) {
 				player->sendStoreError(STORE_ERROR_NETWORK, "We cannot locate your store inbox, try again after relog and if this error persists, contact the system administrator.");
 				return;
@@ -7268,7 +7625,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 				message << "female.";
 			}
 			playerChangeOutfit(player->getID(),playerOutfit);
-			//TODO: add the other sex equivalent outfits player already have in the current sex.
+			// TODO: add the other sex equivalent outfits player already have in the current sex.
       account.LoadAccountDB(player->getAccount());
       account.RemoveCoins(offer->price);
       account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
@@ -7365,7 +7722,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 			player->sendStorePurchaseSuccessful(message.str(), coins);
 			return;
 		} else {
-			//TODO: BOOST_XP and BOOST_STAMINA (the support systems are not yet implemented)
+			// TODO: BOOST_XP and BOOST_STAMINA (the support systems are not yet implemented)
 			player->sendStoreError(STORE_ERROR_INFORMATION, "JLCVP: NOT YET IMPLEMENTED!");
 			return;
 		}
@@ -7712,16 +8069,9 @@ void Game::removeUniqueItem(uint16_t uniqueId)
 bool Game::reload(ReloadTypes_t reloadType)
 {
 	switch (reloadType) {
-		case RELOAD_TYPE_ACTIONS: return g_actions->reload();
 		case RELOAD_TYPE_CHAT: return g_chat->load();
 		case RELOAD_TYPE_CONFIG: return g_config.reload();
-		case RELOAD_TYPE_CREATURESCRIPTS: {
-			g_creatureEvents->reload();
-			g_creatureEvents->removeInvalidEvents();
-			return true;
-		}
 		case RELOAD_TYPE_EVENTS: return g_events->load();
-		case RELOAD_TYPE_GLOBALEVENTS: return g_globalEvents->reload();
 		case RELOAD_TYPE_ITEMS: return Item::items.reload();
 		case RELOAD_TYPE_MODULES: return g_modules->reload();
 		case RELOAD_TYPE_MOUNTS: return mounts.reload();
@@ -7740,8 +8090,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 			}
 			return true;
 		}
-
-		case RELOAD_TYPE_TALKACTIONS: return g_talkActions->reload();
 
 		case RELOAD_TYPE_SCRIPTS: {
 			// commented out stuff is TODO, once we approach further in revscriptsys
@@ -7764,17 +8112,13 @@ bool Game::reload(ReloadTypes_t reloadType)
 				std::terminate();
 			}
 
-			g_actions->reload();
 			g_config.reload();
-			g_creatureEvents->reload();
 			Npcs::reload();
 			raids.reload() && raids.startup();
-			g_talkActions->reload();
 			Item::items.reload();
 			g_weapons->clear(true);
 			g_weapons->loadDefaults();
 			mounts.reload();
-			g_globalEvents->reload();
 			g_events->load();
 			g_chat->load();
 			g_actions->clear(true);

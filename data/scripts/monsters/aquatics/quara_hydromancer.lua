@@ -46,7 +46,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -68,18 +68,18 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "white pearl", chance = 5250},
-	{id = "black pearl", chance = 3150},
-	{id = "gold coin", chance = 50000, maxCount = 50},
 	{id = "gold coin", chance = 50000, maxCount = 60},
+	{id = "gold coin", chance = 40000, maxCount = 50},
+	{id = "quara eye", chance = 15930},
+	{id = "white pearl", chance = 5250},
 	{id = "small emerald", chance = 5111, maxCount = 2},
-	{id = "wand of cosmic energy", chance = 900},
-	{id = "ring of healing", chance = 1008},
-	{id = "knight armor", chance = 200},
 	{id = "shrimp", chance = 4545, maxCount = 5},
-	{id = "fish fin", chance = 1280},
-	{id = "great mana potion", chance = 3100},
-	{id = "quara eye", chance = 15930}
+	{id = "black pearl", chance = 3150},
+	{id = "great mana potion", chance = 2880},
+	{id = "fish fin", chance = 1410},
+	{id = "ring of healing", chance = 1218},
+	{id = "wand of cosmic energy", chance = 980},
+	{id = "knight armor", chance = 230}
 }
 
 monster.attacks = {

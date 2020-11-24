@@ -775,4 +775,112 @@ enum MagicEffectsType_t : uint8_t {
   MAGIC_EFFECTS_CREATE_DISTANCEEFFECT_REVERSED = 5,//needs uint8_t and deltaX(int8_t), deltaY(int8_t) after type
 };
 
+enum InspectObjectTypes : uint8_t {
+	INSPECT_NORMALOBJECT = 0,
+	INSPECT_NPCTRADE = 1,
+	INSPECT_UNKNOWN = 2,
+	INSPECT_CYCLOPEDIA = 3
+};
+
+enum CyclopediaCharacterInfoType_t : uint8_t {
+	CYCLOPEDIA_CHARACTERINFO_BASEINFORMATION = 0,
+	CYCLOPEDIA_CHARACTERINFO_GENERALSTATS = 1,
+	CYCLOPEDIA_CHARACTERINFO_COMBATSTATS = 2,
+	CYCLOPEDIA_CHARACTERINFO_RECENTDEATHS = 3,
+	CYCLOPEDIA_CHARACTERINFO_RECENTPVPKILLS = 4,
+	CYCLOPEDIA_CHARACTERINFO_ACHIEVEMENTS = 5,
+	CYCLOPEDIA_CHARACTERINFO_ITEMSUMMARY = 6,
+	CYCLOPEDIA_CHARACTERINFO_OUTFITSMOUNTS = 7,
+	CYCLOPEDIA_CHARACTERINFO_STORESUMMARY = 8,
+	CYCLOPEDIA_CHARACTERINFO_INSPECTION = 9,
+	CYCLOPEDIA_CHARACTERINFO_BADGES = 10,
+	CYCLOPEDIA_CHARACTERINFO_TITLES = 11
+};
+
+enum CyclopediaCharacterInfo_OutfitType_t : uint8_t {
+	CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE = 0,
+	CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_QUEST = 1,
+	CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_STORE = 2
+};
+
+enum CyclopediaCharacterInfo_RecentKillStatus_t : uint8_t {
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_JUSTIFIED = 0,
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_UNJUSTIFIED = 1,
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_GUILDWAR = 2,
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_ASSISTED = 3,
+	CYCLOPEDIA_CHARACTERINFO_RECENTKILLSTATUS_ARENA = 4
+};
+
+struct RecentDeathEntry
+{
+	RecentDeathEntry(std::string cause, uint32_t timestamp) :
+		cause(std::move(cause)), timestamp(timestamp) {}
+
+	std::string cause;
+	uint32_t timestamp;
+};
+
+struct RecentPvPKillEntry
+{
+	RecentPvPKillEntry(std::string description, uint32_t timestamp, uint8_t status) :
+		description(std::move(description)), timestamp(timestamp), status(status) {}
+
+	std::string description;
+	uint32_t timestamp;
+	uint8_t status;
+};
+
+enum HighscoreType_t : uint8_t {
+	HIGHSCORE_GETENTRIES = 0,
+	HIGHSCORE_OURRANK = 1
+};
+
+enum HighscoreCategories_t : uint8_t {
+	HIGHSCORE_CATEGORY_EXPERIENCE = 0,
+	HIGHSCORE_CATEGORY_FIST_FIGHTING,
+	HIGHSCORE_CATEGORY_CLUB_FIGHTING,
+	HIGHSCORE_CATEGORY_SWORD_FIGHTING,
+	HIGHSCORE_CATEGORY_AXE_FIGHTING,
+	HIGHSCORE_CATEGORY_DISTANCE_FIGHTING,
+	HIGHSCORE_CATEGORY_SHIELDING,
+	HIGHSCORE_CATEGORY_FISHING,
+	HIGHSCORE_CATEGORY_MAGIC_LEVEL
+};
+
+struct HighscoreCategory
+{
+	HighscoreCategory(const char* name, uint8_t id) :
+		name(name), id(id) {}
+
+	const char* name;
+	uint8_t id;
+};
+
+struct HighscoreCharacter
+{
+	HighscoreCharacter(std::string name, uint64_t points, uint32_t id, uint32_t rank, uint16_t level, uint8_t vocation) :
+		name(std::move(name)), points(points), id(id), rank(rank), level(level), vocation(vocation) {}
+
+	std::string name;
+	uint64_t points;
+	uint32_t id;
+	uint32_t rank;
+	uint16_t level;
+	uint8_t vocation;
+};
+
+enum Cipbia_Elementals_t : uint8_t {
+	CIPBIA_ELEMENTAL_PHYSICAL = 0,
+	CIPBIA_ELEMENTAL_FIRE = 1,
+	CIPBIA_ELEMENTAL_EARTH = 2,
+	CIPBIA_ELEMENTAL_ENERGY = 3,
+	CIPBIA_ELEMENTAL_ICE = 4,
+	CIPBIA_ELEMENTAL_HOLY = 5,
+	CIPBIA_ELEMENTAL_DEATH = 6,
+	CIPBIA_ELEMENTAL_HEALING = 7,
+	CIPBIA_ELEMENTAL_DROWN = 8,
+	CIPBIA_ELEMENTAL_LIFEDRAIN = 9,
+	CIPBIA_ELEMENTAL_UNDEFINED = 10
+};
+
 #endif

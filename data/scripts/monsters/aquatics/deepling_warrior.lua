@@ -49,7 +49,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -68,20 +68,20 @@ monster.voices = {
 monster.loot = {
 	{id = "gold coin", chance = 60000, maxCount = 100},
 	{id = "gold coin", chance = 60000, maxCount = 80},
-	{id = "small emerald", chance = 2854},
-	{id = "life ring", chance = 2941},
-	{id = "fish fin", chance = 961},
-	{id = "great mana potion", chance = 9090},
-	{id = "great health potion", chance = 11111},
-	{id = "heavy trident", chance = 1030},
-	{id = "eye of a deepling", chance = 574},
-	{id = "deepling warts", chance = 10000},
-	{id = "deeptags", chance = 14285},
-	{id = "warrior's axe", chance = 534},
+	{id = "deepling filet", chance = 15285},
+	{id = "deeptags", chance = 14975},
 	{id = "deepling ridge", chance = 11111},
-	{id = "warrior's shield", chance = 684},
-	{id = "deepling filet", chance = 14285},
-	{id = "vortex bolt", chance = 3571, maxCount = 5}
+	{id = "great mana potion", chance = 10210},
+	{id = "deepling warts", chance = 10040},
+	{id = "great health potion", chance = 10030},
+	{id = "vortex bolt", chance = 3431, maxCount = 5},
+	{id = "small emerald", chance = 3104},
+	{id = "life ring", chance = 3001},
+	{id = "heavy trident", chance = 999},
+	{id = "fish fin", chance = 870},
+	{id = "warrior's shield", chance = 610},
+	{id = "eye of a deepling", chance = 610},
+	{id = "warrior's axe", chance = 510}
 }
 
 monster.attacks = {
@@ -98,14 +98,14 @@ monster.defenses = {
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = -10},
-	{type = COMBAT_EARTHDAMAGE, percent = -20},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_DEATHDAMAGE , percent = 10}
 }
 
 monster.immunities = {

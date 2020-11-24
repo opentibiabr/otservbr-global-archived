@@ -20,6 +20,8 @@
 #ifndef FS_GAME_H_3EC96D67DD024E6093B3BAC29B7A6D7F
 #define FS_GAME_H_3EC96D67DD024E6093B3BAC29B7A6D7F
 
+#include <unordered_set>
+
 #include "account.hpp"
 #include "combat.h"
 #include "groups.h"
@@ -108,6 +110,9 @@ class Game
 		WorldType_t getWorldType() const {
 			return worldType;
 		}
+
+		// Event schedule xml load
+		bool loadScheduleEventFromXml();
 
 		Cylinder* internalGetCylinder(Player* player, const Position& pos) const;
 		Thing* internalGetThing(Player* player, const Position& pos, int32_t index,
@@ -341,6 +346,12 @@ class Game
 		void playerAnswerModalWindow(uint32_t playerId, uint32_t modalWindowId, uint8_t button, uint8_t choice);
 		void playerReportRuleViolationReport(uint32_t playerId, const std::string& targetName, uint8_t reportType, uint8_t reportReason, const std::string& comment, const std::string& translation);
 
+    void playerCyclopediaCharacterInfo(Player* player, uint32_t characterID, CyclopediaCharacterInfoType_t characterInfoType, uint16_t entriesPerPage, uint16_t page);
+
+    void playerHighscores(Player* player, HighscoreType_t type, uint8_t category, uint32_t vocation, const std::string& worldName, uint16_t page, uint8_t entriesPerPage);
+
+		void playerTournamentLeaderboard(uint32_t playerId, uint8_t leaderboardType);
+
 		void updatePlayerSaleItems(uint32_t playerId);
 
 		bool internalStartTrade(Player* player, Player* partner, Item* tradeItem);
@@ -563,7 +574,53 @@ class Game
 		GameStore gameStore;
 
 		std::forward_list<Item*> toDecayItems;
+
+    std::unordered_set<Tile*> getTilesToClean() const {
+			return tilesToClean;
+		}
+		void addTileToClean(Tile* tile) {
+			tilesToClean.emplace(tile);
+		}
+		void removeTileToClean(Tile* tile) {
+			tilesToClean.erase(tile);
+		}
+		void clearTilesToClean() {
+			tilesToClean.clear();
+		}
+
 		std::forward_list<Item*> toImbuedItems;
+
+		// Event schedule
+		uint16_t getExpSchedule() const {
+			return expSchedule;
+		}
+		void setExpSchedule(uint16_t exprate) {
+			expSchedule = (expSchedule * exprate)/100;
+		}
+
+		uint16_t getLootSchedule() const {
+			return lootSchedule;
+		}
+		void setLootSchedule(uint16_t lootrate) {
+			lootSchedule = (lootSchedule * lootrate)/100;
+		}
+
+		uint32_t getSpawnSchedule() const {
+			return spawnSchedule;
+		}
+		void setSpawnSchedule(uint32_t spawnrate) {
+			spawnSchedule = (spawnSchedule * spawnrate)/100;
+		}
+
+		uint16_t getSkillSchedule() const {
+			return skillSchedule;
+		}
+		void setSkillSchedule(uint16_t skillrate) {
+			skillSchedule = (skillSchedule * skillrate)/100;
+		}
+
+    void playerInspectItem(Player* player, const Position& pos);
+    void playerInspectItem(Player* player, uint16_t itemId, uint8_t itemCount, bool cyclopedia);
 
 	private:
 		void checkImbuements();
@@ -603,6 +660,8 @@ class Game
 
 		std::map<uint32_t, BedItem*> bedSleepersMap;
 
+    std::unordered_set<Tile*> tilesToClean;
+
 		ModalWindow offlineTrainingWindow { std::numeric_limits<uint32_t>::max(), "Choose a Skill", "Please choose a skill:" };
 
 		static constexpr int32_t DAY_LENGTH_SECONDS = 3600;
@@ -616,6 +675,12 @@ class Game
 
 		GameState_t gameState = GAME_STATE_NORMAL;
 		WorldType_t worldType = WORLD_TYPE_PVP;
+
+		// Event schedule
+		uint16_t expSchedule = 100;
+		uint16_t lootSchedule = 100;
+		uint16_t skillSchedule = 100;
+		uint32_t spawnSchedule = 100;
 
 		LightState_t lightState = LIGHT_STATE_DAY;
 		LightState_t currentLightState = lightState;
