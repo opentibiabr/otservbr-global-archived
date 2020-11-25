@@ -110,9 +110,25 @@ function loadLuaMapBook(tablename)
 end
 
 function loadLuaNpcs(tablename)
+if (tonumber(os.date("%M", os.time())) < 15 or tonumber(os.date("%M", os.time())) >= 45) then
+	dayornight="night"
+elseif (tonumber(os.date("%M", os.time())) >= 15 or tonumber(os.date("%M", os.time())) < 45) then
+	dayornight="day"
+end
 	for index, value in pairs(tablename) do
 		if value.name and value.position then
-			local spawn = Game.createNpc(value.name, value.position)
+			local spawn
+			if value.spawn~=nil then
+				if dayornight=="day" and value.spawn=="day" then
+					spawn = Game.createNpc(value.name, value.position)
+					print("> NPC " .. value.name .. " added!")
+				elseif dayornight=="night" and value.spawn=="night" then
+					spawn = Game.createNpc(value.name, value.position)
+					print("> NPC " .. value.name .. " added!")
+				end
+			else
+				spawn = Game.createNpc(value.name, value.position)
+			end
 			if spawn then
 				spawn:setMasterPos(value.position)
 				Game.setStorageValue(Storage.NpcSpawn, 1)
