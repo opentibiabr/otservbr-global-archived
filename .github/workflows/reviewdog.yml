@@ -26,13 +26,6 @@ jobs:
       run: |
         mkdir -p $HOME/bin && curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b $HOME/bin
 
-    - name: misspell
-      uses: reviewdog/action-misspell@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        locale: "US"
-        reporter: github-pr-check
-
     - name: cpplint
       uses: reviewdog/action-cpplint@master
       with:
