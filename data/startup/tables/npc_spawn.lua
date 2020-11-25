@@ -493,7 +493,7 @@ NpcTable = {
 	[492] = {name = "willem", position = {x = 32063, y = 32020, z = 7}},
 	[493] = {name = "neill", position = {x = 32076, y = 32027, z = 7}},
 	[494] = {name = "lesser_messenger_of_heaven", position = {x = 32536, y = 32026, z = 7}},
-	[495] = {name = "ghostly_wolf", position = {x = 33332, y = 32051, z = 7}},
+	[495] = {name = "ghostly_wolf", position = {x = 33332, y = 32051, z = 7}, spawn="night"},
 	[496] = {name = "valentina", position = {x = 32271, y = 32052, z = 7}},
 	[497] = {name = "tokel", position = {x = 32253, y = 32055, z = 7}},
 	[498] = {name = "ulrik", position = {x = 32281, y = 32056, z = 7}},
@@ -539,7 +539,7 @@ NpcTable = {
 	[538] = {name = "quero", position = {x = 32390, y = 32219, z = 7}},
 	[539] = {name = "hanna", position = {x = 32408, y = 32220, z = 7}},
 	[540] = {name = "xodet", position = {x = 32398, y = 32222, z = 7}},
-	[541] = {name = "valindara", position = {x = 33504, y = 32222, z = 7}},
+	[541] = {name = "valindara", position = {x = 33504, y = 32222, z = 7}, spawn="day"},
 	[542] = {name = "lily", position = {x = 32066, y = 32225, z = 7}},
 	[543] = {name = "taegen", position = {x = 33492, y = 32227, z = 7}},
 	[544] = {name = "palomino", position = {x = 32450, y = 32226, z = 7}},
@@ -953,5 +953,6 @@ NpcTable = {
 	[952] = {name = "ramina", position = {x = 33903, y = 31495, z = 7}},
 	[953] = {name = "orc_berserker_npc", position = {x = 32777, y = 31237, z = 7}},
 	[954] = {name = "one_eyed_joe", position = {x = 32025, y = 32884, z = 6}},
-	[955] = {name = "uzon", position = {x = 32661, y = 31915, z = 0}}
+	[955] = {name = "uzon", position = {x = 32661, y = 31915, z = 0}},
+	[956] = {name = "talila", position = {x = 33504, y = 32222, z = 7}, spawn = "night"}
 }
