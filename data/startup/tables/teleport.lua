@@ -125,6 +125,11 @@ TeleportUnique = {
 		itemId = 1387,
 		itemPos = {x = 32219, y = 31913, z = 15}
 	},
+	-- Path: data\scripts\movements\quests\nightmare_isles\teleport.lua
+	[35020] = {
+		itemId = 11796,
+		itemPos = {x = 33498, y = 32613, z = 8}
+	},
 
 	-- Simple teleports (They are registered automatically, without just configuring the table correctly)
 	-- Path: data\scripts\movements\others\teleport.lua
