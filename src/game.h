@@ -687,7 +687,7 @@ class Game
 		uint8_t lightLevel = LIGHT_LEVEL_DAY;
 		int32_t lightHour = SUNRISE + (SUNSET - SUNRISE) / 2;
 		// (1440 total light of tibian day)/(3600 real seconds each tibian day) * 10 seconds event interval
-		int32_t lightHourDelta = (LIGHT_DAY_LENGTH / DAY_LENGTH_SECONDS) * (EVENT_LIGHTINTERVAL_MS/1000);
+		int32_t lightHourDelta = (LIGHT_DAY_LENGTH * (EVENT_LIGHTINTERVAL_MS/1000)) / DAY_LENGTH_SECONDS;
 
 		ServiceManager* serviceManager = nullptr;
 
