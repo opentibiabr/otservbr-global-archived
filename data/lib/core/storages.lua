@@ -2140,7 +2140,9 @@ Storage = {
 		TheSecretLibrary = {},
 		-- update 12.00
 		DreamWarriorOutfits = {},
-		TheDreamCourts = {},
+		TheDreamCourts = {
+			AndrewDoor = 14900
+		},
 		-- update 12.02
 		TibiaAnniversary = {},
 		WinterlightSolstice = {},

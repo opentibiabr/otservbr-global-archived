@@ -641,6 +641,11 @@ QuestDoorAction = {
 			{x = 32171, y = 31936, z = 7},
 			{x = 32169, y = 31933, z = 7}
 		}
+	},
+	-- The dream courts door (Andrew Lyze npc)
+	[Storage.Quest.TheDreamCourts.AndrewDoor] = {
+		itemId = 22821,
+		itemPos = {{x = 32761, y = 32630, z = 7}},
 	}
 }
 
