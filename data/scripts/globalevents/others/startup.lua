@@ -17,6 +17,9 @@ function serverstartup.onStartup()
 	-- Chest table
 	loadLuaMapAction(ChestAction)
 	loadLuaMapUnique(ChestUnique)
+	-- Chest key table
+	loadLuaMapAction(ChestKeyAction)
+	loadLuaMapUnique(ChestKeyUnique)
 	-- Corpse table
 	loadLuaMapAction(CorpseAction)
 	loadLuaMapUnique(CorpseUnique)

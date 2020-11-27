@@ -20,7 +20,6 @@ Noodles ****]]
 	}
 }
 
-local commonReward = Action()
 local function playerAddItem(params, item)
 	local player = params.player
 	if not checkWeightAndBackpackRoom(player, params.weight, params.message) then
@@ -38,50 +37,104 @@ local function playerAddItem(params, item)
 	return true
 end
 
-function commonReward.onUse(player, item, fromPosition, itemEx, toPosition)
+local function playerAddContainerItem(params, item)
+	local player = params.player
+	local message =  "You have found a " .. getItemName(params.itemBagName) .. "."
+
+	local reward = params.containerReward
+	reward:addItem(params.itemid, params.count)
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(params.itemBagName) .. ".")
+	player:setStorageValue(params.storage, 1)
+	return true
+end
+
+local questReward = Action()
+
+function questReward.onUse(player, item, fromPosition, itemEx, toPosition)
 	local setting = ChestUnique[item.uid]
 	if not setting then
 		return true
 	end
+
+	if setting.weight then
+		local message = "You have found a " .. getItemName(setting.container) .. "."
+
+		local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+		if not backpack or backpack:getEmptySlots(true) < 1 then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message .. " But you have no room to take it.")
+			return true
+		end
+		if (player:getFreeCapacity() / 100) < setting.weight then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+			message .. ". Weighing " .. setting.weight .. " oz, it is too heavy for you to carry.")
+			return true
+		end
+	end
+
 	if player:getStorageValue(setting.storage) >= 0 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The ".. getItemName(setting.itemId) .. " is empty.")
 		return true
 	end
 
+	local container = player:addItem(setting.container)
 	for i = 1, #setting.itemReward do
 		local itemid = setting.itemReward[i][1]
 		local count = setting.itemReward[i][2]
 		local itemDescriptions = getItemDescriptions(itemid)
 		local itemArticle = itemDescriptions.article
 		local itemName = itemDescriptions.name
-		local addItemParams = {
-			player = player,
-			itemid = itemid,
-			count = count,
-			weight = getItemWeight(itemid) * count,
-			storage = setting.storage
-		}
+		local itemBagName = setting.container
+		local itemBag = container
 
-		if count > 1 and ItemType(itemid):isStackable() then
-			if (itemDescriptions.plural) then
-				itemName = itemDescriptions.plural
+		if not setting.container then
+			local addItemParams = {
+				player = player,
+				itemid = itemid,
+				count = count,
+				weight = getItemWeight(itemid) * count,
+				storage = setting.storage
+			}
+
+			if count > 1 and ItemType(itemid):isStackable() then
+				if (itemDescriptions.plural) then
+					itemName = itemDescriptions.plural
+				end
+				addItemParams.message = "You have found " .. count .. " " .. itemName
+			elseif ItemType(itemid):getCharges() > 0 then
+				addItemParams.message = "You have found " .. itemArticle .. " " .. itemName
+			else
+				addItemParams.message = "You have found " .. itemArticle .. " " .. itemName
 			end
-			addItemParams.message = "You have found " .. count .. " " .. itemName
-		elseif ItemType(itemid):getCharges() > 0 then
-			addItemParams.message = "You have found " .. itemArticle .. " " .. itemName
-		else
-			addItemParams.message = "You have found " .. itemArticle .. " " .. itemName
+			if not playerAddItem(addItemParams, item) then
+				return true
+			end
 		end
 
-		if not playerAddItem(addItemParams, item) then
-			return true
+		if setting.container then
+			local addContainerItemParams = {
+				player = player,
+				itemid = itemid,
+				count = count,
+				weight = setting.weight,
+				storage = setting.storage,
+				itemBagName = itemBagName,
+				containerReward = itemBag
+			}
+
+			if not playerAddContainerItem(addContainerItemParams, item) then
+				return true
+			end
 		end
 	end
 	return true
 end
 
-for uniqueRange = 6001, 8000 do
-	commonReward:uid(uniqueRange)
+for uniqueRange = 6001, 9000 do
+	questReward:uid(uniqueRange)
 end
 
-commonReward:register()
+for uniqueRange = 10000, 12000 do
+	questReward:uid(uniqueRange)
+end
+
+questReward:register()
