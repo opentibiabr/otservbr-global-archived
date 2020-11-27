@@ -1262,6 +1262,7 @@ class LuaScriptInterface
 		static int luaItemTypeIsMagicField(lua_State* L);
 		static int luaItemTypeIsUseable(lua_State* L);
 		static int luaItemTypeIsPickupable(lua_State* L);
+		static int luaItemTypeIsKey(lua_State* L);
 
 		static int luaItemTypeGetType(lua_State* L);
 		static int luaItemTypeGetId(lua_State* L);
