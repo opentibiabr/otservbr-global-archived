@@ -143,6 +143,7 @@ end
 for index, value in pairs(specialQuests) do
 	questSystem1:aid(index)
 end
-
 questSystem1:aid(2000)
+questSystem1:uid(64140)
+
 questSystem1:register()
