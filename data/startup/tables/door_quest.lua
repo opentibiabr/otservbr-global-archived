@@ -645,7 +645,17 @@ QuestDoorAction = {
 	-- The dream courts door (Andrew Lyze npc)
 	[Storage.Quest.TheDreamCourts.AndrewDoor] = {
 		itemId = 22821,
-		itemPos = {{x = 32761, y = 32630, z = 7}},
+		itemPos = {{x = 32761, y = 32630, z = 7}}
+	},
+	-- Kilmaresh doors
+	[Storage.Kilmaresh.First.Title] = {
+		itemId = false,
+		itemPos = {
+			{x = 33959, y = 31501, z = 4},
+			{x = 33375, y = 31346, z = 5},
+			{x = 33371, y = 31349, z = 4},
+			{x = 33376, y = 31335, z = 3}
+		}
 	}
 }
 
