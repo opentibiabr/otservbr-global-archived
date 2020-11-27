@@ -39,16 +39,8 @@ ChestAction = {
 			{x = 32813, y = 31964, z = 7}
 		},
 		action = 5010,
-		itemReward = 2088,
+		itemReward = {{2088}},
 		storage = Storage.Quest.BlackKnight.Key5010
-	},
-	[6001] = {
-		itemId = xxxx,
-		itemPos = {
-			{x = xxxxx, y = xxxxx, z = x},
-			{x = xxxxx, y = xxxxx, z = x}
-		},
-		storage = storage
 	}
 }
 
@@ -68,7 +60,7 @@ ChestUnique = {
 		itemId = 1290,
 		itemPos = {x = 32652, y = 32107, z = 7},
 		action = 4055,
-		itemReward = {2088, 1},
+		itemReward = {{2088, 1}},
 		storage = Storage.Quest.Panpipe.Key4055
 	},
 	-- Dawnport quest key 0010 chest
@@ -76,7 +68,7 @@ ChestUnique = {
 		itemId = 1717,
 		itemPos = {x = 32068, y = 31895, z = 3},
 		action = 103,
-		itemReward = 23763,
+		itemReward = {{23763, 1}},
 		storage = Storage.Quest.Dawnport.Key0010
 	},
 	-- Emperor's cookies quest key 3800
@@ -84,7 +76,7 @@ ChestUnique = {
 		itemId = 1740,
 		itemPos = {x = 32605, y = 31908, z = 3},
 		action = 3800,
-		itemReward = 2089,
+		itemReward = {{2089, 1}},
 		storage = Storage.Quest.EmperorsCookies.Key3800
 	},
 	-- Emperor's cookies quest key 3802
@@ -92,7 +84,7 @@ ChestUnique = {
 		itemId = 1740,
 		itemPos = {x = 32599, y = 31923, z = 6},
 		action = 3802,
-		itemReward = 2089,
+		itemReward = {{2089, 1}},
 		storage = Storage.Quest.EmperorsCookies.Key3802
 	},
 
