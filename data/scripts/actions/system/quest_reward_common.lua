@@ -26,25 +26,47 @@ local function playerAddItem(params, item)
 		return false
 	end
 
-	addItem = player:addItem(params.itemid, params.count)
-	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, params.message .. ".")
-	player:setStorageValue(params.storage, 1)
-	-- If the item is writeable, just put its unique and the text in the "AttributeTable"
-	local attribute = AttributeTable[item.uid]
-	if attribute then
-		addItem:setAttribute(ITEM_ATTRIBUTE_TEXT, attribute.text)
+	if params.action then
+		local itemType = ItemType(params.itemid)
+		if itemType:isKey() then
+			keyItem = player:addItem(params.itemid, params.count)
+			keyItem:setActionId(params.action)
+		end
+	else
+		addItem = player:addItem(params.itemid, params.count)
+		-- If the item is writeable, just put its unique and the text in the "AttributeTable"
+		local attribute = AttributeTable[item.uid]
+		if attribute then
+			addItem:setAttribute(ITEM_ATTRIBUTE_TEXT, attribute.text)
+		end
 	end
+
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, params.message .. ".")
+	--player:setStorageValue(params.storage, 1)
 	return true
 end
 
 local function playerAddContainerItem(params, item)
 	local player = params.player
-	local message =  "You have found a " .. getItemName(params.itemBagName) .. "."
-
+	
 	local reward = params.containerReward
-	reward:addItem(params.itemid, params.count)
-	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(params.itemBagName) .. ".")
-	player:setStorageValue(params.storage, 1)
+	if params.action then
+		local itemType = ItemType(params.itemid)
+		if itemType:isKey() then
+			keyItem = reward:addItem(params.itemid, params.count)
+			keyItem:setActionId(params.action)
+			return true
+		end
+	
+		reward:addItem(params.itemid, params.count)
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(params.itemBagName) .. ".")
+		--player:setStorageValue(params.storage, 1)
+		-- If the item is writeable, just put its unique and the text in the "AttributeTable"
+		local attribute = AttributeTable[item.uid]
+		if attribute then
+			addItem:setAttribute(ITEM_ATTRIBUTE_TEXT, attribute.text)
+		end
+	end
 	return true
 end
 
@@ -85,11 +107,13 @@ function questReward.onUse(player, item, fromPosition, itemEx, toPosition)
 		local itemName = itemDescriptions.name
 		local itemBagName = setting.container
 		local itemBag = container
+		local action = setting.action
 
 		if not setting.container then
 			local addItemParams = {
 				player = player,
 				itemid = itemid,
+				action = action,
 				count = count,
 				weight = getItemWeight(itemid) * count,
 				storage = setting.storage
@@ -114,6 +138,7 @@ function questReward.onUse(player, item, fromPosition, itemEx, toPosition)
 			local addContainerItemParams = {
 				player = player,
 				itemid = itemid,
+				action = action,
 				count = count,
 				weight = setting.weight,
 				storage = setting.storage,
@@ -129,7 +154,7 @@ function questReward.onUse(player, item, fromPosition, itemEx, toPosition)
 	return true
 end
 
-for uniqueRange = 6001, 9000 do
+for uniqueRange = 5000, 9000 do
 	questReward:uid(uniqueRange)
 end
 
@@ -138,3 +163,27 @@ for uniqueRange = 10000, 12000 do
 end
 
 questReward:register()
+
+-- Action chests
+keyReward = Action()
+
+function keyReward.onUse(player, item, fromPosition, itemEx, toPosition)
+	local setting = ChestAction[item.actionid]
+	if setting then
+		if player:getStorageValue(setting.storage) < 0 then
+			player:setStorageValue(setting.storage, 1)
+			local key = player:addItem(setting.itemReward, 1)
+			if key then
+				key:setActionId(setting.keyAction)
+			end
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(setting.itemReward) .. ".")
+		else
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The ".. getItemName(setting.itemId) .. " is empty.")
+		end
+	end
+	return true
+end
+
+keyReward:aid(5000)
+
+keyReward:register()

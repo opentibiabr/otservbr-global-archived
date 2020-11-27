@@ -1,6 +1,5 @@
 dofile('data/startup/tables/additional_map.lua')
 dofile('data/startup/tables/chest.lua')
-dofile('data/startup/tables/chest_key.lua')
 dofile('data/startup/tables/corpse.lua')
 dofile('data/startup/tables/door_key.lua')
 dofile('data/startup/tables/door_level.lua')

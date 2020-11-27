@@ -1,7 +1,8 @@
 --[[
 	Look README.md for see the reserved action/unique numbers
+	From range 5000 to 6000 is reserved for keys chest
 	From range 6001 to 14000 is reserved for script reward
-	Path: data\scripts\actions\system\quest_reward.lua
+	Path: data\scripts\actions\system\quest_reward_common.lua
 
 	From range 14001 to 15000 is reserved for others scripts (varied rewards)
 
@@ -9,11 +10,13 @@
 	So the quest will work in-game
 
 	Example:
-	[6001] = {
+	[xxxx] = {
 		-- For use of the map
 		itemId = xxxx,
 		itemPos = {x = xxxxx, y = xxxxx, z = x},
 		-- For use of the script
+		container = xxxx (it's for use reward in a container, only put the id of the container here)
+		action = xxxx, (it's for use one key in the chest, only put the key in itemReward and action here)
 		itemReward = {{xxxx, x}},
 		storage = xxxxx
 	},
@@ -26,6 +29,19 @@
 ]]
 
 ChestAction = {
+	-- Keys quest
+	-- data\scripts\actions\system\quest_reward_key.lua
+	-- Black knight quest key 5010
+	[5000] = {
+		itemId = 2720,
+		itemPos = {
+			{x = 32800, y = 31959, z = 7},
+			{x = 32813, y = 31964, z = 7}
+		},
+		action = 5010,
+		itemReward = 2088,
+		storage = Storage.Quest.BlackKnight.Key5010
+	},
 	[6001] = {
 		itemId = xxxx,
 		itemPos = {
@@ -37,6 +53,49 @@ ChestAction = {
 }
 
 ChestUnique = {
+	-- Keys quest
+	-- data\scripts\actions\system\quest_reward_key.lua
+	-- Deeper fibula quest key 3980
+	[5000] = {
+		itemId = 385,
+		itemPos = {x = 32219, y = 32401, z = 10},
+		action = 3980,
+		itemReward = {{2091, 1}},
+		storage = Storage.Quest.DeeperFibula.Key3980
+	},
+	-- Panpipe quest key 4055
+	[5001] = {
+		itemId = 1290,
+		itemPos = {x = 32652, y = 32107, z = 7},
+		action = 4055,
+		itemReward = {2088, 1},
+		storage = Storage.Quest.Panpipe.Key4055
+	},
+	-- Dawnport quest key 0010 chest
+	[5002] = {
+		itemId = 1717,
+		itemPos = {x = 32068, y = 31895, z = 3},
+		action = 103,
+		itemReward = 23763,
+		storage = Storage.Quest.Dawnport.Key0010
+	},
+	-- Emperor's cookies quest key 3800
+	[5003] = {
+		itemId = 1740,
+		itemPos = {x = 32605, y = 31908, z = 3},
+		action = 3800,
+		itemReward = 2089,
+		storage = Storage.Quest.EmperorsCookies.Key3800
+	},
+	-- Emperor's cookies quest key 3802
+	[5004] = {
+		itemId = 1740,
+		itemPos = {x = 32599, y = 31923, z = 6},
+		action = 3802,
+		itemReward = 2089,
+		storage = Storage.Quest.EmperorsCookies.Key3802
+	},
+
 	-- To add a reward inside a bag, you need to add the variable "container = bagId" before "itemReward"
 	-- Just duplicate the table and configure correctly, the scripts already register the entire table automatically
 	-- Path: data\scripts\actions\system\quest_reward_common.lua
@@ -488,9 +547,8 @@ ChestUnique = {
 		itemId = 2843,
 		itemPos = {x = 32778, y = 32282, z = 11},
 		container = 1987,
-		keyItem = 2090,
-		keyAction = 3702,
-		itemReward = {{2600, 1}, {2457, 1}, {2524, 1}, {1955, 1}, {2383, 1}, {2201, 1}, {2164, 1}},
+		action = 3702,
+		itemReward = {{2090,1}, {2600, 1}, {2457, 1}, {2524, 1}, {1955, 1}, {2383, 1}, {2201, 1}, {2164, 1}},
 		weight = 194,
 		storage = Storage.Quest.OrnamentedShield.Bag
 	},
@@ -506,9 +564,8 @@ ChestUnique = {
 		itemId = 1740,
 		itemPos = {x = 32648, y = 31905, z = 3},
 		container = 1987,
-		keyItem = 2089,
-		keyAction = 3801,
-		itemReward = {{2687, 20}, {2687, 7}},
+		action = 3801,
+		itemReward = {{2089, 1}, {2687, 20}, {2687, 7}},
 		weight = 44,
 		storage = Storage.Quest.EmperorsCookies.Key3801
 	},
@@ -583,9 +640,8 @@ ChestUnique = {
 		itemId = 1740,
 		itemPos = {x = 32201, y = 31571, z = 10},
 		container = 1987,
-		keyItem = 2089,
-		keyAction = 4502,
-		itemReward = {{2148, 23}, {2260, 1}, {2410, 4}, {2490, 1}},
+		action = 4502,
+		itemReward = {{2089, 1}, {2148, 23}, {2260, 1}, {2410, 4}, {2490, 1}},
 		weight = 80,
 		storage = Storage.Quest.Key4502
 	},
@@ -624,9 +680,8 @@ ChestUnique = {
 		itemId = 1742,
 		itemPos = {x = 33063, y = 31624, z = 15},
 		container = 1987,
-		keyItem = 2091,
-		keyAction = 6010,
-		itemReward = {{2229, 1}, {2151, 2}, {2165, 1}, {2230, 1}},
+		action = 6010,
+		itemReward = {{2091, 1}, {2229, 1}, {2151, 2}, {2165, 1}, {2230, 1}},
 		weight = 42,
 		storage = Storage.Quest.ParchmentRoom.Bag
 	},
