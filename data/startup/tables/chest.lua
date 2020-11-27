@@ -30,17 +30,15 @@
 
 ChestAction = {
 	-- Keys quest
-	-- data\scripts\actions\system\quest_reward_key.lua
-	-- Black knight quest key 5010
 	[5000] = {
-		itemId = 2720,
+		itemId = xxxx,
 		itemPos = {
-			{x = 32800, y = 31959, z = 7},
-			{x = 32813, y = 31964, z = 7}
+			{x = xxxxx, y = xxxxx, z = x},
+			{x = xxxxx, y = xxxxx, z = x}
 		},
-		action = 5010,
-		itemReward = {{2088}},
-		storage = Storage.Quest.BlackKnight.Key5010
+		action = xxxx,
+		itemReward = {{xxxx, 1}},
+		storage = storage
 	}
 }
 
@@ -86,6 +84,21 @@ ChestUnique = {
 		action = 3802,
 		itemReward = {{2089, 1}},
 		storage = Storage.Quest.EmperorsCookies.Key3802
+	},
+	-- Black knight quest key 5010
+	[5005] = {
+		itemId = 2720,
+		itemPos = {x = 32800, y = 31959, z = 7},
+		action = 5010,
+		itemReward = {{2088, 1}},
+		storage = Storage.Quest.BlackKnight.Key5010
+	},
+	[5006] = {
+		itemId = 2720,
+		itemPos = {x = 32813, y = 31964, z = 7},
+		action = 5010,
+		itemReward = {{2088, 1}},
+		storage = Storage.Quest.BlackKnight.Key5010
 	},
 
 	-- To add a reward inside a bag, you need to add the variable "container = bagId" before "itemReward"
