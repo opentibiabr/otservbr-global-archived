@@ -59,7 +59,9 @@ function playerLogin.onLogin(player)
 		end
 	end
 	-- end kick other players from account
-
+	if isPremium(player) then
+		player:setStorageValue(998899,1)
+	end
 	-- Premium Ends Teleport to Temple, change addon (citizen) houseless
 	local defaultTown = "Thais" -- default town where player is teleported if his home town is in premium area
 	local freeTowns = {"Ab'Dendriel", "Carlin", "Kazordoon", "Thais", "Venore"} -- towns in free account area
@@ -72,6 +74,7 @@ function playerLogin.onLogin(player)
 		player:teleportTo(town:getTemplePosition())
 		player:setTown(town)
 		player:sendTextMessage(MESSAGE_STATUS_WARNING, "Your premium time has expired.")
+		player:setStorageValue(998899,0)
 		if Sex == 1 then
 			player:setOutfit({lookType = 128, lookFeet = 114, lookLegs = 134, lookHead = 114,lookAddons = 0})
         end
@@ -85,7 +88,7 @@ function playerLogin.onLogin(player)
         end
 	end
 	-- End 'Premium Ends Teleport to Temple'
-	
+
 	-- Recruiter system
 	local resultId = db.storeQuery('SELECT `recruiter` from `accounts` where `id`='..getAccountNumberByPlayerName(getPlayerName(player)))
 	local recruiterstatus = result.getNumber(resultId, 'recruiter')
