@@ -51,7 +51,7 @@ end
 
 local function playerAddContainerItem(params, item)
 	local player = params.player
-	
+
 	local reward = params.containerReward
 	if params.action then
 		local itemType = ItemType(params.itemid)
@@ -60,7 +60,7 @@ local function playerAddContainerItem(params, item)
 			keyItem:setActionId(params.action)
 			return true
 		end
-	
+
 		reward:addItem(params.itemid, params.count)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(params.itemBagName) .. ".")
 		player:setStorageValue(params.storage, 1)
