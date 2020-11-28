@@ -64,7 +64,50 @@ function playerLogin.onLogin(player)
 		player:getPosition():sendMagicEffect(CONST_ME_HOLYDAMAGE)
     end
 	-- end adventurers blessings
-	
+
+	-- Display of days of Premium Account on the console
+	if player:isPremium() then
+		player:setStorageValue(998899,1)
+		if player:getPremiumDays() >1 then
+			str='You have now ' .. player:getPremiumDays() .. ' Premium days.'
+		else
+			str='You have now ' .. player:getPremiumDays() .. ' Premium day.'
+		end
+		player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, str)
+	else
+		player:setStorageValue(998899,0)
+	end
+	-- end Premium Account
+	-- Premium Ends Teleport to Temple, change addon (citizen) houseless
+	local defaultTown = "Thais" -- default town where player is teleported if his home town is in premium area
+	local freeTowns = {"Ab'Dendriel", "Carlin", "Kazordoon", "Thais", "Venore"} -- towns in free account area
+
+	if ((player:getPremiumDays() <= 0 and player:getStorageValue(998899) == 1) or (player:getPremiumDays() <= 0 and isInArray(freeTowns, player:getTown():getName())==false)) then
+
+		local town = player:getTown()
+		local Sex = player:getSex()
+		local home = getHouseByPlayerGUID(getPlayerGUID(player))
+
+		town = isInArray(freeTowns, town:getName()) and town or Town(defaultTown)
+		player:teleportTo(town:getTemplePosition())
+		player:setTown(town)
+		player:sendTextMessage(MESSAGE_STATUS_WARNING, "Your premium time has expired.")
+		player:setStorageValue(998899, 0)
+		if Sex == 1 then
+			player:setOutfit({lookType = 128, lookFeet = 114, lookLegs = 134, lookHead = 114,lookAddons = 0})
+        end
+        if Sex == 0 then
+			player:setOutfit({lookType = 136, lookFeet = 114, lookLegs = 134, lookHead = 114, lookAddons = 0})
+        end
+
+        if home ~= nil and not isPremium(player) then
+            setHouseOwner(home, 0)
+            player:sendTextMessage(MESSAGE_STATUS_WARNING, 'You\'ve lost your house because you are not premium anymore.')
+			player:sendTextMessage(MESSAGE_STATUS_WARNING, 'Your items from house are send to your inbox.')
+        end
+	end
+	-- End 'Premium Ends Teleport to Temple'
+
 	DailyReward.init(playerId)
 
 	player:loadSpecialStorage()
@@ -75,10 +118,10 @@ function playerLogin.onLogin(player)
 	-- Boosted creature
 	player:sendTextMessage(MESSAGE_LOOT, "Today's boosted creature: " .. BoostedCreature.name .. " \
 	Boosted creatures yield more experience points, carry more loot than usual and respawn at a faster rate.")
-	
+
 	-- Bestiary tracker
 	player:refreshBestiaryTracker()
-		
+
 	-- Stamina
 	nextUseStaminaTime[playerId] = 1
 
