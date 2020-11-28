@@ -128,7 +128,7 @@ local charm_t7 = {}
 
 charm_t7.name = "Cripple"
 charm_t7.description = "Cripples the creature with a certain chance and paralyzes it for 10 seconds."
-charm_t7.type = CHARM_DEFENSIVE
+charm_t7.type = CHARM_OFFENSIVE
 charm_t7.chance = 20
 charm_t7.message_c = "You cripple the monster."
 charm_t7.points = 500
