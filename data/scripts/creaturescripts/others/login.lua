@@ -47,6 +47,24 @@ function playerLogin.onLogin(player)
 		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
 
 	local playerId = player:getId()
+	
+	-- adventurers blessings before 21 level (its first part)
+	-- https://tibia.fandom.com/wiki/Adventurer%27s_Blessing
+	local resultId = db.storeQuery("SELECT * FROM `player_deaths` where `killed_by`='" .. player:getName() .. "'")
+	local resultId2 = db.storeQuery("SELECT * FROM `player_deaths` where `mostdamage_by`='" .. player:getName() .. "'")
+
+    if player:getLevel()<21 and resultId==false and resultId2==false then
+    	for i = 1, 8 do
+    		if not player:hasBlessing(i) then
+    			player:addBlessing(i)
+    		end
+    	end
+
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,'You received adventurers blessings for you to be level less than 20!')
+		player:getPosition():sendMagicEffect(CONST_ME_HOLYDAMAGE)
+    end
+	-- end adventurers blessings
+	
 	DailyReward.init(playerId)
 
 	player:loadSpecialStorage()
