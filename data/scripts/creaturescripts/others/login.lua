@@ -37,30 +37,17 @@ function playerLogin.onLogin(player)
 
 	local playerId = player:getId()
 	
-	-- adventurers blessings before 21 level (its first part)
-	-- https://tibia.fandom.com/wiki/Adventurer%27s_Blessing
-	local resultId = db.storeQuery("SELECT * FROM `player_deaths` where `killed_by`='" .. player:getName() .. "'")
-	local resultId2 = db.storeQuery("SELECT * FROM `player_deaths` where `mostdamage_by`='" .. player:getName() .. "'")
-
-    if player:getLevel()<21 and resultId==false and resultId2==false then
-    	for i = 1, 8 do
-    		if not player:hasBlessing(i) then
-    			player:addBlessing(i)
-    		end
-    	end
-
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,'You received adventurers blessings for you to be level less than 20!')
-		player:getPosition():sendMagicEffect(CONST_ME_HOLYDAMAGE)
-    end
-	-- end adventurers blessings
-
 	-- kick other players from account
 	if configManager.getBoolean(configKeys.ONE_PLAYER_ON_ACCOUNT) then
 		local resultId = db.storeQuery("SELECT players.name FROM `players` INNER JOIN `players_online` WHERE players_online.player_id=players.id and players_online.player_id!=" .. player:getGuid() .. " and players.account_id=" .. player:getAccountId())
 		if resultId ~= false then
 			repeat
 				local name = result.getDataString(resultId, "name")
-				Player(name):remove()
+				if Player(name):isPzLocked() then
+					player:remove()
+				else
+					Player(name):remove()
+				end
 			until not result.next(resultId)
 				result.free(resultId)
 		end
