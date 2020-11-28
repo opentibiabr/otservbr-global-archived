@@ -2232,13 +2232,13 @@ void Player::death(Creature* lastHitCreature)
 		double deathLossPercent = getLostPercent() * (unfairFightReduction / 100.);
 
 		// Charm bless bestiary
-		IOBestiary g_bestiary;
-		if (lastHitCreature->getMonster()) {
+		if (lastHitCreature && lastHitCreature->getMonster()) {
+	  	IOBestiary g_bestiary;
 			MonsterType* mType = g_monsters.getMonsterType(lastHitCreature->getName());
 			if (mType) {
 				charmRune_t charm_t = g_bestiary.getCharmFromTarget(this, mType);
 				Bestiary* charm = g_bestiary.getBestiaryCharm(charm_t);
-				if (charm->id == CHARM_BLESS) {
+				if (charm && charm->id == CHARM_BLESS) {
 					deathLossPercent = (deathLossPercent * 90) / 100;
 				}
 			}
