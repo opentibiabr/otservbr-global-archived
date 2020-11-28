@@ -1655,8 +1655,7 @@ void ProtocolGame::sendWorldLight(const LightInfo& lightInfo)
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendTibiaTime(int32_t time)
-{
+void ProtocolGame::sendTibiaTime(int32_t time) {
 	NetworkMessage msg;
 	msg.addByte(0xEF);
 	msg.addByte(time / 60);
