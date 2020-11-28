@@ -22,9 +22,8 @@ function playerLogin.onLogin(player)
 		{2120, 1},
 		{2148, 3}
 	}
-	local loginStr = "Welcome to " .. SERVER_NAME .. "!"	
+	player:sendTextMessage(MESSAGE_STATUS_DEFAULT, "Welcome to " .. SERVER_NAME .. "!")
 	if player:getLastLoginSaved() == 0 then
-		loginStr = loginStr .. " Please choose your outfit."
 		player:sendOutfitWindow()
 		local backpack = player:addItem(1988)
 		if backpack then
@@ -35,10 +34,8 @@ function playerLogin.onLogin(player)
 		player:addItem(2050, 1, true, 1, CONST_SLOT_AMMO)
 		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
 	else
-		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
-		loginStr = string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved()))
+		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved())))
 	end
-		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
 
 	local playerId = player:getId()
 
