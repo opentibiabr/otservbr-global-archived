@@ -1,39 +1,44 @@
 --[[
 	Look README.md for see the reserved action/unique numbers
 	From range 5000 to 6000 is reserved for keys chest
-	From range 6001 to 8000 is reserved for reward without a container (common)
-	From range 10001 to 14000 is reserved for reward in a container
-	From range 14001 to 15000 is reserved for others scripts (varied rewards)
+	From range 6001 to 14000 is reserved for script reward
+	Path: data\scripts\actions\system\quest_reward_common.lua
 
-	This file is separated into 4 categories:
-	Reward keys
-	Reward without container
-	Reward with container
-	Varied rewards
+	From range 14001 to 15000 is reserved for others scripts (varied rewards)
 
 	There is no need to tamper with the chests scripts, just register a new table and configure correctly
 	So the quest will work in-game
+
+	Example:
+	[xxxx] = {
+		-- For use of the map
+		itemId = xxxx,
+		itemPos = {x = xxxxx, y = xxxxx, z = x},
+		-- For use of the script
+		container = xxxx (it's for use reward in a container, only put the id of the container here)
+		action = xxxx, (it's for use one key in the chest, only put the key in itemReward and action here)
+		itemReward = {{xxxx, x}},
+		storage = xxxxx
+	},
 
 	Note:
 	The "for use of the map" variables are only used to create the action or unique on the map during startup
 
 	The "for use of the script" variables are used by the scripts
-	To allow a single script to manage all rewards of the same type
+	To allow a single script to manage all rewards
 ]]
 
 ChestAction = {
 	-- Keys quest
-	-- data\scripts\actions\system\quest_reward_key.lua
-	-- Black knight quest key 5010
 	[5000] = {
-		itemId = 2720,
+		itemId = xxxx,
 		itemPos = {
-			{x = 32800, y = 31959, z = 7},
-			{x = 32813, y = 31964, z = 7}
+			{x = xxxxx, y = xxxxx, z = x},
+			{x = xxxxx, y = xxxxx, z = x}
 		},
-		keyAction = 5010,
-		itemReward = 2088,
-		storage = Storage.Quest.BlackKnight.Key5010
+		action = xxxx,
+		itemReward = {{xxxx, 1}},
+		storage = storage
 	}
 }
 
@@ -42,116 +47,107 @@ ChestUnique = {
 	-- data\scripts\actions\system\quest_reward_key.lua
 	-- Deeper fibula quest key 3980
 	[5000] = {
-		-- For use of the map
 		itemId = 385,
 		itemPos = {x = 32219, y = 32401, z = 10},
-		-- For use of the script
-		keyAction = 3980,
-		itemReward = 2091,
+		action = 3980,
+		itemReward = {{2091, 1}},
 		storage = Storage.Quest.DeeperFibula.Key3980
 	},
 	-- Panpipe quest key 4055
 	[5001] = {
-		-- For use of the map
 		itemId = 1290,
 		itemPos = {x = 32652, y = 32107, z = 7},
-		-- For use of the script
-		keyAction = 4055,
-		itemReward = 2088,
+		action = 4055,
+		itemReward = {{2088, 1}},
 		storage = Storage.Quest.Panpipe.Key4055
 	},
 	-- Dawnport quest key 0010 chest
 	[5002] = {
-		-- For use of the map
 		itemId = 1717,
 		itemPos = {x = 32068, y = 31895, z = 3},
-		-- For use of the script
-		keyAction = 103,
-		itemReward = 23763,
+		action = 103,
+		itemReward = {{23763, 1}},
 		storage = Storage.Quest.Dawnport.Key0010
 	},
 	-- Emperor's cookies quest key 3800
 	[5003] = {
-		-- For use of the map
 		itemId = 1740,
 		itemPos = {x = 32605, y = 31908, z = 3},
-		-- For use of the script
-		keyAction = 3800,
-		itemReward = 2089,
+		action = 3800,
+		itemReward = {{2089, 1}},
 		storage = Storage.Quest.EmperorsCookies.Key3800
 	},
 	-- Emperor's cookies quest key 3802
 	[5004] = {
-		-- For use of the map
 		itemId = 1740,
 		itemPos = {x = 32599, y = 31923, z = 6},
-		-- For use of the script
-		keyAction = 3802,
-		itemReward = 2089,
+		action = 3802,
+		itemReward = {{2089, 1}},
 		storage = Storage.Quest.EmperorsCookies.Key3802
 	},
+	-- Black knight quest key 5010
+	[5005] = {
+		itemId = 2720,
+		itemPos = {x = 32800, y = 31959, z = 7},
+		action = 5010,
+		itemReward = {{2088, 1}},
+		storage = Storage.Quest.BlackKnight.Key5010
+	},
+	[5006] = {
+		itemId = 2720,
+		itemPos = {x = 32813, y = 31964, z = 7},
+		action = 5010,
+		itemReward = {{2088, 1}},
+		storage = Storage.Quest.BlackKnight.Key5010
+	},
 
-	-- Rewards without a container (commom reward), it is only received by the player, are the common rewards
+	-- To add a reward inside a bag, you need to add the variable "container = bagId" before "itemReward"
 	-- Just duplicate the table and configure correctly, the scripts already register the entire table automatically
 	-- Path: data\scripts\actions\system\quest_reward_common.lua
 	-- Halls of hope
 	[6001] = {
-		-- For use of the map
 		itemId = 26408,
 		itemPos = {x = 32349, y = 32194, z = 9},
-		-- For use of the script
 		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward1
 	},
 	[6002] = {
-		-- For use of the map
 		itemId = 26408,
 		itemPos = {x = 32382, y = 32368, z = 9},
-		-- For use of the script
 		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward2
 	},
 	[6003] = {
-		-- For use of the map
 		itemId = 26408,
 		itemPos = {x = 32287, y = 32119, z = 7},
-		-- For use of the script
 		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward3
 	},
 	[6004] = {
-		-- For use of the map
 		itemId = 26409,
 		itemPos = {x = 32389, y = 32001, z = 6},
-		-- For use of the script
 		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward4
 	},
 	[6005] = {
-		-- For use of the map
 		itemId = 26408,
 		itemPos = {x = 32449, y = 32109, z = 8},
-		-- For use of the script
 		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward5
 	},
 	-- Dawnport
 	-- Legion helmet quest (dawnport)
 	[6006] = {
-		-- For use of the map
 		itemId = 3058,
 		itemPos = {x = 32143, y = 31910, z = 8},
-		-- For use of the script
 		itemReward = {{2480, 1}},
 		storage = Storage.Quest.SanctuaryOfTheLizardGod.LegionHelmet
 	},
 	-- Dawnport quest
 	-- Torn log book
 	[6007] = {
-		-- For use of the map
 		itemId = 1740,
 		itemPos = {x = 32059, y = 31800, z = 10},
-		-- For use of the script
 		itemReward = {{23749, 1}},
 		storage = Storage.Quest.Dawnport.TornLogBook
 	},
@@ -551,155 +547,146 @@ ChestUnique = {
 		itemReward = {{2152, 100}},
 		storage = Storage.Quest.TheQueenOfTheBanshees.Reward.PlatinumCoin
 	},
-
-	-- Reward inside of container, there is also the option to put a key inside
-	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
-	-- Path: data\scripts\actions\system\quest_reward_container.lua
-
 	-- Ornamented shield quest
-	[10001] = {
+	[6062] = {
 		itemId = 2843,
 		itemPos = {x = 32778, y = 32282, z = 11},
-		itemBag = 1987,
-		keyItem = 2090,
-		keyAction = 3702,
-		itemReward = {{2600, 1}, {2457, 1}, {2524, 1}, {1955, 1}, {2383, 1}, {2201, 1}, {2164, 1}},
+		container = 1987,
+		action = 3702,
+		itemReward = {{2090,1}, {2600, 1}, {2457, 1}, {2524, 1}, {1955, 1}, {2383, 1}, {2201, 1}, {2164, 1}},
 		weight = 194,
 		storage = Storage.Quest.OrnamentedShield.Bag
 	},
-	[10002] = {
+	[6063] = {
 		itemId = 1747,
 		itemPos = {x = 32769, y = 32302, z = 10},
-		itemBag = 1993,
+		container = 1993,
 		itemReward = {{2071, 1}, {2175, 1}, {2199, 1}, {2152, 5} , {2169, 1}},
 		weight = 44,
 		storage = Storage.Quest.OrnamentedShield.RedBag
 	},
-	[10003] = {
+	[6064] = {
 		itemId = 1740,
 		itemPos = {x = 32648, y = 31905, z = 3},
-		itemBag = 1987,
-		keyItem = 2089,
-		keyAction = 3801,
-		itemReward = {{2687, 20}, {2687, 7}},
+		container = 1987,
+		action = 3801,
+		itemReward = {{2089, 1}, {2687, 20}, {2687, 7}},
 		weight = 44,
 		storage = Storage.Quest.EmperorsCookies.Key3801
 	},
-	[10004] = {
+	[6065] = {
 		itemId = 1740,
 		itemPos = {x = 32644, y = 32131, z = 8},
-		itemBag = 1987,
+		container = 1987,
 		itemReward = {{2150, 2}, {2166, 1}, {2074, 1}},
 		weight = 44,
 		storage = Storage.Quest.Panpipe.Reward
 	},
-	[10005] = {
+	[6066] = {
 		itemId = 1738,
 		itemPos = {x = 33199, y = 31923, z = 11},
-		itemBag = 1987,
+		container = 1987,
 		itemReward = {{2148, 98}, {2148, 77}, {2143, 3}},
 		weight = 27,
 		storage = Storage.Quest.BerserkerTreasure.Reward
 	},
 	-- Fire axe quest
 	-- Bag
-	[10006] = {
+	[6067] = {
 		itemId = 1740,
 		itemPos = {x = 33078, y = 31656, z = 11},
-		itemBag = 1987,
+		container = 1987,
 		itemReward = {{2214, 1}, {2201, 200}, {2145, 7}},
 		weight = 27,
 		storage = Storage.Quest.FireAxe.Bag
 	},
 	-- Poison daggers quest
 	-- Backpack reward
-	[10007] = {
+	[6068] = {
 		itemId = 1741,
 		itemPos = {x = 33155, y = 31880, z = 11},
-		itemBag = 1988,
+		container = 1988,
 		itemReward = {{2545, 30}, {2411, 1}, {2411, 1}},
 		weight = 60,
 		storage = Storage.Quest.PoisonDaggers.BackpackReward
 	},
 	-- Shaman treasure quest
 	-- Bag with 3 blank runes
-	[10008] = {
+	[6069] = {
 		itemId = 2843,
 		itemPos = {x = 33127, y = 31885, z = 9},
-		itemBag = 1987,
+		container = 1987,
 		itemReward = {{2260, 3}},
 		weight = 15,
 		storage = Storage.Quest.ShamanTreasure.Bag
 	},
 	-- Strong potions quest
 	-- Green bag with 5 strong mana potions
-	[10009] = {
+	[6070] = {
 		itemId = 1738,
 		itemPos = {x = 33163, y = 31603, z = 15},
-		itemBag = 1991,
+		container = 1991,
 		itemReward = {{7589, 5}},
 		weight = 23,
 		storage = Storage.Quest.StrongPotions.Reward
 	},
 	-- Vampire shield quest
 	-- Bag
-	[10010] = {
+	[6071] = {
 		itemId = 1738,
 		itemPos = {x = 33188, y = 31682, z = 14},
-		itemBag = 1987,
+		container = 1987,
 		itemReward = {{2174, 1}, {2144, 1}, {2194, 1}},
 		weight = 16,
 		storage = Storage.Quest.VampireShield.Bag
 	},
 	-- Key 4502 quest
-	[10011] = {
+	[6072] = {
 		itemId = 1740,
 		itemPos = {x = 32201, y = 31571, z = 10},
-		itemBag = 1987,
-		keyItem = 2089,
-		keyAction = 4502,
-		itemReward = {{2148, 23}, {2260, 1}, {2410, 4}, {2490, 1}},
+		container = 1987,
+		action = 4502,
+		itemReward = {{2089, 1}, {2148, 23}, {2260, 1}, {2410, 4}, {2490, 1}},
 		weight = 80,
 		storage = Storage.Quest.Key4502
 	},
 	-- Dragon tower quest
 	-- Backpack 1
-	[10012] = {
+	[6073] = {
 		itemId = 1738,
 		itemPos = {x = 33072, y = 32169, z = 2},
-		itemBag = 1988,
+		container = 1988,
 		itemReward = {{7620, 1}, {7618, 1}, {2546, 30}, {2545, 60}},
 		weight = 80,
 		storage = Storage.Quest.DragonTower.Backpack1
 	},
 	-- Backpack 2
-	[10013] = {
+	[6074] = {
 		itemId = 1738,
 		itemPos = {x = 33078, y = 32169, z = 2},
-		itemBag = 1988,
+		container = 1988,
 		itemReward = {{2456, 1}, {2146, 2}},
 		weight = 50,
 		storage = Storage.Quest.DragonTower.Backpack2
 	},
 	-- Behemoth quest
 	-- Bag
-	[10014] = {
+	[6075] = {
 		itemId = 1740,
 		itemPos = {x = 33294, y = 31658, z = 13},
-		itemBag = 1987,
+		container = 1987,
 		itemReward = {{2145, 3}, {2146, 4}, {2124, 1}, {2168, 1}, {2171, 1}},
 		weight = 50,
 		storage = Storage.Quest.Behemoth.Bag
 	},
 	-- Parchment room quest
 	-- Bag
-	[10015] = {
+	[6076] = {
 		itemId = 1742,
 		itemPos = {x = 33063, y = 31624, z = 15},
-		itemBag = 1987,
-		keyItem = 2091,
-		keyAction = 6010,
-		itemReward = {{2229, 1}, {2151, 2}, {2165, 1}, {2230, 1}},
+		container = 1987,
+		action = 6010,
+		itemReward = {{2091, 1}, {2229, 1}, {2151, 2}, {2165, 1}, {2230, 1}},
 		weight = 42,
 		storage = Storage.Quest.ParchmentRoom.Bag
 	},
