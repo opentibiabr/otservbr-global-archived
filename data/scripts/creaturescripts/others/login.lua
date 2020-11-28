@@ -23,14 +23,17 @@ local function onMovementRemoveProtection(cid, oldPos, time)
 
 	addEvent(onMovementRemoveProtection, 1000, cid, oldPos, time - 1)
 end
-
+local loginStr = "Welcome to " .. SERVER_NAME .. "!"
 local playerLogin = CreatureEvent("PlayerLogin")
 function playerLogin.onLogin(player)
 	local items = {
 		{2120, 1},
 		{2148, 3}
 	}
+	
 	if player:getLastLoginSaved() == 0 then
+		loginStr = loginStr .. " Please choose your outfit."
+		player:sendOutfitWindow()
 		local backpack = player:addItem(1988)
 		if backpack then
 			for i = 1, #items do
@@ -39,8 +42,9 @@ function playerLogin.onLogin(player)
 		end
 		player:addItem(2050, 1, true, 1, CONST_SLOT_AMMO)
 	else
-		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved())))
+		loginStr = string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved()))
 	end
+		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
 
 	local playerId = player:getId()
 	DailyReward.init(playerId)
