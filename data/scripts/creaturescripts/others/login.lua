@@ -54,6 +54,21 @@ function playerLogin.onLogin(player)
     end
 	-- end adventurers blessings
 
+	-- kick other players from account
+	if configManager.getBoolean(configKeys.ONE_PLAYER_ON_ACCOUNT) then
+		local resultId = db.storeQuery("SELECT players.name FROM `players` INNER JOIN `players_online` WHERE 
+								players_online.player_id=players.id and players_online.player_id!=" .. player:getGuid() .. " and 
+																			players_online.account_id=" .. player:getAccountId())
+		if resultId ~= false then
+			repeat
+				local name = result.getDataString(resultId, "name")
+				Player(name):remove()
+			until not result.next(resultId)
+				result.free(resultId)
+		end
+	end
+	-- end kick other players from account
+
 	-- Display of days of Premium Account on the console
 	if player:isPremium() then
 		player:setStorageValue(998899,1)
