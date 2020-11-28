@@ -1,14 +1,3 @@
-function Player.sendTibiaTime(self, hours, minutes)
-	-- TODO: Migrate to protocolgame.cpp
-	local msg = NetworkMessage()
-	msg:addByte(0xEF)
-	msg:addByte(hours)
-	msg:addByte(minutes)
-	msg:sendToPlayer(self)
-	msg:delete()
-	return true
-end
-
 local function onMovementRemoveProtection(cid, oldPos, time)
 	local player = Player(cid)
 	if not player then
@@ -248,11 +237,6 @@ function playerLogin.onLogin(player)
 	end
 	player:setStaminaXpBoost(staminaBonus)
 	player:setBaseXpGain(baseExp)
-
-	local worldTime = getWorldTime()
-	local hours = math.floor(worldTime / 60)
-	local minutes = worldTime % 60
-	player:sendTibiaTime(hours, minutes)
 
 	if player:getStorageValue(Storage.isTraining) == 1 then --Reset exercise weapon storage
 		player:setStorageValue(Storage.isTraining,0)
