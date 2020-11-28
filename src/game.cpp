@@ -6146,15 +6146,16 @@ void Game::checkLight()
 			it.second->sendWorldLight(lightInfo);
       it.second->sendTibiaTime(lightHour);
 		}
+	} else {
+		for (const auto& it : players) {
+			it.second->sendTibiaTime(lightHour);
+    }
 	}
   if (currentLightState != lightState) {
 		currentLightState = lightState;
 		for (auto& it : g_globalEvents->getEventMap(GLOBALEVENT_PERIODCHANGE)) {
 			it.second.executePeriodChange(lightState, lightInfo);
 		}
-	} else {
-		for (const auto& it : players) {
-			it.second->sendTibiaTime(lightHour);
 	}
 }
 
