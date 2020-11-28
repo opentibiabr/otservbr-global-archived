@@ -107,6 +107,53 @@ function playerLogin.onLogin(player)
         end
 	end
 	-- End 'Premium Ends Teleport to Temple'
+	
+	-- Recruiter system
+	local resultId = db.storeQuery('SELECT `recruiter` from `accounts` where `id`='..getAccountNumberByPlayerName(getPlayerName(player)))
+	local recruiterstatus = result.getNumber(resultId, 'recruiter')
+	if recruiterstatus>=1 then
+		local Sex = player:getSex()
+		if Sex == 1 then
+			local outfit=player:hasOutfit(746)
+			if outfit==false then
+				player:addOutfit(746)
+			end
+		else
+			local outfit=player:hasOutfit(745)
+			if outfit==false then
+				player:addOutfit(745)
+			end
+		end
+	end
+	if recruiterstatus>=3 then
+		local Sex = player:getSex()
+		if Sex == 1 then
+			local outfit=player:hasOutfit(746,1)
+			if outfit==false then
+				player:addOutfitAddon(746,1)
+			end
+		else
+			local outfit=player:hasOutfit(745,1)
+			if outfit==false then
+				player:addOutfit(745,1)
+			end
+		end
+	end
+	if recruiterstatus>=10 then
+		local Sex = player:getSex()
+		if Sex == 1 then
+			local outfit=player:hasOutfit(746,2)
+			if outfit==false then
+				player:addOutfitAddon(746,2)
+			end
+		else
+			local outfit=player:hasOutfit(745,2)
+			if outfit==false then
+				player:addOutfit(745,2)
+			end
+		end
+	end
+	-- End recruiter system
 
 	DailyReward.init(playerId)
 
