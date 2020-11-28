@@ -12,14 +12,17 @@ local function onMovementRemoveProtection(cid, oldPos, time)
 
 	addEvent(onMovementRemoveProtection, 1000, cid, oldPos, time - 1)
 end
-local loginStr = "Welcome to " .. SERVER_NAME .. "!"
+local function antipz(p)
+    doRemoveCreature(p)
+    return true
+end
 local playerLogin = CreatureEvent("PlayerLogin")
 function playerLogin.onLogin(player)
 	local items = {
 		{2120, 1},
 		{2148, 3}
 	}
-	
+	local loginStr = "Welcome to " .. SERVER_NAME .. "!"	
 	if player:getLastLoginSaved() == 0 then
 		loginStr = loginStr .. " Please choose your outfit."
 		player:sendOutfitWindow()
@@ -30,23 +33,26 @@ function playerLogin.onLogin(player)
 			end
 		end
 		player:addItem(2050, 1, true, 1, CONST_SLOT_AMMO)
+		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
 	else
+		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
 		loginStr = string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved()))
 	end
 		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
 
 	local playerId = player:getId()
-	
+
 	-- kick other players from account
 	if configManager.getBoolean(configKeys.ONE_PLAYER_ON_ACCOUNT) then
 		local resultId = db.storeQuery("SELECT players.name FROM `players` INNER JOIN `players_online` WHERE players_online.player_id=players.id and players_online.player_id!=" .. player:getGuid() .. " and players.account_id=" .. player:getAccountId())
 		if resultId ~= false then
 			repeat
 				local name = result.getDataString(resultId, "name")
-				if Player(name):isPzLocked() then
-					player:remove()
-				else
+				if getCreatureCondition(Player(name), CONDITION_INFIGHT)==false then
 					Player(name):remove()
+				else
+					addEvent(antipz, 2000, player:getName())
+					doPlayerPopupFYI(player, "You cant login now.")
 				end
 			until not result.next(resultId)
 				result.free(resultId)
@@ -54,41 +60,24 @@ function playerLogin.onLogin(player)
 	end
 	-- end kick other players from account
 
-	-- Display of days of Premium Account on the console
-	if player:isPremium() then
-		player:setStorageValue(998899,1)
-		if player:getPremiumDays() >1 then
-			str='You have now ' .. player:getPremiumDays() .. ' Premium days.'
-		else
-			str='You have now ' .. player:getPremiumDays() .. ' Premium day.'
-		end
-		player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, str)
-	else
-		player:setStorageValue(998899,0)
-	end
-	-- end Premium Account
 	-- Premium Ends Teleport to Temple, change addon (citizen) houseless
 	local defaultTown = "Thais" -- default town where player is teleported if his home town is in premium area
 	local freeTowns = {"Ab'Dendriel", "Carlin", "Kazordoon", "Thais", "Venore"} -- towns in free account area
 
-	if ((player:getPremiumDays() <= 0 and player:getStorageValue(998899) == 1) or (player:getPremiumDays() <= 0 and isInArray(freeTowns, player:getTown():getName())==false)) then
-
+	if isPremium(player)==false and isInArray(freeTowns, player:getTown():getName())==false then
 		local town = player:getTown()
 		local Sex = player:getSex()
 		local home = getHouseByPlayerGUID(getPlayerGUID(player))
-
 		town = isInArray(freeTowns, town:getName()) and town or Town(defaultTown)
 		player:teleportTo(town:getTemplePosition())
 		player:setTown(town)
 		player:sendTextMessage(MESSAGE_STATUS_WARNING, "Your premium time has expired.")
-		player:setStorageValue(998899, 0)
 		if Sex == 1 then
 			player:setOutfit({lookType = 128, lookFeet = 114, lookLegs = 134, lookHead = 114,lookAddons = 0})
         end
         if Sex == 0 then
 			player:setOutfit({lookType = 136, lookFeet = 114, lookLegs = 134, lookHead = 114, lookAddons = 0})
         end
-
         if home ~= nil and not isPremium(player) then
             setHouseOwner(home, 0)
             player:sendTextMessage(MESSAGE_STATUS_WARNING, 'You\'ve lost your house because you are not premium anymore.')
