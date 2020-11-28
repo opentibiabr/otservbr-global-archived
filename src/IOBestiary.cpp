@@ -34,6 +34,13 @@ bool IOBestiary::ParseCharmCombat(Bestiary* charm, Player* player, Creature* tar
 	CombatParams charmParams;
 	CombatDamage charmDamage;
 	if (charm->type == CHARM_OFFENSIVE) {
+		if (charm->id == CHARM_CRIPPLE) {
+			ConditionSpeed* cripple = static_cast<ConditionSpeed*>(Condition::createCondition(CONDITIONID_COMBAT, CONDITION_PARALYZE, 10000, 0));
+			cripple->setFormulaVars(-1, 80, -1, 80);
+			target->addCondition(cripple);
+			player->sendCancelMessage(charm->cancelMsg);
+			return false;
+	  }
 		int32_t maxHealth = target->getMaxHealth();
 		charmDamage.primary.type = charm->dmgtype;
 		charmDamage.primary.value = ((-maxHealth * (charm->percent)) / 100);

@@ -12,7 +12,11 @@ function Container.createLootItem(self, item, boolCharm)
 	local lootBlockType = ItemType(item.itemId)
 	local chanceTo = item.chance
 
-	if boolCharm then
+	if not lootBlockType then
+		return
+	end
+
+	if boolCharm and lootBlockType:getType() == ITEM_TYPE_CREATUREPRODUCT then
 		chanceTo = (chanceTo * (GLOBAL_CHARM_GUT + 100))/100
 	end
 

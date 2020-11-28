@@ -34,7 +34,7 @@ charm_t2.chance = 20
 charm_t2.message_c = "You enflamed the monster."
 charm_t2.message_l = "[Enflame charm]"
 charm_t2.effect = CONST_ME_HITBYFIRE
-charm_t2.points = 600
+charm_t2.points = 1000
 charm_t2.binary = 2
 
 Bestiaryregister(charm_2, charm_t2)
@@ -164,7 +164,7 @@ charm_t9.name = "Dodge"
 charm_t9.description = "Dodges an attack with a certain chance without taking any damage at all."
 charm_t9.type = CHARM_DEFENSIVE
 charm_t9.chance = 20
-charm_t9.message_c = "You dodged the attack."
+charm_t9.message_c = "You dodge the attack."
 charm_t9.effect = CONST_ME_POFF
 charm_t9.points = 600
 charm_t9.binary = 256
@@ -224,12 +224,12 @@ local charm_13 = Game.createBestiaryCharm(12)
 local charm_t13 = {}
 
 charm_t13.name = "Bless"
-charm_t13.description = "Triggers on a creature with a certain chance and deals 5% \z
-			of its initial hit points as death damage once."
+charm_t13.description = "Blesses you and reduces skill and xp loss by 10% \z
+			when killed by the chosen creature."
 charm_t13.type = CHARM_PASSIVE
 charm_t13.percent = 10
 charm_t13.chance = 100
-charm_t13.points = 2000
+charm_t13.points = 800
 charm_t13.binary = 4096
 
 Bestiaryregister(charm_13, charm_t13)
@@ -244,7 +244,7 @@ charm_t14.name = "Scavenge"
 charm_t14.description = "Enhances your chances to successfully skin/dust a skinnable/dustable creature."
 charm_t14.type = CHARM_PASSIVE
 charm_t14.percent = 10
-charm_t14.points = 1500
+charm_t14.points = 800
 charm_t14.binary = 8192
 
 GLOBAL_CHARM_SCAVENGE = charm_t14.percent
@@ -256,10 +256,10 @@ local charm_15 = Game.createBestiaryCharm(14)
 local charm_t15 = {}
 
 charm_t15.name = "Gut"
-charm_t15.description = "Gutting the creature yields 10% more creature products."
+charm_t15.description = "Gutting the creature yields 20% more creature products."
 charm_t15.type = CHARM_PASSIVE
-charm_t15.percent = 10
-charm_t15.points = 2000
+charm_t15.percent = 20
+charm_t15.points = 800
 charm_t15.binary = 16384
 
 GLOBAL_CHARM_GUT = charm_t15.percent
@@ -273,7 +273,7 @@ local charm_t16 = {}
 charm_t16.name = "Low Blow"
 charm_t16.description = "Adds 8% critical hit chance to attacks with critical hit weapons."
 charm_t16.type = CHARM_PASSIVE
-charm_t16.percent = 10
+charm_t16.percent = 8
 charm_t16.chance = 0
 charm_t16.points = 2000
 charm_t16.binary = 32768
@@ -309,7 +309,7 @@ charm_t18.name = "Vampiric Embrace"
 charm_t18.description = "Adds 4% Life Leech to attacks if wearing equipment that  \z
 			provides life leech."
 charm_t18.type = CHARM_PASSIVE
-charm_t18.percent = 10
+charm_t18.percent = 4
 charm_t18.chance = 0
 charm_t18.points = 1500
 charm_t18.binary = 131072
@@ -322,10 +322,10 @@ local charm_19 = Game.createBestiaryCharm(18)
 local charm_t19 = {}
 
 charm_t19.name = "Void's Call"
-charm_t19.description = "Adds 4% Mana Leech to attacks if wearing equipment that  \z
+charm_t19.description = "Adds 2% Mana Leech to attacks if wearing equipment that  \z
 			provides mana leech."
 charm_t19.type = CHARM_PASSIVE
-charm_t19.percent = 10
+charm_t19.percent = 2
 charm_t19.chance = 0
 charm_t19.points = 1500
 charm_t19.binary = 262144
