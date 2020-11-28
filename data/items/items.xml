@@ -51688,4 +51688,115 @@
 		<attribute key="slotType" value="necklace" />
 		<attribute key="weight" value="430" />
 	</item>	
+	<item id="39612" article="a" name="dead cloak of terror">
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39613" article="a" name="dead cloak of terror">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39612" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39614" article="a" name="dead cloak of terror">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39613" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39615" article="a" name="dead cloak of terror">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39614" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39620" article="a" name="dead branchy crawler">
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39621" article="a" name="dead branchy crawler">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39620" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39622" article="a" name="dead branchy crawler">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39621" />
+		<attribute key="duration" value="900" />
+	</item> 
+	<item id="39623" article="a" name="dead branchy crawler">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39622" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39624" article="a" name="dead vibrant phantom">
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39625" article="a" name="dead vibrant phantom">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39624" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39626" article="a" name="dead vibrant phantom">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39625" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39627" article="a" name="dead vibrant phantom">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39626" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39695" article="a" name="dead rotten golem">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39696" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39696" article="a" name="dead rotten golem">
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39697" article="a" name="dead infernal demon">
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39698" article="a" name="dead infernal demon">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39697" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39699" article="a" name="dead infernal demon">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39698" />
+		<attribute key="duration" value="900" />
+	</item> 
+	<item id="39700" article="a" name="dead infernal demon">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39699" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39707" article="a" name="dead courage leech">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39706" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39706" article="a" name="dead courage leech">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39705" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39705" article="a" name="dead courage leech">
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39708" article="a" name="dead courage leech">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39707" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39930" article="a" name="dead werehyaena">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39931" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39931" article="a" name="dead werehyaena">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="39932" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="39932" article="a" name="dead werehyaena">
+		<attribute key="corpseType" value="blood" />
+	</item>
 </items>
