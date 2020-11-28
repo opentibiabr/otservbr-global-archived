@@ -56,9 +56,7 @@ function playerLogin.onLogin(player)
 
 	-- kick other players from account
 	if configManager.getBoolean(configKeys.ONE_PLAYER_ON_ACCOUNT) then
-		local resultId = db.storeQuery("SELECT players.name FROM `players` INNER JOIN `players_online` WHERE 
-								players_online.player_id=players.id and players_online.player_id!=" .. player:getGuid() .. " and 
-																			players_online.account_id=" .. player:getAccountId())
+		local resultId = db.storeQuery("SELECT players.name FROM `players` INNER JOIN `players_online` WHERE players_online.player_id=players.id and players_online.player_id!=" .. player:getGuid() .. " and players_online.account_id=" .. player:getAccountId())
 		if resultId ~= false then
 			repeat
 				local name = result.getDataString(resultId, "name")
