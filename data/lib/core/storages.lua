@@ -1861,7 +1861,12 @@ Storage = {
 			FinalBattle = 10090
 		},
 		-- update 7.24
-		GiantSmithhammer = {},
+		GiantSmithhammer = {
+			QuestLine = 10091,
+			Talon = 10092,
+			Hammer = 10093,
+			GoldCoin = 10094
+		},
 		MadMageRoom = {},
 		SkullOfRatha = {},
 		TheAnnihilator = {},

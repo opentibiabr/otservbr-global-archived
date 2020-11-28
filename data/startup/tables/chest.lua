@@ -690,6 +690,28 @@ ChestUnique = {
 		weight = 42,
 		storage = Storage.Quest.ParchmentRoom.Bag
 	},
+	-- Giant smithhammer quest
+	-- Talon
+	[6077] = {
+		itemId = 1740,
+		itemPos = {x = 32774, y = 32253, z = 8},
+		itemReward = {{2151, 1}},
+		storage = Storage.Quest.GiantSmithhammer.Talon
+	},
+	-- Giant smithhammer
+	[6078] = {
+		itemId = 1740,
+		itemPos = {x = 32776, y = 32253, z = 8},
+		itemReward = {{2321, 1}},
+		storage = Storage.Quest.GiantSmithhammer.Hammer
+	},
+	-- 100 gold coin
+	[6079] = {
+		itemId = 1740,
+		itemPos = {x = 32778, y = 32253, z = 8},
+		itemReward = {{2148, 100}},
+		storage = Storage.Quest.GiantSmithhammer.GoldCoin
+	},
 
 	-- Reward of others scrips files (varied rewards)
 	-- The First dragon Quest
