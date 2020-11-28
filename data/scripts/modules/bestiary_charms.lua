@@ -224,8 +224,7 @@ local charm_13 = Game.createBestiaryCharm(12)
 local charm_t13 = {}
 
 charm_t13.name = "Bless"
-charm_t13.description = "Triggers on a creature with a certain chance and deals 5% \z
-			of its initial hit points as death damage once."
+charm_t13.description = "Blesses you and reduces skill and experience loss by 3% when killed by the chosen creature."
 charm_t13.type = CHARM_PASSIVE
 charm_t13.percent = 10
 charm_t13.chance = 100
