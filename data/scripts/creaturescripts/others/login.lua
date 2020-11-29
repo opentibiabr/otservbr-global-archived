@@ -12,7 +12,7 @@ local function onMovementRemoveProtection(cid, oldPos, time)
 
 	addEvent(onMovementRemoveProtection, 1000, cid, oldPos, time - 1)
 end
-local function antiProtectionZone(p)
+local function ProtectionZoneCheck(p)
     doRemoveCreature(p)
     return true
 end
@@ -47,7 +47,7 @@ function playerLogin.onLogin(player)
 				if getCreatureCondition(Player(name), CONDITION_INFIGHT)==false then
 					Player(name):remove()
 				else
-					addEvent(antiProtectionZone, 2000, player:getName())
+					addEvent(ProtectionZoneCheck, 2000, player:getName())
 					doPlayerPopupFYI(player, "You cant login now.")
 				end
 			until not result.next(resultId)
