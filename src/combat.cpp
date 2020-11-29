@@ -852,16 +852,17 @@ void Combat::doCombatHealth(Creature* caster, Creature* target, CombatDamage& da
 			// Critical damage
 			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
 			// Charm low blow rune)
-			IOBestiary g_bestiary;
-			MonsterType* mType = g_monsters.getMonsterType(target->getName());
-			charmRune_t charm_t = g_bestiary.getCharmFromTarget(caster->getPlayer(), mType);
-			if (charm_t == CHARM_LOW) {
-				Bestiary* charm = g_bestiary.getBestiaryCharm(charm_t);
-				if (charm) {
-					chance += charm->percent;
-				}
-			}
-
+      if (target && target->getMonster()) {
+			  IOBestiary g_bestiary;
+			  MonsterType* mType = g_monsters.getMonsterType(target->getName());
+			  charmRune_t charm_t = g_bestiary.getCharmFromTarget(caster->getPlayer(), mType);
+			  if (charm_t == CHARM_LOW) {
+			  	Bestiary* charm = g_bestiary.getBestiaryCharm(charm_t);
+			  	if (charm) {
+			  		chance += charm->percent;
+			  	}
+		  	}
+      }
 			if (damage.primary.type != COMBAT_HEALING && chance != 0 && uniform_random(1, 100) <= chance) {
 				damage.critical = true;
 				damage.primary.value += (damage.primary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
