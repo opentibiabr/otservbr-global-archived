@@ -119,13 +119,6 @@ ChestUnique = {
 		weight = 80,
 		storage = Storage.Quest.Key.ID4502
 	},
-	[5009] = {
-		isKey = true,
-		itemId = 1717,
-		itemPos = {x = 32411, y = 32155, z = 15},
-		reward = {{2088, 1}},
-		storage = Storage.Quest.Key.ID3620
-	},
 
 	-- To add a reward inside a bag, you need to add the variable "container = bagId" before "reward"
 	-- Just duplicate the table and configure correctly, the scripts already register the entire table automatically
