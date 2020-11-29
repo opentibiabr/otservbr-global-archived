@@ -16,13 +16,14 @@
 		itemPos = {x = xxxxx, y = xxxxx, z = x},
 		-- For use of the script
 		container = xxxx (it's for use reward in a container, only put the id of the container here)
-		action = xxxx, (it's for use one key in the chest, only put the key in reward and action here)
+		keyAction = xxxx, (it's for use one key in the chest and is reward in container, only put the key in reward and action here)
 		reward = {{xxxx, x}},
 		storage = xxxxx
 	},
 
 	Note:
 	The "for use of the map" variables are only used to create the action or unique on the map during startup
+	If the reward is an key, do not need to use "keyAction", only set the storage as same action id
 
 	The "for use of the script" variables are used by the scripts
 	To allow a single script to manage all rewards
@@ -571,7 +572,7 @@ ChestUnique = {
 		itemId = 2843,
 		itemPos = {x = 32778, y = 32282, z = 11},
 		container = 1987,
-		action = 3702,
+		keyAction = Storage.Quest.Key.ID3702,
 		reward = {{2090,1}, {2600, 1}, {2457, 1}, {2524, 1}, {1955, 1}, {2383, 1}, {2201, 1}, {2164, 1}},
 		weight = 194,
 		storage = Storage.Quest.OrnamentedShield.Bag
@@ -688,7 +689,7 @@ ChestUnique = {
 		itemId = 1742,
 		itemPos = {x = 33063, y = 31624, z = 15},
 		container = 1987,
-		action = 6010,
+		keyAction = Storage.Quest.Key.ID6010,
 		reward = {{2091, 1}, {2229, 1}, {2151, 2}, {2165, 1}, {2230, 1}},
 		weight = 42,
 		storage = Storage.Quest.ParchmentRoom.Bag

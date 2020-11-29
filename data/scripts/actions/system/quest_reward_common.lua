@@ -32,6 +32,7 @@ local function playerAddItem(params, item)
 		-- Needs independent verification because it cannot be set as "key" in items.xml
 		-- Because it generate bug in the item description
 		if itemType:isKey() or itemType:getId(23763) then
+			-- If is key not in container, uses the "isKey = true" variable
 			keyItem = player:addItem(params.itemid, params.count)
 			keyItem:setActionId(params.storage)
 		end
@@ -53,11 +54,12 @@ local function playerAddContainerItem(params, item)
 	local player = params.player
 
 	local reward = params.containerReward
-	if params.key then
+	if params.action then
 		local itemType = ItemType(params.itemid)
 		if itemType:isKey() then
+			-- If is key inside container, uses the "keyAction" variable
 			keyItem = reward:addItem(params.itemid, params.count)
-			keyItem:setActionId(params.storage)
+			keyItem:setActionId(params.action)
 			return true
 		end
 
@@ -138,7 +140,7 @@ function questReward.onUse(player, item, fromPosition, itemEx, toPosition)
 				count = count,
 				weight = setting.weight,
 				storage = setting.storage,
-				key = setting.isKey,
+				action = setting.keyAction,
 				itemBagName = itemBagName,
 				containerReward = itemBag
 			}
