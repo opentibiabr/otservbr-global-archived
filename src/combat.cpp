@@ -548,6 +548,9 @@ void Combat::CombatConditionFunc(Creature* caster, Creature* target, const Comba
 					if (charm_t == CHARM_CLEANSE) {
 						Bestiary* charm = g_bestiary.getBestiaryCharm(charm_t);
 						if (charm && (charm->chance > normal_random(0, 100))) {
+							if (player->hasCondition(condition->getType())) {
+								player->removeCondition(condition->getType());
+							}
 							player->setImmuneCleanse(condition->getType());
 							player->sendCancelMessage(charm->cancelMsg);
 							return;
