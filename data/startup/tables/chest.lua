@@ -120,6 +120,20 @@ ChestUnique = {
 		weight = 80,
 		storage = Storage.Quest.Key.ID4502
 	},
+	[5009] = {
+		isKey = true,
+		itemId = 1717,
+		itemPos = {x = 32411, y = 32155, z = 15},
+		reward = {{2088, 1}},
+		storage = Storage.Quest.Key.ID3620
+	},
+	[5010] = {
+		isKey = true,
+		itemId = 1717,
+		itemPos = {x = 32411, y = 32155, z = 15},
+		reward = {{2088, 1}},
+		storage = Storage.Quest.Key.ID3620
+	},
 
 	-- To add a reward inside a bag, you need to add the variable "container = bagId" before "reward"
 	-- Just duplicate the table and configure correctly, the scripts already register the entire table automatically
@@ -715,6 +729,28 @@ ChestUnique = {
 		itemPos = {x = 32778, y = 32253, z = 8},
 		reward = {{2148, 100}},
 		storage = Storage.Quest.GiantSmithhammer.GoldCoin
+	},
+	-- Mad Mage room quest
+	-- Star amulet
+	[6080] = {
+		itemId = 1740,
+		itemPos = {x = 32578, y = 32195, z = 14},
+		reward = {{2131, 1}},
+		storage = Storage.Quest.MadMageRoom.StarAmulet
+	},
+	-- Hat of the mad
+	[6081] = {
+		itemId = 1740,
+		itemPos = {x = 32575, y = 32195, z = 14},
+		reward = {{2323, 1}},
+		storage = Storage.Quest.MadMageRoom.Hat
+	},
+	-- Stone skin amulet
+	[6082] = {
+		itemId = 1740,
+		itemPos = {x = 32572, y = 32195, z = 14},
+		reward = {{2197, 5}},
+		storage = Storage.Quest.MadMageRoom.StoneSkinAmulet
 	},
 
 	-- Reward of others scrips files (varied rewards)

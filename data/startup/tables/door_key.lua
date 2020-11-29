@@ -53,6 +53,21 @@ KeyDoorAction = {
 			{x = 32676, y = 31671, z = 10}
 		}
 	},
+	-- Door of the key 3620 (mad mage room quest)
+	[Storage.Quest.Key.ID3620] = {
+		itemId = false,
+		itemPos = {
+			{x = 32393, y = 32136, z = 14},
+			{x = 32395, y = 32117, z = 15},
+			{x = 32397, y = 32114, z = 15},
+			{x = 32400, y = 32117, z = 15}
+		}
+	},
+	-- Door of the key 3666 (mad mage room quest)
+	[Storage.Quest.Key.ID3666] = {
+		itemId = 1212,
+		itemPos = {{x = 32578, y = 32197, z = 15}}
+	},
 	-- Door of the key 3800 (emperor's cookies quest)
 	[Storage.Quest.Key.ID3800] = {
 		itemId = false,
