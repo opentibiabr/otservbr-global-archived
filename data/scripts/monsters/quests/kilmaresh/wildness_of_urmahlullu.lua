@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 90000
-monster.maxHealth = 90000
+monster.health = 400000
+monster.maxHealth = 512000
 monster.race = "blood"
 monster.corpse = 0
 monster.speed = 190
@@ -55,7 +55,7 @@ monster.flags = {
 }
 
 monster.events = {
-	"UrmahlulluSecondDeath" 
+	"UrmahlulluChanges"
 }
 
 monster.light = {
