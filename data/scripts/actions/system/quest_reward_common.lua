@@ -26,7 +26,6 @@ local function playerAddItem(params, item)
 		return false
 	end
 
-	if params.key then
 		local itemType = ItemType(params.itemid)
 		-- 23763 Is key of Dawnport
 		-- Needs independent verification because it cannot be set as "key" in items.xml
@@ -35,14 +34,12 @@ local function playerAddItem(params, item)
 			keyItem = player:addItem(params.itemid, params.count)
 			keyItem:setActionId(params.storage)
 		end
-	else
 		addItem = player:addItem(params.itemid, params.count)
 		-- If the item is writeable, just put its unique and the text in the "AttributeTable"
 		local attribute = AttributeTable[item.uid]
 		if attribute then
 			addItem:setAttribute(ITEM_ATTRIBUTE_TEXT, attribute.text)
 		end
-	end
 
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, params.message .. ".")
 	player:setStorageValue(params.storage, 1)
@@ -53,7 +50,6 @@ local function playerAddContainerItem(params, item)
 	local player = params.player
 
 	local reward = params.containerReward
-	if params.key then
 		local itemType = ItemType(params.itemid)
 		if itemType:isKey() then
 			keyItem = reward:addItem(params.itemid, params.count)
@@ -64,7 +60,6 @@ local function playerAddContainerItem(params, item)
 		reward:addItem(params.itemid, params.count)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(params.itemBagName) .. ".")
 		player:setStorageValue(params.storage, 1)
-	end
 	return true
 end
 

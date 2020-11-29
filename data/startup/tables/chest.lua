@@ -112,19 +112,19 @@ ChestUnique = {
 	},
 	[5008] = {
 		isKey = true,
-		itemId = 1717,
-		itemPos = {x = 32411, y = 32155, z = 15},
-		reward = {{2088, 1}},
-		storage = Storage.Quest.Key.ID5010
-	},
-	[5009] = {
-		isKey = true,
 		itemId = 1740,
 		itemPos = {x = 32201, y = 31571, z = 10},
 		container = 1987,
 		reward = {{2089, 1}, {2148, 23}, {2260, 1}, {2410, 4}, {2490, 1}},
 		weight = 80,
 		storage = Storage.Quest.Key.ID4502
+	},
+	[5009] = {
+		isKey = true,
+		itemId = 1717,
+		itemPos = {x = 32411, y = 32155, z = 15},
+		reward = {{2088, 1}},
+		storage = Storage.Quest.Key.ID3620
 	},
 
 	-- To add a reward inside a bag, you need to add the variable "container = bagId" before "reward"
