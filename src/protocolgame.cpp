@@ -1537,7 +1537,7 @@ void ProtocolGame::BestiarysendMonsterData(NetworkMessage& msg)
 			newmsg.add<uint32_t>(player->getLevel() * 100);
 		} else {
 			newmsg.addByte(0);
-			newmsg.addByte(0);
+			newmsg.addByte(1);
 		}
 	}
 
