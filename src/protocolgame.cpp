@@ -2205,9 +2205,10 @@ void ProtocolGame::sendBasicData()
 
 	std::list<uint16_t> spellsList = g_spells->getSpellsByVocation(player->getVocationId());
 	msg.add<uint16_t>(spellsList.size());
-	for (uint8_t sid : spellsList) {
+	for (uint16_t sid : spellsList) {
 		msg.addByte(sid);
 	}
+  msg.addByte(0);
 	writeToOutputBuffer(msg);
 }
 
@@ -4356,6 +4357,8 @@ void ProtocolGame::AddPlayerStats(NetworkMessage& msg)
 
 	msg.add<uint16_t>(player->getExpBoostStamina()); // xp boost time (seconds)
 	msg.addByte(1); // enables exp boost in the store
+  playermsg.add<uint16_t>(0); // remaining mana shield
+	playermsg.add<uint16_t>(0); // total mana shield
 }
 
 void ProtocolGame::AddPlayerSkills(NetworkMessage& msg)
