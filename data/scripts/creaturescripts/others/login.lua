@@ -12,17 +12,19 @@ local function onMovementRemoveProtection(cid, oldPos, time)
 
 	addEvent(onMovementRemoveProtection, 1000, cid, oldPos, time - 1)
 end
-local function ProtectionZoneCheck(p)
-    doRemoveCreature(p)
+
+local function protectionZoneCheck(playerName)
+    doRemoveCreature(playerName)
     return true
 end
+
 local playerLogin = CreatureEvent("PlayerLogin")
+
 function playerLogin.onLogin(player)
 	local items = {
 		{2120, 1},
 		{2148, 3}
 	}
-	player:sendTextMessage(MESSAGE_STATUS_DEFAULT, "Welcome to " .. SERVER_NAME .. "!")
 	if player:getLastLoginSaved() == 0 then
 		player:sendOutfitWindow()
 		local backpack = player:addItem(1988)
@@ -33,6 +35,7 @@ function playerLogin.onLogin(player)
 		end
 		player:addItem(2050, 1, true, 1, CONST_SLOT_AMMO)
 	else
+		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, "Welcome to " .. SERVER_NAME .. "!")
 		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved())))
 	end
 
@@ -47,14 +50,14 @@ function playerLogin.onLogin(player)
 				if getCreatureCondition(Player(name), CONDITION_INFIGHT) == false then
 					Player(name):remove()
 				else
-					addEvent(ProtectionZoneCheck, 2000, player:getName())
+					addEvent(protectionZoneCheck, 2000, player:getName())
 					doPlayerPopupFYI(player, "You cant login now.")
 				end
 			until not result.next(resultId)
 				result.free(resultId)
 		end
 	end
-	-- end kick other players from account
+	-- End kick other players from account
 	if isPremium(player) then
 		player:setStorageValue(Storage.PremiumAccount, 1)
 	end
@@ -86,9 +89,9 @@ function playerLogin.onLogin(player)
 
 	-- Recruiter system
 	local resultId = db.storeQuery('SELECT `recruiter` from `accounts` where `id`='..getAccountNumberByPlayerName(getPlayerName(player)))
-	local recruiterstatus = result.getNumber(resultId, 'recruiter')
+	local recruiterStatus = result.getNumber(resultId, 'recruiter')
 	local sex = player:getSex()
-	if recruiterstatus >=1 then
+	if recruiterStatus >=1 then
 		if sex == 1 then
 			local outfit = player:hasOutfit(746)
 			if outfit == false then
@@ -101,7 +104,7 @@ function playerLogin.onLogin(player)
 			end
 		end
 	end
-	if recruiterstatus >=3 then
+	if recruiterStatus >=3 then
 		if sex == 1 then
 			local outfit = player:hasOutfit(746,1)
 			if outfit == false then
@@ -114,7 +117,7 @@ function playerLogin.onLogin(player)
 			end
 		end
 	end
-	if recruiterstatus >=10 then
+	if recruiterStatus >= 10 then
 		if sex == 1 then
 			local outfit = player:hasOutfit(746,2)
 			if outfit == false then
