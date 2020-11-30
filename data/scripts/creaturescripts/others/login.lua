@@ -1,14 +1,3 @@
-function Player.sendTibiaTime(self, hours, minutes)
-	-- TODO: Migrate to protocolgame.cpp
-	local msg = NetworkMessage()
-	msg:addByte(0xEF)
-	msg:addByte(hours)
-	msg:addByte(minutes)
-	msg:sendToPlayer(self)
-	msg:delete()
-	return true
-end
-
 local function onMovementRemoveProtection(cid, oldPos, time)
 	local player = Player(cid)
 	if not player then
@@ -24,13 +13,20 @@ local function onMovementRemoveProtection(cid, oldPos, time)
 	addEvent(onMovementRemoveProtection, 1000, cid, oldPos, time - 1)
 end
 
+local function protectionZoneCheck(playerName)
+    doRemoveCreature(playerName)
+    return true
+end
+
 local playerLogin = CreatureEvent("PlayerLogin")
+
 function playerLogin.onLogin(player)
 	local items = {
 		{2120, 1},
 		{2148, 3}
 	}
 	if player:getLastLoginSaved() == 0 then
+		player:sendOutfitWindow()
 		local backpack = player:addItem(1988)
 		if backpack then
 			for i = 1, #items do
@@ -39,10 +35,103 @@ function playerLogin.onLogin(player)
 		end
 		player:addItem(2050, 1, true, 1, CONST_SLOT_AMMO)
 	else
+		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, "Welcome to " .. SERVER_NAME .. "!")
 		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved())))
 	end
 
 	local playerId = player:getId()
+
+	-- kick other players from account
+	if configManager.getBoolean(configKeys.ONE_PLAYER_ON_ACCOUNT) then
+		local resultId = db.storeQuery("SELECT players.name FROM `players` INNER JOIN `players_online` WHERE players_online.player_id=players.id and players_online.player_id!=" .. player:getGuid() .. " and players.account_id=" .. player:getAccountId())
+		if resultId ~= false then
+			repeat
+				local name = result.getDataString(resultId, "name")
+				if getCreatureCondition(Player(name), CONDITION_INFIGHT) == false then
+					Player(name):remove()
+				else
+					addEvent(protectionZoneCheck, 2000, player:getName())
+					doPlayerPopupFYI(player, "You cant login now.")
+				end
+			until not result.next(resultId)
+				result.free(resultId)
+		end
+	end
+	-- End kick other players from account
+	if isPremium(player) then
+		player:setStorageValue(Storage.PremiumAccount, 1)
+	end
+	-- Premium Ends Teleport to Temple, change addon (citizen) houseless
+	local defaultTown = "Thais" -- default town where player is teleported if his home town is in premium area
+	local freeTowns = {"Ab'Dendriel", "Carlin", "Kazordoon", "Thais", "Venore"} -- towns in free account area
+
+	if isPremium(player) == false and isInArray(freeTowns, player:getTown():getName()) == false then
+		local town = player:getTown()
+		local sex = player:getSex()
+		local home = getHouseByPlayerGUID(getPlayerGUID(player))
+		town = isInArray(freeTowns, town:getName()) and town or Town(defaultTown)
+		player:teleportTo(town:getTemplePosition())
+		player:setTown(town)
+		player:sendTextMessage(MESSAGE_STATUS_WARNING, "Your premium time has expired.")
+		player:setStorageValue(Storage.PremiumAccount, 0)
+		if sex == 1 then
+			player:setOutfit({lookType = 128, lookFeet = 114, lookLegs = 134, lookHead = 114,lookAddons = 0})
+        elseif sex == 0 then
+			player:setOutfit({lookType = 136, lookFeet = 114, lookLegs = 134, lookHead = 114, lookAddons = 0})
+        end
+        if home ~= nil and not isPremium(player) then
+            setHouseOwner(home, 0)
+            player:sendTextMessage(MESSAGE_STATUS_WARNING, 'You\'ve lost your house because you are not premium anymore.')
+			player:sendTextMessage(MESSAGE_STATUS_WARNING, 'Your items from house are send to your inbox.')
+        end
+	end
+	-- End 'Premium Ends Teleport to Temple'
+
+	-- Recruiter system
+	local resultId = db.storeQuery('SELECT `recruiter` from `accounts` where `id`='..getAccountNumberByPlayerName(getPlayerName(player)))
+	local recruiterStatus = result.getNumber(resultId, 'recruiter')
+	local sex = player:getSex()
+	if recruiterStatus >= 1 then
+		if sex == 1 then
+			local outfit = player:hasOutfit(746)
+			if outfit == false then
+				player:addOutfit(746)
+			end
+		else
+			local outfit = player:hasOutfit(745)
+			if outfit == false then
+				player:addOutfit(745)
+			end
+		end
+	end
+	if recruiterStatus >= 3 then
+		if sex == 1 then
+			local outfit = player:hasOutfit(746,1)
+			if outfit == false then
+				player:addOutfitAddon(746,1)
+			end
+		else
+			local outfit = player:hasOutfit(745,1)
+			if outfit == false then
+				player:addOutfit(745,1)
+			end
+		end
+	end
+	if recruiterStatus >= 10 then
+		if sex == 1 then
+			local outfit = player:hasOutfit(746,2)
+			if outfit == false then
+				player:addOutfitAddon(746,2)
+			end
+		else
+			local outfit = player:hasOutfit(745,2)
+			if outfit == false then
+				player:addOutfit(745,2)
+			end
+		end
+	end
+	-- End recruiter system
+
 	DailyReward.init(playerId)
 
 	player:loadSpecialStorage()
@@ -53,10 +142,10 @@ function playerLogin.onLogin(player)
 	-- Boosted creature
 	player:sendTextMessage(MESSAGE_LOOT, "Today's boosted creature: " .. BoostedCreature.name .. " \
 	Boosted creatures yield more experience points, carry more loot than usual and respawn at a faster rate.")
-	
+
 	-- Bestiary tracker
 	player:refreshBestiaryTracker()
-		
+
 	-- Stamina
 	nextUseStaminaTime[playerId] = 1
 
@@ -136,11 +225,6 @@ function playerLogin.onLogin(player)
 	end
 	player:setStaminaXpBoost(staminaBonus)
 	player:setBaseXpGain(baseExp)
-
-	local worldTime = getWorldTime()
-	local hours = math.floor(worldTime / 60)
-	local minutes = worldTime % 60
-	player:sendTibiaTime(hours, minutes)
 
 	if player:getStorageValue(Storage.isTraining) == 1 then --Reset exercise weapon storage
 		player:setStorageValue(Storage.isTraining,0)
