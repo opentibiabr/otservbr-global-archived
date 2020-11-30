@@ -91,7 +91,7 @@ function playerLogin.onLogin(player)
 	local resultId = db.storeQuery('SELECT `recruiter` from `accounts` where `id`='..getAccountNumberByPlayerName(getPlayerName(player)))
 	local recruiterStatus = result.getNumber(resultId, 'recruiter')
 	local sex = player:getSex()
-	if recruiterStatus >=1 then
+	if recruiterStatus >= 1 then
 		if sex == 1 then
 			local outfit = player:hasOutfit(746)
 			if outfit == false then
@@ -104,7 +104,7 @@ function playerLogin.onLogin(player)
 			end
 		end
 	end
-	if recruiterStatus >=3 then
+	if recruiterStatus >= 3 then
 		if sex == 1 then
 			local outfit = player:hasOutfit(746,1)
 			if outfit == false then
