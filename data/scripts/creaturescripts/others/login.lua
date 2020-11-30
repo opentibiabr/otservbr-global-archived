@@ -44,7 +44,7 @@ function playerLogin.onLogin(player)
 		if resultId ~= false then
 			repeat
 				local name = result.getDataString(resultId, "name")
-				if getCreatureCondition(Player(name), CONDITION_INFIGHT)==false then
+				if getCreatureCondition(Player(name), CONDITION_INFIGHT) == false then
 					Player(name):remove()
 				else
 					addEvent(ProtectionZoneCheck, 2000, player:getName())
@@ -56,25 +56,24 @@ function playerLogin.onLogin(player)
 	end
 	-- end kick other players from account
 	if isPremium(player) then
-		player:setStorageValue(998899,1)
+		player:setStorageValue(998899, 1)
 	end
 	-- Premium Ends Teleport to Temple, change addon (citizen) houseless
 	local defaultTown = "Thais" -- default town where player is teleported if his home town is in premium area
 	local freeTowns = {"Ab'Dendriel", "Carlin", "Kazordoon", "Thais", "Venore"} -- towns in free account area
 
-	if isPremium(player)==false and isInArray(freeTowns, player:getTown():getName())==false then
+	if isPremium(player) == false and isInArray(freeTowns, player:getTown():getName()) == false then
 		local town = player:getTown()
-		local Sex = player:getSex()
+		local sex = player:getSex()
 		local home = getHouseByPlayerGUID(getPlayerGUID(player))
 		town = isInArray(freeTowns, town:getName()) and town or Town(defaultTown)
 		player:teleportTo(town:getTemplePosition())
 		player:setTown(town)
 		player:sendTextMessage(MESSAGE_STATUS_WARNING, "Your premium time has expired.")
-		player:setStorageValue(998899,0)
-		if Sex == 1 then
+		player:setStorageValue(998899, 0)
+		if sex == 1 then
 			player:setOutfit({lookType = 128, lookFeet = 114, lookLegs = 134, lookHead = 114,lookAddons = 0})
-        end
-        if Sex == 0 then
+        elseif sex == 0 then
 			player:setOutfit({lookType = 136, lookFeet = 114, lookLegs = 134, lookHead = 114, lookAddons = 0})
         end
         if home ~= nil and not isPremium(player) then
@@ -88,44 +87,42 @@ function playerLogin.onLogin(player)
 	-- Recruiter system
 	local resultId = db.storeQuery('SELECT `recruiter` from `accounts` where `id`='..getAccountNumberByPlayerName(getPlayerName(player)))
 	local recruiterstatus = result.getNumber(resultId, 'recruiter')
-	if recruiterstatus>=1 then
-		local Sex = player:getSex()
-		if Sex == 1 then
-			local outfit=player:hasOutfit(746)
-			if outfit==false then
+	local sex = player:getSex()
+	if recruiterstatus >=1 then
+		if sex == 1 then
+			local outfit = player:hasOutfit(746)
+			if outfit == false then
 				player:addOutfit(746)
 			end
 		else
-			local outfit=player:hasOutfit(745)
-			if outfit==false then
+			local outfit = player:hasOutfit(745)
+			if outfit == false then
 				player:addOutfit(745)
 			end
 		end
 	end
-	if recruiterstatus>=3 then
-		local Sex = player:getSex()
-		if Sex == 1 then
-			local outfit=player:hasOutfit(746,1)
-			if outfit==false then
+	if recruiterstatus >=3 then
+		if sex == 1 then
+			local outfit = player:hasOutfit(746,1)
+			if outfit == false then
 				player:addOutfitAddon(746,1)
 			end
 		else
-			local outfit=player:hasOutfit(745,1)
-			if outfit==false then
+			local outfit = player:hasOutfit(745,1)
+			if outfit == false then
 				player:addOutfit(745,1)
 			end
 		end
 	end
-	if recruiterstatus>=10 then
-		local Sex = player:getSex()
-		if Sex == 1 then
-			local outfit=player:hasOutfit(746,2)
-			if outfit==false then
+	if recruiterstatus >=10 then
+		if sex == 1 then
+			local outfit = player:hasOutfit(746,2)
+			if outfit == false then
 				player:addOutfitAddon(746,2)
 			end
 		else
-			local outfit=player:hasOutfit(745,2)
-			if outfit==false then
+			local outfit = player:hasOutfit(745,2)
+			if outfit == false then
 				player:addOutfit(745,2)
 			end
 		end
