@@ -144,7 +144,7 @@ class IOMap
 		}
 
 		void setLastErrorString(std::string error) {
-			errorString = error;
+			errorString = std::move(error);
 		}
 
 	private:
