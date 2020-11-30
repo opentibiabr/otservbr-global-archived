@@ -56,7 +56,7 @@ function playerLogin.onLogin(player)
 	end
 	-- end kick other players from account
 	if isPremium(player) then
-		player:setStorageValue(998899, 1)
+		player:setStorageValue(Storage.PremiumAccount, 1)
 	end
 	-- Premium Ends Teleport to Temple, change addon (citizen) houseless
 	local defaultTown = "Thais" -- default town where player is teleported if his home town is in premium area
@@ -70,7 +70,7 @@ function playerLogin.onLogin(player)
 		player:teleportTo(town:getTemplePosition())
 		player:setTown(town)
 		player:sendTextMessage(MESSAGE_STATUS_WARNING, "Your premium time has expired.")
-		player:setStorageValue(998899, 0)
+		player:setStorageValue(Storage.PremiumAccount, 0)
 		if sex == 1 then
 			player:setOutfit({lookType = 128, lookFeet = 114, lookLegs = 134, lookHead = 114,lookAddons = 0})
         elseif sex == 0 then
