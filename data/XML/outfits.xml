@@ -95,6 +95,7 @@
 	<outfit type="0" looktype="1323" name="Revenant" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="1332" name="Jouster" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="1339" name="Moth Cape" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1372" name="Rascoohan" premium="yes" unlocked="no" enabled="yes" />
 
 	<!-- Male outfits -->
 	<outfit type="1" looktype="128" name="Citizen" premium="no" unlocked="yes" enabled="yes" />
@@ -191,4 +192,5 @@
 	<outfit type="1" looktype="1322" name="Revenant" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="1331" name="Jouster" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="1338" name="Moth Cape" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1371" name="Rascoohan" premium="yes" unlocked="no" enabled="yes" />
 </outfits>
