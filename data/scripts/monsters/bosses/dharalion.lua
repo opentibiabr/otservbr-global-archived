@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Dharalion")
 local monster = {}
 
 monster.description = "Dharalion"
-monster.experience = 570
+monster.experience = 380
 monster.outfit = {
 	lookType = 203,
 	lookHead = 0,
@@ -74,19 +74,25 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000, maxCount = 20},
-	{id = 2260, chance = 4000},
-	{id = 2682, chance = 6666},
-	{id = 2802, chance = 10000},
-	{id = 2177, chance = 2857},
-	{id = 2689, chance = 20000, maxCount = 3},
-	{id = 2652, chance = 5000},
-	{id = 2032, chance = 4000},
-	{id = 2154, chance = 1333}
+	{id = "gold coin", chance = 100000, maxCount = 100},
+	{id = "holy orchid", chance = 100000},
+	{id = "elvish talisman", chance = 88000},
+	{id = "elven astral observer", chance = 82000},
+	{id = "yellow gem", chance = 41790},
+	{id = "blank rune", chance = 25370, maxCount = 1},
+	{id = "melon", chance = 22390},
+	{id = "bread", chance = 16420},
+	{id = "elven amulet", chance = 14930},
+	{id = "great mana potion", chance = 13430},
+	{id = "life crystal", chance = 13430},
+	{id = "sling herb", chance = 8960},
+	{id = "cornucopia", chance = 7460},
+	{id = "green tunic", chance = 4480},
+	{id = "royal spear", chance = 1490, maxCount = 2}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 30, attack = 28, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, skill = 30, attack = 28},
 	{name ="combat", interval = 1000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -30, maxDamage = -60, range = 7, target = false},
 	{name ="combat", interval = 1000, chance = 13, type = COMBAT_ENERGYDAMAGE, minDamage = -70, maxDamage = -90, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = false},
 	{name ="combat", interval = 1000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -80, maxDamage = -151, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, target = false},

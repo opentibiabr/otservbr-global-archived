@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Count Vlarkorth")
 local monster = {}
 
 monster.description = "Count Vlarkorth"
-monster.experience = 6300
+monster.experience = 41300
 monster.outfit = {
 	lookType = 1221,
 	lookHead = 10,
@@ -66,43 +66,40 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 5},
-	{id = "silver token", chance = 100000, maxCount = 2},
-	{id = "supreme health potion", chance = 72000, maxCount = 20},
-	{id = "ultimate mana potion", chance = 52000, maxCount = 20},
-	{id = "ultimate spirit potion", chance = 44000, maxCount = 20},
-	{id = "knight legs", chance = 36000},
-	{id = "crystal coin", chance = 28000, maxCount = 2},
-	{id = "yellow gem", chance = 28000},
-	{id = "red gem", chance = 28000},
-	{id = "berserk potion", chance = 24000, maxCount = 10},
-	{id = "bullseye potion", chance = 24000, maxCount = 10},
-	{id = 26199, chance = 20000},
-	{id = "green gem", chance = 20000, maxCount = 2},
-	{id = 26187, chance = 16000},
-	{id = 26200, chance = 16000},
-	{id = "blue gem", chance = 12000},
-	{id = "mastermind potion", chance = 12000, maxCount = 10},
-	{id = "skull staff", chance = 12000},
-	{id = "gold ingot", chance = 8000},
-	{id = 26189, chance = 8000},
-	{id = "magma boots", chance = 8000},
-	{id = 26185, chance = 6000},
-	{id = "violet gem", chance = 4000},
-	{id = "young lich worm", chance = 4000},
-	{id = "magic sulphur", chance = 4000},
-	{id = 26198, chance = 4000},
-	{id = "rotten heart", chance = 4000},
-	{id = "medal of valiance", chance = 550},
-	{id = "terra helmet", chance = 400},
-	{id = "final judgement", chance = 190},
-	{id = "embrace of nature", chance = 185},
-	{id = "ancient liche bone", chance = 155},
-	{id = "bear skin", chance = 145}
+	{id = "Platinum Coin", minCount = 1, maxCount = 5, chance = 100000},--comum
+	{id = "Crystal Coin", minCount = 0, maxCount = 2, chance = 50000},--comum
+	{id = "Supreme Health Potion", minCount = 0, maxCount = 6, chance = 35000},--comum
+	{id = "Ultimate Mana Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{id = "Ultimate Spirit Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{id = "Bullseye Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{id = "Mastermind Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{id = "Silver Token", minCount = 0, maxCount = 2, chance = 8000},--semiraro
+	{id = "Blue Gem", chance = 9000},--semiraro
+	{id = "Collar of blue plasma", chance = 5200},--semiraro
+	{id = "Collar of red plasma", chance = 5200},--semiraro
+	{id = "Blue Gem", chance = 8500},--semiraro
+	{id = "Gold Ingot", minCount = 0, maxCount = 1, chance = 10000},--semiraro
+	{id = "Green Gem", chance = 8200},--semiraro
+	{id = "Magic Sulphur", chance = 6500},--semiraro
+	{id = "Red Gem", chance = 8000},--semiraro
+	{id = "Ring of blue plasma", chance = 5000},--semiraro
+	{id = "Ring of red plasma", chance = 5000},--semiraro
+	{id = "Ring of green plasma", chance = 5000},--semiraro
+	{id = "Skull staff", chance = 7000},--semiraro
+	{id = "Yellow Gem", chance = 8500},--semiraro
+	{id = "Young Lich Worm", chance = 5500},--semiraro
+	{id = "Bear Skin", chance = 1600},--raro
+	{id = "Embrace of Nature", chance = 1100},--raro
+	{id = "Giant Emerald", chance = 1700},--raro
+	{id = "Giant Ruby", chance = 1900},--raro
+	{id = "Giant Sapphire", chance = 1800},--raro
+	{id = "Medal of Valiance", chance = 1200},--raro
+	{id = "Terra helmet", chance = 700},--raro
+	{id = "Final Judgement", chance = 400},--muitoraro
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -600, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -600},
 	{name ="combat", interval = 2000, chance = 50, type = COMBAT_MANADRAIN, minDamage = -400, maxDamage = -1000, length = 7, spread = 3, effect = CONST_ME_SMALLCLOUDS, target = false},
 	{name ="combat", interval = 2000, chance = 30, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -1000, length = 7, spread = 3, effect = CONST_ME_YELLOW_ENERGY_SPARK, target = false},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -500, length = 7, spread = 3, effect = CONST_ME_HITBYFIRE, target = false}

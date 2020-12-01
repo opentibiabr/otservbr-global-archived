@@ -65,8 +65,8 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 60, attack = 50, effect = CONST_ME_DRAWBLOOD},
-	{name ="melee", interval = 2000, chance = 2, skill = 86, attack = 100, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, skill = 60, attack = 50},
+	{name ="melee", interval = 2000, chance = 2, skill = 86, attack = 100},
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -125, maxDamage = -245, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
 	{name ="war golem skill reducer", interval = 2000, chance = 16, target = false},
 	{name ="war golem electrify", interval = 2000, chance = 9, range = 7, target = false}

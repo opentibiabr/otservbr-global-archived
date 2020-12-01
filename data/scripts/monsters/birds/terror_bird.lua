@@ -71,13 +71,13 @@ monster.loot = {
 	{id = "terrorbird beak", chance = 10310},
 	{id = "worm", chance = 9540, maxCount = 3},
 	{id = "colourful feather", chance = 3090},
-	{id = "health potion", chance = 660},
-	{id = "seeds", chance = 240},
+	{id = "health potion", chance = 690},
+	{id = "seeds", chance = 280},
 	{id = "feather headdress", chance = 100}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -90, effect = CONST_ME_DRAWBLOOD}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -90}
 }
 
 monster.defenses = {

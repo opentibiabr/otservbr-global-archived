@@ -21,10 +21,9 @@ function teleport.onStepIn(creature, item, position, fromPosition)
 	for i = 1, #setting do
 		local table = setting[i]
 		local backStorage = table.storage
-
 		if player:getStorageValue(backStorage) >= 1 then
 			player:teleportTo(table.teleportPosition)
-			fromPosition:sendMagicEffect(CONST_ME_TELEPORT)
+			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			player:setStorageValue(backStorage, 0)
 			break
 		end
@@ -32,20 +31,12 @@ function teleport.onStepIn(creature, item, position, fromPosition)
 
 	local storagePortal = teleports[item.uid]
 	if storagePortal then
-		local entracePosition = Position(33497, 32616, 8)
-		player:teleportTo(entracePosition)
-		fromPosition:sendMagicEffect(CONST_ME_TELEPORT)
+		player:teleportTo(Position(33497, 32616, 8))
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:setStorageValue(storagePortal, 1)
 	end
-
 	return true
 end
 
-teleport:type("stepin")
-
-for index, value in pairs(teleports) do
-	teleport:uid(index)
-end
-
-teleport:position({x= 33498, y = 32613, z = 8})
+teleport:uid(35020, 64001, 64002, 64003)
 teleport:register()

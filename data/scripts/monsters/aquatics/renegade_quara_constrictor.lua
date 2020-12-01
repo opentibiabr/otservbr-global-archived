@@ -49,7 +49,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -65,18 +65,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2152, chance = 100000, maxCount = 3},
-	{id = 12443, chance = 16666},
-	{id = 15649, chance = 16666, maxCount = 10},
-	{id = 2147, chance = 14285, maxCount = 2},
-	{id = 7368, chance = 7142, maxCount = 5},
-	{id = 2214, chance = 6250},
-	{id = 2670, chance = 5555},
-	{id = 2178, chance = 4761},
-	{id = 2150, chance = 4000},
-	{id = 7590, chance = 4000},
-	{id = 5895, chance = 806}
+	{id = "platinum coin", chance = 79280, maxCount = 3},
+	{id = "quara tentacle", chance = 15240},
+	{id = "mind stone", chance = 6880},
+	{id = "ring of healing", chance = 5580},
+	{id = "great mana potion", chance = 5390, maxCount = 5},
+	{id = "shrimp", chance = 5300, maxCount = 4},
+	{id = "small amethyst", chance = 5200, maxCount = 2},
+	{id = "small ruby", chance = 4650, maxCount = 2},
+	{id = "assassin star", chance = 4460, maxCount = 7},
+	{id = "vortex bolt", chance = 3720, maxCount = 10},
+	{id = "violet crystal shard", chance = 1210},
+	{id = "northwind rod", chance = 740},
+	{id = "fish fin", chance = 370},
+	{id = "piggy bank", chance = 190}
 }
+
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 60, attack = 40, effect = CONST_ME_DRAWBLOOD},
@@ -86,14 +90,14 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 20,
-	armor = 20,
+	armor = 35,
 	{name ="combat", interval = 3000, chance = 35, type = COMBAT_HEALING, minDamage = 150, maxDamage = 300, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = -25},
-	{type = COMBAT_EARTHDAMAGE, percent = -1},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
@@ -106,7 +110,7 @@ monster.elements = {
 monster.immunities = {
 	{type = "paralyze", condition = false},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = false},
+	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
 

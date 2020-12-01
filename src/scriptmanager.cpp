@@ -88,6 +88,13 @@ bool ScriptingManager::loadScriptSystems()
 
 	g_chat = new Chat();
 
+	g_spells = new Spells();
+	if (!g_spells->loadFromXml()) {
+		std::cout << "> ERROR: Unable to load spells!" << std::endl;
+		return false;
+	}
+
+	// XML loads disabled start
 	g_weapons = new Weapons();
 	if (!g_weapons) {
 		return false;
@@ -95,21 +102,13 @@ bool ScriptingManager::loadScriptSystems()
 
 	g_weapons->loadDefaults();
 
-	g_spells = new Spells();
-	if (!g_spells->loadFromXml()) {
-		std::cout << "> ERROR: Unable to load spells!" << std::endl;
-		return false;
-	}
-
 	g_actions = new Actions();
-	if (!g_actions->loadFromXml()) {
-		std::cout << "> ERROR: Unable to load actions!" << std::endl;
+	if (!g_actions) {
 		return false;
 	}
 
 	g_talkActions = new TalkActions();
-	if (!g_talkActions->loadFromXml()) {
-		std::cout << "> ERROR: Unable to load talk actions!" << std::endl;
+	if (!g_talkActions) {
 		return false;
 	}
 
@@ -119,16 +118,15 @@ bool ScriptingManager::loadScriptSystems()
 	}
 
 	g_creatureEvents = new CreatureEvents();
-	if (!g_creatureEvents->loadFromXml()) {
-		std::cout << "> ERROR: Unable to load creature events!" << std::endl;
+	if (!g_creatureEvents) {
 		return false;
 	}
 
 	g_globalEvents = new GlobalEvents();
-	if (!g_globalEvents->loadFromXml()) {
-		std::cout << "> ERROR: Unable to load global events!" << std::endl;
+	if (!g_globalEvents) {
 		return false;
 	}
+	// XML loads disabled end
 
 	g_events = new Events();
 	if (!g_events->load()) {

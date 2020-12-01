@@ -46,7 +46,7 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
@@ -65,14 +65,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small ruby", chance = 3440},
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 49000, maxCount = 43},
-	{id = "life crystal", chance = 1000},
-	{id = "halberd", chance = 1840},
+	{id = "gold coin", chance = 49000, maxCount = 100},
+	{id = "gold coin", chance = 40000, maxCount = 29},
+	{id = "quara pincers", chance = 9940},
 	{id = "plate armor", chance = 4170},
-	{id = "fish fin", chance = 1000},
-	{id = "quara pincers", chance = 9940}
+	{id = "small ruby", chance = 3440},
+	{id = "halberd", chance = 2070},
+	{id = "fish fin", chance = 800},
+	{id = "life crystal", chance = 790}
 }
 
 monster.attacks = {
@@ -82,13 +82,13 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 45,
-	armor = 45
+	armor = 70
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
 	{type = COMBAT_ENERGYDAMAGE, percent = -10},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},

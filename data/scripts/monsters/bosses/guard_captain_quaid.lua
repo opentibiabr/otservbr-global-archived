@@ -65,33 +65,25 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 85000, maxCount = 20},
-	{id = "Small Sapphire", chance = 95000},
-	{id = "Yellow Gem", chance = 61000},
-	{id = "Red Gem", chance = 56000},
-	{id = "Gold Ingot", chance = 36000},
-	{id = 7632, chance = 28000},
-	{id = "Cobra Crest", chance = 22000},
-	{id = "Blue Gem", chance = 21500},
-	{id = "Green Gem", chance = 18150},
-	{id = "Terra Hood", chance = 14500},
-	{id = "Crossbow", chance = 12520},
-	{id = "Bow", chance = 11200},
-	{id = "Hunting Spear", chance = 10400},
-	{id = "Blue Crystal Shard", chance = 9600},
-	{id = "Throwing Star", chance = 9100, maxCount = 6},
-	{id = "Green Crystal Shard", chance = 8600},
-	{id = "Small Topaz", chance = 8000},
-	{id = "Sacred Tree Amulet", chance = 6800},
-	{id = "Magma Monocle", chance = 6100},
-	{id = "Wood Cape", chance = 5250},
-	{id = 26185, chance = 3800},
-	{id = "Cobra Boots", chance = 315},
-	{id = "Cobra Crossbow", chance = 225}
+	{id = "platinum coin", chance = 100000, maxCount = 20},
+	{id = "leaf star", chance = 73000, maxCount = 2},
+	{id = "throwing star", chance = 65000, maxCount = 6},
+	{id = "hunting spear", chance = 62000},
+	{id = "gold ingot", chance = 48000},
+	{id = "blue gem", chance = 31000},
+	{id = "yellow gem", chance = 31000},
+	{id = "green crystal shard", chance = 8600},
+	{id = 7632, chance = 28000},--giant shimmering pearl
+	{id = "cobra boots", chance = 315},
+	{id = "cobra crest", chance = 11000},
+	{id = "cobra hood", chance = 320},
+	{id = "skull helmet", chance = 7500},
+	{id = "collar of blue plasma", chance = 7200},
+	{id = "cobra crossbow", chance = 225}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -580, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -580},
 	{name ="combat", interval = 2000, chance = 18, type = COMBAT_EARTHDAMAGE, minDamage = -500, maxDamage = -620, radius = 4, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_GREEN_RINGS, target = true},
 	{name ="combat", interval = 2000, chance = 22, type = COMBAT_PHYSICALDAMAGE, minDamage = -450, maxDamage = -700, shootEffect = CONST_ANI_THROWINGKNIFE, target = true},
 	{name ="combat", interval = 2000, chance = 14, type = COMBAT_PHYSICALDAMAGE, minDamage = -350, maxDamage = -550, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
@@ -106,15 +98,15 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 85},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -20},
+	{type = COMBAT_HOLYDAMAGE , percent = -10},
 	{type = COMBAT_DEATHDAMAGE , percent = 0}
 }
 

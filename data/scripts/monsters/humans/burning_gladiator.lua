@@ -86,7 +86,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
 	{name ="firering", interval = 2000, chance = 10, minDamage = -300, maxDamage = -500, target = false},
 	{name ="firex", interval = 2000, chance = 15, minDamage = -300, maxDamage = -500, target = false},
 	{name ="combat", interval = 2000, chance = 17, type = COMBAT_FIREDAMAGE, minDamage = -300, maxDamage = -500, radius = 2, effect = CONST_ME_FIREATTACK, target = false},
@@ -94,15 +94,15 @@ monster.attacks = {
 }
 
 monster.defenses = {
-	defense = 89,
+	defense = 40,
 	armor = 89
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 80},
-	{type = COMBAT_ENERGYDAMAGE, percent = 80},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 20},
+	{type = COMBAT_ENERGYDAMAGE, percent = 20},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 70},
+	{type = COMBAT_FIREDAMAGE, percent = 30},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},

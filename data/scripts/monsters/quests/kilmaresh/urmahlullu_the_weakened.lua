@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 130000
-monster.maxHealth = 130000
+monster.health = 100000
+monster.maxHealth = 512000
 monster.race = "blood"
 monster.corpse = 36248
 monster.speed = 190
@@ -52,6 +52,10 @@ monster.flags = {
 	canWalkOnFire = true,
 	canWalkOnPoison = true,
 	pet = false
+}
+
+monster.events = {
+	"WeakenedDeath"
 }
 
 monster.light = {
@@ -108,7 +112,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -50, maxDamage = -1100, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -50, maxDamage = -1100},
 	{name ="combat", interval = 3000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -800, radius = 4, effect = CONST_ME_FIREAREA, target = false},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -550, maxDamage = -800, radius = 3, effect = CONST_ME_FIREAREA, target = false},
 	{name ="urmahlulluring", interval = 2000, chance = 18, minDamage = -450, maxDamage = -600, target = false}

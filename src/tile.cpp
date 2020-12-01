@@ -402,6 +402,13 @@ void Tile::onAddTileItem(Item* item)
 	for (Creature* spectator : spectators) {
 		spectator->onAddTileItem(this, cylinderMapPos);
 	}
+
+  if ((!hasFlag(TILESTATE_PROTECTIONZONE) || g_config.getBoolean(ConfigManager::CLEAN_PROTECTION_ZONES))
+																							&& item->isCleanable()) {
+		if (!dynamic_cast<HouseTile*>(this)) {
+			g_game.addTileToClean(this);
+		}
+	}
 }
 
 void Tile::onUpdateTileItem(Item* oldItem, const ItemType& oldType, Item* newItem, const ItemType& newType)
@@ -467,6 +474,26 @@ void Tile::onRemoveTileItem(const SpectatorHashSet& spectators, const std::vecto
 	//event methods
 	for (Creature* spectator : spectators) {
 		spectator->onRemoveTileItem(this, cylinderMapPos, iType, item);
+	}
+
+  if (!hasFlag(TILESTATE_PROTECTIONZONE) || g_config.getBoolean(ConfigManager::CLEAN_PROTECTION_ZONES)) {
+		auto items = getItemList();
+		if (!items || items->empty()) {
+			g_game.removeTileToClean(this);
+			return;
+		}
+
+		bool ret = false;
+		for (auto toCheck : *items) {
+			if (toCheck->isCleanable()) {
+				ret = true;
+				break;
+			}
+		}
+
+		if (!ret) {
+			g_game.removeTileToClean(this);
+		}
 	}
 }
 

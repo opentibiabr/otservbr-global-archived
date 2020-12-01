@@ -89,7 +89,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 80, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 300, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, skill = 50, attack = 80, condition = {type = CONDITION_POISON, totalDamage = 300, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 13, type = COMBAT_LIFEDRAIN, minDamage = -160, maxDamage = -295, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_HITBYPOISON, target = true},
 	{name ="defiler paralyze 3", interval = 2000, chance = 9, target = false},
 	{name ="defiler paralyze 1", interval = 2000, chance = 6, target = false},

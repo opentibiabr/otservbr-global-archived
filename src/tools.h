@@ -110,4 +110,20 @@ int64_t OTSYS_TIME();
 
 SpellGroup_t stringToSpellGroup(std::string value);
 
+static inline Cipbia_Elementals_t getCipbiaElement(CombatType_t combatType) {
+	switch (combatType) {
+		case COMBAT_PHYSICALDAMAGE: return CIPBIA_ELEMENTAL_PHYSICAL;
+		case COMBAT_ENERGYDAMAGE: return CIPBIA_ELEMENTAL_ENERGY;
+		case COMBAT_EARTHDAMAGE: return CIPBIA_ELEMENTAL_EARTH;
+		case COMBAT_FIREDAMAGE: return CIPBIA_ELEMENTAL_FIRE;
+		case COMBAT_LIFEDRAIN: return CIPBIA_ELEMENTAL_LIFEDRAIN;
+		case COMBAT_HEALING: return CIPBIA_ELEMENTAL_HEALING;
+		case COMBAT_DROWNDAMAGE: return CIPBIA_ELEMENTAL_DROWN;
+		case COMBAT_ICEDAMAGE: return CIPBIA_ELEMENTAL_ICE;
+		case COMBAT_HOLYDAMAGE: return CIPBIA_ELEMENTAL_HOLY;
+		case COMBAT_DEATHDAMAGE: return CIPBIA_ELEMENTAL_DEATH;
+		default: return CIPBIA_ELEMENTAL_UNDEFINED;
+	}
+}
+
 #endif

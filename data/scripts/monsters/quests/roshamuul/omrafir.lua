@@ -105,7 +105,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 390, attack = 500, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, skill = 390, attack = 500},
 	{name ="omrafir wave", interval = 2000, chance = 17, minDamage = -500, maxDamage = -1000, target = false},
 	{name ="omrafir beam", interval = 2000, chance = 15, minDamage = -7000, maxDamage = -10000, target = false},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -1000, maxDamage = -3000, length = 10, spread = 3, effect = CONST_ME_FIREATTACK, target = false},
@@ -118,7 +118,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 165,
 	armor = 155,
-	{name ="combat", interval = 2000, chance = 22, type = COMBAT_HEALING, minDamage = 440, maxDamage = 800, effect = CONST_ME_DRAWBLOOD, target = false},
+	{name ="combat", interval = 2000, chance = 22, type = COMBAT_HEALING, minDamage = 440, maxDamage = 800, target = false},
 	{name ="omrafir summon", interval = 2000, chance = 50, target = false},
 	{name ="omrafir healing 2", interval = 2000, chance = 20, target = false}
 }

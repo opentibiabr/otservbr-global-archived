@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 120000
-monster.maxHealth = 120000
+monster.health = 512000
+monster.maxHealth = 512000
 monster.race = "blood"
 monster.corpse = 0
 monster.speed = 190
@@ -54,6 +54,10 @@ monster.flags = {
 	pet = false
 }
 
+monster.events = {
+	"UrmahlulluChanges"
+}
+
 monster.light = {
 	level = 0,
 	color = 0
@@ -68,7 +72,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -150, maxDamage = -1300, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -150, maxDamage = -1300},
 	{name ="combat", interval = 3000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -800, radius = 4, effect = CONST_ME_FIREAREA, target = false},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -550, maxDamage = -800, radius = 3, effect = CONST_ME_FIREAREA, target = false},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -550, maxDamage = -800, radius = 3, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_ENERGYHIT, target = false},

@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Sir Baeloc")
 local monster = {}
 
 monster.description = "a Sir Baeloc"
-monster.experience = 6300
+monster.experience = 48300
 monster.outfit = {
 	lookType = 1222,
 	lookHead = 19,
@@ -66,34 +66,35 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "silver token", chance = 100000, maxCount = 2},
-	{id = "platinum coin", chance = 95830, maxCount = 5},
-	{id = "ultimate mana potion", chance = 54170, maxCount = 20},
-	{id = "ultimate spirit potion", chance = 50000, maxCount = 20},
-	{id = "supreme health potion", chance = 37500, maxCount = 20},
-	{id = "green gem", chance = 33330},
-	{id = "gold ingot", chance = 29170},
-	{id = "piece of hell steel", chance = 29170, maxCount = 4},
-	{id = "yellow gem", chance = 29170},
-	{id = "blue gem", chance = 25000},
-	{id = "bullseye potion", chance = 25000, maxCount = 10},
-	{id = "skull staff", chance = 25000},
-	{id = "magma monocle", chance = 20830},
-	{id = "berserk potion", chance = 20830, maxCount = 10},
-	{id = "red gem", chance = 20830},
-	{id = 26198, chance = 16670},
-	{id = "mastermind potion", chance = 16670, maxCount = 10},
-	{id = "young lich worm", chance = 12500},
-	{id = 26199, chance = 4170},
-	{id = "violet gem", chance = 4170},
-	{id = "terra helmet", chance = 4170},
-	{id = "final judgement", chance = 400},
-	{id = 36427, chance = 150}
+	{id = "Platinum Coin", minCount = 1, maxCount = 5, chance = 100000},--comum
+	{id = "Crystal Coin", minCount = 0, maxCount = 2, chance = 50000},--comum
+	{id = "Supreme Health Potion", minCount = 0, maxCount = 6, chance = 35000},--comum
+	{id = "Ultimate Mana Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{id = "Ultimate Spirit Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{id = "Mastermind Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{id = "Berserk Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{id = "Piece of draconian steel", minCount = 0, maxCount = 4, chance = 9000},--comum
+	{id = "Red Gem", minCount = 0, maxCount = 1, chance = 12000},--comum
+	{id = "Silver Token", minCount = 0, maxCount = 2, chance = 9500},--semiraro
+	{id = "Collar of blue plasma", chance = 5200},--semiraro
+	{id = "Collar of red plasma", chance = 5200},--semiraro
+	{id = "Knight Legs", chance = 11000},--semiraro
+	{id = "Gold Ingot", minCount = 0, maxCount = 1, chance = 10000},--semiraro
+	{id = "Violet Gem", minCount = 0, maxCount = 1, chance = 10000},--semiraro
+	{id = "Yellow Gem", minCount = 0, maxCount = 1, chance = 10000},--semiraro
+	{id = "Ring of blue plasma", chance = 5000},--semiraro
+	{id = "Ring of red plasma", chance = 5000},--semiraro
+	{id = "Skull Staff", chance = 9000},--semiraro
+	{id = "Young Lich Worm", chance = 5800},--semiraro
+	{id = "Embrace of nature", chance = 1400},--raro
+	{id = 36427, chance = 1800},--raro
+	{id = "Terra helmet", chance = 750},--raro
+	{id = "Final Judgement", chance = 450},--muitoraro
 }
 
 monster.attacks = {
 	{name ="combat", interval = 1800, chance = 40, type = COMBAT_MANADRAIN, minDamage = -300, maxDamage = -500, radius = 5, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="combat", interval = 1800, chance = 89, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -1200, length = 7, spread = 3, effect = CONST_ME_DRAWBLOOD, target = false}
+	{name ="combat", interval = 1800, chance = 89, type = COMBAT_PHYSICALDAMAGE, minDamage = -400, maxDamage = -1200, length = 7, spread = 3, target = false}
 }
 
 monster.defenses = {

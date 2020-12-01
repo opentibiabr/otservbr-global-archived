@@ -72,12 +72,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 95000, maxCount = 15},
-	{id = 12435, chance = 1000}
+	{id = 2148, chance = 95000, maxCount = 15}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -10, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, totalDamage = 5, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -10, condition = {type = CONDITION_POISON, totalDamage = 5, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -1, maxDamage = -15, length = 7, spread = 3, effect = CONST_ME_ICEAREA, target = false},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -1, maxDamage = -10, length = 6, spread = 3, effect = CONST_ME_SMALLPLANTS, target = false},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -1, maxDamage = -12, length = 7, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
