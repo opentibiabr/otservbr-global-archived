@@ -2233,13 +2233,14 @@ void Player::death(Creature* lastHitCreature)
 
 		// Charm bless bestiary
 		if (lastHitCreature && lastHitCreature->getMonster()) {
-	  	IOBestiary g_bestiary;
-			MonsterType* mType = g_monsters.getMonsterType(lastHitCreature->getName());
-			if (mType) {
-				charmRune_t charm_t = g_bestiary.getCharmFromTarget(this, mType);
-				Bestiary* charm = g_bestiary.getBestiaryCharm(charm_t);
-				if (charm && charm->id == CHARM_BLESS) {
-					deathLossPercent = (deathLossPercent * 90) / 100;
+			if (charm_bless != 0) {
+				MonsterType* mType = g_monsters.getMonsterType(lastHitCreature->getName());
+				if (mType && mType->info.raceid == charm_bless) {
+					IOBestiary g_bestiary;
+					Charm* charm = g_bestiary.getBestiaryCharm(CHARM_BLESS);
+					if (charm && charm->id == CHARM_BLESS) {
+						deathLossPercent = (deathLossPercent * 90) / 100;
+					}
 				}
 			}
 		}

@@ -541,12 +541,12 @@ void Combat::CombatConditionFunc(Creature* caster, Creature* target, const Comba
 				player->sendCancelMessage("You are still immune against this spell.");
 				return;
 			} else if (caster->getMonster()) {
-				MonsterType* mType = g_monsters.getMonsterType(caster->getName());
-				if (mType) {
-					IOBestiary g_bestiary;
-					charmRune_t charm_t = g_bestiary.getCharmFromTarget(player, mType);
-					if (charm_t == CHARM_CLEANSE) {
-						Bestiary* charm = g_bestiary.getBestiaryCharm(charm_t);
+				uint16_t playerCharmRaceid = player->parseRacebyCharm(CHARM_CLEANSE, false, 0);
+				if (playerCharmRaceid != 0) {
+					MonsterType* mType = g_monsters.getMonsterType(caster->getName());
+					if (mType && playerCharmRaceid == mType->info.raceid) {
+						IOBestiary g_bestiary;
+						Charm* charm = g_bestiary.getBestiaryCharm(CHARM_CLEANSE);
 						if (charm && (charm->chance > normal_random(0, 100))) {
 							if (player->hasCondition(condition->getType())) {
 								player->removeCondition(condition->getType());
@@ -556,7 +556,7 @@ void Combat::CombatConditionFunc(Creature* caster, Creature* target, const Comba
 							return;
 						}
 					}
-				}			
+				}
 			}
 		}
 
@@ -852,26 +852,28 @@ void Combat::doCombatHealth(Creature* caster, Creature* target, CombatDamage& da
 	}
 
 	if(caster && caster->getPlayer()){
-			// Critical damage
-			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
-			// Charm low blow rune)
-      if (target && target->getMonster()) {
-			  IOBestiary g_bestiary;
-			  MonsterType* mType = g_monsters.getMonsterType(target->getName());
-			  charmRune_t charm_t = g_bestiary.getCharmFromTarget(caster->getPlayer(), mType);
-			  if (charm_t == CHARM_LOW) {
-			  	Bestiary* charm = g_bestiary.getBestiaryCharm(charm_t);
-			  	if (charm) {
-			  		chance += charm->percent;
-			  	}
-		  	}
-      }
-			if (damage.primary.type != COMBAT_HEALING && chance != 0 && uniform_random(1, 100) <= chance) {
-				damage.critical = true;
-				damage.primary.value += (damage.primary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
-				damage.secondary.value += (damage.secondary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
+		// Critical damage
+		uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
+		// Charm low blow rune)
+		if (target && target->getMonster()) {
+			uint16_t playerCharmRaceid = caster->getPlayer()->parseRacebyCharm(CHARM_LOW, false, 0);
+			if (playerCharmRaceid != 0) {
+				MonsterType* mType = g_monsters.getMonsterType(target->getName());
+				if (mType && playerCharmRaceid == mType->info.raceid) {
+					IOBestiary g_bestiary;
+					Charm* charm = g_bestiary.getBestiaryCharm(CHARM_LOW);
+					if (charm) {
+						chance += charm->percent;
+					}
+				}
 			}
 		}
+		if (damage.primary.type != COMBAT_HEALING && chance != 0 && uniform_random(1, 100) <= chance) {
+			damage.critical = true;
+			damage.primary.value += (damage.primary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
+			damage.secondary.value += (damage.secondary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
+		}
+	}
 	if (canCombat) {
 		if (caster && params.distanceEffect != CONST_ANI_NONE) {
 			addDistanceEffect(caster, caster->getPosition(), target->getPosition(), params.distanceEffect);

@@ -155,16 +155,16 @@ class MonsterType
 		uint32_t baseSpeed = 200;
 
 		// Bestiary
-		uint8_t Bestiary_Occurrence = 0;
-		uint8_t Bestiary_Stars = 0;
-		uint16_t Bestiary_toKill = 0;
-		uint16_t Bestiary_FirstUnlock = 0;
-		uint16_t Bestiary_SecondUnlock = 0;
-		uint16_t Bestiary_CharmsPoints = 0;
+		uint8_t bestiaryOccurrence = 0;
+		uint8_t bestiaryStars = 0;
+		uint16_t bestiaryToUnlock = 0;
+		uint16_t bestiaryFirstUnlock = 0;
+		uint16_t bestiarySecondUnlock = 0;
+		uint16_t bestiaryCharmsPoints = 0;
 		uint16_t raceid = 0;
-		std::string Bestiary_Locations;
-		std::string Bestiary_class; // String (addString)
-		races_b Bestiary_Race = BESTY_RACE_NONE; // Number (addByte)
+		std::string bestiaryLocations;
+		std::string bestiaryClass; // String (addString)
+		races_b bestiaryRace = BESTY_RACE_NONE; // Number (addByte)
 
 		int32_t creatureAppearEvent = -1;
 		int32_t creatureDisappearEvent = -1;

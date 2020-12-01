@@ -1360,7 +1360,6 @@ class LuaScriptInterface
 		static int luaParseBestiaryCharmLogMsg(lua_State* L);
 		static int luaParseBestiaryCharmEffect(lua_State* L);
 		static int luaParseBestiaryCharmPoints(lua_State* L);
-		static int luaParseBestiaryCharmBinary(lua_State* L);
 		static int luaBestiaryCharmCreate(lua_State* L);
 
 		// MonsterType

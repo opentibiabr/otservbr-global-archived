@@ -1423,9 +1423,9 @@ void ProtocolGame::BestiarysendRaces()
 			if (!mtype) {
 				return;
 			}
-			if (mtype->info.Bestiary_Race == static_cast<races_b>(i)) {
+			if (mtype->info.bestiaryRace == static_cast<races_b>(i)) {
 				count += 1;
-				BestClass = mtype->info.Bestiary_class;
+				BestClass = mtype->info.bestiaryClass;
 			}
 		}
 		msg.addString(BestClass);
@@ -1458,7 +1458,7 @@ void ProtocolGame::BestiarysendMonsterData(NetworkMessage& msg)
 	if (ait != mtype_list.end()) {
 		MonsterType* mType = g_monsters.getMonsterType(ait->second);
 		if (mType) {
-			Class = mType->info.Bestiary_class;
+			Class = mType->info.bestiaryClass;
 			mtype = mType;
 		}
 	}
@@ -1479,12 +1479,12 @@ void ProtocolGame::BestiarysendMonsterData(NetworkMessage& msg)
 	newmsg.addByte(currentLevel);
 	newmsg.add<uint32_t>(killCounter);
 
-	newmsg.add<uint16_t>(mtype->info.Bestiary_FirstUnlock);
-	newmsg.add<uint16_t>(mtype->info.Bestiary_SecondUnlock);
-	newmsg.add<uint16_t>(mtype->info.Bestiary_toKill);
+	newmsg.add<uint16_t>(mtype->info.bestiaryFirstUnlock);
+	newmsg.add<uint16_t>(mtype->info.bestiarySecondUnlock);
+	newmsg.add<uint16_t>(mtype->info.bestiaryToUnlock);
 
-	newmsg.addByte(mtype->info.Bestiary_Stars);
-	newmsg.addByte(mtype->info.Bestiary_Occurrence);
+	newmsg.addByte(mtype->info.bestiaryStars);
+	newmsg.addByte(mtype->info.bestiaryOccurrence);
 
 	std::vector<LootBlock> lootList = mtype->info.lootItems;
 	newmsg.addByte(lootList.size());
@@ -1500,7 +1500,7 @@ void ProtocolGame::BestiarysendMonsterData(NetworkMessage& msg)
 	}
 
 	if (currentLevel > 1) {
-		newmsg.add<uint16_t>(mtype->info.Bestiary_CharmsPoints);
+		newmsg.add<uint16_t>(mtype->info.bestiaryCharmsPoints);
 		int8_t attackmode = 0;
 		if (!mtype->info.isHostile) {
 			attackmode = 2;
@@ -1526,7 +1526,7 @@ void ProtocolGame::BestiarysendMonsterData(NetworkMessage& msg)
 		}
 
 		newmsg.add<uint16_t>(1);
-		newmsg.addString(mtype->info.Bestiary_Locations);
+		newmsg.addString(mtype->info.bestiaryLocations);
 	}
 
 	if (currentLevel > 3) {
@@ -1576,9 +1576,9 @@ void ProtocolGame::refreshBestiaryTracker(std::list<MonsterType*> trackerList)
 		uint32_t killAmount = player->getBestiaryKillCount(mtype->info.raceid);
 		msg.add<uint16_t>(mtype->info.raceid);
 		msg.add<uint32_t>(killAmount);
-		msg.add<uint16_t>(mtype->info.Bestiary_FirstUnlock);
-		msg.add<uint16_t>(mtype->info.Bestiary_SecondUnlock);
-		msg.add<uint16_t>(mtype->info.Bestiary_toKill);
+		msg.add<uint16_t>(mtype->info.bestiaryFirstUnlock);
+		msg.add<uint16_t>(mtype->info.bestiarySecondUnlock);
+		msg.add<uint16_t>(mtype->info.bestiaryToUnlock);
 
 		if (g_bestiary.GetKillStatus(mtype, killAmount) == 4) {
 			msg.addByte(4);
@@ -1600,9 +1600,9 @@ void ProtocolGame::BestiarysendCharms()
 	msg.addByte(0xd8);
 	msg.add<uint32_t>(player->getCharmPoints());
 
-	std::vector<Bestiary*> charmList = g_game.getCharmList();
+	std::vector<Charm*> charmList = g_game.getCharmList();
 	msg.addByte(charmList.size());
-	for (Bestiary* c_type : charmList) {
+	for (Charm* c_type : charmList) {
 		msg.addByte(c_type->id);
 		msg.addString(c_type->name);
 		msg.addString(c_type->description);
@@ -1629,7 +1629,7 @@ void ProtocolGame::BestiarysendCharms()
 	std::list<charmRune_t> usedRunes = g_bestiary.getCharmUsedRuneBitAll(player);
 
 	for (charmRune_t charmRune : usedRunes) {
-		Bestiary* tmpCharm = g_bestiary.getBestiaryCharm(charmRune);
+		Charm* tmpCharm = g_bestiary.getBestiaryCharm(charmRune);
 		uint16_t tmp_raceid = player->parseRacebyCharm(tmpCharm->id, false, 0);
 		finishedMonsters.remove(tmp_raceid);
 	}
@@ -1658,7 +1658,7 @@ void ProtocolGame::BestiarysendCreatures(NetworkMessage& msg)
 		if (!mtype) {
 			return;
 		}
-		text = mtype->info.Bestiary_class;
+		text = mtype->info.bestiaryClass;
 		for (int8_t i = 1; i <= monsterAmount; i++) {
 			auto it = mtype_list.find(raceid);
 			if (it != mtype_list.end()) {

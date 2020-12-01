@@ -31,13 +31,13 @@
 
 class Game;
 
-class Bestiary
+class Charm
 {
  public:
-	Bestiary() = default;
-	Bestiary(std::string initname, charmRune_t initcharmRune_t, std::string initdescription, charm_t inittype, uint16_t initpoints, int32_t initbinary) :
+	Charm() = default;
+	Charm(std::string initname, charmRune_t initcharmRune_t, std::string initdescription, charm_t inittype, uint16_t initpoints, int32_t initbinary) :
 		name(initname), id(initcharmRune_t), description(initdescription), type(inittype), points(initpoints), binary(initbinary) {}
-	virtual ~Bestiary() = default;
+	virtual ~Charm() = default;
 
 	std::string name;
 	std::string cancelMsg;
@@ -59,23 +59,22 @@ class Bestiary
 class IOBestiary
 {
 	public:
-		const Bestiary* getBestiaryCharm(charmRune_t charm_t, bool force = false) const;
-		Bestiary* getBestiaryCharm(charmRune_t charm_t, bool force = false);
-  		 void addBestiaryKill(Player* player, MonsterType* mtype);
-		bool ParseCharmCombat(Bestiary* charm, Player* player, Creature* target, int32_t realDamage);
+		Charm* getBestiaryCharm(charmRune_t charm_t, bool force = false);
+		void addBestiaryKill(Player* player, MonsterType* mtype);
+		bool ParseCharmCombat(Charm* charm, Player* player, Creature* target, int32_t realDamage);
 		void addCharmPoints(Player* player, uint16_t amount, bool negative = false);
 		void SendBuyCharmRune(Player* player, charmRune_t runeID, uint8_t action, uint16_t raceid);
-		void setCharmRuneCreature(Player* player, Bestiary* charm, uint16_t raceid);
-		void resetCharmRuneCreature(Player* player, Bestiary* charm);
+		void setCharmRuneCreature(Player* player, Charm* charm, uint16_t raceid);
+		void resetCharmRuneCreature(Player* player, Charm* charm);
 
 		int8_t calculateDifficult(uint32_t chance) const;
 		uint8_t GetKillStatus(MonsterType* mtype, uint32_t killAmount) const;
 
 		uint16_t getBestiaryRaceUnlocked(Player* player, races_b race) const;
 
-		int32_t bitToggle(int32_t input, Bestiary* charm, bool on) const;
+		int32_t bitToggle(int32_t input, Charm* charm, bool on) const;
 
-		bool hasCharmUnlockedRuneBit(Bestiary* charm, int32_t input) const;
+		bool hasCharmUnlockedRuneBit(Charm* charm, int32_t input) const;
 
 		std::list<charmRune_t> getCharmUsedRuneBitAll(Player* player);
 		std::list<uint16_t> getBestiaryFinished(Player* player) const;

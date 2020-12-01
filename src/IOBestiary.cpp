@@ -29,7 +29,7 @@
 extern Game g_game;
 extern Monsters g_monsters;
 
-bool IOBestiary::ParseCharmCombat(Bestiary* charm, Player* player, Creature* target, int32_t realDamage)
+bool IOBestiary::ParseCharmCombat(Charm* charm, Player* player, Creature* target, int32_t realDamage)
 {
 	CombatParams charmParams;
 	CombatDamage charmDamage;
@@ -97,33 +97,17 @@ bool IOBestiary::ParseCharmCombat(Bestiary* charm, Player* player, Creature* tar
 	return false;
 }
 
-Bestiary* IOBestiary::getBestiaryCharm(charmRune_t charm_t, bool force /*= false*/)
+Charm* IOBestiary::getBestiaryCharm(charmRune_t charm_t, bool force /*= false*/)
 {
-	std::vector<Bestiary*> charmInternal = g_game.getCharmList();
-	for (Bestiary* tmpCharm : charmInternal) {
+	std::vector<Charm*> charmInternal = g_game.getCharmList();
+	for (Charm* tmpCharm : charmInternal) {
 		if (tmpCharm->id == charm_t) {
 			return tmpCharm;
 		}
 	}
 
 	if (force) {
-		return new Bestiary();
-	}
-
-	return nullptr;
-}
-
-const Bestiary* IOBestiary::getBestiaryCharm(charmRune_t charm_t, bool force /*= false*/) const
-{
-	std::vector<Bestiary*> charmInternal = g_game.getCharmList();
-	for (Bestiary* tmpCharm : charmInternal) {
-		if (tmpCharm->id == charm_t) {
-			return tmpCharm;
-		}
-	}
-
-	if (force) {
-		return new Bestiary();
+		return new Charm();
 	}
 
 	return nullptr;
@@ -137,14 +121,14 @@ std::map<uint16_t, std::string> IOBestiary::findRaceByName(std::string race, boo
 	if (Onlystring) {
 		for (auto it : best_list) {
 			MonsterType* tmpType = g_monsters.getMonsterType(it.second);
-			if (tmpType && tmpType->info.Bestiary_class == race) {
+			if (tmpType && tmpType->info.bestiaryClass == race) {
 				race_list.insert({it.first, it.second});					
 			}
 		}
 	} else {
 		for (auto itn : best_list) {
 			MonsterType* tmpType = g_monsters.getMonsterType(itn.second);
-			if (tmpType && tmpType->info.Bestiary_Race == raceNumber) {
+			if (tmpType && tmpType->info.bestiaryRace == raceNumber) {
 				race_list.insert({itn.first, itn.second});					
 			}
 		}
@@ -154,24 +138,24 @@ std::map<uint16_t, std::string> IOBestiary::findRaceByName(std::string race, boo
 
 uint8_t IOBestiary::GetKillStatus(MonsterType* mtype, uint32_t killAmount) const
 {
-	if (killAmount < mtype->info.Bestiary_FirstUnlock) {
+	if (killAmount < mtype->info.bestiaryFirstUnlock) {
 		return 1;
-	} else if (killAmount < mtype->info.Bestiary_SecondUnlock) {
+	} else if (killAmount < mtype->info.bestiarySecondUnlock) {
 		return 2;
-	} else if (killAmount < mtype->info.Bestiary_toKill) {
+	} else if (killAmount < mtype->info.bestiaryToUnlock) {
 		return 3;
 	}
 	return 4;	
 }
 
-void IOBestiary::resetCharmRuneCreature(Player* player, Bestiary* charm)
+void IOBestiary::resetCharmRuneCreature(Player* player, Charm* charm)
 {
 	int32_t value = bitToggle(player->getUsedRunesBit(), charm, false);
 	player->setUsedRunesBit(value);
 	player->parseRacebyCharm(charm->id, true, 0);
 }
 
-void IOBestiary::setCharmRuneCreature(Player* player, Bestiary* charm, uint16_t raceid)
+void IOBestiary::setCharmRuneCreature(Player* player, Charm* charm, uint16_t raceid)
 {
 	player->parseRacebyCharm(charm->id, true, raceid);
 	int32_t Toggle = bitToggle(player->getUsedRunesBit(), charm, true);
@@ -201,7 +185,7 @@ uint16_t IOBestiary::getBestiaryRaceUnlocked(Player* player, races_b race) const
 
 	for (auto it : besty_l) {
 		MonsterType* mtype = g_monsters.getMonsterType(it.second);
-		if (mtype && mtype->info.Bestiary_Race == race && player->getBestiaryKillCount(mtype->info.raceid) > 0) {
+		if (mtype && mtype->info.bestiaryRace == race && player->getBestiaryKillCount(mtype->info.raceid) > 0) {
 			count++;
 		}
 	}
@@ -239,14 +223,14 @@ void IOBestiary::addBestiaryKill(Player* player, MonsterType* mtype)
 
 	curCount += 1;
 
-	if ((curCount == mtype->info.Bestiary_FirstUnlock) || (curCount == mtype->info.Bestiary_SecondUnlock)) {
+	if ((curCount == mtype->info.bestiaryFirstUnlock) || (curCount == mtype->info.bestiarySecondUnlock)) {
 		ss << "You unlocked details for the creature '" << mtype->name << "'";
 		player->sendTextMessage(MESSAGE_STATUS_DEFAULT, ss.str());
 		player->sendBestiaryEntryChanged(raceid);
-	} else if (curCount == mtype->info.Bestiary_toKill) {
+	} else if (curCount == mtype->info.bestiaryToUnlock) {
 		ss << "You unlocked details for the creature '" << mtype->name << "'";
 		player->sendTextMessage(MESSAGE_STATUS_DEFAULT, ss.str());
-		addCharmPoints(player, mtype->info.Bestiary_CharmsPoints);
+		addCharmPoints(player, mtype->info.bestiaryCharmsPoints);
 		player->sendBestiaryEntryChanged(raceid);
 	}
 
@@ -264,7 +248,7 @@ charmRune_t IOBestiary::getCharmFromTarget(Player* player, MonsterType* mtype)
 	std::list<charmRune_t> usedRunes = getCharmUsedRuneBitAll(player);
 
 	for (charmRune_t it : usedRunes) {
-		Bestiary* charm = getBestiaryCharm(it);
+		Charm* charm = getBestiaryCharm(it);
 		if (bestiaryEntry == player->parseRacebyCharm(charm->id, false, 0)) {
 			return charm->id;
 		}
@@ -272,12 +256,12 @@ charmRune_t IOBestiary::getCharmFromTarget(Player* player, MonsterType* mtype)
 	return CHARM_NONE;
 }
 
-bool IOBestiary::hasCharmUnlockedRuneBit(Bestiary* charm, int32_t input) const
+bool IOBestiary::hasCharmUnlockedRuneBit(Charm* charm, int32_t input) const
 {
 	return ((input & charm->binary) != 0);
 }
 
-int32_t IOBestiary::bitToggle(int32_t input, Bestiary* charm, bool on) const
+int32_t IOBestiary::bitToggle(int32_t input, Charm* charm, bool on) const
 {
 	int32_t returnToggle = 0;
 	int32_t binary = charm->binary;
@@ -293,7 +277,7 @@ int32_t IOBestiary::bitToggle(int32_t input, Bestiary* charm, bool on) const
 
 void IOBestiary::SendBuyCharmRune(Player* player, charmRune_t runeID, uint8_t action, uint16_t raceid)
 {
-	Bestiary* charm = getBestiaryCharm(runeID);
+	Charm* charm = getBestiaryCharm(runeID);
 
 	if (action == 0) {
 		std::ostringstream ss;
@@ -413,7 +397,7 @@ std::list<uint16_t> IOBestiary::getBestiaryFinished(Player* player) const
 		uint16_t raceid = nt.first;
 		uint32_t thisKilled = player->getBestiaryKillCount(raceid);
 		MonsterType* mtype = g_monsters.getMonsterType(nt.second);
-		if (mtype && thisKilled >= mtype->info.Bestiary_toKill) {
+		if (mtype && thisKilled >= mtype->info.bestiaryToUnlock) {
 			finishedMonsters.push_front(raceid);
 		}
 	}

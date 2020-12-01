@@ -2967,21 +2967,20 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Condition", "addDamage", LuaScriptInterface::luaConditionAddDamage);
 
-	// Bestiary (charm)
-	registerClass("Bestiary", "", LuaScriptInterface::luaBestiaryCharmCreate);
-	registerMetaMethod("Bestiary", "__eq", LuaScriptInterface::luaUserdataCompare);
+	// Charm (Bestiary)
+	registerClass("Charm", "", LuaScriptInterface::luaBestiaryCharmCreate);
+	registerMetaMethod("Charm", "__eq", LuaScriptInterface::luaUserdataCompare);
 
-	registerMethod("Bestiary", "Name", LuaScriptInterface::luaParseBestiaryCharmName);
-	registerMethod("Bestiary", "Description", LuaScriptInterface::luaParseBestiaryCharmDescription);
-	registerMethod("Bestiary", "Type", LuaScriptInterface::luaParseBestiaryCharmType);
-	registerMethod("Bestiary", "Points", LuaScriptInterface::luaParseBestiaryCharmPoints);
-	registerMethod("Bestiary", "Binary", LuaScriptInterface::luaParseBestiaryCharmBinary);
-	registerMethod("Bestiary", "DamageType", LuaScriptInterface::luaParseBestiaryCharmDamageType);
-	registerMethod("Bestiary", "Percentage", LuaScriptInterface::luaParseBestiaryCharmPercentage);
-	registerMethod("Bestiary", "Chance", LuaScriptInterface::luaParseBestiaryCharmChance);
-	registerMethod("Bestiary", "CancelMsg", LuaScriptInterface::luaParseBestiaryCharmCancelMsg);
-	registerMethod("Bestiary", "LogMsg", LuaScriptInterface::luaParseBestiaryCharmLogMsg);
-	registerMethod("Bestiary", "Effect", LuaScriptInterface::luaParseBestiaryCharmEffect);
+	registerMethod("Charm", "Name", LuaScriptInterface::luaParseBestiaryCharmName);
+	registerMethod("Charm", "Description", LuaScriptInterface::luaParseBestiaryCharmDescription);
+	registerMethod("Charm", "Type", LuaScriptInterface::luaParseBestiaryCharmType);
+	registerMethod("Charm", "Points", LuaScriptInterface::luaParseBestiaryCharmPoints);
+	registerMethod("Charm", "DamageType", LuaScriptInterface::luaParseBestiaryCharmDamageType);
+	registerMethod("Charm", "Percentage", LuaScriptInterface::luaParseBestiaryCharmPercentage);
+	registerMethod("Charm", "Chance", LuaScriptInterface::luaParseBestiaryCharmChance);
+	registerMethod("Charm", "CancelMsg", LuaScriptInterface::luaParseBestiaryCharmCancelMsg);
+	registerMethod("Charm", "LogMsg", LuaScriptInterface::luaParseBestiaryCharmLogMsg);
+	registerMethod("Charm", "Effect", LuaScriptInterface::luaParseBestiaryCharmEffect);
 
 	// MonsterType
 	registerClass("MonsterType", "", LuaScriptInterface::luaMonsterTypeCreate);
@@ -5154,13 +5153,13 @@ int LuaScriptInterface::luaGameCreateTile(lua_State* L)
 int LuaScriptInterface::luaGameGetBestiaryCharm(lua_State* L)
 {
 	// Game.getBestiaryCharm()
-   std::vector<Bestiary*> c_list = g_game.getCharmList();
+   std::vector<Charm*> c_list = g_game.getCharmList();
 	lua_createtable(L, c_list.size(), 0);
 
 	int index = 0;
 	for (auto& it : c_list) {
-		pushUserdata<Bestiary>(L, it);
-		setMetatable(L, -1, "Bestiary");
+		pushUserdata<Charm>(L, it);
+		setMetatable(L, -1, "Charm");
 		lua_rawseti(L, -2, ++index);
 	}
 	return 1;
@@ -5170,24 +5169,25 @@ int LuaScriptInterface::luaGameCreateBestiaryCharm(lua_State* L)
 {
 	// Game.createBestiaryCharm(id)
 	if (getScriptEnv()->getScriptInterface() != &g_scripts->getScriptInterface()) {
-      reportErrorFunc("Bestiary can only be registered in the Scripts interface.");
+      reportErrorFunc("Charm bestiary can only be registered in the Scripts interface.");
       lua_pushnil(L);
       return 1;
 	}
 	IOBestiary g_bestiary;
 
 	charmRune_t ID = getNumber<charmRune_t>(L, 1);
-	Bestiary* charm = g_bestiary.getBestiaryCharm(ID, true);
+	Charm* charm = g_bestiary.getBestiaryCharm(ID, true);
 	if (charm && charm->id == ID) {
-      pushUserdata<Bestiary>(L, charm);
-      setMetatable(L, -1, "Bestiary");
+      pushUserdata<Charm>(L, charm);
+      setMetatable(L, -1, "Charm");
     } else if (isNumber(L, 1)) {
       charm->id = ID;
       g_game.addCharmRune(charm);
       charm = g_bestiary.getBestiaryCharm(getNumber<charmRune_t>(L, 1));
       charm->id = ID;
-      pushUserdata<Bestiary>(L, charm);
-      setMetatable(L, -1, "Bestiary");
+	  charm->binary = 1 << ID;
+      pushUserdata<Charm>(L, charm);
+      setMetatable(L, -1, "Charm");
     } else {
       lua_pushnil(L);
     }
@@ -14329,11 +14329,11 @@ int LuaScriptInterface::luaConditionAddDamage(lua_State* L)
 	return 1;
 }
 
-// Bestiary
+// Charm (Bestiary)
 int LuaScriptInterface::luaParseBestiaryCharmName(lua_State* L)
 {
-	// get: bestiary:Name() set: bestiary:Name(string)
-	Bestiary* charm = getUserdata<Bestiary>(L, 1);
+	// get: Charm:Name() set: Charm:Name(string)
+	Charm* charm = getUserdata<Charm>(L, 1);
 	if (lua_gettop(L) == 1) {
 		pushString(L, charm->name);
 	} else {
@@ -14345,8 +14345,8 @@ int LuaScriptInterface::luaParseBestiaryCharmName(lua_State* L)
 
 int LuaScriptInterface::luaParseBestiaryCharmDescription(lua_State* L)
 {
-	// get: bestiary:Description() set: bestiary:Description(string)
-	Bestiary* charm = getUserdata<Bestiary>(L, 1);
+	// get: Charm:Description() set: Charm:Description(string)
+	Charm* charm = getUserdata<Charm>(L, 1);
 	if (lua_gettop(L) == 1) {
 		pushString(L, charm->description);
 	} else {
@@ -14358,8 +14358,8 @@ int LuaScriptInterface::luaParseBestiaryCharmDescription(lua_State* L)
 
 int LuaScriptInterface::luaParseBestiaryCharmType(lua_State* L)
 {
-	// get: bestiary:Type() set: bestiary:Type(charm_t)
-	Bestiary* charm = getUserdata<Bestiary>(L, 1);
+	// get: Charm:Type() set: Charm:Type(charm_t)
+	Charm* charm = getUserdata<Charm>(L, 1);
 	if (lua_gettop(L) == 1) {
 		lua_pushnumber(L, charm->type);
 	} else {
@@ -14371,8 +14371,8 @@ int LuaScriptInterface::luaParseBestiaryCharmType(lua_State* L)
 
 int LuaScriptInterface::luaParseBestiaryCharmDamageType(lua_State* L)
 {
-	// get: bestiary:DamageType() set: bestiary:DamageType(type)
-	Bestiary* charm = getUserdata<Bestiary>(L, 1);
+	// get: Charm:DamageType() set: Charm:DamageType(type)
+	Charm* charm = getUserdata<Charm>(L, 1);
 	if (lua_gettop(L) == 1) {
 		lua_pushnumber(L, charm->dmgtype);
 	} else {
@@ -14384,8 +14384,8 @@ int LuaScriptInterface::luaParseBestiaryCharmDamageType(lua_State* L)
 
 int LuaScriptInterface::luaParseBestiaryCharmPercentage(lua_State* L)
 {
-	// get: bestiary:Percentage() set: bestiary:Percentage(value)
-	Bestiary* charm = getUserdata<Bestiary>(L, 1);
+	// get: Charm:Percentage() set: Charm:Percentage(value)
+	Charm* charm = getUserdata<Charm>(L, 1);
 	if (lua_gettop(L) == 1) {
 		lua_pushnumber(L, charm->percent);
 	} else {
@@ -14397,8 +14397,8 @@ int LuaScriptInterface::luaParseBestiaryCharmPercentage(lua_State* L)
 
 int LuaScriptInterface::luaParseBestiaryCharmChance(lua_State* L)
 {
-	// get: bestiary:Chance() set: bestiary:Chance(value)
-	Bestiary* charm = getUserdata<Bestiary>(L, 1);
+	// get: Charm:Chance() set: Charm:Chance(value)
+	Charm* charm = getUserdata<Charm>(L, 1);
 	if (lua_gettop(L) == 1) {
 		lua_pushnumber(L, charm->chance);
 	} else {
@@ -14410,8 +14410,8 @@ int LuaScriptInterface::luaParseBestiaryCharmChance(lua_State* L)
 
 int LuaScriptInterface::luaParseBestiaryCharmCancelMsg(lua_State* L)
 {
-	// get: bestiary:CancelMsg() set: bestiary:CancelMsg(string)
-	Bestiary* charm = getUserdata<Bestiary>(L, 1);
+	// get: Charm:CancelMsg() set: Charm:CancelMsg(string)
+	Charm* charm = getUserdata<Charm>(L, 1);
 	if (lua_gettop(L) == 1) {
 		pushString(L, charm->cancelMsg);
 	} else {
@@ -14423,8 +14423,8 @@ int LuaScriptInterface::luaParseBestiaryCharmCancelMsg(lua_State* L)
 
 int LuaScriptInterface::luaParseBestiaryCharmLogMsg(lua_State* L)
 {
-	// get: bestiary:LogMsg() set: bestiary:LogMsg(string)
-	Bestiary* charm = getUserdata<Bestiary>(L, 1);
+	// get: Charm:LogMsg() set: Charm:LogMsg(string)
+	Charm* charm = getUserdata<Charm>(L, 1);
 	if (lua_gettop(L) == 1) {
 		pushString(L, charm->logMsg);
 	} else {
@@ -14436,8 +14436,8 @@ int LuaScriptInterface::luaParseBestiaryCharmLogMsg(lua_State* L)
 
 int LuaScriptInterface::luaParseBestiaryCharmEffect(lua_State* L)
 {
-	// get: bestiary:Effect() set: bestiary:Effect(value)
-	Bestiary* charm = getUserdata<Bestiary>(L, 1);
+	// get: Charm:Effect() set: Charm:Effect(value)
+	Charm* charm = getUserdata<Charm>(L, 1);
 	if (lua_gettop(L) == 1) {
 		lua_pushnumber(L, charm->effect);
 	} else {
@@ -14450,8 +14450,8 @@ int LuaScriptInterface::luaParseBestiaryCharmEffect(lua_State* L)
 
 int LuaScriptInterface::luaParseBestiaryCharmPoints(lua_State* L)
 {
-	// get: bestiary:Points() set: bestiary:Points(value)
-	Bestiary* charm = getUserdata<Bestiary>(L, 1);
+	// get: Charm:Points() set: Charm:Points(value)
+	Charm* charm = getUserdata<Charm>(L, 1);
 	if (lua_gettop(L) == 1) {
 		lua_pushnumber(L, charm->points);
 	} else {
@@ -14461,31 +14461,18 @@ int LuaScriptInterface::luaParseBestiaryCharmPoints(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaParseBestiaryCharmBinary(lua_State* L)
-{
-	// get: bestiary:Binary() set: bestiary:Binary(value)
-	Bestiary* charm = getUserdata<Bestiary>(L, 1);
-	if (lua_gettop(L) == 1) {
-		lua_pushnumber(L, charm->binary);
-	} else {
-		charm->binary = getNumber<int32_t>(L, 2);
-		pushBoolean(L, true);
-	}
-	return 1;
-}
-
 int LuaScriptInterface::luaBestiaryCharmCreate(lua_State* L)
 {
-	// Bestiary(id)
+	// Charm(id)
 
 	if (isNumber(L, 2)) {
 		charmRune_t charmid = getNumber<charmRune_t>(L, 2);
-		std::vector<Bestiary*> charmList = g_game.getCharmList();
+		std::vector<Charm*> charmList = g_game.getCharmList();
 		for (auto& it : charmList) {
-			Bestiary* charm = it;
+			Charm* charm = it;
 			if (charm->id == charmid) {
-				pushUserdata<Bestiary>(L, charm);
-				setMetatable(L, -1, "Bestiary");
+				pushUserdata<Charm>(L, charm);
+				setMetatable(L, -1, "Charm");
 				pushBoolean(L, true);
 			}
 		}
@@ -14841,9 +14828,9 @@ int LuaScriptInterface::luaMonsterTypeBestiarytoKill(lua_State* L)
   MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
   if (monsterType) {
    if (lua_gettop(L) == 1) {
-    lua_pushnumber(L, monsterType->info.Bestiary_toKill);
+    lua_pushnumber(L, monsterType->info.bestiaryToUnlock);
    } else {
-    monsterType->info.Bestiary_toKill = getNumber<uint16_t>(L, 2);
+    monsterType->info.bestiaryToUnlock = getNumber<uint16_t>(L, 2);
     pushBoolean(L, true);
    }
   } else {
@@ -14858,9 +14845,9 @@ int LuaScriptInterface::luaMonsterTypeBestiaryFirstUnlock(lua_State* L)
   MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
   if (monsterType) {
    if (lua_gettop(L) == 1) {
-    lua_pushnumber(L, monsterType->info.Bestiary_FirstUnlock);
+    lua_pushnumber(L, monsterType->info.bestiaryFirstUnlock);
    } else {
-    monsterType->info.Bestiary_FirstUnlock = getNumber<uint16_t>(L, 2);
+    monsterType->info.bestiaryFirstUnlock = getNumber<uint16_t>(L, 2);
     pushBoolean(L, true);
    }
   } else {
@@ -14875,9 +14862,9 @@ int LuaScriptInterface::luaMonsterTypeBestiarySecondUnlock(lua_State* L)
   MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
   if (monsterType) {
    if (lua_gettop(L) == 1) {
-    lua_pushnumber(L, monsterType->info.Bestiary_SecondUnlock);
+    lua_pushnumber(L, monsterType->info.bestiarySecondUnlock);
    } else {
-    monsterType->info.Bestiary_SecondUnlock = getNumber<uint16_t>(L, 2);
+    monsterType->info.bestiarySecondUnlock = getNumber<uint16_t>(L, 2);
     pushBoolean(L, true);
    }
   } else {
@@ -14892,9 +14879,9 @@ int LuaScriptInterface::luaMonsterTypeBestiaryCharmsPoints(lua_State* L)
   MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
   if (monsterType) {
    if (lua_gettop(L) == 1) {
-    lua_pushnumber(L, monsterType->info.Bestiary_CharmsPoints);
+    lua_pushnumber(L, monsterType->info.bestiaryCharmsPoints);
    } else {
-    monsterType->info.Bestiary_CharmsPoints = getNumber<uint16_t>(L, 2);
+    monsterType->info.bestiaryCharmsPoints = getNumber<uint16_t>(L, 2);
     pushBoolean(L, true);
    }
   } else {
@@ -14909,9 +14896,9 @@ int LuaScriptInterface::luaMonsterTypeBestiaryStars(lua_State* L)
   MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
   if (monsterType) {
    if (lua_gettop(L) == 1) {
-    lua_pushnumber(L, monsterType->info.Bestiary_Stars);
+    lua_pushnumber(L, monsterType->info.bestiaryStars);
    } else {
-    monsterType->info.Bestiary_Stars = getNumber<uint8_t>(L, 2);
+    monsterType->info.bestiaryStars = getNumber<uint8_t>(L, 2);
     pushBoolean(L, true);
    }
   } else {
@@ -14926,9 +14913,9 @@ int LuaScriptInterface::luaMonsterTypeBestiaryOccurrence(lua_State* L)
   MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
   if (monsterType) {
    if (lua_gettop(L) == 1) {
-    lua_pushnumber(L, monsterType->info.Bestiary_Occurrence);
+    lua_pushnumber(L, monsterType->info.bestiaryOccurrence);
    } else {
-    monsterType->info.Bestiary_Occurrence = getNumber<uint8_t>(L, 2);
+    monsterType->info.bestiaryOccurrence = getNumber<uint8_t>(L, 2);
     pushBoolean(L, true);
    }
   } else {
@@ -14943,9 +14930,9 @@ int LuaScriptInterface::luaMonsterTypeBestiaryLocations(lua_State* L)
   MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
   if (monsterType) {
   if (lua_gettop(L) == 1) {
-    pushString(L, monsterType->info.Bestiary_Locations);
+    pushString(L, monsterType->info.bestiaryLocations);
    } else {
-    monsterType->info.Bestiary_Locations = getString(L, 2);
+    monsterType->info.bestiaryLocations = getString(L, 2);
     pushBoolean(L, true);
    }
   } else {
@@ -14960,9 +14947,9 @@ int LuaScriptInterface::luaMonsterTypeBestiaryclass(lua_State* L)
   MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
   if (monsterType) {
    if (lua_gettop(L) == 1) {
-    pushString(L, monsterType->info.Bestiary_class);
+    pushString(L, monsterType->info.bestiaryClass);
    } else {
-    monsterType->info.Bestiary_class = getString(L, 2);
+    monsterType->info.bestiaryClass = getString(L, 2);
    pushBoolean(L, true);
    }
   } else {
@@ -14977,10 +14964,10 @@ int LuaScriptInterface::luaMonsterTypeBestiaryrace(lua_State* L)
   MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
   if (monsterType) {
    if (lua_gettop(L) == 1) {
-    lua_pushnumber(L, monsterType->info.Bestiary_Race);
+    lua_pushnumber(L, monsterType->info.bestiaryRace);
    } else {
     races_b race = getNumber<races_b>(L, 2);
-    monsterType->info.Bestiary_Race = race;
+    monsterType->info.bestiaryRace = race;
     pushBoolean(L, true);
    }
   } else {

@@ -39,7 +39,7 @@ class Creature;
 class Monster;
 class Npc;
 class CombatInfo;
-class Bestiary;
+class Charm;
 
 enum stackPosType_t {
 	STACKPOS_MOVE,
@@ -620,13 +620,13 @@ class Game
     void playerInspectItem(Player* player, const Position& pos);
     void playerInspectItem(Player* player, uint16_t itemId, uint8_t itemCount, bool cyclopedia);
 
-		void addCharmRune(Bestiary* charm)
+		void addCharmRune(Charm* charm)
 		{
 			CharmList.push_back(charm);
 			CharmList.shrink_to_fit();
 		}
 
-		std::vector<Bestiary*> getCharmList() {
+		std::vector<Charm*> getCharmList() {
 			return CharmList;
 		}
 
@@ -655,7 +655,7 @@ class Game
 		std::map<uint16_t, std::string> BestiaryList;
 		std::string boostedCreature = "";
 
-		std::vector<Bestiary*> CharmList;
+		std::vector<Charm*> CharmList;
 		std::vector<Creature*> ToReleaseCreatures;
 		std::vector<Item*> ToReleaseItems;
 

@@ -489,29 +489,29 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
   // Bestiary charms
   query.str(std::string());
-  query << "SELECT * FROM `player_charms` WHERE `id` = " << player->getGUID();
+  query << "SELECT * FROM `player_charms` WHERE `player_guid` = " << player->getGUID();
   if ((result = db.storeQuery(query.str()))) {
-	player->charm_points = result->getNumber<uint32_t>("points");
-	player->charm_expansion = result->getNumber<bool>("expansion");
-	player->charm_wound = result->getNumber<uint16_t>("wound");
-	player->charm_enflame = result->getNumber<uint16_t>("enflame");
-	player->charm_poison = result->getNumber<uint16_t>("poison");
-	player->charm_freeze = result->getNumber<uint16_t>("freeze");
-	player->charm_zap = result->getNumber<uint16_t>("zap");
-	player->charm_curse = result->getNumber<uint16_t>("curse");
-	player->charm_cripple = result->getNumber<uint16_t>("cripple");
-	player->charm_parry = result->getNumber<uint16_t>("parry");
-	player->charm_dodge = result->getNumber<uint16_t>("dodge");
-	player->charm_adrenaline = result->getNumber<uint16_t>("adrenaline");
-	player->charm_numb = result->getNumber<uint16_t>("numb");
-	player->charm_cleanse = result->getNumber<uint16_t>("cleanse");
-	player->charm_bless = result->getNumber<uint16_t>("bless");
-	player->charm_scavenge = result->getNumber<uint16_t>("scavenge");
-	player->charm_gut = result->getNumber<uint16_t>("gut");
-	player->charm_low = result->getNumber<uint16_t>("low blow");
-	player->charm_divine = result->getNumber<uint16_t>("divine");
-	player->charm_vamp = result->getNumber<uint16_t>("vamp");
-	player->charm_void = result->getNumber<uint16_t>("void");
+	player->charm_points = result->getNumber<uint32_t>("charm_points");
+	player->charm_expansion = result->getNumber<bool>("charm_expansion");
+	player->charm_wound = result->getNumber<uint16_t>("rune_wound");
+	player->charm_enflame = result->getNumber<uint16_t>("rune_enflame");
+	player->charm_poison = result->getNumber<uint16_t>("rune_poison");
+	player->charm_freeze = result->getNumber<uint16_t>("rune_freeze");
+	player->charm_zap = result->getNumber<uint16_t>("rune_zap");
+	player->charm_curse = result->getNumber<uint16_t>("rune_curse");
+	player->charm_cripple = result->getNumber<uint16_t>("rune_cripple");
+	player->charm_parry = result->getNumber<uint16_t>("rune_parry");
+	player->charm_dodge = result->getNumber<uint16_t>("rune_dodge");
+	player->charm_adrenaline = result->getNumber<uint16_t>("rune_adrenaline");
+	player->charm_numb = result->getNumber<uint16_t>("rune_numb");
+	player->charm_cleanse = result->getNumber<uint16_t>("rune_cleanse");
+	player->charm_bless = result->getNumber<uint16_t>("rune_bless");
+	player->charm_scavenge = result->getNumber<uint16_t>("rune_scavenge");
+	player->charm_gut = result->getNumber<uint16_t>("rune_gut");
+	player->charm_low = result->getNumber<uint16_t>("rune_low_blow");
+	player->charm_divine = result->getNumber<uint16_t>("rune_divine");
+	player->charm_vamp = result->getNumber<uint16_t>("rune_vamp");
+	player->charm_void = result->getNumber<uint16_t>("rune_void");
 	player->UsedRunesBit = result->getNumber<int32_t>("UsedRunesBit");
 	player->UnlockedRunesBit = result->getNumber<int32_t>("UnlockedRunesBit");	
 
@@ -532,7 +532,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
   } else {
 	query.str(std::string());
-	query << "INSERT INTO `player_charms` (`id`) VALUES (" << player->getGUID() << ')';
+	query << "INSERT INTO `player_charms` (`player_guid`) VALUES (" << player->getGUID() << ')';
 	Database::getInstance().executeQuery(query.str());
   }
 
@@ -1025,27 +1025,27 @@ bool IOLoginData::savePlayer(Player* player)
   //player bestiary charms
   query.str(std::string());
   query << "UPDATE `player_charms` SET ";
-  query << "`points` = " << player->charm_points << ',';  
-  query << "`expansion` = " << ((player->charm_expansion) ? 1 : 0) << ',';
-  query << "`wound` = " << player->charm_wound << ',';
-  query << "`enflame` = " << player->charm_enflame << ',';
-  query << "`poison` = " << player->charm_poison << ',';
-  query << "`freeze` = " << player->charm_freeze << ',';
-  query << "`zap` = " << player->charm_zap << ',';
-  query << "`curse` = " << player->charm_curse << ',';
-  query << "`cripple` = " << player->charm_cripple << ',';
-  query << "`parry` = " << player->charm_parry << ',';
-  query << "`dodge` = " << player->charm_dodge << ',';
-  query << "`adrenaline` = " << player->charm_adrenaline << ',';
-  query << "`numb` = " << player->charm_numb << ',';
-  query << "`cleanse` = " << player->charm_cleanse << ',';
-  query << "`bless` = " << player->charm_bless << ',';
-  query << "`scavenge` = " << player->charm_scavenge << ',';
-  query << "`gut` = " << player->charm_gut << ',';
-  query << "`low blow` = " << player->charm_low << ',';
-  query << "`divine` = " << player->charm_divine << ',';
-  query << "`vamp` = " << player->charm_vamp << ',';
-  query << "`void` = " << player->charm_void << ',';
+  query << "`charm_points` = " << player->charm_points << ',';  
+  query << "`charm_expansion` = " << ((player->charm_expansion) ? 1 : 0) << ',';
+  query << "`rune_wound` = " << player->charm_wound << ',';
+  query << "`rune_enflame` = " << player->charm_enflame << ',';
+  query << "`rune_poison` = " << player->charm_poison << ',';
+  query << "`rune_freeze` = " << player->charm_freeze << ',';
+  query << "`rune_zap` = " << player->charm_zap << ',';
+  query << "`rune_curse` = " << player->charm_curse << ',';
+  query << "`rune_cripple` = " << player->charm_cripple << ',';
+  query << "`rune_parry` = " << player->charm_parry << ',';
+  query << "`rune_dodge` = " << player->charm_dodge << ',';
+  query << "`rune_adrenaline` = " << player->charm_adrenaline << ',';
+  query << "`rune_numb` = " << player->charm_numb << ',';
+  query << "`rune_cleanse` = " << player->charm_cleanse << ',';
+  query << "`rune_bless` = " << player->charm_bless << ',';
+  query << "`rune_scavenge` = " << player->charm_scavenge << ',';
+  query << "`rune_gut` = " << player->charm_gut << ',';
+  query << "`rune_low_blow` = " << player->charm_low << ',';
+  query << "`rune_divine` = " << player->charm_divine << ',';
+  query << "`rune_vamp` = " << player->charm_vamp << ',';
+  query << "`rune_void` = " << player->charm_void << ',';
   query << "`UsedRunesBit` = " << player->UsedRunesBit << ',';
   query << "`UnlockedRunesBit` = " << player->UnlockedRunesBit << ',';
 
@@ -1056,8 +1056,8 @@ bool IOLoginData::savePlayer(Player* player)
   }
   size_t trackerSize;
   const char* trackerList = propBestiaryStream.getStream(trackerSize);
-  query << "`tracker list` = " << db.escapeBlob(trackerList, trackerSize);
-  query << " WHERE `id` = " << player->getGUID();
+  query << " `tracker list` = " << db.escapeBlob(trackerList, trackerSize);
+  query << " WHERE `player_guid` = " << player->getGUID();
 
   if (!db.executeQuery(query.str())) {
    std::cout << "[Error - IOLoginData::savePlayer] Error saving bestiary data from player " << player->name << "." << std::endl;

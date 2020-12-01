@@ -49,15 +49,15 @@ registerCharmType.chance = function(charm, mask)
   end
 end
 
-registerCharmType.message_c = function(charm, mask)
-  if mask.message_c then
-    charm:CancelMsg(mask.message_c)
+registerCharmType.messageCancel = function(charm, mask)
+  if mask.messageCancel then
+    charm:CancelMsg(mask.messageCancel)
   end
 end
 
-registerCharmType.message_l = function(charm, mask)
-  if mask.message_l then
-    charm:LogMsg(mask.message_l)
+registerCharmType.messageServerLog = function(charm, mask)
+  if mask.messageServerLog then
+    charm:LogMsg(mask.messageServerLog)
   end
 end
 
@@ -70,11 +70,5 @@ end
 registerCharmType.points = function(charm, mask)
   if mask.points then
     charm:Points(mask.points)
-  end
-end
-
-registerCharmType.binary = function(charm, mask)
-  if mask.binary then
-    charm:Binary(mask.binary)
   end
 end
