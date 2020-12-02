@@ -435,7 +435,7 @@ function readSpell(incomingLua)
 				spell:setOutfitItem(incomingLua.outfitItem)
 			end
 			if incomingLua.minDamage and incomingLua.maxDamage then
-				if incomingLua.name == "combat" then
+				if incomingLua.name == "combat" or Spell(incomingLua.name) then
 					spell:setCombatValue(incomingLua.minDamage, incomingLua.maxDamage)
 				else
 					local startDamage = 0

@@ -6144,10 +6144,14 @@ void Game::checkLight()
 	if (lightChange) {
 		for (const auto& it : players) {
 			it.second->sendWorldLight(lightInfo);
+      it.second->sendTibiaTime(lightHour);
 		}
+	} else {
+		for (const auto& it : players) {
+			it.second->sendTibiaTime(lightHour);
+    }
 	}
-
-	if (currentLightState != lightState) {
+  if (currentLightState != lightState) {
 		currentLightState = lightState;
 		for (auto& it : g_globalEvents->getEventMap(GLOBALEVENT_PERIODCHANGE)) {
 			it.second.executePeriodChange(lightState, lightInfo);
@@ -8053,7 +8057,7 @@ bool Game::addUniqueItem(uint16_t uniqueId, Item* item)
 {
 	auto result = uniqueItems.emplace(uniqueId, item);
 	if (!result.second) {
-		std::cout << "Duplicate unique id: " << uniqueId << std::endl;
+		std::cout << "> Duplicate unique id: " << uniqueId << std::endl;
 	}
 	return result.second;
 }
@@ -8102,7 +8106,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_weapons->loadDefaults();
 			g_spells->clear(true);
 			g_scripts->loadScripts("scripts", false, true);
-			g_creatureEvents->removeInvalidEvents();
 			return true;
 		}
 
@@ -8128,7 +8131,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_globalEvents->clear(true);
 			g_spells->clear(true);
 			g_scripts->loadScripts("scripts", false, true);
-			g_creatureEvents->removeInvalidEvents();
 			return true;
 		}
 	}

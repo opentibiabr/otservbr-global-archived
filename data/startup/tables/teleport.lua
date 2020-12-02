@@ -125,10 +125,16 @@ TeleportUnique = {
 		itemId = 1387,
 		itemPos = {x = 32219, y = 31913, z = 15}
 	},
+	-- Path: data\scripts\movements\quests\nightmare_isles\teleport.lua
+	[35020] = {
+		itemId = 11796,
+		itemPos = {x = 33498, y = 32613, z = 8}
+	},
 
 	-- Simple teleports (They are registered automatically, without just configuring the table correctly)
 	-- Path: data\scripts\movements\others\teleport.lua
 
+	-- Quests teleports
 	-- Deeper fibula quest teleport
 	-- Entrance
 	[38001] = {
@@ -256,6 +262,44 @@ TeleportUnique = {
 		itemId = 1387,
 		itemPos = {x = 32266, y = 31863, z = 12},
 		destination = {x = 32266, y = 31858, z = 12},
+		effect = CONST_ME_TELEPORT
+	},	
+	-- Others teleports
+	-- Water elemental cave (Trapwood)
+	[39001] = {
+		itemId = 8632,
+		itemPos = {x = 32600, y = 33009, z = 8},
+		destination = {x = 32600, y = 33009, z = 9},
+		effect = CONST_ME_TELEPORT
+	},
+	[39002] = {
+		itemId = 7106,
+		itemPos = {x = 32628, y = 33001, z = 9},
+		destination = {x = 32624, y = 33001, z = 9},
+		effect = CONST_ME_TELEPORT
+	},
+	[39003] = {
+		itemId = 8632,
+		itemPos = {x = 32649, y = 32985, z = 8},
+		destination = {x = 32653, y = 32987, z = 9},
+		effect = CONST_ME_TELEPORT
+	},
+	[39004] = {
+		itemId = 7106,
+		itemPos = {x = 32654, y = 32985, z = 9},
+		destination = {x = 32651, y = 32983, z = 8},
+		effect = CONST_ME_TELEPORT
+	},
+	[39005] = {
+		itemId = 8632,
+		itemPos = {x = 32610, y = 32977, z = 8},
+		destination = {x = 32612, y = 32980, z = 9},
+		effect = CONST_ME_TELEPORT
+	},
+	[39006] = {
+		itemId = 7106,
+		itemPos = {x = 32610, y = 32979, z = 9},
+		destination = {x = 32608, y = 32978, z = 8},
 		effect = CONST_ME_TELEPORT
 	}
 }

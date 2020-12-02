@@ -34,7 +34,14 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 			end
 
 			if playerTile:getLevel() < config.requiredLevel then
-				player:sendTextMessage(MESSAGE_STATUS_SMALL, "All the players need to be level ".. config.requiredLevel .." or higher.")
+				player:sendTextMessage(MESSAGE_STATUS_SMALL,
+					"All the players need to be level ".. config.requiredLevel .." or higher.")
+				return true
+			end
+
+			if config.daily and playerTile:getStorageValue(Storage.Kilmaresh.UrmahlulluTimer)>os.time() then
+				player:getPosition():sendMagicEffect(CONST_ME_POFF)
+				player:sendCancelMessage('All players are not still ready from last battle yet.')
 				return true
 			end
 
@@ -52,6 +59,11 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 			spec:remove()
 		end
 
+		if player:getPosition()~=config.playerFirst[1] then
+			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You can't start a battle.")
+			return true
+		end
+
 		for i = 1, #config.demonPositions do
 			Game.createMonster("Urmahlullu the Immaculate", config.demonPositions[i])
 		end
@@ -64,14 +76,10 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 			config.newPositions[1]:sendMagicEffect(CONST_ME_ENERGYAREA)
 			players:setDirection(DIRECTION_EAST)
 		end
-	elseif item.itemid == 9826 then
-		if config.daily then
-			player:sendTextMessage(MESSAGE_STATUS_SMALL, Game.getReturnMessage(RETURNVALUE_NOTPOSSIBLE))
-			return true
-		end
+		player:setStorageValue(Storage.Kilmaresh.UrmahlulluTimer, os.time()+20*60*60) -- 20 hours
 	end
 
-	item:transform(item.itemid == 9825 and 9826 or 9825)
+	item:transform(9825)
 	return true
 end
 

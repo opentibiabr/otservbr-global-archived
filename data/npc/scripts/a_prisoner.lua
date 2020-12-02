@@ -22,13 +22,14 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
 	if msgcontains(msg, "riddle") then
-		if player:getStorageValue(Storage.MadMageQuest) ~= 1 then
-			npcHandler:say("Great riddle, isn´t it? If you can tell me the correct answer, I will give you something. Hehehe!", cid)
+		if player:getStorageValue(Storage.Quest.MadMageRoom.APrisoner) ~= 1 then
+			npcHandler:say("Great riddle, isn't it? If you can tell me the correct answer, \z
+				I will give you something. Hehehe!", cid)
 			npcHandler.topic[cid] = 1
 		end
 	elseif msgcontains(msg, "PD-D-KS-P-PD") then
 		if npcHandler.topic[cid] == 1 then
-			npcHandler:say("Hurray! For that I will give you my key for - hmm - let´s say ... some apples. Interested?", cid)
+			npcHandler:say("Hurray! For that I will give you my key for - hmm - let's say ... some apples. Interested?", cid)
 			npcHandler.topic[cid] = 2
 		end
 	elseif msgcontains(msg, "yes") then
@@ -47,11 +48,11 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Really, really, really, really?", cid)
 			npcHandler.topic[cid] = 5
 		elseif npcHandler.topic[cid] == 5 then
-			player:setStorageValue(Storage.MadMageQuest, 1)
+			player:setStorageValue(Storage.Quest.MadMageRoom.APrisoner, 1)
 			npcHandler:say("Then take it and get happy - or die, hehe.", cid)
 			local key = player:addItem(2088, 1)
 			if key then
-				key:setActionId(3666)
+				key:setActionId(Storage.Quest.Key.ID3666)
 			end
 			npcHandler.topic[cid] = 0
 		end
