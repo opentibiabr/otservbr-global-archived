@@ -1124,6 +1124,35 @@ void Player::sendHouseWindow(House* house, uint32_t listId) const
 	}
 }
 
+void Player::sendImbuementWindow(Item* item)
+{
+	if (!client) {
+		return;
+	}
+
+	if (item->getTopParent() != this) {
+		this->sendTextMessage(MESSAGE_STATUS_SMALL,
+			"You have to pick up the item to imbue it.");
+		return;
+	}
+
+	const ItemType& it = Item::items[item->getID()];
+	uint8_t slot = it.imbuingSlots;
+	if (slot <= 0 ) {
+		this->sendTextMessage(MESSAGE_STATUS_SMALL, "This item is not imbuable.");
+		return;
+	}
+
+	client->sendImbuementWindow(item);
+}
+
+void Player::sendMarketEnter(uint32_t depotId)
+{
+	if (client && depotId && this->getLastDepotId() != -1) {
+		client->sendMarketEnter(depotId);
+	}
+}
+
 //container
 void Player::sendAddContainerItem(const Container* container, const Item* item)
 {

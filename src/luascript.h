@@ -1105,6 +1105,8 @@ class LuaScriptInterface
 		static int luaPlayerGetIdleTime(lua_State* L);
 		static int luaPlayerGetFreeBackpackSlots(lua_State* L);
 
+		static int luaPlayerOpenMarket(lua_State* L);
+
 		// Monster
 		static int luaMonsterCreate(lua_State* L);
 
@@ -1260,6 +1262,7 @@ class LuaScriptInterface
 		static int luaItemTypeIsMagicField(lua_State* L);
 		static int luaItemTypeIsUseable(lua_State* L);
 		static int luaItemTypeIsPickupable(lua_State* L);
+		static int luaItemTypeIsKey(lua_State* L);
 
 		static int luaItemTypeGetType(lua_State* L);
 		static int luaItemTypeGetId(lua_State* L);
@@ -1428,12 +1431,21 @@ class LuaScriptInterface
 		static int luaCreateLoot(lua_State* L);
 		static int luaDeleteLoot(lua_State* L);
 		static int luaLootSetId(lua_State* L);
-		static int luaLootSetMaxCount(lua_State* L);
 		static int luaLootSetMinCount(lua_State* L);
+		static int luaLootSetMaxCount(lua_State* L);
 		static int luaLootSetSubType(lua_State* L);
 		static int luaLootSetChance(lua_State* L);
 		static int luaLootSetActionId(lua_State* L);
-		static int luaLootSetDescription(lua_State* L);
+		static int luaLootSetText(lua_State* L);
+		static int luaLootSetNameItem(lua_State* L);
+		static int luaLootSetArticle(lua_State* L);
+		static int luaLootSetAttack(lua_State* L);
+		static int luaLootSetDefense(lua_State* L);
+		static int luaLootSetExtraDefense(lua_State* L);
+		static int luaLootSetArmor(lua_State* L);
+		static int luaLootSetShootRange(lua_State* L);
+		static int luaLootSetHitChance(lua_State* L);
+		static int luaLootSetUnique(lua_State* L);
 		static int luaLootAddChildLoot(lua_State* L);
 
 		// MonsterSpell

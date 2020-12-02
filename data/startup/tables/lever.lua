@@ -123,5 +123,10 @@ LeverUnique = {
 	[30023] = {
 		itemId = 1945,
 		itemPos = {x = 32314, y = 31976, z = 13}
+	},
+	-- Path: data\scripts\quests\giant_smithhammer\lever.lua
+	[30024] = {
+		itemId = 1945,
+		itemPos = {x = 32778, y = 32232, z = 8}
 	}
 }

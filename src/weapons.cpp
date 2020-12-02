@@ -1011,7 +1011,8 @@ bool WeaponWand::configureEvent(const pugi::xml_node& node)
 void WeaponWand::configureWeapon(const ItemType& it)
 {
 	params.distanceEffect = it.shootType;
-
+  const_cast<ItemType&>(it).combatType = params.combatType;
+	const_cast<ItemType&>(it).maxHitChance = (minChange + maxChange) / 2;
 	Weapon::configureWeapon(it);
 }
 

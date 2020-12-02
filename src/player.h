@@ -81,7 +81,9 @@ enum tradestate_t : uint8_t {
 };
 
 enum PlayerAsyncOngoingTaskFlags : uint64_t {
-	PlayerAsyncTask_Highscore = 1 << 0
+	PlayerAsyncTask_Highscore = 1 << 0,
+	PlayerAsyncTask_RecentDeaths = 1 << 1,
+	PlayerAsyncTask_RecentPvPKills = 1 << 2
 };
 
 struct VIPEntry {
@@ -1204,11 +1206,7 @@ class Player final : public Creature, public Cylinder
 				client->sendCloseShop();
 			}
 		}
-		void sendMarketEnter(uint32_t depotId) const {
-			if (client) {
-				client->sendMarketEnter(depotId);
-			}
-		}
+		void sendMarketEnter(uint32_t depotId);
 		void sendMarketLeave() {
 			inMarket = false;
 			if (client) {
@@ -1260,6 +1258,11 @@ class Player final : public Creature, public Cylinder
 				client->sendWorldLight(lightInfo);
 			}
 		}
+    void sendTibiaTime(int32_t time) {
+			if (client) {
+				client->sendTibiaTime(time);
+			}
+		}
 		void sendChannelsDialog() {
 			if (client) {
 				client->sendChannelsDialog();
@@ -1280,11 +1283,7 @@ class Player final : public Creature, public Cylinder
 				client->sendOutfitWindow();
 			}
 		}
-		void sendImbuementWindow(Item* item) {
-			if (client) {
-				client->sendImbuementWindow(item);
-			}
-		}
+		void sendImbuementWindow(Item* item);
 		void sendCloseContainer(uint8_t cid) {
 			if (client) {
 				client->sendCloseContainer(cid);
@@ -1311,6 +1310,11 @@ class Player final : public Creature, public Cylinder
 				client->sendItemInspection(itemId, itemCount, item, cyclopedia);
 			}
 		}
+    void sendCyclopediaCharacterNoData(CyclopediaCharacterInfoType_t characterInfoType, uint8_t errorCode) {
+			if (client) {
+				client->sendCyclopediaCharacterNoData(characterInfoType, errorCode);
+			}
+		}
     void sendCyclopediaCharacterBaseInformation() {
 			if (client) {
 				client->sendCyclopediaCharacterBaseInformation();
@@ -1326,14 +1330,14 @@ class Player final : public Creature, public Cylinder
 				client->sendCyclopediaCharacterCombatStats();
 			}
 		}
-		void sendCyclopediaCharacterRecentDeaths() {
+		void sendCyclopediaCharacterRecentDeaths(uint16_t page, uint16_t pages, const std::vector<RecentDeathEntry>& entries) {
 			if (client) {
-				client->sendCyclopediaCharacterRecentDeaths();
+				client->sendCyclopediaCharacterRecentDeaths(page, pages, entries);
 			}
 		}
-		void sendCyclopediaCharacterRecentPvPKills() {
+		void sendCyclopediaCharacterRecentPvPKills(uint16_t page, uint16_t pages, const std::vector<RecentPvPKillEntry>& entries) {
 			if (client) {
-				client->sendCyclopediaCharacterRecentPvPKills();
+				client->sendCyclopediaCharacterRecentPvPKills(page, pages, entries);
 			}
 		}
 		void sendCyclopediaCharacterAchievements() {
@@ -1376,7 +1380,7 @@ class Player final : public Creature, public Cylinder
 				client->sendHighscoresNoData();
 			}
 		}
-		void sendHighscores(std::vector<HighscoreCharacter>& characters, uint8_t categoryId, uint32_t vocationId, uint16_t page, uint16_t pages) {
+		void sendHighscores(const std::vector<HighscoreCharacter>& characters, uint8_t categoryId, uint32_t vocationId, uint16_t page, uint16_t pages) {
 			if (client) {
 				client->sendHighscores(characters, categoryId, vocationId, page, pages);
 			}
@@ -1421,10 +1425,9 @@ class Player final : public Creature, public Cylinder
 			lastPong = OTSYS_TIME();
 		}
 
-		void sendOpenStash()
-		{
-			if (client) {
-				client->sendOpenStash();
+		void sendOpenStash() {
+			if (client && getLastDepotId() != -1) {
+        		client->sendOpenStash();
 			}
 		}
 

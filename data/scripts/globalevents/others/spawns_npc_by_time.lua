@@ -39,7 +39,7 @@ local spawnsByTime = GlobalEvent("spawnsByTime")
 function spawnsByTime.onPeriodChange(period, light)
 	local time = getWorldTime()
 
-	print("Starting " .. periods[period] .. "... Current light is " .. light .. " and it's " .. getFormattedWorldTime(time) .. " Tibian Time.")
+	print(">> Starting " .. periods[period] .. "... Current light is " .. light .. " and it's " .. getFormattedWorldTime(time) .. " Tibian Time.")
 
 	for index, value in pairs(spawns) do
 		if value.spawn == period then

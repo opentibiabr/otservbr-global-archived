@@ -30,6 +30,5 @@ function arenaTrophy.onStepIn(creature, item, position, fromPosition)
 end
 
 arenaTrophy:type("stepin")
-arenaTrophy:aid(25300)
 arenaTrophy:uid(3264, 3265, 3266)
 arenaTrophy:register()
