@@ -877,7 +877,7 @@ void ProtocolGame::parseSetOutfit(NetworkMessage& msg)
 			newOutfit.lookMountBody = std::min<uint8_t>(132, msg.getByte());
 			newOutfit.lookMountLegs = std::min<uint8_t>(132, msg.getByte());
 			newOutfit.lookMountFeet = std::min<uint8_t>(132, msg.getByte());
-			msg.get<uint16_t>();//Familiar looktype
+			msg.get<uint16_t>();  // Familiar looktype
 		} else if (outfitType == 1) {
 			//This value probably has something to do with try outfit variable inside outfit window dialog
 			//if try outfit is set to 2 it expects uint32_t value after mounted and disable mounts from outfit window dialog
@@ -1264,10 +1264,10 @@ void ProtocolGame::parseHighscores(NetworkMessage& msg)
 	uint32_t vocation = msg.get<uint32_t>();
 	uint16_t page = 1;
 	const std::string worldName = msg.getString();
-	
-	msg.getByte();//Game World Category
-	msg.getByte();//BattlEye World Type
-	
+
+	msg.getByte();  // Game World Category
+	msg.getByte();  // BattlEye World Type
+
 	if (type == HIGHSCORE_GETENTRIES) {
 		page = std::max<uint16_t>(1, msg.get<uint16_t>());
 	}
@@ -1293,9 +1293,9 @@ void ProtocolGame::sendHighscores(const std::vector<HighscoreCharacter>& charact
 	msg.addString(g_config.getString(ConfigManager::SERVER_NAME)); // First World
 	msg.addString(g_config.getString(ConfigManager::SERVER_NAME)); // Selected World
 
-	msg.addByte(0);//Game World Category: 0xFF(-1) - Selected World
-	msg.addByte(0);//BattlEye World Type
-	
+	msg.addByte(0);  // Game World Category: 0xFF(-1) - Selected World
+	msg.addByte(0);  // BattlEye World Type
+
 	auto vocationPosition = msg.getBufferPosition();
 	uint8_t vocations = 1;
 
@@ -3927,7 +3927,7 @@ void ProtocolGame::sendOutfitWindow()
 	}
 
 	AddOutfit(msg, currentOutfit);
-	
+
 	msg.addByte(currentOutfit.lookMountHead);
 	msg.addByte(currentOutfit.lookMountBody);
 	msg.addByte(currentOutfit.lookMountLegs);
@@ -4396,9 +4396,9 @@ void ProtocolGame::AddPlayerStats(NetworkMessage& msg)
 
 	msg.add<uint16_t>(player->getExpBoostStamina()); // xp boost time (seconds)
 	msg.addByte(1); // enables exp boost in the store
-	
-	msg.add<uint16_t>(0); // remaining mana shield
-	msg.add<uint16_t>(0); // total mana shield
+
+	msg.add<uint16_t>(0);  // remaining mana shield
+	msg.add<uint16_t>(0);  // total mana shield
 }
 
 void ProtocolGame::AddPlayerSkills(NetworkMessage& msg)
