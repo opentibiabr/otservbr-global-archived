@@ -5336,7 +5336,6 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		realHealthChange = target->getHealth() - realHealthChange;
 
 		if (realHealthChange > 0 && !target->isInGhostMode()) {
-			
 			std::stringstream ss;
 
 			ss << realHealthChange << (realHealthChange != 1 ? " hitpoints." : " hitpoint.");
@@ -5629,7 +5628,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				}
 			}
 			if (targetPlayer) {
-				std::string cause = "field item"; //I don't have access to test server so it might be called something else
+				std::string cause = "field item";  // I don't have access to test server so it might be called something else
 				if (attacker) {
 					cause = attacker->getName();
 				}

@@ -4624,8 +4624,7 @@ void ProtocolGame::sendUpdateSupplyTracker(const Item* item)
  	writeToOutputBuffer(msg);
  }
 
-void ProtocolGame::sendUpdateImpactTracker(CombatType_t combatType, int32_t impact, const std::string& cause)
-{
+void ProtocolGame::sendUpdateImpactTracker(CombatType_t combatType, int32_t impact, const std::string& cause) {
 	NetworkMessage msg;
 	msg.addByte(0xCC);
 	msg.addByte(cause.empty() ? 0x01 : 0x02);
