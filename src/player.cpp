@@ -35,7 +35,7 @@
 #include "scheduler.h"
 #include "weapons.h"
 #include "iostash.h"
-#include "IOBestiary.h"
+#include "iobestiary.h"
 
 extern ConfigManager g_config;
 extern Game g_game;
@@ -2262,9 +2262,9 @@ void Player::death(Creature* lastHitCreature)
 
 		// Charm bless bestiary
 		if (lastHitCreature && lastHitCreature->getMonster()) {
-			if (charm_bless != 0) {
+			if (charmRuneBless != 0) {
 				MonsterType* mType = g_monsters.getMonsterType(lastHitCreature->getName());
-				if (mType && mType->info.raceid == charm_bless) {
+				if (mType && mType->info.raceid == charmRuneBless) {
 				  deathLossPercent = (deathLossPercent * 90) / 100;
 				}
 			}

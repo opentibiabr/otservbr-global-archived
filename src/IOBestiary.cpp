@@ -19,7 +19,7 @@
 
 #include "otpch.h"
 
-#include "IOBestiary.h"
+#include "iobestiary.h"
 #include "enums.h"
 #include "monster.h"
 #include "monsters.h"
@@ -29,7 +29,7 @@
 extern Game g_game;
 extern Monsters g_monsters;
 
-bool IOBestiary::ParseCharmCombat(Charm* charm, Player* player, Creature* target, int32_t realDamage)
+bool IOBestiary::parseCharmCombat(Charm* charm, Player* player, Creature* target, int32_t realDamage)
 {
 	CombatParams charmParams;
 	CombatDamage charmDamage;
@@ -97,11 +97,11 @@ bool IOBestiary::ParseCharmCombat(Charm* charm, Player* player, Creature* target
 	return false;
 }
 
-Charm* IOBestiary::getBestiaryCharm(charmRune_t charm_t, bool force /*= false*/)
+Charm* IOBestiary::getBestiaryCharm(charmRune_t activeCharm, bool force /*= false*/)
 {
 	std::vector<Charm*> charmInternal = g_game.getCharmList();
 	for (Charm* tmpCharm : charmInternal) {
-		if (tmpCharm->id == charm_t) {
+		if (tmpCharm->id == activeCharm) {
 			return tmpCharm;
 		}
 	}
@@ -113,7 +113,7 @@ Charm* IOBestiary::getBestiaryCharm(charmRune_t charm_t, bool force /*= false*/)
 	return nullptr;
 }
 
-std::map<uint16_t, std::string> IOBestiary::findRaceByName(std::string race, bool Onlystring /*= true*/, races_b raceNumber /*= BESTY_RACE_NONE*/) const
+std::map<uint16_t, std::string> IOBestiary::findRaceByName(std::string race, bool Onlystring /*= true*/, BestiaryType_t raceNumber /*= BESTY_RACE_NONE*/) const
 {
 	std::map<uint16_t, std::string> best_list = g_game.getBestiaryList();
 	std::map<uint16_t, std::string> race_list;
@@ -136,7 +136,7 @@ std::map<uint16_t, std::string> IOBestiary::findRaceByName(std::string race, boo
 	return race_list;
 }
 
-uint8_t IOBestiary::GetKillStatus(MonsterType* mtype, uint32_t killAmount) const
+uint8_t IOBestiary::getKillStatus(MonsterType* mtype, uint32_t killAmount) const
 {
 	if (killAmount < mtype->info.bestiaryFirstUnlock) {
 		return 1;
@@ -178,7 +178,7 @@ std::list<charmRune_t> IOBestiary::getCharmUsedRuneBitAll(Player* player)
 	return rtn;
 }
 
-uint16_t IOBestiary::getBestiaryRaceUnlocked(Player* player, races_b race) const
+uint16_t IOBestiary::getBestiaryRaceUnlocked(Player* player, BestiaryType_t race) const
 {
 	uint16_t count = 0;
 	std::map<uint16_t, std::string> besty_l = g_game.getBestiaryList();
@@ -275,7 +275,7 @@ int32_t IOBestiary::bitToggle(int32_t input, Charm* charm, bool on) const
 	}
 }
 
-void IOBestiary::SendBuyCharmRune(Player* player, charmRune_t runeID, uint8_t action, uint16_t raceid)
+void IOBestiary::sendBuyCharmRune(Player* player, charmRune_t runeID, uint8_t action, uint16_t raceid)
 {
 	Charm* charm = getBestiaryCharm(runeID);
 

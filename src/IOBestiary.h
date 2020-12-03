@@ -17,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef SRC_BESTIARY_H_
-#define SRC_BESTIARY_H_
+#ifndef SRC_BESTIARY_H_LL0TBRNCOPYlMVlLL
+#define SRC_BESTIARY_H_LL0TBRNCOPYlMVlLL
 
 #include "otpch.h"
 
@@ -59,18 +59,18 @@ class Charm
 class IOBestiary
 {
 	public:
-		Charm* getBestiaryCharm(charmRune_t charm_t, bool force = false);
+		Charm* getBestiaryCharm(charmRune_t activeCharm, bool force = false);
 		void addBestiaryKill(Player* player, MonsterType* mtype);
-		bool ParseCharmCombat(Charm* charm, Player* player, Creature* target, int32_t realDamage);
+		bool parseCharmCombat(Charm* charm, Player* player, Creature* target, int32_t realDamage);
 		void addCharmPoints(Player* player, uint16_t amount, bool negative = false);
-		void SendBuyCharmRune(Player* player, charmRune_t runeID, uint8_t action, uint16_t raceid);
+		void sendBuyCharmRune(Player* player, charmRune_t runeID, uint8_t action, uint16_t raceid);
 		void setCharmRuneCreature(Player* player, Charm* charm, uint16_t raceid);
 		void resetCharmRuneCreature(Player* player, Charm* charm);
 
 		int8_t calculateDifficult(uint32_t chance) const;
-		uint8_t GetKillStatus(MonsterType* mtype, uint32_t killAmount) const;
+		uint8_t getKillStatus(MonsterType* mtype, uint32_t killAmount) const;
 
-		uint16_t getBestiaryRaceUnlocked(Player* player, races_b race) const;
+		uint16_t getBestiaryRaceUnlocked(Player* player, BestiaryType_t race) const;
 
 		int32_t bitToggle(int32_t input, Charm* charm, bool on) const;
 
@@ -83,7 +83,7 @@ class IOBestiary
 
 		std::map<uint16_t, uint32_t> getBestiaryKillCountByMonsterIDs(Player* player, std::map<uint16_t, std::string> mtype_list) const;
 		std::map<uint8_t, int16_t> getMonsterElements(MonsterType* mtype) const;
-		std::map<uint16_t, std::string> findRaceByName(std::string race, bool Onlystring = true, races_b raceNumber = BESTY_RACE_NONE) const;
+		std::map<uint16_t, std::string> findRaceByName(std::string race, bool Onlystring = true, BestiaryType_t raceNumber = BESTY_RACE_NONE) const;
 
 };
 

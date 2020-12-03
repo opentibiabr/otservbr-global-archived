@@ -5540,11 +5540,11 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 			MonsterType* mType = g_monsters.getMonsterType(attacker->getName());
 			if (mType) {
 				IOBestiary g_bestiary;
-				charmRune_t charm_t = g_bestiary.getCharmFromTarget(targetPlayer, mType);
-				if (charm_t != CHARM_NONE && charm_t != CHARM_CLEANSE) {
-					Charm* charm = g_bestiary.getBestiaryCharm(charm_t);
+				charmRune_t activeCharm = g_bestiary.getCharmFromTarget(targetPlayer, mType);
+				if (activeCharm != CHARM_NONE && activeCharm != CHARM_CLEANSE) {
+					Charm* charm = g_bestiary.getBestiaryCharm(activeCharm);
 					if (charm && charm->type == CHARM_DEFENSIVE &&(charm->chance > normal_random(0, 100))) {
-						if (g_bestiary.ParseCharmCombat(charm, targetPlayer, attacker, (damage.primary.value + damage.secondary.value))) {
+						if (g_bestiary.parseCharmCombat(charm, targetPlayer, attacker, (damage.primary.value + damage.secondary.value))) {
 							return false; // Dodge charm
 						}
 					}
@@ -5748,11 +5748,11 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				MonsterType* mType = g_monsters.getMonsterType(target->getName());
 				if (mType) {
 					IOBestiary g_bestiary;
-					charmRune_t charm_t = g_bestiary.getCharmFromTarget(attackerPlayer, mType);
-					if (charm_t != CHARM_NONE) {
-						Charm* charm = g_bestiary.getBestiaryCharm(charm_t);
+					charmRune_t activeCharm = g_bestiary.getCharmFromTarget(attackerPlayer, mType);
+					if (activeCharm != CHARM_NONE) {
+						Charm* charm = g_bestiary.getBestiaryCharm(activeCharm);
 						if (charm && charm->type == CHARM_OFFENSIVE && (charm->chance >= normal_random(0, 100))) {
-							g_bestiary.ParseCharmCombat(charm, attackerPlayer, target, realDamage);
+							g_bestiary.parseCharmCombat(charm, attackerPlayer, target, realDamage);
 						}
 					}
 				}
@@ -5980,11 +5980,11 @@ bool Game::combatChangeMana(Creature* attacker, Creature* target, CombatDamage& 
 			MonsterType* mType = g_monsters.getMonsterType(attacker->getName());
 			if (mType) {
 				IOBestiary g_bestiary;
-				charmRune_t charm_t = g_bestiary.getCharmFromTarget(targetPlayer, mType);
-				if (charm_t != CHARM_NONE && charm_t != CHARM_CLEANSE) {
-					Charm* charm = g_bestiary.getBestiaryCharm(charm_t);
+				charmRune_t activeCharm = g_bestiary.getCharmFromTarget(targetPlayer, mType);
+				if (activeCharm != CHARM_NONE && activeCharm != CHARM_CLEANSE) {
+					Charm* charm = g_bestiary.getBestiaryCharm(activeCharm);
 					if (charm && charm->type == CHARM_DEFENSIVE && (charm->chance > normal_random(0, 100))) {
-						if (g_bestiary.ParseCharmCombat(charm, targetPlayer, attacker, manaChange)) {
+						if (g_bestiary.parseCharmCombat(charm, targetPlayer, attacker, manaChange)) {
 							return false; // Dodge charm
 						}
 					}

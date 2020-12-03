@@ -239,7 +239,7 @@ enum charm_t {
 	CHARM_PASSIVE = 3,
 };
 
-enum races_b : uint16_t {
+enum BestiaryType_t : uint8_t { 
 	BESTY_RACE_NONE = 0,
 
 	BESTY_RACE_AMPHIBIC = 1,

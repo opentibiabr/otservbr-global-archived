@@ -40,7 +40,7 @@
 #include "weapons.h"
 #include "imbuements.h"
 #include "iostash.h"
-#include "IOBestiary.h"
+#include "iobestiary.h"
 #include "monsters.h"
 
 extern Game g_game;
@@ -564,10 +564,10 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xDD: parseRemoveVip(msg); break;
 		case 0xDE: parseEditVip(msg); break;
 		case 0xE5: parseCyclopediaCharacterInfo(msg); break;
-		case 0xe1: BestiarysendRaces(); break;
-		case 0xe2: BestiarysendCreatures(msg); break;
-		case 0xe3: BestiarysendMonsterData(msg); break;
-		case 0xe4: ParseSendBuyCharmRune(msg); break;
+		case 0xe1: parseBestiarysendRaces(); break;
+		case 0xe2: parseBestiarysendCreatures(msg); break;
+		case 0xe3: parseBestiarysendMonsterData(msg); break;
+		case 0xe4: parseSendBuyCharmRune(msg); break;
 		case 0xE6: parseBugReport(msg); break;
 		case 0xE7: /* thank you */ break;
 		case 0xE8: parseDebugAssert(msg); break;
@@ -1417,30 +1417,29 @@ void ProtocolGame::parseRuleViolationReport(NetworkMessage &msg)
 	addGameTask(&Game::playerReportRuleViolationReport, player->getID(), targetName, reportType, reportReason, comment, translation);
 }
 
-void ProtocolGame::BestiarysendRaces()
+void ProtocolGame::parseBestiarysendRaces()
 {
 	IOBestiary g_bestiary;
 	NetworkMessage msg;
 	msg.addByte(0xd5);
 	msg.add<uint16_t>(BESTY_RACE_LAST);	
 	std::map<uint16_t, std::string> mtype_list = g_game.getBestiaryList();
-	for (uint16_t i = BESTY_RACE_FIRST; i <= BESTY_RACE_LAST; i++) {
+	for (uint8_t i = BESTY_RACE_FIRST; i <= BESTY_RACE_LAST; i++) {
 		std::string BestClass = "";
-		std::list<uint16_t> tmp_list = {};
 		uint16_t count = 0;
 		for (auto rit : mtype_list) {
 			MonsterType* mtype = g_monsters.getMonsterType(rit.second);
 			if (!mtype) {
 				return;
 			}
-			if (mtype->info.bestiaryRace == static_cast<races_b>(i)) {
+			if (mtype->info.bestiaryRace == static_cast<BestiaryType_t>(i)) {
 				count += 1;
 				BestClass = mtype->info.bestiaryClass;
 			}
 		}
 		msg.addString(BestClass);
 		msg.add<uint16_t>(count);
-		uint16_t unlockedCount = g_bestiary.getBestiaryRaceUnlocked(player, static_cast<races_b>(i));
+		uint16_t unlockedCount = g_bestiary.getBestiaryRaceUnlocked(player, static_cast<BestiaryType_t>(i));
 		msg.add<uint16_t>(unlockedCount);
 	}
 	writeToOutputBuffer(msg);
@@ -1456,7 +1455,7 @@ void ProtocolGame::sendBestiaryEntryChanged(uint16_t raceid)
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::BestiarysendMonsterData(NetworkMessage& msg)
+void ProtocolGame::parseBestiarysendMonsterData(NetworkMessage& msg)
 {
 	IOBestiary g_bestiary;
 	uint16_t raceId = msg.get<uint16_t>();
@@ -1479,7 +1478,7 @@ void ProtocolGame::BestiarysendMonsterData(NetworkMessage& msg)
 	}
 
 	uint32_t killCounter = player->getBestiaryKillCount(raceId);
-	uint8_t currentLevel = g_bestiary.GetKillStatus(mtype, killCounter);
+	uint8_t currentLevel = g_bestiary.getKillStatus(mtype, killCounter);
 
 	NetworkMessage newmsg;
 	newmsg.addByte(0xd7);
@@ -1567,13 +1566,13 @@ void ProtocolGame::addBestiaryTrackerList(NetworkMessage& msg)
 	}
 }
 
-void ProtocolGame::ParseSendBuyCharmRune(NetworkMessage& msg)
+void ProtocolGame::parseSendBuyCharmRune(NetworkMessage& msg)
 {
 	IOBestiary g_bestiary;
 	charmRune_t runeID = static_cast<charmRune_t>(msg.getByte());
 	uint8_t action = msg.getByte();
 	uint16_t raceid = msg.get<uint16_t>();
-	g_bestiary.SendBuyCharmRune(player, runeID, action, raceid);
+	g_bestiary.sendBuyCharmRune(player, runeID, action, raceid);
 }
 
 void ProtocolGame::refreshBestiaryTracker(std::list<MonsterType*> trackerList)
@@ -1590,7 +1589,7 @@ void ProtocolGame::refreshBestiaryTracker(std::list<MonsterType*> trackerList)
 		msg.add<uint16_t>(mtype->info.bestiarySecondUnlock);
 		msg.add<uint16_t>(mtype->info.bestiaryToUnlock);
 
-		if (g_bestiary.GetKillStatus(mtype, killAmount) == 4) {
+		if (g_bestiary.getKillStatus(mtype, killAmount) == 4) {
 			msg.addByte(4);
 		} else {
 			msg.addByte(0);
@@ -1652,7 +1651,7 @@ void ProtocolGame::BestiarysendCharms()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::BestiarysendCreatures(NetworkMessage& msg)
+void ProtocolGame::parseBestiarysendCreatures(NetworkMessage& msg)
 {
 	IOBestiary g_bestiary;
 	std::ostringstream ss;
@@ -1702,7 +1701,7 @@ void ProtocolGame::BestiarysendCreatures(NetworkMessage& msg)
 				if (!tmpType) {
 				return;
 				}
-				progress = g_bestiary.GetKillStatus(tmpType, _it.second);
+				progress = g_bestiary.getKillStatus(tmpType, _it.second);
 			}
 		}
 

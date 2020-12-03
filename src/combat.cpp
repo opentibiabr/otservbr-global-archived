@@ -26,7 +26,7 @@
 #include "configmanager.h"
 #include "events.h"
 #include "monster.h"
-#include "IOBestiary.h"
+#include "iobestiary.h"
 #include "monsters.h"
 
 extern Game g_game;

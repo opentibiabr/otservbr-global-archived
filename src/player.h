@@ -1645,16 +1645,16 @@ class Player final : public Creature, public Cylinder
  		}
 
 		uint32_t getCharmPoints() {
-			return charm_points;
+			return charmPoints;
 		}
 		void setCharmPoints(uint32_t points) {
-			charm_points = points;
+			charmPoints = points;
 		}
 		bool hasCharmExpansion() {
-			return charm_expansion;
+			return charmExpansion;
 		}
 		void setCharmExpansion(bool onOff) {
-			charm_expansion = onOff;
+			charmExpansion = onOff;
 		}
 		void setUsedRunesBit(int32_t bit) {
 			UsedRunesBit = bit;
@@ -1683,61 +1683,61 @@ class Player final : public Creature, public Cylinder
 			uint16_t raceid = 0;
 		switch (charmId) {
 			case CHARM_WOUND:
-				if (set) { charm_wound = newRaceid; } else { raceid = charm_wound; }
+				if (set) { charmRuneWound = newRaceid; } else { raceid = charmRuneWound; }
 				break;
 			case CHARM_ENFLAME:
-				if (set) { charm_enflame = newRaceid; } else { raceid = charm_enflame; }
+				if (set) { charmRuneEnflame = newRaceid; } else { raceid = charmRuneEnflame; }
 				break;
 			case CHARM_POISON:
-				if (set) { charm_poison = newRaceid; } else { raceid = charm_poison; }
+				if (set) { charmRunePoison = newRaceid; } else { raceid = charmRunePoison; }
 				break;
 			case CHARM_FREEZE:
-				if (set) { charm_freeze = newRaceid; } else { raceid = charm_freeze; }
+				if (set) { charmRuneFreeze = newRaceid; } else { raceid = charmRuneFreeze; }
 				break;
 			case CHARM_ZAP:
-				if (set) { charm_zap = newRaceid; } else { raceid = charm_zap; }
+				if (set) { charmRuneZap = newRaceid; } else { raceid = charmRuneZap; }
 				break;
 			case CHARM_CURSE:
-				if (set) { charm_curse = newRaceid; } else { raceid = charm_curse; }
+				if (set) { charmRuneCurse = newRaceid; } else { raceid = charmRuneCurse; }
 				break;
 			case CHARM_CRIPPLE:
-				if (set) { charm_cripple = newRaceid; } else { raceid = charm_cripple; }
+				if (set) { charmRuneCripple = newRaceid; } else { raceid = charmRuneCripple; }
 				break;
 			case CHARM_PARRY:
-				if (set) { charm_parry = newRaceid; } else { raceid = charm_parry; }
+				if (set) { charmRuneParry = newRaceid; } else { raceid = charmRuneParry; }
 				break;
 			case CHARM_DODGE:
-				if (set) { charm_dodge = newRaceid; } else { raceid = charm_dodge; }
+				if (set) { charmRuneDodge = newRaceid; } else { raceid = charmRuneDodge; }
 				break;
 			case CHARM_ADRENALINE:
-				if (set) { charm_adrenaline = newRaceid; } else { raceid = charm_adrenaline; }
+				if (set) { charmRuneAdrenaline = newRaceid; } else { raceid = charmRuneAdrenaline; }
 				break;
 			case CHARM_NUMB:
-				if (set) { charm_numb = newRaceid; } else { raceid = charm_numb; }
+				if (set) { charmRuneNumb = newRaceid; } else { raceid = charmRuneNumb; }
 				break;
 			case CHARM_CLEANSE:
-				if (set) { charm_cleanse = newRaceid; } else { raceid = charm_cleanse; }
+				if (set) { charmRuneCleanse = newRaceid; } else { raceid = charmRuneCleanse; }
 				break;
 			case CHARM_BLESS:
-				if (set) { charm_bless = newRaceid; } else { raceid = charm_bless; }
+				if (set) { charmRuneBless = newRaceid; } else { raceid = charmRuneBless; }
 				break;
 			case CHARM_SCAVENGE:
-				if (set) { charm_scavenge = newRaceid; } else { raceid = charm_scavenge; }
+				if (set) { charmRuneScavenge = newRaceid; } else { raceid = charmRuneScavenge; }
 				break;
 			case CHARM_GUT:
-				if (set) { charm_gut = newRaceid; } else { raceid = charm_gut; }
+				if (set) { charmRuneGut = newRaceid; } else { raceid = charmRuneGut; }
 				break;
 			case CHARM_LOW:
-				if (set) { charm_low = newRaceid; } else { raceid = charm_low; }
+				if (set) { charmRuneLowBlow = newRaceid; } else { raceid = charmRuneLowBlow; }
 				break;
 			case CHARM_DIVINE:
-				if (set) { charm_divine = newRaceid; } else { raceid = charm_divine; }
+				if (set) { charmRuneDivine = newRaceid; } else { raceid = charmRuneDivine; }
 				break;
 			case CHARM_VAMP:
-				if (set) { charm_vamp = newRaceid; } else { raceid = charm_vamp; }
+				if (set) { charmRuneVamp = newRaceid; } else { raceid = charmRuneVamp; }
 				break;
 			case CHARM_VOID:
-				if (set) { charm_void = newRaceid; } else { raceid = charm_void; }
+				if (set) { charmRuneVoid = newRaceid; } else { raceid = charmRuneVoid; }
 				break;
 			default:
 				raceid = 0;
@@ -1940,27 +1940,27 @@ class Player final : public Creature, public Cylinder
 		int16_t lastDepotId = -1;
 
 		// Bestiary
-		bool charm_expansion = false;
-		uint16_t charm_wound = 0;
-		uint16_t charm_enflame = 0;
-		uint16_t charm_poison = 0;
-		uint16_t charm_freeze = 0;
-		uint16_t charm_zap = 0;
-		uint16_t charm_curse = 0;
-		uint16_t charm_cripple = 0;
-		uint16_t charm_parry = 0;
-		uint16_t charm_dodge = 0;
-		uint16_t charm_adrenaline = 0;
-		uint16_t charm_numb = 0;
-		uint16_t charm_cleanse = 0;
-		uint16_t charm_bless = 0;
-		uint16_t charm_scavenge = 0;
-		uint16_t charm_gut = 0;
-		uint16_t charm_low = 0;
-		uint16_t charm_divine = 0;
-		uint16_t charm_vamp = 0;
-		uint16_t charm_void = 0;
-		uint32_t charm_points = 0;
+		bool charmExpansion = false;
+		uint16_t charmRuneWound = 0;
+		uint16_t charmRuneEnflame = 0;
+		uint16_t charmRunePoison = 0;
+		uint16_t charmRuneFreeze = 0;
+		uint16_t charmRuneZap = 0;
+		uint16_t charmRuneCurse = 0;
+		uint16_t charmRuneCripple = 0;
+		uint16_t charmRuneParry = 0;
+		uint16_t charmRuneDodge = 0;
+		uint16_t charmRuneAdrenaline = 0;
+		uint16_t charmRuneNumb = 0;
+		uint16_t charmRuneCleanse = 0;
+		uint16_t charmRuneBless = 0;
+		uint16_t charmRuneScavenge = 0;
+		uint16_t charmRuneGut = 0;
+		uint16_t charmRuneLowBlow = 0;
+		uint16_t charmRuneDivine = 0;
+		uint16_t charmRuneVamp = 0;
+		uint16_t charmRuneVoid = 0;
+		uint32_t charmPoints = 0;
 		int32_t UsedRunesBit = 0;
 		int32_t UnlockedRunesBit = 0;
 		std::pair<ConditionType_t, uint64_t> cleanseCondition = {CONDITION_NONE, 0};
