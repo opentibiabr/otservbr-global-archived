@@ -4624,19 +4624,18 @@ void ProtocolGame::sendUpdateSupplyTracker(const Item* item)
  	writeToOutputBuffer(msg);
  }
 
-void ProtocolGame::sendUpdateImpactTracker(int32_t quantity, bool isHeal)
- {
- 	if (!player) {
- 		return;
- 	}
-
-   	NetworkMessage msg;
- 	msg.addByte(0xCC);
- 	msg.addByte(isHeal ? 0x0 : 0x01);
- 	msg.add<uint32_t>(quantity);
-
- 	writeToOutputBuffer(msg);
- }
+void ProtocolGame::sendUpdateImpactTracker(CombatType_t combatType, int32_t impact, const std::string& cause)
+{
+	NetworkMessage msg;
+	msg.addByte(0xCC);
+	msg.addByte(cause.empty() ? 0x01 : 0x02);
+	msg.add<uint32_t>(impact);
+	msg.addByte(getCipbiaElement(combatType));
+	if (!cause.empty()) {
+		msg.addString(cause);
+	}
+	writeToOutputBuffer(msg);
+}
 
 void ProtocolGame::sendUpdateLootTracker(Item* item)
 {
