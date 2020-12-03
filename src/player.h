@@ -388,7 +388,9 @@ class Player final : public Creature, public Cylinder
 		}
 
 		void refreshBestiaryTracker(std::list<MonsterType*> trackerList) {
-			client->refreshBestiaryTracker(trackerList);
+			if (client) {
+				client->refreshBestiaryTracker(trackerList);
+			}
 		}
 
 		Vocation* getVocation() const {
