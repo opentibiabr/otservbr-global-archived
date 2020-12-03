@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <events>
-	<event name="Otservbr example 1" startdate="11/03/2020" enddate="11/30/2020" >
-		<ingame exprate="250" lootrate="200" spawnrate="100" skillrate="200" />
+	<event name="Souble Exp" startdate="12/04/2020" enddate="12/06/2020" >
+		<ingame exprate="200" lootrate="100" spawnrate="100" skillrate="100" />
 		<description description="Otserver br example 1 description double exp and a half, double loot !chance!, regular spawn and double skill" />
 		<colors colordark="#235c00" colorlight="#2d7400" />
 		<details displaypriority="6" isseasonal="0" specialevent="0" />
