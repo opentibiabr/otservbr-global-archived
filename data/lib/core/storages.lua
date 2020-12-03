@@ -134,6 +134,7 @@ Storage = {
 	StoreExaust = 30051,
 	LemonCupcake = 30052,
 	BlueberryCupcake = 30053,
+	PetSummonTime = 30054,
 	PremiumAccount = 998899,
 	
 	--[[

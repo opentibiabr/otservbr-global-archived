@@ -1,62 +1,88 @@
-local summon = {
-	[VOCATION.ID.MASTER_SORCERER] = {name = "thundergiant"},
-	[VOCATION.ID.ELDER_DRUID] = {name = "grovebeast"},
-	[VOCATION.ID.ROYAL_PALADIN] = {name = "emberwing"},
-	[VOCATION.ID.ELITE_KNIGHT] = {name = "skullfrost"}
-}
+local petLogin = CreatureEvent("PetOnLogin")
 
-local summonStorage = Storage.PetSummon
+function petLogin.onLogin(player)
+	local vocationid = player:getVocation():getId()
+	local STORAGE_PET = Storage.PetSummon
+	local TIME_STORAGE_PET = Storage.PetSummonTime
 
-local summonLogin = CreatureEvent("SummonLogin")
-function summonLogin.onLogin(player)
-	local vocation = summon[player:getVocation()]
-	local summonName
-	local petTimeLeft = player:getStorageValue(summonStorage) - player:getLastLogout()
+	if (player:getStorageValue(TIME_STORAGE_PET) > 0) then
+		player:setStorageValue(STORAGE_PET, os.time() + player:getStorageValue(TIME_STORAGE_PET))
+	end
 
-	if petTimeLeft > 0 then
-		if vocation and vocation:getId() then
-			summonName = vocation.name
+	if (vocationid == 1 or vocationid == 5) and (player:getStorageValue(STORAGE_PET) > os.time()) then
+		pet = "thundergiant"
+		position = player:getPosition()
+		summonpet = Game.createMonster(pet, position)
+		if summonpet then
+		local deltaSpeed = math.max(player:getBaseSpeed() - summonpet:getBaseSpeed(), 0)
+		summonpet:changeSpeed(deltaSpeed)
+		player:addSummon(summonpet)
+		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
+		end
+	elseif (vocationid == 2 or vocationid == 6) and player:getStorageValue(STORAGE_PET) > os.time() then
+		pet = "grovebeast"
+		position = player:getPosition()
+		summonpet = Game.createMonster(pet, position)
+		if summonpet then
+		local deltaSpeed = math.max(player:getBaseSpeed() - summonpet:getBaseSpeed(), 0)
+		summonpet:changeSpeed(deltaSpeed)
+		player:addSummon(summonpet)
+		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
+		end
+	elseif (vocationid == 3 or vocationid == 7) and player:getStorageValue(STORAGE_PET) > os.time() then
+		pet = "emberwing"
+		position = player:getPosition()
+		summonpet = Game.createMonster(pet, position)
+		if summonpet then
+		local deltaSpeed = math.max(player:getBaseSpeed() - summonpet:getBaseSpeed(), 0)
+		summonpet:changeSpeed(deltaSpeed)
+		player:addSummon(summonpet)
+		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
+		end
+	elseif (vocationid == 4 or vocationid == 8) and player:getStorageValue(STORAGE_PET) > os.time() then
+		pet = "skullfrost"
+		position = player:getPosition()
+		summonpet = Game.createMonster(pet, position)
+		if summonpet then
+		local deltaSpeed = math.max(player:getBaseSpeed() - summonpet:getBaseSpeed(), 0)
+		summonpet:changeSpeed(deltaSpeed)
+		player:addSummon(summonpet)
+		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 		end
 	end
 
-	if summonName then
-		position = player:getPosition()
-		summonMonster = Game.createMonster(summonName, position, true, false)
-		player:addSummon(summonMonster)
-		summonMonster:reload()
-		player:setStorageValue(storage, os.time() + petTimeLeft)
-		summonMonster:registerEvent("SummonDeath")
-		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
-	end
-	return true
+   	return true
 end
-summonLogin:register()
+petLogin:register()
 
-local summonThink = CreatureEvent("SummonThink")
-function summonThink.onThink(creature, interval, item, position, lastPosition, fromPosition, toPosition)
-	local player = creature:getMaster()
-	if not player then
-		return true
-	end
+local petThink = CreatureEvent("PetOnThink")
 
-	if player and player:getStorageValue(summonStorage) <= os.time() and player:getStorageValue(summonStorage) > 0 then
-		doRemoveCreature(getCreatureSummons(player)[1])
-		player:setStorageValue(summonStorage,0)
+function petThink.onThink(player, interval, item, position, lastPosition, fromPosition, toPosition)
+	local STORAGE_PET = Storage.PetSummon
+	local TIME_STORAGE_PET = Storage.PetSummonTime
+	
+    if (player:getStorageValue(STORAGE_PET) < os.time() and player:getStorageValue(STORAGE_PET) > 0) then
+        doRemoveCreature (getCreatureSummons(player)[1])
+		player:setStorageValue(STORAGE_PET, 0)
+		player:setStorageValue(TIME_STORAGE_PET, 0)
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Summon removed.")
 	end
-	return true
+	local summon=Monster(getCreatureSummons(player)[1])
+	
+	return true 
 end
-summonThink:register()
+petThink:register()
 
-local summonDeath = CreatureEvent("SummonDeath")
-function summonDeath.onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
-	local player = creature:getMaster()
-	if not player then
-		return false
-	end
+local petLogout = CreatureEvent("PetOnLogout")
 
-	if table.contains(summon,creature:getName():lower()) then
-		player:setStorageValue(summonStorage, os.time())
-	end
-	return true
+function petLogout.onLogout(player)
+local STORAGE_PET = Storage.PetSummon
+local TIME_STORAGE_PET = Storage.PetSummonTime
+
+if (player:getStorageValue(STORAGE_PET) - os.time() > 0) then
+	player:setStorageValue(TIME_STORAGE_PET, player:getStorageValue(STORAGE_PET)-os.time())
 end
-summonDeath:register()
+
+return true
+end
+petLogout:register()
