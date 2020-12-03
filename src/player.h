@@ -376,7 +376,9 @@ class Player final : public Creature, public Cylinder
 			} else {
 				BestiaryTracker.remove(mtype);
 			}
-			client->refreshBestiaryTracker(BestiaryTracker);
+			if (client) {
+				client->refreshBestiaryTracker(BestiaryTracker);
+			}
 		}
 
 		void sendBestiaryEntryChanged(uint16_t raceid) {
