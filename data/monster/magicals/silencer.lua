@@ -72,7 +72,7 @@ monster.loot = {
 	{id = "gold coin", chance = 100000, maxCount = 100},
 	{id = "platinum coin", chance = 100000, maxCount = 8},
 	{id = "stealth ring", chance = 1200},
-	{id = "boots of haste", chance = 360},
+	{id = "boots of haste", chance = 160},
 	{id = "dark shield", chance = 2000},
 	{id = "assassin star", chance = 7600, maxCount = 10},
 	{id = "diamond sceptre", chance = 960},

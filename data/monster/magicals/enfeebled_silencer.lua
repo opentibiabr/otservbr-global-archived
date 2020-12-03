@@ -17,7 +17,7 @@ monster.health = 1100
 monster.maxHealth = 1100
 monster.race = "blood"
 monster.corpse = 22489
-monster.speed = 330
+monster.speed = 350
 monster.summonCost = 0
 monster.maxSummons = 0
 
@@ -70,18 +70,18 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2148, chance = 100000, maxCount = 100},
-	{id = 2152, chance = 100000, maxCount = 8},
+	{id = 2152, chance = 3654, maxCount = 4},
 	{id = 2165, chance = 1200},
-	{id = 2195, chance = 360},
+	{id = 2195, chance = 50},
 	{id = 7368, chance = 7600, maxCount = 10},
 	{id = 7387, chance = 960},
-	{id = 7407, chance = 2000},
+	{id = 7407, chance = 700},
 	{id = 7451, chance = 640},
-	{id = 7454, chance = 2400},
-	{id = 7885, chance = 960},
-	{id = 7886, chance = 480},
-	{id = 22534, chance = 17000},
-	{id = "fairy wings", chance = 30100}
+	{id = 7454, chance = 1100},
+	{id = 7885, chance = 500},
+	{id = 7886, chance = 200},
+	{id = 22534, chance = 13000},
+	{id = "fairy wings", chance = 12545}
 }
 
 monster.attacks = {

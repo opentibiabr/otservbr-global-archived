@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Lava Lurker")
 local monster = {}
 
 monster.description = "a lava lurker"
-monster.experience = 4000
+monster.experience = 2000
 monster.outfit = {
 	lookType = 1041,
 	lookHead = 0,
@@ -13,11 +13,11 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 5900
-monster.maxHealth = 5900
+monster.health = 8900
+monster.maxHealth = 8900
 monster.race = "fire"
 monster.corpse = 0
-monster.speed = 58
+monster.speed = 300
 monster.summonCost = 0
 monster.maxSummons = 0
 
@@ -71,9 +71,9 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -200},
-	{name ="combat", interval = 1000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -70, maxDamage = -300, range = 7, length = 3, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 1000, chance = 12, type = COMBAT_FIREDAMAGE, minDamage = 0, maxDamage = -100, range = 7, length = 6, spread = 3, effect = CONST_ME_HITBYFIRE, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -50, maxDamage = -300},
+	{name ="combat", interval = 1000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -150, maxDamage = -300, range = 7, length = 3, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
+	{name ="combat", interval = 1000, chance = 12, type = COMBAT_FIREDAMAGE, minDamage = -50, maxDamage = -200, range = 7, length = 6, spread = 3, effect = CONST_ME_HITBYFIRE, target = false}
 }
 
 monster.defenses = {

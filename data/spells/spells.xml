@@ -445,7 +445,7 @@
 		<vocation name="Knight" />
 		<vocation name="Elite Knight" />
 	</instant>
-	<instant group="attack" spellid="107" name="Whirlwind Throw" words="exori hur" lvl="28" mana="40" prem="1" range="5" needtarget="1" blockwalls="1" needweapon="1" exhaustion="4500" groupcooldown="2000" needlearn="0" script="attack/whirlwind throw.lua">
+	<instant group="attack" spellid="107" name="Whirlwind Throw" words="exori hur" lvl="28" mana="40" prem="1" range="5" needtarget="1" blockwalls="1" needweapon="1" exhaustion="4000" groupcooldown="2000" needlearn="0" script="attack/whirlwind throw.lua">
 		<vocation name="Knight" />
 		<vocation name="Elite Knight" />
 	</instant>

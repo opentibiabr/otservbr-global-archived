@@ -69,9 +69,9 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000, maxCount = 100},
-	{id = 2152, chance = 100000, maxCount = 7},
-	{id = 2225, chance = 10400},
+	{id = 2148, chance = 51654, maxCount = 100},
+	{id = 2152, chance = 3211, maxCount = 3},
+	{id = 2225, chance = 10000},
 	{id = 2229, chance = 12680},
 	{id = 2230, chance = 10000},
 	{id = 2231, chance = 5500},
@@ -79,22 +79,22 @@ monster.loot = {
 	{id = 2671, chance = 6000, maxCount = 2},
 	{id = 5880, chance = 700},
 	{id = 5895, chance = 900},
-	{id = 7418, chance = 700},
+	{id = 7418, chance = 25},
 	{id = 7590, chance = 15000, maxCount = 3},
 	{id = 7591, chance = 15000, maxCount = 2},
-	{id = 11306, chance = 1460},
+	{id = 11306, chance = 25},
 	{id = 22396, chance = 450},
-	{id = 22532, chance = 18760},
-	{id = 22533, chance = 16000},
-	{id = "fairy wings", chance = 30100}
+	{id = 22532, chance = 11654},
+	{id = 22533, chance = 16511},
+	{id = "fairy wings", chance = 20100}
 }
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 80},
 	-- bleed
-	{name ="condition", type = CONDITION_BLEEDING, interval = 2000, chance = 10, minDamage = -80, maxDamage = -200, radius = 3, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -200, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -100, radius = 2, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
+	{name ="condition", type = CONDITION_BLEEDING, interval = 2000, chance = 10, minDamage = -150, maxDamage = -200, radius = 3, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -155, maxDamage = -200, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -79, maxDamage = -100, radius = 2, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
 	{name ="speed", interval = 2000, chance = 15, speedChange = -600, radius = 5, effect = CONST_ME_MAGIC_RED, target = false, duration = 15000},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -80, maxDamage = -50, radius = 4, effect = CONST_ME_MAGIC_RED, target = false}
 }

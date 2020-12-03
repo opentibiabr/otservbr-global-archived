@@ -86,7 +86,7 @@ monster.loot = {
 	{id = 5951, chance = 10800},
 	{id = "assassin dagger", chance = 1000},
 	{id = "haunted blade", chance = 2240},
-	{id = "nightmare blade", chance = 1100},
+	{id = "nightmare blade", chance = 100},
 	{id = "great mana potion", chance = 15000, maxCount = 3},
 	{id = "great health potion", chance = 15000, maxCount = 2},
 	{id = "gold ingot", chance = 2300},

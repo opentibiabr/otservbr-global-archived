@@ -88,7 +88,7 @@ monster.loot = {
 	{id = "knight armor", chance = 750},
 	{id = "ruby necklace", chance = 750},
 	{id = "lightning legs", chance = 580},
-	{id = "boots of haste", chance = 400},
+	{id = "boots of haste", chance = 100},
 	{id = "dragon lance", chance = 290},
 	{id = "piggy bank", chance = 120}
 }

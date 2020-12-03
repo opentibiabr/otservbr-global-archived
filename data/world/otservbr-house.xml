@@ -732,7 +732,7 @@
 	<house name="Litter Promenade 3" houseid="3394" entryx="32286" entryy="32865" entryz="7" rent="25000" townid="14" size="12" />
 	<house name="Litter Promenade 4" houseid="3395" entryx="32288" entryy="32865" entryz="7" rent="25000" townid="14" size="10" />
 	<house name="Rum Alley 3" houseid="3396" entryx="32272" entryy="32854" entryz="7" rent="25000" townid="14" size="9" />
-	<house name="Straycat's Corner 5" houseid="3397" entryx="32281" entryy="32853" entryz="7" rent="80000" townid="14" size="16" />
+	<house name="Straycat's Corner 5" houseid="3397" entryx="32281" entryy="32853" entryz="7" rent="80000" townid="14" size="144" />
 	<house name="Straycat's Corner 6" houseid="3398" entryx="32281" entryy="32858" entryz="7" rent="25000" townid="14" size="7" />
 	<house name="Litter Promenade 5" houseid="3399" entryx="32290" entryy="32859" entryz="7" rent="25000" townid="14" size="11" />
 	<house name="Straycat's Corner 4" houseid="3401" entryx="32291" entryy="32852" entryz="7" rent="50000" townid="14" size="12" />

@@ -17,7 +17,7 @@ monster.health = 800
 monster.maxHealth = 800
 monster.race = "blood"
 monster.corpse = 30771
-monster.speed = 220
+monster.speed = 260
 monster.summonCost = 0
 monster.maxSummons = 0
 
@@ -67,18 +67,19 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 50930, maxCount = 4},
-	{id = "rare earth", chance = 39750, maxCount = 2},
-	{id = 13757, chance = 27980, maxCount = 5},
-	{id = "glob of acid slime", chance = 23680},
-	{id = "stonerefiner's skull", chance = 20110},
-	{id = "poisonous slime", chance = 20040, maxCount = 3},
-	{id = "half-digested stones", chance = 15210, maxCount = 5}
+	{id = "glob of acid slime", chance = 14000}, -- 25
+	{id = "half-digested stones", chance = 13000, maxCount = 3}, -- 40gps
+	{id = "poisonous slime", chance = 12000, maxCount = 3}, -- 50
+	{id = "rare earth", chance = 9000, maxCount = 2}, -- 80gps
+	{id = "stonerefiner's skull", chance = 8000}, -- 100gp
+	{id = "platinum coin", chance = 15000, maxCount = 4},
+	{id = 13757, chance = 17980, maxCount = 2}, -- coal
+	{id = "rat cheese", chance = 5654}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100},
-	{name ="berserk", interval = 2000, chance = 15, minDamage = 0, maxDamage = -70, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -20, maxDamage = -100},
+	{name ="berserk", interval = 2000, chance = 15, minDamage = -30, maxDamage = -70, target = false},
 	{name ="stone shower", interval = 2000, chance = 10, minDamage = -40, maxDamage = -80, range = 7, target = false}
 }
 
