@@ -34,7 +34,7 @@
 #include "npc.h"
 #include "wildcardtree.h"
 #include "gamestore.h"
-#include "IOBestiary.h" 
+#include "iobestiary.h" 
 
 class ServiceManager;
 class Creature;
