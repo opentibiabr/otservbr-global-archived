@@ -382,7 +382,9 @@ class Player final : public Creature, public Cylinder
 		}
 
 		void sendBestiaryEntryChanged(uint16_t raceid) {
-			client->sendBestiaryEntryChanged(raceid);
+			if (client) {
+				client->sendBestiaryEntryChanged(raceid);
+			}
 		}
 
 		void refreshBestiaryTracker(std::list<MonsterType*> trackerList) {
