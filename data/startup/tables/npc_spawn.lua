@@ -493,7 +493,7 @@ NpcTable = {
 	[492] = {name = "willem", position = {x = 32063, y = 32020, z = 7}},
 	[493] = {name = "neill", position = {x = 32076, y = 32027, z = 7}},
 	[494] = {name = "lesser_messenger_of_heaven", position = {x = 32536, y = 32026, z = 7}},
-	[495] = {name = "ghostly_wolf", position = {x = 33332, y = 32051, z = 7}},
+	
 	[496] = {name = "valentina", position = {x = 32271, y = 32052, z = 7}},
 	[497] = {name = "tokel", position = {x = 32253, y = 32055, z = 7}},
 	[498] = {name = "ulrik", position = {x = 32281, y = 32056, z = 7}},
