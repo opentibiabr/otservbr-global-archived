@@ -15,7 +15,7 @@ function serverInfo.onSay(player, words, param)
 		configRateSkill = 6;
 	end
 
-	if (configManager.getNumber(configKeys.RATE_LOOT) >= 2) then
+	if (configManager.getNumber(configKeys.RATE_LOOT) > 2) then
 		lootRate = 4;
 	end
 

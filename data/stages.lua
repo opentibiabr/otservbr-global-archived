@@ -5,7 +5,7 @@
 experienceStages = {
 	{
 		minlevel = 1,
-		multiplier = 2 --2, 4 
+		multiplier = 4 --2, 4 
 	}
 }
 
