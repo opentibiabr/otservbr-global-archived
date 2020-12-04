@@ -1,7 +1,7 @@
 DailyRewardSystem = {
 	Developer = "Westwol, Marcosvf132",
-	Version = "1.2",
-	lastUpdate = "26/09/2020 - 02:00",
+	Version = "1.3",
+	lastUpdate = "03/12/2020 - 20:30",
 	ToDo = "Move this system to CPP"
 }
 
@@ -78,6 +78,7 @@ DailyReward = {
 		nextRewardTime = 14899,
 		collectionTokens = 14901,
 		staminaBonus = 14902,
+		jokerTokens = 14903,
 		-- Global
 		lastServerSave = 14110,
 		avoidDouble = 13412,
@@ -308,12 +309,16 @@ DailyReward.init = function(playerId)
 	if not player then
 		return false
 	end
+
+	local timeMath = Game.getLastServerSave() - player:getNextRewardTime()
 	if player:getNextRewardTime() < Game.getLastServerSave() then
 		if player:getStorageValue(DailyReward.storages.notifyReset) ~= Game.getLastServerSave() then
-			player:setStreakLevel(0)
-			player:setStorageValue(DailyReward.storages.notifyReset, Game.getLastServerSave())
-			if player:getLastLoginSaved() > 0 then -- message wont appear at first character login
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You just lost your daily reward streak.")
+			if player:getJokerTokens() < math.ceil(timeMath/(DailyReward.serverTimeThreshold)) then
+				player:setStreakLevel(0)
+				player:setStorageValue(DailyReward.storages.notifyReset, Game.getLastServerSave())
+				if player:getLastLoginSaved() > 0 then -- message wont appear at first character login
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You just lost your daily reward streak.")
+				end
 			end
 		end
 	end
@@ -349,13 +354,19 @@ function Player.sendOpenRewardWall(self, shrine)
 	if DailyReward.isRewardTaken(self:getId()) then -- state (player already took reward? but just make sure noone wpe)
 		msg:addByte(1)
 		msg:addString("Sorry, you have already taken your daily reward or you are unable to collect it.") -- Unknown message
-		msg:addU32(0) --timeLeft to pickUp reward without loosing streak
+		if self:getJokerTokens() > 0 then
+			msg:addByte(1)
+			msg:addU16(self:getJokerTokens())
+		else
+			msg:addByte(0)
+		end
 	else
 		msg:addByte(0)
+		msg:addByte(2)
 		msg:addU32(Game.getLastServerSave() + DailyReward.serverTimeThreshold) --timeLeft to pickUp reward without loosing streak
+		msg:addU16(self:getJokerTokens())
 	end
 	msg:addU16(self:getStreakLevel()) -- day strike
-	msg:addU16(24) -- unknown
 	msg:sendToPlayer(self)
 end
 
@@ -374,6 +385,17 @@ function Player.selectDailyReward(self, msg)
 	if DailyReward.isRewardTaken(playerId) and not DailyReward.testMode then
 		self:sendError("You have already collected your daily reward.")
 		return false
+	end
+
+	-- Client 12.60 joker feature
+	if self:getNextRewardTime() < Game.getLastServerSave() then
+		if self:getStreakLevel() > 0 then
+			if self:getJokerTokens() < 1 then
+				self:sendError("You do not have enough joker tokens to proceed.")
+				return false
+			end
+			self:setJokerTokens(self:getJokerTokens() - 1)
+		end
 	end
 
 	local source = msg:getByte() -- 0 -> shrine / 1 -> tibia panel
