@@ -370,13 +370,13 @@ class Player final : public Creature, public Cylinder
 		}
 
 		void addBestiaryTrackerList(MonsterType* mtype) {
-			auto it = std::find(BestiaryTracker.begin(), BestiaryTracker.end(), mtype);
-			if (it == BestiaryTracker.end()) {
-				BestiaryTracker.push_front(mtype);
-			} else {
-				BestiaryTracker.remove(mtype);
-			}
 			if (client) {
+				auto it = std::find(BestiaryTracker.begin(), BestiaryTracker.end(), mtype);
+				if (it == BestiaryTracker.end()) {
+					BestiaryTracker.push_front(mtype);
+				} else {
+					BestiaryTracker.remove(mtype);
+				}
 				client->refreshBestiaryTracker(BestiaryTracker);
 			}
 		}
