@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 59
+monster.Bestiary = {
+	class = "Humanoid",
+	race = BESTY_RACE_HUMANOID,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Orc Fort, Edron Orc Cave, South of the temple in PoH, Maze of Lost Souls, Cyclopolis, Zao Orc Land."
+		}
+
 monster.health = 450
 monster.maxHealth = 450
 monster.race = "blood"

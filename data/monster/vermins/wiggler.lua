@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 899
+monster.Bestiary = {
+	class = "Vermin",
+	race = BESTY_RACE_VERMIN,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Can be found in Truffels Garden as well as the Mushroom Gardens."
+		}
+
 monster.health = 1200
 monster.maxHealth = 1200
 monster.race = "venom"

@@ -13,6 +13,21 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 79
+monster.Bestiary = {
+	class = "Vermin",
+	race = BESTY_RACE_VERMIN,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Ankrahmun Library Tomb, Stone Tomb, Peninsula Tomb, Mother of Scarabs Lair, \z
+		Kha'zeel Scarab Lair, deep in Larva Caves (found beneath steps underground), Lion's Rock, \z
+		Arena and Zoo Quarter and beneath Fenrock."
+		}
+
 monster.health = 1000
 monster.maxHealth = 1000
 monster.race = "venom"

@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1741
+monster.Bestiary = {
+	class = "Fey",
+	race = BESTY_RACE_FEY,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 2,
+	Locations = "Percht Island."
+		}
+
 monster.health = 600
 monster.maxHealth = 600
 monster.race = "blood"

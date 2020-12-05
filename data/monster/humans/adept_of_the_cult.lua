@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 254
+monster.Bestiary = {
+	class = "Human",
+	race = BESTY_RACE_HUMAN,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Goroma, Liberty Bay's deeper cult dungeon, Formorgar Mines, Magician Quarter, Forbidden Temple."
+		}
+
 monster.health = 430
 monster.maxHealth = 430
 monster.race = "blood"

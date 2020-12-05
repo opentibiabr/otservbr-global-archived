@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1314
+monster.Bestiary = {
+	class = "Giant",
+	race = BESTY_RACE_GIANT,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Desecrated Glade, Edron Orc Cave."
+		}
+
 monster.health = 1700
 monster.maxHealth = 1700
 monster.race = "blood"

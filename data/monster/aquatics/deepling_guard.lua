@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 770
+monster.Bestiary = {
+	class = "Aquatic",
+	race = BESTY_RACE_AQUATIC,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Fiehonja. During Deeplings stage 1 around 10 spawns exist. \z
+		Also may spawn during the gemcutting mission. Many more spawns in almost all areas of Deepling stage 2 and 3."
+		}
+
 monster.health = 1900
 monster.maxHealth = 1900
 monster.race = "blood"

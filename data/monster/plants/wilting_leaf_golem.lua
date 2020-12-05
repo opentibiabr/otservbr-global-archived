@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 982
+monster.Bestiary = {
+	class = "Plant",
+	race = BESTY_RACE_PLANT,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Forest Fury Camp, Lair of the Treeling Witch and in the Forest Fury version of the Forsaken Mine."
+		}
+
 monster.health = 380
 monster.maxHealth = 380
 monster.race = "blood"

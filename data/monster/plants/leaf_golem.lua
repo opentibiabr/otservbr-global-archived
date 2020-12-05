@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 979
+monster.Bestiary = {
+	class = "Plant",
+	race = BESTY_RACE_PLANT,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "Leaf dungeon in Hellgate, Lair of the Treeling Witch, Forest Fury Camp and in the \z
+		Forest Fury version of the Forsaken Mine."
+		}
+
 monster.health = 90
 monster.maxHealth = 90
 monster.race = "undead"

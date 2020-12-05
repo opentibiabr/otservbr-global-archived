@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 882
+monster.Bestiary = {
+	class = "Construct",
+	race = BESTY_RACE_CONSTRUCT,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 1,
+	Locations = "Warzone 2."
+		}
+
 monster.health = 6800
 monster.maxHealth = 6800
 monster.race = "fire"

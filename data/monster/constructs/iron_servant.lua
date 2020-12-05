@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 700
+monster.Bestiary = {
+	class = "Construct",
+	race = BESTY_RACE_CONSTRUCT,
+	toKill = 5,
+	FirstUnlock = 2,
+	SecondUnlock = 3,
+	CharmsPoints = 30,
+	Stars = 2,
+	Occurrence = 3,
+	Locations = "Edron."
+		}
+
 monster.health = 350
 monster.maxHealth = 350
 monster.race = "venom"

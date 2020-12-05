@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1734
+monster.Bestiary = {
+	class = "Humanoid",
+	race = BESTY_RACE_HUMANOID,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Court of Winter."
+		}
+
 monster.health = 6300
 monster.maxHealth = 6300
 monster.race = "blood"
@@ -90,6 +103,10 @@ monster.defenses = {
 	defense = 40,
 	armor = 40,
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_HEALING, minDamage = 200, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE, target = false}
+}
+
+monster.reflects = {
+	{type = COMBAT_ICEDAMAGE, percent = 70}
 }
 
 monster.elements = {

@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 461
+monster.Bestiary = {
+	class = "Dragon",
+	race = BESTY_RACE_DRAGON,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Drefia Wyrm Lair (after the Medusa Shield Quest room), Darashia Wyrm Hills, Arena and Zoo Quarter, \z
+		beneath Fenrock, Deeper Razachai, Lower Spike, Vandura Wyrm Cave and Vandura Mountain in Liberty Bay."
+		}
+
 monster.health = 1825
 monster.maxHealth = 1825
 monster.race = "blood"

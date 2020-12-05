@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 621
+monster.Bestiary = {
+	class = "Vermin",
+	race = BESTY_RACE_VERMIN,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "Zao Steppe, Northern Zao Plantations and the Horestis Tomb \z
+		(only when the curse of Horestis is not active)."
+		}
+
 monster.health = 50
 monster.maxHealth = 50
 monster.race = "undead"

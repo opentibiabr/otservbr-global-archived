@@ -13,6 +13,22 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 462
+monster.Bestiary = {
+	class = "Fey",
+	race = BESTY_RACE_FEY,
+	toKill = 250,
+	FirstUnlock = 10,
+	SecondUnlock = 100,
+	CharmsPoints = 5,
+	Stars = 1,
+	Occurrence = 0,
+	Locations = "All around Tiquanda and Feyrist. Several groups of Wisps can be found in and around \z
+		the forests north of Edron. West of Hardek. Inside the Cyclops Camp. North of the triple \z
+		Wyvern spawn outside Kazordoon. West of Ab'Dendriel. West of Venore Amazon Camp. \z
+		A few spawns around Venore, 2 spawn on the Formorgar Glacier, and on Krimhorn."
+		}
+
 monster.health = 115
 monster.maxHealth = 115
 monster.race = "undead"

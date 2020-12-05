@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1670
+monster.Bestiary = {
+	class = "Elemental",
+	race = BESTY_RACE_ELEMENTAL,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 1,
+	Locations = "Secret Library."
+		}
+
 monster.health = 10500
 monster.maxHealth = 10500
 monster.race = "undead"

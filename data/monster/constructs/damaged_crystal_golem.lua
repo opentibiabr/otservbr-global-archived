@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 874
+monster.Bestiary = {
+	class = "Construct",
+	race = BESTY_RACE_CONSTRUCT,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 1,
+	Locations = "Golem Workshop in Gnomebase Alpha."
+		}
+
 monster.health = 500
 monster.maxHealth = 500
 monster.race = "venom"

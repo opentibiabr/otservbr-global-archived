@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 560
+monster.Bestiary = {
+	class = "Mammal",
+	race = BESTY_RACE_MAMMAL,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 1,
+	Locations = "Isle of Evil."
+		}
+
 monster.health = 205
 monster.maxHealth = 205
 monster.race = "blood"

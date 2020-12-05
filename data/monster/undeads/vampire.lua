@@ -13,6 +13,22 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 68
+monster.Bestiary = {
+	class = "Undead",
+	race = BESTY_RACE_UNDEAD,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Drefia, Ghost Ship between Venore and Darashia, some Ankrahmun Tombs, Lich Hell, \z
+		Serpentine Tower (unreachable), Ghostlands (unreachable). House between Plains of Havoc and Dark Cathedral, \z
+		Hellgate (only during Zevelon Duskbringer raid), Edron Undead Cave, Vengoth Castle (and mountains before door), \z
+		Edron Vampire Crypt."
+		}
+
 monster.health = 475
 monster.maxHealth = 475
 monster.race = "blood"

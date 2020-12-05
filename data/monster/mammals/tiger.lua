@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 125
+monster.Bestiary = {
+	class = "Mammal",
+	race = BESTY_RACE_MAMMAL,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "Tiquanda, Meriana, Arena and Zoo Quarter. Three unreachable ones are found in the Rookgaard Academy, \z
+		below Ankrahmun (during the Nomads Land Quest), and on Charles's ship."
+		}
+
 monster.health = 75
 monster.maxHealth = 75
 monster.race = "blood"

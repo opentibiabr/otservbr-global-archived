@@ -13,6 +13,25 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 39
+monster.Bestiary = {
+	class = "Dragon",
+	race = BESTY_RACE_DRAGON,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Ankrahmun Dragon Lairs, Banshee Quest final room (level 60+ to open the door), \z
+		Deeper Cyclopolis past the Dragon Spawn (level 30+ to open the door), Draconia, Edron Dragon Lair, \z
+		Fibula Dungeon (level 50+ to open the door), Maze of Lost Souls (level 30+ to open the door), \z
+		Pits of Inferno Dragon Lair, Dragon Lord hole in Plains of Havoc, Carlin Dragon Lair, \z
+		Thais Dragon Lair, Goroma Dragon Lairs, Hot Spot, Venore Dragon Lair, Arena and Zoo Quarter (Yalahar), \z
+		beneath Fenrock, Darashia Dragon Lair, Razzachai, Dragonblaze Peaks, Ferumbras Citadel, \z
+		Fury Dungeon, Lower Spike, Krailos Steppe."
+		}
+
 monster.health = 1900
 monster.maxHealth = 1900
 monster.race = "blood"
