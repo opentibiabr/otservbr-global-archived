@@ -15,16 +15,16 @@ local config = {
 
 local NightmareIsle = GlobalEvent("NightmareIsle")
 function NightmareIsle.onStartup(interval)
-	local chance = math.random(1, 3)
-	local randTown = config[math.random(#config)]
+	local chance = math.random(#config)
+	local select = config[chance]
 	if (chance == 1) then -- ankrahmun - north
-		Game.loadMap('data/world/nightmareisle/' .. randTown.mapName .. '.otbm')
+		Game.loadMap('data/world/nightmareisle/' .. select.mapName .. '.otbm')
 		print('>> Nightmare Isle will be active north of Ankrahmun today')
 	elseif (chance == 2) then -- darashia - west
-		Game.loadMap('data/world/nightmareisle/' .. randTown.mapName .. '.otbm')
+		Game.loadMap('data/world/nightmareisle/' .. select.mapName .. '.otbm')
 		print('>> Nightmare Isle will be active west of Darashia today')
 	elseif (chance == 3) then -- darashia - north
-		Game.loadMap('data/world/nightmareisle/' .. randTown.mapName .. '.otbm')
+		Game.loadMap('data/world/nightmareisle/' .. select.mapName .. '.otbm')
 		print('>> Nightmare Isle will be active north of Darashia today')
 	end
 	setGlobalStorageValue(GlobalStorage.NightmareIsle, 1)
