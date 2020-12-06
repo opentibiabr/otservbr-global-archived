@@ -7,7 +7,7 @@ function serverInfo.onSay(player, words, param)
 	local magicRate = 1.5;
 
 
-	if (getRateFromTable(experienceStages, player:getLevel(), configManager.getNumber(configKeys.RATE_EXP)) == 4) then
+	if (getRateFromTable(experienceStages, player:getLevel(), configManager.getNumber(configKeys.RATE_EXP)) == 2) then
 		expRate = 4;
 	end
 
