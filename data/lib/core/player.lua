@@ -342,11 +342,8 @@ function Player.sendWeatherEffect(self, groundEffect, fallEffect, thunderEffect)
         tile = Tile(position)
         if tile then -- If there is a tile, stop checking floors
             fromPosition:sendDistanceEffect(position, fallEffect)
-			
-            position:sendMagicEffect(groundEffect, self)
- 
-            getGround = tile:getGround()
-			
+			position:sendMagicEffect(groundEffect, self)
+			getGround = tile:getGround()
             if getGround and ItemType(getGround:getId()):getFluidSource() == 1 then
                 position:sendMagicEffect(CONST_ME_LOSEENERGY, self)
             end
@@ -356,7 +353,6 @@ function Player.sendWeatherEffect(self, groundEffect, fallEffect, thunderEffect)
     if thunderEffect and tile and not tile:hasFlag(TILESTATE_PROTECTIONZONE) then
         if random(2) == 1 then
             local topCreature = tile:getTopCreature()
- 
             if topCreature and topCreature:isPlayer() then
                 position:sendMagicEffect(CONST_ME_BIGCLOUDS, self)
                 doTargetCombatHealth(0, self, COMBAT_ENERGYDAMAGE, -weatherConfig.minDMG, -weatherConfig.maxDMG, CONST_ME_NONE)
