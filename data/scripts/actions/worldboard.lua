@@ -22,7 +22,7 @@ function worldBoard.onUse(player, item, fromPosition, target, toPosition, isHotk
 
 for index, value in pairs(communicates) do
 	if getGlobalStorageValue(value.globalStorage) > 0 then
-		player:sendTextMessage(MESSAGE_LOOT, value.communicate)
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, value.communicate)
 	end
 end
 	return true
