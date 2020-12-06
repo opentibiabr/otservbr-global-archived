@@ -13,7 +13,7 @@ SERVER_NAME = configManager.getString(configKeys.SERVER_NAME)
 weatherConfig = {
     groundEffect = CONST_ME_LOSEENERGY,
 	fallEffect = CONST_ANI_SMALLICE,
-    thunderEffect = true,
+    thunderEffect = configManager.getBoolean(configKeys.WEATHER_THUNDER),
     minDMG = 1,
     maxDMG = 5
 }

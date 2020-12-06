@@ -170,6 +170,9 @@ bool ConfigManager::load()
 	boolean[STOREMODULES] = getGlobalBoolean(L, "gamestoreByModules", true);
   boolean[ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS] = getGlobalBoolean(L, "onlyInvitedCanMoveHouseItems", true);
   
+	boolean[WEATHER_RAIN] = getGlobalBoolean(L, "weatherRain", false);
+	boolean[WEATHER_THUNDER] = getGlobalBoolean(L, "thunderEffect", false);
+  
 	string[DEFAULT_PRIORITY] = getGlobalString(L, "defaultPriority", "high");
 	string[SERVER_NAME] = getGlobalString(L, "serverName", "");
 	string[OWNER_NAME] = getGlobalString(L, "ownerName", "");
