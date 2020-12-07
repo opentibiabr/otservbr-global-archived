@@ -6,17 +6,17 @@ function update.onStartup()
 		db.query("UPDATE `players` SET `posx` = 0;")
 		db.query("UPDATE `players` SET `posy` = 0;")
 		db.query("UPDATE `players` SET `posz` = 0;")
-		local f = io.open('update.lua','r')
-		if f then
-			local str = f:read()
-			f:close()
+		local updateFile = io.open('update.lua','r')
+		if updateFile then
+			local str = updateFile:read()
+			updateFile:close()
 			local ae = string.match(str,"updated=true")
 			if ae then
-				file = 'updated=false'
-				local f = io.open('update.lua','w')
-				if f then
-					f:write(file)
-					f:close()
+				afterUpdate = 'updated=false'
+				local updateFile = io.open('update.lua','w')
+				if updateFile then
+					updateFile:write(afterUpdate)
+					updateFile:close()
 				end
 			end
 		end
