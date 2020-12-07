@@ -135,6 +135,7 @@ Storage = {
 	LemonCupcake = 30052,
 	BlueberryCupcake = 30053,
 	PremiumAccount = 998899,
+	SavePlayer = 1111,
 	
 	--[[
 	Old storages
