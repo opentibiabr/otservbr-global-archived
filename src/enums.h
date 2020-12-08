@@ -801,10 +801,17 @@ enum CyclopediaCharacterInfoType_t : uint8_t {
 	CYCLOPEDIA_CHARACTERINFO_TITLES = 11
 };
 
+// todo: check outfit type
 enum CyclopediaCharacterInfo_OutfitType_t : uint8_t {
 	CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE = 0,
 	CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_QUEST = 1,
 	CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_STORE = 2
+};
+
+enum CyclopediaCharacterInfo_MountType_t : uint8_t {
+	CYCLOPEDIA_CHARACTERINFO_MOUNTTYPE_NONE = 0,
+	CYCLOPEDIA_CHARACTERINFO_MOUNTTYPE_QUEST = 1,
+	CYCLOPEDIA_CHARACTERINFO_MOUNTTYPE_STORE = 2
 };
 
 enum CyclopediaCharacterInfo_RecentKillStatus_t : uint8_t {
