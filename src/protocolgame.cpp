@@ -2076,7 +2076,7 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 
 			msg.add<uint16_t>(mount.clientId);
 			msg.addString(mount.name);
-			if(type=="store")
+			if(type == "store")
 				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_STORE);
 			else if (type == "quest")
 				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_QUEST);

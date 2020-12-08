@@ -20,6 +20,9 @@
 #ifndef FS_MOUNTS_H_73716D11906A4C5C9F4A7B68D34C9BA6
 #define FS_MOUNTS_H_73716D11906A4C5C9F4A7B68D34C9BA6
 
+#include <utility>
+#include <string>
+
 struct Mount
 {
 	Mount(uint8_t initId, uint16_t initClientId, std::string initName, int32_t initSpeed, bool initPremium, std::string initType) :
