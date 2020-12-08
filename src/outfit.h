@@ -23,22 +23,24 @@
 #include "enums.h"
 
 struct Outfit {
-	Outfit(std::string initName, uint16_t initLookType, bool initPremium, bool initUnlocked) :
-		name(std::move(initName)), lookType(initLookType), premium(initPremium), unlocked(initUnlocked) {}
+	Outfit(std::string initName, uint16_t initLookType, bool initPremium, bool initUnlocked, std::string initFrom) :
+		name(std::move(initName)), lookType(initLookType), premium(initPremium), unlocked(initUnlocked), from(std::move(initFrom)) {}
 
 	std::string name;
 	uint16_t lookType;
 	bool premium;
 	bool unlocked;
+	std::string from;
 };
 
 struct ProtocolOutfit {
-	ProtocolOutfit(const std::string& initName, uint16_t initLookType, uint8_t initAddons) :
-		name(initName), lookType(initLookType), addons(initAddons) {}
+	ProtocolOutfit(const std::string& initName, uint16_t initLookType, uint8_t initAddons, const std::string& initFrom) :
+		name(initName), lookType(initLookType), addons(initAddons), from(initFrom) {}
 
 	const std::string& name;
 	uint16_t lookType;
 	uint8_t addons;
+	const std::string& from;
 };
 
 class Outfits
