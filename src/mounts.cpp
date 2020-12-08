@@ -45,7 +45,8 @@ bool Mounts::loadFromXml()
 			pugi::cast<uint16_t>(mountNode.attribute("clientid").value()),
 			mountNode.attribute("name").as_string(),
 			pugi::cast<int32_t>(mountNode.attribute("speed").value()),
-			mountNode.attribute("premium").as_bool()
+			mountNode.attribute("premium").as_bool(),
+			mountNode.attribute("type").as_string()
 		);
 	}
 	mounts.shrink_to_fit();
@@ -79,4 +80,15 @@ Mount* Mounts::getMountByClientID(uint16_t clientId)
 	});
 
 	return it != mounts.end() ? &*it : nullptr;
+}
+
+Mount* Mounts::getMountByType(const std::string& type) {
+	auto mountType = type.c_str();
+	for (auto& it : mounts) {
+		if (strcasecmp(mountType, it.name.c_str()) == 0) {
+			return &it;
+		}
+	}
+
+	return nullptr;
 }

@@ -2070,12 +2070,18 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	auto startMounts = msg.getBufferPosition();
 	msg.skipBytes(2);
 	for (const Mount& mount : g_game.mounts.getMounts()) {
+		const std::string type = mount.type;
 		if (player->hasMount(&mount)) {
 			++mountSize;
 
 			msg.add<uint16_t>(mount.clientId);
 			msg.addString(mount.name);
-			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
+			if(type=="store")
+				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_STORE);
+			else if (type == "quest")
+				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_QUEST);
+			else
+				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
 			msg.add<uint32_t>(1000);
 		}
 	}

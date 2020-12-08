@@ -22,14 +22,15 @@
 
 struct Mount
 {
-	Mount(uint8_t initId, uint16_t initClientId, std::string initName, int32_t initSpeed, bool initPremium) :
-		name(std::move(initName)), speed(initSpeed), clientId(initClientId), id(initId), premium(initPremium) {}
+	Mount(uint8_t initId, uint16_t initClientId, std::string initName, int32_t initSpeed, bool initPremium, std::string initType) :
+		name(std::move(initName)), speed(initSpeed), clientId(initClientId), id(initId), premium(initPremium), type(initType) {}
 
 	std::string name;
 	int32_t speed;
 	uint16_t clientId;
 	uint8_t id;
 	bool premium;
+	std::string type;
 };
 
 class Mounts
@@ -40,6 +41,7 @@ class Mounts
 		Mount* getMountByID(uint8_t id);
 		Mount* getMountByName(const std::string& name);
 		Mount* getMountByClientID(uint16_t clientId);
+		Mount* getMountByType(const std::string& type);
 
 		const std::vector<Mount>& getMounts() const {
 			return mounts;
