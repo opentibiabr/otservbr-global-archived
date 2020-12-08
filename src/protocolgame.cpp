@@ -2043,17 +2043,16 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 
 	const auto& outfits = Outfits::getInstance().getOutfits(player->getSex());
 	for (const Outfit& outfit : outfits) {
-		const std::string from = outfit.from;
 		uint8_t addons;
 		if (!player->getOutfitAddons(outfit, addons)) {
 			continue;
 		}
+		const std::string from = outfit.from;
 		++outfitSize;
-
 		msg.add<uint16_t>(outfit.lookType);
 		msg.addString(outfit.name);
 		msg.addByte(addons);
-		if(from == "store")
+		if (from == "store")
 			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_STORE);
 		else if (from == "quest")
 			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_QUEST);
@@ -2082,12 +2081,12 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 
 			msg.add<uint16_t>(mount.clientId);
 			msg.addString(mount.name);
-			if(type == "store")
-				msg.addByte(CYCLOPEDIA_CHARACTERINFO_MOUNTTYPE_STORE);
+			if (type == "store")
+				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_STORE);
 			else if (type == "quest")
-				msg.addByte(CYCLOPEDIA_CHARACTERINFO_MOUNTTYPE_QUEST);
+				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_QUEST);
 			else
-				msg.addByte(CYCLOPEDIA_CHARACTERINFO_MOUNTTYPE_NONE);
+				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
 			msg.add<uint32_t>(1000);
 		}
 	}
