@@ -17,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "familiars.h"
 #include "otpch.h"
+#include "familiars.h"
 #include "pugicast.h"
 #include "tools.h"
 
