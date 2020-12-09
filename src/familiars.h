@@ -17,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_FAMILIARS_H_
-#define FS_FAMILIARS_H_
+#ifndef SRC_FAMILIARS_H_
+#define SRC_FAMILIARS_H_
 
 #include <utility>
 #include <vector>
