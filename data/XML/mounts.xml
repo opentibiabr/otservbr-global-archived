@@ -13,7 +13,7 @@
 	<mount id="11" clientid="378" name="Stampor" speed="20" premium="yes" type="quest" />
 	<mount id="12" clientid="379" name="Undead Cavebear" speed="20" premium="yes" type="quest" />
 	<mount id="13" clientid="387" name="Donkey" speed="20" premium="yes" type="quest" />
-	<mount id="14" clientid="388" name="Tiger Slug" speed="20" premium="yes" type="quset" />
+	<mount id="14" clientid="388" name="Tiger Slug" speed="20" premium="yes" type="quest" />
 	<mount id="15" clientid="389" name="Uniwheel" speed="20" premium="yes" type="quest" />
 	<mount id="16" clientid="390" name="Crystal Wolf" speed="20" premium="yes" type="quest" />
 	<mount id="17" clientid="392" name="War Horse" speed="20" premium="yes" type="quest" />
@@ -125,7 +125,7 @@
 	<mount id="123" clientid="1091" name="Ebony Tiger" speed="20" premium="yes" type="store" />
 	<mount id="124" clientid="1092" name="Feral Tiger" speed="20" premium="yes" type="store" />
 	<mount id="125" clientid="1093" name="Jungle Tiger" speed="20" premium="yes" type="store" />
-	<mount id="126" clientid="1101" name="Fleeting Knowledge" speed="20" premium="yes" type="" />
+	<mount id="126" clientid="1101" name="Fleeting Knowledge" speed="20" premium="yes" type="quest" />
 	<mount id="127" clientid="1104" name="Tawny Owl" speed="20" premium="yes" type="store" />
 	<mount id="128" clientid="1105" name="Snowy Owl" speed="20" premium="yes" type="store" />
 	<mount id="129" clientid="1106" name="Boreal Owl" speed="20" premium="yes" type="store" />
