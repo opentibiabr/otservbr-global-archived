@@ -2096,7 +2096,7 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 		msg.addByte(currentOutfit.lookMountLegs);
 		msg.addByte(currentOutfit.lookMountFeet);
 	}
-	
+
 	uint16_t familiarsSize = 0;
 	auto startFamiliars = msg.getBufferPosition();
 	msg.skipBytes(2);
@@ -2116,7 +2116,7 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 			msg.add<uint32_t>(1000);
 		}
 	}
-	//msg.add<uint16_t>(0);
+	// msg.add<uint16_t>(0);
 
 	msg.setBufferPosition(startOutfits);
 	msg.add<uint16_t>(outfitSize);

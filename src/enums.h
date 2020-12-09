@@ -406,7 +406,8 @@ enum PlayerSex_t : uint8_t {
 };
 
 enum Vocation_t : uint16_t {
-	VOCATION_NONE = 0
+	VOCATION_NONE = 0,
+	VOCATION_LAST = 8
 };
 
 enum ReturnValue {
