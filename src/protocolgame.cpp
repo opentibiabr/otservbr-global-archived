@@ -2100,23 +2100,18 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	uint16_t familiarsSize = 0;
 	auto startFamiliars = msg.getBufferPosition();
 	msg.skipBytes(2);
-	for (const Mount& mount : g_game.mounts.getMounts()) {
-		const std::string type = mount.type;
-		if (player->hasMount(&mount)) {
-			++familiarsSize;
-
-			msg.add<uint16_t>(mount.clientId);
-			msg.addString(mount.name);
-			if(type == "store")
-				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_STORE);
-			else if (type == "quest")
-				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_QUEST);
-			else
-				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
+	const auto& familiars = Familiars::getInstance().getFamiliars(player->getVocationId());
+	for (const Familiar& familiar : familiars) {
+		const std::string type = familiar.type;
+		++familiarsSize;
+		msg.add<uint16_t>(familiar.lookType);
+		msg.addString(familiar.name);
+		if (type == "quest")
+			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_QUEST);
+		else
+			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
 			msg.add<uint32_t>(1000);
-		}
 	}
-	// msg.add<uint16_t>(0);
 
 	msg.setBufferPosition(startOutfits);
 	msg.add<uint16_t>(outfitSize);
@@ -4013,7 +4008,14 @@ void ProtocolGame::sendOutfitWindow()
 		msg.addString(mount->name);
 		msg.addByte(0x00);
 	}
-	msg.add<uint16_t>(0);
+	//msg.add<uint16_t>(0);
+	msg.add<uint16_t>(protocolMounts.size());
+	for (const Mount* mount : protocolMounts) {
+		msg.add<uint16_t>(mount->clientId);
+		msg.addString(mount->name);
+		msg.addByte(0x00);
+	}
+	
 	msg.addByte(0x00); //Try outfit
 	msg.addByte(mounted ? 0x01 : 0x00);
 

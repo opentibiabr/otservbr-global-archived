@@ -45,7 +45,7 @@ class Familiars {
 		
 		bool loadFromXml();
 		
-		const std::vector<Familiar>& getFamiliars(Vocation_t vocation) const {
+		const std::vector<Familiar>& getFamiliars(uint16_t vocation) const {
 			return familiars[vocation];
 		}
 	private:

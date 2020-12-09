@@ -811,7 +811,6 @@ enum CyclopediaCharacterInfoType_t : uint8_t {
 	CYCLOPEDIA_CHARACTERINFO_TITLES = 11
 };
 
-// todo: check outfit type
 enum CyclopediaCharacterInfo_OutfitType_t : uint8_t {
 	CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE = 0,  // all outfits/mounts
 	CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_QUEST = 1,

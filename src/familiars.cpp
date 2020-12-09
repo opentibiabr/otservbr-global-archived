@@ -45,12 +45,12 @@ bool Familiars::loadFromXml()
 		}
 		
 		uint16_t vocation = pugi::cast<uint16_t>(attr.value());
-		if (vocation > PLAYERSEX_LAST) {
+		if (vocation > VOCATION_LAST) {
 			std::cout << "[Warning - Familiars::loadFromXml] Invalid familiar vocation " << vocation << "." << std::endl;
 			continue;
 		}
 
-		pugi::xml_attribute lookTypeAttribute = familiarsNode.attribute("looktype");
+		pugi::xml_attribute lookTypeAttribute = familiarsNode.attribute("lookType");
 		if (!lookTypeAttribute) {
 			std::cout << "[Warning - Familiars::loadFromXml] Missing looktype on familiar." << std::endl;
 			continue;
