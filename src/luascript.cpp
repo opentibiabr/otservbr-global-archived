@@ -788,6 +788,7 @@ Outfit_t LuaScriptInterface::getOutfit(lua_State* L, int32_t arg)
 	outfit.lookMountLegs = getField<uint8_t>(L, arg, "lookMountLegs");
 	outfit.lookMountBody = getField<uint8_t>(L, arg, "lookMountBody");
 	outfit.lookMountHead = getField<uint8_t>(L, arg, "lookMountHead");
+	outfit.lookFamiliarsType = getField<uint16_t>(L, arg, "lookFamiliarsType");
 	outfit.lookMount = getField<uint16_t>(L, arg, "lookMount");
 	outfit.lookAddons = getField<uint8_t>(L, arg, "lookAddons");
 
@@ -962,6 +963,8 @@ void LuaScriptInterface::pushOutfit(lua_State* L, const Outfit_t& outfit)
 	setField(L, "lookMountBody", outfit.lookMountBody);
 	setField(L, "lookMountLegs", outfit.lookMountLegs);
 	setField(L, "lookMountFeet", outfit.lookMountFeet);
+	setField(L, "lookFamiliarsType", outfit.lookFamiliarsType);
+	
 }
 
 void LuaScriptInterface::pushLoot(lua_State* L, const std::vector<LootBlock>& lootList)
@@ -14084,11 +14087,12 @@ int LuaScriptInterface::luaConditionSetOutfit(lua_State* L)
 {
 	// condition:setOutfit(outfit)
 	// condition:setOutfit(lookTypeEx, lookType, lookHead, lookBody, lookLegs, lookFeet[,
-	// lookAddons[, lookMount[, lookMountHead[, lookMountBody[, lookMountLegs[, lookMountFeet]]]]]])
+	// lookAddons[, lookMount[, lookMountHead[, lookMountBody[, lookMountLegs[, lookMountFeet[, lookFamiliarsType]]]]]]])
 	Outfit_t outfit;
 	if (isTable(L, 2)) {
 		outfit = getOutfit(L, 2);
 	} else {
+		outfit.lookFamiliarsType = getNumber<uint16_t>(L, 14, outfit.lookFamiliarsType);
 		outfit.lookMountFeet = getNumber<uint8_t>(L, 13, outfit.lookMountFeet);
 		outfit.lookMountLegs = getNumber<uint8_t>(L, 12, outfit.lookMountLegs);
 		outfit.lookMountBody = getNumber<uint8_t>(L, 11, outfit.lookMountBody);

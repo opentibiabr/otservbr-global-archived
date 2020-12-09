@@ -599,6 +599,7 @@ struct Outfit_t {
 	uint8_t lookMountBody = 0;
 	uint8_t lookMountLegs = 0;
 	uint8_t lookMountFeet = 0;
+	uint16_t lookFamiliarsType = 0;
 };
 
 enum LightState_t {

@@ -383,6 +383,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   player->defaultOutfit.lookMountBody = result->getNumber<uint16_t>("lookmountbody");
   player->defaultOutfit.lookMountLegs = result->getNumber<uint16_t>("lookmountlegs");
   player->defaultOutfit.lookMountFeet = result->getNumber<uint16_t>("lookmountfeet");
+  player->defaultOutfit.lookFamiliarsType = result->getNumber<uint16_t>("lookfamiliarstype");
   player->currentOutfit = player->defaultOutfit;
 
   if (g_game.getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
@@ -839,6 +840,7 @@ bool IOLoginData::savePlayer(Player* player)
   query << "`lookmountfeet` = " << static_cast<uint32_t>(player->defaultOutfit.lookMountFeet) << ',';
   query << "`lookmounthead` = " << static_cast<uint32_t>(player->defaultOutfit.lookMountHead) << ',';
   query << "`lookmountlegs` = " << static_cast<uint32_t>(player->defaultOutfit.lookMountLegs) << ',';
+  query << "`lookfamiliarstype` = " << player->defaultOutfit.lookFamiliarsType << ',';
   query << "`maglevel` = " << player->magLevel << ',';
   query << "`mana` = " << player->mana << ',';
   query << "`manamax` = " << player->manaMax << ',';

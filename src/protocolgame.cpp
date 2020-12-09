@@ -877,7 +877,7 @@ void ProtocolGame::parseSetOutfit(NetworkMessage& msg)
 			newOutfit.lookMountBody = std::min<uint8_t>(132, msg.getByte());
 			newOutfit.lookMountLegs = std::min<uint8_t>(132, msg.getByte());
 			newOutfit.lookMountFeet = std::min<uint8_t>(132, msg.getByte());
-			msg.get<uint16_t>();  // Familiar looktype
+			newOutfit.lookFamiliarsType = msg.get<uint16_t>();  // Familiar looktype
 		} else if (outfitType == 1) {
 			//This value probably has something to do with try outfit variable inside outfit window dialog
 			//if try outfit is set to 2 it expects uint32_t value after mounted and disable mounts from outfit window dialog
@@ -2096,12 +2096,34 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 		msg.addByte(currentOutfit.lookMountLegs);
 		msg.addByte(currentOutfit.lookMountFeet);
 	}
-	msg.add<uint16_t>(0);
+	
+	uint16_t familiarsSize = 0;
+	auto startFamiliars = msg.getBufferPosition();
+	msg.skipBytes(2);
+	for (const Mount& mount : g_game.mounts.getMounts()) {
+		const std::string type = mount.type;
+		if (player->hasMount(&mount)) {
+			++familiarsSize;
+
+			msg.add<uint16_t>(mount.clientId);
+			msg.addString(mount.name);
+			if(type == "store")
+				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_STORE);
+			else if (type == "quest")
+				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_QUEST);
+			else
+				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
+			msg.add<uint32_t>(1000);
+		}
+	}
+	//msg.add<uint16_t>(0);
 
 	msg.setBufferPosition(startOutfits);
 	msg.add<uint16_t>(outfitSize);
 	msg.setBufferPosition(startMounts);
 	msg.add<uint16_t>(mountSize);
+	msg.setBufferPosition(startFamiliars);
+	msg.add<uint16_t>(familiarsSize);
 	writeToOutputBuffer(msg);
 }
 
@@ -3943,7 +3965,7 @@ void ProtocolGame::sendOutfitWindow()
 	msg.addByte(currentOutfit.lookMountBody);
 	msg.addByte(currentOutfit.lookMountLegs);
 	msg.addByte(currentOutfit.lookMountFeet);
-	msg.add<uint16_t>(0);
+	msg.add<uint16_t>(currentOutfit.lookFamiliarsType);
 
 	std::vector<ProtocolOutfit> protocolOutfits;
 	if (player->isAccessPlayer()) {
