@@ -17,10 +17,12 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_FAMILIARS_H_C56E7A707E3F422C8C93D9BE09916AA3
-#define FS_FAMILIARS_H_C56E7A707E3F422C8C93D9BE09916AA3
+#ifndef FS_FAMILIARS_H_
+#define FS_FAMILIARS_H_
 
 #include <utility>
+#include <vector>
+#include <string>
 
 #include "enums.h"
 
@@ -50,15 +52,12 @@ class Familiars {
 			static Familiars instance;
 			return instance;
 		}
-		
 		bool loadFromXml();
-		
 		const std::vector<Familiar>& getFamiliars(uint16_t vocation) const {
 			return familiars[vocation];
 		}
 	private:
 		std::vector<Familiar> familiars[VOCATION_LAST + 1];
-		
 };
 
-#endif
+#endif  // SRC_FAMILIARS_H_

@@ -4008,7 +4008,7 @@ void ProtocolGame::sendOutfitWindow()
 		msg.addString(mount->name);
 		msg.addByte(0x00);
 	}
-	
+
 	std::vector<ProtocolFamiliars> protocolFamiliars;
 	const auto& familiars = Familiars::getInstance().getFamiliars(player->getSex());
 	protocolFamiliars.reserve(familiars.size());

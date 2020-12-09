@@ -24,8 +24,7 @@
 #include "pugicast.h"
 #include "tools.h"
 
-bool Familiars::loadFromXml()
-{
+bool Familiars::loadFromXml() {
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file("data/XML/familiars.xml");
 	if (!result) {
@@ -43,7 +42,7 @@ bool Familiars::loadFromXml()
 			std::cout << "[Warning - Familiars::loadFromXml] Missing familiar vocation." << std::endl;
 			continue;
 		}
-		
+
 		uint16_t vocation = pugi::cast<uint16_t>(attr.value());
 		if (vocation > VOCATION_LAST) {
 			std::cout << "[Warning - Familiars::loadFromXml] Invalid familiar vocation " << vocation << "." << std::endl;
@@ -61,8 +60,7 @@ bool Familiars::loadFromXml()
 			pugi::cast<uint16_t>(lookTypeAttribute.value()),
 			familiarsNode.attribute("premium").as_bool(),
 			familiarsNode.attribute("unlocked").as_bool(true),
-			familiarsNode.attribute("type").as_string()
-		);
+			familiarsNode.attribute("type").as_string());
 	}
 	for (uint16_t vocation = VOCATION_NONE; vocation <= VOCATION_LAST; ++vocation) {
 		familiars[vocation].shrink_to_fit();
