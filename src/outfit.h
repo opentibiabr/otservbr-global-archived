@@ -26,8 +26,8 @@
 
 struct Outfit {
 	Outfit(std::string initName, uint16_t initLookType, bool initPremium, bool initUnlocked, std::string initFrom) :
-		name(std::move(initName)), lookType(initLookType), premium(initPremium), unlocked(initUnlocked),
-		from(std::move(initFrom)) {}
+		name(initName), lookType(initLookType), premium(initPremium), unlocked(initUnlocked),
+		from(initFrom) {}
 
 	std::string name;
 	uint16_t lookType;
