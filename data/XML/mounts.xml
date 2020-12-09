@@ -21,11 +21,11 @@
 	<mount id="19" clientid="402" name="Tamed Panda" speed="20" premium="yes" type="quest" />
 	<mount id="20" clientid="405" name="Dromedary" speed="20" premium="yes" type="quest" />
 	<mount id="21" clientid="406" name="Scorpion King" speed="20" premium="yes" type="quest" />
-	<mount id="22" clientid="421" name="Rented Horse" speed="20" premium="no" />
+	<mount id="22" clientid="421" name="Rented Horse" speed="20" premium="no" type="quest" />
 	<mount id="23" clientid="426" name="Armoured War Horse" speed="20" premium="yes" type="store" />
 	<mount id="24" clientid="427" name="Shadow Draptor" speed="20" premium="yes" type="store" />
-	<mount id="25" clientid="437" name="Rented Horse (Gray)" speed="20" premium="no" />
-	<mount id="26" clientid="438" name="Rented Horse (Brown)" speed="20" premium="no" />
+	<mount id="25" clientid="437" name="Rented Horse (Gray)" speed="20" premium="no" type="quest" />
+	<mount id="26" clientid="438" name="Rented Horse (Brown)" speed="20" premium="no" type="quest" />
 	<mount id="27" clientid="447" name="Lady Bug" speed="20" premium="yes" type="quest" />
 	<mount id="28" clientid="450" name="Manta Ray" speed="20" premium="yes" type="quest" />
 	<mount id="29" clientid="502" name="Ironblight" speed="20" premium="yes" type="quest" />
