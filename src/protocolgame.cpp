@@ -4008,14 +4008,21 @@ void ProtocolGame::sendOutfitWindow()
 		msg.addString(mount->name);
 		msg.addByte(0x00);
 	}
-	//msg.add<uint16_t>(0);
-	msg.add<uint16_t>(protocolMounts.size());
-	for (const Mount* mount : protocolMounts) {
-		msg.add<uint16_t>(mount->clientId);
-		msg.addString(mount->name);
+	
+	std::vector<ProtocolFamiliars> protocolFamiliars;
+	const auto& familiars = Familiars::getInstance().getFamiliars(player->getSex());
+	protocolFamiliars.reserve(familiars.size());
+	for (const Familiar& familiar : familiars) {
+		protocolFamiliars.emplace_back(familiar.name, familiar.lookType);
+	}
+
+	msg.add<uint16_t>(protocolFamiliars.size());
+	for (const ProtocolFamiliars& familiar : protocolFamiliars) {
+		msg.add<uint16_t>(familiar.lookType);
+		msg.addString(familiar.name);
 		msg.addByte(0x00);
 	}
-	
+
 	msg.addByte(0x00); //Try outfit
 	msg.addByte(mounted ? 0x01 : 0x00);
 

@@ -61,7 +61,7 @@ bool Familiars::loadFromXml()
 			pugi::cast<uint16_t>(lookTypeAttribute.value()),
 			familiarsNode.attribute("premium").as_bool(),
 			familiarsNode.attribute("unlocked").as_bool(true),
-			familiarsNode.attribute("from").as_string()
+			familiarsNode.attribute("type").as_string()
 		);
 	}
 	for (uint16_t vocation = VOCATION_NONE; vocation <= VOCATION_LAST; ++vocation) {

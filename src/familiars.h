@@ -25,15 +25,23 @@
 #include "enums.h"
 
 struct Familiar {
-	Familiar(std::string initName, uint16_t initLookType, bool initPremium, bool initUnlocked, std::string initFrom) :
+	Familiar(std::string initName, uint16_t initLookType, bool initPremium, bool initUnlocked, std::string initType) :
 		name(initName), lookType(initLookType), premium(initPremium), unlocked(initUnlocked),
-		from(initFrom) {}
+		type(initType) {}
 
 	std::string name;
 	uint16_t lookType;
 	bool premium;
 	bool unlocked;
-	std::string from;
+	std::string type;
+};
+
+struct ProtocolFamiliars {
+	ProtocolFamiliars(const std::string& initName, uint16_t initLookType) :
+		name(initName), lookType(initLookType) {}
+
+	const std::string& name;
+	uint16_t lookType;
 };
 
 class Familiars {
