@@ -1,15 +1,15 @@
 local serverInfo = TalkAction("!serverinfo")
 
 function serverInfo.onSay(player, words, param)
-	local expRate = 2;
+	-- local expRate = 2;
 	local configRateSkill = 3;
 	local lootRate = 2;
 	local magicRate = 1.5;
 
 
-	if (getRateFromTable(experienceStages, player:getLevel(), configManager.getNumber(configKeys.RATE_EXP)) == 2) then
-		expRate = 4;
-	end
+	-- if (getRateFromTable(experienceStages, player:getLevel(), configManager.getNumber(configKeys.RATE_EXP)) == 2) then
+	-- 	expRate = 4;
+	-- end
 
 	if (configManager.getNumber(configKeys.RATE_SKILL) > 3) then
 		configRateSkill = 6;
@@ -24,8 +24,8 @@ function serverInfo.onSay(player, words, param)
 	end
 
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Server Info:"
-	-- .. "\nExp rate: " .. getRateFromTable(experienceStages, player:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
-	.. "\nExp rate: " .. expRate
+	.. "\nExp rate: " .. getRateFromTable(experienceStages, player:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
+	-- .. "\nExp rate: " .. expRate
 	.. "\nSkill rate: " .. configRateSkill
 	.. "\nMagic rate: " .. magicRate
 	.. "\nLoot rate: " .. lootRate)
