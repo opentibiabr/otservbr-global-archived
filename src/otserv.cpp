@@ -261,6 +261,12 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		startupErrorMessage("Unable to load outfits!");
 		return;
 	}
+	
+	std::cout << ">> Loading familiars" << std::endl;
+	if (!Familiars::getInstance().loadFromXml()) {
+		startupErrorMessage("Unable to load familiars!");
+		return;
+	}
 
 	std::cout << ">> Checking world type... " << std::flush;
 	std::string worldType = asLowerCaseString(g_config.getString(
