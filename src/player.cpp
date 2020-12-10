@@ -4149,6 +4149,31 @@ bool Player::getOutfitAddons(const Outfit& outfit, uint8_t& addons) const
 	return true;
 }
 
+bool Player::getFamiliar(const Familiar& familiar) const
+{
+	if (group->access) {
+		return true;
+	}
+
+	if (familiar.premium && !isPremium()) {
+		return false;
+	}
+
+	for (const FamiliarEntry& familiarEntry : familiars) {
+		if (familiarEntry.lookType != familiar.lookType) {
+			continue;
+		}
+
+		return true;
+	}
+
+	if (!familiar.unlocked) {
+		return false;
+	}
+	
+	return true;
+}
+
 void Player::setSex(PlayerSex_t newSex)
 {
 	sex = newSex;

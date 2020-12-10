@@ -110,6 +110,12 @@ struct OutfitEntry {
 	uint8_t addons;
 };
 
+struct FamiliarEntry {
+	constexpr FamiliarEntry(uint16_t initLookType) : lookType(initLookType) {}
+
+	uint16_t lookType;
+};
+
 struct Skill {
 	uint64_t tries = 0;
 	uint16_t level = 10;
@@ -823,6 +829,8 @@ class Player final : public Creature, public Cylinder
 		bool removeOutfit(uint16_t lookType);
 		bool removeOutfitAddon(uint16_t lookType, uint8_t addons);
 		bool getOutfitAddons(const Outfit& outfit, uint8_t& addons) const;
+
+		bool getFamiliar(const Familiar& familiar) const;
 
 		bool canLogout();
 
@@ -1686,6 +1694,8 @@ class Player final : public Creature, public Cylinder
 		std::vector<uint16_t> quickLootListClientIds;
 
 		std::vector<OutfitEntry> outfits;
+		std::vector<FamiliarEntry> familiars;
+
 		GuildWarVector guildWarVector;
 
 		std::vector<ShopInfo> shopItemList;
