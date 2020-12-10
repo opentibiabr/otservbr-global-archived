@@ -1,7 +1,7 @@
 DailyRewardSystem = {
 	Developer = "Westwol, Marcosvf132",
 	Version = "1.3",
-	lastUpdate = "03/12/2020 - 20:30",
+	lastUpdate = "12/10/2020 - 20:30",
 	ToDo = "Move this system to CPP"
 }
 
@@ -69,6 +69,7 @@ local DailyRewardItems = {
 
 DailyReward = {
 	testMode = false,
+	jokerWeekDay = "Thursday", -- "Sunday" "Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday"
 	serverTimeThreshold = (24 * 60 * 60), -- Counting down 24hours from last server save
 
 	storages = {
@@ -82,7 +83,8 @@ DailyReward = {
 		-- Global
 		lastServerSave = 14110,
 		avoidDouble = 13412,
-		notifyReset = 13413
+		notifyReset = 13413,
+		avoidDoubleJoker = 13414
 	},
 
 	strikeBonuses = {
@@ -310,18 +312,29 @@ DailyReward.init = function(playerId)
 		return false
 	end
 
+	if os.date("%A") == DailyReward.jokerWeekDay and player:getStorageValue(DailyReward.storages.avoidDoubleJoker) ~= Game.getLastServerSave() then
+		player:setStorageValue(DailyReward.storages.avoidDoubleJoker, Game.getLastServerSave())
+		player:setJokerTokens(player:getJokerTokens() + 1)
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You just received your weekly joker token.")
+	end
+
 	local timeMath = Game.getLastServerSave() - player:getNextRewardTime()
 	if player:getNextRewardTime() < Game.getLastServerSave() then
 		if player:getStorageValue(DailyReward.storages.notifyReset) ~= Game.getLastServerSave() then
-			if player:getJokerTokens() < math.ceil(timeMath/(DailyReward.serverTimeThreshold)) then
+			player:setStorageValue(DailyReward.storages.notifyReset, Game.getLastServerSave())
+			timeMath = math.ceil(timeMath/(DailyReward.serverTimeThreshold))
+			if player:getJokerTokens() >= timeMath then
+				player:setJokerTokens(player:getJokerTokens() - timeMath)
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You lost " .. timeMath .. " joker tokens to prevent loosing your streak.")
+			else
 				player:setStreakLevel(0)
-				player:setStorageValue(DailyReward.storages.notifyReset, Game.getLastServerSave())
 				if player:getLastLoginSaved() > 0 then -- message wont appear at first character login
 					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You just lost your daily reward streak.")
 				end
 			end
 		end
 	end
+
 	-- Daily reward golden icon
 	if DailyReward.isRewardTaken(player:getId()) then
 		player:sendDailyRewardCollectionState(0)
@@ -385,17 +398,6 @@ function Player.selectDailyReward(self, msg)
 	if DailyReward.isRewardTaken(playerId) and not DailyReward.testMode then
 		self:sendError("You have already collected your daily reward.")
 		return false
-	end
-
-	-- Client 12.60 joker feature
-	if self:getNextRewardTime() < Game.getLastServerSave() then
-		if self:getStreakLevel() > 0 then
-			if self:getJokerTokens() < 1 then
-				self:sendError("You do not have enough joker tokens to proceed.")
-				return false
-			end
-			self:setJokerTokens(self:getJokerTokens() - 1)
-		end
 	end
 
 	local source = msg:getByte() -- 0 -> shrine / 1 -> tibia panel
