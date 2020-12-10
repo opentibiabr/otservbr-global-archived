@@ -662,6 +662,11 @@ void Player::addStorageValue(const uint32_t key, const int32_t value, const bool
 			return;
 		} else if (IS_IN_KEYRANGE(key, MOUNTS_RANGE)) {
 			// do nothing
+		} else if (IS_IN_KEYRANGE(key, FAMILIARS_RANGE)) {
+			familiars.emplace_back(
+				value >> 16
+			);
+			return;
 		} else {
 			std::cout << "Warning: unknown reserved key: " << key << " player: " << getName() << std::endl;
 			return;
@@ -4081,9 +4086,14 @@ bool Player::canLogout()
 void Player::genReservedStorageRange()
 {
 	//generate outfits range
-	uint32_t base_key = PSTRG_OUTFITS_RANGE_START;
+	uint32_t outfits_key = PSTRG_OUTFITS_RANGE_START;
 	for (const OutfitEntry& entry : outfits) {
-		storageMap[++base_key] = (entry.lookType << 16) | entry.addons;
+		storageMap[++outfits_key] = (entry.lookType << 16) | entry.addons;
+	}
+	//generate familiars range
+	uint32_t familiar_key = PSTRG_FAMILIARS_RANGE_START;
+	for (const FamiliarEntry& entry : familiars) {
+		storageMap[++familiar_key] = (entry.lookType << 16);
 	}
 }
 
