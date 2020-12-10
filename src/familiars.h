@@ -56,6 +56,7 @@ class Familiars {
 		const std::vector<Familiar>& getFamiliars(uint16_t vocation) const {
 			return familiars[vocation];
 		}
+		const Familiar* getFamiliarByLookType(uint16_t vocation, uint16_t lookType) const;
 	private:
 		std::vector<Familiar> familiars[VOCATION_LAST + 1];
 };

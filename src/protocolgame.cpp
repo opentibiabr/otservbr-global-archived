@@ -4010,7 +4010,7 @@ void ProtocolGame::sendOutfitWindow()
 	}
 
 	std::vector<ProtocolFamiliars> protocolFamiliars;
-	const auto& familiars = Familiars::getInstance().getFamiliars(player->getSex());
+	const auto& familiars = Familiars::getInstance().getFamiliars(player->getVocationId());
 	protocolFamiliars.reserve(familiars.size());
 	for (const Familiar& familiar : familiars) {
 		protocolFamiliars.emplace_back(familiar.name, familiar.lookType);

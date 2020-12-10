@@ -2587,6 +2587,9 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "hasOutfit", LuaScriptInterface::luaPlayerHasOutfit);
 	registerMethod("Player", "sendOutfitWindow", LuaScriptInterface::luaPlayerSendOutfitWindow);
 
+	registerMethod("Player", "addFamiliar", LuaScriptInterface::luaPlayerAddFamiliar);
+	registerMethod("Player", "hasFamiliar", LuaScriptInterface::luaPlayerHasFamiliar);
+
 	registerMethod("Player", "addMount", LuaScriptInterface::luaPlayerAddMount);
 	registerMethod("Player", "removeMount", LuaScriptInterface::luaPlayerRemoveMount);
 	registerMethod("Player", "hasMount", LuaScriptInterface::luaPlayerHasMount);
@@ -10415,6 +10418,32 @@ int LuaScriptInterface::luaPlayerSendOutfitWindow(lua_State* L)
 	if (player) {
 		player->sendOutfitWindow();
 		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerAddFamiliar(lua_State* L)
+{
+	// player:addFamiliar(lookType)
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		player->addFamiliar(getNumber<uint16_t>(L, 2));
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerHasFamiliar(lua_State* L)
+{
+	// player:hasFamiliar(lookType)
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		uint16_t lookType = getNumber<uint16_t>(L, 2);
+		pushBoolean(L, player->canFamiliar(lookType));
 	} else {
 		lua_pushnil(L);
 	}

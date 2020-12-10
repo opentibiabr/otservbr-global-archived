@@ -4149,6 +4149,43 @@ bool Player::getOutfitAddons(const Outfit& outfit, uint8_t& addons) const
 	return true;
 }
 
+bool Player::canFamiliar(uint32_t lookType) const
+{
+	if (group->access) {
+		return true;
+	}
+
+	const Familiar* familiar = Familiars::getInstance().getFamiliarByLookType(getVocationId(), lookType);
+	if (!familiar) {
+		return false;
+	}
+
+	if (familiar->premium && !isPremium()) {
+		return false;
+	}
+
+	if (familiar->unlocked) {
+		return true;
+	}
+
+	for (const FamiliarEntry& familiarEntry : familiars) {
+		if (familiarEntry.lookType != lookType) {
+			continue;
+		}
+	}
+	return false;
+}
+
+void Player::addFamiliar(uint16_t lookType)
+{
+	for (FamiliarEntry& familiarEntry : familiars) {
+		if (familiarEntry.lookType == lookType) {
+			return;
+		}
+	}
+	familiars.emplace_back(lookType);
+}
+
 bool Player::getFamiliar(const Familiar& familiar) const
 {
 	if (group->access) {

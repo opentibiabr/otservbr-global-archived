@@ -830,6 +830,8 @@ class Player final : public Creature, public Cylinder
 		bool removeOutfitAddon(uint16_t lookType, uint8_t addons);
 		bool getOutfitAddons(const Outfit& outfit, uint8_t& addons) const;
 
+		bool canFamiliar(uint32_t lookType) const;
+		void addFamiliar(uint16_t lookType);
 		bool getFamiliar(const Familiar& familiar) const;
 
 		bool canLogout();
