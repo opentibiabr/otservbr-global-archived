@@ -765,6 +765,7 @@ void Monster::updateIdleStatus()
 void Monster::onAddCondition(ConditionType_t type)
 {
 	if (type == CONDITION_FIRE || type == CONDITION_ENERGY || type == CONDITION_POISON) {
+    ignoreFieldDamage = true;
 		updateMapCache();
 	}
 
@@ -1242,7 +1243,6 @@ bool Monster::getNextStep(Direction& nextDirection, uint32_t& flags)
 			flags |= FLAG_PATHFINDING;
 		} else {
 			if (ignoreFieldDamage) {
-				ignoreFieldDamage = false;
 				updateMapCache();
 			}
 			//target dancing
