@@ -27,7 +27,7 @@
 #include "depotchest.h"
 #include "depotlocker.h"
 #include "enums.h"
-#include "./familiars.h"
+#include "familiars.h"
 #include "gamestore.h"
 #include "groups.h"
 #include "guild.h"
