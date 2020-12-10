@@ -261,7 +261,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		startupErrorMessage("Unable to load outfits!");
 		return;
 	}
-	
+
 	std::cout << ">> Loading familiars" << std::endl;
 	if (!Familiars::getInstance().loadFromXml()) {
 		startupErrorMessage("Unable to load familiars!");
