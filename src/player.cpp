@@ -664,8 +664,7 @@ void Player::addStorageValue(const uint32_t key, const int32_t value, const bool
 			// do nothing
 		} else if (IS_IN_KEYRANGE(key, FAMILIARS_RANGE)) {
 			familiars.emplace_back(
-				value >> 16
-			);
+				value >> 16);
 			return;
 		} else {
 			std::cout << "Warning: unknown reserved key: " << key << " player: " << getName() << std::endl;
@@ -4085,12 +4084,12 @@ bool Player::canLogout()
 
 void Player::genReservedStorageRange()
 {
-	//generate outfits range
+	// generate outfits range
 	uint32_t outfits_key = PSTRG_OUTFITS_RANGE_START;
 	for (const OutfitEntry& entry : outfits) {
 		storageMap[++outfits_key] = (entry.lookType << 16) | entry.addons;
 	}
-	//generate familiars range
+	// generate familiars range
 	uint32_t familiar_key = PSTRG_FAMILIARS_RANGE_START;
 	for (const FamiliarEntry& entry : familiars) {
 		storageMap[++familiar_key] = (entry.lookType << 16);
@@ -4159,8 +4158,7 @@ bool Player::getOutfitAddons(const Outfit& outfit, uint8_t& addons) const
 	return true;
 }
 
-bool Player::canFamiliar(uint32_t lookType) const
-{
+bool Player::canFamiliar(uint32_t lookType) const {
 	if (group->access) {
 		return true;
 	}
@@ -4186,8 +4184,7 @@ bool Player::canFamiliar(uint32_t lookType) const
 	return false;
 }
 
-void Player::addFamiliar(uint16_t lookType)
-{
+void Player::addFamiliar(uint16_t lookType) {
 	for (FamiliarEntry& familiarEntry : familiars) {
 		if (familiarEntry.lookType == lookType) {
 			return;
@@ -4196,8 +4193,7 @@ void Player::addFamiliar(uint16_t lookType)
 	familiars.emplace_back(lookType);
 }
 
-bool Player::getFamiliar(const Familiar& familiar) const
-{
+bool Player::getFamiliar(const Familiar& familiar) const {
 	if (group->access) {
 		return true;
 	}
@@ -4217,7 +4213,7 @@ bool Player::getFamiliar(const Familiar& familiar) const
 	if (!familiar.unlocked) {
 		return false;
 	}
-	
+
 	return true;
 }
 

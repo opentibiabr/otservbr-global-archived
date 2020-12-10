@@ -111,8 +111,7 @@ struct OutfitEntry {
 };
 
 struct FamiliarEntry {
-	constexpr FamiliarEntry(uint16_t initLookType) : lookType(initLookType) {}
-
+	constexpr explicit FamiliarEntry(uint16_t initLookType) : lookType(initLookType) {}
 	uint16_t lookType;
 };
 

@@ -10424,8 +10424,7 @@ int LuaScriptInterface::luaPlayerSendOutfitWindow(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaPlayerAddFamiliar(lua_State* L)
-{
+int LuaScriptInterface::luaPlayerAddFamiliar(lua_State* L) {
 	// player:addFamiliar(lookType)
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
@@ -10437,8 +10436,7 @@ int LuaScriptInterface::luaPlayerAddFamiliar(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaPlayerHasFamiliar(lua_State* L)
-{
+int LuaScriptInterface::luaPlayerHasFamiliar(lua_State* L) {
 	// player:hasFamiliar(lookType)
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
