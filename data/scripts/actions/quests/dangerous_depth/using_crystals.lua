@@ -451,7 +451,7 @@ function dangerousDepthCrystals.onUse(player, item, fromPosition, target, toPosi
 							teleport:remove(1)
 							Game.createItem(386, 1, Position(33460, 32267, 15))
 						end
-					end, 30*1000)
+					end, 8*1000)
 					addEvent(clearForgotten, 30*60*1000, Position(33638, 32291, 15), Position(33675, 32313, 15), Position(33462, 32267, 15), GlobalStorage.DangerousDepths.Geodes.WarzoneIV)
 					startWarzoneIV()
 				end
@@ -486,7 +486,7 @@ function dangerousDepthCrystals.onUse(player, item, fromPosition, target, toPosi
 							teleport:remove(1)
 							Game.createItem(386, 1, Position(33324, 32109, 15))
 						end
-					end, 30*1000)
+					end, 8*1000)
 					addEvent(clearForgotten, 30*60*1000, Position(33668, 32310, 15), Position(33695, 32343, 15), Position(33323, 32111, 15), GlobalStorage.DangerousDepths.Geodes.WarzoneV)
 					startWarzoneV()
 				end
@@ -521,7 +521,7 @@ function dangerousDepthCrystals.onUse(player, item, fromPosition, target, toPosi
 							teleport:remove(1)
 							Game.createItem(386, 1, Position(33275, 32316, 15))
 						end
-					end, 30*1000)
+					end, 8*1000)
 					addEvent(clearForgotten, 30*60*1000, Position(33684, 32293, 15), Position(33724, 32314, 15), Position(33275, 32318, 15), GlobalStorage.DangerousDepths.Geodes.WarzoneVI)
 					startWarzoneVI()
 				end
