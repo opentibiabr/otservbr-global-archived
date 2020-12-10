@@ -2103,6 +2103,9 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	const auto& familiars = Familiars::getInstance().getFamiliars(player->getVocationId());
 	for (const Familiar& familiar : familiars) {
 		const std::string type = familiar.type;
+		if (!player->getFamiliar(familiar)) {
+			continue;
+		}
 		++familiarsSize;
 		msg.add<uint16_t>(familiar.lookType);
 		msg.addString(familiar.name);
@@ -2110,7 +2113,7 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_QUEST);
 		else
 			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
-			msg.add<uint32_t>(1000);
+		msg.add<uint32_t>(0);
 	}
 
 	msg.setBufferPosition(startOutfits);
@@ -4013,6 +4016,9 @@ void ProtocolGame::sendOutfitWindow()
 	const auto& familiars = Familiars::getInstance().getFamiliars(player->getVocationId());
 	protocolFamiliars.reserve(familiars.size());
 	for (const Familiar& familiar : familiars) {
+		if (!player->getFamiliar(familiar)) {
+			continue;
+		}
 		protocolFamiliars.emplace_back(familiar.name, familiar.lookType);
 	}
 
