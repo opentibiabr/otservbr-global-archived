@@ -259,23 +259,6 @@ function Player.isMage(self)
 		self:getVocation():getId())
 end
 
--- Loot Analyser
-function Player.sendLootStats(self, item)
-	local msg = NetworkMessage()
-	msg:addByte(0xCF) -- loot analyser bit
-	msg:addItem(item, self) -- item userdata
-	msg:addString(getItemName(item:getId()))
-	msg:sendToPlayer(self)
-end
-
--- Supply Analyser
-function Player.sendWaste(self, item)
-	local msg = NetworkMessage()
-	msg:addByte(0xCE) -- waste bit
-	msg:addItemId(item) -- itemId
-	msg:sendToPlayer(self)
-end
-
 local ACCOUNT_STORAGES = {}
 function Player.getAccountStorage(self, accountId, key, forceUpdate)
 	local accountId = self:getAccountId()
