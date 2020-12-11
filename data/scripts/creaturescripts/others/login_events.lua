@@ -98,7 +98,8 @@ function loginEvents.onLogin(player)
 		"ZalamonKill",
 		"AutoLoot",
 		"HourCoin",
-		"LoginAccess"
+		"LoginAccess",
+		"TibiaCoinsLevelUp"
 	}
 
 	for i = 1, #events do
