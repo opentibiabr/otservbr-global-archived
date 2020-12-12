@@ -162,5 +162,60 @@ ItemUnique = {
 	[40028] = {
 		itemId = 36319,
 		itemPos = {x = 33395, y = 32660, z = 6}
+	},
+
+	-- Kilmaresh
+	-- First mission
+	-- data\scripts\quests\kilmaresh\1-fafnars-wrath\2-ambassadors-treason.lua
+	[40029] = {
+		itemId = 36199,
+		itemPos = {x = 33955, y = 31502, z = 4}
+	},
+	[40030] = {
+		itemId = 36200,
+		itemPos = {x = 33955, y = 31501, z = 3}
+	},
+	[40031] = {
+		itemId = 7729,
+		itemPos = {x = 33956, y = 31504, z = 3}
+	},
+	-- Four Masks
+	[40032] = { -- Ivory mask
+		itemId = 36104,
+		itemPos = {x = 33879, y = 31490, z = 6}
+	},
+	
+	[40033] = { -- Gryphon mask
+		itemId = 36465,
+		itemPos = {x = 33841, y = 31682, z = 3}
+	},
+	[40034] = { -- Silver mask
+		itemId = 36557,
+		itemPos = {x = 33780, y = 31664, z = 7}
+	},
+	[40035] = { -- Mirror mask
+		itemId = 1417,
+		itemPos = {x = 33793, y = 31553, z = 8}
+	},
+	-- Blessing the statues
+	[40036] = {
+		itemId = 35997,
+		itemPos = {x = 33854, y = 31521, z = 9}
+	},
+	[40037] = {
+		itemId = 35997,
+		itemPos = {x = 33879, y = 31545, z = 9}
+	},
+	[40038] = {
+		itemId = 35996,
+		itemPos = {x = 33891, y = 31504, z = 9}
+	},
+	[40039] = {
+		itemId = 35997,
+		itemPos = {x = 33853, y = 31464, z = 9}
+	},
+	[40040] = {
+		itemId = 35996,
+		itemPos = {x = 33874, y = 31433, z = 9}
 	}
 }
