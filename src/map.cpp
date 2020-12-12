@@ -231,6 +231,7 @@ bool Map::placeCreature(const Position& centerPos, Creature* creature, bool exte
 			if (monster) {
 				monster->ignoreFieldDamage = false;
 			}
+		}
 	}
 
 	int32_t index = 0;
