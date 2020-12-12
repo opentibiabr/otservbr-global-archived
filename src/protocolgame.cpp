@@ -541,6 +541,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xAA: addGameTask(&Game::playerCreatePrivateChannel, player->getID()); break;
 		case 0xAB: parseChannelInvite(msg); break;
 		case 0xAC: parseChannelExclude(msg); break;
+		case 0xAD: parseCyclopediaHouseAction(msg); break;
     case 0xB1: parseHighscores(msg); break;
 		case 0xBE: addGameTask(&Game::playerCancelAttackAndFollow, player->getID()); break;
     case 0xC7: parseTournamentLeaderboard(msg); break;
@@ -1243,6 +1244,72 @@ void ProtocolGame::sendItemInspection(uint16_t itemId, uint8_t itemCount, const 
 		msg.addString(description.second);
 	}
 	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::parseCyclopediaHouseAction(NetworkMessage& msg)
+{
+	// Testing purposes - do not write code this way, it has race condition
+	// but for testing purpose I don't need 100% thread-safety
+	
+	// Dex89: I try decoded it and added other functions
+	
+	//(void)msg;
+	uint8_t houseActionType = msg.getByte();
+	switch (houseActionType) {
+		case 0: { //wybor domku?
+			std::string housePage = msg.getString();
+			std::cout << "Test[0]:" << std::endl;
+			std::cout << "String[1]: " << housePage << std::endl;
+			if (housePage == "") { //own houses
+				NetworkMessage outMsg;
+				outMsg.addByte(0xC7);
+				outMsg.add<uint16_t>(0x01);
+				outMsg.add<uint32_t>(0x4A4A); // ?? (owner) ? [0x4A4A = 19018 => Owned house: Rathleton Plaza 4]
+				outMsg.addByte(1);
+				outMsg.addByte(2);
+				outMsg.addString(player->getName()); // 'rented by nick name -> own house'
+				outMsg.add<uint32_t>(0xFFFFFFFF);
+				outMsg.addByte(1);
+				outMsg.addByte(0);
+				outMsg.addByte(0);
+				writeToOutputBuffer(outMsg);
+			} else {
+				NetworkMessage outMsg;
+				outMsg.addByte(0xC7);
+				outMsg.add<uint16_t>(0x01);
+				outMsg.add<uint32_t>(0x4A4A); // ??
+				outMsg.addByte(1);
+				outMsg.addByte(2);
+				outMsg.addString(player->getName()); // 'rented by nick name'
+				outMsg.add<uint32_t>(0xFFFFFFFF);
+				outMsg.addByte(1);
+				outMsg.addByte(0);
+				outMsg.addByte(0);
+				writeToOutputBuffer(outMsg);
+			}
+			break;
+		}
+		case 1: {
+			std::cout << "Test[1]:" << std::endl;
+			std::cout << "U32[1]: " << msg.get<uint32_t>() << std::endl;
+			std::cout << "U64[2]: " << msg.get<uint64_t>() << std::endl;
+			break;
+		}
+		case 2: {
+			std::cout << "Test[2]:" << std::endl; //move out
+			std::cout << "U32[1]: " << msg.get<uint32_t>() << std::endl;  // (owner) ? [0x4A4A = 19018 => Owned house: Rathleton Plaza 4]
+			std::cout << "U32[2]: " << msg.get<uint32_t>() << std::endl; // date to out
+			break;
+		}
+		case 3: {
+			std::cout << "Test[3]:" << std::endl; // transfer house
+			std::cout << "U32[1]: " << msg.get<uint32_t>() << std::endl;  // (owner) ? [0x4A4A = 19018 => Owned house: Rathleton Plaza 4]
+			std::cout << "U32[2]: " << msg.get<uint32_t>() << std::endl; // date to out
+			std::cout << "String[3]: " << msg.getString() << std::endl;  // nick to move
+			std::cout << "U64[4]: " << msg.get<uint64_t>() << std::endl; // payment for house
+			break;
+		}
+	}
 }
 
 void ProtocolGame::parseCyclopediaCharacterInfo(NetworkMessage& msg) {
