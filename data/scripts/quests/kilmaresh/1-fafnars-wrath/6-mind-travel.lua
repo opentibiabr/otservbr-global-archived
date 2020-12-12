@@ -48,7 +48,7 @@ function leftMirror.onStepIn(creature)
     if creature:isPlayer() then
         creature:teleportTo(mirrorTeleportPositions[2])
         creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You were moved to the right brain side")
-		creature:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
+		    creature:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
         return true
     end
 
@@ -62,12 +62,12 @@ leftMirror:register()
 local rightMirror = MoveEvent()
 
 function rightMirror.onStepIn(creature)
-	if creature:isPlayer() then
-		creature:teleportTo(mirrorTeleportPositions[1])
+	  if creature:isPlayer() then
+        creature:teleportTo(mirrorTeleportPositions[1])
         creature:sendTextMessage(MESSAGE_EVENT_ADVANCE,  "You were moved to the left brain side")
-		creature:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
+        creature:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
         return true
-	end
+    end
 
     return false
 end
@@ -77,6 +77,8 @@ rightMirror:register()
 
 
 -- Memories
+
+local shardIds = {36189, 36190, 36191}
 
 local memoriesWords = {
     "The Ambassador tells another dignitary: Rathleton must never be surpassed! I will procure that the Empire falters!",
@@ -101,16 +103,16 @@ function memoryShards.onUse(player, item, fromPosition, target, toPosition, isHo
         not hasUsedShard and -- making sure we don't use the same shard twice
         target.uid == 57507 -- is it the shrine?
     then
-		player:say(memoriesWords[memoryStorage], TALKTYPE_MONSTER_SAY, false, player, toPosition)
+		    player:say(memoriesWords[memoryStorage], TALKTYPE_MONSTER_SAY, false, player, toPosition)
         player:setStorageValue(Storage.Kilmaresh.Fifth.Memories, memoryStorage + 1)
         player:setStorageValue(Storage.Kilmaresh.Fifth.MemoriesShards, setFlag(memoriesShardsStorage, memoryShardsItemIdsBitmasks[item:getId()]))
-		toPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
+		    toPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
         return true
     end
     return false
 end
 
-memoryShards:id(36189, 36190, 36191) -- Green, blue and purple memory shards
+memoryShards:id(shardIds) -- Green, blue and purple memory shards
 memoryShards:register()
 
 
@@ -118,31 +120,29 @@ memoryShards:register()
 
 local energyField = MoveEvent()
 
-local shardIds = {36189, 36190, 36191}
-
 function energyField.onStepIn(creature, item, position, fromPosition)
 
-	local player = creature:getPlayer()
-	
-	if not player then
-		return true
-	end
-	
-	local playerShardIds = {}
+    local player = creature:getPlayer()
 
-	-- Get player owned shards
-	for i = 1, #shardIds do
-		if player:getItemById(shardIds[i], true) then
-			table.insert(playerShardIds, shardIds[i])
-		end
-	end
-	
-	-- Remove a random one, if have any
-	if #playerShardIds > 0 then
-		player:removeItem(playerShardIds[math.random(#playerShardIds)], 1)
-	end
-	
-	return true
+    if not player then
+        return true
+    end
+
+    local playerShardIds = {}
+
+    -- Get player owned shards
+    for i = 1, #shardIds do
+        if player:getItemById(shardIds[i], true) then
+            table.insert(playerShardIds, shardIds[i])
+        end
+    end
+
+    -- Remove a random one, if have any
+    if #playerShardIds > 0 then
+        player:removeItem(playerShardIds[math.random(#playerShardIds)], 1)
+    end
+
+    return true
 end
 
 energyField:aid(40004)

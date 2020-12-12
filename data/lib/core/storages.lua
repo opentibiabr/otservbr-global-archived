@@ -93,7 +93,6 @@ Storage = {
 	BloodHerbQuest = 30010,
 	firstMageWeapon = 30011,
 	toOutfoxAFoxQuest = 30012,
-	MadMageQuest = 30013,
 	KawillBlessing = 30014,
 	RentedHorseTimer = 30015,
 	FountainOfLife = 30016,
@@ -135,6 +134,8 @@ Storage = {
 	StoreExaust = 30051,
 	LemonCupcake = 30052,
 	BlueberryCupcake = 30053,
+	PremiumAccount = 998899,
+	
 	--[[
 	Old storages
 	Over time, this will be dropped and replaced by the table above
@@ -1697,12 +1698,36 @@ Storage = {
 	-- News quest development
 	-- New storages
 	Quest = {
+		Key = {
+			ID0010 = 103,
+			ID3001 = 3001,
+			ID3002 = 3002,
+			ID3003 = 3003,
+			ID3004 = 3004,
+			ID3005 = 3005,
+			ID3006 = 3006,
+			ID3007 = 3007,
+			ID3008 = 3008,
+			ID3012 = 3012,
+			ID3620 = 3620,
+			ID3666 = 3666,
+			ID3702 = 3702,
+			ID3800 = 3800,
+			ID3801 = 3801,
+			ID3802 = 3802,
+			ID3940 = 3940,
+			ID3980 = 3980,
+			ID4055 = 4055,
+			ID4502 = 4502,
+			ID5010 = 5010,
+			ID6010 = 6010
+		},
 		SimpleChest = {
 			FamilyBrooch = 9000
 		},
 		-- update pre-6.0
 		DeeperFibula = {
-			Key3980 = 10000,
+			-- 10000 EMPTY
 			RewardTowerShield = 10001,
 			RewardWarriorHelmet = 10002,
 			RewardDwarvenRing = 10003,
@@ -1727,9 +1752,7 @@ Storage = {
 		},
 		-- update 6.1
 		EmperorsCookies = {
-			Key3800 = 10013,
-			Key3801 = 10014,
-			Key3802 = 10015,
+			-- 10013/10015 EMPTY
 			RopeReward = 10016,
 		},
 		ExplorerBrooch = {
@@ -1741,7 +1764,7 @@ Storage = {
 			FireSword = 10020
 		},
 		Panpipe = {
-			Key4055 = 10021,
+			-- 10021 EMPTY
 			Reward = 10022
 		},
 		-- update 6.2
@@ -1813,7 +1836,7 @@ Storage = {
 		},
 		-- update 7.1
 		BlackKnight = {
-			Key5010 = 10053,
+			-- 10053 EMPTY
 			CrownArmor = 10054,
 			CrownShield = 10055
 		},
@@ -1872,7 +1895,13 @@ Storage = {
 			Hammer = 10093,
 			GoldCoin = 10094
 		},
-		MadMageRoom = {},
+		MadMageRoom = {
+			QuestLine = 10095,
+			APrisoner = 10096,
+			StarAmulet = 10097,
+			Hat = 10098,
+			StoneSkinAmulet = 10099
+		},
 		SkullOfRatha = {},
 		TheAnnihilator = {},
 		TheParadoxTower = {},
@@ -2105,8 +2134,7 @@ Storage = {
 			MorrisGoblin = 20012,
 			MorrisGoblinCount = 20013,
 			MorrisMinos = 20014,
-			MorrisMinosCount = 20015,
-			Key0010 = 20016
+			MorrisMinosCount = 20015
 		},
 		SanctuaryOfTheLizardGod = {
 			LizardGodTeleport = 20020,
@@ -2165,8 +2193,7 @@ Storage = {
 		GraveDanger = {},
 		-- update 12.30
 		FeasterOfSouls = {},
-		PoltergeistOutfits = {},
-		Key4502 = 15000
+		PoltergeistOutfits = {}
 	}
 }
 

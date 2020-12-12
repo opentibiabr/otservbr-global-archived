@@ -15,7 +15,11 @@ function onThink()
 npcHandler:onThink()
 end
 
-local voices = {{text = "The menu of the day sounds delicious!"}, {text = "The last visit to the theatre was quite rewarding."}, {text = "Such a beautiful and wealthy city - with so many opportunities ..."}}
+local voices = {
+  {text = "The menu of the day sounds delicious!"}, 
+  {text = "The last visit to the theatre was quite rewarding."}, 
+  {text = "Such a beautiful and wealthy city - with so many opportunities ..."}
+}
 
 keywordHandler:addKeyword(
 	{"help"}, StdModule.say, { npcHandler = npcHandler,

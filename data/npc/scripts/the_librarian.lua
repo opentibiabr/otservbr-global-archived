@@ -15,7 +15,11 @@ function onThink()
 npcHandler:onThink()
 end
 
-local voices = {{text = "I really have to find this scroll. Where did I put it?"}, {text = "Too much dust here. I should tidy up on occasion."}, {text = "Someone opened the Grimoire of Flames without permission. Egregious!"}}
+local voices = {
+  {text = "I really have to find this scroll. Where did I put it?"},
+  {text = "Too much dust here. I should tidy up on occasion."},
+  {text = "Someone opened the Grimoire of Flames without permission. Egregious!"}
+}
 
 keywordHandler:addKeyword(
 	{"ring"}, StdModule.say, { npcHandler = npcHandler,

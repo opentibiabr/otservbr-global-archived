@@ -15,7 +15,10 @@ function onThink()
 npcHandler:onThink()
 end
 
-local voices = {{text = "Health potions! Mana potions! Buy them here!"}, {text = "All kinds of potions available here!"}}
+local voices = {
+  {text = "Health potions! Mana potions! Buy them here!"},
+  {text = "All kinds of potions available here!"}
+}
 
 local potionTalk = keywordHandler:addKeyword(
 	{"ring"}, StdModule.say, { npcHandler = npcHandler,

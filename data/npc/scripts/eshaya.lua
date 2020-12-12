@@ -15,7 +15,11 @@ function onThink()
 npcHandler:onThink()
 end
 
-local voices = {{text = "Praised be Suon and Bastesh."}, {text = "I should talk to Kallimae soon."}, {text = "Issavi\'s safety is my first concern."}}
+local voices = {
+  {text = "Praised be Suon and Bastesh."},
+  {text = "I should talk to Kallimae soon."},
+  {text = "Issavi\'s safety is my first concern."}
+}
 
 -- First
 

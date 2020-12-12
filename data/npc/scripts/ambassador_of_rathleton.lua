@@ -15,7 +15,11 @@ function onThink()
 npcHandler:onThink()
 end
 
-local voices = {{text = "What a beautiful palace. The Kilmareshians are highly skilful architects."}, {text = "The new treaty of amity and commerce with Kilmaresh is of utmost importance."}, {text = "The pending freight from the saffron coasts is overdue."}}
+local voices = {
+  {text = "What a beautiful palace. The Kilmareshians are highly skilful architects."},
+  {text = "The new treaty of amity and commerce with Kilmaresh is of utmost importance."},
+  {text = "The pending freight from the saffron coasts is overdue."}
+}
 
 keywordHandler:addKeyword(
 	{"present"}, StdModule.say, { npcHandler = npcHandler,

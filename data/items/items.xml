@@ -46729,8 +46729,7 @@
 		<attribute key="weight" value="240" />
 	</item>
 	<item id="36097" article="a" name="ladder" />
-	<item id="36098" article="a" name="Ring of Secret Thoughts">
-		<attribute key="loottype" value="other" />
+	<item id="36098" article="a" name="ring of secret thoughts">
 		<attribute key="weight" value="90" />
 		<attribute key="slotType" value="ring" />
 		<attribute key="loottype" value="ring" />
