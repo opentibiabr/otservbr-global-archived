@@ -213,10 +213,10 @@ bool Map::placeCreature(const Position& centerPos, Creature* creature, bool exte
 				continue;
 			}
 
-      if (monster) {
+			if (monster) {
 				monster->ignoreFieldDamage = true;
 			}
-      
+
 			if (tile->queryAdd(0, *creature, 1, FLAG_IGNOREBLOCKITEM | FLAG_IGNOREFIELDDAMAGE) == RETURNVALUE_NOERROR) {
 				if (!extendedPos || isSightClear(centerPos, tryPos, false)) {
 					foundTile = true;
