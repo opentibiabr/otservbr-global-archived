@@ -15,6 +15,12 @@ function onThink()
 npcHandler:onThink()
 end
 
+local voices = {
+  {text = "What a beautiful palace. The Kilmareshians are highly skilful architects."},
+  {text = "The new treaty of amity and commerce with Kilmaresh is of utmost importance."},
+  {text = "The pending freight from the saffron coasts is overdue."}
+}
+
 keywordHandler:addKeyword(
 	{"present"}, StdModule.say, { npcHandler = npcHandler,
 	text = "This is a very beautiful ring. Thank you for this generous present!"},
@@ -40,4 +46,5 @@ npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
 npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:addModule(FocusModule:new())

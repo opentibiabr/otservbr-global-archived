@@ -42,6 +42,18 @@ ItemAction = {
 			{x = 33398, y = 32640, z = 6},
 			{x = 33395, y = 32667, z = 6}
 		}
+	},
+	-- Kilmaresh
+	-- First mission
+	-- data\scripts\quests\kilmaresh\1-fafnars-wrath\6-mind-travel.lua
+	[40004] = {
+		itemId = 1495,
+		itemPos = {
+			{ x = 33915, y = 31635, z = 9 },
+			{ x = 33920, y = 31638, z = 9 },
+			{ x = 33909, y = 31642, z = 9 },
+			{ x = 33916, y = 31642, z = 9 }
+		}
 	}
 }
 

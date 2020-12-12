@@ -15,6 +15,12 @@ function onThink()
 npcHandler:onThink()
 end
 
+local voices = {
+  {text = "Praised be Suon and Bastesh."},
+  {text = "I should talk to Kallimae soon."},
+  {text = "Issavi\'s safety is my first concern."}
+}
+
 -- First
 
 local firstMission = keywordHandler:addKeyword(
@@ -27,10 +33,10 @@ local firstMission = keywordHandler:addKeyword(
 	firstMission:addChildKeyword(
 		{"yes"}, StdModule.say, { npcHandler = npcHandler,
 		text = {
-			"You are a noble soul! So listen: for many decades, over a century actually, the city of Rathleton had an Ambassador here in Issavi...",
+			"You are a noble soul! So listen: for many decades, over a century actually, the city of {Rathleton} had an Ambassador here in {Issavi}. ...",
 			"Kilmaresh and Oramond maintain important commercial relations, and for this reason Rathleton has an envoy here. In the past, the relations were good but now ...",
-			"I hate to admit it but I heavily suspect that the current Ambassador is a traitor and consorts with the forbidden cult of Fafnar. I have several hints and Kallimae saw it in one of her visions...",
-			"But the vision of a Kilmareshian seer is no proof they will ever accept in Rathleton. And without proof we can\'t banish the Ambassador, this would cause major diplomatic fallout or even a war. I can\'t risk that...",
+			"I hate to admit it but I heavily suspect that the current Ambassador is a traitor and consorts with the forbidden cult of Fafnar. I have several hints and Kallimae saw it in one of her visions ...",
+			"But the vision of a Kilmareshian seer is no proof they will ever accept in Rathleton. And without proof we can\'t banish the Ambassador, this would cause major diplomatic fallout or even a war. I can\'t risk that. ...",
 			"I need unequivocal evidence that the Ambassador conspires with the Fafnar cultists. Please go to his residence in the eastern part of the city and search for letters, journals ... anything that could prove him guilty."
 		}},
 		nil,
@@ -42,8 +48,8 @@ local firstMission = keywordHandler:addKeyword(
 keywordHandler:addKeyword(
 	{"mission"}, StdModule.say, { npcHandler = npcHandler,
 	text = {
-		"It seems that he destroyed every visible evidence of his treason. That\'s very unfortunate and I see only one remaining possibility: You need to see the Ambassador\'s memories...",
-		"But there is only one way to achieve this: You have to find a Ring of Secret Thoughts. Legend has it that a monstrous being called Urmahlullu has such a ring. If the myths are true you can find this creature in a subterranean tomb south of Issavi."
+		"It seems that he destroyed every visible evidence of his treason. That\'s very unfortunate and I see only one remaining possibility: You need to see the {Ambassador}\'s memories. ...",
+		"But there is only one way to achieve this: You have to find a Ring of {Secret Thoughts}. Legend has it that a monstrous being called {Urmahlullu} has such a ring. If the myths are true you can find this creature in a subterranean tomb south of Issavi."
 	}},
 	function (player) return player:getStorageValue(Storage.Kilmaresh.Second.Investigating) == 5 end,
 	function (player) 
@@ -65,7 +71,7 @@ keywordHandler:addKeyword(
 
 keywordHandler:addKeyword(
 	{"ring"}, StdModule.say, { npcHandler = npcHandler,
-	text = "You found the Ring of Secret Thoughts! Well done! Now give it to the Ambassador as a present. He\'s a peacock and will accept such a precious gift for sure. As soon as he wears it, his memories will be stored in the ring."},
+	text = "You found the Ring of {Secret Thoughts}! Well done! Now give it to the {Ambassador} as a present. He\'s a peacock and will accept such a precious gift for sure. As soon as he wears it, his memories will be stored in the ring."},
 	function (player) return player:getStorageValue(Storage.Kilmaresh.Third.Recovering) == 1 and player:getItemById(36098, true) end,
 	function (player) player:setStorageValue(Storage.Kilmaresh.Third.Recovering, 2) end
 )
@@ -80,15 +86,16 @@ keywordHandler:addKeyword(
 
 keywordHandler:addKeyword(
 	{"mission"}, StdModule.say, { npcHandler = npcHandler, 
-	text = "This is the proof we need! Very well done! You have to report this to our Empress. She will grant you an audience now."},
+	text = "This is the proof we need! Very well done! You have to report this to our {Empress}. She will grant you an audience now."},
 	function (player) return player:getStorageValue(Storage.Kilmaresh.Fifth.Memories) == 4 end,
 	function (player) player:setStorageValue(Storage.Kilmaresh.Fifth.Memories, 5) end
 )
 
-npcHandler:setMessage(MESSAGE_GREET, "Suon's and Bastesh's blessing, dear guest!")
+npcHandler:setMessage(MESSAGE_GREET, "Suon\'s and Bastesh\'s blessing, dear guest!")
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Well, bye then.')
 
 npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
 npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:addModule(FocusModule:new())
