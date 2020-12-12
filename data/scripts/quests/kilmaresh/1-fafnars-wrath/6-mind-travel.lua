@@ -27,6 +27,7 @@ function potion.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				player:teleportTo(brainPositions[math.random(#brainPositions)])
 				item:remove(1)
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"You feel shaky and dizzy, the world turns dark around you. Then your sight clears again - and you are somewhere else.")
+				player:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
 				return true
 			end
 		end
@@ -47,6 +48,7 @@ function leftMirror.onStepIn(creature)
     if creature:isPlayer() then
         creature:teleportTo(mirrorTeleportPositions[2])
         creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You were moved to the right brain side")
+		creature:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
         return true
     end
 
@@ -63,6 +65,7 @@ function rightMirror.onStepIn(creature)
 	if creature:isPlayer() then
 		creature:teleportTo(mirrorTeleportPositions[1])
         creature:sendTextMessage(MESSAGE_EVENT_ADVANCE,  "You were moved to the left brain side")
+		creature:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
         return true
 	end
 
@@ -98,9 +101,10 @@ function memoryShards.onUse(player, item, fromPosition, target, toPosition, isHo
         not hasUsedShard and -- making sure we don't use the same shard twice
         target.uid == 57507 -- is it the shrine?
     then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, memoriesWords[memoryStorage])
+		player:say(memoriesWords[memoryStorage], TALKTYPE_MONSTER_SAY, false, player, toPosition)
         player:setStorageValue(Storage.Kilmaresh.Fifth.Memories, memoryStorage + 1)
         player:setStorageValue(Storage.Kilmaresh.Fifth.MemoriesShards, setFlag(memoriesShardsStorage, memoryShardsItemIdsBitmasks[item:getId()]))
+		toPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
         return true
     end
     return false
