@@ -7,7 +7,7 @@ function paper.onUse(player, item, frompos, item2, topos)
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"Documents were burnt here recently. Only the part of one scroll still lies in front of the chimney but it's too sooted to read.")
         player:setStorageValue(Storage.Kilmaresh.Second.Investigating, 3)
     else
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Empty.")
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You already investigated this.")
     end
     return true
 end
@@ -24,7 +24,7 @@ function paperScraps.onUse(player, item, frompos, item2, topos)
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"Paper scraps lie scattered on the floor. It takes some time to put them back together. But it's only a badly written poem.")
         player:setStorageValue(Storage.Kilmaresh.Second.Investigating, 4)
     else
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Empty.")
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You already investigated this.")
     end
     return true
 end
@@ -41,7 +41,7 @@ function scrolls.onUse(player, item, frompos, item2, topos)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"You examine the scrolls carefully. Those are orders from Rathleton for the Ambassador. No sign of treason here.")
 		player:setStorageValue(Storage.Kilmaresh.Second.Investigating, 2)
 	else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Empty.")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You already investigated this.")
 	end
 	return true
 end
