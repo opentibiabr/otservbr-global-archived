@@ -1246,28 +1246,27 @@ void ProtocolGame::sendItemInspection(uint16_t itemId, uint8_t itemCount, const 
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::parseCyclopediaHouseAction(NetworkMessage& msg)
-{
+void ProtocolGame::parseCyclopediaHouseAction(NetworkMessage& msg) {
 	// Testing purposes - do not write code this way, it has race condition
 	// but for testing purpose I don't need 100% thread-safety
 	
 	// Dex89: I try decoded it and added other functions
 	
-	//(void)msg;
+	// (void) msg;
 	uint8_t houseActionType = msg.getByte();
 	switch (houseActionType) {
-		case 0: { // select city?
+		case 0: {  // select city?
 			std::string housePage = msg.getString();
 			std::cout << "Test[0]:" << std::endl;
 			std::cout << "String[1]: " << housePage << std::endl;
-			if (housePage == "") { //own houses
+			if (housePage == "") {  //own houses
 				NetworkMessage outMsg;
 				outMsg.addByte(0xC7);
 				outMsg.add<uint16_t>(0x01);
-				outMsg.add<uint32_t>(0x4A4A); // ?? (owner) ? [0x4A4A = 19018 => Owned house: Rathleton Plaza 4]
+				outMsg.add<uint32_t>(0x4A4A);  // ?? (owner) ? [0x4A4A = 19018 => Owned house: Rathleton Plaza 4]
 				outMsg.addByte(1);
 				outMsg.addByte(2);
-				outMsg.addString(player->getName()); // 'rented by nick name -> own house'
+				outMsg.addString(player->getName());  // 'rented by nick name -> own house'
 				outMsg.add<uint32_t>(0xFFFFFFFF);
 				outMsg.addByte(1);
 				outMsg.addByte(0);
@@ -1277,10 +1276,10 @@ void ProtocolGame::parseCyclopediaHouseAction(NetworkMessage& msg)
 				NetworkMessage outMsg;
 				outMsg.addByte(0xC7);
 				outMsg.add<uint16_t>(0x01);
-				outMsg.add<uint32_t>(0x4A4A); // ??
+				outMsg.add<uint32_t>(0x4A4A);  // ??
 				outMsg.addByte(1);
 				outMsg.addByte(2);
-				outMsg.addString(player->getName()); // 'rented by nick name'
+				outMsg.addString(player->getName());  // 'rented by nick name'
 				outMsg.add<uint32_t>(0xFFFFFFFF);
 				outMsg.addByte(1);
 				outMsg.addByte(0);
