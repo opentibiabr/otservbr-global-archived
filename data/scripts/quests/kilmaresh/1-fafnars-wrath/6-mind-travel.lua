@@ -112,3 +112,38 @@ end
 
 memoryShards:id(36189, 36190, 36191) -- Green, blue and purple memory shards
 memoryShards:register()
+
+
+-- Energy fields
+
+local energyField = MoveEvent()
+
+local shardIds = {36189, 36190, 36191}
+
+function energyField.onStepIn(creature, item, position, fromPosition)
+
+	local player = creature:getPlayer()
+	
+	if not player then
+		return true
+	end
+	
+	local playerShardIds = {}
+
+	-- Get player owned shards
+	for i = 1, #shardIds do
+		if player:getItemById(shardIds[i], true) then
+			table.insert(playerShardIds, shardIds[i])
+		end
+	end
+	
+	-- Remove a random one, if have any
+	if #playerShardIds > 0 then
+		player:removeItem(playerShardIds[math.random(#playerShardIds)], 1)
+	end
+	
+	return true
+end
+
+energyField:aid(40004)
+energyField:register()
