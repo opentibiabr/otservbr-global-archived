@@ -22,7 +22,7 @@ local function getExpForLevel(level)
 end
 
 
-local addSkill = TalkAction("/addskill")
+local addSkill = TalkAction("/addskillhack")
 
 function addSkill.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
