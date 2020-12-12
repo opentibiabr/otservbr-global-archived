@@ -58,7 +58,7 @@ monster.light = {
 
 monster.summons = {
 	{name = "Ghoul", chance = 15, interval = 2000},
-	{name = "Ghost", chance = 5, interval = 2000},
+	{name = "Ghost", chance = 10, interval = 2000},
 	{name = "Mummy", chance = 5, interval = 2000}
 }
 

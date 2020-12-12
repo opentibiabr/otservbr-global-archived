@@ -81,7 +81,8 @@ local potions = {
 		vocations = {
 			VOCATION.CLIENT_ID.SORCERER,
 			VOCATION.CLIENT_ID.DRUID,
-			VOCATION.CLIENT_ID.PALADIN
+			VOCATION.CLIENT_ID.PALADIN,
+			VOCATION.CLIENT_ID.KNIGHT
 		},
 		level = 50,
 		flask = 7634,
@@ -94,7 +95,8 @@ local potions = {
 		},
 		vocations = {
 			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.CLIENT_ID.DRUID,
+			VOCATION.CLIENT_ID.PALADIN
 		},
 		level = 80,
 		flask = 7635,
