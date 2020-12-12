@@ -1249,9 +1249,9 @@ void ProtocolGame::sendItemInspection(uint16_t itemId, uint8_t itemCount, const 
 void ProtocolGame::parseCyclopediaHouseAction(NetworkMessage& msg) {
 	// Testing purposes - do not write code this way, it has race condition
 	// but for testing purpose I don't need 100% thread-safety
-	
+
 	// Dex89: I try decoded it and added other functions
-	
+
 	// (void) msg;
 	uint8_t houseActionType = msg.getByte();
 	switch (houseActionType) {
@@ -1259,7 +1259,7 @@ void ProtocolGame::parseCyclopediaHouseAction(NetworkMessage& msg) {
 			std::string housePage = msg.getString();
 			std::cout << "Test[0]:" << std::endl;
 			std::cout << "String[1]: " << housePage << std::endl;
-			if (housePage == "") {  //own houses
+			if (housePage == "") {  // own houses
 				NetworkMessage outMsg;
 				outMsg.addByte(0xC7);
 				outMsg.add<uint16_t>(0x01);
@@ -1295,17 +1295,19 @@ void ProtocolGame::parseCyclopediaHouseAction(NetworkMessage& msg) {
 			break;
 		}
 		case 2: {
-			std::cout << "Test[2]:" << std::endl; //move out
-			std::cout << "U32[1]: " << msg.get<uint32_t>() << std::endl;  // (owner) ? [0x4A4A = 19018 => Owned house: Rathleton Plaza 4]
-			std::cout << "U32[2]: " << msg.get<uint32_t>() << std::endl; // date to out
+			std::cout << "Test[2]:" << std::endl;  // move out
+			std::cout << "U32[1]: " << msg.get<uint32_t>() << std::endl;
+			// upper line: /\ (owner) ? [0x4A4A = 19018 => Owned house: Rathleton Plaza 4]
+			std::cout << "U32[2]: " << msg.get<uint32_t>() << std::endl;  // date to out
 			break;
 		}
 		case 3: {
-			std::cout << "Test[3]:" << std::endl; // transfer house
-			std::cout << "U32[1]: " << msg.get<uint32_t>() << std::endl;  // (owner) ? [0x4A4A = 19018 => Owned house: Rathleton Plaza 4]
-			std::cout << "U32[2]: " << msg.get<uint32_t>() << std::endl; // date to out
+			std::cout << "Test[3]:" << std::endl;  // transfer house
+			std::cout << "U32[1]: " << msg.get<uint32_t>() << std::endl;
+			// upper line: /\ (owner) ? [0x4A4A = 19018 => Owned house: Rathleton Plaza 4]
+			std::cout << "U32[2]: " << msg.get<uint32_t>() << std::endl;  // date to out
 			std::cout << "String[3]: " << msg.getString() << std::endl;  // nick to move
-			std::cout << "U64[4]: " << msg.get<uint64_t>() << std::endl; // payment for house
+			std::cout << "U64[4]: " << msg.get<uint64_t>() << std::endl;  // payment for house
 			break;
 		}
 	}
