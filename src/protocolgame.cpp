@@ -1256,7 +1256,7 @@ void ProtocolGame::parseCyclopediaHouseAction(NetworkMessage& msg)
 	//(void)msg;
 	uint8_t houseActionType = msg.getByte();
 	switch (houseActionType) {
-		case 0: { //wybor domku?
+		case 0: { // select city?
 			std::string housePage = msg.getString();
 			std::cout << "Test[0]:" << std::endl;
 			std::cout << "String[1]: " << housePage << std::endl;
