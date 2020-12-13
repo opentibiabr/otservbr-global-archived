@@ -6,21 +6,14 @@
 	<house name="Treetop 13" houseid="2631" entryx="32713" entryy="31665" entryz="6" rent="100000" townid="5" size="18" />
 	<house name="Underwood 8" houseid="2632" entryx="32690" entryy="31647" entryz="7" rent="50000" townid="5" size="12" />
 	<house name="Treetop 11" houseid="2633" entryx="32688" entryy="31642" entryz="6" rent="50000" townid="5" size="11" />
-	<house name="Great Willow 4b" houseid="2634" entryx="32659" entryy="31641" entryz="6" rent="50000" townid="5" size="10" />
-	<house name="Great Willow 1b" houseid="2635" entryx="32662" entryy="31635" entryz="6" rent="50000" townid="5" size="6" />
-	<house name="Great Willow 2b" houseid="2636" entryx="32662" entryy="31638" entryz="6" rent="80000" townid="5" size="10" />
-	<house name="Great Willow 3b" houseid="2637" entryx="32662" entryy="31642" entryz="6" rent="25000" townid="5" size="6" />
-	<house name="Great Willow Western Wing" houseid="2638" entryx="32660" entryy="31641" entryz="7" rent="100000" townid="5" size="7" />
-	<house name="Great Willow 2a" houseid="2639" entryx="32662" entryy="31636" entryz="7" rent="50000" townid="5" size="10" />
-	<house name="Great Willow 1a" houseid="2640" entryx="32663" entryy="31641" entryz="7" rent="100000" townid="5" size="10" />
-	<house name="Great Willow 4c" houseid="2641" entryx="32659" entryy="31641" entryz="5" rent="25000" townid="5" size="10" />
-	<house name="Great Willow 1c" houseid="2642" entryx="32662" entryy="31635" entryz="5" rent="25000" townid="5" size="6" />
-	<house name="Great Willow 2c" houseid="2643" entryx="32662" entryy="31638" entryz="5" rent="25000" townid="5" size="10" />
-	<house name="Great Willow 3c" houseid="2644" entryx="32662" entryy="31642" entryz="5" rent="25000" townid="5" size="6" />
-	<house name="Great Willow 2d" houseid="2645" entryx="32662" entryy="31639" entryz="4" rent="50000" townid="5" size="12" />
-	<house name="Great Willow 1d" houseid="2646" entryx="32660" entryy="31641" entryz="4" rent="50000" townid="5" size="12" />
-	<house name="Great Willow 4d" houseid="2647" entryx="32664" entryy="31639" entryz="4" rent="50000" townid="5" size="12" />
-	<house name="Great Willow 3d" houseid="2648" entryx="32664" entryy="31639" entryz="4" rent="50000" townid="5" size="12" />
+	<house name="Great Willow 2a" houseid="2635" entryx="32662" entryy="31635" entryz="6" rent="50000" townid="5" size="14" />
+	<house name="Great Willow 2b" houseid="2637" entryx="32662" entryy="31642" entryz="6" rent="50000" townid="5" size="14" />
+	<house name="Great Willow Western Wing" houseid="2638" entryx="32660" entryy="31641" entryz="7" rent="100000" townid="5" size="39" />
+	<house name="Great Willow 1" houseid="2640" entryx="32663" entryy="31641" entryz="7" rent="100000" townid="5" size="23" />
+	<house name="Great Willow 3a" houseid="2642" entryx="32662" entryy="31635" entryz="5" rent="50000" townid="5" size="14" />
+	<house name="Great Willow 3b" houseid="2644" entryx="32662" entryy="31642" entryz="5" rent="80000" townid="5" size="26" />
+	<house name="Great Willow 4a" houseid="2645" entryx="32662" entryy="31639" entryz="4" rent="25000" townid="5" size="12" />
+	<house name="Great Willow 4b" houseid="2648" entryx="32664" entryy="31639" entryz="4" rent="25000" townid="5" size="12" />
 	<house name="Underwood 6" houseid="2649" entryx="32652" entryy="31656" entryz="7" rent="100000" townid="5" size="24" />
 	<house name="Underwood 3" houseid="2650" entryx="32643" entryy="31657" entryz="7" rent="100000" townid="5" size="26" />
 	<house name="Underwood 5" houseid="2651" entryx="32652" entryy="31668" entryz="7" rent="80000" townid="5" size="19" />
@@ -316,7 +309,7 @@
 	<house name="Sorcerer's Avenue 5 (Shop)" houseid="2958" entryx="32284" entryy="32256" entryz="7" rent="150000" townid="8" size="42" />
 	<house name="Sorcerer's Avenue 1b" houseid="2959" entryx="32300" entryy="32251" entryz="6" rent="80000" townid="8" size="12" />
 	<house name="Sorcerer's Avenue 1c" houseid="2960" entryx="32300" entryy="32249" entryz="6" rent="50000" townid="8" size="16" />
-	<house name="Sorcerer's Avenue Labs 2a" houseid="2961" entryx="32297" entryy="32273" entryz="8" rent="50000" townid="8" size="24" />
+	<house name="Sorcerer's Avenue Labs 2a" houseid="2961" entryx="32297" entryy="32273" entryz="8" rent="50000" townid="8" size="22" />
 	<house name="Sorcerer's Avenue Labs 2c" houseid="2962" entryx="32297" entryy="32274" entryz="8" rent="50000" townid="8" size="24" />
 	<house name="Sorcerer's Avenue Labs 2b" houseid="2963" entryx="32301" entryy="32274" entryz="8" rent="50000" townid="8" size="24" />
 	<house name="Sunset Homes, Flat 01" houseid="2964" entryx="32333" entryy="32232" entryz="7" rent="100000" townid="8" size="10" />
@@ -566,7 +559,7 @@
 	<house name="Haggler's Hangout 2" houseid="3226" entryx="32601" entryy="32761" entryz="7" rent="100000" townid="15" size="23" />
 	<house name="Haggler's Hangout 1" houseid="3227" entryx="32593" entryy="32759" entryz="7" rent="100000" townid="15" size="21" />
 	<house name="Bamboo Garden 3" houseid="3228" entryx="32645" entryy="32789" entryz="7" rent="150000" townid="15" size="26" />
-	<house name="Unnamed House #3229" houseid="3229" entryx="32664" entryy="32791" entryz="7" rent="0" townid="15" size="365" />
+	<house name="Bamboo Fortress" houseid="3229" entryx="32664" entryy="32791" entryz="7" rent="500000" guildhall="true" townid="15" size="366" />
 	<house name="Bamboo Garden 2" houseid="3230" entryx="32622" entryy="32796" entryz="7" rent="80000" townid="15" size="16" />
 	<house name="Bamboo Garden 1" houseid="3231" entryx="32574" entryy="32795" entryz="7" rent="100000" townid="15" size="24" />
 	<house name="Banana Bay 4" houseid="3232" entryx="32556" entryy="32814" entryz="6" rent="25000" townid="15" size="7" />
@@ -601,7 +594,7 @@
 	<house name="Coconut Quay 3" houseid="3261" entryx="32586" entryy="32773" entryz="6" rent="200000" townid="15" size="32" />
 	<house name="Coconut Quay 2" houseid="3262" entryx="32577" entryy="32766" entryz="6" rent="100000" townid="15" size="16" />
 	<house name="Coconut Quay 1" houseid="3263" entryx="32568" entryy="32775" entryz="6" rent="150000" townid="15" size="32" />
-	<house name="Unnamed House #3264" houseid="3264" entryx="32556" entryy="32767" entryz="6" rent="0" townid="15" size="123" />
+	<house name="Shark Manor" houseid="3264" entryx="32556" entryy="32767" entryz="6" rent="250000" guildhall="true" townid="15" size="124" />
 	<house name="Glacier Side 2" houseid="3265" entryx="32203" entryy="31132" entryz="7" rent="300000" townid="16" size="82" />
 	<house name="Glacier Side 1" houseid="3266" entryx="32206" entryy="31126" entryz="7" rent="150000" townid="16" size="23" />
 	<house name="Glacier Side 3" houseid="3267" entryx="32206" entryy="31140" entryz="7" rent="150000" townid="16" size="30" />
@@ -732,7 +725,7 @@
 	<house name="Litter Promenade 3" houseid="3394" entryx="32286" entryy="32865" entryz="7" rent="25000" townid="14" size="12" />
 	<house name="Litter Promenade 4" houseid="3395" entryx="32288" entryy="32865" entryz="7" rent="25000" townid="14" size="10" />
 	<house name="Rum Alley 3" houseid="3396" entryx="32272" entryy="32854" entryz="7" rent="25000" townid="14" size="9" />
-	<house name="Straycat's Corner 5" houseid="3397" entryx="32281" entryy="32853" entryz="7" rent="80000" townid="14" size="16" />
+	<house name="Straycat's Corner 5" houseid="3397" entryx="32281" entryy="32853" entryz="7" rent="80000" townid="14" size="144" />
 	<house name="Straycat's Corner 6" houseid="3398" entryx="32281" entryy="32858" entryz="7" rent="25000" townid="14" size="7" />
 	<house name="Litter Promenade 5" houseid="3399" entryx="32290" entryy="32859" entryz="7" rent="25000" townid="14" size="11" />
 	<house name="Straycat's Corner 4" houseid="3401" entryx="32291" entryy="32852" entryz="7" rent="50000" townid="14" size="12" />
@@ -852,9 +845,9 @@
 	<house name="Chameken II" houseid="3518" entryx="33121" entryy="32861" entryz="7" rent="80000" townid="10" size="14" />
 	<house name="Charsirakh III" houseid="3519" entryx="33072" entryy="32843" entryz="7" rent="50000" townid="10" size="14" />
 	<house name="Charsirakh II" houseid="3520" entryx="33072" entryy="32830" entryz="7" rent="100000" townid="10" size="21" />
-	<house name="Mothrem I a" houseid="3521" entryx="33084" entryy="32840" entryz="7" rent="80000" townid="10" size="18" />
-	<house name="Mothrem I c" houseid="3523" entryx="33084" entryy="32841" entryz="7" rent="50000" townid="10" size="8" />
-	<house name="Mothrem I b" houseid="3524" entryx="33084" entryy="32841" entryz="7" rent="50000" townid="10" size="8" />
+	<house name="Murkhol I a" houseid="3521" entryx="33084" entryy="32840" entryz="7" rent="80000" townid="10" size="18" />
+	<house name="Murkhol I c" houseid="3523" entryx="33084" entryy="32841" entryz="7" rent="50000" townid="10" size="8" />
+	<house name="Murkhol I b" houseid="3524" entryx="33084" entryy="32841" entryz="7" rent="50000" townid="10" size="12" />
 	<house name="Charsirakh I b" houseid="3525" entryx="33073" entryy="32820" entryz="7" rent="150000" townid="10" size="32" />
 	<house name="Harrah I" houseid="3526" entryx="33088" entryy="32827" entryz="7" rent="250000" guildhall="true" townid="10" size="93" />
 	<house name="Thanah I d" houseid="3527" entryx="33109" entryy="32826" entryz="7" rent="200000" townid="10" size="40" />
