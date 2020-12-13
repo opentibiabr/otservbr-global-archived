@@ -66,30 +66,30 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", minCount = 1, maxCount = 5, chance = 100000},--comum
-	{id = "Crystal Coin", minCount = 0, maxCount = 2, chance = 50000},--comum
-	{id = "Supreme Health Potion", minCount = 0, maxCount = 6, chance = 35000},--comum
-	{id = "Ultimate Mana Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
-	{id = "Ultimate Spirit Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
-	{id = "Mastermind Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
-	{id = "Berserk Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
-	{id = "Piece of draconian steel", minCount = 0, maxCount = 4, chance = 9000},--comum
-	{id = "Red Gem", minCount = 0, maxCount = 1, chance = 12000},--comum
-	{id = "Silver Token", minCount = 0, maxCount = 2, chance = 9500},--semiraro
-	{id = "Collar of blue plasma", chance = 5200},--semiraro
-	{id = "Collar of red plasma", chance = 5200},--semiraro
-	{id = "Knight Legs", chance = 11000},--semiraro
-	{id = "Gold Ingot", minCount = 0, maxCount = 1, chance = 10000},--semiraro
-	{id = "Violet Gem", minCount = 0, maxCount = 1, chance = 10000},--semiraro
-	{id = "Yellow Gem", minCount = 0, maxCount = 1, chance = 10000},--semiraro
-	{id = "Ring of blue plasma", chance = 5000},--semiraro
-	{id = "Ring of red plasma", chance = 5000},--semiraro
-	{id = "Skull Staff", chance = 9000},--semiraro
-	{id = "Young Lich Worm", chance = 5800},--semiraro
-	{id = "Embrace of nature", chance = 1400},--raro
+	{name = "Platinum Coin", minCount = 1, maxCount = 5, chance = 100000},--comum
+	{name = "Crystal Coin", minCount = 0, maxCount = 2, chance = 50000},--comum
+	{name = "Supreme Health Potion", minCount = 0, maxCount = 6, chance = 35000},--comum
+	{name = "Ultimate Mana Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{name = "Ultimate Spirit Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{name = "Mastermind Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{name = "Berserk Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{name = "Piece of draconian steel", minCount = 0, maxCount = 4, chance = 9000},--comum
+	{name = "Red Gem", minCount = 0, maxCount = 1, chance = 12000},--comum
+	{name = "Silver Token", minCount = 0, maxCount = 2, chance = 9500},--semiraro
+	{name = "Collar of blue plasma", chance = 5200},--semiraro
+	{name = "Collar of red plasma", chance = 5200},--semiraro
+	{name = "Knight Legs", chance = 11000},--semiraro
+	{name = "Gold Ingot", minCount = 0, maxCount = 1, chance = 10000},--semiraro
+	{name = "Violet Gem", minCount = 0, maxCount = 1, chance = 10000},--semiraro
+	{name = "Yellow Gem", minCount = 0, maxCount = 1, chance = 10000},--semiraro
+	{name = "Ring of blue plasma", chance = 5000},--semiraro
+	{name = "Ring of red plasma", chance = 5000},--semiraro
+	{name = "Skull Staff", chance = 9000},--semiraro
+	{name = "Young Lich Worm", chance = 5800},--semiraro
+	{name = "Embrace of nature", chance = 1400},--raro
 	{id = 36427, chance = 1800},--raro
-	{id = "Terra helmet", chance = 750},--raro
-	{id = "Final Judgement", chance = 450},--muitoraro
+	{name = "Terra helmet", chance = 750},--raro
+	{name = "Final Judgement", chance = 450},--muitoraro
 }
 
 monster.attacks = {

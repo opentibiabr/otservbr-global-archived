@@ -67,11 +67,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small sapphire", chance = 4125, maxCount = 2},
-	{id = "gold coin", chance = 27000, maxCount = 90},
-	{id = "gold coin", chance = 27000, maxCount = 87},
-	{id = "iced soil", chance = 9000},
-	{id = "northwind rod", chance = 750}
+	{name = "small sapphire", chance = 4125, maxCount = 2},
+	{name = "gold coin", chance = 27000, maxCount = 90},
+	{name = "gold coin", chance = 27000, maxCount = 87},
+	{name = "iced soil", chance = 9000},
+	{name = "northwind rod", chance = 750}
 }
 
 monster.attacks = {

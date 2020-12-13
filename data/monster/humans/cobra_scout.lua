@@ -65,21 +65,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 74000, maxCount = 9},--comum
-	{id = "earth arrow", chance = 19490, maxCount = 28},--incomum
-	{id = "stone skin amulet", chance = 6800},--incomum
-	{id = "gold ingot", chance = 5750, maxCount = 1},--incomum
-	{id = "cheesy figurine", chance = 13800},--incomum
-	{id = "opal", chance = 23800, maxCount = 5},--incomum
-	{id = "cobra crest", chance = 15450},--incomum
-	{id = "small emerald", chance = 3000, maxCount = 2},--semiraro
-	{id = "violet gem", chance = 1300},--semiraro
-	{id = "yellow gem", chance = 3060},--semiraro
-	{id = "green gem", chance = 1210},--semiraro
-	{id = "red gem", chance = 4800},--semiraro
-	{id = "sacred tree amulet", chance = 5100},--semiraro
-	{id = "green crystal shard", chance = 2130},--semiraro
-	{id = "ring of red plasma", chance = 740}--raro
+	{name = "platinum coin", chance = 74000, maxCount = 9},--comum
+	{name = "earth arrow", chance = 19490, maxCount = 28},--incomum
+	{name = "stone skin amulet", chance = 6800},--incomum
+	{name = "gold ingot", chance = 5750, maxCount = 1},--incomum
+	{name = "cheesy figurine", chance = 13800},--incomum
+	{name = "opal", chance = 23800, maxCount = 5},--incomum
+	{name = "cobra crest", chance = 15450},--incomum
+	{name = "small emerald", chance = 3000, maxCount = 2},--semiraro
+	{name = "violet gem", chance = 1300},--semiraro
+	{name = "yellow gem", chance = 3060},--semiraro
+	{name = "green gem", chance = 1210},--semiraro
+	{name = "red gem", chance = 4800},--semiraro
+	{name = "sacred tree amulet", chance = 5100},--semiraro
+	{name = "green crystal shard", chance = 2130},--semiraro
+	{name = "ring of red plasma", chance = 740}--raro
 }
 
 

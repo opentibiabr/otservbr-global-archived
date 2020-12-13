@@ -71,24 +71,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Gold Coin", chance = 13600000, maxCount = 100},
-	{id = "Gold Coin", chance = 13600000, maxCount = 100},
-	{id = "Platinum Coin", chance = 13600000, maxCount = 10},
-	{id = "Brown Mushroom", chance = 13600000, maxCount = 9},
-	{id = "Onyx Chip", chance = 13600000, maxCount = 9},
-	{id = "Small Enchanted Amethyst", chance = 13600000, maxCount = 9},
-	{id = "Beetroot", chance = 13600000, maxCount = 9},
-	{id = "Great Mana Potion", chance = 13600000, maxCount = 9},
-	{id = "Platinum Amulet", chance = 13600000},
-	{id = "Ring of Healing", chance = 13600000},
-	{id = "Troll Green", chance = 13600000, maxCount = 9},
-	{id = "Ultimate Mana Potion", chance = 13600000, maxCount = 9},
-	{id = "Werebadger Claws", chance = 13600000, maxCount = 9},
-	{id = "Werebadger Skull", chance = 13600000, maxCount = 9},
-	{id = "Badger Boots", chance = 400},
-	{id = "Underworld Rod", chance = 400},
-	{id = "Wand of Voodoo", chance = 400},
-	{id = "Wolf Backpack", chance = 250}
+	{name = "Gold Coin", chance = 13600000, maxCount = 100},
+	{name = "Gold Coin", chance = 13600000, maxCount = 100},
+	{name = "Platinum Coin", chance = 13600000, maxCount = 10},
+	{name = "Brown Mushroom", chance = 13600000, maxCount = 9},
+	{name = "Onyx Chip", chance = 13600000, maxCount = 9},
+	{name = "Small Enchanted Amethyst", chance = 13600000, maxCount = 9},
+	{name = "Beetroot", chance = 13600000, maxCount = 9},
+	{name = "Great Mana Potion", chance = 13600000, maxCount = 9},
+	{name = "Platinum Amulet", chance = 13600000},
+	{name = "Ring of Healing", chance = 13600000},
+	{name = "Troll Green", chance = 13600000, maxCount = 9},
+	{name = "Ultimate Mana Potion", chance = 13600000, maxCount = 9},
+	{name = "Werebadger Claws", chance = 13600000, maxCount = 9},
+	{name = "Werebadger Skull", chance = 13600000, maxCount = 9},
+	{name = "Badger Boots", chance = 400},
+	{name = "Underworld Rod", chance = 400},
+	{name = "Wand of Voodoo", chance = 400},
+	{name = "Wolf Backpack", chance = 250}
 }
 
 monster.attacks = {

@@ -65,12 +65,12 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 100000},
-	{id = "Cyan Crystal Fragment", chance = 55000},
-	{id = "Poison Gland", chance = 54500},
-	{id = "Great Mana Potion", chance = 80000},
-	{id = "Plate Armor", chance = 64000},
-	{id = "Green Gem", chance = 35000}
+	{name = "Platinum Coin", chance = 100000},
+	{name = "Cyan Crystal Fragment", chance = 55000},
+	{name = "Poison Gland", chance = 54500},
+	{name = "Great Mana Potion", chance = 80000},
+	{name = "Plate Armor", chance = 64000},
+	{name = "Green Gem", chance = 35000}
 }
 
 monster.attacks = {

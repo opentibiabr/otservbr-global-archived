@@ -71,28 +71,28 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 13600000, maxCount = 200},
-	{id = "gold coin", chance = 13600000, maxCount = 100},
-	{id = "platinum coin", chance = 13600000, maxCount = 5},
-	{id = "black pearl", chance = 13600000, maxCount = 2},
-	{id = "ham", chance = 13600000, maxCount = 2},
-	{id = "opal", chance = 13600000, maxCount = 2},
-	{id = "small enchanted sapphire", chance = 13600000, maxCount = 2},
-	{id = "bear paw", chance = 13600000, maxCount = 2},
-	{id = "furry club", chance = 13600000},
+	{name = "gold coin", chance = 13600000, maxCount = 200},
+	{name = "gold coin", chance = 13600000, maxCount = 100},
+	{name = "platinum coin", chance = 13600000, maxCount = 5},
+	{name = "black pearl", chance = 13600000, maxCount = 2},
+	{name = "ham", chance = 13600000, maxCount = 2},
+	{name = "opal", chance = 13600000, maxCount = 2},
+	{name = "small enchanted sapphire", chance = 13600000, maxCount = 2},
+	{name = "bear paw", chance = 13600000, maxCount = 2},
+	{name = "furry club", chance = 13600000},
 	{id = 281, chance = 5000},
-	{id = "great health potion", chance = 13600000, maxCount = 5},
-	{id = "honeycomb", chance = 13600000, maxCount = 2},
-	{id = "spiked squelcher", chance = 13600000},
-	{id = "ultimate health potion", chance = 13600000, maxCount = 5},
-	{id = "werebear fur", chance = 13600000, maxCount = 2},
-	{id = "werebear skull", chance = 13600000, maxCount = 2},
-	{id = "dreaded cleaver", chance = 550},
-	{id = "fur armor", chance = 550},
-	{id = "relic sword", chance = 550},
-	{id = "silver token", chance = 150},
+	{name = "great health potion", chance = 13600000, maxCount = 5},
+	{name = "honeycomb", chance = 13600000, maxCount = 2},
+	{name = "spiked squelcher", chance = 13600000},
+	{name = "ultimate health potion", chance = 13600000, maxCount = 5},
+	{name = "werebear fur", chance = 13600000, maxCount = 2},
+	{name = "werebear skull", chance = 13600000, maxCount = 2},
+	{name = "dreaded cleaver", chance = 550},
+	{name = "fur armor", chance = 550},
+	{name = "relic sword", chance = 550},
+	{name = "silver token", chance = 150},
 	{id = 24759, chance = 150},
-	{id = "wolf backpack", chance = 100}
+	{name = "wolf backpack", chance = 100}
 }
 
 monster.attacks = {

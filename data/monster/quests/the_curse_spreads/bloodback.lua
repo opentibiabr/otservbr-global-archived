@@ -71,25 +71,25 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 13600000, maxCount = 100},
-	{id = "gold coin", chance = 13600000, maxCount = 100},
-	{id = "platinum coin", chance = 13600000, maxCount = 10},
-	{id = "great health potion", chance = 13600000, maxCount = 10},
-	{id = "red crystal fragment", chance = 13600000, maxCount = 2},
-	{id = "small enchanted ruby", chance = 13600000, maxCount = 3},
-	{id = "furry club", chance = 13600000},
-	{id = "red gem", chance = 13600000},
-	{id = "spiked squelcher", chance = 13600000},
-	{id = "stone skin amulet", chance = 13600000},
-	{id = "wereboar hooves", chance = 13600000, maxCount = 2},
-	{id = "wereboar loincloth", chance = 13600000, maxCount = 2},
-	{id = "wereboar tusks", chance = 13600000, maxCount = 2},
-	{id = "dreaded cleaver", chance = 400},
-	{id = "fur armor", chance = 400},
-	{id = "fur boots", chance = 400},
+	{name = "gold coin", chance = 13600000, maxCount = 100},
+	{name = "gold coin", chance = 13600000, maxCount = 100},
+	{name = "platinum coin", chance = 13600000, maxCount = 10},
+	{name = "great health potion", chance = 13600000, maxCount = 10},
+	{name = "red crystal fragment", chance = 13600000, maxCount = 2},
+	{name = "small enchanted ruby", chance = 13600000, maxCount = 3},
+	{name = "furry club", chance = 13600000},
+	{name = "red gem", chance = 13600000},
+	{name = "spiked squelcher", chance = 13600000},
+	{name = "stone skin amulet", chance = 13600000},
+	{name = "wereboar hooves", chance = 13600000, maxCount = 2},
+	{name = "wereboar loincloth", chance = 13600000, maxCount = 2},
+	{name = "wereboar tusks", chance = 13600000, maxCount = 2},
+	{name = "dreaded cleaver", chance = 400},
+	{name = "fur armor", chance = 400},
+	{name = "fur boots", chance = 400},
 	{id = 24758, chance = 250},
-	{id = "silver token", chance = 250},
-	{id = "wolf backpack", chance = 100}
+	{name = "silver token", chance = 250},
+	{name = "wolf backpack", chance = 100}
 }
 
 monster.attacks = {

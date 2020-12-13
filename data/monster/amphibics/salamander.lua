@@ -63,15 +63,15 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 72000, maxCount = 15},
-	{id = "gold coin", chance = 72000, maxCount = 15},
-	{id = "mace", chance = 3780},
-	{id = "rope", chance = 5190},
-	{id = "bow", chance = 740},
-	{id = "brass helmet", chance = 2180},
-	{id = "arrow", chance = 7890, maxCount = 3},
-	{id = "health potion", chance = 1480},
-	{id = "scimitar", chance = 490}
+	{name = "gold coin", chance = 72000, maxCount = 15},
+	{name = "gold coin", chance = 72000, maxCount = 15},
+	{name = "mace", chance = 3780},
+	{name = "rope", chance = 5190},
+	{name = "bow", chance = 740},
+	{name = "brass helmet", chance = 2180},
+	{name = "arrow", chance = 7890, maxCount = 3},
+	{name = "health potion", chance = 1480},
+	{name = "scimitar", chance = 490}
 }
 
 monster.attacks = {

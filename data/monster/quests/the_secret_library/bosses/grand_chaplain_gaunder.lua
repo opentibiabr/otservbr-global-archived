@@ -62,23 +62,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Concentrated Demonic Blood", chance = 50000, maxCount = 2},--comum
-	{id = "Ham", chance = 50000, maxCount = 2},--comum
-	{id = "Onyx Arrow", chance = 35000, maxCount = 3},--comum
-	{id = "Small Diamond", chance = 30000, maxCount = 3},--comum
-	{id = "Small Emerald", chance = 30000, maxCount = 3},--comum
-	{id = "Small Enchanted Amethyst", chance = 20000, maxCount = 3},--comum
-	{id = "Damaged Armor Plates", chance = 2350, maxCount = 3},--raro
-	{id = "Giant Shimmering Pearl", chance = 12000, maxCount = 1},--raro
-	{id = "Knight Armor", chance = 7000},--raro
-	{id = "Patch of Fine Cloth", chance = 1800},--raro
-	{id = "Spiked Squelcher", chance = 3200},--raro
-	{id = "Titan Axe", chance = 2400},--raro
-	{id = "Falcon Battleaxe", chance = 200},--muitoraro
-	{id = "Falcon Longsword", chance = 200},--muitoraro
-	{id = "Falcon Mace", chance = 210},--muitoraro
-	{id = "Falcon Plate", chance = 100},--muitoraro
-	{id = "Falcon Shield", chance = 100}--muitoraro
+	{name = "Concentrated Demonic Blood", chance = 50000, maxCount = 2},--comum
+	{name = "Ham", chance = 50000, maxCount = 2},--comum
+	{name = "Onyx Arrow", chance = 35000, maxCount = 3},--comum
+	{name = "Small Diamond", chance = 30000, maxCount = 3},--comum
+	{name = "Small Emerald", chance = 30000, maxCount = 3},--comum
+	{name = "Small Enchanted Amethyst", chance = 20000, maxCount = 3},--comum
+	{name = "Damaged Armor Plates", chance = 2350, maxCount = 3},--raro
+	{name = "Giant Shimmering Pearl", chance = 12000, maxCount = 1},--raro
+	{name = "Knight Armor", chance = 7000},--raro
+	{name = "Patch of Fine Cloth", chance = 1800},--raro
+	{name = "Spiked Squelcher", chance = 3200},--raro
+	{name = "Titan Axe", chance = 2400},--raro
+	{name = "Falcon Battleaxe", chance = 200},--muitoraro
+	{name = "Falcon Longsword", chance = 200},--muitoraro
+	{name = "Falcon Mace", chance = 210},--muitoraro
+	{name = "Falcon Plate", chance = 100},--muitoraro
+	{name = "Falcon Shield", chance = 100}--muitoraro
 }
 
 monster.attacks = {

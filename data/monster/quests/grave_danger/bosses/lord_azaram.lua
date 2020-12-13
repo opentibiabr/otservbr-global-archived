@@ -66,34 +66,34 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", minCount = 1, maxCount = 5, chance = 100000},--comum
-	{id = "Crystal Coin", minCount = 0, maxCount = 2, chance = 50000},--comum
-	{id = "Supreme Health Potion", minCount = 0, maxCount = 6, chance = 35000},--comum
-	{id = "Ultimate Mana Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
-	{id = "Ultimate Spirit Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
-	{id = "Bullseye Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
-	{id = "Berserk Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
-	{id = "Piece of hell steel", minCount = 0, maxCount = 4, chance = 9000},--comum
-	{id = "Red Gem", minCount = 0, maxCount = 2, chance = 12000},--comum
-	{id = "Blue Gem", minCount = 0, maxCount = 2, chance = 12000},--comum
-	{id = "Silver Token", minCount = 0, maxCount = 2, chance = 9500},--semiraro
-	{id = "Ancient liche bone", chance = 5200},--semiraro
-	{id = "Collar of blue plasma", chance = 5200},--semiraro
-	{id = "Collar of red plasma", chance = 5200},--semiraro
-	{id = "Collar of green plasma", chance = 5200},--semiraro
-	{id = "Giant Sapphire", chance = 7000},--semiraro
-	{id = "Haunted Blade", chance = 9000},--semiraro
-	{id = "Huge Chunk of Crude Iron", chance = 4500},--semiraro
-	{id = "Knight Armor", chance = 15000},--semiraro
-	{id = "Violet Gem", minCount = 0, maxCount = 1, chance = 10000},--semiraro
-	{id = "Yellow Gem", minCount = 0, maxCount = 1, chance = 10000},--semiraro
-	{id = "Ring of green plasma", chance = 5000},--semiraro
-	{id = "Ring of red plasma", chance = 5000},--semiraro
-	{id = "Young Lich Worm", chance = 5800},--semiraro
-	{id = "Bear Skin", chance = 1600},--raro
-	{id = "Noble Cape", chance = 1500},--raro
-	{id = "Terra helmet", chance = 720},--raro
-	{id = "Final Judgement", chance = 410},--muitoraro
+	{name = "Platinum Coin", minCount = 1, maxCount = 5, chance = 100000},--comum
+	{name = "Crystal Coin", minCount = 0, maxCount = 2, chance = 50000},--comum
+	{name = "Supreme Health Potion", minCount = 0, maxCount = 6, chance = 35000},--comum
+	{name = "Ultimate Mana Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{name = "Ultimate Spirit Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{name = "Bullseye Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{name = "Berserk Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{name = "Piece of hell steel", minCount = 0, maxCount = 4, chance = 9000},--comum
+	{name = "Red Gem", minCount = 0, maxCount = 2, chance = 12000},--comum
+	{name = "Blue Gem", minCount = 0, maxCount = 2, chance = 12000},--comum
+	{name = "Silver Token", minCount = 0, maxCount = 2, chance = 9500},--semiraro
+	{name = "Ancient liche bone", chance = 5200},--semiraro
+	{name = "Collar of blue plasma", chance = 5200},--semiraro
+	{name = "Collar of red plasma", chance = 5200},--semiraro
+	{name = "Collar of green plasma", chance = 5200},--semiraro
+	{name = "Giant Sapphire", chance = 7000},--semiraro
+	{name = "Haunted Blade", chance = 9000},--semiraro
+	{name = "Huge Chunk of Crude Iron", chance = 4500},--semiraro
+	{name = "Knight Armor", chance = 15000},--semiraro
+	{name = "Violet Gem", minCount = 0, maxCount = 1, chance = 10000},--semiraro
+	{name = "Yellow Gem", minCount = 0, maxCount = 1, chance = 10000},--semiraro
+	{name = "Ring of green plasma", chance = 5000},--semiraro
+	{name = "Ring of red plasma", chance = 5000},--semiraro
+	{name = "Young Lich Worm", chance = 5800},--semiraro
+	{name = "Bear Skin", chance = 1600},--raro
+	{name = "Noble Cape", chance = 1500},--raro
+	{name = "Terra helmet", chance = 720},--raro
+	{name = "Final Judgement", chance = 410},--muitoraro
 }
 
 monster.attacks = {

@@ -127,21 +127,21 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2230, chance = 30000, maxCount = 1}, --comum
-	{id = "brass shield", chance = 30000, maxCount = 1}, --comum
-	{id = "spatial warp almanac", chance = 25000, maxCount = 1}, --comum
-	{id = "viking helmet", chance = 23000, maxCount = 1}, --comum
-	{id = "Falcon Battleaxe", chance = 500, maxCount = 1}, --semiraro
-	{id = "Falcon Longsword", chance = 500, maxCount = 1},--semiraro
-	{id = "Falcon Mace", chance = 500, maxCount = 1},--semiraro
-	{id = "Grant of Arms", chance = 500, maxCount = 1},--semiraro
-	{id = "Falcon Bow", chance = 350, maxCount = 1},--raro
-	{id = "Falcon Circlet", chance = 350, maxCount = 1},--raro
-	{id = "Falcon Coif", chance = 350, maxCount = 1},--raro
-	{id = "Falcon Rod", chance = 350, maxCount = 1},--raro
-	{id = "Falcon wand", chance = 350, maxCount = 1},--raro
-	{id = "Falcon Shield", chance = 200, maxCount = 1},--muito raro
-	{id = "Falcon Greaves", chance = 200, maxCount = 1},--muito raro
-	{id = "Falcon Plate", chance = 200, maxCount = 1},--muito raro
+	{name = "brass shield", chance = 30000, maxCount = 1}, --comum
+	{name = "spatial warp almanac", chance = 25000, maxCount = 1}, --comum
+	{name = "viking helmet", chance = 23000, maxCount = 1}, --comum
+	{name = "Falcon Battleaxe", chance = 500, maxCount = 1}, --semiraro
+	{name = "Falcon Longsword", chance = 500, maxCount = 1},--semiraro
+	{name = "Falcon Mace", chance = 500, maxCount = 1},--semiraro
+	{name = "Grant of Arms", chance = 500, maxCount = 1},--semiraro
+	{name = "Falcon Bow", chance = 350, maxCount = 1},--raro
+	{name = "Falcon Circlet", chance = 350, maxCount = 1},--raro
+	{name = "Falcon Coif", chance = 350, maxCount = 1},--raro
+	{name = "Falcon Rod", chance = 350, maxCount = 1},--raro
+	{name = "Falcon wand", chance = 350, maxCount = 1},--raro
+	{name = "Falcon Shield", chance = 200, maxCount = 1},--muito raro
+	{name = "Falcon Greaves", chance = 200, maxCount = 1},--muito raro
+	{name = "Falcon Plate", chance = 200, maxCount = 1},--muito raro
 }
 
 monster.attacks = {

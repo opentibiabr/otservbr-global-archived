@@ -66,14 +66,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 27000, maxCount = 90},
-	{id = "gold coin", chance = 27000, maxCount = 90},
-	{id = "gold coin", chance = 1500, maxCount = 10},
-	{id = "small emerald", chance = 3750, maxCount = 2},
-	{id = "twigs", chance = 18000},
-	{id = "iron ore", chance = 800, maxCount = 2},
-	{id = "seeds", chance = 1600},
-	{id = "natural soil", chance = 9000}
+	{name = "gold coin", chance = 27000, maxCount = 90},
+	{name = "gold coin", chance = 27000, maxCount = 90},
+	{name = "gold coin", chance = 1500, maxCount = 10},
+	{name = "small emerald", chance = 3750, maxCount = 2},
+	{name = "twigs", chance = 18000},
+	{name = "iron ore", chance = 800, maxCount = 2},
+	{name = "seeds", chance = 1600},
+	{name = "natural soil", chance = 9000}
 }
 
 monster.attacks = {

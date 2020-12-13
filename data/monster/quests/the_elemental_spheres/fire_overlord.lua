@@ -65,11 +65,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 50000, maxCount = 75},
-	{id = "platinum coin", chance = 50000, maxCount = 3},
-	{id = "magma coat", chance = 819},
-	{id = "eternal flames", chance = 100000},
-	{id = "fiery heart", chance = 100000}
+	{name = "gold coin", chance = 50000, maxCount = 75},
+	{name = "platinum coin", chance = 50000, maxCount = 3},
+	{name = "magma coat", chance = 819},
+	{name = "eternal flames", chance = 100000},
+	{name = "fiery heart", chance = 100000}
 }
 
 monster.attacks = {

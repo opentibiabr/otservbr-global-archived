@@ -70,7 +70,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "glob of mercury", chance = 18750}
+	{name = "glob of mercury", chance = 18750}
 }
 
 monster.attacks = {

@@ -62,18 +62,18 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 100000, maxCount = 5},--comum
-	{id = "Great Health Potion", chance = 100000, maxCount = 3},--comum
-	{id = "Assassin Star", chance = 100000, maxCount = 2},--comum
-	{id = "Small Amethyst", chance = 100000, maxCount = 2},--comum
-	{id = "Golden Armor", chance = 1700},--raro
-	{id = "Mastermind Shield", chance = 1100},--raro
-	{id = "Patch of Fine Cloth", chance = 1000},--raro
-	{id = "red Gem", chance = 1800},--raro
-	{id = "Violet Gem", chance = 1850},--raro
-	{id = "Falcon Bow", chance = 180},
-	{id = "Falcon Wand", chance = 180},
-	{id = "Falcon Plate", chance = 100}
+	{name = "Platinum Coin", chance = 100000, maxCount = 5},--comum
+	{name = "Great Health Potion", chance = 100000, maxCount = 3},--comum
+	{name = "Assassin Star", chance = 100000, maxCount = 2},--comum
+	{name = "Small Amethyst", chance = 100000, maxCount = 2},--comum
+	{name = "Golden Armor", chance = 1700},--raro
+	{name = "Mastermind Shield", chance = 1100},--raro
+	{name = "Patch of Fine Cloth", chance = 1000},--raro
+	{name = "red Gem", chance = 1800},--raro
+	{name = "Violet Gem", chance = 1850},--raro
+	{name = "Falcon Bow", chance = 180},
+	{name = "Falcon Wand", chance = 180},
+	{name = "Falcon Plate", chance = 100}
 }
 
 monster.attacks = {

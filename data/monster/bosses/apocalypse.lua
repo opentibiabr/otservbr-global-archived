@@ -69,40 +69,40 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "ancient amulet", chance = 13500},
-	{id = "big bone", chance = 19000},--big bone
-	{id = "black pearl", chance = 15000, maxCount = 35},
-	{id = "boots of haste", chance = 14000},
-	{id = "crystal ball", chance = 22500},
-	{id = "crystal necklace", chance = 21500},
-	{id = "crystal ring", chance = 15500},
-	{id = "demon shield", chance = 15500},
-	{id = "devil helmet", chance = 11000},
-	{id = "dragon hammer", chance = 34500},
-	{id = "energy ring", chance = 13500},
-	{id = "fire axe", chance = 17000},
-	{id = "giant sword", chance = 12500},
+	{name = "ancient amulet", chance = 13500},
+	{name = "big bone", chance = 19000},--big bone
+	{name = "black pearl", chance = 15000, maxCount = 35},
+	{name = "boots of haste", chance = 14000},
+	{name = "crystal ball", chance = 22500},
+	{name = "crystal necklace", chance = 21500},
+	{name = "crystal ring", chance = 15500},
+	{name = "demon shield", chance = 15500},
+	{name = "devil helmet", chance = 11000},
+	{name = "dragon hammer", chance = 34500},
+	{name = "energy ring", chance = 13500},
+	{name = "fire axe", chance = 17000},
+	{name = "giant sword", chance = 12500},
 	{id = 2152, chance = 69900, maxCount = 100},--platinum coin
 	{id = 2152, chance = 68800, maxCount = 100},--platinum coin
 	{id = 2160, chance = 47700, maxCount = 40},--crystal coin
 	{id = 2160, chance = 36600, maxCount = 15},--crystal coin
-	{id = "gold ring", chance = 28000},
-	{id = "golden legs", chance = 15000},
-	{id = "giant ruby", chance = 31500},
-	{id = "giant sapphire", chance = 31500},
-	{id = "giant emerald", chance = 31500},
-	{id = "ice rapier", chance = 27500},
-	{id = "magic plate armor", chance = 13000},
-	{id = "mastermind shield", chance = 17500},
-	{id = "purple tome", chance = 12600},
-	{id = "ring of the sky", chance = 13500},
-	{id = "silver dagger", chance = 15500},
-	{id = "skull staff", chance = 25000},
-	{id = "talon", chance = 14000, maxCount = 27},
-	{id = "teddy bear", chance = 10500},
-	{id = "thunder hammer", chance = 3500},
-	{id = "voodoo doll", chance = 5100},
-	{id = "white pearl", chance = 12500, maxCount = 35}
+	{name = "gold ring", chance = 28000},
+	{name = "golden legs", chance = 15000},
+	{name = "giant ruby", chance = 31500},
+	{name = "giant sapphire", chance = 31500},
+	{name = "giant emerald", chance = 31500},
+	{name = "ice rapier", chance = 27500},
+	{name = "magic plate armor", chance = 13000},
+	{name = "mastermind shield", chance = 17500},
+	{name = "purple tome", chance = 12600},
+	{name = "ring of the sky", chance = 13500},
+	{name = "silver dagger", chance = 15500},
+	{name = "skull staff", chance = 25000},
+	{name = "talon", chance = 14000, maxCount = 27},
+	{name = "teddy bear", chance = 10500},
+	{name = "thunder hammer", chance = 3500},
+	{name = "voodoo doll", chance = 5100},
+	{name = "white pearl", chance = 12500, maxCount = 35}
 }
 
 monster.attacks = {

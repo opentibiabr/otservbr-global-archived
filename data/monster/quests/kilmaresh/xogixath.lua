@@ -65,15 +65,15 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 100000, maxCount = 9},
-	{id = "Red Gem", chance = 65000, maxCount = 2},
-	{id = "Green Crystal Shard", chance = 16000},
-	{id = "Sea Horse Figurine", chance = 2400},
-	{id = "Winged Boots", chance = 120},
-	{id = "Small Sapphire", chance = 48000, maxCount = 3},
-	{id = "Stone Skin Amulet", chance = 54000},
+	{name = "Platinum Coin", chance = 100000, maxCount = 9},
+	{name = "Red Gem", chance = 65000, maxCount = 2},
+	{name = "Green Crystal Shard", chance = 16000},
+	{name = "Sea Horse Figurine", chance = 2400},
+	{name = "Winged Boots", chance = 120},
+	{name = "Small Sapphire", chance = 48000, maxCount = 3},
+	{name = "Stone Skin Amulet", chance = 54000},
 	{id = 36204, chance = 6500},
-	{id = "Fire Axe", chance = 34000},
+	{name = "Fire Axe", chance = 34000},
 	{id = 36392, chance = 520}
 }
 

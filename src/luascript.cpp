@@ -3026,6 +3026,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Loot", "delete", LuaScriptInterface::luaDeleteLoot);
 
 	registerMethod("Loot", "setId", LuaScriptInterface::luaLootSetId);
+	registerMethod("Loot", "setIdFromName", LuaScriptInterface::luaLootSetIdFromName);
 	registerMethod("Loot", "setMinCount", LuaScriptInterface::luaLootSetMinCount);
 	registerMethod("Loot", "setMaxCount", LuaScriptInterface::luaLootSetMaxCount);
 	registerMethod("Loot", "setSubType", LuaScriptInterface::luaLootSetSubType);
@@ -15320,17 +15321,26 @@ int LuaScriptInterface::luaDeleteLoot(lua_State* L)
 
 int LuaScriptInterface::luaLootSetId(lua_State* L)
 {
-	// loot:setId(id or name)
+	// loot:setId(id)
+	Loot* loot = getUserdata<Loot>(L, 1);
+	if (loot && isNumber(L, 2)) {
+		loot->lootBlock.id = getNumber<uint16_t>(L, 2);
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaLootSetIdFromName(lua_State* L)
+{
+	// loot:setIdFromName(name)
 	Loot* loot = getUserdata<Loot>(L, 1);
 	uint16_t item;
-	if (loot) {
-		if (isNumber(L, 2)) {
-			loot->lootBlock.id = getNumber<uint16_t>(L, 2);
-		} else {
-			item = Item::items.getItemIdByName(getString(L, 2));
-			loot->lootBlock.id = item;
-		}
-		pushBoolean(L, true);
+	if (loot && isString(L, 2)) {
+		item = Item::items.getItemIdByName(getString(L, 2));
+		loot->lootBlock.id = item;
+		lua_pushnumber(L, item);
 	} else {
 		lua_pushnil(L);
 	}

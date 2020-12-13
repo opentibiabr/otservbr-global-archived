@@ -62,29 +62,29 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", minCount = 1, maxCount = 5, chance = 100000},--comum
-	{id = "Crystal Coin", minCount = 0, maxCount = 2, chance = 50000},--comum
-	{id = "Supreme Health Potion", minCount = 0, maxCount = 6, chance = 35000},--comum
-	{id = "Ultimate Mana Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
-	{id = "Ultimate Spirit Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
-	{id = "Bullseye Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
-	{id = "Mastermind Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
-	{id = "Berserk Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
-	{id = "Piece of draconian steel", minCount = 0, maxCount = 3, chance = 9000},--comum
-	{id = "Green Gem", minCount = 0, maxCount = 2, chance = 12000},--comum
-	{id = "Silver Token", minCount = 0, maxCount = 2, chance = 9500},--semiraro
-	{id = "Blue Gem", chance = 11000},--semiraro
-	{id = "Crusader Helmet", chance = 6400},--semiraro
-	{id = "Gold Ingot", minCount = 0, maxCount = 1, chance = 10000},--semiraro
-	{id = "Red Gem", chance = 11000},--semiraro
-	{id = "Terra hood", chance = 7800},--semiraro
-	{id = "Yellow Gem", chance = 9500},--semiraro
-	{id = "Young Lich Worm", chance = 5800},--semiraro
-	{id = "Bear Skin", chance = 1800},--raro
-	{id = "Noble Amulet", chance = 1100},--raro
-	{id = "Rotten Heart", chance = 1700},--raro
-	{id = "Terra helmet", chance = 700},--raro
-	{id = "Final Judgement", chance = 460},--muitoraro
+	{name = "Platinum Coin", minCount = 1, maxCount = 5, chance = 100000},--comum
+	{name = "Crystal Coin", minCount = 0, maxCount = 2, chance = 50000},--comum
+	{name = "Supreme Health Potion", minCount = 0, maxCount = 6, chance = 35000},--comum
+	{name = "Ultimate Mana Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{name = "Ultimate Spirit Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
+	{name = "Bullseye Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{name = "Mastermind Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{name = "Berserk Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
+	{name = "Piece of draconian steel", minCount = 0, maxCount = 3, chance = 9000},--comum
+	{name = "Green Gem", minCount = 0, maxCount = 2, chance = 12000},--comum
+	{name = "Silver Token", minCount = 0, maxCount = 2, chance = 9500},--semiraro
+	{name = "Blue Gem", chance = 11000},--semiraro
+	{name = "Crusader Helmet", chance = 6400},--semiraro
+	{name = "Gold Ingot", minCount = 0, maxCount = 1, chance = 10000},--semiraro
+	{name = "Red Gem", chance = 11000},--semiraro
+	{name = "Terra hood", chance = 7800},--semiraro
+	{name = "Yellow Gem", chance = 9500},--semiraro
+	{name = "Young Lich Worm", chance = 5800},--semiraro
+	{name = "Bear Skin", chance = 1800},--raro
+	{name = "Noble Amulet", chance = 1100},--raro
+	{name = "Rotten Heart", chance = 1700},--raro
+	{name = "Terra helmet", chance = 700},--raro
+	{name = "Final Judgement", chance = 460},--muitoraro
 }
 
 monster.attacks = {
