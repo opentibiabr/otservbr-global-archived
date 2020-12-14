@@ -113,6 +113,58 @@ bool IOMapSerialize::saveHouseItems()
 	return success;
 }
 
+bool IOMapSerialize::saveHouseItemsId(uint32_t playerid)
+{
+	//int64_t start = OTSYS_TIME();
+	uint32_t id = playerid;
+	Database& db = Database::getInstance();
+	std::ostringstream query;
+	std::ostringstream query2;
+	std::ostringstream query3;
+	std::ostringstream query4;
+
+	//Start the transaction
+	DBTransaction transaction;
+	if (!transaction.begin()) {
+		return false;
+	}
+
+	//clear old tile data
+	query4 << "SELECT `id` from `houses` where `owner`=" << id;
+	DBResult_ptr result = db.storeQuery(query4.str());
+
+	query2 << "DELETE FROM `tile_store` where `house_id`=" << result->getNumber<uint32_t>("id");
+	if (!db.executeQuery(query2.str())) {
+		return false;
+	}
+
+	query3 << "INSERT INTO `tile_store` (`house_id`, `data`) VALUES ";
+	DBInsert stmt(query3.str());
+	PropWriteStream stream;
+
+	House* house = g_game.map.houses.getHouseByPlayerId(id);
+		for (HouseTile* tile : house->getTiles()) {
+			saveTile(stream, tile);
+
+			size_t attributesSize;
+			const char* attributes = stream.getStream(attributesSize);
+			if (attributesSize > 0) {
+				query << house->getId() << ',' << db.escapeBlob(attributes, attributesSize);
+				if (!stmt.addRow(query)) {
+					return false;
+				}
+				stream.clear();
+			}
+		}
+
+	if (!stmt.execute()) {
+		return false;
+	}
+
+	bool success = transaction.commit();
+	return success;
+}
+
 bool IOMapSerialize::loadContainer(PropStream& propStream, Container* container)
 {
 	while (container->serializationCount > 0) {

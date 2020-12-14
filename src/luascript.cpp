@@ -28,6 +28,7 @@
 #include "protocolstatus.h"
 #include "spells.h"
 #include "iologindata.h"
+#include "iomapserialize.h"
 #include "configmanager.h"
 #include "teleport.h"
 #include "databasemanager.h"
@@ -663,6 +664,21 @@ int32_t LuaScriptInterface::popCallback(lua_State* L)
 	return luaL_ref(L, LUA_REGISTRYINDEX);
 }
 
+int32_t LuaScriptInterface::luaDoSaveHouse(lua_State* L) {
+    //doSaveHouse(houseID)
+	uint32_t playerid=getNumber<uint32_t>(L, 1);
+	//std::cout << playerid;
+
+    if(!IOMapSerialize::saveHouseItemsId(playerid))
+        {
+            std::stringstream s;
+            s << "Unable to save house information, ID: " << playerid;
+            reportErrorFunc(s.str());
+        }
+    lua_pushboolean(L, false);
+    return 1;
+}
+
 // Metatables
 void LuaScriptInterface::setMetatable(lua_State* L, int32_t index, const std::string& name)
 {
@@ -986,6 +1002,9 @@ void LuaScriptInterface::pushLoot(lua_State* L, const std::vector<LootBlock>& lo
 
 void LuaScriptInterface::registerFunctions()
 {
+	//doSaveHouse({list})
+	lua_register(luaState, "doSaveHouse", LuaScriptInterface::luaDoSaveHouse);
+
 	//doPlayerAddItem(uid, itemid, <optional: default: 1> count/subtype)
 	//doPlayerAddItem(cid, itemid, <optional: default: 1> count, <optional: default: 1> canDropOnMap, <optional: default: 1>subtype)
 	//Returns uid of the created item

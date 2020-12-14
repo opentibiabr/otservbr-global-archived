@@ -30,6 +30,7 @@ class IOMapSerialize
 		static bool saveHouseItems();
 		static bool loadHouseInfo();
 		static bool saveHouseInfo();
+		static bool saveHouseItemsId(uint32_t playerid);
 
 	private:
 		static void saveItem(PropWriteStream& stream, const Item* item);
