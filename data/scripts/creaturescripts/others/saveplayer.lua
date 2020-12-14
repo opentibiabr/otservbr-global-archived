@@ -27,10 +27,14 @@ function savePlayers.onLogin(cid)
     return true
 end
 
+savePlayers:register()
+
+local endSavePlayers = CreatureEvent("endSavePlayers")
+
 function savePlayers.onLogout(cid)
 		doSaveHouse({getHouseByPlayerGUID(getPlayerGUID(cid))})
 		stopEvent(getPlayerStorageValue(cid, config.storage))
     return true
 end
 
-savePlayers:register()
+endSavePlayers:register()
