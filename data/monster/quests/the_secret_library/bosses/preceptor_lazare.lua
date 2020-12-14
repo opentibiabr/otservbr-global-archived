@@ -78,13 +78,13 @@ monster.loot = {
 	{id = "Golden Armor", chance = 2200},--semiraro
 	{id = "Patch of Fine Cloth", chance = 1800, maxCount = 3},--semiraro
 	{id = "Violet Gem", chance = 1800},--semiraro
-	{id = "Titan Axe", chance = 1600},--semiraro
-	{id = "War Axe", chance = 1400},--semiraro
-	{id = "Demonbone Amulet", chance = 800},--raro
-	{id = "Heavy Mace", chance = 600},--raro
-	{id = "Mastermind Shield", chance = 500},--raro
-	{id = "Falcon Rod", chance = 200},--muitoraro
-	{id = "Falcon Greaves", chance = 110}--muitoraro
+	{id = "Titan Axe", chance = 1100},--semiraro
+	{id = "War Axe", chance = 800},--semiraro
+	{id = "Demonbone Amulet", chance = 400},--raro
+	{id = "Heavy Mace", chance = 300},--raro
+	{id = "Mastermind Shield", chance = 200},--raro
+	{id = "Falcon Rod", chance = 12},--muitoraro
+	{id = "Falcon Greaves", chance = 10}--muitoraro
 }
 
 monster.attacks = {

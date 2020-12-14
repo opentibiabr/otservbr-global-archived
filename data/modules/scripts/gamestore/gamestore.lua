@@ -4091,12 +4091,98 @@ GameStore.Categories = {
         {
           icons = { "Temple_Teleport.png" },
           name = "Temple Teleport",
-          price = 5,          
+          price = 15,          
           description = "<i>Teleports you instantly to your home temple.</i>\n\n{character}\n{useicon} use it to teleport you to your home temple</i>\n{battlesign}\n{info} does not work in no-logout zones or close to a character's home temple",
           type = GameStore.OfferTypes.OFFER_TYPE_TEMPLE,
         },              
       }, 
   },
+
+
+  -- Razgard Items XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ {   
+  icons = { "Category_Tournament.png" },
+  name = "Razgard Items",
+  offers = { 
+       {			
+        -- icons = { "Obsidian_Knife.png" },
+        name = "Obsidian Knife",
+        price = 25,
+        itemtype = 5908,
+        count = 1,
+        description = "<i>Sharp and light, this is a useful tool for tanners, doctors and assassins.</i>\n\n{info} get different types of leather from the dead bodies\n{info} possible to carve Ice Sculptures",
+        type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+        },
+        {			
+          -- icons = { "Blessed_Wooden_Stake.png" },
+          name = "Blessed Wooden Stake",
+          price = 25,
+          itemtype = 5942,
+          count = 1,
+          description = "<i>Many mighty priests of Tibia have blessed this stake.</i>\n\n{info} can be used on slain Vampires in order to get Vampire Dust and on dead Demons to get Demon Dust.",
+          type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+        },
+        {			
+          -- icons = { "Elvenhair_Rope.png" },
+          name = "Elvenhair Rope",
+          price = 3,
+          itemtype = 7731,
+          count = 1,
+          description = "<i>It works the same as a regular Rope, but 12 oz lighter.</i>\n\n{info} special rope",
+          type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+        },
+        {			
+          -- icons = { "Light_Shovel".png" },
+          name = "Light Shovel",
+          price = 2,
+          itemtype = 5710,
+          count = 1,
+          description = "<i>Same purpose as regular Shovels, but 20 oz lighter.</i>\n\n{info} special shovel.",
+          type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+        },
+        {			
+          -- icons = { "Zaoan_Chess_Box.png" },
+          name = "Zaoan Chess Box",
+          price = 15,
+          itemtype = 20620,
+          count = 1,
+          description = "<i>This chess box is made of jade and obsidian.</i>\n\n{info} It will hold a full set of 32 Zaoan chess figures.",
+          type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+        },
+        {			
+          -- icons = { "Sneaky_Stabber_of_Eliteness.png" },
+          name = "Sneaky Stabber of Eliteness",
+          price = 30,
+          itemtype = 10511,
+          count = 1,
+          description = "<i>This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is.</i>\n\n{info} color red.",
+          type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+        },
+        {			
+          -- icons = { "squeezing gear of girlpower.png" },
+          name = "Squeezing Gear Of Girlpower",
+          price = 30,
+          itemtype = 10513,
+          count = 1,
+          description = "<i>This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is.</i>\n\n{info} color pink.",
+          type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+        },
+        {			
+          -- icons = { "whacking driller of fate.png" },
+          name = "Whacking Driller Of Fate",
+          price = 30,
+          itemtype = 10515,
+          count = 1,
+          description = "<i>This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is.</i>\n\n{info} color red.",
+          type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+        }
+     },
+  rookgaard = true,
+  state = GameStore.States.STATE_NONE,
+ },
+
+
+
    --Tournament
   --  {
   --  icons = { "Category_Tournament.png" },

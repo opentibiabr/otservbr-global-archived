@@ -8,7 +8,7 @@ function addPremiumPoint(PID, playerIP)
         db.query("UPDATE accounts SET coins = coins + 1 WHERE id = '" ..player:getAccountId().. "';")
         player:getPosition():sendMagicEffect(CONST_ME_PINK_BEAM)
         player:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
-        player:sendTextMessage(MESSAGE_STATUS_DEFAULT, "You have been online for an hour and have earned 1 Coin.")
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have been online for an hour and have earned 1 Coin.")
         player:setStorageValue(MAX_STORAGE_HOURCOIN, maxCoins+1)
         if maxCoins+1 <= MAX_COUNT_HOURCOIN then
             addEvent(addPremiumPoint, timeOnline, PID, playerIP)

@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Ravenous Lava Lurker")
 local monster = {}
 
 monster.description = "a ravenous lava lurker"
-monster.experience = 4000
+monster.experience = 3000
 monster.outfit = {
 	lookType = 1041,
 	lookHead = 0,
@@ -17,7 +17,7 @@ monster.health = 5000
 monster.maxHealth = 5000
 monster.race = "fire"
 monster.corpse = 0
-monster.speed = 58
+monster.speed = 250
 monster.summonCost = 0
 monster.maxSummons = 0
 
@@ -48,9 +48,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -69,9 +69,9 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -150},
-	{name ="ravennouslavalurkerwave", interval = 2000, chance = 15, minDamage = 0, maxDamage = -400, target = false},
-	{name ="ravennouslavalurkerwave2", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -10, maxDamage = -250},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -300, range = 7, radius = 4, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -150, maxDamage = -230, length = 8, spread = 3, effect = CONST_ME_FIREAREA, target = false}
 }
 
 monster.defenses = {

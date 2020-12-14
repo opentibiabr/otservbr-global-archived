@@ -73,7 +73,7 @@ monster.loot = {
 	{id = "leather armor", chance = 10000},
 	{id = "poison arrow", chance = 5000, maxCount = 3},
 	{id = "tribal mask", chance = 510},
-	{id = "bast skirt", chance = 100},
+	{id = "bast skirt", chance = 3000},
 	{id = "seeds", chance = 200}
 }
 

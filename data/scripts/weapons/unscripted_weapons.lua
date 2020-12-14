@@ -3622,12 +3622,12 @@ local weapons = {
 	{
 		itemId = 2544,
 		type = WEAPON_AMMO,
-		action = "removecount"
+		breakChance = 1
 	}, -- arrow
 	{
 		itemId = 2543,
 		type = WEAPON_AMMO,
-		action = "removecount"
+		breakChance = 1
 	}, -- bolt
 	{
 		itemId = 2456,

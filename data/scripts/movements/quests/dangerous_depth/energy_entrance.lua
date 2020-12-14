@@ -14,6 +14,7 @@ function energyEntrance.onStepIn(creature, item, position, fromPosition, toPosit
 			player:teleportTo(Position(fromPosition.x, fromPosition.y + 1, fromPosition.z))
 		end
 	elseif item:getPosition() == Position(34021, 32037, 14) then
+		player:teleportTo(Position(33831, 32140, 14))
 	end
 
 	if item:getPosition() == Position(33784, 32205, 14) then
