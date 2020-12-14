@@ -113,9 +113,8 @@ bool IOMapSerialize::saveHouseItems()
 	return success;
 }
 
-bool IOMapSerialize::saveHouseItemsId(uint32_t playerid)
-{
-	//int64_t start = OTSYS_TIME();
+bool IOMapSerialize::saveHouseItemsId(uint32_t playerid) {
+	// int64_t start = OTSYS_TIME();
 	uint32_t id = playerid;
 	Database& db = Database::getInstance();
 	std::ostringstream query;
@@ -123,13 +122,13 @@ bool IOMapSerialize::saveHouseItemsId(uint32_t playerid)
 	std::ostringstream query3;
 	std::ostringstream query4;
 
-	//Start the transaction
+	// Start the transaction
 	DBTransaction transaction;
 	if (!transaction.begin()) {
 		return false;
 	}
 
-	//clear old tile data
+	// clear old tile data
 	query4 << "SELECT `id` from `houses` where `owner`=" << id;
 	DBResult_ptr result = db.storeQuery(query4.str());
 

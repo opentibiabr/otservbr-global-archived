@@ -665,16 +665,15 @@ int32_t LuaScriptInterface::popCallback(lua_State* L)
 }
 
 int32_t LuaScriptInterface::luaDoSaveHouse(lua_State* L) {
-    //doSaveHouse(houseID)
-	uint32_t playerid=getNumber<uint32_t>(L, 1);
-	//std::cout << playerid;
+    // doSaveHouse(houseID)
+	uint32_t playerid = getNumber<uint32_t>(L, 1);
 
-    if(!IOMapSerialize::saveHouseItemsId(playerid))
-        {
-            std::stringstream s;
-            s << "Unable to save house information, ID: " << playerid;
-            reportErrorFunc(s.str());
-        }
+    if (!IOMapSerialize::saveHouseItemsId(playerid))
+    {
+		std::stringstream s;
+		s << "Unable to save house information, ID: " << playerid;
+		reportErrorFunc(s.str());
+	}
     lua_pushboolean(L, false);
     return 1;
 }
