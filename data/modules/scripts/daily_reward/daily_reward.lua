@@ -19,6 +19,8 @@ local ClientPackets = {
 	OpenRewardWall = 0xD8,
 	OpenRewardHistory = 0xD9,
 	SelectReward = 0xDA,
+	CollectionResource = 0x14,
+	JokerResource = 0x15
 }
 
 --[[-- Constants
@@ -69,7 +71,6 @@ local DailyRewardItems = {
 
 DailyReward = {
 	testMode = false,
-	jokerWeekDay = "Thursday", -- "Sunday" "Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday"
 	serverTimeThreshold = (24 * 60 * 60), -- Counting down 24hours from last server save
 
 	storages = {
@@ -242,7 +243,8 @@ DailyReward.loadDailyReward = function(playerId, source)
 		source = REWARD_FROM_PANEL
 	end
 
-	player:sendCollectionResource(player:getCollectionTokens())
+	player:sendCollectionResource(ClientPackets.JokerResource, player:getJokerTokens())
+	player:sendCollectionResource(ClientPackets.CollectionResource, player:getCollectionTokens())
 	player:sendDailyReward()
 	player:sendOpenRewardWall(source)
 	player:sendDailyRewardCollectionState(0)
@@ -312,10 +314,9 @@ DailyReward.init = function(playerId)
 		return false
 	end
 
-	if os.date("%A") == DailyReward.jokerWeekDay and player:getStorageValue(DailyReward.storages.avoidDoubleJoker) ~= Game.getLastServerSave() then
-		player:setStorageValue(DailyReward.storages.avoidDoubleJoker, Game.getLastServerSave())
+	if player:getJokerTokens() < 3 and tonumber(os.date("%m")) ~= player:getStorageValue(DailyReward.storages.avoidDoubleJoker) then
+		player:setStorageValue(DailyReward.storages.avoidDoubleJoker, tonumber(os.date("%m")))
 		player:setJokerTokens(player:getJokerTokens() + 1)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You just received your weekly joker token.")
 	end
 
 	local timeMath = Game.getLastServerSave() - player:getNextRewardTime()
@@ -329,6 +330,7 @@ DailyReward.init = function(playerId)
 			else
 				player:setStreakLevel(0)
 				if player:getLastLoginSaved() > 0 then -- message wont appear at first character login
+					player:setJokerTokens(-(player:getJokerTokens()))
 					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You just lost your daily reward streak.")
 				end
 			end
@@ -383,11 +385,11 @@ function Player.sendOpenRewardWall(self, shrine)
 	msg:sendToPlayer(self)
 end
 
-function Player.sendCollectionResource(self, value)
+function Player.sendCollectionResource(self, byte, value)
 	-- TODO: Migrate to protocolgame.cpp
 	local msg = NetworkMessage()
 	msg:addByte(0xEE) -- resource byte
-	msg:addByte(0x14)
+	msg:addByte(byte)
 	msg:addU64(value)
 	msg:sendToPlayer(self)
 end
