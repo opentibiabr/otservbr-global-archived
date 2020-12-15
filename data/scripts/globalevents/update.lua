@@ -4,10 +4,10 @@ local update = GlobalEvent("update")
 function update.onStartup()
 	if (updated) then
 		db.query("UPDATE `players` SET `posx` = 0, `posy` = 0, `posz` = 0;")
-		local updateFile = io.open('data/update.lua','r')
-		if updateFile then
-			local str = updateFile:read()
-			updateFile:close()
+		local readfile = io.open('data/update.lua','r')
+		if readFile then
+			local str = readFile:read()
+			readFile:close()
 			local ae = string.match(str,"updated=true")
 			if ae then
 				afterUpdate = 'updated=false'
