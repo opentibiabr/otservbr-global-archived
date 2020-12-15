@@ -124,7 +124,7 @@ TileAction = {
 		}
 	},
 	--Sorcerer chest tile
-	[25015] = {
+	[25014] = {
 		itemId = 406,
 		itemPos = {{x = 32054, y = 31880, z = 6}}
 	},

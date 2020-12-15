@@ -256,6 +256,12 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		return;
 	}
 
+	std::cout << ">> Loading lua monsters" << std::endl;	
+	if (!g_scripts->loadScripts("monster", false, false)) {	
+		startupErrorMessage("Failed to load lua monsters");	
+		return;	
+	}
+
 	std::cout << ">> Loading outfits" << std::endl;
 	if (!Outfits::getInstance().loadFromXml()) {
 		startupErrorMessage("Unable to load outfits!");
