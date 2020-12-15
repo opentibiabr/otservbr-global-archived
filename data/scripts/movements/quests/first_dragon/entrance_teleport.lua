@@ -61,11 +61,6 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	local monster = Game.createMonster(setting.bossName, setting.bossPos, true, true)
-	if not monster then
-		return true
-	end
-
 	if player:getStorageValue(setting.timer) >= os.time() then
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo(fromPosition)
@@ -80,7 +75,14 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:say("You don't have permission to use this portal", TALKTYPE_MONSTER_SAY)
 		return true
-	elseif player:getStorageValue(setting.storage) >= setting.value then
+	end
+	
+	if player:getStorageValue(setting.storage) >= setting.value then
+		local monster = Game.createMonster(setting.bossName, setting.bossPos, true, true)
+		if not monster then
+			return true
+		end
+
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo(setting.newPos)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
