@@ -765,6 +765,7 @@ void Monster::updateIdleStatus()
 void Monster::onAddCondition(ConditionType_t type)
 {
 	if (type == CONDITION_FIRE || type == CONDITION_ENERGY || type == CONDITION_POISON) {
+    ignoreFieldDamage = true;
 		updateMapCache();
 	}
 
@@ -1242,7 +1243,6 @@ bool Monster::getNextStep(Direction& nextDirection, uint32_t& flags)
 			flags |= FLAG_PATHFINDING;
 		} else {
 			if (ignoreFieldDamage) {
-				ignoreFieldDamage = false;
 				updateMapCache();
 			}
 			//target dancing
@@ -1885,8 +1885,9 @@ bool Monster::canWalkTo(Position pos, Direction moveDirection) const
 			return false;
 		}
 
-		Tile* walkTile = g_game.map.getTile(pos);
-		if (walkTile && walkTile->getTopVisibleCreature(this) == nullptr && walkTile->queryAdd(0, *this, 1, FLAG_PATHFINDING) == RETURNVALUE_NOERROR) {
+		Tile* tile = g_game.map.getTile(pos);
+		if (tile && tile->getTopVisibleCreature(this) == nullptr &&
+					tile->queryAdd(0, *this, 1, FLAG_PATHFINDING | FLAG_IGNOREFIELDDAMAGE) == RETURNVALUE_NOERROR) {
 			return true;
 		}
 	}

@@ -291,6 +291,7 @@ class Monster final : public Creature
 		}
 
 		friend class LuaScriptInterface;
+		friend class Map;
 };
 
 #endif
