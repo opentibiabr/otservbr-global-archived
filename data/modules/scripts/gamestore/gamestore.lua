@@ -4125,7 +4125,7 @@ GameStore.Categories = {
         {			
           -- icons = { "Elvenhair_Rope.png" },
           name = "Elvenhair Rope",
-          price = 3,
+          price = 5,
           itemtype = 7731,
           count = 1,
           description = "<i>It works the same as a regular Rope, but 12 oz lighter.</i>\n\n{info} special rope",
@@ -4143,7 +4143,7 @@ GameStore.Categories = {
         {			
           -- icons = { "Zaoan_Chess_Box.png" },
           name = "Zaoan Chess Box",
-          price = 15,
+          price = 50,
           itemtype = 20620,
           count = 1,
           description = "<i>This chess box is made of jade and obsidian.</i>\n\n{info} It will hold a full set of 32 Zaoan chess figures.",
@@ -4152,7 +4152,7 @@ GameStore.Categories = {
         {			
           -- icons = { "Sneaky_Stabber_of_Eliteness.png" },
           name = "Sneaky Stabber of Eliteness",
-          price = 30,
+          price = 35,
           itemtype = 10511,
           count = 1,
           description = "<i>This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is.</i>\n\n{info} color red.",
@@ -4161,7 +4161,7 @@ GameStore.Categories = {
         {			
           -- icons = { "squeezing gear of girlpower.png" },
           name = "Squeezing Gear Of Girlpower",
-          price = 30,
+          price = 35,
           itemtype = 10513,
           count = 1,
           description = "<i>This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is.</i>\n\n{info} color pink.",
@@ -4170,7 +4170,7 @@ GameStore.Categories = {
         {			
           -- icons = { "whacking driller of fate.png" },
           name = "Whacking Driller Of Fate",
-          price = 30,
+          price = 35,
           itemtype = 10515,
           count = 1,
           description = "<i>This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is.</i>\n\n{info} color red.",
