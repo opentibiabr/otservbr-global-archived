@@ -9,6 +9,16 @@ STORAGEVALUE_PROMOTION = 30018
 
 SERVER_NAME = configManager.getString(configKeys.SERVER_NAME)
 
+--WEATHER
+weatherConfig = {
+    groundEffect = CONST_ME_LOSEENERGY,
+	fallEffect = CONST_ANI_SMALLICE,
+    thunderEffect = configManager.getBoolean(configKeys.WEATHER_THUNDER),
+    minDMG = 1,
+    maxDMG = 5
+}
+--END WEATHER
+
 -- Event Schedule
 SCHEDULE_LOOT_RATE = 100
 SCHEDULE_EXP_RATE = 100
