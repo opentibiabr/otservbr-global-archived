@@ -14109,8 +14109,7 @@ int LuaScriptInterface::luaConditionSetFormula(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaConditionSetOutfit(lua_State* L)
-{
+int LuaScriptInterface::luaConditionSetOutfit(lua_State* L) {
 	// condition:setOutfit(outfit)
 	// condition:setOutfit(lookTypeEx, lookType, lookHead, lookBody, lookLegs, lookFeet[,
 	// lookAddons[, lookMount[, lookMountHead[, lookMountBody[, lookMountLegs[, lookMountFeet[, lookFamiliarsType]]]]]]])
