@@ -1,113 +1,74 @@
- local keywordHandler = KeywordHandler:new()
-local npcHandler = NpcHandler:new(keywordHandler)
-NpcSystem.parseParameters(npcHandler)
-local talkState = {}
-
-function onCreatureAppear(cid)
-     npcHandler:onCreatureAppear(cid)
-end
-function onCreatureDisappear(cid)
-     npcHandler:onCreatureDisappear(cid)
-end
-function onCreatureSay(cid, type, msg)
-     npcHandler:onCreatureSay(cid, type, msg)
-end
-function onThink()
-     npcHandler:onThink()
-end
-
-local normalItems = {
-     {7439, 7440, 7443},
-     {2688, 6508},
-     {2688, 6509},
-     {2688, 6507},
-     {2688, 2114},
-     {2688, 2111},
-     {2167, 2213, 2214},
-     {11227},
-     {2156},
-     {2153}
-}
-
-local semiRareItems = {
-     {2173},
-     {9954},
-     {9971},
-     {5080}
-}
-
-local rareItems = {
-     {2110},
-     {5919},
-     {6567},
-     {11255},
-     {11256},
-     {6566},
-     {2112},
-}
-
-local veryRareItems = {
-     {2659},
-     {3954},
-     {2644},
-     {10521},
-     {5804}
-}
-
-local function getReward()
-     local rewardTable = {}
-     local random = math.random(100)
-     if (random <= 90) then
-          rewardTable = normalItems
-     elseif (random <= 70) then
-          rewardTable = semiRareItems
-     elseif (random <= 30) then
-          rewardTable = rareItems
-     elseif (random <= 10) then
-          rewardTable = veryRareItems
+local random_items = {
+     {chance = 5, itemid = 2112}, -- 0.5% to get teddy bear
+     {chance = 10, itemid = 6512}, -- 2% to get santa doll
+     {chance = 15, itemid = 2114}, -- 4% to get piggy bank
+     {chance = 20, itemid = 15515, count = 1},
+     {chance = 30, itemid = 2111, count = 1},
+     {chance = 40, itemid = 2688, count = 1},
+     {chance = 50, itemid = 2110, count = 1},
+     {chance = 50, itemid = 2688, count = 1},
+     {chance = 70, itemid = 6527, count = 1},
+     {chance = 80, itemid = 24115, count = 1},
+     {chance = 90, itemid = 21401, count = 1},
+     {chance = 100, itemid = 11259, count = 1},
+     {chance = 120, itemid = 15515, count = 1},
+     {chance = 140, itemid = 26439, count = 1},
+     {chance = 160, itemid = 26443, count = 1},
+     {chance = 180, itemid = 26442, count = 1},
+     {chance = 200, itemid = 26441, count = 1},
+     {chance = 250, itemid = 26440, count = 1},
+     {chance = 300, itemid = 9653, count = 1}
+     }
+     local PRESENT_TIMER = 54164
+     
+     local keywordHandler = KeywordHandler:new()
+     local npcHandler = NpcHandler:new(keywordHandler)
+     NpcSystem.parseParameters(npcHandler)
+     
+     
+     function onCreatureAppear(cid)              npcHandler:onCreatureAppear(cid)            end
+     function onCreatureDisappear(cid)           npcHandler:onCreatureDisappear(cid)         end
+     function onCreatureSay(cid, type, msg)      npcHandler:onCreatureSay(cid, type, msg)    end
+     function onThink()                          npcHandler:onThink()                        end
+     
+     local voices = {
+     { text = 'HO HO HO! MERRY CHRISTMAS', yell = true },
+     { text = 'Hi there young ones, have you been good this year?' }
+     }
+     
+     local PRESENT_STORAGE = 88888
+     
+     function santaNPC(cid, message, keywords, present, node)
+         if not npcHandler:isFocused(cid) then
+             return false
+         end
+         if not present then
+             npcHandler:say('Come back when you start behaving good.', cid)
+             return true
+         end
+         local player = Player(cid)
+         local item, reward = nil, {}
+         for i = 1, #random_items do
+             item = random_items
+             if math.random(1000) < item[i].chance then
+                 reward.itemid  = item[i].itemid
+                 reward.subType = item[i].count or 1
+                 break
+             end
+         end
+         if player:getStorageValue(123) <= os.time() then
+             player:addItem(reward.itemid, reward.subType)
+             npcHandler:say("HO HO HO! You were good like a little dwarf this year!", cid)
+             npcHandler:resetNpc()
+             player:setStorageValue(PRESENT_STORAGE, os.time() + (24 * 60 * 60)) -- sets the next time for 1 day later than current time
+             return true
+          else
+          npcHandler:say('You\'ve already received a present, come back tomorrow', cid)
+         end
      end
-
-     local rewardItem = rewardTable[math.random(#rewardTable)]
-     return rewardItem
-end
-
-function creatureSayCallback(cid, type, msg)
-     if(not npcHandler:isFocused(cid)) then
-          return false
-     end
-     local talkUser = NPCHANDLER_CONVBEHAVIOR == CONVERSATION_DEFAULT and 0 or cid
-
-     if msgcontains(msg, 'present') then
-          local player = Player(cid)
-          if (player:getStorageValue(840293) == 1) then
-               npcHandler:say("You can't get other present.", cid)
-               return false
-          end
-
- --         if (player:getLevel() < 150) then
- --              npcHandler:say("You need level 150 to get a present.", cid)
- --              return false
- --         end
-
-          local reward = getReward()
-          local cont = Container(Player(cid):addItem(6511):getUniqueId())
-          local count = 1
-
-          for i = 1, #reward do
-               if (reward[i] == 2111 or
-                   reward[i] == 2688) then
-                    count = 10
-               end
-
-               cont:addItem(reward[i], count)
-          end
-
-          player:setStorageValue(840293, 1)
-          npcHandler:say("Merry Christmas!", cid)
-     end
-
-     return true
-end
-
-npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
-npcHandler:addModule(FocusModule:new())
+     
+     npcHandler:setMessage(MESSAGE_GREET, "Merry Christmas |PLAYERNAME|. I'm Santa Claus. I got {present}s for good children.")
+     local node = keywordHandler:addKeyword({'present'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, text = 'Were you good this year?'})
+     node:addChildKeywordNode(KeywordNode:new({'yes'}, santaNPC, true))
+     node:addChildKeywordNode(KeywordNode:new({'no'}, santaNPC, false))
+     npcHandler:addModule(FocusModule:new())
