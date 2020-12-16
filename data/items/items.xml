@@ -27339,10 +27339,10 @@
 	<item id="18465" article="a" name="shiny blade">
 		<attribute key="weight" value="4500" />
 		<attribute key="defense" value="35" />
-		<attribute key="attack" value="50" />
+		<attribute key="attack" value="49" />
 		<attribute key="weaponType" value="sword" />
 		<attribute key="loottype" value="sword" />
-		<attribute key="extradef" value="3" />
+		<attribute key="extradef" value="2" />
 		<attribute key="skillSword" value="1" />
 		<attribute key="imbuingSlots" value="1" />
 	</item>
@@ -39444,7 +39444,7 @@
 		<attribute key="loottype" value="wand" />
 		<attribute key="shootType" value="death" />
 		<attribute key="range" value="4" />
-		<attribute key="magiclevelpoints" value="2" />
+		<attribute key="magiclevelpoints" value="1" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="29006" article="a" name="single human eye">
@@ -41527,11 +41527,11 @@
 		<attribute key="attack" value="50" />
 		<attribute key="weaponType" value="sword" />
 		<attribute key="loottype" value="sword" />
-		<attribute key="imbuingSlots" value="3" />
+		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="30685" article="a" name="slayer of destruction">
 		<attribute key="weight" value="7000" />
-		<attribute key="defense" value="32" />
+		<attribute key="defense" value="30" />
 		<attribute key="attack" value="52" />
 		<attribute key="weaponType" value="sword" />
 		<attribute key="loottype" value="sword" />
@@ -41544,11 +41544,11 @@
 		<attribute key="attack" value="51" />
 		<attribute key="weaponType" value="axe" />
 		<attribute key="loottype" value="axe" />
-		<attribute key="imbuingSlots" value="3" />
+		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="30687" article="a" name="chopper of destruction">
 		<attribute key="weight" value="7000" />
-		<attribute key="defense" value="32" />
+		<attribute key="defense" value="30" />
 		<attribute key="attack" value="52" />
 		<attribute key="weaponType" value="axe" />
 		<attribute key="loottype" value="axe" />
@@ -41557,15 +41557,15 @@
 	</item>
 	<item id="30688" article="a" name="mace of destruction">
 		<attribute key="weight" value="5000" />
-		<attribute key="defense" value="30" />
+		<attribute key="defense" value="32" />
 		<attribute key="attack" value="50" />
 		<attribute key="weaponType" value="club" />
 		<attribute key="loottype" value="club" />
-		<attribute key="imbuingSlots" value="3" />
+		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="30689" article="a" name="hammer of destruction">
 		<attribute key="weight" value="7000" />
-		<attribute key="defense" value="30" />
+		<attribute key="defense" value="29" />
 		<attribute key="attack" value="53" />
 		<attribute key="weaponType" value="club" />
 		<attribute key="loottype" value="club" />
@@ -41573,12 +41573,12 @@
 		<attribute key="imbuingSlots" value="3" />
 	</item>
 	<item id="30690" article="a" name="bow of destruction">
-		<attribute key="weight" value="6500" />
+		<attribute key="weight" value="5500" />
 		<attribute key="weaponType" value="distance" />
 		<attribute key="loottype" value="distance" />
 		<attribute key="slotType" value="two-handed" />
-		<attribute key="attack" value="6" />
-		<attribute key="HitChance" value="6" />
+		<attribute key="attack" value="5" />
+		<attribute key="HitChance" value="5" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="range" value="6" />
 		<attribute key="imbuingSlots" value="3" />
@@ -41589,7 +41589,7 @@
 		<attribute key="loottype" value="distance" />
 		<attribute key="slotType" value="two-handed" />
 		<attribute key="attack" value="6" />
-		<attribute key="HitChance" value="6" />
+		<attribute key="HitChance" value="5" />
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="range" value="5" />
 		<attribute key="imbuingSlots" value="3" />
@@ -41600,7 +41600,7 @@
 		<attribute key="loottype" value="wand" />
 		<attribute key="shootType" value="energy" />
 		<attribute key="range" value="4" />
-		<attribute key="magiclevelpoints" value="2" />
+		<attribute key="magiclevelpoints" value="1" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="30693" article="a" name="rod of destruction">
@@ -41609,7 +41609,7 @@
 		<attribute key="loottype" value="wand" />
 		<attribute key="shootType" value="ice" />
 		<attribute key="range" value="4" />
-		<attribute key="magiclevelpoints" value="2" />
+		<attribute key="magiclevelpoints" value="1" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<!-- grimvale quest -->
@@ -42104,8 +42104,8 @@
 		<attribute key="loottype" value="sword" />
 		<attribute key="attack" value="10" />
 		<attribute key="elementEnergy" value="42" />
-		<attribute key="defense" value="35" />
-		<attribute key="skillSword" value="3" />
+		<attribute key="defense" value="29" />
+		<attribute key="skillSword" value="2" />
 		<attribute key="extradef" value="3" />
 		<attribute key="absorbPercentEnergy" value="6" />
 		<attribute key="imbuingSlots" value="2" />
@@ -43256,9 +43256,11 @@
 		<attribute key="loottype" value="wand" />
 		<attribute key="range" value="5" />
 		<attribute key="shootType" value="smallice" />
-		<attribute key="magiclevelpoints" value="3" />
+		<attribute key="magiclevelpoints" value="2" />
 		<attribute key="absorbPercentHoly" value="8" />
 		<attribute key="weight" value="3300" />
+		<attribute key="skillcriticalchance" value="10" />
+		<attribute key="skillcriticaldamage" value="25" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="32526" article="a" name="rotten demonbone">
@@ -44663,8 +44665,8 @@
 		<attribute key="loottype" value="distance" />
 		<attribute key="slotType" value="two-handed" />
 		<attribute key="range" value="6" />
-		<attribute key="attack" value="6" />
-		<attribute key="HitChance" value="4" />
+		<attribute key="attack" value="5" />
+		<attribute key="HitChance" value="5" />
 		<attribute key="skillDist" value="1" />
 		<attribute key="absorbPercentEarth" value="4" />
 		<attribute key="ammoType" value="arrow" />
@@ -44684,9 +44686,9 @@
 		<attribute key="weight" value="8900" />
 		<attribute key="weaponType" value="club" />
 		<attribute key="loottype" value="club" />
-		<attribute key="attack" value="13" />
-		<attribute key="elementIce" value="39" />
-		<attribute key="defense" value="40" />
+		<attribute key="attack" value="11" />
+		<attribute key="elementIce" value="46" />
+		<attribute key="defense" value="33" />
 		<attribute key="skillClub" value="2" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
@@ -44705,9 +44707,9 @@
 		<attribute key="weaponType" value="sword" />
 		<attribute key="loottype" value="sword" />
 		<attribute key="attack" value="10" />
-		<attribute key="elementFire" value="42" />
+		<attribute key="elementFire" value="41" />
 		<attribute key="defense" value="20" />
-		<attribute key="extradef" value="4" />
+		<attribute key="extradef" value="3" />
 		<attribute key="skillSword" value="1" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
@@ -44718,7 +44720,7 @@
 		<attribute key="attack" value="10" />
 		<attribute key="elementIce" value="41" />
 		<attribute key="defense" value="22" />
-		<attribute key="extradef" value="4" />
+		<attribute key="extradef" value="3" />
 		<attribute key="skillSword" value="1" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
@@ -44743,7 +44745,7 @@
 	<item id="34063" article="an" name="energized limb">
 		<attribute key="weaponType" value="wand" />
 		<attribute key="loottype" value="wand" />
-		<attribute key="range" value="4" />
+		<attribute key="range" value="5" />
 		<attribute key="shootType" value="fire" />
 		<attribute key="magiclevelpoints" value="2" />
 		<attribute key="absorbPercentEnergy" value="10" />
@@ -47908,9 +47910,9 @@
 		<attribute key="weaponType" value="sword" />
 		<attribute key="loottype" value="sword" />
 		<attribute key="attack" value="7" />
-		<attribute key="elementEarth" value="46" />
-		<attribute key="defense" value="34" />
-		<attribute key="skillSword" value="2" />
+		<attribute key="elementEarth" value="49" />
+		<attribute key="defense" value="32" />
+		<attribute key="skillSword" value="3" />
 		<attribute key="slotType" value="two-handed" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
@@ -49224,13 +49226,13 @@
 	<item id="37450" article="a" name="unknow item" />
 	<item id="37451" article="a" name="phantasmal axe">
 		<attribute key="weight" value="7200" />
-		<attribute key="defense" value="30" />
+		<attribute key="defense" value="32" />
 		<attribute key="attack" value="5" />
 		<attribute key="elementFire" value="49" />
 		<attribute key="weaponType" value="axe" />
 		<attribute key="loottype" value="axe" />
 		<attribute key="slotType" value="two-handed" />
-		<attribute key="skillAxe" value="1" />
+		<attribute key="skillAxe" value="2" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="37452" article="a" name="fabulous legs">
