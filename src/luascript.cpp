@@ -668,8 +668,7 @@ int32_t LuaScriptInterface::luaDoSaveHouse(lua_State* L) {
     // doSaveHouse(houseID)
 	uint32_t playerid = getNumber<uint32_t>(L, 1);
 
-    if (!IOMapSerialize::saveHouseItemsId(playerid))
-    {
+    if (!IOMapSerialize::saveHouseItemsId(playerid)) {
 		std::stringstream s;
 		s << "Unable to save house information, ID: " << playerid;
 		reportErrorFunc(s.str());
@@ -1001,7 +1000,7 @@ void LuaScriptInterface::pushLoot(lua_State* L, const std::vector<LootBlock>& lo
 
 void LuaScriptInterface::registerFunctions()
 {
-	//doSaveHouse({list})
+	// doSaveHouse({list})
 	lua_register(luaState, "doSaveHouse", LuaScriptInterface::luaDoSaveHouse);
 
 	//doPlayerAddItem(uid, itemid, <optional: default: 1> count/subtype)
