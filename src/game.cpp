@@ -5337,7 +5337,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 
 		if (realHealthChange > 0 && !target->isInGhostMode()) {
 			if (targetPlayer) {
-				targetPlayer->updateImpactTracker(true, realHealthChange);
+				targetPlayer->updateImpactTracker(COMBAT_HEALING, realHealthChange);
 			}
 			std::stringstream ss;
 
@@ -5556,7 +5556,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		if (realDamage > 0) {
 			if (Monster* targetMonster = target->getMonster()) {
 				if (attackerPlayer && attackerPlayer->getPlayer()) {
-					attackerPlayer->updateImpactTracker(damage.secondary.type, damage.secondary.value, "");
+					attackerPlayer->updateImpactTracker(damage.secondary.type, damage.secondary.value);
 				}
 
 				if (targetMonster->israndomStepping()) {
@@ -5625,19 +5625,19 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 
 		if (message.primary.color != TEXTCOLOR_NONE || message.secondary.color != TEXTCOLOR_NONE) {
 			if (attackerPlayer) {
-				attackerPlayer->updateImpactTracker(damage.primary.type, damage.primary.value, "");
+				attackerPlayer->updateImpactTracker(damage.primary.type, damage.primary.value);
 				if (damage.secondary.type != COMBAT_NONE) {
-					attackerPlayer->updateImpactTracker(damage.secondary.type, damage.secondary.value, "");
+					attackerPlayer->updateImpactTracker(damage.secondary.type, damage.secondary.value);
 				}
 			}
 			if (targetPlayer) {
-				std::string cause = "field item";  // I don't have access to test server so it might be called something else
+				std::string cause = "(other)";
 				if (attacker) {
 					cause = attacker->getName();
 				}
-				targetPlayer->updateImpactTracker(damage.primary.type, damage.primary.value, cause);
+				targetPlayer->updateInputAnalyzer(damage.primary.type, damage.primary.value, cause);
 				if (damage.secondary.type != COMBAT_NONE) {
-					attackerPlayer->updateImpactTracker(damage.secondary.type, damage.secondary.value, cause);
+					attackerPlayer->updateInputAnalyzer(damage.secondary.type, damage.secondary.value, cause);
 				}
 			}
 			std::stringstream ss;

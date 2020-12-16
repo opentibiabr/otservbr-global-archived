@@ -789,6 +789,12 @@ enum MagicEffectsType_t : uint8_t {
   MAGIC_EFFECTS_CREATE_DISTANCEEFFECT_REVERSED = 5,//needs uint8_t and deltaX(int8_t), deltaY(int8_t) after type
 };
 
+enum ImpactAnalyzerAndTracker_t : uint8_t {
+	ANALYZER_HEAL = 0,
+	ANALYZER_DAMAGE_DEALT = 1,
+	ANALYZER_DAMAGE_RECEIVED = 2
+};
+
 enum InspectObjectTypes : uint8_t {
 	INSPECT_NORMALOBJECT = 0,
 	INSPECT_NPCTRADE = 1,

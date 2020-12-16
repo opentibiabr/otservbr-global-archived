@@ -4672,23 +4672,27 @@ void ProtocolGame::sendUpdateSupplyTracker(const Item* item)
  	writeToOutputBuffer(msg);
  }
 
-void ProtocolGame::sendUpdateImpactTracker(bool healing, int32_t impact) {
+void ProtocolGame::sendUpdateImpactTracker(CombatType_t type, int32_t amount) {
 	NetworkMessage msg;
 	msg.addByte(0xCC);
-	msg.addByte(healing ? 0x00 : 0x01);
-	msg.add<uint32_t>(impact);
+	if (type == COMBAT_HEALING) {
+		msg.addByte(ANALYZER_HEAL);
+		msg.add<uint32_t>(amount);
+	} else {
+		msg.addByte(ANALYZER_DAMAGE_DEALT);
+		msg.add<uint32_t>(amount);
+		msg.addByte(getCipbiaElement(type));
+	}
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendUpdateImpactTracker(CombatType_t combatType, int32_t impact, const std::string& cause) {
+void ProtocolGame::sendUpdateInputAnalyzer(CombatType_t type, int32_t amount, std::string target) {
 	NetworkMessage msg;
 	msg.addByte(0xCC);
-	msg.addByte(cause.empty() ? 0x01 : 0x02);
-	msg.add<uint32_t>(impact);
-	msg.addByte(getCipbiaElement(combatType));
-	if (!cause.empty()) {
-		msg.addString(cause);
-	}
+	msg.addByte(ANALYZER_DAMAGE_RECEIVED);
+	msg.add<uint32_t>(amount);
+	msg.addByte(getCipbiaElement(type));
+	msg.addString(target);
 	writeToOutputBuffer(msg);
 }
 
