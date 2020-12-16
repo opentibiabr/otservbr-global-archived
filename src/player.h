@@ -1599,6 +1599,12 @@ class Player final : public Creature, public Cylinder
  			}
  		}
 
+		void updateImpactTracker(bool healing, int32_t impact) {
+			if (client) {
+				client->sendUpdateImpactTracker(healing, impact);
+			}
+		}
+
 		void updateImpactTracker(CombatType_t combatType, int32_t impact, const std::string& cause) {
 			if (client) {
 				client->sendUpdateImpactTracker(combatType, impact, cause);

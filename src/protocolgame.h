@@ -358,6 +358,7 @@ class ProtocolGame final : public Protocol
 		//analyzers
 		void sendKillTrackerUpdate(Container* corpse, const std::string& name, const Outfit_t creatureOutfit);
 		void sendUpdateSupplyTracker(const Item* item);
+		void sendUpdateImpactTracker(bool healing, int32_t impact);
 		void sendUpdateImpactTracker(CombatType_t combatType, int32_t impact, const std::string& cause);
 		void sendUpdateLootTracker(Item* item);
 		
