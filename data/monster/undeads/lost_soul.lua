@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 283
+monster.Bestiary = {
+	class = "Undead",
+	race = BESTY_RACE_UNDEAD,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Pits of Inferno, Formorgar Mines, Helheim, \z
+		Roshamuul Prison and in The Arcanum (Part of the Inquisition quest)."
+		}
+
 monster.health = 5800
 monster.maxHealth = 5800
 monster.race = "undead"

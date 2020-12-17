@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 112
+monster.Bestiary = {
+	class = "Aquatic",
+	race = BESTY_RACE_AQUATIC,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "Various locations like Goroma, Edron, Port Hope, Nargor and other Shattered Isles. \z
+		There is also one located underwater by The Tibianic, however it is unreachable."
+		}
+
 monster.health = 55
 monster.maxHealth = 55
 monster.race = "undead"

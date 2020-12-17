@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 120
+monster.Bestiary = {
+	class = "Plant",
+	race = BESTY_RACE_PLANT,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Deep inside the Tiquanda Jungle including Tiquanda Laboratory and a small cave, \z
+		Forbidden Lands, Deeper Banuta, Arena and Zoo quarter in Yalahar."
+		}
+
 monster.health = 255
 monster.maxHealth = 255
 monster.race = "venom"

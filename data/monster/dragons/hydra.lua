@@ -13,6 +13,24 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 121
+monster.Bestiary = {
+	class = "Dragon",
+	race = BESTY_RACE_DRAGON,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Many on the northern Hydra Mountain in east Tiquanda, 3-4 on the southern Hydra Mountain, \z
+		1 at the Hydra Egg Quest in Tiquanda, 1 north-east of the Elephant Tusk Quest, \z
+		2 above the Forbidden Lands hydra cave here and many inside it, many in Deeper Banuta, \z
+		many on Talahu surface, a few in Ferumbras Citadel basement on Kharos, \z
+		2 on a hill in the Yalahar Arena and Zoo Quarter, 1 deep in the Yalahar Foreigner Quarter (Crystal Lake), \z
+		many in the Oramond Hydra/Bog Raider Cave."
+		}
+
 monster.health = 2350
 monster.maxHealth = 2350
 monster.race = "blood"

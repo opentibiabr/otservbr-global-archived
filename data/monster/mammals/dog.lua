@@ -13,6 +13,21 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 32
+monster.Bestiary = {
+	class = "Mammal",
+	race = BESTY_RACE_MAMMAL,
+	toKill = 25,
+	FirstUnlock = 5,
+	SecondUnlock = 10,
+	CharmsPoints = 1,
+	Stars = 0,
+	Occurrence = 0,
+	Locations = "Isle of the Kings, North of the Thais temple, Lubos house, west of Carlin (with sheep), \z
+		Edron north of castle and one south towards Ivory Towers, Liberty Bay (Silverhand Manor), \z
+		Mintwallin central park and on the way to the old Mintwallin area, Factory Quarter (Yalahar)."
+		}
+
 monster.health = 20
 monster.maxHealth = 20
 monster.race = "blood"

@@ -93,6 +93,10 @@ monster.elements = {
 	{type = COMBAT_DEATHDAMAGE , percent = 1}
 }
 
+monster.heals = {
+	{type = COMBAT_DEATHDAMAGE , percent = 100}
+}
+
 monster.immunities = {
 	{type = "paralyze", condition = true},
 	{type = "outfit", condition = false},

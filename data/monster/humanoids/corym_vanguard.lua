@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 918
+monster.Bestiary = {
+	class = "Humanoid",
+	race = BESTY_RACE_HUMANOID,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Venore Corym Cave, Tiquanda Corym Cave, Corym Black Market, \z
+		Carlin Corym Cave/Dwarf Mines Diggers Depths Mine, Upper Spike."
+		}
+
 monster.health = 700
 monster.maxHealth = 700
 monster.race = "blood"
