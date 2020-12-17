@@ -4209,8 +4209,7 @@ void Player::addFamiliar(uint16_t lookType) {
 	familiars.emplace_back(lookType);
 }
 
-bool Player::removeFamiliar(uint16_t lookType)
-{
+bool Player::removeFamiliar(uint16_t lookType) {
 	for (auto it = familiars.begin(), end = familiars.end(); it != end; ++it) {
 		FamiliarEntry& entry = *it;
 		if (entry.lookType == lookType) {

@@ -2636,7 +2636,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "addMount", LuaScriptInterface::luaPlayerAddMount);
 	registerMethod("Player", "removeMount", LuaScriptInterface::luaPlayerRemoveMount);
 	registerMethod("Player", "hasMount", LuaScriptInterface::luaPlayerHasMount);
-	
+
 	registerMethod("Player", "addFamiliar", LuaScriptInterface::luaPlayerAddFamiliar);
 	registerMethod("Player", "removeFamiliar", LuaScriptInterface::luaPlayerRemoveFamiliar);
 	registerMethod("Player", "hasFamiliar", LuaScriptInterface::luaPlayerHasFamiliar);
@@ -10758,8 +10758,7 @@ int LuaScriptInterface::luaPlayerAddFamiliar(lua_State* L) {
 	return 1;
 }
 
-int LuaScriptInterface::luaPlayerRemoveFamiliar(lua_State* L)
-{
+int LuaScriptInterface::luaPlayerRemoveFamiliar(lua_State* L) {
 	// player:removeFamiliar(lookType)
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
