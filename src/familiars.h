@@ -17,42 +17,48 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_MOUNTS_H_73716D11906A4C5C9F4A7B68D34C9BA6
-#define FS_MOUNTS_H_73716D11906A4C5C9F4A7B68D34C9BA6
+#ifndef SRC_FAMILIARS_H_
+#define SRC_FAMILIARS_H_
 
 #include <utility>
+#include <vector>
 #include <string>
 
-struct Mount
-{
-	Mount(uint8_t initId, uint16_t initClientId, std::string initName, int32_t initSpeed, bool initPremium,
-																							std::string initType) :
-		name(initName), speed(initSpeed), clientId(initClientId), id(initId), premium(initPremium),
+#include "enums.h"
+
+struct Familiar {
+	Familiar(std::string initName, uint16_t initLookType, bool initPremium, bool initUnlocked, std::string initType) :
+		name(initName), lookType(initLookType), premium(initPremium), unlocked(initUnlocked),
 		type(initType) {}
 
 	std::string name;
-	int32_t speed;
-	uint16_t clientId;
-	uint8_t id;
+	uint16_t lookType;
 	bool premium;
+	bool unlocked;
 	std::string type;
 };
 
-class Mounts
-{
-	public:
-		bool reload();
-		bool loadFromXml();
-		Mount* getMountByID(uint8_t id);
-		Mount* getMountByName(const std::string& name);
-		Mount* getMountByClientID(uint16_t clientId);
+struct ProtocolFamiliars {
+	ProtocolFamiliars(const std::string& initName, uint16_t initLookType) :
+		name(initName), lookType(initLookType) {}
 
-		const std::vector<Mount>& getMounts() const {
-			return mounts;
-		}
-
-	private:
-		std::vector<Mount> mounts;
+	const std::string& name;
+	uint16_t lookType;
 };
 
-#endif
+class Familiars {
+	public:
+		static Familiars& getInstance() {
+			static Familiars instance;
+			return instance;
+		}
+		bool loadFromXml();
+		const std::vector<Familiar>& getFamiliars(uint16_t vocation) const {
+			return familiars[vocation];
+		}
+		const Familiar* getFamiliarByLookType(uint16_t vocation, uint16_t lookType) const;
+	private:
+		std::vector<Familiar> familiars[VOCATION_LAST + 1];
+};
+
+#endif  // SRC_FAMILIARS_H_
