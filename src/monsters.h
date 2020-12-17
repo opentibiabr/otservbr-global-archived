@@ -123,6 +123,8 @@ class MonsterType
 		LuaScriptInterface* scriptInterface;
 
 		std::map<CombatType_t, int32_t> elementMap;
+		std::map<CombatType_t, int32_t> reflectMap;
+		std::map<CombatType_t, int32_t> healingMap;
 
 		std::vector<voiceBlock_t> voiceVector;
 
@@ -151,6 +153,18 @@ class MonsterType
 		uint32_t conditionImmunities = 0;
 		uint32_t damageImmunities = 0;
 		uint32_t baseSpeed = 200;
+
+		// Bestiary
+		uint8_t bestiaryOccurrence = 0;
+		uint8_t bestiaryStars = 0;
+		uint16_t bestiaryToUnlock = 0;
+		uint16_t bestiaryFirstUnlock = 0;
+		uint16_t bestiarySecondUnlock = 0;
+		uint16_t bestiaryCharmsPoints = 0;
+		uint16_t raceid = 0;
+		std::string bestiaryLocations;
+		std::string bestiaryClass; // String (addString)
+		BestiaryType_t bestiaryRace = BESTY_RACE_NONE; // Number (addByte)
 
 		int32_t creatureAppearEvent = -1;
 		int32_t creatureDisappearEvent = -1;
@@ -268,6 +282,7 @@ class Monsters
 		bool reload();
 
 		MonsterType* getMonsterType(const std::string& name);
+		MonsterType* getMonsterTypeByRaceId(uint16_t thisrace);
 		void addMonsterType(const std::string& name, MonsterType* mType);
 		bool deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std::string& description = "");
 
