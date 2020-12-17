@@ -102,7 +102,7 @@ local random_noob_items = {
         end
 
          
-         if player:getStorageValue(123) <= os.time() then
+         if player:getStorageValue(PRESENT_STORAGE) <= os.time() then
              player:addItem(reward.itemid, reward.subType)
              npcHandler:say("HO HO HO! You were good like a little dwarf this year!", cid)
              npcHandler:resetNpc()
