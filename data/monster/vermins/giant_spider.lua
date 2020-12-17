@@ -13,6 +13,28 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 38
+monster.Bestiary = {
+	class = "Vermin",
+	race = BESTY_RACE_VERMIN,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Plains of Havoc, Point of no Return in Outlaw Camp, Ghostlands, Hellgate, \z
+		Mintwallin Secret Laboratory, Mad Mage Room deep below Ancient Temple, \z
+		Mount Sternum Undead Cave, Green Claw Swamp, Maze of Lost Souls, \z
+		Crusader Helmet Quest in the Dwarf Mines, Mushroom Gardens, \z
+		west drillworm cave, Edron Hero Cave, Edron Orc Cave, \z
+		on a hill near Drefia, on a hill north-west of Ankrahmun (inaccessible), \z
+		Forbidden Lands, Deeper Banuta, Malada, Ramoa, Arena and Zoo Quarter, \z
+		second floor up of Cemetery Quarter, beneath Fenrock, Vengoth Castle, \z
+		Vandura Mountain, in a cave in Robson Isle, Chyllfroest, Spider Caves, \z
+		Second floor of Krailos Spider Lair , Caverna Exanima."
+		}
+
 monster.health = 1300
 monster.maxHealth = 1300
 monster.race = "venom"

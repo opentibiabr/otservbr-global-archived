@@ -104,6 +104,22 @@ bool Monster::canWalkOnFieldType(CombatType_t combatType) const
 	}
 }
 
+uint32_t Monster::getReflectValue(CombatType_t reflectType) const {
+	auto it = mType->info.reflectMap.find(reflectType);
+	if (it != mType->info.reflectMap.end()) {
+		return it->second;
+	}
+	return 0;
+}
+
+uint32_t Monster::getHealingCombatValue(CombatType_t healingType) const {
+	auto it = mType->info.healingMap.find(healingType);
+	if (it != mType->info.healingMap.end()) {
+		return it->second;
+	}
+	return 0;
+}
+
 void Monster::onAttackedCreatureDisappear(bool)
 {
 	attackTicks = 0;

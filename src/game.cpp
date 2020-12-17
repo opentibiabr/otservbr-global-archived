@@ -83,6 +83,55 @@ Game::~Game()
 	}
 }
 
+void Game::loadBoostedCreature()
+{
+	Database& db = Database::getInstance();
+	std::ostringstream query;
+	query << "SELECT * FROM `boosted_creature`";
+	DBResult_ptr result = db.storeQuery(query.str());
+
+	if (!result) {
+		std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database. (CODE 01)" << std::endl;
+		return;
+	}
+
+	uint16_t date = result->getNumber<uint16_t>("date");
+	std::string name = "";
+	time_t now = time(0);
+	tm *ltm = localtime(&now);
+	uint8_t today = ltm->tm_mday;
+	if (date == today) {
+		name = result->getString("boostname");
+	} else {
+		uint16_t oldrace = result->getNumber<uint16_t>("raceid");
+		std::map<uint16_t, std::string> monsterlist = getBestiaryList();
+		uint16_t newrace = 0;
+		uint8_t k = 1;
+		while (newrace == 0 || newrace == oldrace) {
+			uint16_t random = normal_random(0, monsterlist.size());
+			for (auto it : monsterlist) {
+				if (k == random) {
+					newrace = it.first;
+					name = it.second;	
+				}
+				k++;
+			}
+		}
+		query.str(std::string());
+		query << "UPDATE `boosted_creature` SET ";
+		query << "`date` = '" << ltm->tm_mday << "',";
+		query << "`boostname` = '" << name << "',";
+		query << "`raceid` = '" << newrace << "'";
+
+		if (!db.executeQuery(query.str())) {
+			std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database. (CODE 02)" << std::endl;
+			return;
+		}
+	}
+	setBoostedName(name);
+	std::cout << ">> Boosted creature: " << name << std::endl;
+}
+
 void Game::start(ServiceManager* manager)
 {
 	serviceManager = manager;
@@ -5180,9 +5229,35 @@ bool Game::combatBlockHit(CombatDamage& damage, Creature* attacker, Creature* ta
 		}
 	};
 
+	bool canHeal = false;
+		CombatDamage damageHeal;
+		damageHeal.primary.type = COMBAT_HEALING;
+
+	bool canReflect = false;
+		CombatDamage damageReflected;
+
 	BlockType_t primaryBlockType, secondaryBlockType;
 	if (damage.primary.type != COMBAT_NONE) {
+		// Damage reflection primary
+		if (attacker && target->getMonster()) {
+			uint32_t primaryReflect = target->getMonster()->getReflectValue(damage.primary.type);
+			if (primaryReflect > 0) {
+				damageReflected.primary.type = damage.primary.type;
+				damageReflected.primary.value = std::ceil((damage.primary.value) * (primaryReflect / 100.));
+				damageReflected.extension = true;
+				damageReflected.exString = "[Reflection]";
+				canReflect = true;
+			}
+		}
 		damage.primary.value = -damage.primary.value;
+		// Damage healing primary
+		if (attacker && target->getMonster()) {
+			uint32_t primaryHealing = target->getMonster()->getHealingCombatValue(damage.primary.type);
+			if (primaryHealing > 0) {
+				damageHeal.primary.value = std::ceil((damage.primary.value) * (primaryHealing / 100.));
+				canHeal = true;
+			}
+		}
 		primaryBlockType = target->blockHit(attacker, damage.primary.type, damage.primary.value, checkDefense, checkArmor, field);
 
 		damage.primary.value = -damage.primary.value;
@@ -5192,13 +5267,38 @@ bool Game::combatBlockHit(CombatDamage& damage, Creature* attacker, Creature* ta
 	}
 
 	if (damage.secondary.type != COMBAT_NONE) {
+		// Damage reflection secondary
+		if (attacker && target->getMonster()) {
+			uint32_t secondaryReflect = target->getMonster()->getReflectValue(damage.secondary.type);
+			if (secondaryReflect > 0) {
+				damageReflected.secondary.type = damage.secondary.type;
+				damageReflected.secondary.value = std::ceil((damage.secondary.value) * (secondaryReflect / 100.));
+				damageReflected.extension = true;
+				damageReflected.exString = "[Reflection]";
+				canReflect = true;
+			}
+		}
 		damage.secondary.value = -damage.secondary.value;
+		// Damage healing secondary
+		if (attacker && target->getMonster()) {
+			uint32_t secondaryHealing = target->getMonster()->getHealingCombatValue(damage.secondary.type);
+			if (secondaryHealing > 0) {;
+				damageHeal.primary.value += std::ceil((damage.secondary.value) * (secondaryHealing / 100.));
+				canHeal = true;
+			}
+		}
 		secondaryBlockType = target->blockHit(attacker, damage.secondary.type, damage.secondary.value, false, false, field);
 
 		damage.secondary.value = -damage.secondary.value;
 		sendBlockEffect(secondaryBlockType, damage.secondary.type, target->getPosition());
 	} else {
 		secondaryBlockType = BLOCK_NONE;
+	}
+	if (canReflect) {
+		combatChangeHealth(target, attacker, damageReflected, false);
+	}
+	if (canHeal) {
+		combatChangeHealth(nullptr, target, damageHeal);
 	}
 	return (primaryBlockType != BLOCK_NONE) && (secondaryBlockType != BLOCK_NONE);
 }
@@ -5299,7 +5399,7 @@ void Game::combatGetTypeInfo(CombatType_t combatType, Creature* target, TextColo
 	}
 }
 
-bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage& damage, bool isEvent)
+bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage& damage, bool isEvent /*= false*/)
 {
 	using namespace std;
 	const Position& targetPos = target->getPosition();
@@ -5433,6 +5533,23 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 
 		if (damage.critical) {
 			addMagicEffect(spectators, targetPos, CONST_ME_CRITICAL_DAMAGE);
+		}
+
+		if (!damage.extension && attacker && attacker->getMonster() && targetPlayer) {
+			// Charm rune (target as player)
+			MonsterType* mType = g_monsters.getMonsterType(attacker->getName());
+			if (mType) {
+				IOBestiary g_bestiary;
+				charmRune_t activeCharm = g_bestiary.getCharmFromTarget(targetPlayer, mType);
+				if (activeCharm != CHARM_NONE && activeCharm != CHARM_CLEANSE) {
+					Charm* charm = g_bestiary.getBestiaryCharm(activeCharm);
+					if (charm && charm->type == CHARM_DEFENSIVE &&(charm->chance > normal_random(0, 100))) {
+						if (g_bestiary.parseCharmCombat(charm, targetPlayer, attacker, (damage.primary.value + damage.secondary.value))) {
+							return false; // Dodge charm
+						}
+					}
+				}
+			}
 		}
 
 		if (target->hasCondition(CONDITION_MANASHIELD) && damage.primary.type != COMBAT_UNDEFINEDDAMAGE) {
@@ -5572,6 +5689,20 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 			uint16_t lifeChance = attackerPlayer->getSkillLevel(SKILL_LIFE_LEECH_CHANCE);
       		uint16_t lifeSkill = attackerPlayer->getSkillLevel(SKILL_LIFE_LEECH_AMOUNT);
 			if (normal_random(0, 100) < lifeChance) {
+				// Vampiric charm rune
+				if (target && target->getMonster()) {
+					uint16_t playerCharmRaceidVamp = attackerPlayer->parseRacebyCharm(CHARM_VAMP, false, 0);
+					if (playerCharmRaceidVamp != 0) {
+						MonsterType* mType = g_monsters.getMonsterType(target->getName());
+						if (mType && playerCharmRaceidVamp == mType->info.raceid) {
+							IOBestiary g_bestiary;
+							Charm* lifec = g_bestiary.getBestiaryCharm(CHARM_VAMP);
+							if (lifec) {
+								lifeSkill += lifec->percent;
+							}
+						}
+					}
+				}
 				CombatParams tmpParams;
 				CombatDamage tmpDamage;
 
@@ -5587,6 +5718,20 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 			uint16_t manaChance = attackerPlayer->getSkillLevel(SKILL_MANA_LEECH_CHANCE);
       		uint16_t manaSkill = attackerPlayer->getSkillLevel(SKILL_MANA_LEECH_AMOUNT);
 			if (normal_random(0, 100) < manaChance) {
+				// Void charm rune
+				if (target && target->getMonster()) {
+					uint16_t playerCharmRaceidVoid = attackerPlayer->parseRacebyCharm(CHARM_VOID, false, 0);
+					if (playerCharmRaceidVoid != 0) {
+						MonsterType* mType = g_monsters.getMonsterType(target->getName());
+						if (mType && playerCharmRaceidVoid == mType->info.raceid) {
+							IOBestiary g_bestiary;
+							Charm* voidc = g_bestiary.getBestiaryCharm(CHARM_VOID);
+							if (voidc) {
+								manaSkill += voidc->percent;
+							}
+						}
+					}
+				}
 				CombatParams tmpParams;
 				CombatDamage tmpDamage;
 
@@ -5596,6 +5741,21 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				tmpDamage.primary.value = std::round(realDamage * (manaSkill / 100.) * (0.1 * affected + 0.9)) / affected;
 
 				Combat::doCombatMana(nullptr, attackerPlayer, tmpDamage, tmpParams);
+			}
+
+			//Charm rune (attacker as player)
+			if (!damage.extension && target && target->getMonster()) {
+				MonsterType* mType = g_monsters.getMonsterType(target->getName());
+				if (mType) {
+					IOBestiary g_bestiary;
+					charmRune_t activeCharm = g_bestiary.getCharmFromTarget(attackerPlayer, mType);
+					if (activeCharm != CHARM_NONE) {
+						Charm* charm = g_bestiary.getBestiaryCharm(activeCharm);
+						if (charm && charm->type == CHARM_OFFENSIVE && (charm->chance >= normal_random(0, 100))) {
+							g_bestiary.parseCharmCombat(charm, attackerPlayer, target, realDamage);
+						}
+					}
+				}
 			}
 		}
 
@@ -5640,6 +5800,9 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				if (tmpPlayer == attackerPlayer && attackerPlayer != targetPlayer) {
 					ss.str({});
 					ss << ucfirst(target->getNameDescription()) << " loses " << damageString << " due to your attack.";
+					if (damage.extension) {
+						ss << " " << damage.exString;
+					}
 					message.type = MESSAGE_DAMAGE_DEALT;
 					message.text = ss.str();
 				} else if (tmpPlayer == targetPlayer) {
@@ -5651,6 +5814,9 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 						ss << " due to your own attack.";
 					} else {
 						ss << " due to an attack by " << attacker->getNameDescription() << '.';
+					}
+					if (damage.extension) {
+						ss << " " << damage.exString;
 					}
 					message.type = MESSAGE_DAMAGE_RECEIVED;
 					message.text = ss.str();
@@ -5673,6 +5839,9 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 							}
 						}
 						ss << '.';
+						if (damage.extension) {
+							ss << " " << damage.exString;
+						}
 						spectatorMessage = ss.str();
 					}
 
@@ -5803,6 +5972,23 @@ bool Game::combatChangeMana(Creature* attacker, Creature* target, CombatDamage& 
 				}
 				damage.origin = ORIGIN_NONE;
 				return combatChangeMana(attacker, target, damage);
+			}
+		}
+
+		if (targetPlayer && attacker && attacker->getMonster()) {
+			//Charm rune (target as player)
+			MonsterType* mType = g_monsters.getMonsterType(attacker->getName());
+			if (mType) {
+				IOBestiary g_bestiary;
+				charmRune_t activeCharm = g_bestiary.getCharmFromTarget(targetPlayer, mType);
+				if (activeCharm != CHARM_NONE && activeCharm != CHARM_CLEANSE) {
+					Charm* charm = g_bestiary.getBestiaryCharm(activeCharm);
+					if (charm && charm->type == CHARM_DEFENSIVE && (charm->chance > normal_random(0, 100))) {
+						if (g_bestiary.parseCharmCombat(charm, targetPlayer, attacker, manaChange)) {
+							return false; // Dodge charm
+						}
+					}
+				}
 			}
 		}
 
@@ -6231,6 +6417,15 @@ void Game::ReleaseCreature(Creature* creature)
 void Game::ReleaseItem(Item* item)
 {
 	ToReleaseItems.push_back(item);
+}
+
+void Game::addBestiaryList(uint16_t raceid, std::string name)
+{
+	auto it = BestiaryList.find(raceid);
+	if (it != BestiaryList.end()) {
+		return;
+	}
+	BestiaryList.insert(std::pair<uint16_t, std::string>(raceid, name));
 }
 
 void Game::broadcastMessage(const std::string& text, MessageClasses type) const

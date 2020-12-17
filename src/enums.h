@@ -207,6 +207,66 @@ enum RaceType_t : uint8_t {
 	RACE_ENERGY,
 };
 
+enum charmRune_t : int8_t {
+	CHARM_NONE = -1,
+	CHARM_WOUND = 0,
+	CHARM_ENFLAME = 1,
+	CHARM_POISON = 2,
+	CHARM_FREEZE = 3,
+	CHARM_ZAP = 4,
+	CHARM_CURSE = 5,
+	CHARM_CRIPPLE = 6,
+	CHARM_PARRY = 7,
+	CHARM_DODGE = 8,
+	CHARM_ADRENALINE = 9,
+	CHARM_NUMB = 10,
+	CHARM_CLEANSE = 11,
+	CHARM_BLESS = 12,
+	CHARM_SCAVENGE = 13,
+	CHARM_GUT = 14,
+	CHARM_LOW = 15,
+	CHARM_DIVINE = 16,
+	CHARM_VAMP = 17,
+	CHARM_VOID = 18,
+
+	CHARM_LAST = CHARM_VOID,
+};
+
+enum charm_t {
+	CHARM_UNDEFINED = 0,
+	CHARM_OFFENSIVE = 1,
+	CHARM_DEFENSIVE = 2,
+	CHARM_PASSIVE = 3,
+};
+
+enum BestiaryType_t : uint8_t { 
+	BESTY_RACE_NONE = 0,
+
+	BESTY_RACE_AMPHIBIC = 1,
+	BESTY_RACE_AQUATIC = 2,
+	BESTY_RACE_BIRD = 3,
+	BESTY_RACE_CONSTRUCT = 4,
+	BESTY_RACE_DEMON = 5,
+	BESTY_RACE_DRAGON = 6,
+	BESTY_RACE_ELEMENTAL = 7,
+	BESTY_RACE_EXTRA_DIMENSIONAL = 8,
+	BESTY_RACE_FEY = 9,
+	BESTY_RACE_GIANT = 10,
+	BESTY_RACE_HUMAN = 11,
+	BESTY_RACE_HUMANOID = 12,
+	BESTY_RACE_LYCANTHROPE = 13,
+	BESTY_RACE_MAGICAL = 14,
+	BESTY_RACE_MAMMAL = 15,
+	BESTY_RACE_PLANT = 16,
+	BESTY_RACE_REPTILE = 17,
+	BESTY_RACE_SLIME = 18,
+	BESTY_RACE_UNDEAD = 19,
+	BESTY_RACE_VERMIN = 20,
+
+	BESTY_RACE_FIRST = BESTY_RACE_AMPHIBIC,
+	BESTY_RACE_LAST = BESTY_RACE_VERMIN,
+};
+
 enum CombatType_t : uint16_t {
 	COMBAT_NONE = 0,
 
@@ -714,6 +774,8 @@ struct CombatDamage
 	CombatOrigin origin;
 	bool critical;
 	int affected;
+	bool extension;
+	std::string exString;
 
 	CombatDamage()
 	{
@@ -722,6 +784,8 @@ struct CombatDamage
 		primary.value = secondary.value = 0;
 		critical = false;
 		affected = 1;
+		extension = false;
+		exString = "";
 	}
 };
 

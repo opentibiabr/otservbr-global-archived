@@ -2,7 +2,7 @@ function Container.isContainer(self)
 	return true
 end
 
-function Container.createLootItem(self, item)
+function Container.createLootItem(self, item, boolCharm)
 	if self:getEmptySlots() == 0 then
 		return true
 	end
@@ -10,8 +10,17 @@ function Container.createLootItem(self, item)
 	local itemCount = 0
 	local randvalue = getLootRandom()
 	local lootBlockType = ItemType(item.itemId)
-	
-	if randvalue < item.chance then
+	local chanceTo = item.chance
+
+	if not lootBlockType then
+		return
+	end
+
+	if boolCharm and lootBlockType:getType() == ITEM_TYPE_CREATUREPRODUCT then
+		chanceTo = (chanceTo * (GLOBAL_CHARM_GUT + 100))/100
+	end
+
+	if randvalue < chanceTo then
 		if lootBlockType:isStackable() then
 			local maxc, minc = item.maxCount or 1, item.minCount or 1
 			itemCount = math.max(0, randvalue % (maxc - minc + 1)) + minc			

@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1724
+monster.Bestiary = {
+	class = "Undead",
+	race = BESTY_RACE_UNDEAD,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Haunted Cellar, Buried Cathedral."
+		}
+
 monster.health = 3800
 monster.maxHealth = 3800
 monster.race = "blood"
@@ -93,6 +106,10 @@ monster.defenses = {
 	defense = 69,
 	armor = 69,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 150, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false}
+}
+
+monster.reflects = {
+	{type = COMBAT_EARTHDAMAGE, percent = 133}
 }
 
 monster.elements = {

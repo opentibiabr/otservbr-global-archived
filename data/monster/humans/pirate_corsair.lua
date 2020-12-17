@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 250
+monster.Bestiary = {
+	class = "Human",
+	race = BESTY_RACE_HUMAN,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Nargor, Trade Quarter, Foreigner Quarter (Dock), Krailos Steppe."
+		}
+
 monster.health = 675
 monster.maxHealth = 675
 monster.race = "blood"

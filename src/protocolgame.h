@@ -131,6 +131,15 @@ class ProtocolGame final : public Protocol
 		void parseDebugAssert(NetworkMessage& msg);
 		void parseRuleViolationReport(NetworkMessage &msg);
 
+		void parseBestiarysendRaces();
+		void parseBestiarysendCreatures(NetworkMessage &msg);
+		void BestiarysendCharms();
+		void sendBestiaryEntryChanged(uint16_t raceid);
+		void refreshBestiaryTracker(std::list<MonsterType*> trackerList);
+		void parseSendBuyCharmRune(NetworkMessage &msg);
+		void parseBestiarysendMonsterData(NetworkMessage &msg);
+		void addBestiaryTrackerList(NetworkMessage &msg);
+
 		void parseTeleport(NetworkMessage& msg);
 		void parseThrow(NetworkMessage& msg);
 		void parseUseItemEx(NetworkMessage& msg);

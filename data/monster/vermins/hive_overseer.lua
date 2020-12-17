@@ -13,6 +13,22 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 801
+monster.Bestiary = {
+	class = "Vermin",
+	race = BESTY_RACE_VERMIN,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 2,
+	Locations = "The Hive towers: on the highest floor of each tower, \z
+		and in many of the closed rooms accessed with pheromones; \z
+		many in the large underground room of the west tower. \z
+		Liberty Bay Hive Outpost: one spawn on the second floor underground."
+		}
+
 monster.health = 7500
 monster.maxHealth = 7500
 monster.race = "venom"

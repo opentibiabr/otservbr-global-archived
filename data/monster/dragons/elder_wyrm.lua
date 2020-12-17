@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 963
+monster.Bestiary = {
+	class = "Dragon",
+	race = BESTY_RACE_DRAGON,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Drefia Wyrm Lair, Vandura Wyrm Cave, Glooth Factory (west)."
+		}
+
 monster.health = 2700
 monster.maxHealth = 2700
 monster.race = "blood"
