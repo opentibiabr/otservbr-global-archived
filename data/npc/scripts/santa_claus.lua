@@ -1,26 +1,58 @@
 local random_items = {
-     {chance = 5, itemid = 2112}, -- 0.5% to get teddy bear
-     {chance = 10, itemid = 6512}, -- 2% to get santa doll
-     {chance = 15, itemid = 2114}, -- 4% to get piggy bank
-     {chance = 20, itemid = 15515, count = 1},
-     {chance = 30, itemid = 2111, count = 1},
-     {chance = 40, itemid = 2688, count = 1},
-     {chance = 50, itemid = 2110, count = 1},
-     {chance = 50, itemid = 2688, count = 1},
-     {chance = 70, itemid = 6527, count = 1},
-     {chance = 80, itemid = 24115, count = 1},
-     {chance = 90, itemid = 21401, count = 1},
-     {chance = 100, itemid = 11259, count = 1},
-     {chance = 120, itemid = 15515, count = 1},
-     {chance = 140, itemid = 26439, count = 1},
-     {chance = 160, itemid = 26443, count = 1},
-     {chance = 180, itemid = 26442, count = 1},
-     {chance = 200, itemid = 26441, count = 1},
-     {chance = 250, itemid = 26440, count = 1},
-     {chance = 300, itemid = 9653, count = 1}
-     }
-     local PRESENT_TIMER = 54164
-     
+    {chance = 2, itemid = 13307}, -- sweet smelling bait
+    {chance = 4, itemid = 13508}, -- slug drug
+    {chance = 6, itemid = 5907}, -- slingshot
+    {chance = 8, itemid = 9693}, -- jester doll
+    {chance = 10, itemid = 5875}, -- sniper gloves
+    {chance = 15, itemid = 2173}, -- amulet of loss
+    {chance = 20, itemid = 2112}, -- teddy bear
+    {chance = 25, itemid = 2644}, -- bunnyslippers
+    {chance = 30, itemid = 6567}, -- santa doll
+    {chance = 35, itemid = 13538}, -- bamboo leaves
+    {chance = 40, itemid = 5890, count = 50}, -- chicken feather
+    {chance = 45, itemid = 9971, count = 10}, -- gold ingot
+    {chance = 50, itemid = 5879, count = 50}, -- spider silk
+    {chance = 60, itemid = 5922, count = 50}, -- holy orchid
+    {chance = 70, itemid = 5880, count = 50}, -- iron ore
+    {chance = 80, itemid = 5878, count = 50}, -- minotaur leather
+    {chance = 90, itemid = 2152, count = 100}, -- platinum coinc
+    {chance = 100, itemid = 2153}, -- violet gem
+    {chance = 150, itemid = 2156}, -- red gem
+    {chance = 200, itemid = 2158}, -- blue gem
+    {chance = 250, itemid = 2110}, -- doll
+    {chance = 300, itemid = 11263}, -- santa backpack
+    {chance = 350, itemid = 2114}, -- piggy bank
+    {chance = 400, itemid = 2688, count = 10}, -- candy cane
+    {chance = 450, itemid = 2111, count = 10}, -- snowball
+    {chance = 500, itemid = 2114}, -- piggy bank
+    {chance = 600, itemid = 2688, count = 10}, -- candy cane
+    {chance = 700, itemid = 2111, count = 10} -- snowball
+}
+
+local random_noob_items = {
+    {chance = 10, itemid = 5890, count = 25}, -- chicken feather
+    {chance = 20, itemid = 9971, count = 1}, -- gold ingot
+    {chance = 30, itemid = 5879, count = 5}, -- spider silk
+    {chance = 40, itemid = 5922, count = 5}, -- holy orchid
+    {chance = 50, itemid = 5880, count = 5}, -- iron ore
+    {chance = 60, itemid = 5878, count = 10}, -- minotaur leather
+    {chance = 70, itemid = 2152, count = 25}, -- platinum coinc
+    {chance = 80, itemid = 2153}, -- violet gem
+    {chance = 90, itemid = 2156}, -- red gem
+    {chance = 125, itemid = 2158}, -- blue gem
+    {chance = 150, itemid = 2110}, -- doll
+    {chance = 175, itemid = 11263}, -- santa backpack
+    {chance = 200, itemid = 2114}, -- piggy bank
+    {chance = 225, itemid = 2688, count = 10}, -- candy cane
+    {chance = 250, itemid = 2111, count = 10}, -- snowball
+    {chance = 275, itemid = 2114}, -- piggy bank
+    {chance = 300, itemid = 2688, count = 10}, -- candy cane
+    {chance = 325, itemid = 2111, count = 10}, -- snowball
+    {chance = 350, itemid = 2114}, -- piggy bank
+    {chance = 375, itemid = 2688, count = 10}, -- candy cane
+    {chance = 400, itemid = 2111, count = 10} -- snowball
+}
+
      local keywordHandler = KeywordHandler:new()
      local npcHandler = NpcHandler:new(keywordHandler)
      NpcSystem.parseParameters(npcHandler)
@@ -36,7 +68,7 @@ local random_items = {
      { text = 'Hi there young ones, have you been good this year?' }
      }
      
-     local PRESENT_STORAGE = 88888
+     local PRESENT_STORAGE = SANTA_CLAUS_PRESENT
      
      function santaNPC(cid, message, keywords, present, node)
          if not npcHandler:isFocused(cid) then
@@ -48,14 +80,28 @@ local random_items = {
          end
          local player = Player(cid)
          local item, reward = nil, {}
-         for i = 1, #random_items do
-             item = random_items
-             if math.random(1000) < item[i].chance then
-                 reward.itemid  = item[i].itemid
-                 reward.subType = item[i].count or 1
-                 break
-             end
-         end
+
+         if player:getLevel() < 20 then
+            for i = 1, #random_noob_items do
+                item = random_noob_items
+                if math.random(1000) < item[i].chance then
+                    reward.itemid  = item[i].itemid
+                    reward.subType = item[i].count or 1
+                    break
+                end
+            end
+        else
+            for i = 1, #random_items do
+                item = random_items
+                if math.random(1000) < item[i].chance then
+                    reward.itemid  = item[i].itemid
+                    reward.subType = item[i].count or 1
+                    break
+                end
+            end
+        end
+
+         
          if player:getStorageValue(123) <= os.time() then
              player:addItem(reward.itemid, reward.subType)
              npcHandler:say("HO HO HO! You were good like a little dwarf this year!", cid)
