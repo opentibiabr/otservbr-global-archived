@@ -4263,7 +4263,7 @@ void ProtocolGame::sendOutfitWindow()
 	}
 
 	AddOutfit(msg, currentOutfit);
-	
+
 	msg.addByte(currentOutfit.lookMountHead);
 	msg.addByte(currentOutfit.lookMountBody);
 	msg.addByte(currentOutfit.lookMountLegs);
@@ -4749,7 +4749,7 @@ void ProtocolGame::AddPlayerStats(NetworkMessage& msg)
 
 	msg.add<uint16_t>(player->getExpBoostStamina()); // xp boost time (seconds)
 	msg.addByte(1); // enables exp boost in the store
-	
+
 	msg.add<uint16_t>(0);  // remaining mana shield
 	msg.add<uint16_t>(0);  // total mana shield
 }
