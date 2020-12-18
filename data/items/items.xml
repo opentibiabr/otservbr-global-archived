@@ -44718,7 +44718,7 @@
 		<attribute key="weaponType" value="sword" />
 		<attribute key="loottype" value="sword" />
 		<attribute key="attack" value="10" />
-		<attribute key="elementIce" value="41" />
+		<attribute key="elementIce" value="40" />
 		<attribute key="defense" value="22" />
 		<attribute key="extradef" value="3" />
 		<attribute key="skillSword" value="1" />
