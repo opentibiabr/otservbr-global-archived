@@ -203,7 +203,7 @@ GameStore.Categories = {
 		{
           icons = { "Health_Cask.png" },
           name = "Health Cask", 
-          price = 5, 
+          price = 10, 
           itemtype = 28555, 
           count = 1000,
           description = "<i>Place it in your house and fill up potions to restore your hit points!</i>\n\n{house}\n{box}\n{storeinbox}\n{usablebyallicon} can be used to fill up potions by all characters that have access to the house\n{storeinboxicon} potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n{backtoinbox}\n{info} usable 1000 times a piece\n{transferableprice}", 
@@ -212,7 +212,7 @@ GameStore.Categories = {
 		{
           icons = { "Strong_Health_Cask.png" },
           name = "Strong Health Cask",
-          price = 11,  
+          price = 16,  
           itemtype = 28556, 
           count = 1000, 
           description = "<i>Place it in your house and fill up potions to restore your hit points!</i>\n\n{house}\n{box}\n{storeinbox}\n{usablebyallicon} can be used to fill up potions by all characters that have access to the house\n{storeinboxicon} potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n{backtoinbox}\n{info} usable 1000 times a piece\n{transferableprice}",
@@ -221,7 +221,7 @@ GameStore.Categories = {
 		{
           icons = { "Great_Health_Cask.png" },
           name = "Great Health Cask", 
-          price = 22, 
+          price = 27, 
           itemtype = 28557, 
           count = 1000, 
           description = "<i>Place it in your house and fill up potions to restore your hit points!</i>\n\n{house}\n{box}\n{storeinbox}\n{usablebyallicon} can be used to fill up potions by all characters that have access to the house\n{storeinboxicon} potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n{backtoinbox}\n{info} usable 1000 times a piece\n{transferableprice}",
@@ -230,7 +230,7 @@ GameStore.Categories = {
 		{
           icons = { "Ultimate_Health_Cask.png" },
           name = "Ultimate Health Cask", 
-          price = 36, 
+          price = 41, 
           itemtype = 28558, 
           count = 1000, 
           description = "<i>Place it in your house and fill up potions to restore your hit points!</i>\n\n{house}\n{box}\n{storeinbox}\n{usablebyallicon} can be used to fill up potions by all characters that have access to the house\n{storeinboxicon} potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n{backtoinbox}\n{info} usable 1000 times a piece\n{transferableprice}",
@@ -239,7 +239,7 @@ GameStore.Categories = {
 		{
           icons = { "Supreme_Health_Cask.png" },
           name = "Supreme Health Cask", 
-          price = 59, 
+          price = 63, 
           itemtype = 28559, 
           count = 1000, 
           description = "<i>Place it in your house and fill up potions to restore your hit points!</i>\n\n{house}\n{box}\n{storeinbox}\n{usablebyallicon} can be used to fill up potions by all characters that have access to the house\n{storeinboxicon} potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n{backtoinbox}\n{info} usable 1000 times a piece\n{transferableprice}",
@@ -248,7 +248,7 @@ GameStore.Categories = {
         {
           icons = { "Mana_Cask.png" },
           name = "Mana Cask", 
-          price = 5, 
+          price = 10, 
           itemtype = 28565, 
           count = 1000, 
           description = "<i>Place it in your house and fill up potions to refill your mana!</i>\n\n{house}\n{box}\n{storeinbox}\n{usablebyallicon} can be used to fill up potions by all characters that have access to the house\n{storeinboxicon} potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n{backtoinbox}\n{info} usable 1000 times a piece\n{transferableprice}",
@@ -257,7 +257,7 @@ GameStore.Categories = {
 		{
           icons = { "Strong_Mana_Cask.png" },
           name = "Strong Mana Cask", 
-          price = 9, 
+          price = 14, 
           itemtype = 28566, 
           count = 1000, 
           description = "<i>Place it in your house and fill up potions to refill your mana!</i>\n\n{house}\n{box}\n{storeinbox}\n{usablebyallicon} can be used to fill up potions by all characters that have access to the house\n{storeinboxicon} potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n{backtoinbox}\n{info} usable 1000 times a piece\n{transferableprice}",
@@ -266,7 +266,7 @@ GameStore.Categories = {
 		{
           icons = { "Great_Mana_Cask.png" },
           name = "Great Mana Cask", 
-          price = 14, 
+          price = 19, 
           itemtype = 28567, 
           count = 1000, 
           description = "<i>Place it in your house and fill up potions to refill your mana!</i>\n\n{house}\n{box}\n{storeinbox}\n{usablebyallicon} can be used to fill up potions by all characters that have access to the house\n{storeinboxicon} potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n{backtoinbox}\n{info} usable 1000 times a piece\n{transferableprice}",
@@ -275,7 +275,7 @@ GameStore.Categories = {
 		{
           icons = { "Ultimate_Mana_Cask.png" },
           name = "Ultimate Mana Cask",
-          price = 42,  
+          price = 47,  
           itemtype = 28568, 
           count = 1000, 
           description = "<i>Place it in your house and fill up potions to refill your mana!</i>\n\n{house}\n{box}\n{storeinbox}\n{usablebyallicon} can be used to fill up potions by all characters that have access to the house\n{storeinboxicon} potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n{backtoinbox}\n{info} usable 1000 times a piece\n{transferableprice}",
@@ -284,7 +284,7 @@ GameStore.Categories = {
 		{
           icons = { "Great_Spirit_Cask.png" },
           name = "Great Spirit Cask", 
-          price = 22, 
+          price = 27, 
           itemtype = 28575, 
           count = 1000, 
           description = "<i>Place it in your house and fill up potions to restore your hit points and mana!</i>\n\n{house}\n{box}\n{storeinbox}\n{usablebyallicon} can be used to fill up potions by all characters that have access to the house\n{storeinboxicon} potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n{backtoinbox}\n{info} usable 1000 times a piece\n{transferableprice}",
@@ -293,7 +293,7 @@ GameStore.Categories = {
 		{
           icons = { "Ultimate_Spirit_Cask.png" },
           name = "Ultimate Spirit Cask", 
-          price = 42, 
+          price = 47, 
           itemtype = 28576, 
           count = 1000, 
           description = "<i>Place it in your house and fill up potions to restore your hit points and mana!</i>\n\n{house}\n{box}\n{storeinbox}\n{usablebyallicon} can be used to fill up potions by all characters that have access to the house\n{storeinboxicon} potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n{backtoinbox}\n{info} usable 1000 times a piece\n{transferableprice}",
@@ -312,7 +312,7 @@ GameStore.Categories = {
        {
          icons = { "Exercise_Axe.png" },
          name = "Exercise Axe",       
-         price = 25, 
+         price = 30, 
          itemtype = 32385, 
          charges = 500, 
          description = "<i>Use it to train your axe fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your axe fighting skill\n{info} usable 500 times a piece",
@@ -321,7 +321,7 @@ GameStore.Categories = {
        {
          icons = { "Exercise_Bow.png" },
          name = "Exercise Bow",      
-         price = 25, 
+         price = 30, 
          itemtype = 32387, 
          charges = 500, 
          description = "<i>Use it to train your distance fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your distance fighting skill\n{info} usable 500 times a piece",
@@ -330,7 +330,7 @@ GameStore.Categories = {
        {
          icons = { "Exercise_Club.png" },
          name = "Exercise Club",       
-         price = 25, 
+         price = 30, 
          itemtype = 32386, 
          charges = 500,      
          description = "<i>Use it to train your club fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your club fighting skill\n{info} usable 500 times a piece",
@@ -339,7 +339,7 @@ GameStore.Categories = {
        {
          icons = { "Exercise_Rod.png" },
          name = "Exercise Rod",       
-         price = 25, 
+         price = 30, 
          itemtype = 32388, 
          charges = 500,      
          description = "<i>Use it to train your magic level on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your magic level\n{info} usable 500 times a piece",
@@ -348,7 +348,7 @@ GameStore.Categories = {
        {
          icons = { "Exercise_Sword.png" },
          name = "Exercise Sword",       
-         price = 25, 
+         price = 30, 
          itemtype = 32384, 
          charges = 500,       
          description = "<i>Use it to train your sword fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your sword fighting skill\n{info} usable 500 times a piece",
@@ -357,7 +357,7 @@ GameStore.Categories = {
        {
          icons = { "Exercise_Wand.png" },
          name = "Exercise Wand",       
-         price = 25, 
+         price = 30, 
          itemtype = 32389, 
          charges = 500, 
          description = "<i>Use it to train your magic level on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your magic level\n{info} usable 500 times a piece",
@@ -376,7 +376,7 @@ GameStore.Categories = {
         {
           icons = { "Health_Keg.png" },
           name = "Health Keg",
-          price = 26,  
+          price = 31,  
           itemtype = 28579, 
           count = 500, 
           description = "<i>Fill up potions to restore your hit points no matter where you are!</i>\n\n{character}\n{vocationlevelcheck}\n{storeinboxicon} potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n{info} usable 500 times a piece\n{info} saves capacity because it's constant weight equals only 250 potions",
@@ -385,7 +385,7 @@ GameStore.Categories = {
         {
           icons = { "Strong_Health_Keg.png" },
           name = "Strong Health Keg",       
-          price = 53, 
+          price = 58, 
           itemtype = 28580, 
           count = 500, 
           description = "<i>Fill up potions to restore your hit points no matter where you are!</i>\n\n{character}\n{vocationlevelcheck}\n{storeinboxicon} potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n{info} usable 500 times a piece\n{info} saves capacity because it's constant weight equals only 250 potions",
@@ -394,7 +394,7 @@ GameStore.Categories = {
         {
           icons = { "Great_Health_Keg.png" },
           name = "Great Health Keg",         
-          price = 103, 
+          price = 108, 
           itemtype = 28581, 
           count = 500, 
           description = "<i>Fill up potions to restore your hit points no matter where you are!</i>\n\n{character}\n{vocationlevelcheck}\n{storeinboxicon} potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n{info} usable 500 times a piece\n{info} saves capacity because it's constant weight equals only 250 potions",
@@ -403,7 +403,7 @@ GameStore.Categories = {
         {
           icons = { "Ultimate_Health_Keg.png" },
           name = "Ultimate Health Keg",        
-          price = 175, 
+          price = 180, 
           itemtype = 28582, 
           count = 500, 
           description = "<i>Fill up potions to restore your hit points no matter where you are!</i>\n\n{character}\n{vocationlevelcheck}\n{storeinboxicon} potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n{info} usable 500 times a piece\n{info} saves capacity because it's constant weight equals only 250 potions",
@@ -412,7 +412,7 @@ GameStore.Categories = {
         {
           icons = { "Supreme_Health_Keg.png" },
           name = "Supreme Health Keg",         
-          price = 288, 
+          price = 293, 
           itemtype = 28583, 
           count = 500,
           description = "<i>Fill up potions to restore your hit points no matter where you are!</i>\n\n{character}\n{vocationlevelcheck}\n{storeinboxicon} potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n{info} usable 500 times a piece\n{info} saves capacity because it's constant weight equals only 250 potions",
@@ -421,7 +421,7 @@ GameStore.Categories = {
         {
           icons = { "Mana_Keg.png" },
           name = "Mana Keg",         
-          price = 26, 
+          price = 31, 
           itemtype = 28584, 
           count = 500, 
           description = "<i>Fill up potions to refill your mana no matter where you are!</i>\n\n{character}\n{vocationlevelcheck}\n{storeinboxicon} potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n{info} usable 500 times a piece\n{info} saves capacity because it's constant weight equals only 250 potions",
@@ -430,7 +430,7 @@ GameStore.Categories = {
         {
           icons = { "Strong_Mana_Keg.png" },
           name = "Strong Mana Keg",         
-          price = 43, 
+          price = 48, 
           itemtype = 28585, 
           count = 500, 
           description = "<i>Fill up potions to refill your mana no matter where you are!</i>\n\n{character}\n{vocationlevelcheck}\n{storeinboxicon} potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n{info} usable 500 times a piece\n{info} saves capacity because it's constant weight equals only 250 potions",
@@ -439,7 +439,7 @@ GameStore.Categories = {
         {
           icons = { "Great_Mana_Keg.png" },
           name = "Great Mana Keg",         
-          price = 66, 
+          price = 71, 
           itemtype = 28586, 
           count = 500, 
           description = "<i>Fill up potions to refill your mana no matter where you are!</i>\n\n{character}\n{vocationlevelcheck}\n{storeinboxicon} potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n{info} usable 500 times a piece\n{info} saves capacity because it's constant weight equals only 250 potions",
@@ -448,7 +448,7 @@ GameStore.Categories = {
         {
           icons = { "Ultimate_Mana_Keg.png" },
           name = "Ultimate Mana Keg",         
-          price = 202, 
+          price = 207, 
           itemtype = 28587, 
           count = 500, 
           type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE, 
@@ -456,7 +456,7 @@ GameStore.Categories = {
         {
           icons = { "Great_Spirit_Keg.png" },
           name = "Great Spirit Keg",         
-          price = 105, 
+          price = 110, 
           itemtype = 28589, 
           count = 500, 
           description = "<i>Fill up potions to restore your hit points and mana no matter where you are!</i>\n\n{character}\n{vocationlevelcheck}\n{storeinboxicon} potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n{info} usable 500 times a piece\n{info} saves capacity because it's constant weight equals only 250 potions",
@@ -465,7 +465,7 @@ GameStore.Categories = {
         {
           icons = {"Ultimate_Spirit_Keg.png"},
           name = "Ultimate Spirit Keg",        
-          price = 202, 
+          price = 207, 
           itemtype = 28590, 
           count = 500,   
           description = "<i>Fill up potions to restore your hit points and mana no matter where you are!</i>\n\n{character}\n{vocationlevelcheck}\n{storeinboxicon} potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n{info} usable 500 times a piece\n{info} saves capacity because it's constant weight equals only 250 potions",
@@ -3969,7 +3969,7 @@ GameStore.Categories = {
         {
           icons = { "XP_Boost.png" },
           name = "XP Boost",
-          price = 50,
+          price = 100,
           id = 65010,
           description = "<i>Purchase a boost that increases the experience points your character gains from hunting by 50%!</i>\n\n{character}\n{info} lasts for 1 hour hunting time\n{info} paused if stamina falls under 14 hours\n{info} can be purchased up to 5 times between 2 server saves\n{info} price increases with every purchase\n{info} cannot be purchased if an XP boost is already active",
           type = GameStore.OfferTypes.OFFER_TYPE_EXPBOOST,			
@@ -4031,7 +4031,7 @@ GameStore.Categories = {
         {
           icons = { "Gold_Pouch.png" },
           name = "Gold Pouch",
-          price = 500,
+          price = 250,
           itemtype = 26377,
           count = 1,
           description = "<i>Carries as many gold, platinum or crystal coins as your capacity allows, however, no other items.</i>\n\n{character}\n{storeinbox}\n{once}\n{useicon} use it to open it\n{info} always placed on the first position of your Store inbox",
@@ -4049,7 +4049,7 @@ GameStore.Categories = {
         {                
           icons = { "Charm_Expansion_Offer.png" },
           name = "Charm Expansion",
-          price = 500,
+          price = 250,
           id = 65005,
           description = "<i>Assign as many of your unlocked Charms as you like and get a 25% discount whenever you are removing a Charm from a creature!</i>\n\n{character}\n{once}",
           type = GameStore.OfferTypes.OFFER_TYPE_CHARMS,
@@ -4066,7 +4066,7 @@ GameStore.Categories = {
         {
           icons = { "Permanent_Prey_Slot.png" },
           name = "Permanent Prey Slot",
-          price = 500,
+          price = 250,
           id = 65008,
           description = "<i>Get an additional prey slot to activate additional prey!</i>\n\n{character}\n{info} maximum amount that can be owned by character: 3\n{info} added directly to Prey dialog",
           type = GameStore.OfferTypes.OFFER_TYPE_PREYSLOT,
@@ -4091,7 +4091,7 @@ GameStore.Categories = {
         {
           icons = { "Temple_Teleport.png" },
           name = "Temple Teleport",
-          price = 15,          
+          price = 30,          
           description = "<i>Teleports you instantly to your home temple.</i>\n\n{character}\n{useicon} use it to teleport you to your home temple</i>\n{battlesign}\n{info} does not work in no-logout zones or close to a character's home temple",
           type = GameStore.OfferTypes.OFFER_TYPE_TEMPLE,
         },              
@@ -4107,7 +4107,7 @@ GameStore.Categories = {
        {			
         -- icons = { "Obsidian_Knife.png" },
         name = "Obsidian Knife",
-        price = 25,
+        price = 30,
         itemtype = 5908,
         count = 1,
         description = "<i>Sharp and light, this is a useful tool for tanners, doctors and assassins.</i>\n\n{info} get different types of leather from the dead bodies\n{info} possible to carve Ice Sculptures",
@@ -4116,7 +4116,7 @@ GameStore.Categories = {
         {			
           -- icons = { "Blessed_Wooden_Stake.png" },
           name = "Blessed Wooden Stake",
-          price = 25,
+          price = 30,
           itemtype = 5942,
           count = 1,
           description = "<i>Many mighty priests of Tibia have blessed this stake.</i>\n\n{info} can be used on slain Vampires in order to get Vampire Dust and on dead Demons to get Demon Dust.",
@@ -4152,7 +4152,7 @@ GameStore.Categories = {
         {			
           -- icons = { "Sneaky_Stabber_of_Eliteness.png" },
           name = "Sneaky Stabber of Eliteness",
-          price = 35,
+          price = 40,
           itemtype = 10511,
           count = 1,
           description = "<i>This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is.</i>\n\n{info} color red.",
@@ -4161,7 +4161,7 @@ GameStore.Categories = {
         {			
           -- icons = { "squeezing gear of girlpower.png" },
           name = "Squeezing Gear Of Girlpower",
-          price = 35,
+          price = 40,
           itemtype = 10513,
           count = 1,
           description = "<i>This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is.</i>\n\n{info} color pink.",
@@ -4170,7 +4170,7 @@ GameStore.Categories = {
         {			
           -- icons = { "whacking driller of fate.png" },
           name = "Whacking Driller Of Fate",
-          price = 35,
+          price = 40,
           itemtype = 10515,
           count = 1,
           description = "<i>This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is.</i>\n\n{info} color red.",

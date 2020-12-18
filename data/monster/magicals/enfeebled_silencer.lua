@@ -85,14 +85,14 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 80, attack = 70, condition = {type = CONDITION_POISON, totalDamage = 200, interval = 4000}},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -80, maxDamage = -400, condition = {type = CONDITION_POISON, totalDamage = 200, interval = 4000}},
 	{name ="silencer skill reducer", interval = 2000, chance = 10, range = 3, target = false},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_MANADRAIN, minDamage = -40, maxDamage = -90, radius = 4, shootEffect = CONST_ANI_ONYXARROW, effect = CONST_ME_MAGIC_RED, target = true}
 }
 
 monster.defenses = {
-	defense = 20,
-	armor = 20,
+	defense = 40,
+	armor = 40,
 	{name ="speed", interval = 2000, chance = 15, speedChange = 450, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 80, maxDamage = 225, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
@@ -100,13 +100,13 @@ monster.defenses = {
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 5},
 	{type = COMBAT_ENERGYDAMAGE, percent = 15},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 30},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 10},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
+	{type = COMBAT_HOLYDAMAGE , percent = -5},
 	{type = COMBAT_DEATHDAMAGE , percent = 70}
 }
 

@@ -92,29 +92,29 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 80},
 	-- bleed
-	{name ="condition", type = CONDITION_BLEEDING, interval = 2000, chance = 10, minDamage = -150, maxDamage = -200, radius = 3, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -155, maxDamage = -200, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -79, maxDamage = -100, radius = 2, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
+	{name ="condition", type = CONDITION_BLEEDING, interval = 2000, chance = 10, minDamage = -150, maxDamage = -350, radius = 3, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -155, maxDamage = -350, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = -79, maxDamage = -200, radius = 2, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
 	{name ="speed", interval = 2000, chance = 15, speedChange = -600, radius = 5, effect = CONST_ME_MAGIC_RED, target = false, duration = 15000},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -80, maxDamage = -50, radius = 4, effect = CONST_ME_MAGIC_RED, target = false}
 }
 
 monster.defenses = {
-	defense = 30,
-	armor = 30,
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 80, maxDamage = 225, effect = CONST_ME_HITBYPOISON, target = false}
+	defense = 50,
+	armor = 50,
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 120, maxDamage = 425, effect = CONST_ME_HITBYPOISON, target = false}
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
-	{type = COMBAT_ENERGYDAMAGE, percent = 10},
+	{type = COMBAT_ENERGYDAMAGE, percent = 15},
 	{type = COMBAT_EARTHDAMAGE, percent = 20},
 	{type = COMBAT_FIREDAMAGE, percent = 10},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 5},
-	{type = COMBAT_HOLYDAMAGE , percent = -10},
+	{type = COMBAT_HOLYDAMAGE , percent = -5},
 	{type = COMBAT_DEATHDAMAGE , percent = 15}
 }
 
