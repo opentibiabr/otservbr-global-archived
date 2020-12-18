@@ -2334,7 +2334,9 @@ GlobalStorage = {
 	PrinceDrazzakEventTime = 65010,
 	ScarlettEtzelEventTime = 65011,
 	CobraBastionFlask = 65012,
-	Inquisition = 65013
+	Inquisition = 65013,
+	Yasir = 65014,
+	NightmareIsle = 65015
 }
 
 
