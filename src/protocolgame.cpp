@@ -4980,7 +4980,7 @@ void ProtocolGame::sendUpdateSupplyTracker(const Item* item)
 void ProtocolGame::sendUpdateImpactTracker(CombatType_t type, int32_t amount) {
 	NetworkMessage msg;
  	msg.addByte(0xCC);
- 	if (type == COMBAT_HEALING) {
+	if (type == COMBAT_HEALING) {
 		msg.addByte(ANALYZER_HEAL);
 		msg.add<uint32_t>(amount);
 	} else {

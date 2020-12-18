@@ -1640,8 +1640,7 @@ class Player final : public Creature, public Cylinder
 			return false;
  		}
 
-		void updateSupplyTracker(const Item* item)
-		{
+		void updateSupplyTracker(const Item* item) {
 			if (client) {
 				client->sendUpdateSupplyTracker(item);
 			}
