@@ -120,7 +120,7 @@ void Game::loadBoostedCreature()
 		query.str(std::string());
 		query << "UPDATE `boosted_creature` SET ";
 		query << "`date` = '" << ltm->tm_mday << "',";
-		query << "`boostname` = '" << name << "',";
+		query << "`boostname` = " << db.escapeString(name) << ",";
 		query << "`raceid` = '" << newrace << "'";
 
 		if (!db.executeQuery(query.str())) {
