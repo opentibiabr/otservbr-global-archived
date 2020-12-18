@@ -28,10 +28,6 @@
 	<spawn centerx="32362" centery="32219" centerz="6" radius="1">
 		<monster name="Training Monk" x="0" y="0" z="6" spawntime="60" />
 	</spawn>
-	<spawn centerx="32357" centery="32220" centerz="6" radius="1">
-		<monster name="Training Monk" x="0" y="-1" z="6" spawntime="60" />
-		<monster name="Training Monk" x="0" y="1" z="6" spawntime="60" />
-	</spawn>
 	<spawn centerx="32362" centery="32222" centerz="6" radius="1">
 		<monster name="Training Monk" x="0" y="-1" z="6" spawntime="60" />
 		<monster name="Training Monk" x="0" y="1" z="6" spawntime="60" />
