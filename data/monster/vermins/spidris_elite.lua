@@ -75,7 +75,7 @@ monster.loot = {
 	{id = "spidris mandible", chance = 27440},
 	{id = "compound eye", chance = 13210},
 	{id = "calopteryx cape", chance = 1280},
-	{id = "carapace shield", chance = 1170},
+	{id = "carapace shield", chance = 50},
 	{id = "hive scythe", chance = 1390}
 }
 

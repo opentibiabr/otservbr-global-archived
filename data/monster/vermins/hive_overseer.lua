@@ -80,7 +80,7 @@ monster.loot = {
 	{id = "kollos shell", chance = 28000},
 	{id = "compound eye", chance = 16000},
 	{id = "calopteryx cape", chance = 830},
-	{id = "carapace shield", chance = 920},
+	{id = "carapace shield", chance = 20},
 	{id = "hive scythe", chance = 1650},
 	{id = "gooey mass", chance = 13000, maxCount = 2},
 	{id = "hive bow", chance = 830}

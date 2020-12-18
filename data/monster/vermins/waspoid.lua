@@ -74,7 +74,7 @@ monster.loot = {
 	{id = "waspoid wing", chance = 13890},
 	{id = "compound eye", chance = 6060},
 	{id = "grasshopper legs", chance = 230},
-	{id = "carapace shield", chance = 120},
+	{id = "carapace shield", chance = 20},
 	{id = "hive scythe", chance = 330}
 }
 
