@@ -12389,21 +12389,18 @@ int LuaScriptInterface::luaGuildGetMembersOnline(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaGuildGetBankBalance(lua_State* L)
-{
+int LuaScriptInterface::luaGuildGetBankBalance(lua_State* L) {
   // guild:getBankBalance()
   Guild* guild = getUserdata<Guild>(L, 1);
   if (guild) {
     lua_pushnumber(L, guild->getBankBalance());
-  }
-  else {
+  } else {
     lua_pushnil(L);
   }
   return 1;
 }
 
-int LuaScriptInterface::luaGuildSetBankBalance(lua_State* L)
-{
+int LuaScriptInterface::luaGuildSetBankBalance(lua_State* L) {
   // guild:setBankBalance(bankBalance)
   Guild* guild = getUserdata<Guild>(L, 1);
   if (!guild) {
