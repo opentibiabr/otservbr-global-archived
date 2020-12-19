@@ -538,6 +538,10 @@ void Game::saveGameState()
 		IOLoginData::savePlayer(it.second);
 	}
 
+  for (const auto& it : guilds) {
+    IOGuild::saveGuild(it.second);
+  }
+
 	Map::save();
 
 	g_databaseTasks.flush();
@@ -8182,6 +8186,10 @@ void Game::addGuild(Guild* guild)
 
 void Game::removeGuild(uint32_t guildId)
 {
+  auto it = guilds.find(guildId);
+  if (it != guilds.end()) {
+    IOGuild::saveGuild(it->second);
+  }
 	guilds.erase(guildId);
 }
 
