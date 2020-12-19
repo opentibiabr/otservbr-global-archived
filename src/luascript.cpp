@@ -2776,6 +2776,9 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Guild", "getName", LuaScriptInterface::luaGuildGetName);
 	registerMethod("Guild", "getMembersOnline", LuaScriptInterface::luaGuildGetMembersOnline);
 
+  registerMethod("Guild", "getBankBalance", LuaScriptInterface::luaGuildGetBankBalance);
+  registerMethod("Guild", "setBankBalance", LuaScriptInterface::luaGuildSetBankBalance);
+
 	registerMethod("Guild", "addRank", LuaScriptInterface::luaGuildAddRank);
 	registerMethod("Guild", "getRankById", LuaScriptInterface::luaGuildGetRankById);
 	registerMethod("Guild", "getRankByLevel", LuaScriptInterface::luaGuildGetRankByLevel);
@@ -12384,6 +12387,37 @@ int LuaScriptInterface::luaGuildGetMembersOnline(lua_State* L)
 		lua_rawseti(L, -2, ++index);
 	}
 	return 1;
+}
+
+int LuaScriptInterface::luaGuildGetBankBalance(lua_State* L) {
+  // guild:getBankBalance()
+  Guild* guild = getUserdata<Guild>(L, 1);
+  if (guild) {
+    lua_pushnumber(L, guild->getBankBalance());
+  } else {
+    lua_pushnil(L);
+  }
+  return 1;
+}
+
+int LuaScriptInterface::luaGuildSetBankBalance(lua_State* L) {
+  // guild:setBankBalance(bankBalance)
+  Guild* guild = getUserdata<Guild>(L, 1);
+  if (!guild) {
+    lua_pushnil(L);
+    return 1;
+  }
+
+  int64_t balance = getNumber<int64_t>(L, 2);
+  if (balance < 0) {
+    reportErrorFunc("Invalid bank balance value.");
+    lua_pushnil(L);
+    return 1;
+  }
+
+  guild->setBankBalance(balance);
+  pushBoolean(L, true);
+  return 1;
 }
 
 int LuaScriptInterface::luaGuildAddRank(lua_State* L)
