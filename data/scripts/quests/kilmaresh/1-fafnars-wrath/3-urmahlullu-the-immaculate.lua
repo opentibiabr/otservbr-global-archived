@@ -1,7 +1,9 @@
+-- lever to urmahlullu room
+
 local config = {
 	requiredLevel = 100,
 	daily = true,
-	centerDemonRoomPosition = Position(33918, 31649, 8),
+	centerUrmahlulluRoomPosition = Position(33918, 31649, 8),
 	playerPositions = {
 		Position(33918, 31626, 8),
 		Position(33919, 31626, 8),
@@ -12,10 +14,10 @@ local config = {
 	newPositions = {
 		Position(33919, 31657, 8),
 	},
-	demonPositions = {
+	urmahlulluPosition = {
 		Position(33919, 31648, 8),
 	},
-	playerFirst = {
+	firstPlayer = {
 		Position(33918, 31626, 8),
 	}
 }
@@ -27,7 +29,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 		local storePlayers, playerTile = {}
 
 		for i = 1, #config.playerPositions do
-			playerTile = Tile(config.playerFirst[1]):getTopCreature()
+			playerTile = Tile(config.firstPlayer[i]):getTopCreature()
 			if not playerTile or not playerTile:isPlayer() then
 				player:sendTextMessage(MESSAGE_STATUS_SMALL, "You need 5 players.")
 				return true
@@ -39,7 +41,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 				return true
 			end
 
-			if config.daily and playerTile:getStorageValue(Storage.Kilmaresh.UrmahlulluTimer)>os.time() then
+			if config.daily and playerTile:getStorageValue(Storage.Kilmaresh.UrmahlulluTimer) > os.time() then
 				player:getPosition():sendMagicEffect(CONST_ME_POFF)
 				player:sendCancelMessage('All players are not still ready from last battle yet.')
 				return true
@@ -48,7 +50,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 			storePlayers[#storePlayers + 1] = playerTile
 		end
 
-		local specs, spec = Game.getSpectators(config.centerDemonRoomPosition, false, false, 14, 14, 13, 13)
+		local specs, spec = Game.getSpectators(config.centerUrmahlulluRoomPosition, false, false, 14, 14, 13, 13)
 		for i = 1, #specs do
 			spec = specs[i]
 			if spec:isPlayer() then
@@ -59,13 +61,13 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 			spec:remove()
 		end
 
-		if player:getPosition()~=config.playerFirst[1] then
+		if player:getPosition()~=config.firstPlayer[1] then
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You can't start a battle.")
 			return true
 		end
 
-		for i = 1, #config.demonPositions do
-			Game.createMonster("Urmahlullu the Immaculate", config.demonPositions[i])
+		for i = 1, #config.urmahlulluPosition do
+			Game.createMonster("Urmahlullu the Immaculate", config.urmahlulluPosition[i])
 		end
 
 		local players

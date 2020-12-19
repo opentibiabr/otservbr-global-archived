@@ -46731,9 +46731,10 @@
 		<attribute key="weight" value="240" />
 	</item>
 	<item id="36097" article="a" name="ladder" />
-	<item id="36098" article="a" name="Ring of Secret Thoughts">
-		<attribute key="loottype" value="other" />
+	<item id="36098" article="a" name="ring of secret thoughts">
 		<attribute key="weight" value="90" />
+		<attribute key="slotType" value="ring" />
+		<attribute key="loottype" value="ring" />
 	</item>
 	<item id="36099" article="a" name="Wheel Oil">
 		<attribute key="weight" value="1900" />
@@ -46850,6 +46851,8 @@
 	<item id="36141" article="a" name="ring of secret thoughts">
 		<attribute key="weight" value="90" />
 		<attribute key="description" value="It is charged with the memories of the Ambassador of Rathleton." />
+		<attribute key="slotType" value="ring" />
+		<attribute key="loottype" value="ring" />
 	</item>
 	<item id="36142" article="a" name="dead gaffir">
 		<attribute key="decayTo" value="36143" />
@@ -46997,21 +47000,24 @@
 		<attribute key="weight" value="160" />
 		<attribute key="description" value="You see a flask with lamp oil. Peso 1.60 oz. This lamp oil is highly flammable and evaporates quickly." />
 	</item>
-	<item id="36204" article="a" name="golden mask">
+	<item id="36204" article="a" name="gryphon mask">
 		<attribute key="loottype" value="other" />
-		<attribute key="weight" value="650" />
+		<attribute key="weight" value="2000" />
 	</item>
 	<item id="36205" article="a" name="silver mask">
 		<attribute key="weight" value="3200" />
 		<attribute key="description" value="It is slightly tarnished." />
+		<attribute key="loottype" value="other" />
 	</item>
 	<item id="36206" article="a" name="ivory mask">
 		<attribute key="weight" value="1800" />
 		<attribute key="description" value="It is smoothly polished and cool to the touch." />
+		<attribute key="loottype" value="other" />
 	</item>
 	<item id="36207" article="a" name="mirror mask">
 		<attribute key="weight" value="1600" />
 		<attribute key="description" value="It is composed of many small shards." />
+		<attribute key="loottype" value="other" />
 	</item>
 	<item id="36208" name="unknown"/>
 	<item id="36209" article="a" name="ancient sarcophagus"/>
@@ -48315,9 +48321,7 @@
 	<item id="36556" article="a" name="unknown">
 		<attribute key="weight" value="240" />
 	</item>
-	<item id="36557" article="a" name="unknown">
-		<attribute key="weight" value="240" />
-	</item>
+	<item id="36557" article="a" name="palm"/>
 	<item id="36558" article="a" name="sulphur blossom lamp">
 		<attribute key="wrapableTo" value="26054" />
 	</item>

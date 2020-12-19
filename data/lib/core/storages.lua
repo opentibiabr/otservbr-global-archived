@@ -166,47 +166,51 @@ Storage = {
 			Recovering = 50018
 		},
 		Fourth = {
-			Moe = 50019
+			Moe = 50019,
+			MoeTimer = 50020
 		},
 		Fifth = {
-			Memories = 50020
+			Memories = 50021,
+			MemoriesShards = 50022
 		},
 		Sixth = {
-			Favor = 50021
+			Favor = 50023,
+			FourMasks = 50024,
+			BlessedStatues = 50025
 		},
 		Set = {
-			Ritual = 50022
+			Ritual = 50026
 		},
 		Eighth = {
-			Yonan = 50023,
-			Narsai = 50024,
-			Shimun = 50025,
-			Tefrit = 50026
+			Yonan = 50027,
+			Narsai = 50028,
+			Shimun = 50029,
+			Tefrit = 50030
 		},
 		Nine = {
-			Owl = 50027
+			Owl = 50031
 		},
 		Tem = {
-			Bleeds = 50028
+			Bleeds = 50032
 		},
 		Eleven = {
-			Basin = 50029
+			Basin = 50033
 		},
 		Twelve = {
-			Boss = 50030,
-			Bragrumol = 50031,
-			Mozradek = 50032,
-			Xogixath = 50033
+			Boss = 50034,
+			Bragrumol = 50035,
+			Mozradek = 50036,
+			Xogixath = 50037
 		},
 		Thirteen = {
-			Fafnar = 50034,
-			Lyre = 50035,
-			Presente = 50036
+			Fafnar = 50038,
+			Lyre = 50039,
+			Presente = 50040
 		},
 		Fourteen = {
-			Remains = 50037
+			Remains = 50041
 		},
-		UrmahlulluTimer = 50038
+		UrmahlulluTimer = 50042
 	},
 	TheSecretLibrary = {
 		-- Reserved storage from 50050 - 50069
@@ -2185,7 +2189,7 @@ Storage = {
 		-- update 12.20
 		GraveDanger = {},
 		HandOfTheInquisitionOutfits = {},
-		Kilmaresh = {},
+		-- Kilmaresh = {}, done earlier in the file
 		GraveDanger = {},
 		-- update 12.30
 		FeasterOfSouls = {},
