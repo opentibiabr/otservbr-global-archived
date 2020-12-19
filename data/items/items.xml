@@ -51009,7 +51009,7 @@
 		<attribute key="weight" value="12300" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
-	<item id="38930" article="a" name="soulmantel">
+	<item id="38930" article="a" name="soulmantle">
 		<attribute key="slotType" value="body" />
 		<attribute key="loottype" value="armor" />
 		<attribute key="armor" value="17" />
