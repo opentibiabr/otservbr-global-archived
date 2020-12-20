@@ -8,7 +8,7 @@ local setting = {
 function removePet(creatureId)
     local creature = Creature(creatureId)
     if not creature then
-        return true
+        return false
     end
 
     creature:remove()
@@ -23,7 +23,7 @@ setCombatArea(combat, area)
 
 function onCastSpell(player, variant)
     if not player or not isPremium(player) then
-        return true
+        return false
     end
 
     if #player:getSummons() >= 1 then
@@ -39,7 +39,7 @@ function onCastSpell(player, variant)
     end
 
     if not summonName then
-        return true
+        return false
     end
 
     local mySummon = Game.createMonster(summonName, player:getPosition(), true, false)
