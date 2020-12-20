@@ -12,7 +12,7 @@ monster.maxHealth = 2300
 monster.race = "undead"
 monster.corpse = 35101
 monster.speed = 0
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
