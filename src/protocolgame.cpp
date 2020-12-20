@@ -66,6 +66,7 @@ void ProtocolGame::AddItem(NetworkMessage& msg, uint16_t id, uint8_t count)
 		msg.addByte(fluidMap[count & 7]);
 	} else if (it.isContainer() && player->getOperatingSystem() <= CLIENTOS_NEW_MAC) {
 		msg.addByte(0x00);
+    msg.addByte(0x00);
 	}
 }
 
@@ -102,6 +103,9 @@ void ProtocolGame::AddItem(NetworkMessage& msg, const Item* item)
 		} else {
 			msg.addByte(0x00);
 		}
+    
+    // Quiver ammo count
+    msg.addByte(0x00);
 	}
 }
 
