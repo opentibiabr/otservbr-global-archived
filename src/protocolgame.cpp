@@ -352,6 +352,12 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 		disconnectClient("You must enter your account name.");
 		return;
 	}
+	
+	if (operatingSystem == CLIENTOS_NEW_LINUX) {
+		//TODO: check what new info for linux is send
+		msg.getString();
+		msg.getString();
+	}
 
 	std::string accountName = sessionKey.substr(0, pos);
 	if (accountName.empty()) {
