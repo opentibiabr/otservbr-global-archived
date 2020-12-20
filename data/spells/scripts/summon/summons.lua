@@ -1,7 +1,11 @@
 local setting = {
+	[VOCATION.ID.SORCERER] = {name = "thundergiant"},
 	[VOCATION.ID.MASTER_SORCERER] = {name = "thundergiant"},
+	[VOCATION.ID.DRUID] = {name = "grovebeast"},
 	[VOCATION.ID.ELDER_DRUID] = {name = "grovebeast"},
+	[VOCATION.ID.PALADIN] = {name = "emberwing"},
 	[VOCATION.ID.ROYAL_PALADIN] = {name = "emberwing"},
+	[VOCATION.ID.KNIGHT] = {name = "skullfrost"},
 	[VOCATION.ID.ELITE_KNIGHT] = {name = "skullfrost"}
 }
 
@@ -20,7 +24,7 @@ local area = createCombatArea(AREA_CIRCLE1X1)
 setCombatArea(combat, area)
 
 function onCastSpell(player, variant)
-	if not player then return false end
+	if not player or isPremium(player) then return false end
 
     if #player:getSummons() >= 1 then
         player:sendCancelMessage("You can't have other summons.")
