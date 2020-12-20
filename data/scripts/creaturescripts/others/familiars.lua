@@ -13,14 +13,18 @@ local familiarLogin = CreatureEvent("FamiliarLogin")
 
 function familiarLogin.onLogin(player)
 	local vocation = summon[player:getVocation():getId()]
-	if not isPremium(player) and player:hasFamiliar(vocation.id) and player:getLevel()<200 and player:getAccountType() < ACCOUNT_TYPE_GAMEMASTER and player:getGroup():getId() < 4 then
+	if player:getAccountType() >= ACCOUNT_TYPE_GAMEMASTER and player:getGroup():getId() >= 4 then
+		return true
+	end
+	
+	if (not isPremium(player) or player:getLevel()<200) and player:hasFamiliar(vocation.id) then
 		player:removeFamiliar(vocation.id)
 	elseif isPremium(player) and player:getLevel()>=200 then
 		if not player:hasFamiliar(vocation.id) then
 			player:addFamiliar(vocation.id)
 		end
 	end
-	
+
 	return true
 end
 
