@@ -10,13 +10,14 @@ function update.onStartup()
 			io.input(readFile)
 			local str = io.read()
 			io.close(readFile)
-			local ae = string.match(str,"updated=true(.+)")
+			local ae = string.match(str,"updated = true(.+)")
 			if ae then
-				afterUpdate = 'updated=false'..ae
+				afterUpdate = 'updated = false'..ae
 				local updateFile=io.open(fileToUpdate, "w")
 				io.output(updateFile)
 				io.write(afterUpdate)
 				io.close(updateFile)
+				print(">> All players sent to temple. Check if 'data/update.lua' contains 'updated = false'.")
 			end
 		end
 	end
