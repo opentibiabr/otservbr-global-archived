@@ -964,7 +964,7 @@
 	<house name="Shadow Caves 3" houseid="3663" entryx="32654" entryy="31664" entryz="9" rent="10000" townid="5" size="38" />
 	<house name="Shadow Caves 4" houseid="3664" entryx="32656" entryy="31664" entryz="9" rent="10000" townid="5" size="38" />
 	<house name="Shadow Caves 5" houseid="3665" entryx="32654" entryy="31672" entryz="9" rent="10000" townid="5" size="38" />
-	<house name="Shadow Caves 6" houseid="3666" entryx="0" entryy="0" entryz="0" rent="10000" townid="5" size="38" />
+	<house name="Shadow Caves 6" houseid="3666" entryx="32656" entryy="31672" entryz="9" rent="10000" townid="5" size="38" />
 	<house name="Northport Clanhall" houseid="3667" entryx="32468" entryy="31614" entryz="7" rent="250000" guildhall="true" townid="6" size="132" />
 	<house name="The Treehouse" houseid="3668" entryx="32747" entryy="32697" entryz="7" rent="250000" guildhall="true" townid="15" size="478" />
 	<house name="Frost Manor" houseid="3669" entryx="32287" entryy="31106" entryz="5" rent="500000" guildhall="true" townid="16" size="364" />
@@ -983,5 +983,5 @@
 	<house name="Pilchard Bin 8" houseid="3683" entryx="32281" entryy="31156" entryz="6" rent="25000" townid="16" size="5" />
 	<house name="Pilchard Bin 9" houseid="3684" entryx="32281" entryy="31152" entryz="6" rent="50000" townid="16" size="7" />
 	<house name="Pilchard Bin 10" houseid="3685" entryx="32281" entryy="31148" entryz="6" rent="0" townid="16" size="7" />
-	<house name="Mammoth House" houseid="3686" entryx="32234" entryy="31227" entryz="7" rent="300000" townid="16" size="161" />
+	<house name="Mammoth House" houseid="3686" entryx="32234" entryy="31227" entryz="7" rent="300000" townid="16" size="160" />
 </houses>

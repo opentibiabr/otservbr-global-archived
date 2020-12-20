@@ -10,7 +10,7 @@ function loadLuaMapAction(tablename)
 				-- Checks that you have no items created
 				if tile:getItemCountById(value.itemId) == 0 then
 					print(">> Wrong item id found")
-					print(string.format("> Action id: %d, item id: %d", key, value.itemId))
+					print(string.format("> Action id: %d, item id: %d", index, value.itemId))
 				end
 				if tile:getItemCountById(value.itemId) == 1 then
 					item = tile:getItemById(value.itemId)
@@ -42,7 +42,7 @@ end
 
 function loadLuaMapUnique(tablename)
 	-- It load uniques
-	for key, value in pairs(tablename) do
+	for index, value in pairs(tablename) do
 		local tile = Tile(value.itemPos)
 		local item
 		-- Checks if the position is valid
@@ -50,14 +50,14 @@ function loadLuaMapUnique(tablename)
 			-- Checks that you have no items created
 			if tile:getItemCountById(value.itemId) == 0 then
 				print(">> Wrong item id found")
-				print(string.format("> Unique id: %d, item id: %d", key, value.itemId))
+				print(string.format("> Unique id: %d, item id: %d", index, value.itemId))
 			end
 			if tile:getItemCountById(value.itemId) == 1 then
 				item = tile:getItemById(value.itemId)
 			end
 			-- If he found the item, add the unique id
 			if item then
-				item:setAttribute(ITEM_ATTRIBUTE_UNIQUEID, key)
+				item:setAttribute(ITEM_ATTRIBUTE_UNIQUEID, index)
 			end
 		end
 	end
@@ -65,7 +65,7 @@ end
 
 function loadLuaMapSign(tablename)
 	-- It load signs on map table
-	for key, value in pairs(tablename) do
+	for index, value in pairs(tablename) do
 		local tile = Tile(value.itemPos)
 		local item
 		-- Checks if the position is valid
@@ -73,7 +73,7 @@ function loadLuaMapSign(tablename)
 			-- Checks that you have no items created
 			if tile:getItemCountById(value.itemId) == 0 then
 				print(">> Wrong item id found")
-				print(string.format("> Sign id: %d, item id: %d", key, value.itemId))
+				print(string.format("> Sign id: %d, item id: %d", index, value.itemId))
 			end
 			if tile:getItemCountById(value.itemId) == 1 then
 				item = tile:getItemById(value.itemId)
@@ -88,7 +88,7 @@ end
 
 function loadLuaMapBook(tablename)
 	-- It load book on map table
-	for key, value in pairs(tablename) do
+	for index, value in pairs(tablename) do
 		local tile = Tile(value.itemPos)
 		local item
 		-- Checks if the position is valid
