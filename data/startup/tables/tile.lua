@@ -261,6 +261,17 @@ TileAction = {
 			{x = 33250, y = 32268, z = 6}
 		}
 	},
+
+	-- Kilmaresh
+	-- First mission
+	-- 
+	[50307] = {
+		itemId = false,
+		itemPos = {
+			{ x = 33956, y = 31503, z = 2 },
+			{ x = 33957, y = 31503, z = 2 }
+		}
+	}
 }
 
 TileUnique = {
