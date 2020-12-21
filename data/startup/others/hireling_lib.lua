@@ -338,8 +338,7 @@ function Hireling:spawn()
 	npc:setName(self:getName())
 	local creature = Creature(npc)
 	creature:setOutfit(self:getOutfit())
-	-- figure later the right SpeechBubble
-	npc:setSpeechBubble(SPEECHBUBBLE_NORMAL)
+	npc:setSpeechBubble(7)
 
 	npc:place(self:getPosition())
 	creature:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
