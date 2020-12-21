@@ -376,7 +376,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 		disconnect();
 		return;
 	}
-	
+
 	if (clientVersion != CLIENT_VERSION) {
 		std::ostringstream ss;
 		ss << "Only clients with protocol " << CLIENT_VERSION_STR << " allowed!";
