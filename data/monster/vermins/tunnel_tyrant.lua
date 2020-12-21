@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Tunnel Tyrant")
 local monster = {}
 
 monster.description = "a tunnel tyrant"
-monster.experience = 4000
+monster.experience = 3400
 monster.outfit = {
 	lookType = 1035,
 	lookHead = 0,
