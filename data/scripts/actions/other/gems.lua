@@ -69,6 +69,21 @@ local lionsRock = {
 local gems = Action()
 
 function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	-- Small emerald for Kilmaresh quest
+	-- see data\scripts\quests\kilmaresh\1-fafnars-wrath\7-four-masks.lua
+	if item.itemid == 2149 and
+		target.uid == 40032 and
+		player:getStorageValue(Storage.Kilmaresh.Sixth.Favor) >= 1 and
+		not testFlag(player:getStorageValue(Storage.Kilmaresh.Sixth.FourMasks), 4)
+	then
+		player:addItem(36206, 1) -- Ivory mask
+		item:remove(1)
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You hear a *click*. You can now lift the floor tile and discover a secret compartment. A mask made of ivory lies in it.")
+		player:setStorageValue(Storage.Kilmaresh.Sixth.Favor, player:getStorageValue(Storage.Kilmaresh.Sixth.Favor) + 1)
+		player:setStorageValue(Storage.Kilmaresh.Sixth.FourMasks, setFlag(player:getStorageValue(Storage.Kilmaresh.Sixth.FourMasks), 4))
+        return true
+	end
+
 	-- Gems teleport to feyrist
 	for index, value in pairs(shrine) do
 		if item.itemid == index then

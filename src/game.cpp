@@ -120,7 +120,7 @@ void Game::loadBoostedCreature()
 		query.str(std::string());
 		query << "UPDATE `boosted_creature` SET ";
 		query << "`date` = '" << ltm->tm_mday << "',";
-		query << "`boostname` = '" << name << "',";
+		query << "`boostname` = " << db.escapeString(name) << ",";
 		query << "`raceid` = '" << newrace << "'";
 
 		if (!db.executeQuery(query.str())) {
@@ -537,6 +537,10 @@ void Game::saveGameState()
 		it.second->loginPosition = it.second->getPosition();
 		IOLoginData::savePlayer(it.second);
 	}
+
+  for (const auto& it : guilds) {
+    IOGuild::saveGuild(it.second);
+  }
 
 	Map::save();
 
@@ -8198,6 +8202,10 @@ void Game::addGuild(Guild* guild)
 
 void Game::removeGuild(uint32_t guildId)
 {
+  auto it = guilds.find(guildId);
+  if (it != guilds.end()) {
+    IOGuild::saveGuild(it->second);
+  }
 	guilds.erase(guildId);
 }
 

@@ -514,6 +514,10 @@ function Player:onItemMoved(item, count, fromPosition, toPosition, fromCylinder,
 end
 
 function Player:onMoveCreature(creature, fromPosition, toPosition)
+	if creature:isPlayer() and creature:getStorageValue(Storage.isTraining) == 1 and self:getGroup():hasFlag(PlayerFlag_CanPushAllCreatures) == false then
+		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+	return false
+	end
 	return true
 end
 
