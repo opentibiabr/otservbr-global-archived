@@ -54,6 +54,9 @@ depotBoxes = 18
 -- GameStore
 gamestoreByModules = true
 
+-- NOTE: Access only for Premium Account
+onlyPremiumAccount = false
+
 -- Customs
 weatherRain = false
 thunderEffect = false
