@@ -16,12 +16,13 @@ function familiarLogin.onLogin(player)
 	if player:getAccountType() >= ACCOUNT_TYPE_GAMEMASTER and player:getGroup():getId() >= 4 then
 		return true
 	end
-
-	if (not isPremium(player) or player:getLevel()<200) and player:hasFamiliar(vocation.id) then
-		player:removeFamiliar(vocation.id)
-	elseif isPremium(player) and player:getLevel()>=200 then
-		if not player:hasFamiliar(vocation.id) then
-			player:addFamiliar(vocation.id)
+	if vocation then
+		if (not isPremium(player) and player:hasFamiliar(vocation.id)) or player:getLevel()<200 then
+				player:removeFamiliar(vocation.id)
+		elseif isPremium(player) and player:getLevel()>=200 then
+			if not player:hasFamiliar(vocation.id) then
+				player:addFamiliar(vocation.id)
+			end
 		end
 	end
 
