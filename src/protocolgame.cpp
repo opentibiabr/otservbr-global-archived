@@ -157,6 +157,13 @@ void ProtocolGame::login(const std::string& name, uint32_t accountId, OperatingS
 			return;
 		}
 
+		if (g_config.getBoolean(ConfigManager::ONLY_PREMIUM_ACCOUNT)
+		&& !player->isPremium()
+		&& (player->getGroup()->id < 4 || player->getAccountType() < account::ACCOUNT_TYPE_GAMEMASTER)) {
+			disconnectClient("Your premium time for this account is out.\n\nTo play please buy additional premium time from our website");
+			return;
+		}
+
 		if (g_config.getBoolean(ConfigManager::ONE_PLAYER_ON_ACCOUNT)
 		&& player->getAccountType() < account::ACCOUNT_TYPE_GAMEMASTER
 		&& g_game.getPlayerByAccount(player->getAccount())) {
