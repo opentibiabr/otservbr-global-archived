@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Knowledge Elemental")
 local monster = {}
 
 monster.description = "a knowledge elemental"
-monster.experience = 10710
+monster.experience = 10603
 monster.outfit = {
 	lookType = 1065,
 	lookHead = 0,
@@ -58,9 +58,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

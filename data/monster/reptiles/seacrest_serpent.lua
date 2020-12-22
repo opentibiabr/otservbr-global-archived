@@ -61,9 +61,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -114,7 +114,7 @@ monster.defenses = {
 	defense = 31,
 	armor = 22,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 145, maxDamage = 200, effect = CONST_ME_SOUND_BLUE, target = false},
-	{name ="melee", interval = 2000, chance = 10, minDamage = 0, maxDamage = 0, effect = CONST_ME_DRAWBLOOD}
+	{name ="melee", interval = 2000, chance = 10, minDamage = 0, maxDamage = 0}
 }
 
 monster.elements = {
