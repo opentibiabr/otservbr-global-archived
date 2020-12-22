@@ -27,10 +27,10 @@ Guild* IOGuild::loadGuild(uint32_t guildId)
 {
 	Database& db = Database::getInstance();
 	std::ostringstream query;
-	query << "SELECT `name` FROM `guilds` WHERE `id` = " << guildId;
+	query << "SELECT `name`, `balance` FROM `guilds` WHERE `id` = " << guildId;
 	if (DBResult_ptr result = db.storeQuery(query.str())) {
 		Guild* guild = new Guild(guildId, result->getString("name"));
-
+    guild->setBankBalance(result->getNumber<uint64_t>("balance"));
 		query.str(std::string());
 		query << "SELECT `id`, `name`, `level` FROM `guild_ranks` WHERE `guild_id` = " << guildId;
 
@@ -42,6 +42,17 @@ Guild* IOGuild::loadGuild(uint32_t guildId)
 		return guild;
 	}
 	return nullptr;
+}
+
+void IOGuild::saveGuild(Guild* guild) {
+  if (!guild)
+    return;
+  Database& db = Database::getInstance();
+  std::ostringstream updateQuery;
+  updateQuery << "UPDATE `guilds` SET ";
+  updateQuery << "`balance` = " << guild->getBankBalance();
+  updateQuery << " WHERE `id` = " << guild->getId();
+  db.executeQuery(updateQuery.str());
 }
 
 uint32_t IOGuild::getGuildIdByName(const std::string& name)

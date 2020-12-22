@@ -28,6 +28,42 @@ registerMonsterType.experience = function(mtype, mask)
 		mtype:experience(mask.experience)
 	end
 end
+registerMonsterType.raceId = function(mtype, mask)
+	if mask.raceId then
+		mtype:raceId(mask.raceId)
+	end
+end
+registerMonsterType.Bestiary = function(mtype, mask)
+	if mask.Bestiary then
+		if mask.Bestiary.race then
+			mtype:Bestiaryrace(mask.Bestiary.race)
+		end
+		if mask.Bestiary.class then
+			mtype:Bestiaryclass(mask.Bestiary.class)
+		end
+		if mask.Bestiary.toKill then
+			mtype:BestiarytoKill(mask.Bestiary.toKill)
+		end
+		if mask.Bestiary.FirstUnlock then
+			mtype:BestiaryFirstUnlock(mask.Bestiary.FirstUnlock)
+		end
+		if mask.Bestiary.SecondUnlock then
+			mtype:BestiarySecondUnlock(mask.Bestiary.SecondUnlock)
+		end
+		if mask.Bestiary.CharmsPoints then
+			mtype:BestiaryCharmsPoints(mask.Bestiary.CharmsPoints)
+		end
+		if mask.Bestiary.Stars then
+			mtype:BestiaryStars(mask.Bestiary.Stars)
+		end
+		if mask.Bestiary.Occurrence then
+			mtype:BestiaryOccurrence(mask.Bestiary.Occurrence)
+		end
+		if mask.Bestiary.Locations then
+			mtype:BestiaryLocations(mask.Bestiary.Locations)
+		end		
+	end
+end
 registerMonsterType.skull = function(mtype, mask)
 	if mask.skull then
 		mtype:skull(mask.skull)
@@ -333,6 +369,24 @@ registerMonsterType.elements = function(mtype, mask)
 		for _, element in pairs(mask.elements) do
 			if element.type and element.percent then
 				mtype:addElement(element.type, element.percent)
+			end
+		end
+	end
+end
+registerMonsterType.reflects = function(mtype, mask)
+	if type(mask.reflects) == "table" then
+		for _, reflect in pairs(mask.reflects) do
+			if reflect.type and reflect.percent then
+				mtype:addReflect(reflect.type, reflect.percent)
+			end
+		end
+	end
+end
+registerMonsterType.heals = function(mtype, mask)
+	if type(mask.heals) == "table" then
+		for _, heal in pairs(mask.heals) do
+			if heal.type and heal.percent then
+				mtype:addHealing(heal.type, heal.percent)
 			end
 		end
 	end

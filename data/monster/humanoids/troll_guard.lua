@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 745
+monster.Bestiary = {
+	class = "Humanoid",
+	race = BESTY_RACE_HUMANOID,
+	toKill = 5,
+	FirstUnlock = 2,
+	SecondUnlock = 3,
+	CharmsPoints = 30,
+	Stars = 2,
+	Occurrence = 3,
+	Locations = "Rookgaard's central cave in the new western Troll tunnel, \z
+		north-west of Carlin during raids and Thais Knights' Guild arena during raids on Kingsday."
+		}
+
 monster.health = 60
 monster.maxHealth = 60
 monster.race = "blood"

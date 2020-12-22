@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 782
+monster.Bestiary = {
+	class = "Aquatic",
+	race = BESTY_RACE_AQUATIC,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "Fiehonja, Seacrest Grounds, Krailos Steppe underwater cave."
+		}
+
 monster.health = 1200
 monster.maxHealth = 1200
 monster.race = "blood"

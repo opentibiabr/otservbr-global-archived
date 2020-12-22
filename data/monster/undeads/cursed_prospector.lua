@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Cursed Prospector")
 local monster = {}
 
 monster.description = "Cursed Prospector"
-monster.experience = 4200
+monster.experience = 5250
 monster.outfit = {
 	lookType = 1268,
 	lookHead = 0,
@@ -12,6 +12,19 @@ monster.outfit = {
 	lookAddons = 1,
 	lookMount = 0
 }
+
+monster.raceId = 1880
+monster.Bestiary = {
+	class = "Undead",
+	race = BESTY_RACE_UNDEAD,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Barren Drift."
+		}
 
 monster.health = 3900
 monster.maxHealth = 3900

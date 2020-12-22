@@ -45,7 +45,7 @@ LootTypeNames lootTypeNames = {
 	{"container", ITEM_TYPE_CONTAINER},
 	{"decoration", ITEM_TYPE_DECORATION},
 	{"food", ITEM_TYPE_FOOD},
-	{"head", ITEM_TYPE_HELMET},
+	{"helmet", ITEM_TYPE_HELMET},
 	{"legs", ITEM_TYPE_LEGS},
 	{"other", ITEM_TYPE_OTHER},
 	{"potion", ITEM_TYPE_POTION},

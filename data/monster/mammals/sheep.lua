@@ -13,6 +13,21 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 14
+monster.Bestiary = {
+	class = "Mammal",
+	race = BESTY_RACE_MAMMAL,
+	toKill = 250,
+	FirstUnlock = 10,
+	SecondUnlock = 100,
+	CharmsPoints = 5,
+	Stars = 1,
+	Occurrence = 0,
+	Locations = "In Rookgaard Sheep field, Greenshore and other farms like the one in Thais, east of Carlin. \z
+		They can also be found wandering the fields of Edron, and some can be found along with a \z
+		Black Sheep with the Hunter in Femur Hills."
+		}
+
 monster.health = 20
 monster.maxHealth = 20
 monster.race = "blood"

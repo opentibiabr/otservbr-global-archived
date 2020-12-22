@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Spiky Carnivor")
 local monster = {}
 
 monster.description = "a Spiky Carnivor"
-monster.experience = 1500
+monster.experience = 1650
 monster.outfit = {
 	lookType = 1133,
 	lookHead = 85,
@@ -12,6 +12,19 @@ monster.outfit = {
 	lookAddons = 0,
 	lookMount = 0
 }
+
+monster.raceId = 1722
+monster.Bestiary = {
+	class = "Magical",
+	race = BESTY_RACE_MAGICAL,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Carnivora's Rocks."
+		}
 
 monster.health = 2800
 monster.maxHealth = 2800
@@ -48,9 +61,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -94,6 +107,10 @@ monster.defenses = {
 	defense = 20,
 	armor = 71,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 150, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false}
+}
+
+monster.reflects = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 50}
 }
 
 monster.elements = {
