@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Retching Horror")
 local monster = {}
 
 monster.description = "a retching horror"
-monster.experience = 3900
+monster.experience = 4100
 monster.outfit = {
 	lookType = 588,
 	lookHead = 0,
@@ -12,6 +12,19 @@ monster.outfit = {
 	lookAddons = 0,
 	lookMount = 0
 }
+
+monster.raceId = 1018
+monster.Bestiary = {
+	class = "Magical",
+	race = BESTY_RACE_MAGICAL,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "All over the surface of Upper Roshamuul and Nightmare Isles."
+		}
 
 monster.health = 5300
 monster.maxHealth = 5300
@@ -50,7 +63,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

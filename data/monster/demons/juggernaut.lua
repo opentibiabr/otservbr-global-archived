@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Juggernaut")
 local monster = {}
 
 monster.description = "a juggernaut"
-monster.experience = 4900
+monster.experience = 11200
 monster.outfit = {
 	lookType = 244,
 	lookHead = 0,
@@ -12,6 +12,20 @@ monster.outfit = {
 	lookAddons = 0,
 	lookMount = 0
 }
+
+monster.raceId = 296
+monster.Bestiary = {
+	class = "Demon",
+	race = BESTY_RACE_DEMON,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Deep in Pits of Inferno (Apocalypse's throne room), The Dark Path, \z
+		The Blood Halls, The Vats, The Hive, The Shadow Nexus, a room deep in Formorgar Mines, Roshamuul Prison, Oramond Dungeon, Grounds of Destruction."
+		}
 
 monster.health = 20000
 monster.maxHealth = 20000
@@ -49,8 +63,8 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

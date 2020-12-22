@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Brain Squid")
 local monster = {}
 
 monster.description = "a brain squid"
-monster.experience = 17850
+monster.experience = 17672
 monster.outfit = {
 	lookType = 1059,
 	lookHead = 97,
@@ -12,6 +12,19 @@ monster.outfit = {
 	lookAddons = 0,
 	lookMount = 0
 }
+
+monster.raceId = 1653
+monster.Bestiary = {
+	class = "Magical",
+	race = BESTY_RACE_MAGICAL,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Secret Library."
+		}
 
 monster.health = 18000
 monster.maxHealth = 18000
@@ -45,9 +58,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

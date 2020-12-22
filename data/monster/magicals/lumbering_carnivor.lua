@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Lumbering Carnivor")
 local monster = {}
 
 monster.description = "a Lumbering Carnivor"
-monster.experience = 1320
+monster.experience = 1452
 monster.outfit = {
 	lookType = 1139,
 	lookHead = 79,
@@ -12,6 +12,19 @@ monster.outfit = {
 	lookAddons = 1,
 	lookMount = 0
 }
+
+monster.raceId = 1721
+monster.Bestiary = {
+	class = "Magical",
+	race = BESTY_RACE_MAGICAL,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Carnivora's Rocks."
+		}
 
 monster.health = 2600
 monster.maxHealth = 2600
@@ -48,9 +61,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

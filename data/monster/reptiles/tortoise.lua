@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 258
+monster.Bestiary = {
+	class = "Reptile",
+	race = BESTY_RACE_REPTILE,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "Laguna Islands, Fenrock, Port Hope and also can be found behind a wall below the \z
+		center of Liberty Bay. These cannot be reached."
+		}
+
 monster.health = 185
 monster.maxHealth = 185
 monster.race = "blood"

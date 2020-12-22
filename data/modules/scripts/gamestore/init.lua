@@ -592,7 +592,7 @@ function Player.canBuyOffer(self, offer)
 				disabledReason = "You already have maximum of prey wildcards."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_CHARMS then
-			if self:getStorageValue(Bestiary.Storage.PLAYER_CHARM_SLOT_EXPANSION) == 1 then
+			if self:charmExpansion() then
 				disabled = 1
 				disabledReason = "You already have charm expansion."
 			end
@@ -1283,7 +1283,7 @@ function GameStore.processInstantRewardAccess(player, offerCount)
 end
 
 function GameStore.processCharmsPurchase(player)
-	player:setCharmRuneSlotExpansion(true)
+	player:charmExpansion(true)
 end
 
 function GameStore.processPremiumPurchase(player, offerId)

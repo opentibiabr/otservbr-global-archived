@@ -49,6 +49,14 @@ function Player.getCollectionTokens(self)
 	return math.max(self:getStorageValue(DailyReward.storages.collectionTokens), 0)
 end
 
+function Player.getJokerTokens(self)
+	return math.max(self:getStorageValue(DailyReward.storages.jokerTokens), 0)
+end
+
+function Player.setJokerTokens(self, value)
+	self:setStorageValue(DailyReward.storages.jokerTokens, value)
+end
+
 function Player.setCollectionTokens(self, value)
 	self:setStorageValue(DailyReward.storages.collectionTokens, value)
 end
