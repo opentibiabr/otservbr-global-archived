@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<spawns>
+	<spawn centerx="32206" centery="32040" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32208" centery="32040" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32211" centery="32042" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32205" centery="32043" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32207" centery="32043" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32214" centery="32043" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32211" centery="32044" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32200" centery="32046" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32211" centery="32046" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32205" centery="32048" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32207" centery="32048" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32209" centery="32048" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32202" centery="32049" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32214" centery="32049" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32200" centery="32050" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32202" centery="32051" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32206" centery="32051" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32208" centery="32051" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32210" centery="32051" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32213" centery="32052" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32205" centery="32055" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+	<spawn centerx="32209" centery="32055" centerz="14" radius="1">
+		<monster name="Whirling Blades" x="0" y="0" z="14" spawntime="60" />
+	</spawn>
+</spawns>
