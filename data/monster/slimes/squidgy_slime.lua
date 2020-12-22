@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 20
+monster.Bestiary = {
+	class = "Slime",
+	race = BESTY_RACE_SLIME,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 50,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 2,
+	Locations = "Horestis Tomb."
+		}
+
 monster.health = 150
 monster.maxHealth = 150
 monster.race = "venom"

@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 456
+monster.Bestiary = {
+	class = "Elemental",
+	race = BESTY_RACE_ELEMENTAL,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 1,
+	Locations = "North west of Ankrahmun, you must Levitate to hunt. Two can also be found in the Asura Palace."
+		}
+
 monster.health = 1100
 monster.maxHealth = 1100
 monster.race = "venom"

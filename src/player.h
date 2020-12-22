@@ -187,6 +187,25 @@ class Player final : public Creature, public Cylinder
 			}
 		}
 
+		void BestiarysendCharms() {
+			if (client) {
+				client->BestiarysendCharms();
+			}
+		}
+		void addBestiaryKillCount(uint16_t raceid)
+		{
+			uint32_t oldCount = getBestiaryKillCount(raceid);
+			uint32_t key = STORAGEVALUE_BESTIARYKILLCOUNT + raceid;
+			addStorageValue(key, static_cast<int32_t>(oldCount + 1));
+		}
+		uint32_t getBestiaryKillCount(uint16_t raceid) const
+		{
+			int32_t cp = 0;
+			uint32_t key = STORAGEVALUE_BESTIARYKILLCOUNT + raceid;
+			getStorageValue(key, cp);
+			return cp > 0 ? static_cast<uint32_t>(cp) : 0;
+		}
+
 		void setGUID(uint32_t newGuid) {
 			this->guid = newGuid;
 		}
@@ -343,7 +362,35 @@ class Player final : public Creature, public Cylinder
 		uint16_t getClientIcons() const;
 
 		const GuildWarVector& getGuildWarVector() const {
-			return guildWarVector;
+		return guildWarVector;
+		}
+
+		std::list<MonsterType*> getBestiaryTrackerList() const {
+			return BestiaryTracker;
+		}
+
+		void addBestiaryTrackerList(MonsterType* mtype) {
+			if (client) {
+				auto it = std::find(BestiaryTracker.begin(), BestiaryTracker.end(), mtype);
+				if (it == BestiaryTracker.end()) {
+					BestiaryTracker.push_front(mtype);
+				} else {
+					BestiaryTracker.remove(mtype);
+				}
+				client->refreshBestiaryTracker(BestiaryTracker);
+			}
+		}
+
+		void sendBestiaryEntryChanged(uint16_t raceid) {
+			if (client) {
+				client->sendBestiaryEntryChanged(raceid);
+			}
+		}
+
+		void refreshBestiaryTracker(std::list<MonsterType*> trackerList) {
+			if (client) {
+				client->refreshBestiaryTracker(trackerList);
+			}
 		}
 
 		Vocation* getVocation() const {
@@ -1603,6 +1650,108 @@ class Player final : public Creature, public Cylinder
  			}
  		}
 
+		uint32_t getCharmPoints() {
+			return charmPoints;
+		}
+		void setCharmPoints(uint32_t points) {
+			charmPoints = points;
+		}
+		bool hasCharmExpansion() {
+			return charmExpansion;
+		}
+		void setCharmExpansion(bool onOff) {
+			charmExpansion = onOff;
+		}
+		void setUsedRunesBit(int32_t bit) {
+			UsedRunesBit = bit;
+		}
+		int32_t getUsedRunesBit() {
+			return UsedRunesBit;
+		}
+		void setUnlockedRunesBit(int32_t bit) {
+			UnlockedRunesBit = bit;
+		}
+		int32_t getUnlockedRunesBit() {
+			return UnlockedRunesBit;
+		}
+		void setImmuneCleanse(ConditionType_t conditiontype) {
+			cleanseCondition.first = conditiontype;
+			cleanseCondition.second = OTSYS_TIME() + 10000;
+		}
+		bool isImmuneCleanse(ConditionType_t conditiontype) {
+			uint64_t timenow = OTSYS_TIME();
+			if ((cleanseCondition.first == conditiontype) && (timenow <= cleanseCondition.second)) {
+				return true;
+			}
+			return false;
+		}
+		uint16_t parseRacebyCharm(charmRune_t charmId, bool set, uint16_t newRaceid) {
+			uint16_t raceid = 0;
+		switch (charmId) {
+			case CHARM_WOUND:
+				if (set) { charmRuneWound = newRaceid; } else { raceid = charmRuneWound; }
+				break;
+			case CHARM_ENFLAME:
+				if (set) { charmRuneEnflame = newRaceid; } else { raceid = charmRuneEnflame; }
+				break;
+			case CHARM_POISON:
+				if (set) { charmRunePoison = newRaceid; } else { raceid = charmRunePoison; }
+				break;
+			case CHARM_FREEZE:
+				if (set) { charmRuneFreeze = newRaceid; } else { raceid = charmRuneFreeze; }
+				break;
+			case CHARM_ZAP:
+				if (set) { charmRuneZap = newRaceid; } else { raceid = charmRuneZap; }
+				break;
+			case CHARM_CURSE:
+				if (set) { charmRuneCurse = newRaceid; } else { raceid = charmRuneCurse; }
+				break;
+			case CHARM_CRIPPLE:
+				if (set) { charmRuneCripple = newRaceid; } else { raceid = charmRuneCripple; }
+				break;
+			case CHARM_PARRY:
+				if (set) { charmRuneParry = newRaceid; } else { raceid = charmRuneParry; }
+				break;
+			case CHARM_DODGE:
+				if (set) { charmRuneDodge = newRaceid; } else { raceid = charmRuneDodge; }
+				break;
+			case CHARM_ADRENALINE:
+				if (set) { charmRuneAdrenaline = newRaceid; } else { raceid = charmRuneAdrenaline; }
+				break;
+			case CHARM_NUMB:
+				if (set) { charmRuneNumb = newRaceid; } else { raceid = charmRuneNumb; }
+				break;
+			case CHARM_CLEANSE:
+				if (set) { charmRuneCleanse = newRaceid; } else { raceid = charmRuneCleanse; }
+				break;
+			case CHARM_BLESS:
+				if (set) { charmRuneBless = newRaceid; } else { raceid = charmRuneBless; }
+				break;
+			case CHARM_SCAVENGE:
+				if (set) { charmRuneScavenge = newRaceid; } else { raceid = charmRuneScavenge; }
+				break;
+			case CHARM_GUT:
+				if (set) { charmRuneGut = newRaceid; } else { raceid = charmRuneGut; }
+				break;
+			case CHARM_LOW:
+				if (set) { charmRuneLowBlow = newRaceid; } else { raceid = charmRuneLowBlow; }
+				break;
+			case CHARM_DIVINE:
+				if (set) { charmRuneDivine = newRaceid; } else { raceid = charmRuneDivine; }
+				break;
+			case CHARM_VAMP:
+				if (set) { charmRuneVamp = newRaceid; } else { raceid = charmRuneVamp; }
+				break;
+			case CHARM_VOID:
+				if (set) { charmRuneVoid = newRaceid; } else { raceid = charmRuneVoid; }
+				break;
+			default:
+				raceid = 0;
+				break;
+		}
+			return raceid;
+		}
+
 		uint16_t getFreeBackpackSlots() const;
 
 
@@ -1694,6 +1843,8 @@ class Player final : public Creature, public Cylinder
 		std::forward_list<uint32_t> modalWindows;
 		std::forward_list<std::string> learnedInstantSpellList;
 		std::forward_list<Condition*> storedConditionList; // TODO: This variable is only temporarily used when logging in, get rid of it somehow
+
+		std::list<MonsterType*> BestiaryTracker;
 
 		std::string name;
 		std::string guildNick;
@@ -1793,6 +1944,32 @@ class Player final : public Creature, public Cylinder
 		uint16_t storeXpBoost = 0;
 		uint16_t staminaXpBoost = 100;
 		int16_t lastDepotId = -1;
+
+		// Bestiary
+		bool charmExpansion = false;
+		uint16_t charmRuneWound = 0;
+		uint16_t charmRuneEnflame = 0;
+		uint16_t charmRunePoison = 0;
+		uint16_t charmRuneFreeze = 0;
+		uint16_t charmRuneZap = 0;
+		uint16_t charmRuneCurse = 0;
+		uint16_t charmRuneCripple = 0;
+		uint16_t charmRuneParry = 0;
+		uint16_t charmRuneDodge = 0;
+		uint16_t charmRuneAdrenaline = 0;
+		uint16_t charmRuneNumb = 0;
+		uint16_t charmRuneCleanse = 0;
+		uint16_t charmRuneBless = 0;
+		uint16_t charmRuneScavenge = 0;
+		uint16_t charmRuneGut = 0;
+		uint16_t charmRuneLowBlow = 0;
+		uint16_t charmRuneDivine = 0;
+		uint16_t charmRuneVamp = 0;
+		uint16_t charmRuneVoid = 0;
+		uint32_t charmPoints = 0;
+		int32_t UsedRunesBit = 0;
+		int32_t UnlockedRunesBit = 0;
+		std::pair<ConditionType_t, uint64_t> cleanseCondition = {CONDITION_NONE, 0};
 
 		// New Prey
 		uint16_t preyBonusRerolls = 0;

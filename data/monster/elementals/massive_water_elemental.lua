@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 279
+monster.Bestiary = {
+	class = "Elemental",
+	race = BESTY_RACE_ELEMENTAL,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Calassa, Frozen Trench, Water Elemental Dungeon through the water channels, \z
+		before Zugurosh in The Inquisition Quest."
+		}
+
 monster.health = 1250
 monster.maxHealth = 1250
 monster.race = "undead"

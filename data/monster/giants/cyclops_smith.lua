@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 389
+monster.Bestiary = {
+	class = "Giant",
+	race = BESTY_RACE_GIANT,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Cyclopolis second floor and below, Mistrock, Mount Sternum, \z
+		Cyclops Camp second floor and in the Cyclops version of the Forsaken Mine."
+		}
+
 monster.health = 435
 monster.maxHealth = 435
 monster.race = "blood"

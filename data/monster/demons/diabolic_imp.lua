@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 288
+monster.Bestiary = {
+	class = "Demon",
+	race = BESTY_RACE_DEMON,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Inquisition, Pits of Inferno, Fenrock, Fury Dungeon and inside the \z
+		Hellgore volcano on Goroma during the Fire from the Earth Mini World Change."
+		}
+
 monster.health = 1950
 monster.maxHealth = 1950
 monster.race = "fire"

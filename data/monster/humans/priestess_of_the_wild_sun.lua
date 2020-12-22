@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1799
+monster.Bestiary = {
+	class = "Human",
+	race = BESTY_RACE_HUMAN,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Issavi Sewers, Kilmaresh Mountains, Kilmaresh Catacombs."
+		}
+
 monster.health = 8500
 monster.maxHealth = 8500
 monster.race = "blood"

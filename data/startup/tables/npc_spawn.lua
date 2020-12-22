@@ -493,7 +493,7 @@ NpcTable = {
 	[492] = {name = "willem", position = {x = 32063, y = 32020, z = 7}},
 	[493] = {name = "neill", position = {x = 32076, y = 32027, z = 7}},
 	[494] = {name = "lesser_messenger_of_heaven", position = {x = 32536, y = 32026, z = 7}},
-	[495] = {name = "ghostly_wolf", position = {x = 33332, y = 32051, z = 7}},
+	[495] = {name = "uzon", position = {x = 32661, y = 31915, z = 0}},
 	[496] = {name = "valentina", position = {x = 32271, y = 32052, z = 7}},
 	[497] = {name = "tokel", position = {x = 32253, y = 32055, z = 7}},
 	[498] = {name = "ulrik", position = {x = 32281, y = 32056, z = 7}},
@@ -952,6 +952,5 @@ NpcTable = {
 	[951] = {name = "ninos", position = {x = 33904, y = 31498, z = 7}},
 	[952] = {name = "ramina", position = {x = 33903, y = 31495, z = 7}},
 	[953] = {name = "orc_berserker_npc", position = {x = 32777, y = 31237, z = 7}},
-	[954] = {name = "one_eyed_joe", position = {x = 32025, y = 32884, z = 6}},
-	[955] = {name = "uzon", position = {x = 32661, y = 31915, z = 0}}
+	[954] = {name = "one_eyed_joe", position = {x = 32025, y = 32884, z = 6}}
 }

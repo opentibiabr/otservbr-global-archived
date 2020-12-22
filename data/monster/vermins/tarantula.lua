@@ -13,6 +13,23 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 219
+monster.Bestiary = {
+	class = "Vermin",
+	race = BESTY_RACE_VERMIN,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "Tiquanda Tarantula Caves, Spider Caves, Trapwood ground level and underground, \z
+		in 2 small caves South of Thais, Dark Cathedral, single spawn on top of Crocodile den north of Port Hope, \z
+		Plains of Havoc, underground Liberty Bay, Nargor Undead Cave and other constituents of the Shattered Isles, \z
+		Green Claw Swamp, first floor up in the big building in the Cemetery Quarter, Robson Isle, Vengoth. \z
+		After the summer update of 2008, tarantulas can be seen on the beginner's island of Rookgaard."
+		}
+
 monster.health = 225
 monster.maxHealth = 225
 monster.race = "venom"

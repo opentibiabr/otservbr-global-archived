@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 214
+monster.Bestiary = {
+	class = "Humanoid",
+	race = BESTY_RACE_HUMANOID,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "South of Port Hope around Trapwood. There is also a group of 3 voodoomasters \z
+		and 2 crypt shamblers on the shore east of Trapwood."
+		}
+
 monster.health = 80
 monster.maxHealth = 80
 monster.race = "blood"

@@ -71,7 +71,7 @@ function playerLogin.onLogin(player)
 	end
 	-- Premium Ends Teleport to Temple, change addon (citizen) houseless
 	local defaultTown = "Thais" -- default town where player is teleported if his home town is in premium area
-	local freeTowns = {"Ab'Dendriel", "Carlin", "Kazordoon", "Thais", "Venore"} -- towns in free account area
+	local freeTowns = {"Ab'Dendriel", "Carlin", "Kazordoon", "Thais", "Venore", "Rookgaard", "Dawnport", "Dawnport Tutorial", "Island of Destiny"} -- towns in free account area
 
 	if isPremium(player) == false and isInArray(freeTowns, player:getTown():getName()) == false then
 		local town = player:getTown()
@@ -148,11 +148,8 @@ function playerLogin.onLogin(player)
 		player:setGhostMode(true)
 	end
 	-- Boosted creature
-	player:sendTextMessage(MESSAGE_LOOT, "Today's boosted creature: " .. BoostedCreature.name .. " \
+	player:sendTextMessage(MESSAGE_LOOT, "Today's boosted creature: " .. Game.getBoostedCreature() .. " \
 	Boosted creatures yield more experience points, carry more loot than usual and respawn at a faster rate.")
-
-	-- Bestiary tracker
-	player:refreshBestiaryTracker()
 
 	-- Stamina
 	nextUseStaminaTime[playerId] = 1

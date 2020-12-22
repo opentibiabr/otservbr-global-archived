@@ -13,6 +13,22 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 54
+monster.Bestiary = {
+	class = "Human",
+	race = BESTY_RACE_HUMAN,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "Vandura, west of the Dwarf Mines in a small house, Amazon Tower north of Carlin, \z
+		Triangle Tower, Temple of Xayepocax, Green Claw Swamp and Amazon Camp (Venore), \z
+		Dark Cathedral (2 levels underground), Goroma Volcano (underground), west from Necromant House, \z
+		Mammoth Shearing Factory, Trade Quarter in Yalahar, The Witches' Cliff (only accessible during a quest)."
+		}
+
 monster.health = 300
 monster.maxHealth = 300
 monster.race = "blood"
