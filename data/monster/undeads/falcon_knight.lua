@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Falcon Knight")
 local monster = {}
 
 monster.description = "a falcon knight"
-monster.experience = 4500
+monster.experience = 5985
 monster.outfit = {
 	lookType = 1071,
 	lookHead = 57,
@@ -12,6 +12,19 @@ monster.outfit = {
 	lookAddons = 1,
 	lookMount = 0
 }
+
+monster.raceId = 1646
+monster.Bestiary = {
+	class = "Undead",
+	race = BESTY_RACE_UNDEAD,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Falcon Bastion."
+		}
 
 monster.health = 9000
 monster.maxHealth = 9000

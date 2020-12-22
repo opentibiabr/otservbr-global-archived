@@ -1842,27 +1842,27 @@ if not Quests then
 				},
 				[86] = {
 					name = "Turmoil of War",
-					storageId = 65049,
+					storageId = Storage.KillingInTheNameOf.BudrikMinos,
 					missionId = 10166,
 					startValue = 0,
 					endValue = 5000,
 					description = function(player)
 						return string.format(
 							"Budrik asked you to kill 5000 minotaurs for him. You already killed %d minotaurs.",
-							(math.max(player:getStorageValue(65049), 0))
+							(math.max(player:getStorageValue(Storage.KillingInTheNameOf.BudrikMinosCount), 0))
 						)
 					end
 				},
 				[87] = {
 					name = "Paw and Fur: Necromancers and Priestess",
-					storageId = 65050,
+					storageId = Storage.KillingInTheNameOf.LugriNecromancers,
 					missionId = 10167,
 					startValue = 0,
 					endValue = 4000,
 					description = function(player)
 						return string.format(
 							"You already hunted %d/4000 necromancers and priestess.",
-							(math.max(player:getStorageValue(65050), 0))
+							(math.max(player:getStorageValue(Storage.KillingInTheNameOf.LugriNecromancerCount), 0))
 						)
 					end
 				}

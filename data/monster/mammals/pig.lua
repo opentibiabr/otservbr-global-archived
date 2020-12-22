@@ -13,6 +13,21 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 60
+monster.Bestiary = {
+	class = "Mammal",
+	race = BESTY_RACE_MAMMAL,
+	toKill = 250,
+	FirstUnlock = 10,
+	SecondUnlock = 100,
+	CharmsPoints = 5,
+	Stars = 1,
+	Occurrence = 0,
+	Locations = "Rookgaard, Orc Fort, under Femor Hills with Goblins, some farms like The McRonald's Farm, \z
+		Liberty Bay slums and Nargor, Foreigner Quarter in Yalahar, Isle of the Kings, \z
+		cells in Tafariel's throneroom in Pits of Inferno, Gardens of Night."
+		}
+
 monster.health = 25
 monster.maxHealth = 25
 monster.race = "blood"

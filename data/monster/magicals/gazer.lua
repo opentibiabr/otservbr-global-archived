@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 109
+monster.Bestiary = {
+	class = "Magical",
+	race = BESTY_RACE_MAGICAL,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "Hellgate bonelord cave, Vandura Bonelord Cave, also anywhere Elder Bonelords exist, as summons."
+		}
+
 monster.health = 120
 monster.maxHealth = 120
 monster.race = "venom"

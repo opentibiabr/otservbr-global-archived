@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1731
+monster.Bestiary = {
+	class = "Humanoid",
+	race = BESTY_RACE_HUMANOID,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Court of Winter, Dream Labyrinth."
+		}
+
 monster.health = 5200
 monster.maxHealth = 5200
 monster.race = "blood"
@@ -96,6 +109,10 @@ monster.attacks = {
 monster.defenses = {
 	defense = 20,
 	armor = 70
+}
+
+monster.reflects = {
+	{type = COMBAT_ICEDAMAGE, percent = 70}
 }
 
 monster.elements = {

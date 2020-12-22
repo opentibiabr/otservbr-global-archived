@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Menacing Carnivor")
 local monster = {}
 
 monster.description = "a Menacing Carnivor"
-monster.experience = 1920
+monster.experience = 2112
 monster.outfit = {
 	lookType = 1139,
 	lookHead = 128,
@@ -12,6 +12,19 @@ monster.outfit = {
 	lookAddons = 3,
 	lookMount = 0
 }
+
+monster.raceId = 1723
+monster.Bestiary = {
+	class = "Magical",
+	race = BESTY_RACE_MAGICAL,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Carnivora's Rocks."
+		}
 
 monster.health = 3500
 monster.maxHealth = 3500
@@ -100,6 +113,10 @@ monster.defenses = {
 	defense = 0,
 	armor = 68,
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_HEALING, minDamage = 150, maxDamage = 200, effect = CONST_ME_MAGIC_BLUE, target = false}
+}
+
+monster.reflects = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 100}
 }
 
 monster.elements = {

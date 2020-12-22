@@ -174,6 +174,7 @@
     <ClCompile Include="..\src\depotchest.cpp" />
     <ClCompile Include="..\src\depotlocker.cpp" />
     <ClCompile Include="..\src\events.cpp" />
+    <ClCompile Include="..\src\familiars.cpp" />
     <ClCompile Include="..\src\fileloader.cpp" />
     <ClCompile Include="..\src\game.cpp" />
     <ClCompile Include="..\src\gamestore.cpp" />
@@ -184,6 +185,7 @@
     <ClCompile Include="..\src\housetile.cpp" />
     <ClCompile Include="..\src\imbuements.cpp" />
     <ClCompile Include="..\src\inbox.cpp" />
+    <ClCompile Include="..\src\iobestiary.cpp" />
     <ClCompile Include="..\src\ioguild.cpp" />
     <ClCompile Include="..\src\iologindata.cpp" />
     <ClCompile Include="..\src\iomap.cpp" />
@@ -270,6 +272,7 @@
     <ClInclude Include="..\src\depotlocker.h" />
     <ClInclude Include="..\src\enums.h" />
     <ClInclude Include="..\src\events.h" />
+    <ClInclude Include="..\src\familiars.h" />
     <ClInclude Include="..\src\fileloader.h" />
     <ClInclude Include="..\src\game.h" />
     <ClInclude Include="..\src\gamestore.h" />
@@ -280,6 +283,7 @@
     <ClInclude Include="..\src\housetile.h" />
     <ClInclude Include="..\src\imbuements.h" />
     <ClInclude Include="..\src\inbox.h" />
+    <ClInclude Include="..\src\iobestiary.h" />
     <ClInclude Include="..\src\ioguild.h" />
     <ClInclude Include="..\src\iologindata.h" />
     <ClInclude Include="..\src\iomap.h" />

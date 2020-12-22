@@ -24,11 +24,13 @@
 #include "configmanager.h"
 #include "game.h"
 #include "scheduler.h"
+#include "monster.h"
 
 #include <limits>
 
 extern ConfigManager g_config;
 extern Game g_game;
+extern Monsters g_monsters;
 
 bool IOLoginData::LoginServerAuthentication(const std::string& name,
                                             const std::string& password) {
@@ -379,6 +381,11 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   player->defaultOutfit.lookLegs = result->getNumber<uint16_t>("looklegs");
   player->defaultOutfit.lookFeet = result->getNumber<uint16_t>("lookfeet");
   player->defaultOutfit.lookAddons = result->getNumber<uint16_t>("lookaddons");
+  player->defaultOutfit.lookMountHead = result->getNumber<uint16_t>("lookmounthead");
+  player->defaultOutfit.lookMountBody = result->getNumber<uint16_t>("lookmountbody");
+  player->defaultOutfit.lookMountLegs = result->getNumber<uint16_t>("lookmountlegs");
+  player->defaultOutfit.lookMountFeet = result->getNumber<uint16_t>("lookmountfeet");
+  player->defaultOutfit.lookFamiliarsType = result->getNumber<uint16_t>("lookfamiliarstype");
   player->currentOutfit = player->defaultOutfit;
 
   if (g_game.getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
@@ -483,6 +490,55 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
         guild->setMemberCount(result->getNumber<uint32_t>("members"));
       }
     }
+  }
+
+  // Bestiary charms
+  query.str(std::string());
+  query << "SELECT * FROM `player_charms` WHERE `player_guid` = " << player->getGUID();
+  if ((result = db.storeQuery(query.str()))) {
+	player->charmPoints = result->getNumber<uint32_t>("charm_points");
+	player->charmExpansion = result->getNumber<bool>("charm_expansion");
+	player->charmRuneWound = result->getNumber<uint16_t>("rune_wound");
+	player->charmRuneEnflame = result->getNumber<uint16_t>("rune_enflame");
+	player->charmRunePoison = result->getNumber<uint16_t>("rune_poison");
+	player->charmRuneFreeze = result->getNumber<uint16_t>("rune_freeze");
+	player->charmRuneZap = result->getNumber<uint16_t>("rune_zap");
+	player->charmRuneCurse = result->getNumber<uint16_t>("rune_curse");
+	player->charmRuneCripple = result->getNumber<uint16_t>("rune_cripple");
+	player->charmRuneParry = result->getNumber<uint16_t>("rune_parry");
+	player->charmRuneDodge = result->getNumber<uint16_t>("rune_dodge");
+	player->charmRuneAdrenaline = result->getNumber<uint16_t>("rune_adrenaline");
+	player->charmRuneNumb = result->getNumber<uint16_t>("rune_numb");
+	player->charmRuneCleanse = result->getNumber<uint16_t>("rune_cleanse");
+	player->charmRuneBless = result->getNumber<uint16_t>("rune_bless");
+	player->charmRuneScavenge = result->getNumber<uint16_t>("rune_scavenge");
+	player->charmRuneGut = result->getNumber<uint16_t>("rune_gut");
+	player->charmRuneLowBlow = result->getNumber<uint16_t>("rune_low_blow");
+	player->charmRuneDivine = result->getNumber<uint16_t>("rune_divine");
+	player->charmRuneVamp = result->getNumber<uint16_t>("rune_vamp");
+	player->charmRuneVoid = result->getNumber<uint16_t>("rune_void");
+	player->UsedRunesBit = result->getNumber<int32_t>("UsedRunesBit");
+	player->UnlockedRunesBit = result->getNumber<int32_t>("UnlockedRunesBit");	
+
+	unsigned long attrBestSize;
+	const char* Bestattr = result->getStream("tracker list", attrBestSize);
+	PropStream propBestStream;
+	propBestStream.init(Bestattr, attrBestSize);
+
+	for (int i = 0; i <= propBestStream.size(); i++) {
+	 uint16_t raceid_t;
+	 if (propBestStream.read<uint16_t>(raceid_t)) {
+	  MonsterType* tmp_tt = g_monsters.getMonsterTypeByRaceId(raceid_t);
+	  if (tmp_tt) {
+	   player->addBestiaryTrackerList(tmp_tt);
+	  }
+	 }
+	}
+
+  } else {
+	query.str(std::string());
+	query << "INSERT INTO `player_charms` (`player_guid`) VALUES (" << player->getGUID() << ')';
+	Database::getInstance().executeQuery(query.str());
   }
 
   query.str(std::string());
@@ -831,6 +887,11 @@ bool IOLoginData::savePlayer(Player* player)
   query << "`looklegs` = " << static_cast<uint32_t>(player->defaultOutfit.lookLegs) << ',';
   query << "`looktype` = " << player->defaultOutfit.lookType << ',';
   query << "`lookaddons` = " << static_cast<uint32_t>(player->defaultOutfit.lookAddons) << ',';
+  query << "`lookmountbody` = " << static_cast<uint32_t>(player->defaultOutfit.lookMountBody) << ',';
+  query << "`lookmountfeet` = " << static_cast<uint32_t>(player->defaultOutfit.lookMountFeet) << ',';
+  query << "`lookmounthead` = " << static_cast<uint32_t>(player->defaultOutfit.lookMountHead) << ',';
+  query << "`lookmountlegs` = " << static_cast<uint32_t>(player->defaultOutfit.lookMountLegs) << ',';
+  query << "`lookfamiliarstype` = " << player->defaultOutfit.lookFamiliarsType << ',';
   query << "`maglevel` = " << player->magLevel << ',';
   query << "`mana` = " << player->mana << ',';
   query << "`manamax` = " << player->manaMax << ',';
@@ -969,6 +1030,48 @@ bool IOLoginData::savePlayer(Player* player)
   query << "DELETE FROM `player_kills` WHERE `player_id` = " << player->getGUID();
   if (!db.executeQuery(query.str())) {
     return false;
+  }
+
+  //player bestiary charms
+  query.str(std::string());
+  query << "UPDATE `player_charms` SET ";
+  query << "`charm_points` = " << player->charmPoints << ',';  
+  query << "`charm_expansion` = " << ((player->charmExpansion) ? 1 : 0) << ',';
+  query << "`rune_wound` = " << player->charmRuneWound << ',';
+  query << "`rune_enflame` = " << player->charmRuneEnflame << ',';
+  query << "`rune_poison` = " << player->charmRunePoison << ',';
+  query << "`rune_freeze` = " << player->charmRuneFreeze << ',';
+  query << "`rune_zap` = " << player->charmRuneZap << ',';
+  query << "`rune_curse` = " << player->charmRuneCurse << ',';
+  query << "`rune_cripple` = " << player->charmRuneCripple << ',';
+  query << "`rune_parry` = " << player->charmRuneParry << ',';
+  query << "`rune_dodge` = " << player->charmRuneDodge << ',';
+  query << "`rune_adrenaline` = " << player->charmRuneAdrenaline << ',';
+  query << "`rune_numb` = " << player->charmRuneNumb << ',';
+  query << "`rune_cleanse` = " << player->charmRuneCleanse << ',';
+  query << "`rune_bless` = " << player->charmRuneBless << ',';
+  query << "`rune_scavenge` = " << player->charmRuneScavenge << ',';
+  query << "`rune_gut` = " << player->charmRuneGut << ',';
+  query << "`rune_low_blow` = " << player->charmRuneLowBlow << ',';
+  query << "`rune_divine` = " << player->charmRuneDivine << ',';
+  query << "`rune_vamp` = " << player->charmRuneVamp << ',';
+  query << "`rune_void` = " << player->charmRuneVoid << ',';
+  query << "`UsedRunesBit` = " << player->UsedRunesBit << ',';
+  query << "`UnlockedRunesBit` = " << player->UnlockedRunesBit << ',';
+
+  // Bestiary tracker
+  PropWriteStream propBestiaryStream;
+  for (MonsterType* trackedType : player->getBestiaryTrackerList()) {
+   propBestiaryStream.write<uint16_t>(trackedType->info.raceid);
+  }
+  size_t trackerSize;
+  const char* trackerList = propBestiaryStream.getStream(trackerSize);
+  query << " `tracker list` = " << db.escapeBlob(trackerList, trackerSize);
+  query << " WHERE `player_guid` = " << player->getGUID();
+
+  if (!db.executeQuery(query.str())) {
+   std::cout << "[Error - IOLoginData::savePlayer] Error saving bestiary data from player " << player->name << "." << std::endl;
+   return false;
   }
 
   query.str(std::string());

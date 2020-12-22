@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Cobra Vizier")
 local monster = {}
 
 monster.description = "a cobra vizier"
-monster.experience = 7920
+monster.experience = 9108
 monster.outfit = {
 	lookType = 1217,
 	lookHead = 19,
@@ -12,6 +12,19 @@ monster.outfit = {
 	lookAddons = 0,
 	lookMount = 0
 }
+
+monster.raceId = 1824
+monster.Bestiary = {
+	class = "Human",
+	race = BESTY_RACE_HUMAN,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Cobra Bastion."
+		}
 
 monster.health = 8500
 monster.maxHealth = 8500

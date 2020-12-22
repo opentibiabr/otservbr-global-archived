@@ -210,8 +210,10 @@ function Player.getRerollPrice(self)
 end
 
 function getNameByRace(race)
-    local monsterTable = Bestiary.Monsters[race]
-	return monsterTable.name
+	local mtype = MonsterType(race)
+	if mtype then
+		return mtype:getName()
+	end
 end
 
 function Player.getMonsterList(self)
