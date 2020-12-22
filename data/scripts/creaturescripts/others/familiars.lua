@@ -1,8 +1,8 @@
 local summon = {
-	[VOCATION.ID.SORCERER] = {id = 994},
-	[VOCATION.ID.DRUID] = {id = 993},
-	[VOCATION.ID.PALADIN] = {id = 992},
-	[VOCATION.ID.KNIGHT] = {id = 991}
+	[VOCATION.CLIENT_ID.SORCERER] = {id = 994},
+	[VOCATION.CLIENT_ID.DRUID] = {id = 993},
+	[VOCATION.CLIENT_ID.PALADIN] = {id = 992},
+	[VOCATION.CLIENT_ID.KNIGHT] = {id = 991}
 }
 
 local familiarLogin = CreatureEvent("FamiliarLogin")
