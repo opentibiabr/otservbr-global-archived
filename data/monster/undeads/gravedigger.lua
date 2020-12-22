@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 975
+monster.Bestiary = {
+	class = "Undead",
+	race = BESTY_RACE_UNDEAD,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Around the higher level areas of Drefia, \z
+		including the Drefia Grim Reaper Dungeons and the Drefia Vampire Crypt."
+		}
+
 monster.health = 1500
 monster.maxHealth = 1500
 monster.race = "blood"

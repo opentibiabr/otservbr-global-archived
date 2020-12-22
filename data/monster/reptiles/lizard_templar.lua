@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 113
+monster.Bestiary = {
+	class = "Reptile",
+	race = BESTY_RACE_REPTILE,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "Chor, the lizard city south-east from Port Hope. They can also be found in Yalahar's \z
+		Foreigner Quarter and in Zzaion."
+		}
+
 monster.health = 410
 monster.maxHealth = 410
 monster.race = "blood"

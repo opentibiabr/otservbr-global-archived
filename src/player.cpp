@@ -30,10 +30,12 @@
 #include "game.h"
 #include "iologindata.h"
 #include "monster.h"
+#include "monsters.h"
 #include "movement.h"
 #include "scheduler.h"
 #include "weapons.h"
 #include "iostash.h"
+#include "iobestiary.h"
 
 extern ConfigManager g_config;
 extern Game g_game;
@@ -44,6 +46,7 @@ extern Weapons* g_weapons;
 extern CreatureEvents* g_creatureEvents;
 extern Events* g_events;
 extern Imbuements* g_imbuements;
+extern Monsters g_monsters;
 
 MuteCountMap Player::muteCountMap;
 
@@ -1317,6 +1320,9 @@ void Player::onCreatureAppear(Creature* creature, bool isLogin)
 			}
 		}
 
+		// Reload bestiary tracker
+		refreshBestiaryTracker(getBestiaryTrackerList());
+
 		g_game.checkPlayersRecord();
 		IOLoginData::updateOnlineStatus(guid, true);
 	}
@@ -2253,6 +2259,16 @@ void Player::death(Creature* lastHitCreature)
 		sumMana += manaSpent;
 
 		double deathLossPercent = getLostPercent() * (unfairFightReduction / 100.);
+
+		// Charm bless bestiary
+		if (lastHitCreature && lastHitCreature->getMonster()) {
+			if (charmRuneBless != 0) {
+				MonsterType* mType = g_monsters.getMonsterType(lastHitCreature->getName());
+				if (mType && mType->info.raceid == charmRuneBless) {
+				  deathLossPercent = (deathLossPercent * 90) / 100;
+				}
+			}
+		}
 
 		lostMana = static_cast<uint64_t>(sumMana * deathLossPercent);
 

@@ -26,12 +26,12 @@ local raids = {
 	},
 
 	--Sábado
-	['Friday'] = {
+	['Saturday'] = {
 		['20:00'] = {raidName = 'Draptor'}
 	},
 
 	--Domingo
-	['Friday'] = {
+	['Sunday'] = {
 		['15:00'] = {raidName = 'Midnight Panther'},
 		['13:00'] = {raidName = 'Orc Backpack'}
 	},

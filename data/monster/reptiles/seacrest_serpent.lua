@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1096
+monster.Bestiary = {
+	class = "Reptile",
+	race = BESTY_RACE_REPTILE,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 2,
+	Locations = "Seacrest Grounds."
+		}
+
 monster.health = 3000
 monster.maxHealth = 3000
 monster.race = "venom"
@@ -101,7 +114,7 @@ monster.defenses = {
 	defense = 31,
 	armor = 22,
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 145, maxDamage = 200, effect = CONST_ME_SOUND_BLUE, target = false},
-	{name ="melee", interval = 2000, chance = 10, minDamage = 0, maxDamage = 0}
+	{name ="melee", interval = 2000, chance = 10, minDamage = 0, maxDamage = 0, effect = CONST_ME_DRAWBLOOD}
 }
 
 monster.elements = {

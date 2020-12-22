@@ -13,6 +13,21 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 44
+monster.Bestiary = {
+	class = "Vermin",
+	race = BESTY_RACE_VERMIN,
+	toKill = 250,
+	FirstUnlock = 10,
+	SecondUnlock = 100,
+	CharmsPoints = 5,
+	Stars = 1,
+	Occurrence = 0,
+	Locations = "South of Thais, west of Ab'Dendriel, northeastern Cormaya, \z
+		Green Claw Swamp between Kazordoon and Venore, Wasp Tower in Rookgaard, \z
+		Wasp Towers in Darashia, all over Tiquanda, and all over Vandura."
+		}
+
 monster.health = 35
 monster.maxHealth = 35
 monster.race = "venom"

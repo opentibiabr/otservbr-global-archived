@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 913
+monster.Bestiary = {
+	class = "Amphibic",
+	race = BESTY_RACE_AMPHIBIC,
+	toKill = 500,
+	FirstUnlock = 25,
+	SecondUnlock = 250,
+	CharmsPoints = 15,
+	Stars = 2,
+	Occurrence = 0,
+	Locations = "Shadowthorn in the bog god's temple, Drefia, around Lake Equivocolao when it's dirty."
+		}
+
 monster.health = 70
 monster.maxHealth = 70
 monster.race = "blood"

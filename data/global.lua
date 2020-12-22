@@ -53,6 +53,19 @@ STORAGEVALUE_PROMOTION = 30018
 
 SERVER_NAME = configManager.getString(configKeys.SERVER_NAME)
 
+-- Bestiary charm
+GLOBAL_CHARM_GUT = 0
+GLOBAL_CHARM_SCAVENGE = 0
+
+--WEATHER
+weatherConfig = {
+    groundEffect = CONST_ME_LOSEENERGY,
+	fallEffect = CONST_ANI_SMALLICE,
+    thunderEffect = configManager.getBoolean(configKeys.WEATHER_THUNDER),
+    minDMG = 1,
+    maxDMG = 5
+}
+
 -- Event Schedule
 SCHEDULE_LOOT_RATE = 100
 SCHEDULE_EXP_RATE = 100

@@ -13,6 +13,22 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 78
+monster.Bestiary = {
+	class = "Undead",
+	race = BESTY_RACE_UNDEAD,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Single one under the White Flower Temple in Thais (respawn takes about 20-25 minutes), \z
+		Banshee Quest area in Ghostlands (also accesible by Isle of the Kings), Demon Quest Room, Drefia, \z
+		Ancient Ruins Tomb, Desert Dungeon (unreachable), Pits of Inferno in Tafariel's Throne room, \z
+		Cemetery Quarter in Yalahar, Vengoth Castle, one in Robson Isle."
+		}
+
 monster.health = 1000
 monster.maxHealth = 1000
 monster.race = "undead"

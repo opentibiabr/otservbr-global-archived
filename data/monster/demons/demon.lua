@@ -13,6 +13,22 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 35
+monster.Bestiary = {
+	class = "Demon",
+	race = BESTY_RACE_DEMON,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Hero Cave, Ferumbras' Citadel, Goroma, Ghostlands (Warlock area; unreachable), \z
+		Liberty Bay (hidden underground passage; unreachable), Razzachai, deep in Pits of Inferno \z
+		(found in every throneroom except Verminor's), deep Formorgar Mines, Demon Forge, \z
+		Alchemist Quarter, Magician Quarter, Chyllfroest, Oramond Dungeon, Abandoned Sewers."
+		}
+
 monster.health = 8200
 monster.maxHealth = 8200
 monster.race = "fire"

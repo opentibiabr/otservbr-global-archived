@@ -268,6 +268,8 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		return;
 	}
 
+	g_game.loadBoostedCreature();
+
 	std::cout << ">> Checking world type... " << std::flush;
 	std::string worldType = asLowerCaseString(g_config.getString(
 													ConfigManager::WORLD_TYPE));

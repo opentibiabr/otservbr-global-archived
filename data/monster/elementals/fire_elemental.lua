@@ -13,6 +13,20 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 49
+monster.Bestiary = {
+	class = "Elemental",
+	race = BESTY_RACE_ELEMENTAL,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Cyclopolis, Hero Cave in Edron, Ankrahmun tombs, Serpentine Tower, Factory Quarter in Yalahar, \z
+		Deeper Banuta, Goroma inside the volcano and beneath Fenrock."
+		}
+
 monster.health = 280
 monster.maxHealth = 280
 monster.race = "fire"

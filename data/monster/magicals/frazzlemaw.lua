@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1022
+monster.Bestiary = {
+	class = "Magical",
+	race = BESTY_RACE_MAGICAL,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 4,
+	Occurrence = 0,
+	Locations = "Lower Roshamuul, Guzzlemaw Valley, the entrance to Upper Roshamuul."
+		}
+
 monster.health = 4100
 monster.maxHealth = 4100
 monster.race = "blood"

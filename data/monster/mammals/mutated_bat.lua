@@ -13,6 +13,22 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 509
+monster.Bestiary = {
+	class = "Mammal",
+	race = BESTY_RACE_MAMMAL,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Cemetery Quarter (around 10 underground on the west side along with banshees, \z
+		and 4 bats on the church roof), Alchemist Quarter (4 found on top of roofs), \z
+		Arena and Zoo Quarter (2 under the arena with other mutated creatures), \z
+		Razzachai, Northern Zao Plantations, Souleater Mountains, Middle Spike, Vengoth and Vengoth Castle."
+		}
+
 monster.health = 900
 monster.maxHealth = 900
 monster.race = "blood"

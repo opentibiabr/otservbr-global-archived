@@ -15,49 +15,31 @@ function onThink()
 npcHandler:onThink()
 end
 
-local playerTopic = {}
-local function greetCallback(cid)
-	local player = Player(cid)
-	if player:getStorageValue(Storage.Kilmaresh.First.Access) < 1 then
-		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
-		playerTopic[cid] = 1
-	elseif (player:getStorageValue(Storage.Kilmaresh.First.JamesfrancisTask) >= 0 and player:getStorageValue(Storage.Kilmaresh.First.JamesfrancisTask) <= 50)
-	and player:getStorageValue(Storage.Kilmaresh.First.Mission) < 3 then
-		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
-		playerTopic[cid] = 15
-	elseif player:getStorageValue(Storage.Kilmaresh.First.Mission) == 4 then
-		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
-		player:setStorageValue(Storage.Kilmaresh.First.Mission, 5)
-		playerTopic[cid] = 20
-	end
-	npcHandler:addFocus(cid)
-	return true
-end
+local voices = {
+  {text = "I really have to find this scroll. Where did I put it?"},
+  {text = "Too much dust here. I should tidy up on occasion."},
+  {text = "Someone opened the Grimoire of Flames without permission. Egregious!"}
+}
 
-local function creatureSayCallback(cid, type, msg)
-if not npcHandler:isFocused(cid) then
-	return false
-end
-npcHandler.topic[cid] = playerTopic[cid]
-local player = Player(cid)
-if msgcontains(msg, "ring") and player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 4 then
-	if player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 4 then
+keywordHandler:addKeyword(
+	{"ring"}, StdModule.say, { npcHandler = npcHandler,
+	text = {
+		"To extract memories from the ring, you have to enter a trance-like state with the help of a hallucinogen. Like this you can see all memories that are stored in the ring. Ask {Faloriel} for a respective potion. ...",
+		"Drink it while wearing the ring in the Temple of {Bastesh} and say: \'Sa Katesa Tarsani na\'. If the legends are true you will be able to take memories with you in the form of memory shards."
+	}},
+	function (player) return player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 4 end,
+	function (player)
 		player:setStorageValue(Storage.Kilmaresh.Fifth.Memories, 1)
+		player:setStorageValue(Storage.Kilmaresh.Fifth.MemoriesShards, 0)
 		player:setStorageValue(Storage.Kilmaresh.Fourth.Moe, 5)
-		npcHandler:say({"To extract memories from the ring, you have to enter a trance-like state with the help of a hallucinogen. Like this you can see all memories that are stored in the ring. Ask Faloriel for a respective potion."}, cid)
-		npcHandler:say({"Drink it while wearing the ring in the Temple of Bastesh and say: ,Sa Katesa Tarsani na. If the legends are true you will be able to take memories with you in the form of memory shards."}, cid)
-		npcHandler.topic[cid] = 1
-		playerTopic[cid] = 1
-	else
-		npcHandler:say({"Sorry."}, cid)
-	end	
-end
-return true
-end
+	end
+)
 
+npcHandler:setMessage(MESSAGE_GREET, 'Greetings, dear guest. If you are interested in paperware such as books or scrolls, ask me for a trade.')
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Well, bye then.')
+
 npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
 npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
-npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:addModule(FocusModule:new())

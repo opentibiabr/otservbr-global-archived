@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 313
+monster.Bestiary = {
+	class = "Elemental",
+	race = BESTY_RACE_ELEMENTAL,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "Demon Forge, Deeper Banuta, Hero Cave, Hot Spot, Fury Dungeon."
+		}
+
 monster.health = 1200
 monster.maxHealth = 1200
 monster.race = "fire"
