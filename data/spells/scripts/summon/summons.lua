@@ -1,19 +1,17 @@
 local setting = {
-	[VOCATION.ID.SORCERER] = {name = "thundergiant"},
-	[VOCATION.ID.MASTER_SORCERER] = {name = "thundergiant"},
-	[VOCATION.ID.DRUID] = {name = "grovebeast"},
-	[VOCATION.ID.ELDER_DRUID] = {name = "grovebeast"},
-	[VOCATION.ID.PALADIN] = {name = "emberwing"},
-	[VOCATION.ID.ROYAL_PALADIN] = {name = "emberwing"},
-	[VOCATION.ID.KNIGHT] = {name = "skullfrost"},
-	[VOCATION.ID.ELITE_KNIGHT] = {name = "skullfrost"}
+    [VOCATION.CLIENT_ID.SORCERER] = {name = "thundergiant"},
+    [VOCATION.CLIENT_ID.DRUID] = {name = "grovebeast"},
+    [VOCATION.CLIENT_ID.PALADIN] = {name = "emberwing"},
+    [VOCATION.CLIENT_ID.KNIGHT] = {name = "skullfrost"}
 }
 
 function removePet(creatureId)
-    local c = Creature(creatureId)
-    if not c then return false end
+    local creature = Creature(creatureId)
+    if not creature then
+        return true
+    end
 
-    c:remove()
+    creature:remove()
 end
 
 local combat = createCombatObject()
@@ -24,21 +22,27 @@ local area = createCombatArea(AREA_CIRCLE1X1)
 setCombatArea(combat, area)
 
 function onCastSpell(player, variant)
-	if not player or isPremium(player) then return false end
+    if not player or not isPremium(player) then
+        player:getPosition():sendMagicEffect(CONST_ME_POFF)
+        player:sendCancelMessage("You need a premium account.")
+        return false
+    end
 
     if #player:getSummons() >= 1 then
         player:sendCancelMessage("You can't have other summons.")
         player:getPosition():sendMagicEffect(CONST_ME_POFF)
-    	return false
+        return false
     end
 
-    local vocationId = setting[player:getVocation():getId()]
+    local vocation = setting[player:getVocation():getClientId()]
     local summonName = nil
-    if vocationId then
-        summonName = vocationId.name
+    if vocation then
+        summonName = vocation.name
     end
 
-    if not summonName then return false end
+    if not summonName then
+        return true
+    end
 
     local mySummon = Game.createMonster(summonName, player:getPosition(), true, false)
     if not mySummon then
