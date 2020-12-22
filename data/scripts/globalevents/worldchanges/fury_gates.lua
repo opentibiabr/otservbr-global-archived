@@ -9,31 +9,46 @@ local gates = {
 	[2] = {
 		city = "Ankrahmun",
 		mapName = "ankrahmun",
-		exitPosition = Position(33267, 32841, 7)
+		exitPosition = Position(33269, 32841, 7)
 	},
 	-- Carlin
 	[3] = {
 		city = "Carlin",
 		mapName = "carlin",
-		exitPosition = Position(32263, 31847, 7)
+		exitPosition = Position(32263, 31848, 7),
+		burntItems = {
+			{position = Position(32266, 31842, 7), itemId = 6218},
+			{position = Position(32258, 31843, 7), itemId = 6219},
+			{position = Position(32264, 31843, 7), itemId = 4181}
+		}
 	},
 	-- Darashia
 	[4] = {
 		city = "Darashia",
 		mapName = "darashia",
-		exitPosition = Position(33302, 32371, 7)
+		exitPosition = Position(33304, 32371, 7),
+		burntItems = {
+			{position = Position(33300, 32366, 7), itemId = 6218}
+		}
 	},
 	-- Edron
 	[5] = {
 		city = "Edron",
 		mapName = "edron",
-		exitPosition = Position(33221, 31921, 7)
+		exitPosition = Position(33221, 31923, 7)
 	},
 	-- Kazordoon
 	[6] = {
 		city = "Kazordoon",
 		mapName = "kazordoon",
-		exitPosition = Position(32574, 31981, 7)
+		exitPosition = Position(32575, 31981, 7),
+		burntItems = {
+			{position = Position(32571, 31976, 7), itemId = 6219},
+			{position = Position(32573, 31977, 7), itemId = 6219},
+			{position = Position(32569, 31984, 7), itemId = 6218},
+			{position = Position(32572, 31984, 7), itemId = 6218},
+			{position = Position(32572, 31985, 7), itemId = 6219}
+		}
 	},
 	-- Liberty Bay
 	[7] = {
@@ -45,13 +60,20 @@ local gates = {
 	[8] = {
 		city = "Port Hope",
 		mapName = "porthope",
-		exitPosition = Position(32530, 32713, 7)
+		exitPosition = Position(32530, 32712, 7),
+		burntItems = {
+			{position = Position(32532, 32719, 7), itemId = 2782}
+		}
 	},
 	-- Thais
 	[9] = {
 		city = "Thais",
 		mapName = "thais",
-		exitPosition = Position(32265, 32164, 7)
+		exitPosition = Position(32265, 32164, 7),
+		burntItems = {
+			{position = Position(32269, 32157, 7), itemId = 6219},
+			{position = Position(32274, 32165, 7), itemId = 6219}
+		}
 	},
 	-- Venore
 	[10] = {
@@ -85,7 +107,6 @@ local furygates = GlobalEvent("furygates")
 
 function furygates.onStartup(interval)
 	local gateId = math.random(1, 10)
-	--local gateId = 10
 	
 	-- Remove burnt items
 	if gates[gateId].burntItems then
@@ -140,7 +161,7 @@ function teleport.onStepIn(creature, item, position, fromPosition)
 
 		local destination = Position(33290, 31786, 13)
 		player:teleportTo(destination)
-		destination:sendMagicEffect(CONST_ME_FIREAREA)
+		destination:sendMagicEffect(CONST_ME_TELEPORT)
 	-- Exit gate
 	elseif item.actionid == 9715 then
 		player:teleportTo(gates[gateId].exitPosition)
