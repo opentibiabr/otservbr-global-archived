@@ -168,7 +168,7 @@
 	<house name="Tunnel Gardens 6" houseid="2831" entryx="32594" entryy="31910" entryz="11" rent="25000" townid="7" size="16" client="30606"/>
 	<house name="Tunnel Gardens 5" houseid="2832" entryx="32594" entryy="31905" entryz="11" rent="25000" townid="7" size="16" client="30605"/>
 	<house name="Tunnel Gardens 4" houseid="2835" entryx="32602" entryy="31909" entryz="11" rent="80000" townid="7" size="23" client="30604"/>
-	<house name="Tunnel Gardens 2" houseid="2836" entryx="32606" entryy="31909" entryz="11" rent="80000" townid="7" size="20"/>
+	<house name="Tunnel Gardens 2" houseid="2836" entryx="32606" entryy="31909" entryz="11" rent="80000" townid="7" size="20" client="30602"/>
 	<house name="Tunnel Gardens 1" houseid="2837" entryx="32606" entryy="31908" entryz="11" rent="80000" townid="7" size="20" client="30601"/>
 	<house name="Tunnel Gardens 3" houseid="2838" entryx="32603" entryy="31908" entryz="11" rent="80000" townid="7" size="23" client="30603"/>
 	<house name="The Market 4 (Shop)" houseid="2839" entryx="32635" entryy="31933" entryz="8" rent="80000" townid="7" size="28" client="30404"/>
@@ -272,7 +272,7 @@
 	<house name="Harbour Place 1 (Shop)" houseid="2941" entryx="32336" entryy="32222" entryz="7" rent="800000" townid="8" size="14" client="11404"/>
 	<house name="Harbour Place 2 (Shop)" houseid="2942" entryx="32336" entryy="32210" entryz="7" rent="600000" townid="8" size="19" client="11401"/>
 	<house name="Harbour Place 3" houseid="2943" entryx="32331" entryy="32208" entryz="7" rent="800000" townid="8" size="84" client="11402"/>
-	<house name="Harbour Place 4" houseid="2944" entryx="32332" entryy="32257" entryz="7" rent="80000" townid="8" size="14"/>
+	<house name="Harbour Street 4" houseid="2944" entryx="32332" entryy="32257" entryz="7" rent="80000" townid="8" size="14" client="10602"/>
 	<house name="Lower Swamp Lane 1" houseid="2945" entryx="32356" entryy="32262" entryz="7" rent="400000" townid="8" size="58" client="10403"/>
 	<house name="Lower Swamp Lane 3" houseid="2946" entryx="32368" entryy="32262" entryz="7" rent="400000" townid="8" size="58" client="10404"/>
 	<house name="Main Street 9, 1st floor (Shop)" houseid="2947" entryx="32377" entryy="32224" entryz="7" rent="200000" townid="8" size="25" client="10802"/>
