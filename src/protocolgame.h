@@ -20,6 +20,8 @@
 #ifndef FS_PROTOCOLGAME_H_FACA2A2D1A9348B78E8FD7E8003EBB87
 #define FS_PROTOCOLGAME_H_FACA2A2D1A9348B78E8FD7E8003EBB87
 
+#include <string>
+
 #include "protocol.h"
 #include "chat.h"
 #include "creature.h"
@@ -365,7 +367,8 @@ class ProtocolGame final : public Protocol
 		//analyzers
 		void sendKillTrackerUpdate(Container* corpse, const std::string& name, const Outfit_t creatureOutfit);
 		void sendUpdateSupplyTracker(const Item* item);
-		void sendUpdateImpactTracker(int32_t quantity, bool isHeal);
+		void sendUpdateImpactTracker(CombatType_t type, int32_t amount);
+		void sendUpdateInputAnalyzer(CombatType_t type, int32_t amount, std::string target);
 		void sendUpdateLootTracker(Item* item);
 		
 		// Hotkey equip/dequip item

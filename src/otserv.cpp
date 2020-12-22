@@ -268,6 +268,12 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		return;
 	}
 
+	std::cout << ">> Loading familiars" << std::endl;
+	if (!Familiars::getInstance().loadFromXml()) {
+		startupErrorMessage("Unable to load familiars!");
+		return;
+	}
+
 	g_game.loadBoostedCreature();
 
 	std::cout << ">> Checking world type... " << std::flush;
