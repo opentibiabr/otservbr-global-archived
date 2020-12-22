@@ -51805,9 +51805,27 @@
 	<item id="39932" article="a" name="dead werehyaena">
 		<attribute key="corpseType" value="blood" />
 	</item>
+	<item id="40397" article="a" name="quiver">
+		<attribute key="weight" value="1700" />
+		<attribute key="containerSize" value="6" />
+		<attribute key="weaponType" value="quiver" />
+		<attribute key="slotType" value="right-hand" />
+	</item>
 	<item id="40398" article="a" name="magic shield potion">
 		<attribute key="loottype" value="potion" />
 		<attribute key="weight" value="320" />
 		<attribute key="description" value="This potion can only be consumed by druids and sorcerers of level 14 or higher." />
+	</item>
+	<item id="40683" article="a" name="blue quiver">
+		<attribute key="weight" value="1700" />
+		<attribute key="containerSize" value="6" />
+		<attribute key="weaponType" value="quiver" />
+		<attribute key="slotType" value="right-hand" />
+	</item>
+	<item id="40684" article="a" name="red quiver">
+		<attribute key="weight" value="1700" />
+		<attribute key="containerSize" value="6" />
+		<attribute key="weaponType" value="quiver" />
+		<attribute key="slotType" value="right-hand" />
 	</item>
 </items>

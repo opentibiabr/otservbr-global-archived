@@ -1121,6 +1121,9 @@ const char* getReturnMessage(ReturnValue value)
 		case RETURNVALUE_CONTAINERNOTENOUGHROOM:
 			return "You cannot put more objects in this container.";
 
+    case RETURNVALUE_ONLYAMMOINQUIVER:
+      return "This quiver only holds arrows and bolts.\nYou cannot put any other items in it.";
+
 		case RETURNVALUE_NEEDEXCHANGE:
 		case RETURNVALUE_NOTENOUGHROOM:
 			return "There is not enough room.";
