@@ -97,8 +97,6 @@ end
 registerMonsterType.manaCost = function(mtype, mask)
 	if mask.manaCost then
 		mtype:manaCost(mask.manaCost)
-	elseif mask.summonCost then
-		mtype:manaCost(mask.summonCost)
 	end
 end
 registerMonsterType.speed = function(mtype, mask)
