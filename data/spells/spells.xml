@@ -313,7 +313,7 @@
 		<vocation name="Royal Paladin" />
 		<vocation name="Elite Knight" />
 	</instant>
-	<instant group="support" spellid="44" name="Magic Shield" words="utamo vita" lvl="14" mana="50" aggressive="0" selftarget="1" exhaustion="2000" groupcooldown="2000" needlearn="0" script="support/magic shield.lua">
+	<instant group="support" spellid="44" name="Magic Shield" words="utamo vita" lvl="14" mana="50" aggressive="0" selftarget="1" exhaustion="14000" groupcooldown="2000" needlearn="0" script="support/magic shield.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />

@@ -185,6 +185,9 @@ Condition* Condition::createCondition(ConditionId_t id, ConditionType_t type, in
 		case CONDITION_SPELLGROUPCOOLDOWN:
 			return new ConditionSpellGroupCooldown(id, type, ticks, buff, subId);
 
+    case CONDITION_MANASHIELD:
+      return new ConditionManaShield(id, type, ticks, buff, subId);
+
 		case CONDITION_INFIGHT:
 		case CONDITION_DRUNK:
 		case CONDITION_EXHAUST:
@@ -194,7 +197,6 @@ Condition* Condition::createCondition(ConditionId_t id, ConditionType_t type, in
 		case CONDITION_CHANNELMUTEDTICKS:
 		case CONDITION_YELLTICKS:
 		case CONDITION_PACIFIED:
-		case CONDITION_MANASHIELD:
 			return new ConditionGeneric(id, type, ticks, buff, subId);
 
 		default:
@@ -836,6 +838,73 @@ bool ConditionRegeneration::setParam(ConditionParam_t param, int32_t value)
 		default:
 			return ret;
 	}
+}
+
+bool ConditionManaShield::startCondition(Creature* creature)
+{
+  if (!Condition::startCondition(creature)) {
+    return false;
+  }
+  creature->setManaShield(manaShield);
+  creature->setMaxManaShield(manaShield);
+  if (Player* player = creature->getPlayer()) {
+    player->sendStats();
+  }
+  return true;
+}
+
+void ConditionManaShield::endCondition(Creature* creature)
+{
+  creature->setManaShield(0);
+  creature->setMaxManaShield(0);
+  if (Player* player = creature->getPlayer()) {
+    player->sendStats();
+  }
+}
+
+void ConditionManaShield::addCondition(Creature* creature, const Condition* addCondition)
+{
+  if (updateCondition(addCondition)) {
+    setTicks(addCondition->getTicks());
+
+    const ConditionManaShield& conditionManaShield = static_cast<const ConditionManaShield&>(*addCondition);
+
+    manaShield = conditionManaShield.manaShield;
+    creature->setManaShield(manaShield);
+    creature->setMaxManaShield(manaShield);
+  }
+  if (Player* player = creature->getPlayer()) {
+    player->sendStats();
+  }
+}
+
+bool ConditionManaShield::unserializeProp(ConditionAttr_t attr, PropStream& propStream)
+{
+  if (attr == CONDITIONATTR_MANASHIELD) {
+    return propStream.read<uint16_t>(manaShield);
+  }
+  return Condition::unserializeProp(attr, propStream);
+}
+
+void ConditionManaShield::serialize(PropWriteStream& propWriteStream)
+{
+  Condition::serialize(propWriteStream);
+
+  propWriteStream.write<uint8_t>(CONDITIONATTR_MANASHIELD);
+  propWriteStream.write<uint16_t>(manaShield);
+}
+
+bool ConditionManaShield::setParam(ConditionParam_t param, int32_t value)
+{
+  bool ret = ConditionGeneric::setParam(param, value);
+
+  switch (param) {
+  case CONDITION_PARAM_MANASHIELD:
+    manaShield = value;
+    return true;
+  default:
+    return ret;
+  }
 }
 
 void ConditionSoul::addCondition(Creature*, const Condition* addCondition)

@@ -2591,7 +2591,7 @@ void ProtocolGame::sendBasicData()
 	for (uint16_t sid : spellsList) {
 		msg.addByte(sid);
 	}
-	msg.addByte(0);  // bool - determine whether magic shield is active or not
+	msg.addByte(player->getVocation()->getMagicShield());  // bool - determine whether magic shield is active or not
 	writeToOutputBuffer(msg);
 }
 
@@ -4774,8 +4774,8 @@ void ProtocolGame::AddPlayerStats(NetworkMessage& msg)
 	msg.add<uint16_t>(player->getExpBoostStamina()); // xp boost time (seconds)
 	msg.addByte(1); // enables exp boost in the store
 
-	msg.add<uint16_t>(0);  // remaining mana shield
-	msg.add<uint16_t>(0);  // total mana shield
+	msg.add<uint16_t>(player->getManaShield());  // remaining mana shield
+	msg.add<uint16_t>(player->getMaxManaShield());  // total mana shield
 }
 
 void ProtocolGame::AddPlayerSkills(NetworkMessage& msg)

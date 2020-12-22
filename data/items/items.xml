@@ -51805,4 +51805,9 @@
 	<item id="39932" article="a" name="dead werehyaena">
 		<attribute key="corpseType" value="blood" />
 	</item>
+	<item id="40398" article="a" name="magic shield potion">
+		<attribute key="loottype" value="potion" />
+		<attribute key="weight" value="320" />
+		<attribute key="description" value="This potion can only be consumed by druids and sorcerers of level 14 or higher." />
+	</item>
 </items>
