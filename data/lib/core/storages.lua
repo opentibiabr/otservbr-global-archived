@@ -2217,10 +2217,22 @@ GlobalStorage = {
 		Active = 60021
 	},
 	FerumbrasAscendant = {
-		-- Reserved storage from 60030 - 60069
-		ZamuloshSummon = 60030,
-		FerumbrasEssence = 60031,
-		DesperateSoul = 60032,
+		-- Reserved storage from 60022 - 60069
+		ZamuloshSummon = 60022,
+		FerumbrasEssence = 60023,
+		DesperateSoul = 60024,
+		TarbazTimer = 60025,
+		RazzagornTimer = 60026,
+		RagiazTimer = 60027,
+		ZamuloshTimer = 60028,
+		ShulgraxTimer = 60029,
+		MazoranTimer = 60030,
+		PlagirathTimer = 60031,
+		FerumbrasTimer = 60032,
+		TheShattererTimer = 60033,
+		TheShattererLever = 60034,
+		TheLordOfTheLiceTimer = 60035,
+		FlowerPuzzleTimer = 60036,
 		Crystals = {
 			Crystal1 = 60040,
 			Crystal2 = 60041,
