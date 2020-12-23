@@ -2921,7 +2921,7 @@ void ProtocolGame::sendShop(Npc* npc, const ShopInfoList& itemList)
 	NetworkMessage msg;
 	msg.addByte(0x7A);
 	msg.addString(npc->getName());
-	msg.add<uint16_t>(3031); // TO-DO Coin used
+	msg.add<uint16_t>(npc->getCurrencyTrading());
 
 	msg.addString(std::string()); // ??
 
