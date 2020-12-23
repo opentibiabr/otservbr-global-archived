@@ -259,42 +259,6 @@ function Player.isMage(self)
 		self:getVocation():getId())
 end
 
--- Impact Analyser
-function Player.sendHealingImpact(self, healAmmount)
-	-- TODO: Migrate to protocolgame.cpp
-	local msg = NetworkMessage()
-	msg:addByte(0xCC) -- DEC: 204
-	msg:addByte(0) -- 0 = healing / 1 = damage (boolean)
-	msg:addU32(healAmmount) -- unsigned int
-	msg:sendToPlayer(self)
-end
-
-function Player.sendDamageImpact(self, damage)
-	-- TODO: Migrate to protocolgame.cpp
-	local msg = NetworkMessage()
-	msg:addByte(0xCC) -- DEC: 204
-	msg:addByte(1) -- 0 = healing / 1 = damage (boolean)
-	msg:addU32(damage) -- unsigned int
-	msg:sendToPlayer(self)
-end
-
--- Loot Analyser
-function Player.sendLootStats(self, item)
-	local msg = NetworkMessage()
-	msg:addByte(0xCF) -- loot analyser bit
-	msg:addItem(item, self) -- item userdata
-	msg:addString(getItemName(item:getId()))
-	msg:sendToPlayer(self)
-end
-
--- Supply Analyser
-function Player.sendWaste(self, item)
-	local msg = NetworkMessage()
-	msg:addByte(0xCE) -- waste bit
-	msg:addItemId(item) -- itemId
-	msg:sendToPlayer(self)
-end
-
 local ACCOUNT_STORAGES = {}
 function Player.getAccountStorage(self, accountId, key, forceUpdate)
 	local accountId = self:getAccountId()

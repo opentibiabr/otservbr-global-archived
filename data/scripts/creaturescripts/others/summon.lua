@@ -1,7 +1,11 @@
 local summon = {
+	[VOCATION.ID.SORCERER] = {name = "thundergiant"},
 	[VOCATION.ID.MASTER_SORCERER] = {name = "thundergiant"},
+	[VOCATION.ID.DRUID] = {name = "grovebeast"},
 	[VOCATION.ID.ELDER_DRUID] = {name = "grovebeast"},
+	[VOCATION.ID.PALADIN] = {name = "emberwing"},
 	[VOCATION.ID.ROYAL_PALADIN] = {name = "emberwing"},
+	[VOCATION.ID.KNIGHT] = {name = "skullfrost"},
 	[VOCATION.ID.ELITE_KNIGHT] = {name = "skullfrost"}
 }
 
@@ -14,7 +18,7 @@ function summonLogin.onLogin(player)
 	local petTimeLeft = player:getStorageValue(summonStorage) - player:getLastLogout()
 
 	if petTimeLeft > 0 then
-		if vocation and vocation:getId() then
+		if vocation and vocation:getId() and isPremium(player) then
 			summonName = vocation.name
 		end
 	end
