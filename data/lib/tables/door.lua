@@ -147,6 +147,10 @@ CustomDoorTable = {
 	{ closedDoor = 36330, openDoor = 36332 },
 	{ closedDoor = 36498, openDoor = 36499 },
 	{ closedDoor = 36500, openDoor = 36501 },
+	{ closedDoor = 38106, openDoor = 38107 },
+	{ closedDoor = 38108, openDoor = 38109 },
+	--{ closedDoor = 38170}, -- it's probably door of a quest
+	--{ closedDoor = 38171}, -- it's probably door of a quest
 	{ closedDoor = 39056, openDoor = 39057 },
 	{ closedDoor = 39058, openDoor = 39059 },
 }
