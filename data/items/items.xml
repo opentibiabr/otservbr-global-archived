@@ -46523,12 +46523,7 @@
 		<attribute key="weight" value="2000" />
 		<attribute key="pickupable" value="1" />
 	</item>
-	<item id="35964" article="a" name="wooden ladder">
-		<attribute key="floorchange" value="north" />
-	</item>
-	<item id="35965" article="a" name="wooden ladder">
-		<attribute key="floorchange" value="west" />
-	</item>
+	<item fromid="35964" toid="35965" article="a" name="wooden ladder"/>
 	<item fromid="35966" toid="35968" article="a" name="obelisk"/>
 	<item fromid="35969" toid="35973" name="reserved sprite"/>
 	<item id="35974" article="a" name="sandstone"/>
@@ -50025,7 +50020,21 @@
 	<item fromid="38463" toid="38466" article="a" name="wall window">
 		<attribute key="type" value="door" />
 	</item>
-	<item fromid="38467" toid="38470" article="a" name="closed door">
+	<item id="38467" article="a" name="closed door">
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+		<attribute key="description" value="It is locked." />
+	</item>
+	<item id="38468" article="a" name="closed door">
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+	</item>
+	<item id="38469" article="a" name="closed door">
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+		<attribute key="description" value="It is locked." />
+	</item>
+	<item id="38470" article="a" name="closed door">
 		<attribute key="type" value="door" />
 		<attribute key="blockprojectile" value="1" />
 	</item>
@@ -51617,12 +51626,12 @@
 	<item id="39057" article="an" name="open door">
 		<attribute key="type" value="door" />
 	</item>
-	<item id="39058" article="an" name="open door">
-		<attribute key="type" value="door" />
-	</item>
-	<item id="39059" article="a" name="closed door">
+	<item id="39058" article="a" name="closed door">
 		<attribute key="type" value="door" />
 		<attribute key="blockprojectile" value="1" />
+	</item>
+	<item id="39059" article="an" name="open door">
+		<attribute key="type" value="door" />
 	</item>
 	<item id="39062" article="a" name="blood pagoda" />
 	<item fromid="39063"  toid="39066" article="a" name="statue">

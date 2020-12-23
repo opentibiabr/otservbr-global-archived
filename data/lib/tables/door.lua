@@ -69,6 +69,8 @@ KeyDoorTable = {
 	{ lockedDoor = 33119, closedDoor = 33120, openDoor = 32583 },
 	{ lockedDoor = 35607, closedDoor = 35608, openDoor = 35611 },
 	{ lockedDoor = 35609, closedDoor = 35610, openDoor = 35612 },
+	{ lockedDoor = 38469, closedDoor = 38470, openDoor = 38472 },
+	{ lockedDoor = 38467, closedDoor = 38468, openDoor = 38471 },
 }
 
 -- These are the common doors, the ones that just open and close without any special requirements.
@@ -145,6 +147,8 @@ CustomDoorTable = {
 	{ closedDoor = 36330, openDoor = 36332 },
 	{ closedDoor = 36498, openDoor = 36499 },
 	{ closedDoor = 36500, openDoor = 36501 },
+	{ closedDoor = 39056, openDoor = 39057 },
+	{ closedDoor = 39058, openDoor = 39059 },
 }
 
 -- These are the doors for missions, they need access from some mission (storage) to be able to enter. Put the storage value in the action id of the door and it will open only to the player who has the storage value.
