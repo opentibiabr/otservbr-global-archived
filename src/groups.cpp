@@ -116,6 +116,7 @@ bool Groups::load()
 
 		groups.push_back(group);
 	}
+	groups.shrink_to_fit();
 	return true;
 }
 

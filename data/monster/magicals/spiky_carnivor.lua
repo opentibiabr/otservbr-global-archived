@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Spiky Carnivor")
 local monster = {}
 
 monster.description = "a Spiky Carnivor"
-monster.experience = 1500
+monster.experience = 1650
 monster.outfit = {
 	lookType = 1133,
 	lookHead = 85,
@@ -61,9 +61,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

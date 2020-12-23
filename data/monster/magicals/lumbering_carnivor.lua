@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Lumbering Carnivor")
 local monster = {}
 
 monster.description = "a Lumbering Carnivor"
-monster.experience = 1320
+monster.experience = 1452
 monster.outfit = {
 	lookType = 1139,
 	lookHead = 79,
@@ -61,9 +61,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

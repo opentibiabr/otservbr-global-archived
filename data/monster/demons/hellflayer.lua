@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Hellflayer")
 local monster = {}
 
 monster.description = "a hellflayer"
-monster.experience = 4375
+monster.experience = 11000
 monster.outfit = {
 	lookType = 856,
 	lookHead = 0,
@@ -62,8 +62,8 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

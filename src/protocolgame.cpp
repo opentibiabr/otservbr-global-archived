@@ -66,10 +66,7 @@ void ProtocolGame::AddItem(NetworkMessage& msg, uint16_t id, uint8_t count)
 		msg.addByte(fluidMap[count & 7]);
 	} else if (it.isContainer() && player->getOperatingSystem() <= CLIENTOS_NEW_MAC) {
 		msg.addByte(0x00);
-	}
-
-	if (it.isAnimation) {
-		msg.addByte(0xFE); // random phase (0xFF for async)
+		msg.addByte(0x00);
 	}
 }
 
@@ -106,10 +103,9 @@ void ProtocolGame::AddItem(NetworkMessage& msg, const Item* item)
 		} else {
 			msg.addByte(0x00);
 		}
-	}
 
-	if (it.isAnimation) {
-		msg.addByte(0xFE); // random phase (0xFF for async)
+	// Quiver ammo count
+	msg.addByte(0x00);
 	}
 }
 
@@ -366,6 +362,12 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 	if (pos == std::string::npos) {
 		disconnectClient("You must enter your account name.");
 		return;
+	}
+
+	if (operatingSystem == CLIENTOS_NEW_LINUX) {
+		// TODO: check what new info for linux is send
+		msg.getString();
+		msg.getString();
 	}
 
 	std::string accountName = sessionKey.substr(0, pos);
@@ -896,13 +898,18 @@ void ProtocolGame::parseSetOutfit(NetworkMessage& msg)
 		outfitType = msg.getByte();
 		Outfit_t newOutfit;
 		newOutfit.lookType = msg.get<uint16_t>();
-		newOutfit.lookHead = msg.getByte();
-		newOutfit.lookBody = msg.getByte();
-		newOutfit.lookLegs = msg.getByte();
-		newOutfit.lookFeet = msg.getByte();
+		newOutfit.lookHead = std::min<uint8_t>(132, msg.getByte());
+		newOutfit.lookBody = std::min<uint8_t>(132, msg.getByte());
+		newOutfit.lookLegs = std::min<uint8_t>(132, msg.getByte());
+		newOutfit.lookFeet = std::min<uint8_t>(132, msg.getByte());
 		newOutfit.lookAddons = msg.getByte();
 		if (outfitType == 0) {
 			newOutfit.lookMount = msg.get<uint16_t>();
+			newOutfit.lookMountHead = std::min<uint8_t>(132, msg.getByte());
+			newOutfit.lookMountBody = std::min<uint8_t>(132, msg.getByte());
+			newOutfit.lookMountLegs = std::min<uint8_t>(132, msg.getByte());
+			newOutfit.lookMountFeet = std::min<uint8_t>(132, msg.getByte());
+			newOutfit.lookFamiliarsType = msg.get<uint16_t>();
 		} else if (outfitType == 1) {
 			//This value probably has something to do with try outfit variable inside outfit window dialog
 			//if try outfit is set to 2 it expects uint32_t value after mounted and disable mounts from outfit window dialog
@@ -1290,10 +1297,8 @@ void ProtocolGame::parseHighscores(NetworkMessage& msg)
 	uint32_t vocation = msg.get<uint32_t>();
 	uint16_t page = 1;
 	const std::string worldName = msg.getString();
-	#if CLIENT_VERSION >= 1260
-	msg.getByte();//Game World Category
-	msg.getByte();//BattlEye World Type
-	#endif
+	msg.getByte();  // Game World Category
+	msg.getByte();  // BattlEye World Type
 	if (type == HIGHSCORE_GETENTRIES) {
 		page = std::max<uint16_t>(1, msg.get<uint16_t>());
 	}
@@ -1319,10 +1324,8 @@ void ProtocolGame::sendHighscores(const std::vector<HighscoreCharacter>& charact
 	msg.addString(g_config.getString(ConfigManager::SERVER_NAME)); // First World
 	msg.addString(g_config.getString(ConfigManager::SERVER_NAME)); // Selected World
 
-	#if CLIENT_VERSION >= 1260
-	msg.addByte(0xFF);//Game World Category: 0xFF(-1) - Selected World
-	msg.addByte(0xFF);//BattlEye World Type
-	#endif
+	msg.addByte(0);  // Game World Category: 0xFF(-1) - Selected World
+	msg.addByte(0);  // BattlEye World Type
 
 	auto vocationPosition = msg.getBufferPosition();
 	uint8_t vocations = 1;
@@ -1953,6 +1956,12 @@ void ProtocolGame::sendCreatureOutfit(const Creature* creature, const Outfit_t& 
 	msg.addByte(0x8E);
 	msg.add<uint32_t>(creature->getID());
 	AddOutfit(msg, outfit);
+	if (outfit.lookMount != 0) {
+		msg.addByte(outfit.lookMountHead);
+		msg.addByte(outfit.lookMountBody);
+		msg.addByte(outfit.lookMountLegs);
+		msg.addByte(outfit.lookMountFeet);
+	}
 	writeToOutputBuffer(msg);
 }
 
@@ -2366,12 +2375,18 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 		if (!player->getOutfitAddons(outfit, addons)) {
 			continue;
 		}
-		outfitSize++;
+		const std::string from = outfit.from;
+		++outfitSize;
 
 		msg.add<uint16_t>(outfit.lookType);
 		msg.addString(outfit.name);
 		msg.addByte(addons);
-		msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
+		if (from == "store")
+			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_STORE);
+		else if (from == "quest")
+			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_QUEST);
+		else
+			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
 		if (outfit.lookType == currentOutfit.lookType) {
 			msg.add<uint32_t>(1000);
 		} else {
@@ -2389,20 +2404,53 @@ void ProtocolGame::sendCyclopediaCharacterOutfitsMounts() {
 	auto startMounts = msg.getBufferPosition();
 	msg.skipBytes(2);
 	for (const Mount& mount : g_game.mounts.getMounts()) {
+		const std::string type = mount.type;
 		if (player->hasMount(&mount)) {
-			mountSize++;
+			++mountSize;
 
 			msg.add<uint16_t>(mount.clientId);
 			msg.addString(mount.name);
-			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
+			if (type == "store")
+				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_STORE);
+			else if (type == "quest")
+				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_QUEST);
+			else
+				msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
 			msg.add<uint32_t>(1000);
 		}
+	}
+	if (mountSize > 0) {
+		msg.addByte(currentOutfit.lookMountHead);
+		msg.addByte(currentOutfit.lookMountBody);
+		msg.addByte(currentOutfit.lookMountLegs);
+		msg.addByte(currentOutfit.lookMountFeet);
+	}
+
+	uint16_t familiarsSize = 0;
+	auto startFamiliars = msg.getBufferPosition();
+	msg.skipBytes(2);
+	const auto& familiars = Familiars::getInstance().getFamiliars(player->getVocationId());
+	for (const Familiar& familiar : familiars) {
+		const std::string type = familiar.type;
+		if (!player->getFamiliar(familiar)) {
+			continue;
+		}
+		++familiarsSize;
+		msg.add<uint16_t>(familiar.lookType);
+		msg.addString(familiar.name);
+		if (type == "quest")
+			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_QUEST);
+		else
+			msg.addByte(CYCLOPEDIA_CHARACTERINFO_OUTFITTYPE_NONE);
+		msg.add<uint32_t>(0);
 	}
 
 	msg.setBufferPosition(startOutfits);
 	msg.add<uint16_t>(outfitSize);
 	msg.setBufferPosition(startMounts);
 	msg.add<uint16_t>(mountSize);
+	msg.setBufferPosition(startFamiliars);
+	msg.add<uint16_t>(familiarsSize);
 	writeToOutputBuffer(msg);
 }
 
@@ -2540,9 +2588,10 @@ void ProtocolGame::sendBasicData()
 
 	std::list<uint16_t> spellsList = g_spells->getSpellsByVocation(player->getVocationId());
 	msg.add<uint16_t>(spellsList.size());
-	for (uint8_t sid : spellsList) {
+	for (uint16_t sid : spellsList) {
 		msg.addByte(sid);
 	}
+	msg.addByte(0);  // bool - determine whether magic shield is active or not
 	writeToOutputBuffer(msg);
 }
 
@@ -4239,6 +4288,12 @@ void ProtocolGame::sendOutfitWindow()
 
 	AddOutfit(msg, currentOutfit);
 
+	msg.addByte(currentOutfit.lookMountHead);
+	msg.addByte(currentOutfit.lookMountBody);
+	msg.addByte(currentOutfit.lookMountLegs);
+	msg.addByte(currentOutfit.lookMountFeet);
+	msg.add<uint16_t>(currentOutfit.lookFamiliarsType);
+
 	std::vector<ProtocolOutfit> protocolOutfits;
 	if (player->isAccessPlayer()) {
 		static const std::string gamemasterOutfitName = "Game Master";
@@ -4270,17 +4325,36 @@ void ProtocolGame::sendOutfitWindow()
 		msg.addByte(0x00);
 	}
 
-	std::vector<const Mount*> mounts;
-	for (const Mount& mount : g_game.mounts.getMounts()) {
+	std::vector<const Mount*> protocolMounts;
+	const auto& mounts = g_game.mounts.getMounts();
+	protocolMounts.reserve(mounts.size());
+	for (const Mount& mount : mounts) {
 		if (player->hasMount(&mount)) {
-			mounts.push_back(&mount);
+			protocolMounts.push_back(&mount);
 		}
 	}
 
-	msg.add<uint16_t>(mounts.size());
-	for (const Mount* mount : mounts) {
+	msg.add<uint16_t>(protocolMounts.size());
+	for (const Mount* mount : protocolMounts) {
 		msg.add<uint16_t>(mount->clientId);
 		msg.addString(mount->name);
+		msg.addByte(0x00);
+	}
+
+	std::vector<ProtocolFamiliars> protocolFamiliars;
+	const auto& familiars = Familiars::getInstance().getFamiliars(player->getVocationId());
+	protocolFamiliars.reserve(familiars.size());
+	for (const Familiar& familiar : familiars) {
+		if (!player->getFamiliar(familiar)) {
+			continue;
+		}
+		protocolFamiliars.emplace_back(familiar.name, familiar.lookType);
+	}
+
+	msg.add<uint16_t>(protocolFamiliars.size());
+	for (const ProtocolFamiliars& familiar : protocolFamiliars) {
+		msg.add<uint16_t>(familiar.lookType);
+		msg.addString(familiar.name);
 		msg.addByte(0x00);
 	}
 
@@ -4596,7 +4670,14 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 	msg.addByte(creature->getDirection());
 
 	if (!creature->isInGhostMode() && !creature->isInvisible()) {
-		AddOutfit(msg, creature->getCurrentOutfit());
+		const Outfit_t& outfit = creature->getCurrentOutfit();
+		AddOutfit(msg, outfit);
+		if (outfit.lookMount != 0) {
+			msg.addByte(outfit.lookMountHead);
+			msg.addByte(outfit.lookMountBody);
+			msg.addByte(outfit.lookMountLegs);
+			msg.addByte(outfit.lookMountFeet);
+		}
 	} else {
 		static Outfit_t outfit;
 		AddOutfit(msg, outfit);
@@ -4692,6 +4773,9 @@ void ProtocolGame::AddPlayerStats(NetworkMessage& msg)
 
 	msg.add<uint16_t>(player->getExpBoostStamina()); // xp boost time (seconds)
 	msg.addByte(1); // enables exp boost in the store
+
+	msg.add<uint16_t>(0);  // remaining mana shield
+	msg.add<uint16_t>(0);  // total mana shield
 }
 
 void ProtocolGame::AddPlayerSkills(NetworkMessage& msg)
@@ -4917,19 +5001,28 @@ void ProtocolGame::sendUpdateSupplyTracker(const Item* item)
  	writeToOutputBuffer(msg);
  }
 
-void ProtocolGame::sendUpdateImpactTracker(int32_t quantity, bool isHeal)
- {
- 	if (!player) {
- 		return;
- 	}
-
-   	NetworkMessage msg;
+void ProtocolGame::sendUpdateImpactTracker(CombatType_t type, int32_t amount) {
+	NetworkMessage msg;
  	msg.addByte(0xCC);
- 	msg.addByte(isHeal ? 0x0 : 0x01);
- 	msg.add<uint32_t>(quantity);
-
- 	writeToOutputBuffer(msg);
- }
+	if (type == COMBAT_HEALING) {
+		msg.addByte(ANALYZER_HEAL);
+		msg.add<uint32_t>(amount);
+	} else {
+		msg.addByte(ANALYZER_DAMAGE_DEALT);
+		msg.add<uint32_t>(amount);
+		msg.addByte(getCipbiaElement(type));
+	}
+	writeToOutputBuffer(msg);
+}
+void ProtocolGame::sendUpdateInputAnalyzer(CombatType_t type, int32_t amount, std::string target) {
+	NetworkMessage msg;
+	msg.addByte(0xCC);
+	msg.addByte(ANALYZER_DAMAGE_RECEIVED);
+	msg.add<uint32_t>(amount);
+	msg.addByte(getCipbiaElement(type));
+	msg.addString(target);
+	writeToOutputBuffer(msg);
+}
 
 void ProtocolGame::sendUpdateLootTracker(Item* item)
 {

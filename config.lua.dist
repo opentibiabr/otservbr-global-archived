@@ -43,8 +43,8 @@ maxItem = 2000
 maxContainer = 100
 
 --- Version
-clientVersion = 1251
-clientVersionStr = "12.51"
+clientVersion = 1260
+clientVersionStr = "12.60"
 
 -- Depot Limit
 freeDepotLimit = 2000
@@ -104,7 +104,7 @@ mysqlSock = ""
 
 -- Misc.
 allowChangeOutfit = true
-freePremium = true
+freePremium = false
 kickIdlePlayerAfterMinutes = 15
 maxMessageBuffer = 4
 emoteSpells = false

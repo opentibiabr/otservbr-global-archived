@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Energetic Book")
 local monster = {}
 
 monster.description = "an energetic book"
-monster.experience = 12155
+monster.experience = 12034
 monster.outfit = {
 	lookType = 1061,
 	lookHead = 15,
@@ -58,8 +58,8 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
 	canWalkOnPoison = false,
 	pet = false
 }
