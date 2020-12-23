@@ -60,13 +60,12 @@ local function playerAddContainerItem(params, item)
 			-- If is key inside container, uses the "keyAction" variable
 			keyItem = reward:addItem(params.itemid, params.count)
 			keyItem:setActionId(params.action)
-			return true
 		end
-
-		reward:addItem(params.itemid, params.count)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(params.itemBagName) .. ".")
-		player:setStorageValue(params.storage, 1)
 	end
+
+	reward:addItem(params.itemid, params.count)
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(params.itemBagName) .. ".")
+	player:setStorageValue(params.storage, 1)
 	return true
 end
 
