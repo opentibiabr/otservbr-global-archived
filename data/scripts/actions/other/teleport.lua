@@ -1,4 +1,4 @@
-local upFloorIds = {1386, 3678, 5543, 22845, 22846, 33397, 35005, 36097, 35964, 35965}
+local upFloorIds = {1386, 3678, 5543, 22845, 22846, 33397, 35005, 36097, 35964, 35965, 39078}
 
 local teleport = Action()
 
@@ -12,5 +12,5 @@ function teleport.onUse(player, item, fromPosition, target, toPosition, isHotkey
 	return true
 end
 
-teleport:id(430, 1386, 3678, 5543, 22845, 22846, 33397, 35005, 35964, 35965, 36097)
+teleport:id(430, 1386, 3678, 5543, 22845, 22846, 33397, 35005, 35964, 35965, 36097, 39078)
 teleport:register()
