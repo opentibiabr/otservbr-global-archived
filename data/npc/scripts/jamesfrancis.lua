@@ -18,19 +18,18 @@ end
 local function greetCallback(cid)
 
 	local player = Player(cid)
-
 	if player:getStorageValue(Storage.CultsOfTibia.Minotaurs.Access) < 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Gerimor is right. As an expert for minotaurs I am researching these creatures for years. I thought I already knew a lot but the monsters in this cave are {different}. It's a big {mystery}.")
-		playerTopic[cid] = 1
+		npcHandler.topic[cid] = 1
 	elseif (player:getStorageValue(Storage.CultsOfTibia.Minotaurs.JamesfrancisTask) >= 0 and player:getStorageValue(Storage.CultsOfTibia.Minotaurs.JamesfrancisTask) <= 50)
 	and player:getStorageValue(Storage.CultsOfTibia.Minotaurs.Mission) < 3 then
 		npcHandler:setMessage(MESSAGE_GREET, "How is your {mission} going?")
-		playerTopic[cid] = 5
+		npcHandler.topic[cid] = 5
 	elseif player:getStorageValue(Storage.CultsOfTibia.Minotaurs.Mission) == 4 then
 		npcHandler:setMessage(MESSAGE_GREET, {"You say the minotaurs were controlled by a very powerful boss they worshipped. This explains why they had so much more power than the normal ones. ...",
 		"I'm very thankful. Please go to the Druid of Crunor and tell him what you've seen. He might be interested in that."})
 		player:setStorageValue(Storage.CultsOfTibia.Minotaurs.Mission, 5)
-		playerTopic[cid] = 10
+		npcHandler.topic[cid] = 10
 	end
 	npcHandler:addFocus(cid)
 	return true
