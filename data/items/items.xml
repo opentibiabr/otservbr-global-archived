@@ -46523,8 +46523,7 @@
 		<attribute key="weight" value="2000" />
 		<attribute key="pickupable" value="1" />
 	</item>
-	<item id="35964" article="a" name="wooden ladder">
-		<attribute key="floorchange" value="north" />
+	<item id="35964" article="a" name="wooden ladder"/>
 	</item>
 	<item id="35965" article="a" name="wooden ladder">
 		<attribute key="floorchange" value="west" />
