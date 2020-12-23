@@ -40,7 +40,7 @@ function windows.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 	
-	for index, value in ipairs(window) do
+	for index, value in ipairs(windowTable) do
 		if value.openWindow == item.itemid then
 			item:transform(value.closedWindow)
 		end
