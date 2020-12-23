@@ -49958,7 +49958,7 @@
 		<attribute key="floorchange" value="south" />
 	</item>	
 	<item id="38075" article="a" name="cornerstone"/>
-	<item fromid="38076" toid="38184" article="a" name="wall" />
+	<item fromid="38076" toid="38084" article="a" name="wall" />
 	<item fromid="38085" toid="38089" article="a" name="buttress" />
 	<item id="38090" article="a" name="ramp" />
 	<item id="38091" article="a" name="ramp">
@@ -50009,7 +50009,8 @@
 	</item>
 	<item fromid="38166" toid="38167" article="a" name="unkow doll"/>
 	<item fromid="38168" toid="38169" article="a" name="unkow doll"/>
-	<item fromid="38171" toid="38172" article="a" name="closed door">
+	<!-- it's probably door of a quest -->
+	<item fromid="38170" toid="38171" article="a" name="closed door">
 		<attribute key="type" value="door" />
 		<attribute key="blockprojectile" value="1" />
 	</item>

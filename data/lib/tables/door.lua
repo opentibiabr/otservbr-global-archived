@@ -68,9 +68,7 @@ KeyDoorTable = {
 	{ lockedDoor = 33117, closedDoor = 33118, openDoor = 32582 },
 	{ lockedDoor = 33119, closedDoor = 33120, openDoor = 32583 },
 	{ lockedDoor = 35607, closedDoor = 35608, openDoor = 35611 },
-	{ lockedDoor = 35609, closedDoor = 35610, openDoor = 35612 },
-	{ lockedDoor = 38469, closedDoor = 38470, openDoor = 38472 },
-	{ lockedDoor = 38467, closedDoor = 38468, openDoor = 38471 },
+	{ lockedDoor = 35609, closedDoor = 35610, openDoor = 35612 }
 }
 
 -- These are the common doors, the ones that just open and close without any special requirements.
@@ -147,6 +145,14 @@ CustomDoorTable = {
 	{ closedDoor = 36330, openDoor = 36332 },
 	{ closedDoor = 36498, openDoor = 36499 },
 	{ closedDoor = 36500, openDoor = 36501 },
+	{ closedDoor = 38106, openDoor = 38107 },
+	{ closedDoor = 38108, openDoor = 38109 },
+	--{ closedDoor = 38170}, -- it's probably door of a quest
+	--{ closedDoor = 38171}, -- it's probably door of a quest
+	--{ closedDoor = 38467}, -- it's probably door of a quest
+	--{ closedDoor = 38469}, -- it's probably door of a quest
+	{ closedDoor = 38468, openDoor = 38471 },
+	{ closedDoor = 38470, openDoor = 38472 },
 	{ closedDoor = 39056, openDoor = 39057 },
 	{ closedDoor = 39058, openDoor = 39059 },
 }
