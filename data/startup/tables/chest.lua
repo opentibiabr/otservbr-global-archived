@@ -752,6 +752,25 @@ ChestUnique = {
 		reward = {{2197, 5}},
 		storage = Storage.Quest.MadMageRoom.StoneSkinAmulet
 	},
+	-- Skull of ratha quest
+	-- Bag (white pearl, skull)
+	[6083] = {
+		itemId = 1738,
+		itemPos = {x = 32845, y = 31917, z = 6},
+		container = 1987,
+		weight = 42,
+		reward = {{2143, 1}, {2320, 1}},
+		storage = Storage.Quest.SkullOfRatha.Bag1
+	},
+	-- Bag (wolf tooth chain/dwarven ring)
+	[6084] = {
+		itemId = 1738,
+		itemPos = {x = 32847, y = 31917, z = 6},
+		container = 1987,
+		weight = 42,
+		reward = {{2129, 1}, {2213, 1}},
+		storage = Storage.Quest.SkullOfRatha.Bag2
+	},
 
 	-- Reward of others scrips files (varied rewards)
 	-- The First dragon Quest
