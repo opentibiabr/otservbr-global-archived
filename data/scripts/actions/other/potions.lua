@@ -95,14 +95,9 @@ local potions = {
 			115,
 			185
 		},
-		vocations = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID,
-			VOCATION.CLIENT_ID.PALADIN
-		},
 		level = 50,
 		flask = 7634,
-		description = "Only sorcerers, druids and paladins of level 50 or above may drink this fluid."
+		description = "Only players of level 50 or above may drink this fluid."
 	},
 	[7590] = {
 		mana = {
@@ -111,11 +106,12 @@ local potions = {
 		},
 		vocations = {
 			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.CLIENT_ID.DRUID,
+			VOCATION.CLIENT_ID.PALADIN
 		},
 		level = 80,
 		flask = 7635,
-		description = "Only druids and sorcerers of level 80 or above may drink this fluid."
+		description = "Only sorcerers, druids and paladins of level 80 or above may drink this fluid."
 	},
 	[7591] = {
 		health = {
