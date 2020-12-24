@@ -1902,7 +1902,10 @@ Storage = {
 			Hat = 10098,
 			StoneSkinAmulet = 10099
 		},
-		SkullOfRatha = {},
+		SkullOfRatha = {
+			Bag1 = 10100,
+			Bag2 = 10101
+		},
 		TheAnnihilator = {},
 		TheParadoxTower = {},
 		ThePostmanMissions = {},
