@@ -46,12 +46,14 @@ function playerLogin.onLogin(player)
 		local resultId = db.storeQuery("SELECT players.name FROM `players` INNER JOIN `players_online` WHERE players_online.player_id=players.id and players_online.player_id!=" .. player:getGuid() .. " and players.account_id=" .. player:getAccountId())
 		if resultId ~= false then
 			repeat
-				local name = result.getDataString(resultId, "name")
-				if getCreatureCondition(Player(name), CONDITION_INFIGHT) == false then
-					Player(name):remove()
-				else
-					addEvent(protectionZoneCheck, 2000, player:getName())
-					doPlayerPopupFYI(player, "You cant login now.")
+				if player:getAccountType() <= ACCOUNT_TYPE_GOD and player:getGroup():getId() < 6 then
+					local name = result.getDataString(resultId, "name")
+					if getCreatureCondition(Player(name), CONDITION_INFIGHT) == false then
+						Player(name):remove()
+					else
+						addEvent(protectionZoneCheck, 2000, player:getName())
+						doPlayerPopupFYI(player, "You cant login now.")
+					end
 				end
 			until not result.next(resultId)
 				result.free(resultId)
