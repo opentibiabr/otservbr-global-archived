@@ -76,6 +76,10 @@ end
 -- Add items
 function dawnportAddItems(player, vocation)
 	local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+	-- If dont have backpack, give one or will cause error and items will added on ground
+	if not backpack then
+		backpack = player:addItem(1988, 1, true, 1, CONST_SLOT_BACKPACK)
+	end
 	for slot, info in pairs(vocation.items) do
 		local extra
 		if slot > CONST_SLOT_AMMO then
