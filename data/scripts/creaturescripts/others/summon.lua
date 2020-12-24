@@ -1,8 +1,8 @@
 local summon = {
-	[VOCATION.CLIENT_ID.SORCERER] = {name = "thundergiant"},
-	[VOCATION.CLIENT_ID.DRUID] = {name = "grovebeast"},
-	[VOCATION.CLIENT_ID.PALADIN] = {name = "emberwing"},
-	[VOCATION.CLIENT_ID.KNIGHT] = {name = "skullfrost"},
+    [VOCATION.CLIENT_ID.SORCERER] = {name = "Sorcerer familiar"},
+    [VOCATION.CLIENT_ID.DRUID] = {name = "Druid familiar"},
+    [VOCATION.CLIENT_ID.PALADIN] = {name = "Paladin familiar"},
+    [VOCATION.CLIENT_ID.KNIGHT] = {name = "Knight familiar"}
 }
 
 local summonStorage = Storage.PetSummon

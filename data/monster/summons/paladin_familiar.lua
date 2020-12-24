@@ -1,7 +1,7 @@
-local mType = Game.createMonsterType("Emberwing")
+local mType = Game.createMonsterType("Paladin summon")
 local monster = {}
 
-monster.description = "a Emberwing"
+monster.description = "a paladin familiar"
 monster.experience = 0
 monster.outfit = {
 	lookType = 992,
