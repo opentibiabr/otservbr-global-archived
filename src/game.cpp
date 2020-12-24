@@ -5553,11 +5553,11 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		if (!isEvent) {
 			g_events->eventCreatureOnDrainHealth(target, attacker, damage.primary.type, damage.primary.value, damage.secondary.type, damage.secondary.value, message.primary.color, message.secondary.color);
 		}
-		if (attacker && damage.primary.type != COMBAT_HEALING) {
+		if (damage.origin != ORIGIN_NONE && attacker && damage.primary.type != COMBAT_HEALING) {
 			damage.primary.value *= attacker->getBuff(BUFF_DAMAGEDEALT) / 100.;
 			damage.secondary.value *= attacker->getBuff(BUFF_DAMAGEDEALT) / 100.;
 		}
-		if (target && damage.primary.type != COMBAT_HEALING) {
+		if (damage.origin != ORIGIN_NONE && target && damage.primary.type != COMBAT_HEALING) {
 			damage.primary.value *= target->getBuff(BUFF_DAMAGERECEIVED) / 100.;
 			damage.secondary.value *= target->getBuff(BUFF_DAMAGERECEIVED) / 100.;
 		}
@@ -5723,7 +5723,8 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 					attackerPlayer->updateImpactTracker(damage.secondary.type, damage.secondary.value);
 				}
 
-				if (targetMonster->israndomStepping()) {
+				if (targetMonster->isran
+          mStepping()) {
 					targetMonster->setIgnoreFieldDamage(true);
 					targetMonster->updateMapCache();
 				}
