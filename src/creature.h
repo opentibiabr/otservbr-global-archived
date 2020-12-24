@@ -265,6 +265,10 @@ class Creature : virtual public Thing
       varBuffs[buff] += modifier;
     }
 
+		virtual CreatureIcon_t getIcon() const {
+			return CREATUREICON_NONE;
+		}
+
 		const Outfit_t getCurrentOutfit() const {
 			return currentOutfit;
 		}

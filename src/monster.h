@@ -154,6 +154,17 @@ class Monster final : public Creature
 
 		bool changeTargetDistance(int32_t distance);
 
+		CreatureIcon_t getIcon() const override {
+			if (challengeMeleeDuration > 0 && mType->info.targetDistance > targetDistance)
+				return CREATUREICON_TURNEDMELEE;
+			else if (varBuffs[BUFF_DAMAGERECEIVED] > 100)
+				return CREATUREICON_HIGHERRECEIVEDDAMAGE;
+			else if (varBuffs[BUFF_DAMAGEDEALT] < 100)
+				return CREATUREICON_LOWERDEALTDAMAGE;
+			else
+				return CREATUREICON_NONE;
+		}
+
 		void setNormalCreatureLight() override;
 		bool getCombatValues(int32_t& min, int32_t& max) override;
 
