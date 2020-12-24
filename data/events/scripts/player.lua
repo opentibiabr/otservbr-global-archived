@@ -943,7 +943,7 @@ function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDama
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
 	
-	if item:getWeaponType() == WEAPON_AMMO then
+	if ItemType(item:getId()):getWeaponType() == WEAPON_AMMO then
 		if isInArray({ITEM_OLD_DIAMOND_ARROW, ITEM_DIAMOND_ARROW}, item:getId()) then
 			return primaryDamage, primaryType, secondaryDamage, secondaryType
 		else
