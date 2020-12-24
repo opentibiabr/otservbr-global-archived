@@ -14546,7 +14546,6 @@ if not equipmentsTable then
 			type = "equip",
 			slot = "right-hand",
 			vocation = {
-				{"None", true},
 				{"Paladin", true, true},
 				{"Royal Paladin"}
 			}
@@ -14557,7 +14556,6 @@ if not equipmentsTable then
 			slot = "right-hand",
 			level = 150,
 			vocation = {
-				{"None", true},
 				{"Paladin", true, true},
 				{"Royal Paladin"}
 			}
@@ -14568,7 +14566,8 @@ if not equipmentsTable then
 			slot = "right-hand",
 			level = 150,
 			vocation = {
-				{"Paladin", true},
+				{"None", true},
+				{"Paladin", true, true},
 				{"Royal Paladin"}
 			}
 		}, -- quiver

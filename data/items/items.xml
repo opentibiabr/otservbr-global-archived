@@ -39594,7 +39594,7 @@
 		<attribute key="loottype" value="wand" />
 		<attribute key="range" value="4" />
 		<attribute key="skillcriticalchance" value="10" />
-		<attribute key="skillcriticaldamage" value="50" />
+		<attribute key="skillcriticaldamage" value="35" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="magiclevelpoints" value="2" />
 		<attribute key="duration" value="900" />
