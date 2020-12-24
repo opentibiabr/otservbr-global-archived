@@ -152,6 +152,8 @@ class Monster final : public Creature
 
 		bool challengeCreature(Creature* creature) override;
 
+		bool changeTargetDistance(int32_t distance);
+
 		void setNormalCreatureLight() override;
 		bool getCombatValues(int32_t& min, int32_t& max) override;
 
@@ -218,6 +220,8 @@ class Monster final : public Creature
 		int32_t targetChangeCooldown = 0;
 		int32_t challengeFocusDuration = 0;
 		int32_t stepDuration = 0;
+		int32_t targetDistance = 1;
+		int32_t challengeMeleeDuration = 0;
 
 		Position masterPos;
 

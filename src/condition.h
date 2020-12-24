@@ -53,6 +53,7 @@ enum ConditionAttr_t {
 	CONDITIONATTR_SOULGAIN,
 	CONDITIONATTR_SKILLS,
 	CONDITIONATTR_STATS,
+  CONDITIONATTR_BUFFS,
 	CONDITIONATTR_OUTFIT,
 	CONDITIONATTR_PERIODDAMAGE,
 	CONDITIONATTR_ISBUFF,
@@ -169,8 +170,11 @@ class ConditionAttributes final : public ConditionGeneric
 		int32_t skillsPercent[SKILL_LAST + 1] = {};
 		int32_t stats[STAT_LAST + 1] = {};
 		int32_t statsPercent[STAT_LAST + 1] = {};
+    int32_t buffsPercent[BUFF_LAST + 1] = {};
+    int32_t buffs[BUFF_LAST + 1] = {};
 		int32_t currentSkill = 0;
 		int32_t currentStat = 0;
+    int32_t currentBuff = 0;
 
 		bool disableDefense = false;
 
@@ -178,6 +182,8 @@ class ConditionAttributes final : public ConditionGeneric
 		void updateStats(Player* player);
 		void updatePercentSkills(Player* player);
 		void updateSkills(Player* player);
+    void updatePercentBuffs(Creature* creature);
+    void updateBuffs(Creature* creature);
 };
 
 class ConditionRegeneration final : public ConditionGeneric

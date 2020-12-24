@@ -1266,6 +1266,8 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CONDITION_PARAM_FIELD)
 	registerEnum(CONDITION_PARAM_DISABLE_DEFENSE)
 	registerEnum(CONDITION_PARAM_MANASHIELD)
+	registerEnum(CONDITION_PARAM_BUFF_DAMAGEDEALT)
+	registerEnum(CONDITION_PARAM_BUFF_DAMAGERECEIVED)
 
 	registerEnum(CONST_ME_NONE)
 	registerEnum(CONST_ME_DRAWBLOOD)
@@ -1373,6 +1375,8 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CONST_ME_ORANGE_FIREWORKS)
 	registerEnum(CONST_ME_PINK_FIREWORKS)
 	registerEnum(CONST_ME_BLUE_FIREWORKS)
+	registerEnum(CONST_ME_CHIVALRIOUS_CHALLENGE)
+	registerEnum(CONST_ME_DIVINE_DAZZLE)
 
 	registerEnum(CONST_ANI_NONE)
 	registerEnum(CONST_ANI_SPEAR)
@@ -2212,6 +2216,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMetaMethod("Position", "__eq", LuaScriptInterface::luaPositionCompare);
 
 	registerMethod("Position", "getDistance", LuaScriptInterface::luaPositionGetDistance);
+	registerMethod("Position", "getPathTo", LuaScriptInterface::luaPositionGetPathTo);
 	registerMethod("Position", "isSightClear", LuaScriptInterface::luaPositionIsSightClear);
 
 	registerMethod("Position", "sendMagicEffect", LuaScriptInterface::luaPositionSendMagicEffect);
@@ -2765,6 +2770,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Monster", "removeTarget", LuaScriptInterface::luaMonsterRemoveTarget);
 	registerMethod("Monster", "getTargetList", LuaScriptInterface::luaMonsterGetTargetList);
 	registerMethod("Monster", "getTargetCount", LuaScriptInterface::luaMonsterGetTargetCount);
+
+	registerMethod("Monster", "changeTargetDistance", LuaScriptInterface::luaMonsterChangeTargetDistance);
 
 	registerMethod("Monster", "selectTarget", LuaScriptInterface::luaMonsterSelectTarget);
 	registerMethod("Monster", "searchTarget", LuaScriptInterface::luaMonsterSearchTarget);
@@ -5501,6 +5508,35 @@ int LuaScriptInterface::luaPositionGetDistance(lua_State* L)
 		),
 		std::abs(Position::getDistanceZ(position, positionEx))
 	));
+	return 1;
+}
+
+int LuaScriptInterface::luaPositionGetPathTo(lua_State* L)
+{
+	// position:getPathTo(pos[, minTargetDist = 0[, maxTargetDist = 1[, fullPathSearch = true[, clearSight = true[, maxSearchDist = 0]]]]])
+	const Position& pos = getPosition(L, 1);
+	const Position& position = getPosition(L, 2);
+
+	FindPathParams fpp;
+	fpp.minTargetDist = getNumber<int32_t>(L, 3, 0);
+	fpp.maxTargetDist = getNumber<int32_t>(L, 4, 1);
+	fpp.fullPathSearch = getBoolean(L, 5, fpp.fullPathSearch);
+	fpp.clearSight = getBoolean(L, 6, fpp.clearSight);
+	fpp.maxSearchDist = getNumber<int32_t>(L, 7, fpp.maxSearchDist);
+
+	std::forward_list<Direction> dirList;
+	if (g_game.map.getPathMatching(pos, dirList, FrozenPathingConditionCall(position), fpp)) {
+		lua_newtable(L);
+
+		int index = 0;
+		for (Direction dir : dirList) {
+			lua_pushnumber(L, dir);
+			lua_rawseti(L, -2, ++index);
+		}
+	}
+	else {
+		pushBoolean(L, false);
+	}
 	return 1;
 }
 
@@ -12200,6 +12236,20 @@ int LuaScriptInterface::luaMonsterGetTargetCount(lua_State* L)
 	if (monster) {
 		lua_pushnumber(L, monster->getTargetList().size());
 	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterChangeTargetDistance(lua_State* L)
+{
+	// monster:changeTargetDistance(distance)
+	Monster* monster = getUserdata<Monster>(L, 1);
+	if (monster) {
+		int32_t distance = getNumber<int32_t>(L, 2, 1);
+		pushBoolean(L, monster->changeTargetDistance(distance));
+	}
+	else {
 		lua_pushnil(L);
 	}
 	return 1;

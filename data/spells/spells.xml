@@ -311,12 +311,6 @@
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
 	</instant>
-	<instant group="support" spellid="245" name="Cancel Magic Shield" words="exana vita" lvl="14" mana="50" aggressive="0" selftarget="1" exhaustion="2000" groupcooldown="2000" needlearn="0" script="support/cancel magic shield.lua">
-		<vocation name="Sorcerer" />
-		<vocation name="Druid" />
-		<vocation name="Master Sorcerer" />
-		<vocation name="Elder Druid" />
-	</instant>
 	<instant group="healing" spellid="82" name="Mass Healing" words="exura gran mas res" lvl="36" mana="150" prem="1" aggressive="0" exhaustion="2000" groupcooldown="1000" needlearn="0" script="healing/mass healing.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
@@ -449,6 +443,46 @@
 	</instant>
 	<instant group="attack" spellid="56" name="Wrath of Nature" words="exevo gran mas tera" lvl="55" mana="700" prem="1" selftarget="1" exhaustion="40000" groupcooldown="4000" needlearn="0" script="attack/wrath of nature.lua">
 		<vocation name="Druid" />
+		<vocation name="Elder Druid" />
+	</instant>
+	<instant group="support" spellid="237" name="Chivalrous Challenge" words="exeta amp res" lvl="150" mana="80" prem="1" aggressive="0" exhaustion="2000" groupcooldown="2000" needlearn="0" script="support/chivalrous challenge.lua">
+		<vocation name="Knight" />
+		<vocation name="Elite Knight" />
+	</instant>
+	<instant group="support" spellid="238" name="Divine Dazzle" words="exana amp res" lvl="250" mana="80" prem="1" aggressive="0" exhaustion="16000" groupcooldown="2000" needlearn="0" script="support/divine dazzle.lua">
+		<vocation name="Paladin" />
+		<vocation name="Royal Paladin" />
+	</instant>
+	<instant group="healing" spellid="239" name="Fair Wound Cleansing" words="exura med ico" lvl="300" mana="90" prem="1" selftarget="1" aggressive="0" exhaustion="1000" groupcooldown="1000" needlearn="0" script="healing/fair wound cleansing.lua">
+		<vocation name="Knight" />
+		<vocation name="Elite Knight" />
+	</instant>
+	<instant group="attack" spellid="240" name="Great Fire Wave" words="exevo gran flam hur" lvl="38" mana="120" direction="1" exhaustion="4000" groupcooldown="2000" needlearn="0" script="attack/great fire wave.lua">
+		<vocation name="Sorcerer" />
+		<vocation name="Master Sorcerer" />
+	</instant>
+	<instant group="healing" spellid="241" name="Restoration" words="exura max vita" lvl="300" mana="260" aggressive="0" selftarget="1" exhaustion="6000" groupcooldown="1000" needlearn="0" script="healing/restoration.lua">
+		<vocation name="Sorcerer" />
+		<vocation name="Druid" />
+		<vocation name="Master Sorcerer" />
+		<vocation name="Elder Druid" />
+	</instant>
+	<instant group="healing" spellid="242" name="Nature's Embrace" words="exura gran sio" lvl="300" mana="400" prem="1" aggressive="0" blockwalls="1" needtarget="1" playernameparam="1" params="1" exhaustion="1000" groupcooldown="1000" needlearn="0" script="healing/nature's embrace.lua">
+		<vocation name="Druid" />
+		<vocation name="Elder Druid" />
+	</instant>
+	<instant group="support" spellid="243" name="Expose Weakness" words="exori moe" lvl="275" mana="400" selftarget="1" exhaustion="16000" groupcooldown="2000" needlearn="0" script="support/expose weakness.lua">
+		<vocation name="Sorcerer" />
+		<vocation name="Master Sorcerer" />
+	</instant>
+	<instant group="support" spellid="244" name="Sap Strength" words="exori kor" lvl="275" mana="300" selftarget="1" exhaustion="16000" groupcooldown="2000" needlearn="0" script="support/sap strength.lua">
+		<vocation name="Sorcerer" />
+		<vocation name="Master Sorcerer" />
+	</instant>
+	<instant group="support" spellid="245" name="Cancel Magic Shield" words="exana vita" lvl="14" mana="50" aggressive="0" selftarget="1" exhaustion="2000" groupcooldown="2000" needlearn="0" script="support/cancel magic shield.lua">
+		<vocation name="Sorcerer" />
+		<vocation name="Druid" />
+		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
 	</instant>
 

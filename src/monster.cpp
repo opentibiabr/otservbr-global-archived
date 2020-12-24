@@ -60,6 +60,7 @@ Monster::Monster(MonsterType* mType) :
 	baseSpeed = mType->info.baseSpeed;
 	internalLight = mType->info.light;
 	hiddenHealth = mType->info.hiddenHealth;
+	targetDistance = mType->info.targetDistance;
 
 	// register creature events
 	for (const std::string& scriptName : mType->info.scripts) {
@@ -553,7 +554,7 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 
 	for (Creature* creature : targetList) {
 		if (isTarget(creature)) {
-			if ((this->mType->info.targetDistance == 1) || canUseAttack(myPos, creature)) {
+			if ((this->targetDistance == 1) || canUseAttack(myPos, creature)) {
 				resultList.push_back(creature);
 			}
 		}
@@ -827,6 +828,14 @@ void Monster::onThink(uint32_t interval)
 
 		if (scriptInterface->callFunction(2)) {
 			return;
+		}
+	}
+
+	if (challengeMeleeDuration != 0) {
+		challengeMeleeDuration -= interval;
+		if (challengeMeleeDuration <= 0) {
+			challengeMeleeDuration = 0;
+			targetDistance = mType->info.targetDistance;
 		}
 	}
 
@@ -1324,7 +1333,7 @@ bool Monster::getDanceStep(const Position& creaturePos, Direction& moveDirection
 	uint32_t centerToDist = std::max<uint32_t>(distance_x, distance_y);
 
 	//monsters not at targetDistance shouldn't dancestep
-	if (centerToDist < (uint32_t) mType->info.targetDistance) {
+	if (centerToDist < (uint32_t) targetDistance) {
 		return false;
 	}
 
@@ -1407,9 +1416,9 @@ bool Monster::getDistanceStep(const Position& targetPos, Direction& moveDirectio
 
 	int32_t distance = std::max<int32_t>(dx, dy);
 
-	if (!flee && (distance > mType->info.targetDistance || !g_game.isSightClear(creaturePos, targetPos, true))) {
+	if (!flee && (distance > targetDistance || !g_game.isSightClear(creaturePos, targetPos, true))) {
 		return false; // let the A* calculate it
-	} else if (!flee && distance == mType->info.targetDistance) {
+	} else if (!flee && distance == targetDistance) {
 		return true; // we don't really care here, since it's what we wanted to reach (a dancestep will take of dancing in that position)
 	}
 
@@ -2093,18 +2102,38 @@ bool Monster::challengeCreature(Creature* creature)
 	return result;
 }
 
+bool Monster::changeTargetDistance(int32_t distance)
+{
+	if (isSummon()) {
+		return false;
+	}
+
+	if (mType->info.isRewardBoss) {
+		return false;
+	}
+
+	bool shouldUpdate = mType->info.targetDistance > distance ? true : false;
+	challengeMeleeDuration = 12000;
+	targetDistance = distance;
+
+	/*if (shouldUpdate) {
+		g_game.updateCreatureIcon(this, ICON_CHALLENGED, true);
+	}*/
+	return true;
+}
+
 void Monster::getPathSearchParams(const Creature* creature, FindPathParams& fpp) const
 {
 	Creature::getPathSearchParams(creature, fpp);
 
 	fpp.minTargetDist = 1;
-	fpp.maxTargetDist = mType->info.targetDistance;
+	fpp.maxTargetDist = targetDistance;
 
 	if (isSummon()) {
 		if (getMaster() == creature) {
 			fpp.maxTargetDist = 2;
 			fpp.fullPathSearch = true;
-		} else if (mType->info.targetDistance <= 1) {
+		} else if (targetDistance <= 1) {
 			fpp.fullPathSearch = true;
 		} else {
 			fpp.fullPathSearch = !canUseAttack(getPosition(), creature);
@@ -2115,7 +2144,7 @@ void Monster::getPathSearchParams(const Creature* creature, FindPathParams& fpp)
 		fpp.clearSight = false;
 		fpp.keepDistance = true;
 		fpp.fullPathSearch = false;
-	} else if (mType->info.targetDistance <= 1) {
+	} else if (targetDistance <= 1) {
 		fpp.fullPathSearch = true;
 	} else {
 		fpp.fullPathSearch = !canUseAttack(getPosition(), creature);
