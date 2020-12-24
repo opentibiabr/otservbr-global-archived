@@ -549,6 +549,11 @@ local function addOutfit(msg, outfit)
 	msg:addByte(outfit.lookFeet)
 	msg:addByte(outfit.lookAddons)
 	msg:addU16(outfit.lookMount)
+	msg:addByte(0)
+	msg:addByte(0)
+	msg:addByte(0)
+	msg:addByte(0)
+	msg:addU16(0)
 end
 
 function Player:sendHirelingOutfitWindow(hireling)
@@ -579,6 +584,7 @@ function Player:sendHirelingOutfitWindow(hireling)
 	-- mounts disabled for hirelings
 	if client.version >= 1185 then
 		msg:addU16(0x00) --mounts count
+		msg:addU16(0x00) --familiar count
 		msg:addByte(0x00) -- dunno
 		msg:addByte(0x00) -- dunno2
 	else
