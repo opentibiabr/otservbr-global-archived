@@ -51783,6 +51783,12 @@
 	<item id="39932" article="a" name="dead werehyaena">
 		<attribute key="corpseType" value="blood" />
 	</item>
+	<item id="40359" article="a" name="jungle quiver">
+		<attribute key="weight" value="1800" />
+		<attribute key="containerSize" value="8" />
+		<attribute key="weaponType" value="quiver" />
+		<attribute key="slotType" value="right-hand" />
+	</item>
 	<item id="40397" article="a" name="quiver">
 		<attribute key="weight" value="1700" />
 		<attribute key="containerSize" value="6" />

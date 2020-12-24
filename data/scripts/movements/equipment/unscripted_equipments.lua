@@ -14542,12 +14542,33 @@ if not equipmentsTable then
 			slot = "hand"
 		}, -- small stone
 		{
-			itemid = 40397,
+			itemid = 40359,
 			type = "equip",
 			slot = "right-hand",
 			vocation = {
 				{"None", true},
 				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- jungle quiver
+		{
+			itemid = 40359,
+			type = "deequip",
+			slot = "right-hand",
+			level = 150,
+			vocation = {
+				{"None", true},
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- jungle quiver
+		{
+			itemid = 40397,
+			type = "equip",
+			slot = "right-hand",
+			level = 150,
+			vocation = {
+				{"Paladin", true},
 				{"Royal Paladin"}
 			}
 		}, -- quiver
