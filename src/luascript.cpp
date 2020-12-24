@@ -10828,8 +10828,7 @@ int LuaScriptInterface::luaPlayerSetFamiliarLooktype(lua_State* L) {
 	return 1;
 }
 
-int LuaScriptInterface::luaPlayerGetFamiliarLooktype(lua_State* L)
-{
+int LuaScriptInterface::luaPlayerGetFamiliarLooktype(lua_State* L) {
 	// player:getFamiliarLooktype()
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
