@@ -5209,6 +5209,16 @@ void Game::changeLight(const Creature* creature)
 	}
 }
 
+void Game::updateCreatureIcon(const Creature* creature)
+{
+	//send to clients
+	SpectatorHashSet spectators;
+	map.getSpectators(spectators, creature->getPosition(), true, true);
+	for (Creature* spectator : spectators) {
+		spectator->getPlayer()->sendCreatureIcon(creature);
+	}
+}
+
 bool Game::combatBlockHit(CombatDamage& damage, Creature* attacker, Creature* target, bool checkDefense, bool checkArmor, bool field)
 {
 	if (damage.primary.type == COMBAT_NONE && damage.secondary.type == COMBAT_NONE) {
@@ -5723,8 +5733,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 					attackerPlayer->updateImpactTracker(damage.secondary.type, damage.secondary.value);
 				}
 
-				if (targetMonster->isran
-          mStepping()) {
+				if (targetMonster->israndomStepping()) {
 					targetMonster->setIgnoreFieldDamage(true);
 					targetMonster->updateMapCache();
 				}

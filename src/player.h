@@ -997,6 +997,11 @@ class Player final : public Creature, public Cylinder
 				client->sendCreatureLight(creature);
 			}
 		}
+    void sendCreatureIcon(const Creature* creature) {
+			if (client) {
+				client->sendCreatureIcon(creature);
+			}
+		}
 		void sendCreatureWalkthrough(const Creature* creature, bool walkthrough) {
 			if (client) {
 				client->sendCreatureWalkthrough(creature, walkthrough);

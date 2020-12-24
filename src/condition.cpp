@@ -512,10 +512,15 @@ void ConditionAttributes::updatePercentBuffs(Creature* creature)
 
 void ConditionAttributes::updateBuffs(Creature* creature)
 {
+  bool needUpdate = false;
   for (int32_t i = BUFF_FIRST; i <= BUFF_LAST; ++i) {
     if (buffs[i]) {
+      needUpdate = true;
       creature->setBuff(static_cast<buffs_t>(i), buffs[i]);
     }
+  }
+  if (creature->getMonster() && needUpdate) {
+    g_game.updateCreatureIcon(creature);
   }
 }
 
@@ -549,10 +554,15 @@ void ConditionAttributes::endCondition(Creature* creature)
       player->sendSkills();
     }
   }
+  bool needUpdateIcons = false;
   for (int32_t i = BUFF_FIRST; i <= BUFF_LAST; ++i) {
     if (buffs[i]) {
+      needUpdateIcons = true;
       creature->setBuff(static_cast<buffs_t>(i), -buffs[i]);
     }
+  }
+  if (creature->getMonster() && needUpdateIcons) {
+    g_game.updateCreatureIcon(creature);
   }
 
   if (disableDefense) {

@@ -314,6 +314,7 @@ class ProtocolGame final : public Protocol
 		void sendFightModes();
 
 		void sendCreatureLight(const Creature* creature);
+		void sendCreatureIcon(const Creature* creature);
 		void sendWorldLight(const LightInfo& lightInfo);
     void sendTibiaTime(int32_t time);
 
