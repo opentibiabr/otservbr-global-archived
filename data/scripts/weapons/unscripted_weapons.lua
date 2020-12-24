@@ -1,5 +1,59 @@
 local weapons = {
 	{
+		itemId = 40349,
+		type = WEAPON_CLUB,
+		level = 150,
+		unproperly = true,
+		vocation = {
+			{"Knight", true},
+			{"Elite Knight"}
+		}
+	}, -- jungle flail
+	{
+		itemId = 40350,
+		type = WEAPON_AXE,
+		level = 150,
+		unproperly = true,
+		vocation = {
+			{"Knight", true},
+			{"Elite Knight"}
+		}
+	}, -- throwing axe
+	{
+		itemId = 40353,
+		type = WEAPON_DISTANCE,
+		level = 150,
+		unproperly = true,
+		vocation = {
+			{"Paladin", true},
+			{"Royal Paladin"}
+		}
+	}, -- jungle bow
+	{
+		itemId = 40356,
+		type = WEAPON_WAND,
+		wandType = "ice",
+		level = 150,
+		mana = 19,
+		damage = {80, 100},
+		vocation = {
+			{"Druid", true},
+			{"Elder Druid"}
+		}
+	}, -- jungle rod
+	{
+		itemId = 40357,
+		type = WEAPON_WAND,
+		wandType = "earth",
+		level = 150,
+		mana = 19,
+		damage = {80, 100},
+		vocation = {
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
+		}
+	}, -- jungle wand
+	{
 		itemId = 38990,
 		type = WEAPON_SWORD,
 		level = 270,
