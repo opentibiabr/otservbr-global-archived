@@ -374,6 +374,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
   player->health = result->getNumber<int32_t>("health");
   player->healthMax = result->getNumber<int32_t>("healthmax");
+  player->familiarLooktype = result->getNumber<uint16_t>("lookfamiliarstype");
 
   player->defaultOutfit.lookType = result->getNumber<uint16_t>("looktype");
   player->defaultOutfit.lookHead = result->getNumber<uint16_t>("lookhead");
