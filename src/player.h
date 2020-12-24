@@ -880,8 +880,8 @@ class Player final : public Creature, public Cylinder
 		void addFamiliar(uint16_t lookType);
 		bool removeFamiliar(uint16_t lookType);
 		bool getFamiliar(const Familiar& familiar) const;
-		uint16_t getFamiliarLooktype() const {
-			return familiarLooktype;
+		void setFamiliarLooktype(uint16_t familiarLooktype) {
+			this->defaultOutfit.lookFamiliarsType = familiarLooktype;
 		}
 
 		bool canLogout();
@@ -1948,7 +1948,6 @@ class Player final : public Creature, public Cylinder
 		int32_t idleTime = 0;
 		uint32_t coinBalance = 0;
 		uint16_t expBoostStamina = 0;
-		uint16_t familiarLooktype = 0;
 
 		uint16_t lastStatsTrainingTime = 0;
 		uint16_t staminaMinutes = 2520;

@@ -2648,6 +2648,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "addFamiliar", LuaScriptInterface::luaPlayerAddFamiliar);
 	registerMethod("Player", "removeFamiliar", LuaScriptInterface::luaPlayerRemoveFamiliar);
 	registerMethod("Player", "hasFamiliar", LuaScriptInterface::luaPlayerHasFamiliar);
+	registerMethod("Player", "setFamiliarLooktype", LuaScriptInterface::luaPlayerSetFamiliarLooktype);
 	registerMethod("Player", "getFamiliarLooktype", LuaScriptInterface::luaPlayerGetFamiliarLooktype);
 
 	registerMethod("Player", "getPremiumDays", LuaScriptInterface::luaPlayerGetPremiumDays);
@@ -10815,12 +10816,24 @@ int LuaScriptInterface::luaPlayerHasFamiliar(lua_State* L) {
 	return 1;
 }
 
+int LuaScriptInterface::luaPlayerSetFamiliarLooktype(lua_State* L) {
+	// player:setFamiliarLooktype(lookType)
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		player->setFamiliarLooktype(getNumber<uint16_t>(L, 2));
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 int LuaScriptInterface::luaPlayerGetFamiliarLooktype(lua_State* L)
 {
 	// player:getFamiliarLooktype()
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
-		lua_pushnumber(L, player->getFamiliarLooktype());
+		lua_pushnumber(L, player->defaultOutfit.lookFamiliarsType);
 	} else {
 		lua_pushnil(L);
 	}
