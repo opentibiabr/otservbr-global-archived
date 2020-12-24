@@ -50,6 +50,7 @@ function onCastSpell(player, variant)
     end
 
     player:addSummon(mySummon)
+    mySummon:setOutfit({lookType = player:getFamiliarLooktype()})
     mySummon:reload()
     mySummon:registerEvent("SummonDeath")
 
