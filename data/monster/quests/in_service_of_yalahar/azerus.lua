@@ -60,10 +60,10 @@ monster.light = {
 }
 
 monster.summons = {
-	{name = "Rift Worm", chance = 30, interval = 3000, max = 8},
-	{name = "Rift Brood", chance = 30, interval = 3000, max = 8},
-	{name = "Rift Scythe", chance = 30, interval = 3000, max = 8},
-	{name = "War Golem", chance = 30, interval = 3000, max = 5}
+	{name = "Rift Worm", interval = 30, chance = 3000, max = 8},
+	{name = "Rift Brood", interval = 30, chance = 3000, max = 8},
+	{name = "Rift Scythe", interval = 30, chance = 3000, max = 8},
+	{name = "War Golem", interval = 30, chance = 3000, max = 5}
 }
 
 monster.voices = {
