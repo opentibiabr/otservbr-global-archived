@@ -942,6 +942,14 @@ function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDama
 	if not item or not target then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
+	
+	if item:getWeaponType() == WEAPON_AMMO then
+		if isInArray({ITEM_OLD_DIAMOND_ARROW, ITEM_DIAMOND_ARROW}, item:getId()) then
+			return primaryDamage, primaryType, secondaryDamage, secondaryType
+		else
+			item = self:getSlotItem(CONST_SLOT_LEFT)
+		end
+	end
 
 	local slots = ItemType(item:getId()):getImbuingSlots()
 	if slots > 0 then

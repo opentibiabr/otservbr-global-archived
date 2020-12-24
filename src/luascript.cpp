@@ -1639,6 +1639,9 @@ void LuaScriptInterface::registerFunctions()
 
 	registerEnum(ITEM_STONE_SKIN_AMULET)
 
+	registerEnum(ITEM_OLD_DIAMOND_ARROW)
+	registerEnum(ITEM_DIAMOND_ARROW)
+
 	registerEnum(ITEM_GOLD_POUCH)
 	registerEnum(ITEM_STORE_INBOX)
 
