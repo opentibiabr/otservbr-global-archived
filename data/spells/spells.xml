@@ -205,7 +205,7 @@
 		<vocation name="Royal Paladin" />
 		<vocation name="Elite Knight" />
 	</instant>
-	<instant group="healing" spellid="84" name="Heal Friend" words="exura sio" lvl="18" mana="140" prem="1" aggressive="0" blockwalls="1" needtarget="1" playernameparam="1" params="1" exhaustion="1000" groupcooldown="1000" needlearn="0" script="healing/heal friend.lua">
+	<instant group="healing" spellid="84" name="Heal Friend" words="exura sio" lvl="18" mana="120" prem="1" aggressive="0" blockwalls="1" needtarget="1" playernameparam="1" params="1" exhaustion="1000" groupcooldown="1000" needlearn="0" script="healing/heal friend.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
 	</instant>
@@ -397,7 +397,7 @@
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
 	</instant>
-	<instant group="attack" spellid="120" name="Terra Wave" words="exevo tera hur" lvl="38" mana="210" direction="1" exhaustion="4000" groupcooldown="2000" needlearn="0" script="attack/terra wave.lua">
+	<instant group="attack" spellid="120" name="Terra Wave" words="exevo tera hur" lvl="38" mana="140" direction="1" exhaustion="4000" groupcooldown="2000" needlearn="0" script="attack/terra wave.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
 	</instant>
