@@ -46,7 +46,7 @@ function playerLogin.onLogin(player)
 		local resultId = db.storeQuery("SELECT players.name FROM `players` INNER JOIN `players_online` WHERE players_online.player_id=players.id and players_online.player_id!=" .. player:getGuid() .. " and players.account_id=" .. player:getAccountId())
 		if resultId ~= false then
 			repeat
-				if player:getAccountType() <= ACCOUNT_TYPE_GOD and player:getGroup():getId() < 6 then
+				if player:getAccountType() <= ACCOUNT_TYPE_GOD and player:getGroup():getId() < GROUP_TYPE_GOD then
 					local name = result.getDataString(resultId, "name")
 					if getCreatureCondition(Player(name), CONDITION_INFIGHT) == false then
 						Player(name):remove()
@@ -138,7 +138,7 @@ function playerLogin.onLogin(player)
 
 	player:loadSpecialStorage()
 
-	if player:getGroup():getId() >= 4 then
+	if player:getGroup():getId() >= GROUP_TYPE_GAMEMASTER then
 		player:setGhostMode(true)
 	end
 	-- Boosted creature
