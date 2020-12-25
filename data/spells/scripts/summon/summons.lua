@@ -1,8 +1,8 @@
-local setting = {
-    [VOCATION.CLIENT_ID.SORCERER] = {name = "thundergiant"},
-    [VOCATION.CLIENT_ID.DRUID] = {name = "grovebeast"},
-    [VOCATION.CLIENT_ID.PALADIN] = {name = "emberwing"},
-    [VOCATION.CLIENT_ID.KNIGHT] = {name = "skullfrost"}
+local summon = {
+    [VOCATION.CLIENT_ID.SORCERER] = {name = "Sorcerer familiar"},
+    [VOCATION.CLIENT_ID.DRUID] = {name = "Druid familiar"},
+    [VOCATION.CLIENT_ID.PALADIN] = {name = "Paladin familiar"},
+    [VOCATION.CLIENT_ID.KNIGHT] = {name = "Knight familiar"}
 }
 
 function removePet(creatureId)
@@ -34,7 +34,7 @@ function onCastSpell(player, variant)
         return false
     end
 
-    local vocation = setting[player:getVocation():getClientId()]
+    local vocation = summon[player:getVocation():getClientId()]
     local summonName = nil
     if vocation then
         summonName = vocation.name
@@ -50,6 +50,7 @@ function onCastSpell(player, variant)
     end
 
     player:addSummon(mySummon)
+    mySummon:setOutfit({lookType = player:getFamiliarLooktype()})
     mySummon:reload()
     mySummon:registerEvent("SummonDeath")
 

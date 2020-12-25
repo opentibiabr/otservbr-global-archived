@@ -1,24 +1,19 @@
 local summon = {
-	[VOCATION.ID.SORCERER] = {name = "thundergiant"},
-	[VOCATION.ID.MASTER_SORCERER] = {name = "thundergiant"},
-	[VOCATION.ID.DRUID] = {name = "grovebeast"},
-	[VOCATION.ID.ELDER_DRUID] = {name = "grovebeast"},
-	[VOCATION.ID.PALADIN] = {name = "emberwing"},
-	[VOCATION.ID.ROYAL_PALADIN] = {name = "emberwing"},
-	[VOCATION.ID.KNIGHT] = {name = "skullfrost"},
-	[VOCATION.ID.ELITE_KNIGHT] = {name = "skullfrost"}
+    [VOCATION.CLIENT_ID.SORCERER] = {name = "Sorcerer familiar"},
+    [VOCATION.CLIENT_ID.DRUID] = {name = "Druid familiar"},
+    [VOCATION.CLIENT_ID.PALADIN] = {name = "Paladin familiar"},
+    [VOCATION.CLIENT_ID.KNIGHT] = {name = "Knight familiar"}
 }
 
 local summonStorage = Storage.PetSummon
 
 local summonLogin = CreatureEvent("SummonLogin")
 function summonLogin.onLogin(player)
-	local vocation = summon[player:getVocation()]
-	local summonName
+	local vocation = summon[player:getVocation():getClientId()]
 	local petTimeLeft = player:getStorageValue(summonStorage) - player:getLastLogout()
 
 	if petTimeLeft > 0 then
-		if vocation and vocation:getId() and isPremium(player) then
+		if vocation and isPremium(player) then
 			summonName = vocation.name
 		end
 	end
@@ -27,7 +22,10 @@ function summonLogin.onLogin(player)
 		position = player:getPosition()
 		summonMonster = Game.createMonster(summonName, position, true, false)
 		player:addSummon(summonMonster)
+		summonMonster:setOutfit({lookType = player:getFamiliarLooktype()})
 		summonMonster:reload()
+		local deltaSpeed = math.max(player:getBaseSpeed() - summonMonster:getBaseSpeed(), 0)
+		summonMonster:changeSpeed(deltaSpeed)
 		player:setStorageValue(storage, os.time() + petTimeLeft)
 		summonMonster:registerEvent("SummonDeath")
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
