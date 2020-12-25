@@ -13,7 +13,6 @@ function addOutfit.onSay(player, words, param)
 		return true
 	end
 
-	-- Sanity check for parameters
 	if param == "" then
 		player:sendCancelMessage("Command param required.")
 		return false
