@@ -10,7 +10,6 @@ local summonStorage = Storage.PetSummon
 local summonLogin = CreatureEvent("SummonLogin")
 function summonLogin.onLogin(player)
 	local vocation = summon[player:getVocation():getClientId()]
-	local summonName
 	local petTimeLeft = player:getStorageValue(summonStorage) - player:getLastLogout()
 
 	if petTimeLeft > 0 then
