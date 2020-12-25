@@ -880,9 +880,33 @@ class Player final : public Creature, public Cylinder
 		void addFamiliar(uint16_t lookType);
 		bool removeFamiliar(uint16_t lookType);
 		bool getFamiliar(const Familiar& familiar) const;
+<<<<<<< Updated upstream
 		void setFamiliarLooktype(uint16_t familiarLooktype) {
 			this->defaultOutfit.lookFamiliarsType = familiarLooktype;
 		}
+=======
+<<<<<<< Updated upstream
+=======
+		void setFamiliar(Creature* familiar, int32_t decay = 900000)
+		{
+			if (!familiar) {
+				myFamiliar = 0;
+				return;
+			}
+
+			if (decay > 900000) {
+				decay = 900000;
+			}
+
+			myFamiliar = familiar->getID();
+			familiar->setRemoveTime(decay);
+			return;
+		}
+		void setFamiliarLooktype(uint16_t familiarLooktype) {
+			this->defaultOutfit.lookFamiliarsType = familiarLooktype;
+		}
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 		bool canLogout();
 
@@ -1881,6 +1905,7 @@ class Player final : public Creature, public Cylinder
 		uint64_t lastAttack = 0;
 		uint64_t bankBalance = 0;
 		uint64_t lastQuestlogUpdate = 0;
+		uint64_t asyncOngoingTasks = 0;
 		int64_t lastFailedFollow = 0;
 		int64_t skullTicks = 0;
 		int64_t lastWalkthroughAttempt = 0;
@@ -1892,7 +1917,6 @@ class Player final : public Creature, public Cylinder
 		int64_t nextPotionAction = 0;
 		int64_t lastQuickLootNotification = 0;
 		int64_t lastWalking = 0;
-    uint64_t asyncOngoingTasks = 0;
 
 		std::vector<Kill> unjustifiedKills;
 
@@ -1935,6 +1959,7 @@ class Player final : public Creature, public Cylinder
 		uint32_t windowTextId = 0;
 		uint32_t editListId = 0;
 		uint32_t manaMax = 0;
+		uint32_t myFamiliar = 0;
 		int32_t varSkills[SKILL_LAST + 1] = {};
 		int32_t varStats[STAT_LAST + 1] = {};
 		int32_t purchaseCallback = -1;
