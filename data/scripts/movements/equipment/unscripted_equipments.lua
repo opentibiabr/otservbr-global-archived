@@ -2,35 +2,106 @@ if not equipmentsTable then
 
 	equipmentsTable = {
 		{
-			itemid = 40349,
+			itemid = 40358,
+			type = "equip",
+			slot = "necklace",
+			level = 180
+		}, -- exotic amulet
+		{
+			itemid = 40358,
+			type = "deequip",
+			slot = "necklace"
+		}, -- exotic amulet
+		{
+			itemid = 40357,
 			type = "equip",
 			slot = "hand",
 			level = 150,
 			vocation = {
-				{"Knight", true},
-				{"Elite Knight"}
+				{"Sorcerer", true},
+				{"Master Sorcerer"}
 			}
-		}, -- jungle flail
+		}, -- jungle wand
 		{
-			itemid = 40349,
+			itemid = 40357,
 			type = "deequip",
 			slot = "hand",
-		}, -- jungle flail
+		}, -- jungle wand
 		{
-			itemid = 40350,
+			itemid = 40356,
 			type = "equip",
 			slot = "hand",
 			level = 150,
 			vocation = {
-				{"Knight", true},
-				{"Elite Knight"}
+				{"Druid", true},
+				{"Elder Druid"}
 			}
-		}, -- throwing axe
+		}, -- jungle rod
 		{
-			itemid = 40350,
+			itemid = 40356,
 			type = "deequip",
 			slot = "hand",
-		}, -- throwing axe
+		}, -- jungle rod
+		{
+			itemid = 40355,
+			type = "equip",
+			slot = "feet",
+			level = 150,
+			vocation = {
+				{"Druid", true},
+				{"Elder Druid"}
+			}
+		}, -- make-do boots
+		{
+			itemid = 40355,
+			type = "deequip",
+			slot = "feet",
+		}, -- make-do boots
+		{
+			itemid = 40354,
+			type = "equip",
+			slot = "feet",
+			level = 150,
+			vocation = {
+				{"Sorcerer", true},
+				{"Master Sorcerer"}
+			}
+		}, -- makeshift boots
+		{
+			itemid = 40354,
+			type = "deequip",
+			slot = "feet",
+		}, -- makeshift boots
+		{
+			itemid = 40353,
+			type = "equip",
+			slot = "hand",
+			level = 150,
+			vocation = {
+				{"Paladin", true},
+				{"Royal Paladin"}
+			}
+		}, -- jungle bow
+		{
+			itemid = 40353,
+			type = "deequip",
+			slot = "hand",
+		}, -- jungle bow
+		{
+			itemid = 40352,
+			type = "equip",
+			slot = "legs",
+			level = 150,
+			vocation = {
+				{"Paladin", true},
+				{"Royal Paladin"}
+			}
+		}, -- bast legs
+		{
+			itemid = 40352,
+			type = "deequip",
+			slot = "legs",
+		}, -- bast legs
 		{
 			itemid = 40351,
 			type = "equip",
@@ -47,106 +118,35 @@ if not equipmentsTable then
 			slot = "legs",
 		}, -- exotic legs
 		{
-			itemid = 40352,
-			type = "equip",
-			slot = "legs",
-			level = 150,
-			vocation = {
-				{"Paladin", true},
-				{"Royal Paladin"}
-			}
-		}, -- bast legs
-		{
-			itemid = 40352,
-			type = "deequip",
-			slot = "legs",
-		}, -- bast legs
-		{
-			itemid = 40353,
+			itemid = 40350,
 			type = "equip",
 			slot = "hand",
 			level = 150,
 			vocation = {
-				{"Paladin", true},
-				{"Royal Paladin"}
+				{"Knight", true},
+				{"Elite Knight"}
 			}
-		}, -- jungle bow
+		}, -- throwing axe
 		{
-			itemid = 40354,
+			itemid = 40350,
 			type = "deequip",
 			slot = "hand",
-		}, -- jungle bow
+		}, -- throwing axe
 		{
-			itemid = 40354,
-			type = "equip",
-			slot = "feet",
-			level = 150,
-			vocation = {
-				{"Sorcerer", true},
-				{"Master Sorcerer"}
-			}
-		}, -- makeshift boots
-		{
-			itemid = 40354,
-			type = "deequip",
-			slot = "feet",
-		}, -- makeshift boots
-		{
-			itemid = 40355,
-			type = "equip",
-			slot = "feet",
-			level = 150,
-			vocation = {
-				{"Druid", true},
-				{"Elder Druid"}
-			}
-		}, -- make-do boots
-		{
-			itemid = 40355,
-			type = "deequip",
-			slot = "feet",
-		}, -- make-do boots
-		{
-			itemid = 40356,
+			itemid = 40349,
 			type = "equip",
 			slot = "hand",
 			level = 150,
 			vocation = {
-				{"Druid", true},
-				{"Elder Druid"}
+				{"Knight", true},
+				{"Elite Knight"}
 			}
-		}, -- jungle rod
+		}, -- jungle flail
 		{
-			itemid = 40356,
+			itemid = 40349,
 			type = "deequip",
 			slot = "hand",
-		}, -- jungle rod
-		{
-			itemid = 40357,
-			type = "equip",
-			slot = "hand",
-			level = 150,
-			vocation = {
-				{"Sorcerer", true},
-				{"Master Sorcerer"}
-			}
-		}, -- jungle wand
-		{
-			itemid = 40357,
-			type = "deequip",
-			slot = "hand",
-		}, -- jungle wand
-		{
-			itemid = 40358,
-			type = "equip",
-			slot = "necklace",
-			level = 180
-		}, -- exotic amulet
-		{
-			itemid = 40358,
-			type = "deequip",
-			slot = "necklace"
-		}, -- exotic amulet
+		}, -- jungle flail
 		{
 			itemid = 39089,
 			type = "equip",
