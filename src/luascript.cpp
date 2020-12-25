@@ -2510,6 +2510,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "getRewardList", LuaScriptInterface::luaPlayerGetRewardList);
 
 	registerMethod("Player", "sendInventory", LuaScriptInterface::luaPlayerSendInventory);
+	registerMethod("Player", "sendLootStats", LuaScriptInterface::luaPlayerSendLootStats);
 	registerMethod("Player", "updateSupplyTracker", LuaScriptInterface::luaPlayerUpdateSupplyTracker);
 	registerMethod("Player", "updateKillTracker", LuaScriptInterface::luaPlayerUpdateKillTracker);
 
@@ -4031,6 +4032,27 @@ int LuaScriptInterface::luaPlayerSendInventory(lua_State* L)
 	}
 
  	player->sendInventoryClientIds();
+	pushBoolean(L, true);
+
+ 	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSendLootStats(lua_State* L)
+{
+	// player:sendLootStats(item)
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+ 	Item* item = getUserdata<Item>(L, 2);
+	if (!item) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+ 	player->sendLootStats(item);
 	pushBoolean(L, true);
 
  	return 1;
