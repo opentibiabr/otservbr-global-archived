@@ -202,6 +202,65 @@ function teleportToDawnportTemple(uid)
 	end
 end
 
+function isSkillGrowthLimited(player, skillId)
+	-- Check lives on dawnport
+	if player:getTown():getId() == TOWNS_LIST.DAWNPORT then
+		local vocationId = player:getVocation():getId()
+		local skillsLimit
+		
+		if vocationId == VOCATION.ID.NONE then
+			skillsLimit = DawnportCharacterLimits.skills.none
+		elseif isInArray({VOCATION.ID.DAWNPORT_SORCERER, VOCATION.ID.SORCERER}, vocationId) then
+			skillsLimit = DawnportCharacterLimits.skills.sorcerer
+		elseif isInArray({VOCATION.ID.DAWNPORT_DRUID, VOCATION.ID.DRUID}, vocationId) then
+			skillsLimit = DawnportCharacterLimits.skills.druid
+		elseif isInArray({VOCATION.ID.DAWNPORT_PALADIN, VOCATION.ID.PALADIN}, vocationId) then
+			skillsLimit = DawnportCharacterLimits.skills.paladin
+		elseif isInArray({VOCATION.ID.DAWNPORT_KNIGHT, VOCATION.ID.KNIGHT}, vocationId) then
+			skillsLimit = DawnportCharacterLimits.skills.knight
+		end
+		
+		-- Check if is set a skillId limit
+		if skillsLimit and skillsLimit[skillId] then
+			-- Get current skillId level
+			local skillLevel
+			
+			if skillId == SKILL_MAGLEVEL then
+				skillLevel = player:getBaseMagicLevel()
+			else
+				skillLevel = player:getSkillLevel(skillId)
+			end
+			
+			-- Check skillId limit
+			if skillLevel >= skillsLimit[skillId] then
+				return true
+			end
+		end
+	end
+	
+	return false
+end
+
+DawnportCharacterLimits = {
+	level = 8,
+	skills = {
+		none = {},
+		sorcerer = {
+			[SKILL_MAGLEVEL] = 20
+		},
+		druid = {
+			[SKILL_MAGLEVEL] = 20
+			
+		},
+		paladin = {
+			[SKILL_MAGLEVEL] = 9
+		},
+		knight = {
+			[SKILL_MAGLEVEL] = 4
+		}
+	}
+}
+
 -- Table of configs
 DawnportTable = {
 	Effects = {
@@ -219,8 +278,6 @@ DawnportTable = {
 		},
 		tutorial = 5,
 		effectPosition = {x = 32050, y = 31891, z = 5},
-		skills = {1,2,3,4,5},
-		limits = {20, 20},
 		storage = Storage.Dawnport.Sorcerer,
 		name = "sorcerer",
 		firstMessage = "As a sorcerer, you can use the following spells: Magic Patch, Buzz, Scorch.",
@@ -256,8 +313,6 @@ DawnportTable = {
 		},
 		tutorial = 6,
 		effectPosition = {x = 32064, y = 31905, z = 5},
-		skills = {1,2,3,4,5},
-		limits = {20, 20},
 		storage = Storage.Dawnport.Druid,
 		name = "druid",
 		firstMessage = "As a druid, you can use these spells: Mud Attack, Chill Out, Magic Patch.",
@@ -293,8 +348,6 @@ DawnportTable = {
 		},
 		tutorial = 4,
 		effectPosition = {x = 32078, y = 31891, z = 5},
-		skills = {1,2,3,5},
-		limits = {9, 20},
 		storage = Storage.Dawnport.Paladin,
 		name = "paladin",
 		firstMessage = "As a paladin, you can use the following spells: Magic Patch, Arrow Call.",
@@ -330,8 +383,6 @@ DawnportTable = {
 		},
 		tutorial = 3,
 		effectPosition = {x = 32064, y = 31876, z = 5},
-		skills= {4},
-		limits= {4, 20},
 		storage = Storage.Dawnport.Knight,
 		name = "knight",
 		firstMessage = "As a knight, you can use the following spells: Bruise Bane.",
