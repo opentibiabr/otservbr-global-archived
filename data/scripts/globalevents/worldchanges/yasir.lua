@@ -94,8 +94,10 @@ function yasir.onStartup()
 
 			Game.loadMap('data/world/yasir/' .. randTown.mapName .. '.otbm')
 			addEvent(spawnYasir, 5000, randTown.yasirPosition)
+			setGlobalStorageValue(GlobalStorage.Yasir, 1)
 		else
 			print('>> Yasir: not this time')
+			setGlobalStorageValue(GlobalStorage.Yasir, 0)
 		end
 	end
 end

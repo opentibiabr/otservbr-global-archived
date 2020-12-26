@@ -30,10 +30,12 @@
 #include "game.h"
 #include "iologindata.h"
 #include "monster.h"
+#include "monsters.h"
 #include "movement.h"
 #include "scheduler.h"
 #include "weapons.h"
 #include "iostash.h"
+#include "iobestiary.h"
 
 extern ConfigManager g_config;
 extern Game g_game;
@@ -44,6 +46,7 @@ extern Weapons* g_weapons;
 extern CreatureEvents* g_creatureEvents;
 extern Events* g_events;
 extern Imbuements* g_imbuements;
+extern Monsters g_monsters;
 
 MuteCountMap Player::muteCountMap;
 
@@ -662,6 +665,10 @@ void Player::addStorageValue(const uint32_t key, const int32_t value, const bool
 			return;
 		} else if (IS_IN_KEYRANGE(key, MOUNTS_RANGE)) {
 			// do nothing
+		} else if (IS_IN_KEYRANGE(key, FAMILIARS_RANGE)) {
+			familiars.emplace_back(
+				value >> 16);
+			return;
 		} else {
 			std::cout << "Warning: unknown reserved key: " << key << " player: " << getName() << std::endl;
 			return;
@@ -1316,6 +1323,9 @@ void Player::onCreatureAppear(Creature* creature, bool isLogin)
 				removeCondition(condition);
 			}
 		}
+
+		// Reload bestiary tracker
+		refreshBestiaryTracker(getBestiaryTrackerList());
 
 		g_game.checkPlayersRecord();
 		IOLoginData::updateOnlineStatus(guid, true);
@@ -2253,6 +2263,16 @@ void Player::death(Creature* lastHitCreature)
 		sumMana += manaSpent;
 
 		double deathLossPercent = getLostPercent() * (unfairFightReduction / 100.);
+
+		// Charm bless bestiary
+		if (lastHitCreature && lastHitCreature->getMonster()) {
+			if (charmRuneBless != 0) {
+				MonsterType* mType = g_monsters.getMonsterType(lastHitCreature->getName());
+				if (mType && mType->info.raceid == charmRuneBless) {
+				  deathLossPercent = (deathLossPercent * 90) / 100;
+				}
+			}
+		}
 
 		lostMana = static_cast<uint64_t>(sumMana * deathLossPercent);
 
@@ -4080,10 +4100,15 @@ bool Player::canLogout()
 
 void Player::genReservedStorageRange()
 {
-	//generate outfits range
-	uint32_t base_key = PSTRG_OUTFITS_RANGE_START;
+	// generate outfits range
+	uint32_t outfits_key = PSTRG_OUTFITS_RANGE_START;
 	for (const OutfitEntry& entry : outfits) {
-		storageMap[++base_key] = (entry.lookType << 16) | entry.addons;
+		storageMap[++outfits_key] = (entry.lookType << 16) | entry.addons;
+	}
+	// generate familiars range
+	uint32_t familiar_key = PSTRG_FAMILIARS_RANGE_START;
+	for (const FamiliarEntry& entry : familiars) {
+		storageMap[++familiar_key] = (entry.lookType << 16);
 	}
 }
 
@@ -4146,6 +4171,76 @@ bool Player::getOutfitAddons(const Outfit& outfit, uint8_t& addons) const
 	}
 
 	addons = 0;
+	return true;
+}
+
+bool Player::canFamiliar(uint32_t lookType) const {
+	if (group->access) {
+		return true;
+	}
+
+	const Familiar* familiar = Familiars::getInstance().getFamiliarByLookType(getVocationId(), lookType);
+	if (!familiar) {
+		return false;
+	}
+
+	if (familiar->premium && !isPremium()) {
+		return false;
+	}
+
+	if (familiar->unlocked) {
+		return true;
+	}
+
+	for (const FamiliarEntry& familiarEntry : familiars) {
+		if (familiarEntry.lookType != lookType) {
+			continue;
+		}
+	}
+	return false;
+}
+
+void Player::addFamiliar(uint16_t lookType) {
+	for (FamiliarEntry& familiarEntry : familiars) {
+		if (familiarEntry.lookType == lookType) {
+			return;
+		}
+	}
+	familiars.emplace_back(lookType);
+}
+
+bool Player::removeFamiliar(uint16_t lookType) {
+	for (auto it = familiars.begin(), end = familiars.end(); it != end; ++it) {
+		FamiliarEntry& entry = *it;
+		if (entry.lookType == lookType) {
+			familiars.erase(it);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Player::getFamiliar(const Familiar& familiar) const {
+	if (group->access) {
+		return true;
+	}
+
+	if (familiar.premium && !isPremium()) {
+		return false;
+	}
+
+	for (const FamiliarEntry& familiarEntry : familiars) {
+		if (familiarEntry.lookType != familiar.lookType) {
+			continue;
+		}
+
+		return true;
+	}
+
+	if (!familiar.unlocked) {
+		return false;
+	}
+
 	return true;
 }
 

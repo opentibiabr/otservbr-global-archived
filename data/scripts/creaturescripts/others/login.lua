@@ -46,12 +46,14 @@ function playerLogin.onLogin(player)
 		local resultId = db.storeQuery("SELECT players.name FROM `players` INNER JOIN `players_online` WHERE players_online.player_id=players.id and players_online.player_id!=" .. player:getGuid() .. " and players.account_id=" .. player:getAccountId())
 		if resultId ~= false then
 			repeat
-				local name = result.getDataString(resultId, "name")
-				if getCreatureCondition(Player(name), CONDITION_INFIGHT) == false then
-					Player(name):remove()
-				else
-					addEvent(protectionZoneCheck, 2000, player:getName())
-					doPlayerPopupFYI(player, "You cant login now.")
+				if player:getAccountType() <= ACCOUNT_TYPE_GOD and player:getGroup():getId() < GROUP_TYPE_GOD then
+					local name = result.getDataString(resultId, "name")
+					if getCreatureCondition(Player(name), CONDITION_INFIGHT) == false then
+						Player(name):remove()
+					else
+						addEvent(protectionZoneCheck, 2000, player:getName())
+						doPlayerPopupFYI(player, "You cant login now.")
+					end
 				end
 			until not result.next(resultId)
 				result.free(resultId)
@@ -63,7 +65,7 @@ function playerLogin.onLogin(player)
 	end
 	-- Premium Ends Teleport to Temple, change addon (citizen) houseless
 	local defaultTown = "Thais" -- default town where player is teleported if his home town is in premium area
-	local freeTowns = {"Ab'Dendriel", "Carlin", "Kazordoon", "Thais", "Venore"} -- towns in free account area
+	local freeTowns = {"Ab'Dendriel", "Carlin", "Kazordoon", "Thais", "Venore", "Rookgaard", "Dawnport", "Dawnport Tutorial", "Island of Destiny"} -- towns in free account area
 
 	if isPremium(player) == false and isInArray(freeTowns, player:getTown():getName()) == false then
 		local town = player:getTown()
@@ -136,15 +138,12 @@ function playerLogin.onLogin(player)
 
 	player:loadSpecialStorage()
 
-	if player:getGroup():getId() >= 4 then
+	if player:getGroup():getId() >= GROUP_TYPE_GAMEMASTER then
 		player:setGhostMode(true)
 	end
 	-- Boosted creature
-	player:sendTextMessage(MESSAGE_LOOT, "Today's boosted creature: " .. BoostedCreature.name .. " \
+	player:sendTextMessage(MESSAGE_LOOT, "Today's boosted creature: " .. Game.getBoostedCreature() .. " \
 	Boosted creatures yield more experience points, carry more loot than usual and respawn at a faster rate.")
-
-	-- Bestiary tracker
-	player:refreshBestiaryTracker()
 
 	-- Stamina
 	nextUseStaminaTime[playerId] = 1

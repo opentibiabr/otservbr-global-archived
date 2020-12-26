@@ -256,11 +256,25 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		return;
 	}
 
+	std::cout << ">> Loading lua monsters" << std::endl;	
+	if (!g_scripts->loadScripts("monster", false, false)) {	
+		startupErrorMessage("Failed to load lua monsters");	
+		return;	
+	}
+
 	std::cout << ">> Loading outfits" << std::endl;
 	if (!Outfits::getInstance().loadFromXml()) {
 		startupErrorMessage("Unable to load outfits!");
 		return;
 	}
+
+	std::cout << ">> Loading familiars" << std::endl;
+	if (!Familiars::getInstance().loadFromXml()) {
+		startupErrorMessage("Unable to load familiars!");
+		return;
+	}
+
+	g_game.loadBoostedCreature();
 
 	std::cout << ">> Checking world type... " << std::flush;
 	std::string worldType = asLowerCaseString(g_config.getString(

@@ -15,75 +15,72 @@ function onThink()
 npcHandler:onThink()
 end
 
-local playerTopic = {}
-local function greetCallback(cid)
-	local player = Player(cid)
-	if player:getStorageValue(Storage.Kilmaresh.First.Access) < 1 then
-		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
-		playerTopic[cid] = 1
-	elseif (player:getStorageValue(Storage.Kilmaresh.First.JamesfrancisTask) >= 0 and player:getStorageValue(Storage.Kilmaresh.First.JamesfrancisTask) <= 50)
-	and player:getStorageValue(Storage.Kilmaresh.First.Mission) < 3 then
-		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
-		playerTopic[cid] = 15
-	elseif player:getStorageValue(Storage.Kilmaresh.First.Mission) == 4 then
-		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
-		player:setStorageValue(Storage.Kilmaresh.First.Mission, 5)
-		playerTopic[cid] = 20
-	end
-	npcHandler:addFocus(cid)
-	return true
-end
+local voices = {
+  {text = "The menu of the day sounds delicious!"}, 
+  {text = "The last visit to the theatre was quite rewarding."}, 
+  {text = "Such a beautiful and wealthy city - with so many opportunities ..."}
+}
 
-local function creatureSayCallback(cid, type, msg)
-if not npcHandler:isFocused(cid) then
-	return false
-end
-npcHandler.topic[cid] = playerTopic[cid]
-local player = Player(cid)
-if msgcontains(msg, "help") and player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 1 then
-	if player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 1 then
-		npcHandler:say({"I guess I could do this, yes. But I have to impose a condition. If you bring me twenty sphinx feathers I will steal this ring for you."}, cid)
-		npcHandler.topic[cid] = 1
-		playerTopic[cid] = 1
+keywordHandler:addKeyword(
+	{"help"}, StdModule.say, { npcHandler = npcHandler,
+	text = "I guess I could do this, yes. But I have to impose a condition. If you bring me ten sphinx {feathers} I will steal this ring for you."},
+	function (player) return player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 1 end,
+	function (player) player:setStorageValue(Storage.Kilmaresh.Fourth.Moe, 2) end
+)
+
+keywordHandler:addKeyword(
+	{"feathers"}, StdModule.say, { npcHandler = npcHandler,
+	text = "Thank you! They look so pretty, I'm very pleased. Agreed, now I will steal the ring from the Ambassador of Rathleton. Just be patient, I have to wait for a good moment."},
+	function (player) return player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 2 and player:getItemById(36272, 10) end,
+	function (player) 
+		player:removeItem(36272, 10)
+		player:setStorageValue(Storage.Kilmaresh.Fourth.Moe, 3)
+		player:setStorageValue(Storage.Kilmaresh.Fourth.MoeTimer, os.time() + 60 * 60 ) -- one hour
 	end
-elseif msgcontains(msg, "yes") and playerTopic[cid] == 1 and player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 1 then
-	if player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 1 and player:getItemById(36272, 10) then
-		player:removeItem(36272, 10)			
-		npcHandler:say({"Thank you! They look so pretty, I'm very pleased. Agreed, now I will steal the ring from the Ambassador of Rathleton. Just be patient, I have to wait for a good moment."}, cid)
-		player:setStorageValue(Storage.Kilmaresh.Fourth.Moe, 3)		
-		npcHandler.topic[cid] = 2
-		playerTopic[cid] = 2
-	else
-		npcHandler:say({"I still haven't had a good time to recover the ring."}, cid)
-	end
-end
-if msgcontains(msg, "ring") and player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 3 then
-	if player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 3 then
+)
+
+keywordHandler:addKeyword(
+	{"feathers"}, StdModule.say, { npcHandler = npcHandler,
+	text = "If you bring me ten sphinx {feathers} I will steal this ring for you."},
+	function (player) return player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 2 and not player:getItemById(36272, 10) end
+)
+
+keywordHandler:addKeyword(
+	{"ring"}, StdModule.say, { npcHandler = npcHandler,
+	text = "You're arriving at the right time. I have the ring you asked for. It was not too difficult. I just had to wait until the Ambassador left his residence and then I climbed in through the window. Here it is."},
+	function (player) 
+		return player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 3 and 
+			player:getStorageValue(Storage.Kilmaresh.Fourth.MoeTimer) - os.time() <= 0
+	end,
+	function (player)
 		player:addItem(36141, 1)
-		npcHandler:say({"You're arriving at the right time. I have the ring you asked for. It was not too difficult. I just had to wait until the Ambassador left his residence and then I climbed in through the window. Here it is."}, cid)
 		player:setStorageValue(Storage.Kilmaresh.Fourth.Moe, 4)
-		npcHandler.topic[cid] = 3
-		playerTopic[cid] = 3
-	else
-		npcHandler:say({"You already spoke to me."}, cid)
 	end
-end
-if msgcontains(msg, "lyre") and player:getStorageValue(Storage.Kilmaresh.Thirteen.Lyre) == 1 then
-	if player:getStorageValue(Storage.Kilmaresh.Thirteen.Lyre) == 1 then
-		npcHandler:say({"I'm upset to accuse myself, the lyre is hidden in a tomb west of Kilmaresh."}, cid)-- It needs to be revised, it's not the same as the global
-		player:setStorageValue(Storage.Kilmaresh.Thirteen.Lyre, 2)
-		npcHandler.topic[cid] = 4
-		playerTopic[cid] = 4
-	else
-		npcHandler:say({"You already spoke to me."}, cid)
-	end
-end		
-return true
-end
+)
 
+keywordHandler:addKeyword(
+	{"ring"}, StdModule.say, { npcHandler = npcHandler,
+	text = "I will steal it, promised. I\'m just waiting for a good moment."},
+	function (player) 
+		return player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 3 and 
+			player:getStorageValue(Storage.Kilmaresh.Fourth.MoeTimer) - os.time() > 0
+	end
+)
+
+
+keywordHandler:addKeyword(
+	{"lyre"}, StdModule.say, { npcHandler = npcHandler,
+	text = "I'm upset to accuse myself, the lyre is hidden in a tomb west of Kilmaresh."},
+	function (player) return player:getStorageValue(Storage.Kilmaresh.Thirteen.Lyre) == 1 end,
+	function (player) player:setStorageValue(Storage.Kilmaresh.Thirteen.Lyre, 2) end
+)
+
+npcHandler:setMessage(MESSAGE_GREET, "Greetings, traveller. It seems, you're a {guest} here, just like me.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Well, bye then.')
+
 npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
 npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
-npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:addModule(FocusModule:new())

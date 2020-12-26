@@ -56,7 +56,7 @@ function spawnsByTime.onPeriodChange(period, light)
 			if target then
 				print("> NPC " .. value.name .. " removed!")
 				target:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				return target:remove()
+				target:remove()
 			end
 		end
 	end

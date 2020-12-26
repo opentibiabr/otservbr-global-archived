@@ -21,6 +21,7 @@ set(otbr_SRC
 	${CMAKE_CURRENT_LIST_DIR}/depotchest.cpp
 	${CMAKE_CURRENT_LIST_DIR}/depotlocker.cpp
 	${CMAKE_CURRENT_LIST_DIR}/events.cpp
+	${CMAKE_CURRENT_LIST_DIR}/familiars.cpp
 	${CMAKE_CURRENT_LIST_DIR}/fileloader.cpp
 	${CMAKE_CURRENT_LIST_DIR}/game.cpp
 	${CMAKE_CURRENT_LIST_DIR}/gamestore.cpp
@@ -30,6 +31,7 @@ set(otbr_SRC
 	${CMAKE_CURRENT_LIST_DIR}/house.cpp
 	${CMAKE_CURRENT_LIST_DIR}/housetile.cpp
 	${CMAKE_CURRENT_LIST_DIR}/inbox.cpp
+	${CMAKE_CURRENT_LIST_DIR}/iobestiary.cpp
 	${CMAKE_CURRENT_LIST_DIR}/ioguild.cpp
 	${CMAKE_CURRENT_LIST_DIR}/iologindata.cpp
 	${CMAKE_CURRENT_LIST_DIR}/iomap.cpp

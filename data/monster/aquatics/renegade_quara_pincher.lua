@@ -1,0 +1,132 @@
+local mType = Game.createMonsterType("Renegade Quara Pincher")
+local monster = {}
+
+monster.description = "a renegade quara pincher"
+monster.experience = 2200
+monster.outfit = {
+	lookType = 77,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.raceId = 1100
+monster.Bestiary = {
+	class = "Aquatic",
+	race = BESTY_RACE_AQUATIC,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 2,
+	Locations = "Seacrest Grounds during a world change."
+		}
+
+monster.health = 2800
+monster.maxHealth = 2800
+monster.race = "blood"
+monster.corpse = 6063
+monster.speed = 396
+monster.summonCost = 330
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 2000,
+	chance = 0
+}
+
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
+monster.flags = {
+	summonable = true,
+	attackable = true,
+	hostile = true,
+	convinceable = true,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = true,
+	canPushItems = true,
+	canPushCreatures = false,
+	staticAttackChance = 90,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	isBlockable = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = true,
+	canWalkOnPoison = false,
+	pet = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+}
+
+monster.loot = {
+	{id = "platinum coin", chance = 80000, maxCount = 5},
+	{id = "quara pincer", chance = 18800, maxCount = 1},
+	{id = "great mana potion", chance = 9720, maxCount = 2},
+	{id = "great health potion", chance = 9010, maxCount = 2},
+	{id = "small ruby", chance = 9010, maxCount = 2},
+	{id = "small diamond", chance = 7060, maxCount = 2},
+	{id = "mind stone", chance = 6140},
+	{id = "red gem", chance = 5120},
+	{id = "shrimp", chance = 4810, maxCount = 5},
+	{id = "vortex bolt", chance = 3790, maxCount = 5},
+	{id = 7632, chance = 1430},--giant shimmering pearl(brown)
+	{id = "warrior helmet", chance = 1430},
+	{id = "fish fin", chance = 920},
+	{id = "crown armor", chance = 611},
+	{id = "time ring", chance = 410},
+	{id = "talon", chance = 310},
+	{id = "glacier robe", chance = 200},
+	{id = "giant shrimp", chance = 100},
+	{id = "twiceslicer", chance = 100}
+}
+
+monster.attacks = {
+	{name ="melee", interval = 2000, chance = 100, skill = 90, attack = 60, effect = CONST_ME_DRAWBLOOD},
+	{name ="speed", interval = 2000, chance = 20, speedChange = -300, range = 1, effect = CONST_ME_MAGIC_RED, target = false, duration = 3000}
+}
+
+monster.defenses = {
+	defense = 50,
+	armor = 50
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = -25},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
+	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
+	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

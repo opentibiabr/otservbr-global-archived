@@ -129,7 +129,15 @@ function skinning.onUse(player, item, fromPosition, target, toPosition, isHotkey
 		return true
 	end
 
-	local random, effect, transform = math.random(1, 100000), CONST_ME_MAGIC_GREEN, true
+	local charmMType, chanceRange = player:getCharmMonsterType(CHARM_SCAVENGE), 100000
+	if charmMType then
+		local charmCorpse = charmMType:getCorpseId()	
+		if charmCorpse == target.itemid or ItemType(charmCorpse):getDecayId() == target.itemid then
+			chanceRange = chanceRange * ((100 - GLOBAL_CHARM_SCAVENGE)/100)
+		end
+	end
+
+	local random, effect, transform = math.random(1, chanceRange), CONST_ME_MAGIC_GREEN, true
 	if type(skin[1]) == 'table' then
 		local added = false
 		local _skin

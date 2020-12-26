@@ -61,32 +61,34 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
+	if player:getStorageValue(setting.timer) >= os.time() then
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		player:teleportTo(fromPosition)
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		player:say("You have to wait to challenge this enemy again!", TALKTYPE_MONSTER_SAY)
+		return true
+	end
+
 	if player:getStorageValue(Storage.FirstDragon.Questline) < 1 or player:getStorageValue(setting.storage) < setting.value then
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo(fromPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:say("You don't have permission to use this portal", TALKTYPE_MONSTER_SAY)
 		return true
-	elseif player:getStorageValue(setting.storage) >= setting.value then
+	end
+	
+	if player:getStorageValue(setting.storage) >= setting.value then
+		local monster = Game.createMonster(setting.bossName, setting.bossPos, true, true)
+		if not monster then
+			return true
+		end
+
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo(setting.newPos)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:say("You have ten minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.", TALKTYPE_MONSTER_SAY)
 		player:setStorageValue(setting.timer, os.time() + 2 * 3600)
 		addEvent(clearBossRoom, 60 * 30 * 1000, player.uid, monster.uid, setting.bossPos, setting.range, fromPosition)
-		return true
-	end
-
-	local monster = Game.createMonster(setting.bossName, setting.bossPos, true, true)
-	if not monster then
-		return true
-	end
-
-	if player:getStorageValue(setting.timer) >= os.time() then
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:teleportTo(fromPosition)
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:say("You have to wait to challenge this enemy again!", TALKTYPE_MONSTER_SAY)
 		return true
 	end
 	return true

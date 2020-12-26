@@ -52,15 +52,7 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 	loaded = true;
 
 	uint32_t eventschedule = g_game.getSpawnSchedule();
-	Database& db = Database::getInstance();
-	std::ostringstream query;
-	query << "SELECT `boostname` FROM `boosted_creature`";
-	DBResult_ptr BoostedName = db.storeQuery(query.str());
-	std::string BoostedNameGet = BoostedName->getString("boostname");
-
-	if (!BoostedName) {
-		std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database." << std::endl;
-	}
+	std::string BoostedNameGet = g_game.getBoostedName();
 
 	for (auto spawnNode : doc.child("spawns").children()) {
 		Position centerPos(
@@ -159,16 +151,8 @@ bool Spawns::loadCustomSpawnXml(const std::string& _filename)
 	}
 
 	uint32_t eventschedule = g_game.getSpawnSchedule();
-	Database& db = Database::getInstance();
-	std::ostringstream query;
-	query << "SELECT `boostname` FROM `boosted_creature`";
-	DBResult_ptr BoostedName = db.storeQuery(query.str());
-	std::string BoostedNameGet = BoostedName->getString("boostname");
+	std::string BoostedNameGet = g_game.getBoostedName();
 
-	if (!BoostedName) {
-		std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database." << std::endl;
-	}
-	
 	for (pugi::xml_node spawnNode = doc.child("spawns").first_child(); spawnNode; spawnNode = spawnNode.next_sibling()) {
 		Position centerPos(
 			pugi::cast<uint16_t>(spawnNode.attribute("centerx").value()),
