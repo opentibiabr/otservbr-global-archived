@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Seacrest Grounds."
-		}
+	}
 
 monster.health = 300
 monster.maxHealth = 300

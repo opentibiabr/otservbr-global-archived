@@ -86,7 +86,7 @@ monster.loot = {
 	{id = "great mana potion", chance = 13430},
 	{id = "life crystal", chance = 13430},
 	{id = "sling herb", chance = 8960},
-	{id = "cornucopia", chance = 7460},
+	{id = 2369, chance = 7460},-- cornucopia
 	{id = "green tunic", chance = 4480},
 	{id = "royal spear", chance = 1490, maxCount = 2}
 }

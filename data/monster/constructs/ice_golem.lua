@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Formorgar Glacier, Formorgar Mines, Nibelor Ice Cave, Ice Witch Temple, \z
 		Deeper Banuta, Crystal Caves, Chyllfroest."
-		}
+	}
 
 monster.health = 385
 monster.maxHealth = 385

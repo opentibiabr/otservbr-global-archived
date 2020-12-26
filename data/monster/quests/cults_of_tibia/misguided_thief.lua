@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Misguided Camp accessible via Outlaw Camp's portal."
-		}
+	}
 
 monster.health = 1800
 monster.maxHealth = 1800

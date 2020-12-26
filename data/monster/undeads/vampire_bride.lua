@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Drefia and Vampire Castle on Vengoth, Edron Vampire Crypt."
-		}
+	}
 
 monster.health = 1200
 monster.maxHealth = 1200

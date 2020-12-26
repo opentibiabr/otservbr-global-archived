@@ -67,14 +67,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Deepling Axe", chance = 1500},
-	{id = "Depth Calcei", chance = 1100},
-	{id = "Depth Galea", chance = 1400},
-	{id = "Depth Lorica", chance = 800},
-	{id = "Ornate Chestplate", chance = 650, unique = true},
-	{id = "Ornate Legs", chance = 740},
-	{id = "Ornate Mace", chance = 1500},
-	{id = "Ornate Shield", chance = 1400}
+	{id = "deepling axe", chance = 1500},
+	{id = "depth calcei", chance = 1100},
+	{id = 15408, chance = 1400},-- depth galea
+	{id = "depth lorica", chance = 800},
+	{id = "ornate chestplate", chance = 650, unique = true},
+	{id = "ornate legs", chance = 740},
+	{id = "ornate mace", chance = 1500},
+	{id = "ornate shield", chance = 1400}
 }
 
 monster.attacks = {

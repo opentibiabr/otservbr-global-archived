@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Steppe of Zao, Lion's Rock, Zao Terramite Caves, Darama Terramite Cave, \z
 		Terramite Breeding Tunnels. Also raids desert north of Ankrahmun."
-		}
+	}
 
 monster.health = 365
 monster.maxHealth = 365

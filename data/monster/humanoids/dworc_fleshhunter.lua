@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "South of Port Hope (Trapwood) on ground level and underground."
-		}
+	}
 
 monster.health = 85
 monster.maxHealth = 85

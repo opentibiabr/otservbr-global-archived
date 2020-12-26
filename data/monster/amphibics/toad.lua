@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "The Laguna Islands, Arena and Zoo Quarter, Tiquanda/Tarantula Caves, \z
 		Shadowthorn Bog God Temple, Northern Zao Plantations, Northern Brimstone Bug Cave."
-		}
+	}
 
 monster.health = 135
 monster.maxHealth = 135

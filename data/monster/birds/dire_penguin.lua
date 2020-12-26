@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 3,
 	Locations = "Any place with penguins like, Formorgar Glacier, Helheim, Tyrsung or Svargrond. \z
 		Known spawn locations: west of Svargrond, up the Formorgar Glacier."
-		}
+	}
 
 monster.health = 173
 monster.maxHealth = 173

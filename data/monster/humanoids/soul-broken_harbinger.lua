@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Court of Winter."
-		}
+	}
 
 monster.health = 6300
 monster.maxHealth = 6300

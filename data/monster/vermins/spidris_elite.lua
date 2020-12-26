@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 2,
 	Locations = "The Hive: east tower (beyond gates), west tower (including beyond gates), \z
 		also anywhere Hive Overseers are found (as summons), Hive Outpost."
-		}
+	}
 
 monster.health = 5000
 monster.maxHealth = 5000

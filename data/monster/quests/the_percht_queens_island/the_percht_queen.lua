@@ -98,7 +98,7 @@ monster.loot = {
 	{id = "green gem", chance = 5485},
 	{id = "blue gem", chance = 5845},
 	{id = "frozen chain", chance = 5485},
-	{id = 26198, chance = 5158},
+	{id = 26198, chance = 5158},-- collar of blue plasma
 	{id = "horseshoe", chance = 1250},
 	{id = "golden horseshoe", chance = 2510},
 	{id = "abyss hammer", chance = 1480},

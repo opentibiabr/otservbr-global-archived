@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Magician Tower, Dark Cathedral, Hero Cave, Magician Quarter."
-		}
+	}
 
 monster.health = 225
 monster.maxHealth = 225

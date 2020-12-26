@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 1,
 	Locations = "Golem Workshop in Gnomebase Alpha."
-		}
+	}
 
 monster.health = 500
 monster.maxHealth = 500

@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 1,
 	Locations = "Ankrahmun Pharaoh Tombs, Deeper Drefia, Kha'zeel Mountains, Northern Darama Desert, \z
 		Southern Darama Desert, Yalahar Foreigner Quarter, Yalahar Trade Quarter."
-		}
+	}
 
 monster.health = 160
 monster.maxHealth = 160

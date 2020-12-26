@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Ankrahmun Library Tomb, Ancient Ruins Tomb, Oasis Tomb, Mountain Tomb, Drefia, Kharos, \z
 		Pits of Inferno, Lich Hell in Ramoa, Cemetery Quarter in Yalahar, underground of Fenrock (on the way to Beregar). \z
 		Can also be seen during an undead raid in Darashia or Carlin."
-		}
+	}
 
 monster.health = 880
 monster.maxHealth = 880

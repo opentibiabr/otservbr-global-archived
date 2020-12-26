@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 1,
 	Locations = "Fury Dungeon and Goroma volcano (surface floor, inner volcano) only during the \z
 		Fire from the Earth Mini World Change."
-		}
+	}
 
 monster.health = 2600
 monster.maxHealth = 2600

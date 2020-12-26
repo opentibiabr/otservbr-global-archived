@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 2,
 	Locations = "The Hive surface during the Hive Born World Change's third stage."
-		}
+	}
 
 monster.health = 255
 monster.maxHealth = 255

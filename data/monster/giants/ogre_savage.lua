@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Krailos Steppe."
-		}
+	}
 
 monster.health = 1400
 monster.maxHealth = 1400

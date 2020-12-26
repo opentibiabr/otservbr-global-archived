@@ -27,7 +27,7 @@ monster.Bestiary = {
 		and 4 bats on the church roof), Alchemist Quarter (4 found on top of roofs), \z
 		Arena and Zoo Quarter (2 under the arena with other mutated creatures), \z
 		Razzachai, Northern Zao Plantations, Souleater Mountains, Middle Spike, Vengoth and Vengoth Castle."
-		}
+	}
 
 monster.health = 900
 monster.maxHealth = 900

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 3,
 	Locations = "Forbidden Lands."
-		}
+	}
 
 monster.health = 2000
 monster.maxHealth = 2000

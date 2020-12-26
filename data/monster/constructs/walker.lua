@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "A few spawns in the Underground Glooth Factory, Glooth Factory, and Rathleton Sewers."
-		}
+	}
 
 monster.health = 3000
 monster.maxHealth = 3000

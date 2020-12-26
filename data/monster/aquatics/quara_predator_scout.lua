@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Malada, Hrodmir Quara Scout Caves, Quara Grotto, Oramond."
-		}
+	}
 
 monster.health = 890
 monster.maxHealth = 890

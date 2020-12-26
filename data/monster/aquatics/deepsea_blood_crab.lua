@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Svargrond (Sea Serpent Area), Drefia. \z
 		There is also one under Rookgaard Academy, however it is unreachable."
-		}
+	}
 
 monster.health = 320
 monster.maxHealth = 320

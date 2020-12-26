@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Cemetery Quarter, Vengoth Castle, Vandura Mountain, Robson Isle."
-		}
+	}
 
 monster.health = 700
 monster.maxHealth = 700

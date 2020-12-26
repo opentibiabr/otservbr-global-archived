@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Forbidden Temple (Carlin)."
-		}
+	}
 
 monster.health = 975
 monster.maxHealth = 975

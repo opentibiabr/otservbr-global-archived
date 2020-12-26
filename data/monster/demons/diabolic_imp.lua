@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Inquisition, Pits of Inferno, Fenrock, Fury Dungeon and inside the \z
 		Hellgore volcano on Goroma during the Fire from the Earth Mini World Change."
-		}
+	}
 
 monster.health = 1950
 monster.maxHealth = 1950

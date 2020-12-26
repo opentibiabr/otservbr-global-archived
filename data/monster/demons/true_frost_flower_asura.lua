@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Asura Palace's secret basement."
-		}
+	}
 
 monster.health = 4000
 monster.maxHealth = 4000

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "The Extension Site"
-		}
+	}
 
 monster.health = 8000
 monster.maxHealth = 8000

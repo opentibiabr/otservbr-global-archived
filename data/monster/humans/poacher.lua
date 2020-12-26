@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "South of Elvenbane and Ab'Dendriel, Ferngrims Gate, Northeast of Carlin, \z
 		Edron Hunter Camps, Yalahar - Trade Quarter and Foreigner Quarter."
-		}
+	}
 
 monster.health = 90
 monster.maxHealth = 90

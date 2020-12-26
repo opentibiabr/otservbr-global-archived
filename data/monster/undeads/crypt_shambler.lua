@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Ankrahmun Tombs, Trapwood, Ramoa, Hellgate, Helheim, Mount Sternum Undead Cave, Deeper Catacombs, \z
 		Cemetery Quarter, Treasure Island, Upper Spike, Lion's Rock."
-		}
+	}
 
 monster.health = 330
 monster.maxHealth = 330

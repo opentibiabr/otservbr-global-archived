@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Zao Steppe, Northern Zao Plantations and the Horestis Tomb \z
 		(only when the curse of Horestis is not active)."
-		}
+	}
 
 monster.health = 50
 monster.maxHealth = 50

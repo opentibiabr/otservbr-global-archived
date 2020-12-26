@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Otherworld (Edron)"
-		}
+	}
 
 monster.health = 2500
 monster.maxHealth = 2500

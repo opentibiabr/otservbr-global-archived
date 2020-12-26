@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 3,
 	Locations = "Magician Quarter (Yalahar)."
-		}
+	}
 
 monster.health = 3550
 monster.maxHealth = 3550

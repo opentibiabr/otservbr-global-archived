@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Kilmaresh."
-		}
+	}
 
 monster.health = 8700
 monster.maxHealth = 8700

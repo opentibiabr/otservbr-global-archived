@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "North-east Muggy Plains, Deeper Banuta."
-		}
+	}
 
 monster.health = 2500
 monster.maxHealth = 2500

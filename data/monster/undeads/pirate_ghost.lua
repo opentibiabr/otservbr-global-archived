@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Drefia, Goroma, Nargor Undead Cave, hidden caves under Treasure Island, \z
 		single spawn at Liberty Bay ruins, Chyllfroest (unreachable)."
-		}
+	}
 
 monster.health = 275
 monster.maxHealth = 275

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Replica Dungeon."
-		}
+	}
 
 monster.health = 2000
 monster.maxHealth = 2000

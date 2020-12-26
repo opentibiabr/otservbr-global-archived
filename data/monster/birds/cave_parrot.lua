@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "Desecrated Glade."
-		}
+	}
 
 monster.health = 30
 monster.maxHealth = 30

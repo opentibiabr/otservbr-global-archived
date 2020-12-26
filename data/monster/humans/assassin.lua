@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Dark Cathedral, Trade Quarter, Factory Quarter, Foreigner Quarter."
-		}
+	}
 
 monster.health = 175
 monster.maxHealth = 175

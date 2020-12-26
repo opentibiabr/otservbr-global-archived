@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Mount Sternum Undead Cave, Dwarf Mines, Circle Room in Kazordoon, Triangle Tower, \z
 		Tiquanda Dwarf Cave, Cormaya Dwarven Cave, Beregar Mines."
-		}
+	}
 
 monster.health = 380
 monster.maxHealth = 380

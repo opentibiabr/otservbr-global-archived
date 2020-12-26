@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Pits of Inferno, The Vats - Edron."
-		}
+	}
 
 monster.health = 3650
 monster.maxHealth = 3650

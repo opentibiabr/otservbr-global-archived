@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "They do not have a set respawn spot. They are announced to be stealing presents from a \z
 			random Tibian city and spawn in the aforetold city. \z
 			There are two or three messages that appear on each raid and three massive spawns of goblins."
-		}
+	}
 
 monster.health = 80
 monster.maxHealth = 80

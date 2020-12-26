@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Cobra Bastion."
-		}
+	}
 
 monster.health = 8500
 monster.maxHealth = 8500
@@ -78,21 +78,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 74000, maxCount = 9},--comum
-	{id = "earth arrow", chance = 19490, maxCount = 28},--incomum
-	{id = "stone skin amulet", chance = 6800},--incomum
-	{id = "gold ingot", chance = 5750, maxCount = 1},--incomum
-	{id = "cheesy figurine", chance = 13800},--incomum
-	{id = "opal", chance = 23800, maxCount = 5},--incomum
-	{id = "cobra crest", chance = 15450},--incomum
-	{id = "small emerald", chance = 3000, maxCount = 2},--semiraro
-	{id = "violet gem", chance = 1300},--semiraro
-	{id = "yellow gem", chance = 3060},--semiraro
-	{id = "green gem", chance = 1210},--semiraro
-	{id = "red gem", chance = 4800},--semiraro
-	{id = "sacred tree amulet", chance = 5100},--semiraro
-	{id = "green crystal shard", chance = 2130},--semiraro
-	{id = "ring of red plasma", chance = 740}--raro
+	{id = "platinum coin", chance = 74000, maxCount = 9},
+	{id = "earth arrow", chance = 19490, maxCount = 28},
+	{id = "stone skin amulet", chance = 6800},
+	{id = "gold ingot", chance = 5750, maxCount = 1},
+	{id = "cheesy figurine", chance = 13800},
+	{id = "opal", chance = 23800, maxCount = 5},
+	{id = "cobra crest", chance = 15450},
+	{id = "small emerald", chance = 3000, maxCount = 2},
+	{id = "violet gem", chance = 1300},
+	{id = "yellow gem", chance = 3060},
+	{id = "green gem", chance = 1210},
+	{id = "red gem", chance = 4800},
+	{id = "sacred tree amulet", chance = 5100},
+	{id = "green crystal shard", chance = 2130},
+	{id = 26189, chance = 740}-- ring of red plasma
 }
 
 

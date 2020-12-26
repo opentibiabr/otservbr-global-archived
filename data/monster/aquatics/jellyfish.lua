@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 1,
 	Locations = "Fiehonja, Krailos Steppe underwater cave."
-		}
+	}
 
 monster.health = 55
 monster.maxHealth = 55

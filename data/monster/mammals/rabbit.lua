@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "In most grass areas of Tibia, for example on Tutorial Island."
-		}
+	}
 
 monster.health = 15
 monster.maxHealth = 15

@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "South of Thais, west of Ab'Dendriel, northeastern Cormaya, \z
 		Green Claw Swamp between Kazordoon and Venore, Wasp Tower in Rookgaard, \z
 		Wasp Towers in Darashia, all over Tiquanda, and all over Vandura."
-		}
+	}
 
 monster.health = 35
 monster.maxHealth = 35

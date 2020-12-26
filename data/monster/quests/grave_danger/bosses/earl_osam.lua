@@ -66,30 +66,30 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", minCount = 1, maxCount = 5, chance = 100000},--comum
-	{id = "Crystal Coin", minCount = 0, maxCount = 2, chance = 50000},--comum
-	{id = "Supreme Health Potion", minCount = 0, maxCount = 6, chance = 35000},--comum
-	{id = "Ultimate Mana Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
-	{id = "Ultimate Spirit Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
-	{id = "Bullseye Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
-	{id = "Mastermind Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
-	{id = "Berserk Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
-	{id = "Piece of draconian steel", minCount = 0, maxCount = 3, chance = 9000},--comum
-	{id = "Red Gem", minCount = 0, maxCount = 2, chance = 12000},--comum
-	{id = "Silver Token", minCount = 0, maxCount = 2, chance = 9500},--semiraro
-	{id = "Collar of blue plasma", chance = 5200},--semiraro
-	{id = "Collar of red plasma", chance = 5200},--semiraro
-	{id = "Ring of blue plasma", chance = 5000},--semiraro
-	{id = "Ring of red plasma", chance = 5000},--semiraro
-	{id = "Warrior Helmet", chance = 11000},--semiraro
-	{id = "Guardian Axe", chance = 6400},--semiraro
-	{id = "Gold Ingot", minCount = 0, maxCount = 1, chance = 10000},--semiraro
-	{id = "Young Lich Worm", chance = 5800},--semiraro
-	{id = "Embrace of nature", chance = 1600},--raro
-	{id = "Token of love", chance = 1200},--raro
-	{id = "Rotten Heart", chance = 1700},--raro
-	{id = "Terra helmet", chance = 730},--raro
-	{id = "Final Judgement", chance = 440},--muitoraro
+	{id = "platinum coin", minCount = 1, maxCount = 5, chance = 100000},
+	{id = "crystal coin", minCount = 0, maxCount = 2, chance = 50000},
+	{id = "supreme health potion", minCount = 0, maxCount = 6, chance = 35000},
+	{id = "ultimate mana potion", minCount = 0, maxCount = 20, chance = 32000},
+	{id = "ultimate spirit potion", minCount = 0, maxCount = 20, chance = 32000},
+	{id = "bullseye potion", minCount = 0, maxCount = 10, chance = 12000},
+	{id = "mastermind potion", minCount = 0, maxCount = 10, chance = 12000},
+	{id = "berserk potion", minCount = 0, maxCount = 10, chance = 12000},
+	{id = "piece of draconian steel", minCount = 0, maxCount = 3, chance = 9000},
+	{id = "red gem", minCount = 0, maxCount = 2, chance = 12000},
+	{id = "silver token", minCount = 0, maxCount = 2, chance = 9500},
+	{id = 26198, chance = 5200},-- collar of blue plasma
+	{id = 26200, chance = 5200},-- collar of red plasma
+	{id = 26185, chance = 5000},-- ring of blue plasma
+	{id = 26189, chance = 5000},-- ring of red plasma
+	{id = "warrior helmet", chance = 11000},
+	{id = "guardian axe", chance = 6400},
+	{id = "gold ingot", minCount = 0, maxCount = 1, chance = 10000},
+	{id = "young lich worm", chance = 5800},
+	{id = "embrace of nature", chance = 1600},
+	{id = "token of love", chance = 1200},
+	{id = "rotten heart", chance = 1700},
+	{id = "terra helmet", chance = 730},
+	{id = "final judgement", chance = 440}
 }
 
 monster.attacks = {

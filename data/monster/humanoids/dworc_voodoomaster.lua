@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "South of Port Hope around Trapwood. There is also a group of 3 voodoomasters \z
 		and 2 crypt shamblers on the shore east of Trapwood."
-		}
+	}
 
 monster.health = 80
 monster.maxHealth = 80

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Sea Serpent Area."
-		}
+	}
 
 monster.health = 1050
 monster.maxHealth = 1050

@@ -62,23 +62,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Concentrated Demonic Blood", chance = 50000, maxCount = 2},--comum
-	{id = "Ham", chance = 50000, maxCount = 2},--comum
-	{id = "Onyx Arrow", chance = 35000, maxCount = 3},--comum
-	{id = "Small Diamond", chance = 30000, maxCount = 3},--comum
-	{id = "Small Emerald", chance = 30000, maxCount = 3},--comum
-	{id = "Small Enchanted Amethyst", chance = 20000, maxCount = 3},--comum
-	{id = "Damaged Armor Plates", chance = 2350, maxCount = 3},--raro
-	{id = "Giant Shimmering Pearl", chance = 12000, maxCount = 1},--raro
-	{id = "Knight Armor", chance = 7000},--raro
-	{id = "Patch of Fine Cloth", chance = 1800},--raro
-	{id = "Spiked Squelcher", chance = 3200},--raro
-	{id = "Titan Axe", chance = 2400},--raro
-	{id = "Falcon Battleaxe", chance = 200},--muitoraro
-	{id = "Falcon Longsword", chance = 200},--muitoraro
-	{id = "Falcon Mace", chance = 210},--muitoraro
-	{id = "Falcon Plate", chance = 100},--muitoraro
-	{id = "Falcon Shield", chance = 100}--muitoraro
+	{id = "concentrated demonic blood", chance = 50000, maxCount = 2},
+	{id = "ham", chance = 50000, maxCount = 2},
+	{id = "onyx arrow", chance = 35000, maxCount = 3},
+	{id = "small diamond", chance = 30000, maxCount = 3},
+	{id = "small emerald", chance = 30000, maxCount = 3},
+	{id = "small enchanted amethyst", chance = 20000, maxCount = 3},
+	{id = "damaged armor plates", chance = 2350, maxCount = 3},
+	{id = 7632, chance = 12000, maxCount = 1}, -- giant shimmering pearl
+	{id = "knight armor", chance = 7000},
+	{id = "patch of fine cloth", chance = 1800},
+	{id = "spiked squelcher", chance = 3200},
+	{id = "titan axe", chance = 2400},
+	{id = "falcon battleaxe", chance = 200},
+	{id = "falcon longsword", chance = 200},
+	{id = "falcon mace", chance = 210},
+	{id = "falcon plate", chance = 100},
+	{id = "falcon shield", chance = 100}
 }
 
 monster.attacks = {

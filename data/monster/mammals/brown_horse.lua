@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 1,
 	Locations = "South-east, east and north-east of Thais depending on the Horse Station World Change."
-		}
+	}
 
 monster.health = 75
 monster.maxHealth = 75

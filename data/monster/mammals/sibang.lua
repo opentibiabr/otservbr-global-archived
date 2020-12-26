@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "In Banuta, north-east of Port Hope."
-		}
+	}
 
 monster.health = 225
 monster.maxHealth = 225

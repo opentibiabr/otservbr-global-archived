@@ -27,7 +27,7 @@ monster.Bestiary = {
 		Liberty Bay (hidden underground passage; unreachable), Razzachai, deep in Pits of Inferno \z
 		(found in every throneroom except Verminor's), deep Formorgar Mines, Demon Forge, \z
 		Alchemist Quarter, Magician Quarter, Chyllfroest, Oramond Dungeon, Abandoned Sewers."
-		}
+	}
 
 monster.health = 8200
 monster.maxHealth = 8200

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Pits of Inferno, Helheim, The Inquisition Quest, Roshamuul Prison."
-		}
+	}
 
 monster.health = 4200
 monster.maxHealth = 4200

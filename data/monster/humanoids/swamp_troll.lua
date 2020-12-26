@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Port Hope Swamp Trolls, Venore Swamp Troll Cave, all around north area of Port Hope, \z
 		small spawn north-west of Venore and in cave south-east of Thais, also one in Foreigner Quarter."
-		}
+	}
 
 monster.health = 55
 monster.maxHealth = 55

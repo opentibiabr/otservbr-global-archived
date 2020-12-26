@@ -28,7 +28,7 @@ monster.Bestiary = {
 		Plains of Havoc, underground Liberty Bay, Nargor Undead Cave and other constituents of the Shattered Isles, \z
 		Green Claw Swamp, first floor up in the big building in the Cemetery Quarter, Robson Isle, Vengoth. \z
 		After the summer update of 2008, tarantulas can be seen on the beginner's island of Rookgaard."
-		}
+	}
 
 monster.health = 225
 monster.maxHealth = 225

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 2,
 	Locations = "Shadowthorn, during the Thornfire World Change."
-		}
+	}
 
 monster.health = 180
 monster.maxHealth = 180

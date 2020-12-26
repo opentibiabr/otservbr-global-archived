@@ -29,7 +29,7 @@ monster.Bestiary = {
 		many on Talahu surface, a few in Ferumbras Citadel basement on Kharos, \z
 		2 on a hill in the Yalahar Arena and Zoo Quarter, 1 deep in the Yalahar Foreigner Quarter (Crystal Lake), \z
 		many in the Oramond Hydra/Bog Raider Cave."
-		}
+	}
 
 monster.health = 2350
 monster.maxHealth = 2350

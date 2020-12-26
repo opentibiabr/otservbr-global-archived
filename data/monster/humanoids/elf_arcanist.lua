@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Yalahar Foreigner Quarter, Demona, Shadowthorn, northwest of Ab'Dendriel, Maze of Lost Souls, \z
 		Cyclopolis, Elvenbane, near Mount Sternum."
-		}
+	}
 
 monster.health = 220
 monster.maxHealth = 220

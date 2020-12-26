@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 1,
 	Locations = "Streets of Venore, Gardens of Night."
-		}
+	}
 
 monster.health = 30
 monster.maxHealth = 30

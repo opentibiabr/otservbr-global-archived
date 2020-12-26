@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Leaf dungeon in Hellgate, Lair of the Treeling Witch, Forest Fury Camp and in the \z
 		Forest Fury version of the Forsaken Mine."
-		}
+	}
 
 monster.health = 90
 monster.maxHealth = 90

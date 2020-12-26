@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Sabrehaven, Rookgaard, The McRonalds Farm in Thais, Northport, \z
 		Fibula, Carlin (killable but unreachable), Greenshore, Krimhorn, Orc Fortress, \z
 		Factory Quarter, also theres one in the farm near Edron."
-		}
+	}
 
 monster.health = 15
 monster.maxHealth = 15

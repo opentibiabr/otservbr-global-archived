@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Meriana Gargoyle Cave, Ankrahmun Tombs, Mal'ouquah, Goroma, Deeper Banuta, \z
 		Formorgar Mines, Vengoth, Farmine Mines, Upper Spike and Medusa Tower."
-		}
+	}
 
 monster.health = 250
 monster.maxHealth = 250

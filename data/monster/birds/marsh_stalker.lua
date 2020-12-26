@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Venore swamp surface, Venore Salamander Cave, Dryad Gardens."
-		}
+	}
 
 monster.health = 100
 monster.maxHealth = 100

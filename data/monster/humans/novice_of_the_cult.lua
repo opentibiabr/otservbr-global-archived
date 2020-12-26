@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Liberty Bay Cult Cave, Formorgar Mines, Yalahar Magician Quarter, \z
 		in the caves on top of the Hrodmir mountains."
-		}
+	}
 
 monster.health = 285
 monster.maxHealth = 285

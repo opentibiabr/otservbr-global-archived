@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Gnome Deep Hub"
-		}
+	}
 
 monster.health = 5900
 monster.maxHealth = 5900

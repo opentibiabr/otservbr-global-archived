@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Inukaya, Chyllfroest, Chakoya Iceberg, Nibelor (during a quest)."
-		}
+	}
 
 monster.health = 68
 monster.maxHealth = 68

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Razachai, including the Crystal Column chambers in the Inner Sanctum."
-		}
+	}
 
 monster.health = 5550
 monster.maxHealth = 5550

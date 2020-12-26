@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 3,
 	Locations = "Tiquanda."
-		}
+	}
 
 monster.health = 1200
 monster.maxHealth = 1200

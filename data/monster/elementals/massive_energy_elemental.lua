@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "North west of Ankrahmun, you must Levitate to hunt. Two can also be found in the Asura Palace."
-		}
+	}
 
 monster.health = 1100
 monster.maxHealth = 1100
