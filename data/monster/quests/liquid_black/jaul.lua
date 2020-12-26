@@ -44,7 +44,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 95,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 60,
 	healthHidden = false,
 	isBlockable = false,
@@ -71,7 +71,7 @@ monster.loot = {
 	{id = "Depth Calcei", chance = 1100},
 	{id = "Depth Galea", chance = 1400},
 	{id = "Depth Lorica", chance = 800},
-	{id = "Ornate Chestplate", chance = 650},
+	{id = "Ornate Chestplate", chance = 650, unique = true},
 	{id = "Ornate Legs", chance = 740},
 	{id = "Ornate Mace", chance = 1500},
 	{id = "Ornate Shield", chance = 1400}

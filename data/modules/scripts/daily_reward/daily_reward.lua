@@ -1,7 +1,7 @@
 DailyRewardSystem = {
 	Developer = "Westwol, Marcosvf132",
-	Version = "1.2",
-	lastUpdate = "26/09/2020 - 02:00",
+	Version = "1.3",
+	lastUpdate = "12/10/2020 - 20:30",
 	ToDo = "Move this system to CPP"
 }
 
@@ -19,6 +19,8 @@ local ClientPackets = {
 	OpenRewardWall = 0xD8,
 	OpenRewardHistory = 0xD9,
 	SelectReward = 0xDA,
+	CollectionResource = 0x14,
+	JokerResource = 0x15
 }
 
 --[[-- Constants
@@ -78,10 +80,12 @@ DailyReward = {
 		nextRewardTime = 14899,
 		collectionTokens = 14901,
 		staminaBonus = 14902,
+		jokerTokens = 14903,
 		-- Global
 		lastServerSave = 14110,
 		avoidDouble = 13412,
-		notifyReset = 13413
+		notifyReset = 13413,
+		avoidDoubleJoker = 13414
 	},
 
 	strikeBonuses = {
@@ -239,7 +243,8 @@ DailyReward.loadDailyReward = function(playerId, source)
 		source = REWARD_FROM_PANEL
 	end
 
-	player:sendCollectionResource(player:getCollectionTokens())
+	player:sendCollectionResource(ClientPackets.JokerResource, player:getJokerTokens())
+	player:sendCollectionResource(ClientPackets.CollectionResource, player:getCollectionTokens())
 	player:sendDailyReward()
 	player:sendOpenRewardWall(source)
 	player:sendDailyRewardCollectionState(0)
@@ -308,15 +313,30 @@ DailyReward.init = function(playerId)
 	if not player then
 		return false
 	end
+
+	if player:getJokerTokens() < 3 and tonumber(os.date("%m")) ~= player:getStorageValue(DailyReward.storages.avoidDoubleJoker) then
+		player:setStorageValue(DailyReward.storages.avoidDoubleJoker, tonumber(os.date("%m")))
+		player:setJokerTokens(player:getJokerTokens() + 1)
+	end
+
+	local timeMath = Game.getLastServerSave() - player:getNextRewardTime()
 	if player:getNextRewardTime() < Game.getLastServerSave() then
 		if player:getStorageValue(DailyReward.storages.notifyReset) ~= Game.getLastServerSave() then
-			player:setStreakLevel(0)
 			player:setStorageValue(DailyReward.storages.notifyReset, Game.getLastServerSave())
-			if player:getLastLoginSaved() > 0 then -- message wont appear at first character login
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You just lost your daily reward streak.")
+			timeMath = math.ceil(timeMath/(DailyReward.serverTimeThreshold))
+			if player:getJokerTokens() >= timeMath then
+				player:setJokerTokens(player:getJokerTokens() - timeMath)
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You lost " .. timeMath .. " joker tokens to prevent loosing your streak.")
+			else
+				player:setStreakLevel(0)
+				if player:getLastLoginSaved() > 0 then -- message wont appear at first character login
+					player:setJokerTokens(-(player:getJokerTokens()))
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You just lost your daily reward streak.")
+				end
 			end
 		end
 	end
+
 	-- Daily reward golden icon
 	if DailyReward.isRewardTaken(player:getId()) then
 		player:sendDailyRewardCollectionState(0)
@@ -349,21 +369,27 @@ function Player.sendOpenRewardWall(self, shrine)
 	if DailyReward.isRewardTaken(self:getId()) then -- state (player already took reward? but just make sure noone wpe)
 		msg:addByte(1)
 		msg:addString("Sorry, you have already taken your daily reward or you are unable to collect it.") -- Unknown message
-		msg:addU32(0) --timeLeft to pickUp reward without loosing streak
+		if self:getJokerTokens() > 0 then
+			msg:addByte(1)
+			msg:addU16(self:getJokerTokens())
+		else
+			msg:addByte(0)
+		end
 	else
 		msg:addByte(0)
+		msg:addByte(2)
 		msg:addU32(Game.getLastServerSave() + DailyReward.serverTimeThreshold) --timeLeft to pickUp reward without loosing streak
+		msg:addU16(self:getJokerTokens())
 	end
 	msg:addU16(self:getStreakLevel()) -- day strike
-	msg:addU16(24) -- unknown
 	msg:sendToPlayer(self)
 end
 
-function Player.sendCollectionResource(self, value)
+function Player.sendCollectionResource(self, byte, value)
 	-- TODO: Migrate to protocolgame.cpp
 	local msg = NetworkMessage()
 	msg:addByte(0xEE) -- resource byte
-	msg:addByte(0x14)
+	msg:addByte(byte)
 	msg:addU64(value)
 	msg:sendToPlayer(self)
 end

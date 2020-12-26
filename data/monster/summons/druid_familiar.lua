@@ -1,10 +1,10 @@
-local mType = Game.createMonsterType("Grovebeast")
+local mType = Game.createMonsterType("Druid familiar")
 local monster = {}
 
-monster.description = "Grovebeast"
+monster.description = "a druid familiar"
 monster.experience = 0
 monster.outfit = {
-	lookType = 993,
+	--lookType = 993,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -44,13 +44,13 @@ monster.flags = {
 	canPushItems = false,
 	canPushCreatures = true,
 	staticAttackChance = 90,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = true
 }
 

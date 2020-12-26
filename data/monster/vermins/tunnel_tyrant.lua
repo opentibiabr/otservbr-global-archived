@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Tunnel Tyrant")
 local monster = {}
 
 monster.description = "a tunnel tyrant"
-monster.experience = 4000
+monster.experience = 3400
 monster.outfit = {
 	lookType = 1035,
 	lookHead = 0,
@@ -61,9 +61,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

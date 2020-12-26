@@ -105,8 +105,8 @@ monster.loot = {
 	{id = "Piggy Bank", chance = 5000},
 	{id = "Mysterious Remains", chance = 5000},
 	{id = "Energy Bar", chance = 5000},
-	{id = "Library Ticket", chance = 500},
-	{id = "Calamity", chance = 500}
+	{id = "Library Ticket", chance = 500, unique = true},
+	{id = "Calamity", chance = 500, unique = true}
 }
 
 monster.attacks = {

@@ -57,6 +57,7 @@ class ConfigManager
       ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS,
 			WEATHER_RAIN,
 			WEATHER_THUNDER,
+			ONLY_PREMIUM_ACCOUNT,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
