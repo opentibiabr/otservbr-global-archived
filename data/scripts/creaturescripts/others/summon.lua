@@ -11,7 +11,7 @@ local summonLogin = CreatureEvent("SummonLogin")
 function summonLogin.onLogin(player)
 	local vocation = summon[player:getVocation():getClientId()]
 	local petTimeLeft = player:getStorageValue(summonStorage) - player:getLastLogout()
-
+	local summonName
 	if petTimeLeft > 0 then
 		if vocation and isPremium(player) then
 			summonName = vocation.name
