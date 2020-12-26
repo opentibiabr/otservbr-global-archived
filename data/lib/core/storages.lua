@@ -1905,7 +1905,11 @@ Storage = {
 		TheAnnihilator = {
 			Reward = 10102
 		},
-		TheParadoxTower = {},
+		TheParadoxTower = {
+			QuestLine = 10103,
+			Mission01 = 10104,
+			Mission02 = 10105
+		},
 		ThePostmanMissions = {},
 		TheWhiteRavenMonastery = {},
 		VoodooDoll = {},

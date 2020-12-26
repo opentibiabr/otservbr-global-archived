@@ -72,6 +72,36 @@ if not Quests then
 			}
 		},
 		[2] = {
+			name = "The Paradox Tower",
+			startStorageId = Storage.Quest.TheParadoxTower.QuestLine,
+			startStorageValue = 1,
+			missions = {
+				[1] = {
+					-- Unconfirmed name
+					name = "The Feared Hugo",
+					storageId = Storage.Quest.TheParadoxTower.Mission01,
+					missionId = 9,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "MISSING STATE",
+						[2] = "MISSING STATE"
+					}
+				},
+				[2] = {
+					name = "",
+					storageId = Storage.Quest.TheParadoxTower.Mission02,
+					missionId = 9,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "",
+						[2] = ""
+					}
+				}
+			}
+		},
+		[45] = {
 			name = "Spirithunters Quest",
 			startStorageId = Storage.SpiritHunters.Mission01,
 			startStorageValue = 1,
