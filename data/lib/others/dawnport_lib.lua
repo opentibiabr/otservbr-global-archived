@@ -241,6 +241,16 @@ function isSkillGrowthLimited(player, skillId)
 	return false
 end
 
+DawnportVocationUpgrade = {
+	level = 8,
+	vocations = {
+		[VOCATION.ID.DAWNPORT_SORCERER] = VOCATION.ID.SORCERER,
+		[VOCATION.ID.DAWNPORT_DRUID] = VOCATION.ID.DRUID,
+		[VOCATION.ID.DAWNPORT_PALADIN] = VOCATION.ID.PALADIN,
+		[VOCATION.ID.DAWNPORT_KNIGHT] = VOCATION.ID.KNIGHT
+	}
+}
+
 DawnportCharacterLimits = {
 	level = 20,
 	skills = {

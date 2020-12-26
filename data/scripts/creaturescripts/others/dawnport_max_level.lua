@@ -2,10 +2,18 @@ local dawnportMaxLevel = CreatureEvent("DawnportMaxLevel")
 
 function dawnportMaxLevel.onAdvance(player, skill, oldLevel, newLevel)
 	local town = player:getTown()
-	--Dawnport limits
+	--Dawnport checks
 	if town and town:getId() == TOWNS_LIST.DAWNPORT then
+		-- Level vocation upgrade
+		if skill == SKILL_LEVEL and newLevel == DawnportVocationUpgrade.level then
+			local vocationId = DawnportVocationUpgrade.vocations[player:getVocation():getId()]
+			if not vocationId then
+				return true
+			end
+			player:setVocation(Vocation(vocationId))
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Congratulations! You may now choose your vocation and leave Dawnport. Talk to Oressa in the temple.")
 		-- Level limit
-		if skill == SKILL_LEVEL and newLevel == DawnportCharacterLimits.level then
+		elseif skill == SKILL_LEVEL and newLevel == DawnportCharacterLimits.level then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have reached the limit level and have to choose your vocation and leave Dawnport.")
 			-- Adds the event that teleports the player to the temple in five minutes after reaching level 20
 			addEvent(teleportToDawnportTemple, 5 * 60 * 1000, player:getId())
