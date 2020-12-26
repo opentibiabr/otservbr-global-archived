@@ -104,7 +104,7 @@ function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				if item.itemid == index then
 					player:teleportTo(value.destination)
 					player:getPosition():sendMagicEffect(value.effect)	
-					player:removeItem(index, 1)
+					item:remove(1)
 					return true
 				else
 					player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
