@@ -9,6 +9,6 @@
 		<monster name="demon skeleton" amount="35" />
 		<monster name="bonelord" amount="25" />
 		<monster name="necromancer" amount="25" />
-		<monster name="bone beast" amount="25" />
+		<monster name="bonebeast" amount="25" />
 	</areaspawn>
 </raid>
