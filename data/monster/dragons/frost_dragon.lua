@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Okolnir, Razzachai, Ice Witch Temple, Frost Dragon Tunnel, \z
 		Yakchal Crypt (only during Yakchal's awakening ritual), Dragonblaze Peaks, Deeper Banuta, Chyllfroest."
-		}
+	}
 
 monster.health = 1800
 monster.maxHealth = 1800
@@ -63,8 +63,8 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

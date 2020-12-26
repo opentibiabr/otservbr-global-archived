@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Pits of Inferno, Formorgar Mines, Helheim, \z
 		Roshamuul Prison and in The Arcanum (Part of the Inquisition quest)."
-		}
+	}
 
 monster.health = 5800
 monster.maxHealth = 5800
@@ -60,8 +60,8 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

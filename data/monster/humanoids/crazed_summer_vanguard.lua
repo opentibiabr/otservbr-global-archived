@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Court of Winter, Dream Labyrinth."
-		}
+	}
 
 monster.health = 5500
 monster.maxHealth = 5500

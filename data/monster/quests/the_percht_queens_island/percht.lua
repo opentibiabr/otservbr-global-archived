@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Percht Island."
-		}
+	}
 
 monster.health = 620
 monster.maxHealth = 620

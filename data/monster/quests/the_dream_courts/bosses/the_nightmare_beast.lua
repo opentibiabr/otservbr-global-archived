@@ -90,7 +90,7 @@ monster.loot = {
 	{id = "gold ingot", chance = 12950},
 	{id = 7633, chance = 10790},
 	{id = 26200, chance = 10070},
-	{id = 26198, chance = 9350},
+	{id = 26198, chance = 9350},-- collar of blue plasma
 	{id = 26187, chance = 8630},
 	{id = "ring of the sky", chance = 8630},
 	{id = 26199, chance = 7910},

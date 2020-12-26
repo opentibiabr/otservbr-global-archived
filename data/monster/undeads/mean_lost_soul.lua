@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Brain Grounds, Netherworld, Zarganash."
-		}
+	}
 
 monster.health = 5000
 monster.maxHealth = 5000

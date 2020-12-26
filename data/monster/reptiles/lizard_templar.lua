@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Chor, the lizard city south-east from Port Hope. They can also be found in Yalahar's \z
 		Foreigner Quarter and in Zzaion."
-		}
+	}
 
 monster.health = 410
 monster.maxHealth = 410
@@ -61,7 +61,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

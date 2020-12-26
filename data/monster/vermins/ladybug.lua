@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 2,
 	Locations = "The Hive surface during the Hive Born World Change's third stage."
-		}
+	}
 
 monster.health = 255
 monster.maxHealth = 255
@@ -54,7 +54,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 95,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 60,
 	healthHidden = false,
 	isBlockable = false,

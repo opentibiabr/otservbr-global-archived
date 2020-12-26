@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Tainted Caves in the Green Claw Swamp (under the right conditions)."
-		}
+	}
 
 monster.health = 250
 monster.maxHealth = 250

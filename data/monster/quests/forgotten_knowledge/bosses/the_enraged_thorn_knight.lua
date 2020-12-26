@@ -92,7 +92,7 @@ monster.loot = {
 	{id = 7632, chance = 7000},
 	{id = 2407, chance = 20000},
 	{id = 7453, chance = 100},
-	{id = 27622, chance = 100},
+	{id = 27634, chance = 100},
 	{id = 5015, chance = 500},
 	{id = 2536, chance = 1000},
 	{id = 10219, chance = 500},
@@ -100,8 +100,7 @@ monster.loot = {
 	{id = 5884, chance = 1000},
 	{id = 8880, chance = 500},
 	{id = 22537, chance = 1000},
-	{id = 27621, chance = 200},
-	{id = 27622, chance = 500},
+	{id = 27622, chance = 500, unique = true},
 	{id = 25377, chance = 100000},
 	{id = 25172, chance = 100000}
 }

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 3,
 	Locations = "Lich Hell."
-		}
+	}
 
 monster.health = 450
 monster.maxHealth = 450

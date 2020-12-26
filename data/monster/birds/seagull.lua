@@ -27,7 +27,7 @@ monster.Bestiary = {
 		Cormaya, Edron Troll-Goblin Peninsula, Liberty Bay, Port Hope, Fibula, Drefia, Factory Quarter, \z
 		bordering Orc Fort, Rookgaard Premium Zone (not reachable), AbDendriel elf caves, \z
 		Northern coast of Tibia between Dalbrect and Northport."
-		}
+	}
 
 monster.health = 25
 monster.maxHealth = 25

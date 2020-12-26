@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Factory, Foreigner, and Trade Quarters in Yalahar."
-		}
+	}
 
 monster.health = 100
 monster.maxHealth = 100

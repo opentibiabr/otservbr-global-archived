@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 1,
 	Locations = "Old Beregar mines."
-		}
+	}
 
 monster.health = 245
 monster.maxHealth = 245

@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Dark Cathedral, Outlaw Camp, North of Thais, Cyclopolis, in Edron Hero Cave and around it, \z
 		the small camp near Femor Hills, in Ghostlands disguised as a statue."
-		}
+	}
 
 monster.health = 135
 monster.maxHealth = 135

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "All over the surface of Upper Roshamuul and Nightmare Isles."
-		}
+	}
 
 monster.health = 5800
 monster.maxHealth = 5800

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 3,
 	Locations = "Folda, Chyllfroest, Isle of Merriment."
-		}
+	}
 
 monster.health = 950
 monster.maxHealth = 950

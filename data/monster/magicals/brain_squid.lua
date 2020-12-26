@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Brain Squid")
 local monster = {}
 
 monster.description = "a brain squid"
-monster.experience = 17850
+monster.experience = 17672
 monster.outfit = {
 	lookType = 1059,
 	lookHead = 97,
@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Secret Library."
-		}
+	}
 
 monster.health = 18000
 monster.maxHealth = 18000
@@ -58,9 +58,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -97,7 +97,7 @@ monster.loot = {
 	{id = "Might Ring", chance = 1300},
 	{id = "Slime Heart", chance = 1200, maxCount = 4},
 	{id = 26200, chance = 560},
-	{id = 26198, chance = 560},
+	{id = 26198, chance = 560},-- collar of blue plasma
 	{id = 26199, chance = 560},
 	{id = 26189, chance = 560},
 	{id = 26185, chance = 560},

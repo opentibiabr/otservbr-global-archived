@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "ourt of Summer at day."
-		}
+	}
 
 monster.health = 900
 monster.maxHealth = 900

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 3,
 	Locations = "Green Claw Swamp underground, near the big witches' cauldron."
-		}
+	}
 
 monster.health = 2500
 monster.maxHealth = 2500

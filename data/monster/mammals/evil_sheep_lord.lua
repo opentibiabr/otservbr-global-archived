@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "Isle of Evil."
-		}
+	}
 
 monster.health = 400
 monster.maxHealth = 400

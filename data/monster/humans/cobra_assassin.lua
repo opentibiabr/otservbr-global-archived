@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Cobra Assassin")
 local monster = {}
 
 monster.description = "a cobra assassin"
-monster.experience = 7560
+monster.experience = 8316
 monster.outfit = {
 	lookType = 1217,
 	lookHead = 2,
@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Cobra Bastion."
-		}
+	}
 
 monster.health = 8200
 monster.maxHealth = 8200

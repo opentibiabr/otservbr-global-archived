@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Alchemist Quarter, Arena and Zoo Quarter (Inside with other mutated creatures), \z
 		Muggy Plains, Souleater Mountains and Northern Zao Plantations."
-		}
+	}
 
 monster.health = 1100
 monster.maxHealth = 1100
@@ -61,7 +61,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

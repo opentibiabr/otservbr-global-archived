@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Dark Cathedral, Tiquanda, Drefia, Mount Sternum, Folda, Ghostlands, Kazordoon, \z
 		Femor Hills, Thais Bat Dungeon, Thais Bandit Cave and in many other caves."
-		}
+	}
 
 monster.health = 30
 monster.maxHealth = 30

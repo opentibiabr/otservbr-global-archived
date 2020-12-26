@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Meriana, Laguna Islands, and other Shattered Isles."
-		}
+	}
 
 monster.health = 60
 monster.maxHealth = 60

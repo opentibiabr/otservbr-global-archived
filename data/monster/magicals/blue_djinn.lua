@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Kha'zeel, Magician Quarter, Forgotten Tomb."
-		}
+	}
 
 monster.health = 330
 monster.maxHealth = 330

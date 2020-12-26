@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Dark Cathedral, Vandura (Cult Cave), Foreigner Quarter."
-		}
+	}
 
 monster.health = 190
 monster.maxHealth = 190

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "Tiquanda, Shattered Isles, Gardens of Night."
-		}
+	}
 
 monster.health = 25
 monster.maxHealth = 25

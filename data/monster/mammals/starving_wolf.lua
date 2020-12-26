@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 2,
 	Locations = "East, west and south-west of the Femor Hills."
-		}
+	}
 
 monster.health = 85
 monster.maxHealth = 85

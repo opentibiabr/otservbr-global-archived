@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Old Fortress (north of Edron), Old Masonry, Forbidden Temple (Carlin)."
-		}
+	}
 
 monster.health = 1700
 monster.maxHealth = 1700
@@ -57,7 +57,7 @@ monster.flags = {
 	canPushItems = false,
 	canPushCreatures = false,
 	staticAttackChance = 90,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,

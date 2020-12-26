@@ -70,22 +70,22 @@ monster.voices = {
 
 monster.loot = {
 	{id = "ancient amulet", chance = 13500},
-	{id = "big bone", chance = 19000},--big bone
+	{id = 2231, chance = 19000}, -- big bone
 	{id = "black pearl", chance = 15000, maxCount = 35},
 	{id = "boots of haste", chance = 14000},
-	{id = "crystal ball", chance = 22500},
+	{id = 2192, chance = 22500}, -- crystal ball
 	{id = "crystal necklace", chance = 21500},
-	{id = "crystal ring", chance = 15500},
+	{id = 2124, chance = 15500}, -- crystal ring
 	{id = "demon shield", chance = 15500},
 	{id = "devil helmet", chance = 11000},
 	{id = "dragon hammer", chance = 34500},
 	{id = "energy ring", chance = 13500},
 	{id = "fire axe", chance = 17000},
 	{id = "giant sword", chance = 12500},
-	{id = 2152, chance = 69900, maxCount = 100},--platinum coin
-	{id = 2152, chance = 68800, maxCount = 100},--platinum coin
-	{id = 2160, chance = 47700, maxCount = 40},--crystal coin
-	{id = 2160, chance = 36600, maxCount = 15},--crystal coin
+	{id = "platinum coin", chance = 69900, maxCount = 100},
+	{id = "platinum coin", chance = 68800, maxCount = 100},
+	{id = "crystal coin", chance = 47700, maxCount = 40},
+	{id = "crystal coin", chance = 36600, maxCount = 15},
 	{id = "gold ring", chance = 28000},
 	{id = "golden legs", chance = 15000},
 	{id = "giant ruby", chance = 31500},
@@ -101,7 +101,7 @@ monster.loot = {
 	{id = "talon", chance = 14000, maxCount = 27},
 	{id = "teddy bear", chance = 10500},
 	{id = "thunder hammer", chance = 3500},
-	{id = "voodoo doll", chance = 5100},
+	{id = 3955, chance = 5100}, -- voodoo doll
 	{id = "white pearl", chance = 12500, maxCount = 35}
 }
 

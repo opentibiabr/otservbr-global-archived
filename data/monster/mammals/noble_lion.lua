@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "Lion's Rock temple."
-		}
+	}
 
 monster.health = 1000
 monster.maxHealth = 1000

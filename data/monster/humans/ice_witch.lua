@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Ice Witch Temple, tower in Krimhorn, caves around Hrodmir ('camps' area), \z
 		Formorgar Glacier deepest mines, Magician Quarter in Yalahar (Level 60 Requirement Door)."
-		}
+	}
 
 monster.health = 650
 monster.maxHealth = 650

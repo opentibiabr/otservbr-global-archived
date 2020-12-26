@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Cemetery Quarter, Alchemist Quarter and in the Arena and Zoo Quarter (unreachable), \z
 		Vengoth Castle, Formorgar Mines, Lower Spike, Robson Isle (single respawn), Krailos."
-		}
+	}
 
 monster.health = 1400
 monster.maxHealth = 1400
@@ -64,7 +64,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Ankrahmun Library Tomb, Stone Tomb, Peninsula Tomb, Mother of Scarabs Lair, \z
 		Kha'zeel Scarab Lair, deep in Larva Caves (found beneath steps underground), Lion's Rock, \z
 		Arena and Zoo Quarter and beneath Fenrock."
-		}
+	}
 
 monster.health = 1000
 monster.maxHealth = 1000
@@ -64,7 +64,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

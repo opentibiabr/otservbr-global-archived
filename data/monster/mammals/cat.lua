@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Carlin, Rookgaard, Factory Quarter, Yalahar, \z
 		The Witches' Cliff (only accessible during a quest), probably more areas."
-		}
+	}
 
 monster.health = 20
 monster.maxHealth = 20

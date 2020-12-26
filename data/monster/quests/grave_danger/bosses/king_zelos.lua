@@ -46,32 +46,32 @@ monster.flags = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", minCount = 1, maxCount = 5, chance = 100000},--comum
-	{id = "Crystal Coin", minCount = 0, maxCount = 5, chance = 50000},--comum
-	{id = "Supreme Health Potion", minCount = 0, maxCount = 20, chance = 45000},--comum
-	{id = "Ultimate Mana Potion", minCount = 0, maxCount = 6, chance = 42000},--comum
-	{id = "Ultimate Spirit Potion", minCount = 0, maxCount = 14, chance = 42000},--comum
-	{id = "Bullseye Potion", minCount = 0, maxCount = 10, chance = 22000},--comum
-	{id = "Berserk Potion", minCount = 0, maxCount = 10, chance = 22000},--comum
-	{id = "Gold Token", minCount = 0, maxCount = 3, chance = 18000},--semiraro
-	{id = "Silver Token", minCount = 0, maxCount = 3, chance = 25000},--semiraro
-	{id = "Green Gem", chance = 19000},--semiraro
-	{id = "Red Gem", chance = 18500},--semiraro
-	{id = "Yellow Gem", chance = 18500},--semiraro
-	{id = "Giant Sapphire", chance = 16800},--semiraro
-	{id = "Collar of green plasma", chance = 15200},--semiraro
-	{id = "Magma Coat", chance = 15200},--semiraro
-	{id = "Gold Ingot", minCount = 0, maxCount = 1, chance = 18000},--semiraro
-	{id = "Red Tome", chance = 18200},--semiraro
-	{id = "Ring of blue plasma", chance = 12000},--semiraro
-	{id = "Ring of red plasma", chance = 12000},--semiraro
-	{id = "Young Lich Worm", chance = 5500},--semiraro
-	{id = "Mortal Mace", chance = 1300},--raro
-	{id = "Golden Hyaena Pendant", chance = 1100},--raro
-	{id = "Bow of Cataclysm", chance = 600},--muitoraro
-	{id = "Galea Mortis", chance = 550},--muitoraro
-	{id = "Shadow Cowl", chance = 530},--muitoraro
-	{id = "Toga Mortis", chance = 500},--muitoraro
+	{id = "platinum coin", minCount = 1, maxCount = 5, chance = 100000},
+	{id = "crystal coin", minCount = 0, maxCount = 5, chance = 50000},
+	{id = "supreme health potion", minCount = 0, maxCount = 20, chance = 45000},
+	{id = "ultimate mana potion", minCount = 0, maxCount = 6, chance = 42000},
+	{id = "ultimate spirit potion", minCount = 0, maxCount = 14, chance = 42000},
+	{id = "bullseye potion", minCount = 0, maxCount = 10, chance = 22000},
+	{id = "berserk potion", minCount = 0, maxCount = 10, chance = 22000},
+	{id = "gold token", minCount = 0, maxCount = 3, chance = 18000},
+	{id = "silver token", minCount = 0, maxCount = 3, chance = 25000},
+	{id = "green gem", chance = 19000},
+	{id = "red gem", chance = 18500},
+	{id = "yellow gem", chance = 18500},
+	{id = "giant sapphire", chance = 16800},
+	{id = "collar of green plasma", chance = 15200},
+	{id = "magma coat", chance = 15200},
+	{id = "gold ingot", minCount = 0, maxCount = 1, chance = 18000},
+	{id = "red tome", chance = 18200},
+	{id = 26185, chance = 12000},-- ring of blue plasma
+	{id = 26189, chance = 12000},-- ring of red plasma
+	{id = "young lich worm", chance = 5500},
+	{id = "mortal mace", chance = 1300},
+	{id = "golden hyena pendant", chance = 1100},
+	{id = "bow of cataclysm", chance = 600},
+	{id = "galea mortis", chance = 550},
+	{id = "shadow cowl", chance = 530},
+	{id = "toga mortis", chance = 500},
 }
 
 monster.attacks = {

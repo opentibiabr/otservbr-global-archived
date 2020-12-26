@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Pits of Inferno, The Crystal Caves and The Soul Well in The Inquisition Quest, \z
 		Drefia Grim Reaper Dungeons, as well in Vengoth."
-		}
+	}
 
 monster.health = 1350
 monster.maxHealth = 1350
@@ -61,7 +61,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

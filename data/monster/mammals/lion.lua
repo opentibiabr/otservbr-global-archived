@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Jakundaf Desert, Darama, Arena Quarter, Venore Amazon Camp."
-		}
+	}
 
 monster.health = 80
 monster.maxHealth = 80

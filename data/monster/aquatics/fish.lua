@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "Fiehonja."
-		}
+	}
 
 monster.health = 25
 monster.maxHealth = 25
@@ -54,7 +54,7 @@ monster.flags = {
 	canPushItems = false,
 	canPushCreatures = true,
 	staticAttackChance = 95,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 25,
 	healthHidden = false,
 	isBlockable = false,

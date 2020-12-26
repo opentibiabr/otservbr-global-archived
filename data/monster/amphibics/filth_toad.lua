@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Tiquanda, around Lake Equivocolao."
-		}
+	}
 
 monster.health = 185
 monster.maxHealth = 185

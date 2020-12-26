@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Rathleton Sewers, Lower Rathleton, Oramond/Western Plains, \z
 		Underground Glooth Factory, Jaccus Maxxen's Dungeon."
-		}
+	}
 
 monster.health = 1900
 monster.maxHealth = 1900
@@ -64,7 +64,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

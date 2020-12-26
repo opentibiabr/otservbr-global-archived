@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Feyrist (night time) and its underground (all day)."
-		}
+	}
 
 monster.health = 1300
 monster.maxHealth = 1300

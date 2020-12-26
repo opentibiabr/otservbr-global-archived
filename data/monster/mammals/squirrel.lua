@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "North of Carlin, Northwest of Thais, East of Kazordoon, Yalahar, Dawnport, \z
 		Edron Hunters Camp, Plains of Havoc and other Tibian woods."
-		}
+	}
 
 monster.health = 20
 monster.maxHealth = 20

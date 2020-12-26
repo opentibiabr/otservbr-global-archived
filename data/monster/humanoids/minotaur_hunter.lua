@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Oramond/Southern Plains, Minotaur Hills, \z
 		Oramond Dungeon (depending on Magistrate votes), Underground Glooth Factory."
-		}
+	}
 
 monster.health = 1400
 monster.maxHealth = 1400

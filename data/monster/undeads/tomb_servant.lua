@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Horestis Tomb."
-		}
+	}
 
 monster.health = 475
 monster.maxHealth = 475

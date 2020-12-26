@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Old Beregar mines. In group with Furious Trolls almost all the time."
-		}
+	}
 
 monster.health = 210
 monster.maxHealth = 210

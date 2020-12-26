@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Tyrsung (in the Jotunar mountain), Formorgar Glacier (single spawn), \z
 		Mammoth Shearing Factory, Chyllfroest."
-		}
+	}
 
 monster.health = 275
 monster.maxHealth = 275

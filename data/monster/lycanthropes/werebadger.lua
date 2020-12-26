@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Grimvale: -1 floor from ground level, also seen on surface during full moon (12th-14th of every month). \z
 		Also in the were-beasts cave south-west of Edron and in the Last Sanctum."
-		}
+	}
 
 monster.health = 1700
 monster.maxHealth = 1700
@@ -62,9 +62,9 @@ monster.flags = {
 	runHealth = 275,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

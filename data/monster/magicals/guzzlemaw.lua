@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Guzzlemaw Valley, and a single spawn in a tower in Upper Roshamuul \z
 		(south of the Depot and west of the entrance to Roshamuul Prison)."
-		}
+	}
 
 monster.health = 6400
 monster.maxHealth = 6400
@@ -62,9 +62,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

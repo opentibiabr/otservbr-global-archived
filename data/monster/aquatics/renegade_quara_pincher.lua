@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Seacrest Grounds during a world change."
-		}
+	}
 
 monster.health = 2800
 monster.maxHealth = 2800
@@ -79,7 +79,7 @@ monster.voices = {
 
 monster.loot = {
 	{id = "platinum coin", chance = 80000, maxCount = 5},
-	{id = "quara pincer", chance = 18800, maxCount = 1},
+	{id = "quara pincers", chance = 18800, maxCount = 1},
 	{id = "great mana potion", chance = 9720, maxCount = 2},
 	{id = "great health potion", chance = 9010, maxCount = 2},
 	{id = "small ruby", chance = 9010, maxCount = 2},
@@ -92,7 +92,7 @@ monster.loot = {
 	{id = "warrior helmet", chance = 1430},
 	{id = "fish fin", chance = 920},
 	{id = "crown armor", chance = 611},
-	{id = "time ring", chance = 410},
+	{id = 2169, chance = 410}, -- time ring
 	{id = "talon", chance = 310},
 	{id = "glacier robe", chance = 200},
 	{id = "giant shrimp", chance = 100},

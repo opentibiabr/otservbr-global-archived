@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Zao Wailing Widow Cave, Muggy Plains (during raid), Razzachai, \z
 		Northern Zao Plantations, Northern Brimstone Bug Cave, Chyllfroest."
-		}
+	}
 
 monster.health = 400
 monster.maxHealth = 400
@@ -61,7 +61,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Venore swamp area, Venore Salamander Cave, Tiquanda Laboratory."
-		}
+	}
 
 monster.health = 80
 monster.maxHealth = 80

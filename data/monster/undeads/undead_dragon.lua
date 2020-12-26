@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Helheim (single, isolated spawn), Pits of Inferno (Ashfalor's throneroom), \z
 		Demon Forge (The Shadow Nexus and The Arcanum), under Razachai (including the Inner Sanctum), \z
 		Chyllfroest, Oramond Fury Dungeon."
-		}
+	}
 
 monster.health = 8350
 monster.maxHealth = 8350
@@ -64,8 +64,8 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Minotaurs Cult Cave."
-		}
+	}
 
 monster.health = 1600
 monster.maxHealth = 1600

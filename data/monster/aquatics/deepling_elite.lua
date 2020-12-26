@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "Fiehonja (Tanjis lair)."
-		}
+	}
 
 monster.health = 3200
 monster.maxHealth = 3200
@@ -57,7 +57,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 90,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 30,
 	healthHidden = false,
 	isBlockable = false,

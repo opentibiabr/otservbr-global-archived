@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "South-west of Edron, possibly other places."
-		}
+	}
 
 monster.health = 22
 monster.maxHealth = 22

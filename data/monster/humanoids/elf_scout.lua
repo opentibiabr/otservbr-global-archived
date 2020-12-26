@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Yalahar Foreigner Quarter, Shadowthorn, northwest of Ab'Dendriel, north and west of Mount Sternum, \z
 		Hellgate, Maze of Lost Souls, near Knightwatch Tower in the Plains of Havoc. \z
 		Two may also spawn when a Desperate White Deer or an Enraged White Deer is killed."
-		}
+	}
 
 monster.health = 160
 monster.maxHealth = 160

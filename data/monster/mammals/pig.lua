@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Rookgaard, Orc Fort, under Femor Hills with Goblins, some farms like The McRonald's Farm, \z
 		Liberty Bay slums and Nargor, Foreigner Quarter in Yalahar, Isle of the Kings, \z
 		cells in Tafariel's throneroom in Pits of Inferno, Gardens of Night."
-		}
+	}
 
 monster.health = 25
 monster.maxHealth = 25

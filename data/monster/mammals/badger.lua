@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "Hrodmir, southern Tiquanda, unannounced raid in Ab'Dendriel and Edron."
-		}
+	}
 
 monster.health = 23
 monster.maxHealth = 23

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "Area before final boss of Forgotten Knowledge Quest."
-		}
+	}
 
 monster.health = 3000
 monster.maxHealth = 3000

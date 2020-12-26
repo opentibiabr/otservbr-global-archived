@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Hellgate, near the Hellgate Library, Deeper Banuta, behind piano in Cult Cave to the \z
 		northeast of Liberty Bay, Vandura Bonelord Cave, Goroma, Helheim, \z
 		underground of Fenrock (on the way to Beregar), Vengoth."
-		}
+	}
 
 monster.health = 500
 monster.maxHealth = 500

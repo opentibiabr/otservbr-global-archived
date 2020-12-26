@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 1,
 	Locations = "Tainted Caves, Poacher Caves/Gloomy."
-		}
+	}
 
 monster.health = 200
 monster.maxHealth = 200

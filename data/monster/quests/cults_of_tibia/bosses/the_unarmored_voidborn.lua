@@ -91,7 +91,7 @@ monster.loot = {
 	{id = "ultimate health potion", chance = 27652, maxCount = 10},
 	{id = "great mana potion", chance = 33721, maxCount = 10},
 	{id = "great spirit potion", chance = 25690, maxCount = 5},
-	{id = 26198, chance = 12798},
+	{id = 26198, chance = 12798},-- collar of blue plasma
 	{id = "piece of royal steel", chance = 15890},
 	{id = "shadow sceptre", chance = 7890},
 	{id = 26189, chance = 14542},

@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 3,
 	Locations = "Zao, north east of Dragonblaze Peaks during raid. There are up to 10 draptors per raid, \z
 		while 6 of them may also appear in mission 8 of Wrath of the Emperor Quest."
-		}
+	}
 
 monster.health = 3000
 monster.maxHealth = 3000

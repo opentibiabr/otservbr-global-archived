@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Krimhorn, Bittermor, Ragnir, and Fenrock."
-		}
+	}
 
 monster.health = 100
 monster.maxHealth = 100

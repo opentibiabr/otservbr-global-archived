@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Calassa, Frozen Trench, Yalahar (Sunken Quarter)."
-		}
+	}
 
 monster.health = 800
 monster.maxHealth = 800

@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Calassa, Frozen Trench, Water Elemental Dungeon through the water channels, \z
 		before Zugurosh in The Inquisition Quest."
-		}
+	}
 
 monster.health = 1250
 monster.maxHealth = 1250
@@ -63,8 +63,8 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

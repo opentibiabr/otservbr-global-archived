@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Island of Destiny, Drefia, Ghostland and beneath Fenrock."
-		}
+	}
 
 monster.health = 65
 monster.maxHealth = 65

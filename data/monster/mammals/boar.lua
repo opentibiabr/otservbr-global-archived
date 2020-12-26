@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Forest around Outlaw Camp."
-		}
+	}
 
 monster.health = 198
 monster.maxHealth = 198

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "Ice Islands, Svargrond and Edron."
-		}
+	}
 
 monster.health = 55
 monster.maxHealth = 55

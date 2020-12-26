@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Femor Hills, Edron Goblin Cave and Fenrock."
-		}
+	}
 
 monster.health = 75
 monster.maxHealth = 75

@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Tiquanda, Trapwood, the outskirts of Chor and Forbidden Lands, Alchemist Quarter in Yalahar, \z
 		Tiquanda Laboratory."
-		}
+	}
 
 monster.health = 150
 monster.maxHealth = 150

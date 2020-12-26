@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Haunted Temple, Court of Winter, Dream Labyrinth."
-		}
+	}
 
 monster.health = 7200
 monster.maxHealth = 7200
@@ -63,7 +63,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
-	canWalkOnPoison = true,
+	canWalkOnPoison = false,
 	pet = false
 }
 

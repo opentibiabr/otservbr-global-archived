@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 3,
 	Locations = "Near the Thais Troll Cave entrance during the Horse Station World Change."
-		}
+	}
 
 monster.health = 75
 monster.maxHealth = 75

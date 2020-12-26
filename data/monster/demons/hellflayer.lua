@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Hellflayer")
 local monster = {}
 
 monster.description = "a hellflayer"
-monster.experience = 4375
+monster.experience = 11000
 monster.outfit = {
 	lookType = 856,
 	lookHead = 0,
@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "The Dungeons of The Ruthless Seven."
-		}
+	}
 
 monster.health = 14000
 monster.maxHealth = 14000
@@ -62,8 +62,8 @@ monster.flags = {
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

@@ -27,7 +27,7 @@ monster.Bestiary = {
 		and in many of the closed rooms accessed with pheromones; \z
 		many in the large underground room of the west tower. \z
 		Liberty Bay Hive Outpost: one spawn on the second floor underground."
-		}
+	}
 
 monster.health = 7500
 monster.maxHealth = 7500
@@ -61,9 +61,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

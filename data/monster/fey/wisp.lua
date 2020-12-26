@@ -27,7 +27,7 @@ monster.Bestiary = {
 		the forests north of Edron. West of Hardek. Inside the Cyclops Camp. North of the triple \z
 		Wyvern spawn outside Kazordoon. West of Ab'Dendriel. West of Venore Amazon Camp. \z
 		A few spawns around Venore, 2 spawn on the Formorgar Glacier, and on Krimhorn."
-		}
+	}
 
 monster.health = 115
 monster.maxHealth = 115

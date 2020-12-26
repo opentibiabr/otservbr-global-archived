@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Orc Fort, the Orc Peninsula, Magician Tower and northwest (tower) or south \z
 		(underground) of Thais, Zao steppe (encaged), Vengoth."
-		}
+	}
 
 monster.health = 140
 monster.maxHealth = 140

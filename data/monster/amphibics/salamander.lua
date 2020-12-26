@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Shadowthorn in the bog god's temple, Drefia, around Lake Equivocolao when it's dirty."
-		}
+}
 
 monster.health = 70
 monster.maxHealth = 70
@@ -79,12 +79,12 @@ monster.loot = {
 	{id = "gold coin", chance = 72000, maxCount = 15},
 	{id = "gold coin", chance = 72000, maxCount = 15},
 	{id = "mace", chance = 3780},
-	{id = "rope", chance = 5190},
+	{id = 2120, chance = 5190},-- rope
 	{id = "bow", chance = 740},
 	{id = "brass helmet", chance = 2180},
 	{id = "arrow", chance = 7890, maxCount = 3},
 	{id = "health potion", chance = 1480},
-	{id = "scimitar", chance = 490}
+	{id = 2419, chance = 490}-- scimitar
 }
 
 monster.attacks = {

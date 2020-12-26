@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "South of Port Hope around Trapwood, as well as a lone specimen in the Arena Quarter."
-		}
+	}
 
 monster.health = 80
 monster.maxHealth = 80

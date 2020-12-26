@@ -33,7 +33,7 @@ monster.Bestiary = {
 		second floor up of Cemetery Quarter, beneath Fenrock, Vengoth Castle, \z
 		Vandura Mountain, in a cave in Robson Isle, Chyllfroest, Spider Caves, \z
 		Second floor of Krailos Spider Lair , Caverna Exanima."
-		}
+	}
 
 monster.health = 1300
 monster.maxHealth = 1300

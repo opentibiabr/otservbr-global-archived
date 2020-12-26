@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Nargor, Trade Quarter, Foreigner Quarter (Dock), Krailos Steppe."
-		}
+	}
 
 monster.health = 675
 monster.maxHealth = 675

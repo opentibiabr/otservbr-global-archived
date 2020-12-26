@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "A lot of places on the Ice Islands and one on Rookgaard (unreachable)."
-		}
+	}
 
 monster.health = 15
 monster.maxHealth = 15
@@ -54,7 +54,7 @@ monster.flags = {
 	canPushItems = false,
 	canPushCreatures = false,
 	staticAttackChance = 70,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 15,
 	healthHidden = false,
 	isBlockable = false,

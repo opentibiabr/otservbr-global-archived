@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Cave Devourer")
 local monster = {}
 
 monster.description = "a cave devourer"
-monster.experience = 2800
+monster.experience = 2380
 monster.outfit = {
 	lookType = 1036,
 	lookHead = 0,
@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Warzone 5."
-		}
+	}
 
 monster.health = 5400
 monster.maxHealth = 5400
@@ -63,7 +63,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

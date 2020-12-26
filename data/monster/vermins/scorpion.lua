@@ -28,7 +28,7 @@ monster.Bestiary = {
 		Venore and Ankrahmun Dragon Lairs, beneath Edron Graveyard, Ancient Temple, \z
 		Hellgate, Mad Mage Room, Ankrahmun Tombs, Treasure Island, Mal'ouquah, Ramoa, \z
 		Cyclopolis, Ghostlands, Vengoth, Lion's Rock."
-		}
+	}
 
 monster.health = 45
 monster.maxHealth = 45
@@ -65,7 +65,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Zao Wailing Widow Cave, Northern Zao Plantations, Northern Brimstone Bug Cave, \z
 		Razzachai, Chyllfroest, Krailos Spider Lair."
-		}
+	}
 
 monster.health = 850
 monster.maxHealth = 850

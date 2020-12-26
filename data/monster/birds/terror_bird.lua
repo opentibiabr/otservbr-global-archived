@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Around Port Hope, Arena and Zoo Quarter in Yalahar, few on Zao steppes."
-		}
+	}
 
 monster.health = 300
 monster.maxHealth = 300

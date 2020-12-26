@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Fiehonja, Sunken Mines near Dwarf Mines."
-		}
+	}
 
 monster.health = 240
 monster.maxHealth = 240
@@ -57,7 +57,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 90,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 50,
 	healthHidden = false,
 	isBlockable = false,

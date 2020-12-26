@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Trade Quarter, Arena and Zoo Quarter."
-		}
+	}
 
 monster.health = 185
 monster.maxHealth = 185

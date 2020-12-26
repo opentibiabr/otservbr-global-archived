@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 3,
 	Locations = "It raids every four hours, starting at server save, in groups of one to three at \z
 		various places around Venore swamp, especially near the southern production site."
-		}
+	}
 
 monster.health = 390
 monster.maxHealth = 390

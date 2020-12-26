@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Cyclopolis second floor and below, Mistrock, Mount Sternum, \z
 		Cyclops Camp second floor and in the Cyclops version of the Forsaken Mine."
-		}
+	}
 
 monster.health = 435
 monster.maxHealth = 435

@@ -27,7 +27,7 @@ monster.Bestiary = {
 	Locations = "Banuta, Carlin Surroundings, Feyrist Meadows, Grimvale, Liberty Bay City, \z
 		Liberty Bay Surroundings, Meriana, Plains of Havoc, Port Hope Surroundings, \z
 		Yalahar Arena Quarter, Yalahar Centre, Yalahar Magician Quarter."
-		}
+	}
 
 monster.health = 2
 monster.maxHealth = 2

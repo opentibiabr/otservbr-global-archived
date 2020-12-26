@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Warzone 1, Rathleton Sewers, unreachable location in Tiquanda Laboratory."
-		}
+	}
 
 monster.health = 4600
 monster.maxHealth = 4600

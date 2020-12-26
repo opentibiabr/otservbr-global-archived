@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 0,
 	Occurrence = 1,
 	Locations = "Svargrond and Nibelor."
-		}
+	}
 
 monster.health = 140
 monster.maxHealth = 140

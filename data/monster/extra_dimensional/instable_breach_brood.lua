@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Otherworld."
-		}
+	}
 
 monster.health = 2200
 monster.maxHealth = 2200

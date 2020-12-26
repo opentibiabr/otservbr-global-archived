@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 2,
 	Locations = "West and south of Greenshore."
-		}
+	}
 
 monster.health = 230
 monster.maxHealth = 230

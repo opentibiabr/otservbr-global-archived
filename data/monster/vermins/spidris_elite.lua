@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 2,
 	Locations = "The Hive: east tower (beyond gates), west tower (including beyond gates), \z
 		also anywhere Hive Overseers are found (as summons), Hive Outpost."
-		}
+	}
 
 monster.health = 5000
 monster.maxHealth = 5000
@@ -55,13 +55,13 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 95,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

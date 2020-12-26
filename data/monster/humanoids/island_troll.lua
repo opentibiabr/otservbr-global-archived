@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "Goroma."
-		}
+	}
 
 monster.health = 50
 monster.maxHealth = 50

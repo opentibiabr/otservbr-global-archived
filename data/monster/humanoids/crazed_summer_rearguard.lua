@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 5,
 	Occurrence = 0,
 	Locations = "Court of Winter, Dream Labyrinth."
-		}
+	}
 
 monster.health = 5300
 monster.maxHealth = 5300
@@ -92,7 +92,7 @@ monster.loot = {
 	{id = "leaf star", chance = 11100, maxCount = 8},
 	{id = 26185, chance = 1000},
 	{id = "sun fruit", chance = 25800},
-	{id = 26198, chance = 1590},
+	{id = 26198, chance = 1590},-- collar of blue plasma
 	{id = "wood cape", chance = 30000},
 	{id = "small diamond", chance = 800},
 	{id = "yellow gem", chance = 640},
