@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Demonwar Crypt."
-		}
+	}
 
 monster.health = 2600
 monster.maxHealth = 2600

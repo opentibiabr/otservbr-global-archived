@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Zao Orc Land."
-		}
+	}
 
 monster.health = 235
 monster.maxHealth = 235

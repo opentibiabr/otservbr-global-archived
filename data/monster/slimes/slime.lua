@@ -29,7 +29,7 @@ monster.Bestiary = {
 		Deeper Banuta, on Folda on the floor above the Water Elementals, Hellgate, Vengoth, Alchemist Quarter, \z
 		Yalahar and Carlin sewers, Ghostlands, Desert Dungeon, Dusalk's Troll Clan Cave, Nargor, \z
 		and in a cave northeast of Ab'Dendriel."
-		}
+	}
 
 monster.health = 150
 monster.maxHealth = 150

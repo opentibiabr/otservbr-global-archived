@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Alchemist Quarter, Arena and Zoo Quarter (Inside the arena with other mutated creatures), \z
 		Razzachai, Vampire Castle on Vengoth, Robson's Isle, Mushroom Gardens, Souleater Mountains, \z
 		Northern Zao Plantations, Middle Spike."
-		}
+	}
 
 monster.health = 550
 monster.maxHealth = 550

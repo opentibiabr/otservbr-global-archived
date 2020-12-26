@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Thais Dragon Lair, Venore Dragon Lair, Edron Dragon Lair by the Fire Axe Quest, \z
 		on the way to Pythius the Rotten, Razzachai, Dragonblaze Peaks."
-		}
+	}
 
 monster.health = 750
 monster.maxHealth = 750

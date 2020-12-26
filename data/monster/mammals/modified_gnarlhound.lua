@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 0,
 	Occurrence = 1,
 	Locations = "South of Stonehome, deep under Telas's house."
-		}
+	}
 
 monster.health = 1500
 monster.maxHealth = 1500

@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Helheim, Demon Forge (The Arcanum), beneath Fenrock, Vandura Bonelord Cave, \z
 		Alchemist Quarter and Cemetery Quarter."
-		}
+	}
 
 monster.health = 1225
 monster.maxHealth = 1225

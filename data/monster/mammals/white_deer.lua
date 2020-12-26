@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 2,
 	Locations = "Around Ab'Dendriel, Carlin (east from Lothar), Femor Hills and Ferngrims Gate, usually in pairs. \z
 		They will appear when they're not overhunted."
-		}
+	}
 
 monster.health = 195
 monster.maxHealth = 195

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Underground Glooth Factory, Oramond Minotaur Camp, Oramond Dungeon."
-		}
+	}
 
 monster.health = 2600
 monster.maxHealth = 2600

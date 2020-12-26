@@ -27,7 +27,7 @@ monster.Bestiary = {
 		Rookgaard Bear Cave, Bear Room Quest in Rookgaard, Rookgaard Bear Mountain, South of Villa Scapula, \z
 		Ferngrims Gate, North of Carlin, Fields of Glory, Edron Troll Cave, south of Venore, Desert Dungeon, \z
 		first floor of the Orc Fort mountain and west of Outlaw Camp."
-		}
+	}
 
 monster.health = 80
 monster.maxHealth = 80

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Secret Library."
-		}
+	}
 
 monster.health = 18000
 monster.maxHealth = 18000
@@ -97,7 +97,7 @@ monster.loot = {
 	{id = "Might Ring", chance = 1300},
 	{id = "Slime Heart", chance = 1200, maxCount = 4},
 	{id = 26200, chance = 560},
-	{id = 26198, chance = 560},
+	{id = 26198, chance = 560},-- collar of blue plasma
 	{id = 26199, chance = 560},
 	{id = 26189, chance = 560},
 	{id = 26185, chance = 560},

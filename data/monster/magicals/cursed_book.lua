@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 1,
 	Locations = "Secret Library."
-		}
+	}
 
 monster.health = 20000
 monster.maxHealth = 20000

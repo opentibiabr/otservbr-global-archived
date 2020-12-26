@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "South-east of Venore, Swamp Troll Cave."
-		}
+	}
 
 monster.health = 255
 monster.maxHealth = 255

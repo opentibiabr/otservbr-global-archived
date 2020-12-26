@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Nargor, Tyrsung (on the ship), Yalahar, Krailos Steppe."
-		}
+	}
 
 monster.health = 325
 monster.maxHealth = 325

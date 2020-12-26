@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Chor, Zzaion and Foreigner Quarter."
-		}
+	}
 
 monster.health = 265
 monster.maxHealth = 265

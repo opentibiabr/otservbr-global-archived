@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Kilmaresh, south of Issavi."
-		}
+	}
 
 monster.health = 9800
 monster.maxHealth = 9800

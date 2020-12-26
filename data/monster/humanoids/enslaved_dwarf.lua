@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Caves of the Lost and Lower Spike."
-		}
+	}
 
 monster.health = 3800
 monster.maxHealth = 3800

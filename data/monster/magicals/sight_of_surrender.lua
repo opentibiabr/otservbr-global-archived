@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Dark Grounds, Guzzlemaw Valley (if less than 100 Blowing Horns tasks \z
 		have been done the day before) and the Silencer Plateau (when Silencer Resonating Chambers are used there)."
-		}
+	}
 
 monster.health = 28000
 monster.maxHealth = 28000

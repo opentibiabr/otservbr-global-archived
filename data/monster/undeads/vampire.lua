@@ -27,7 +27,7 @@ monster.Bestiary = {
 		Serpentine Tower (unreachable), Ghostlands (unreachable). House between Plains of Havoc and Dark Cathedral, \z
 		Hellgate (only during Zevelon Duskbringer raid), Edron Undead Cave, Vengoth Castle (and mountains before door), \z
 		Edron Vampire Crypt."
-		}
+	}
 
 monster.health = 475
 monster.maxHealth = 475

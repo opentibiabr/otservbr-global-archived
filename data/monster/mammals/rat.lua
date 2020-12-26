@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Rookgaard and Mainland, in most sewers and caves near towns. \z
 		They can be found almost everywhere in Tibia."
-		}
+	}
 
 monster.health = 20
 monster.maxHealth = 20

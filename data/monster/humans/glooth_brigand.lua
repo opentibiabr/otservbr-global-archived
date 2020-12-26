@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Underground Glooth Factory."
-		}
+	}
 
 monster.health = 2400
 monster.maxHealth = 2400

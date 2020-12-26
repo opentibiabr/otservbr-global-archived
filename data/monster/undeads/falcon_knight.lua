@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Falcon Bastion."
-		}
+	}
 
 monster.health = 9000
 monster.maxHealth = 9000

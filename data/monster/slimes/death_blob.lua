@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Alchemist Quarter, Drefia, Razzachai, Souleater Mountains, \z
 		Northern Zao Plantations and Raging Mage tower."
-		}
+	}
 
 monster.health = 320
 monster.maxHealth = 320

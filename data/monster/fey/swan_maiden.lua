@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "Feyrist Meadows."
-		}
+	}
 
 monster.health = 800
 monster.maxHealth = 800

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Razachai including the Inner Sanctum."
-		}
+	}
 
 monster.health = 6250
 monster.maxHealth = 6250

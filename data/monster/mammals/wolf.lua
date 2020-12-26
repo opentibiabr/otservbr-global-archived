@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "In almost all grass areas in Tibia, also found in Rookgaard and Dawnport."
-		}
+	}
 
 monster.health = 25
 monster.maxHealth = 25

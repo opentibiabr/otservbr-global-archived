@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Ancient Temple, Mintwallin, Minotaur Pyramid, Maze of Lost Souls, Folda, Cyclopolis, \z
 		Deeper Fibula Dungeon (level 50+ to open the door), Hero Cave, underground of Elvenbane, \z
 		Plains of Havoc, Kazordoon Minotaur Cave, Foreigner Quarter."
-		}
+	}
 
 monster.health = 185
 monster.maxHealth = 185

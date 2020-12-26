@@ -66,34 +66,34 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", minCount = 1, maxCount = 5, chance = 100000},--comum
-	{id = "Crystal Coin", minCount = 0, maxCount = 2, chance = 50000},--comum
-	{id = "Supreme Health Potion", minCount = 0, maxCount = 6, chance = 35000},--comum
-	{id = "Ultimate Mana Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
-	{id = "Ultimate Spirit Potion", minCount = 0, maxCount = 20, chance = 32000},--comum
-	{id = "Bullseye Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
-	{id = "Berserk Potion", minCount = 0, maxCount = 10, chance = 12000},--comum
-	{id = "Piece of hell steel", minCount = 0, maxCount = 4, chance = 9000},--comum
-	{id = "Red Gem", minCount = 0, maxCount = 2, chance = 12000},--comum
-	{id = "Blue Gem", minCount = 0, maxCount = 2, chance = 12000},--comum
-	{id = "Silver Token", minCount = 0, maxCount = 2, chance = 9500},--semiraro
-	{id = "Ancient liche bone", chance = 5200},--semiraro
-	{id = "Collar of blue plasma", chance = 5200},--semiraro
-	{id = "Collar of red plasma", chance = 5200},--semiraro
-	{id = "Collar of green plasma", chance = 5200},--semiraro
-	{id = "Giant Sapphire", chance = 7000},--semiraro
-	{id = "Haunted Blade", chance = 9000},--semiraro
-	{id = "Huge Chunk of Crude Iron", chance = 4500},--semiraro
-	{id = "Knight Armor", chance = 15000},--semiraro
-	{id = "Violet Gem", minCount = 0, maxCount = 1, chance = 10000},--semiraro
-	{id = "Yellow Gem", minCount = 0, maxCount = 1, chance = 10000},--semiraro
-	{id = "Ring of green plasma", chance = 5000},--semiraro
-	{id = "Ring of red plasma", chance = 5000},--semiraro
-	{id = "Young Lich Worm", chance = 5800},--semiraro
-	{id = "Bear Skin", chance = 1600},--raro
-	{id = "Noble Cape", chance = 1500},--raro
-	{id = "Terra helmet", chance = 720},--raro
-	{id = "Final Judgement", chance = 410},--muitoraro
+	{id = "platinum coin", minCount = 1, maxCount = 5, chance = 100000},
+	{id = "crystal coin", minCount = 0, maxCount = 2, chance = 50000},
+	{id = "supreme health potion", minCount = 0, maxCount = 6, chance = 35000},
+	{id = "ultimate mana potion", minCount = 0, maxCount = 20, chance = 32000},
+	{id = "ultimate spirit potion", minCount = 0, maxCount = 20, chance = 32000},
+	{id = "bullseye potion", minCount = 0, maxCount = 10, chance = 12000},
+	{id = "berserk potion", minCount = 0, maxCount = 10, chance = 12000},
+	{id = "piece of hell steel", minCount = 0, maxCount = 4, chance = 9000},
+	{id = "red gem", minCount = 0, maxCount = 2, chance = 12000},
+	{id = "blue gem", minCount = 0, maxCount = 2, chance = 12000},
+	{id = "silver token", minCount = 0, maxCount = 2, chance = 9500},
+	{id = "ancient liche bone", chance = 5200},
+	{id = 26198, chance = 5200},-- collar of blue plasma
+	{id = 26200, chance = 5200},-- collar of red plasma
+	{id = "collar of green plasma", chance = 5200},
+	{id = "giant sapphire", chance = 7000},
+	{id = "haunted blade", chance = 9000},
+	{id = "huge chunk of crude iron", chance = 4500},
+	{id = "knight armor", chance = 15000},
+	{id = "violet gem", minCount = 0, maxCount = 1, chance = 10000},
+	{id = "yellow gem", minCount = 0, maxCount = 1, chance = 10000},
+	{id = 26187, chance = 5000},-- ring of green plasma
+	{id = 26189, chance = 5000},-- ring of red plasma
+	{id = "young lich worm", chance = 5800},
+	{id = "bear skin", chance = 1600},
+	{id = "noble cape", chance = 1500},
+	{id = "terra helmet", chance = 720},
+	{id = "final judgement", chance = 410},
 }
 
 monster.attacks = {

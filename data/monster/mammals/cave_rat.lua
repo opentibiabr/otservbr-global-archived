@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Almost everywhere in tibia, they seem to have a nest-like place in Greenshore, \z
 		a semi-large spawn at the entrance to the Port Hope troll cave and in cave near Ankrahmun ship. \z
 		Also appears in Rat Plague in Thais and Rat Plague in Rookgaard."
-		}
+	}
 
 monster.health = 30
 monster.maxHealth = 30

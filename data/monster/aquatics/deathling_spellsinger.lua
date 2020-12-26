@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Ancient Ancestorial Grounds and Sunken Temple."
-		}
+	}
 
 monster.health = 7200
 monster.maxHealth = 7200

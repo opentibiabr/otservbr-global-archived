@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Carnivora's Rocks."
-		}
+	}
 
 monster.health = 3500
 monster.maxHealth = 3500

@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Yalahar Foreigner Quarter and Trade Quarter, Maze of Lost Souls, Orc Fort (unreachable), \z
 		Hellgate, Shadowthorn, Ab'Dendriel elf caves, Elvenbane, north of Thais."
-		}
+	}
 
 monster.health = 100
 monster.maxHealth = 100

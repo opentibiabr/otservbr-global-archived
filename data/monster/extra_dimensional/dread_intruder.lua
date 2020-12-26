@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Otherworld."
-		}
+	}
 
 monster.health = 4500
 monster.maxHealth = 4500
@@ -99,7 +99,7 @@ monster.loot = {
 	{id = 18414, chance = 4500},
 	{id = 2153, chance = 1000},
 	{id = 26189, chance = 450},
-	{id = 26198, chance = 230},
+	{id = 26198, chance = 230},-- collar of blue plasma
 	{id = 26199, chance = 230},
 	{id = 26185, chance = 230}
 }

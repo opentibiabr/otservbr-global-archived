@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Forbidden Lands, on top of a hill in the northern part of the Arena and Zoo Quarter, \z
 		Lower Spike, Truffels Garden and Mushroom Gardens."
-		}
+	}
 
 monster.health = 1330
 monster.maxHealth = 1330

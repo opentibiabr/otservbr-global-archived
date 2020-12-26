@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 1,
 	Locations = "Warzone 3."
-		}
+	}
 
 monster.health = 6600
 monster.maxHealth = 6600

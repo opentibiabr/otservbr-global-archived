@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Vengoth surface, Vengoth Castle (Boreth's tower), Northern Zao Plantations, Tiquanda Laboratory, \z
 		Dryad Gardens."
-		}
+	}
 
 monster.health = 450
 monster.maxHealth = 450

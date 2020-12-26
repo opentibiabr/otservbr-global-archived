@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Orc Fortress, Foreigner Quarter, Zao Orc Land."
-		}
+	}
 
 monster.health = 950
 monster.maxHealth = 950

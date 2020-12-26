@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Desert areas like those around Ankrahmun and Darashia."
-		}
+	}
 
 monster.health = 60
 monster.maxHealth = 60

@@ -28,7 +28,7 @@ monster.Bestiary = {
 		Dwarf Mines, Hellgate, below the graves in eastern Rookgaard, spider cave in western Rookgaard, \z
 		cave northeast of Ab'Dendriel, Darashia Rotworm Caves, Liberty Bay, Fenrock, \z
 		below Green Claw Swamp and some other places."
-		}
+	}
 
 monster.health = 65
 monster.maxHealth = 65

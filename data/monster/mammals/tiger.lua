@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Tiquanda, Meriana, Arena and Zoo Quarter. Three unreachable ones are found in the Rookgaard Academy, \z
 		below Ankrahmun (during the Nomads Land Quest), and on Charles's ship."
-		}
+	}
 
 monster.health = 75
 monster.maxHealth = 75

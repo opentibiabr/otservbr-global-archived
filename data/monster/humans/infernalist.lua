@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Magician Quarter, Hero Cave, Demona, Fury Dungeon."
-		}
+	}
 
 monster.health = 3650
 monster.maxHealth = 3650

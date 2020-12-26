@@ -24683,7 +24683,7 @@
 		<attribute key="weaponType" value="club" />
 		<attribute key="loottype" value="club" />
 	</item>
-	<item id="14333" article="a" name="demonbone amulet">
+	<item id="14333" article="a" name="v-belt">
 		<attribute key="weight" value="690" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="loottype" value="amulet" />
@@ -25936,6 +25936,7 @@
 		<attribute key="description" value="The drum is still vibrating and not ready for use." />
 		<attribute key="weight" value="3200" />
 	</item>
+	<!-- decoration ? -->
 	<item id="15651" article="a" name="depth galea">
 		<attribute key="description" value="Enables underwater exploration." />
 		<attribute key="absorbPercentDrown" value="100" />

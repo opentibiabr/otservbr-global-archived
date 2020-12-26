@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Hot Spot (in Gnomebase Alpha) and Lower Spike."
-		}
+	}
 
 monster.health = 1600
 monster.maxHealth = 1600

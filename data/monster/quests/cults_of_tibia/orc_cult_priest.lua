@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "Edron Orc Cave."
-		}
+	}
 
 monster.health = 1300
 monster.maxHealth = 1300

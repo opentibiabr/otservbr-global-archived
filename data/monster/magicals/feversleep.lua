@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Roshamuul Mines, Roshamuul Cistern."
-		}
+	}
 
 monster.health = 5900
 monster.maxHealth = 5900

@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Cyclopolis, Hero Cave in Edron, Ankrahmun tombs, Serpentine Tower, Factory Quarter in Yalahar, \z
 		Deeper Banuta, Goroma inside the volcano and beneath Fenrock."
-		}
+	}
 
 monster.health = 280
 monster.maxHealth = 280

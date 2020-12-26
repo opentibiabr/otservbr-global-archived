@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "Ankrahmun near way to Darashia, Ankrahmun near sea, also in few places around Darashia."
-		}
+	}
 
 monster.health = 45
 monster.maxHealth = 45

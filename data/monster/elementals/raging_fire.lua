@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 3,
 	Locations = "Jaccus Maxxen's Dungeon."
-		}
+	}
 
 monster.health = 1800
 monster.maxHealth = 1800

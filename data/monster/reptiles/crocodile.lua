@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "In the crocodile cave and the jungle east of Port Hope as well as the swamp to the north, \z
 		Fenrock, Arena and Zoo Quarter, Trade Quarter, Talahu, also located on Meriana and Laguna Islands."
-		}
+	}
 
 monster.health = 105
 monster.maxHealth = 105

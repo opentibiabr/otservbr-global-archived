@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Golem Workshop."
-		}
+	}
 
 monster.health = 700
 monster.maxHealth = 700

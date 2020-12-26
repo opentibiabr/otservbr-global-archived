@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Haunted Tomb west of Darashia, Buried Cathedral."
-		}
+	}
 
 monster.health = 6500
 monster.maxHealth = 6500

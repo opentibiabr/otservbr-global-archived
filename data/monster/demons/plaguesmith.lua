@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Pits of Inferno, Formorgar Mines, Edron Demon Forge (The Vats, The Foundry), \z
 		Magician Quarter, Alchemist Quarter, Roshamuul Prison."
-		}
+	}
 
 monster.health = 8250
 monster.maxHealth = 8250

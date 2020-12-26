@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Water Elemental Cave in Port Hope, Water Elemental Dungeon, Deeper Banuta, Malada, Ramoa, \z
 		Talahu, Folda (7 spawn on the 3rd floor), Water Elemental Cave in Outlaw Camp (only during the Down the \z
 		Drain Mini World Change), Krailos Steppe underwater cave."
-		}
+	}
 
 monster.health = 550
 monster.maxHealth = 550

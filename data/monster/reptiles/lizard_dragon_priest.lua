@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Zzaion, Zao Palace and its antechambers, Muggy Plains, Corruption Hole, Razachai, \z
 		Temple of Equilibrium, Northern Zao Plantations."
-		}
+	}
 
 monster.health = 1450
 monster.maxHealth = 1450

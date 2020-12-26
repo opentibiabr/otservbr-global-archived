@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 3,
 	Locations = "Shadowthorn."
-		}
+	}
 
 monster.health = 600
 monster.maxHealth = 600

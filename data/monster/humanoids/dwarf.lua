@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Kazordoon Dwarf Mines, Dwarf Bridge, deep Elvenbane, Tiquanda Dwarf Cave, Cormaya Dwarf Cave, \z
 		Island of Destiny (Knights area), Beregar."
-		}
+	}
 
 monster.health = 90
 monster.maxHealth = 90

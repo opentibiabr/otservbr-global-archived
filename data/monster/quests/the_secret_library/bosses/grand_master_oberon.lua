@@ -126,22 +126,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2230, chance = 30000, maxCount = 1}, --comum
-	{id = "brass shield", chance = 30000, maxCount = 1}, --comum
-	{id = "spatial warp almanac", chance = 25000, maxCount = 1}, --comum
-	{id = "viking helmet", chance = 23000, maxCount = 1}, --comum
-	{id = "Falcon Battleaxe", chance = 500, maxCount = 1}, --semiraro
-	{id = "Falcon Longsword", chance = 500, maxCount = 1},--semiraro
-	{id = "Falcon Mace", chance = 500, maxCount = 1},--semiraro
-	{id = "Grant of Arms", chance = 500, maxCount = 1},--semiraro
-	{id = "Falcon Bow", chance = 350, maxCount = 1},--raro
-	{id = "Falcon Circlet", chance = 350, maxCount = 1},--raro
-	{id = "Falcon Coif", chance = 350, maxCount = 1},--raro
-	{id = "Falcon Rod", chance = 350, maxCount = 1},--raro
-	{id = "Falcon wand", chance = 350, maxCount = 1},--raro
-	{id = "Falcon Shield", chance = 200, maxCount = 1},--muito raro
-	{id = "Falcon Greaves", chance = 200, maxCount = 1},--muito raro
-	{id = "Falcon Plate", chance = 200, maxCount = 1},--muito raro
+	{id = 2230, chance = 30000, maxCount = 1}, 
+	{id = "brass shield", chance = 30000, maxCount = 1}, 
+	{id = "spatial warp almanac", chance = 25000, maxCount = 1}, 
+	{id = "viking helmet", chance = 23000, maxCount = 1}, 
+	{id = "falcon battleaxe", chance = 500, maxCount = 1}, 
+	{id = "falcon longsword", chance = 500, maxCount = 1},
+	{id = "falcon mace", chance = 500, maxCount = 1},
+	{id = "grant of arms", chance = 500, maxCount = 1},
+	{id = "falcon bow", chance = 350, maxCount = 1},
+	{id = "falcon circlet", chance = 350, maxCount = 1},
+	{id = "falcon coif", chance = 350, maxCount = 1},
+	{id = "falcon rod", chance = 350, maxCount = 1},
+	{id = "falcon wand", chance = 350, maxCount = 1},
+	{id = "falcon shield", chance = 200, maxCount = 1},
+	{id = "falcon greaves", chance = 200, maxCount = 1},
+	{id = "falcon plate", chance = 200, maxCount = 1},
 }
 
 monster.attacks = {

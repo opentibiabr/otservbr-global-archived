@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Hero Cave (Edron), Magician Tower, Dark Cathedral and Yalahar Academy of Magic in \z
 		Magician Quarter and a single one on The Witches' Cliff (only accessible during a quest)."
-		}
+	}
 
 monster.health = 325
 monster.maxHealth = 325

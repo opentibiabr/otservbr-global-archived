@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Lower Roshamuul, Guzzlemaw Valley, the entrance to Upper Roshamuul."
-		}
+	}
 
 monster.health = 4100
 monster.maxHealth = 4100

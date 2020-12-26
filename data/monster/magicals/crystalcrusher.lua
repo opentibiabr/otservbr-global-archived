@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Crystal Grounds, Mushroom Farms, Middle Spike."
-		}
+	}
 
 monster.health = 570
 monster.maxHealth = 570

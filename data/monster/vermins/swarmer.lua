@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "The Hive, Hive Outpost."
-		}
+	}
 
 monster.health = 460
 monster.maxHealth = 460

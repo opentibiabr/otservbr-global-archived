@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Edron Troll-Goblin Peninsula, Ab'dendriel Shadow Caves, Thais South-East Troll Caves, \z
 		Dusalk's Troll Clan Cave, Island of Destiny in Paladin's guild."
-		}
+	}
 
 monster.health = 75
 monster.maxHealth = 75

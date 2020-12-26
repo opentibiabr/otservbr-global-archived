@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Edron Earth Elemental Cave (17 of them on the first floor), Vandura Mountain, \z
 		Deeper Banuta, Vengoth Castle, Robson Isle, Drillworm Caves, Crystal Grounds, Middle Spike."
-		}
+	}
 
 monster.health = 650
 monster.maxHealth = 650

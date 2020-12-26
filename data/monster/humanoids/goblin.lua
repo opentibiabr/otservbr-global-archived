@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Femor Hills, north east of Carlin, Edron Goblin Cave, Rookgaard (Premium Area), \z
 		Maze of Lost Souls and Fenrock."
-		}
+	}
 
 monster.health = 50
 monster.maxHealth = 50

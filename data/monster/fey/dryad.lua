@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 3,
 	Locations = "Dryads appear in forest areas of Edron, Port Hope, Carlin and Cormaya during raids in June. \z
 		There are 5 total waves, the initial one with the raid message and the rest every 15 minutes during next hour."
-		}
+	}
 
 monster.health = 310
 monster.maxHealth = 310

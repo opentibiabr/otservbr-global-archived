@@ -26,7 +26,7 @@ monster.Bestiary = {
 	Locations = "Ancient Temple in Thais, Orc Fort, below Point of No Return in Outlaw Camp and inside a \z
 		mountain north of it, Orc Peninsula, Folda, Edron Orc cave, Maze of Lost Souls, Elvenbane Castle, \z
 		Foreigner Quarter, Zao Orc Land."
-		}
+	}
 
 monster.health = 125
 monster.maxHealth = 125

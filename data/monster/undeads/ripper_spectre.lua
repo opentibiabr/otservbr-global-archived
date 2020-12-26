@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Haunted Cellar, Buried Cathedral."
-		}
+	}
 
 monster.health = 3800
 monster.maxHealth = 3800

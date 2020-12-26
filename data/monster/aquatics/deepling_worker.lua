@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Fiehonja, Coral mine."
-		}
+	}
 
 monster.health = 190
 monster.maxHealth = 190

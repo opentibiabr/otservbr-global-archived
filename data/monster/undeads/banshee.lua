@@ -27,7 +27,7 @@ monster.Bestiary = {
 		Banshee Quest area in Ghostlands (also accesible by Isle of the Kings), Demon Quest Room, Drefia, \z
 		Ancient Ruins Tomb, Desert Dungeon (unreachable), Pits of Inferno in Tafariel's Throne room, \z
 		Cemetery Quarter in Yalahar, Vengoth Castle, one in Robson Isle."
-		}
+	}
 
 monster.health = 1000
 monster.maxHealth = 1000

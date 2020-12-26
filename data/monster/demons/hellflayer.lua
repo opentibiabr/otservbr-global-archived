@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "The Dungeons of The Ruthless Seven."
-		}
+	}
 
 monster.health = 14000
 monster.maxHealth = 14000

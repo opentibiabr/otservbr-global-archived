@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Alchemist Quarter, Deeper Banuta."
-		}
+	}
 
 monster.health = 250
 monster.maxHealth = 250

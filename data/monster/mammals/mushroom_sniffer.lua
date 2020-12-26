@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 0,
 	Occurrence = 0,
 	Locations = "Truffels Garden."
-		}
+	}
 
 monster.health = 250
 monster.maxHealth = 250

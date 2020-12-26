@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Fiehonja, Sunken Mines near Dwarf Mines."
-		}
+	}
 
 monster.health = 240
 monster.maxHealth = 240

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "A lot of places on the Ice Islands and one on Rookgaard (unreachable)."
-		}
+	}
 
 monster.health = 15
 monster.maxHealth = 15

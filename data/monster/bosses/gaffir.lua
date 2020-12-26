@@ -82,7 +82,7 @@ monster.loot = {
 	{id = "blue gem", chance = 21000},
 	{id = "cobra crest", chance = 12560},
 	{id = "violet crystal shard", chance = 14800},
-	{id = "giant shimmering pearl", chance = 14520},
+	{id = 7632, chance = 14520}, -- giant shimmering pearl
 	{id = "gold ingot", chance = 14500},
 	{id = "spellbook of warding", chance = 6500},
 	{id = "ring of healing", chance = 5400},

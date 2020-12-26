@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Okolnir, Factory Quarter (Yalahar), Dragonblaze Peaks, Ice Witch Temple, \z
 		Frost Dragon Tunnel, Chyllfroest."
-		}
+	}
 
 monster.health = 800
 monster.maxHealth = 800

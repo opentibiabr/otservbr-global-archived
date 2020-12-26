@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Magician Quarter, cave in Beregar, Farmine Mines."
-		}
+	}
 
 monster.health = 240
 monster.maxHealth = 240

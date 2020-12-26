@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Zao Palace, Razzachai, and Zzaion."
-		}
+	}
 
 monster.health = 5000
 monster.maxHealth = 5000

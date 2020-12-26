@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "The Secret Library. There are also two incarcerated in the Issavi prison, \z
 		reachable from the city Library."
-		}
+	}
 
 monster.health = 6500
 monster.maxHealth = 6500

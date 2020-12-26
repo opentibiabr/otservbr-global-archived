@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "South-west of Ulderek's Rock and in the Rorc version of the Forsaken Mine."
-		}
+	}
 
 monster.health = 260
 monster.maxHealth = 260

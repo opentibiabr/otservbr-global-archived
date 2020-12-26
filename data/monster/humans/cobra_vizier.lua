@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Cobra Bastion."
-		}
+	}
 
 monster.health = 8500
 monster.maxHealth = 8500
@@ -85,7 +85,7 @@ monster.loot = {
 	{id = "terra hood", chance = 13710},
 	{id = "cyan crystal fragment", chance = 10805},
 	{id = "terra boots", chance = 9680},
-	{id = "giant shimmering pearl", chance = 8870},
+	{id = 7632, chance = 8870}, -- giant shimmering pearl
 	{id = "red gem", chance = 6450},
 	{id = "emerald bangle", chance = 5650},
 	{id = "gemmed figurine", chance = 4840},

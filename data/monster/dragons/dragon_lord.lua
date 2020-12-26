@@ -30,7 +30,7 @@ monster.Bestiary = {
 		Thais Dragon Lair, Goroma Dragon Lairs, Hot Spot, Venore Dragon Lair, Arena and Zoo Quarter (Yalahar), \z
 		beneath Fenrock, Darashia Dragon Lair, Razzachai, Dragonblaze Peaks, Ferumbras Citadel, \z
 		Fury Dungeon, Lower Spike, Krailos Steppe."
-		}
+	}
 
 monster.health = 1900
 monster.maxHealth = 1900

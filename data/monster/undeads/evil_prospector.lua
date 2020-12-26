@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Barren Drift."
-		}
+	}
 
 monster.health = 8500
 monster.maxHealth = 8500

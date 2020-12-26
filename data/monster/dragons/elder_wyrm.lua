@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Drefia Wyrm Lair, Vandura Wyrm Cave, Glooth Factory (west)."
-		}
+	}
 
 monster.health = 2700
 monster.maxHealth = 2700

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "Femor Hills, cultist cave in Liberty Bay, Drefia."
-		}
+	}
 
 monster.health = 20
 monster.maxHealth = 20

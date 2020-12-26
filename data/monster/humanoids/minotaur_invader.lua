@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Second floor Glooth Underground Factory, east side during the Minotaurs raid."
-		}
+	}
 
 monster.health = 1850
 monster.maxHealth = 1850

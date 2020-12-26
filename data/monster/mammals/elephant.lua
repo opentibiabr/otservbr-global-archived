@@ -25,7 +25,7 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "East of Port Hope close to Grizzly Adams, deep in the jungle, \z
 		Arena and Zoo Quarter, Mammoth Shearing Factory."
-		}
+	}
 
 monster.health = 320
 monster.maxHealth = 320

@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Orc Fort, Orc Peninsula, near Dark Cathedral, Zao Orc Land."
-		}
+	}
 
 monster.health = 180
 monster.maxHealth = 180

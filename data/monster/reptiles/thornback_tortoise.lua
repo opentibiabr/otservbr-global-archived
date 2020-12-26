@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Laguna Islands and one on Nargor."
-		}
+	}
 
 monster.health = 300
 monster.maxHealth = 300
