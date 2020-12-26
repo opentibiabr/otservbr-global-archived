@@ -242,7 +242,7 @@ function isSkillGrowthLimited(player, skillId)
 end
 
 DawnportCharacterLimits = {
-	level = 8,
+	level = 20,
 	skills = {
 		none = {},
 		sorcerer = {
