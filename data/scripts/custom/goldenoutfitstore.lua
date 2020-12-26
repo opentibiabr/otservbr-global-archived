@@ -20,8 +20,9 @@ function goldenOutfitStore.onLogin(player)
         else
             player:say("Please make sure you have free slots in your store inbox.", cid)
         end
+		elseif outfit == false then
         return true
-    end
-end
+		end
+	end
 
 goldenOutfitStore:register()
