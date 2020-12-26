@@ -64,7 +64,8 @@ LevelDoorAction = {
 	[1100] = {
 		itemId = false,
 		itemPos = {
-			{x = 33211, y = 31638, z = 13}
+			{x = 33211, y = 31638, z = 13},
+			{x = 33214, y = 31671, z = 13}
 		}
 	}
 }
