@@ -150,10 +150,12 @@ bool Npc::loadFromXml()
 	pugi::xml_attribute coin;
 	if ((coin = npcNode.attribute("currency"))) {
         const ItemType& it = Item::items[pugi::cast<uint16_t>(coin.value())];
-        currency = it.clientId;
+		currencyServerId = it.id;
+        currencyClientId = it.clientId;
 	} else {
         const ItemType& it = Item::items[ITEM_GOLD_COIN];
-        currency = it.clientId;
+		currencyServerId = it.id;
+        currencyClientId = it.clientId;
 	}
 
 	pugi::xml_attribute attr;

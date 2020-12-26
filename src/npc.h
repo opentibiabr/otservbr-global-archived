@@ -158,7 +158,11 @@ class Npc final : public Creature
 		}
 
 		uint16_t getCurrencyTrading() const {
-			return currency;
+			return currencyClientId;
+		}
+		
+		uint16_t getCurrency() const {
+			return currencyServerId;
 		}
 
 		void doSay(const std::string& text);
@@ -245,7 +249,8 @@ class Npc final : public Creature
 
 		uint8_t speechBubble;
 
-		uint16_t currency;
+		uint16_t currencyServerId;
+		uint16_t currencyClientId;
 
 		bool floorChange;
 		bool attackable;
