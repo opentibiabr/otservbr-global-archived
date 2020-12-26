@@ -866,7 +866,7 @@ bool Map::getPathMatching(const Position& start, std::forward_list<Direction>& d
 			}
 			else {
 				tile = getTile(pos.x, pos.y, pos.z);
-				if (tile->hasFlag(TILESTATE_BLOCKSOLID)) {
+				if (!tile || tile->hasFlag(TILESTATE_BLOCKSOLID)) {
 					continue;
 				}
 			}
