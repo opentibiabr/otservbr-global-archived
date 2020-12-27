@@ -68,9 +68,9 @@ local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
 		
 			player:addItem(items[item].id, amount)
 			return player:sendTextMessage(MESSAGE_INFO_DESCR,
-						"Bought "..amount.."x "..items[item].name.." for "..items[item].buy * amount.." silver tokens.")
+						"Bought "..amount.."x "..items[item].name.." for "..items[item].buy * amount..ItemType(Npc():getCurrency()):getPluralName():lower()..".")
 		else
-			return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough silver tokens.")
+			return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough "..ItemType(Npc():getCurrency()):getPluralName():lower()..".")
 		end
 	end
 
