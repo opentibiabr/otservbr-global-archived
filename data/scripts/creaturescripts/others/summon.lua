@@ -26,7 +26,7 @@ function summonLogin.onLogin(player)
 		summonMonster:reload()
 		local deltaSpeed = math.max(player:getBaseSpeed() - summonMonster:getBaseSpeed(), 0)
 		summonMonster:changeSpeed(deltaSpeed)
-		player:setStorageValue(storage, os.time() + petTimeLeft)
+		player:setStorageValue(summonStorage, os.time() + petTimeLeft)
 		summonMonster:registerEvent("SummonDeath")
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	end
