@@ -40,19 +40,13 @@ local shop= {
 	{id=25188, buy=100, sell=0, name='thundersoul tabard'},
 }
 
-local items = {
-	['Charge'] = {
-		['pendulet'] = {noChargeID = 34067, ChargeID = 34983},
-		['sleep shawl'] = {noChargeID = 34066, ChargeID = 34981},
-		['blister ring'] = {noChargeID = 36392, ChargeID = 36456},
-		['theurgic amulet'] = {noChargeID = 35236, ChargeID = 35238},
-		['ring of souls'] = {noChargeID = 37456, ChargeID = 37471}
-	}
+local chargeItem = {
+	['pendulet'] = {noChargeID = 34067, ChargeID = 34983},
+	['sleep shawl'] = {noChargeID = 34066, ChargeID = 34981},
+	['blister ring'] = {noChargeID = 36392, ChargeID = 36456},
+	['theurgic amulet'] = {noChargeID = 35236, ChargeID = 35238},
+	['ring of souls'] = {noChargeID = 37456, ChargeID = 37471}
 }
-
-local function greetCallback(cid)
-    return true
-end
 
 local function setNewTradeTable(table)
 	local items, item = {}
@@ -70,12 +64,13 @@ local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
 		return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough cap.")
 	end
 	if items[item].buy then
-		if player:removeItem(currency, amount * items[item].buy) then
+		if player:removeItem(Npc():getCurrency(), amount * items[item].buy) then
+		
 			player:addItem(items[item].id, amount)
 			return player:sendTextMessage(MESSAGE_INFO_DESCR,
-						"Bought "..amount.."x "..items[item].name.." for "..items[item].buy * amount.." gold tokens.")
+						"Bought "..amount.."x "..items[item].name.." for "..items[item].buy * amount.." silver tokens.")
 		else
-			return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough gold tokens.")
+			return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough silver tokens.")
 		end
 	end
 
@@ -84,6 +79,10 @@ end
 
 local function onSell(cid, item, subType, amount, ignoreCap, inBackpacks)
 	return true
+end
+
+local function greetCallback(cid)
+    return true
 end
 
 local voices = {
@@ -119,13 +118,13 @@ function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 1
 	elseif isInArray({'pendulet', 'sleep shawl', 'blister ring', 'theurgic amulet'}, msg:lower()) and npcHandler.topic[cid] == 1 then
 		local charge = msg:lower()
-		if not charge[charge] then
+		if not chargeItem[charge] then
 			return false
 		else
-			if (player:getItemCount(25172) >= 2) and (player:getItemCount(charge[charge].noChargeID) >= 1) then
+			if (player:getItemCount(25172) >= 2) and (player:getItemCount(chargeItem[charge].noChargeID) >= 1) then
 				player:removeItem(25172, 2)
-				player:removeItem(charge[charge].noChargeID, 1)
-				local itemAdd = player:addItem(charge[charge].ChargeID, 1)
+				player:removeItem(chargeItem[charge].noChargeID, 1)
+				local itemAdd = player:addItem(chargeItem[charge].ChargeID, 1)
 				npcHandler:say("Ah, excellent. Here is your " .. itemAdd:getName():lower() .. ".", cid)
 			else
 				npcHandler:say("Sorry, friend, but one good turn deserves another. Bring enough tokens and it's a deal.", cid)
