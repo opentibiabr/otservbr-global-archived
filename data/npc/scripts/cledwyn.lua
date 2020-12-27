@@ -16,7 +16,44 @@ function onThink()
 	npcHandler:onThink()
 end
 
-shop = {
+local function setNewTradeTable(table)
+	local items, item = {}
+	for i = 1, #table do
+		item = table[i]
+		items[item.id] = {id = item.id, buy = item.buy, sell = item.sell, subType = 0, name = item.name}
+	end
+	return items
+end
+
+local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
+	local player = Player(cid)
+	local itemsTable = setNewTradeTable(shop)
+	if not ignoreCap and player:getFreeCapacity() < ItemType(itemsTable[item].id):getWeight(amount) then
+		return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough cap.")
+	end
+	if itemsTable[item].buy then
+		if player:removeItem(Npc():getCurrency(), amount * itemsTable[item].buy) then
+			if amount > 1 then
+				currencyName = ItemType(Npc():getCurrency()):getPluralName():lower()
+			else
+				currencyName = ItemType(Npc():getCurrency()):getName():lower()
+			end
+			player:addItem(itemsTable[item].id, amount)
+			return player:sendTextMessage(MESSAGE_INFO_DESCR,
+						"Bought "..amount.."x "..itemsTable[item].name.." for "..itemsTable[item].buy * amount.." "..currencyName..".")
+		else
+			return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough "..currencyName..".")
+		end
+	end
+
+	return true
+end
+
+local function onSell(cid, item, subType, amount, ignoreCap, inBackpacks)
+	return true
+end
+
+local shop = {
 	{id=25177, buy=100, sell=0, name='earthheart cuirass'},
 	{id=25178, buy=100, sell=0, name='earthheart hauberk'},
 	{id=25179, buy=100, sell=0, name='club of destruction'},

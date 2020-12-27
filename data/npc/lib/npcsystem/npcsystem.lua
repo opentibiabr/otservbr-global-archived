@@ -19,7 +19,6 @@ if NpcSystem == nil then
 	dofile('data/npc/lib/npcsystem/keywordhandler.lua')
 	dofile('data/npc/lib/npcsystem/npchandler.lua')
 	dofile('data/npc/lib/npcsystem/modules.lua')
-	dofile('data/npc/lib/npcsystem/functions.lua')
 
 	-- Global npc constants:
 
