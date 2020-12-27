@@ -160,7 +160,7 @@ class Npc final : public Creature
 		uint16_t getCurrencyTrading() const {
 			return currencyClientId;
 		}
-		
+
 		uint16_t getCurrency() const {
 			return currencyServerId;
 		}
