@@ -49745,7 +49745,7 @@
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="37742" article="a" name="Guzzlemaw Grub">
-		<attribute key="decayTo" value="37645" />
+		<attribute key="decayTo" value="37745" />
 		<attribute key="duration" value="2" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
