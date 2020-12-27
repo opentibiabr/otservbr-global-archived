@@ -15,11 +15,14 @@ function poison.onStepOut(creature, item, position, fromPosition)
 		return true
 	end
 
-	for i = 1, #positions do
-		local tile = Tile(positions[i])
-		if tile and tile:getPosition() and not tile:getItemById(1490) then
-			Game.createItem(1490, 1, positions[i])
-			player:addHealth(-200, COMBAT_POISONDAMAGE)
+	removeHealth = Tile({x = 32497, y = 31889, z = 7}):getFieldItem()
+	if not removeHealth then
+		player:addHealth(-200, COMBAT_POISONDAMAGE)
+		for i = 1, #positions do
+			local tile = Tile(positions[i]):getFieldItem()
+			if not tile then
+				Game.createItem(1490, 1, Position(positions[i]))
+			end
 		end
 	end
 	return true
