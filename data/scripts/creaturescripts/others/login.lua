@@ -218,7 +218,7 @@ function playerLogin.onLogin(player)
 
 	local staminaMinutes = player:getStamina()
 	local doubleExp = false --Can change to true if you have double exp on the server
-	local staminaBonus = (staminaMinutes > 2400) and 150 or ((staminaMinutes < 840) and 50 or 100)
+	local staminaBonus = (staminaMinutes > 2340) and 150 or ((staminaMinutes < 840) and 50 or 100)
 	if doubleExp then
 		baseExp = baseExp * 2
 	end
