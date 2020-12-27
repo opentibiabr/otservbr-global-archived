@@ -12345,7 +12345,8 @@ int LuaScriptInterface::luaNpcSetMasterPos(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaNpcGetCurrency(lua_State* L) {
+int LuaScriptInterface::luaNpcGetCurrency(lua_State* L)
+{
 	// npc:getCurrency()
 	Npc* npc = getUserdata<Npc>(L, 1);
 	if (npc) {
