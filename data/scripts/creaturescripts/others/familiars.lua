@@ -5,6 +5,14 @@ local familiar = {
 	[VOCATION.CLIENT_ID.KNIGHT] = {id = 991, name = "Knight familiar"}
 }
 
+function removePet(creatureId)
+    local creature = Creature(creatureId)
+    if not creature then
+        return true
+    end
+    creature:remove()
+end
+
 local familiarStorage = Storage.PetSummon
 
 local familiarLogin = CreatureEvent("FamiliarLogin")
@@ -41,6 +49,7 @@ function familiarLogin.onLogin(player)
 		player:setStorageValue(familiarStorage, os.time() + petTimeLeft)
 		familiar:registerEvent("FamiliarDeath")
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
+		addEvent(removePet, petTimeLeft*1000, familiar:getId())
 	end
 	
 	return true
@@ -64,22 +73,6 @@ function advanceFamiliar.onAdvance(player, skill, oldLevel, newLevel)
 end
 
 advanceFamiliar:register()
-
-local familiarThink = CreatureEvent("FamiliarThink")
-
-function familiarThink.onThink(creature, interval, item, position, lastPosition, fromPosition, toPosition)
-	local player = creature:getMaster()
-	if not player then
-		return true
-	end
-
-	if player and player:getStorageValue(familiarStorage) <= os.time() and player:getStorageValue(familiarStorage) > 0 then
-		doRemoveCreature(getCreatureSummons(player)[1])
-		player:setStorageValue(familiarStorage,0)
-	end
-	return true
-end
-familiarThink:register()
 
 local familiarDeath = CreatureEvent("FamiliarDeath")
 

@@ -13,7 +13,6 @@ function loginEvents.onLogin(player)
 		"PreyLootBonusKill",
 		"RookgaardAdvance",
 		"FamiliarLogin",
-		"FamiliarThink",
 		"AdvanceFamiliar",
 		--Quests
 		--Adventurers Guild Quest
