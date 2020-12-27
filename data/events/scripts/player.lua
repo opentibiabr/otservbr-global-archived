@@ -161,7 +161,8 @@ function Player:onLook(thing, position, distance)
 		description = description .. thing:getDescription(distance)
 		if thing:isMonster() then
 			local master = thing:getMaster()
-			if master and table.contains({'thundergiant','grovebeast','emberwing','skullfrost'}, thing:getName():lower()) then
+			if master and table.contains({'sorcerer familiar','knight familiar','druid familiar','paladin familiar'},
+																						thing:getName():lower()) then
 				description = description..' (Master: ' .. master:getName() .. '). \z
 				It will disappear in ' .. getTimeinWords(master:getStorageValue(Storage.PetSummon) - os.time())
 			end
