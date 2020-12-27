@@ -5278,13 +5278,13 @@ bool Game::combatBlockHit(CombatDamage& damage, Creature* attacker, Creature* ta
 				if (!canReflect) {
 					damageReflected.primary.type = damage.secondary.type;
 					damageReflected.primary.value = std::ceil((damage.secondary.value) * (secondaryReflect / 100.));
+					damageReflected.extension = true;
+					damageReflected.exString = "(damage reflection)";
+					canReflect = true;
 				} else {
 					damageReflected.secondary.type = damage.secondary.type;
 					damageReflected.secondary.value = std::ceil((damage.secondary.value) * (secondaryReflect / 100.));
 				}
-				damageReflected.extension = true;
-				damageReflected.exString = "(damage reflection)";
-				canReflect = true;
 			}
 		}
 		damage.secondary.value = -damage.secondary.value;
