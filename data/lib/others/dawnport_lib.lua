@@ -265,11 +265,6 @@ function dawnportSetStats(player)
 	end
 end
 
-function dawnportSetSkills(player, fromVocationId, toVocationId)
-	print("dawnportSetSkills" .. " fromVocationId:" .. fromVocationId .. " toVocationId:" .. toVocationId)
-	--addSkillAdvance(skill, count)
-end
-
 -- Set rookgaard health/mana/capacity (after talk with Inigo npc)
 function rookgaardSetStats(player)
 	local vocation = player:getVocation()
