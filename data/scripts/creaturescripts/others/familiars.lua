@@ -39,7 +39,7 @@ function familiarLogin.onLogin(player)
 		local deltaSpeed = math.max(player:getBaseSpeed() - familiar:getBaseSpeed(), 0)
 		familiar:changeSpeed(deltaSpeed)
 		player:setStorageValue(familiarStorage, os.time() + petTimeLeft)
-		familiar:registerEvent("familiarDeath")
+		familiar:registerEvent("FamiliarDeath")
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	end
 	
