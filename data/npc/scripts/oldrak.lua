@@ -19,17 +19,19 @@ local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
 shopModule:addBuyableItem({"holy Tible"}, 1970, 1000, 1)
 
-keywordHandler:addKeyword({"job"}, StdModule.say, {npcHandler = npcHandler, text = "I guard this humble temple as a monument for the order of the nightmare knights."})
+keywordHandler:addKeyword({"job"}, StdModule.say, {npcHandler = npcHandler, text = "I guard this humble temple as a monument for the order of the {nightmare knights}."})
+keywordHandler:addAliasKeyword({"visitors"})
+
 keywordHandler:addKeyword({"name"}, StdModule.say, {npcHandler = npcHandler, text = "My name is Oldrak."})
 keywordHandler:addKeyword({"monster"}, StdModule.say, {npcHandler = npcHandler, text = "These plains are not safe for ordinary travellers. It will take heroes to survive here."})
 keywordHandler:addKeyword({"help"}, StdModule.say, {npcHandler = npcHandler, text = "I can't help you, sorry!"})
 keywordHandler:addKeyword({"goshnar"}, StdModule.say, {npcHandler = npcHandler, text = "The greatest necromant who ever cursed our land with the steps of his feet. He was defeated by the nightmare knights."})
-keywordHandler:addKeyword({"nightmare"}, StdModule.say, {npcHandler = npcHandler, text = "This ancient order was created by a circle of wise humans who were called 'the dreamers'. The order became extinct a long time ago."})
+keywordHandler:addKeyword({"nightmare"}, StdModule.say, {npcHandler = npcHandler, text = "This ancient order was created by a circle of wise humans who were called 'The {Dreamers}'. The order became {extinct} a long time ago."})
 keywordHandler:addKeyword({"extinct"}, StdModule.say, {npcHandler = npcHandler, text = "Many perished in their battles against evil, some went mad, not able to stand their nightmares any longer. Others were seduced by the darkness."})
-keywordHandler:addKeyword({"dreamers"}, StdModule.say, {npcHandler = npcHandler, text = "They learned the ancient art of dreamwalking from some elves they befriended."})
-keywordHandler:addKeyword({"dreamwalking"}, StdModule.say, {npcHandler = npcHandler, text = "While the dreamwalkers of the elves experienenced the brightest dreams of pleasure, the humans strangely had dreams of dark omen."})
-keywordHandler:addKeyword({"omen"}, StdModule.say, {npcHandler = npcHandler, text = "They dreamed of doom, destruction, talked to dead, tormented souls, and gained unwanted insight into the schemes of darkness."})
-keywordHandler:addKeyword({"schemes"}, StdModule.say, {npcHandler = npcHandler, text = "They figured out how to interpret their dark dreams and so could foresee the plans of the dark gods and their minions."})
+keywordHandler:addKeyword({"dreamers"}, StdModule.say, {npcHandler = npcHandler, text = "They learned the ancient art of {dreamwalking} from some elves they befriended."})
+keywordHandler:addKeyword({"dreamwalking"}, StdModule.say, {npcHandler = npcHandler, text = "While the dreamwalkers of the elves experienenced the brightest dreams of pleasure, the humans strangely had dreams of {dark omen}."})
+keywordHandler:addKeyword({"omen"}, StdModule.say, {npcHandler = npcHandler, text = "They dreamed of doom, destruction, talked to dead, tormented souls, and gained unwanted insight into the {schemes of darkness}."})
+keywordHandler:addKeyword({"schemes of darkness"}, StdModule.say, {npcHandler = npcHandler, text = "They figured out how to interpret their dark dreams and so could foresee the plans of the dark gods and their minions."})
 keywordHandler:addKeyword({"plan"}, StdModule.say, {npcHandler = npcHandler, text = "Using this knowledge they formed an order to thwart these plans, and because they battled their nightmares as brave as knights, they named their order accordingly."})
 keywordHandler:addKeyword({"necromant"}, StdModule.say, {npcHandler = npcHandler, text = "It is rumoured to open the entrance to the pits of inferno, also called the nightmare pits. Even if I knew about this secret I wouldn't tell you."})
 keywordHandler:addKeyword({"havok"}, StdModule.say, {npcHandler = npcHandler, text = "Before the battles raged across them, they were called the fair plains."})
@@ -113,23 +115,25 @@ local function creatureSayCallback(cid, type, msg)
 
 	-- The paradox tower quest
 	if msgcontains(msg, "hugo") then
-		if player:getStorageValue(Storage.Quest.TheParadoxTower.QuestLine) < 1 then
-			npcHandler:say("Ah, the curse of the Plains of Havoc, the hidden beast, the unbeatable foe. I've been living here for years and I'm sure this is only a myth.", cid)
-			npcHandler.topic[cid] = 1
+		npcHandler:say("Ah, the curse of the Plains of Havoc, the hidden beast, the unbeatable foe. I've been living here for years and I'm sure this is only a myth.", cid)
+		npcHandler.topic[cid] = 0
+	elseif msgcontains(msg, "myth") then
+		if player:getStorageValue(Storage.Quest.TheParadoxTower.TheFearedHugo) < 1 then
+			-- Questlog: The Paradox Tower
+			player:setStorageValue(Storage.Quest.TheParadoxTower.QuestLine, 1)
+			-- Questlog: The Feared Hugo (Zoltan)
+			player:setStorageValue(Storage.Quest.TheParadoxTower.TheFearedHugo, 1)
 		end
-	elseif msgcontains(msg, "myth") and npcHandler.topic[cid] == 1 then
 		npcHandler:say("There are many tales about the fearsome Hugo. It's said it's an abnormality, accidentally created by Yenny the Gentle. It's half demon, half something else and people say it's still alive after all these years.", cid)
-		player:setStorageValue(Storage.Quest.TheParadoxTower.QuestLine, 1)
-		player:setStorageValue(Storage.Quest.TheParadoxTower.Mission01, 1)
-		npcHandler.topic[cid] = 2
-	elseif msgcontains(msg, "yenny the gentle") and npcHandler.topic[cid] == 2 then
+		npcHandler.topic[cid] = 0
+	elseif msgcontains(msg, "yenny the gentle") then
 		npcHandler:say("Yenny, known as the Gentle, was one of the most powerful wielders of magic in ancient times. She was known throughout the world for her mercy and kindness.", cid)
 		npcHandler.topic[cid] = 0
 	end
 	return true
 end
 
-npcHandler:setMessage(MESSAGE_GREET, "Welcome |PLAYERNAME|! Only rarely I can welcome visitors these days.")
+npcHandler:setMessage(MESSAGE_GREET, "Welcome |PLAYERNAME|! Only rarely I can welcome {visitors} these days.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Take care, it's dangerous out there.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good Bye, |PLAYERNAME|")
 

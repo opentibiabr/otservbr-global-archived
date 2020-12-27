@@ -314,6 +314,10 @@ TileUnique = {
 		itemId = 426,
 		itemPos = {x = 32225, y = 32268, z = 9}
 	},
+	[25011] = {
+		itemId = 9024,
+		itemPos = {x = 32497, y = 31889, z = 7}
+	},
 
 	-- Remove/create item on stepIn
 	-- Reserved uniques range from 29001/30000

@@ -24,6 +24,8 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
+
+	-- Citizen outfit addon
 	local addonProgress = player:getStorageValue(Storage.OutfitQuest.Citizen.AddonBackpack)
 	if msgcontains(msg, 'addon') or msgcontains(msg, 'outfit')
 			or (addonProgress == 1 and msgcontains(msg, 'leather'))
@@ -52,13 +54,11 @@ local function creatureSayCallback(cid, type, msg)
 		end
 		return true
 	end
-
 	if npcHandler.topic[cid] == 1 then
 		if msgcontains(msg, 'backpack') or msgcontains(msg, 'minotaur') or msgcontains(msg, 'leather') then
 			npcHandler:say('Well, if you really like this backpack, I could make one for you, but minotaur leather is hard to come by these days. Are you willing to put some work into this?', cid)
 			npcHandler.topic[cid] = 2
 		end
-
 	elseif npcHandler.topic[cid] == 2 then
 		if msgcontains(msg, 'yes') then
 			player:setStorageValue(Storage.OutfitQuest.Ref, math.max(0, player:getStorageValue(Storage.OutfitQuest.Ref)) + 1)
@@ -70,7 +70,6 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('Sorry, but I don\'t run a welfare office, you know... no pain, no gain.', cid)
 		end
 		npcHandler.topic[cid] = 0
-
 	elseif npcHandler.topic[cid] == 3 then
 		if msgcontains(msg, 'yes') then
 			if player:getItemCount(5878) < 100 then
@@ -89,6 +88,26 @@ local function creatureSayCallback(cid, type, msg)
 		end
 		npcHandler.topic[cid] = 0
 	end
+
+	-- The paradox tower quest
+	if msgcontains(msg, "crunor's cottage") then
+		npcHandler:say("Ah yes, I remember my grandfather talking about that name. This house used to be an inn a long time ago. My family bought it from some of these flower guys.", cid)
+		npcHandler.topic[cid] = 0
+	elseif msgcontains(msg, "flower guys") then
+		npcHandler:say("Oh, I mean druids of course. They sold the cottage to my family after some of them died in an accident or something like that.", cid)
+		npcHandler.topic[cid] = 0
+	elseif msgcontains(msg, "accident") then
+		npcHandler:say("As far as I can remember the story, a pet escaped its stable behind the inn. It got somehow involved with powerful magic at a ritual and was transformed in some way.", cid)
+		npcHandler.topic[cid] = 0
+	elseif msgcontains(msg, "stable") then
+		if player:getStorageValue(Storage.Quest.TheParadoxTower.TheFearedHugo) == 3 then
+			-- Questlog: The Feared Hugo (Completed)
+			player:setStorageValue(Storage.Quest.TheParadoxTower.TheFearedHugo, 4)
+		end
+		npcHandler:say("My grandpa told me, in the old days there were some behind this cottage. Nothing big though, just small ones, for chicken or rabbits.", cid)
+		npcHandler.topic[cid] = 0
+	end
+	return true
 end
 
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = 'I am selling equipment for adventurers. If you need anything, let me know.'})

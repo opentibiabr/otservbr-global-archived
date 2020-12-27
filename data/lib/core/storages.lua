@@ -1711,6 +1711,7 @@ Storage = {
 			ID3800 = 3800,
 			ID3801 = 3801,
 			ID3802 = 3802,
+			ID3899 = 3899,
 			ID3940 = 3940,
 			ID3980 = 3980,
 			ID4055 = 4055,
@@ -1907,7 +1908,7 @@ Storage = {
 		},
 		TheParadoxTower = {
 			QuestLine = 10103,
-			Mission01 = 10104,
+			TheFearedHugo = 10104,
 			Mission02 = 10105
 		},
 		ThePostmanMissions = {},

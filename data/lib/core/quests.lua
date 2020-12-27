@@ -79,24 +79,27 @@ if not Quests then
 				[1] = {
 					-- Unconfirmed name
 					name = "The Feared Hugo",
-					storageId = Storage.Quest.TheParadoxTower.Mission01,
+					storageId = Storage.Quest.TheParadoxTower.TheFearedHugo,
 					missionId = 9,
 					startValue = 1,
-					endValue = 2,
+					endValue = 4,
 					states = {
-						[1] = "MISSING STATE",
-						[2] = "MISSING STATE"
+						[1] = "Oldrak told you that the fearsome Hugo was accidentally created by the mage Yenny the Gentle. Try to find out more about this.",
+						[2] = "Zoltan told you about Crunor's Caress, a druid order originating from Carlin. Try to find out more about this.",
+						[3] = "Padreia told you that Crunor's Caress founded the inn Crunor's Cottage south of Mt. Sternum. Try to find out more about this.",
+						[4] = "Lubo told you about a magical experiment that went wrong and created a demonbunny. Someone might be interested in this...",
 					}
 				},
 				[2] = {
-					name = "",
+					name = "Talk with Riddler #1",
 					storageId = Storage.Quest.TheParadoxTower.Mission02,
 					missionId = 9,
 					startValue = 1,
-					endValue = 2,
+					endValue = 3,
 					states = {
-						[1] = "",
-						[2] = ""
+						[1] = "MISSING STATE",
+						[2] = "MISSING STATE",
+						[3] = "MISSING STATE"
 					}
 				}
 			}
