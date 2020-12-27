@@ -16,7 +16,7 @@ function onThink()
 	npcHandler:onThink()
 end
 
-local shop= {
+shop = {
 	{id=25177, buy=100, sell=0, name='earthheart cuirass'},
 	{id=25178, buy=100, sell=0, name='earthheart hauberk'},
 	{id=25179, buy=100, sell=0, name='club of destruction'},
@@ -47,39 +47,6 @@ local chargeItem = {
 	['theurgic amulet'] = {noChargeID = 35236, ChargeID = 35238},
 	['ring of souls'] = {noChargeID = 37456, ChargeID = 37471}
 }
-
-local function setNewTradeTable(table)
-	local items, item = {}
-	for i = 1, #table do
-		item = table[i]
-		items[item.id] = {id = item.id, buy = item.buy, sell = item.sell, subType = 0, name = item.name}
-	end
-	return items
-end
-
-local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
-	local player = Player(cid)
-	local items = setNewTradeTable(shop)
-	if not ignoreCap and player:getFreeCapacity() < ItemType(items[item].id):getWeight(amount) then
-		return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough cap.")
-	end
-	if items[item].buy then
-		if player:removeItem(Npc():getCurrency(), amount * items[item].buy) then
-		
-			player:addItem(items[item].id, amount)
-			return player:sendTextMessage(MESSAGE_INFO_DESCR,
-						"Bought "..amount.."x "..items[item].name.." for "..items[item].buy * amount..ItemType(Npc():getCurrency()):getPluralName():lower()..".")
-		else
-			return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough "..ItemType(Npc():getCurrency()):getPluralName():lower()..".")
-		end
-	end
-
-	return true
-end
-
-local function onSell(cid, item, subType, amount, ignoreCap, inBackpacks)
-	return true
-end
 
 local function greetCallback(cid)
     return true
