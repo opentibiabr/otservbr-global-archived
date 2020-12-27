@@ -82,7 +82,7 @@ function familiarDeath.onDeath(creature, corpse, lasthitkiller, mostdamagekiller
 		return false
 	end
 
-	if table.contains(familiar,creature:getName():lower()) then
+	if table.contains(familiar[player:getVocation():getClientId()],creature:getName()) then
 		player:setStorageValue(familiarStorage, os.time())
 	end
 	return true
