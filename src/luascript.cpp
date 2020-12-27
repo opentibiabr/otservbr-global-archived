@@ -2587,6 +2587,9 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "getSkillTries", LuaScriptInterface::luaPlayerGetSkillTries);
 	registerMethod("Player", "addSkillTries", LuaScriptInterface::luaPlayerAddSkillTries);
 
+  registerMethod("Player", "setMagicLevel", LuaScriptInterface::luaPlayerSetMagicLevel);
+  registerMethod("Player", "setSkillLevel", LuaScriptInterface::luaPlayerSetSkillLevel);
+
 	registerMethod("Player", "addOfflineTrainingTime", LuaScriptInterface::luaPlayerAddOfflineTrainingTime);
 	registerMethod("Player", "getOfflineTrainingTime", LuaScriptInterface::luaPlayerGetOfflineTrainingTime);
 	registerMethod("Player", "removeOfflineTrainingTime", LuaScriptInterface::luaPlayerRemoveOfflineTrainingTime);
@@ -9650,6 +9653,45 @@ int LuaScriptInterface::luaPlayerAddSkillTries(lua_State* L)
 		lua_pushnil(L);
 	}
 	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetMagicLevel(lua_State* L)
+{
+  // player:setMagicLevel(level)
+  Player* player = getUserdata<Player>(L, 1);
+  if (player) {
+    uint16_t level = getNumber<uint16_t>(L, 2);
+    player->magLevel = level;
+    player->manaSpent = 0;
+    player->magLevelPercent = 0;
+    player->sendStats();
+    player->sendSkills();
+    pushBoolean(L, true);
+  }
+  else {
+    lua_pushnil(L);
+  }
+  return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetSkillLevel(lua_State* L)
+{
+  // player:setSkillLevel(skillType, level)
+  Player* player = getUserdata<Player>(L, 1);
+  if (player) {
+    skills_t skillType = getNumber<skills_t>(L, 2);
+    uint16_t level = getNumber<uint16_t>(L, 3);
+    player->skills[skillType].level = level;
+    player->skills[skillType].tries = 0;
+    player->skills[skillType].percent = 0;
+    player->sendStats();
+    player->sendSkills();
+    pushBoolean(L, true);
+  }
+  else {
+    lua_pushnil(L);
+  }
+  return 1;
 }
 
 int LuaScriptInterface::luaPlayerAddOfflineTrainingTime(lua_State* L)

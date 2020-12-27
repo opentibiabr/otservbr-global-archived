@@ -44,6 +44,36 @@ end
 
 -- Set vocation
 function dawnportSetVocation(player, vocation)
+	-- Get current vocation magic level
+	local magic = {level = player:getBaseMagicLevel(), manaSpent = player:getManaSpent()}
+	
+	for level = 1, magic.level do
+		magic.manaSpent = magic.manaSpent + player:getVocation():getRequiredManaSpent(level)
+	end
+	
+	--print(player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " MAGIC" .. " level:" .. magic.level .. " manaSpent:" .. magic.manaSpent)
+
+	local skills = {
+		['fist'] = {id = SKILL_FIST},
+		['club'] = {id = SKILL_CLUB},
+		['sword'] = {id = SKILL_SWORD},
+		['axe'] = {id = SKILL_AXE},
+		['distance'] = {id = SKILL_DISTANCE},
+		['shield'] = {id = SKILL_SHIELD}
+	}
+	
+	-- Get current vocation skills
+	for key, skill in pairs(skills) do
+		skill.level = player:getSkillLevel(skill.id)
+		skill.tries = player:getSkillTries(skill.id)
+		
+		for level = 11, skill.level do
+            skill.tries = skill.tries + player:getVocation():getRequiredSkillTries(skill.id, level)
+        end
+		
+		--print(player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " SKILL:" .. key .. " id:" .. skill.id .. " level:" .. skill.level .. " tries:" .. skill.tries)
+	end
+	
 	-- Set for the dawnport vocation if is level 8 or minor
 	if player:getLevel() <= 7 then
 		player:setVocation(Vocation(vocation.first.id))
@@ -53,6 +83,61 @@ function dawnportSetVocation(player, vocation)
 		-- Set player stats if have level 9 or more (health, mana, capacity)
 		dawnportSetStats(player)
 	end
+	
+	-- Convert magic level from previous vocation
+	local newMagicLevel = 0
+	
+	if magic.manaSpent > 0 then
+		local reqManaSpent = player:getVocation():getRequiredManaSpent(newMagicLevel + 1)
+		
+		while magic.manaSpent >= reqManaSpent do
+		  magic.manaSpent = magic.manaSpent - reqManaSpent
+		  newMagicLevel = newMagicLevel + 1;
+		  
+		  reqManaSpent = player:getVocation():getRequiredManaSpent(newMagicLevel + 1)
+		end
+	end
+	
+	--print(player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " MAGIC" .. " level:" .. newMagicLevel .. " manaSpent:" .. magic.manaSpent)
+	
+	-- Apply magic level
+	if newMagicLevel > 0 then
+		player:setMagicLevel(newMagicLevel)
+	end
+	
+	-- Apply mana spent
+	if magic.manaSpent > 0 then
+		player:addManaSpent(magic.manaSpent)
+	end
+	
+	-- Convert skills from previous vocation
+	for key, skill in pairs(skills) do
+		local newSkillLevel = 10
+		
+		-- Calculate new level
+		if skill.tries > 0 then
+			local reqSkillTries = player:getVocation():getRequiredSkillTries(skill.id, (newSkillLevel + 1))
+			
+			while skill.tries >= reqSkillTries do
+			  skill.tries = skill.tries - reqSkillTries
+			  newSkillLevel = newSkillLevel + 1;
+			  
+			  reqSkillTries = player:getVocation():getRequiredSkillTries(skill.id, (newSkillLevel + 1))
+			end
+		end
+		
+		--print(player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " SKILL:" .. key .. " id:" .. skill.id .. " level:" .. newSkillLevel .. " tries:" .. skill.tries)
+		
+		-- Apply skill level
+		if newSkillLevel > 10 then
+			player:setSkillLevel(skill.id, newSkillLevel)
+		end
+		
+		-- Apply skill tries
+		if skill.tries > 0 then
+			player:addSkillTries(skill.id, skill.tries)
+		end
+    end
 end
 
 -- Remove items (weapons and shield)
@@ -178,6 +263,11 @@ function dawnportSetStats(player)
 			player:setCapacity(skillSetting.capacity)
 		end
 	end
+end
+
+function dawnportSetSkills(player, fromVocationId, toVocationId)
+	print("dawnportSetSkills" .. " fromVocationId:" .. fromVocationId .. " toVocationId:" .. toVocationId)
+	--addSkillAdvance(skill, count)
 end
 
 -- Set rookgaard health/mana/capacity (after talk with Inigo npc)
