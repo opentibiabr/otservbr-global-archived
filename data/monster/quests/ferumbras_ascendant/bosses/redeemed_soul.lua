@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Tainted Caves in the Green Claw Swamp (under the right conditions)."
-		}
+	}
 
 monster.health = 250
 monster.maxHealth = 250
 monster.race = "undead"
 monster.corpse = 24634
 monster.speed = 162
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

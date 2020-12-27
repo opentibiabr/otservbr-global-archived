@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Kazordoon Dwarf Mines, Cyclopolis, Dwacatra, Ferngrims Gate, Dwarf Bridge, \z
 		Mount Sternum Undead Cave, Beregar, Tiquanda Dwarf Cave, Cormaya Dwarf Cave."
-		}
+	}
 
 monster.health = 135
 monster.maxHealth = 135
 monster.race = "blood"
 monster.corpse = 6014
 monster.speed = 176
-monster.summonCost = 360
+monster.manaCost = 360
 monster.maxSummons = 0
 
 monster.changeTarget = {

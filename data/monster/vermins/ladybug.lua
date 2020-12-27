@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 2,
 	Locations = "The Hive surface during the Hive Born World Change's third stage."
-		}
+	}
 
 monster.health = 255
 monster.maxHealth = 255
 monster.race = "venom"
 monster.corpse = 15272
 monster.speed = 104
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

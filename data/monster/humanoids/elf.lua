@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Yalahar Foreigner Quarter and Trade Quarter, Maze of Lost Souls, Orc Fort (unreachable), \z
 		Hellgate, Shadowthorn, Ab'Dendriel elf caves, Elvenbane, north of Thais."
-		}
+	}
 
 monster.health = 100
 monster.maxHealth = 100
 monster.race = "blood"
 monster.corpse = 6003
 monster.speed = 190
-monster.summonCost = 320
+monster.manaCost = 320
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 2,
 	Locations = "East, west and south-west of the Femor Hills."
-		}
+	}
 
 monster.health = 85
 monster.maxHealth = 85
 monster.race = "blood"
 monster.corpse = 5968
 monster.speed = 188
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Steppe of Zao, Lion's Rock, Zao Terramite Caves, Darama Terramite Cave, \z
 		Terramite Breeding Tunnels. Also raids desert north of Ankrahmun."
-		}
+	}
 
 monster.health = 365
 monster.maxHealth = 365
 monster.race = "venom"
 monster.corpse = 11347
 monster.speed = 222
-monster.summonCost = 505
+monster.manaCost = 505
 monster.maxSummons = 0
 
 monster.changeTarget = {

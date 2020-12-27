@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 2,
 	Locations = "Seacrest Grounds."
-		}
+	}
 
 monster.health = 3000
 monster.maxHealth = 3000
 monster.race = "venom"
 monster.corpse = 24262
 monster.speed = 500
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

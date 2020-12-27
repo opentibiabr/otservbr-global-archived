@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Carnivora's Rocks."
-		}
+	}
 
 monster.health = 2600
 monster.maxHealth = 2600
 monster.race = "blood"
 monster.corpse = 34703
 monster.speed = 400
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Caves of the Lost and Lower Spike."
-		}
+	}
 
 monster.health = 3800
 monster.maxHealth = 3800
 monster.race = "blood"
 monster.corpse = 17408
 monster.speed = 270
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

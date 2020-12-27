@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Krimhorn, Bittermor, Ragnir, Arena and Zoo Quarter inside the Arena."
-		}
+	}
 
 monster.health = 305
 monster.maxHealth = 305
 monster.race = "blood"
 monster.corpse = 20335
 monster.speed = 236
-monster.summonCost = 590
+monster.manaCost = 590
 monster.maxSummons = 0
 
 monster.changeTarget = {

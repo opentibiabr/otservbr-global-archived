@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Underground Glooth Factory."
-		}
+	}
 
 monster.health = 2600
 monster.maxHealth = 2600
 monster.race = "blood"
 monster.corpse = 24251
 monster.speed = 300
-monster.summonCost = 450
+monster.manaCost = 450
 monster.maxSummons = 0
 
 monster.changeTarget = {

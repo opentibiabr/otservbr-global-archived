@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 1,
 	Locations = "Fiehonja, Krailos Steppe underwater cave."
-		}
+	}
 
 monster.health = 55
 monster.maxHealth = 55
 monster.race = "undead"
 monster.corpse = 15284
 monster.speed = 168
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

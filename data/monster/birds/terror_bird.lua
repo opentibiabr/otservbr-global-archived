@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Around Port Hope, Arena and Zoo Quarter in Yalahar, few on Zao steppes."
-		}
+	}
 
 monster.health = 300
 monster.maxHealth = 300
 monster.race = "blood"
 monster.corpse = 6057
 monster.speed = 212
-monster.summonCost = 490
+monster.manaCost = 490
 monster.maxSummons = 0
 
 monster.changeTarget = {

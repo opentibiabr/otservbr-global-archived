@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "All over the Roshamuul surface and Nightmare Isles."
-		}
+	}
 
 monster.health = 5400
 monster.maxHealth = 5400
 monster.race = "blood"
 monster.corpse = 22489
 monster.speed = 470
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Caverna Exanima."
-		}
+	}
 
 monster.health = 1500
 monster.maxHealth = 1500
 monster.race = "undead"
 monster.corpse = 6004
 monster.speed = 150
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

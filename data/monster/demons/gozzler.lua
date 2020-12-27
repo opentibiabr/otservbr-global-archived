@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Magician Quarter, cave in Beregar, Farmine Mines."
-		}
+	}
 
 monster.health = 240
 monster.maxHealth = 240
 monster.race = "undead"
 monster.corpse = 9938
 monster.speed = 240
-monster.summonCost = 800
+monster.manaCost = 800
 monster.maxSummons = 0
 
 monster.changeTarget = {

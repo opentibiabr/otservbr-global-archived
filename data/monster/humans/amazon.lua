@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Venore Amazon Camp, Carlin Amazon Camp, Amazon Tower, east of Carlin, underneath the Fields of Glory, \z
 		west of Venore, Oasis Tomb, on the smallest of the Laguna Islands, Foreigner Quarter and Trade Quarter."
-		}
+	}
 
 monster.health = 110
 monster.maxHealth = 110
 monster.race = "blood"
 monster.corpse = 20323
 monster.speed = 172
-monster.summonCost = 390
+monster.manaCost = 390
 monster.maxSummons = 0
 
 monster.changeTarget = {

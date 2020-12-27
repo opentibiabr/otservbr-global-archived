@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Tiquanda Medusa Tower."
-		}
+	}
 
 monster.health = 1200
 monster.maxHealth = 1200
 monster.race = "blood"
 monster.corpse = 24651
 monster.speed = 210
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

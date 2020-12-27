@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "South-east of Venore, Swamp Troll Cave."
-		}
+	}
 
 monster.health = 255
 monster.maxHealth = 255
 monster.race = "venom"
 monster.corpse = 13515
 monster.speed = 104
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

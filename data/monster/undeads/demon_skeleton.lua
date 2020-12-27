@@ -27,14 +27,14 @@ monster.Bestiary = {
 		Fibula Dungeon, Mintwallin, Mount Sternum hidden cave, Drefia, Ghost Ship, Edron Hero Cave, Shadowthorn, \z
 		Elvenbane, Ghostlands, Femor Hills, White Flower Temple, Isle of the Kings, Dark Cathedral, Ankrahmun Tombs, \z
 		Ramoa, Helheim, Vengoth, Upper Spike, Lion's Rock."
-		}
+	}
 
 monster.health = 400
 monster.maxHealth = 400
 monster.race = "undead"
 monster.corpse = 5963
 monster.speed = 180
-monster.summonCost = 620
+monster.manaCost = 620
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Unannounced raid in Edron outside the depot, Tiquanda, Shattered Isles, \z
 		Liberty Bay, south gate of Thais."
-		}
+	}
 
 monster.health = 20
 monster.maxHealth = 20
 monster.race = "blood"
 monster.corpse = 6035
 monster.speed = 120
-monster.summonCost = 200
+monster.manaCost = 200
 monster.maxSummons = 0
 
 monster.changeTarget = {
