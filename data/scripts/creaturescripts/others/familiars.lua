@@ -40,18 +40,17 @@ function familiarLogin.onLogin(player)
 
 	if familiarName then
 		position = player:getPosition()
-		local familiar = Game.createMonster(familiarName, position, true, false)
-		player:addSummon(familiar)
-		familiar:setOutfit({lookType = player:getFamiliarLooktype()})
-		familiar:reload()
-		local deltaSpeed = math.max(player:getBaseSpeed() - familiar:getBaseSpeed(), 0)
-		familiar:changeSpeed(deltaSpeed)
+		local familiarMonster = Game.createMonster(familiarName, position, true, false)
+		player:addSummon(familiarMonster)
+		familiarMonster:setOutfit({lookType = player:getFamiliarLooktype()})
+		familiarMonster:reload()
+		local deltaSpeed = math.max(player:getBaseSpeed() - familiarMonster:getBaseSpeed(), 0)
+		familiarMonster:changeSpeed(deltaSpeed)
 		player:setStorageValue(familiarStorage, os.time() + petTimeLeft)
-		familiar:registerEvent("FamiliarDeath")
+		familiarMonster:registerEvent("FamiliarDeath")
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
-		addEvent(removePet, petTimeLeft*1000, familiar:getId())
+		addEvent(removePet, petTimeLeft*1000, familiarMonster:getId())
 	end
-	
 	return true
 end
 
@@ -76,13 +75,15 @@ advanceFamiliar:register()
 
 local familiarDeath = CreatureEvent("FamiliarDeath")
 
-function familiarDeath.onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
+function familiarDeath.onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified,
+																								mostdamageunjustified)
 	local player = creature:getMaster()
 	if not player then
 		return false
 	end
+	local vocation = familiar[player:getVocation():getClientId()]
 
-	if table.contains(familiar[player:getVocation():getClientId()],creature:getName()) then
+	if table.contains(vocation, creature:getName()) then
 		player:setStorageValue(familiarStorage, os.time())
 	end
 	return true
