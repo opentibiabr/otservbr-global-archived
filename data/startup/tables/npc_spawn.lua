@@ -530,7 +530,7 @@ NpcTable = {
 	[529] = {name = "billy", position = {x = 32050, y = 32206, z = 7}},
 	[530] = {name = "willie", position = {x = 32068, y = 32204, z = 7}},
 	[531] = {name = "obi", position = {x = 32109, y = 32204, z = 7}},
-	[532] = {name = "frodo", position = {x = 32358, y = 32209, z = 7}},
+	[532] = {name = "frodo", position = {x = 32362, y = 32209, z = 7}},
 	[533] = {name = "aruda", position = {x = 32368, y = 32214, z = 7}},
 	[534] = {name = "towncryer", position = {x = 32329, y = 32216, z = 7}},
 	[535] = {name = "cipfried", position = {x = 32097, y = 32218, z = 7}},
@@ -952,5 +952,12 @@ NpcTable = {
 	[951] = {name = "ninos", position = {x = 33904, y = 31498, z = 7}},
 	[952] = {name = "ramina", position = {x = 33903, y = 31495, z = 7}},
 	[953] = {name = "orc_berserker_npc", position = {x = 32777, y = 31237, z = 7}},
-	[954] = {name = "one_eyed_joe", position = {x = 32025, y = 32884, z = 6}}
+	[954] = {name = "one_eyed_joe", position = {x = 32025, y = 32884, z = 6}},
+	[955] = {name = "rashid", position = {x = 32355, y = 32209, z = 7}},
+	[267] = {name = "grizzly_adams", position = {x = 32354, y = 32206, z = 7}},
+	[20] = {name = "nah_bob", position = {x = 32354, y = 32205, z = 6}},
+	[109] = {name = "alesar", position = {x = 32354, y = 32210, z = 6}},
+	[20] = {name = "yasir", position = {x = 32363, y = 32205, z = 6}},
+	[21] = {name = "yaman", position = {x = 32355, y = 32206, z = 5}},
+	[58] = {name = "haroun", position = {x = 32362, y = 32210, z = 5}}
 }
