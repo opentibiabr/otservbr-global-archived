@@ -730,7 +730,7 @@ function Player:onGainExperience(source, exp, rawExp)
 	if configManager.getBoolean(configKeys.STAMINA_SYSTEM) then
 		useStamina(self)
 		local staminaMinutes = self:getStamina()
-		if staminaMinutes > 2400 and self:isPremium() then
+		if staminaMinutes > 2340 and self:isPremium() then
 			exp = exp * 1.5
 			self:setStaminaXpBoost(150)
 		elseif staminaMinutes <= 840 then
