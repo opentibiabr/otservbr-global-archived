@@ -18,7 +18,7 @@ monster.maxHealth = 25000
 monster.race = "blood"
 monster.corpse = 15228
 monster.speed = 560
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -44,7 +44,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 95,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 60,
 	healthHidden = false,
 	isBlockable = false,
@@ -67,7 +67,7 @@ monster.voices = {
 
 monster.loot = {
 	{id = "Depth Ocrea", chance = 1200},
-	{id = "Ornate Mace", chance = 1100},
+	{id = "Ornate Mace", chance = 1100, unique = true},
 	{id = "Ornate Shield", chance = 1100}
 }
 

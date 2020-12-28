@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 1,
 	Locations = "Ankrahmun Pharaoh Tombs, Deeper Drefia, Kha'zeel Mountains, Northern Darama Desert, \z
 		Southern Darama Desert, Yalahar Foreigner Quarter, Yalahar Trade Quarter."
-		}
+	}
 
 monster.health = 160
 monster.maxHealth = 160
 monster.race = "blood"
 monster.corpse = 20466
 monster.speed = 190
-monster.summonCost = 420
+monster.manaCost = 420
 monster.maxSummons = 0
 
 monster.changeTarget = {

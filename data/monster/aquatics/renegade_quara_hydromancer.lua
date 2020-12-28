@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Seacrest Grounds during a world change."
-		}
+	}
 
 monster.health = 2000
 monster.maxHealth = 2000
 monster.race = "blood"
 monster.corpse = 6066
 monster.speed = 490
-monster.summonCost = 330
+monster.manaCost = 330
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -92,7 +92,7 @@ monster.loot = {
 	{id = "green piece of cloth", chance = 2880},
 	{id = "life ring", chance = 2190},
 	{id = "fish fin", chance = 1380},
-	{id = "giant shimmering pearl", chance = 1150},
+	{id = 7632, chance = 1150}, -- giant shimmering pearl
 	{id = "wand of cosmic energy", chance = 1150},
 	{id = "green gem", chance = 460},
 	{id = "knight armor", chance = 460}

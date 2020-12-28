@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Venore swamp surface, Venore Salamander Cave, Dryad Gardens."
-		}
+	}
 
 monster.health = 100
 monster.maxHealth = 100
 monster.race = "blood"
 monster.corpse = 19708
 monster.speed = 150
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

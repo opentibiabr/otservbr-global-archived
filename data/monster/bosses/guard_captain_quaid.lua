@@ -18,7 +18,7 @@ monster.maxHealth = 55000
 monster.race = "blood"
 monster.corpse = 36489
 monster.speed = 185
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -78,7 +78,7 @@ monster.loot = {
 	{id = "cobra crest", chance = 11000},
 	{id = "cobra hood", chance = 320},
 	{id = "skull helmet", chance = 7500},
-	{id = "collar of blue plasma", chance = 7200},
+	{id = 26198, chance = 7200},-- collar of blue plasma
 	{id = "cobra crossbow", chance = 225}
 }
 

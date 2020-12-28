@@ -1,10 +1,10 @@
-local mType = Game.createMonsterType("Skullfrost")
+local mType = Game.createMonsterType("Knight familiar")
 local monster = {}
 
-monster.description = "a Skullfrost"
+monster.description = "a knight familiar"
 monster.experience = 0
 monster.outfit = {
-	lookType = 991,
+	--lookType = 991,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -18,7 +18,7 @@ monster.maxHealth = 10000
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 309
-monster.summonCost = 1000
+monster.manaCost = 1000
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -48,9 +48,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = true
 }
 

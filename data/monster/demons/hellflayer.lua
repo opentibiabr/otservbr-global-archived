@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "The Dungeons of The Ruthless Seven."
-		}
+	}
 
 monster.health = 14000
 monster.maxHealth = 14000
 monster.race = "blood"
 monster.corpse = 25440
 monster.speed = 330
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

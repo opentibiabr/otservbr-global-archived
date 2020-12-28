@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Corym Mines."
-		}
+	}
 
 monster.health = 800
 monster.maxHealth = 800
 monster.race = "blood"
 monster.corpse = 30771
 monster.speed = 220
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

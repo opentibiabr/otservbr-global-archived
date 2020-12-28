@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "The Laguna Islands, Arena and Zoo Quarter, Tiquanda/Tarantula Caves, \z
 		Shadowthorn Bog God Temple, Northern Zao Plantations, Northern Brimstone Bug Cave."
-		}
+	}
 
 monster.health = 135
 monster.maxHealth = 135
 monster.race = "blood"
 monster.corpse = 6077
 monster.speed = 210
-monster.summonCost = 400
+monster.manaCost = 400
 monster.maxSummons = 0
 
 monster.changeTarget = {

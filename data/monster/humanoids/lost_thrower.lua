@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Caves of the Lost, Lower Spike and in the Lost Dwarf version of the Forsaken Mine."
-		}
+	}
 
 monster.health = 1700
 monster.maxHealth = 1700
 monster.race = "blood"
 monster.corpse = 19998
 monster.speed = 240
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

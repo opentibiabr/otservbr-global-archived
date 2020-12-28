@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Ancient Ancestorial Grounds and Sunken Temple."
-		}
+	}
 
 monster.health = 7200
 monster.maxHealth = 7200
 monster.race = "blood"
 monster.corpse = 32549
 monster.speed = 310
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -54,7 +54,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 60,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 20,
 	healthHidden = false,
 	isBlockable = false,

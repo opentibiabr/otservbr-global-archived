@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Goroma, Liberty Bay's deeper cult dungeon, Formorgar Mines, Magician Quarter, Forbidden Temple."
-		}
+	}
 
 monster.health = 430
 monster.maxHealth = 430
 monster.race = "blood"
 monster.corpse = 20311
 monster.speed = 190
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 2
 
 monster.changeTarget = {

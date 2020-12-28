@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Kazordoon Dwarf Mines, Dwarf Bridge, deep Elvenbane, Tiquanda Dwarf Cave, Cormaya Dwarf Cave, \z
 		Island of Destiny (Knights area), Beregar."
-		}
+	}
 
 monster.health = 90
 monster.maxHealth = 90
 monster.race = "blood"
 monster.corpse = 6007
 monster.speed = 170
-monster.summonCost = 320
+monster.manaCost = 320
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Island of Destiny, Drefia, Ghostland and beneath Fenrock."
-		}
+	}
 
 monster.health = 65
 monster.maxHealth = 65
 monster.race = "undead"
 monster.corpse = 5972
 monster.speed = 154
-monster.summonCost = 350
+monster.manaCost = 350
 monster.maxSummons = 0
 
 monster.changeTarget = {

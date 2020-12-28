@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "Arctic Faun's Island."
-		}
+	}
 
 monster.health = 300
 monster.maxHealth = 300
 monster.race = "blood"
 monster.corpse = 33423
 monster.speed = 210
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

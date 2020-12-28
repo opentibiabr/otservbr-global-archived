@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Kilmaresh Central Steppe, Kilmaresh Southern Steppe, Green Belt."
-		}
+	}
 
 monster.health = 6200
 monster.maxHealth = 6200
 monster.race = "blood"
 monster.corpse = 36244
 monster.speed = 380
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

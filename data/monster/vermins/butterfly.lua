@@ -26,14 +26,14 @@ monster.Bestiary = {
 	Locations = "Ab'Dendriel, Ab'Dendriel Surroundings, Carlin, Cormaya, Edron Surroundings, \z
 		Feyrist Meadows, Fibula, Fields of Glory, Green Claw Swamp, Issavi, Kazordoon Surroundings, Meriana, \z
 		Outlaw Camp, Port Hope Surroundings, Stonehome, Thais Surroundings, Venore Southern Swamp, Venore Surroundings."
-		}
+	}
 
 monster.health = 2
 monster.maxHealth = 2
 monster.race = "venom"
 monster.corpse = 4313
 monster.speed = 320
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

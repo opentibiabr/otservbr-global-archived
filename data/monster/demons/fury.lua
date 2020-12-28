@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Pits of Inferno (Apocalypse's Throne Room), The Inquisition Quest \z
 		(The Shadow Nexus, Battlefield), Vengoth, Fury Dungeon, Oramond Fury Dungeon, The Extension Site."
-		}
+	}
 
 monster.health = 4100
 monster.maxHealth = 4100
 monster.race = "blood"
 monster.corpse = 20399
 monster.speed = 400
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

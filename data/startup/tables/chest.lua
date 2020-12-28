@@ -752,6 +752,56 @@ ChestUnique = {
 		reward = {{2197, 5}},
 		storage = Storage.Quest.MadMageRoom.StoneSkinAmulet
 	},
+	-- Skull of ratha quest
+	-- Bag (white pearl, skull)
+	[6083] = {
+		itemId = 1738,
+		itemPos = {x = 32845, y = 31917, z = 6},
+		container = 1987,
+		weight = 42,
+		reward = {{2143, 1}, {2320, 1}},
+		storage = Storage.Quest.SkullOfRatha.Bag1
+	},
+	-- Bag (wolf tooth chain/dwarven ring)
+	[6084] = {
+		itemId = 1738,
+		itemPos = {x = 32847, y = 31917, z = 6},
+		container = 1987,
+		weight = 42,
+		reward = {{2129, 1}, {2213, 1}},
+		storage = Storage.Quest.SkullOfRatha.Bag2
+	},
+	-- The annihilator quest
+	-- Demon armor
+	[6085] = {
+		itemId = 1740,
+		itemPos = {x = 33227, y = 31656, z = 13},
+		reward = {{2494, 1}},
+		storage = Storage.Quest.TheAnnihilator.Reward
+	},
+	-- Magic sword
+	[6086] = {
+		itemId = 1740,
+		itemPos = {x = 33229, y = 31656, z = 13},
+		reward = {{2400, 1}},
+		storage = Storage.Quest.TheAnnihilator.Reward
+	},
+	-- Stonecutter axe
+	[6087] = {
+		itemId = 1740,
+		itemPos = {x = 33231, y = 31656, z = 13},
+		reward = {{2431, 1}},
+		storage = Storage.Quest.TheAnnihilator.Reward
+	},
+	-- Present (annihilation bear)
+	[6088] = {
+		itemId = 1740,
+		itemPos = {x = 33233, y = 31656, z = 13},
+		container = 1990,
+		weight = 50,
+		reward = {{2326, 1}},
+		storage = Storage.Quest.TheAnnihilator.Reward
+	},
 
 	-- Reward of others scrips files (varied rewards)
 	-- The First dragon Quest

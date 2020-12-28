@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 2,
 	Locations = "The First Dragon's Lair, fourth floor."
-		}
+	}
 
 monster.health = 6500
 monster.maxHealth = 6500
 monster.race = "undead"
 monster.corpse = 6306
 monster.speed = 280
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

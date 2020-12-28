@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "East of Port Hope close to Grizzly Adams, deep in the jungle, \z
 		Arena and Zoo Quarter, Mammoth Shearing Factory."
-		}
+	}
 
 monster.health = 320
 monster.maxHealth = 320
 monster.race = "blood"
 monster.corpse = 6052
 monster.speed = 190
-monster.summonCost = 500
+monster.manaCost = 500
 monster.maxSummons = 0
 
 monster.changeTarget = {

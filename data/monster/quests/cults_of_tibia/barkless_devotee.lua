@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Barkless Cult Trial Zone (below Ab'Dendriel)."
-		}
+	}
 
 monster.health = 2800
 monster.maxHealth = 2800
 monster.race = "blood"
 monster.corpse = 6012
 monster.speed = 240
-monster.summonCost = 390
+monster.manaCost = 390
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -57,7 +57,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 95,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,

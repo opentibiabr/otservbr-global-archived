@@ -128,5 +128,10 @@ LeverUnique = {
 	[30024] = {
 		itemId = 1945,
 		itemPos = {x = 32778, y = 32232, z = 8}
+	},
+	-- Path: data\scripts\quests\the_annihilator\lever.lua
+	[30025] = {
+		itemId = 1945,
+		itemPos = {x = 33226, y = 31671, z = 13}
 	}
 }

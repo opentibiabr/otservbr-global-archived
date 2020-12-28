@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Oramond/Southern Plains, Minotaur Hills, \z
 		Oramond Dungeon (depending on Magistrate votes), Underground Glooth Factory, Oramond Fury Dungeon."
-		}
+	}
 
 monster.health = 1100
 monster.maxHealth = 1100
 monster.race = "blood"
 monster.corpse = 23470
 monster.speed = 198
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

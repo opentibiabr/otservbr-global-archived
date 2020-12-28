@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 3,
 	Locations = "Forbidden Lands."
-		}
+	}
 
 monster.health = 2000
 monster.maxHealth = 2000
 monster.race = "undead"
 monster.corpse = 9960
 monster.speed = 340
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

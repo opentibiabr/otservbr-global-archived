@@ -31,14 +31,14 @@ monster.Bestiary = {
 		Ankrahmun tombs, Isle of the Kings, Treasure Island, Nargor Undead Cave, Helheim, Lion's Rock, \z
 		The Witches' Cliff (only accessible during a quest) and a cave northeast of Ab'Dendriel. \z
 		Also found behind a wall in both Rookgaard and Paradox Tower, although they cannot be reached."
-		}
+	}
 
 monster.health = 100
 monster.maxHealth = 100
 monster.race = "blood"
 monster.corpse = 5976
 monster.speed = 144
-monster.summonCost = 450
+monster.manaCost = 450
 monster.maxSummons = 0
 
 monster.changeTarget = {

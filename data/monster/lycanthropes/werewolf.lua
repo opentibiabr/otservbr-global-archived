@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Vengoth Castle, Vengoth Werewolf Cave, Grimvale, were-beasts cave south-west of Edron."
-		}
+	}
 
 monster.health = 1955
 monster.maxHealth = 1955
 monster.race = "blood"
 monster.corpse = 20380
 monster.speed = 280
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 2
 
 monster.changeTarget = {

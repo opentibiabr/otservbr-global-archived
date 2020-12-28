@@ -29,7 +29,8 @@ exhaust:setParameter(CONDITION_PARAM_TICKS, (configManager.getNumber(configKeys.
 local potions = {
 	[6558] = {
 		transform = {
-		id = {7588, 7589}},
+			id = {7588, 7589}
+		},
 		effect = CONST_ME_DRAWBLOOD
 	},
 	[7439] = {
@@ -262,9 +263,12 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 	end
 
 	if potion.transform then
-		item:transform(potion.transform.id[math.random(#potion.transform.id)])
-		item:getPosition():sendMagicEffect(potion.effect)
-		return true
+		if item:getCount() >= 1 then
+			item:remove(1)
+			player:addItem(potion.transform.id[math.random(#potion.transform.id)], 1)
+			item:getPosition():sendMagicEffect(potion.effect)
+			return true
+		end
 	end
 
 	if not configManager.getBoolean(configKeys.REMOVE_POTION_CHARGES) then

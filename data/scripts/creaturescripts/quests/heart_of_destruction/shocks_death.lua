@@ -8,7 +8,7 @@ function shocksDeath.onDeath(creature)
 	if name == "foreshock" and realityQuakeStage == 0 then
 		if realityQuakeStage == 0 then
 			local monster = Game.createMonster("aftershock", {x = 32208, y = 31248, z = 14}, false, true)
-			monster:addHealth(-monster:getHealth() + aftershockHealth, false)
+			monster:addHealth(-monster:getHealth() + aftershockHealth, COMBAT_PHYSICALDAMAGE)
 			Game.createMonster("spark of destruction", {x = 32203, y = 31246, z = 14}, false, true)
 			Game.createMonster("spark of destruction", {x = 32205, y = 31251, z = 14}, false, true)
 			Game.createMonster("spark of destruction", {x = 32210, y = 31251, z = 14}, false, true)
@@ -16,7 +16,7 @@ function shocksDeath.onDeath(creature)
 		end
 	elseif name == "aftershock" and realityQuakeStage == 0 then
 		local monster = Game.createMonster("foreshock", {x = 32208, y = 31248, z = 14}, false, true)
-		monster:addHealth(-monster:getHealth() + aftershockHealth, false)
+		monster:addHealth(-monster:getHealth() + aftershockHealth, COMBAT_PHYSICALDAMAGE)
 		Game.createMonster("spark of destruction", {x = 32203, y = 31246, z = 14}, false, true)
 		Game.createMonster("spark of destruction", {x = 32205, y = 31251, z = 14}, false, true)
 		Game.createMonster("spark of destruction", {x = 32210, y = 31251, z = 14}, false, true)

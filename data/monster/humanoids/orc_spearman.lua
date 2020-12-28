@@ -27,14 +27,14 @@ monster.Bestiary = {
 		Venore Orc Cave, below the Point of No Return in Outlaw Camp, Plains of Havoc, \z
 		North of Thais in the Orc Peninsula, Elvenbane and Orc Camp in Foreigner Quarter. \z
 		Also found in Rookgaard West plains, Zao Orc Land."
-		}
+	}
 
 monster.health = 105
 monster.maxHealth = 105
 monster.race = "blood"
 monster.corpse = 5996
 monster.speed = 176
-monster.summonCost = 310
+monster.manaCost = 310
 monster.maxSummons = 0
 
 monster.changeTarget = {

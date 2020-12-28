@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 1,
 	Locations = "Golem Workshop in Gnomebase Alpha."
-		}
+	}
 
 monster.health = 500
 monster.maxHealth = 500
 monster.race = "venom"
 monster.corpse = 18466
 monster.speed = 268
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

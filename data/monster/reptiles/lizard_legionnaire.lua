@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Zzaion, Zao Palace and its antechambers, Muggy Plains, Zao Orc Land (in fort), \z
 		Corruption Hole, Razachai, Temple of Equilibrium, Northern Zao Plantations."
-		}
+	}
 
 monster.health = 1400
 monster.maxHealth = 1400
 monster.race = "blood"
 monster.corpse = 11276
 monster.speed = 266
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

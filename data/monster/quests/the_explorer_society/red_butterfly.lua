@@ -27,14 +27,14 @@ monster.Bestiary = {
 	Locations = "Banuta, Carlin Surroundings, Feyrist Meadows, Grimvale, Liberty Bay City, \z
 		Liberty Bay Surroundings, Meriana, Plains of Havoc, Port Hope Surroundings, \z
 		Yalahar Arena Quarter, Yalahar Centre, Yalahar Magician Quarter."
-		}
+	}
 
 monster.health = 2
 monster.maxHealth = 2
 monster.race = "venom"
 monster.corpse = 4992
 monster.speed = 320
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

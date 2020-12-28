@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "Ankrahmun near way to Darashia, Ankrahmun near sea, also in few places around Darashia."
-		}
+	}
 
 monster.health = 45
 monster.maxHealth = 45
 monster.race = "blood"
 monster.corpse = 13528
 monster.speed = 114
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

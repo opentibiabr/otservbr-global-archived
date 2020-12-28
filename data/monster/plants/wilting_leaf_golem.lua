@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Forest Fury Camp, Lair of the Treeling Witch and in the Forest Fury version of the Forsaken Mine."
-		}
+	}
 
 monster.health = 380
 monster.maxHealth = 380
 monster.race = "blood"
 monster.corpse = 21434
 monster.speed = 148
-monster.summonCost = 390
+monster.manaCost = 390
 monster.maxSummons = 0
 
 monster.changeTarget = {
