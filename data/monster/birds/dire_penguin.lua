@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 3,
 	Locations = "Any place with penguins like, Formorgar Glacier, Helheim, Tyrsung or Svargrond. \z
 		Known spawn locations: west of Svargrond, up the Formorgar Glacier."
-		}
+	}
 
 monster.health = 173
 monster.maxHealth = 173
 monster.race = "blood"
 monster.corpse = 7334
 monster.speed = 174
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

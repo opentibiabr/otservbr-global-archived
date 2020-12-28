@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 3,
 	Locations = "Rookgaard's central cave in the new western Troll tunnel, \z
 		north-west of Carlin during raids and Thais Knights' Guild arena during raids on Kingsday."
-		}
+	}
 
 monster.health = 60
 monster.maxHealth = 60
 monster.race = "blood"
 monster.corpse = 7926
 monster.speed = 126
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

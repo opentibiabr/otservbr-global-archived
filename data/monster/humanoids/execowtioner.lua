@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Oramond Mountain Hideout, Oramond Minotaur Camp (northern camp), \z
 		Underground Glooth Factory, Oramond Dungeon."
-		}
+	}
 
 monster.health = 3500
 monster.maxHealth = 3500
 monster.race = "blood"
 monster.corpse = 23375
 monster.speed = 270
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

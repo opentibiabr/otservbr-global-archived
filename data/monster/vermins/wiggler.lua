@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Can be found in Truffels Garden as well as the Mushroom Gardens."
-		}
+	}
 
 monster.health = 1200
 monster.maxHealth = 1200
 monster.race = "venom"
 monster.corpse = 18483
 monster.speed = 360
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

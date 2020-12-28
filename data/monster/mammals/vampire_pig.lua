@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "Isle of Evil on the surface."
-		}
+	}
 
 monster.health = 305
 monster.maxHealth = 305
 monster.race = "blood"
 monster.corpse = 6000
 monster.speed = 110
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Venore Salamander Cave, Dryad Gardens."
-		}
+	}
 
 monster.health = 90
 monster.maxHealth = 90
 monster.race = "venom"
 monster.corpse = 19706
 monster.speed = 200
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

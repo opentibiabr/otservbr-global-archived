@@ -26,14 +26,14 @@ monster.Bestiary = {
 	Locations = "South of Thais, west of Ab'Dendriel, northeastern Cormaya, \z
 		Green Claw Swamp between Kazordoon and Venore, Wasp Tower in Rookgaard, \z
 		Wasp Towers in Darashia, all over Tiquanda, and all over Vandura."
-		}
+	}
 
 monster.health = 35
 monster.maxHealth = 35
 monster.race = "venom"
 monster.corpse = 5989
 monster.speed = 320
-monster.summonCost = 280
+monster.manaCost = 280
 monster.maxSummons = 0
 
 monster.changeTarget = {

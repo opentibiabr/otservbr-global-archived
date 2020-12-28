@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 3,
 	Locations = "Edron."
-		}
+	}
 
 monster.health = 350
 monster.maxHealth = 350
 monster.race = "venom"
 monster.corpse = 13486
 monster.speed = 190
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

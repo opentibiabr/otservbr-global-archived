@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Calassa, Frozen Trench, Yalahar (Sunken Quarter)."
-		}
+	}
 
 monster.health = 800
 monster.maxHealth = 800
 monster.race = "blood"
 monster.corpse = 6064
 monster.speed = 590
-monster.summonCost = 480
+monster.manaCost = 480
 monster.maxSummons = 0
 
 monster.changeTarget = {

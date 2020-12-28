@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 3,
 	Locations = "Lich Hell."
-		}
+	}
 
 monster.health = 450
 monster.maxHealth = 450
 monster.race = "undead"
 monster.corpse = 13323
 monster.speed = 218
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

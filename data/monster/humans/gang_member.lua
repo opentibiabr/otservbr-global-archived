@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Throughout the Foreigner, Factory, and Trade Quarters in Yalahar."
-		}
+	}
 
 monster.health = 295
 monster.maxHealth = 295
 monster.race = "blood"
 monster.corpse = 20403
 monster.speed = 190
-monster.summonCost = 420
+monster.manaCost = 420
 monster.maxSummons = 0
 
 monster.changeTarget = {

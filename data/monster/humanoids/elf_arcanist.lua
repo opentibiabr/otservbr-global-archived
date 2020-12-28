@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Yalahar Foreigner Quarter, Demona, Shadowthorn, northwest of Ab'Dendriel, Maze of Lost Souls, \z
 		Cyclopolis, Elvenbane, near Mount Sternum."
-		}
+	}
 
 monster.health = 220
 monster.maxHealth = 220
 monster.race = "blood"
 monster.corpse = 6011
 monster.speed = 220
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

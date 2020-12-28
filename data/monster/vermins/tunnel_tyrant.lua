@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Warzone 5."
-		}
+	}
 
 monster.health = 6400
 monster.maxHealth = 6400
 monster.race = "blood"
 monster.corpse = 30790
 monster.speed = 240
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

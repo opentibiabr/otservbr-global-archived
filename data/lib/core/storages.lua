@@ -1368,10 +1368,6 @@ Storage = {
 		-- Reserved storage from 51680 - 51689
 		DeeperBanutaShortcut = 51680,
 	},
-	TheAnnihilator = {
-		-- Reserved storage from 51690 - 51699
-		AnnihilatorDone = 51690
-	},
 	DemonOak = {
 		-- Reserved storage from 51700 - 51709
 		Done = 51700,
@@ -1902,8 +1898,13 @@ Storage = {
 			Hat = 10098,
 			StoneSkinAmulet = 10099
 		},
-		SkullOfRatha = {},
-		TheAnnihilator = {},
+		SkullOfRatha = {
+			Bag1 = 10100,
+			Bag2 = 10101
+		},
+		TheAnnihilator = {
+			Reward = 10102
+		},
 		TheParadoxTower = {},
 		ThePostmanMissions = {},
 		TheWhiteRavenMonastery = {},

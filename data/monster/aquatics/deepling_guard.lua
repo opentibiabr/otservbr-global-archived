@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Fiehonja. During Deeplings stage 1 around 10 spawns exist. \z
 		Also may spawn during the gemcutting mission. Many more spawns in almost all areas of Deepling stage 2 and 3."
-		}
+	}
 
 monster.health = 1900
 monster.maxHealth = 1900
 monster.race = "blood"
 monster.corpse = 15187
 monster.speed = 270
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -58,7 +58,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 70,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 20,
 	healthHidden = false,
 	isBlockable = false,

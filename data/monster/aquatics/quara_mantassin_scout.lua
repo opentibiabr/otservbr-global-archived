@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Malada, Water Elemental Cave near Port Hope, Hrodmir Quara Scout Caves, Quara Grotto, Oramond."
-		}
+	}
 
 monster.health = 220
 monster.maxHealth = 220
 monster.race = "blood"
 monster.corpse = 6064
 monster.speed = 140
-monster.summonCost = 480
+monster.manaCost = 480
 monster.maxSummons = 0
 
 monster.changeTarget = {

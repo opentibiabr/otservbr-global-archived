@@ -20,6 +20,15 @@ Noodles ****]]
 	}
 }
 
+local achievementTable = {
+	-- [chestUniqueId] = "Achievement name",
+	-- Annihilator
+	[6085] = "Annihilator",
+	[6086] = "Annihilator",
+	[6087] = "Annihilator",
+	[6088] = "Annihilator"
+}
+
 local function playerAddItem(params, item)
 	local player = params.player
 	if not checkWeightAndBackpackRoom(player, params.weight, params.message) then
@@ -43,6 +52,10 @@ local function playerAddItem(params, item)
 		if attribute then
 			addItem:setAttribute(ITEM_ATTRIBUTE_TEXT, attribute.text)
 		end
+		local achievement = achievementTable[item.uid]
+		if achievement then
+			player:addAchievement(achievement)
+		end
 	end
 
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, params.message .. ".")
@@ -60,13 +73,17 @@ local function playerAddContainerItem(params, item)
 			-- If is key inside container, uses the "keyAction" variable
 			keyItem = reward:addItem(params.itemid, params.count)
 			keyItem:setActionId(params.action)
-			return true
 		end
-
-		reward:addItem(params.itemid, params.count)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(params.itemBagName) .. ".")
-		player:setStorageValue(params.storage, 1)
 	end
+
+	local achievement = achievementTable[item.uid]
+	if achievement then
+		player:addAchievement(achievement)
+	end
+
+	reward:addItem(params.itemid, params.count)
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(params.itemBagName) .. ".")
+	player:setStorageValue(params.storage, 1)
 	return true
 end
 

@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Asura Palace's secret basement."
-		}
+	}
 
 monster.health = 4000
 monster.maxHealth = 4000
 monster.race = "blood"
 monster.corpse = 33408
 monster.speed = 300
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

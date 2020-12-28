@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Goroma (beyond electric barrier), Laguna Islands, Shattered Isles, Underground Port Hope, \z
 		Mistrock, Treasure Island. There is also one underwater next to The Tibianic, however it is unreachable."
-		}
+	}
 
 monster.health = 290
 monster.maxHealth = 290
 monster.race = "blood"
 monster.corpse = 6075
 monster.speed = 160
-monster.summonCost = 505
+monster.manaCost = 505
 monster.maxSummons = 0
 
 monster.changeTarget = {

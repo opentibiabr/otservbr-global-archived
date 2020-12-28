@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Otherworld."
-		}
+	}
 
 monster.health = 3500
 monster.maxHealth = 3500
 monster.race = "venom"
 monster.corpse = 26048
 monster.speed = 270
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -96,7 +96,7 @@ monster.loot = {
 	{id = 18413, chance = 4400},
 	{id = 18415, chance = 4100},
 	{id = 26200, chance = 470},
-	{id = 26198, chance = 470}
+	{id = 26198, chance = 470}-- collar of blue plasma
 }
 
 monster.attacks = {
