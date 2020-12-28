@@ -880,7 +880,7 @@
 	<instant name="furyosa deathball" words="###122" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/furyosa deathball.lua"/>
 	<instant name="gaz'haragoth iceball" words="###123" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/gaz'haragoth iceball.lua"/>
 	<instant name="gaz'haragoth paralyze" words="###124" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/gaz'haragoth paralyze.lua"/>
-	<instant name="gaz'haragoth summon" words="125" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/gaz'haragoth summon.lua"/>
+	<instant name="gaz'haragoth summon" words="###125" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/gaz'haragoth summon.lua"/>
 	<instant name="hideous fungus summon" words="###126" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/hideous fungus summon.lua"/>
 	<instant name="apprentice sheng summon" words="###127" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/apprentice sheng summon.lua"/>
 	<instant name="arachir the ancient one summon" words="###128" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/arachir the ancient one summon.lua"/>
