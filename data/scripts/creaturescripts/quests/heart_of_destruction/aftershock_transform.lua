@@ -12,11 +12,11 @@ function aftershockTransform.onThink(creature)
 	}
 	
 	local monsterTable = {
-		[80] = fromStage = 0, toStage = 1,
-		[60] = fromStage = 1, toStage = 2,
-		[40] = fromStage = 2, toStage = 3,
-		[25] = fromStage = 3, toStage = 4,
-		[10] = fromStage = 4, toStage = 5
+		[80] = {fromStage = 0, toStage = 1},
+		[60] = {fromStage = 1, toStage = 2},
+		[40] = {fromStage = 2, toStage = 3},
+		[25] = {fromStage = 3, toStage = 4},
+		[10] = {fromStage = 4, toStage = 5}
 	}
 	
 	for index, value in pairs(monsterTable) do
@@ -29,7 +29,7 @@ function aftershockTransform.onThink(creature)
 					Game.createMonster("spark of destruction", #sparkOfDestructionPositions[i], false, true)
 				end
 				local monster = Game.createMonster("foreshock", {x = 32208, y = 31248, z = 14}, false, true)
-				monster:addHealth(-monster:getHealth() + aftershockHealth, COMBAT_PHYSICALDAMAGE))
+				monster:addHealth(-monster:getHealth() + aftershockHealth, COMBAT_PHYSICALDAMAGE)
 				aftershockStage = value.toStage
 			end
 		end
