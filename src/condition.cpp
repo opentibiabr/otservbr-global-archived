@@ -920,18 +920,18 @@ void ConditionManaShield::endCondition(Creature* creature)
 
 void ConditionManaShield::addCondition(Creature* creature, const Condition* addCondition)
 {
-  if (updateCondition(addCondition)) {
-    setTicks(addCondition->getTicks());
+	endCondition(creature);
+	setTicks(addCondition->getTicks());
 
-    const ConditionManaShield& conditionManaShield = static_cast<const ConditionManaShield&>(*addCondition);
+	const ConditionManaShield& conditionManaShield = static_cast<const ConditionManaShield&>(*addCondition);
 
-    manaShield = conditionManaShield.manaShield;
-    creature->setManaShield(manaShield);
-    creature->setMaxManaShield(manaShield);
-  }
-  if (Player* player = creature->getPlayer()) {
-    player->sendStats();
-  }
+	manaShield = conditionManaShield.manaShield;
+	creature->setManaShield(manaShield);
+	creature->setMaxManaShield(manaShield);
+	
+	if (Player* player = creature->getPlayer()) {
+		player->sendStats();
+	}
 }
 
 bool ConditionManaShield::unserializeProp(ConditionAttr_t attr, PropStream& propStream)
