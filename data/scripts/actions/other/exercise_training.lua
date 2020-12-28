@@ -77,6 +77,7 @@ local function startTraining(playerId, startPosition, itemid, tilePosition, bonu
                                 else
                                     local training = addEvent(startTraining, voc:getAttackSpeed(), playerId,startPosition,itemid,tilePosition,bonusDummy,dummyId)
                                     player:setStorageValue(Storage.isTraining,1)
+									player:setTraining(true)
                                 end
                             else
                                 removeExerciseWeapon(player, exercise)
@@ -88,17 +89,20 @@ local function startTraining(playerId, startPosition, itemid, tilePosition, bonu
                 player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
                 stopEvent(training)
                 player:setStorageValue(Storage.isTraining,0)
+				player:setTraining(false)
             end
         else
             stopEvent(training)
             player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
             player:setStorageValue(Storage.isTraining, 0)
+			player:setTraining(false)
         end
     else
         stopEvent(training)
         if player then
             player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
             player:setStorageValue(Storage.isTraining,0)
+			player:setTraining(false)
         end
     end
     return true
