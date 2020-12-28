@@ -1,10 +1,10 @@
-local mType = Game.createMonsterType("Emberwing")
+local mType = Game.createMonsterType("Paladin familiar")
 local monster = {}
 
-monster.description = "a Emberwing"
+monster.description = "a paladin familiar"
 monster.experience = 0
 monster.outfit = {
-	lookType = 992,
+	--lookType = 992,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -18,7 +18,7 @@ monster.maxHealth = 15000
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 309
-monster.summonCost = 2000
+monster.manaCost = 2000
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -48,9 +48,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = true
 }
 

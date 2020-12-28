@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 3,
 	Locations = "Way to Beregar, below Femor Hills (Tower Defence Quest), near Femor Hills during Goblin raid."
-		}
+	}
 
 monster.health = 50
 monster.maxHealth = 50
 monster.race = "blood"
 monster.corpse = 6002
 monster.speed = 120
-monster.summonCost = 290
+monster.manaCost = 290
 monster.maxSummons = 0
 
 monster.changeTarget = {

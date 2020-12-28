@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Demon Forge, Deeper Banuta, Hero Cave, Hot Spot, Fury Dungeon."
-		}
+	}
 
 monster.health = 1200
 monster.maxHealth = 1200
 monster.race = "fire"
 monster.corpse = 6324
 monster.speed = 238
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Cyclopolis, Mount Sternum, Mistrock and in the Cyclops version of the Forsaken Mine."
-		}
+	}
 
 monster.health = 325
 monster.maxHealth = 325
 monster.race = "blood"
 monster.corpse = 7847
 monster.speed = 198
-monster.summonCost = 525
+monster.manaCost = 525
 monster.maxSummons = 0
 
 monster.changeTarget = {

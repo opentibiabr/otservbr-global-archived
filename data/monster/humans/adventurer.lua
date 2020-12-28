@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Venore swamp."
-		}
+	}
 
 monster.health = 65
 monster.maxHealth = 65
 monster.race = "blood"
 monster.corpse = 20315
 monster.speed = 106
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

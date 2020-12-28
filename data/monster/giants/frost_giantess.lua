@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Tyrsung (in the Jotunar mountain), Formorgar Glacier (single spawn), \z
 		Mammoth Shearing Factory, Chyllfroest."
-		}
+	}
 
 monster.health = 275
 monster.maxHealth = 275
 monster.race = "blood"
 monster.corpse = 7330
 monster.speed = 194
-monster.summonCost = 490
+monster.manaCost = 490
 monster.maxSummons = 0
 
 monster.changeTarget = {

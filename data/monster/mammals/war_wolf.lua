@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Orc Fort, the Orc Peninsula, Magician Tower and northwest (tower) or south \z
 		(underground) of Thais, Zao steppe (encaged), Vengoth."
-		}
+	}
 
 monster.health = 140
 monster.maxHealth = 140
 monster.race = "blood"
 monster.corpse = 6009
 monster.speed = 264
-monster.summonCost = 420
+monster.manaCost = 420
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Zao Steppe, Northern Zao Plantations and the Horestis Tomb \z
 		(only when the curse of Horestis is not active)."
-		}
+	}
 
 monster.health = 50
 monster.maxHealth = 50
 monster.race = "undead"
 monster.corpse = 11320
 monster.speed = 236
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

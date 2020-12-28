@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Nargor, Tyrsung, Yalahar, Krailos Steppe."
-		}
+	}
 
 monster.health = 210
 monster.maxHealth = 210
 monster.race = "blood"
 monster.corpse = 20483
 monster.speed = 210
-monster.summonCost = 490
+monster.manaCost = 490
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -26,14 +26,14 @@ monster.Bestiary = {
 	Locations = "Isle of the Kings, North of the Thais temple, Lubos house, west of Carlin (with sheep), \z
 		Edron north of castle and one south towards Ivory Towers, Liberty Bay (Silverhand Manor), \z
 		Mintwallin central park and on the way to the old Mintwallin area, Factory Quarter (Yalahar)."
-		}
+	}
 
 monster.health = 20
 monster.maxHealth = 20
 monster.race = "blood"
 monster.corpse = 5971
 monster.speed = 124
-monster.summonCost = 220
+monster.manaCost = 220
 monster.maxSummons = 0
 
 monster.changeTarget = {

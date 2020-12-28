@@ -28,14 +28,14 @@ monster.Bestiary = {
 		Dwarf Mines, Hellgate, below the graves in eastern Rookgaard, spider cave in western Rookgaard, \z
 		cave northeast of Ab'Dendriel, Darashia Rotworm Caves, Liberty Bay, Fenrock, \z
 		below Green Claw Swamp and some other places."
-		}
+	}
 
 monster.health = 65
 monster.maxHealth = 65
 monster.race = "blood"
 monster.corpse = 5967
 monster.speed = 116
-monster.summonCost = 305
+monster.manaCost = 305
 monster.maxSummons = 0
 
 monster.changeTarget = {

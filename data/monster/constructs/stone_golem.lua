@@ -27,14 +27,14 @@ monster.Bestiary = {
 		Mad Technomancer room, Dark Cathedral, Demona, Goroma, Tarpit Tomb, Peninsula Tomb, \z
 		Deeper Banuta, Forbidden Lands, Beregar Mines, Farmine Mines, Drillworm Caves, 2 caves on Hrodmir, \z
 		Orc Fortress (single spawn) and Medusa Tower."
-		}
+	}
 
 monster.health = 270
 monster.maxHealth = 270
 monster.race = "undead"
 monster.corpse = 6005
 monster.speed = 180
-monster.summonCost = 590
+monster.manaCost = 590
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Tiquanda, Meriana, Arena and Zoo Quarter. Three unreachable ones are found in the Rookgaard Academy, \z
 		below Ankrahmun (during the Nomads Land Quest), and on Charles's ship."
-		}
+	}
 
 monster.health = 75
 monster.maxHealth = 75
 monster.race = "blood"
 monster.corpse = 6051
 monster.speed = 200
-monster.summonCost = 420
+monster.manaCost = 420
 monster.maxSummons = 0
 
 monster.changeTarget = {

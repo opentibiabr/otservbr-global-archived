@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Cyclopolis, Hero Cave in Edron, Ankrahmun tombs, Serpentine Tower, Factory Quarter in Yalahar, \z
 		Deeper Banuta, Goroma inside the volcano and beneath Fenrock."
-		}
+	}
 
 monster.health = 280
 monster.maxHealth = 280
 monster.race = "fire"
 monster.corpse = 8964
 monster.speed = 190
-monster.summonCost = 690
+monster.manaCost = 690
 monster.maxSummons = 0
 
 monster.changeTarget = {

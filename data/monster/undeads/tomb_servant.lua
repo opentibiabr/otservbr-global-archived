@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Horestis Tomb."
-		}
+	}
 
 monster.health = 475
 monster.maxHealth = 475
 monster.race = "undead"
 monster.corpse = 6029
 monster.speed = 156
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

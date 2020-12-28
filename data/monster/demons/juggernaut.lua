@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Deep in Pits of Inferno (Apocalypse's throne room), The Dark Path, \z
 		The Blood Halls, The Vats, The Hive, The Shadow Nexus, a room deep in Formorgar Mines, Roshamuul Prison, Oramond Dungeon, Grounds of Destruction."
-		}
+	}
 
 monster.health = 20000
 monster.maxHealth = 20000
 monster.race = "blood"
 monster.corpse = 6336
 monster.speed = 340
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

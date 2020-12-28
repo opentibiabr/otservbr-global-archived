@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Cemetery Quarter, Alchemist Quarter and in the Arena and Zoo Quarter (unreachable), \z
 		Vengoth Castle, Formorgar Mines, Lower Spike, Robson Isle (single respawn), Krailos."
-		}
+	}
 
 monster.health = 1400
 monster.maxHealth = 1400
 monster.race = "blood"
 monster.corpse = 9919
 monster.speed = 440
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

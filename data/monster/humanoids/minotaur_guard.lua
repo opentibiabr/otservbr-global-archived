@@ -26,14 +26,14 @@ monster.Bestiary = {
 	Locations = "Ancient Temple, Mintwallin, Minotaur Pyramid, Maze of Lost Souls, Folda, Cyclopolis, \z
 		Deeper Fibula Dungeon (level 50+ to open the door), Hero Cave, underground of Elvenbane, \z
 		Plains of Havoc, Kazordoon Minotaur Cave, Foreigner Quarter."
-		}
+	}
 
 monster.health = 185
 monster.maxHealth = 185
 monster.race = "blood"
 monster.corpse = 5983
 monster.speed = 190
-monster.summonCost = 550
+monster.manaCost = 550
 monster.maxSummons = 0
 
 monster.changeTarget = {
