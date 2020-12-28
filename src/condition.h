@@ -53,12 +53,12 @@ enum ConditionAttr_t {
 	CONDITIONATTR_SOULGAIN,
 	CONDITIONATTR_SKILLS,
 	CONDITIONATTR_STATS,
-  CONDITIONATTR_BUFFS,
+  	CONDITIONATTR_BUFFS,
 	CONDITIONATTR_OUTFIT,
 	CONDITIONATTR_PERIODDAMAGE,
 	CONDITIONATTR_ISBUFF,
 	CONDITIONATTR_SUBID,
-  CONDITIONATTR_MANASHIELD,
+  	CONDITIONATTR_MANASHIELD,
 
 	//reserved for serialization
 	CONDITIONATTR_END = 254,
@@ -170,11 +170,11 @@ class ConditionAttributes final : public ConditionGeneric
 		int32_t skillsPercent[SKILL_LAST + 1] = {};
 		int32_t stats[STAT_LAST + 1] = {};
 		int32_t statsPercent[STAT_LAST + 1] = {};
-    int32_t buffsPercent[BUFF_LAST + 1] = {};
-    int32_t buffs[BUFF_LAST + 1] = {};
+    	int32_t buffsPercent[BUFF_LAST + 1] = {};
+    	int32_t buffs[BUFF_LAST + 1] = {};
 		int32_t currentSkill = 0;
 		int32_t currentStat = 0;
-    int32_t currentBuff = 0;
+    	int32_t currentBuff = 0;
 
 		bool disableDefense = false;
 
@@ -182,8 +182,8 @@ class ConditionAttributes final : public ConditionGeneric
 		void updateStats(Player* player);
 		void updatePercentSkills(Player* player);
 		void updateSkills(Player* player);
-    void updatePercentBuffs(Creature* creature);
-    void updateBuffs(Creature* creature);
+    	void updatePercentBuffs(Creature* creature);
+    	void updateBuffs(Creature* creature);
 };
 
 class ConditionRegeneration final : public ConditionGeneric
@@ -217,15 +217,16 @@ class ConditionRegeneration final : public ConditionGeneric
 		uint32_t manaGain = 0;
 };
 
-class ConditionManaShield final : public ConditionGeneric
+class ConditionManaShield final : public Condition
 {
 public:
   ConditionManaShield(ConditionId_t initId, ConditionType_t initType, int32_t iniTicks, bool initBuff = false, uint32_t initSubId = 0) :
-    ConditionGeneric(initId, initType, iniTicks, initBuff, initSubId) {}
+    Condition(initId, initType, iniTicks, initBuff, initSubId) {}
 
   bool startCondition(Creature* creature) override;
   void endCondition(Creature* creature) override;
   void addCondition(Creature* creature, const Condition* addCondition) override;
+  uint32_t getIcons() const override;
 
   bool setParam(ConditionParam_t param, int32_t value) override;
 

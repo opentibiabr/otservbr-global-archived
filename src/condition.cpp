@@ -185,8 +185,8 @@ Condition* Condition::createCondition(ConditionId_t id, ConditionType_t type, in
 		case CONDITION_SPELLGROUPCOOLDOWN:
 			return new ConditionSpellGroupCooldown(id, type, ticks, buff, subId);
 
-    case CONDITION_MANASHIELD:
-      return new ConditionManaShield(id, type, ticks, buff, subId);
+    	case CONDITION_MANASHIELD:
+      		return new ConditionManaShield(id, type, ticks, buff, subId);
 
 		case CONDITION_INFIGHT:
 		case CONDITION_DRUNK:
@@ -325,10 +325,6 @@ uint32_t ConditionGeneric::getIcons() const
 	uint32_t icons = Condition::getIcons();
 
 	switch (conditionType) {
-		case CONDITION_MANASHIELD:
-			icons |= ICON_MANASHIELD;
-			break;
-
 		case CONDITION_INFIGHT:
 			icons |= ICON_SWORDS;
 			break;
@@ -956,7 +952,7 @@ void ConditionManaShield::serialize(PropWriteStream& propWriteStream)
 
 bool ConditionManaShield::setParam(ConditionParam_t param, int32_t value)
 {
-  bool ret = ConditionGeneric::setParam(param, value);
+  bool ret = Condition::setParam(param, value);
 
   switch (param) {
   case CONDITION_PARAM_MANASHIELD:
@@ -965,6 +961,16 @@ bool ConditionManaShield::setParam(ConditionParam_t param, int32_t value)
   default:
     return ret;
   }
+}
+
+uint32_t ConditionManaShield::getIcons() const
+{
+	uint32_t icons = Condition::getIcons();
+	if(manaShield != 0)
+		icons |= ICON_NEWMANASHIELD;
+	else
+		icons |= ICON_MANASHIELD;
+	return icons;
 }
 
 void ConditionSoul::addCondition(Creature*, const Condition* addCondition)

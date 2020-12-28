@@ -365,7 +365,7 @@ class Player final : public Creature, public Cylinder
 			return inbox;
 		}
 
-		uint16_t getClientIcons() const;
+		uint32_t getClientIcons() const;
 
 		const GuildWarVector& getGuildWarVector() const {
 		return guildWarVector;
