@@ -100,28 +100,43 @@ local skinning = Action()
 
 function skinning.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local skin = config[item.itemid][target.itemid]
-
+	
+	if item.itemid == 5908 then
+	if target.itemid == 38613 then
+		local chance = math.random(1, 10000)
+		target:getPosition():sendMagicEffect(CONST_ME_HITAREA)
+		target:remove(1)
+		if chance <= 9556 then
+			player:addItem(38614, 1)
+		else
+			player:addItem(38615, 1)
+		end
+		return true
 	-- Wrath of the emperor quest
-	if item.itemid == 5908 and target.itemid == 12295 then
+	elseif target.itemid == 12295 then
 		target:transform(12287)
 		player:say("You carve a solid bowl of the chunk of wood.", TALKTYPE_MONSTER_SAY)
+		return true
 	-- An Interest In Botany Quest
-	elseif item.itemid == 5908 and target.itemid == 11691 and player:getItemCount(12655) > 0 and player:getStorageValue(Storage.TibiaTales.AnInterestInBotany) == 1 then
+	elseif target.itemid == 11691 and player:getItemCount(12655) > 0 and player:getStorageValue(Storage.TibiaTales.AnInterestInBotany) == 1 then
 		player:say("The plant feels cold but dry and very soft. You streak the plant gently with your knife and put a fragment in the almanach.", TALKTYPE_MONSTER_SAY)
 		player:setStorageValue(Storage.TibiaTales.AnInterestInBotany, 2)
-	elseif item.itemid == 5908 and target.itemid == 11653 and player:getItemCount(12655) > 0 and player:getStorageValue(Storage.TibiaTales.AnInterestInBotany) == 2 then
+		return true
+	elseif target.itemid == 11653 and player:getItemCount(12655) > 0 and player:getStorageValue(Storage.TibiaTales.AnInterestInBotany) == 2 then
 		player:say("You cut a leaf from a branch and put it in the almanach. It smells strangely sweet and awfully bitter at the same time.", TALKTYPE_MONSTER_SAY)
 		player:setStorageValue(Storage.TibiaTales.AnInterestInBotany, 3)
-
-	elseif item.itemid == 5908 and target.itemid == 9009 and player:getStorageValue(789100) <= 1 then
+		return true
+	elseif target.itemid == 9009 and player:getStorageValue(789100) <= 1 then
 		player:say("You got Neutral matter.", TALKTYPE_MONSTER_SAY)
 		player:addItem(8310, 1)
 		player:setStorageValue(789100, 1)
-
-	elseif item.itemid == 5908 and target.itemid == 9010 and player:getStorageValue(789100) <= 1 then
+		return true
+	elseif target.itemid == 9010 and player:getStorageValue(789100) <= 1 then
 		player:say("You got Neutral matter.", TALKTYPE_MONSTER_SAY)
 		player:addItem(8310, 1)
 		player:setStorageValue(789100, 2)
+		return true
+	end
 	end
 
 	if not skin then

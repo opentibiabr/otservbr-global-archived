@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Laguna Islands and one on Nargor."
-		}
+	}
 
 monster.health = 300
 monster.maxHealth = 300
 monster.race = "blood"
 monster.corpse = 6073
 monster.speed = 200
-monster.summonCost = 490
+monster.manaCost = 490
 monster.maxSummons = 0
 
 monster.changeTarget = {

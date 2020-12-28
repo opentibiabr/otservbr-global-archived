@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Razzachai."
-		}
+	}
 
 monster.health = 7000
 monster.maxHealth = 7000
 monster.race = "blood"
 monster.corpse = 6041
 monster.speed = 256
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

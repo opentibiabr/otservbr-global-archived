@@ -27,14 +27,14 @@ monster.Bestiary = {
 		and in many of the closed rooms accessed with pheromones; \z
 		many in the large underground room of the west tower. \z
 		Liberty Bay Hive Outpost: one spawn on the second floor underground."
-		}
+	}
 
 monster.health = 7500
 monster.maxHealth = 7500
 monster.race = "venom"
 monster.corpse = 15354
 monster.speed = 230
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 2
 
 monster.changeTarget = {

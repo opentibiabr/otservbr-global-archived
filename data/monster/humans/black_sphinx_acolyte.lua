@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Issavi Sewers, Kilmaresh Catacombs and Kilmaresh Mountains (above and under ground)."
-		}
+	}
 
 monster.health = 8100
 monster.maxHealth = 8100
 monster.race = "blood"
 monster.corpse = 36258
 monster.speed = 310
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 1
 
 monster.changeTarget = {

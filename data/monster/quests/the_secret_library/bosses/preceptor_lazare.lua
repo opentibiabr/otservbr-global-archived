@@ -18,7 +18,7 @@ monster.maxHealth = 15000
 monster.race = "blood"
 monster.corpse = 33384
 monster.speed = 210
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -64,27 +64,27 @@ monster.voices = {
 monster.loot = {
 	{id = "gold coin", chance = 100000, maxCount = 90},--comum
 	{id = "gold coin", chance = 100000, maxCount = 45},--comum
-	{id = "Platinum Coin", chance = 100000, maxCount = 3},--comum
-	{id = "Great Mana Potion", chance = 100000, maxCount = 3},--comum
-	{id = "Demonic Essence", chance = 100000, maxCount = 5},--comum
-	{id = "red Gem", chance = 700, maxCount = 3},--comum
-	{id = "Assassin Star", chance = 100000, maxCount = 5},--incomum
-	{id = "Concentrated Demonic Blood", chance = 100000, maxCount = 3},--incomum
-	{id = "Ham", chance = 100000, maxCount = 2},--incomum
-	{id = "Small Emerald", chance = 100000, maxCount = 5},--incomum
-	{id = "Small Diamond", chance = 100000, maxCount = 4},--incomum
-	{id = "Small Amethyst", chance = 100000, maxCount = 3},--incomum
-	{id = "Knight Armor", chance = 3100},--semiraro
-	{id = "Golden Armor", chance = 2200},--semiraro
-	{id = "Patch of Fine Cloth", chance = 1800, maxCount = 3},--semiraro
-	{id = "Violet Gem", chance = 1800},--semiraro
-	{id = "Titan Axe", chance = 1100},--semiraro
-	{id = "War Axe", chance = 800},--semiraro
-	{id = "Demonbone Amulet", chance = 400},--raro
-	{id = "Heavy Mace", chance = 300},--raro
-	{id = "Mastermind Shield", chance = 200},--raro
-	{id = "Falcon Rod", chance = 12},--muitoraro
-	{id = "Falcon Greaves", chance = 10}--muitoraro
+	{id = "platinum coin", chance = 100000, maxCount = 3},--comum
+	{id = "great mana potion", chance = 100000, maxCount = 3},--comum
+	{id = "demonic essence", chance = 100000, maxCount = 5},--comum
+	{id = "red gem", chance = 700, maxCount = 3},--comum
+	{id = "assassin star", chance = 100000, maxCount = 5},--incomum
+	{id = "concentrated demonic blood", chance = 100000, maxCount = 3},--incomum
+	{id = "ham", chance = 100000, maxCount = 2},--incomum
+	{id = "small emerald", chance = 100000, maxCount = 5},--incomum
+	{id = "small diamond", chance = 100000, maxCount = 4},--incomum
+	{id = "small amethyst", chance = 100000, maxCount = 3},--incomum
+	{id = "knight armor", chance = 3100},--semiraro
+	{id = "golden armor", chance = 2200},--semiraro
+	{id = "patch of fine cloth", chance = 1800, maxCount = 3},--semiraro
+	{id = "violet gem", chance = 1800},--semiraro
+	{id = "titan axe", chance = 1100},--semiraro
+	{id = "war axe", chance = 800},--semiraro
+	{id = "demonbone amulet", chance = 400},--raro
+	{id = "heavy mace", chance = 300},--raro
+	{id = "mastermind shield", chance = 200},--raro
+	{id = "falcon rod", chance = 12},--muitoraro
+	{id = "falcon greaves", chance = 10}--muitoraro
 }
 
 monster.attacks = {

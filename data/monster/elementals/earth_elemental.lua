@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Edron Earth Elemental Cave (17 of them on the first floor), Vandura Mountain, \z
 		Deeper Banuta, Vengoth Castle, Robson Isle, Drillworm Caves, Crystal Grounds, Middle Spike."
-		}
+	}
 
 monster.health = 650
 monster.maxHealth = 650
 monster.race = "undead"
 monster.corpse = 8933
 monster.speed = 230
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

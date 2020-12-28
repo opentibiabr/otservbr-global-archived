@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "South of Elvenbane and Ab'Dendriel, Ferngrims Gate, Northeast of Carlin, \z
 		Edron Hunter Camps, Yalahar - Trade Quarter and Foreigner Quarter."
-		}
+	}
 
 monster.health = 90
 monster.maxHealth = 90
 monster.race = "blood"
 monster.corpse = 20487
 monster.speed = 198
-monster.summonCost = 530
+monster.manaCost = 530
 monster.maxSummons = 0
 
 monster.changeTarget = {

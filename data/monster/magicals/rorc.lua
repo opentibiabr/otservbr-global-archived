@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "South-west of Ulderek's Rock and in the Rorc version of the Forsaken Mine."
-		}
+	}
 
 monster.health = 260
 monster.maxHealth = 260
 monster.race = "blood"
 monster.corpse = 21223
 monster.speed = 176
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

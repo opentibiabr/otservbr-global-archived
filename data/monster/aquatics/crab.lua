@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Various locations like Goroma, Edron, Port Hope, Nargor and other Shattered Isles. \z
 		There is also one located underwater by The Tibianic, however it is unreachable."
-		}
+	}
 
 monster.health = 55
 monster.maxHealth = 55
 monster.race = "undead"
 monster.corpse = 6039
 monster.speed = 144
-monster.summonCost = 305
+monster.manaCost = 305
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Feyrist."
-		}
+	}
 
 monster.health = 1200
 monster.maxHealth = 1200
 monster.race = "blood"
 monster.corpse = 22567
 monster.speed = 300
-monster.summonCost = 450
+monster.manaCost = 450
 monster.maxSummons = 0
 
 monster.changeTarget = {

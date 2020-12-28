@@ -771,6 +771,37 @@ ChestUnique = {
 		reward = {{2129, 1}, {2213, 1}},
 		storage = Storage.Quest.SkullOfRatha.Bag2
 	},
+	-- The annihilator quest
+	-- Demon armor
+	[6085] = {
+		itemId = 1740,
+		itemPos = {x = 33227, y = 31656, z = 13},
+		reward = {{2494, 1}},
+		storage = Storage.Quest.TheAnnihilator.Reward
+	},
+	-- Magic sword
+	[6086] = {
+		itemId = 1740,
+		itemPos = {x = 33229, y = 31656, z = 13},
+		reward = {{2400, 1}},
+		storage = Storage.Quest.TheAnnihilator.Reward
+	},
+	-- Stonecutter axe
+	[6087] = {
+		itemId = 1740,
+		itemPos = {x = 33231, y = 31656, z = 13},
+		reward = {{2431, 1}},
+		storage = Storage.Quest.TheAnnihilator.Reward
+	},
+	-- Present (annihilation bear)
+	[6088] = {
+		itemId = 1740,
+		itemPos = {x = 33233, y = 31656, z = 13},
+		container = 1990,
+		weight = 50,
+		reward = {{2326, 1}},
+		storage = Storage.Quest.TheAnnihilator.Reward
+	},
 
 	-- Reward of others scrips files (varied rewards)
 	-- The First dragon Quest

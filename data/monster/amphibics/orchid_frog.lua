@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Meriana, Laguna Islands, and other Shattered Isles."
-		}
+	}
 
 monster.health = 60
 monster.maxHealth = 60
 monster.race = "blood"
 monster.corpse = 6079
-monster.speed = 160
-monster.summonCost = 305
+monster.speed = 320
+monster.manaCost = 305
 monster.maxSummons = 0
 
 monster.changeTarget = {

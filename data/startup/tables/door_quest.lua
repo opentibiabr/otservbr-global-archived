@@ -575,8 +575,8 @@ QuestDoorAction = {
 		}
 	},
 	-- The annihilator door
-	[Storage.TheAnnihilator.AnnihilatorDone] = {
-		itemId = false,
+	[Storage.Quest.TheAnnihilator.Reward] = {
+		itemId = 5114,
 		itemPos = {{x = 33216, y = 31671, z = 13}}
 	},
 	-- Svargrond arena door

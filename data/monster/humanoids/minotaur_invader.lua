@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Second floor Glooth Underground Factory, east side during the Minotaurs raid."
-		}
+	}
 
 monster.health = 1850
 monster.maxHealth = 1850
 monster.race = "blood"
 monster.corpse = 5983
 monster.speed = 240
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

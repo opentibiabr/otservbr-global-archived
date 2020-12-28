@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Fiehonja, Sunken Mines near Dwarf Mines."
-		}
+	}
 
 monster.health = 240
 monster.maxHealth = 240
 monster.race = "blood"
 monster.corpse = 13839
 monster.speed = 130
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

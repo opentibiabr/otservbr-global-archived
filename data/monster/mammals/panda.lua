@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "South of Port Hope around Trapwood, as well as a lone specimen in the Arena Quarter."
-		}
+	}
 
 monster.health = 80
 monster.maxHealth = 80
 monster.race = "blood"
 monster.corpse = 6049
 monster.speed = 156
-monster.summonCost = 300
+monster.manaCost = 300
 monster.maxSummons = 0
 
 monster.changeTarget = {

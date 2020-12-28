@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "Court of Winter at night."
-		}
+	}
 
 monster.health = 850
 monster.maxHealth = 850
 monster.race = "blood"
 monster.corpse = 34817
 monster.speed = 400
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

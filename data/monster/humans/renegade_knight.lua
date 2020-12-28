@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Old Fortress (north of Edron), Old Masonry, Forbidden Temple (Carlin)."
-		}
+	}
 
 monster.health = 1450
 monster.maxHealth = 1450
 monster.race = "blood"
 monster.corpse = 24676
 monster.speed = 270
-monster.summonCost = 390
+monster.manaCost = 390
 monster.maxSummons = 0
 
 monster.changeTarget = {

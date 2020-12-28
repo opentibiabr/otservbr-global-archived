@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Warzone 1, Rathleton Sewers, unreachable location in Tiquanda Laboratory."
-		}
+	}
 
 monster.health = 4600
 monster.maxHealth = 4600
 monster.race = "venom"
 monster.corpse = 17428
 monster.speed = 340
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 2
 
 monster.changeTarget = {

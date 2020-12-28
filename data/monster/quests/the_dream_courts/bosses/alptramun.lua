@@ -18,7 +18,7 @@ monster.maxHealth = 200000
 monster.race = "blood"
 monster.corpse = 34793
 monster.speed = 250
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -79,7 +79,7 @@ monster.loot = {
 	{id = "Gold Token", chance = 15000, maxCount = 2},
 	{id = "berserk potion", chance = 8050, maxCount = 10},
 	{id = "bullseye potion", chance = 6780, maxCount = 10},
-	{id = 26198, chance = 23520},
+	{id = 26198, chance = 23520},-- collar of blue plasma
 	{id = 26200, chance = 10590},
 	{id = "Gold Ingot", chance = 7630},
 	{id = "Huge Chunk of Crude Iron", chance = 8900},
