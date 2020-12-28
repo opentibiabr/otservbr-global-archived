@@ -16,6 +16,7 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
+#include <algorithm>
 
 #include "otpch.h"
 
@@ -142,7 +143,7 @@ void Creature::onThink(uint32_t interval)
 		blockCount = std::min<uint32_t>(blockCount + 1, 2);
 		blockTicks = 0;
 	}
-	if (returnToMasterInterval > 0){
+	if (returnToMasterInterval > 0) {
 		returnToMasterInterval -= interval;
 		if (returnToMasterInterval <= 0) {
 			returnToMasterInterval = 0;
@@ -154,10 +155,10 @@ void Creature::onThink(uint32_t interval)
 
 	if (followCreature) {
 		walkUpdateTicks += interval;
-		if(isSummon() && followCreature != master && master->getPosition().z == getPosition().z){
+		if(isSummon() && followCreature != master && master->getPosition().z == getPosition().z) {
 			int32_t distX = Position::getDistanceX(master->getPosition(), getPosition());
 			int32_t distY = Position::getDistanceY(master->getPosition(), getPosition());
-			if (distX >= Map::maxClientViewportX || distY >= Map::maxClientViewportY){
+			if (distX >= Map::maxClientViewportX || distY >= Map::maxClientViewportY) {
 				stopEventWalk();
 				followCreature = master;
 				forceUpdateFollowPath = true;
@@ -961,7 +962,7 @@ bool Creature::setFollowCreature(Creature* creature)
 	if (creature) {
 		if (returnToMasterInterval > 0 && master && creature != master)
 			return false;
-			
+
 		if (followCreature == creature) {
 			return true;
 		}
@@ -1607,7 +1608,7 @@ bool FrozenPathingConditionCall::operator()(const Position& startPos, const Posi
 		testDist = Position::getDistanceX(targetPos, testPos) + Position::getDistanceY(targetPos, testPos);
 	else
 		testDist = std::max<int32_t>(Position::getDistanceX(targetPos, testPos), Position::getDistanceY(targetPos, testPos));
-	
+
 	if (fpp.maxTargetDist == 1) {
 		if (testDist < fpp.minTargetDist || testDist > fpp.maxTargetDist) {
 			return false;
@@ -1616,8 +1617,8 @@ bool FrozenPathingConditionCall::operator()(const Position& startPos, const Posi
 	} else if (testDist <= fpp.maxTargetDist) {
 		if (testDist < fpp.minTargetDist) {
 			return false;
-		}
-		else if (testDist == fpp.maxTargetDist && (!fpp.preferDiagonal || Position::getDistanceX(targetPos, testPos) == Position::getDistanceY(targetPos, testPos))) {
+		} else if (testDist == fpp.maxTargetDist && (!fpp.preferDiagonal ||
+						Position::getDistanceX(targetPos, testPos) == Position::getDistanceY(targetPos, testPos))) {
 			bestMatchDist = 0;
 			return true;
 		} else if (testDist > bestMatchDist) {
