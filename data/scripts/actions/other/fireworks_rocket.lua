@@ -8,7 +8,7 @@ function fireworksRocket.onUse(player, item, fromPosition, target, toPosition, i
 		position:sendMagicEffect(CONST_ME_HITBYFIRE)
 		position:sendMagicEffect(CONST_ME_EXPLOSIONAREA)
 		player:say("Ouch! Rather place it on the ground next time.", TALKTYPE_MONSTER_SAY)
-		player:addHealth(-10)
+		player:addHealth(-10, COMBAT_PHYSICALDAMAGE)
 	end
 	player:addAchievementProgress('Fireworks in the Sky', 250)
 	item:remove()
