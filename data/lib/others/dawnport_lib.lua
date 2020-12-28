@@ -51,7 +51,7 @@ function dawnportSetVocation(player, vocation)
 		magic.manaSpent = magic.manaSpent + player:getVocation():getRequiredManaSpent(level)
 	end
 	
-	--print(player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " MAGIC" .. " level:" .. magic.level .. " manaSpent:" .. magic.manaSpent)
+	--print("OLD " .. player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " MAGIC" .. " level:" .. magic.level .. " totalManaSpent:" .. magic.manaSpent)
 
 	local skills = {
 		['fist'] = {id = SKILL_FIST},
@@ -71,7 +71,7 @@ function dawnportSetVocation(player, vocation)
             skill.tries = skill.tries + player:getVocation():getRequiredSkillTries(skill.id, level)
         end
 		
-		--print(player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " SKILL:" .. key .. " id:" .. skill.id .. " level:" .. skill.level .. " tries:" .. skill.tries)
+		--print("OLD " .. player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " SKILL:" .. key .. " id:" .. skill.id .. " level:" .. skill.level .. " totalTries:" .. skill.tries)
 	end
 	
 	-- Set for the dawnport vocation if is level 8 or minor
@@ -93,20 +93,16 @@ function dawnportSetVocation(player, vocation)
 		while magic.manaSpent >= reqManaSpent do
 		  magic.manaSpent = magic.manaSpent - reqManaSpent
 		  newMagicLevel = newMagicLevel + 1;
-		  
 		  reqManaSpent = player:getVocation():getRequiredManaSpent(newMagicLevel + 1)
 		end
 	end
 	
-	--print(player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " MAGIC" .. " level:" .. newMagicLevel .. " manaSpent:" .. magic.manaSpent)
+	--print("NEW " .. player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " MAGIC" .. " level:" .. newMagicLevel .. " leftManaSpent:" .. magic.manaSpent)
 	
-	-- Apply magic level
+	-- Apply magic level and/or mana spent
 	if newMagicLevel > 0 then
-		player:setMagicLevel(newMagicLevel)
-	end
-	
-	-- Apply mana spent
-	if magic.manaSpent > 0 then
+		player:setMagicLevel(newMagicLevel, magic.manaSpent)
+	elseif magic.manaSpent > 0 then
 		player:addManaSpent(magic.manaSpent)
 	end
 	
@@ -121,20 +117,16 @@ function dawnportSetVocation(player, vocation)
 			while skill.tries >= reqSkillTries do
 			  skill.tries = skill.tries - reqSkillTries
 			  newSkillLevel = newSkillLevel + 1;
-			  
 			  reqSkillTries = player:getVocation():getRequiredSkillTries(skill.id, (newSkillLevel + 1))
 			end
 		end
 		
-		--print(player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " SKILL:" .. key .. " id:" .. skill.id .. " level:" .. newSkillLevel .. " tries:" .. skill.tries)
+		--print("NEW " .. player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " SKILL:" .. key .. " id:" .. skill.id .. " level:" .. newSkillLevel .. " leftTries:" .. skill.tries)
 		
-		-- Apply skill level
+		-- Apply skill level and/or skill tries
 		if newSkillLevel > 10 then
-			player:setSkillLevel(skill.id, newSkillLevel)
-		end
-		
-		-- Apply skill tries
-		if skill.tries > 0 then
+			player:setSkillLevel(skill.id, newSkillLevel, skill.tries)
+		elseif skill.tries > 0 then
 			player:addSkillTries(skill.id, skill.tries)
 		end
     end

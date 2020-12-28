@@ -9664,6 +9664,13 @@ int LuaScriptInterface::luaPlayerSetMagicLevel(lua_State* L)
     player->magLevel = level;
     player->manaSpent = 0;
     player->magLevelPercent = 0;
+    if (isNumber(L, 3) && getNumber<uint64_t>(L, 3) > 0)
+    {
+      uint64_t manaSpent = getNumber<uint64_t>(L, 3);
+      uint64_t nextReqMana = player->vocation->getReqMana(level + 1);
+      player->manaSpent = manaSpent;
+      player->magLevelPercent = Player::getPercentLevel(manaSpent, nextReqMana);
+    }
     player->sendStats();
     player->sendSkills();
     pushBoolean(L, true);
@@ -9684,6 +9691,13 @@ int LuaScriptInterface::luaPlayerSetSkillLevel(lua_State* L)
     player->skills[skillType].level = level;
     player->skills[skillType].tries = 0;
     player->skills[skillType].percent = 0;
+    if (isNumber(L, 4) && getNumber<uint64_t>(L, 4) > 0)
+    {
+      uint64_t tries = getNumber<uint64_t>(L, 4);
+      uint64_t nextReqTries = player->vocation->getReqSkillTries(skillType, level + 1);
+      player->skills[skillType].tries = tries;
+      player->skills[skillType].percent = Player::getPercentLevel(tries, nextReqTries);
+    }
     player->sendStats();
     player->sendSkills();
     pushBoolean(L, true);
