@@ -5,6 +5,17 @@ local familiar = {
     [VOCATION.CLIENT_ID.KNIGHT] = {name = "Knight familiar"}
 }
 
+local timer = {
+	[1] = {countdown=60, message = "one minute"},
+	[2] = {countdown=10, message = "10 seconds"}
+}
+
+function sendMessageFunction(pid, message)
+	if Player(pid) then
+		Player(pid):sendTextMessage(MESSAGE_LOOT, "Your summon will disappear in less than " .. message)
+	end
+end
+
 function removePet(creatureId)
     local creature = Creature(creatureId)
     if not creature then
@@ -36,6 +47,8 @@ function onCastSpell(player, variant)
 
     local vocation = familiar[player:getVocation():getClientId()]
     local familiarName
+    local sendMessage
+
     if vocation then
         familiarName = vocation.name
     end
@@ -58,7 +71,9 @@ function onCastSpell(player, variant)
     myFamiliar:changeSpeed(deltaSpeed)
 
     player:setStorageValue(Storage.PetSummon, os.time() + 15*60) -- 15 minutes from now
-    player:say("My Power your Power", TALKTYPE_MONSTER_SAY)
-    addEvent(removePet, 15*60*1000, myFamiliar:getId()) --I think this isn't necessary
+    addEvent(removePet, 15*60*1000, myFamiliar:getId())
+    for sendMessage = 1, #timer do
+        addEvent(sendMessageFunction, (15*60-timer[sendMessage].countdown)*1000, player:getId(),timer[sendMessage].message)
+    end
     return combat:execute(player, variant)
 end

@@ -5,6 +5,17 @@ local familiar = {
 	[VOCATION.CLIENT_ID.KNIGHT] = {id = 991, name = "Knight familiar"}
 }
 
+local timer = {
+	[1] = {countdown=60, message = "one minute"},
+	[2] = {countdown=10, message = "10 seconds"}
+}
+
+function sendMessageFunction(pid, message)
+	if Player(pid) then
+		Player(pid):sendTextMessage(MESSAGE_LOOT, "Your summon will disappear in less than " .. message)
+	end
+end
+
 function removePet(creatureId)
     local creature = Creature(creatureId)
     if not creature then
@@ -20,6 +31,7 @@ local familiarLogin = CreatureEvent("FamiliarLogin")
 function familiarLogin.onLogin(player)
 	local vocation = familiar[player:getVocation():getClientId()]
 	local familiarName
+	local sendMessage
 	local petTimeLeft = player:getStorageValue(familiarStorage) - player:getLastLogout()
 
 	if vocation then
@@ -50,6 +62,9 @@ function familiarLogin.onLogin(player)
 		familiarMonster:registerEvent("FamiliarDeath")
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 		addEvent(removePet, petTimeLeft*1000, familiarMonster:getId())
+		for sendMessage = 1, #timer do
+			addEvent(sendMessageFunction, (petTimeLeft-timer[sendMessage].countdown)*1000, player:getId(),timer[sendMessage].message)
+		end
 	end
 	return true
 end

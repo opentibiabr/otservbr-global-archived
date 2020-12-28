@@ -86,8 +86,8 @@ function Creature:onTargetCombat(target)
 		end
 	end
 
-	if ((target:isMonster() and self:isPlayer() and target:getType():isPet() and target:getMaster() == self)
-	or (self:isMonster() and target:isPlayer() and self:getType():isPet() and self:getMaster() == target)) then
+	if ((target:isMonster() and self:isPlayer() and target:getMaster() == self)
+	or (self:isMonster() and target:isPlayer() and self:getMaster() == target)) then
 		return RETURNVALUE_YOUMAYNOTATTACKTHISCREATURE
 	end
 
