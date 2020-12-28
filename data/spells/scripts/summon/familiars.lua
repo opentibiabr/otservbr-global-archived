@@ -47,7 +47,6 @@ function onCastSpell(player, variant)
 
     local vocation = familiar[player:getVocation():getClientId()]
     local familiarName
-    local sendMessage
 
     if vocation then
         familiarName = vocation.name

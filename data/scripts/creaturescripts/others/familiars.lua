@@ -31,7 +31,6 @@ local familiarLogin = CreatureEvent("FamiliarLogin")
 function familiarLogin.onLogin(player)
 	local vocation = familiar[player:getVocation():getClientId()]
 	local familiarName
-	local sendMessage
 	local petTimeLeft = player:getStorageValue(familiarStorage) - player:getLastLogout()
 
 	if vocation then
