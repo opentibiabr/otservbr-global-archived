@@ -142,9 +142,29 @@ void Creature::onThink(uint32_t interval)
 		blockCount = std::min<uint32_t>(blockCount + 1, 2);
 		blockTicks = 0;
 	}
+	if (returnToMasterInterval > 0){
+		returnToMasterInterval -= interval;
+		if (returnToMasterInterval <= 0) {
+			returnToMasterInterval = 0;
+			if (master)
+				setAttackedCreature(master->getAttackedCreature());
+		}
+	}
+
 
 	if (followCreature) {
 		walkUpdateTicks += interval;
+		if(isSummon() && followCreature != master && master->getPosition().z == getPosition().z){
+			int32_t distX = Position::getDistanceX(master->getPosition(), getPosition());
+			int32_t distY = Position::getDistanceY(master->getPosition(), getPosition());
+			if (distX >= Map::maxClientViewportX || distY >= Map::maxClientViewportY){
+				stopEventWalk();
+				followCreature = master;
+				forceUpdateFollowPath = true;
+				attackedCreature = nullptr;
+				returnToMasterInterval = 2000;
+			}
+		}
 		if (forceUpdateFollowPath || walkUpdateTicks >= 2000) {
 			walkUpdateTicks = 0;
 			forceUpdateFollowPath = false;
@@ -939,6 +959,9 @@ void Creature::goToFollowCreature()
 bool Creature::setFollowCreature(Creature* creature)
 {
 	if (creature) {
+		if (returnToMasterInterval > 0 && master && creature != master)
+			return false;
+			
 		if (followCreature == creature) {
 			return true;
 		}
@@ -1568,7 +1591,6 @@ bool FrozenPathingConditionCall::isInRange(const Position& startPos, const Posit
 	}
 	return true;
 }
-
 bool FrozenPathingConditionCall::operator()(const Position& startPos, const Position& testPos,
         const FindPathParams& fpp, int32_t& bestMatchDist) const
 {
@@ -1580,19 +1602,22 @@ bool FrozenPathingConditionCall::operator()(const Position& startPos, const Posi
 		return false;
 	}
 
-	int32_t testDist = std::max<int32_t>(Position::getDistanceX(targetPos, testPos), Position::getDistanceY(targetPos, testPos));
+	int32_t testDist;
+	if(fpp.absoluteDist)
+		testDist = Position::getDistanceX(targetPos, testPos) + Position::getDistanceY(targetPos, testPos);
+	else
+		testDist = std::max<int32_t>(Position::getDistanceX(targetPos, testPos), Position::getDistanceY(targetPos, testPos));
+	
 	if (fpp.maxTargetDist == 1) {
 		if (testDist < fpp.minTargetDist || testDist > fpp.maxTargetDist) {
 			return false;
 		}
-
 		return true;
 	} else if (testDist <= fpp.maxTargetDist) {
 		if (testDist < fpp.minTargetDist) {
 			return false;
 		}
-
-		if (testDist == fpp.maxTargetDist) {
+		else if (testDist == fpp.maxTargetDist && (!fpp.preferDiagonal || Position::getDistanceX(targetPos, testPos) == Position::getDistanceY(targetPos, testPos))) {
 			bestMatchDist = 0;
 			return true;
 		} else if (testDist > bestMatchDist) {
