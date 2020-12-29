@@ -2488,6 +2488,8 @@ void LuaScriptInterface::registerFunctions()
 	registerClass("Player", "Creature", LuaScriptInterface::luaPlayerCreate);
 	registerMetaMethod("Player", "__eq", LuaScriptInterface::luaUserdataCompare);
 
+	registerMethod("Player", "resetCharmsBestiary", LuaScriptInterface::luaPlayerResetCharmsMonsters);
+	registerMethod("Player", "unlockAllCharmRunes", LuaScriptInterface::luaPlayerUnlockAllCharmRunes);
 	registerMethod("Player", "addCharmPoints", LuaScriptInterface::luaPlayeraddCharmPoints);
 	registerMethod("Player", "isPlayer", LuaScriptInterface::luaPlayerIsPlayer);
 
@@ -8815,6 +8817,45 @@ int LuaScriptInterface::luaPlayerCreate(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaPlayerResetCharmsMonsters(lua_State* L)
+{
+	// player:resetCharmsBestiary()
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		player->setCharmPoints(0);
+		player->setCharmExpansion(false);
+		player->setUsedRunesBit(0);
+		player->setUnlockedRunesBit(0);
+		for (int8_t i = CHARM_WOUND; i <= CHARM_LAST; i++) {
+			player->parseRacebyCharm(static_cast<charmRune_t>(i), true, 0);
+		}
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerUnlockAllCharmRunes(lua_State* L)
+{
+	// player:unlockAllCharmRunes()
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		IOBestiary g_bestiary;
+		for (int8_t i = CHARM_WOUND; i <= CHARM_LAST; i++) {
+			Charm* charm = g_bestiary.getBestiaryCharm(static_cast<charmRune_t>(i));
+			if (charm) {
+				int32_t value = g_bestiary.bitToggle(player->getUnlockedRunesBit(), charm, true);
+				player->setUnlockedRunesBit(value);
+			}
+		}
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 int LuaScriptInterface::luaPlayeraddCharmPoints(lua_State* L)
 {
 	// player:addCharmPoints()
@@ -8930,13 +8971,13 @@ int LuaScriptInterface::luaPlayerSetAccountType(lua_State* L)
 
 int LuaScriptInterface::luaPlayeraddBestiaryKill(lua_State* L)
 {
-	// player:addBestiaryKill(name)
+	// player:addBestiaryKill(name[, amount = 1])
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
 			MonsterType* mtype = g_monsters.getMonsterType(getString(L, 2));
 			if (mtype) {
 				IOBestiary g_bestiary;
-				g_bestiary.addBestiaryKill(player, mtype);
+				g_bestiary.addBestiaryKill(player, mtype, getNumber<uint32_t>(L, 3, 1));
 				pushBoolean(L, true);
 			} else {
 				lua_pushnil(L);

@@ -5249,7 +5249,7 @@ bool Game::combatBlockHit(CombatDamage& damage, Creature* attacker, Creature* ta
 				damageReflected.primary.type = damage.primary.type;
 				damageReflected.primary.value = std::ceil((damage.primary.value) * (primaryReflect / 100.));
 				damageReflected.extension = true;
-				damageReflected.exString = "[Reflection]";
+				damageReflected.exString = "(damage reflection)";
 				canReflect = true;
 			}
 		}
@@ -5275,11 +5275,16 @@ bool Game::combatBlockHit(CombatDamage& damage, Creature* attacker, Creature* ta
 		if (attacker && target->getMonster()) {
 			uint32_t secondaryReflect = target->getMonster()->getReflectValue(damage.secondary.type);
 			if (secondaryReflect > 0) {
-				damageReflected.secondary.type = damage.secondary.type;
-				damageReflected.secondary.value = std::ceil((damage.secondary.value) * (secondaryReflect / 100.));
-				damageReflected.extension = true;
-				damageReflected.exString = "[Reflection]";
-				canReflect = true;
+				if (!canReflect) {
+					damageReflected.primary.type = damage.secondary.type;
+					damageReflected.primary.value = std::ceil((damage.secondary.value) * (secondaryReflect / 100.));
+					damageReflected.extension = true;
+					damageReflected.exString = "(damage reflection)";
+					canReflect = true;
+				} else {
+					damageReflected.secondary.type = damage.secondary.type;
+					damageReflected.secondary.value = std::ceil((damage.secondary.value) * (secondaryReflect / 100.));
+				}
 			}
 		}
 		damage.secondary.value = -damage.secondary.value;
