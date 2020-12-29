@@ -3618,7 +3618,7 @@ void Player::doAttacking(uint32_t)
 
 		SchedulerTask* task = createSchedulerTask(std::max<uint32_t>(SCHEDULER_MINTICKS, delay), std::bind(&Game::checkCreatureAttack, &g_game, getID()));
 		if (!classicSpeed) {
-			setNextActionTask(task,false);
+			setNextActionTask(task, false);
 		} else {
 			g_scheduler.addEvent(task);
 		}
