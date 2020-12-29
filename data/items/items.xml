@@ -24432,9 +24432,6 @@
 		<attribute key="description" value="A good item to paralyse fast and rowdy orcs." />
 		<attribute key="weight" value="10" />
 	</item>
-	<item id="13927" article="a" name="rolling pin">
-		<attribute key="weight" value="50" />
-	</item>
 	<item id="13937" article="an" name="inoperative uniwheel" />
 	<item id="13938" article="a" name="golden can of oil">
 		<attribute key="loottype" value="other" />
@@ -27562,10 +27559,6 @@
 	</item>
 	<item fromid="18529" toid="18536" name="stairs">
 		<attribute key="floorchange" value="down" />
-	</item>
-	<item id="18550" article="a" name="voodoo doll">
-		<attribute key="description" value="You read the numbers 3613 on the back of the doll." />
-		<attribute key="weight" value="650" />
 	</item>
 	<item id="18550" article="a" name="noble sword">
 		<attribute key="weight" value="5000" />
@@ -42221,30 +42214,6 @@
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="32005" article="a" name="dead the duke of the depths">
-		<attribute key="containerSize" value="20" />
-		<attribute key="decayTo" value="0" />
-		<attribute key="duration" value="300" />
-		<attribute key="corpseType" value="blood" />
-	</item>
-	<item id="32006" article="a" name="dead the duke of the depths">
-		<attribute key="containerSize" value="20" />
-		<attribute key="decayTo" value="32005" />
-		<attribute key="duration" value="300" />
-		<attribute key="corpseType" value="blood" />
-	</item>
-	<item id="32007" article="a" name="dead the duke of the depths">
-		<attribute key="containerSize" value="20" />
-		<attribute key="decayTo" value="32006" />
-		<attribute key="duration" value="300" />
-		<attribute key="corpseType" value="blood" />
-	</item>
-	<item id="32008" article="a" name="dead the duke of the depths">
-		<attribute key="containerSize" value="20" />
-		<attribute key="decayTo" value="32007" />
-		<attribute key="duration" value="300" />
-		<attribute key="corpseType" value="blood" />
-	</item>
 	<item id="32009" article="a" name="dead bone jaw">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="1200" />
@@ -43459,9 +43428,9 @@
 	<item fromid="32667" toid="32668" article="a" name="writing desk" />
 	<item id="32669" article="a" name="bucket of scrolls"/>
 	<item id="32670" article="a" name="stack of books"/>
-	<item fromid="32671" toid="32680" article="a" name="black wooden chair"/>
-	<item fromid="32681" toid="32684" article="a" name="pile of books and scrolls"/>
-	<item fromid="32673" toid="32684" article="a" name="pile of books"/>
+	<item fromid="32671" toid="32672" article="a" name="black wooden chair"/>
+	<item fromid="32673" toid="32680" article="a" name="pile of books and scrolls"/>
+	<item fromid="32681" toid="32684" article="a" name="pile of books"/>
 	<item fromid="32685" toid="32692" article="a" name="pile of scrolls"/>
 	<item fromid="32693" toid="32696" article="a" name="scroll"/>
 	<item fromid="32697" toid="32698" article="a" name="book"/>
@@ -43579,8 +43548,8 @@
 	<item fromid="33140" toid="33147" article="a" name="wall"/>
 	<item fromid="33148" toid="33151" article="a" name="half-buried face"/>
 	<item id="33152" name="unknown item"/>
-	<item id="31153" article="a" name="glowing obsidian pipes"/>
-	<item fromid="31154" toid="31155" name="obsidian pipes"/>
+	<item id="33153" article="a" name="glowing obsidian pipes"/>
+	<item fromid="33154" toid="33155" name="obsidian pipes"/>
 	<item id="33156" article="an" name="unknown skeleton"/>
 	<item id="33157" article="an" name="unknown barrel"/>
 	<item id="33158" article="an" name="unknown lever"/>
@@ -44497,11 +44466,9 @@
 		<attribute key="description" value="Souvenir from Thais Museum." />
 		<attribute key="weight" value="4015" />
 	</item>
-	<item fromid="33554" toid="33557" name="unknown item"/>
+	<item fromid="33554" toid="33556" name="unknown item"/>
 	<item id="33557" name="reserved sprite"/>
 	<item id="33558" name="unknown wall"/>
-	<item id="33558" name="unknown statue"/>
-	<item id="33558" name="unknown tile"/>
 	<item fromid="33561" toid="33562" name="unknown item"/>
 	<item id="33563" article="a" name="can of grease">
 		<attribute key="description" value="Ideal to grease large mechanisms. The can is leaky." />
@@ -46163,7 +46130,6 @@
 	</item>
 	<item id="35206" article="a" name="black raven kit"/>
 	<item id="35207" article="a" name="grey raven kit"/>
-	<item id="35208" article="a" name="white raven kit"/>
 	<item id="35208" article="a" name="white raven kit"/>
 	<!-- UPDATE 12.20 START -->
 	<item id="35228" article="a" name="cobra crossbow">
@@ -47981,7 +47947,7 @@
 		<attribute key="slotType" value="backpack" />
 		<attribute key="imbuingSlots" value="1" />
 	</item>
-	<item fromid="36461" toid="36466" article="a" name="gryphon nest"/>
+	<item fromid="36461" toid="36465" article="a" name="gryphon nest"/>
 	<item id="36466" article="a" name="the cobra amulet">
 		<attribute key="description" value="The bearer of this amulet will command the gaze, the resilience and deadliness of the cobra. Yet what firmly has its place in the heart of its wearer, the cobra will conceal." />
 		<attribute key="weight" value="530" />
