@@ -11,8 +11,8 @@ local positionByDay = {
 	[7] = Position(33166, 31810, 6)  -- Saturday
 }
 
-local rashidSpawn = GlobalEvent("rashid spawn")
-function rashidSpawn.onStartup()
+local rashidSpawnOnStartup = GlobalEvent("rashidSpawnOnStartup")
+function rashidSpawnOnStartup.onStartup()
 
 	if positionByDay[today] then
 		local rashid = Game.createNpc("Rashid", positionByDay[today])
@@ -26,10 +26,10 @@ function rashidSpawn.onStartup()
 	return true
 
 end
-rashidSpawn:register()
+rashidSpawnOnStartup:register()
 
-local rashidSpawn = GlobalEvent("rashid spawn")
-function rashidSpawn.onTime(interval)
+local rashidSpawnOnTime = GlobalEvent("rashidSpawnOnTime")
+function rashidSpawnOnTime.onTime(interval)
 
 	local rashidTarget = Npc("Rashid")
 	if rashidTarget then
@@ -43,5 +43,5 @@ function rashidSpawn.onTime(interval)
 	return true
 
 end
-rashidSpawn:time("07:00:00")
-rashidSpawn:register()
+rashidSpawnOnTime:time("07:00:00")
+rashidSpawnOnTime:register()
