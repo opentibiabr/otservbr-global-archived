@@ -6,8 +6,8 @@ local familiar = {
 }
 
 local timer = {
-	[1] = {countdown=60, message = "one minute"},
-	[2] = {countdown=10, message = "10 seconds"}
+	[1] = {countdown=10, message = "10 seconds"}
+	[2] = {countdown=60, message = "one minute"},
 }
 
 function sendMessageFunction(pid, message)
@@ -62,7 +62,9 @@ function familiarLogin.onLogin(player)
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 		addEvent(removePet, petTimeLeft*1000, familiarMonster:getId())
 		for sendMessage = 1, #timer do
-			addEvent(sendMessageFunction, (petTimeLeft-timer[sendMessage].countdown)*1000, player:getId(),timer[sendMessage].message)
+			if petTimeLeft >= timer[sendMessage].countdown then 
+				addEvent(sendMessageFunction, (petTimeLeft-timer[sendMessage].countdown)*1000, player:getId(),timer[sendMessage].message)
+			end
 		end
 	end
 	return true
