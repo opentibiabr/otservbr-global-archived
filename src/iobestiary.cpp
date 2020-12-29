@@ -203,7 +203,7 @@ void IOBestiary::addCharmPoints(Player* player, uint16_t amount, bool negative /
 	player->setCharmPoints(myCharms);
 }
 
-void IOBestiary::addBestiaryKill(Player* player, MonsterType* mtype)
+void IOBestiary::addBestiaryKill(Player* player, MonsterType* mtype, uint32_t amount /*= 1*/)
 {
 	uint16_t raceid = mtype->info.raceid;
 	if (raceid == 0) {
@@ -212,7 +212,7 @@ void IOBestiary::addBestiaryKill(Player* player, MonsterType* mtype)
 	uint32_t curCount = player->getBestiaryKillCount(raceid);
 	std::ostringstream ss;
 
-	player->addBestiaryKillCount(raceid);
+	player->addBestiaryKillCount(raceid, amount);
 
 	if (curCount == 0) {
 		player->sendBestiaryEntryChanged(raceid);
@@ -221,7 +221,7 @@ void IOBestiary::addBestiaryKill(Player* player, MonsterType* mtype)
 		return;
 	}
 
-	curCount += 1;
+	curCount += amount;
 
 	if ((curCount == mtype->info.bestiaryFirstUnlock) || (curCount == mtype->info.bestiarySecondUnlock)) {
 		ss << "You unlocked details for the creature '" << mtype->name << "'";
