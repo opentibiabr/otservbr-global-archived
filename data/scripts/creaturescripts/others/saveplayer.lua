@@ -26,8 +26,10 @@ end
 local savePlayers = CreatureEvent("savePlayers")
 
 function savePlayers.onLogin(cid)
-	setPlayerStorageValue(cid, config.storage, addEvent(saveRepeat,
-								math.random(config.minSaveInterval, config.maxSaveInterval) * 1000, cid.uid))
+	if savePlayer then
+		setPlayerStorageValue(cid, config.storage, addEvent(saveRepeat,
+									math.random(config.minSaveInterval, config.maxSaveInterval) * 1000, cid.uid))
+	end
     return true
 end
 
@@ -36,8 +38,10 @@ savePlayers:register()
 local endSavePlayers = CreatureEvent("endSavePlayers")
 
 function endSavePlayers.onLogout(cid)
+	if savePlayer then
 		doSaveHouse({getHouseByPlayerGUID(getPlayerGUID(cid))})
 		stopEvent(getPlayerStorageValue(cid, config.storage))
+	end
     return true
 end
 
