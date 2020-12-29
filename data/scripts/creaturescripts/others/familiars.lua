@@ -6,11 +6,11 @@ local familiar = {
 }
 
 local timer = {
-	[1] = {countdown=10, message = "10 seconds"}
-	[2] = {countdown=60, message = "one minute"},
+	[1] = {countdown=10, message = "10 seconds"},
+	[2] = {countdown=60, message = "one minute"}
 }
 
-function sendMessageFunction(pid, message)
+local function sendMessageFunction(pid, message)
 	if Player(pid) then
 		Player(pid):sendTextMessage(MESSAGE_LOOT, "Your summon will disappear in less than " .. message)
 	end
@@ -62,9 +62,7 @@ function familiarLogin.onLogin(player)
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 		addEvent(removePet, petTimeLeft*1000, familiarMonster:getId())
 		for sendMessage = 1, #timer do
-			if petTimeLeft >= timer[sendMessage].countdown then 
-				addEvent(sendMessageFunction, (petTimeLeft-timer[sendMessage].countdown)*1000, player:getId(),timer[sendMessage].message)
-			end
+			addEvent(sendMessageFunction, (petTimeLeft-timer[sendMessage].countdown)*1000, player:getId(),timer[sendMessage].message)
 		end
 	end
 	return true

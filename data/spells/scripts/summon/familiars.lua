@@ -6,11 +6,11 @@ local familiar = {
 }
 
 local timer = {
-	[1] = {countdown=60, message = "one minute"},
-	[2] = {countdown=10, message = "10 seconds"}
+	[1] = {countdown=10, message = "10 seconds"},
+	[2] = {countdown=60, message = "one minute"}
 }
 
-function sendMessageFunction(pid, message)
+local function sendMessageFunction(pid, message)
 	if Player(pid) then
 		Player(pid):sendTextMessage(MESSAGE_LOOT, "Your summon will disappear in less than " .. message)
 	end
