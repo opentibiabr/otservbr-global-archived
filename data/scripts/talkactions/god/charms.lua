@@ -145,7 +145,7 @@ function setBestiary.onSay(player, words, param)
 
 	player:sendCancelMessage("Set bestiary kill of monster '".. monsterName .. "' from player '" .. target:getName() .. "' to '" .. amount .. "'.")
 	target:sendCancelMessage("Updated kills of monster '".. monsterName .. "'!")
-	target:addBestiaryKill(monsterName, amount))
+	target:addBestiaryKill(monsterName, amount)
 	target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
 end
 
