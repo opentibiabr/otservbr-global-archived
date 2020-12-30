@@ -15,7 +15,7 @@ local rashidSpawnOnStartup = GlobalEvent("rashidSpawnOnStartup")
 function rashidSpawnOnStartup.onStartup()
 
 	if positionByDay[today] then
-		local rashid = Game.createNpc("Rashid", positionByDay[today])
+		local rashid = Game.createNpc("rashid", positionByDay[today])
 		rashid:setMasterPos(positionByDay[today])
 		rashid:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		print(">> Rashid arrived at " .. todayLabel .. "s destination.")
@@ -31,7 +31,7 @@ rashidSpawnOnStartup:register()
 local rashidSpawnOnTime = GlobalEvent("rashidSpawnOnTime")
 function rashidSpawnOnTime.onTime(interval)
 
-	local rashidTarget = Npc("Rashid")
+	local rashidTarget = Npc("rashid")
 	if rashidTarget then
 		print(">> Rashid is traveling to " .. todayLabel .. "s location.")
 		rashidTarget:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
