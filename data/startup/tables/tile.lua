@@ -314,6 +314,7 @@ TileUnique = {
 		itemId = 426,
 		itemPos = {x = 32225, y = 32268, z = 9}
 	},
+	-- The paradox tower quest
 	[25011] = {
 		itemId = 9024,
 		itemPos = {x = 32497, y = 31889, z = 7}
@@ -333,6 +334,10 @@ TileUnique = {
 	[25015] = {
 		itemId = 9023,
 		itemPos = {x = 32479, y = 31908, z = 7}
+	},
+	[25016] = {
+		itemId = 1945,
+		itemPos = {x = 32479, y = 31905, z = 6}
 	},
 
 	-- Remove/create item on stepIn
