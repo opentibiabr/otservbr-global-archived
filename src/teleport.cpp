@@ -65,13 +65,7 @@ Cylinder* Teleport::queryDestination(int32_t&, const Thing&, Item**, uint32_t&)
 	return this;
 }
 
-void Teleport::addThing(Thing* thing)
-{
-	return addThing(0, thing);
-}
-
-bool Teleport::checkInfinityLoop(Tile* destTile)
-{
+bool Teleport::checkInfinityLoop(Tile* destTile) {
 	if (!destTile) {
 		return false;
 	}
@@ -86,6 +80,11 @@ bool Teleport::checkInfinityLoop(Tile* destTile)
 	return false;
 }
 
+void Teleport::addThing(Thing* thing)
+{
+	return addThing(0, thing);
+}
+
 void Teleport::addThing(int32_t, Thing* thing)
 {
 	Tile* destTile = g_game.map.getTile(destPos);
@@ -96,7 +95,7 @@ void Teleport::addThing(int32_t, Thing* thing)
 	// Prevent infinity loop
 	if (checkInfinityLoop(destTile)) {
 		const Position& pos = getPosition();
-		std::cout << "Warning: infinity loop teleport. " << pos << std::endl;
+		std::cout << "[Warning - Teleport:addThing] Infinity loop teleport: " << pos << std::endl;
 		return;
 	}
 
