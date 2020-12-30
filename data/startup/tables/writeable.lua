@@ -854,6 +854,25 @@ SignTable = {
 		itemId = 1441,
 		itemPos = {x = 32062, y = 31894, z = 3},
 		text = "Southern Trade Room"
+	},
+	[10] = {
+		itemId = 1409,
+		itemPos = {x = 32566, y = 31964, z = 1},
+		text = [[
+No treasures here you fools!
+Leave the grave of my master alone or feel my wrath!
+		]]
+	},
+	[11] = {
+		itemId = 1406,
+		itemPos = {x = 32566, y = 31963, z = 1},
+		text = [[
+In memory of my beloved master.
+One day you will see from your place in heaven that I was right. I AM NOT MAD!
+And it was not my fault! 
+It's your own fault that you are dead now. 
+Not mine!
+		]]
 	}
 }
 

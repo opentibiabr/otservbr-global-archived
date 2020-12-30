@@ -213,6 +213,36 @@ function Position:hasCreature(position, teleportTo)
 end
 
 --[[
+Checks whether there is an item in a position table
+Use the index to check which positions the script should check
+
+-- Position table
+local position = {
+	{x = 1000, y = 1000, z = 7},
+	{x = 1000, y = 1000, z = 7}
+}
+
+-- Checks position 1
+if Position.hasItem(position, 1, 1498) then
+	return true
+end
+
+-- Checks position 2
+if Position.hasItem (position, 2, 1498) then
+	return true
+end
+]]
+function Position.hasItem(positionTable, index, itemId)
+	local tile = Tile(positionTable[index])
+	if tile then
+		local item = tile:getItemById(itemId)
+		if item then
+			return true
+		end
+	end
+end
+
+--[[
 If the script have one lever and item to revert uses:
 Position.revertItem(createItemPosition, createItemId, tilePosition, itemTransform, itemId, effect)
 

@@ -1909,7 +1909,8 @@ Storage = {
 		TheParadoxTower = {
 			QuestLine = 10103,
 			TheFearedHugo = 10104,
-			Mission02 = 10105
+			FirstParadoxAcess = 10105,
+			Mission02 = 10106
 		},
 		ThePostmanMissions = {},
 		TheWhiteRavenMonastery = {},
