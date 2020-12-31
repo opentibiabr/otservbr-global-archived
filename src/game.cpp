@@ -5808,9 +5808,12 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				if (attacker) {
 					cause = attacker->getName();
 				}
+
 				targetPlayer->updateInputAnalyzer(damage.primary.type, damage.primary.value, cause);
-				if (damage.secondary.type != COMBAT_NONE) {
-					attackerPlayer->updateInputAnalyzer(damage.secondary.type, damage.secondary.value, cause);
+				if (attackerPlayer) {
+					if (damage.secondary.type != COMBAT_NONE) {
+						attackerPlayer->updateInputAnalyzer(damage.secondary.type, damage.secondary.value, cause);
+					}
 				}
 			}
 			std::stringstream ss;
