@@ -671,5 +671,14 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
+local function onTradeRequest(cid)
+	if Player(cid):getStorageValue(Storage.ExplorerSociety.TheAstralPortals) ~= 56 then
+		return false
+	end
+
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_ONTRADEREQUEST, onTradeRequest)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
