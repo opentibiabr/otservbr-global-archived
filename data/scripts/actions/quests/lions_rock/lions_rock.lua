@@ -13,18 +13,20 @@ local rewards = {
 local UniqueTable = {
 	[40004] = {
 		storage = Storage.LionsRock.LionsStrength,
-		itemPosition = {x = 33134, y = 32289, z = 8},
+		itemPosition = {x = 33137, y = 32291, z = 8},
+		pagodaPosition = { x = 33134, y = 32289, z = 8},
 		item = 10551,
 		storage = Storage.LionsRock.Questline,
 		value = 1,
 		newValue = 2,
 		message = "You have sacrificed a cobra tongue at an ancient statue. The light in the small \z
 		pyramid nearby begins to shine.",
-		effect = CONST_ME_BLOCKHIT
+		effect = CONST_ME_BLOCKHIT,
 	},
 	[40005] = {
 		storage = Storage.LionsRock.LionsBeauty,
-		itemPosition = {x = 33136, y = 32369, z = 8},
+		itemPosition = {x = 33138, y = 32369, z = 8},
+		pagodaPosition = { x = 33136, y = 32369, z = 8},
 		item = 23760,
 		storage = Storage.LionsRock.Questline,
 		value = 2,
@@ -34,7 +36,8 @@ local UniqueTable = {
 	},
 	[40006] = {
 		storage = Storage.LionsRock.LionsTears,
-		itemPosition = {x = 33156, y = 32279, z = 8},
+		itemPosition = {x = 33154, y = 32279, z = 8},
+		pagodaPosition = { x = 33156, y = 32279, z = 8},
 		item = 23835,
 		storage = Storage.LionsRock.Questline,
 		value = 3,
@@ -100,17 +103,14 @@ function lionsRockSacrificesTest.onUse(player, item, fromPosition, target, toPos
 
 	if item.itemid == setting.item then
 		if player:getStorageValue(setting.storage) == setting.value then
-			if player:getStorageValue(setting.storage) < 0 then
-				local pagoda = Tile(setting.itemPosition):getItemById(3709)
-				if pagoda then
-					pagoda:transform(3710)
-					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, setting.message)
-					player:setStorageValue(setting.storage, 1)
-					player:setStorageValue(setting.storage, setting.newValue)
-					player:removeItem(setting.item, 1)
-					toPosition:sendMagicEffect(setting.effect)
-					addEvent(reset, 15 * 1000)
-				end
+			local pagoda = Tile(setting.pagodaPosition):getItemById(3709)
+			if pagoda then
+				pagoda:transform(3710)
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, setting.message)
+				player:setStorageValue(setting.storage, setting.newValue)
+				player:removeItem(setting.item, 1)
+				toPosition:sendMagicEffect(setting.effect)
+				addEvent(reset, 15 * 1000)
 			end
 		end
 	end
@@ -167,11 +167,6 @@ lionsGetHolyWater:register()
 local lionsRockTranslationScroll = Action()
 
 function lionsRockTranslationScroll.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local setting = UniqueTable[item.uid]
-	if not setting then
-		return true
-	end
-
 	local amphoraPos = Position(33119, 32247, 9)
 	local amphoraID = 24314
 	local amphoraBrokenID = 24315
@@ -201,7 +196,7 @@ function lionsRockTranslationScroll.onUse(player, item, fromPosition, target, to
 	return true
 end
 
-lionsRockTranslationScroll:id(40008)
+lionsRockTranslationScroll:uid(40008)
 lionsRockTranslationScroll:register()
 
 -- Lions rock fountain
@@ -224,7 +219,7 @@ function lionsRockFountain.onUse(player, item, fromPosition, target, toPosition,
 
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
 			"Something sparkles in the fountain's water. You draw out a " .. rewards[reward] .. '.')
-		toPosition:sendMagicEffect(CONST_ME_HOLYAREA)
+		player:sendMagicEffect(CONST_ME_HOLYAREA)
 		player:addAchievement("Lion's Den Explorer")
 		item:transform(lionsRockSanctuaryRockId)
 		player:addItem(rewards[reward], 1)

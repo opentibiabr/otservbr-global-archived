@@ -34,6 +34,8 @@ local shrine = {
 
 local lionsRock = {
 	[25006] = {
+		itemId = 23813,
+		itemPos = {x = 33069, y = 32298, z = 9},
 		storage = Storage.LionsRock.Questline,
 		value = 9,
 		item = 2147,
@@ -164,7 +166,7 @@ function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			if not gemSpot then
 				toPosition:sendMagicEffect(setting.effect)
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, setting.message)
-				item:remove()
+				item:remove(1)
 				addEvent(lionsRockCreateField, 2 * 1000, setting.itemPos, setting.fieldId, setting.storage)
 				addEvent(lionsRockFieldReset, 60 * 1000)
 				return true

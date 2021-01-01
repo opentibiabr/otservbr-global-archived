@@ -67,7 +67,7 @@ TeleportUnique = {
 	-- Lions rock quest
 	-- Path: data\scripts\movements\quests\lions_rock\lions_rock.lua
 	[35009] = {
-		itemId = false,
+		itemId = 8058,
 		itemPos = {x = 33128, y = 32308, z = 8}
 	},
 	-- Dawnport quest
