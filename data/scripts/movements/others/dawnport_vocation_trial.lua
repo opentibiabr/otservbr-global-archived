@@ -11,9 +11,8 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 		local centerPosition = Position(32065, 31891, 5)
 		if centerPosition:getDistance(fromPosition) < centerPosition:getDistance(position) then
 			-- Blocks the vocation trial after level 20
-			local getVocation = player:getVocation()
-			if getVocation and getVocation:getId() == vocation.first.id
-			or getVocation:getId() == vocation.second.id and player:getLevel() < 20 then
+			local voc = player:getVocation()
+			if voc and isInArray({vocation.first.id, vocation.second.id}, voc:getId()) or player:getLevel() >= Dawnport.limit.level then
 				return true
 			end
 			-- On step in the tile

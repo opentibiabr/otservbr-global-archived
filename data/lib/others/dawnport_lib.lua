@@ -49,6 +49,8 @@ function dawnportSetVocation(player, vocation)
 	
 	for level = 1, magic.level do
 		magic.manaSpent = magic.manaSpent + player:getVocation():getRequiredManaSpent(level)
+		
+		--print("OLD " .. player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " ML" .. " level:" .. level .. " reqManaSpent:" .. player:getVocation():getRequiredManaSpent(level))
 	end
 	
 	--print("OLD " .. player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " MAGIC" .. " level:" .. magic.level .. " totalManaSpent:" .. magic.manaSpent)
@@ -75,10 +77,10 @@ function dawnportSetVocation(player, vocation)
 	end
 	
 	-- Set for the dawnport vocation if is level 8 or minor
-	if player:getLevel() <= 7 then
+	if player:getLevel() < Dawnport.upgrade.level then
 		player:setVocation(Vocation(vocation.first.id))
 	-- Set for the vocation main if is level 8 or more
-	elseif player:getLevel() >= 8 and player:getLevel() < 20 then
+	elseif player:getLevel() >= Dawnport.upgrade.level and player:getLevel() < Dawnport.limit.level then
 		player:setVocation(Vocation(vocation.second.id))
 		-- Set player stats if have level 9 or more (health, mana, capacity)
 		dawnportSetStats(player)
@@ -218,43 +220,35 @@ end
 
 -- Set health/mana/capacity per vocation
 function dawnportSetStats(player)
-	local skillTable = {
-		[VOCATION.ID.SORCERER] = {
-			level = 8,
-			health = 5 * (player:getLevel() + 29),
-			mana = 5 * ((6 * player:getLevel()) - (5 * 8) + 10),
-			capacity = (10 * (player:getLevel() + 39))*100
-		},
-		[VOCATION.ID.DRUID] = {
-			level = 8,
-			health = 5 * (player:getLevel() + 29),
-			mana = 5 * ((6 * player:getLevel()) - (5 * 8) + 10),
-			capacity = (10 * (player:getLevel() + 39))*100
-		},
-		[VOCATION.ID.PALADIN] = {
-			level = 8,
-			health = 5 * ((2 * player:getLevel()) - 8 + 29),
-			mana = 5 * ((3 * player:getLevel())- (2 * 8) + 10),
-			capacity = (10 * ((2 * player:getLevel()) - 8 + 39))*100
-		},
-		[VOCATION.ID.KNIGHT] = {
-			level = 8,
-			health = 5 *((3 * player:getLevel()) - (2 * 8) + 29),
-			mana = 5 *(player:getLevel() + 10),
-			capacity = (5 *((5 * player:getLevel()) - (5 * 8) + 94))*100
-		}
-	}
-
-	local skillSetting = skillTable[player:getVocation():getId()]
-	if skillSetting then
-		if player:getLevel() >= skillSetting.level then
-			player:setMaxHealth(skillSetting.health)
-			player:addHealth(player:getMaxHealth())
-			player:setMaxMana(skillSetting.mana)
-			player:addMana(player:getMaxMana())
-			player:setCapacity(skillSetting.capacity)
-		end
+	-- Base stats
+	local stats = {health = 150, mana = 55, capacity = 40000}
+	local vocation = player:getVocation()
+	
+	-- NO VOCATION AND DAWNPORT VOCATIONS
+	if isInArray({VOCATION.ID.NONE, VOCATION.ID.DAWNPORT_SORCERER, VOCATION.ID.DAWNPORT_DRUID, VOCATION.ID.DAWNPORT_PALADIN, VOCATION.ID.DAWNPORT_KNIGHT}, vocation:getId()) and player:getLevel() <= Dawnport.upgrade.level then
+		local level = player:getLevel() - 1
+		
+		stats.health = stats.health + (level * vocation:getHealthGain())
+		stats.mana = stats.mana + (level * vocation:getManaGain())
+		stats.capacity = stats.capacity + (level * vocation:getCapacityGain())
+	-- MAIN VOCATIONS
+	elseif isInArray({VOCATION.ID.SORCERER, VOCATION.ID.DRUID, VOCATION.ID.PALADIN, VOCATION.ID.KNIGHT}, vocation:getId()) and player:getLevel() > Dawnport.upgrade.level then
+		local baseLevel = 7
+		local baseVocation = Vocation(VOCATION.ID.NONE)
+		local level = player:getLevel() - 8
+		
+		stats.health = stats.health + (baseLevel * baseVocation:getHealthGain()) + (level * vocation:getHealthGain())
+		stats.mana = stats.mana + (baseLevel * baseVocation:getManaGain()) + (level * vocation:getManaGain())
+		stats.capacity = stats.capacity + (baseLevel * baseVocation:getCapacityGain()) + (level * vocation:getCapacityGain())
 	end
+	
+	--print("[" .. vocation:getName() .. " Level:" .. player:getLevel() .. "]" .. " health:" .. stats.health .. " mana:" .. stats.mana .. " capacity:" .. stats.capacity)
+	
+	player:setMaxHealth(stats.health)
+	player:addHealth(stats.health)
+	player:setMaxMana(stats.mana)
+	player:addMana(stats.mana)
+	player:setCapacity(stats.capacity)
 end
 
 -- Set rookgaard health/mana/capacity (after talk with Inigo npc)
@@ -286,15 +280,15 @@ function isSkillGrowthLimited(player, skillId)
 		local skillsLimit
 		
 		if vocationId == VOCATION.ID.NONE then
-			skillsLimit = DawnportCharacterLimits.skills.none
+			skillsLimit = Dawnport.limit.skills.none
 		elseif isInArray({VOCATION.ID.DAWNPORT_SORCERER, VOCATION.ID.SORCERER}, vocationId) then
-			skillsLimit = DawnportCharacterLimits.skills.sorcerer
+			skillsLimit = Dawnport.limit.skills.sorcerer
 		elseif isInArray({VOCATION.ID.DAWNPORT_DRUID, VOCATION.ID.DRUID}, vocationId) then
-			skillsLimit = DawnportCharacterLimits.skills.druid
+			skillsLimit = Dawnport.limit.skills.druid
 		elseif isInArray({VOCATION.ID.DAWNPORT_PALADIN, VOCATION.ID.PALADIN}, vocationId) then
-			skillsLimit = DawnportCharacterLimits.skills.paladin
+			skillsLimit = Dawnport.limit.skills.paladin
 		elseif isInArray({VOCATION.ID.DAWNPORT_KNIGHT, VOCATION.ID.KNIGHT}, vocationId) then
-			skillsLimit = DawnportCharacterLimits.skills.knight
+			skillsLimit = Dawnport.limit.skills.knight
 		end
 		
 		-- Check if is set a skillId limit
@@ -318,32 +312,33 @@ function isSkillGrowthLimited(player, skillId)
 	return false
 end
 
-DawnportVocationUpgrade = {
-	level = 8,
-	vocations = {
-		[VOCATION.ID.DAWNPORT_SORCERER] = VOCATION.ID.SORCERER,
-		[VOCATION.ID.DAWNPORT_DRUID] = VOCATION.ID.DRUID,
-		[VOCATION.ID.DAWNPORT_PALADIN] = VOCATION.ID.PALADIN,
-		[VOCATION.ID.DAWNPORT_KNIGHT] = VOCATION.ID.KNIGHT
-	}
-}
-
-DawnportCharacterLimits = {
-	level = 20,
-	skills = {
-		none = {},
-		sorcerer = {
-			[SKILL_MAGLEVEL] = 20
-		},
-		druid = {
-			[SKILL_MAGLEVEL] = 20
-			
-		},
-		paladin = {
-			[SKILL_MAGLEVEL] = 9
-		},
-		knight = {
-			[SKILL_MAGLEVEL] = 4
+Dawnport = {
+	upgrade = {
+		level = 8,
+		vocations = {
+			[VOCATION.ID.DAWNPORT_SORCERER] = VOCATION.ID.SORCERER,
+			[VOCATION.ID.DAWNPORT_DRUID] = VOCATION.ID.DRUID,
+			[VOCATION.ID.DAWNPORT_PALADIN] = VOCATION.ID.PALADIN,
+			[VOCATION.ID.DAWNPORT_KNIGHT] = VOCATION.ID.KNIGHT
+		}
+	},
+	limit = {
+		level = 20,
+		skills = {
+			none = {},
+			sorcerer = {
+				[SKILL_MAGLEVEL] = 20
+			},
+			druid = {
+				[SKILL_MAGLEVEL] = 20
+				
+			},
+			paladin = {
+				[SKILL_MAGLEVEL] = 9
+			},
+			knight = {
+				[SKILL_MAGLEVEL] = 4
+			}
 		}
 	}
 }
