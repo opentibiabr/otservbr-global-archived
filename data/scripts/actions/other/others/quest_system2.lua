@@ -35,7 +35,8 @@ local config = {
 		},
 		storage = Storage.ExplorerSociety.TheBonelordSecret,
 		formerValue = 30,
-		newValue = 31
+		newValue = 31,
+		missionStorage = { key = Storage.ExplorerSociety.TheBonelordSecret, value = 31 }
 	},
 	[3006] = {
 		items = {
