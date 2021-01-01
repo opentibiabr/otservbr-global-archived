@@ -2170,7 +2170,6 @@
 	</item>
 	<item id="2148" article="a" name="gold coin">
 		<attribute key="loottype" value="gold" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="10" />
 	</item>
 	<item id="2149" article="a" name="small emerald">
@@ -2188,7 +2187,6 @@
 	</item>
 	<item id="2152" article="a" name="platinum coin">
 		<attribute key="loottype" value="gold" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="10" />
 	</item>
 	<item id="2153" article="a" name="violet gem">
@@ -2221,7 +2219,6 @@
 	</item>
 	<item id="2160" article="a" name="crystal coin">
 		<attribute key="loottype" value="gold" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="10" />
 	</item>
 	<item id="2161" article="a" name="strange talisman">
@@ -4857,7 +4854,6 @@
 	</item>
 	<item fromid="2638" toid="2639" article="a" name="tic-tac-toe token">
 		<attribute key="weight" value="500" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="2640" article="a" name="pair of soft boots (faster regeneration)">
 		<attribute key="weight" value="800" />
@@ -14374,11 +14370,9 @@
 	</item>
 	<item id="7728" article="a" name="crumpled piece of paper">
 		<attribute key="weight" value="110" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="7729" article="a" name="torn piece of paper">
 		<attribute key="weight" value="50" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="7730" name="blue legs">
 		<attribute key="weight" value="1800" />
@@ -23322,7 +23316,6 @@
 		<attribute key="loottype" value="other" />
 		<attribute key="description" value="This berry is not edible in its raw form. Maybe Emilie of the Winterberry Society in Thais can help." />
 		<attribute key="weight" value="200" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item fromid="13240" toid="13245" name="pressed winterberries" />
 	<item id="13246" name="unknown item" />
@@ -27661,11 +27654,9 @@
 	<item fromid="19376" toid="19388" article="a" name="stone wall" />
 	<item id="19389" article="a" name="mean knight sword">
 		<attribute key="weight" value="2000" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="19390" article="a" name="mean paladin spear">
 		<attribute key="weight" value="1000" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="attack" value="15" />
 		<attribute key="weaponType" value="distance" />
 		<attribute key="loottype" value="distance" />
@@ -27677,19 +27668,16 @@
 		<attribute key="weaponType" value="wand" />
 		<attribute key="loottype" value="wand" />
 		<attribute key="weight" value="1900" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="19392" article="a" name="sorc and druid attack rune">
 		<attribute key="type" value="rune" />
 		<attribute key="loottype" value="rune" />
 		<attribute key="weight" value="21" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="19393" article="a" name="healing rune for druids">
 		<attribute key="type" value="rune" />
 		<attribute key="loottype" value="rune" />
 		<attribute key="weight" value="210" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="19394" name="reserved sprite"/>
 	<item fromid="19395" toid="19402" article="a" name="stone alcove" />
@@ -28073,13 +28061,11 @@
 		<attribute key="type" value="rune" />
 		<attribute key="loottype" value="rune" />
 		<attribute key="weight" value="210" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="19792" article="a" name="lightest magic missile rune">
 		<attribute key="type" value="rune" />
 		<attribute key="loottype" value="rune" />
 		<attribute key="weight" value="21" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="runeSpellName" value="adori dis min vis" />
 		<attribute key="charges" value="10" />
 	</item>
@@ -31507,17 +31493,14 @@
 	</item>
 	<item id="21401" article="a" name="small dragon tear">
 		<attribute key="weight" value="10" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="description" value="A dragon tear looks like a small, luminous gem, glittering in a golden light." />
 	</item>
 	<item id="21402" article="an" name="empty storage flask">
 		<attribute key="weight" value="180" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="description" value="Omrabas gave you this flask to stuff intestines in." />
 	</item>
 	<item id="21403" article="a" name="full storage flask">
 		<attribute key="weight" value="290" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="description" value="You hear an angry, hissing noise from it." />
 	</item>
 	<item id="21404" article="a" name="hallowed bonepile" />
@@ -31719,7 +31702,6 @@
 	<item id="21473" article="a" name="loose stone pile" />
 	<item id="21474" article="a" name="crumpled paper">
 		<attribute key="weight" value="10" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="description" value="A crumpled notice showing a recipe." />
 	</item>
 	<item id="21475" article="a" name="pannier backpack">
@@ -31806,7 +31788,6 @@
 	<item id="21569" name="gnomish supplies">
 		<attribute key="description" value="It contains the clothes of a dwarf." />
 		<attribute key="weight" value="800" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="21570" article="the" name="world board" />
 	<item fromid="21571" toid="21578" article="a" name="smoke" />
@@ -32069,18 +32050,15 @@
 	<item fromid="22360" toid="22361" article="an" name="unknown" />
 	<item id="22363" article="a" name="broken dream">
 		<attribute key="weight" value="10" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="description" value="The fragment of a dream. Strange pictures seem to flit through the shards." />
 	</item>
 	<item id="22364" article="a" name="dream sand">
 		<attribute key="weight" value="10" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="description" value="A fine glowing powder and crystalline nuggets." />
 	</item>
 	<item fromid="22365" toid="22378" article="a" name="half-buried face" />
 	<item id="22381" article="an" name="ancient dream">
 		<attribute key="weight" value="15" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="description" value="The dream glows as if alive." />
 	</item>
 	<item id="22382" article="a" name="delicate pan">
@@ -32487,7 +32465,6 @@
 	</item>
 	<item id="22473" article="an" name="essence of wishful thinking">
 		<attribute key="weight" value="30" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="22474" article="an" name="eerie song book">
 		<attribute key="weight" value="1300" />
@@ -33423,7 +33400,6 @@
 	<item id="23459" article="a" name="peppermoon bells" />
 	<item id="23460" article="a" name="blue pollen" plural="blue pollens">
 		<attribute key="weight" value="50" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="23461" name="unknown item" />
 	<item id="23462" article="a" name="dead mooh'tah warrior">
@@ -33939,7 +33915,6 @@
 	<item id="23661" article="a" name="lever" />
 	<item id="23662" name="juicy roots">
 		<attribute key="weight" value="200" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="23663" article="a" name="feedbag">
 		<attribute key="containerSize" value="20" />
@@ -34016,7 +33991,6 @@
 		<attribute key="loottype" value="rune" />
 		<attribute key="runeSpellName" value="adori infir mas tera" />
 		<attribute key="weight" value="210" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="charges" value="4" />
 	</item>
 	<item id="23723" article="a" name="lightest missile rune">
@@ -34024,7 +33998,6 @@
 		<attribute key="loottype" value="rune" />
 		<attribute key="runeSpellName" value="adori infir vis" />
 		<attribute key="weight" value="210" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="charges" value="4" />
 	</item>
 	<item id="23736" name="stairs" />
@@ -34338,7 +34311,6 @@
 	</item>
 	<item id="23875" article="a" name="medusa's ointment">
 		<attribute key="weight" value="180" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="description" value="This fluid may be able to unpetrify a petrified object." />
 	</item>
 	<item id="23876" article="a" name="pinch of crystal dust">
@@ -34408,7 +34380,6 @@
 	</item>
 	<item id="24115" article="a" name="cursed gold">
 		<attribute key="weight" value="5" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="description" value="A heavy coin of ancient gold, tarnished and with an ominous feel to it." />
 	</item>
 	<item id="24116" article="a" name="seacrest pearl">
@@ -34536,12 +34507,10 @@
 	</item>
 	<item id="24188" article="a" name="steel spider silk">
 		<attribute key="weight" value="10" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="description" value="It's much tougher than ordinary spider silk." />
 	</item>
 	<item id="24189" article="a" name="spool of steel silk yarn">
 		<attribute key="weight" value="100" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="description" value="It is made from steel spider silk." />
 	</item>
 	<item id="24190" article="a" name="weaving loom winch" />
@@ -34565,7 +34534,6 @@
 	</item>
 	<item id="24206" article="a" name="fungus powder">
 		<attribute key="weight" value="500" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="description" value="Gloothworms love it." />
 	</item>
 	<item id="24207" article="a" name="distilled water">
@@ -36192,7 +36160,6 @@
 	</item>
 	<item id="25312" article="a" name="voodoo lily pollen">
 		<attribute key="weight" value="10" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="description" value="They are blue and violet and exhale a faint stench of death." />
 	</item>
 	<item id="25314" article="a" name="floating green flask" />
@@ -36347,7 +36314,6 @@
 	<item fromid="25372" toid="25375" article="a" name="stone tile" />
 	<item id="25376" article="an" name="iron token" plural="iron tokens">
 		<attribute key="weight" value="200" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="25377" article="a" name="gold token" plural="gold tokens">
 		<attribute key="loottype" value="valuable" />
@@ -36355,15 +36321,12 @@
 	</item>
 	<item id="25378" article="a" name="copper token" plural="copper tokens">
 		<attribute key="weight" value="200" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="25379" article="a" name="platinum token" plural="platinum tokens">
 		<attribute key="weight" value="200" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="25380" article="a" name="titanium token" plural="titanium tokens">
 		<attribute key="weight" value="200" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="25381" article="a" name="rift lamp">
 		<attribute key="loottype" value="ammo" />
@@ -39232,11 +39195,9 @@
 	<item fromid="28661" toid="28662" name="minotaur idol" />
 	<item id="28663" article="a" name="present">
 		<attribute key="weight" value="30000" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="28664" article="a" name="milk tooth">
 		<attribute key="weight" value="3000" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="28665" article="a" name="pink fluid">
 		<attribute key="weight" value="1800" />
@@ -39566,7 +39527,6 @@
 	<item id="29057" article="a" name="diamond arrow">
 		<attribute key="weight" value="80" />
 		<attribute key="slotType" value="ammo" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="attack" value="37" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="3600" />
@@ -39585,7 +39545,6 @@
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="3600" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="spectralbolt" />
@@ -45669,12 +45628,10 @@
 	</item>
 	<item id="35044" article="a" name="broken bell">
 		<attribute key="loottype" value="tool" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="220" />
 	</item>
 	<item id="35045" article="a" name="percht horns">
 		<attribute key="loottype" value="creatureproduct" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="580" />
 	</item>
 	<item id="35046" article="a" name="versicolour fireworks powder">
@@ -45702,7 +45659,6 @@
 		<attribute key="weight" value="870" />
 	</item>
 	<item id="35052" article="a" name="frozen carrot">
-		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="190" />
 	</item>
 	<item id="35053" article="a" name="soft hammer">
@@ -46035,7 +45991,6 @@
 	</item>
 	<item id="35164" article="a" name="twig arms">
 		<attribute key="loottype" value="other" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="700" />
 	</item>
 	<item id="35165" name="unknown item">
@@ -46858,7 +46813,6 @@
 	</item>
 	<item id="36160" article="a" name="veldt flowers">
 		<attribute key="weight" value="800" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="36161" name="unknown"/>
 	<item id="36162" article="a" name="ritual scissors">
@@ -46869,11 +46823,9 @@
 	</item>
 	<item id="36164" name="honey palm bark">
 		<attribute key="weight" value="300" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="36165" article="a" name="wild desert rose">
 		<attribute key="weight" value="700" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="36166" article="a" name="empty honey glass">
 		<attribute key="loottype" value="creatureproduct" />
@@ -46885,24 +46837,20 @@
 	</item>
 	<item id="36168" article="a" name="tagralt nugget">
 		<attribute key="weight" value="750" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="36169" article="a" name="hand auger">
 		<attribute key="weight" value="1000" />
 	</item>
 	<item id="36170" article="a" name="vial of cactus milk">
 		<attribute key="weight" value="240" />
-		<attribute key="notstowable" value="1" />
 	</item>
 	<item id="36171" article="a" name="snake maw">
-		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="100" />
 	</item>
 	<item id="36172" name="unknown"/>
 	<item id="36173" name="unknown"/>
 	<item id="36174" article="a" name="spiderweb clouds shreds">
 		<attribute key="loottype" value="other" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="10" />
 	</item>
 	<item id="36175" article="a" name="lizard heart">
@@ -46932,17 +46880,14 @@
 	</item>
 	<item id="36189" article="a" name="blue memory shard">
 		<attribute key="loottype" value="tool" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="13" />
 	</item>
 	<item id="36190" article="a" name="violet memory shard">
 		<attribute key="loottype" value="other" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="13" />
 	</item>
 	<item id="36191" article="a" name="green memory shard">
 		<attribute key="loottype" value="other" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="13" />
 	</item>
 	<!-- kilmaresh quest's - fafnar's wrath mission-->
@@ -48294,7 +48239,6 @@
 	</item>
 	<item id="36560" name="greasy wool">
 		<attribute key="loottype" value="creatureproduct" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="118" />
 	</item>
 	<item id="36561" article="a" name="box with waterproof balm">
@@ -49080,7 +49024,6 @@
 	</item>
 	<item id="37418" article="a" name="skull coin">
 		<attribute key="loottype" value="other" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="25" />
 		<attribute key="showcount" value="1" />
 	</item>
@@ -49150,7 +49093,6 @@
 	</item>
 	<item id="37438" article="a" name="grave flower extract">
 		<attribute key="weight" value="150" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="showcount" value="1" />
 	</item>
 	<item id="37439" article="a" name="unknow item">
@@ -50813,7 +50755,6 @@
 	</item>
 	<item id="38912" name="chopped lion mane petals">
 		<attribute key="weight" value="10" />
-		<attribute key="notstowable" value="1" />
 		<attribute key="description" value="They are red and orange and exhale a faint stench of incense." />
 	</item>
 	<item id="38913" article="a" name="cask">
