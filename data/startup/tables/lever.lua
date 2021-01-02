@@ -133,5 +133,10 @@ LeverUnique = {
 	[30025] = {
 		itemId = 1945,
 		itemPos = {x = 33226, y = 31671, z = 13}
+	},
+	-- Path: data\scripts\quests\the_paradox_tower\action-3-third_lever_floor.lua
+	[30026] = {
+		itemId = 10044,
+		itemPos = {x = 32481, y = 31904, z = 5}
 	}
 }

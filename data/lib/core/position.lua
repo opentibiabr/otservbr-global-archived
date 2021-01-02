@@ -243,6 +243,44 @@ function Position.hasItem(positionTable, index, itemId)
 end
 
 --[[
+position.hasCreatureInArea({x = positionx, y = positiony, z = positionz}, {x = positionx, y = positiony, z = positionz}, true or false, true or false, {x = positionx, y = positiony, z = positionz})
+
+fromPosition: is the upper left corner
+toPosition: is the lower right corner,
+removeCreatures[true or false]: is to say whether or not to remove the monster
+removePlayer[true or false]  is to say whether or not to remove the player
+teleportTo: is where you will teleport the player (it is only necessary to put this position in the function, if the previous value is true)
+]]
+
+function Position.hasCreatureInArea(fromPosition, toPosition, removeCreatures, removePlayer, teleportTo)
+	for positionX = fromPosition.x, toPosition.x do
+		for positionY = fromPosition.y, toPosition.y do
+        	for positionZ = fromPosition.z, toPosition.z do
+		        local room = {x = positionX, y = positionY, z= positionZ}
+				local tile = Tile(room)
+				if tile then
+					local creatures = tile:getCreatures()
+					if creatures and #creatures > 0 then
+						for _, creature in pairs(creatures) do
+							if removeCreatures == true then
+								if removePlayer == true then
+									if isPlayer(creature) then
+										creature:teleportTo(teleportTo)
+									end
+								end
+								if isMonster(creature) then
+									creature:remove()
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+--[[
 If the script have one lever and item to revert uses:
 Position.revertItem(createItemPosition, createItemId, tilePosition, itemTransform, itemId, effect)
 
