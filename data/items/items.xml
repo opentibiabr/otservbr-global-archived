@@ -49711,8 +49711,8 @@
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="37742" article="a" name="Guzzlemaw Grub">
-		<attribute key="decayTo" value="37645" />
-		<attribute key="duration" value="2" />
+		<attribute key="decayTo" value="37745" />
+		<attribute key="duration" value="6" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="37743" article="a" name="Baby Vulcongra">
@@ -49725,7 +49725,7 @@
 	</item>
 	<item id="37745" article="a" name="Guzzlemaw Grub">
 		<attribute key="decayTo" value="37742" />
-		<attribute key="duration" value="2" />
+		<attribute key="duration" value="6" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>	
 	<item id="37747" article="a" name="Baby Brain Squid">	
