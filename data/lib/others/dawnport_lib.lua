@@ -190,29 +190,16 @@ end
 
 -- Set outfit for each vocation
 function dawnportSetOutfit(player, outfit)
-	if player:getSex() == PLAYERSEX_MALE then
-		player:setOutfit({
-			lookBody = outfit.lookBody,
-			lookAddons = outfit.lookAddons,
-			lookTypeName = outfit.lookTypeName,
-			lookType = outfit.lookTypeEx,
-			lookHead = outfit.lookHead,
-			lookMount = outfit.lookMount,
-			lookLegs = outfit.lookLegs,
-			lookFeet = outfit.lookFeet
-		})
-	else
-		player:setOutfit({
-			lookBody = outfit.lookBody,
-			lookAddons = outfit.lookAddons,
-			lookTypeName = outfit.lookTypeName,
-			lookType = outfit.lookTypeFm,
-			lookHead = outfit.lookHead,
-			lookMount = outfit.lookMount,
-			lookLegs = outfit.lookLegs,
-			lookFeet = outfit.lookFeet
-		})
-	end
+	player:setOutfit({
+		lookTypeEx = 0,
+		lookType = outfit.lookType[player:getSex()],
+		lookHead = outfit.lookHead,
+		lookBody = outfit.lookBody,
+		lookLegs = outfit.lookLegs,
+		lookFeet = outfit.lookFeet,
+		lookAddons = 0,
+		lookMount = 0
+	})
 end
 
 -- Set health/mana/capacity per vocation
@@ -335,13 +322,12 @@ Dawnport = {
 				id = VOCATION.ID.SORCERER,
 				name = "sorcerer",
 				outfit = {
-					lookBody = 109,
-					lookAddons = 0,
-					lookTypeName = {Mage}, -- {male, female}
-					lookTypeEx = 130,
-					lookTypeFm = 138,
+					lookType = {
+						[PLAYERSEX_FEMALE] = 138,
+						[PLAYERSEX_MALE] = 130
+					},
 					lookHead = 95,
-					lookMount = 0,
+					lookBody = 109,
 					lookLegs = 112,
 					lookFeet = 128
 				}
@@ -366,13 +352,12 @@ Dawnport = {
 				id = VOCATION.ID.DRUID,
 				name = "druid",
 				outfit = {
-					lookBody = 123,
-					lookAddons = 0,
-					lookTypeName = {Mage}, -- {male, female}
-					lookTypeEx = 130,
-					lookTypeFm = 138,
+					lookType = {
+						[PLAYERSEX_FEMALE] = 138,
+						[PLAYERSEX_MALE] = 130
+					},
 					lookHead = 95,
-					lookMount = 0,
+					lookBody = 123,
 					lookLegs = 9,
 					lookFeet = 118
 				}
@@ -397,13 +382,12 @@ Dawnport = {
 				id = VOCATION.ID.PALADIN,
 				name = "paladin",
 				outfit = {
-					lookBody = 117,
-					lookAddons = 0,
-					lookTypeName = {Hunter}, -- {male, female}
-					lookTypeEx = 129,
-					lookTypeFm = 137,
+					lookType = {
+						[PLAYERSEX_FEMALE] = 137,
+						[PLAYERSEX_MALE] = 129
+					},
 					lookHead = 95,
-					lookMount = 0,
+					lookBody = 117,
 					lookLegs = 98,
 					lookFeet = 78
 				}
@@ -428,15 +412,14 @@ Dawnport = {
 				id = VOCATION.ID.KNIGHT,
 				name = "knight",
 				outfit = {
-					lookBody = 38,
-					lookAddons = 0,
-					lookTypeName = {Knight}, -- {male, female}
-					lookTypeEx = 131,
-					lookTypeFm = 139,
+					lookType = {
+						[PLAYERSEX_FEMALE] = 139,
+						[PLAYERSEX_MALE] = 131
+					},
 					lookHead = 95,
-					lookMount = 0,
+					lookBody = 38,
 					lookLegs = 94,
-					lookFeet = 115,
+					lookFeet = 115
 				}
 			},
 			items = {
