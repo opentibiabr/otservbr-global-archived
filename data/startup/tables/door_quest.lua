@@ -118,7 +118,7 @@ QuestDoorAction = {
 	},
 	[Storage.ExplorerSociety.OrcDoor] = {
 		itemId = false,
-		itemPos = {{x = 32703, y = 31605, z = 14}}
+		itemPos = {{x = 32967, y = 31720, z = 2}}
 	},
 	-- Lizards
 	[Storage.ExplorerSociety.ChorurnDoor] = {

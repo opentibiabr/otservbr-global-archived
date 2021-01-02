@@ -40,19 +40,12 @@ local config = {
 	},
 	[3006] = {
 		items = {
-			{itemId = 5940} -- strange powder (Orc fortress)
+			{itemId = 15389} -- Strange powder (Orc fortress)
 		},
 		storage = Storage.ExplorerSociety.TheOrcPowder,
 		formerValue = 33,
-		newValue = 34
-	},
-	[3007] = {
-		items = {
-			{itemId = 15389}
-		},
-		storage = Storage.ExplorerSociety.TheOrcPowder,
-		formerValue = 33,
-		newValue = 34
+		newValue = 34,
+		missionStorage = { key = Storage.ExplorerSociety.TheOrcPowder, value = 34 }
 	},
 	[3009] = {
 		items = {
