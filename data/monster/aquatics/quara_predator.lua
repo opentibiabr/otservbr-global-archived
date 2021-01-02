@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Calassa, Frozen Trench, Sunken Quarter, Alchemist Quarter (unreachable), \z
 		The Inquisition Quest, Seacrest Grounds."
-		}
+	}
 
 monster.health = 2200
 monster.maxHealth = 2200
 monster.race = "blood"
 monster.corpse = 6067
 monster.speed = 450
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

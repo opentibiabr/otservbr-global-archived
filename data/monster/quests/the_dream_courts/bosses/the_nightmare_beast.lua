@@ -18,7 +18,7 @@ monster.maxHealth = 22
 monster.race = "blood"
 monster.corpse = 34797
 monster.speed = 250
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -90,7 +90,7 @@ monster.loot = {
 	{id = "gold ingot", chance = 12950},
 	{id = 7633, chance = 10790},
 	{id = 26200, chance = 10070},
-	{id = 26198, chance = 9350},
+	{id = 26198, chance = 9350},-- collar of blue plasma
 	{id = 26187, chance = 8630},
 	{id = "ring of the sky", chance = 8630},
 	{id = 26199, chance = 7910},

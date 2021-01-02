@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Malada, Hrodmir Quara Scout Caves, Quara Grotto, Oramond."
-		}
+	}
 
 monster.health = 890
 monster.maxHealth = 890
 monster.race = "blood"
 monster.corpse = 6067
 monster.speed = 170
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

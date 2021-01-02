@@ -26,14 +26,14 @@ monster.Bestiary = {
 	Locations = "Sabrehaven, Rookgaard, The McRonalds Farm in Thais, Northport, \z
 		Fibula, Carlin (killable but unreachable), Greenshore, Krimhorn, Orc Fortress, \z
 		Factory Quarter, also theres one in the farm near Edron."
-		}
+	}
 
 monster.health = 15
 monster.maxHealth = 15
 monster.race = "blood"
 monster.corpse = 6042
 monster.speed = 128
-monster.summonCost = 220
+monster.manaCost = 220
 monster.maxSummons = 0
 
 monster.changeTarget = {

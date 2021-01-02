@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Orc Fortress, Foreigner Quarter, Zao Orc Land."
-		}
+	}
 
 monster.health = 950
 monster.maxHealth = 950
 monster.race = "blood"
 monster.corpse = 6008
 monster.speed = 234
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

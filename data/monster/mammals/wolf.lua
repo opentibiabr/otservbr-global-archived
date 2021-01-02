@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "In almost all grass areas in Tibia, also found in Rookgaard and Dawnport."
-		}
+	}
 
 monster.health = 25
 monster.maxHealth = 25
 monster.race = "blood"
 monster.corpse = 5968
 monster.speed = 164
-monster.summonCost = 255
+monster.manaCost = 255
 monster.maxSummons = 0
 
 monster.changeTarget = {

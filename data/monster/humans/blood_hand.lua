@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Drefia."
-		}
+	}
 
 monster.health = 700
 monster.maxHealth = 700
 monster.race = "blood"
 monster.corpse = 21257
 monster.speed = 192
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -54,7 +54,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 90,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,

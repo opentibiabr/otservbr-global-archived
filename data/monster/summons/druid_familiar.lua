@@ -1,10 +1,10 @@
-local mType = Game.createMonsterType("Thundergiant")
+local mType = Game.createMonsterType("Druid familiar")
 local monster = {}
 
-monster.description = "a Thundergiant"
+monster.description = "a druid familiar"
 monster.experience = 0
 monster.outfit = {
-	lookType = 994,
+	--lookType = 993,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -18,7 +18,7 @@ monster.maxHealth = 20000
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 309
-monster.summonCost = 3000
+monster.manaCost = 3000
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -44,13 +44,13 @@ monster.flags = {
 	canPushItems = false,
 	canPushCreatures = true,
 	staticAttackChance = 90,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = true
 }
 
@@ -68,9 +68,9 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -200},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_LIFEDRAIN, minDamage = -90, maxDamage = -150, length = 2, spread = 0, target = false},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -190, maxDamage = -210, length = 2, spread = 0, effect = CONST_ME_ENERGYHIT, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -230, maxDamage = -260, range = 5, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_STONES, target = true},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -90, maxDamage = -150, length = 2, spread = 0, effect = CONST_ME_GROUNDSHAKER, target = false},
 	{name ="summon challenge", interval = 2000, chance = 40, target = false}
 }
 

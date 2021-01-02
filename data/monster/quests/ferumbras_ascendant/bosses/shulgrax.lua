@@ -18,7 +18,7 @@ monster.maxHealth = 290000
 monster.race = "undead"
 monster.corpse = 25151
 monster.speed = 320
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -90,7 +90,7 @@ monster.loot = {
 	{id = 24850, chance = 46100, maxCount = 5},
 	{id = 25382, chance = 700},
 	{id = 25383, chance = 700},
-	{id = 25412, chance = 500},
+	{id = 25412, chance = 500, unique = true},
 	{id = 25523, chance = 700},
 	{id = 5022, chance = 46100, maxCount = 5},
 	{id = 6300, chance = 1300},

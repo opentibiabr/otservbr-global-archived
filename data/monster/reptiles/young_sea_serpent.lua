@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Sea Serpent Area."
-		}
+	}
 
 monster.health = 1050
 monster.maxHealth = 1050
 monster.race = "blood"
 monster.corpse = 9879
 monster.speed = 480
-monster.summonCost = 390
+monster.manaCost = 390
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -54,7 +54,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 85,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 400,
 	healthHidden = false,
 	isBlockable = false,

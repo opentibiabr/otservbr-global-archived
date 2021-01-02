@@ -864,6 +864,8 @@ class LuaScriptInterface
 		// Player
 		static int luaPlayerCreate(lua_State* L);
 
+		static int luaPlayerUnlockAllCharmRunes(lua_State* L);
+		static int luaPlayerResetCharmsMonsters(lua_State* L);
 		static int luaPlayeraddCharmPoints(lua_State* L);
 		static int luaPlayerIsPlayer(lua_State* L);
 
@@ -893,6 +895,7 @@ class LuaScriptInterface
 		static int luaPlayerGetRewardList(lua_State* L);
 
 		static int luaPlayerSendInventory(lua_State* L);
+		static int luaPlayerSendLootStats(lua_State* L);
 		static int luaPlayerUpdateKillTracker(lua_State* L);
 		static int luaPlayerUpdateLootTracker(lua_State* L);
 		static int luaPlayerUpdateSupplyTracker(lua_State* L);
@@ -1024,6 +1027,8 @@ class LuaScriptInterface
 		static int luaPlayerAddFamiliar(lua_State* L);
 		static int luaPlayerRemoveFamiliar(lua_State* L);
 		static int luaPlayerHasFamiliar(lua_State* L);
+		static int luaPlayerSetFamiliarLooktype(lua_State* L);
+		static int luaPlayerGetFamiliarLooktype(lua_State* L);
 
 		static int luaPlayerGetPremiumDays(lua_State* L);
 		static int luaPlayerAddPremiumDays(lua_State* L);

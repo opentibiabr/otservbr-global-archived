@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 0,
 	Occurrence = 1,
 	Locations = "Svargrond and Nibelor."
-		}
+	}
 
 monster.health = 140
 monster.maxHealth = 140
 monster.race = "blood"
 monster.corpse = 7316
 monster.speed = 264
-monster.summonCost = 420
+monster.manaCost = 420
 monster.maxSummons = 0
 
 monster.changeTarget = {

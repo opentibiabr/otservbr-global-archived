@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Nargor, Trade Quarter, Foreigner Quarter (Dock), Krailos Steppe."
-		}
+	}
 
 monster.health = 675
 monster.maxHealth = 675
 monster.race = "blood"
 monster.corpse = 20475
 monster.speed = 238
-monster.summonCost = 775
+monster.manaCost = 775
 monster.maxSummons = 0
 
 monster.changeTarget = {

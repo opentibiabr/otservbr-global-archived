@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Orc Fort, Orc Peninsula, near Dark Cathedral, Zao Orc Land."
-		}
+	}
 
 monster.health = 180
 monster.maxHealth = 180
 monster.race = "blood"
 monster.corpse = 6010
 monster.speed = 260
-monster.summonCost = 490
+monster.manaCost = 490
 monster.maxSummons = 0
 
 monster.changeTarget = {

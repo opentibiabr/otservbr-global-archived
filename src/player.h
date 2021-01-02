@@ -198,11 +198,11 @@ class Player final : public Creature, public Cylinder
 				client->BestiarysendCharms();
 			}
 		}
-		void addBestiaryKillCount(uint16_t raceid)
+		void addBestiaryKillCount(uint16_t raceid, uint32_t amount)
 		{
 			uint32_t oldCount = getBestiaryKillCount(raceid);
 			uint32_t key = STORAGEVALUE_BESTIARYKILLCOUNT + raceid;
-			addStorageValue(key, static_cast<int32_t>(oldCount + 1));
+			addStorageValue(key, static_cast<int32_t>(oldCount + amount));
 		}
 		uint32_t getBestiaryKillCount(uint16_t raceid) const
 		{
@@ -880,6 +880,9 @@ class Player final : public Creature, public Cylinder
 		void addFamiliar(uint16_t lookType);
 		bool removeFamiliar(uint16_t lookType);
 		bool getFamiliar(const Familiar& familiar) const;
+		void setFamiliarLooktype(uint16_t familiarLooktype) {
+			this->defaultOutfit.lookFamiliarsType = familiarLooktype;
+		}
 
 		bool canLogout();
 

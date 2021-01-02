@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Desert areas like those around Ankrahmun and Darashia."
-		}
+	}
 
 monster.health = 60
 monster.maxHealth = 60
 monster.race = "blood"
 monster.corpse = 6026
 monster.speed = 200
-monster.summonCost = 275
+monster.manaCost = 275
 monster.maxSummons = 0
 
 monster.changeTarget = {

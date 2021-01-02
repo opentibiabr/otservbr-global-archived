@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Razachai including the Inner Sanctum."
-		}
+	}
 
 monster.health = 6250
 monster.maxHealth = 6250
 monster.race = "venom"
 monster.corpse = 12623
 monster.speed = 270
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 2
 
 monster.changeTarget = {

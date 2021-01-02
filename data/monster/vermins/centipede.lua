@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "All around Port Hope and Tiquanda, Dark Cathedral, Vandura, Meriana, Razzachai, \z
 		and Slime cave east of Venore, Arena and Zoo Quarter, Gnarlhound Caves."
-		}
+	}
 
 monster.health = 70
 monster.maxHealth = 70
 monster.race = "venom"
 monster.corpse = 6050
 monster.speed = 166
-monster.summonCost = 335
+monster.manaCost = 335
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "In Banuta, northeast of Port Hope, Arena and Zoo Quarter."
-		}
+	}
 
 monster.health = 340
 monster.maxHealth = 340
 monster.race = "blood"
 monster.corpse = 6043
 monster.speed = 184
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

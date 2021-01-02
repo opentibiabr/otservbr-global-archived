@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Sparsely in eastern Lower Roshamuu and southern Guzzlemaw Valley."
-		}
+	}
 
 monster.health = 4200
 monster.maxHealth = 4200
 monster.race = "blood"
 monster.corpse = 22392
 monster.speed = 272
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

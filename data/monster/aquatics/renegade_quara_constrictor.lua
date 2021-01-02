@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Seacrest Grounds during a world change."
-		}
+	}
 
 monster.health = 1500
 monster.maxHealth = 1500
 monster.race = "blood"
 monster.corpse = 6065
 monster.speed = 380
-monster.summonCost = 670
+monster.manaCost = 670
 monster.maxSummons = 0
 
 monster.changeTarget = {

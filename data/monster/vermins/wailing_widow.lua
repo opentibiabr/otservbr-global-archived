@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Zao Wailing Widow Cave, Northern Zao Plantations, Northern Brimstone Bug Cave, \z
 		Razzachai, Chyllfroest, Krailos Spider Lair."
-		}
+	}
 
 monster.health = 850
 monster.maxHealth = 850
 monster.race = "venom"
 monster.corpse = 11310
 monster.speed = 254
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

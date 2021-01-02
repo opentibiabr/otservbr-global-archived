@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 1,
 	Locations = "Tainted Caves, Poacher Caves/Gloomy."
-		}
+	}
 
 monster.health = 200
 monster.maxHealth = 200
 monster.race = "blood"
 monster.corpse = 24639
 monster.speed = 250
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Old Beregar mines. In group with Furious Trolls almost all the time."
-		}
+	}
 
 monster.health = 210
 monster.maxHealth = 210
 monster.race = "blood"
 monster.corpse = 5998
 monster.speed = 200
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -26,14 +26,14 @@ monster.Bestiary = {
 	Locations = "Ankrahmun Pharaoh Tombs, Ashta'daramai, Daramian Mountain Scarab Lair, \z
 		Daramian Scarab Caves, Daramian Scarab Lairs, Deeper Drefia, Kha'zeel Mountains, Lion's Rock, \z
 		Northern Darama Desert, Port Hope Surroundings, Treasure Island, Yalahar Factory Quarter."
-		}
+	}
 
 monster.health = 70
 monster.maxHealth = 70
 monster.race = "venom"
 monster.corpse = 6023
 monster.speed = 124
-monster.summonCost = 355
+monster.manaCost = 355
 monster.maxSummons = 0
 
 monster.changeTarget = {
