@@ -117,10 +117,24 @@ void Game::loadBoostedCreature()
 				k++;
 			}
 		}
+
+		MonsterType* monsterType = g_monsters.getMonsterTypeByRaceId(newrace);
+
 		query.str(std::string());
 		query << "UPDATE `boosted_creature` SET ";
 		query << "`date` = '" << ltm->tm_mday << "',";
 		query << "`boostname` = " << db.escapeString(name) << ",";
+
+		if (monsterType) {
+			query << "`looktype` = " << static_cast<int>(monsterType->info.outfit.lookType) << ",";
+			query << "`lookfeet` = " << static_cast<int>(monsterType->info.outfit.lookFeet) << ",";
+			query << "`looklegs` = " << static_cast<int>(monsterType->info.outfit.lookLegs) << ",";
+			query << "`lookhead` = " << static_cast<int>(monsterType->info.outfit.lookHead) << ",";
+			query << "`lookbody` = " << static_cast<int>(monsterType->info.outfit.lookBody) << ",";
+			query << "`lookaddons` = " << static_cast<int>(monsterType->info.outfit.lookAddons) << ",";
+			query << "`lookmount` = " << static_cast<int>(monsterType->info.outfit.lookMount) << ",";
+		}
+
 		query << "`raceid` = '" << newrace << "'";
 
 		if (!db.executeQuery(query.str())) {
