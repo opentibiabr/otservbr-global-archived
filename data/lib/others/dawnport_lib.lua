@@ -1,5 +1,5 @@
 -- First items, added only in first step and having no vocation
-function dawnportAddFirstItems(player, item, slot)
+function dawnportAddFirstItems(player)
 	local firstItems = {
 		slots = {
 			[CONST_SLOT_HEAD] = Game.createItem(2461),
@@ -18,27 +18,27 @@ function dawnportAddFirstItems(player, item, slot)
 end
 
 -- On step in tiles, for first step, second and third or more steps
-function dawnportTileStep(player, vocation)
+function dawnportTileStep(player, trial)
 	-- First Step
-	local getVocation = player:getVocation()
-	if getVocation and getVocation:getId() == VOCATION.ID.NONE then
-		for i = 1, #DawnportTable.Effects do
-			Position(vocation.effectPosition):sendMagicEffect(DawnportTable.Effects[i])
+	local vocationId = player:getVocation():getId()
+	if vocationId == VOCATION.ID.NONE then
+		for i = 1, #Dawnport.trial.effects do
+			Position(trial.effectPosition):sendMagicEffect(Dawnport.trial.effects[i])
 		end
-		player:sendTutorial(vocation.tutorial)
+		player:sendTutorial(trial.tutorialId)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
-		"As this is the first time you try out a vocation, the Guild has kitted you out. " .. vocation.firstMessage)
-		dawnportAddFirstItems(player, item, slot)
+		"As this is the first time you try out a vocation, the Guild has kitted you out. " .. trial.message)
+		dawnportAddFirstItems(player)
 	-- Second step
-	elseif player:getStorageValue(vocation.storage) == -1 and getVocation:getId() ~= VOCATION.ID.NONE then
+	elseif player:getStorageValue(trial.storage) == -1 and vocationId ~= VOCATION.ID.NONE then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("As this is your first time as a \z
-		".. vocation.name ..', you received a few extra items. ' .. vocation.firstMessage))
-		player:setStorageValue(vocation.storage, 1)
-		player:sendTutorial(vocation.tutorial)
+		".. trial.vocation.name ..', you received a few extra items. ' .. trial.message))
+		player:setStorageValue(trial.storage, 1)
+		player:sendTutorial(trial.tutorialId)
 	-- Other steps
-	elseif player:getStorageValue(vocation.storage) == 1 then
+	elseif player:getStorageValue(trial.storage) == 1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("You have received the weapons of a \z
-			".. vocation.name ..'. ' .. vocation.firstMessage))
+		".. trial.vocation.name ..'. ' .. trial.message))
 	end
 end
 
@@ -150,13 +150,13 @@ function dawnportRemoveItems(player)
 end
 
 -- Add items
-function dawnportAddItems(player, vocation)
+function dawnportAddItems(player, trial)
 	local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
 	-- If dont have backpack, give one or will cause error and items will added on ground
 	if not backpack then
 		backpack = player:addItem(1988, 1, true, 1, CONST_SLOT_BACKPACK)
 	end
-	for slot, info in pairs(vocation.items) do
+	for slot, info in pairs(trial.items) do
 		local extra
 		if slot > CONST_SLOT_AMMO then
 			extra = true
@@ -189,28 +189,28 @@ function dawnportAddItems(player, vocation)
 end
 
 -- Set outfit for each vocation
-function dawnportSetOutfit(player, vocation)
+function dawnportSetOutfit(player, outfit)
 	if player:getSex() == PLAYERSEX_MALE then
 		player:setOutfit({
-			lookBody = vocation.outfit.lookBody,
-			lookAddons = vocation.outfit.lookAddons,
-			lookTypeName = vocation.outfit.lookTypeName,
-			lookType = vocation.outfit.lookTypeEx,
-			lookHead = vocation.outfit.lookHead,
-			lookMount = vocation.outfit.lookMount,
-			lookLegs = vocation.outfit.lookLegs,
-			lookFeet = vocation.outfit.lookFeet
+			lookBody = outfit.lookBody,
+			lookAddons = outfit.lookAddons,
+			lookTypeName = outfit.lookTypeName,
+			lookType = outfit.lookTypeEx,
+			lookHead = outfit.lookHead,
+			lookMount = outfit.lookMount,
+			lookLegs = outfit.lookLegs,
+			lookFeet = outfit.lookFeet
 		})
 	else
 		player:setOutfit({
-			lookBody = vocation.outfit.lookBody,
-			lookAddons = vocation.outfit.lookAddons,
-			lookTypeName = vocation.outfit.lookTypeName,
-			lookType = vocation.outfit.lookTypeFm,
-			lookHead = vocation.outfit.lookHead,
-			lookMount = vocation.outfit.lookMount,
-			lookLegs = vocation.outfit.lookLegs,
-			lookFeet = vocation.outfit.lookFeet
+			lookBody = outfit.lookBody,
+			lookAddons = outfit.lookAddons,
+			lookTypeName = outfit.lookTypeName,
+			lookType = outfit.lookTypeFm,
+			lookHead = outfit.lookHead,
+			lookMount = outfit.lookMount,
+			lookLegs = outfit.lookLegs,
+			lookFeet = outfit.lookFeet
 		})
 	end
 end
@@ -319,151 +319,133 @@ Dawnport = {
 				[SKILL_MAGLEVEL] = 4
 			}
 		}
-	}
-}
-
--- Table of configs
-DawnportTable = {
-	Effects = {
-		CONST_ME_TUTORIALARROW,
-		CONST_ME_TUTORIALSQUARE
 	},
-	[25005] = {
-		-- First vocation (from lvl 1 to 7)
-		first = {
-			id = VOCATION.ID.DAWNPORT_SORCERER,
+	trial = {
+		effects = {
+			CONST_ME_TUTORIALARROW,
+			CONST_ME_TUTORIALSQUARE
 		},
-		-- Second vocation (from lvl 8 to 20)
-		second = {
-			id = VOCATION.ID.SORCERER,
+		-- Sorcerer trial
+		[25005] = {
+			tutorialId = 5,
+			effectPosition = {x = 32050, y = 31891, z = 5},
+			storage = Storage.Dawnport.Sorcerer,
+			message = "As a sorcerer, you can use the following spells: Magic Patch, Buzz, Scorch.",
+			vocation = {
+				id = VOCATION.ID.SORCERER,
+				name = "sorcerer",
+				outfit = {
+					lookBody = 109,
+					lookAddons = 0,
+					lookTypeName = {Mage}, -- {male, female}
+					lookTypeEx = 130,
+					lookTypeFm = 138,
+					lookHead = 95,
+					lookMount = 0,
+					lookLegs = 112,
+					lookFeet = 128
+				}
+			},
+			items = {
+				[CONST_SLOT_LEFT] = {23719, 1, false}, -- the scorcher
+				[CONST_SLOT_RIGHT] = {23771, 1, false}, -- spellbook of the novice
+				[11] = {8704, 2, true, storage = Storage.Dawnport.SorcererHealthPotion, limit = 1}, -- potion
+				[12] = {7620, 10, true, storage = Storage.Dawnport.SorcererManaPotion, limit = 1}, -- potion
+				[13] = {23723, 2, true, storage = Storage.Dawnport.SorcererLightestMissile, limit = 1}, -- 2 lightest missile runes
+				[14] = {23722, 2, true, storage = Storage.Dawnport.SorcererLightStoneShower, limit = 1}, -- 2 light stone shower runes
+				[15] = {2666, 1, true, storage = Storage.Dawnport.SorcererMeat, limit = 1}, -- 1 meat
+			}
 		},
-		tutorial = 5,
-		effectPosition = {x = 32050, y = 31891, z = 5},
-		storage = Storage.Dawnport.Sorcerer,
-		name = "sorcerer",
-		firstMessage = "As a sorcerer, you can use the following spells: Magic Patch, Buzz, Scorch.",
-		outfit = {
-			lookBody = 109,
-			lookAddons = 0,
-			lookTypeName = {Mage}, -- {male, female}
-			lookTypeEx = 130,
-			lookTypeFm = 138,
-			lookHead = 95,
-			lookMount = 0,
-			lookLegs = 112,
-			lookFeet = 128
+		-- Druid trial
+		[25006] = {
+			tutorialId = 6,
+			effectPosition = {x = 32064, y = 31905, z = 5},
+			storage = Storage.Dawnport.Druid,
+			message = "As a druid, you can use these spells: Mud Attack, Chill Out, Magic Patch.",
+			vocation = {
+				id = VOCATION.ID.DRUID,
+				name = "druid",
+				outfit = {
+					lookBody = 123,
+					lookAddons = 0,
+					lookTypeName = {Mage}, -- {male, female}
+					lookTypeEx = 130,
+					lookTypeFm = 138,
+					lookHead = 95,
+					lookMount = 0,
+					lookLegs = 9,
+					lookFeet = 118
+				}
+			},
+			items = {
+				[CONST_SLOT_LEFT] = {23721, 1, true}, -- the chiller
+				[CONST_SLOT_RIGHT] = {23771, 1, true}, -- spellbook of the novice
+				[11] = {8704, 2, true, storage = Storage.Dawnport.DruidHealthPotion, limit = 1}, -- potion
+				[12] = {7620, 10, true, storage = Storage.Dawnport.DruidManaPotion, limit = 1}, -- potion
+				[13] = {23723, 2, true, storage = Storage.Dawnport.DruidLightestMissile, limit = 1}, -- 2 lightest missile runes
+				[14] = {23722, 2, true, storage = Storage.Dawnport.DruidLightStoneShower, limit = 1}, -- 2 light stone shower runes
+				[15] = {2666, 1, true, storage = Storage.Dawnport.DruidMeat, limit = 1}, -- 1 meat
+			}
 		},
-		items = {
-			[CONST_SLOT_LEFT] = {23719, 1, false}, -- the scorcher
-			[CONST_SLOT_RIGHT] = {23771, 1, false}, -- spellbook of the novice
-			[11] = {8704, 2, true, storage = Storage.Dawnport.SorcererHealthPotion, limit = 1}, -- potion
-			[12] = {7620, 10, true, storage = Storage.Dawnport.SorcererManaPotion, limit = 1}, -- potion
-			[13] = {23723, 2, true, storage = Storage.Dawnport.SorcererLightestMissile, limit = 1}, -- 2 lightest missile runes
-			[14] = {23722, 2, true, storage = Storage.Dawnport.SorcererLightStoneShower, limit = 1}, -- 2 light stone shower runes
-			[15] = {2666, 1, true, storage = Storage.Dawnport.SorcererMeat, limit = 1}, -- 1 meat
+		-- Paladin trial
+		[25007] = {
+			tutorialId = 4,
+			effectPosition = {x = 32078, y = 31891, z = 5},
+			storage = Storage.Dawnport.Paladin,
+			message = "As a paladin, you can use the following spells: Magic Patch, Arrow Call.",
+			vocation = {
+				id = VOCATION.ID.PALADIN,
+				name = "paladin",
+				outfit = {
+					lookBody = 117,
+					lookAddons = 0,
+					lookTypeName = {Hunter}, -- {male, female}
+					lookTypeEx = 129,
+					lookTypeFm = 137,
+					lookHead = 95,
+					lookMount = 0,
+					lookLegs = 98,
+					lookFeet = 78
+				}
+			},
+			items = {
+				[CONST_SLOT_LEFT] = {2456, 1, true}, -- bow
+				[CONST_SLOT_AMMO] = {23839, 100, true}, -- 100 arrows
+				[11] = {8704, 7, true, storage = Storage.Dawnport.PaladinHealthPotion, limit = 1}, -- potion
+				[12] = {7620, 5, true, storage = Storage.Dawnport.PaladinManaPotion, limit = 1}, -- potion
+				[13] = {23723, 1, true, storage = Storage.Dawnport.PaladinLightestMissile, limit = 1}, -- 1 lightest missile rune
+				[14] = {23722, 1, true, storage = Storage.Dawnport.PaladinLightStoneShower, limit = 1}, -- 1 light stone shower rune
+				[15] = {2666, 1, true, storage = Storage.Dawnport.PaladinMeat, limit = 1}, -- 1 meat
+			}
 		},
-	},
-	[25006] = {
-		-- First vocation (from lvl 1 to 7)
-		first = {
-			id = VOCATION.ID.DAWNPORT_DRUID,
-		},
-		-- Second vocation (from lvl 8 to 20)
-		second = {
-			id = VOCATION.ID.DRUID,
-		},
-		tutorial = 6,
-		effectPosition = {x = 32064, y = 31905, z = 5},
-		storage = Storage.Dawnport.Druid,
-		name = "druid",
-		firstMessage = "As a druid, you can use these spells: Mud Attack, Chill Out, Magic Patch.",
-		outfit = {
-			lookBody = 123,
-			lookAddons = 0,
-			lookTypeName = {Mage}, -- {male, female}
-			lookTypeEx = 130,
-			lookTypeFm = 138,
-			lookHead = 95,
-			lookMount = 0,
-			lookLegs = 9,
-			lookFeet = 118
-		},
-		items = {
-			[CONST_SLOT_LEFT] = {23721, 1, true}, -- the chiller
-			[CONST_SLOT_RIGHT] = {23771, 1, true}, -- spellbook of the novice
-			[11] = {8704, 2, true, storage = Storage.Dawnport.DruidHealthPotion, limit = 1}, -- potion
-			[12] = {7620, 10, true, storage = Storage.Dawnport.DruidManaPotion, limit = 1}, -- potion
-			[13] = {23723, 2, true, storage = Storage.Dawnport.DruidLightestMissile, limit = 1}, -- 2 lightest missile runes
-			[14] = {23722, 2, true, storage = Storage.Dawnport.DruidLightStoneShower, limit = 1}, -- 2 light stone shower runes
-			[15] = {2666, 1, true, storage = Storage.Dawnport.DruidMeat, limit = 1}, -- 1 meat
-		}
-	},
-	[25007] = {
-		-- First vocation (from lvl 1 to 7)
-		first = {
-			id = VOCATION.ID.DAWNPORT_PALADIN,
-		},
-		-- Second vocation (from lvl 8 to 20)
-		second = {
-			id = VOCATION.ID.PALADIN,
-		},
-		tutorial = 4,
-		effectPosition = {x = 32078, y = 31891, z = 5},
-		storage = Storage.Dawnport.Paladin,
-		name = "paladin",
-		firstMessage = "As a paladin, you can use the following spells: Magic Patch, Arrow Call.",
-		outfit = {
-			lookBody = 117,
-			lookAddons = 0,
-			lookTypeName = {Hunter}, -- {male, female}
-			lookTypeEx = 129,
-			lookTypeFm = 137,
-			lookHead = 95,
-			lookMount = 0,
-			lookLegs = 98,
-			lookFeet = 78
-		},
-		items = {
-			[CONST_SLOT_LEFT] = {2456, 1, true}, -- bow
-			[CONST_SLOT_AMMO] = {23839, 100, true}, -- 100 arrows
-			[11] = {8704, 7, true, storage = Storage.Dawnport.PaladinHealthPotion, limit = 1}, -- potion
-			[12] = {7620, 5, true, storage = Storage.Dawnport.PaladinManaPotion, limit = 1}, -- potion
-			[13] = {23723, 1, true, storage = Storage.Dawnport.PaladinLightestMissile, limit = 1}, -- 1 lightest missile rune
-			[14] = {23722, 1, true, storage = Storage.Dawnport.PaladinLightStoneShower, limit = 1}, -- 1 light stone shower rune
-			[15] = {2666, 1, true, storage = Storage.Dawnport.PaladinMeat, limit = 1}, -- 1 meat
-		}
-	},
-	[25008] = {
-		-- First vocation (from lvl 1 to 7)
-		first = {
-			id = VOCATION.ID.DAWNPORT_KNIGHT,
-		},
-		-- Second vocation (from lvl 8 to 20)
-		second = {
-			id = VOCATION.ID.KNIGHT,
-		},
-		tutorial = 3,
-		effectPosition = {x = 32064, y = 31876, z = 5},
-		storage = Storage.Dawnport.Knight,
-		name = "knight",
-		firstMessage = "As a knight, you can use the following spells: Bruise Bane.",
-		outfit = {
-			lookBody = 38,
-			lookAddons = 0,
-			lookTypeName = {Knight}, -- {male, female}
-			lookTypeEx = 131,
-			lookTypeFm = 139,
-			lookHead = 95,
-			lookMount = 0,
-			lookLegs = 94,
-			lookFeet = 115,
-		},
-		items = {
-			[CONST_SLOT_LEFT] = {2379, 1, true}, -- dagger
-			[CONST_SLOT_RIGHT] = {2512, 1, true}, -- wooden shield
-			[11] = {8704, 10, true, storage = Storage.Dawnport.KnightHealthPotion, limit = 1}, -- potion
-			[12] = {7620, 2, true, storage = Storage.Dawnport.KnightManaPotion, limit = 1}, -- potion
-			[13] = {2666, 1, true, storage = Storage.Dawnport.KnightMeat, limit = 1} -- 1 meat
+		-- Knight trial
+		[25008] = {
+			tutorialId = 3,
+			effectPosition = {x = 32064, y = 31876, z = 5},
+			storage = Storage.Dawnport.Knight,
+			message = "As a knight, you can use the following spells: Bruise Bane.",
+			vocation = {
+				id = VOCATION.ID.KNIGHT,
+				name = "knight",
+				outfit = {
+					lookBody = 38,
+					lookAddons = 0,
+					lookTypeName = {Knight}, -- {male, female}
+					lookTypeEx = 131,
+					lookTypeFm = 139,
+					lookHead = 95,
+					lookMount = 0,
+					lookLegs = 94,
+					lookFeet = 115,
+				}
+			},
+			items = {
+				[CONST_SLOT_LEFT] = {2379, 1, true}, -- dagger
+				[CONST_SLOT_RIGHT] = {2512, 1, true}, -- wooden shield
+				[11] = {8704, 10, true, storage = Storage.Dawnport.KnightHealthPotion, limit = 1}, -- potion
+				[12] = {7620, 2, true, storage = Storage.Dawnport.KnightManaPotion, limit = 1}, -- potion
+				[13] = {2666, 1, true, storage = Storage.Dawnport.KnightMeat, limit = 1} -- 1 meat
+			}
 		}
 	}
 }
