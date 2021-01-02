@@ -8304,6 +8304,10 @@ void Game::removeUniqueItem(uint16_t uniqueId)
 bool Game::reload(ReloadTypes_t reloadType)
 {
 	switch (reloadType) {
+		case RELOAD_TYPE_MONSTERS: {
+			g_scripts->loadScripts("monster", false, true);
+			return true;
+		}
 		case RELOAD_TYPE_CHAT: return g_chat->load();
 		case RELOAD_TYPE_CONFIG: return g_config.reload();
 		case RELOAD_TYPE_EVENTS: return g_events->load();
