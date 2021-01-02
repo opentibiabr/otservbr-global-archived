@@ -570,8 +570,9 @@ local function creatureSayCallback(cid, type, msg)
 			end
 		end
 
-	elseif msgcontains(msg, "rookgaard") then
-		if Player.getAccountStorage(player, accountId, Storage.Dawnport.Mainland, true) == 1 then
+	elseif msgcontains(msg, "rookgaard") and player:getLevel() <= 9 then
+		if Player.getAccountStorage(player, accountId, Storage.Dawnport.Mainland, true) == 1 
+		and player:getStorageValue(Storage.Dawnport.Mainland) == -1 then
 			npcHandler:say("Hmmm. Long time I visited that isle. Not very exciting place. \z
 			Why do you ask? Do you wish to go there?", cid)
 			npcHandler.topic[cid] = 1
@@ -591,8 +592,8 @@ local function creatureSayCallback(cid, type, msg)
 	or msgcontains(msg, "sure") or msgcontains(msg, "leave") then
 		local town = Town(TOWNS_LIST.ROOKGAARD)
 		player:setTown(town)
-		player:setVocation(Vocation(VOCATION.ID.NONE))
-		rookgaardSetStats(player)
+		-- Set none vocation, convert stats and magic level/skills
+		dawnportSetVocation(player, VOCATION.ID.NONE)
 		player:teleportTo(town:getTemplePosition())
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 

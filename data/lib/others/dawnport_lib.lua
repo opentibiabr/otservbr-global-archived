@@ -235,18 +235,6 @@ function dawnportSetStats(player)
 	player:setCapacity(stats.capacity)
 end
 
--- Set rookgaard health/mana/capacity (after talk with Inigo npc)
-function rookgaardSetStats(player)
-	local vocation = player:getVocation()
-	if player:getLevel() <= 8 and vocation and vocation:getId() == VOCATION.ID.NONE then
-    	player:setMaxHealth(5 * (player:getLevel() + 29))
-   		player:addHealth(player:getMaxHealth())
-    	player:setMaxMana(5 * ((6 * player:getLevel()) - (5 * 8) + 10))
-    	player:addMana(player:getMaxMana())
-		player:setCapacity((10 * (player:getLevel() + 39))*100)
-	end
-end
-
 -- Teleport to the dawnport temple after reaching level 20 (the player has five minutes before being teleported)
 function teleportToDawnportTemple(uid)
 	local player = Player(uid)
