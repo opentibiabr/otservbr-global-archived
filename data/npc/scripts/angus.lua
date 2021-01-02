@@ -492,7 +492,7 @@ local function creatureSayCallback(cid, type, msg)
 			}, cid)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 20 then
-			if player:removeItem(5940, 1) then
+			if player:removeItem(15389, 1) then
 				player:setStorageValue(Storage.ExplorerSociety.TheOrcPowder, 35)
 				player:setStorageValue(Storage.ExplorerSociety.QuestLine, 35)
 				npcHandler:say("You really got it? Amazing! Thank you for your efforts.", cid)
