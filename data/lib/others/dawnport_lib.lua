@@ -43,7 +43,7 @@ function dawnportTileStep(player, vocation)
 end
 
 -- Set vocation
-function dawnportSetVocation(player, vocation)
+function dawnportSetVocation(player, vocationId)
 	-- Get current vocation magic level
 	local magic = {level = player:getBaseMagicLevel(), manaSpent = player:getManaSpent()}
 	
@@ -76,12 +76,9 @@ function dawnportSetVocation(player, vocation)
 		--print("OLD " .. player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " SKILL:" .. key .. " id:" .. skill.id .. " level:" .. skill.level .. " totalTries:" .. skill.tries)
 	end
 	
-	-- Set for the dawnport vocation if is level 8 or minor
-	if player:getLevel() < Dawnport.upgrade.level then
-		player:setVocation(Vocation(vocation.first.id))
-	-- Set for the vocation main if is level 8 or more
-	elseif player:getLevel() >= Dawnport.upgrade.level and player:getLevel() < Dawnport.limit.level then
-		player:setVocation(Vocation(vocation.second.id))
+	player:setVocation(Vocation(vocationId))
+	
+	if player:getLevel() > Dawnport.upgrade.level and player:getLevel() < Dawnport.limit.level then
 		-- Set player stats if have level 9 or more (health, mana, capacity)
 		dawnportSetStats(player)
 	end
@@ -224,8 +221,8 @@ function dawnportSetStats(player)
 	local stats = {health = 150, mana = 55, capacity = 40000}
 	local vocation = player:getVocation()
 	
-	-- NO VOCATION AND DAWNPORT VOCATIONS
-	if isInArray({VOCATION.ID.NONE, VOCATION.ID.DAWNPORT_SORCERER, VOCATION.ID.DAWNPORT_DRUID, VOCATION.ID.DAWNPORT_PALADIN, VOCATION.ID.DAWNPORT_KNIGHT}, vocation:getId()) and player:getLevel() <= Dawnport.upgrade.level then
+	-- NO VOCATION
+	if vocation:getId() == VOCATION.ID.NONE and player:getLevel() <= (Dawnport.upgrade.level + 1) then
 		local level = player:getLevel() - 1
 		
 		stats.health = stats.health + (level * vocation:getHealthGain())
@@ -274,22 +271,10 @@ function teleportToDawnportTemple(uid)
 end
 
 function isSkillGrowthLimited(player, skillId)
-	-- Check lives on dawnport
+	-- Check resides on dawnport
 	if player:getTown():getId() == TOWNS_LIST.DAWNPORT then
 		local vocationId = player:getVocation():getId()
-		local skillsLimit
-		
-		if vocationId == VOCATION.ID.NONE then
-			skillsLimit = Dawnport.limit.skills.none
-		elseif isInArray({VOCATION.ID.DAWNPORT_SORCERER, VOCATION.ID.SORCERER}, vocationId) then
-			skillsLimit = Dawnport.limit.skills.sorcerer
-		elseif isInArray({VOCATION.ID.DAWNPORT_DRUID, VOCATION.ID.DRUID}, vocationId) then
-			skillsLimit = Dawnport.limit.skills.druid
-		elseif isInArray({VOCATION.ID.DAWNPORT_PALADIN, VOCATION.ID.PALADIN}, vocationId) then
-			skillsLimit = Dawnport.limit.skills.paladin
-		elseif isInArray({VOCATION.ID.DAWNPORT_KNIGHT, VOCATION.ID.KNIGHT}, vocationId) then
-			skillsLimit = Dawnport.limit.skills.knight
-		end
+		local skillsLimit = Dawnport.limit.skills[vocationId]
 		
 		-- Check if is set a skillId limit
 		if skillsLimit and skillsLimit[skillId] then
@@ -314,29 +299,23 @@ end
 
 Dawnport = {
 	upgrade = {
-		level = 8,
-		vocations = {
-			[VOCATION.ID.DAWNPORT_SORCERER] = VOCATION.ID.SORCERER,
-			[VOCATION.ID.DAWNPORT_DRUID] = VOCATION.ID.DRUID,
-			[VOCATION.ID.DAWNPORT_PALADIN] = VOCATION.ID.PALADIN,
-			[VOCATION.ID.DAWNPORT_KNIGHT] = VOCATION.ID.KNIGHT
-		}
+		level = 8
 	},
 	limit = {
 		level = 20,
 		skills = {
-			none = {},
-			sorcerer = {
+			[VOCATION.ID.NONE] = {},
+			[VOCATION.ID.SORCERER] = {
 				[SKILL_MAGLEVEL] = 20
 			},
-			druid = {
+			[VOCATION.ID.DRUID] = {
 				[SKILL_MAGLEVEL] = 20
 				
 			},
-			paladin = {
+			[VOCATION.ID.PALADIN] = {
 				[SKILL_MAGLEVEL] = 9
 			},
-			knight = {
+			[VOCATION.ID.KNIGHT] = {
 				[SKILL_MAGLEVEL] = 4
 			}
 		}

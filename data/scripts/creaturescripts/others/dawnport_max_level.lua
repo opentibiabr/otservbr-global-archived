@@ -6,11 +6,6 @@ function dawnportMaxLevel.onAdvance(player, skill, oldLevel, newLevel)
 	if town and town:getId() == TOWNS_LIST.DAWNPORT then
 		-- Level vocation upgrade
 		if skill == SKILL_LEVEL and newLevel == Dawnport.upgrade.level then
-			local vocationId = Dawnport.upgrade.vocations[player:getVocation():getId()]
-			if not vocationId then
-				return true
-			end
-			player:setVocation(Vocation(vocationId))
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Congratulations! You may now choose your vocation and leave Dawnport. Talk to Oressa in the temple.")
 		-- Level limit
 		elseif skill == SKILL_LEVEL and newLevel == Dawnport.limit.level then
