@@ -65,8 +65,7 @@ function onCastSpell(player, variant)
     myFamiliar:setOutfit({lookType = player:getFamiliarLooktype()})
     myFamiliar:reload()
     myFamiliar:registerEvent("FamiliarDeath")
-
-    local deltaSpeed = math.max(player:getBaseSpeed() - myFamiliar:getBaseSpeed(), 0)
+    local deltaSpeed = math.max(player:getSpeed() - myFamiliar:getBaseSpeed(), 0)
     myFamiliar:changeSpeed(deltaSpeed)
 
     player:setStorageValue(Storage.PetSummon, os.time() + 15*60) -- 15 minutes from now
