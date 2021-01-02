@@ -863,6 +863,8 @@ class LuaScriptInterface
 		// Player
 		static int luaPlayerCreate(lua_State* L);
 
+		static int luaPlayerUnlockAllCharmRunes(lua_State* L);
+		static int luaPlayerResetCharmsMonsters(lua_State* L);
 		static int luaPlayeraddCharmPoints(lua_State* L);
 		static int luaPlayerIsPlayer(lua_State* L);
 
