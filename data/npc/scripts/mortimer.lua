@@ -610,6 +610,7 @@ local function creatureSayCallback(cid, type, msg)
 			}, cid)
 			npcHandler.topic[cid] = 0
 			player:setStorageValue(Storage.ExplorerSociety.TheSpectralStone, 53)
+			player:setStorageValue(Storage.ExplorerSociety.SpectralStoneDoor, 1)
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 53)
 			player:addItem(4851, 1) -- spectral stone
 			-- SPECTRAL STONE

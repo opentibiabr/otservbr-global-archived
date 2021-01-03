@@ -314,6 +314,30 @@ TileUnique = {
 		itemId = 426,
 		itemPos = {x = 32225, y = 32268, z = 9}
 	},
+	-- Explorer Society Astral Portals
+	-- Path: data\scripts\actions\quests\explorer_society\stone.lua
+	-- Path: data\scripts\movements\quests\explorer_society\carvingteleport_port_hope.lua
+	-- Path: data\scripts\movements\quests\explorer_society\carving_teleport_liberty_bay.lua
+	-- Port Hope
+	[25011] = {
+		itemId = 474,
+		itemPos = {x = 32665, y = 32736, z = 6}
+	},
+	-- Northport
+	[25012] = {
+		itemId = 474,
+		itemPos = {x = 32497, y = 31622, z = 6}
+	},
+	-- Liberty Bay
+	[25013] = {
+		itemId = 474,
+		itemPos = {x = 32358, y = 32807, z = 6}
+	},
+	-- Svarground
+	[25014] = {
+		itemId = 474,
+		itemPos = {x = 32321, y = 31137, z = 6}
+	},
 
 	-- Remove/create item on stepIn
 	-- Reserved uniques range from 29001/30000

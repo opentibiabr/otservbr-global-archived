@@ -589,7 +589,8 @@ Storage = {
 		ChorurnDoor = 50556,
 		DwacatraDoor = 50557,
 		FamilyBroochDoor = 50558,
-		TheElvenPoetry = 50559
+		TheElvenPoetry = 50559,
+		SpectralStoneDoor = 50560
 	},
 	TravellingTrader = {
 		-- Reserved storage from 50600 - 50619

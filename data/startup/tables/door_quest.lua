@@ -101,13 +101,6 @@ QuestDoorAction = {
 		itemId = false,
 		itemPos = {{x = 32598, y = 31933, z = 15}}
 	},
-	[Storage.ExplorerSociety.FamilyBroochDoor] = {
-		itemId = false,
-		itemPos = {
-			{x = 32360, y = 32808, z = 6},
-			{x = 32500, y = 31622, z = 6}
-		}
-	},
 	-- Mission in Chor
 	[Storage.ExplorerSociety.ChorurnDoor] = {
 		itemId = false,
@@ -137,6 +130,14 @@ QuestDoorAction = {
 	[Storage.ExplorerSociety.BansheeDoor] = {
 		itemId = false,
 		itemPos = {{x = 32259, y = 31948, z = 14}}
+	},
+	-- Mission in Port Hope & Northport
+	[Storage.ExplorerSociety.SpectralStoneDoor] = {
+		itemId = false,
+		itemPos = {
+			{x = 32665, y = 32734, z = 6},
+			{x = 32500, y = 31622, z = 6}
+		}
 	},
 	-- Mission in Calassa
 	[Storage.ExplorerSociety.CalassaDoor] = {
