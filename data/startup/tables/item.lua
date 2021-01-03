@@ -229,5 +229,12 @@ ItemUnique = {
 	[40040] = {
 		itemId = 35996,
 		itemPos = {x = 33874, y = 31433, z = 9}
+	},
+	-- Explorer Society Quest
+	-- Path: data\scripts\actions\quests\explorer_society\findings.lua
+	-- The Lizard Urn
+	[40041] = {
+		itemId = 2034,
+		itemPos = {x = 32957, y = 32834, z = 8}
 	}
 }
