@@ -1,6 +1,19 @@
-	local keywordHandler = KeywordHandler:new()
+local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
+
+local shop = {
+	{id=30686, buy=50, sell=0, name='axe of desctruction'},
+	{id=30684, buy=50, sell=0, name='blade of desctruction'},
+	{id=30690, buy=50, sell=0, name='bow of desctruction'},
+	{id=30687, buy=50, sell=0, name='chopper of desctruction'},
+	{id=30691, buy=50, sell=0, name='crossbow of desctruction'},
+	{id=30689, buy=50, sell=0, name='hammer of desctruction'},
+	{id=30688, buy=50, sell=0, name='mace of desctruction'},
+	{id=30693, buy=50, sell=0, name='rod of desctruction'},
+	{id=30685, buy=50, sell=0, name='slayer of desctruction'},
+	{id=30692, buy=50, sell=0, name='wand of desctruction'},
+}
 
 local function setNewTradeTable(table)
 	local items, item = {}
@@ -38,19 +51,6 @@ end
 local function onSell(cid, item, subType, amount, ignoreCap, inBackpacks)
 	return true
 end
-
-local shop = {
-	{id=30686, buy=50, sell=0, name='axe of desctruction'},
-	{id=30684, buy=50, sell=0, name='blade of desctruction'},
-	{id=30690, buy=50, sell=0, name='bow of desctruction'},
-	{id=30687, buy=50, sell=0, name='chopper of desctruction'},
-	{id=30691, buy=50, sell=0, name='crossbow of desctruction'},
-	{id=30689, buy=50, sell=0, name='hammer of desctruction'},
-	{id=30688, buy=50, sell=0, name='mace of desctruction'},
-	{id=30693, buy=50, sell=0, name='rod of desctruction'},
-	{id=30685, buy=50, sell=0, name='slayer of desctruction'},
-	{id=30692, buy=50, sell=0, name='wand of desctruction'},
-}
 
 local products = {
 	['strike'] = {
