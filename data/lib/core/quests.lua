@@ -4196,7 +4196,7 @@ if not Quests then
 					storageId = Storage.ExplorerSociety.CalassaQuest,
 					missionId = 11312,
 					startValue = 1,
-					endValue = 2,
+					endValue = 3,
 					states = {
 						[1] = "Captain Max will bring you to Calassa whenever you are ready. \z
 							Please try to retrieve the missing logbook which must be in one of the sunken shipwrecks.",
