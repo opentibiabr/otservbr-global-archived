@@ -34,7 +34,7 @@
 #include "npc.h"
 #include "wildcardtree.h"
 #include "gamestore.h"
-#include "iobestiary.h" 
+#include "iobestiary.h"
 
 class ServiceManager;
 class Creature;
@@ -218,7 +218,7 @@ class Game
 		  */
 		bool removeCreature(Creature* creature, bool isLogout = true);
 		void executeDeath(uint32_t creatureId);
-		
+
 		void addCreatureCheck(Creature* creature);
 		static void removeCreatureCheck(Creature* creature);
 
@@ -346,12 +346,13 @@ class Game
 		void kickPlayer(uint32_t playerId, bool displayEffect);
 		void playerReportBug(uint32_t playerId, const std::string& message, const Position& position, uint8_t category);
 		void playerDebugAssert(uint32_t playerId, const std::string& assertLine, const std::string& date, const std::string& description, const std::string& comment);
+		void playerNpcGreet(uint32_t playerId, uint32_t npcId);
 		void playerAnswerModalWindow(uint32_t playerId, uint32_t modalWindowId, uint8_t button, uint8_t choice);
 		void playerReportRuleViolationReport(uint32_t playerId, const std::string& targetName, uint8_t reportType, uint8_t reportReason, const std::string& comment, const std::string& translation);
 
-    void playerCyclopediaCharacterInfo(Player* player, uint32_t characterID, CyclopediaCharacterInfoType_t characterInfoType, uint16_t entriesPerPage, uint16_t page);
+		void playerCyclopediaCharacterInfo(Player* player, uint32_t characterID, CyclopediaCharacterInfoType_t characterInfoType, uint16_t entriesPerPage, uint16_t page);
 
-    void playerHighscores(Player* player, HighscoreType_t type, uint8_t category, uint32_t vocation, const std::string& worldName, uint16_t page, uint8_t entriesPerPage);
+		void playerHighscores(Player* player, HighscoreType_t type, uint8_t category, uint32_t vocation, const std::string& worldName, uint16_t page, uint8_t entriesPerPage);
 
 		void playerTournamentLeaderboard(uint32_t playerId, uint8_t leaderboardType);
 
@@ -363,7 +364,7 @@ class Game
 		void broadcastMessage(const std::string& text, MessageClasses type) const;
 
 		//Implementation of player invoked events
-    void playerTeleport(uint32_t playerId, const Position& pos);
+		void playerTeleport(uint32_t playerId, const Position& pos);
 		void playerMoveThing(uint32_t playerId, const Position& fromPos, uint16_t spriteId, uint8_t fromStackPos,
 							 const Position& toPos, uint8_t count);
 		void playerMoveCreatureByID(uint32_t playerId, uint32_t movingCreatureId, const Position& movingCreatureOrigPos, const Position& toPos);
@@ -424,8 +425,8 @@ class Game
 								uint16_t spriteId, uint8_t stackPos, Item* defaultItem = nullptr);
 		void playerSetLootContainer(uint32_t playerId, ObjectCategory_t category,
 								const Position& pos, uint16_t spriteId, uint8_t stackPos);
-    void playerClearLootContainer(uint32_t playerId, ObjectCategory_t category);;
-    void playerOpenLootContainer(uint32_t playerId, ObjectCategory_t category);
+		void playerClearLootContainer(uint32_t playerId, ObjectCategory_t category);;
+		void playerOpenLootContainer(uint32_t playerId, ObjectCategory_t category);
 		void playerSetQuickLootFallback(uint32_t playerId, bool fallback);
 		void playerQuickLootBlackWhitelist(uint32_t playerId,
 								QuickLootFilter_t filter, std::vector<uint16_t> clientIds);
@@ -589,7 +590,7 @@ class Game
 
 		std::forward_list<Item*> toDecayItems;
 
-    std::unordered_set<Tile*> getTilesToClean() const {
+		std::unordered_set<Tile*> getTilesToClean() const {
 			return tilesToClean;
 		}
 		void addTileToClean(Tile* tile) {
@@ -633,8 +634,8 @@ class Game
 			skillSchedule = (skillSchedule * skillrate)/100;
 		}
 
-    void playerInspectItem(Player* player, const Position& pos);
-    void playerInspectItem(Player* player, uint16_t itemId, uint8_t itemCount, bool cyclopedia);
+		void playerInspectItem(Player* player, const Position& pos);
+		void playerInspectItem(Player* player, uint16_t itemId, uint8_t itemCount, bool cyclopedia);
 
 		void addCharmRune(Charm* charm)
 		{
@@ -688,7 +689,7 @@ class Game
 
 		std::map<uint32_t, BedItem*> bedSleepersMap;
 
-    std::unordered_set<Tile*> tilesToClean;
+		std::unordered_set<Tile*> tilesToClean;
 
 		ModalWindow offlineTrainingWindow { std::numeric_limits<uint32_t>::max(), "Choose a Skill", "Please choose a skill:" };
 
