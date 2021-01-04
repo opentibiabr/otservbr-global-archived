@@ -61,9 +61,6 @@ monster.voices = {
 	chance = 0
 }
 
-monster.loot = {
-}
-
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 45, type = COMBAT_HOLYDAMAGE, minDamage = -200, maxDamage = -500, range = 7, radius = 4, effect = CONST_ME_HOLYAREA, target = true},
