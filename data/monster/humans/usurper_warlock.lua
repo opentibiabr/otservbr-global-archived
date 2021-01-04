@@ -24,7 +24,7 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Bounac, the Order of the Lion settlement."
-		}
+	}
 
 monster.health = 7500
 monster.maxHealth = 7500
