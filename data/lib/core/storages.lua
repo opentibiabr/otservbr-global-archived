@@ -1910,7 +1910,14 @@ Storage = {
 			QuestLine = 10103,
 			TheFearedHugo = 10104,
 			FirstParadoxAcess = 10105,
-			Mission02 = 10106
+			FavoriteColour = 10106,
+			Mathemagics = 10107,
+			Reward = {
+				Egg = 10108,
+				Gold = 10109,
+				Talon = 10110,
+				Wand = 10111
+			}
 		},
 		ThePostmanMissions = {},
 		TheWhiteRavenMonastery = {},

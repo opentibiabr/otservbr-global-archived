@@ -261,15 +261,51 @@ TileAction = {
 			{x = 33250, y = 32268, z = 6}
 		}
 	},
-
 	-- Kilmaresh
 	-- First mission
-	-- 
 	[50307] = {
 		itemId = false,
 		itemPos = {
 			{ x = 33956, y = 31503, z = 2 },
 			{ x = 33957, y = 31503, z = 2 }
+		}
+	},
+	-- The paradox tower quest
+	-- data\scripts\movements\quests\the_paradox_tower\movement-last_floor_reward.lua
+	-- Phoenix egg
+	[50308] = {
+		itemId = 426,
+		itemPos = {
+			{x = 32476, y = 31903, z = 1},
+			{x = 32477, y = 31903, z = 1},
+			{x = 32478, y = 31903, z = 1}
+		}
+	},
+	-- 10000 gold coins
+	[50309] = {
+		itemId = 426,
+		itemPos = {
+			{x = 32479, y = 31903, z = 1},
+			{x = 32481, y = 31902, z = 1},
+			{x = 32476, y = 31902, z = 1}
+		}
+	},
+		-- Talons
+	[50310] = {
+		itemId = 426,
+		itemPos = {
+			{x = 32478, y = 31902, z = 1},
+			{x = 32479, y = 31902, z = 1},
+			{x = 32480, y = 31902, z = 1}
+		}
+	},
+	-- Wand of cosmic energy
+	[50311] = {
+		itemId = 426,
+		itemPos = {
+			{x = 32477, y = 31902, z = 1},
+			{x = 32480, y = 31903, z = 1},
+			{x = 32481, y = 31903, z = 1}
 		}
 	}
 }

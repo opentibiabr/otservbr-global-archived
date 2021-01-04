@@ -878,6 +878,16 @@ Not mine!
 		itemId = 1429,
 		itemPos = {x = 32477, y = 31904, z = 4},
 		text = "Room of Sacrifice"
+	},
+	[13] = {
+		itemId = 1444,
+		itemPos = {x = 32476, y = 31900, z = 3},
+		text = "Cedric, the white knight"
+	},
+	[14] = {
+		itemId = 1444,
+		itemPos = {x = 32481, y = 31900, z = 3},
+		text = "Tristan, the black knight"
 	}
 }
 

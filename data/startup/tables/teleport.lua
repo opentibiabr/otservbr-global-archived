@@ -284,6 +284,24 @@ TeleportUnique = {
 		destination = {x = 32481, y = 31905, z = 5},
 		effect = CONST_ME_TELEPORT
 	},
+	[38010] = {
+		itemId = 1387,
+		itemPos = {x = 32476, y = 31904, z = 3},
+		destination = {x = 32476, y = 31904, z = 4},
+		effect = CONST_ME_TELEPORT
+	},
+	[38011] = {
+		itemId = 1387,
+		itemPos = {x = 32479, y = 31904, z = 2},
+		destination = {x = 32479, y = 31904, z = 3},
+		effect = CONST_ME_TELEPORT
+	},
+	[38012] = {
+		itemId = 1387,
+		itemPos = {x = 32481, y = 31905, z = 1},
+		destination = {x = 32480, y = 31905, z = 2},
+		effect = CONST_ME_TELEPORT
+	},
 
 	-- Others teleports
 	-- Water elemental cave (Trapwood)

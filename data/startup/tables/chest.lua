@@ -809,6 +809,35 @@ ChestUnique = {
 		reward = {{2326, 1}},
 		storage = Storage.Quest.TheAnnihilator.Reward
 	},
+	-- The paradox tower quest
+	-- Phoenix egg
+	[6089] = {
+		itemId = 1740,
+		itemPos = {x = 32477, y = 31900, z = 1},
+		reward = {{11400, 1}},
+		storage = Storage.Quest.TheParadoxTower.Reward.Egg
+	},
+	-- 10.000 gold coins
+	[6090] = {
+		itemId = 1740,
+		itemPos = {x = 32478, y = 31900, z = 1},
+		reward = {{2152, 100}},
+		storage = Storage.Quest.TheParadoxTower.Reward.Gold
+	},
+	-- Talon
+	[6091] = {
+		itemId = 1740,
+		itemPos = {x = 32479, y = 31900, z = 1},
+		reward = {{2151, 32}},
+		storage = Storage.Quest.TheParadoxTower.Reward.Talon
+	},
+	-- Wand of energy cosmic
+	[6092] = {
+		itemId = 1740,
+		itemPos = {x = 32480, y = 31900, z = 1},
+		reward = {{2189, 1}},
+		storage = Storage.Quest.TheParadoxTower.Reward.Wand
+	},
 
 	-- Reward of others scrips files (varied rewards)
 	-- The First dragon Quest

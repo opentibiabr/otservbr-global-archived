@@ -17,11 +17,6 @@ function sacrificeSkulls.onStepIn(creature, item, position, fromPosition)
 		-- Check if have skulls in all positions
 		local tile = Tile(positions[i]):getItemById(2229)
 		if tile then
-			-- If not have completed the initial access mission (The Feared Hugo), it return true
-			if player:getStorageValue(Storage.Quest.TheParadoxTower.TheFearedHugo) ~= 4 then
-				return true
-			end
-
 			-- Message, only send in the first acess of the paradox tower
 			if player:getStorageValue(FirstParadoxAcess) < 1 then
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "One of the toxic salt seas in Krailos carries fresh and clean water again. The ogres' water supply is ensured for now")

@@ -77,7 +77,6 @@ if not Quests then
 			startStorageValue = 1,
 			missions = {
 				[1] = {
-					-- Unconfirmed name
 					name = "The Feared Hugo",
 					storageId = Storage.Quest.TheParadoxTower.TheFearedHugo,
 					missionId = 9,
@@ -91,15 +90,25 @@ if not Quests then
 					}
 				},
 				[2] = {
-					name = "Talk with Riddler #1",
-					storageId = Storage.Quest.TheParadoxTower.Mission02,
-					missionId = 9,
+					name = "Favorite colour: Green",
+					storageId = Storage.Quest.TheParadoxTower.FavoriteColour,
+					missionId = 10,
 					startValue = 1,
-					endValue = 3,
+					endValue = 2,
 					states = {
-						[1] = "MISSING STATE",
-						[2] = "MISSING STATE",
-						[3] = "MISSING STATE"
+						[1] = "Favorite colour is the green.",
+						[2] = "Favorite colour is the green."
+					}
+				},
+				[3] = {
+					name = "The Secret of Mathemagics",
+					storageId = Storage.Quest.TheParadoxTower.Mathemagics,
+					missionId = 10,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "You learnt Mathemagics. Everything is based on the simple fact that 1+1=1.",
+						[2] = "You learnt Mathemagics. Everything is based on the simple fact that 1+1=1."
 					}
 				}
 			}
