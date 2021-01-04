@@ -7078,6 +7078,36 @@ void Game::playerDebugAssert(uint32_t playerId, const std::string& assertLine, c
 	}
 }
 
+void Game::playerNpcGreet(uint32_t playerId, uint32_t npcId)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return;
+	}
+
+	Creature* creature = getCreatureByID(npcId);
+	if (!creature) {
+		return;
+	}
+
+	Npc* npc = creature->getNpc();
+	if(npc) {
+		SpectatorHashSet spectators;
+		spectators.insert(npc);
+		map.getSpectators(spectators, player->getPosition(), true, true);
+		internalCreatureSay(player, TALKTYPE_SAY, "Hi", false, &spectators);
+		spectators.clear();
+		spectators.insert(npc);
+		if (npc->getSpeechBubble() == SPEECHBUBBLE_TRADE) {
+			internalCreatureSay(player, TALKTYPE_PRIVATE_PN, "Trade", false, &spectators);
+		} else {
+			internalCreatureSay(player, TALKTYPE_PRIVATE_PN, "Sail", false, &spectators);
+        }
+
+		return;
+	}
+}
+
 void Game::playerLeaveMarket(uint32_t playerId)
 {
 	Player* player = getPlayerByID(playerId);
