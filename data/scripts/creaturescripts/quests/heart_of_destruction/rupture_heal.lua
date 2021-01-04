@@ -1,4 +1,4 @@
-local ruptureHeal = CreatureEvent()
+local ruptureHeal = CreatureEvent("RuptureHeal")
 function ruptureHeal.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 	local healthGain = math.random(5000, 10000)
 	if attacker and attacker:isPlayer() and resonanceActive == true then
