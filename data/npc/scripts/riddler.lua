@@ -69,7 +69,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say("UHM UH OH ... How could you guess that? Are you mad??? All right. \z
 			Penultimate question: What is the opposite?", cid)
 		npcHandler.topic[cid] = 12
-	elseif msgcontains(msg, "none") and npcHandler.topic[cid] == 0 then
+	elseif msgcontains(msg, "none") and npcHandler.topic[cid] == 12 then
 		npcHandler:say("NO! NO! NO! That can't be true. You're not only mad, you are a complete idiot! \z
 			Ah well. Here is the last question: What is 1 plus 1?", cid)
 		npcHandler.topic[cid] = 13
