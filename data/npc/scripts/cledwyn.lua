@@ -19,7 +19,7 @@ end
 local shop = {
 	{id=25177, buy=100, sell=0, name='earthheart cuirass'},
 	{id=25178, buy=100, sell=0, name='earthheart hauberk'},
-	{id=25179, buy=100, sell=0, name='club of destruction'},
+	{id=25179, buy=100, sell=0, name='earthheart platemail'},
 	{id=25191, buy=100, sell=0, name='earthmind raiment'},
 	{id=25187, buy=100, sell=0, name='earthsoul tabard'},
 	{id=25174, buy=100, sell=0, name='fireheart cuirass'},
