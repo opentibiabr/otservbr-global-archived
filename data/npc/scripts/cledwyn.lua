@@ -121,28 +121,36 @@ function creatureSayCallback(cid, type, msg)
 		npcHandler:say("The following items can be enchanted: {pendulet}, {sleep shawl}, {blister ring}, {theurgic amulet}. Make you choice!", cid)
 		npcHandler.topic[cid] = 1
 	elseif isInArray({'pendulet', 'sleep shawl', 'blister ring', 'theurgic amulet'}, msg:lower()) and npcHandler.topic[cid] == 1 then
+		npcHandler:say("Should I enchant the item pendulet for 2 ".. ItemType(Npc():getCurrency()):getPluralName():lower() .."?", cid)
 		local charge = msg:lower()
-		if not chargeItem[charge] then
-			return false
-		else
-			if (player:getItemCount(25172) >= 2) and (player:getItemCount(chargeItem[charge].noChargeID) >= 1) then
-				player:removeItem(25172, 2)
-				player:removeItem(chargeItem[charge].noChargeID, 1)
-				local itemAdd = player:addItem(chargeItem[charge].ChargeID, 1)
-				npcHandler:say("Ah, excellent. Here is your " .. itemAdd:getName():lower() .. ".", cid)
+		npcHandler.topic[cid] = 2
+	elseif npcHandler.topic[cid] == 2 then
+		if msgcontains(msg, 'yes') then
+			if not chargeItem[charge] then
+				npcHandler:say("Sorry, you don't have an unenchanted ".. charge ..".",cid)
 			else
-				npcHandler:say("Sorry, friend, but one good turn deserves another. Bring enough tokens and it's a deal.", cid)
+				if (player:getItemCount(Npc():getCurrency()) >= 2) and (player:getItemCount(chargeItem[charge].noChargeID) >= 1) then
+					player:removeItem(Npc():getCurrency(), 2)
+					player:removeItem(chargeItem[charge].noChargeID, 1)
+					local itemAdd = player:addItem(chargeItem[charge].ChargeID, 1)
+					npcHandler:say("Ah, excellent. Here is your " .. itemAdd:getName():lower() .. ".", cid)
+				else
+					npcHandler:say("Sorry, friend, but one good turn deserves another. Bring enough ".. ItemType(Npc():getCurrency()):getPluralName():lower() .." and it's a deal.", cid)
+				end
+				npcHandler.topic[cid] = 0
 			end
+		elseif msgcontains(msg, 'no') then
+			npcHandler:say("Alright, come back if you have changed your mind.", cid)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, 'addon') then
 		if player:hasOutfit(846, 0) or player:hasOutfit(845, 0) then
 			npcHandler:say("Ah, very good. Now choose your addon: {first} or {second}.", cid)
-			npcHandler.topic[cid] = 2
+			npcHandler.topic[cid] = 3
 		else
 			npcHandler:say("Sorry, friend, but one good turn deserves another. You need to obtain the rift warrior outfit first.", cid)
 		end
-	elseif isInArray({'first', 'second'}, msg:lower()) and npcHandler.topic[cid] == 2 then
+	elseif isInArray({'first', 'second'}, msg:lower()) and npcHandler.topic[cid] == 3 then
 		if msg:lower() == 'first' then
 			if not(player:hasOutfit(846, 1)) and not(player:hasOutfit(845, 1)) then
 				if player:removeItem(25172, 100) then
@@ -153,7 +161,7 @@ function creatureSayCallback(cid, type, msg)
 						player:addAchievement("Rift Warrior")
 					end
 				else
-					npcHandler:say("Sorry, friend, but one good turn deserves another. Bring enough tokens and it's a deal.", cid)
+					npcHandler:say("Sorry, friend, but one good turn deserves another. Bring enough ".. ItemType(Npc():getCurrency()):getPluralName():lower() .." and it's a deal.", cid)
 				end
 			else
 				npcHandler:say("Sorry, friend, you already have the first Rift Warrior addon.", cid)
@@ -168,7 +176,7 @@ function creatureSayCallback(cid, type, msg)
 						player:addAchievement("Rift Warrior")
 					end
 				else
-					npcHandler:say("Sorry, friend, but one good turn deserves another. Bring enough tokens and it's a deal.", cid)
+					npcHandler:say("Sorry, friend, but one good turn deserves another. Bring enough ".. ItemType(Npc():getCurrency()):getPluralName():lower() .." and it's a deal.", cid)
 				end
 			else
 				npcHandler:say("Sorry, friend, you already have the second Rift Warrior addon.", cid)

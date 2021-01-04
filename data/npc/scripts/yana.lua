@@ -55,14 +55,14 @@ end
 local products = {
 	['strike'] = {
 		['basic'] =  {
-			text = "The basic bundle for the strike imbuement consists of 20 protective charms. Would you like to buy it for 2 gold tokens?",
+			text = "The basic bundle for the strike imbuement consists of 20 protective charms. Would you like to buy it for 2 ".. ItemType(Npc():getCurrency()):getPluralName():lower() .."?",
 			itens = {
 				[1] = {id = 12400, amount = 20}
 			},
 			value = 2
 		},
 		['intricate'] =  {
-			text = "The intricate bundle for the strike imbuement consists of 20 protective charms and 25 sabreteeth. Would you like to buy it for 4 gold tokens?",
+			text = "The intricate bundle for the strike imbuement consists of 20 protective charms and 25 sabreteeth. Would you like to buy it for 4 ".. ItemType(Npc():getCurrency()):getPluralName():lower() .."?",
 			itens = {
 				[1] = {id = 12400, amount = 20},
 				[2] = {id = 11228, amount = 25}
@@ -70,7 +70,7 @@ local products = {
 			value = 4
 		},
 		['powerful'] = {
-			text = "The powerful bundle for the strike imbuement consists of 20 protective charms, 25 sabreteeth and 5 vexclaw talons. Would you like to buy it for 6 gold tokens?",
+			text = "The powerful bundle for the strike imbuement consists of 20 protective charms, 25 sabreteeth and 5 vexclaw talons. Would you like to buy it for 6 ".. ItemType(Npc():getCurrency()):getPluralName():lower() .."?",
 			itens = {
 				[1] = {id = 12400, amount = 20},
 				[2] = {id = 11228, amount = 25},
@@ -81,14 +81,14 @@ local products = {
 	},
 	['vampirism'] = {
 		['basic'] =  {
-			text = "The basic bundle for the vampirism imbuement consists of 25 vampire teeth. Would you like to buy it for 2 gold tokens?",
+			text = "The basic bundle for the vampirism imbuement consists of 25 vampire teeth. Would you like to buy it for 2 ".. ItemType(Npc():getCurrency()):getPluralName():lower() .."?",
 			itens = {
 				[1] = {id = 10602, amount = 25}
 			},
 			value = 2
 		},
 		['intricate'] =  {
-			text = "The intricate bundle for the strike imbuement consists of 20 protective charms and 25 sabreteeth. Would you like to buy it for 4 gold tokens?",
+			text = "The intricate bundle for the strike imbuement consists of 20 protective charms and 25 sabreteeth. Would you like to buy it for 4 ".. ItemType(Npc():getCurrency()):getPluralName():lower() .."?",
 			itens = {
 				[1] = {id = 10602, amount = 25},
 				[2] = {id = 10550, amount = 15}
@@ -96,7 +96,7 @@ local products = {
 			value = 4
 		},
 		['powerful'] = {
-			text = "The powerful bundle for the vampirism imbuement consists of 25 vampire teeth, 15 bloody pincers and 5 pieces of dead brain. Would you like to it for 6 gold tokens?",
+			text = "The powerful bundle for the vampirism imbuement consists of 25 vampire teeth, 15 bloody pincers and 5 pieces of dead brain. Would you like to it for 6 ".. ItemType(Npc():getCurrency()):getPluralName():lower() .."?",
 			itens = {
 				[1] = {id = 10602, amount = 25},
 				[2] = {id = 10550, amount = 15},
@@ -107,14 +107,14 @@ local products = {
 	},
 	['void'] = {
 		['basic'] =  {
-			text = "The basic bundle for the void imbuement consists of 25 rope belts. Would you like to buy it for 2 gold tokens?",
+			text = "The basic bundle for the void imbuement consists of 25 rope belts. Would you like to buy it for 2 ".. ItemType(Npc():getCurrency()):getPluralName():lower() .."?",
 			itens = {
 				[1] = {id = 12448, amount = 25}
 			},
 			value = 2,
 		},
 		['intricate'] =  {
-			text = "The intricate bundle for the void imbuement consists of 25 rope belts and 25 silencer claws. Would you like to buy it for 4 gold tokens?.",
+			text = "The intricate bundle for the void imbuement consists of 25 rope belts and 25 silencer claws. Would you like to buy it for 4 ".. ItemType(Npc():getCurrency()):getPluralName():lower() .."?.",
 			itens = {
 				[1] = {id = 12448, amount = 25},
 				[2] = {id = 22534, amount = 25}
@@ -122,7 +122,7 @@ local products = {
 			value = 4,
 		},
 		['powerful'] = {
-			text = "The powerful bundle for the void imbuement consists of 25 rope belts, 25 silencer claws and 5 grimeleech wings. Would you like to buy it for 6 gold tokens?",
+			text = "The powerful bundle for the void imbuement consists of 25 rope belts, 25 silencer claws and 5 grimeleech wings. Would you like to buy it for 6 ".. ItemType(Npc():getCurrency()):getPluralName():lower() .."?",
 			itens = {
 				[1] = {id = 12448, amount = 25},
 				[2] = {id = 22534, amount = 25},
@@ -184,8 +184,13 @@ local function creatureSayCallback(cid, type, msg)
 	elseif npcHandler.topic[cid] == 2 then
 		local imbueLevel = products[answerType[cid]][msg:lower()]
 		if imbueLevel then
-			npcHandler:say({imbueLevel.text}, cid)
-			answerLevel[cid] = msg
+			answerLevel[cid] = msg:lower()
+			local neededCap = 0
+			for i = 1, #products[answerType[cid]][answerLevel[cid]].itens do
+				neededCap = neededCap + ItemType(products[answerType[cid]][answerLevel[cid]].itens[i].id):getWeight() * products[answerType[cid]][answerLevel[cid]].itens[i].amount
+			end
+			npcHandler:say({imbueLevel.text.."...", 
+							"Make sure that you have ".. #products[answerType[cid]][answerLevel[cid]].itens .." free slot and that you can carry ".. string.format("%.2f",neededCap/100) .." oz in addition to that."}, cid)
 			npcHandler.topic[cid] = 3
 		end
 	elseif npcHandler.topic[cid] == 3 then
@@ -195,20 +200,23 @@ local function creatureSayCallback(cid, type, msg)
 				neededCap = neededCap + ItemType(products[answerType[cid]][answerLevel[cid]].itens[i].id):getWeight() * products[answerType[cid]][answerLevel[cid]].itens[i].amount
 			end
 			if player:getFreeCapacity() > neededCap then
-				if player:getItemCount(tokenId) >= products[answerType[cid]][answerLevel[cid]].value then
+				if player:getItemCount(Npc():getCurrency()) >= products[answerType[cid]][answerLevel[cid]].value then
 					for i = 1, #products[answerType[cid]][answerLevel[cid]].itens do
 						player:addItem(products[answerType[cid]][answerLevel[cid]].itens[i].id, products[answerType[cid]][answerLevel[cid]].itens[i].amount)
 					end
-					player:removeItem(tokenId, products[answerType[cid]][answerLevel[cid]].value)
+					player:removeItem(Npc():getCurrency(), products[answerType[cid]][answerLevel[cid]].value)
 					npcHandler:say("There it is.", cid)
 					npcHandler.topic[cid] = 0
 				else
-					npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me "..products[answerType[cid]][answerLevel[cid]].value.." of them and we'll make a trade.", cid)
+					npcHandler:say("I'm sorry but it seems you don't have enough ".. ItemType(Npc():getCurrency()):getPluralName():lower() .." yet. Bring me "..products[answerType[cid]][answerLevel[cid]].value.." of them and we'll make a trade.", cid)
 				end
 			else
 				npcHandler:say("You don\'t have enough capacity. You must have "..neededCap.." oz.", cid)
 			end
+		elseif msgcontains(msg, "no") then
+			npcHandler:say("Your decision. Come back if you have changed your mind.",cid)
 		end
+		npcHandler.topic[cid] = 0
 	end
 	return true
 end
