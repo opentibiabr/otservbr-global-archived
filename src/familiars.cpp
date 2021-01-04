@@ -30,6 +30,10 @@ bool Familiars::loadFromXml() {
 		return false;
 	}
 
+	for (uint16_t vocation = VOCATION_NONE; vocation <= VOCATION_LAST; ++vocation) {
+		familiars->insert(std::pair<uint16_t, std::vector<Familiar>>(vocation, std::vector<Familiar>()));
+	}
+
 	for (auto familiarsNode : doc.child("familiars").children()) {
 		pugi::xml_attribute attr;
 		if ((attr = familiarsNode.attribute("enabled")) && !attr.as_bool()) {
@@ -53,24 +57,31 @@ bool Familiars::loadFromXml() {
 			continue;
 		}
 
-		familiars[vocation].emplace_back(
+		familiars->at(vocation).emplace_back(
 			familiarsNode.attribute("name").as_string(),
 			pugi::cast<uint16_t>(lookTypeAttribute.value()),
 			familiarsNode.attribute("premium").as_bool(),
 			familiarsNode.attribute("unlocked").as_bool(true),
 			familiarsNode.attribute("type").as_string());
 	}
+
 	for (uint16_t vocation = VOCATION_NONE; vocation <= VOCATION_LAST; ++vocation) {
-		familiars[vocation].shrink_to_fit();
+		familiars->at(vocation).shrink_to_fit();
 	}
+
 	return true;
 }
 
 const Familiar* Familiars::getFamiliarByLookType(uint16_t vocation, uint16_t lookType) const {
-	for (const Familiar& familiar : familiars[vocation]) {
-		if (familiar.lookType == lookType) {
-			return &familiar;
+  std::vector<Familiar> familiarsList = familiars->at(vocation);
+  size_t i = 0;
+
+  while (i < familiarsList.size()) {
+		Familiar* familiar = &familiarsList[i++];
+		if (familiar->lookType == lookType) {
+			return familiar;
 		}
 	}
+
 	return nullptr;
 }

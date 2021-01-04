@@ -54,11 +54,16 @@ class Familiars {
 		}
 		bool loadFromXml();
 		const std::vector<Familiar>& getFamiliars(uint16_t vocation) const {
-			return familiars[vocation];
+			auto it = familiars->find(vocation);
+			if (it != familiars->end()) {
+				return it->second;
+			}
+
+			return std::vector<Familiar>();
 		}
 		const Familiar* getFamiliarByLookType(uint16_t vocation, uint16_t lookType) const;
 	private:
-		std::vector<Familiar> familiars[VOCATION_LAST + 1];
+		std::map<uint16_t, std::vector<Familiar>> familiars[VOCATION_LAST + 1];
 };
 
 #endif  // SRC_FAMILIARS_H_
