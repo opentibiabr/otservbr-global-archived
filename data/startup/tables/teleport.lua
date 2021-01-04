@@ -270,11 +270,18 @@ TeleportUnique = {
 		itemPos = {x = 33236, y = 31655, z = 13},
 		destination = {x = 33213, y = 31671, z = 13},
 		effect = CONST_ME_TELEPORT
-	},-- The paradox tower quest
+	},
+	-- The paradox tower quest
 	[38008] = {
 		itemId = 1387,
 		itemPos = {x = 32476, y = 31904, z = 5},
 		destination = {x = 32476, y = 31904, z = 6},
+		effect = CONST_ME_TELEPORT
+	},
+	[38009] = {
+		itemId = 1387,
+		itemPos = {x = 32481, y = 31904, z = 4},
+		destination = {x = 32481, y = 31905, z = 5},
 		effect = CONST_ME_TELEPORT
 	},
 

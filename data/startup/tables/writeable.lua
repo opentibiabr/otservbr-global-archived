@@ -873,6 +873,11 @@ And it was not my fault!
 It's your own fault that you are dead now. 
 Not mine!
 		]]
+	},
+	[12] = {
+		itemId = 1429,
+		itemPos = {x = 32477, y = 31904, z = 4},
+		text = "Room of Sacrifice"
 	}
 }
 
