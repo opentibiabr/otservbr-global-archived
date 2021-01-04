@@ -1936,7 +1936,7 @@ class Player final : public Creature, public Cylinder
 		uint32_t lastIP = 0;
 		uint32_t accountNumber = 0;
 		uint32_t guid = 0;
-		uint8_t isDailyReward = 0;
+		uint8_t isDailyReward = 1;
 		uint32_t windowTextId = 0;
 		uint32_t editListId = 0;
 		uint32_t manaMax = 0;
