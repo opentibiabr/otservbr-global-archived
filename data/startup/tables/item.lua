@@ -238,11 +238,13 @@ ItemUnique = {
 		itemPos = {x = 32957, y = 32834, z = 8}
 	},
 	-- Frozen Dragon (Okolnir)
+	-- Path: data\scripts\actions\quests\explorer_society\dragon.lua
 	[40042] = {
 		itemId = 7295,
 		itemPos = {x = 32321, y = 31455, z = 9}
 	},
 	-- Icicles for Ice Music (Camp / Hrodmir)
+	-- Path: data\scripts\actions\quests\explorer_society\resonance.lua
 	[40043] = {
 		itemId = 6966,
 		itemPos = {x = 32078, y = 31217, z = 7}
