@@ -113,7 +113,7 @@ function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 					return true
 				end
 			else
-				player:say("When the time comes, 'small amethysts' will be accepted at this shrine.")
+				player:say("When the time comes, '" ..item:getName() .. "' will be accepted at this shrine.")
 				return true
 			end
 		end
