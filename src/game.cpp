@@ -4322,6 +4322,8 @@ void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spri
 			}
 			corpses++;
 			internalQuickLootCorpse(player, tileCorpse);
+			if(corpses >= 30)
+				break;
 		}
 			if (corpses > 0) {
 				if (corpses > 1){
