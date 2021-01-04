@@ -2790,6 +2790,7 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Npc", "setMasterPos", LuaScriptInterface::luaNpcSetMasterPos);
 
+	registerMethod("Npc", "getCurrency", LuaScriptInterface::luaNpcGetCurrency);
 	registerMethod("Npc", "getSpeechBubble", LuaScriptInterface::luaNpcGetSpeechBubble);
 	registerMethod("Npc", "setSpeechBubble", LuaScriptInterface::luaNpcSetSpeechBubble);
 	registerMethod("Npc", "setName", LuaScriptInterface::luaNpcSetName);
@@ -12417,6 +12418,18 @@ int LuaScriptInterface::luaNpcSetMasterPos(lua_State* L)
 	int32_t radius = getNumber<int32_t>(L, 3, 1);
 	npc->setMasterPos(pos, radius);
 	pushBoolean(L, true);
+	return 1;
+}
+
+int LuaScriptInterface::luaNpcGetCurrency(lua_State* L)
+{
+	// npc:getCurrency()
+	Npc* npc = getUserdata<Npc>(L, 1);
+	if (npc) {
+		lua_pushnumber(L, npc->getCurrency());
+	} else {
+		lua_pushnil(L);
+	}
 	return 1;
 }
 
