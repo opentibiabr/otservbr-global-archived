@@ -5655,16 +5655,18 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		}
 
 		if (target->hasCondition(CONDITION_MANASHIELD) && damage.primary.type != COMBAT_UNDEFINEDDAMAGE) {
-      int32_t manaDamage = std::min<int32_t>(target->getMana(), healthChange);
-      uint16_t manaShield = target->getManaShield();
-      if (manaShield > 0) {
-        if (manaShield > manaDamage)
-          target->setManaShield(manaShield - manaDamage);
-        else {
-          manaDamage = manaShield;
-          target->removeCondition(CONDITION_MANASHIELD);
-        }
-      }
+      		int32_t manaDamage = std::min<int32_t>(target->getMana(), healthChange);
+			uint16_t manaShield = target->getManaShield();
+			if (manaShield > 0) {
+				if (manaShield > manaDamage) {
+					target->setManaShield(manaShield - manaDamage);
+					manaShield = manaShield - manaDamage;
+				} else {
+					manaDamage = manaShield;
+					target->removeCondition(CONDITION_MANASHIELD);
+					manaShield  = 0;
+				}
+			}
 			if (manaDamage != 0) {
 				if (damage.origin != ORIGIN_NONE) {
 					const auto& events = target->getCreatureEvents(CREATURE_EVENT_MANACHANGE);
@@ -5681,6 +5683,10 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				}
 
 				target->drainMana(attacker, manaDamage);
+
+				if(target->getMana() == 0 && manaShield > 0) {
+					target->removeCondition(CONDITION_MANASHIELD);
+				}
 
 				addMagicEffect(spectators, targetPos, CONST_ME_LOSEENERGY);
 
