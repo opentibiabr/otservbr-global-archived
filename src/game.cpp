@@ -4303,9 +4303,45 @@ void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spri
 		return;
 	}
 
+	if (stackPos == 2 && pos.x != 0xffff){
+		Tile* tile = g_game.map.getTile(pos.x, pos.y, pos.z);
+		if (!tile) {
+			player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+			return;
+		}
+		TileItemVector* itemVector = tile->getItemList();
+		uint16_t corpses = 0;
+		for (Item* tileItem : *itemVector) {
+			Container* tileCorpse = tileItem->getContainer();
+			if (!tileCorpse || !tileCorpse->isCorpse() || tileCorpse->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID) || tileCorpse->hasAttribute(ITEM_ATTRIBUTE_ACTIONID))
+				continue;
+			if (!tileCorpse->isRewardCorpse()) {
+				uint32_t corpseOwner = tileCorpse->getCorpseOwner();
+				if (corpseOwner != 0 && !player->canOpenCorpse(corpseOwner)) {
+					player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+				return;
+				}
+			}
+			corpses++;
+			internalQuickLootCorpse(player, tileCorpse);
+		}
+			if (corpses > 0) {
+				if (corpses > 1){
+					std::stringstream ss;
+					ss << "You looted " << corpses << " corpses.";
+					player->sendTextMessage(MESSAGE_LOOT, ss.str());
+				}
+			return;
+		}
+	}
+	bool browseField = false;
 	Container* corpse = nullptr;
 	if (pos.x == 0xffff) {
 		corpse = item->getParent()->getContainer();
+		if (corpse && corpse->getID() == ITEM_BROWSEFIELD) {
+		 	corpse = item->getContainer();
+			browseField = true;
+		}
 	} else {
 		corpse = item->getContainer();
 	}
@@ -4323,7 +4359,7 @@ void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spri
 		}
 	}
 
-	if (pos.x == 0xffff) {
+	if (pos.x == 0xffff && !browseField) {
 		uint32_t worth = item->getWorth();
 		ObjectCategory_t category = getObjectCategory(item);
 		ReturnValue ret = internalQuickLootItem(player, item, category);
