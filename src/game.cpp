@@ -4248,7 +4248,7 @@ void Game::playerLookInBattleList(uint32_t playerId, uint32_t creatureId)
 	g_events->eventPlayerOnLookInBattleList(player, creature, lookDistance);
 }
 
-void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spriteId, uint8_t stackPos, Item* defaultItem)
+void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spriteId, uint8_t stackPos, Item* defaultItem, bool lootAllCorpses)
 {
 	Player* player = getPlayerByID(playerId);
 	if (!player) {
@@ -4258,7 +4258,7 @@ void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spri
 	if (!player->canDoAction()) {
 		uint32_t delay = player->getNextActionTime();
 		SchedulerTask* task = createSchedulerTask(delay, std::bind(&Game::playerQuickLoot,
-																   this, player->getID(), pos, spriteId, stackPos, defaultItem));
+																   this, player->getID(), pos, spriteId, stackPos, defaultItem, lootAllCorpses));
 		player->setNextActionTask(task);
 		return;
 	}
@@ -4270,7 +4270,7 @@ void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spri
 			if (player->getPathTo(pos, listDir, 0, 1, true, true)) {
 				g_dispatcher.addTask(createTask(std::bind(&Game::playerAutoWalk, this, player->getID(), listDir)));
 				SchedulerTask* task = createSchedulerTask(0, std::bind(&Game::playerQuickLoot,
-																	   this, player->getID(), pos, spriteId, stackPos, defaultItem));
+																	   this, player->getID(), pos, spriteId, stackPos, defaultItem, lootAllCorpses));
 				player->setNextWalkActionTask(task);
 			} else {
 				player->sendCancelMessage(RETURNVALUE_THEREISNOWAY);
@@ -4303,7 +4303,7 @@ void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spri
 		return;
 	}
 
-	if (stackPos == 2 && pos.x != 0xffff){
+	if (lootAllCorpses) {
 		Tile* tile = g_game.map.getTile(pos.x, pos.y, pos.z);
 		if (!tile) {
 			player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
@@ -4317,10 +4317,8 @@ void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spri
 				continue;
 			if (!tileCorpse->isRewardCorpse()) {
 				uint32_t corpseOwner = tileCorpse->getCorpseOwner();
-				if (corpseOwner != 0 && !player->canOpenCorpse(corpseOwner)) {
-					player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-				return;
-				}
+				if (corpseOwner != 0 && !player->canOpenCorpse(corpseOwner))
+					continue;
 			}
 			corpses++;
 			internalQuickLootCorpse(player, tileCorpse);

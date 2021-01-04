@@ -422,7 +422,7 @@ class Game
 		void playerLookAt(uint32_t playerId, const Position& pos, uint8_t stackPos);
 		void playerLookInBattleList(uint32_t playerId, uint32_t creatureId);
 		void playerQuickLoot(uint32_t playerId, const Position& pos,
-								uint16_t spriteId, uint8_t stackPos, Item* defaultItem = nullptr);
+								uint16_t spriteId, uint8_t stackPos, Item* defaultItem = nullptr, bool lootAllCorpses = false);
 		void playerSetLootContainer(uint32_t playerId, ObjectCategory_t category,
 								const Position& pos, uint16_t spriteId, uint8_t stackPos);
 		void playerClearLootContainer(uint32_t playerId, ObjectCategory_t category);;
