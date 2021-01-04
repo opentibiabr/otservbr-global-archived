@@ -4170,7 +4170,7 @@ if not Quests then
 					storageId = Storage.ExplorerSociety.TheIslandofDragons,
 					missionId = 11310,
 					startValue = 57,
-					endValue = 58,
+					endValue = 59,
 					states = {
 						[57] = "Travel to Okolnir and try to find a proof for the existence of dragon lords there in the old times. \z
 							I think old Buddel might be able to bring you there.",
@@ -4182,7 +4182,7 @@ if not Quests then
 					storageId = Storage.ExplorerSociety.TheIceMusic,
 					missionId = 11311,
 					startValue = 60,
-					endValue = 61,
+					endValue = 62,
 					states = {
 						[60] = "There is a cave on Hrodmir, north of the southernmost barbarian camp Krimhorn. \z
 							In this cave, there are a waterfall and a lot of stalagmites. \z

@@ -131,12 +131,20 @@ QuestDoorAction = {
 		itemId = false,
 		itemPos = {{x = 32259, y = 31948, z = 14}}
 	},
-	-- Mission in Port Hope & Northport
+	-- Astral Bridge from Port Hope to Northport
 	[Storage.ExplorerSociety.SpectralStoneDoor] = {
 		itemId = false,
 		itemPos = {
 			{x = 32665, y = 32734, z = 6},
 			{x = 32500, y = 31622, z = 6}
+		}
+	},
+	-- Astral Bridge from Svargrond to Liberty Bay
+	[Storage.ExplorerSociety.IceMusicDoor] = {
+		itemId = false,
+		itemPos = {
+			{x = 32318, y = 31137, z = 6},
+			{x = 32360, y = 32808, z = 6}
 		}
 	},
 	-- Mission in Calassa

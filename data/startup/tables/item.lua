@@ -232,9 +232,19 @@ ItemUnique = {
 	},
 	-- Explorer Society Quest
 	-- Path: data\scripts\actions\quests\explorer_society\findings.lua
-	-- The Lizard Urn
+	-- Lizard Urn (Chor)
 	[40041] = {
 		itemId = 2034,
 		itemPos = {x = 32957, y = 32834, z = 8}
+	},
+	-- Frozen Dragon (Okolnir)
+	[40042] = {
+		itemId = 7295,
+		itemPos = {x = 32321, y = 31455, z = 9}
+	},
+	-- Icicles for Ice Music (Camp / Hrodmir)
+	[40043] = {
+		itemId = 6966,
+		itemPos = {x = 32078, y = 31217, z = 7}
 	}
 }
