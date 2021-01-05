@@ -124,7 +124,16 @@ void ProtocolGame::AddItem(NetworkMessage &msg, const Item *item)
 		}
 
 		// Quiver ammo count
-		msg.addByte(0x00);
+    	if (item->getWeaponType() == WEAPON_QUIVER && player->getThing(CONST_SLOT_RIGHT) == item) {
+      		uint16_t ammoTotal = 0;
+      		for (Item* listItem : container->getItemList()) {
+        		ammoTotal += listItem->getItemCount();
+      		}
+      		msg.addByte(0x01);
+      		msg.add<uint32_t>(ammoTotal);
+    	}
+    	else
+      		msg.addByte(0x00);
 	}
 }
 
@@ -2232,6 +2241,24 @@ void ProtocolGame::sendCreatureLight(const Creature *creature)
 	writeToOutputBuffer(msg);
 }
 
+void ProtocolGame::sendCreatureIcon(const Creature* creature)
+{
+	if (!creature)
+    	return;
+  	CreatureIcon_t icon = creature->getIcon();
+  	NetworkMessage msg;
+ 	msg.addByte(0x8B);
+  	msg.add<uint32_t>(creature->getID());
+  	msg.addByte(14); // type 14 for this
+  	msg.addByte(icon != CREATUREICON_NONE); // 0 = no icon, 1 = we'll send an icon
+  	if (icon != CREATUREICON_NONE) {
+    	msg.addByte(icon);
+    	msg.addByte(1); // ???
+    	msg.add<uint16_t>(0); // used for the life in the new quest
+  	}
+	writeToOutputBuffer(msg);
+}
+
 void ProtocolGame::sendWorldLight(const LightInfo &lightInfo)
 {
 	NetworkMessage msg;
@@ -2933,7 +2960,7 @@ void ProtocolGame::sendBasicData()
 	{
 		msg.addByte(sid);
 	}
-	msg.addByte(0); // bool - determine whether magic shield is active or not
+	msg.addByte(player->getVocation()->getMagicShield()); // bool - determine whether magic shield is active or not
 	writeToOutputBuffer(msg);
 }
 
@@ -3172,7 +3199,7 @@ void ProtocolGame::sendChannelMessage(const std::string &author, const std::stri
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendIcons(uint16_t icons)
+void ProtocolGame::sendIcons(uint32_t icons)
 {
 	NetworkMessage msg;
 	msg.addByte(0xA2);
@@ -3378,9 +3405,20 @@ void ProtocolGame::sendSaleItemList(const std::vector<ShopInfo> &shop, const std
 	msg.addByte(0xEE);
 	msg.addByte(0x00);
 	msg.add<uint64_t>(player->getBankBalance());
-	msg.addByte(0xEE);
-	msg.addByte(0x01);
-	msg.add<uint64_t>(playerMoney);
+	uint16_t currency = player->getOnlyShopOwner() ? player->getOnlyShopOwner()->getCurrency() : ITEM_GOLD_COIN;
+  	msg.addByte(0xEE);
+  	if (currency == ITEM_GOLD_COIN) {
+		msg.addByte(0x01);
+ 		msg.add<uint64_t>(playerMoney);
+  	} else {
+		msg.addByte(0x02);
+		uint64_t newCurrency = 0;
+		auto search = inventoryMap.find(currency);
+  		if (search != inventoryMap.end()) {
+    		newCurrency += static_cast<uint64_t>(search->second);
+  		}
+		msg.add<uint64_t>(newCurrency);
+  	}
 	msg.addByte(0x7B);
 	msg.add<uint64_t>(playerMoney);
 
@@ -5365,7 +5403,13 @@ void ProtocolGame::AddCreature(NetworkMessage &msg, const Creature *creature, bo
 
 	msg.add<uint16_t>(creature->getStepSpeed() / 2);
 
-	msg.addByte(0); // Icons
+	CreatureIcon_t icon = creature->getIcon();
+	msg.addByte(icon != CREATUREICON_NONE); // Icons
+	if (icon != CREATUREICON_NONE) {
+		msg.addByte(icon);
+		msg.addByte(1);
+		msg.add<uint16_t>(0);
+	}
 
 	msg.addByte(player->getSkullClient(creature));
 	msg.addByte(player->getPartyShield(otherPlayer));
@@ -5465,8 +5509,8 @@ void ProtocolGame::AddPlayerStats(NetworkMessage &msg)
 	msg.add<uint16_t>(player->getExpBoostStamina()); // xp boost time (seconds)
 	msg.addByte(1);									 // enables exp boost in the store
 
-	msg.add<uint16_t>(0); // remaining mana shield
-	msg.add<uint16_t>(0); // total mana shield
+	msg.add<uint16_t>(player->getManaShield());  // remaining mana shield
+	msg.add<uint16_t>(player->getMaxManaShield());  // total mana shield
 }
 
 void ProtocolGame::AddPlayerSkills(NetworkMessage &msg)

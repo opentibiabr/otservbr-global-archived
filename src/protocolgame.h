@@ -236,7 +236,7 @@ private:
 	void sendOpenPrivateChannel(const std::string &receiver);
 	void sendToChannel(const Creature *creature, SpeakClasses type, const std::string &text, uint16_t channelId);
 	void sendPrivateMessage(const Player *speaker, SpeakClasses type, const std::string &text);
-	void sendIcons(uint16_t icons);
+	void sendIcons(uint32_t icons);
 	void sendFYIBox(const std::string &message);
 
 	void sendImbuementWindow(Item *item);
@@ -328,6 +328,7 @@ private:
 	void sendFightModes();
 
 	void sendCreatureLight(const Creature *creature);
+	void sendCreatureIcon(const Creature* creature);
 	void sendWorldLight(const LightInfo &lightInfo);
 	void sendTibiaTime(int32_t time);
 
