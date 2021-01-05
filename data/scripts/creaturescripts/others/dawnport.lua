@@ -1,11 +1,11 @@
-local dawnportMaxLevel = CreatureEvent("DawnportMaxLevel")
+local dawnportAdvance = CreatureEvent("DawnportAdvance")
 
-function dawnportMaxLevel.onAdvance(player, skill, oldLevel, newLevel)
+function dawnportAdvance.onAdvance(player, skill, oldLevel, newLevel)
 	local town = player:getTown()
-	--Dawnport checks
+	-- Check that resides on dawnport
 	if town and town:getId() == TOWNS_LIST.DAWNPORT then
 		-- Level vocation upgrade
-		if skill == SKILL_LEVEL and newLevel == Dawnport.upgrade.level then
+		if skill == SKILL_LEVEL and newLevel == 8 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Congratulations! You may now choose your vocation and leave Dawnport. Talk to Oressa in the temple.")
 		-- Level limit
 		elseif skill == SKILL_LEVEL and newLevel == Dawnport.limit.level then
@@ -28,4 +28,4 @@ function dawnportMaxLevel.onAdvance(player, skill, oldLevel, newLevel)
 	return true
 end
 
-dawnportMaxLevel:register()
+dawnportAdvance:register()

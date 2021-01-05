@@ -42,46 +42,43 @@ function dawnportTileStep(player, trial)
 	end
 end
 
--- Set vocation
+-- Set player vocation, converts magic level and skills between vocations and set proper stats
+-- Keep it as global function due its called from vocation trial, Oressa and Inigo
 function dawnportSetVocation(player, vocationId)
-	-- Get current vocation magic level
+	-- Get current vocation magic level and mana spent
 	local magic = {level = player:getBaseMagicLevel(), manaSpent = player:getManaSpent()}
 	
 	for level = 1, magic.level do
 		magic.manaSpent = magic.manaSpent + player:getVocation():getRequiredManaSpent(level)
 		
-		--print("OLD " .. player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " ML" .. " level:" .. level .. " reqManaSpent:" .. player:getVocation():getRequiredManaSpent(level))
+		--print("OLD " .. player:getVocation():getName() .. " MAGIC LEVEL" .. " level:" .. level .. " reqManaSpent:" .. player:getVocation():getRequiredManaSpent(level))
 	end
 	
-	--print("OLD " .. player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " MAGIC" .. " level:" .. magic.level .. " totalManaSpent:" .. magic.manaSpent)
+	--print("OLD " .. player:getVocation():getName() .. " MAGIC LEVEL" .. " level:" .. magic.level .. " totalManaSpent:" .. magic.manaSpent)
 
 	local skills = {
-		['fist'] = {id = SKILL_FIST},
-		['club'] = {id = SKILL_CLUB},
-		['sword'] = {id = SKILL_SWORD},
-		['axe'] = {id = SKILL_AXE},
-		['distance'] = {id = SKILL_DISTANCE},
-		['shield'] = {id = SKILL_SHIELD}
+		{id = SKILL_FIST},
+		{id = SKILL_CLUB},
+		{id = SKILL_SWORD},
+		{id = SKILL_AXE},
+		{id = SKILL_DISTANCE},
+		{id = SKILL_SHIELD}
 	}
 	
-	-- Get current vocation skills
-	for key, skill in pairs(skills) do
-		skill.level = player:getSkillLevel(skill.id)
-		skill.tries = player:getSkillTries(skill.id)
+	-- Get current vocation skills levels and skills tries
+	for i = 1, #skills do
+		skills[i].level = player:getSkillLevel(skills[i].id)
+		skills[i].tries = player:getSkillTries(skills[i].id)
 		
-		for level = 11, skill.level do
-            skill.tries = skill.tries + player:getVocation():getRequiredSkillTries(skill.id, level)
+		for level = 11, skills[i].level do
+            skills[i].tries = skills[i].tries + player:getVocation():getRequiredSkillTries(skills[i].id, level)
         end
 		
-		--print("OLD " .. player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " SKILL:" .. key .. " id:" .. skill.id .. " level:" .. skill.level .. " totalTries:" .. skill.tries)
+		--print("OLD " .. player:getVocation():getName() .. " SKILL" .. " id:" .. skills[i].id .. " level:" .. skills[i].level .. " totalTries:" .. skills[i].tries)
 	end
 	
+	-- Set player new vocation
 	player:setVocation(Vocation(vocationId))
-	
-	if player:getLevel() > Dawnport.upgrade.level and player:getLevel() < Dawnport.limit.level then
-		-- Set player stats if have level 9 or more (health, mana, capacity)
-		dawnportSetStats(player)
-	end
 	
 	-- Convert magic level from previous vocation
 	local newMagicLevel = 0
@@ -96,7 +93,7 @@ function dawnportSetVocation(player, vocationId)
 		end
 	end
 	
-	--print("NEW " .. player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " MAGIC" .. " level:" .. newMagicLevel .. " leftManaSpent:" .. magic.manaSpent)
+	--print("NEW " .. player:getVocation():getName() .. " MAGIC LEVEL" .. " level:" .. newMagicLevel .. " leftManaSpent:" .. magic.manaSpent)
 	
 	-- Apply magic level and/or mana spent
 	if newMagicLevel > 0 then
@@ -106,29 +103,34 @@ function dawnportSetVocation(player, vocationId)
 	end
 	
 	-- Convert skills from previous vocation
-	for key, skill in pairs(skills) do
+	for i = 1, #skills do
 		local newSkillLevel = 10
 		
 		-- Calculate new level
-		if skill.tries > 0 then
-			local reqSkillTries = player:getVocation():getRequiredSkillTries(skill.id, (newSkillLevel + 1))
+		if skills[i].tries > 0 then
+			local reqSkillTries = player:getVocation():getRequiredSkillTries(skills[i].id, (newSkillLevel + 1))
 			
-			while skill.tries >= reqSkillTries do
-			  skill.tries = skill.tries - reqSkillTries
+			while skills[i].tries >= reqSkillTries do
+			  skills[i].tries = skills[i].tries - reqSkillTries
 			  newSkillLevel = newSkillLevel + 1;
-			  reqSkillTries = player:getVocation():getRequiredSkillTries(skill.id, (newSkillLevel + 1))
+			  reqSkillTries = player:getVocation():getRequiredSkillTries(skills[i].id, (newSkillLevel + 1))
 			end
 		end
 		
-		--print("NEW " .. player:getVocation():getName() .. "->" .. player:getVocation():getId() .. " SKILL:" .. key .. " id:" .. skill.id .. " level:" .. newSkillLevel .. " leftTries:" .. skill.tries)
+		--print("NEW " .. player:getVocation():getName() .. " SKILL" .. " id:" .. skills[i].id .. " level:" .. newSkillLevel .. " leftTries:" .. skills[i].tries)
 		
 		-- Apply skill level and/or skill tries
 		if newSkillLevel > 10 then
-			player:setSkillLevel(skill.id, newSkillLevel, skill.tries)
-		elseif skill.tries > 0 then
-			player:addSkillTries(skill.id, skill.tries)
+			player:setSkillLevel(skills[i].id, newSkillLevel, skills[i].tries)
+		elseif skills[i].tries > 0 then
+			player:addSkillTries(skills[i].id, skills[i].tries)
 		end
     end
+	
+	-- Set player stats if is higher than level 8
+	if player:getLevel() > 8 then
+		dawnportSetStats(player)
+	end
 end
 
 -- Remove items (weapons and shield)
@@ -149,14 +151,14 @@ function dawnportRemoveItems(player)
 	end
 end
 
--- Add items
-function dawnportAddItems(player, trial)
+-- Add items to player from trial items data
+function dawnportAddItems(player, items)
 	local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
 	-- If dont have backpack, give one or will cause error and items will added on ground
 	if not backpack then
 		backpack = player:addItem(1988, 1, true, 1, CONST_SLOT_BACKPACK)
 	end
-	for slot, info in pairs(trial.items) do
+	for slot, item in pairs(items) do
 		local extra
 		if slot > CONST_SLOT_AMMO then
 			extra = true
@@ -167,28 +169,28 @@ function dawnportAddItems(player, trial)
 			end
 		end
 		local giveItem = true
-		if info.limit and info.storage then
-			local given = math.max(player:getStorageValue(info.storage), 0)
-			if given >= info.limit then
+		if item.limit and item.storage then
+			local given = math.max(player:getStorageValue(item.storage), 0)
+			if given >= item.limit then
 				giveItem = false
 			else
-				player:setStorageValue(info.storage, given + 1)
+				player:setStorageValue(item.storage, given + 1)
 			end
 		end
 		if giveItem then
 			if extra then
-				player:addItemEx(Game.createItem(info[1], info[2]), INDEX_WHEREEVER, 0)
+				player:addItemEx(Game.createItem(item[1], item[2]), INDEX_WHEREEVER, 0)
 			else
-				local ret = player:addItem(info[1], info[2], false, 1, slot)
+				local ret = player:addItem(item[1], item[2], false, 1, slot)
 				if not ret then
-					player:addItemEx(Game.createItem(info[1], info[2]), false, slot)
+					player:addItemEx(Game.createItem(item[1], item[2]), false, slot)
 				end
 			end
 		end
 	end
 end
 
--- Set outfit for each vocation
+-- Set player outfit from trial outfit data
 function dawnportSetOutfit(player, outfit)
 	player:setOutfit({
 		lookTypeEx = 0,
@@ -202,21 +204,21 @@ function dawnportSetOutfit(player, outfit)
 	})
 end
 
--- Set health/mana/capacity per vocation
+-- Set player health/mana/capacity stats based on the vocation
 function dawnportSetStats(player)
 	-- Base stats
 	local stats = {health = 150, mana = 55, capacity = 40000}
 	local vocation = player:getVocation()
 	
 	-- NO VOCATION
-	if vocation:getId() == VOCATION.ID.NONE and player:getLevel() <= (Dawnport.upgrade.level + 1) then
+	if vocation:getId() == VOCATION.ID.NONE then
 		local level = player:getLevel() - 1
 		
 		stats.health = stats.health + (level * vocation:getHealthGain())
 		stats.mana = stats.mana + (level * vocation:getManaGain())
 		stats.capacity = stats.capacity + (level * vocation:getCapacityGain())
 	-- MAIN VOCATIONS
-	elseif isInArray({VOCATION.ID.SORCERER, VOCATION.ID.DRUID, VOCATION.ID.PALADIN, VOCATION.ID.KNIGHT}, vocation:getId()) and player:getLevel() > Dawnport.upgrade.level then
+	elseif isInArray({VOCATION.ID.SORCERER, VOCATION.ID.DRUID, VOCATION.ID.PALADIN, VOCATION.ID.KNIGHT}, vocation:getId()) and player:getLevel() > 8 then
 		local baseLevel = 7
 		local baseVocation = Vocation(VOCATION.ID.NONE)
 		local level = player:getLevel() - 8
@@ -245,13 +247,15 @@ function teleportToDawnportTemple(uid)
 	end
 end
 
+-- Checks if the skill growth is limited for a dawnport player
 function isSkillGrowthLimited(player, skillId)
-	-- Check resides on dawnport
-	if player:getTown():getId() == TOWNS_LIST.DAWNPORT then
+	local town = player:getTown()
+	-- Check that resides on dawnport
+	if town and town:getId() == TOWNS_LIST.DAWNPORT then
 		local vocationId = player:getVocation():getId()
 		local skillsLimit = Dawnport.limit.skills[vocationId]
 		
-		-- Check if is set a skillId limit
+		-- Check if there is set a skillId limit
 		if skillsLimit and skillsLimit[skillId] then
 			-- Get current skillId level
 			local skillLevel
@@ -273,9 +277,6 @@ function isSkillGrowthLimited(player, skillId)
 end
 
 Dawnport = {
-	upgrade = {
-		level = 8
-	},
 	limit = {
 		level = 20,
 		skills = {
@@ -321,13 +322,13 @@ Dawnport = {
 				}
 			},
 			items = {
-				[CONST_SLOT_LEFT] = {23719, 1, false}, -- the scorcher
-				[CONST_SLOT_RIGHT] = {23771, 1, false}, -- spellbook of the novice
-				[11] = {8704, 2, true, storage = Storage.Dawnport.SorcererHealthPotion, limit = 1}, -- potion
-				[12] = {7620, 10, true, storage = Storage.Dawnport.SorcererManaPotion, limit = 1}, -- potion
-				[13] = {23723, 2, true, storage = Storage.Dawnport.SorcererLightestMissile, limit = 1}, -- 2 lightest missile runes
-				[14] = {23722, 2, true, storage = Storage.Dawnport.SorcererLightStoneShower, limit = 1}, -- 2 light stone shower runes
-				[15] = {2666, 1, true, storage = Storage.Dawnport.SorcererMeat, limit = 1}, -- 1 meat
+				[CONST_SLOT_LEFT] = {23719, 1}, -- the scorcher
+				[CONST_SLOT_RIGHT] = {23771, 1}, -- spellbook of the novice
+				[11] = {8704, 2, storage = Storage.Dawnport.SorcererHealthPotion, limit = 1}, -- potion
+				[12] = {7620, 10, storage = Storage.Dawnport.SorcererManaPotion, limit = 1}, -- potion
+				[13] = {23723, 2, storage = Storage.Dawnport.SorcererLightestMissile, limit = 1}, -- 2 lightest missile runes
+				[14] = {23722, 2, storage = Storage.Dawnport.SorcererLightStoneShower, limit = 1}, -- 2 light stone shower runes
+				[15] = {2666, 1, storage = Storage.Dawnport.SorcererMeat, limit = 1}, -- 1 meat
 			}
 		},
 		-- Druid trial
@@ -351,13 +352,13 @@ Dawnport = {
 				}
 			},
 			items = {
-				[CONST_SLOT_LEFT] = {23721, 1, true}, -- the chiller
-				[CONST_SLOT_RIGHT] = {23771, 1, true}, -- spellbook of the novice
-				[11] = {8704, 2, true, storage = Storage.Dawnport.DruidHealthPotion, limit = 1}, -- potion
-				[12] = {7620, 10, true, storage = Storage.Dawnport.DruidManaPotion, limit = 1}, -- potion
-				[13] = {23723, 2, true, storage = Storage.Dawnport.DruidLightestMissile, limit = 1}, -- 2 lightest missile runes
-				[14] = {23722, 2, true, storage = Storage.Dawnport.DruidLightStoneShower, limit = 1}, -- 2 light stone shower runes
-				[15] = {2666, 1, true, storage = Storage.Dawnport.DruidMeat, limit = 1}, -- 1 meat
+				[CONST_SLOT_LEFT] = {23721, 1}, -- the chiller
+				[CONST_SLOT_RIGHT] = {23771, 1}, -- spellbook of the novice
+				[11] = {8704, 2, storage = Storage.Dawnport.DruidHealthPotion, limit = 1}, -- potion
+				[12] = {7620, 10, storage = Storage.Dawnport.DruidManaPotion, limit = 1}, -- potion
+				[13] = {23723, 2, storage = Storage.Dawnport.DruidLightestMissile, limit = 1}, -- 2 lightest missile runes
+				[14] = {23722, 2, storage = Storage.Dawnport.DruidLightStoneShower, limit = 1}, -- 2 light stone shower runes
+				[15] = {2666, 1, storage = Storage.Dawnport.DruidMeat, limit = 1}, -- 1 meat
 			}
 		},
 		-- Paladin trial
@@ -381,13 +382,13 @@ Dawnport = {
 				}
 			},
 			items = {
-				[CONST_SLOT_LEFT] = {2456, 1, true}, -- bow
-				[CONST_SLOT_AMMO] = {23839, 100, true}, -- 100 arrows
-				[11] = {8704, 7, true, storage = Storage.Dawnport.PaladinHealthPotion, limit = 1}, -- potion
-				[12] = {7620, 5, true, storage = Storage.Dawnport.PaladinManaPotion, limit = 1}, -- potion
-				[13] = {23723, 1, true, storage = Storage.Dawnport.PaladinLightestMissile, limit = 1}, -- 1 lightest missile rune
-				[14] = {23722, 1, true, storage = Storage.Dawnport.PaladinLightStoneShower, limit = 1}, -- 1 light stone shower rune
-				[15] = {2666, 1, true, storage = Storage.Dawnport.PaladinMeat, limit = 1}, -- 1 meat
+				[CONST_SLOT_LEFT] = {2456, 1}, -- bow
+				[CONST_SLOT_AMMO] = {23839, 100}, -- 100 arrows
+				[11] = {8704, 7, storage = Storage.Dawnport.PaladinHealthPotion, limit = 1}, -- potion
+				[12] = {7620, 5, storage = Storage.Dawnport.PaladinManaPotion, limit = 1}, -- potion
+				[13] = {23723, 1, storage = Storage.Dawnport.PaladinLightestMissile, limit = 1}, -- 1 lightest missile rune
+				[14] = {23722, 1, storage = Storage.Dawnport.PaladinLightStoneShower, limit = 1}, -- 1 light stone shower rune
+				[15] = {2666, 1, storage = Storage.Dawnport.PaladinMeat, limit = 1}, -- 1 meat
 			}
 		},
 		-- Knight trial
@@ -411,11 +412,11 @@ Dawnport = {
 				}
 			},
 			items = {
-				[CONST_SLOT_LEFT] = {2379, 1, true}, -- dagger
-				[CONST_SLOT_RIGHT] = {2512, 1, true}, -- wooden shield
-				[11] = {8704, 10, true, storage = Storage.Dawnport.KnightHealthPotion, limit = 1}, -- potion
-				[12] = {7620, 2, true, storage = Storage.Dawnport.KnightManaPotion, limit = 1}, -- potion
-				[13] = {2666, 1, true, storage = Storage.Dawnport.KnightMeat, limit = 1} -- 1 meat
+				[CONST_SLOT_LEFT] = {2379, 1}, -- dagger
+				[CONST_SLOT_RIGHT] = {2512, 1}, -- wooden shield
+				[11] = {8704, 10, storage = Storage.Dawnport.KnightHealthPotion, limit = 1}, -- potion
+				[12] = {7620, 2, storage = Storage.Dawnport.KnightManaPotion, limit = 1}, -- potion
+				[13] = {2666, 1, storage = Storage.Dawnport.KnightMeat, limit = 1} -- 1 meat
 			}
 		}
 	}

@@ -38,13 +38,6 @@ local vocations = {
 	[25017] = {vocation = VOCATION.ID.KNIGHT, destination = {x = 32068, y = 31879, z = 6}},
 }
 
-local setVocation = {
-	[VOCATION.ID.SORCERER] = VOCATION.ID.DAWNPORT_SORCERER,
-	[VOCATION.ID.DRUID] = VOCATION.ID.DAWNPORT_DRUID,
-	[VOCATION.ID.PALADIN] = VOCATION.ID.DAWNPORT_PALADIN,
-	[VOCATION.ID.KNIGHT] = VOCATION.ID.DAWNPORT_KNIGHT
-}
-
 local effects = {
 	CONST_ME_TUTORIALARROW,
 	CONST_ME_TUTORIALSQUARE
@@ -250,26 +243,3 @@ for i = 1, #positions do
 end
 
 tutorialTile4:register()
-
--- If death with vocation main from level 8 to 7, return back to the dawnport vocation
-local backVocation = MoveEvent()
-
-function backVocation.onStepIn(creature, item, position, fromPosition)
-	local player = creature:getPlayer()
-	if not player then
-		return true
-	end
-
-	local setting = setVocation[player:getVocation():getId()]
-	if not setting then
-		return true
-	end
-
-	if player:getLevel() == 7 then
-		player:setVocation(Vocation(setting))
-	end
-	return true
-end
-
-backVocation:position({x= 32064, y = 31894, z = 6})
-backVocation:register()

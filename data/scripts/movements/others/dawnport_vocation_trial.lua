@@ -17,12 +17,12 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 			end
 			-- On step in the tile
 			dawnportTileStep(player, trial)
-			-- Set the correct vocation
+			-- Set the new vocation, convert magic level and skills and set proper stats
 			dawnportSetVocation(player, trial.vocation.id)
 			-- Remove player items (weapon and shield) on step in
 			dawnportRemoveItems(player)
 			-- Add player item
-			dawnportAddItems(player, trial)
+			dawnportAddItems(player, trial.items)
 			-- Change outfit
 			dawnportSetOutfit(player, trial.vocation.outfit)
 			player:getPosition():sendMagicEffect(CONST_ME_BLOCKHIT)
