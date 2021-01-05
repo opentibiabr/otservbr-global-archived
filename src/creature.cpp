@@ -145,7 +145,9 @@ void Creature::onThink(uint32_t interval)
 	}
 	if (returnToMasterInterval > 0) {
 		returnToMasterInterval -= interval;
-		if (returnToMasterInterval <= 0) {
+		int32_t distX = Position::getDistanceX(master->getPosition(), getPosition());
+		int32_t distY = Position::getDistanceY(master->getPosition(), getPosition());
+		if (returnToMasterInterval <= 0 || (distX + distY <= 2)) {
 			returnToMasterInterval = 0;
 			if (master)
 				setAttackedCreature(master->getAttackedCreature());
@@ -155,17 +157,7 @@ void Creature::onThink(uint32_t interval)
 
 	if (followCreature) {
 		walkUpdateTicks += interval;
-		if(isSummon() && followCreature != master && master->getPosition().z == getPosition().z) {
-			int32_t distX = Position::getDistanceX(master->getPosition(), getPosition());
-			int32_t distY = Position::getDistanceY(master->getPosition(), getPosition());
-			if (distX >= Map::maxClientViewportX || distY >= Map::maxClientViewportY) {
-				stopEventWalk();
-				followCreature = master;
-				forceUpdateFollowPath = true;
-				attackedCreature = nullptr;
-				returnToMasterInterval = 2000;
-			}
-		}
+
 		if (forceUpdateFollowPath || walkUpdateTicks >= 2000) {
 			walkUpdateTicks = 0;
 			forceUpdateFollowPath = false;
@@ -228,6 +220,18 @@ void Creature::onCreatureWalk()
 			}
 
 			stopEventWalk();
+		}
+	}
+
+	if(isSummon() && followCreature && followCreature != master && master->getPosition().z == getPosition().z) {
+		int32_t distX = Position::getDistanceX(master->getPosition(), getPosition());
+		int32_t distY = Position::getDistanceY(master->getPosition(), getPosition());
+		if (distX >= Map::maxClientViewportX || distY >= Map::maxClientViewportY) {
+			stopEventWalk();
+			followCreature = master;
+			forceUpdateFollowPath = true;
+			attackedCreature = nullptr;
+			returnToMasterInterval = 2000;
 		}
 	}
 
