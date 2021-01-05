@@ -25,13 +25,6 @@ function removePet(creatureId)
     creature:remove()
 end
 
-local combat = createCombatObject()
-setCombatParam(combat, COMBAT_PARAM_TYPE, COMBAT_NONE)
-setCombatParam(combat, COMBAT_PARAM_EFFECT, CONST_ME_BLOCKHIT)
-
-local area = createCombatArea(AREA_CIRCLE1X1)
-setCombatArea(combat, area)
-
 function onCastSpell(player, variant)
     if not player or not isPremium(player) then
         player:getPosition():sendMagicEffect(CONST_ME_POFF)
