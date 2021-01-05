@@ -4108,7 +4108,7 @@ if not Quests then
 					storageId = Storage.ExplorerSociety.TheRuneWritings,
 					missionId = 11305,
 					startValue = 42,
-					endValue = 43,
+					endValue = 44,
 					states = {
 						[42] = "Somewhere under the ape infested city of Banuta, one can find dungeons \z
 							that were once inhabited by lizards. Look there for an atypical structure that \z
