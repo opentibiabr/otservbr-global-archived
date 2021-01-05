@@ -159,7 +159,8 @@ CREATE TABLE IF NOT EXISTS `players` (
   CONSTRAINT `players_unique` UNIQUE (`name`),
   CONSTRAINT `players_account_fk`
     FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
-    ON DELETE CASCADE
+    ON DELETE CASCADE,
+ `isreward` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
