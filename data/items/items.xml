@@ -40868,7 +40868,7 @@
 		<attribute key="weaponType" value="axe" />
 		<attribute key="loottype" value="axe" />
 	</item>
-	<item id="29288" article="an" name="ornate carving chopper">
+	<item id="29288" article="an" name="ornate carving axe">
 		<attribute key="weight" value="5000" />
 		<attribute key="defense" value="5" />
 		<attribute key="attack" value="5" />
