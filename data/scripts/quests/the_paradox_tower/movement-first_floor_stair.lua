@@ -24,20 +24,20 @@ function firstFloorStair.onStepIn(creature, item, position, fromPosition)
 	-- The stair is only created if all the jungles of the "position" variable (line 1) are growing again
 	if item.uid == 25013 then
 		-- Checks if all jungle glass are in the positions
-		if Position.hasItem(positions, 1, jungleGrassId)
-		and Position.hasItem(positions, 2, jungleGrassId)
-		and Position.hasItem(positions, 3, jungleGrassId)
-		and Position.hasItem(positions, 4, jungleGrassId)
-		and Position.hasItem(positions, 5, jungleGrassId)
-		and Position.hasItem(positions, 6, jungleGrassId) then
+		if Position(positions[1]):hasItem(jungleGrassId)
+		and Position(positions[2]):hasItem(jungleGrassId)
+		and Position(positions[3]):hasItem(jungleGrassId)
+		and Position(positions[4]):hasItem(jungleGrassId)
+		and Position(positions[5]):hasItem(jungleGrassId)
+		and Position(positions[6]):hasItem(jungleGrassId) then
 			-- If all the jungles are growing again, then he turns the stone on the stairs
-			Position.transformItem(stairPosition, stoneId, stairId, CONST_ME_POFF)
+			Position(stairPosition):transformItem(stoneId, stairId, CONST_ME_POFF)
 		end
 	-- Remove stair if exit of the tower
 	elseif table.contains({25014, 25015}, item.uid) then
 		-- Checks whether the item in position is the stair
-		if position.hasItem({stairPosition}, 1 , stairId) then
-			Position.transformItem(stairPosition, stairId, stoneId, CONST_ME_POFF)
+		if Position(stairPosition):hasItem(stairId) then
+			Position(stairPosition):transformItem(stairId, stoneId, CONST_ME_POFF)
 		end
 	end
 	return true

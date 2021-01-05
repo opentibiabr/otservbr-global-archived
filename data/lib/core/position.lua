@@ -203,10 +203,10 @@ function Position.getDirectionTo(pos1, pos2)
 	return dir
 end
 
--- Checks if there is a creature in a certain position (position)
+-- Checks if there is a creature in a certain position (self)
 -- If so, teleports to another position (teleportTo)
-function Position:hasCreature(position, teleportTo)
-	local creature = Tile(position):getTopCreature()
+function Position:hasCreature(teleportTo)
+	local creature = Tile(self):getTopCreature()
 	if creature then
 		creature:teleportTo(teleportTo, true)
 	end
@@ -219,21 +219,26 @@ Use the index to check which positions the script should check
 -- Position table
 local position = {
 	{x = 1000, y = 1000, z = 7},
-	{x = 1000, y = 1000, z = 7}
+	{x = 1001, y = 1000, z = 7}
 }
 
 -- Checks position 1
-if Position.hasItem(position, 1, 1498) then
+if Position(position[1]):hasItem(1498) then
 	return true
 end
 
 -- Checks position 2
-if Position.hasItem (position, 2, 1498) then
+if Position(position[2]):hasItem(1499) then
+	return true
+end
+
+-- Check two positions
+if Position(position[1]):hasItem(1498) and Position(position[2]):hasItem(1499) then
 	return true
 end
 ]]
-function Position.hasItem(positionTable, index, itemId)
-	local tile = Tile(positionTable[index])
+function Position:hasItem(itemId)
+	local tile = Tile(self)
 	if tile then
 		local item = tile:getItemById(itemId)
 		if item then
@@ -309,33 +314,33 @@ end
 
 -- Position.transformItem(itemPosition, itemId, itemTransform, effect)
 -- Variable "effect" is optional
-function Position.transformItem(itemPosition, itemId, itemTransform, effect)
-	local thing = Tile(itemPosition):getItemById(itemId)
+function Position:transformItem(itemId, itemTransform, effect)
+	local thing = Tile(self):getItemById(itemId)
 	if thing then
 		thing:transform(itemTransform)
-		Position(itemPosition):sendMagicEffect(effect)
+		Position(self):sendMagicEffect(effect)
 	end
 end
 
 -- Position.createItem(tilePosition, itemId, effect)
 -- Variable "effect" is optional
-function Position.createItem(itemPosition, itemId, effect)
-	local tile = Tile(itemPosition)
+function Position:createItem(itemId, effect)
+	local tile = Tile(self)
 	if not tile then
 		return true
 	end
 
 	local thing = tile:getItemById(itemId)
 	if not thing then
-		Game.createItem(itemId, 1, itemPosition)
-		Position(itemPosition):sendMagicEffect(effect)
+		Game.createItem(itemId, 1, self)
+		Position(self):sendMagicEffect(effect)
 	end
 end
 
 -- Position.removeItem(position, itemId, effect)
 -- Variable "effect" is optional
-function Position.removeItem(tilePosition, itemId, effect)
-	local tile = Tile(tilePosition)
+function Position:removeItem(itemId, effect)
+	local tile = Tile(self)
 	if not tile then
 		return true
 	end
@@ -343,6 +348,6 @@ function Position.removeItem(tilePosition, itemId, effect)
 	local thing = tile:getItemById(itemId)
 	if thing then
 		thing:remove(1)
-		Position(tilePosition):sendMagicEffect(effect)
+		Position(self):sendMagicEffect(effect)
 	end
 end

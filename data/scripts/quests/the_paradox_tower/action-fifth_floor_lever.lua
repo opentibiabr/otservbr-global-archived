@@ -16,12 +16,12 @@ function fifthFloorLever.onUse(creature, item, position, fromPosition)
 
 	if item.itemid == 1945 then
 		-- Check if have all items
-		if Position.hasItem(positions, 1, 2628) and Position.hasItem(positions, 2, 2634) then
+		if Position(positions[1]):hasItem(2628) and Position(positions[2]):hasItem(2634) then
 			-- If have all items, then remove it
-			Position.removeItem(positions[1], 2628)
-			Position.removeItem(positions[2], 2634)
+			Position(positions[1]):removeItem(2628)
+			Position(positions[2]):removeItem(2634)
 			-- Create ladder
-			Position.createItem(stairPosition, stairId)
+			Position(stairPosition):createItem(stairId)
 			item:transform(1946)
 		-- If not have all items, then send poff effect
 		else
@@ -29,8 +29,8 @@ function fifthFloorLever.onUse(creature, item, position, fromPosition)
 		end
 	elseif item.itemid == 1946 then
 		-- Remove ladder
-		if position.hasItem({stairPosition}, 1 , stairId) then
-			Position.removeItem(stairPosition, stairId)
+		if Position(stairPosition):hasItem(stairId) then
+			Position(stairPosition):removeItem(stairId)
 		end
 		item:transform(1945)
 	end

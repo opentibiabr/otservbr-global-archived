@@ -20,21 +20,21 @@ function fourFloorLever.onUse(creature, item, position, fromPosition)
 
 	if item.itemid == 1945 then
 		-- Check if have all items
-		if Position.hasItem(positions, 1, 2682)
-		and Position.hasItem(positions, 2, 2676)
-		and Position.hasItem(positions, 3, 2679)
-		and Position.hasItem(positions, 4, 2674)
-		and Position.hasItem(positions, 5, 2681)
-		and Position.hasItem(positions, 6, 2678) then
+		if Position(positions[1]):hasItem(2682)
+		and Position(positions[2]):hasItem(2676)
+		and Position(positions[3]):hasItem(2679)
+		and Position(positions[4]):hasItem(2674)
+		and Position(positions[5]):hasItem(2681)
+		and Position(positions[6]):hasItem(2678) then
 			-- If have all items, then remove it
-			Position.removeItem(positions[1], 2682)
-			Position.removeItem(positions[2], 2676)
-			Position.removeItem(positions[3], 2679)
-			Position.removeItem(positions[4], 2674)
-			Position.removeItem(positions[5], 2681)
-			Position.removeItem(positions[6], 2678)
+			Position(positions[1]):removeItem(2682)
+			Position(positions[2]):removeItem(2676)
+			Position(positions[3]):removeItem(2679)
+			Position(positions[4]):removeItem(2674)
+			Position(positions[5]):removeItem(2681)
+			Position(positions[6]):removeItem(2678)
 			-- Create ladder
-			Position.createItem(stairPosition, stairId)
+			Position(stairPosition):createItem(stairId)
 			item:transform(1946)
 		-- If not have all items, then send poff effect
 		else
@@ -42,8 +42,8 @@ function fourFloorLever.onUse(creature, item, position, fromPosition)
 		end
 	elseif item.itemid == 1946 then
 		-- Remove ladder
-		if position.hasItem({stairPosition}, 1 , stairId) then
-			Position.removeItem(stairPosition, stairId)
+		if Position(stairPosition):hasItem(stairId) then
+			Position(stairPosition):removeItem(stairId)
 		end
 		item:transform(1945)
 	end
