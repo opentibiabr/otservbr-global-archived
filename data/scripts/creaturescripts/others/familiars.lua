@@ -62,7 +62,8 @@ function familiarLogin.onLogin(player)
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 		addEvent(removePet, petTimeLeft*1000, familiarMonster:getId())
 		for sendMessage = 1, #timer do
-			addEvent(sendMessageFunction, (petTimeLeft-timer[sendMessage].countdown)*1000, player:getId(),timer[sendMessage].message)
+			storage = 'Storage.PetSummonEvent'..timer[sendMessage].countdown
+			setPlayerStorageValue(player, storage, addEvent(sendMessageFunction, (petTimeLeft-timer[sendMessage].countdown)*1000, player:getId(),timer[sendMessage].message))
 		end
 	end
 	return true
@@ -99,6 +100,10 @@ function familiarDeath.onDeath(creature, corpse, lasthitkiller, mostdamagekiller
 
 	if table.contains(vocation, creature:getName()) then
 		player:setStorageValue(familiarStorage, os.time())
+		for sendMessage = 1, #timer do
+			storage = 'Storage.PetSummonEvent'..timer[sendMessage].countdown
+			stopEvent(getPlayerStorageValue(player, storage))
+		end
 	end
 	return true
 end
