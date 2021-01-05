@@ -1,9 +1,20 @@
-local summon = {
+local familiar = {
     [VOCATION.CLIENT_ID.SORCERER] = {name = "Sorcerer familiar"},
     [VOCATION.CLIENT_ID.DRUID] = {name = "Druid familiar"},
     [VOCATION.CLIENT_ID.PALADIN] = {name = "Paladin familiar"},
     [VOCATION.CLIENT_ID.KNIGHT] = {name = "Knight familiar"}
 }
+
+local timer = {
+	[1] = {countdown=10, message = "10 seconds"},
+	[2] = {countdown=60, message = "one minute"}
+}
+
+local function sendMessageFunction(pid, message)
+	if Player(pid) then
+		Player(pid):sendTextMessage(MESSAGE_LOOT, "Your summon will disappear in less than " .. message)
+	end
+end
 
 function removePet(creatureId)
     local creature = Creature(creatureId)
@@ -34,31 +45,33 @@ function onCastSpell(player, variant)
         return false
     end
 
-    local vocation = summon[player:getVocation():getClientId()]
-    local summonName = nil
+    local vocation = familiar[player:getVocation():getClientId()]
+    local familiarName
+
     if vocation then
-        summonName = vocation.name
+        familiarName = vocation.name
     end
 
-    if not summonName then
+    if not familiarName then
         return true
     end
 
-    local mySummon = Game.createMonster(summonName, player:getPosition(), true, false)
-    if not mySummon then
+    local myFamiliar = Game.createMonster(familiarName, player:getPosition(), true, false)
+    if not myFamiliar then
         return combat:execute(player, variant)
     end
 
-    player:addSummon(mySummon)
-    mySummon:setOutfit({lookType = player:getFamiliarLooktype()})
-    mySummon:reload()
-    mySummon:registerEvent("SummonDeath")
-
-    local deltaSpeed = math.max(player:getBaseSpeed() - mySummon:getBaseSpeed(), 0)
-    mySummon:changeSpeed(deltaSpeed)
+    player:addSummon(myFamiliar)
+    myFamiliar:setOutfit({lookType = player:getFamiliarLooktype()})
+    myFamiliar:reload()
+    myFamiliar:registerEvent("FamiliarDeath")
+    local deltaSpeed = math.max(player:getSpeed() - myFamiliar:getSpeed(), 0)
+    myFamiliar:changeSpeed(deltaSpeed)
 
     player:setStorageValue(Storage.PetSummon, os.time() + 15*60) -- 15 minutes from now
-    player:say("My Power your Power", TALKTYPE_MONSTER_SAY)
-    addEvent(removePet, 15*60*1000, mySummon:getId()) --I think this isn't necessary
+    addEvent(removePet, 15*60*1000, myFamiliar:getId())
+    for sendMessage = 1, #timer do
+        addEvent(sendMessageFunction, (15*60-timer[sendMessage].countdown)*1000, player:getId(),timer[sendMessage].message)
+    end
     return combat:execute(player, variant)
 end
