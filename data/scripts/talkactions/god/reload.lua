@@ -1,8 +1,8 @@
 local reloadTypes = {
 	["all"] = RELOAD_TYPE_ALL,
 
-	["chat"] = RELOAD_TYPE_CHAT,
 	["channel"] = RELOAD_TYPE_CHAT,
+	["chat"] = RELOAD_TYPE_CHAT,
 	["chatchannels"] = RELOAD_TYPE_CHAT,
 
 	["config"] = RELOAD_TYPE_CONFIG,
@@ -10,12 +10,13 @@ local reloadTypes = {
 
 	["events"] = RELOAD_TYPE_EVENTS,
 
-	["global"] = RELOAD_TYPE_GLOBAL,
-
 	["items"] = RELOAD_TYPE_ITEMS,
 
 	["module"] = RELOAD_TYPE_MODULES,
 	["modules"] = RELOAD_TYPE_MODULES,
+
+	["monster"] = RELOAD_TYPE_MONSTERS,
+	["monsters"] = RELOAD_TYPE_MONSTERS,
 
 	["mount"] = RELOAD_TYPE_MOUNTS,
 	["mounts"] = RELOAD_TYPE_MOUNTS,
@@ -26,15 +27,18 @@ local reloadTypes = {
 	["raid"] = RELOAD_TYPE_RAIDS,
 	["raids"] = RELOAD_TYPE_RAIDS,
 
-	["spell"] = RELOAD_TYPE_SPELLS,
-	["spells"] =  RELOAD_TYPE_SPELLS,
-
-	["stages"] = RELOAD_TYPE_STAGES,
-	["stage"] = RELOAD_TYPE_STAGES,
 	["rate"] = RELOAD_TYPE_STAGES,
 	["rates"] = RELOAD_TYPE_STAGES,
 
 	["scripts"] = RELOAD_TYPE_SCRIPTS,
+
+	["spell"] = RELOAD_TYPE_SPELLS,
+	["spells"] =  RELOAD_TYPE_SPELLS,
+
+	["stage"] = RELOAD_TYPE_STAGES,
+	["stages"] = RELOAD_TYPE_STAGES,
+
+	["global"] = RELOAD_TYPE_GLOBAL,
 	["libs"] = RELOAD_TYPE_GLOBAL
 }
 

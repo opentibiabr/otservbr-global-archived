@@ -5912,9 +5912,12 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				if (attacker) {
 					cause = attacker->getName();
 				}
+
 				targetPlayer->updateInputAnalyzer(damage.primary.type, damage.primary.value, cause);
-				if (damage.secondary.type != COMBAT_NONE) {
-					attackerPlayer->updateInputAnalyzer(damage.secondary.type, damage.secondary.value, cause);
+				if (attackerPlayer) {
+					if (damage.secondary.type != COMBAT_NONE) {
+						attackerPlayer->updateInputAnalyzer(damage.secondary.type, damage.secondary.value, cause);
+					}
 				}
 			}
 			std::stringstream ss;
@@ -7179,6 +7182,36 @@ void Game::playerDebugAssert(uint32_t playerId, const std::string& assertLine, c
 	}
 }
 
+void Game::playerNpcGreet(uint32_t playerId, uint32_t npcId)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return;
+	}
+
+	Creature* creature = getCreatureByID(npcId);
+	if (!creature) {
+		return;
+	}
+
+	Npc* npc = creature->getNpc();
+	if(npc) {
+		SpectatorHashSet spectators;
+		spectators.insert(npc);
+		map.getSpectators(spectators, player->getPosition(), true, true);
+		internalCreatureSay(player, TALKTYPE_SAY, "Hi", false, &spectators);
+		spectators.clear();
+		spectators.insert(npc);
+		if (npc->getSpeechBubble() == SPEECHBUBBLE_TRADE) {
+			internalCreatureSay(player, TALKTYPE_PRIVATE_PN, "Trade", false, &spectators);
+		} else {
+			internalCreatureSay(player, TALKTYPE_PRIVATE_PN, "Sail", false, &spectators);
+        }
+
+		return;
+	}
+}
+
 void Game::playerLeaveMarket(uint32_t playerId)
 {
 	Player* player = getPlayerByID(playerId);
@@ -8405,6 +8438,10 @@ void Game::removeUniqueItem(uint16_t uniqueId)
 bool Game::reload(ReloadTypes_t reloadType)
 {
 	switch (reloadType) {
+		case RELOAD_TYPE_MONSTERS: {
+			g_scripts->loadScripts("monster", false, true);
+			return true;
+		}
 		case RELOAD_TYPE_CHAT: return g_chat->load();
 		case RELOAD_TYPE_CONFIG: return g_config.reload();
 		case RELOAD_TYPE_EVENTS: return g_events->load();
