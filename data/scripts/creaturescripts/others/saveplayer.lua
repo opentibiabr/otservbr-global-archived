@@ -3,16 +3,12 @@ local config = { --Times are in seconds
     minSaveInterval = 1 * 30,
     maxSaveInterval = 2 * 30,
     storage = Storage.SavePlayer,
-    consoleLog = false -- set as true to display logs in console
 }
 
 local function doSavePlayerAndHouse(cid)
 		Player(cid):save()
 		doSaveHouse({getHouseByPlayerGUID(getPlayerGUID(cid))})
-		if config.consoleLog then
-			print("Player "..Player(cid):getName().." has been saved")
-		end
-    return true
+	return true
 end
 
 function saveRepeat(cid)
