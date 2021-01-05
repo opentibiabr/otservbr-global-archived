@@ -71,6 +71,22 @@ end
 
 familiarLogin:register()
 
+local familiarOnThink = CreatureEvent("FamiliarOnThink")
+
+function familiarOnThink.onThink(player, interval)
+	for _, summon in pairs(player:getSummons()) do
+		if summon:getType():isPet() then
+				if summon:getOutfit().lookType ~= player:getFamiliarLooktype() then
+					summon:setOutfit({lookType = player:getFamiliarLooktype()})
+				end
+			break
+		end
+	end
+	return true
+end
+
+familiarOnThink:register()
+
 local advanceFamiliar = CreatureEvent("AdvanceFamiliar")
 
 function advanceFamiliar.onAdvance(player, skill, oldLevel, newLevel)
