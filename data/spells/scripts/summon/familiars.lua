@@ -71,5 +71,5 @@ function onCastSpell(player, variant)
     for sendMessage = 1, #timer do
         addEvent(sendMessageFunction, (15*60-timer[sendMessage].countdown)*1000, player:getId(),timer[sendMessage].message)
     end
-    return combat:execute(player, variant)
+    return true
 end
