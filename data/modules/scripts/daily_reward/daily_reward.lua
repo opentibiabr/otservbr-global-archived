@@ -267,6 +267,7 @@ DailyReward.pickedReward = function(playerId)
 
 	player:setStreakLevel(player:getStreakLevel() + 1)
 	player:setStorageValue(DailyReward.storages.avoidDouble, Game.getLastServerSave())
+	player:setDailyReward(0)
 	player:setNextRewardTime(Game.getLastServerSave() + DailyReward.serverTimeThreshold)
 	player:getPosition():sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
 	return true
