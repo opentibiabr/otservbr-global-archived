@@ -592,8 +592,8 @@ local function creatureSayCallback(cid, type, msg)
 	or msgcontains(msg, "sure") or msgcontains(msg, "leave") then
 		local town = Town(TOWNS_LIST.ROOKGAARD)
 		player:setTown(town)
-		-- Set none vocation, convert stats and magic level/skills
-		dawnportSetVocation(player, VOCATION.ID.NONE)
+		-- Change to none vocation, convert magic level and skills and set proper stats
+		player:changeVocation(VOCATION.ID.NONE)
 		player:teleportTo(town:getTemplePosition())
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 

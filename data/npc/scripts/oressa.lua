@@ -333,7 +333,8 @@ local function creatureSayCallback(cid, type, msg)
 			for index, value in pairs(topicTable) do
 				if npcHandler.topic[cid] == index then
 					if player:getStorageValue(Storage.Dawnport.DoorVocation) == -1 then
-						player:setVocation(Vocation(value))
+						-- Change to new vocation, convert magic level and skills and set proper stats
+						player:changeVocation(value)
 						player:setStorageValue(Storage.Dawnport.DoorVocation, value)
 					else
 						npcHandler.topic[cid] = 0
