@@ -247,7 +247,7 @@ DailyReward.loadDailyReward = function(playerId, source)
 	player:sendCollectionResource(ClientPackets.CollectionResource, player:getCollectionTokens())
 	player:sendDailyReward()
 	player:sendOpenRewardWall(source)
-	player:sendDailyRewardCollectionState(0)
+	player:sendDailyRewardCollectionState(DailyReward.isRewardTaken(player:getId()) and 0 or 1)
 	return true
 end
 
