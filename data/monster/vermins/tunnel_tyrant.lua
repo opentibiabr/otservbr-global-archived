@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Tunnel Tyrant")
 local monster = {}
 
 monster.description = "a tunnel tyrant"
-monster.experience = 4000
+monster.experience = 3400
 monster.outfit = {
 	lookType = 1035,
 	lookHead = 0,
@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Warzone 5."
-		}
+	}
 
 monster.health = 6400
 monster.maxHealth = 6400
 monster.race = "blood"
 monster.corpse = 30790
 monster.speed = 240
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -61,9 +61,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

@@ -18,7 +18,7 @@ monster.maxHealth = 200000
 monster.race = "blood"
 monster.corpse = 6081
 monster.speed = 300
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -73,7 +73,7 @@ monster.loot = {
 	{id = 6571, chance = 100000, maxCount = 2},
 	{id = 7632, chance = 100000},
 	{id = 16014, chance = 100000},
-	{id = 16015, chance = 100000}
+	{id = 16015, chance = 100000, unique = true}
 }
 
 monster.attacks = {

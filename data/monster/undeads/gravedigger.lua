@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Around the higher level areas of Drefia, \z
 		including the Drefia Grim Reaper Dungeons and the Drefia Vampire Crypt."
-		}
+	}
 
 monster.health = 1500
 monster.maxHealth = 1500
 monster.race = "blood"
 monster.corpse = 21279
 monster.speed = 240
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -62,7 +62,7 @@ monster.flags = {
 	runHealth = 200,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
 	canWalkOnPoison = false,
 	pet = false

@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Almost everywhere, in grass areas, sewers like Carlin sewers, \z
 		caves like as Ancient Temple, Rookgaard and the Tiquanda Tarantula Caves."
-		}
+	}
 
 monster.health = 20
 monster.maxHealth = 20
 monster.race = "venom"
 monster.corpse = 5961
 monster.speed = 152
-monster.summonCost = 210
+monster.manaCost = 210
 monster.maxSummons = 0
 
 monster.changeTarget = {

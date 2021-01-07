@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "Ice Islands."
-		}
+	}
 
 monster.health = 30
 monster.maxHealth = 30
 monster.race = "blood"
 monster.corpse = 5997
 monster.speed = 170
-monster.summonCost = 260
+monster.manaCost = 260
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -26,14 +26,14 @@ monster.Bestiary = {
 	Locations = "Orc Fort, Dwacatra, Orc Peninsula, Elvenbane, Edron Orc Cave, Plains of Havoc, \z
 		below Point of No Return in Outlaw Camp, Maze of Lost Souls, Cyclopolis, Desert Dungeon, \z
 		Ancient Temple, Foreigner Quarter, Zao Orc Land."
-		}
+	}
 
 monster.health = 210
 monster.maxHealth = 210
 monster.race = "blood"
 monster.corpse = 5980
 monster.speed = 250
-monster.summonCost = 590
+monster.manaCost = 590
 monster.maxSummons = 0
 
 monster.changeTarget = {

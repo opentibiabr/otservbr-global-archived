@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 1,
 	Locations = "West of Edron in the Lost Mines."
-		}
+	}
 
 monster.health = 65
 monster.maxHealth = 65
 monster.race = "undead"
 monster.corpse = 5972
 monster.speed = 154
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

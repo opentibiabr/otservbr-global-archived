@@ -29,14 +29,14 @@ monster.Bestiary = {
 		Deeper Banuta, on Folda on the floor above the Water Elementals, Hellgate, Vengoth, Alchemist Quarter, \z
 		Yalahar and Carlin sewers, Ghostlands, Desert Dungeon, Dusalk's Troll Clan Cave, Nargor, \z
 		and in a cave northeast of Ab'Dendriel."
-		}
+	}
 
 monster.health = 150
 monster.maxHealth = 150
 monster.race = "venom"
 monster.corpse = 8062
 monster.speed = 120
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 3
 
 monster.changeTarget = {
@@ -65,7 +65,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

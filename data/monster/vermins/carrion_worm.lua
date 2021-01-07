@@ -26,14 +26,14 @@ monster.Bestiary = {
 	Locations = "Edron, Cormaya, Drillworm Caves, Venore Swamps, Liberty Bay, Vandura, \z
 		Hellgate, Fibula Dungeon, Stonehome, Kazordoon, Darashia Rotworm Caves, Port Hope, \z
 		Ancient Temple, Fenrock, Arena and Zoo Quarter."
-		}
+	}
 
 monster.health = 145
 monster.maxHealth = 145
 monster.race = "blood"
 monster.corpse = 6069
 monster.speed = 130
-monster.summonCost = 380
+monster.manaCost = 380
 monster.maxSummons = 0
 
 monster.changeTarget = {

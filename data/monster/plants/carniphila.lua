@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Deep inside the Tiquanda Jungle including Tiquanda Laboratory and a small cave, \z
 		Forbidden Lands, Deeper Banuta, Arena and Zoo quarter in Yalahar."
-		}
+	}
 
 monster.health = 255
 monster.maxHealth = 255
 monster.race = "venom"
 monster.corpse = 6047
 monster.speed = 110
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -62,7 +62,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

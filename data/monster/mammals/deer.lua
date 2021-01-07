@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Darama (Devourer, Kha'labal), in most grassy areas of Tibia, also found in \z
 		Rookgaard and on Tutorial Island. There are also 2 unreachable Deer found near Fiehonja's protection zone."
-		}
+	}
 
 monster.health = 25
 monster.maxHealth = 25
 monster.race = "blood"
 monster.corpse = 5970
 monster.speed = 196
-monster.summonCost = 260
+monster.manaCost = 260
 monster.maxSummons = 0
 
 monster.changeTarget = {

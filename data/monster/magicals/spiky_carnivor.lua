@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Spiky Carnivor")
 local monster = {}
 
 monster.description = "a Spiky Carnivor"
-monster.experience = 1500
+monster.experience = 1650
 monster.outfit = {
 	lookType = 1133,
 	lookHead = 85,
@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Carnivora's Rocks."
-		}
+	}
 
 monster.health = 2800
 monster.maxHealth = 2800
 monster.race = "blood"
 monster.corpse = 34737
 monster.speed = 320
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -61,9 +61,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

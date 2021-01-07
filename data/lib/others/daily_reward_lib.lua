@@ -49,6 +49,14 @@ function Player.getCollectionTokens(self)
 	return math.max(self:getStorageValue(DailyReward.storages.collectionTokens), 0)
 end
 
+function Player.getJokerTokens(self)
+	return math.max(self:getStorageValue(DailyReward.storages.jokerTokens), 0)
+end
+
+function Player.setJokerTokens(self, value)
+	self:setStorageValue(DailyReward.storages.jokerTokens, value)
+end
+
 function Player.setCollectionTokens(self, value)
 	self:setStorageValue(DailyReward.storages.collectionTokens, value)
 end
@@ -96,7 +104,7 @@ local function regenStamina(id, delay)
 	end
 	if player:getTile():hasFlag(TILESTATE_PROTECTIONZONE) then
 		local actualStamina = player:getStamina()
-		if actualStamina > 2400 and actualStamina < 2520 then
+		if actualStamina > 2340 and actualStamina < 2520 then
 			delay = 6 * 60 * 1000 -- Bonus stamina
 		end
 		if actualStamina < 2520 then
@@ -198,7 +206,7 @@ function Player.loadDailyRewardBonuses(self)
 	local staminaEvent = Daily_Bonus.stamina[self:getId()]
 		if not staminaEvent then
 			local delay = 3
-			if self:getStamina() > 2400 and self:getStamina() <= 2520 then
+			if self:getStamina() > 2340 and self:getStamina() <= 2520 then
 				delay = 6
 			end
 			Daily_Bonus.stamina[self:getId()] = addEvent(regenStamina, delay * 60 * 1000, self:getId(), delay * 60 * 1000)

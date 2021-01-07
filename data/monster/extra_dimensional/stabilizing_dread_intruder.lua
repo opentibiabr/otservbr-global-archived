@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Otherworld (Edron)"
-		}
+	}
 
 monster.health = 2800
 monster.maxHealth = 2800
 monster.race = "venom"
 monster.corpse = 26134
 monster.speed = 290
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -61,7 +61,7 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
 	canWalkOnPoison = false,
 	pet = false

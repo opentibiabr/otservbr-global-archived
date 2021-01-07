@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Fiehonja, Coral mine."
-		}
+	}
 
 monster.health = 190
 monster.maxHealth = 190
 monster.race = "blood"
 monster.corpse = 15497
 monster.speed = 130
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -57,7 +57,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 95,
-	targetDistance = 0,
+	targetDistance = 1,
 	runHealth = 20,
 	healthHidden = false,
 	isBlockable = false,

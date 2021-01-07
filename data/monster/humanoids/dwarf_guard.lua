@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Kazordoon Dwarf Mines, Dwacatra, Ferngrims Gate, Cyclopolis, Mount Sternum Undead Cave, \z
 		Stonehome Rotworm cave (near Edron), Maze of Lost Souls, Tiquanda Dwarf Cave, Beregar, Cormaya Dwarf Cave."
-		}
+	}
 
 monster.health = 245
 monster.maxHealth = 245
 monster.race = "blood"
 monster.corpse = 6013
 monster.speed = 206
-monster.summonCost = 650
+monster.manaCost = 650
 monster.maxSummons = 0
 
 monster.changeTarget = {

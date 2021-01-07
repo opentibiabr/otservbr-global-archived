@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Replica Dungeon."
-		}
+	}
 
 monster.health = 2000
 monster.maxHealth = 2000
 monster.race = "venom"
 monster.corpse = 13485
 monster.speed = 172
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -58,9 +58,9 @@ monster.flags = {
 	runHealth = 100,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

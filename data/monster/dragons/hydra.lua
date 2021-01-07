@@ -29,14 +29,14 @@ monster.Bestiary = {
 		many on Talahu surface, a few in Ferumbras Citadel basement on Kharos, \z
 		2 on a hill in the Yalahar Arena and Zoo Quarter, 1 deep in the Yalahar Foreigner Quarter (Crystal Lake), \z
 		many in the Oramond Hydra/Bog Raider Cave."
-		}
+	}
 
 monster.health = 2350
 monster.maxHealth = 2350
 monster.race = "blood"
 monster.corpse = 6048
 monster.speed = 250
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -66,9 +66,9 @@ monster.flags = {
 	runHealth = 300,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

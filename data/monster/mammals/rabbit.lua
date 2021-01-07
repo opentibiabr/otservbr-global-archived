@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "In most grass areas of Tibia, for example on Tutorial Island."
-		}
+	}
 
 monster.health = 15
 monster.maxHealth = 15
 monster.race = "blood"
 monster.corpse = 6017
 monster.speed = 180
-monster.summonCost = 220
+monster.manaCost = 220
 monster.maxSummons = 0
 
 monster.changeTarget = {

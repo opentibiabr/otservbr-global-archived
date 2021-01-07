@@ -26,14 +26,14 @@ monster.Bestiary = {
 	Locations = "Calassa, Treasure Island , Seacrest Grounds. \z
 		In the Seacrest Grounds the spawns are Varying Monster Spawns in which the common creature is an Abyssal Calamary. \z
 		The chance to spawn a Crustacea Gigantica seems to be around 1%-2%."
-		}
+	}
 
 monster.health = 1600
 monster.maxHealth = 1600
 monster.race = "blood"
 monster.corpse = 13331
 monster.speed = 480
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

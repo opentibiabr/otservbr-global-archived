@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Alchemist Quarter."
-		}
+	}
 
 monster.health = 150
 monster.maxHealth = 150
 monster.race = "undead"
 monster.corpse = 9961
 monster.speed = 150
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 3
 
 monster.changeTarget = {

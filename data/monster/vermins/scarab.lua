@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Ankrahmun Tombs, the sand around Ankrahmun (use a shovel), deep in Larva caves, \z
 		the path leading to Chor, beneath Fenrock, Lion's Rock."
-		}
+	}
 
 monster.health = 320
 monster.maxHealth = 320
 monster.race = "venom"
 monster.corpse = 6024
 monster.speed = 160
-monster.summonCost = 395
+monster.manaCost = 395
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -61,7 +61,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

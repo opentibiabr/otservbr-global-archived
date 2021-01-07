@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Falcon Paladin")
 local monster = {}
 
 monster.description = "a falcon paladin"
-monster.experience = 4920
+monster.experience = 6544
 monster.outfit = {
 	lookType = 1071,
 	lookHead = 57,
@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Falcon Bastion."
-		}
+	}
 
 monster.health = 8500
 monster.maxHealth = 8500
 monster.race = "blood"
 monster.corpse = 32558
 monster.speed = 220
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

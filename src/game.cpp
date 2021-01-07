@@ -3173,6 +3173,10 @@ void Game::playerMoveUpContainer(uint32_t playerId, uint8_t cid)
 			return;
 		}
 
+		if (!g_events->eventPlayerOnBrowseField(player, tile->getPosition())) {
+			return;
+		}
+
 		auto it = browseFields.find(tile);
 		if (it == browseFields.end()) {
 			parentContainer = new Container(tile);
@@ -5249,7 +5253,7 @@ bool Game::combatBlockHit(CombatDamage& damage, Creature* attacker, Creature* ta
 				damageReflected.primary.type = damage.primary.type;
 				damageReflected.primary.value = std::ceil((damage.primary.value) * (primaryReflect / 100.));
 				damageReflected.extension = true;
-				damageReflected.exString = "[Reflection]";
+				damageReflected.exString = "(damage reflection)";
 				canReflect = true;
 			}
 		}
@@ -5275,11 +5279,16 @@ bool Game::combatBlockHit(CombatDamage& damage, Creature* attacker, Creature* ta
 		if (attacker && target->getMonster()) {
 			uint32_t secondaryReflect = target->getMonster()->getReflectValue(damage.secondary.type);
 			if (secondaryReflect > 0) {
-				damageReflected.secondary.type = damage.secondary.type;
-				damageReflected.secondary.value = std::ceil((damage.secondary.value) * (secondaryReflect / 100.));
-				damageReflected.extension = true;
-				damageReflected.exString = "[Reflection]";
-				canReflect = true;
+				if (!canReflect) {
+					damageReflected.primary.type = damage.secondary.type;
+					damageReflected.primary.value = std::ceil((damage.secondary.value) * (secondaryReflect / 100.));
+					damageReflected.extension = true;
+					damageReflected.exString = "(damage reflection)";
+					canReflect = true;
+				} else {
+					damageReflected.secondary.type = damage.secondary.type;
+					damageReflected.secondary.value = std::ceil((damage.secondary.value) * (secondaryReflect / 100.));
+				}
 			}
 		}
 		damage.secondary.value = -damage.secondary.value;
@@ -5441,7 +5450,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 
 		if (realHealthChange > 0 && !target->isInGhostMode()) {
 			if (targetPlayer) {
-				targetPlayer->updateImpactTracker(realHealthChange, true);
+				targetPlayer->updateImpactTracker(COMBAT_HEALING, realHealthChange);
 			}
 			std::stringstream ss;
 
@@ -5677,7 +5686,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		if (realDamage > 0) {
 			if (Monster* targetMonster = target->getMonster()) {
 				if (attackerPlayer && attackerPlayer->getPlayer()) {
-					attackerPlayer->updateImpactTracker(realDamage, false);
+					attackerPlayer->updateImpactTracker(damage.secondary.type, damage.secondary.value);
 				}
 
 				if (targetMonster->israndomStepping()) {
@@ -5788,6 +5797,25 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		}
 
 		if (message.primary.color != TEXTCOLOR_NONE || message.secondary.color != TEXTCOLOR_NONE) {
+			if (attackerPlayer) {
+				attackerPlayer->updateImpactTracker(damage.primary.type, damage.primary.value);
+				if (damage.secondary.type != COMBAT_NONE) {
+					attackerPlayer->updateImpactTracker(damage.secondary.type, damage.secondary.value);
+				}
+			}
+			if (targetPlayer) {
+				std::string cause = "(other)";
+				if (attacker) {
+					cause = attacker->getName();
+				}
+
+				targetPlayer->updateInputAnalyzer(damage.primary.type, damage.primary.value, cause);
+				if (attackerPlayer) {
+					if (damage.secondary.type != COMBAT_NONE) {
+						attackerPlayer->updateInputAnalyzer(damage.secondary.type, damage.secondary.value, cause);
+					}
+				}
+			}
 			std::stringstream ss;
 
 			ss << realDamage << (realDamage != 1 ? " hitpoints" : " hitpoint");
@@ -6929,7 +6957,7 @@ void Game::playerHighscores(Player* player, HighscoreType_t type, uint8_t catego
 	if (type == HIGHSCORE_GETENTRIES) {
 		uint32_t startPage = (static_cast<uint32_t>(page - 1) * static_cast<uint32_t>(entriesPerPage));
 		uint32_t endPage = startPage + static_cast<uint32_t>(entriesPerPage);
-		query << "SELECT *, @row AS `entries`, " << page << " AS `page` FROM (SELECT *, (@row := @row + 1) AS `rn` FROM (SELECT `id`, `name`, `level`, `vocation`, `" << categoryName << "` AS `points`, @curRank := IF(@prevRank = `" << categoryName << "`, @curRank, IF(@prevRank := `" << categoryName << "`, @curRank + 1, @curRank + 1)) AS `rank` FROM `players` `p`, (SELECT @curRank := 0, @prevRank := NULL, @row := 0) `r` WHERE `group_id`<3 ORDER BY `" << categoryName << "` DESC) `t`";
+		query << "SELECT *, @row AS `entries`, " << page << " AS `page` FROM (SELECT *, (@row := @row + 1) AS `rn` FROM (SELECT `id`, `name`, `level`, `vocation`, `" << categoryName << "` AS `points`, @curRank := IF(@prevRank = `" << categoryName << "`, @curRank, IF(@prevRank := `" << categoryName << "`, @curRank + 1, @curRank + 1)) AS `rank` FROM `players` `p`, (SELECT @curRank := 0, @prevRank := NULL, @row := 0) `r` WHERE `group_id` < " << static_cast<int>(account::GroupType::GROUP_TYPE_GAMEMASTER) << " ORDER BY `" << categoryName << "` DESC) `t`";
 		if (vocation != 0xFFFFFFFF) {
 			bool firstVocation = true;
 
@@ -6949,7 +6977,7 @@ void Game::playerHighscores(Player* player, HighscoreType_t type, uint8_t catego
 		query << ") `T` WHERE `rn` > " << startPage << " AND `rn` <= " << endPage;
 	} else if (type == HIGHSCORE_OURRANK) {
 		std::string entriesStr = std::to_string(entriesPerPage);
-		query << "SELECT *, @row AS `entries`, (@ourRow DIV " << entriesStr << ") + 1 AS `page` FROM (SELECT *, (@row := @row + 1) AS `rn`, @ourRow := IF(`id` = " << player->getGUID() << ", @row - 1, @ourRow) AS `rw` FROM (SELECT `id`, `name`, `level`, `vocation`, `" << categoryName << "` AS `points`, @curRank := IF(@prevRank = `" << categoryName << "`, @curRank, IF(@prevRank := `" << categoryName << "`, @curRank + 1, @curRank + 1)) AS `rank` FROM `players` `p`, (SELECT @curRank := 0, @prevRank := NULL, @row := 0, @ourRow := 0) `r` WHERE `group_id`<3 ORDER BY `" << categoryName << "` DESC) `t`";
+		query << "SELECT *, @row AS `entries`, (@ourRow DIV " << entriesStr << ") + 1 AS `page` FROM (SELECT *, (@row := @row + 1) AS `rn`, @ourRow := IF(`id` = " << player->getGUID() << ", @row - 1, @ourRow) AS `rw` FROM (SELECT `id`, `name`, `level`, `vocation`, `" << categoryName << "` AS `points`, @curRank := IF(@prevRank = `" << categoryName << "`, @curRank, IF(@prevRank := `" << categoryName << "`, @curRank + 1, @curRank + 1)) AS `rank` FROM `players` `p`, (SELECT @curRank := 0, @prevRank := NULL, @row := 0, @ourRow := 0) `r` WHERE `group_id` < " << static_cast<int>(account::GroupType::GROUP_TYPE_GAMEMASTER) << " ORDER BY `" << categoryName << "` DESC) `t`";
 		if (vocation != 0xFFFFFFFF) {
 			bool firstVocation = true;
 
@@ -7047,6 +7075,36 @@ void Game::playerDebugAssert(uint32_t playerId, const std::string& assertLine, c
 		fprintf(file, "----- %s - %s (%s) -----\n", formatDate(time(nullptr)).c_str(), player->getName().c_str(), convertIPToString(player->getIP()).c_str());
 		fprintf(file, "%s\n%s\n%s\n%s\n", assertLine.c_str(), date.c_str(), description.c_str(), comment.c_str());
 		fclose(file);
+	}
+}
+
+void Game::playerNpcGreet(uint32_t playerId, uint32_t npcId)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return;
+	}
+
+	Creature* creature = getCreatureByID(npcId);
+	if (!creature) {
+		return;
+	}
+
+	Npc* npc = creature->getNpc();
+	if(npc) {
+		SpectatorHashSet spectators;
+		spectators.insert(npc);
+		map.getSpectators(spectators, player->getPosition(), true, true);
+		internalCreatureSay(player, TALKTYPE_SAY, "Hi", false, &spectators);
+		spectators.clear();
+		spectators.insert(npc);
+		if (npc->getSpeechBubble() == SPEECHBUBBLE_TRADE) {
+			internalCreatureSay(player, TALKTYPE_PRIVATE_PN, "Trade", false, &spectators);
+		} else {
+			internalCreatureSay(player, TALKTYPE_PRIVATE_PN, "Sail", false, &spectators);
+        }
+
+		return;
 	}
 }
 
@@ -8276,6 +8334,10 @@ void Game::removeUniqueItem(uint16_t uniqueId)
 bool Game::reload(ReloadTypes_t reloadType)
 {
 	switch (reloadType) {
+		case RELOAD_TYPE_MONSTERS: {
+			g_scripts->loadScripts("monster", false, true);
+			return true;
+		}
 		case RELOAD_TYPE_CHAT: return g_chat->load();
 		case RELOAD_TYPE_CONFIG: return g_config.reload();
 		case RELOAD_TYPE_EVENTS: return g_events->load();

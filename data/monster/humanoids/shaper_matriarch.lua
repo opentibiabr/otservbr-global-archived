@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Old Masonry, small dungeon under the Formorgar Mines."
-		}
+	}
 
 monster.health = 2000
 monster.maxHealth = 2000
 monster.race = "blood"
 monster.corpse = 27739
 monster.speed = 260
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -61,8 +61,8 @@ monster.flags = {
 	runHealth = 15,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = true,
-	canWalkOnFire = true,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
 	canWalkOnPoison = true,
 	pet = false
 }

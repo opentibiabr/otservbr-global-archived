@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Kilmaresh."
-		}
+	}
 
 monster.health = 8700
 monster.maxHealth = 8700
 monster.race = "blood"
 monster.corpse = 36229
 monster.speed = 320
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

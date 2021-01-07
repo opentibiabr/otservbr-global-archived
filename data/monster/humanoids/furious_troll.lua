@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 1,
 	Locations = "Old Beregar mines."
-		}
+	}
 
 monster.health = 245
 monster.maxHealth = 245
 monster.race = "blood"
 monster.corpse = 5960
 monster.speed = 180
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 2
 
 monster.changeTarget = {

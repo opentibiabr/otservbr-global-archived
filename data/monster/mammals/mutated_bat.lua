@@ -27,14 +27,14 @@ monster.Bestiary = {
 		and 4 bats on the church roof), Alchemist Quarter (4 found on top of roofs), \z
 		Arena and Zoo Quarter (2 under the arena with other mutated creatures), \z
 		Razzachai, Northern Zao Plantations, Souleater Mountains, Middle Spike, Vengoth and Vengoth Castle."
-		}
+	}
 
 monster.health = 900
 monster.maxHealth = 900
 monster.race = "blood"
 monster.corpse = 9829
 monster.speed = 186
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -63,7 +63,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

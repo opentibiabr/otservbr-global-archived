@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 1,
 	Locations = "ourt of Summer at day."
-		}
+	}
 
 monster.health = 900
 monster.maxHealth = 900
 monster.race = "blood"
 monster.corpse = 34813
 monster.speed = 380
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

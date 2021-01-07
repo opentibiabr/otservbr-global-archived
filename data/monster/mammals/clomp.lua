@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Krailos Steppe."
-		}
+	}
 
 monster.health = 900
 monster.maxHealth = 900
 monster.race = "blood"
 monster.corpse = 25398
 monster.speed = 430
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

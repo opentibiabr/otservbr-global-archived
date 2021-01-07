@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "The Secret Library. There are also two incarcerated in the Issavi prison, \z
 		reachable from the city Library."
-		}
+	}
 
 monster.health = 6500
 monster.maxHealth = 6500
 monster.race = "undead"
 monster.corpse = 33353
 monster.speed = 480
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -59,9 +59,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 

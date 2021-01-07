@@ -157,6 +157,14 @@ class Npc final : public Creature
 			speechBubble = bubble;
 		}
 
+		uint16_t getCurrencyTrading() const {
+			return currencyClientId;
+		}
+
+		uint16_t getCurrency() const {
+			return currencyServerId;
+		}
+
 		void doSay(const std::string& text);
 		void doSayToPlayer(Player* player, const std::string& text);
 
@@ -240,6 +248,9 @@ class Npc final : public Creature
 		int32_t masterRadius;
 
 		uint8_t speechBubble;
+
+		uint16_t currencyServerId;
+		uint16_t currencyClientId;
 
 		bool floorChange;
 		bool attackable;

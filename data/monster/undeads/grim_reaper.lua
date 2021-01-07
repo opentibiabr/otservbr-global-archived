@@ -26,14 +26,14 @@ monster.Bestiary = {
 	Locations = "Drefia Grim Reaper Dungeons, deep in Drefia Wyrm Lair (after the Medusa Shield Quest), \z
 		Edron (Hero Cave), Yalahar (Cemetery Quarter), Oramond Dungeon, \z
 		  Abandoned Sewers and optionally in the Demon Oak Quest."
-		}
+	}
 
 monster.health = 3900
 monster.maxHealth = 3900
 monster.race = "undead"
 monster.corpse = 8955
 monster.speed = 320
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -64,7 +64,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

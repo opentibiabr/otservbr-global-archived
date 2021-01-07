@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Oramond/Southern Plains, Lower Rathleton, Oramond/Western Plains, \z
 		Underground Glooth Factory, Jaccus Maxxen's Dungeon."
-		}
+	}
 
 monster.health = 1600
 monster.maxHealth = 1600
 monster.race = "venom"
 monster.corpse = 23351
 monster.speed = 220
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -62,9 +62,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
+	canWalkOnEnergy = true,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 

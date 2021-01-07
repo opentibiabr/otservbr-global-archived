@@ -18,7 +18,7 @@ monster.maxHealth = 290000
 monster.race = "venom"
 monster.corpse = 26220
 monster.speed = 450
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
@@ -88,8 +88,8 @@ monster.loot = {
 	{id = 7427, chance = 6000},
 	{id = 26187, chance = 4000},
 	{id = 26189, chance = 4000},
-	{id = 26130, chance = 2000},
-	{id = 26133, chance = 2000}
+	{id = 26130, chance = 2000, unique = true},
+	{id = 26133, chance = 2000, unique = true}
 }
 
 monster.attacks = {

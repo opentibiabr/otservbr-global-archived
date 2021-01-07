@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Minotaurs Cult Cave."
-		}
+	}
 
 monster.health = 1800
 monster.maxHealth = 1800
 monster.race = "blood"
 monster.corpse = 5983
 monster.speed = 250
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
