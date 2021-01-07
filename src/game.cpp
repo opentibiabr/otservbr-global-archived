@@ -3284,7 +3284,7 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 			return;
 	}
 
-	if (!item || item->getClientID() != spriteId || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID) || (!item->isWrapable() && item->getID() != 26054)) {
+	if (!item || item->getClientID() != spriteId || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID) || (!item->isWrapable() && !item->isWrapBox())) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
@@ -3310,7 +3310,7 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 		return;
 	}
 
-	if ((item->getHoldingPlayer() && item->getID() == 26054) || (tile->hasFlag(TILESTATE_IMMOVABLEBLOCKSOLID) && !item->hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID))) {
+	if ((item->getHoldingPlayer() && item->isWrapBox()) || (tile->hasFlag(TILESTATE_IMMOVABLEBLOCKSOLID) && !item->hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID))) {
 		player->sendCancelMessage("You can only wrap/unwrap in the floor.");
 		return;
 	}
@@ -3329,14 +3329,15 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
     return;
   }
 
-	if (item->isWrapable() && item->getID() != TRANSFORM_BOX_ID) {
+	if (item->isWrapable() && !item->isWrapBox()) {
 		uint16_t hiddenCharges = 0;
 		if (isCaskItem(item->getID())) {
 			hiddenCharges = item->getSubType();
 		}
 		uint16_t oldItemID = item->getID();
 		addMagicEffect(item->getPosition(), CONST_ME_POFF);
-		Item* newItem = transformItem(item, 26054);
+		uint16_t newBoxId = Item::items[item->getID()].wrapableTo;
+	  	Item* newItem = transformItem(item, newBoxId);
 		ItemAttributes::CustomAttribute val;
 		val.set<int64_t>(oldItemID);
 		std::string key = "unWrapId";
@@ -3347,7 +3348,7 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 		}
 		startDecay(item);
 	}
-	else if (item->getID() == TRANSFORM_BOX_ID && unWrapId != 0) {
+	else if (item->isWrapBox() && unWrapId != 0) {
 		uint16_t hiddenCharges = item->getDate();
 		item->removeAttribute(ITEM_ATTRIBUTE_DESCRIPTION);
 		addMagicEffect(item->getPosition(), CONST_ME_POFF);
@@ -7713,7 +7714,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 					Item* item;
 
 					if (offer->type == WRAP_ITEM) {
-						item = Item::CreateItem(TRANSFORM_BOX_ID, std::min<uint16_t>(packSize, pendingCount));
+						item = Item::CreateItem(STORE_BOX_ID, std::min<uint16_t>(packSize, pendingCount));
 						item->setActionId(tmp->productId);
 						item->setSpecialDescription("Unwrap it in your own house to create a <" + Item::items[tmp->productId].name + ">.");
 					} else {

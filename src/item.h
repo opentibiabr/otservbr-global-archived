@@ -961,6 +961,9 @@ class Item : virtual public Thing
 		bool isWrapable() const {
 			return items[id].wrapable && items[id].wrapableTo;
 		}
+		bool isWrapBox() const {
+			return (id == STORE_BOX_ID || id == FURNITURE_BOX_ID);
+		}
 		bool hasWalkStack() const {
 			return items[id].walkStack;
 		}

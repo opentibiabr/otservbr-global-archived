@@ -471,7 +471,8 @@ enum item_t : uint16_t {
 	ITEM_SUPPLY_STASH_INDEX = 1, //for internal use
 	ITEM_DEPOT_NULL = 25452, // for internal use
 	ITEM_GOLD_POUCH = 26377,
-	TRANSFORM_BOX_ID = 26054, // for internal use
+	STORE_BOX_ID = 26054, // for internal use
+	FURNITURE_BOX_ID = 26129,
 
 	ITEM_DEPOT_I = 25453,
 	ITEM_DEPOT_II = 25454,
