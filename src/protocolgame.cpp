@@ -4970,27 +4970,29 @@ void ProtocolGame::sendOutfitWindow()
 		msg.addString(mount->name);
 		msg.addByte(0x00);
 	}
-
-	std::vector<ProtocolFamiliars> protocolFamiliars;
-	const auto &familiars = Familiars::getInstance().getFamiliars(player->getVocationId());
-	protocolFamiliars.reserve(familiars.size());
-	for (const Familiar &familiar : familiars)
-	{
-		if (!player->getFamiliar(familiar))
+	if(player->getVocationId() < 9) {
+		std::vector<ProtocolFamiliars> protocolFamiliars;
+		const auto &familiars = Familiars::getInstance().getFamiliars(player->getVocationId());
+		protocolFamiliars.reserve(familiars.size());
+		for (const Familiar &familiar : familiars)
 		{
-			continue;
+			if (!player->getFamiliar(familiar))
+			{
+				continue;
+			}
+			protocolFamiliars.emplace_back(familiar.name, familiar.lookType);
 		}
-		protocolFamiliars.emplace_back(familiar.name, familiar.lookType);
-	}
 
-	msg.add<uint16_t>(protocolFamiliars.size());
-	for (const ProtocolFamiliars &familiar : protocolFamiliars)
-	{
-		msg.add<uint16_t>(familiar.lookType);
-		msg.addString(familiar.name);
-		msg.addByte(0x00);
+		msg.add<uint16_t>(protocolFamiliars.size());
+		for (const ProtocolFamiliars &familiar : protocolFamiliars)
+		{
+			msg.add<uint16_t>(familiar.lookType);
+			msg.addString(familiar.name);
+			msg.addByte(0x00);
+		}
+	} else {
+		msg.add<uint16_t>(0);
 	}
-
 	msg.addByte(0x00); //Try outfit
 	msg.addByte(mounted ? 0x01 : 0x00);
 
