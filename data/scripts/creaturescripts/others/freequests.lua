@@ -332,7 +332,9 @@ function playerLogin.onLogin(player)
 	if freeQuests and player:getStorageValue(Storage.FreeQuests) < upperLimit then
 		for index, value in pairs(questTable) do
 		if value.storageId and value.storageValue then
-			player:setStorageValue(value.storageId, value.storageValue)
+			if player:getStorageValue(value.storageId) < value.storageValue then
+				player:setStorageValue(value.storageId, value.storageValue)
+			end
 		end
 	end
 
