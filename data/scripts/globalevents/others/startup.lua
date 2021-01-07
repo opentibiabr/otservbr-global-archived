@@ -64,7 +64,7 @@ function serverstartup.onStartup()
 	db.asyncQuery('TRUNCATE TABLE `players_online`')
 
 	-- reset Daily Reward status
-	db.query('UPDATE `players` SET `isreward` = 1')
+	db.query('UPDATE `players` SET `isreward` = '..DAILY_REWARD_NOTCOLLECTED)
 
 	-- reset storages and allow purchase of boost in the store
 	db.query('UPDATE `player_storage` SET `value` = 0 WHERE `player_storage`.`key` = 51052')

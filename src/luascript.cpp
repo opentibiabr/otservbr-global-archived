@@ -1126,6 +1126,10 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(account::GROUP_TYPE_COMMUNITYMANAGER)
 	registerEnum(account::GROUP_TYPE_GOD)
 
+	registerEnum(DAILY_REWARD_COLLECTED)
+	registerEnum(DAILY_REWARD_NOTCOLLECTED)
+	registerEnum(DAILY_REWARD_NOTAVAILABLE)
+
 	registerEnum(BUG_CATEGORY_MAP)
 	registerEnum(BUG_CATEGORY_TYPO)
 	registerEnum(BUG_CATEGORY_TECHNICAL)

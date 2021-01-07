@@ -247,7 +247,7 @@ DailyReward.loadDailyReward = function(playerId, source)
 	player:sendCollectionResource(ClientPackets.CollectionResource, player:getCollectionTokens())
 	player:sendDailyReward()
 	player:sendOpenRewardWall(source)
-	player:sendDailyRewardCollectionState(0)
+	player:sendDailyRewardCollectionState(DailyReward.isRewardTaken(player:getId()) and DAILY_REWARD_COLLECTED or DAILY_REWARD_NOTCOLLECTED)
 	return true
 end
 
@@ -267,7 +267,7 @@ DailyReward.pickedReward = function(playerId)
 
 	player:setStreakLevel(player:getStreakLevel() + 1)
 	player:setStorageValue(DailyReward.storages.avoidDouble, Game.getLastServerSave())
-	player:setDailyReward(0)
+	player:setDailyReward(DAILY_REWARD_COLLECTED)
 	player:setNextRewardTime(Game.getLastServerSave() + DailyReward.serverTimeThreshold)
 	player:getPosition():sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
 	return true
@@ -340,9 +340,11 @@ DailyReward.init = function(playerId)
 
 	-- Daily reward golden icon
 	if DailyReward.isRewardTaken(player:getId()) then
-		player:sendDailyRewardCollectionState(0)
+		player:sendDailyRewardCollectionState(DAILY_REWARD_COLLECTED)
+		player:setDailyReward(DAILY_REWARD_COLLECTED)
 	else
-		player:sendDailyRewardCollectionState(1)
+		player:sendDailyRewardCollectionState(DAILY_REWARD_NOTCOLLECTED)
+		player:setDailyReward(DAILY_REWARD_NOTCOLLECTED)
 	end
 	player:loadDailyRewardBonuses()
 end
