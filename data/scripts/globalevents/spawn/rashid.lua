@@ -19,7 +19,7 @@ function rashidSpawnOnStartup.onStartup()
 		rashid:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		print(">> Rashid arrived at " .. os.date("%A") .. "s destination.")
 	else
-		print("[!] -> Cannot create Rashid. Day: " .. todayLabel .. ".")
+		print("[!] -> Cannot create Rashid. Day: " .. os.date("%A") .. ".")
 	end
 
 	return true
