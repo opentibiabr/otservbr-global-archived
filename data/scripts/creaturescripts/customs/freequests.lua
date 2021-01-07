@@ -340,7 +340,7 @@ function freeQuests.onLogin(player)
 
 	player:setStorageValue(Storage.FreeQuests, upperLimit)
 	end
-
+	return true
 end
 
 freeQuests:register()
