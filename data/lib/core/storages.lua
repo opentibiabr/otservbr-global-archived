@@ -134,8 +134,9 @@ Storage = {
 	StoreExaust = 30051,
 	LemonCupcake = 30052,
 	BlueberryCupcake = 30053,
+	FreeQuests = 990000,
 	PremiumAccount = 998899,
-	
+
 	--[[
 	Old storages
 	Over time, this will be dropped and replaced by the table above
