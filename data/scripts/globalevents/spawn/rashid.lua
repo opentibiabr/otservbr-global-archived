@@ -1,6 +1,3 @@
-local today = os.date("*t").wday
-local todayLabel = os.date("%A")
-
 local positionByDay = {
 	[1] = Position(32328, 31782, 6), -- Sunday
 	[2] = Position(32207, 31155, 7), -- Monday
@@ -14,11 +11,13 @@ local positionByDay = {
 local rashidSpawnOnStartup = GlobalEvent("rashidSpawnOnStartup")
 function rashidSpawnOnStartup.onStartup()
 
+	local today = os.date("*t").wday
+
 	if positionByDay[today] then
 		local rashid = Game.createNpc("rashid", positionByDay[today])
 		rashid:setMasterPos(positionByDay[today])
 		rashid:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		print(">> Rashid arrived at " .. todayLabel .. "s destination.")
+		print(">> Rashid arrived at " .. os.date("%A") .. "s destination.")
 	else
 		print("[!] -> Cannot create Rashid. Day: " .. todayLabel .. ".")
 	end
@@ -31,9 +30,12 @@ rashidSpawnOnStartup:register()
 local rashidSpawnOnTime = GlobalEvent("rashidSpawnOnTime")
 function rashidSpawnOnTime.onTime(interval)
 
+	local today = os.date("*t").wday
+
 	local rashidTarget = Npc("rashid")
+
 	if rashidTarget then
-		print(">> Rashid is traveling to " .. todayLabel .. "s location.")
+		print(">> Rashid is traveling to " .. os.date("%A") .. "s location.")
 		rashidTarget:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		rashidTarget:teleportTo(positionByDay[today])
 		rashidTarget:setMasterPos(positionByDay[today])
@@ -43,5 +45,5 @@ function rashidSpawnOnTime.onTime(interval)
 	return true
 
 end
-rashidSpawnOnTime:time("07:00:00")
+rashidSpawnOnTime:time("07:00")
 rashidSpawnOnTime:register()
