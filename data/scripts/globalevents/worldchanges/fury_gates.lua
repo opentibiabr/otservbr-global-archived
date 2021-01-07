@@ -152,10 +152,10 @@ function teleport.onStepIn(creature, item, position, fromPosition)
 	-- Enter gates
 	if item.actionid == 9710 then
 		-- Check requeriments
-		if player:getLevel() < 60 then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to be at least level 60 to enter this gate.")
-			player:teleportTo(gates[gateId].exitPosition)
-			gates[gateId].exitPosition:sendMagicEffect(CONST_ME_TELEPORT)
+		if not player:isPremium() or not player:isPromoted() or player:getLevel() < 60 then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Only premium promoted players at least level 60 can enter this gate.")
+			player:teleportTo(fromPosition)
+			fromPosition:sendMagicEffect(CONST_ME_TELEPORT)
 			return true
 		end
 
