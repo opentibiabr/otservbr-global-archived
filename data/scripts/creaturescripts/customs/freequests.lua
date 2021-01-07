@@ -327,9 +327,9 @@ local upperLimit = 1 -- change upperLimit to a higher one after adding a new que
 
 local freeQuests = CreatureEvent("FreeQuests")
 
-function playerLogin.onLogin(player)
+function freeQuests.onLogin(player)
 
-	if freeQuests and player:getStorageValue(Storage.FreeQuests) < upperLimit then
+	if configManager.getBoolean(configKeys.FREE_QUESTS) and player:getStorageValue(Storage.FreeQuests) < upperLimit then
 		for index, value in pairs(questTable) do
 		if value.storageId and value.storageValue then
 			if player:getStorageValue(value.storageId) < value.storageValue then
