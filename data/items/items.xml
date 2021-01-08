@@ -7628,24 +7628,20 @@
 	</item>
 	<item id="3832" article="a" name="bamboo drawer">
 		<attribute key="wrapableTo" value="26129" />
-		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3835" />
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="3833" article="a" name="bamboo drawer">
-		<attribute key="wrapableTo" value="26129" />
 		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3832" />
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="3834" article="a" name="bamboo drawer">
 		<attribute key="wrapableTo" value="26129" />
-		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3833" />
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="3835" article="a" name="bamboo drawer">
-		<attribute key="wrapableTo" value="26129" />
 		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3834" />
 		<attribute key="containerSize" value="6" />
