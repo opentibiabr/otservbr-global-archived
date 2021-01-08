@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `players` (
   `maglevel` int(11) NOT NULL DEFAULT '0',
   `mana` int(11) NOT NULL DEFAULT '0',
   `manamax` int(11) NOT NULL DEFAULT '0',
-  `manaspent` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `manaspent` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `soul` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `town_id` int(11) NOT NULL DEFAULT '1',
   `posx` int(11) NOT NULL DEFAULT '0',
