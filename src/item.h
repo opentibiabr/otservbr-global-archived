@@ -926,7 +926,7 @@ class Item : virtual public Thing
 			return items[id].stackable;
 		}
 		bool isStowable() const {
-			return items[id].stackable && !(items[id].notstowable);
+			return items[id].stackable && items[id].wareId > 0;
 		}
 		bool isAlwaysOnTop() const {
 			return items[id].alwaysOnTop;
