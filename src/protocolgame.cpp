@@ -4942,7 +4942,7 @@ void ProtocolGame::sendOutfitWindow()
 	}
 
 	const auto& outfits = Outfits::getInstance().getOutfits(player->getSex());
-	
+
 	for (const Outfit& outfit : outfits) {
 		uint8_t addons;
 		if (!player->getOutfitAddons(outfit, addons)) {
@@ -4984,14 +4984,14 @@ void ProtocolGame::sendOutfitWindow()
 	msg.setBufferPosition(startMounts);
 	msg.add<uint16_t>(mountSize);
 	msg.setBufferPosition(endMounts);
-	
+
 	auto startFamiliars = msg.getBufferPosition();
 	uint16_t limitFamiliars = std::numeric_limits<uint16_t>::max();
 	uint16_t familiarSize = 0;
 	msg.skipBytes(2);
 
 	const auto& familiars = Familiars::getInstance().getFamiliars(player->getVocationId());
-	
+
 	for (const Familiar& familiar : familiars) {
 		if (!player->getFamiliar(familiar)) {
 			continue;
@@ -5004,7 +5004,7 @@ void ProtocolGame::sendOutfitWindow()
 				break;
 		}
 	}
-	
+
 	auto endFamiliars = msg.getBufferPosition();
 	msg.setBufferPosition(startFamiliars);
 	msg.add<uint16_t>(familiarSize);
