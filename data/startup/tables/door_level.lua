@@ -18,7 +18,8 @@ LevelDoorAction = {
 		itemId = false,
 		itemPos = {
 			{x = 33302, y = 31691, z = 11},
-			{x = 33302, y = 31692, z = 11}
+			{x = 33302, y = 31692, z = 11},
+			{x = 32567, y = 31969, z = 3}
 		}
 	},
 	-- Doors for level 40
