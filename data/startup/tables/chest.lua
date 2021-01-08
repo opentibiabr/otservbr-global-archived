@@ -134,6 +134,13 @@ ChestUnique = {
 		reward = {{2088, 1}},
 		storage = Storage.Quest.Key.ID3620
 	},
+	[5011] = {
+		isKey = true,
+		itemId = 2720,
+		itemPos = {x = 32497, y = 31887, z = 7},
+		reward = {{2089, 1}},
+		storage = Storage.Quest.Key.ID3899
+	},
 
 	-- To add a reward inside a bag, you need to add the variable "container = bagId" before "reward"
 	-- Just duplicate the table and configure correctly, the scripts already register the entire table automatically
@@ -801,6 +808,35 @@ ChestUnique = {
 		weight = 50,
 		reward = {{2326, 1}},
 		storage = Storage.Quest.TheAnnihilator.Reward
+	},
+	-- The paradox tower quest
+	-- Phoenix egg
+	[6089] = {
+		itemId = 1740,
+		itemPos = {x = 32477, y = 31900, z = 1},
+		reward = {{11400, 1}},
+		storage = Storage.Quest.TheParadoxTower.Reward.Egg
+	},
+	-- 10.000 gold coins
+	[6090] = {
+		itemId = 1740,
+		itemPos = {x = 32478, y = 31900, z = 1},
+		reward = {{2152, 100}},
+		storage = Storage.Quest.TheParadoxTower.Reward.Gold
+	},
+	-- Talon
+	[6091] = {
+		itemId = 1740,
+		itemPos = {x = 32479, y = 31900, z = 1},
+		reward = {{2151, 32}},
+		storage = Storage.Quest.TheParadoxTower.Reward.Talon
+	},
+	-- Wand of energy cosmic
+	[6092] = {
+		itemId = 1740,
+		itemPos = {x = 32480, y = 31900, z = 1},
+		reward = {{2189, 1}},
+		storage = Storage.Quest.TheParadoxTower.Reward.Wand
 	},
 
 	-- Reward of others scrips files (varied rewards)
