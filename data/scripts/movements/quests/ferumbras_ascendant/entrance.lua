@@ -46,16 +46,9 @@ function entrance.onStepIn(creature, item, position, fromPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		return true
 	end
-	if complete then
-		player:teleportTo(Position(33271, 32396, 9))
-	else
-		player:teleportTo(Position(33271, 32396, 8))
-	end
-	player:setDirection(SOUTH)
 	return true
 end
 
 entrance:type("stepin")
-entrance:id(24813)
 entrance:aid(24837, 24838)
 entrance:register()
