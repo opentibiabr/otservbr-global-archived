@@ -107,7 +107,7 @@ bool Mailbox::sendItem(Item* item) const
 			std::string writer;
 			time_t date;
 			std::string text;
-			if (item && item->getID() == ITEM_LETTER && item->getWriter() != ""){
+			if (item && item->getID() == ITEM_LETTER && item->getWriter() != "") {
 				writer = item->getWriter();
 				date = item->getDate();
 				text = item->getText();
