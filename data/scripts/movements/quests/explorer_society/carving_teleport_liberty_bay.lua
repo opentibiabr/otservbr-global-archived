@@ -1,6 +1,6 @@
 local destination = {
-	[25013] = {position = Position(32320, 31137, 6)},
-	[25014] = {position = Position(32359, 32807, 6)}
+	[25020] = {position = Position(32320, 31137, 6)},
+	[25021] = {position = Position(32359, 32807, 6)}
 }
 
 local carvingTeleportLibertyBay = MoveEvent()

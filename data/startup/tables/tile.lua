@@ -261,15 +261,51 @@ TileAction = {
 			{x = 33250, y = 32268, z = 6}
 		}
 	},
-
 	-- Kilmaresh
 	-- First mission
-	-- 
 	[50307] = {
 		itemId = false,
 		itemPos = {
 			{ x = 33956, y = 31503, z = 2 },
 			{ x = 33957, y = 31503, z = 2 }
+		}
+	},
+	-- The paradox tower quest
+	-- data\scripts\movements\quests\the_paradox_tower\movement-last_floor_reward.lua
+	-- Phoenix egg
+	[50308] = {
+		itemId = 426,
+		itemPos = {
+			{x = 32476, y = 31903, z = 1},
+			{x = 32477, y = 31903, z = 1},
+			{x = 32478, y = 31903, z = 1}
+		}
+	},
+	-- 10000 gold coins
+	[50309] = {
+		itemId = 426,
+		itemPos = {
+			{x = 32479, y = 31903, z = 1},
+			{x = 32481, y = 31902, z = 1},
+			{x = 32476, y = 31902, z = 1}
+		}
+	},
+		-- Talons
+	[50310] = {
+		itemId = 426,
+		itemPos = {
+			{x = 32478, y = 31902, z = 1},
+			{x = 32479, y = 31902, z = 1},
+			{x = 32480, y = 31902, z = 1}
+		}
+	},
+	-- Wand of cosmic energy
+	[50311] = {
+		itemId = 426,
+		itemPos = {
+			{x = 32477, y = 31902, z = 1},
+			{x = 32480, y = 31903, z = 1},
+			{x = 32481, y = 31903, z = 1}
 		}
 	}
 }
@@ -277,18 +313,22 @@ TileAction = {
 TileUnique = {
 	-- Lions rock tiles
 	-- data\scripts\movements\quests\lions_rock\lionsrock.lua
+	-- snake sign
 	[25001] = {
 		itemId = 3152,
 		itemPos = {x = 33095, y = 32244, z = 9}
 	},
+	-- lizard sign
 	[25002] = {
 		itemId = 3152,
 		itemPos = {x = 33128, y = 32300, z = 9}
 	},
+	-- scorpion sign
 	[25003] = {
 		itemId = 3152,
 		itemPos = {x = 33109, y = 32329, z = 9}
 	},
+	-- hyena sign
 	[25004] = {
 		itemId = 3152,
 		itemPos = {x = 33127, y = 32340, z = 9}
@@ -314,27 +354,56 @@ TileUnique = {
 		itemId = 426,
 		itemPos = {x = 32225, y = 32268, z = 9}
 	},
+	-- The paradox tower quest
+	[25011] = {
+		itemId = 9024,
+		itemPos = {x = 32497, y = 31889, z = 7}
+	},
+	[25012] = {
+		itemId = 11062,
+		itemPos = {x = 32566, y = 31957, z = 1}
+	},
+	[25013] = {
+		itemId = 426,
+		itemPos = {x = 32481, y = 31905, z = 7}
+	},
+	[25014] = {
+		itemId = 9023,
+		itemPos = {x = 32478, y = 31908, z = 7}
+	},
+	[25015] = {
+		itemId = 9023,
+		itemPos = {x = 32479, y = 31908, z = 7}
+	},
+	[25016] = {
+		itemId = 1945,
+		itemPos = {x = 32479, y = 31905, z = 6}
+	},
+	[25017] = {
+		itemId = 426,
+		itemPos = {x = 32476, y = 31900, z = 5}
+	},
 	-- Explorer Society Astral Portals
 	-- Path: data\scripts\actions\quests\explorer_society\stone.lua
 	-- Path: data\scripts\movements\quests\explorer_society\carvingteleport_port_hope.lua
 	-- Path: data\scripts\movements\quests\explorer_society\carving_teleport_liberty_bay.lua
 	-- Port Hope
-	[25011] = {
+	[25018] = {
 		itemId = 474,
 		itemPos = {x = 32665, y = 32736, z = 6}
 	},
 	-- Northport
-	[25012] = {
+	[25019] = {
 		itemId = 474,
 		itemPos = {x = 32497, y = 31622, z = 6}
 	},
 	-- Liberty Bay
-	[25013] = {
+	[25020] = {
 		itemId = 474,
 		itemPos = {x = 32358, y = 32807, z = 6}
 	},
 	-- Svarground
-	[25014] = {
+	[25021] = {
 		itemId = 474,
 		itemPos = {x = 32321, y = 31137, z = 6}
 	},

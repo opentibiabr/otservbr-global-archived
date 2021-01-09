@@ -1,6 +1,6 @@
 local destination = {
-	[25011] = {position = Position(32498, 31622, 6)},
-	[25012] = {position = Position(32665, 32735, 6)}
+	[25018] = {position = Position(32498, 31622, 6)},
+	[25019] = {position = Position(32665, 32735, 6)}
 }
 
 local carvingTeleportPortHope = MoveEvent()
