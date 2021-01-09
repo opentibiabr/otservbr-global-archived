@@ -838,6 +838,12 @@ enum Daily_Reward_Bonus : uint8_t {
 	DAILY_REWARD_LAST = 7,
 };
 
+enum Daily_Reward_Status : uint8_t {
+	DAILY_REWARD_COLLECTED = 0,
+	DAILY_REWARD_NOTCOLLECTED = 1,
+	DAILY_REWARD_NOTAVAILABLE = 2
+};
+
 enum Resource_t : uint8_t
 {
 	RESOURCE_BANK = 0x00,

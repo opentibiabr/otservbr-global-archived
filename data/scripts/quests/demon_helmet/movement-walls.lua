@@ -45,7 +45,7 @@ function walls.onStepOut(creature, item, position, fromPosition)
 	end
 
 	for i = 1, #wallsPositions do
-		Position:hasCreature(wallsPositions[i], {x = 33211, y = 31631, z = 13})
+		Position(wallsPositions[i]):hasCreature({x = 33211, y = 31631, z = 13})
 		Game.createItem(1050, 1, wallsPositions[i])
 	end
 	return true

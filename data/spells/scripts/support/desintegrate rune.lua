@@ -1,29 +1,25 @@
-local dead_human = {
-	3058, 3059, 3060, 3061, 3064, 3065, 3066
-}
+local corpseIds = {3058, 3059, 3060, 3061, 3064, 3065, 3066}
+local removalLimit = 500
 
 function onCastSpell(creature, variant, isHotkey)
-	local position = Variant.getPosition(variant)
+	local position = variant:getPosition()
 	local tile = Tile(position)
-	local targetItem = tile and tile:getItems()
+	if tile then
+		local items = tile:getItems()
+		if items then
+			for i, item in ipairs(items) do
+				if item:getType():isMovable() and item:getUniqueId() > 65535 and item:getActionId() == 0 and not table.contains(corpseIds, item:getId()) then
+					item:remove()
+				end
 
-	if targetItem then
-		local desintegrate = false
-		for i, v in pairs(targetItem) do
-			if (v:isItem() and
-				isMoveable(v:getUniqueId())) then
-				v:remove()
-				desintegrate = true
+				if i == removalLimit then
+					break
+				end
 			end
-		end
-
-		if desintegrate then
-			position:sendMagicEffect(CONST_ME_POFF)
-			return true
 		end
 	end
 
 	creature:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-	creature:getPosition():sendMagicEffect(CONST_ME_POFF)
-	return false
+	position:sendMagicEffect(CONST_ME_POFF)
+	return true
 end

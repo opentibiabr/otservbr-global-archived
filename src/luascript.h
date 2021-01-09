@@ -893,6 +893,8 @@ class LuaScriptInterface
 		static int luaPlayerRemoveReward(lua_State* L);
 		static int luaPlayerGetRewardList(lua_State* L);
 
+		static int luaPlayerSetDailyReward(lua_State* L);
+
 		static int luaPlayerSendInventory(lua_State* L);
 		static int luaPlayerSendLootStats(lua_State* L);
 		static int luaPlayerUpdateKillTracker(lua_State* L);
@@ -1168,6 +1170,7 @@ class LuaScriptInterface
 
 		static int luaNpcSetMasterPos(lua_State* L);
 
+		static int luaNpcGetCurrency(lua_State* L);
 		static int luaNpcGetSpeechBubble(lua_State* L);
 		static int luaNpcSetSpeechBubble(lua_State* L);
 		static int luaNpcSetName(lua_State* L);

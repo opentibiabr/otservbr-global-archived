@@ -91,6 +91,11 @@ KeyDoorAction = {
 			{x = 32624, y = 31929, z = 3}
 		}
 	},
+	-- Door of the key 3899 (the paradox tower quest)
+	[Storage.Quest.Key.ID3899] = {
+		itemId = false,
+		itemPos = {{x = 32479, y = 31903, z = 4}}
+	},
 	-- Door of the key 3940 (gained with simmon the beggar)
 	[Storage.Quest.Key.ID3940] = {
 		itemId = false,

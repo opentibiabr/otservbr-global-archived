@@ -80,7 +80,7 @@ function loadLuaMapSign(tablename)
 			end
 			-- If he found the item, add the text
 			if item then
-				item:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, value.text)
+				item:setAttribute(ITEM_ATTRIBUTE_TEXT, value.text)
 			end
 		end
 	end
