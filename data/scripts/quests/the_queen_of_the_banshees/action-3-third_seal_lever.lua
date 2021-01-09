@@ -29,8 +29,9 @@ function thirdSealLever.onUse(player, item, fromPosition, target, toPosition, is
 			end
 			if Game.getStorageValue("switchNum") == 6 then
 				for i = 1, #thirdSealTable.coalBasinPosition do
-					Position.removeItem(thirdSealTable.coalBasinPosition[i], 1485)
-					Position.createItem(thirdSealTable.coalBasinPosition[i], 1484)
+					local positions = thirdSealTable.coalBasinPosition[i]
+					Position(positions):removeItem(1485)
+					Position(positions):createItem(1484)
 				end
 			end
 		else

@@ -1126,6 +1126,10 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(account::GROUP_TYPE_COMMUNITYMANAGER)
 	registerEnum(account::GROUP_TYPE_GOD)
 
+	registerEnum(DAILY_REWARD_COLLECTED)
+	registerEnum(DAILY_REWARD_NOTCOLLECTED)
+	registerEnum(DAILY_REWARD_NOTAVAILABLE)
+
 	registerEnum(BUG_CATEGORY_MAP)
 	registerEnum(BUG_CATEGORY_TYPO)
 	registerEnum(BUG_CATEGORY_TECHNICAL)
@@ -2082,6 +2086,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::STOREMODULES)
 	registerEnumIn("configKeys", ConfigManager::WEATHER_RAIN)
 	registerEnumIn("configKeys", ConfigManager::WEATHER_THUNDER)
+	registerEnumIn("configKeys", ConfigManager::FREE_QUESTS)
 
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_NOTIFY_MESSAGE)
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_NOTIFY_DURATION)
@@ -2528,6 +2533,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "getReward", LuaScriptInterface::luaPlayerGetReward);
 	registerMethod("Player", "removeReward", LuaScriptInterface::luaPlayerRemoveReward);
 	registerMethod("Player", "getRewardList", LuaScriptInterface::luaPlayerGetRewardList);
+
+	registerMethod("Player", "setDailyReward", LuaScriptInterface::luaPlayerSetDailyReward);
 
 	registerMethod("Player", "sendInventory", LuaScriptInterface::luaPlayerSendInventory);
 	registerMethod("Player", "sendLootStats", LuaScriptInterface::luaPlayerSendLootStats);
@@ -9216,6 +9223,18 @@ int LuaScriptInterface::luaPlayerGetRewardList(lua_State* L)
 	for (const auto& rewardId : rewardVec) {
 		lua_pushnumber(L, rewardId);
 		lua_rawseti(L, -2, ++index);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetDailyReward(lua_State* L) {
+	// player:setDailyReward(value)
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		player->setDailyReward(getNumber<uint8_t>(L, 2));
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
 	}
 	return 1;
 }
