@@ -45,5 +45,5 @@ function rashidSpawnOnTime.onTime(interval)
 	return true
 
 end
-rashidSpawnOnTime:time("07:00")
+rashidSpawnOnTime:time("00:01")
 rashidSpawnOnTime:register()
