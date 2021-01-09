@@ -14,7 +14,6 @@ function loginEvents.onLogin(player)
 		"RookgaardAdvance",
 		"FamiliarLogin",
 		"AdvanceFamiliar",
-		"FamiliarOnThink",
 		--Quests
 		--Adventurers Guild Quest
 		"Thegreatdragonhuntkill",
