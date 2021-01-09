@@ -2203,6 +2203,11 @@ Item* Game::transformItem(Item* item, uint16_t newId, int32_t newCount /*= -1*/)
 
 	item->setParent(nullptr);
 	cylinder->postRemoveNotification(item, cylinder, itemIndex);
+	if (item && newItem && item->getID() == ITEM_LETTER && item->getWriter() != "") {
+		newItem->setDate(item->getDate());
+		newItem->setWriter(item->getWriter());
+		newItem->setText(item->getText());
+	}
 	ReleaseItem(item);
 
 	if (newItem->getDuration() > 0) {
