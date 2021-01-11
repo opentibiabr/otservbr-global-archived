@@ -32,8 +32,6 @@ function Player.changeVocation(self, newVocationId)
 		magic.manaSpent = magic.manaSpent + self:getVocation():getRequiredManaSpent(level)
 	end
 	
-	print("OLD " .. self:getVocation():getName() .. " MAGIC LEVEL" .. " level:" .. magic.level .. " totalManaSpent:" .. magic.manaSpent)
-
 	local skills = {
 		{id = SKILL_FIST},
 		{id = SKILL_CLUB},
@@ -51,8 +49,6 @@ function Player.changeVocation(self, newVocationId)
 		for level = 11, skills[i].level do
             skills[i].tries = skills[i].tries + self:getVocation():getRequiredSkillTries(skills[i].id, level)
         end
-		
-		print("OLD " .. self:getVocation():getName() .. " SKILL" .. " id:" .. skills[i].id .. " level:" .. skills[i].level .. " totalSkillTries:" .. skills[i].tries)
 	end
 	
 	-- Set new vocation
@@ -70,8 +66,6 @@ function Player.changeVocation(self, newVocationId)
 		  reqManaSpent = self:getVocation():getRequiredManaSpent(newMagicLevel + 1)
 		end
 	end
-	
-	print("NEW " .. self:getVocation():getName() .. " MAGIC LEVEL" .. " level:" .. newMagicLevel .. " extraManaSpent:" .. magic.manaSpent)
 	
 	-- Apply magic level and/or mana spent
 	if newMagicLevel > 0 then
@@ -94,8 +88,6 @@ function Player.changeVocation(self, newVocationId)
 			  reqSkillTries = self:getVocation():getRequiredSkillTries(skills[i].id, (newSkillLevel + 1))
 			end
 		end
-		
-		print("NEW " .. self:getVocation():getName() .. " SKILL" .. " id:" .. skills[i].id .. " level:" .. newSkillLevel .. " extraSkillTries:" .. skills[i].tries)
 		
 		-- Apply skill level and/or skill tries
 		if newSkillLevel > 10 then
@@ -127,8 +119,6 @@ function Player.changeVocation(self, newVocationId)
 			stats.mana = stats.mana + (baseLevel * baseVocation:getManaGain()) + (level * self:getVocation():getManaGain())
 			stats.capacity = stats.capacity + (baseLevel * baseVocation:getCapacityGain()) + (level * self:getVocation():getCapacityGain())
 		end
-		
-		--print("[" .. vocation:getName() .. " Level:" .. self:getLevel() .. "]" .. " health:" .. stats.health .. " mana:" .. stats.mana .. " capacity:" .. stats.capacity)
 		
 		self:setMaxHealth(stats.health)
 		self:addHealth(stats.health)
@@ -168,4 +158,35 @@ function isSkillGrowthLimited(player, skillId)
 	end
 	
 	return false
+end
+
+-- Removes from player inventory (equipped/containers) maindland smuggling items
+function removeMainlandSmugglingItems(player)
+	local smugglingItemIds = {
+		2461,	-- Leather helmet
+		2651,	-- Coat
+		2649,	-- Leather legs
+		2643,	-- Leather boots
+		23719,	-- The scorcher
+		23721,	-- The chiller
+		23771,	-- Spellbook of the novice
+		2456,	-- Bow
+		2379,	-- Dagger
+		2512,	-- Wooden shield
+		-- TODO: Quiver
+		23839,	-- Simple arrow
+		7618,	-- Health potion
+		7620,	-- Mana potion
+		8704,	-- Small health potion
+		23723,	-- Lightest missile rune
+		23722	-- Light stone shower rune
+	}
+	
+	for i = 1, #smugglingItemIds do
+		local smugglingItemAmount = player:getItemCount(smugglingItemIds[i])
+		if smugglingItemAmount > 0 then
+			player:removeItem(smugglingItemIds[i], smugglingItemAmount)
+		end
+	end
+
 end

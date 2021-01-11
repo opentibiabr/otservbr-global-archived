@@ -571,8 +571,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 
 	elseif msgcontains(msg, "rookgaard") and player:getLevel() <= 9 then
-		if Player.getAccountStorage(player, accountId, Storage.Dawnport.Mainland, true) == 1 
-		and player:getStorageValue(Storage.Dawnport.Mainland) == -1 then
+		if Player.getAccountStorage(player, accountId, Storage.Dawnport.Mainland, true) == 1 then
 			npcHandler:say("Hmmm. Long time I visited that isle. Not very exciting place. \z
 			Why do you ask? Do you wish to go there?", cid)
 			npcHandler.topic[cid] = 1

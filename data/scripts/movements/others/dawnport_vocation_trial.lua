@@ -1,8 +1,9 @@
+local tutorialEffects = {
+	CONST_ME_TUTORIALARROW,
+	CONST_ME_TUTORIALSQUARE
+}
+
 local vocationTrials = {
-	effects = {
-		CONST_ME_TUTORIALARROW,
-		CONST_ME_TUTORIALSQUARE
-	},
 	-- Sorcerer trial
 	[25005] = {
 		tutorialId = 5,
@@ -85,6 +86,7 @@ local vocationTrials = {
 		},
 		items = {
 			[CONST_SLOT_LEFT] = {2456, 1}, -- bow
+			-- TODO: Quiver
 			[CONST_SLOT_AMMO] = {23839, 100}, -- 100 arrows
 			[11] = {8704, 7, storage = Storage.Dawnport.PaladinHealthPotion, limit = 1}, -- potion
 			[12] = {7620, 5, storage = Storage.Dawnport.PaladinManaPotion, limit = 1}, -- potion
@@ -147,8 +149,8 @@ local function tileStep(player, trial)
 	-- First Step
 	local vocationId = player:getVocation():getId()
 	if vocationId == VOCATION.ID.NONE then
-		for i = 1, #vocationTrials.effects do
-			Position(trial.effectPosition):sendMagicEffect(vocationTrials.effects[i])
+		for i = 1, #tutorialEffects do
+			Position(trial.effectPosition):sendMagicEffect(tutorialEffects[i])
 		end
 		player:sendTutorial(trial.tutorialId)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
@@ -167,20 +169,22 @@ local function tileStep(player, trial)
 	end
 end
 
--- Remove items (weapons and shield)
+-- Remove vocation trial equipment items
 local function removeItems(player)
-	local itemIds = {
-		{id = 2379},
-		{id = 2456},
-		{id = 2512},
-		{id = 23719},
-		{id = 23721},
-		{id = 23771}
+	local equipmentItemIds = {
+		23719,	-- The scorcher
+		23721,	-- The chiller
+		23771,	-- Spellbook of the novice
+		2456,	-- Bow
+		2379,	-- Dagger
+		2512	-- Wooden shield
+		-- TODO: Quiver
 	}
 
-	for i = 1, #itemIds do
-		if player:removeItem(itemIds[i].id, 1) then
-			player:removeItem(itemIds[i].id, 1)
+	for i = 1, #equipmentItemIds do
+		local equipmentItemAmount = player:getItemCount(equipmentItemIds[i])
+		if equipmentItemAmount > 0 then
+			player:removeItem(equipmentItemIds[i], equipmentItemAmount)
 		end
 	end
 end
@@ -188,17 +192,13 @@ end
 -- Add items to player from trial items data
 local function addItems(player, items)
 	local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
-	-- If dont have backpack, give one or will cause error and items will added on ground
-	if not backpack then
-		backpack = player:addItem(1988, 1, true, 1, CONST_SLOT_BACKPACK)
-	end
 	for slot, item in pairs(items) do
 		local extra
 		if slot > CONST_SLOT_AMMO then
 			extra = true
 		else
 			local equipped = player:getSlotItem(slot)
-			if equipped then
+			if equipped and backpack then
 				equipped:moveTo(backpack)
 			end
 		end
@@ -261,7 +261,7 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 			tileStep(player, trial)
 			-- Change to new vocation, convert magic level and skills and set proper stats
 			player:changeVocation(trial.vocation.id)
-			-- Remove player items (weapon and shield) on step in
+			-- Remove vocation trial equipment items
 			removeItems(player)
 			-- Add player item
 			addItems(player, trial.items)

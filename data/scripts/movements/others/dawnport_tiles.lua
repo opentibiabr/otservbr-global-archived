@@ -1,41 +1,16 @@
-local oressaStair = {
-	[25009] = {
-		destination = {x = 32063, y = 31891, z= 6},
-		storage = Storage.Dawnport.DoorVocation,
-		msg = "You cannot go upstairs. You have chosen a vocation and must now leave for the Mainlands."
+local chestRooms = {
+	entrances = {
+		[25010] = {destination = {x = 32054, y = 31883, z = 6}},
+		[25011] = {destination = {x = 32073, y = 31883, z = 6}},
+		[25012] = {destination = {x = 32059, y = 31883, z = 6}},
+		[25013] = {destination = {x = 32068, y = 31883, z = 6}}
+	},
+	exits = {
+		[25014] = {vocation = VOCATION.ID.SORCERER, destination = {x = 32054, y = 31879, z = 6}},
+		[25015] = {vocation = VOCATION.ID.DRUID, destination = {x = 32073, y = 31879, z = 6}},
+		[25016] = {vocation = VOCATION.ID.PALADIN, destination = {x = 32059, y = 31879, z = 6}},
+		[25017] = {vocation = VOCATION.ID.KNIGHT, destination = {x = 32068, y = 31879, z = 6}}
 	}
-}
-
-local chestRoomTile = {
-	[25010] = {
-		destination = {x = 32054, y = 31883, z= 6},
-		storage = Storage.Dawnport.DoorVocation,
-		msg = "You have chosen your vocation. You cannot go back."
-	},
-	[25011] = {
-		destination = {x = 32073, y = 31883, z= 6},
-		storage = Storage.Dawnport.DoorVocation,
-		msg = "You have chosen your vocation. You cannot go back."
-	},
-	[25012] = {
-		destination = {x = 32059, y = 31883, z= 6},
-		storage = Storage.Dawnport.DoorVocation,
-		msg = "You have chosen your vocation. You cannot go back."
-	},
-	[25013] = {
-		destination = {x = 32068, y = 31883, z = 6},
-		storage = Storage.Dawnport.DoorVocation,
-		msg = "You have chosen your vocation. You cannot go back."
-	}
-}
-
-local vocations = {
-	msgVoc = "You should leave for the Mainland now. Go left to reach the ship.",
-	msgNoVoc = "You have not the right vocation to enter this room.",
-	[25014] = {vocation = VOCATION.ID.SORCERER, destination = {x = 32054, y = 31879, z = 6}},
-	[25015] = {vocation = VOCATION.ID.DRUID, destination = {x = 32073, y = 31879, z = 6}},
-	[25016] = {vocation = VOCATION.ID.PALADIN, destination = {x = 32059, y = 31879, z = 6}},
-	[25017] = {vocation = VOCATION.ID.KNIGHT, destination = {x = 32068, y = 31879, z = 6}},
 }
 
 local effects = {
@@ -43,68 +18,74 @@ local effects = {
 	CONST_ME_TUTORIALSQUARE
 }
 
--- Oressa stair, back if have reached level 20 or choose vocation
--- Chest vocation rook back before pass
-local dawnportTileBack = MoveEvent()
+local chestRoomTile = MoveEvent()
 
-function dawnportTileBack.onStepIn(creature, item, position, fromPosition)
+function chestRoomTile.onStepIn(creature, item, position, fromPosition)
+	local player = creature:getPlayer()
+	if not player then
+		return true
+	end
+	
+	local chestRoomExit = chestRooms.exits[item.actionid]
+	
+	if chestRoomExit then
+		if player:getVocation():getId() == chestRoomExit.vocation and player:getStorageValue(Storage.Quest.Dawnport.VocationReward) == 1 then
+			player:teleportTo(chestRoomExit.destination, true)
+			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You should leave for the Mainland now. Go left to reach the ship.")
+		elseif player:getVocation():getId() ~= chestRoomExit.vocation then
+			player:teleportTo(chestRoomExit.destination, true)
+			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have not the right vocation to enter this room.")
+		end
+		return true
+	end
+	
+	local chestRoomEntrance = chestRooms.entrances[item.actionid]
+	
+	if chestRoomEntrance then
+		if player:getStorageValue(Storage.Dawnport.DoorVocation) == player:getVocation():getId() then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have chosen your vocation. You cannot go back.")
+			player:teleportTo(chestRoomEntrance.destination, true)
+			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		end
+		return true
+	end
+	return true
+end
+
+for index, value in pairs(chestRooms.entrances) do
+	chestRoomTile:aid(index)
+end
+
+for index, value in pairs(chestRooms.exits) do
+	chestRoomTile:aid(index)
+end
+
+chestRoomTile:register()
+
+-- Oressa stair, back if have reached level 20 or choose vocation
+local templeStairs = MoveEvent()
+
+function templeStairs.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return true
 	end
 
-	local teleport = chestRoomTile[item.actionid]
-	if teleport then
-		if player:getStorageValue(Storage.Dawnport.DoorVocation) == player:getVocation():getId() then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, teleport.msg)
-			player:teleportTo(teleport.destination, true)
-			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			return true
-		end
-	end
-
-	local stair = oressaStair[item.actionid]
-	if stair then
-		if player:getStorageValue(Storage.Dawnport.DoorVocation) == player:getVocation():getId() then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, stair.msg)
-			player:teleportTo(stair.destination, true)
-			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			return true
-		elseif player:getLevel() == 20 then
-			player:teleportTo(fromPosition, true)
-			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			return true
-		end
-	end
-
-	local vocationTeleport = vocations[item.actionid]
-	if vocationTeleport then
-		if player:getStorageValue(Storage.Dawnport.ChestRoomFinish) < 1 then
-			player:setStorageValue(Storage.Dawnport.ChestRoomFinish, 1)
-			return true
-		end
-
-		if player:getStorageValue(Storage.Dawnport.ChestRoomFinish) == 1 then
-			if player:getVocation():getId() == vocationTeleport.vocation then
-				player:teleportTo(vocationTeleport.destination, true)
-				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, vocations.msgVoc)
-			else
-				player:teleportTo(vocationTeleport.destination, true)
-				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, vocations.msgNoVoc)
-			end
-		end
+	if player:getStorageValue(Storage.Dawnport.DoorVocation) == player:getVocation():getId() then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot go upstairs. You have chosen a vocation and must now leave for the Mainlands.")
+		player:teleportTo({x = 32063, y = 31891, z= 6}, true)
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+	elseif player:getLevel() >= 20 then
+		player:teleportTo(fromPosition, true)
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	end
 	return true
 end
 
-for index, value in pairs(chestRoomTile) do
-	dawnportTileBack:aid(index)
-end
-
-dawnportTileBack:aid(25009)
-dawnportTileBack:register()
+templeStairs:aid(25009)
+templeStairs:register()
 
 -- First tutorial tile, on the first dawnport town
 local tutorialTile = MoveEvent()
