@@ -600,6 +600,7 @@ class LuaScriptInterface
 		static int luaPositionCompare(lua_State* L);
 
 		static int luaPositionGetDistance(lua_State* L);
+		static int luaPositionGetPathTo(lua_State* L);
 		static int luaPositionIsSightClear(lua_State* L);
 
 		static int luaPositionSendMagicEffect(lua_State* L);
@@ -1156,6 +1157,8 @@ class LuaScriptInterface
 		static int luaMonsterRemoveTarget(lua_State* L);
 		static int luaMonsterGetTargetList(lua_State* L);
 		static int luaMonsterGetTargetCount(lua_State* L);
+
+		static int luaMonsterChangeTargetDistance(lua_State* L);
 
 		static int luaMonsterSelectTarget(lua_State* L);
 		static int luaMonsterSearchTarget(lua_State* L);

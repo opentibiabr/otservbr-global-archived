@@ -460,16 +460,9 @@ bool Spell::configureSpell(const pugi::xml_node& node)
 
 	if ((attr = node.attribute("group"))) {
 		std::string tmpStr = asLowerCaseString(attr.as_string());
-		if (tmpStr == "none" || tmpStr == "0") {
-			group = SPELLGROUP_NONE;
-		} else if (tmpStr == "attack" || tmpStr == "1") {
-			group = SPELLGROUP_ATTACK;
-		} else if (tmpStr == "healing" || tmpStr == "2") {
-			group = SPELLGROUP_HEALING;
-		} else if (tmpStr == "support" || tmpStr == "3") {
-			group = SPELLGROUP_SUPPORT;
-		} else if (tmpStr == "special" || tmpStr == "4") {
-			group = SPELLGROUP_SPECIAL;
+		SpellGroup_t spellgroup = stringToSpellGroup(tmpStr);
+		if (spellgroup != SPELLGROUP_NONE) {
+			group = spellgroup;
 		} else {
 			std::cout << "[Warning - Spell::configureSpell] Unknown group: " << attr.as_string() << std::endl;
 		}
@@ -481,16 +474,9 @@ bool Spell::configureSpell(const pugi::xml_node& node)
 
 	if ((attr = node.attribute("secondarygroup"))) {
 		std::string tmpStr = asLowerCaseString(attr.as_string());
-		if (tmpStr == "none" || tmpStr == "0") {
-			secondaryGroup = SPELLGROUP_NONE;
-		} else if (tmpStr == "attack" || tmpStr == "1") {
-			secondaryGroup = SPELLGROUP_ATTACK;
-		} else if (tmpStr == "healing" || tmpStr == "2") {
-			secondaryGroup = SPELLGROUP_HEALING;
-		} else if (tmpStr == "support" || tmpStr == "3") {
-			secondaryGroup = SPELLGROUP_SUPPORT;
-		} else if (tmpStr == "special" || tmpStr == "4") {
-			secondaryGroup = SPELLGROUP_SPECIAL;
+		SpellGroup_t spellgroup = stringToSpellGroup(tmpStr);
+		if (spellgroup != SPELLGROUP_NONE) {
+			secondaryGroup = spellgroup;
 		} else {
 			std::cout << "[Warning - Spell::configureSpell] Unknown secondarygroup: " << attr.as_string() << std::endl;
 		}

@@ -4579,7 +4579,6 @@
 	</item>
 	<item id="2543" article="a" name="bolt">
 		<attribute key="weight" value="80" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="30" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -4589,7 +4588,6 @@
 	</item>
 	<item id="2544" article="an" name="arrow">
 		<attribute key="weight" value="70" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="25" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -4599,7 +4597,6 @@
 	</item>
 	<item id="2545" article="a" name="poison arrow">
 		<attribute key="weight" value="80" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="23" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -4609,7 +4606,6 @@
 	</item>
 	<item id="2546" article="a" name="burst arrow">
 		<attribute key="weight" value="90" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="27" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -4619,7 +4615,6 @@
 	</item>
 	<item id="2547" article="a" name="power bolt">
 		<attribute key="weight" value="80" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="40" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -12039,7 +12034,6 @@
 	</item>
 	<item id="6529" article="an" name="infernal bolt">
 		<attribute key="weight" value="90" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="72" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -13047,7 +13041,6 @@
 	<item fromid="7361" toid="7362" article="a" name="sarcophagus" />
 	<item id="7363" article="a" name="piercing bolt">
 		<attribute key="weight" value="80" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="33" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -13057,7 +13050,6 @@
 	</item>
 	<item id="7364" article="a" name="sniper arrow">
 		<attribute key="weight" value="70" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="28" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -13067,7 +13059,6 @@
 	</item>
 	<item id="7365" article="an" name="onyx arrow">
 		<attribute key="weight" value="70" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="38" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -14009,12 +14000,12 @@
 	<item id="7589" article="a" name="strong mana potion">
 		<attribute key="loottype" value="potion" />
 		<attribute key="weight" value="290" />
-		<attribute key="description" value="This potion can only be consumed by sorcerers, druids and paladins of level 50 or higher." />
+		<attribute key="description" value="This potion can only be consumed by players of level 50 or higher." />
 	</item>
 	<item id="7590" article="a" name="great mana potion">
 		<attribute key="loottype" value="potion" />
 		<attribute key="weight" value="310" />
-		<attribute key="description" value="This potion can only be consumed by sorcerers and druids of level 80 or higher." />
+		<attribute key="description" value="This potion can only be consumed by sorcerers, druids and paladins of level 80 or higher." />
 	</item>
 	<item id="7591" article="a" name="great health potion">
 		<attribute key="loottype" value="potion" />
@@ -15061,7 +15052,6 @@
 	<item fromid="7833" toid="7837" name="dirt" />
 	<item id="7838" article="a" name="flash arrow">
 		<attribute key="weight" value="70" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="14" />
 		<attribute key="elementEnergy" value="14" />
 		<attribute key="weaponType" value="ammunition" />
@@ -15072,7 +15062,6 @@
 	</item>
 	<item id="7839" article="a" name="shiver arrow">
 		<attribute key="weight" value="70" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="14" />
 		<attribute key="elementIce" value="14" />
 		<attribute key="weaponType" value="ammunition" />
@@ -15083,7 +15072,6 @@
 	</item>
 	<item id="7840" article="a" name="flaming arrow">
 		<attribute key="weight" value="70" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="14" />
 		<attribute key="elementFire" value="14" />
 		<attribute key="weaponType" value="ammunition" />
@@ -15133,7 +15121,6 @@
 	</item>
 	<item id="7850" article="an" name="earth arrow">
 		<attribute key="weight" value="70" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="14" />
 		<attribute key="elementEarth" value="14" />
 		<attribute key="weaponType" value="ammunition" />
@@ -25903,7 +25890,6 @@
 	</item>
 	<item id="15648" article="a" name="tarsal arrow">
 		<attribute key="weight" value="70" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="33" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -25913,7 +25899,6 @@
 	</item>
 	<item id="15649" article="a" name="vortex bolt">
 		<attribute key="weight" value="80" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="36" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -26677,7 +26662,6 @@
 	<item fromid="18301" toid="18302" name="icy bones" />
 	<item id="18303" article="a" name="crystal bolt">
 		<attribute key="weight" value="80" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="36" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -26687,7 +26671,6 @@
 	</item>
 	<item id="18304" article="a" name="crystalline arrow">
 		<attribute key="weight" value="75" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="65" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -27156,7 +27139,6 @@
 	</item>
 	<item id="18435" article="a" name="prismatic bolt">
 		<attribute key="weight" value="85" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="66" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -27166,7 +27148,6 @@
 	</item>
 	<item id="18436" article="a" name="drill bolt">
 		<attribute key="weight" value="80" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="56" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -27176,7 +27157,6 @@
 	</item>
 	<item id="18437" article="an" name="envenomed arrow">
 		<attribute key="weight" value="70" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="27" />
 		<attribute key="elementEarth" value="27" />
 		<attribute key="weaponType" value="ammunition" />
@@ -34256,7 +34236,6 @@
 	</item>
 	<item id="23839" article="a" name="simple arrow" plural="simple arrows">
 		<attribute key="weight" value="60" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="20" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="loottype" value="ammo" />
@@ -39526,7 +39505,6 @@
 	<item id="29056" article="an" name="energized tile" />
 	<item id="29057" article="a" name="diamond arrow">
 		<attribute key="weight" value="80" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="37" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="3600" />
@@ -39540,7 +39518,6 @@
 	</item>
 	<item id="29058" article="a" name="spectral bolt">
 		<attribute key="weight" value="90" />
-		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="78" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="3600" />
@@ -39569,7 +39546,7 @@
 		<attribute key="loottype" value="wand" />
 		<attribute key="range" value="4" />
 		<attribute key="skillcriticalchance" value="10" />
-		<attribute key="skillcriticaldamage" value="50" />
+		<attribute key="skillcriticaldamage" value="35" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="magiclevelpoints" value="2" />
 		<attribute key="duration" value="900" />
@@ -51724,5 +51701,52 @@
 	</item>
 	<item id="39932" article="a" name="dead werehyaena">
 		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="40359" article="a" name="jungle quiver">
+		<attribute key="weight" value="1800" />
+		<attribute key="containerSize" value="8" />
+		<attribute key="weaponType" value="quiver" />
+		<attribute key="slotType" value="right-hand" />
+	</item>
+	<item id="40397" article="a" name="quiver">
+		<attribute key="weight" value="1700" />
+		<attribute key="containerSize" value="6" />
+		<attribute key="weaponType" value="quiver" />
+		<attribute key="slotType" value="right-hand" />
+	</item>
+	<item id="40398" article="a" name="magic shield potion">
+		<attribute key="loottype" value="potion" />
+		<attribute key="weight" value="320" />
+		<attribute key="description" value="This potion can only be consumed by druids and sorcerers of level 14 or higher." />
+	</item>
+	<item id="40683" article="a" name="blue quiver">
+		<attribute key="weight" value="1700" />
+		<attribute key="containerSize" value="6" />
+		<attribute key="weaponType" value="quiver" />
+		<attribute key="slotType" value="right-hand" />
+	</item>
+	<item id="40684" article="a" name="red quiver">
+		<attribute key="weight" value="1700" />
+		<attribute key="containerSize" value="6" />
+		<attribute key="weaponType" value="quiver" />
+		<attribute key="slotType" value="right-hand" />
+	</item>
+	<item id="40736" article="a" name="diamond arrow">
+		<attribute key="weight" value="80" />
+		<attribute key="attack" value="37" />
+		<attribute key="weaponType" value="ammunition" />
+		<attribute key="loottype" value="ammo" />
+		<attribute key="ammoType" value="arrow" />
+		<attribute key="shootType" value="diamondarrow" />
+		<attribute key="maxHitChance" value="100" />
+	</item>
+	<item id="40737" article="a" name="spectral bolt">
+		<attribute key="weight" value="90" />
+		<attribute key="attack" value="78" />
+		<attribute key="weaponType" value="ammunition" />
+		<attribute key="loottype" value="ammo" />
+		<attribute key="ammoType" value="bolt" />
+		<attribute key="shootType" value="spectralbolt" />
+		<attribute key="maxHitChance" value="100" />
 	</item>
 </items>

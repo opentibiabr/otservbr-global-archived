@@ -430,6 +430,9 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		local itemType, moveItem = ItemType(item:getId())
 		if bit.band(itemType:getSlotPosition(), SLOTP_TWO_HAND) ~= 0 and toPosition.y == CONST_SLOT_LEFT then
 			moveItem = self:getSlotItem(CONST_SLOT_RIGHT)
+			if moveItem and itemType:getWeaponType() == WEAPON_DISTANCE and ItemType(moveItem:getId()):getWeaponType() == WEAPON_QUIVER then
+				return true
+			end
 		elseif itemType:getWeaponType() == WEAPON_SHIELD and toPosition.y == CONST_SLOT_RIGHT then
 			moveItem = self:getSlotItem(CONST_SLOT_LEFT)
 			if moveItem and bit.band(ItemType(moveItem:getId()):getSlotPosition(), SLOTP_TWO_HAND) == 0 then
@@ -938,6 +941,14 @@ end
 function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDamage, secondaryType)
 	if not item or not target then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
+	end
+	
+	if ItemType(item:getId()):getWeaponType() == WEAPON_AMMO then
+		if isInArray({ITEM_OLD_DIAMOND_ARROW, ITEM_DIAMOND_ARROW}, item:getId()) then
+			return primaryDamage, primaryType, secondaryDamage, secondaryType
+		else
+			item = self:getSlotItem(CONST_SLOT_LEFT)
+		end
 	end
 
 	local slots = ItemType(item:getId()):getImbuingSlots()

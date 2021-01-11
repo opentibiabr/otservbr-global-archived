@@ -26,6 +26,13 @@ local exhaust = Condition(CONDITION_EXHAUST_HEAL)
 exhaust:setParameter(CONDITION_PARAM_TICKS, (configManager.getNumber(configKeys.EX_ACTIONS_DELAY_INTERVAL) - 1000))
 -- 1000 - 100 due to exact condition timing. -100 doesn't hurt us, and players don't have reminding ~50ms exhaustion.
 
+local function magicshield(player)
+local condition = Condition(CONDITION_MANASHIELD)
+condition:setParameter(CONDITION_PARAM_TICKS, 60000)
+condition:setParameter(CONDITION_PARAM_MANASHIELD, math.min(player:getMaxMana(), 300 + 7.6 * player:getLevel() + 7 * player:getMagicLevel()))
+player:addCondition(condition)
+end
+
 local potions = {
 	[6558] = {
 		transform = {
@@ -61,6 +68,16 @@ local potions = {
 		description = "Only paladins may drink this potion.",
 		text = "You feel more accurate."
 	},
+	[40398] = {
+		vocations = {
+			VOCATION.CLIENT_ID.SORCERER,
+			VOCATION.CLIENT_ID.DRUID
+		},
+		level = 14,
+		func = magicshield,
+		effect = CONST_ME_ENERGYAREA,
+		description = "Only sorcerers and druids of level 14 or above may drink this potion.",
+	},
 	[7588] = {
 		health = {
 			250,
@@ -79,14 +96,9 @@ local potions = {
 			115,
 			185
 		},
-		vocations = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID,
-			VOCATION.CLIENT_ID.PALADIN
-		},
 		level = 50,
 		flask = 7634,
-		description = "Only sorcerers, druids and paladins of level 50 or above may drink this fluid."
+		description = "Only players of level 50 or above may drink this fluid."
 	},
 	[7590] = {
 		mana = {
@@ -95,11 +107,12 @@ local potions = {
 		},
 		vocations = {
 			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.CLIENT_ID.DRUID,
+			VOCATION.CLIENT_ID.PALADIN
 		},
 		level = 80,
 		flask = 7635,
-		description = "Only druids and sorcerers of level 80 or above may drink this fluid."
+		description = "Only sorcerers, druids and paladins of level 80 or above may drink this fluid."
 	},
 	[7591] = {
 		health = {
@@ -255,6 +268,14 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 
 	-- Delay potion
 	playerDelayPotion[player:getId()] = os.mtime() + 500
+	
+	if potion.func then
+		potion.func(player)
+		if potion.text then
+			player:say(potion.text, TALKTYPE_MONSTER_SAY)
+		end
+		player:getPosition():sendMagicEffect(potion.effect)
+	end
 
 	if potion.condition then
 		player:addCondition(potion.condition)

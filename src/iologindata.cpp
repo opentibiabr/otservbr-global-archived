@@ -451,6 +451,9 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
     player->skills[i].percent = Player::getPercentLevel(skillTries, nextSkillTries);
   }
 
+  player->setManaShield(result->getNumber<uint16_t>("manashield"));
+  player->setMaxManaShield(result->getNumber<uint16_t>("max_manashield"));
+
   std::ostringstream query;
   query << "SELECT `guild_id`, `rank_id`, `nick` FROM `guild_membership` WHERE `player_id` = " << player->getGUID();
   if ((result = db.storeQuery(query.str()))) {
@@ -984,6 +987,8 @@ bool IOLoginData::savePlayer(Player* player)
   query << "`skill_mana_leech_chance_tries` = " << player->skills[SKILL_MANA_LEECH_CHANCE].tries << ',';
   query << "`skill_mana_leech_amount` = " << player->skills[SKILL_MANA_LEECH_AMOUNT].level << ',';
   query << "`skill_mana_leech_amount_tries` = " << player->skills[SKILL_MANA_LEECH_AMOUNT].tries << ',';
+  query << "`manashield` = " << player->getManaShield() << ',';
+  query << "`max_manashield` = " << player->getMaxManaShield() << ',';
   query << "`xpboost_value` = " << player->getStoreXpBoost() << ',';
   query << "`xpboost_stamina` = " << player->getExpBoostStamina() << ',';
   query << "`bonus_rerolls` = " << player->getPreyBonusRerolls() << ',';

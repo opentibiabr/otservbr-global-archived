@@ -241,6 +241,34 @@ class Creature : virtual public Thing
 			return mana;
 		}
 
+    uint16_t getManaShield() const {
+      return manaShield;
+    }
+
+    void setManaShield(uint16_t value) {
+      manaShield = value;
+    }
+
+    uint16_t getMaxManaShield() const {
+      return maxManaShield;
+    }
+
+    void setMaxManaShield(uint16_t value) {
+      maxManaShield = value;
+    }
+
+    int32_t getBuff(int32_t buff) {
+      return varBuffs[buff];
+    }
+
+    void setBuff(buffs_t buff, int32_t modifier) {
+      varBuffs[buff] += modifier;
+    }
+
+		virtual CreatureIcon_t getIcon() const {
+			return CREATUREICON_NONE;
+		}
+
 		const Outfit_t getCurrentOutfit() const {
 			return currentOutfit;
 		}
@@ -536,6 +564,10 @@ class Creature : virtual public Thing
 		int32_t varSpeed = 0;
 		int32_t health = 1000;
 		int32_t healthMax = 1000;
+
+		uint16_t manaShield = 0;
+		uint16_t maxManaShield = 0;
+		int32_t varBuffs[BUFF_LAST + 1] = { 100, 100 };
 
 		Outfit_t currentOutfit;
 		Outfit_t defaultOutfit;
