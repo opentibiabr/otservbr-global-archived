@@ -221,31 +221,38 @@ bool Game::loadScheduleEventFromXml()
 			}	
 		}
 
-			for (auto schedENode : schedNode.children()) {
-				if ((schedENode.attribute("exprate"))) {
-					uint16_t exprate = pugi::cast<uint16_t>(schedENode.attribute("exprate").value());
-					g_game.setExpSchedule(exprate);
-					ss << " exp: " << (exprate - 100) << "%";
-				}
-
-				if ((schedENode.attribute("lootrate"))) {
-					uint16_t lootrate = pugi::cast<uint16_t>(schedENode.attribute("lootrate").value());
-					g_game.setLootSchedule(lootrate);
-					ss << ", loot: " << (lootrate - 100) << "%";
-				}
-
-				if ((schedENode.attribute("spawnrate"))) {
-					uint32_t spawnrate = pugi::cast<uint32_t>(schedENode.attribute("spawnrate").value());
-					g_game.setSpawnSchedule(spawnrate);
-					ss << ", spawn: "  << (spawnrate - 100) << "%";
-				}
-
-				if ((schedENode.attribute("skillrate"))) {
-					uint16_t skillrate = pugi::cast<uint16_t>(schedENode.attribute("skillrate").value());
-					g_game.setSkillSchedule(skillrate);
-					ss << ", skill: " << (skillrate - 100) << "%";
-				}
+		if ((attr = schedNode.attribute("script"))) {
+			if (!(g_scripts->loadEventSchedulerScripts(attr.as_string()))) {
+				std::cout << "[Warning - Game::loadScheduleEventFromXml] Can not load the file '" << attr.as_string() << "' on '/events/scripts/scheduler/'." << std::endl;
+				return false;
 			}
+		}
+
+		for (auto schedENode : schedNode.children()) {
+			if ((schedENode.attribute("exprate"))) {
+				uint16_t exprate = pugi::cast<uint16_t>(schedENode.attribute("exprate").value());
+				g_game.setExpSchedule(exprate);
+				ss << " exp: " << (exprate - 100) << "%";
+			}
+
+			if ((schedENode.attribute("lootrate"))) {
+				uint16_t lootrate = pugi::cast<uint16_t>(schedENode.attribute("lootrate").value());
+				g_game.setLootSchedule(lootrate);
+				ss << ", loot: " << (lootrate - 100) << "%";
+			}
+
+			if ((schedENode.attribute("spawnrate"))) {
+				uint32_t spawnrate = pugi::cast<uint32_t>(schedENode.attribute("spawnrate").value());
+				g_game.setSpawnSchedule(spawnrate);
+				ss << ", spawn: "  << (spawnrate - 100) << "%";
+			}
+
+			if ((schedENode.attribute("skillrate"))) {
+				uint16_t skillrate = pugi::cast<uint16_t>(schedENode.attribute("skillrate").value());
+				g_game.setSkillSchedule(skillrate);
+				ss << ", skill: " << (skillrate - 100) << "%";
+			}
+		}
 		std::cout << ss.str() << "." << std::endl;
 	}
 	return true;

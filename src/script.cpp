@@ -37,6 +37,32 @@ Scripts::~Scripts()
 	scriptInterface.reInitState();
 }
 
+bool Scripts::loadEventSchedulerScripts(const std::string& fileName)
+{
+	namespace fs = boost::filesystem;
+
+	const auto dir = fs::current_path() / "data" / "events" / "scripts" / "scheduler";
+	if(!fs::exists(dir) || !fs::is_directory(dir)) {
+		std::cout << "[Warning - Scripts::loadEventSchedulerScripts] Can not load folder 'scheduler' on '/data/events/scripts'." << std::endl;
+		return false;
+	}
+
+	fs::recursive_directory_iterator endit;
+	for(fs::recursive_directory_iterator it(dir); it != endit; ++it) {
+		if(fs::is_regular_file(*it) && it->path().extension() == ".lua") {
+			if (it->path().filename().string() == fileName) {
+				if(scriptInterface.loadFile(it->path().string()) == -1) {
+					std::cout << "> " << it->path().string() << " [error]" << std::endl;
+					std::cout << "^ " << scriptInterface.getLastLuaError() << std::endl;
+					continue;
+				}
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 bool Scripts::loadScripts(std::string folderName, bool isLib, bool reload)
 {
 	namespace fs = boost::filesystem;

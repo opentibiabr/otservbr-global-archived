@@ -239,15 +239,15 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		return;
 	}
 
-	std::cout << ">> Loading event scheduler" << std::endl;
-	if (!g_game.loadScheduleEventFromXml()) {
-		startupErrorMessage("Unable to load event schedule!");
-	}
-
 	std::cout << ">> Loading script systems" << std::endl;
 	if (!ScriptingManager::getInstance().loadScriptSystems()) {
 		startupErrorMessage("Failed to load script systems");
 		return;
+	}
+
+	std::cout << ">> Loading event scheduler" << std::endl;
+	if (!g_game.loadScheduleEventFromXml()) {
+		startupErrorMessage("Unable to load event schedule!");
 	}
 
 	std::cout << ">> Loading lua scripts" << std::endl;
