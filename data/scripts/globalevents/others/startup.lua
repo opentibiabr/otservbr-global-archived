@@ -69,6 +69,10 @@ function serverstartup.onStartup()
 	-- reset storages and allow purchase of boost in the store
 	db.query('UPDATE `player_storage` SET `value` = 0 WHERE `player_storage`.`key` = 51052')
 
+	-- reset familiars message storage
+	db.query('DELETE FROM `player_storage` WHERE `key` = '..Storage.PetSummonEvent10)
+	db.query('DELETE FROM `player_storage` WHERE `key` = '..Storage.PetSummonEvent60)
+
 	-- delete canceled and rejected guilds
 	db.asyncQuery('DELETE FROM `guild_wars` WHERE `status` = 2')
 	db.asyncQuery('DELETE FROM `guild_wars` WHERE `status` = 3')

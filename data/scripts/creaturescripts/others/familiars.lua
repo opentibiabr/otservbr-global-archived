@@ -6,8 +6,8 @@ local familiar = {
 }
 
 local timer = {
-	[1] = {countdown=10, message = "10 seconds"},
-	[2] = {countdown=60, message = "one minute"}
+	[1] = {storage=Storage.PetSummonEvent10, countdown=10, message = "10 seconds"},
+	[2] = {storage=Storage.PetSummonEvent60, countdown=60, message = "one minute"}
 }
 
 local function sendMessageFunction(pid, message)
@@ -16,12 +16,16 @@ local function sendMessageFunction(pid, message)
 	end
 end
 
-function removePet(creatureId)
-    local creature = Creature(creatureId)
-    if not creature then
-        return true
-    end
-    creature:remove()
+local function removePet(creatureId, playerId)
+	local creature = Creature(creatureId)
+	local player = Player(playerId)
+	if not creature or not player then
+		return true
+	end
+	creature:remove()
+	for sendMessage = 1, #timer do
+		player:setStorageValue(timer[sendMessage].storage, -1)
+	end
 end
 
 local familiarStorage = Storage.PetSummon
@@ -54,16 +58,17 @@ function familiarLogin.onLogin(player)
 		local familiarMonster = Game.createMonster(familiarName, position, true, false)
 		player:addSummon(familiarMonster)
 		familiarMonster:setOutfit({lookType = player:getFamiliarLooktype()})
-		familiarMonster:reload()
+		--familiarMonster:reload()
 		local deltaSpeed = math.max(player:getSpeed() - familiarMonster:getSpeed(), 0)
 		familiarMonster:changeSpeed(deltaSpeed)
 		player:setStorageValue(familiarStorage, os.time() + petTimeLeft)
 		familiarMonster:registerEvent("FamiliarDeath")
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
-		addEvent(removePet, petTimeLeft*1000, familiarMonster:getId())
+		addEvent(removePet, petTimeLeft*1000, familiarMonster:getId(), player:getId())
 		for sendMessage = 1, #timer do
-			storage = 'Storage.PetSummonEvent'..timer[sendMessage].countdown
-			setPlayerStorageValue(player, storage, addEvent(sendMessageFunction, (petTimeLeft-timer[sendMessage].countdown)*1000, player:getId(),timer[sendMessage].message))
+			if player:getStorageValue(timer[sendMessage].storage) == -1 and petTimeLeft >= timer[sendMessage].countdown then
+				player:setStorageValue(timer[sendMessage].storage, addEvent(sendMessageFunction, (petTimeLeft-timer[sendMessage].countdown)*1000, player:getId(), timer[sendMessage].message))
+			end
 		end
 	end
 	return true
@@ -101,8 +106,8 @@ function familiarDeath.onDeath(creature, corpse, lasthitkiller, mostdamagekiller
 	if table.contains(vocation, creature:getName()) then
 		player:setStorageValue(familiarStorage, os.time())
 		for sendMessage = 1, #timer do
-			storage = 'Storage.PetSummonEvent'..timer[sendMessage].countdown
-			stopEvent(getPlayerStorageValue(player, storage))
+			stopEvent(player:getStorageValue(timer[sendMessage].storage))
+			player:setStorageValue(timer[sendMessage].storage, -1)
 		end
 	end
 	return true
