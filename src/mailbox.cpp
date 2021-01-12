@@ -101,22 +101,22 @@ bool Mailbox::sendItem(Item* item) const
 	}
 
 	Player* player = g_game.getPlayerByName(receiver);
+	std::string writer;
+	time_t date = time(0);
+	std::string text;
+	if (item && item->getID() == ITEM_LETTER && item->getWriter() != "") {
+		writer = item->getWriter();
+		date = item->getDate();
+		text = item->getText();
+	}
 	if (player) {
 		if (g_game.internalMoveItem(item->getParent(), player->getInbox(), INDEX_WHEREEVER,
 		                            item, item->getItemCount(), nullptr, FLAG_NOLIMIT) == RETURNVALUE_NOERROR) {
-			std::string writer;
-			time_t date;
-			std::string text;
-			if (item && item->getID() == ITEM_LETTER && item->getWriter() != "") {
-				writer = item->getWriter();
-				date = item->getDate();
-				text = item->getText();
-			}
-			g_game.transformItem(item, item->getID() + 1);
-			if (item && item->getID() == ITEM_LETTER_STAMPED && writer != "") {
-				item->setWriter(writer);
-				item->setDate(date);
-				item->setText(text);
+			Item* newItem = g_game.transformItem(item, item->getID() + 1);
+			if (newItem && newItem->getID() == ITEM_LETTER_STAMPED && writer != "") {
+				newItem->setWriter(writer);
+				newItem->setDate(date);
+				newItem->setText(text);
 			}
 			player->onReceiveMail();
 			return true;
@@ -129,7 +129,12 @@ bool Mailbox::sendItem(Item* item) const
 
 		if (g_game.internalMoveItem(item->getParent(), tmpPlayer.getInbox(), INDEX_WHEREEVER,
 		                            item, item->getItemCount(), nullptr, FLAG_NOLIMIT) == RETURNVALUE_NOERROR) {
-			g_game.transformItem(item, item->getID() + 1);
+			Item* newItem = g_game.transformItem(item, item->getID() + 1);
+			if (newItem && newItem->getID() == ITEM_LETTER_STAMPED && writer != "") {
+				newItem->setWriter(writer);
+				newItem->setDate(date);
+				newItem->setText(text);
+			}
 			IOLoginData::savePlayer(&tmpPlayer);
 			return true;
 		}
