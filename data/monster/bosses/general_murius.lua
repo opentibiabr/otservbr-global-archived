@@ -18,7 +18,7 @@ monster.maxHealth = 550
 monster.race = "blood"
 monster.corpse = 23462
 monster.speed = 250
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 4
 
 monster.changeTarget = {
@@ -83,7 +83,7 @@ monster.loot = {
 	{id = "meat", chance = 30770},
 	{id = "battle shield", chance = 23080},
 	{id = "chain legs", chance = 23080},
-	{id = "minotaur trophy", chance = 23080},
+	{id = 7401, chance = 23080},-- minotaur trophy
 	{id = "power bolt", chance = 23080, maxCount = 7},
 	{id = "fishing rod", chance = 7690},
 	{id = "strong health potion", chance = 7690}

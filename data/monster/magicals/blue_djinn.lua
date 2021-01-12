@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Kha'zeel, Magician Quarter, Forgotten Tomb."
-		}
+	}
 
 monster.health = 330
 monster.maxHealth = 330
 monster.race = "blood"
 monster.corpse = 6020
 monster.speed = 220
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

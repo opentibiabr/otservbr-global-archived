@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Edron Orc Cave."
-		}
+	}
 
 monster.health = 1500
 monster.maxHealth = 1500
 monster.race = "blood"
 monster.corpse = 5980
 monster.speed = 125
-monster.summonCost = 590
+monster.manaCost = 590
 monster.maxSummons = 0
 
 monster.changeTarget = {

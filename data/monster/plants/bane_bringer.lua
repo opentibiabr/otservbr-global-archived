@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 3,
 	Locations = "Green Claw Swamp underground, near the big witches' cauldron."
-		}
+	}
 
 monster.health = 2500
 monster.maxHealth = 2500
 monster.race = "venom"
 monster.corpse = 9867
 monster.speed = 230
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

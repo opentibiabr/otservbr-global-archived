@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "In and north of Formorgar Glacier, Nibelor, Helheim, Grimlund, south of Svargrond, Chyllfroest."
-		}
+	}
 
 monster.health = 33
 monster.maxHealth = 33
 monster.race = "blood"
 monster.corpse = 7334
 monster.speed = 116
-monster.summonCost = 300
+monster.manaCost = 300
 monster.maxSummons = 0
 
 monster.changeTarget = {

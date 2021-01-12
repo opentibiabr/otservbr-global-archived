@@ -854,6 +854,40 @@ SignTable = {
 		itemId = 1441,
 		itemPos = {x = 32062, y = 31894, z = 3},
 		text = "Southern Trade Room"
+	},
+	[10] = {
+		itemId = 1409,
+		itemPos = {x = 32566, y = 31964, z = 1},
+		text = [[
+No treasures here you fools!
+Leave the grave of my master alone or feel my wrath!
+		]]
+	},
+	[11] = {
+		itemId = 1406,
+		itemPos = {x = 32566, y = 31963, z = 1},
+		text = [[
+In memory of my beloved master.
+One day you will see from your place in heaven that I was right. I AM NOT MAD!
+And it was not my fault! 
+It's your own fault that you are dead now. 
+Not mine!
+		]]
+	},
+	[12] = {
+		itemId = 1429,
+		itemPos = {x = 32477, y = 31904, z = 4},
+		text = "Room of Sacrifice"
+	},
+	[13] = {
+		itemId = 1444,
+		itemPos = {x = 32476, y = 31900, z = 3},
+		text = "Cedric, the white knight"
+	},
+	[14] = {
+		itemId = 1444,
+		itemPos = {x = 32481, y = 31900, z = 3},
+		text = "Tristan, the black knight"
 	}
 }
 

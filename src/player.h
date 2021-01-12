@@ -198,11 +198,11 @@ class Player final : public Creature, public Cylinder
 				client->BestiarysendCharms();
 			}
 		}
-		void addBestiaryKillCount(uint16_t raceid)
+		void addBestiaryKillCount(uint16_t raceid, uint32_t amount)
 		{
 			uint32_t oldCount = getBestiaryKillCount(raceid);
 			uint32_t key = STORAGEVALUE_BESTIARYKILLCOUNT + raceid;
-			addStorageValue(key, static_cast<int32_t>(oldCount + 1));
+			addStorageValue(key, static_cast<int32_t>(oldCount + amount));
 		}
 		uint32_t getBestiaryKillCount(uint16_t raceid) const
 		{
@@ -220,6 +220,10 @@ class Player final : public Creature, public Cylinder
 		}
 		bool canSeeInvisibility() const override {
 			return hasFlag(PlayerFlag_CanSenseInvisibility) || group->access;
+		}
+
+		void setDailyReward(uint8_t reward) {
+			this->isDailyReward = reward;
 		}
 
 		void removeList() override;
@@ -365,7 +369,7 @@ class Player final : public Creature, public Cylinder
 			return inbox;
 		}
 
-		uint16_t getClientIcons() const;
+		uint32_t getClientIcons() const;
 
 		const GuildWarVector& getGuildWarVector() const {
 		return guildWarVector;
@@ -732,6 +736,10 @@ class Player final : public Creature, public Cylinder
 			return shopOwner;
 		}
 
+		Npc* getOnlyShopOwner() {
+			return shopOwner;
+		}
+
 		//V.I.P. functions
 		void notifyStatusChange(Player* player, VipStatus_t status, bool message = true);
 		bool removeVIP(uint32_t vipGuid);
@@ -995,6 +1003,11 @@ class Player final : public Creature, public Cylinder
 		void sendCreatureLight(const Creature* creature) {
 			if (client) {
 				client->sendCreatureLight(creature);
+			}
+		}
+    void sendCreatureIcon(const Creature* creature) {
+			if (client) {
+				client->sendCreatureIcon(creature);
 			}
 		}
 		void sendCreatureWalkthrough(const Creature* creature, bool walkthrough) {
@@ -1797,7 +1810,7 @@ class Player final : public Creature, public Cylinder
 
 		void setNextWalkActionTask(SchedulerTask* task);
 		void setNextWalkTask(SchedulerTask* task);
-		void setNextActionTask(SchedulerTask* task);
+		void setNextActionTask(SchedulerTask* task, bool resetIdleTime = true);
 		void setNextActionPushTask(SchedulerTask* task);
 		void setNextPotionActionTask(SchedulerTask* task);
 
@@ -1931,6 +1944,7 @@ class Player final : public Creature, public Cylinder
 		uint32_t lastIP = 0;
 		uint32_t accountNumber = 0;
 		uint32_t guid = 0;
+		uint8_t isDailyReward = DAILY_REWARD_NOTCOLLECTED;
 		uint32_t windowTextId = 0;
 		uint32_t editListId = 0;
 		uint32_t manaMax = 0;

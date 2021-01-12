@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Nargor Undead Cave, Goroma, Treasure Island, Drefia, The Cave, Chyllfroest."
-		}
+	}
 
 monster.health = 190
 monster.maxHealth = 190
 monster.race = "undead"
 monster.corpse = 6070
 monster.speed = 176
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

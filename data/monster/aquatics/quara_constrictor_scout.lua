@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Malada, Arena Quarter, Treasure Island Eastern Caves, \z
 		Hrodmir Quara Scout Caves, Quara Grotto, Oramond."
-		}
+	}
 
 monster.health = 450
 monster.maxHealth = 450
 monster.race = "blood"
 monster.corpse = 6065
 monster.speed = 150
-monster.summonCost = 670
+monster.manaCost = 670
 monster.maxSummons = 0
 
 monster.changeTarget = {

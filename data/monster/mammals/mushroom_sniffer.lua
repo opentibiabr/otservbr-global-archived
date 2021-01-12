@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 0,
 	Occurrence = 0,
 	Locations = "Truffels Garden."
-		}
+	}
 
 monster.health = 250
 monster.maxHealth = 250
 monster.race = "blood"
 monster.corpse = 2935
 monster.speed = 110
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

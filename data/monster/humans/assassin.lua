@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Dark Cathedral, Trade Quarter, Factory Quarter, Foreigner Quarter."
-		}
+	}
 
 monster.health = 175
 monster.maxHealth = 175
 monster.race = "blood"
 monster.corpse = 20327
 monster.speed = 224
-monster.summonCost = 450
+monster.manaCost = 450
 monster.maxSummons = 0
 
 monster.changeTarget = {

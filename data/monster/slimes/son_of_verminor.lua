@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Deep in the Pits of Inferno, in Verminor's throne room. Also in the Demon Forge (The Vats and The Hive)."
-		}
+	}
 
 monster.health = 8500
 monster.maxHealth = 8500
 monster.race = "venom"
 monster.corpse = 1490
 monster.speed = 240
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

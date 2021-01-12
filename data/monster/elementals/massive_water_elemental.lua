@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Calassa, Frozen Trench, Water Elemental Dungeon through the water channels, \z
 		before Zugurosh in The Inquisition Quest."
-		}
+	}
 
 monster.health = 1250
 monster.maxHealth = 1250
 monster.race = "undead"
 monster.corpse = 10499
 monster.speed = 430
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

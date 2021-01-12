@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Barren Drift."
-		}
+	}
 
 monster.health = 8500
 monster.maxHealth = 8500
 monster.race = "undead"
 monster.corpse = 37445
 monster.speed = 220
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

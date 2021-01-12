@@ -1,6 +1,15 @@
 if not equipmentsTable then
-
 	equipmentsTable = {
+		{
+			itemid = 40737,
+			type = "equip",
+			slot = "ammo"
+		}, -- spectral bolt (no decay)
+		{
+			itemid = 40737,
+			type = "deequip",
+			slot = "ammo"
+		}, -- spectral bolt (no decay)
 		{
 			itemid = 40358,
 			type = "equip",
@@ -13740,7 +13749,13 @@ if not equipmentsTable then
 		{
 			itemid = 2204,
 			type = "equip",
-			slot = "ring"
+			slot = "ring",
+			vocation = {
+				{"Knight", true},
+				{"Paladin", true, true},
+				{"Elite Knight"},
+				{"Royal Paladin"}
+			}
 		}, -- energy ring
 		{
 			itemid = 2204,
@@ -14086,7 +14101,13 @@ if not equipmentsTable then
 		{
 			itemid = 2167,
 			type = "equip",
-			slot = "ring"
+			slot = "ring",
+			vocation = {
+				{"Knight", true},
+				{"Paladin", true, true},
+				{"Elite Knight"},
+				{"Royal Paladin"}
+			}
 		}, -- energy ring
 		{
 			itemid = 2167,
@@ -14664,7 +14685,87 @@ if not equipmentsTable then
 			itemid = 1294,
 			type = "deequip",
 			slot = "hand"
-		} -- small stone
+		}, -- small stone
+		{
+			itemid = 40359,
+			type = "equip",
+			slot = "right-hand",
+			level = 150,			
+			vocation = {
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- jungle quiver
+		{
+			itemid = 40359,
+			type = "deequip",
+			slot = "right-hand",
+			level = 150,
+			vocation = {
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- jungle quiver
+		{
+			itemid = 40397,
+			type = "equip",
+			slot = "right-hand",
+			vocation = {
+				{"None", true},
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- quiver
+		{
+			itemid = 40397,
+			type = "deequip",
+			slot = "right-hand",
+			vocation = {
+				{"None", true},
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- quiver
+		{
+			itemid = 40683,
+			type = "equip",
+			slot = "right-hand",
+			vocation = {
+				{"None", true},
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- blue quiver
+		{
+			itemid = 40683,
+			type = "deequip",
+			slot = "right-hand",
+			vocation = {
+				{"None", true},
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- blue quiver
+		{
+			itemid = 40684,
+			type = "equip",
+			slot = "right-hand",
+			vocation = {
+				{"None", true},
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- red quiver
+		{
+			itemid = 40684,
+			type = "deequip",
+			slot = "right-hand",
+			vocation = {
+				{"None", true},
+				{"Paladin", true, true},
+				{"Royal Paladin"}
+			}
+		}, -- red quiver
 	}
 end
 

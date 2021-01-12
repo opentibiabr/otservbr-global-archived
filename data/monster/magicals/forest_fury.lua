@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Forest Fury Camp and in the Forest Fury version of the Forsaken Mine."
-		}
+	}
 
 monster.health = 480
 monster.maxHealth = 480
 monster.race = "blood"
 monster.corpse = 21359
 monster.speed = 220
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

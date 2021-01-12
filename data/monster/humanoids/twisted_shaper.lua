@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Astral Shaper Dungeon, Old Masonry, small dungeon under the Formorgar Mines."
-		}
+	}
 
 monster.health = 2500
 monster.maxHealth = 2500
 monster.race = "blood"
 monster.corpse = 27736
 monster.speed = 280
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
