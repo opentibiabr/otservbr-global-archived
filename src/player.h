@@ -880,6 +880,9 @@ class Player final : public Creature, public Cylinder
 		void addFamiliar(uint16_t lookType);
 		bool removeFamiliar(uint16_t lookType);
 		bool getFamiliar(const Familiar& familiar) const;
+		void setFamiliarLooktype(uint16_t familiarLooktype) {
+			this->defaultOutfit.lookFamiliarsType = familiarLooktype;
+		}
 
 		bool canLogout();
 

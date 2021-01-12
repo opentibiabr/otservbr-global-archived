@@ -39,6 +39,15 @@ enum AccountType : uint8_t {
   ACCOUNT_TYPE_GOD = 5
 };
 
+enum GroupType : uint8_t {
+  GROUP_TYPE_NORMAL = 1,
+  GROUP_TYPE_TUTOR = 2,
+  GROUP_TYPE_SENIORTUTOR = 3,
+  GROUP_TYPE_GAMEMASTER = 4,
+  GROUP_TYPE_COMMUNITYMANAGER = 5,
+  GROUP_TYPE_GOD = 6
+};
+
 enum CoinTransactionType : uint8_t {
   COIN_ADD = 1,
   COIN_REMOVE = 2
