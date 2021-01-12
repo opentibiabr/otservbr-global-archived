@@ -1,5 +1,12 @@
 local weapons = {
 	{
+		itemId = 40737,
+		type = WEAPON_AMMO,
+		level = 150,
+		unproperly = true,
+		action = "removecount"
+	}, -- spectral bolt (no decay)
+	{
 		itemId = 38990,
 		type = WEAPON_SWORD,
 		level = 270,
@@ -1077,13 +1084,6 @@ local weapons = {
 		unproperly = true,
 		action = "removecount"
 	}, -- spectral bolt
-	{
-		itemId = 40737,
-		type = WEAPON_AMMO,
-		level = 150,
-		unproperly = true,
-		action = "removecount"
-	}, -- spectral bolt (no decay)
 	{
 		itemId = 29036,
 		type = WEAPON_DISTANCE,
