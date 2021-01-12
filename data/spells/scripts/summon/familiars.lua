@@ -69,10 +69,10 @@ function onCastSpell(player, variant)
 	myFamiliar:changeSpeed(deltaSpeed)
 	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	myFamiliar:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-	player:setStorageValue(Storage.PetSummon, os.time() + 2*60) -- 15 minutes from now
-	addEvent(removePet, 2*60*1000, myFamiliar:getId(), player:getId())
+	player:setStorageValue(Storage.PetSummon, os.time() + 15*60) -- 15 minutes from now
+	addEvent(removePet, 15*60*1000, myFamiliar:getId(), player:getId())
 	for sendMessage = 1, #timer do
-		player:setStorageValue(timer[sendMessage].storage,addEvent(sendMessageFunction, (2*60-timer[sendMessage].countdown)*1000, player:getId(),timer[sendMessage].message))
+		player:setStorageValue(timer[sendMessage].storage,addEvent(sendMessageFunction, (15*60-timer[sendMessage].countdown)*1000, player:getId(),timer[sendMessage].message))
 	end
 	return true
 end
