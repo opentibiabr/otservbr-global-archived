@@ -12,8 +12,8 @@ function loginEvents.onLogin(player)
 		"PlayerDeath",
 		"PreyLootBonusKill",
 		"RookgaardAdvance",
-		"SummonLogin",
-		"SummonThink",
+		"FamiliarLogin",
+		"AdvanceFamiliar",
 		--Quests
 		--Adventurers Guild Quest
 		"Thegreatdragonhuntkill",

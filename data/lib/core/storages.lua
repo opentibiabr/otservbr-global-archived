@@ -134,6 +134,8 @@ Storage = {
 	StoreExaust = 30051,
 	LemonCupcake = 30052,
 	BlueberryCupcake = 30053,
+	PetSummonEvent10 = 30054,
+	PetSummonEvent60 = 30055,
 	FreeQuests = 990000,
 	PremiumAccount = 998899,
 
