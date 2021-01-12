@@ -105,7 +105,7 @@ bool Mailbox::sendItem(Item* item) const
 		if (g_game.internalMoveItem(item->getParent(), player->getInbox(), INDEX_WHEREEVER,
 		                            item, item->getItemCount(), nullptr, FLAG_NOLIMIT) == RETURNVALUE_NOERROR) {
 			std::string writer;
-			time_t date;
+			time_t date();
 			std::string text;
 			if (item && item->getID() == ITEM_LETTER && item->getWriter() != "") {
 				writer = item->getWriter();
