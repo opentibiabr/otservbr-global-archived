@@ -1690,7 +1690,7 @@ void Player::setNextWalkTask(SchedulerTask* task)
 	}
 }
 
-void Player::setNextActionTask(SchedulerTask* task)
+void Player::setNextActionTask(SchedulerTask* task, bool resetIdleTime /*= true */)
 {
 	if (actionTaskEvent != 0) {
 		g_scheduler.stopEvent(actionTaskEvent);
@@ -1702,6 +1702,9 @@ void Player::setNextActionTask(SchedulerTask* task)
 
 	if (task) {
 		actionTaskEvent = g_scheduler.addEvent(task);
+		if (resetIdleTime) {
+			this->resetIdleTime();
+		}
 	}
 }
 
@@ -3638,7 +3641,7 @@ void Player::doAttacking(uint32_t)
 
 		SchedulerTask* task = createSchedulerTask(std::max<uint32_t>(SCHEDULER_MINTICKS, delay), std::bind(&Game::checkCreatureAttack, &g_game, getID()));
 		if (!classicSpeed) {
-			setNextActionTask(task);
+			setNextActionTask(task, false);
 		} else {
 			g_scheduler.addEvent(task);
 		}

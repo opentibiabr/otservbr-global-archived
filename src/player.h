@@ -1811,7 +1811,7 @@ class Player final : public Creature, public Cylinder
 
 		void setNextWalkActionTask(SchedulerTask* task);
 		void setNextWalkTask(SchedulerTask* task);
-		void setNextActionTask(SchedulerTask* task);
+		void setNextActionTask(SchedulerTask* task, bool resetIdleTime = true);
 		void setNextActionPushTask(SchedulerTask* task);
 		void setNextPotionActionTask(SchedulerTask* task);
 
