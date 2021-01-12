@@ -2068,13 +2068,13 @@ void Player::removeExperience(uint64_t exp, bool sendText/* = false*/)
 	sendStats();
 }
 
-uint8_t Player::getPercentLevel(uint64_t count, uint64_t nextLevelCount)
+double_t Player::getPercentLevel(uint64_t count, uint64_t nextLevelCount)
 {
 	if (nextLevelCount == 0) {
 		return 0;
 	}
 
-	uint8_t result = (count * 100) / nextLevelCount;
+  double_t result = round( ((count * 100.) / nextLevelCount) * 100.) / 100.;
 	if (result > 100) {
 		return 0;
 	}
