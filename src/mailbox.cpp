@@ -112,11 +112,11 @@ bool Mailbox::sendItem(Item* item) const
 				date = item->getDate();
 				text = item->getText();
 			}
-			g_game.transformItem(item, item->getID() + 1);
-			if (item && item->getID() == ITEM_LETTER_STAMPED && writer != "") {
-				item->setWriter(writer);
-				item->setDate(date);
-				item->setText(text);
+			Item* newItem = g_game.transformItem(item, item->getID() + 1);
+			if (newItem && newItem->getID() == ITEM_LETTER_STAMPED && writer != "") {
+				newItem->setWriter(writer);
+				newItem->setDate(date);
+				newItem->setText(text);
 			}
 			player->onReceiveMail();
 			return true;
