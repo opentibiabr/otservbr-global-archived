@@ -14545,6 +14545,7 @@ if not equipmentsTable then
 			itemid = 40359,
 			type = "equip",
 			slot = "right-hand",
+			level = 150,			
 			vocation = {
 				{"Paladin", true, true},
 				{"Royal Paladin"}
@@ -14564,7 +14565,6 @@ if not equipmentsTable then
 			itemid = 40397,
 			type = "equip",
 			slot = "right-hand",
-			level = 150,
 			vocation = {
 				{"None", true},
 				{"Paladin", true, true},
