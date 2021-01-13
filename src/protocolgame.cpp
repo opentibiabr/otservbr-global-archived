@@ -470,7 +470,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 		std::ostringstream ss;
 		ss << "Only clients with protocol " << CLIENT_VERSION_STR;
 		if (allowClientOld)
-			ss << " and 11.00";
+			ss << " and 10.00";
 		ss << " allowed!";
 		disconnectClient(ss.str());
 		return;
@@ -5078,7 +5078,7 @@ void ProtocolGame::sendOutfitWindow()
 		msg.addString(outfit.name);
 		msg.addByte(addons);
 		if (version >= 1200)
-				msg.addByte(0x00);
+			msg.addByte(0x00);
 		if (++outfitSize == limitOutfits) {
 			break;
 		}
