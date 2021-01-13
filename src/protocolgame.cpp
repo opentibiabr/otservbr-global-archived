@@ -465,7 +465,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 		return;
 	}
 	bool allowClientOld = g_config.getBoolean(ConfigManager::ALLOW_CLIENT_OLD);
-	if (clientVersion != CLIENT_VERSION || (allowClientOld && version != 1100))
+	if (clientVersion != CLIENT_VERSION && (allowClientOld && version != 1100))
 	{
 		std::ostringstream ss;
 		ss << "Only clients with protocol " << CLIENT_VERSION_STR;
