@@ -567,10 +567,13 @@ function Player.sendPreyData(self, slot)
 	end
 
 	-- Next free reroll
-	msg:addU32(self:getMinutesUntilFreeReroll(slot))
-
-	-- Automatic Reroll/Lock Prey
-	msg:addByte(tickState)
+	if self:getClient().version >= 1200 then
+		msg:addU32(self:getMinutesUntilFreeReroll(slot))
+		-- Automatic Reroll/Lock Prey
+		msg:addByte(tickState)
+	else
+		msg:addU16(self:getMinutesUntilFreeReroll(slot)/60)
+	end
 
 	-- send prey message
 	msg:sendToPlayer(self)
@@ -583,8 +586,10 @@ function Player.sendPreyData(self, slot)
 	self:sendResource("bank", self:getBankBalance())
 	self:sendResource("inventory", self:getMoney())
 
-	-- Send reroll price
-	self:sendPreyRerollPrice()
+	if self:getClient().version >= 1200 then
+		-- Send reroll price
+		self:sendPreyRerollPrice()
+	end
 
 end
 

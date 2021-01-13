@@ -59,6 +59,7 @@ class ConfigManager
 			WEATHER_THUNDER,
 			FREE_QUESTS,
 			ONLY_PREMIUM_ACCOUNT,
+			ALLOW_CLIENT_OLD,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
