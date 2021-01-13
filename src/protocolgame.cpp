@@ -5595,6 +5595,7 @@ void ProtocolGame::AddCreature(NetworkMessage &msg, const Creature *creature, bo
 	else if (version < 1200 && speechbubble > 5) {
 		speechbubble = 1;
 	}
+	msg.addByte(speechbubble);
 	msg.addByte(0xFF); // MARK_UNMARKED
 	if (version >= 1200) {
 		msg.addByte(0x00); // inspection type
