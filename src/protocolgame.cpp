@@ -5044,7 +5044,7 @@ void ProtocolGame::sendOutfitWindow()
 	auto startOutfits = msg.getBufferPosition();
 	uint16_t limitOutfits = version >= 1200 ? std::numeric_limits<uint16_t>::max() : 150;
 	uint16_t outfitSize = 0;
-	msg.skipBytes(2);
+	msg.skipBytes(version >= 1200 ? 2 : 1);
 
 	if (player->isAccessPlayer()) {
 		msg.add<uint16_t>(75);
@@ -5095,7 +5095,7 @@ void ProtocolGame::sendOutfitWindow()
 	auto startMounts = msg.getBufferPosition();
 	uint16_t limitMounts = version >= 1200 ? std::numeric_limits<uint16_t>::max() : 150;
 	uint16_t mountSize = 0;
-	msg.skipBytes(2);
+	msg.skipBytes(version >= 1200 ? 2 : 1);
 
 	const auto& mounts = g_game.mounts.getMounts();
 	for (const Mount& mount : mounts) {
