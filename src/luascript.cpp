@@ -7786,7 +7786,8 @@ int LuaScriptInterface::luaContainerGetContentDescription(lua_State* L)
 	// container:getContentDescription()
 	Container* container = getUserdata<Container>(L, 1);
 	if (container) {
-		pushString(L, container->getContentDescription());
+		bool oldClient = getBoolean(L, 2, false);
+		pushString(L, container->getContentDescription(oldClient));
 	} else {
 		lua_pushnil(L);
 	}
