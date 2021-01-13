@@ -531,6 +531,9 @@ function Player.sendError(self, error)
 end
 
 function Player.sendDailyRewardCollectionState(self, state)
+	if self:getClient().version < 1200 then
+		return
+	end
 	local msg = NetworkMessage()
 	msg:addByte(ServerPackets.DailyRewardCollectionState)
 	msg:addByte(state)
