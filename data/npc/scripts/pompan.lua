@@ -37,6 +37,9 @@ local function getTable(player)
 		{name='worm', id=3976, buy=1},
 		{name='inkwell', id=2600, sell=8},
 		{name='mirror', id=2560, sell=10},
+        {name='quiver', id=40397, buy=400},
+        {name='blue quiver', id=40683, buy=400},
+        {name='red quiver', id=40684, buy=400},
 		{name='sickle', id=2405, sell=3}
 	}
 
