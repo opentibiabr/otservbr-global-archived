@@ -812,7 +812,41 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
 		FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
 		ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `player_charms`
+--
+CREATE TABLE `player_charms` (
+  `charm` varchar(20) DEFAULT NULL,
+  `charm_points` int(11) NOT NULL DEFAULT '0',
+  `charm_expansion` int(11) NOT NULL DEFAULT '0',
+  `rune_wound` int(11) NOT NULL DEFAULT '0',
+  `rune_enflame` int(11) NOT NULL DEFAULT '0',
+  `rune_poison` int(11) NOT NULL DEFAULT '0',
+  `rune_freeze` int(11) NOT NULL DEFAULT '0',
+  `rune_zap` int(11) NOT NULL DEFAULT '0',
+  `rune_curse` int(11) NOT NULL DEFAULT '0',
+  `rune_cripple` int(11) NOT NULL DEFAULT '0',
+  `rune_parry` int(11) NOT NULL DEFAULT '0',
+  `rune_dodge` int(11) NOT NULL DEFAULT '0',
+  `rune_adrenaline` int(11) NOT NULL DEFAULT '0',
+  `monster` varchar(20) DEFAULT NULL,
+  `player_guid` int(11) NOT NULL,
+  `id` int(11) DEFAULT '0',
+  `rune_numb` int(11) NOT NULL DEFAULT '0',
+  `rune_cleanse` int(11) NOT NULL DEFAULT '0',
+  `rune_bless` int(11) NOT NULL DEFAULT '0',
+  `rune_scavenge` int(11) NOT NULL DEFAULT '0',
+  `rune_gut` int(11) NOT NULL DEFAULT '0',
+  `rune_low_blow` int(11) NOT NULL DEFAULT '0',
+  `rune_divine` int(11) NOT NULL DEFAULT '0',
+  `rune_vamp` int(11) NOT NULL DEFAULT '0',
+  `rune_void` int(11) NOT NULL DEFAULT '0',
+  `UsedRunesBit` int(11) NOT NULL DEFAULT '0',
+  `UnlockedRunesBit` int(11) NOT NULL DEFAULT '0',
+  `tracker list` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
