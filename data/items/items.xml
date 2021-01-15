@@ -51795,7 +51795,7 @@
 	<!--aqueduct -->
 	<item id="40784" article="a" name="portable aqueduct">
 		<attribute key="rotateTo" value="40804" />
-		<attribute key="duration" value="10" />
+		<attribute key="duration" value="200" />
 		<attribute key="decayTo" value="40785" />
 		<attribute key="wrapableTo" value="26054" />
 		<attribute key="description" value="The purest eyes are blinking back at you." />
@@ -51806,7 +51806,7 @@
 		<attribute key="description" value="The purest eyes are blinking back at you." />
 	</item>
 	<item id="40786" article="a" name="portable aqueduct">
-		<attribute key="duration" value="10" />
+		<attribute key="duration" value="200" />
 		<attribute key="rotateTo" value="40806" />
 		<attribute key="decayTo" value="40787" />
 		<attribute key="description" value="The purest eyes are blinking back at you." />
@@ -51818,7 +51818,7 @@
 	</item>
 	<item id="40804" article="a" name="portable aqueduct">
 		<attribute key="rotateTo" value="40784" />
-		<attribute key="duration" value="10" />
+		<attribute key="duration" value="200" />
 		<attribute key="decayTo" value="40805" />
 		<attribute key="wrapableTo" value="26054" />
 		<attribute key="description" value="The purest eyes are blinking back at you." />
@@ -51829,7 +51829,7 @@
 		<attribute key="description" value="The purest eyes are blinking back at you." />
 	</item>
 	<item id="40806" article="a" name="portable aqueduct">
-		<attribute key="duration" value="10" />
+		<attribute key="duration" value="200" />
 		<attribute key="rotateTo" value="40786" />
 		<attribute key="decayTo" value="40807" />
 		<attribute key="description" value="The purest eyes are blinking back at you." />
