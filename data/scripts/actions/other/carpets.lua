@@ -57,6 +57,8 @@ local carpetItems = {
 	[36303] = 36301, --tournament carpet
 	[36302] = 36304, --sublime tournament carpet
 	[36304] = 36302, --sublime tournament carpet
+	[40776] = 40777, --grandiose carpet
+	[40777] = 40776, --grandiose carpet
 }
 
 local carpets = Action()

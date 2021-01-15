@@ -51874,7 +51874,6 @@
 		<attribute key="rotateTo" value="40790" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
-	<!-- carpet dont work -->
 	<item id="40777" article="a" name="grandiose carpet">
 		<attribute key="type" value="carpet" />
 		<attribute key="description" value="This carpet is extremely soft to the touch - and forever will be." />
