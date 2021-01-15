@@ -48940,7 +48940,6 @@
 	<item fromid="37292" toid="37295" article="a" name="ornate wall"/>
 	<item id="37296" article="a" name="ruined wall" />
 	<item fromid="37297" toid="37307" article="a" name="ornate wall"/>
-	<item fromid="37308" toid="37371" name="reserved sprite"/>
 	<item id="37372" toid="37373" article="a" name="luminescent crystal" />
 	<item fromid="37374" toid="37401" name="reserved sprite"/>
 	<item id="37402" article="a" name="luminescent crystal" />
