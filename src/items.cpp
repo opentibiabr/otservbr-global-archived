@@ -935,6 +935,8 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			if (it.transformToOnUse[PLAYERSEX_MALE] == 0) {
 				it.transformToOnUse[PLAYERSEX_MALE] = value;
 			}
+		} else if (tmpStrValue == "sleepingperson") {
+			it.transformToFree = pugi::cast<uint16_t>(valueAttribute.value());
 		} else if (tmpStrValue == "transformto") {
 			it.transformToFree = pugi::cast<uint16_t>(valueAttribute.value());
 		} else if (tmpStrValue == "destroyto") {
