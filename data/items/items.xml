@@ -51803,6 +51803,18 @@
 		<attribute key="weight" value="320" />
 		<attribute key="description" value="This potion can only be consumed by druids and sorcerers of level 14 or higher." />
 	</item>
+	<item id="40407" article="a" name="pirate coin">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="40" />
+	</item>
+	<item id="40408" article="a" name="pirat's tail">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="190" />
+	</item>
+	<item id="40409" name="shark fins">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="620" />
+	</item>
 	<item id="40522" article="a" name="dead exotic bat">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
