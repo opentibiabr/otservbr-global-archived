@@ -817,6 +817,7 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
 --
 -- Table structure for table `player_charms`
 --
+
 CREATE TABLE `player_charms` (
   `charm` varchar(20) DEFAULT NULL,
   `charm_points` int(11) NOT NULL DEFAULT '0',
@@ -832,7 +833,6 @@ CREATE TABLE `player_charms` (
   `rune_dodge` int(11) NOT NULL DEFAULT '0',
   `rune_adrenaline` int(11) NOT NULL DEFAULT '0',
   `monster` varchar(20) DEFAULT NULL,
-  `player_guid` int(11) NOT NULL,
   `id` int(11) DEFAULT '0',
   `rune_numb` int(11) NOT NULL DEFAULT '0',
   `rune_cleanse` int(11) NOT NULL DEFAULT '0',
@@ -845,8 +845,10 @@ CREATE TABLE `player_charms` (
   `rune_void` int(11) NOT NULL DEFAULT '0',
   `UsedRunesBit` int(11) NOT NULL DEFAULT '0',
   `UnlockedRunesBit` int(11) NOT NULL DEFAULT '0',
-  `tracker list` varchar(11) NOT NULL
+  `tracker list` varchar(11) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '0',
+  `player_guid` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
