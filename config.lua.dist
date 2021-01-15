@@ -89,6 +89,14 @@ pushDistanceDelay = 1500
 mapName = "otservbr"
 mapAuthor = "OTServBR"
 
+-- Custom Map
+-- NOTE: mapCustomEnabled: true = activate the map, false = disable the map
+mapCustomName = "otservbr-custom"
+mapCustomFile = "data/world/custom/otservbr-custom.otbm"
+mapCustomSpawn = "data/world/custom/otservbr-custom-spawn.xml"
+mapCustomAuthor = "OTServBR"
+mapCustomEnabled = true
+
 -- Market
 marketOfferDuration = 30 * 24 * 60 * 60
 premiumToCreateMarketOffer = true
