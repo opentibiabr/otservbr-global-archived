@@ -138,96 +138,74 @@ TeleportUnique = {
 	-- Deeper fibula quest teleport
 	-- Entrance
 	[38001] = {
-		-- For use of the Map
 		itemId = 1387,
 		itemPos = {x = 32208, y = 32433, z = 10},
-		-- For use of the script
 		destination = {x = 32281, y = 32389, z = 10},
 		effect = CONST_ME_TELEPORT
 	},
 	-- Exit
 	[38002] = {
-		-- For use of the Map
 		itemId = 1387,
 		itemPos = {x = 32234, y = 32502, z = 10},
-		-- For use of the script
 		destination = {x = 32210, y = 32437, z = 10},
 		effect = CONST_ME_TELEPORT
 	},
 	-- Draconia quest teleports
 	[38003] = {
-		-- For use of the Map
 		itemId = 1387,
 		itemPos = {x = 32675, y = 31646, z = 10},
-		-- For use of the script
 		destination = {x = 32725, y = 31589, z = 12},
 		effect = CONST_ME_TELEPORT
 	},
 	[38004] = {
-		-- For use of the Map
 		itemId = 1387,
 		itemPos = {x = 32669, y = 31653, z = 10},
-		-- For use of the script
 		destination = {x = 32679, y = 31673, z = 10},
 		effect = CONST_ME_TELEPORT
 	},
 	[38005] = {
-		-- For use of the Map
 		itemId = 1387,
 		itemPos = {x = 32794, y = 31576, z = 5},
-		-- For use of the script
 		destination = {x = 32812, y = 31577, z = 5},
 		effect = CONST_ME_TELEPORT
 	},
 	[38006] = {
-		-- For use of the Map
 		itemId = 1387,
 		itemPos = {x = 32812, y = 31576, z = 5},
-		-- For use of the script
 		destination = {x = 32794, y = 31577, z = 5},
 		effect = CONST_ME_TELEPORT
 	},
 	-- Demom helmet quest teleports
 	[38007] = {
-		-- For use of the Map
 		itemId = 1387,
 		itemPos = {x = 33278, y = 31592, z = 11},
-		-- For use of the script
 		destination = {x = 33281, y = 31592, z = 12},
 		effect = CONST_ME_TELEPORT
 	},
 	[38008] = {
-		-- For use of the Map
 		itemId = 1387,
 		itemPos = {x = 33286, y = 31589, z = 12},
-		-- For use of the script
 		destination = {x = 33277, y = 31592, z = 11},
 		effect = CONST_ME_TELEPORT
 	},
 	[38009] = {
-		-- For use of the Map
 		itemId = 1387,
 		itemPos = {x = 33324, y = 31592, z = 14},
-		-- For use of the script
 		destination = {x = 33324, y = 31575, z = 15},
 		effect = CONST_ME_TELEPORT
 	},
 	-- Alawar's vault quest
 	-- Entrance
 	[38010] = {
-		-- For use of the Map
 		itemId = 1387,
 		itemPos = {x = 32187, y = 31622, z = 8},
-		-- For use of the script
 		destination = {x = 32107, y = 31567, z = 9},
 		effect = CONST_ME_TELEPORT
 	},
 	-- Exit
 	[38011] = {
-		-- For use of the Map
 		itemId = 1387,
 		itemPos = {x = 32107, y = 31566, z = 9},
-		-- For use of the script
 		destination = {x = 32189, y = 31625, z = 4},
 		effect = CONST_ME_TELEPORT
 	},
@@ -265,38 +243,38 @@ TeleportUnique = {
 		effect = CONST_ME_TELEPORT
 	},
 	-- The annihilator quest room exit
-	[38007] = {
+	[38017] = {
 		itemId = 1387,
 		itemPos = {x = 33236, y = 31655, z = 13},
 		destination = {x = 33213, y = 31671, z = 13},
 		effect = CONST_ME_TELEPORT
 	},
 	-- The paradox tower quest
-	[38008] = {
+	[38018] = {
 		itemId = 1387,
 		itemPos = {x = 32476, y = 31904, z = 5},
 		destination = {x = 32476, y = 31904, z = 6},
 		effect = CONST_ME_TELEPORT
 	},
-	[38009] = {
+	[38019] = {
 		itemId = 1387,
 		itemPos = {x = 32481, y = 31904, z = 4},
 		destination = {x = 32481, y = 31905, z = 5},
 		effect = CONST_ME_TELEPORT
 	},
-	[38010] = {
+	[38020] = {
 		itemId = 1387,
 		itemPos = {x = 32476, y = 31904, z = 3},
 		destination = {x = 32476, y = 31904, z = 4},
 		effect = CONST_ME_TELEPORT
 	},
-	[38011] = {
+	[38021] = {
 		itemId = 1387,
 		itemPos = {x = 32479, y = 31904, z = 2},
 		destination = {x = 32479, y = 31904, z = 3},
 		effect = CONST_ME_TELEPORT
 	},
-	[38012] = {
+	[38022] = {
 		itemId = 1387,
 		itemPos = {x = 32481, y = 31905, z = 1},
 		destination = {x = 32480, y = 31905, z = 2},
