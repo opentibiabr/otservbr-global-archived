@@ -202,11 +202,11 @@ bool IOMapSerialize::loadItem(PropStream& propStream, Cylinder* parent)
 					if (!loadContainer(propStream, container)) {
 						return false;
 					}
-				//} else if (BedItem* bedItem = dynamic_cast<BedItem*>(dummy.get())) {
-				//	uint32_t sleeperGUID = bedItem->getSleeper();
-				//	if (sleeperGUID != 0) {
-				//		g_game.removeBedSleeper(sleeperGUID);
-				//	}
+//				} else if (BedItem* bedItem = dynamic_cast<BedItem*>(dummy.get())) {
+//					uint32_t sleeperGUID = bedItem->getSleeper();
+//					if (sleeperGUID != 0) {
+//						g_game.removeBedSleeper(sleeperGUID);
+//					}
 				}
 			}
 		}

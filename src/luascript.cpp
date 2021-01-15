@@ -13590,21 +13590,18 @@ int LuaScriptInterface::luaHouseIsInvited(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaHouseGetMaxBeds(lua_State* L)
-{
+int LuaScriptInterface::luaHouseGetMaxBeds(lua_State* L) {
 	// house:getMaxBeds()
 	House* house = getUserdata<House>(L, 1);
 	if (house) {
 		lua_pushnumber(L, house->getMaxBeds());
-	}
-	else {
+	} else {
 		lua_pushnil(L);
 	}
 	return 1;
 }
 
-int LuaScriptInterface::luaHouseSetMaxBeds(lua_State* L)
-{
+int LuaScriptInterface::luaHouseSetMaxBeds(lua_State* L) {
 	// house:setMaxBeds()
 	House* house = getUserdata<House>(L, 1);
 	if (!house) {
@@ -13618,21 +13615,18 @@ int LuaScriptInterface::luaHouseSetMaxBeds(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaHouseGetBedsCount(lua_State* L)
-{
+int LuaScriptInterface::luaHouseGetBedsCount(lua_State* L) {
 	// house:getBedsCount()
 	House* house = getUserdata<House>(L, 1);
 	if (house) {
 		lua_pushnumber(L, house->getBedsCount());
-	}
-	else {
+	} else {
 		lua_pushnil(L);
 	}
 	return 1;
 }
 
-int LuaScriptInterface::luaHouseSetBedsCount(lua_State* L)
-{
+int LuaScriptInterface::luaHouseSetBedsCount(lua_State* L) {
 	// house:setBedsCount()
 	House* house = getUserdata<House>(L, 1);
 	if (!house) {
