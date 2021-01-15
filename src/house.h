@@ -223,6 +223,22 @@ class House
 			return static_cast<uint32_t>(std::ceil(bedsList.size() / 2.)); //each bed takes 2 sqms of space, ceil is just for bad maps
 		}
 
+		void setMaxBeds(uint32_t maxBeds) {
+			this->maxBeds = maxBeds;
+		}
+
+		uint32_t getMaxBeds() const {
+			return maxBeds;
+		}
+
+		void setBedsCount(uint32_t bedsCount) {
+			this->bedsCount = bedsCount;
+		}
+
+		uint32_t getBedsCount() const {
+			return bedsCount;
+		}
+
 	private:
 		bool transferToDepot() const;
 		bool transferToDepot(Player* player) const;
@@ -249,6 +265,9 @@ class House
 		uint32_t rentWarnings = 0;
 		uint32_t rent = 0;
 		uint32_t townId = 0;
+
+		uint32_t maxBeds = 4;
+		uint32_t bedsCount = 0;
 
 		Position posEntry = {};
 
