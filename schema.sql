@@ -251,8 +251,8 @@ CREATE TABLE IF NOT EXISTS `account_viplist` (
 
 CREATE TABLE IF NOT EXISTS `boosted_creature` (
     `boostname` TEXT,
-    `date` varchar(250) NOT NULL default '',
-    `raceid` varchar(250) NOT NULL default '',
+    `date` varchar(250) NOT NULL DEFAULT '0',
+    `raceid` varchar(250) NOT NULL DEFAULT '0',
     `looktype` int(11) NOT NULL DEFAULT "136",
     `lookfeet` int(11) NOT NULL DEFAULT "0",
     `looklegs` int(11) NOT NULL DEFAULT "0",
@@ -261,7 +261,7 @@ CREATE TABLE IF NOT EXISTS `boosted_creature` (
     `lookaddons` int(11) NOT NULL DEFAULT "0",
     `lookmount` int(11) DEFAULT "0",
     PRIMARY KEY  (`date`)
-) AS SELECT 42 AS date, "name" AS boostname, 69 AS raceid;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
