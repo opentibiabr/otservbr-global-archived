@@ -44,6 +44,7 @@ local reward = {
 			{id = 2643, amount = 1},	-- Leather boots
 			{id = 2456, amount = 1},	-- Bow
 			{id = 2389, amount = 1},	-- Spear
+			{id = 40397, amount = 1},	-- Quiver
 			{id = 2544, amount = 100}	-- Arrows
 		},
 		-- Knight

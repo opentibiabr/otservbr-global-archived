@@ -25,13 +25,13 @@ local vocationTrials = {
 			}
 		},
 		items = {
-			[CONST_SLOT_LEFT] = {23719, 1}, -- the scorcher
-			[CONST_SLOT_RIGHT] = {23771, 1}, -- spellbook of the novice
-			[11] = {8704, 2, storage = Storage.Dawnport.SorcererHealthPotion, limit = 1}, -- potion
-			[12] = {7620, 10, storage = Storage.Dawnport.SorcererManaPotion, limit = 1}, -- potion
-			[13] = {23723, 2, storage = Storage.Dawnport.SorcererLightestMissile, limit = 1}, -- 2 lightest missile runes
-			[14] = {23722, 2, storage = Storage.Dawnport.SorcererLightStoneShower, limit = 1}, -- 2 light stone shower runes
-			[15] = {2666, 1, storage = Storage.Dawnport.SorcererMeat, limit = 1}, -- 1 meat
+			{id = 23719, amount = 1, slot = CONST_SLOT_LEFT}, -- The scorcher
+			{id = 23771, amount = 1, slot = CONST_SLOT_RIGHT}, -- Spellbook of the novice
+			{id = 8704, amount = 2, storage = Storage.Dawnport.SorcererHealthPotion, limit = 1}, -- Health potion
+			{id = 7620, amount = 10, storage = Storage.Dawnport.SorcererManaPotion, limit = 1}, -- Mana potion
+			{id = 23723, amount = 2, storage = Storage.Dawnport.SorcererLightestMissile, limit = 1}, -- Lightest missile runes
+			{id = 23722, amount = 2, storage = Storage.Dawnport.SorcererLightStoneShower, limit = 1}, -- Light stone shower runes
+			{id = 2666, amount = 1, storage = Storage.Dawnport.SorcererMeat, limit = 1} -- Meat
 		}
 	},
 	-- Druid trial
@@ -55,13 +55,13 @@ local vocationTrials = {
 			}
 		},
 		items = {
-			[CONST_SLOT_LEFT] = {23721, 1}, -- the chiller
-			[CONST_SLOT_RIGHT] = {23771, 1}, -- spellbook of the novice
-			[11] = {8704, 2, storage = Storage.Dawnport.DruidHealthPotion, limit = 1}, -- potion
-			[12] = {7620, 10, storage = Storage.Dawnport.DruidManaPotion, limit = 1}, -- potion
-			[13] = {23723, 2, storage = Storage.Dawnport.DruidLightestMissile, limit = 1}, -- 2 lightest missile runes
-			[14] = {23722, 2, storage = Storage.Dawnport.DruidLightStoneShower, limit = 1}, -- 2 light stone shower runes
-			[15] = {2666, 1, storage = Storage.Dawnport.DruidMeat, limit = 1}, -- 1 meat
+			{id = 23721, amount = 1, slot = CONST_SLOT_LEFT}, -- The chiller
+			{id = 23771, amount = 1, slot = CONST_SLOT_RIGHT}, -- Spellbook of the novice
+			{id = 8704, amount = 2, storage = Storage.Dawnport.DruidHealthPotion, limit = 1}, -- Health potion
+			{id = 7620, amount = 10, storage = Storage.Dawnport.DruidManaPotion, limit = 1}, -- Mana potion
+			{id = 23723, amount = 2, storage = Storage.Dawnport.DruidLightestMissile, limit = 1}, -- Lightest missile runes
+			{id = 23722, amount = 2, storage = Storage.Dawnport.DruidLightStoneShower, limit = 1}, -- Light stone shower runes
+			{id = 2666, amount = 1, storage = Storage.Dawnport.DruidMeat, limit = 1} -- Meat
 		}
 	},
 	-- Paladin trial
@@ -85,14 +85,14 @@ local vocationTrials = {
 			}
 		},
 		items = {
-			[CONST_SLOT_LEFT] = {2456, 1}, -- bow
-			-- TODO: Quiver
-			[CONST_SLOT_AMMO] = {23839, 100}, -- 100 arrows
-			[11] = {8704, 7, storage = Storage.Dawnport.PaladinHealthPotion, limit = 1}, -- potion
-			[12] = {7620, 5, storage = Storage.Dawnport.PaladinManaPotion, limit = 1}, -- potion
-			[13] = {23723, 1, storage = Storage.Dawnport.PaladinLightestMissile, limit = 1}, -- 1 lightest missile rune
-			[14] = {23722, 1, storage = Storage.Dawnport.PaladinLightStoneShower, limit = 1}, -- 1 light stone shower rune
-			[15] = {2666, 1, storage = Storage.Dawnport.PaladinMeat, limit = 1}, -- 1 meat
+			{id = 2456, amount = 1, slot = CONST_SLOT_LEFT}, -- Bow
+			{id = 40397, amount = 1, slot = CONST_SLOT_RIGHT}, -- Quiver
+			{id = 23839, amount = 100}, -- Simple arrow
+			{id = 8704, amount = 7, storage = Storage.Dawnport.PaladinHealthPotion, limit = 1}, -- Health potion
+			{id = 7620, amount = 5, storage = Storage.Dawnport.PaladinManaPotion, limit = 1}, -- Mana potion
+			{id = 23723, amount = 1, storage = Storage.Dawnport.PaladinLightestMissile, limit = 1}, -- Lightest missile rune
+			{id = 23722, amount = 1, storage = Storage.Dawnport.PaladinLightStoneShower, limit = 1}, -- Light stone shower rune
+			{id = 2666, amount = 1, storage = Storage.Dawnport.PaladinMeat, limit = 1} -- Meat
 		}
 	},
 	-- Knight trial
@@ -116,11 +116,11 @@ local vocationTrials = {
 			}
 		},
 		items = {
-			[CONST_SLOT_LEFT] = {2379, 1}, -- dagger
-			[CONST_SLOT_RIGHT] = {2512, 1}, -- wooden shield
-			[11] = {8704, 10, storage = Storage.Dawnport.KnightHealthPotion, limit = 1}, -- potion
-			[12] = {7620, 2, storage = Storage.Dawnport.KnightManaPotion, limit = 1}, -- potion
-			[13] = {2666, 1, storage = Storage.Dawnport.KnightMeat, limit = 1} -- 1 meat
+			{id = 2379, amount = 1, slot = CONST_SLOT_LEFT}, -- Dagger
+			{id = 2512, amount = 1, slot = CONST_SLOT_RIGHT}, -- Wooden shield
+			{id = 8704, amount = 10, storage = Storage.Dawnport.KnightHealthPotion, limit = 1}, -- Health potion
+			{id = 7620, amount = 2, storage = Storage.Dawnport.KnightManaPotion, limit = 1}, -- Mana potion
+			{id = 2666, amount = 1, storage = Storage.Dawnport.KnightMeat, limit = 1} -- Meat
 		}
 	}
 }
@@ -177,8 +177,8 @@ local function removeItems(player)
 		23771,	-- Spellbook of the novice
 		2456,	-- Bow
 		2379,	-- Dagger
-		2512	-- Wooden shield
-		-- TODO: Quiver
+		2512,	-- Wooden shield
+		40397	-- Quiver
 	}
 
 	for i = 1, #equipmentItemIds do
@@ -192,33 +192,39 @@ end
 -- Add items to player from trial items data
 local function addItems(player, items)
 	local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
-	for slot, item in pairs(items) do
+	for i = 1, #items do
 		local extra
-		if slot > CONST_SLOT_AMMO then
+		if not items[i].slot then
 			extra = true
 		else
-			local equipped = player:getSlotItem(slot)
+			local equipped = player:getSlotItem(items[i].slot)
 			if equipped and backpack then
 				equipped:moveTo(backpack)
 			end
 		end
 		local giveItem = true
-		if item.limit and item.storage then
-			local given = math.max(player:getStorageValue(item.storage), 0)
-			if given >= item.limit then
+		if items[i].limit and items[i].storage then
+			local given = math.max(player:getStorageValue(items[i].storage), 0)
+			if given >= items[i].limit then
 				giveItem = false
 			else
-				player:setStorageValue(item.storage, given + 1)
+				player:setStorageValue(items[i].storage, given + 1)
 			end
 		end
 		if giveItem then
 			if extra then
-				player:addItemEx(Game.createItem(item[1], item[2]), INDEX_WHEREEVER, 0)
-			else
-				local ret = player:addItem(item[1], item[2], false, 1, slot)
-				if not ret then
-					player:addItemEx(Game.createItem(item[1], item[2]), false, slot)
+				local itemType = ItemType(items[i].id)
+				if itemType:getWeaponType() == WEAPON_AMMO and isInArray({AMMO_ARROW, AMMO_BOLT}, itemType:getAmmoType()) then
+					local equipment = player:getSlotItem(CONST_SLOT_RIGHT)
+					local equipmentType = ItemType(equipment.itemid)
+					if equipment and equipmentType:getWeaponType() == WEAPON_QUIVER then
+						equipment:addItem(items[i].id, items[i].amount)
+					end
+				else
+					player:addItemEx(Game.createItem(items[i].id, items[i].amount), true, CONST_SLOT_WHEREEVER)
 				end
+			else
+				player:addItemEx(Game.createItem(items[i].id, items[i].amount), true, items[i].slot)
 			end
 		end
 	end

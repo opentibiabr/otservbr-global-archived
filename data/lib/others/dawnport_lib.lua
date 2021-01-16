@@ -173,7 +173,7 @@ function removeMainlandSmugglingItems(player)
 		2456,	-- Bow
 		2379,	-- Dagger
 		2512,	-- Wooden shield
-		-- TODO: Quiver
+		40397,	-- Quiver
 		23839,	-- Simple arrow
 		7618,	-- Health potion
 		7620,	-- Mana potion
