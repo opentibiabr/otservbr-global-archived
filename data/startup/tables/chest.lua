@@ -962,6 +962,43 @@ ChestUnique = {
 		itemId = 1740,
 		itemPos = {x = 32068, y = 31882, z = 6}
 	},
+	-- Explorer Society Missions
+	-- Path: data\scripts\actions\quests\explorer_society\findings.lua
+	-- Uzgod Family Brooch (Dwacatra)
+	[14029] = {
+		itemId = 1741,
+		itemPos = {x = 32598, y = 31934, z = 15}
+	},
+	-- The Bonelord Secret Chest (Dark Pyramid)
+	[14030] = {
+		itemId = 1738,
+		itemPos = {x = 33308, y = 32279, z = 12}
+	},
+	-- The Orc Powder (Orc Fortress)
+	[14031] = {
+		itemId = 1741,
+		itemPos = {x = 32967, y = 31719, z = 2}
+	},
+	-- The Elven Poetry (Hell Gate)
+	[14032] = {
+		itemId = 1740,
+		itemPos = {x = 32704, y = 31605, z = 14}
+	},
+	-- The Memory Stone (Edron)
+	[14033] = {
+		itemId = 1738,
+		itemPos = {x = 33152, y = 31640, z = 11}
+	},
+	-- The Spectral Dress (Isle of the Kings)
+	[14034] = {
+		itemId = 1738,
+		itemPos = {x = 32259, y = 31949, z = 14}
+	},
+	-- The Undersea Kingdom (Calassa)
+	[14035] = {
+		itemId = 1741,
+		itemPos = {x = 31937, y = 32771, z = 13}
+	},
 	-- Others uniques
 	-- Threatened Dreams Quest
 	[34123] = {

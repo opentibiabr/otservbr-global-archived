@@ -1,6 +1,6 @@
 local destination = {
-	[14173] = {position = Position(32320, 31137, 6)},
-	[14174] = {position = Position(32359, 32807, 6)}
+	[25020] = {position = Position(32320, 31137, 6)},
+	[25021] = {position = Position(32359, 32807, 6)}
 }
 
 local carvingTeleportLibertyBay = MoveEvent()
@@ -11,7 +11,7 @@ function carvingTeleportLibertyBay.onStepIn(creature, item, position, fromPositi
 		return
 	end
 
-	local carvingTP = destination[item.actionid]
+	local carvingTP = destination[item.uid]
 	if not carvingTP then
 		return
 	end
@@ -32,7 +32,7 @@ end
 carvingTeleportLibertyBay:type("stepin")
 
 for index, value in pairs(destination) do
-	carvingTeleportLibertyBay:aid(index)
+	carvingTeleportLibertyBay:uid(index)
 end
 
 carvingTeleportLibertyBay:register()
