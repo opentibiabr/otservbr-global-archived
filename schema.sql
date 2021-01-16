@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `server_config` (
 	CONSTRAINT `server_config_pk` PRIMARY KEY (`config`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `server_config` (`config`, `value`) VALUES ('db_version', '0'), ('motd_hash', ''), ('motd_num', '0'), ('players_record', '0');
+INSERT INTO `server_config` (`config`, `value`) VALUES ('db_version', '15'), ('motd_hash', ''), ('motd_num', '0'), ('players_record', '0');
 
 -- --------------------------------------------------------
 
@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `type`      tinyint(1)    UNSIGNED NOT NULL DEFAULT '1',
   `coins`     int(12)       UNSIGNED NOT NULL DEFAULT '0',
   `creation`  int(11)       UNSIGNED NOT NULL DEFAULT '0',
+  `recruiter` INT(6)        DEFAULT 0,
   CONSTRAINT `accounts_pk` PRIMARY KEY (`id`),
   CONSTRAINT `accounts_unique` UNIQUE (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -143,6 +144,8 @@ CREATE TABLE IF NOT EXISTS `players` (
   `skill_lifeleech_amount` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `skill_manaleech_chance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `skill_manaleech_amount` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `manashield` SMALLINT UNSIGNED NOT NULL DEFAULT '0',
+  `max_manashield` SMALLINT UNSIGNED NOT NULL DEFAULT '0',
   `prey_stamina_1` int(11) DEFAULT NULL,
   `prey_stamina_2` int(11) DEFAULT NULL,
   `prey_stamina_3` int(11) DEFAULT NULL,
@@ -153,6 +156,12 @@ CREATE TABLE IF NOT EXISTS `players` (
   `marriage_spouse` int(11) NOT NULL DEFAULT '-1',
   `bonus_rerolls` bigint(21) NOT NULL DEFAULT '0',
   `quickloot_fallback` tinyint(1) DEFAULT '0',
+  `lookmountbody` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `lookmountfeet` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `lookmounthead` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `lookmountlegs` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `lookfamiliarstype` int(11) unsigned NOT NULL DEFAULT '0',
+  `isreward` tinyint(1) NOT NULL DEFAULT "1",
   INDEX `account_id` (`account_id`),
   INDEX `vocation` (`vocation`),
   CONSTRAINT `players_pk` PRIMARY KEY (`id`),
@@ -233,6 +242,26 @@ CREATE TABLE IF NOT EXISTS `account_viplist` (
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure `boosted_creature`
+--
+
+CREATE TABLE IF NOT EXISTS `boosted_creature` (
+    `boostname` TEXT,
+    `date` varchar(250) NOT NULL DEFAULT '',
+    `raceid` varchar(250) NOT NULL DEFAULT '',
+    `looktype` int(11) NOT NULL DEFAULT "136",
+    `lookfeet` int(11) NOT NULL DEFAULT "0",
+    `looklegs` int(11) NOT NULL DEFAULT "0",
+    `lookhead` int(11) NOT NULL DEFAULT "0",
+    `lookbody` int(11) NOT NULL DEFAULT "0",
+    `lookaddons` int(11) NOT NULL DEFAULT "0",
+    `lookmount` int(11) DEFAULT "0",
+    PRIMARY KEY  (`date`)
+) AS SELECT 0 AS date, "default" AS boostname, 0 AS raceid;
 
 -- --------------------------------------------------------
 
@@ -543,6 +572,40 @@ CREATE TABLE IF NOT EXISTS `players_online` (
 -- --------------------------------------------------------
 
 --
+-- Table structure `player_charm`
+--
+
+CREATE TABLE IF NOT EXISTS `player_charms` (
+	`player_guid` INT(250) NOT NULL,
+	`charm_points` VARCHAR(250) NULL,
+	`charm_expansion` BOOLEAN NULL,
+	`rune_wound` INT(250) NULL,
+	`rune_enflame` INT(250) NULL,
+	`rune_poison` INT(250) NULL,
+	`rune_freeze` INT(250) NULL,
+	`rune_zap` INT(250) NULL,
+	`rune_curse` INT(250) NULL,
+	`rune_cripple` INT(250) NULL,
+	`rune_parry` INT(250) NULL,
+	`rune_dodge` INT(250) NULL,
+	`rune_adrenaline` INT(250) NULL,
+	`rune_numb` INT(250) NULL,
+	`rune_cleanse` INT(250) NULL,
+	`rune_bless` INT(250) NULL,
+	`rune_scavenge` INT(250) NULL,
+	`rune_gut` INT(250) NULL,
+	`rune_low_blow` INT(250) NULL,
+	`rune_divine` INT(250) NULL,
+	`rune_vamp` INT(250) NULL,
+	`rune_void` INT(250) NULL,
+	`UsedRunesBit` VARCHAR(250) NULL,
+	`UnlockedRunesBit` VARCHAR(250) NULL,
+	`tracker list` BLOB NULL
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure `player_deaths`
 --
 
@@ -580,6 +643,30 @@ CREATE TABLE IF NOT EXISTS `player_depotitems` (
 	CONSTRAINT `player_depotitems_unique` UNIQUE (`player_id`, `sid`),
 	CONSTRAINT `player_depotitems_players_fk`
 		FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+		ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure `player_hirelings`
+--
+
+CREATE TABLE IF NOT EXISTS `player_hirelings` (
+	`id` INT NOT NULL PRIMARY KEY auto_increment,
+	`player_id` INT NOT NULL,
+	`name` varchar(255),
+	`active` tinyint unsigned NOT NULL DEFAULT '0',
+	`sex` tinyint unsigned NOT NULL DEFAULT '0',
+	`posx` int(11) NOT NULL DEFAULT '0',
+	`posy` int(11) NOT NULL DEFAULT '0',
+	`posz` int(11) NOT NULL DEFAULT '0',
+	`lookbody` int(11) NOT NULL DEFAULT '0',
+	`lookfeet` int(11) NOT NULL DEFAULT '0',
+	`lookhead` int(11) NOT NULL DEFAULT '0',
+	`looklegs` int(11) NOT NULL DEFAULT '0',
+	`looktype` int(11) NOT NULL DEFAULT '136',
+		FOREIGN KEY(`player_id`) REFERENCES `players`(`id`)
 		ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -738,6 +825,18 @@ CREATE TABLE IF NOT EXISTS `player_spells` (
 -- --------------------------------------------------------
 
 --
+-- Table structure `player_stash`
+--
+
+CREATE TABLE IF NOT EXISTS `player_stash` (
+	`player_id` INT(16) NOT NULL,
+	`item_id` INT(16) NOT NULL,
+	`item_count` INT(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure `player_storage`
 --
 
@@ -807,6 +906,7 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
 	`bonus_type` smallint(3) NOT NULL,
 	`bonus_value` smallint(3) NOT NULL DEFAULT '0',
 	`bonus_grade` smallint(3) NOT NULL DEFAULT '0',
+	`tick` smallint(3) NOT NULL DEFAULT '0',
 	INDEX `player_id` (`player_id`),
 	CONSTRAINT `prey_slots_players_fk`
 		FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
