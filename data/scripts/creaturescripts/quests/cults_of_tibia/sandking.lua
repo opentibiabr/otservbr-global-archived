@@ -29,7 +29,7 @@ local function spawnSandBoss(name, frompos, topos)
 	local str = Game.getStorageValue("sandking")
 	local boss = Game.createMonster("the sandking fake", Position( 33099, 31859, 15))
 	if str < 4 then
-		boss:registerEvent("sandking think")
+		boss:registerEvent("SandkingThink")
 	end
 	Game.setStorageValue("sandking", str + 1)
 	boss:say("THE BROOD RETREATS AND THE SANDKING REMERGES TO PROTECT HIS OFFSPRING!",TALKTYPE_MONSTER_SAY)
@@ -41,7 +41,7 @@ local function spawnSandMonster(name, _time)
 		return true
 	end
 	local randomarea = {x = math.random(33092, 33105), y = math.random(31853, 31865), z = 15}
-	Game.createMonster(name, randomarea):registerEvent("sandking death")
+	Game.createMonster(name, randomarea):registerEvent("SandkingDeath")
 	_time = _time - 1
 	addEvent(spawnSandMonster, 5000, name, _time)
 	return true
@@ -69,7 +69,7 @@ function sandkingThink.onThink(creature)
 			}
 
 			for _, pos in pairs(positions) do
-				Game.createMonster("sand vortex",pos):registerEvent("sand health")
+				Game.createMonster("sand vortex",pos):registerEvent("SandHealth")
 			end
 			spawnSandMonster("Sand Brood", 10)
 		end
@@ -88,11 +88,11 @@ function sandkingThink.onThink(creature)
 				local monster = Game.createMonster("the sandking fake", pos)
 				monster:setHealth(monster:getMaxHealth()/2)
 				if pass == 0 then
-					monster:registerEvent("sandking death")
+					monster:registerEvent("SandkingDeath")
 					pass = 1
 				end
 				monster:beginSharedLife(tm)
-				monster:registerEvent("shared life")
+				monster:registerEvent("SharedLife")
 			end
 		end
 	end
