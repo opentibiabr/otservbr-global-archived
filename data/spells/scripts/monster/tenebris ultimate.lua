@@ -87,6 +87,6 @@ function onCastSpell(creature, var)
 		end
 	end
 	creature:say("LADY TENEBRIS BEGINS TO CHANNEL A POWERFULL SPELL! TAKE COVER!", TALKTYPE_MONSTER_YELL)
-	addEvent(delayedCastSpell, 900, creature:getId(), var)
+	addEvent(delayedCastSpell, 3000, creature:getId(), var)
 	return true
 end
