@@ -37,8 +37,8 @@ function ferumbrasAscendantPlagirathLever.onUse(player, item, fromPosition, targ
 				playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			end
 		end
-		Game.setStorageValue(GlobalStorage.FerumbrasAscendant.PlagirathTimer, 1)
-		addEvent(clearForgotten, 30 * 60 * 1000, Position(33159, 31491, 13), Position(33185, 31513, 13), Position(33319, 32318, 13), GlobalStorage.FerumbrasAscendant.PlagirathTimer)
+		Game.setStorageValue(Storage.FerumbrasAscension.PlagirathTimer, 1)
+		addEvent(clearForgotten, 30 * 60 * 1000, Position(33159, 31491, 13), Position(33185, 31513, 13), Position(33319, 32318, 13), Storage.FerumbrasAscension.PlagirathTimer)
 		item:transform(9826)
 	elseif item.itemid == 9826 then
 		item:transform(9825)

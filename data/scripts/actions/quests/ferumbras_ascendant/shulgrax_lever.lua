@@ -37,8 +37,8 @@ function ferumbrasAscendantShulgraxLever.onUse(player, item, fromPosition, targe
 				playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			end
 		end
-		Game.setStorageValue(GlobalStorage.FerumbrasAscendant.ShulgraxTimer, 1)
-		addEvent(clearForgotten, 30 * 60 * 1000, Position(33473, 32776, 13), Position(33496, 32798, 13), Position(33319, 32318, 13), GlobalStorage.FerumbrasAscendant.ShulgraxTimer)
+		Game.setStorageValue(Storage.FerumbrasAscension.ShulgraxTimer, 1)
+		addEvent(clearForgotten, 30 * 60 * 1000, Position(33473, 32776, 13), Position(33496, 32798, 13), Position(33319, 32318, 13), Storage.FerumbrasAscension.ShulgraxTimer)
 		item:transform(9826)
 	elseif item.itemid == 9826 then
 		item:transform(9825)
