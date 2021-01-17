@@ -63,7 +63,8 @@ function serverstartup.onStartup()
 	db.query('UPDATE `players` SET `isreward` = '..DAILY_REWARD_NOTCOLLECTED)
 
 	-- reset storages and allow purchase of boost in the store
-	db.query('UPDATE `player_storage` SET `value` = 0 WHERE `player_storage`.`key` = 51052')
+	db.query('UPDATE `player_storage` SET `value` = 1 WHERE `player_storage`.`key` = 51052')
+	db.query('UPDATE `player_storage` SET `value` = 1 WHERE `player_storage`.`key` = 51053')
 
 	-- reset familiars message storage
 	db.query('DELETE FROM `player_storage` WHERE `key` = '..Storage.PetSummonEvent10)

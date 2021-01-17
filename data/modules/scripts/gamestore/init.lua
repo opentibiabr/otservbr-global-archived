@@ -31,7 +31,8 @@ GameStore.OfferTypes = {
 	OFFER_TYPE_HIRELING_NAMECHANGE = 21,
 	OFFER_TYPE_HIRELING_SEXCHANGE = 22,
 	OFFER_TYPE_HIRELING_SKILL = 23,
-	OFFER_TYPE_HIRELING_OUTFIT = 24
+	OFFER_TYPE_HIRELING_OUTFIT = 24,
+	OFFER_TYPE_EXPBOOST2 = 25,
 }
 
 GameStore.ActionType = {
@@ -49,7 +50,8 @@ GameStore.CointType = {
 }
 
 GameStore.Storages = {
-	expBoostCount = 51052
+	expBoostCount = 51052,
+	expBoostCount2 = 51053
 }
 
 GameStore.ConverType = {
@@ -162,6 +164,14 @@ GameStore.ExpBoostValues = {
 	[5] = 360
 }
 
+GameStore.ExpBoost2Values = {
+	[1] = 60,
+	[2] = 90,
+	[3] = 180,
+	[4] = 360,
+	[5] = 720
+}
+
 GameStore.DefaultValues = {
 	DEFAULT_VALUE_ENTRIES_PER_PAGE = 26
 }
@@ -176,6 +186,7 @@ GameStore.DefaultDescriptions = {
 					"A new name to suit your needs!" },
  	SEXCHANGE   = { "Bored of your character's sex? Get a new sex for him now!!" },
  	EXPBOOST    = { "Are you tired of leveling slow? try it!" },
+ 	EXPBOOST2    = { "Are you tired of leveling slow? try it!" },
  	PREYSLOT    = { "It's hunting season! Activate a prey to gain a bonus when hunting a certain monster. Every character can purchase one Permanent Prey Slot, which enables the activation of an additional prey. \nIf you activate a prey, you can select one monster out of nine. The bonus for your prey will be selected randomly from one of the following: damage boost, damage reduction, bonus XP, improved loot. The bonus value may range from 5% to 50%. Your prey will be active for 2 hours hunting time: the duration of an active prey will only be reduced while you are hunting." },
  	PREYBONUS   = { "You activated a prey but do not like the randomly selected bonus? Roll for a new one! Here you can purchase five Prey Bonus Rerolls! \nA Bonus Reroll allows you to get a bonus with a higher value (max. 50%). The bonus for your prey will be selected randomly from one of the following: damage boost, damage reduction, bonus XP, improved loot. The 2 hours hunting time will start anew once you have rolled for a new bonus. Your prey monster will stay the same." },
  	TEMPLE      = { "Need a quick way home? Buy this transportation service to get instantly teleported to your home temple. \n\nNote, you cannot use this service while having a battle sign or a protection zone block. Further, the service will not work in no-logout zones or close to your home temple." }
@@ -349,6 +360,7 @@ function parseBuyStoreOffer(playerId, msg)
 		or (offer.type == GameStore.OfferTypes.OFFER_TYPE_NONE)                         -- offer is disabled
 		or (offer.type ~= GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE and
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and
+			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_EXPBOOST2 and
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_PREYBONUS and
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_PREYSLOT and
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_TEMPLE and
@@ -365,7 +377,7 @@ function parseBuyStoreOffer(playerId, msg)
 	end
 
 	-- At this point the purchase is assumed to be formatted correctly
-	local offerPrice = offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and GameStore.ExpBoostValues[player:getStorageValue(GameStore.Storages.expBoostCount)] or offer.price
+	local offerPrice = offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and GameStore.ExpBoostValues[player:getStorageValue(GameStore.Storages.expBoostCount)] or GameStore.OfferTypes.OFFER_TYPE_EXPBOOST2 and GameStore.ExpBoost2Values[player:getStorageValue(GameStore.Storages.expBoostCount2)] or offer.price
 
 	if not player:canRemoveCoins(offerPrice) then
 		return queueSendStoreAlertToUser("You don't have enough coins. Your purchase has been cancelled.", 250, playerId)
@@ -390,6 +402,7 @@ function parseBuyStoreOffer(playerId, msg)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE     then local newName = msg:getString(); GameStore.processNameChangePurchase(player, offer.id, productType, newName, offer.name, offerPrice)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE      then GameStore.processSexChangePurchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST       then GameStore.processExpBoostPuchase(player)
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST2      then GameStore.processExpBoost2Puchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT       then GameStore.processPreySlotPurchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HUNTINGSLOT    then GameStore.processPreyHuntingSlotPurchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYBONUS      then GameStore.processPreyBonusReroll(player, offer.count)
@@ -512,6 +525,7 @@ function Player.canBuyOffer(self, offer)
 
 	if offer.type ~= GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE and
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and
+	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_EXPBOOST2 and
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_PREYSLOT and
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_PREYBONUS and
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_TEMPLE and
@@ -611,6 +625,16 @@ function Player.canBuyOffer(self, offer)
 				disabled = 1
 				disabledReason = "You already have an active XP boost."
 			end
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST2 then
+			local remainingBoost = self:getExpBoostStamina()
+			if self:getStorageValue(GameStore.Storages.expBoostCount2) == 6 then
+				disabled = 1
+				disabledReason = "You can't buy XP Boost for today."
+			end
+			if (remainingBoost > 0) then
+				disabled = 1
+				disabledReason = "You already have an active XP boost."
+			end			
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING then
 			if self:getHirelingsCount() >= 10 then
 				disabled = 1
@@ -725,6 +749,9 @@ function sendShowStoreOffers(playerId, category, redirectId)
 				if offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST then
 					xpBoostPrice = GameStore.ExpBoostValues[player:getStorageValue(GameStore.Storages.expBoostCount)]
 				end
+				if offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST2 then
+					xpBoostPrice = GameStore.ExpBoost2Values[player:getStorageValue(GameStore.Storages.expBoostCount2)]
+				end				
 
 				msg:addU32(off.id)
 				msg:addU16(off.count)
@@ -1091,6 +1118,8 @@ GameStore.getDefaultDescription = function(offerType, count)
 		descList = GameStore.DefaultDescriptions.SEXCHANGE
 	elseif offerType == t.OFFER_TYPE_EXPBOOST then
 		descList = GameStore.DefaultDescriptions.EXPBOOST
+	elseif offerType == t.OFFER_TYPE_EXPBOOST2 then
+		descList = GameStore.DefaultDescriptions.EXPBOOST2		
 	elseif offerType == t.OFFER_TYPE_PREYSLOT then
 		descList = GameStore.DefaultDescriptions.PREYSLOT
 	elseif offerType == t.OFFER_TYPE_PREYBONUS then
@@ -1480,6 +1509,20 @@ function GameStore.processExpBoostPuchase(player)
 	end
 
 	player:setStorageValue(GameStore.Storages.expBoostCount, expBoostCount + 1)
+end
+
+function GameStore.processExpBoost2Puchase(player)
+	local currentExpBoostTime = player:getExpBoostStamina()
+	local expBoostCount2 = player:getStorageValue(GameStore.Storages.expBoostCount2)
+
+	player:setStoreXpBoost(100)
+	player:setExpBoostStamina(currentExpBoostTime + 3600)
+
+	if (player:getStorageValue(GameStore.Storages.expBoostCount2) == -1 or expBoostCount2 == 6) then
+		player:setStorageValue(GameStore.Storages.expBoostCount2, 1)
+	end
+
+	player:setStorageValue(GameStore.Storages.expBoostCount2, expBoostCount2 + 1)
 end
 
 function GameStore.processPreySlotPurchase(player)
