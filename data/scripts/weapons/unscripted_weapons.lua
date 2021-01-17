@@ -1,5 +1,12 @@
 local weapons = {
 	{
+		itemId = 40737,
+		type = WEAPON_AMMO,
+		level = 150,
+		unproperly = true,
+		action = "removecount"
+	}, -- spectral bolt (no decay)
+	{
 		itemId = 38990,
 		type = WEAPON_SWORD,
 		level = 270,
@@ -1057,7 +1064,7 @@ local weapons = {
 		wandType = "death",
 		level = 41,
 		mana = 15,
-		damage = {80, 100},
+		damage = {75, 95},
 		vocation = {
 			{"Sorcerer", true},
 			{"Master Sorcerer"}

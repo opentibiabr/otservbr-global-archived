@@ -27,14 +27,14 @@ monster.Bestiary = {
 		Triangle Tower, Temple of Xayepocax, Green Claw Swamp and Amazon Camp (Venore), \z
 		Dark Cathedral (2 levels underground), Goroma Volcano (underground), west from Necromant House, \z
 		Mammoth Shearing Factory, Trade Quarter in Yalahar, The Witches' Cliff (only accessible during a quest)."
-		}
+	}
 
 monster.health = 300
 monster.maxHealth = 300
 monster.race = "blood"
 monster.corpse = 20535
 monster.speed = 204
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

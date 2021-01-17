@@ -1,6 +1,15 @@
 if not equipmentsTable then
-
 	equipmentsTable = {
+		{
+			itemid = 40737,
+			type = "equip",
+			slot = "ammo"
+		}, -- spectral bolt (no decay)
+		{
+			itemid = 40737,
+			type = "deequip",
+			slot = "ammo"
+		}, -- spectral bolt (no decay)
 		{
 			itemid = 39089,
 			type = "equip",

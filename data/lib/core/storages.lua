@@ -134,8 +134,11 @@ Storage = {
 	StoreExaust = 30051,
 	LemonCupcake = 30052,
 	BlueberryCupcake = 30053,
+	PetSummonEvent10 = 30054,
+	PetSummonEvent60 = 30055,
+	FreeQuests = 990000,
 	PremiumAccount = 998899,
-	
+
 	--[[
 	Old storages
 	Over time, this will be dropped and replaced by the table above
@@ -588,7 +591,10 @@ Storage = {
 		OrcDoor = 50555,
 		ChorurnDoor = 50556,
 		DwacatraDoor = 50557,
-		FamilyBroochDoor = 50558
+		FamilyBroochDoor = 50558,
+		TheElvenPoetry = 50559,
+		SpectralStoneDoor = 50560,
+		IceMusicDoor = 50561
 	},
 	TravellingTrader = {
 		-- Reserved storage from 50600 - 50619
@@ -1368,10 +1374,6 @@ Storage = {
 		-- Reserved storage from 51680 - 51689
 		DeeperBanutaShortcut = 51680,
 	},
-	TheAnnihilator = {
-		-- Reserved storage from 51690 - 51699
-		AnnihilatorDone = 51690
-	},
 	DemonOak = {
 		-- Reserved storage from 51700 - 51709
 		Done = 51700,
@@ -1715,6 +1717,7 @@ Storage = {
 			ID3800 = 3800,
 			ID3801 = 3801,
 			ID3802 = 3802,
+			ID3899 = 3899,
 			ID3940 = 3940,
 			ID3980 = 3980,
 			ID4055 = 4055,
@@ -1906,8 +1909,22 @@ Storage = {
 			Bag1 = 10100,
 			Bag2 = 10101
 		},
-		TheAnnihilator = {},
-		TheParadoxTower = {},
+		TheAnnihilator = {
+			Reward = 10102
+		},
+		TheParadoxTower = {
+			QuestLine = 10103,
+			TheFearedHugo = 10104,
+			FirstParadoxAcess = 10105,
+			FavoriteColour = 10106,
+			Mathemagics = 10107,
+			Reward = {
+				Egg = 10108,
+				Gold = 10109,
+				Talon = 10110,
+				Wand = 10111
+			}
+		},
 		ThePostmanMissions = {},
 		TheWhiteRavenMonastery = {},
 		VoodooDoll = {},

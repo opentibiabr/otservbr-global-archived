@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 0,
 	Locations = "Zao Steppe, Raging Mage tower, Ankrahmun Desert, Darashia Desert, Drefia."
-		}
+	}
 
 monster.health = 30
 monster.maxHealth = 30
 monster.race = "venom"
 monster.corpse = 11357
 monster.speed = 160
-monster.summonCost = 250
+monster.manaCost = 250
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -26,14 +26,14 @@ monster.Bestiary = {
 	Locations = "North of Mount Sternum, Plains of Havoc, Outlaw Camp, Dark Cathedral, Femor Hills, \z
 		Maze of Lost Souls, north of the Amazon Camp, at the entrance and in the Hero Cave, \z
 		a castle tower at Elvenbane, Trade Quarter, Smuggler camp on Tyrsung, Formorgar Mines."
-		}
+	}
 
 monster.health = 150
 monster.maxHealth = 150
 monster.race = "blood"
 monster.corpse = 20419
 monster.speed = 210
-monster.summonCost = 530
+monster.manaCost = 530
 monster.maxSummons = 0
 
 monster.changeTarget = {

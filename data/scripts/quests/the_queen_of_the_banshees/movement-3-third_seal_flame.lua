@@ -13,11 +13,13 @@ function thirdSealFlame.onStepIn(creature, item, position, fromPosition)
 	end
 
 	for i = 1, #thirdSealTable.coalBasinPosition do
-		Position.transformItem(thirdSealTable.coalBasinPosition[i], 1484, 1485)
+		local positions = thirdSealTable.coalBasinPosition[i]
+		Position(positions):transformItem(1484, 1485)
 	end
 
 	for i = 1, #thirdSealTable.switchPosition do
-		Position.transformItem(thirdSealTable.switchPosition[i], 1945, 1946)
+		local positions = thirdSealTable.switchPosition[i]
+		Position(positions):transformItem(1945, 1946)
 	end
 
 	player:setStorageValue(Storage.Quest.TheQueenOfTheBanshees.ThirdSeal, 1)

@@ -134,6 +134,13 @@ ChestUnique = {
 		reward = {{2088, 1}},
 		storage = Storage.Quest.Key.ID3620
 	},
+	[5011] = {
+		isKey = true,
+		itemId = 2720,
+		itemPos = {x = 32497, y = 31887, z = 7},
+		reward = {{2089, 1}},
+		storage = Storage.Quest.Key.ID3899
+	},
 
 	-- To add a reward inside a bag, you need to add the variable "container = bagId" before "reward"
 	-- Just duplicate the table and configure correctly, the scripts already register the entire table automatically
@@ -771,6 +778,66 @@ ChestUnique = {
 		reward = {{2129, 1}, {2213, 1}},
 		storage = Storage.Quest.SkullOfRatha.Bag2
 	},
+	-- The annihilator quest
+	-- Demon armor
+	[6085] = {
+		itemId = 1740,
+		itemPos = {x = 33227, y = 31656, z = 13},
+		reward = {{2494, 1}},
+		storage = Storage.Quest.TheAnnihilator.Reward
+	},
+	-- Magic sword
+	[6086] = {
+		itemId = 1740,
+		itemPos = {x = 33229, y = 31656, z = 13},
+		reward = {{2400, 1}},
+		storage = Storage.Quest.TheAnnihilator.Reward
+	},
+	-- Stonecutter axe
+	[6087] = {
+		itemId = 1740,
+		itemPos = {x = 33231, y = 31656, z = 13},
+		reward = {{2431, 1}},
+		storage = Storage.Quest.TheAnnihilator.Reward
+	},
+	-- Present (annihilation bear)
+	[6088] = {
+		itemId = 1740,
+		itemPos = {x = 33233, y = 31656, z = 13},
+		container = 1990,
+		weight = 50,
+		reward = {{2326, 1}},
+		storage = Storage.Quest.TheAnnihilator.Reward
+	},
+	-- The paradox tower quest
+	-- Phoenix egg
+	[6089] = {
+		itemId = 1740,
+		itemPos = {x = 32477, y = 31900, z = 1},
+		reward = {{11400, 1}},
+		storage = Storage.Quest.TheParadoxTower.Reward.Egg
+	},
+	-- 10.000 gold coins
+	[6090] = {
+		itemId = 1740,
+		itemPos = {x = 32478, y = 31900, z = 1},
+		reward = {{2152, 100}},
+		storage = Storage.Quest.TheParadoxTower.Reward.Gold
+	},
+	-- Talon
+	[6091] = {
+		itemId = 1740,
+		itemPos = {x = 32479, y = 31900, z = 1},
+		reward = {{2151, 32}},
+		storage = Storage.Quest.TheParadoxTower.Reward.Talon
+	},
+	-- Wand of energy cosmic
+	[6092] = {
+		itemId = 1740,
+		itemPos = {x = 32480, y = 31900, z = 1},
+		reward = {{2189, 1}},
+		storage = Storage.Quest.TheParadoxTower.Reward.Wand
+	},
 
 	-- Reward of others scrips files (varied rewards)
 	-- The First dragon Quest
@@ -894,6 +961,43 @@ ChestUnique = {
 	[14028] = {
 		itemId = 1740,
 		itemPos = {x = 32068, y = 31882, z = 6}
+	},
+	-- Explorer Society Missions
+	-- Path: data\scripts\actions\quests\explorer_society\findings.lua
+	-- Uzgod Family Brooch (Dwacatra)
+	[14029] = {
+		itemId = 1741,
+		itemPos = {x = 32598, y = 31934, z = 15}
+	},
+	-- The Bonelord Secret Chest (Dark Pyramid)
+	[14030] = {
+		itemId = 1738,
+		itemPos = {x = 33308, y = 32279, z = 12}
+	},
+	-- The Orc Powder (Orc Fortress)
+	[14031] = {
+		itemId = 1741,
+		itemPos = {x = 32967, y = 31719, z = 2}
+	},
+	-- The Elven Poetry (Hell Gate)
+	[14032] = {
+		itemId = 1740,
+		itemPos = {x = 32704, y = 31605, z = 14}
+	},
+	-- The Memory Stone (Edron)
+	[14033] = {
+		itemId = 1738,
+		itemPos = {x = 33152, y = 31640, z = 11}
+	},
+	-- The Spectral Dress (Isle of the Kings)
+	[14034] = {
+		itemId = 1738,
+		itemPos = {x = 32259, y = 31949, z = 14}
+	},
+	-- The Undersea Kingdom (Calassa)
+	[14035] = {
+		itemId = 1741,
+		itemPos = {x = 31937, y = 32771, z = 13}
 	},
 	-- Others uniques
 	-- Threatened Dreams Quest

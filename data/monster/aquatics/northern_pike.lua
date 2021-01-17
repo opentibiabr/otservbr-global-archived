@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 1,
 	Occurrence = 1,
 	Locations = "Fiehonja."
-		}
+	}
 
 monster.health = 95
 monster.maxHealth = 95
 monster.race = "undead"
 monster.corpse = 2669
 monster.speed = 210
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

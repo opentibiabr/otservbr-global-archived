@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Workshop Quarter, Glooth Factory, Underground Glooth Factory, Abandoned Sewers, \z
 		Oramond Dungeon (depending on Magistrate votes), Jaccus Maxxens Dungeon."
-		}
+	}
 
 monster.health = 2100
 monster.maxHealth = 2100
 monster.race = "venom"
 monster.corpse = 23347
 monster.speed = 190
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

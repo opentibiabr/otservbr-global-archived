@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 4,
 	Occurrence = 0,
 	Locations = "Deep Desert."
-		}
+	}
 
 monster.health = 7800
 monster.maxHealth = 7800
 monster.race = "undead"
 monster.corpse = 5972
 monster.speed = 155
-monster.summonCost = 350
+monster.manaCost = 350
 monster.maxSummons = 0
 
 monster.changeTarget = {

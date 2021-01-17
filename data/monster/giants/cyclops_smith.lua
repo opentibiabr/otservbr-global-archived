@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Cyclopolis second floor and below, Mistrock, Mount Sternum, \z
 		Cyclops Camp second floor and in the Cyclops version of the Forsaken Mine."
-		}
+	}
 
 monster.health = 435
 monster.maxHealth = 435
 monster.race = "blood"
 monster.corpse = 7740
 monster.speed = 204
-monster.summonCost = 695
+monster.manaCost = 695
 monster.maxSummons = 0
 
 monster.changeTarget = {

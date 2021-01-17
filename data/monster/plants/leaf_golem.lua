@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Leaf dungeon in Hellgate, Lair of the Treeling Witch, Forest Fury Camp and in the \z
 		Forest Fury version of the Forsaken Mine."
-		}
+	}
 
 monster.health = 90
 monster.maxHealth = 90
 monster.race = "undead"
 monster.corpse = 21358
 monster.speed = 136
-monster.summonCost = 390
+monster.manaCost = 390
 monster.maxSummons = 0
 
 monster.changeTarget = {

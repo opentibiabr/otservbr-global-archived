@@ -58,6 +58,10 @@ bool Vocations::loadFromXml()
 			voc.description = attr.as_string();
 		}
 
+    if ((attr = vocationNode.attribute("magicshield"))) {
+      voc.magicShield = attr.as_bool();
+    }
+
 		if ((attr = vocationNode.attribute("gaincap"))) {
 			voc.gainCap = pugi::cast<uint32_t>(attr.value()) * 100;
 		}
@@ -207,14 +211,7 @@ uint64_t Vocation::getReqMana(uint32_t magLevel)
 		return it->second;
 	}
 
-	uint64_t reqMana = static_cast<uint64_t>(1600 * std::pow<double>(manaMultiplier, static_cast<int32_t>(magLevel) - 1));
-	uint32_t modResult = reqMana % 20;
-	if (modResult < 10) {
-		reqMana -= modResult;
-	} else {
-		reqMana -= modResult + 20;
-	}
-
+	uint64_t reqMana = std::floor<uint64_t>(1600 * std::pow<double>(manaMultiplier, static_cast<int32_t>(magLevel) - 1));
 	cacheMana[magLevel] = reqMana;
 	return reqMana;
 }

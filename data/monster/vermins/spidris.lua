@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 2,
 	Locations = "Hive, Hive Outpost."
-		}
+	}
 
 monster.health = 3700
 monster.maxHealth = 3700
 monster.race = "venom"
 monster.corpse = 15296
 monster.speed = 390
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

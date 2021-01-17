@@ -22,6 +22,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
 
+	-- Tibia tales quest
 	if msgcontains(msg, "cough syrup") then
 		npcHandler:say("Do you want to buy a bottle of cough syrup for 50 gold?", cid)
 		npcHandler.topic[cid] = 1
@@ -70,6 +71,19 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('Then the downfall of Carlin is inescapable. Please think about it. You know where to find me.', cid)
 			npcHandler.topic[cid] = 0
 		end
+	end
+
+	-- The paradox tower quest
+	if msgcontains(msg, "crunor's caress") then
+		npcHandler:say("Don't ask. They were only an unimportant footnote of history.", cid)
+		npcHandler.topic[cid] = 0
+	elseif msgcontains(msg, "footnote") then
+		if player:getStorageValue(Storage.Quest.TheParadoxTower.TheFearedHugo) == 2 then
+			-- Questlog: The Feared Hugo (Lubo)
+			player:setStorageValue(Storage.Quest.TheParadoxTower.TheFearedHugo, 3)
+		end
+		npcHandler:say("They thought they had to bring Crunor to the people, if the people had not found Crunor on their own. To achieve this, they founded the inn called Crunor's Cottage, south of Mt. Sternum.", cid)
+		npcHandler.topic[cid] = 0
 	end
 	return true
 end

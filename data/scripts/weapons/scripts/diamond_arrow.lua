@@ -21,6 +21,7 @@ function diamondArrow.onUseWeapon(player, variant)
 end
 
 diamondArrow:id(29057)
+diamondArrow:id(40736)
 diamondArrow:level(150)
 diamondArrow:attack(37)
 diamondArrow:action("removecount")

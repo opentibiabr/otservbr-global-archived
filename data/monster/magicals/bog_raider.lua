@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Underneath Malada and Talahu, Edron Bog Raider Cave in Stonehome, \z
 		Edron Earth Elemental Cave, Alchemist Quarter, Vengoth Castle, Robson Isle. Oramond Hydra/Bog Raider Cave."
-		}
+	}
 
 monster.health = 1300
 monster.maxHealth = 1300
 monster.race = "venom"
 monster.corpse = 8951
 monster.speed = 250
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

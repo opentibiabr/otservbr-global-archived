@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 2,
 	Occurrence = 0,
 	Locations = "Forest around Outlaw Camp."
-		}
+	}
 
 monster.health = 198
 monster.maxHealth = 198
 monster.race = "blood"
 monster.corpse = 13308
 monster.speed = 410
-monster.summonCost = 465
+monster.manaCost = 465
 monster.maxSummons = 0
 
 monster.changeTarget = {

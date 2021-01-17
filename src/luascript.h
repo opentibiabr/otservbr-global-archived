@@ -600,6 +600,7 @@ class LuaScriptInterface
 		static int luaPositionCompare(lua_State* L);
 
 		static int luaPositionGetDistance(lua_State* L);
+		static int luaPositionGetPathTo(lua_State* L);
 		static int luaPositionIsSightClear(lua_State* L);
 
 		static int luaPositionSendMagicEffect(lua_State* L);
@@ -863,6 +864,8 @@ class LuaScriptInterface
 		// Player
 		static int luaPlayerCreate(lua_State* L);
 
+		static int luaPlayerUnlockAllCharmRunes(lua_State* L);
+		static int luaPlayerResetCharmsMonsters(lua_State* L);
 		static int luaPlayeraddCharmPoints(lua_State* L);
 		static int luaPlayerIsPlayer(lua_State* L);
 
@@ -890,6 +893,8 @@ class LuaScriptInterface
 		static int luaPlayerGetReward(lua_State* L);
 		static int luaPlayerRemoveReward(lua_State* L);
 		static int luaPlayerGetRewardList(lua_State* L);
+
+		static int luaPlayerSetDailyReward(lua_State* L);
 
 		static int luaPlayerSendInventory(lua_State* L);
 		static int luaPlayerSendLootStats(lua_State* L);
@@ -1024,6 +1029,8 @@ class LuaScriptInterface
 		static int luaPlayerAddFamiliar(lua_State* L);
 		static int luaPlayerRemoveFamiliar(lua_State* L);
 		static int luaPlayerHasFamiliar(lua_State* L);
+		static int luaPlayerSetFamiliarLooktype(lua_State* L);
+		static int luaPlayerGetFamiliarLooktype(lua_State* L);
 
 		static int luaPlayerGetPremiumDays(lua_State* L);
 		static int luaPlayerAddPremiumDays(lua_State* L);
@@ -1151,6 +1158,8 @@ class LuaScriptInterface
 		static int luaMonsterGetTargetList(lua_State* L);
 		static int luaMonsterGetTargetCount(lua_State* L);
 
+		static int luaMonsterChangeTargetDistance(lua_State* L);
+
 		static int luaMonsterSelectTarget(lua_State* L);
 		static int luaMonsterSearchTarget(lua_State* L);
 
@@ -1164,6 +1173,7 @@ class LuaScriptInterface
 
 		static int luaNpcSetMasterPos(lua_State* L);
 
+		static int luaNpcGetCurrency(lua_State* L);
 		static int luaNpcGetSpeechBubble(lua_State* L);
 		static int luaNpcSetSpeechBubble(lua_State* L);
 		static int luaNpcSetName(lua_State* L);

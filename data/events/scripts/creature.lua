@@ -1,5 +1,18 @@
 -- Functions from The Forgotten Server
 function Creature:onChangeOutfit(outfit)
+	if self:isPlayer() then
+		local familiarLookType = self:getFamiliarLooktype()
+		if familiarLookType ~= 0 then
+			for _, summon in pairs(self:getSummons()) do
+				if summon:getType():isPet() then
+						if summon:getOutfit().lookType ~= familiarLookType then
+							summon:setOutfit({lookType = familiarLookType})
+						end
+					break
+				end
+			end
+		end
+	end
 	return true
 end
 
@@ -15,10 +28,6 @@ function Creature:onHear(speaker, words, type)
 end
 
 -- Functions from OTServBR-Global
-function Creature:onChangeOutfit(outfit)
-	return true
-end
-
 function Creature:onAreaCombat(tile, isAggressive)
 	return true
 end
@@ -86,8 +95,8 @@ function Creature:onTargetCombat(target)
 		end
 	end
 
-	if ((target:isMonster() and self:isPlayer() and target:getType():isPet() and target:getMaster() == self)
-	or (self:isMonster() and target:isPlayer() and self:getType():isPet() and self:getMaster() == target)) then
+	if ((target:isMonster() and self:isPlayer() and target:getMaster() == self)
+	or (self:isMonster() and target:isPlayer() and self:getMaster() == target)) then
 		return RETURNVALUE_YOUMAYNOTATTACKTHISCREATURE
 	end
 

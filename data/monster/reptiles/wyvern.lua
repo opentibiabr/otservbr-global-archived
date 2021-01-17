@@ -28,14 +28,14 @@ monster.Bestiary = {
 		Green Djinn Tower, Mushroom Fields,Paradox Tower, Plains of Havoc, Plague Spike, \z
 		Poachers' Camp (Ferngrims Gate), Stonehome, Tiquanda, Truffels Garden, \z
 		Vandura Mountain, Vega, Venore, Wyvern Cave (Ferngrims Gate), Wyvern Hill and Wyvern Ulderek's Rock Cave."
-		}
+	}
 
 monster.health = 795
 monster.maxHealth = 795
 monster.race = "blood"
 monster.corpse = 6302
 monster.speed = 186
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Drefia."
-		}
+	}
 
 monster.health = 450
 monster.maxHealth = 450
 monster.race = "blood"
 monster.corpse = 21254
 monster.speed = 170
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 4
 
 monster.changeTarget = {

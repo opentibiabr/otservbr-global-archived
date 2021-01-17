@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Venore Corym Cave, Tiquanda Corym Cave, Corym Black Market, \z
 		Carlin Corym Cave/Dwarf Mines Diggers Depths Mine, Upper Spike."
-		}
+	}
 
 monster.health = 250
 monster.maxHealth = 250
 monster.race = "blood"
 monster.corpse = 19725
 monster.speed = 190
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

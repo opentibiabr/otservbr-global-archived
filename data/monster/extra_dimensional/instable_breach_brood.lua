@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 0,
 	Locations = "Otherworld."
-		}
+	}
 
 monster.health = 2200
 monster.maxHealth = 2200
 monster.race = "venom"
 monster.corpse = 26048
 monster.speed = 270
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

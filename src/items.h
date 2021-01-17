@@ -298,7 +298,6 @@ class ItemType
 		bool wrapContainer = false;
 		bool useable = false;
 		bool moveable = false;
-		bool notstowable = false;
 		bool alwaysOnTop = false;
 		bool canReadText = false;
 		bool canWriteText = false;

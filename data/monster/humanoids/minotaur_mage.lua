@@ -27,14 +27,14 @@ monster.Bestiary = {
 		Kazordoon (The Horned Fox's hideout), the Plains of Havoc, Point of No Return south of Outlaw Camp, \z
 		Elvenbane, the depths of Fibula Dungeon (level 50+), cave east from Dwarf Bridge, Foreigner Quarter, \z
 		Rookgaard Minotaur Hell (not reachable)."
-		}
+	}
 
 monster.health = 155
 monster.maxHealth = 155
 monster.race = "blood"
 monster.corpse = 5981
 monster.speed = 170
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

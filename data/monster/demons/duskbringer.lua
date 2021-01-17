@@ -24,14 +24,14 @@ monster.Bestiary = {
 	Stars = 3,
 	Occurrence = 3,
 	Locations = "Magician Quarter (Yalahar)."
-		}
+	}
 
 monster.health = 3550
 monster.maxHealth = 3550
 monster.race = "undead"
 monster.corpse = 8955
 monster.speed = 370
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {

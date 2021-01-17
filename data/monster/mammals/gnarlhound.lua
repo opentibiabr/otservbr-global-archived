@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Zao Steppe, Raging Mage Tower, Gnarlhound Caves. \z
 		Four inaccessible ones can be seen in Telas's basement."
-		}
+	}
 
 monster.health = 198
 monster.maxHealth = 198
 monster.race = "blood"
 monster.corpse = 11250
 monster.speed = 410
-monster.summonCost = 465
+monster.manaCost = 465
 monster.maxSummons = 0
 
 monster.changeTarget = {

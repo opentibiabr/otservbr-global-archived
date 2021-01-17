@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Laguna Islands, Fenrock, Port Hope and also can be found behind a wall below the \z
 		center of Liberty Bay. These cannot be reached."
-		}
+	}
 
 monster.health = 185
 monster.maxHealth = 185
 monster.race = "blood"
 monster.corpse = 6072
 monster.speed = 200
-monster.summonCost = 445
+monster.manaCost = 445
 monster.maxSummons = 0
 
 monster.changeTarget = {

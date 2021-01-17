@@ -9,5 +9,5 @@ function explorerSocietyDragon.onUse(player, item, fromPosition, target, toPosit
     return true
 end
 
-explorerSocietyDragon:uid(3017)
+explorerSocietyDragon:uid(40042)
 explorerSocietyDragon:register()

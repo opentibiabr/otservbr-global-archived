@@ -25,14 +25,14 @@ monster.Bestiary = {
 	Occurrence = 0,
 	Locations = "Liberty Bay Cult Cave, Formorgar Mines, Yalahar Magician Quarter, \z
 		in the caves on top of the Hrodmir mountains."
-		}
+	}
 
 monster.health = 285
 monster.maxHealth = 285
 monster.race = "blood"
 monster.corpse = 20467
 monster.speed = 200
-monster.summonCost = 0
+monster.manaCost = 0
 monster.maxSummons = 1
 
 monster.changeTarget = {

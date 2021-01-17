@@ -1,61 +1,37 @@
 local foreshockTransform = CreatureEvent("ForeshockTransform")
 function foreshockTransform.onThink(creature)
-	if not creature or not creature:isMonster() then
-		return false
+	if not creature:isMonster() then
+		return true
 	end
 
-	local hp = (creature:getHealth() / creature:getMaxHealth()) * 100
-	if realityQuakeStage == 0 then
-		if hp <= 80 and foreshockStage == 0 then
-			foreshockHealth = creature:getHealth()
-			creature:remove()
-			local monster = Game.createMonster("aftershock", {x = 32208, y = 31248, z = 14}, false, true)
-			monster:addHealth(-monster:getHealth() + aftershockHealth, false)
-			Game.createMonster("spark of destruction", {x = 32203, y = 31246, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32205, y = 31251, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32210, y = 31251, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32212, y = 31246, z = 14}, false, true)
-			foreshockStage = 1
-		elseif hp <= 60 and foreshockStage == 1 then
-			foreshockHealth = creature:getHealth()
-			creature:remove()
-			local monster = Game.createMonster("aftershock", {x = 32208, y = 31248, z = 14}, false, true)
-			monster:addHealth(-monster:getHealth() + aftershockHealth, false)
-			Game.createMonster("spark of destruction", {x = 32203, y = 31246, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32205, y = 31251, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32210, y = 31251, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32212, y = 31246, z = 14}, false, true)
-			foreshockStage = 2
-		elseif hp <= 40 and foreshockStage == 2 then
-			foreshockHealth = creature:getHealth()
-			creature:remove()
-			local monster = Game.createMonster("Aftershock", {x = 32208, y = 31248, z = 14}, false, true)
-			monster:addHealth(-monster:getHealth() + aftershockHealth, false)
-			Game.createMonster("spark of destruction", {x = 32203, y = 31246, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32205, y = 31251, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32210, y = 31251, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32212, y = 31246, z = 14}, false, true)
-			foreshockStage = 3
-		elseif hp <= 25 and foreshockStage == 3 then
-			foreshockHealth = creature:getHealth()
-			creature:remove()
-			local monster = Game.createMonster("aftershock", {x = 32208, y = 31248, z = 14}, false, true)
-			monster:addHealth(-monster:getHealth() + aftershockHealth, false)
-			Game.createMonster("spark of destruction", {x = 32203, y = 31246, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32205, y = 31251, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32210, y = 31251, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32212, y = 31246, z = 14}, false, true)
-			foreshockStage = 4
-		elseif hp <= 10 and foreshockStage == 4 then
-			foreshockHealth = creature:getHealth()
-			creature:remove()
-			local monster = Game.createMonster("aftershock", {x = 32208, y = 31248, z = 14}, false, true)
-			monster:addHealth(-monster:getHealth() + aftershockHealth, false)
-			Game.createMonster("spark of destruction", {x = 32203, y = 31246, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32205, y = 31251, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32210, y = 31251, z = 14}, false, true)
-			Game.createMonster("spark of destruction", {x = 32212, y = 31246, z = 14}, false, true)
-			foreshockStage = -1
+	local sparkOfDestructionPositions = {
+		{x = 32203, y = 31246, z = 14},
+		{x = 32205, y = 31251, z = 14},
+		{x = 32210, y = 31251, z = 14},
+		{x = 32212, y = 31246, z = 14}
+	}
+	
+	local monsterTable = {
+		[80] = {fromStage = 0, toStage = 1},
+		[60] = {fromStage = 1, toStage = 2},
+		[40] = {fromStage = 2, toStage = 3},
+		[25] = {fromStage = 3, toStage = 4},
+		[10] = {fromStage = 4, toStage = 5}
+	}
+	
+	for index, value in pairs(monsterTable) do
+		local hp = (creature:getHealth() / creature:getMaxHealth()) * 100
+		if realityQuakeStage == 0 then
+			local foreshockHealth = creature:getHealth()
+			if hp <= index and aftershockStage == value.fromStage then
+				creature:remove()
+				for i = 1, #sparkOfDestructionPositions do
+					Game.createMonster("spark of destruction", #sparkOfDestructionPositions[i], false, true)
+				end
+				local monster = Game.createMonster("aftershock", {x = 32208, y = 31248, z = 14}, false, true)
+				monster:addHealth(-monster:getHealth() + foreshockHealth, COMBAT_PHYSICALDAMAGE)
+				foreshockStage = value.toStage
+			end
 		end
 	end
 	return true

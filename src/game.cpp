@@ -117,10 +117,24 @@ void Game::loadBoostedCreature()
 				k++;
 			}
 		}
+
+		MonsterType* monsterType = g_monsters.getMonsterTypeByRaceId(newrace);
+
 		query.str(std::string());
 		query << "UPDATE `boosted_creature` SET ";
 		query << "`date` = '" << ltm->tm_mday << "',";
 		query << "`boostname` = " << db.escapeString(name) << ",";
+
+		if (monsterType) {
+			query << "`looktype` = " << static_cast<int>(monsterType->info.outfit.lookType) << ",";
+			query << "`lookfeet` = " << static_cast<int>(monsterType->info.outfit.lookFeet) << ",";
+			query << "`looklegs` = " << static_cast<int>(monsterType->info.outfit.lookLegs) << ",";
+			query << "`lookhead` = " << static_cast<int>(monsterType->info.outfit.lookHead) << ",";
+			query << "`lookbody` = " << static_cast<int>(monsterType->info.outfit.lookBody) << ",";
+			query << "`lookaddons` = " << static_cast<int>(monsterType->info.outfit.lookAddons) << ",";
+			query << "`lookmount` = " << static_cast<int>(monsterType->info.outfit.lookMount) << ",";
+		}
+
 		query << "`raceid` = '" << newrace << "'";
 
 		if (!db.executeQuery(query.str())) {
@@ -207,31 +221,38 @@ bool Game::loadScheduleEventFromXml()
 			}	
 		}
 
-			for (auto schedENode : schedNode.children()) {
-				if ((schedENode.attribute("exprate"))) {
-					uint16_t exprate = pugi::cast<uint16_t>(schedENode.attribute("exprate").value());
-					g_game.setExpSchedule(exprate);
-					ss << " exp: " << (exprate - 100) << "%";
-				}
-
-				if ((schedENode.attribute("lootrate"))) {
-					uint16_t lootrate = pugi::cast<uint16_t>(schedENode.attribute("lootrate").value());
-					g_game.setLootSchedule(lootrate);
-					ss << ", loot: " << (lootrate - 100) << "%";
-				}
-
-				if ((schedENode.attribute("spawnrate"))) {
-					uint32_t spawnrate = pugi::cast<uint32_t>(schedENode.attribute("spawnrate").value());
-					g_game.setSpawnSchedule(spawnrate);
-					ss << ", spawn: "  << (spawnrate - 100) << "%";
-				}
-
-				if ((schedENode.attribute("skillrate"))) {
-					uint16_t skillrate = pugi::cast<uint16_t>(schedENode.attribute("skillrate").value());
-					g_game.setSkillSchedule(skillrate);
-					ss << ", skill: " << (skillrate - 100) << "%";
-				}
+		if ((attr = schedNode.attribute("script"))) {
+			if (!(g_scripts->loadEventSchedulerScripts(attr.as_string()))) {
+				std::cout << "[Warning - Game::loadScheduleEventFromXml] Can not load the file '" << attr.as_string() << "' on '/events/scripts/scheduler/'." << std::endl;
+				return false;
 			}
+		}
+
+		for (auto schedENode : schedNode.children()) {
+			if ((schedENode.attribute("exprate"))) {
+				uint16_t exprate = pugi::cast<uint16_t>(schedENode.attribute("exprate").value());
+				g_game.setExpSchedule(exprate);
+				ss << " exp: " << (exprate - 100) << "%";
+			}
+
+			if ((schedENode.attribute("lootrate"))) {
+				uint16_t lootrate = pugi::cast<uint16_t>(schedENode.attribute("lootrate").value());
+				g_game.setLootSchedule(lootrate);
+				ss << ", loot: " << (lootrate - 100) << "%";
+			}
+
+			if ((schedENode.attribute("spawnrate"))) {
+				uint32_t spawnrate = pugi::cast<uint32_t>(schedENode.attribute("spawnrate").value());
+				g_game.setSpawnSchedule(spawnrate);
+				ss << ", spawn: "  << (spawnrate - 100) << "%";
+			}
+
+			if ((schedENode.attribute("skillrate"))) {
+				uint16_t skillrate = pugi::cast<uint16_t>(schedENode.attribute("skillrate").value());
+				g_game.setSkillSchedule(skillrate);
+				ss << ", skill: " << (skillrate - 100) << "%";
+			}
+		}
 		std::cout << ss.str() << "." << std::endl;
 	}
 	return true;
@@ -328,195 +349,240 @@ void Game::onPressHotkeyEquip(Player* player, uint16_t spriteid)
 
 	bool removed = false;
 	ReturnValue ret = RETURNVALUE_NOERROR;
-	item = findItemOfType(player, itemType.id);
 
-	if (!item) {
-		item = findItemOfType(player, itemType.transformEquipTo);
+	if (itemType.weaponType == WEAPON_AMMO) {
+		Thing* quiverThing = player->getThing(CONST_SLOT_RIGHT);
+		Thing* backpackThing = player->getThing(CONST_SLOT_BACKPACK);
+		if (quiverThing && backpackThing) {
+			Item* quiver = quiverThing->getItem();
+			Item* backpack = backpackThing->getItem();
+			if (quiver && quiver->getWeaponType() == WEAPON_QUIVER && backpack) {
+				item = findItemOfType(backpack->getContainer(), itemType.id);
+				if (item) {
+					ret = internalMoveItem(item->getParent(), quiver->getContainer(), 0, item, item->getItemCount(), nullptr);
+				}
+				else {
+					ret = RETURNVALUE_NOTPOSSIBLE;
+				}
+			}
+			else {
+				ret = RETURNVALUE_NOTPOSSIBLE;
+			}
+		}
+	} else {
+		item = findItemOfType(player, itemType.id);
+
 		if (!item) {
-			item = findItemOfType(player, itemType.transformDeEquipTo);
-		}
-		if (!item) {
-			player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-			return;
-		}		
-	}
-
-	const ItemType& newitemType = Item::items[item->getID()];
-
-	if (newitemType.id == 0) {
-		return;
-	}
-
-	int32_t slotP = newitemType.slotPosition;
-	if (itemType.weaponType == WEAPON_SHIELD) {
-		slotP = CONST_SLOT_RIGHT;
-	} else if (hasBitSet(SLOTP_HEAD, slotP)) {
-		slotP = CONST_SLOT_HEAD;
-	} else if (hasBitSet(SLOTP_RING, slotP)) {
-		slotP = CONST_SLOT_RING;
-	} else if (hasBitSet(SLOTP_NECKLACE, slotP)) {
-		slotP = CONST_SLOT_NECKLACE;
-	} else if (hasBitSet(SLOTP_ARMOR, slotP)) {
-		slotP = CONST_SLOT_ARMOR;
-	} else if (hasBitSet(SLOTP_LEGS, slotP)) {
-		slotP = CONST_SLOT_LEGS;
-	} else if (hasBitSet(SLOTP_FEET, slotP)) {
-		slotP = CONST_SLOT_FEET;
-	} else if (hasBitSet(SLOTP_AMMO, slotP)) {
-		slotP = CONST_SLOT_AMMO;
-	} else if (hasBitSet(SLOTP_LEFT, slotP) && !hasBitSet(SLOTP_TWO_HAND, slotP)) {
-		slotP = CONST_SLOT_LEFT;
-	}
-
-	if (hasBitSet(SLOTP_TWO_HAND, slotP)) {
-	 Thing* leftthing = player->getThing(CONST_SLOT_LEFT);
-	  if (leftthing) {
-		Item* slotLeft_item = leftthing->getItem();
-		  if (slotLeft_item) {
-			if (slotLeft_item->getID() == item->getID()) {
-			  removed = true;
+			item = findItemOfType(player, itemType.transformEquipTo);
+			if (!item) {
+				item = findItemOfType(player, itemType.transformDeEquipTo);
 			}
-		   ret = internalMoveItem(slotLeft_item->getParent(), player, 0, slotLeft_item, slotLeft_item->getItemCount(), nullptr);	
-		  }
-	  }
-	  Thing* rightthing = player->getThing(CONST_SLOT_RIGHT);
-		if (rightthing) {
-		  Item* slotRight_Item = rightthing->getItem();
-			if (slotRight_Item) {
-			  ret = internalMoveItem(slotRight_Item->getParent(), player, 0, slotRight_Item, slotRight_Item->getItemCount(), nullptr);
-			} else {
-			  return;
-			}
-		}
-	   if (!removed) {
-		ret = internalMoveItem(item->getParent(), player, CONST_SLOT_LEFT, item, item->getItemCount(), nullptr);
-	   }
-	} else if (hasBitSet(SLOTP_RING, slotP)) {
-	  Thing* ringthing = player->getThing(CONST_SLOT_RING);
-		if (ringthing) {
-		  Item* slotRing_Item = ringthing->getItem();
-			if (slotRing_Item) {
-			  ret = internalMoveItem(slotRing_Item->getParent(), player, 0, slotRing_Item, slotRing_Item->getItemCount(), nullptr);
-				if (slotRing_Item->getID() == item->getID()) {
-				  removed = true;
-				}
-			} else {
-			  return;
-			}
-		}
-		if (!removed) {
-		 ret = internalMoveItem(item->getParent(), player, CONST_SLOT_RING, item, item->getItemCount(), nullptr);
-		}
-	} else if (slotP == CONST_SLOT_RIGHT) {
-	  Thing* rightthing = player->getThing(CONST_SLOT_RIGHT);
-		if (rightthing) {
-		  Item* slotRight_Item = rightthing->getItem();
-			if (slotRight_Item) {
-			  if (slotRight_Item->getID() == item->getID()) {
-				removed = true;
-			  }
-			  ret = internalMoveItem(slotRight_Item->getParent(), player, 0, slotRight_Item, slotRight_Item->getItemCount(), nullptr);
-			} else {
-			  return;
-			}
-		}
-	  Thing* leftthing = player->getThing(CONST_SLOT_LEFT);
-		if (leftthing) {
-		  Item* slotLeft_item = leftthing->getItem();
-			if (slotLeft_item) {
-			  ItemType& it = Item::items.getItemType(slotLeft_item->getID());
-				if (hasBitSet(SLOTP_TWO_HAND, it.slotPosition)) {
-				  ret = internalMoveItem(slotLeft_item->getParent(), player, 0, slotLeft_item, slotLeft_item->getItemCount(), nullptr);
-				}
-			} else {
-			  return;
-			}
-		}
-		if (!removed) {
-		  ret = internalMoveItem(item->getParent(), player, slotP, item, item->getItemCount(), nullptr);
-		}
-	} else if (slotP) {
-	  if (newitemType.stackable) {
-		Thing* ammothing = player->getThing(slotP);
-		  if (ammothing) {
-			Item* ammoItem = ammothing->getItem();
-			  if (ammoItem) {
-				ObjectCategory_t category = getObjectCategory(ammoItem);
-				if (ammoItem->getID() == item->getID()) {
-				  if (item->getDuration() > 0 ||
-				  ammoItem->getItemCount() == 100 ||
-				  ammoItem->getItemCount() == player->getItemTypeCount(ammoItem->getID())) {
-					ret = internalQuickLootItem(player, ammoItem, category);
-					if (ret != RETURNVALUE_NOERROR) {
-					 ret = internalMoveItem(ammoItem->getParent(), player, 0, ammoItem, ammoItem->getItemCount(), nullptr);
-					}
-					if (ret != RETURNVALUE_NOERROR) {
-					 player->sendCancelMessage(ret);
-					}
-					return;
-				  }
-				} else {
-				  ret = internalQuickLootItem(player, ammoItem, category);
-				  if (ret != RETURNVALUE_NOERROR) {
-				   ret = internalMoveItem(ammoItem->getParent(), player, 0, ammoItem, ammoItem->getItemCount(), nullptr);
-				  }
-				}
-			  } else {
+			if (!item) {
+				player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 				return;
-			  }
-		  }
-		ReturnValue ret2 = player->queryAdd(slotP, *item, item->getItemCount(), 0);		
-		  if (ret2 != RETURNVALUE_NOERROR) {
-			player->sendCancelMessage(ret2);
+			}
+		}
+
+		const ItemType& newitemType = Item::items[item->getID()];
+
+		if (newitemType.id == 0) {
 			return;
-		  }
-		if (item->getItemCount() < 100 && 
-		item->getItemCount() < player->getItemTypeCount(item->getID(), -1) &&
-		item->getDuration() <= 0) {
-		  uint16_t itemId = item->getID();
-		  uint16_t count = 0;
-			while (player->getItemTypeCount(item->getID())) {
-			  if (count == 100) {
-				break;
-			  }
-			  Container* mainBP = player->getInventoryItem(CONST_SLOT_BACKPACK)->getContainer();
-			  Item* _item = findItemOfType(mainBP, itemId);
-
-			  if (!_item) {
-				break;
-			  }
-
-			  if (_item->getItemCount() > 100 - count) {
-				internalRemoveItem(_item, 100 - count);
-				count = 100;
-			  } else {
-				count = count + _item->getItemCount();
-				internalRemoveItem(_item, _item->getItemCount());
-			  }
-			}
-		  Item* newSlotitem = Item::CreateItem(itemId, count);
-		  internalAddItem(player, newSlotitem, slotP, FLAG_NOLIMIT);
-		  return;
-		} else {
-		  ret = internalMoveItem(item->getParent(), player, slotP, item, item->getItemCount(), nullptr);
 		}
-	  } else {
-		Thing* slotthing = player->getThing(slotP);
-		if (slotthing) {
-		  Item* slotItem = slotthing->getItem();
-			if (slotItem) {
-			  ret = internalMoveItem(slotItem->getParent(), player, 0, slotItem, slotItem->getItemCount(), nullptr);
-				if (slotItem->getID() == item->getID()) {
-				  removed = true;
+
+		int32_t slotP = newitemType.slotPosition;
+		if (itemType.weaponType == WEAPON_SHIELD || itemType.weaponType == WEAPON_QUIVER) {
+			slotP = CONST_SLOT_RIGHT;
+		}
+		else if (hasBitSet(SLOTP_HEAD, slotP)) {
+			slotP = CONST_SLOT_HEAD;
+		}
+		else if (hasBitSet(SLOTP_RING, slotP)) {
+			slotP = CONST_SLOT_RING;
+		}
+		else if (hasBitSet(SLOTP_NECKLACE, slotP)) {
+			slotP = CONST_SLOT_NECKLACE;
+		}
+		else if (hasBitSet(SLOTP_ARMOR, slotP)) {
+			slotP = CONST_SLOT_ARMOR;
+		}
+		else if (hasBitSet(SLOTP_LEGS, slotP)) {
+			slotP = CONST_SLOT_LEGS;
+		}
+		else if (hasBitSet(SLOTP_FEET, slotP)) {
+			slotP = CONST_SLOT_FEET;
+		}
+		else if (hasBitSet(SLOTP_AMMO, slotP)) {
+			slotP = CONST_SLOT_AMMO;
+		}
+		else if (hasBitSet(SLOTP_LEFT, slotP) && !hasBitSet(SLOTP_TWO_HAND, slotP)) {
+			slotP = CONST_SLOT_LEFT;
+		}
+
+		if (hasBitSet(SLOTP_TWO_HAND, slotP)) {
+			Thing* leftthing = player->getThing(CONST_SLOT_LEFT);
+			if (leftthing) {
+				Item* slotLeft_item = leftthing->getItem();
+				if (slotLeft_item) {
+					if (slotLeft_item->getID() == item->getID()) {
+						removed = true;
+					}
+					ret = internalMoveItem(slotLeft_item->getParent(), player, 0, slotLeft_item, slotLeft_item->getItemCount(), nullptr);
 				}
-			} else {
-			  return;
+			}
+			Thing* rightthing = player->getThing(CONST_SLOT_RIGHT);
+			if (rightthing) {
+				Item* slotRight_Item = rightthing->getItem();
+				if (slotRight_Item) {
+					if (newitemType.weaponType != WEAPON_DISTANCE || slotRight_Item->getWeaponType() != WEAPON_QUIVER)
+						ret = internalMoveItem(slotRight_Item->getParent(), player, 0, slotRight_Item, slotRight_Item->getItemCount(), nullptr);
+				}
+				else {
+					return;
+				}
+			}
+			if (!removed) {
+				ret = internalMoveItem(item->getParent(), player, CONST_SLOT_LEFT, item, item->getItemCount(), nullptr);
 			}
 		}
-		if (!removed) {
-		  ret = internalMoveItem(item->getParent(), player, slotP, item, item->getItemCount(), nullptr);
+		else if (hasBitSet(SLOTP_RING, slotP)) {
+			Thing* ringthing = player->getThing(CONST_SLOT_RING);
+			if (ringthing) {
+				Item* slotRing_Item = ringthing->getItem();
+				if (slotRing_Item) {
+					ret = internalMoveItem(slotRing_Item->getParent(), player, 0, slotRing_Item, slotRing_Item->getItemCount(), nullptr);
+					if (slotRing_Item->getID() == item->getID()) {
+						removed = true;
+					}
+				}
+				else {
+					return;
+				}
+			}
+			if (!removed) {
+				ret = internalMoveItem(item->getParent(), player, CONST_SLOT_RING, item, item->getItemCount(), nullptr);
+			}
 		}
-	  }
+		else if (slotP == CONST_SLOT_RIGHT) {
+			Thing* rightthing = player->getThing(CONST_SLOT_RIGHT);
+			if (rightthing) {
+				Item* slotRight_Item = rightthing->getItem();
+				if (slotRight_Item) {
+					if (slotRight_Item->getID() == item->getID()) {
+						removed = true;
+					}
+					ret = internalMoveItem(slotRight_Item->getParent(), player, 0, slotRight_Item, slotRight_Item->getItemCount(), nullptr);
+				}
+				else {
+					return;
+				}
+			}
+			Thing* leftthing = player->getThing(CONST_SLOT_LEFT);
+			if (leftthing) {
+				Item* slotLeft_item = leftthing->getItem();
+				if (slotLeft_item) {
+					ItemType& it = Item::items.getItemType(slotLeft_item->getID());
+					if (hasBitSet(SLOTP_TWO_HAND, it.slotPosition)) {
+						if (newitemType.weaponType != WEAPON_QUIVER || slotLeft_item->getWeaponType() != WEAPON_DISTANCE)
+							ret = internalMoveItem(slotLeft_item->getParent(), player, 0, slotLeft_item, slotLeft_item->getItemCount(), nullptr);
+					}
+				}
+				else {
+					return;
+				}
+			}
+			if (!removed) {
+				ret = internalMoveItem(item->getParent(), player, slotP, item, item->getItemCount(), nullptr);
+			}
+		}
+		else if (slotP) {
+			if (newitemType.stackable) {
+				Thing* ammothing = player->getThing(slotP);
+				if (ammothing) {
+					Item* ammoItem = ammothing->getItem();
+					if (ammoItem) {
+						ObjectCategory_t category = getObjectCategory(ammoItem);
+						if (ammoItem->getID() == item->getID()) {
+							if (item->getDuration() > 0 ||
+								ammoItem->getItemCount() == 100 ||
+								ammoItem->getItemCount() == player->getItemTypeCount(ammoItem->getID())) {
+								ret = internalQuickLootItem(player, ammoItem, category);
+								if (ret != RETURNVALUE_NOERROR) {
+									ret = internalMoveItem(ammoItem->getParent(), player, 0, ammoItem, ammoItem->getItemCount(), nullptr);
+								}
+								if (ret != RETURNVALUE_NOERROR) {
+									player->sendCancelMessage(ret);
+								}
+								return;
+							}
+						}
+						else {
+							ret = internalQuickLootItem(player, ammoItem, category);
+							if (ret != RETURNVALUE_NOERROR) {
+								ret = internalMoveItem(ammoItem->getParent(), player, 0, ammoItem, ammoItem->getItemCount(), nullptr);
+							}
+						}
+					}
+					else {
+						return;
+					}
+				}
+				ReturnValue ret2 = player->queryAdd(slotP, *item, item->getItemCount(), 0);
+				if (ret2 != RETURNVALUE_NOERROR) {
+					player->sendCancelMessage(ret2);
+					return;
+				}
+				if (item->getItemCount() < 100 &&
+					item->getItemCount() < player->getItemTypeCount(item->getID(), -1) &&
+					item->getDuration() <= 0) {
+					uint16_t itemId = item->getID();
+					uint16_t count = 0;
+					while (player->getItemTypeCount(item->getID())) {
+						if (count == 100) {
+							break;
+						}
+						Container* mainBP = player->getInventoryItem(CONST_SLOT_BACKPACK)->getContainer();
+						Item* _item = findItemOfType(mainBP, itemId);
+
+						if (!_item) {
+							break;
+						}
+
+						if (_item->getItemCount() > 100 - count) {
+							internalRemoveItem(_item, 100 - count);
+							count = 100;
+						}
+						else {
+							count = count + _item->getItemCount();
+							internalRemoveItem(_item, _item->getItemCount());
+						}
+					}
+					Item* newSlotitem = Item::CreateItem(itemId, count);
+					internalAddItem(player, newSlotitem, slotP, FLAG_NOLIMIT);
+					return;
+				}
+				else {
+					ret = internalMoveItem(item->getParent(), player, slotP, item, item->getItemCount(), nullptr);
+				}
+			}
+			else {
+				Thing* slotthing = player->getThing(slotP);
+				if (slotthing) {
+					Item* slotItem = slotthing->getItem();
+					if (slotItem) {
+						ret = internalMoveItem(slotItem->getParent(), player, 0, slotItem, slotItem->getItemCount(), nullptr);
+						if (slotItem->getID() == item->getID()) {
+							removed = true;
+						}
+					}
+					else {
+						return;
+					}
+				}
+				if (!removed) {
+					ret = internalMoveItem(item->getParent(), player, slotP, item, item->getItemCount(), nullptr);
+				}
+			}
+		}
 	}
 
 	if (ret != RETURNVALUE_NOERROR) {
@@ -1696,6 +1762,16 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 		}
 	}
 
+  Item* quiver = toCylinder->getItem();
+  if (quiver && quiver->getWeaponType() == WEAPON_QUIVER && quiver->getHoldingPlayer() && quiver->getHoldingPlayer()->getThing(CONST_SLOT_RIGHT) == quiver) {
+    quiver->getHoldingPlayer()->sendInventoryItem(CONST_SLOT_RIGHT, quiver);
+  }
+  else {
+    quiver = fromCylinder->getItem();
+    if (quiver && quiver->getWeaponType() == WEAPON_QUIVER && quiver->getHoldingPlayer() && quiver->getHoldingPlayer()->getThing(CONST_SLOT_RIGHT) == quiver) {
+      quiver->getHoldingPlayer()->sendInventoryItem(CONST_SLOT_RIGHT, quiver);
+    }
+  }
 	//we could not move all, inform the player
 	if (item->isStackable() && maxQueryCount < count) {
 		return retMaxCount;
@@ -1817,6 +1893,10 @@ ReturnValue Game::internalAddItem(Cylinder* toCylinder, Item* item, int32_t inde
 		g_game.toDecayItems.push_front(item);
 	}
 
+  Item* quiver = toCylinder->getItem();
+  if (quiver && quiver->getWeaponType() == WEAPON_QUIVER && quiver->getHoldingPlayer() && quiver->getHoldingPlayer()->getThing(CONST_SLOT_RIGHT) == quiver) {
+    quiver->getHoldingPlayer()->sendInventoryItem(CONST_SLOT_RIGHT, quiver);
+  }
 	return RETURNVALUE_NOERROR;
 }
 
@@ -1859,6 +1939,10 @@ ReturnValue Game::internalRemoveItem(Item* item, int32_t count /*= -1*/, bool te
 
 		cylinder->postRemoveNotification(item, nullptr, index);
 	}
+  Item* quiver = cylinder->getItem();
+  if (quiver && quiver->getWeaponType() == WEAPON_QUIVER && quiver->getHoldingPlayer() && quiver->getHoldingPlayer()->getThing(CONST_SLOT_RIGHT) == quiver) {
+    quiver->getHoldingPlayer()->sendInventoryItem(CONST_SLOT_RIGHT, quiver);
+  }
 	return RETURNVALUE_NOERROR;
 }
 
@@ -2168,6 +2252,10 @@ Item* Game::transformItem(Item* item, uint16_t newId, int32_t newCount /*= -1*/)
 				item->setDuration(currentDuration);
 			}
 			cylinder->postAddNotification(item, cylinder, itemIndex);
+      Item* quiver = cylinder->getItem();
+      if (quiver && quiver->getWeaponType() == WEAPON_QUIVER && quiver->getHoldingPlayer() && quiver->getHoldingPlayer()->getThing(CONST_SLOT_RIGHT) == quiver) {
+        quiver->getHoldingPlayer()->sendInventoryItem(CONST_SLOT_RIGHT, quiver);
+      }
 			return item;
 		}
 	}
@@ -2199,6 +2287,10 @@ Item* Game::transformItem(Item* item, uint16_t newId, int32_t newCount /*= -1*/)
 		}
 	}
 
+  Item* quiver = cylinder->getItem();
+  if (quiver && quiver->getWeaponType() == WEAPON_QUIVER && quiver->getHoldingPlayer() && quiver->getHoldingPlayer()->getThing(CONST_SLOT_RIGHT) == quiver) {
+    quiver->getHoldingPlayer()->sendInventoryItem(CONST_SLOT_RIGHT, quiver);
+  }
 	return newItem;
 }
 
@@ -3170,6 +3262,10 @@ void Game::playerMoveUpContainer(uint32_t playerId, uint8_t cid)
 	if (!parentContainer) {
 		Tile* tile = container->getTile();
 		if (!tile) {
+			return;
+		}
+
+		if (!g_events->eventPlayerOnBrowseField(player, tile->getPosition())) {
 			return;
 		}
 
@@ -5183,6 +5279,16 @@ void Game::changeLight(const Creature* creature)
 	}
 }
 
+void Game::updateCreatureIcon(const Creature* creature)
+{
+	//send to clients
+	SpectatorHashSet spectators;
+	map.getSpectators(spectators, creature->getPosition(), true, true);
+	for (Creature* spectator : spectators) {
+		spectator->getPlayer()->sendCreatureIcon(creature);
+	}
+}
+
 bool Game::combatBlockHit(CombatDamage& damage, Creature* attacker, Creature* target, bool checkDefense, bool checkArmor, bool field)
 {
 	if (damage.primary.type == COMBAT_NONE && damage.secondary.type == COMBAT_NONE) {
@@ -5249,7 +5355,7 @@ bool Game::combatBlockHit(CombatDamage& damage, Creature* attacker, Creature* ta
 				damageReflected.primary.type = damage.primary.type;
 				damageReflected.primary.value = std::ceil((damage.primary.value) * (primaryReflect / 100.));
 				damageReflected.extension = true;
-				damageReflected.exString = "[Reflection]";
+				damageReflected.exString = "(damage reflection)";
 				canReflect = true;
 			}
 		}
@@ -5275,11 +5381,16 @@ bool Game::combatBlockHit(CombatDamage& damage, Creature* attacker, Creature* ta
 		if (attacker && target->getMonster()) {
 			uint32_t secondaryReflect = target->getMonster()->getReflectValue(damage.secondary.type);
 			if (secondaryReflect > 0) {
-				damageReflected.secondary.type = damage.secondary.type;
-				damageReflected.secondary.value = std::ceil((damage.secondary.value) * (secondaryReflect / 100.));
-				damageReflected.extension = true;
-				damageReflected.exString = "[Reflection]";
-				canReflect = true;
+				if (!canReflect) {
+					damageReflected.primary.type = damage.secondary.type;
+					damageReflected.primary.value = std::ceil((damage.secondary.value) * (secondaryReflect / 100.));
+					damageReflected.extension = true;
+					damageReflected.exString = "(damage reflection)";
+					canReflect = true;
+				} else {
+					damageReflected.secondary.type = damage.secondary.type;
+					damageReflected.secondary.value = std::ceil((damage.secondary.value) * (secondaryReflect / 100.));
+				}
 			}
 		}
 		damage.secondary.value = -damage.secondary.value;
@@ -5527,6 +5638,14 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		if (!isEvent) {
 			g_events->eventCreatureOnDrainHealth(target, attacker, damage.primary.type, damage.primary.value, damage.secondary.type, damage.secondary.value, message.primary.color, message.secondary.color);
 		}
+		if (damage.origin != ORIGIN_NONE && attacker && damage.primary.type != COMBAT_HEALING) {
+			damage.primary.value *= attacker->getBuff(BUFF_DAMAGEDEALT) / 100.;
+			damage.secondary.value *= attacker->getBuff(BUFF_DAMAGEDEALT) / 100.;
+		}
+		if (damage.origin != ORIGIN_NONE && target && damage.primary.type != COMBAT_HEALING) {
+			damage.primary.value *= target->getBuff(BUFF_DAMAGERECEIVED) / 100.;
+			damage.secondary.value *= target->getBuff(BUFF_DAMAGERECEIVED) / 100.;
+		}
 		int32_t healthChange = damage.primary.value + damage.secondary.value;
 		if (healthChange == 0) {
 			return true;
@@ -5557,7 +5676,18 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		}
 
 		if (target->hasCondition(CONDITION_MANASHIELD) && damage.primary.type != COMBAT_UNDEFINEDDAMAGE) {
-			int32_t manaDamage = std::min<int32_t>(target->getMana(), healthChange);
+      		int32_t manaDamage = std::min<int32_t>(target->getMana(), healthChange);
+			uint16_t manaShield = target->getManaShield();
+			if (manaShield > 0) {
+				if (manaShield > manaDamage) {
+					target->setManaShield(manaShield - manaDamage);
+					manaShield = manaShield - manaDamage;
+				} else {
+					manaDamage = manaShield;
+					target->removeCondition(CONDITION_MANASHIELD);
+					manaShield  = 0;
+				}
+			}
 			if (manaDamage != 0) {
 				if (damage.origin != ORIGIN_NONE) {
 					const auto& events = target->getCreatureEvents(CREATURE_EVENT_MANACHANGE);
@@ -5574,6 +5704,10 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				}
 
 				target->drainMana(attacker, manaDamage);
+
+				if(target->getMana() == 0 && manaShield > 0) {
+					target->removeCondition(CONDITION_MANASHIELD);
+				}
 
 				addMagicEffect(spectators, targetPos, CONST_ME_LOSEENERGY);
 
@@ -5799,9 +5933,12 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				if (attacker) {
 					cause = attacker->getName();
 				}
+
 				targetPlayer->updateInputAnalyzer(damage.primary.type, damage.primary.value, cause);
-				if (damage.secondary.type != COMBAT_NONE) {
-					attackerPlayer->updateInputAnalyzer(damage.secondary.type, damage.secondary.value, cause);
+				if (attackerPlayer) {
+					if (damage.secondary.type != COMBAT_NONE) {
+						attackerPlayer->updateInputAnalyzer(damage.secondary.type, damage.secondary.value, cause);
+					}
 				}
 			}
 			std::stringstream ss;
@@ -6945,7 +7082,7 @@ void Game::playerHighscores(Player* player, HighscoreType_t type, uint8_t catego
 	if (type == HIGHSCORE_GETENTRIES) {
 		uint32_t startPage = (static_cast<uint32_t>(page - 1) * static_cast<uint32_t>(entriesPerPage));
 		uint32_t endPage = startPage + static_cast<uint32_t>(entriesPerPage);
-		query << "SELECT *, @row AS `entries`, " << page << " AS `page` FROM (SELECT *, (@row := @row + 1) AS `rn` FROM (SELECT `id`, `name`, `level`, `vocation`, `" << categoryName << "` AS `points`, @curRank := IF(@prevRank = `" << categoryName << "`, @curRank, IF(@prevRank := `" << categoryName << "`, @curRank + 1, @curRank + 1)) AS `rank` FROM `players` `p`, (SELECT @curRank := 0, @prevRank := NULL, @row := 0) `r` WHERE `group_id`<3 ORDER BY `" << categoryName << "` DESC) `t`";
+		query << "SELECT *, @row AS `entries`, " << page << " AS `page` FROM (SELECT *, (@row := @row + 1) AS `rn` FROM (SELECT `id`, `name`, `level`, `vocation`, `" << categoryName << "` AS `points`, @curRank := IF(@prevRank = `" << categoryName << "`, @curRank, IF(@prevRank := `" << categoryName << "`, @curRank + 1, @curRank + 1)) AS `rank` FROM `players` `p`, (SELECT @curRank := 0, @prevRank := NULL, @row := 0) `r` WHERE `group_id` < " << static_cast<int>(account::GroupType::GROUP_TYPE_GAMEMASTER) << " ORDER BY `" << categoryName << "` DESC) `t`";
 		if (vocation != 0xFFFFFFFF) {
 			bool firstVocation = true;
 
@@ -6965,7 +7102,7 @@ void Game::playerHighscores(Player* player, HighscoreType_t type, uint8_t catego
 		query << ") `T` WHERE `rn` > " << startPage << " AND `rn` <= " << endPage;
 	} else if (type == HIGHSCORE_OURRANK) {
 		std::string entriesStr = std::to_string(entriesPerPage);
-		query << "SELECT *, @row AS `entries`, (@ourRow DIV " << entriesStr << ") + 1 AS `page` FROM (SELECT *, (@row := @row + 1) AS `rn`, @ourRow := IF(`id` = " << player->getGUID() << ", @row - 1, @ourRow) AS `rw` FROM (SELECT `id`, `name`, `level`, `vocation`, `" << categoryName << "` AS `points`, @curRank := IF(@prevRank = `" << categoryName << "`, @curRank, IF(@prevRank := `" << categoryName << "`, @curRank + 1, @curRank + 1)) AS `rank` FROM `players` `p`, (SELECT @curRank := 0, @prevRank := NULL, @row := 0, @ourRow := 0) `r` WHERE `group_id`<3 ORDER BY `" << categoryName << "` DESC) `t`";
+		query << "SELECT *, @row AS `entries`, (@ourRow DIV " << entriesStr << ") + 1 AS `page` FROM (SELECT *, (@row := @row + 1) AS `rn`, @ourRow := IF(`id` = " << player->getGUID() << ", @row - 1, @ourRow) AS `rw` FROM (SELECT `id`, `name`, `level`, `vocation`, `" << categoryName << "` AS `points`, @curRank := IF(@prevRank = `" << categoryName << "`, @curRank, IF(@prevRank := `" << categoryName << "`, @curRank + 1, @curRank + 1)) AS `rank` FROM `players` `p`, (SELECT @curRank := 0, @prevRank := NULL, @row := 0, @ourRow := 0) `r` WHERE `group_id` < " << static_cast<int>(account::GroupType::GROUP_TYPE_GAMEMASTER) << " ORDER BY `" << categoryName << "` DESC) `t`";
 		if (vocation != 0xFFFFFFFF) {
 			bool firstVocation = true;
 
@@ -7063,6 +7200,36 @@ void Game::playerDebugAssert(uint32_t playerId, const std::string& assertLine, c
 		fprintf(file, "----- %s - %s (%s) -----\n", formatDate(time(nullptr)).c_str(), player->getName().c_str(), convertIPToString(player->getIP()).c_str());
 		fprintf(file, "%s\n%s\n%s\n%s\n", assertLine.c_str(), date.c_str(), description.c_str(), comment.c_str());
 		fclose(file);
+	}
+}
+
+void Game::playerNpcGreet(uint32_t playerId, uint32_t npcId)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return;
+	}
+
+	Creature* creature = getCreatureByID(npcId);
+	if (!creature) {
+		return;
+	}
+
+	Npc* npc = creature->getNpc();
+	if(npc) {
+		SpectatorHashSet spectators;
+		spectators.insert(npc);
+		map.getSpectators(spectators, player->getPosition(), true, true);
+		internalCreatureSay(player, TALKTYPE_SAY, "Hi", false, &spectators);
+		spectators.clear();
+		spectators.insert(npc);
+		if (npc->getSpeechBubble() == SPEECHBUBBLE_TRADE) {
+			internalCreatureSay(player, TALKTYPE_PRIVATE_PN, "Trade", false, &spectators);
+		} else {
+			internalCreatureSay(player, TALKTYPE_PRIVATE_PN, "Sail", false, &spectators);
+        }
+
+		return;
 	}
 }
 
@@ -8292,6 +8459,10 @@ void Game::removeUniqueItem(uint16_t uniqueId)
 bool Game::reload(ReloadTypes_t reloadType)
 {
 	switch (reloadType) {
+		case RELOAD_TYPE_MONSTERS: {
+			g_scripts->loadScripts("monster", false, true);
+			return true;
+		}
 		case RELOAD_TYPE_CHAT: return g_chat->load();
 		case RELOAD_TYPE_CONFIG: return g_config.reload();
 		case RELOAD_TYPE_EVENTS: return g_events->load();
