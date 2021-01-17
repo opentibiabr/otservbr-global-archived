@@ -70,6 +70,5 @@ function onCastSpell(creature, var)
 
 	local monster = Game.createMonster("Outburst", {x = 32234, y = 31284, z = 14}, false, true)
 	monster:addHealth(-monster:getHealth() + outburstHealth, COMBAT_PHYSICALDAMAGE)
-	transferBossPoints(from, monster:getId())
 	return true
 end
