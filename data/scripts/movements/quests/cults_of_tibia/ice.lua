@@ -1,4 +1,4 @@
-function sendConditionCults(playerid, info, fromPos, toPos, fromPos2, toPos2, time)
+function sendConditionCultsIce(playerid, info, fromPos, toPos, fromPos2, toPos2, time)
 	local player = Player(playerid)
 	if not player then
 		return false
@@ -26,7 +26,7 @@ function sendConditionCults(playerid, info, fromPos, toPos, fromPos2, toPos2, ti
 		end
 	end
 	player:getPosition():sendMagicEffect(info.effect)
-	addEvent(sendConditionCults, 2000, playerid, info, fromPos, toPos, fromPos2, toPos2, time)
+	addEvent(sendConditionCultsIce, 2000, playerid, info, fromPos, toPos, fromPos2, toPos2, time)
 end
 
 local function floorPassage(playerid, info, time)
@@ -74,7 +74,7 @@ function ice.onStepIn(creature, item, position, fromPosition)
 	}
 	if fromPosition.y == 31441 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, setting.msgs[1])
-		sendConditionCults(player:getId(), setting, setting.fromPos,
+		sendConditionCultsIce(player:getId(), setting, setting.fromPos,
 		setting.toPos, setting.fromPos2, setting.toPos2, 0)
 		return true
 	end
