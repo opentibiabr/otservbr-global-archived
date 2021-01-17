@@ -237,6 +237,10 @@ DailyReward.loadDailyReward = function(playerId, source)
 	if not player then
 		return false
 	end
+	if player:getClient().version < 1200 then
+		player:sendCancelMessage("You need client 12 to use daily reward.")
+		return false
+	end
 	if source ~= 0 then
 		source = REWARD_FROM_SHRINE
 	else

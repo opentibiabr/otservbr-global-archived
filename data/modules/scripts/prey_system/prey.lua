@@ -586,11 +586,8 @@ function Player.sendPreyData(self, slot)
 	self:sendResource("bank", self:getBankBalance())
 	self:sendResource("inventory", self:getMoney())
 
-	if self:getClient().version >= 1200 then
-		-- Send reroll price
-		self:sendPreyRerollPrice()
-	end
-
+	-- Send reroll price
+	self:sendPreyRerollPrice()
 end
 
 function Player:sendPreyRerollPrice()
@@ -598,14 +595,16 @@ function Player:sendPreyRerollPrice()
 	
 	msg:addByte(Prey.S_Packets.PreyRerollPrice)
 	msg:addU32(self:getRerollPrice())
-	msg:addByte(Prey.Config.BonusRerollPrice) -- wildcards
-	msg:addByte(Prey.Config.SelectWithWildCardPrice) -- select directly
+	if self:getClient().version >= 1200 then
+		msg:addByte(Prey.Config.BonusRerollPrice) -- wildcards
+		msg:addByte(Prey.Config.SelectWithWildCardPrice) -- select directly
 
-	-- Feature unavailable
-	msg:addU32(0)
-	msg:addU32(0)
-	msg:addByte(0)
-	msg:addByte(0)
-
+		-- Feature unavailable
+		msg:addU32(0)
+		msg:addU32(0)
+		msg:addByte(0)
+		msg:addByte(0)
+	end
+	
 	msg:sendToPlayer(self)
 end
