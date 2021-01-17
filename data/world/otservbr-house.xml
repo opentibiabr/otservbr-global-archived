@@ -958,13 +958,13 @@
 	<house name="Antimony Lane 3" houseid="3657" entryx="33630" entryy="31921" entryz="6" rent="400000" townid="20" size="69" />
 	<house name="Rathleton Hills Residence" houseid="3658" entryx="33651" entryy="31910" entryz="6" rent="400000" townid="20" size="138" />
 	<house name="Rathleton Hills Estate" houseid="3659" entryx="33662" entryy="31917" entryz="6" rent="1000000" guildhall="true" townid="20" size="393" />
-	<house name="Lion's Head Reef" houseid="3660" entryx="32365" entryy="32501" entryz="7" rent="300000" townid="25" size="143" />
-	<house name="Shadow Caves 1" houseid="3661" entryx="32654" entryy="31672" entryz="8" rent="5000" townid="5" size="17" />
-	<house name="Shadow Caves 2" houseid="3662" entryx="32656" entryy="31672" entryz="8" rent="5000" townid="5" size="20" />
-	<house name="Shadow Caves 3" houseid="3663" entryx="32654" entryy="31664" entryz="9" rent="10000" townid="5" size="38" />
-	<house name="Shadow Caves 4" houseid="3664" entryx="32656" entryy="31664" entryz="9" rent="10000" townid="5" size="38" />
-	<house name="Shadow Caves 5" houseid="3665" entryx="32654" entryy="31672" entryz="9" rent="10000" townid="5" size="38" />
-	<house name="Shadow Caves 6" houseid="3666" entryx="32656" entryy="31672" entryz="9" rent="10000" townid="5" size="38" />
+	<house name="Lion's Head Reef" houseid="3660" entryx="32365" entryy="32501" entryz="7" rent="400000" townid="25" size="143" />
+	<house name="Shadow Caves 1" houseid="3661" entryx="32654" entryy="31672" entryz="8" rent="50000" townid="5" size="17" />
+	<house name="Shadow Caves 2" houseid="3662" entryx="32656" entryy="31672" entryz="8" rent="50000" townid="5" size="20" />
+	<house name="Shadow Caves 3" houseid="3663" entryx="32654" entryy="31664" entryz="9" rent="100000" townid="5" size="38" />
+	<house name="Shadow Caves 4" houseid="3664" entryx="32656" entryy="31664" entryz="9" rent="100000" townid="5" size="38" />
+	<house name="Shadow Caves 5" houseid="3665" entryx="32654" entryy="31672" entryz="9" rent="100000" townid="5" size="38" />
+	<house name="Shadow Caves 6" houseid="3666" entryx="32656" entryy="31672" entryz="9" rent="100000" townid="5" size="38" />
 	<house name="Northport Clanhall" houseid="3667" entryx="32468" entryy="31614" entryz="7" rent="250000" guildhall="true" townid="6" size="132" />
 	<house name="The Treehouse" houseid="3668" entryx="32747" entryy="32697" entryz="7" rent="250000" guildhall="true" townid="15" size="478" />
 	<house name="Frost Manor" houseid="3669" entryx="32287" entryy="31106" entryz="5" rent="500000" guildhall="true" townid="16" size="364" />
