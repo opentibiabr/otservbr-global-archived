@@ -105,6 +105,7 @@ function tar.onStepIn(creature, item, position, fromPosition)
 			end
 			player:setStorageValue(value.storageBarkless, 2)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, value.msgs[4])
+			player:setStorageValue(Storage.CultsOfTibia.Barkless.TarAccessDoor, 1)
 			passagemPiso1Piso2(player:getId(), value, 60)
 		elseif position:compare(value.secondSqm) then
 			if player:getStorageValue(value.storageBarkless) == 2 then
