@@ -44,7 +44,7 @@ function challenger.onStepIn(creature, item, position, fromPosition)
 		return
 	end
 	if player:getStorageValue(teleport.storage) <= os.time() then
-		if item.uid == 24882 then
+		if item.uid == 1070 then
 			if player:getStorageValue(Storage.ForgottenKnowledge.BabyDragon) < 1 then
 				player:teleportTo(teleport.backPos)
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You not have permission to use this teleport!")
