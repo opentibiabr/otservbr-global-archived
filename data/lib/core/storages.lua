@@ -554,7 +554,8 @@ Storage = {
 		Chalice = 50505,
 		Tomes = 50506,
 		BabyDragon = 50507,
-		SpiderWeb = 50508
+		SpiderWeb = 50508,
+		BarsEntrance = 50509
 	},
 	SweetyCyclops = {
 		-- Reserved storage from 50520 - 50529
@@ -2241,6 +2242,8 @@ GlobalStorage = {
 		ZamuloshSummon = 60030,
 		FerumbrasEssence = 60031,
 		DesperateSoul = 60032,
+		TheShattererLever = 60033,
+		FlowerPuzzleTimer = 60034,
 		Crystals = {
 			Crystal1 = 60040,
 			Crystal2 = 60041,

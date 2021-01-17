@@ -212,6 +212,11 @@ TileAction = {
 			{x = 32216, y = 31838, z = 15}
 		}
 	},
+	-- Path: data\scripts\movements\quests\forgotten_knowledge\bars_message.lua
+	[25024] = {
+		itemId = 413,
+		itemPos = {{x = 32859, y = 31653, z = 10}}
+	},
 	-- Others actions
 	-- Threatened Dreams Quest
 	[50301] = {
