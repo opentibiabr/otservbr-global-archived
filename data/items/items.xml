@@ -32946,7 +32946,7 @@
 	<item fromid="22647" toid="22648" article="a" name="santa music box">
 		<attribute key="weight" value="750" />
 	</item>
-	<item id="22649" article="a" name="snowflake tapestry">
+	<item id="22649" article="a" name="snow flake tapestry">
 		<attribute key="weight" value="1000" />
 	</item>
 	<item fromid="22650" toid="22653" article="a" name="stony pond" />
@@ -51504,6 +51504,7 @@
 	</item>
 	<item fromid="39046" toid="39051" article="a" name="rocky wall" />
 	<item id="39054" article="a" name="werehyaena trophy">
+		<attribute key="loottype" value="other" />
 		<attribute key="weight" value="500" />
 	</item>
 	<item id="39055" article="a" name="grimy wooden plank" />
