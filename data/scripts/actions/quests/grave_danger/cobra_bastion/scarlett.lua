@@ -24,7 +24,7 @@ local transformTo = {
 
 local function createArmor(id, amount, pos)
 	local armor = Game.createItem(id, amount, pos)
-	if armor then armor:setActionId(40003) end 
+	if armor then armor:setActionId(40003) end
 end
 
 local graveScarlettUid = Action()
@@ -119,7 +119,7 @@ function graveScarlettAid.onUse(player, item, fromPosition, target, toPosition, 
 				player:teleportTo(entry.roomEntryPos)
 			else
 				player:teleportTo(entry.roomExitPos)
-			end			
+			end
 		end
 	end
 	return true
