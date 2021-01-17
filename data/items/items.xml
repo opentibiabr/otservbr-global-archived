@@ -51702,6 +51702,90 @@
 	<item id="39932" article="a" name="dead werehyaena">
 		<attribute key="corpseType" value="blood" />
 	</item>
+	<item id="40193" article="a" name="dead exotic cave spider">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40194" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="venom" />
+		<attribute key="fluidSource" value="slime" />
+	</item>
+	<item id="40194" article="a" name="dead exotic cave spider">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40195" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="venom" />
+		<attribute key="fluidSource" value="slime" />
+	</item>
+	<item id="40195" article="a" name="dead exotic cave spider">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40196" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="venom" />
+		<attribute key="fluidSource" value="slime" />
+	</item>
+	<item id="40196" article="a" name="dead exotic cave spider">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="venom" />
+		<attribute key="fluidSource" value="slime" />
+	</item>
+	<item id="40204" article="a" name="dead pirat cutthroat">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40205" article="a" name="dead pirat cutthroat">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40204" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40206" article="a" name="dead pirat cutthroat">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40205" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40207" article="a" name="dead pirat cutthroat">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40206" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40212" article="a" name="dead pirat scoundrel">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40213" article="a" name="dead pirat scoundrel">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40212" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40214" article="a" name="dead pirat scoundrel">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40213" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40215" article="a" name="dead pirat scoundrel">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40214" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
 	<item id="40359" article="a" name="jungle quiver">
 		<attribute key="weight" value="1800" />
 		<attribute key="containerSize" value="8" />
@@ -51718,6 +51802,45 @@
 		<attribute key="loottype" value="potion" />
 		<attribute key="weight" value="320" />
 		<attribute key="description" value="This potion can only be consumed by druids and sorcerers of level 14 or higher." />
+	</item>
+	<item id="40407" article="a" name="pirate coin">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="40" />
+	</item>
+	<item id="40408" article="a" name="pirat's tail">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="190" />
+	</item>
+	<item id="40409" name="shark fins">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="620" />
+	</item>
+	<item id="40522" article="a" name="dead exotic bat">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="venom" />
+		<attribute key="fluidSource" value="slime" />
+	</item>
+	<item id="40523" article="a" name="dead exotic bat">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40522" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="venom" />
+		<attribute key="fluidSource" value="slime" />
+	</item>
+	<item id="40524" article="a" name="dead exotic bat">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40523" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="venom" />
+		<attribute key="fluidSource" value="slime" />
+	</item>
+	<item id="40525" article="a" name="dead exotic bat">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40524" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="venom" />
+		<attribute key="fluidSource" value="slime" />
 	</item>
 	<item id="40683" article="a" name="blue quiver">
 		<attribute key="weight" value="1700" />
