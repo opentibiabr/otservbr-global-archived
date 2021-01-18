@@ -1,5 +1,5 @@
-local cracklerTransform = CreatureEvent("CracklerTransform")
-function cracklerTransform.onThink(creature)
+local cracklerTransforms = CreatureEvent("CracklerTransform")
+function cracklerTransforms.onThink(creature)
 	if not creature or not creature:isMonster() then
 		return true
 	end
@@ -13,4 +13,4 @@ function cracklerTransform.onThink(creature)
 	return true
 end
 
-cracklerTransform:register()
+cracklerTransforms:register()
