@@ -3330,6 +3330,8 @@ void ProtocolGame::sendContainer(uint8_t cid, const Container *container, bool h
 
 void ProtocolGame::sendLootContainers()
 {
+	if (version < 1200)
+		return;
 	NetworkMessage msg;
 	msg.addByte(0xC0);
 	msg.addByte(player->quickLootFallbackToMainContainer ? 1 : 0);
@@ -3353,6 +3355,8 @@ void ProtocolGame::sendLootContainers()
 
 void ProtocolGame::sendLootStats(Item *item)
 {
+	if (version < 1200)
+		return;
 	if (!item)
 	{
 		return;
