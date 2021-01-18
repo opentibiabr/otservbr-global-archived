@@ -29,10 +29,14 @@ function chestRoomTile.onStepIn(creature, item, position, fromPosition)
 	local chestRoomExit = chestRooms.exits[item.actionid]
 	
 	if chestRoomExit then
-		if player:getVocation():getId() == chestRoomExit.vocation and player:getStorageValue(Storage.Quest.Dawnport.VocationReward) == 1 then
-			player:teleportTo(chestRoomExit.destination, true)
-			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You should leave for the Mainland now. Go left to reach the ship.")
+		if player:getVocation():getId() == chestRoomExit.vocation then
+			if player:getStorageValue(Storage.Quest.Dawnport.VocationReward) == -1 then
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You should check the chest for your " .. player:getVocation():getName() .. " equipment.")
+			elseif player:getStorageValue(Storage.Quest.Dawnport.VocationReward) == 1 then
+				player:teleportTo(chestRoomExit.destination, true)
+				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You should leave for the Mainland now. Go left to reach the ship.")
+			end
 		elseif player:getVocation():getId() ~= chestRoomExit.vocation then
 			player:teleportTo(chestRoomExit.destination, true)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -64,7 +68,7 @@ end
 
 chestRoomTile:register()
 
--- Oressa stair, back if have reached level 20 or choose vocation
+-- Oressa stair, back if have reached level 20 or have chosen vocation
 local templeStairs = MoveEvent()
 
 function templeStairs.onStepIn(creature, item, position, fromPosition)
@@ -224,3 +228,22 @@ for i = 1, #positions do
 end
 
 tutorialTile4:register()
+
+-- Cure poison tiles at dawnport outpost entrances
+local cureTile = MoveEvent()
+
+function cureTile.onStepIn(creature, item, position, fromPosition)
+	local player = creature:getPlayer()
+	if not player then
+		return
+	end
+	
+	if player:getCondition(CONDITION_POISON) then
+		player:removeCondition(CONDITION_POISON)
+		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You are cured.")
+	end
+end
+
+cureTile:aid(20001, 20002, 20003, 20004)
+cureTile:register()

@@ -1,6 +1,15 @@
 -- Look README.md for see the reserved action/unique numbers
 
 TileAction = {
+	-- Cure poison tiles at dawnport outpost entrances (To be added: 20002, 20003, 20004. Now set on map binary)
+	-- Tiles data\scripts\movements\others\dawnport_tiles.lua
+	[20001] = {
+		itemId = 413,
+		itemPos = {
+			{x = 32056, y = 31890, z = 5},
+			{x = 32056, y = 31891, z = 5}
+		}
+	},
 	-- Dark trails quest tile
 	-- data\scripts\movements\quests\dark_trails\necrometer_tile_access.lua
 	[25001] = {
