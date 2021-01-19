@@ -167,6 +167,8 @@ local function tileStep(player, trial)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("You have received the weapons of a \z
 		".. trial.vocation.name ..'. ' .. trial.message))
 	end
+	
+	return true
 end
 
 -- Remove vocation trial equipment items
@@ -255,6 +257,7 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 	end
 
 	local trial = vocationTrials[item.actionid]
+	
 	if trial then
 		-- Center room position
 		local centerPosition = Position(32065, 31891, 5)
@@ -277,6 +280,7 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 			return true
 		end
 	end
+	
 	return true
 end
 

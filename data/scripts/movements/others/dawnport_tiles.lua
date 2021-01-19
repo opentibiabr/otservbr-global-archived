@@ -55,6 +55,7 @@ function chestRoomTile.onStepIn(creature, item, position, fromPosition)
 		end
 		return true
 	end
+	
 	return true
 end
 
@@ -85,6 +86,7 @@ function templeStairs.onStepIn(creature, item, position, fromPosition)
 		player:teleportTo(fromPosition, true)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	end
+	
 	return true
 end
 
@@ -97,7 +99,7 @@ local tutorialTile = MoveEvent()
 function tutorialTile.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
-		return
+		return true
 	end
 
 	if player:getLastLoginSaved() == 0 then
@@ -107,6 +109,7 @@ function tutorialTile.onStepIn(creature, item, position, fromPosition)
 			Position({x = 32075, y = 31900, z = 6}):sendMagicEffect(effects[i])
 		end
 	end
+	
 	return true
 end
 
@@ -119,7 +122,7 @@ local tutorialTile1 = MoveEvent()
 function tutorialTile1.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
-		return
+		return true
 	end
 
 	if player:getStorageValue(Storage.Quest.Dawnport.Questline) == 1 then
@@ -133,6 +136,7 @@ function tutorialTile1.onStepIn(creature, item, position, fromPosition)
 		player:setStorageValue(Storage.Quest.Dawnport.GoMain, 1)
 		player:setTown(Town(TOWNS_LIST.DAWNPORT))
 	end
+	
 	return true
 end
 
@@ -145,7 +149,7 @@ local tutorialTile2 = MoveEvent()
 function tutorialTile2.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
-		return
+		return true
 	end
 
 	if item.itemid == 22693 then
@@ -154,6 +158,7 @@ function tutorialTile2.onStepIn(creature, item, position, fromPosition)
 		player:teleportTo({x = 32075, y = 31899, z = 5}, true)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "<krrk> <krrrrrk> You move away hurriedly.")
 	end
+	
 	return true
 end
 
@@ -166,7 +171,7 @@ local tutorialTile3 = MoveEvent()
 function tutorialTile3.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
-		return
+		return true
 	end
 
 	if player:getStorageValue(Storage.Dawnport.Tutorial) ~= 0 then
@@ -174,6 +179,7 @@ function tutorialTile3.onStepIn(creature, item, position, fromPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:setStorageValue(Storage.Dawnport.Tutorial, 0)
 	end
+	
 	return true
 end
 
@@ -197,7 +203,7 @@ local tutorialTile4 = MoveEvent()
 function tutorialTile4.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
-		return
+		return true
 	end
 
 	if player:getStorageValue(Storage.Dawnport.MessageStair) < 1 then
@@ -205,6 +211,7 @@ function tutorialTile4.onStepIn(creature, item, position, fromPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:setStorageValue(Storage.Dawnport.MessageStair, 1)
 	end
+	
 	return true
 end
 
@@ -235,7 +242,7 @@ local cureTile = MoveEvent()
 function cureTile.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
-		return
+		return true
 	end
 	
 	if player:getCondition(CONDITION_POISON) then
@@ -243,6 +250,8 @@ function cureTile.onStepIn(creature, item, position, fromPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You are cured.")
 	end
+	
+	return true
 end
 
 cureTile:aid(20001, 20002, 20003, 20004)

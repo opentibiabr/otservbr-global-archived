@@ -24,6 +24,10 @@ local vocationDoors = {
 local vocationDoor = Action()
 
 function vocationDoor.onUse(player, item, target, position, fromPosition)
+	local player = creature:getPlayer()
+	if not player then
+		return true
+	end
 	local door = vocationDoors[item.uid]
 	--Check Oressa storage before choose vocation
 	if player:getStorageValue(Storage.Dawnport.DoorVocation) == door.vocation then
