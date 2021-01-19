@@ -9674,8 +9674,7 @@ int LuaScriptInterface::luaPlayerSetMagicLevel(lua_State* L)
     player->sendStats();
     player->sendSkills();
     pushBoolean(L, true);
-  }
-  else {
+  } else {
     lua_pushnil(L);
   }
   return 1;
@@ -9701,8 +9700,7 @@ int LuaScriptInterface::luaPlayerSetSkillLevel(lua_State* L)
     player->sendStats();
     player->sendSkills();
     pushBoolean(L, true);
-  }
-  else {
+  } else {
     lua_pushnil(L);
   }
   return 1;
