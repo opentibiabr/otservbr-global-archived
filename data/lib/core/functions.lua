@@ -674,7 +674,7 @@ function isNumber(str)
 	return tonumber(str) ~= nil
 end
 
-function isInteger(num)
+function isInteger(n)
 	return (type(n) == "number") and (math.floor(n) == n)
 end
 
