@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Zamulosh2")
 local monster = {}
 
 monster.name = "Zamulosh"
-monster.description = "zamulosh"
+monster.description = "Zamulosh"
 monster.experience = 55000
 monster.outfit = {
 	lookType = 862,
@@ -64,9 +64,6 @@ monster.voices = {
 	interval = 5000,
 	chance = 10,
 	{text = "I AM ZAMULOSH!", yell = false}
-}
-
-monster.loot = {
 }
 
 monster.attacks = {

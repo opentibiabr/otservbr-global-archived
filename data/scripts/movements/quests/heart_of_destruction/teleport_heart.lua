@@ -131,4 +131,4 @@ for index, value in pairs(finalBosses) do
 end
 
 teleportHeart:aid(14351)
-teleportHeart:register() 
+teleportHeart:register()
