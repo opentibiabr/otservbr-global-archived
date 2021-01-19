@@ -475,16 +475,6 @@ Storage = {
 	FerumbrasAscension = {
 		-- Reserved storage from 50420 - 50469
 		RiftRunner = 50420, -- Scroll
-		TheShattererTimer = 50421,
-		TheLordOfTheLiceTimer = 50422,
-		TarbazTimer = 50423,
-		RazzagornTimer = 50424,
-		RagiazTimer = 50425,
-		ZamuloshTimer = 50426,
-		ShulgraxTimer = 50427,
-		MazoranTimer = 50428,
-		PlagirathTimer = 50429,
-		FerumbrasTimer = 50430,
 		Tarbaz = 50431,
 		Razzagorn = 50432,
 		Ragiaz = 50433,
@@ -554,8 +544,7 @@ Storage = {
 		Chalice = 50505,
 		Tomes = 50506,
 		BabyDragon = 50507,
-		SpiderWeb = 50508,
-		BarsEntrance = 50509
+		SpiderWeb = 50508
 	},
 	SweetyCyclops = {
 		-- Reserved storage from 50520 - 50529
@@ -2237,44 +2226,7 @@ GlobalStorage = {
 		Chance = 60020,
 		Active = 60021
 	},
-	FerumbrasAscendant = {
-		-- Reserved storage from 60030 - 60069
-		ZamuloshSummon = 60030,
-		FerumbrasEssence = 60031,
-		DesperateSoul = 60032,
-		TheShattererLever = 60033,
-		FlowerPuzzleTimer = 60034,
-		Crystals = {
-			Crystal1 = 60040,
-			Crystal2 = 60041,
-			Crystal3 = 60042,
-			Crystal4 = 60043,
-			Crystal5 = 60044,
-			Crystal6 = 60045,
-			Crystal7 = 60046,
-			Crystal8 = 60047,
-			AllCrystals = 60048
-		},
-		Habitats = {
-			Roshamuul = 60050,
-			Grass = 60051,
-			Mushroom = 60052,
-			Desert = 60053,
-			Venom = 60054,
-			Ice = 60055,
-			Corrupted = 60056,
-			Dimension = 60057,
-			AllHabitats = 60058
-		},
-		Elements = {
-			First = 60060,
-			Second = 60061,
-			Third = 60062,
-			Four = 60063,
-			Active = 60064,
-			Done = 60065
-		}
-	},
+	-- RESERVED STORAGE FROM 60030/60069
 	HeroRathleton = {
 		-- Reserved storage from 60070 - 60089
 		FirstMachines = 60070,
@@ -2347,6 +2299,51 @@ GlobalStorage = {
 		ThalasSwitchesGlobalStorage = 60160,
 		DiprathSwitchesGlobalStorage = 60161,
 		AshmunrahSwitchesGlobalStorage = 60162
+	},
+	FerumbrasAscendant = {
+		-- Reserved storage from 60170 - 60230
+		ZamuloshSummon = 60170,
+		FerumbrasEssence = 60171,
+		DesperateSoul = 60172,
+		Crystals = {
+			Crystal1 = 60190,
+			Crystal2 = 60191,
+			Crystal3 = 60192,
+			Crystal4 = 60193,
+			Crystal5 = 60194,
+			Crystal6 = 60195,
+			Crystal7 = 60196,
+			Crystal8 = 60197,
+			AllCrystals = 60198
+		},
+		Habitats = {
+			Roshamuul = 60199,
+			Grass = 60200,
+			Mushroom = 60201,
+			Desert = 60202,
+			Venom = 60203,
+			Ice = 60204,
+			Corrupted = 60205,
+			Dimension = 60206,
+			AllHabitats = 60207
+		},
+		Elements = {
+			First = 60208,
+			Second = 60209,
+			Third = 60210,
+			Four = 60211,
+			Active = 60212,
+			Done = 60213
+		},
+		TheShattererTimer = 60214,
+		TarbazTimer = 60215,
+		RazzagornTimer = 60216,
+		RagiazTimer = 60217,
+		ZamuloshTimer = 60218,
+		ShulgraxTimer = 60219,
+		MazoranTimer = 60220,
+		PlagirathTimer = 60221,
+		FerumbrasTimer = 60222
 	},
 	FuryGates = 65000,
 	Yakchal = 65001,

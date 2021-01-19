@@ -1,13 +1,13 @@
 local bosses = {
 	['the lord of the lice'] = {teleportPos = Position(33226, 31478, 12), godbreakerPos = Position(33237, 31477, 13)},
-	['tarbaz'] = {teleportPos = Position(33460, 32853, 11), godbreakerPos = Position(33427, 32852, 13), timer = Storage.FerumbrasAscension.TarbazTimer},
-	['ragiaz'] = {teleportPos = Position(33482, 32345, 13), godbreakerPos = Position(33466, 32392, 13), timer = Storage.FerumbrasAscension.RagiazTimer},
-	['plagirath'] = {teleportPos = Position(33174, 31511, 13), godbreakerPos = Position(33204, 31510, 13), timer = Storage.FerumbrasAscension.PlagirathTimer},
-	['razzagorn'] = {teleportPos = Position(33413, 32467, 14), godbreakerPos = Position(33357, 32440, 13), timer = Storage.FerumbrasAscension.RazzagornTimer},
-	['zamulosh'] = {teleportPos = Position(33644, 32764, 11), godbreakerPos = Position(33678, 32758, 13), timer = Storage.FerumbrasAscension.ZamuloshTimer},
-	['mazoran'] = {teleportPos = Position(33585, 32699, 14), godbreakerPos = Position(33614, 32679, 15), timer = Storage.FerumbrasAscension.MazoranTimer},
-	['shulgrax'] = {teleportPos = Position(33486, 32796, 13), godbreakerPos = Position(33459, 32820, 14), timer = Storage.FerumbrasAscension.ShulgraxTimer},
-	['ferumbras mortal shell'] = {teleportPos = Position(33392, 31485, 14), godbreakerPos = Position(33388, 31414, 14), timer = Storage.FerumbrasAscension.FerumbrasTimer}
+	['tarbaz'] = {teleportPos = Position(33460, 32853, 11), godbreakerPos = Position(33427, 32852, 13), timer = GlobalStorage.FerumbrasAscendant.TarbazTimer},
+	['ragiaz'] = {teleportPos = Position(33482, 32345, 13), godbreakerPos = Position(33466, 32392, 13), timer = GlobalStorage.FerumbrasAscendant.RagiazTimer},
+	['plagirath'] = {teleportPos = Position(33174, 31511, 13), godbreakerPos = Position(33204, 31510, 13), timer = GlobalStorage.FerumbrasAscendant.PlagirathTimer},
+	['razzagorn'] = {teleportPos = Position(33413, 32467, 14), godbreakerPos = Position(33357, 32440, 13), timer = GlobalStorage.FerumbrasAscendant.RazzagornTimer},
+	['zamulosh'] = {teleportPos = Position(33644, 32764, 11), godbreakerPos = Position(33678, 32758, 13), timer = GlobalStorage.FerumbrasAscendant.ZamuloshTimer},
+	['mazoran'] = {teleportPos = Position(33585, 32699, 14), godbreakerPos = Position(33614, 32679, 15), timer = GlobalStorage.FerumbrasAscendant.MazoranTimer},
+	['shulgrax'] = {teleportPos = Position(33486, 32796, 13), godbreakerPos = Position(33459, 32820, 14), timer = GlobalStorage.FerumbrasAscendant.ShulgraxTimer},
+	['ferumbras mortal shell'] = {teleportPos = Position(33392, 31485, 14), godbreakerPos = Position(33388, 31414, 14), timer = GlobalStorage.FerumbrasAscendant.FerumbrasTimer}
 }
 
 local crystals = {

@@ -104,7 +104,7 @@ function theShattererKill.onKill(creature, target)
 		revert()
 	end
 	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever, 0)
-	Game.setStorageValue(Storage.FerumbrasAscension.TheShattererTimer, 0)
+	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererTimer, 0)
 	return true
 end
 
