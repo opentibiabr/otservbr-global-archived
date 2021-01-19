@@ -78,19 +78,19 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 100000, maxCount = 100},
-	{id = "small emerald", chance = 11000, maxCount = 2},
-	{id = "small amethyst", chance = 12000, maxCount = 3},
-	{id = "platinum coin", chance = 100000, maxCount = 9},
-	{id = "blue robe", chance = 1500},
-	{id = "great mana potion", chance = 40000, maxCount = 2},
-	{id = "ultimate health potion", chance = 18000},
-	{id = "small topaz", chance = 16000, maxCount = 2},
-	{id = "blue crystal shard", chance = 11000},
-	{id = "blue crystal splinter", chance = 13000},
-	{id = "cyan crystal fragment", chance = 18000},
-	{id = "trapped bad dream monster", chance = 17000},
-	{id = "bowl of terror sweat", chance = 14000}
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "small emerald", chance = 11000, maxCount = 2},
+	{name = "small amethyst", chance = 12000, maxCount = 3},
+	{name = "platinum coin", chance = 100000, maxCount = 9},
+	{name = "blue robe", chance = 1500},
+	{name = "great mana potion", chance = 40000, maxCount = 2},
+	{name = "ultimate health potion", chance = 18000},
+	{name = "small topaz", chance = 16000, maxCount = 2},
+	{name = "blue crystal shard", chance = 11000},
+	{name = "blue crystal splinter", chance = 13000},
+	{name = "cyan crystal fragment", chance = 18000},
+	{name = "trapped bad dream monster", chance = 17000},
+	{name = "bowl of terror sweat", chance = 14000}
 }
 
 monster.attacks = {

@@ -81,22 +81,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 100000, maxCount = 100},
-	{id = "platinum coin", chance = 100000, maxCount = 9},
-	{id = "fire sword", chance = 1240},
-	{id = "crown shield", chance = 1700},
-	{id = "tower shield", chance = 550},
-	{id = "brown mushroom", chance = 14000, maxCount = 2},
-	{id = "beastslayer axe", chance = 4260},
-	{id = "mercenary sword", chance = 2500},
-	{id = "spiked squelcher", chance = 410},
-	{id = "great mana potion", chance = 12500},
-	{id = "great health potion", chance = 15000},
-	{id = "underworld rod", chance = 1800},
-	{id = "wand of starstorm", chance = 960},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "platinum coin", chance = 100000, maxCount = 9},
+	{name = "fire sword", chance = 1240},
+	{name = "crown shield", chance = 1700},
+	{name = "tower shield", chance = 550},
+	{name = "brown mushroom", chance = 14000, maxCount = 2},
+	{name = "beastslayer axe", chance = 4260},
+	{name = "mercenary sword", chance = 2500},
+	{name = "spiked squelcher", chance = 410},
+	{name = "great mana potion", chance = 12500},
+	{name = "great health potion", chance = 15000},
+	{name = "underworld rod", chance = 1800},
+	{name = "wand of starstorm", chance = 960},
 	{id = 22363, chance = 3700},
-	{id = "goosebump leather", chance = 16400},
-	{id = "pool of chitinous glue", chance = 14000}
+	{name = "goosebump leather", chance = 16400},
+	{name = "pool of chitinous glue", chance = 14000}
 }
 
 monster.attacks = {

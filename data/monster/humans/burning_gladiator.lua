@@ -78,24 +78,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 100000, maxCount = 3},
-	{id = "Fafnar Symbol", chance = 6600},
+	{name = "Platinum Coin", chance = 100000, maxCount = 3},
+	{name = "Fafnar Symbol", chance = 6600},
 	{id = 36268, chance = 5600},
 	{id = 36270, chance = 5600},
 	{id = 36271, chance = 5600},
-	{id = "Dragon Necklace", chance = 4700},
-	{id = "Lightning Pendant", chance = 4100},
-	{id = "Magma Amulet", chance = 3700},
-	{id = "Strange Talisman", chance = 3000},
-	{id = "Magma Boots", chance = 2700},
+	{name = "Dragon Necklace", chance = 4700},
+	{name = "Lightning Pendant", chance = 4100},
+	{name = "Magma Amulet", chance = 3700},
+	{name = "Strange Talisman", chance = 3000},
+	{name = "Magma Boots", chance = 2700},
 	{id = 36166, chance = 2400},
-	{id = "Elven Amulet", chance = 2100},
-	{id = "Lightning Legs", chance = 2000},
-	{id = "Lightning Headband", chance = 1700},
-	{id = "Lightning Boots", chance = 1400},
-	{id = "Spellweaver's Robe", chance = 850},
+	{name = "Elven Amulet", chance = 2100},
+	{name = "Lightning Legs", chance = 2000},
+	{name = "Lightning Headband", chance = 1700},
+	{name = "Lightning Boots", chance = 1400},
+	{name = "Spellweaver's Robe", chance = 850},
 	{id = 36204, chance = 570},
-	{id = "Sea Horse Figurine", chance = 140}
+	{name = "Sea Horse Figurine", chance = 140}
 }
 
 monster.attacks = {

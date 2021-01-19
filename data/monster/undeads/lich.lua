@@ -90,25 +90,25 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "white pearl", chance = 5000},
-	{id = "black pearl", chance = 5960, maxCount = 3},
-	{id = "gold coin", chance = 100000, maxCount = 139},
-	{id = "small emerald", chance = 2230, maxCount = 3},
-	{id = "platinum coin", chance = 19720},
-	{id = "yellow gem", chance = 690},
-	{id = "platinum amulet", chance = 450},
+	{name = "white pearl", chance = 5000},
+	{name = "black pearl", chance = 5960, maxCount = 3},
+	{name = "gold coin", chance = 100000, maxCount = 139},
+	{name = "small emerald", chance = 2230, maxCount = 3},
+	{name = "platinum coin", chance = 19720},
+	{name = "yellow gem", chance = 690},
+	{name = "platinum amulet", chance = 450},
 	{id = 2175, chance = 10000},
-	{id = "mind stone", chance = 350},
-	{id = "ring of healing", chance = 1540},
-	{id = "skull staff", chance = 550},
-	{id = "strange helmet", chance = 740},
-	{id = "ancient shield", chance = 2422},
-	{id = "castle shield", chance = 350},
-	{id = "blue robe", chance = 150},
-	{id = "strong mana potion", chance = 7500},
-	{id = "lightning boots", chance = 200},
-	{id = "small topaz", chance = 2430, maxCount = 3},
-	{id = "maxilla maximus", chance = 100}
+	{name = "mind stone", chance = 350},
+	{name = "ring of healing", chance = 1540},
+	{name = "skull staff", chance = 550},
+	{name = "strange helmet", chance = 740},
+	{name = "ancient shield", chance = 2422},
+	{name = "castle shield", chance = 350},
+	{name = "blue robe", chance = 150},
+	{name = "strong mana potion", chance = 7500},
+	{name = "lightning boots", chance = 200},
+	{name = "small topaz", chance = 2430, maxCount = 3},
+	{name = "maxilla maximus", chance = 100}
 }
 
 monster.attacks = {

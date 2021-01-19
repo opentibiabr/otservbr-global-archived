@@ -71,15 +71,15 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "white pearl", chance = 10000, maxCount = 5},
-	{id = "gold coin", chance = 100000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 90},
-	{id = "boots of haste", chance = 16033},
-	{id = "giant sword", chance = 60000},
-	{id = "bright sword", chance = 20000},
-	{id = "bright sword", chance = 20000},
-	{id = "warlord sword", chance = 6000},
-	{id = "patched boots", chance = 7000},
+	{name = "white pearl", chance = 10000, maxCount = 5},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 90},
+	{name = "boots of haste", chance = 16033},
+	{name = "giant sword", chance = 60000},
+	{name = "bright sword", chance = 20000},
+	{name = "bright sword", chance = 20000},
+	{name = "warlord sword", chance = 6000},
+	{name = "patched boots", chance = 7000},
 	{id = 6530, chance = 16000}
 }
 

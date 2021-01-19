@@ -76,22 +76,22 @@ monster.voices = {
 
 monster.loot = {
 	{id = 33316, chance = 10000, maxCount = 3},
-	{id = "Platinum Coin", chance = 10000, maxCount = 10},
+	{name = "Platinum Coin", chance = 10000, maxCount = 10},
 	{id = 33313, chance = 10000, maxCount = 3},
-	{id = "Small Diamond", chance = 10000, maxCount = 7},
-	{id = "Small Stone", chance = 10000, maxCount = 7},
-	{id = "Small Topaz", chance = 10000, maxCount = 7},
-	{id = "Protection Amulet", chance = 10000},
-	{id = "Terra Boots", chance = 350},
-	{id = "Terra Hood", chance = 600},
-	{id = "Diamond Sceptre", chance = 600},
-	{id = "Terra Mantle", chance = 250},
-	{id = "Terra Legs", chance = 250},
-	{id = "Terra Amulet", chance = 500},
-	{id = "Stone Skin Amulet", chance = 350},
-	{id = "Springsprout Rod", chance = 350},
-	{id = "Sacred Tree Amulet", chance = 350},
-	{id = "Swamplair Armor", chance = 250}
+	{name = "Small Diamond", chance = 10000, maxCount = 7},
+	{name = "Small Stone", chance = 10000, maxCount = 7},
+	{name = "Small Topaz", chance = 10000, maxCount = 7},
+	{name = "Protection Amulet", chance = 10000},
+	{name = "Terra Boots", chance = 350},
+	{name = "Terra Hood", chance = 600},
+	{name = "Diamond Sceptre", chance = 600},
+	{name = "Terra Mantle", chance = 250},
+	{name = "Terra Legs", chance = 250},
+	{name = "Terra Amulet", chance = 500},
+	{name = "Stone Skin Amulet", chance = 350},
+	{name = "Springsprout Rod", chance = 350},
+	{name = "Sacred Tree Amulet", chance = 350},
+	{name = "Swamplair Armor", chance = 250}
 }
 
 monster.attacks = {

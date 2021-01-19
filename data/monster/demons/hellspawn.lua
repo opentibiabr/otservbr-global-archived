@@ -83,26 +83,26 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 60000, maxCount = 100},
-	{id = "gold coin", chance = 60000, maxCount = 100},
-	{id = "gold coin", chance = 60000, maxCount = 36},
-	{id = "morning star", chance = 10000},
-	{id = "warrior helmet", chance = 1886},
-	{id = "knight legs", chance = 3030},
-	{id = "red mushroom", chance = 7692, maxCount = 2},
-	{id = "demonic essence", chance = 9090},
-	{id = "assassin star", chance = 9090, maxCount = 2},
-	{id = "onyx flail", chance = 103},
-	{id = "berserk potion", chance = 934},
-	{id = "spiked squelcher", chance = 970},
-	{id = "great health potion", chance = 40333},
-	{id = "ultimate health potion", chance = 9090},
+	{name = "gold coin", chance = 60000, maxCount = 100},
+	{name = "gold coin", chance = 60000, maxCount = 100},
+	{name = "gold coin", chance = 60000, maxCount = 36},
+	{name = "morning star", chance = 10000},
+	{name = "warrior helmet", chance = 1886},
+	{name = "knight legs", chance = 3030},
+	{name = "red mushroom", chance = 7692, maxCount = 2},
+	{name = "demonic essence", chance = 9090},
+	{name = "assassin star", chance = 9090, maxCount = 2},
+	{name = "onyx flail", chance = 103},
+	{name = "berserk potion", chance = 934},
+	{name = "spiked squelcher", chance = 970},
+	{name = "great health potion", chance = 40333},
+	{name = "ultimate health potion", chance = 9090},
 	{id = 9809, chance = 3125},
 	{id = 9810, chance = 3125},
 	{id = 9948, chance = 140},
-	{id = "black skull", chance = 151},
-	{id = "small topaz", chance = 5882, maxCount = 3},
-	{id = "hellspawn tail", chance = 20000}
+	{name = "black skull", chance = 151},
+	{name = "small topaz", chance = 5882, maxCount = 3},
+	{name = "hellspawn tail", chance = 20000}
 }
 
 monster.attacks = {

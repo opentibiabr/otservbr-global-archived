@@ -80,26 +80,26 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 100000, maxCount = 17},
-	{id = "Meat", chance = 90000, maxCount = 3},
-	{id = "Great Spirit Potion", chance = 50000, maxCount = 3},
-	{id = "Ultimate Health Potion", chance = 50000},
-	{id = "Essence of a Bad Dream", chance = 17000},
-	{id = "Knight Axe", chance = 14000},
-	{id = "Mino Shield", chance = 12000},
-	{id = "Terra Boots", chance = 7000},
-	{id = "Terra Hood", chance = 6400},
-	{id = "Beastslayer Axe", chance = 500},
-	{id = "Black Shield", chance = 3500},
-	{id = "Bloody Pincers", chance = 4200},
-	{id = "Dark Shield", chance = 1500},
-	{id = "Obsidian Lance", chance = 1500},
-	{id = "Sickle", chance = 1100},
-	{id = "Titan Axe", chance = 1100},
-	{id = "Wand of Cosmic Energy", chance = 400},
-	{id = "Wand of Defiance", chance = 400},
-	{id = "Warrior's Axe", chance = 400},
-	{id = "Warrior's Shield", chance = 400}
+	{name = "Platinum Coin", chance = 100000, maxCount = 17},
+	{name = "Meat", chance = 90000, maxCount = 3},
+	{name = "Great Spirit Potion", chance = 50000, maxCount = 3},
+	{name = "Ultimate Health Potion", chance = 50000},
+	{name = "Essence of a Bad Dream", chance = 17000},
+	{name = "Knight Axe", chance = 14000},
+	{name = "Mino Shield", chance = 12000},
+	{name = "Terra Boots", chance = 7000},
+	{name = "Terra Hood", chance = 6400},
+	{name = "Beastslayer Axe", chance = 500},
+	{name = "Black Shield", chance = 3500},
+	{name = "Bloody Pincers", chance = 4200},
+	{name = "Dark Shield", chance = 1500},
+	{name = "Obsidian Lance", chance = 1500},
+	{name = "Sickle", chance = 1100},
+	{name = "Titan Axe", chance = 1100},
+	{name = "Wand of Cosmic Energy", chance = 400},
+	{name = "Wand of Defiance", chance = 400},
+	{name = "Warrior's Axe", chance = 400},
+	{name = "Warrior's Shield", chance = 400}
 }
 
 monster.attacks = {

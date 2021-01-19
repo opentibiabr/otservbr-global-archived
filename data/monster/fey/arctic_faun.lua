@@ -81,22 +81,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 100000, maxCount = 105},
-	{id = "dandelion seeds", chance = 14870},
-	{id = "strong health potion", chance = 11760},
-	{id = "fresh fruit", chance = 10290},
-	{id = "shimmering beetles", chance = 9330},
-	{id = "leaf star", chance = 8720, maxCount = 3},
-	{id = "goat grass", chance = 7280},
-	{id = "cookie", chance = 6150, maxCount = 5},
-	{id = "grapes", chance = 5400},
-	{id = "rainbow quartz", chance = 5260, maxCount = 2},
-	{id = "small stone", chance = 5260, maxCount = 2},
-	{id = "panpipes", chance = 4510},
-	{id = "great health potion", chance = 3590},
-	{id = "wood cape", chance = 820},
-	{id = "leaf legs", chance = 340},
-	{id = "wooden spellbook", chance = 210},
+	{name = "gold coin", chance = 100000, maxCount = 105},
+	{name = "dandelion seeds", chance = 14870},
+	{name = "strong health potion", chance = 11760},
+	{name = "fresh fruit", chance = 10290},
+	{name = "shimmering beetles", chance = 9330},
+	{name = "leaf star", chance = 8720, maxCount = 3},
+	{name = "goat grass", chance = 7280},
+	{name = "cookie", chance = 6150, maxCount = 5},
+	{name = "grapes", chance = 5400},
+	{name = "rainbow quartz", chance = 5260, maxCount = 2},
+	{name = "small stone", chance = 5260, maxCount = 2},
+	{name = "panpipes", chance = 4510},
+	{name = "great health potion", chance = 3590},
+	{name = "wood cape", chance = 820},
+	{name = "leaf legs", chance = 340},
+	{name = "wooden spellbook", chance = 210},
 	{id = 5792, chance = 140}
 }
 

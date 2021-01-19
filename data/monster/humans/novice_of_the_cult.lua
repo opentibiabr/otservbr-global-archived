@@ -87,16 +87,16 @@ monster.voices = {
 
 monster.loot = {
 	{id = 1962, chance = 700},
-	{id = "small diamond", chance = 210},
-	{id = "gold coin", chance = 43380, maxCount = 40},
-	{id = "wand of vortex", chance = 450},
-	{id = "garlic necklace", chance = 420},
-	{id = "dwarven ring", chance = 500},
-	{id = "scarf", chance = 2900},
-	{id = "pirate voodoo doll", chance = 520},
+	{name = "small diamond", chance = 210},
+	{name = "gold coin", chance = 43380, maxCount = 40},
+	{name = "wand of vortex", chance = 450},
+	{name = "garlic necklace", chance = 420},
+	{name = "dwarven ring", chance = 500},
+	{name = "scarf", chance = 2900},
+	{name = "pirate voodoo doll", chance = 520},
 	{id = 6087, chance = 970},
-	{id = "cultish robe", chance = 1030},
-	{id = "rope belt", chance = 5910}
+	{name = "cultish robe", chance = 1030},
+	{name = "rope belt", chance = 5910}
 }
 
 monster.attacks = {

@@ -82,18 +82,18 @@ monster.voices = {
 
 monster.loot = {
 	{id = 1949, chance = 2000},
-	{id = "brown flask", chance = 820},
+	{name = "brown flask", chance = 820},
 	{id = 2044, chance = 880},
-	{id = "gold coin", chance = 15000, maxCount = 18},
-	{id = "power ring", chance = 100},
-	{id = "life crystal", chance = 1002},
-	{id = "ankh", chance = 2240},
+	{name = "gold coin", chance = 15000, maxCount = 18},
+	{name = "power ring", chance = 100},
+	{name = "life crystal", chance = 1002},
+	{name = "ankh", chance = 2240},
 	{id = 2401, chance = 440},
-	{id = "sandals", chance = 710},
-	{id = "bread", chance = 20000},
-	{id = "book of prayers", chance = 4930},
-	{id = "rope belt", chance = 2950},
-	{id = "safety pin", chance = 1001}
+	{name = "sandals", chance = 710},
+	{name = "bread", chance = 20000},
+	{name = "book of prayers", chance = 4930},
+	{name = "rope belt", chance = 2950},
+	{name = "safety pin", chance = 1001}
 }
 
 monster.attacks = {

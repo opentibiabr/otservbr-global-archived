@@ -76,17 +76,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 90},
-	{id = "yellow gem", chance = 530},
-	{id = "war hammer", chance = 2070},
-	{id = "great mana potion", chance = 9300},
-	{id = "great health potion", chance = 6200},
-	{id = "springsprout rod", chance = 710},
-	{id = "small topaz", chance = 10040, maxCount = 2},
-	{id = "crawler head plating", chance = 18430},
-	{id = "compound eye", chance = 14640},
-	{id = "grasshopper legs", chance = 100}
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 90},
+	{name = "yellow gem", chance = 530},
+	{name = "war hammer", chance = 2070},
+	{name = "great mana potion", chance = 9300},
+	{name = "great health potion", chance = 6200},
+	{name = "springsprout rod", chance = 710},
+	{name = "small topaz", chance = 10040, maxCount = 2},
+	{name = "crawler head plating", chance = 18430},
+	{name = "compound eye", chance = 14640},
+	{name = "grasshopper legs", chance = 100}
 }
 
 monster.attacks = {

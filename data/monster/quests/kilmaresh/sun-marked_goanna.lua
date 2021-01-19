@@ -62,11 +62,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Goanna Hide with Sun Symbol", chance = 100000},
-	{id = "Platinum Coin", chance = 100000, maxCount = 3},
-	{id = "Envenomed Arrow", chance = 50000, maxCount = 29},
-	{id = "Poison Dagger", chance = 50000},
-	{id = "Scared Frog", chance = 50000}
+	{name = "Goanna Hide with Sun Symbol", chance = 100000},
+	{name = "Platinum Coin", chance = 100000, maxCount = 3},
+	{name = "Envenomed Arrow", chance = 50000, maxCount = 29},
+	{name = "Poison Dagger", chance = 50000},
+	{name = "Scared Frog", chance = 50000}
 }
 
 monster.attacks = {

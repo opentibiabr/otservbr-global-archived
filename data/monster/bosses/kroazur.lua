@@ -65,24 +65,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "fairy wings", chance = 100000},
-	{id = "gold coin", chance = 100000, maxCount = 365},
-	{id = "platinum coin", chance = 100000, maxCount = 7},
-	{id = "strong health potion", chance = 91460, maxCount = 2},
-	{id = "great health potion", chance = 76330, maxCount = 3},
-	{id = "small enchanted amethyst", chance = 53560, maxCount = 5},
-	{id = "ancient coin", chance = 46980, maxCount = 3},
-	{id = "gemmed figurine", chance = 32030},
-	{id = "small enchanted emerald", chance = 11003, maxCount = 5},
-	{id = "small enchanted ruby", chance = 2000},
-	{id = "silver token", chance = 10140},
-	{id = "cluster of solace", chance = 9960},
-	{id = "red crystal fragment", chance = 9960},
-	{id = "small enchanted sapphire", chance = 8900},
-	{id = "assassin star", chance = 8540},
-	{id = "gold token", chance = 6580},
-	{id = "gold ingot", chance = 6410},
-	{id = "nightmare blade", chance = 3020}
+	{name = "fairy wings", chance = 100000},
+	{name = "gold coin", chance = 100000, maxCount = 365},
+	{name = "platinum coin", chance = 100000, maxCount = 7},
+	{name = "strong health potion", chance = 91460, maxCount = 2},
+	{name = "great health potion", chance = 76330, maxCount = 3},
+	{name = "small enchanted amethyst", chance = 53560, maxCount = 5},
+	{name = "ancient coin", chance = 46980, maxCount = 3},
+	{name = "gemmed figurine", chance = 32030},
+	{name = "small enchanted emerald", chance = 11003, maxCount = 5},
+	{name = "small enchanted ruby", chance = 2000},
+	{name = "silver token", chance = 10140},
+	{name = "cluster of solace", chance = 9960},
+	{name = "red crystal fragment", chance = 9960},
+	{name = "small enchanted sapphire", chance = 8900},
+	{name = "assassin star", chance = 8540},
+	{name = "gold token", chance = 6580},
+	{name = "gold ingot", chance = 6410},
+	{name = "nightmare blade", chance = 3020}
 }
 
 monster.attacks = {

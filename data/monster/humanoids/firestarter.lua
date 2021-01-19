@@ -82,16 +82,16 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 79000, maxCount = 35},
-	{id = "longsword", chance = 6000},
-	{id = "bow", chance = 4000},
-	{id = "grapes", chance = 20000},
+	{name = "gold coin", chance = 79000, maxCount = 35},
+	{name = "longsword", chance = 6000},
+	{name = "bow", chance = 4000},
+	{name = "grapes", chance = 20000},
 	{id = 5921, chance = 930},
-	{id = "elvish bow", chance = 100},
-	{id = "flaming arrow", chance = 30000, maxCount = 12},
-	{id = "elvish talisman", chance = 5000},
+	{name = "elvish bow", chance = 100},
+	{name = "flaming arrow", chance = 30000, maxCount = 12},
+	{name = "elvish talisman", chance = 5000},
 	{id = 13757, chance = 15280},
-	{id = "flintstone", chance = 340}
+	{name = "flintstone", chance = 340}
 }
 
 monster.attacks = {

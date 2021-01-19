@@ -76,13 +76,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 59000, maxCount = 30},
-	{id = "battle hammer", chance = 730},
-	{id = "plate shield", chance = 2850},
+	{name = "gold coin", chance = 59000, maxCount = 30},
+	{name = "battle hammer", chance = 730},
+	{name = "plate shield", chance = 2850},
 	{id = 2667, chance = 4600},
-	{id = "tortoise egg", chance = 770, maxCount = 2},
-	{id = "turtle shell", chance = 1300},
-	{id = "tortoise shield", chance = 200}
+	{name = "tortoise egg", chance = 770, maxCount = 2},
+	{name = "turtle shell", chance = 1300},
+	{name = "tortoise shield", chance = 200}
 }
 
 monster.attacks = {

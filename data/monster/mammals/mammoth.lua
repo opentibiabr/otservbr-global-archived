@@ -78,14 +78,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 90000, maxCount = 40},
-	{id = "meat", chance = 39000},
-	{id = "ham", chance = 30000, maxCount = 3},
-	{id = "tusk shield", chance = 500},
-	{id = "mammoth whopper", chance = 2800},
-	{id = "furry club", chance = 500},
-	{id = "thick fur", chance = 7280},
-	{id = "mammoth tusk", chance = 7500, maxCount = 2}
+	{name = "gold coin", chance = 90000, maxCount = 40},
+	{name = "meat", chance = 39000},
+	{name = "ham", chance = 30000, maxCount = 3},
+	{name = "tusk shield", chance = 500},
+	{name = "mammoth whopper", chance = 2800},
+	{name = "furry club", chance = 500},
+	{name = "thick fur", chance = 7280},
+	{name = "mammoth tusk", chance = 7500, maxCount = 2}
 }
 
 monster.attacks = {

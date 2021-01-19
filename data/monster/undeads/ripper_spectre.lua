@@ -78,21 +78,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 5},
-	{id = "Great Spirit Potion", chance = 30910, maxCount = 2},
-	{id = "Two Handed Sword", chance = 16500},
-	{id = "Terra Rod", chance = 4780},
-	{id = "Silver Brooch", chance = 15190},
-	{id = "Emerald Bangle", chance = 14740},
-	{id = "Twin Hooks", chance = 1170},
-	{id = "Springsprout Rod", chance = 1210},
+	{name = "platinum coin", chance = 100000, maxCount = 5},
+	{name = "Great Spirit Potion", chance = 30910, maxCount = 2},
+	{name = "Two Handed Sword", chance = 16500},
+	{name = "Terra Rod", chance = 4780},
+	{name = "Silver Brooch", chance = 15190},
+	{name = "Emerald Bangle", chance = 14740},
+	{name = "Twin Hooks", chance = 1170},
+	{name = "Springsprout Rod", chance = 1210},
 	{id = 34721, chance = 1890},
-	{id = "Coral Brooch", chance = 1330},
-	{id = "Serpent Sword", chance = 1950},
-	{id = "Hexagonal Ruby", chance = 800},
-	{id = "Assassin Dagger", chance = 970},
-	{id = "Spike Sword", chance = 530},
-	{id = "Wyvern Fang", chance = 120}
+	{name = "Coral Brooch", chance = 1330},
+	{name = "Serpent Sword", chance = 1950},
+	{name = "Hexagonal Ruby", chance = 800},
+	{name = "Assassin Dagger", chance = 970},
+	{name = "Spike Sword", chance = 530},
+	{name = "Wyvern Fang", chance = 120}
 }
 
 monster.attacks = {

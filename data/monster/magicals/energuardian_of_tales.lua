@@ -77,13 +77,13 @@ monster.voices = {
 monster.loot = {
 	{id = 33316, chance = 10000, maxCount = 5},
 	{id = 33317, chance = 10000, maxCount = 5},
-	{id = "Small Amethyst", chance = 10000, maxCount = 5},
-	{id = "Flash Arrow", chance = 10000, maxCount = 5},
-	{id = "Lightning Legs", chance = 250},
-	{id = "Spellbook of Warding", chance = 350},
-	{id = "Ultimate Health Potion", chance = 10000, maxCount = 5},
-	{id = "Ultimate Mana Potion", chance = 10000, maxCount = 5},
-	{id = "Wand of Starstorm", chance = 300}
+	{name = "Small Amethyst", chance = 10000, maxCount = 5},
+	{name = "Flash Arrow", chance = 10000, maxCount = 5},
+	{name = "Lightning Legs", chance = 250},
+	{name = "Spellbook of Warding", chance = 350},
+	{name = "Ultimate Health Potion", chance = 10000, maxCount = 5},
+	{name = "Ultimate Mana Potion", chance = 10000, maxCount = 5},
+	{name = "Wand of Starstorm", chance = 300}
 }
 
 monster.attacks = {

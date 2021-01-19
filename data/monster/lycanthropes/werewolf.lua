@@ -83,23 +83,23 @@ monster.voices = {
 monster.loot = {
 	{id = 2148, chance = 98000, maxCount = 230},
 	{id = 2169, chance = 800},
-	{id = "platinum amulet", chance = 870},
-	{id = "stone skin amulet", chance = 1000},
-	{id = "halberd", chance = 3000},
-	{id = "epee", chance = 560},
-	{id = "plate shield", chance = 10340},
-	{id = "brown mushroom", chance = 6940},
-	{id = "troll green", chance = 1900},
-	{id = "wolf paw", chance = 5200},
-	{id = "relic sword", chance = 480},
-	{id = "dreaded cleaver", chance = 160},
-	{id = "bonebreaker", chance = 400},
-	{id = "berserk potion", chance = 1200},
-	{id = "strong health potion", chance = 5000},
-	{id = "ultimate health potion", chance = 2400},
+	{name = "platinum amulet", chance = 870},
+	{name = "stone skin amulet", chance = 1000},
+	{name = "halberd", chance = 3000},
+	{name = "epee", chance = 560},
+	{name = "plate shield", chance = 10340},
+	{name = "brown mushroom", chance = 6940},
+	{name = "troll green", chance = 1900},
+	{name = "wolf paw", chance = 5200},
+	{name = "relic sword", chance = 480},
+	{name = "dreaded cleaver", chance = 160},
+	{name = "bonebreaker", chance = 400},
+	{name = "berserk potion", chance = 1200},
+	{name = "strong health potion", chance = 5000},
+	{name = "ultimate health potion", chance = 2400},
 	{id = 9809, chance = 210},
 	{id = 24708, chance = 15000},
-	{id = "werewolf fur", chance = 10650}
+	{name = "werewolf fur", chance = 10650}
 }
 
 monster.attacks = {

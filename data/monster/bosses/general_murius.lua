@@ -73,20 +73,20 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "minotaur horn", chance = 100000, maxCount = 2},
-	{id = "minotaur leather", chance = 100000},
-	{id = "gold coin", chance = 92310, maxCount = 97},
-	{id = "platinum coin", chance = 92310, maxCount = 3},
-	{id = "brass armor", chance = 76920},
-	{id = "double axe", chance = 76920},
-	{id = "piercing bolt", chance = 38460, maxCount = 11},
-	{id = "meat", chance = 30770},
-	{id = "battle shield", chance = 23080},
-	{id = "chain legs", chance = 23080},
+	{name = "minotaur horn", chance = 100000, maxCount = 2},
+	{name = "minotaur leather", chance = 100000},
+	{name = "gold coin", chance = 92310, maxCount = 97},
+	{name = "platinum coin", chance = 92310, maxCount = 3},
+	{name = "brass armor", chance = 76920},
+	{name = "double axe", chance = 76920},
+	{name = "piercing bolt", chance = 38460, maxCount = 11},
+	{name = "meat", chance = 30770},
+	{name = "battle shield", chance = 23080},
+	{name = "chain legs", chance = 23080},
 	{id = 7401, chance = 23080},-- minotaur trophy
-	{id = "power bolt", chance = 23080, maxCount = 7},
-	{id = "fishing rod", chance = 7690},
-	{id = "strong health potion", chance = 7690}
+	{name = "power bolt", chance = 23080, maxCount = 7},
+	{name = "fishing rod", chance = 7690},
+	{name = "strong health potion", chance = 7690}
 }
 
 monster.attacks = {

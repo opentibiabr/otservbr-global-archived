@@ -79,21 +79,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "strong health potion", chance = 18390},
-	{id = "gold coin", chance = 100000, maxCount = 221},
-	{id = "black pearl", chance = 510, maxCount = 2},
-	{id = "berserk potion", chance = 2940},
-	{id = "small ruby", chance = 4020, maxCount = 5},
-	{id = "battle axe", chance = 6340},
-	{id = "bug meat", chance = 17160},
-	{id = "red mushroom", chance = 7730, maxCount = 3},
-	{id = "halberd", chance = 9890},
-	{id = "orcish axe", chance = 850},
-	{id = "cultish robe", chance = 9890},
-	{id = "ham", chance = 8960},
-	{id = "orc tooth", chance = 5410},
-	{id = "orcish gear", chance = 15460},
-	{id = "orc leather", chance = 7730}
+	{name = "strong health potion", chance = 18390},
+	{name = "gold coin", chance = 100000, maxCount = 221},
+	{name = "black pearl", chance = 510, maxCount = 2},
+	{name = "berserk potion", chance = 2940},
+	{name = "small ruby", chance = 4020, maxCount = 5},
+	{name = "battle axe", chance = 6340},
+	{name = "bug meat", chance = 17160},
+	{name = "red mushroom", chance = 7730, maxCount = 3},
+	{name = "halberd", chance = 9890},
+	{name = "orcish axe", chance = 850},
+	{name = "cultish robe", chance = 9890},
+	{name = "ham", chance = 8960},
+	{name = "orc tooth", chance = 5410},
+	{name = "orcish gear", chance = 15460},
+	{name = "orc leather", chance = 7730}
 }
 
 monster.attacks = {
