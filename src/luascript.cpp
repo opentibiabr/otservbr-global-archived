@@ -16251,7 +16251,6 @@ int LuaScriptInterface::luaLootSetIdFromName(lua_State* L)
 {
 	// loot:setIdFromName(name)
 	Loot* loot = getUserdata<Loot>(L, 1);
-	uint16_t item;
 	if (loot && isString(L, 2)) {
 		auto name = getString(L, 2);
 		auto ids = Item::items.nameToItems.equal_range(asLowerCaseString(name));
