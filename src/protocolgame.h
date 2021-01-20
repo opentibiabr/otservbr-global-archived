@@ -91,7 +91,7 @@ public:
 
 	void sendLockerItems(std::map<uint16_t, uint16_t> itemMap, uint16_t count);
 
-	uint32_t getVersion() const
+	uint16_t getVersion() const
 	{
 		return version;
 	}
@@ -449,7 +449,7 @@ private:
 
 	uint32_t eventConnect = 0;
 	uint32_t challengeTimestamp = 0;
-	uint32_t version = g_config.getNumber(ConfigManager::CLIENT_VERSION);
+	uint16_t version = 0;
 	uint32_t clientVersion = 0;
 
 	uint8_t challengeRandom = 0;
