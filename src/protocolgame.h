@@ -91,7 +91,7 @@ public:
 
 	void sendLockerItems(std::map<uint16_t, uint16_t> itemMap, uint16_t count);
 
-	uint16_t getVersion() const
+	uint32_t getVersion() const
 	{
 		return version;
 	}
