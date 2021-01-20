@@ -79,17 +79,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 75410, maxCount = 30},
-	{id = "crossbow", chance = 830},
-	{id = "brass armor", chance = 530},
-	{id = "scale armor", chance = 530},
-	{id = "bolt", chance = 90450, maxCount = 20},
-	{id = "meat", chance = 5000},
-	{id = "minotaur leather", chance = 1900},
-	{id = "piercing bolt", chance = 12340, maxCount = 4},
-	{id = "broken crossbow", chance = 15400},
-	{id = "minotaur horn", chance = 1990, maxCount = 2},
-	{id = "piece of archer armor", chance = 8260}
+	{name = "gold coin", chance = 75410, maxCount = 30},
+	{name = "crossbow", chance = 830},
+	{name = "brass armor", chance = 530},
+	{name = "scale armor", chance = 530},
+	{name = "bolt", chance = 90450, maxCount = 20},
+	{name = "meat", chance = 5000},
+	{name = "minotaur leather", chance = 1900},
+	{name = "piercing bolt", chance = 12340, maxCount = 4},
+	{name = "broken crossbow", chance = 15400},
+	{name = "minotaur horn", chance = 1990, maxCount = 2},
+	{name = "piece of archer armor", chance = 8260}
 }
 
 monster.attacks = {

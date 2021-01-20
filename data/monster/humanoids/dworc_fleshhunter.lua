@@ -79,14 +79,14 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2050, chance = 4750},
-	{id = "gold coin", chance = 69000, maxCount = 13},
+	{name = "gold coin", chance = 69000, maxCount = 13},
 	{id = 2229, chance = 3300, maxCount = 3},
-	{id = "poison dagger", chance = 2250},
-	{id = "bone shield", chance = 1000},
-	{id = "cleaver", chance = 9750},
-	{id = "ripper lance", chance = 90},
-	{id = "hunting spear", chance = 2000},
-	{id = "tribal mask", chance = 500}
+	{name = "poison dagger", chance = 2250},
+	{name = "bone shield", chance = 1000},
+	{name = "cleaver", chance = 9750},
+	{name = "ripper lance", chance = 90},
+	{name = "hunting spear", chance = 2000},
+	{name = "tribal mask", chance = 500}
 }
 
 monster.attacks = {

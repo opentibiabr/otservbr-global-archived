@@ -80,23 +80,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small diamond", chance = 2439, maxCount = 2},
-	{id = "small ruby", chance = 3000, maxCount = 2},
-	{id = "gold coin", chance = 100000, maxCount = 100},
-	{id = "gold coin", chance = 100000, maxCount = 100},
-	{id = "gold coin", chance = 100000, maxCount = 72},
-	{id = "small emerald", chance = 5366, maxCount = 3},
-	{id = "talon", chance = 5710},
-	{id = "platinum coin", chance = 95000, maxCount = 6},
-	{id = "yellow gem", chance = 1219},
-	{id = "green gem", chance = 613},
-	{id = "red gem", chance = 1538},
-	{id = "blue gem", chance = 300},
-	{id = "soul orb", chance = 20000},
+	{name = "small diamond", chance = 2439, maxCount = 2},
+	{name = "small ruby", chance = 3000, maxCount = 2},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "gold coin", chance = 100000, maxCount = 72},
+	{name = "small emerald", chance = 5366, maxCount = 3},
+	{name = "talon", chance = 5710},
+	{name = "platinum coin", chance = 95000, maxCount = 6},
+	{name = "yellow gem", chance = 1219},
+	{name = "green gem", chance = 613},
+	{name = "red gem", chance = 1538},
+	{name = "blue gem", chance = 300},
+	{name = "soul orb", chance = 20000},
 	{id = 6300, chance = 3030},
-	{id = "demonic essence", chance = 20320},
-	{id = "glob of acid slime", chance = 14210},
-	{id = "glob of tar", chance = 12000}
+	{name = "demonic essence", chance = 20320},
+	{name = "glob of acid slime", chance = 14210},
+	{name = "glob of tar", chance = 12000}
 }
 
 monster.attacks = {

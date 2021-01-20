@@ -78,17 +78,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 5},
-	{id = "life ring", chance = 5580},
-	{id = "guardian shield", chance = 380},
-	{id = "meat", chance = 29500, maxCount = 2},
-	{id = "angelic axe", chance = 440},
-	{id = "glorious axe", chance = 870},
-	{id = "strong health potion", chance = 6000},
-	{id = "silky tapestry", chance = 730},
-	{id = "striped fur", chance = 20130},
-	{id = "sabretooth", chance = 10600}
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 5},
+	{name = "life ring", chance = 5580},
+	{name = "guardian shield", chance = 380},
+	{name = "meat", chance = 29500, maxCount = 2},
+	{name = "angelic axe", chance = 440},
+	{name = "glorious axe", chance = 870},
+	{name = "strong health potion", chance = 6000},
+	{name = "silky tapestry", chance = 730},
+	{name = "striped fur", chance = 20130},
+	{name = "sabretooth", chance = 10600}
 }
 
 monster.attacks = {

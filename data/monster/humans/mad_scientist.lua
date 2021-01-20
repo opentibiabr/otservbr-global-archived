@@ -79,16 +79,16 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 30000, maxCount = 65},
-	{id = "gold coin", chance = 30000, maxCount = 50},
+	{name = "gold coin", chance = 30000, maxCount = 65},
+	{name = "gold coin", chance = 30000, maxCount = 50},
 	{id = 2162, chance = 2000},
-	{id = "life crystal", chance = 2000},
-	{id = "cookie", chance = 1200, maxCount = 5},
-	{id = "white mushroom", chance = 8000, maxCount = 3},
-	{id = "mastermind potion", chance = 130},
-	{id = "health potion", chance = 19000},
-	{id = "mana potion", chance = 19000},
-	{id = "small enchanted amethyst", chance = 470}
+	{name = "life crystal", chance = 2000},
+	{name = "cookie", chance = 1200, maxCount = 5},
+	{name = "white mushroom", chance = 8000, maxCount = 3},
+	{name = "mastermind potion", chance = 130},
+	{name = "health potion", chance = 19000},
+	{name = "mana potion", chance = 19000},
+	{name = "small enchanted amethyst", chance = 470}
 }
 
 monster.attacks = {

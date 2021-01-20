@@ -75,21 +75,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 89960, maxCount = 28},
-	{id = "Book Page", chance = 3000, maxCount = 7},
-	{id = "Demonic Essence", chance = 3000, maxCount = 5},
-	{id = "Concentrated Demonic Blood", chance = 3000, maxCount = 3},
-	{id = "Small Amethyst", chance = 2000, maxCount = 4},
+	{name = "Platinum Coin", chance = 89960, maxCount = 28},
+	{name = "Book Page", chance = 3000, maxCount = 7},
+	{name = "Demonic Essence", chance = 3000, maxCount = 5},
+	{name = "Concentrated Demonic Blood", chance = 3000, maxCount = 3},
+	{name = "Small Amethyst", chance = 2000, maxCount = 4},
 	{id = 2419, chance = 3000},
-	{id = "Silken Bookmark", chance = 2000, maxCount = 2},
-	{id = "Magma Coat", chance = 2000},
-	{id = "Guardian Shield", chance = 1500},
-	{id = "Soul Orb", chance = 3000, maxCount = 4},
-	{id = "Necrotic Rod", chance = 3000},
-	{id = "Magma Monocle", chance = 1500},
+	{name = "Silken Bookmark", chance = 2000, maxCount = 2},
+	{name = "Magma Coat", chance = 2000},
+	{name = "Guardian Shield", chance = 1500},
+	{name = "Soul Orb", chance = 3000, maxCount = 4},
+	{name = "Necrotic Rod", chance = 3000},
+	{name = "Magma Monocle", chance = 1500},
 	{id = 6300, chance = 1200},
-	{id = "Stealth Ring", chance = 1800},
-	{id = "Shadow Sceptre", chance = 8990}
+	{name = "Stealth Ring", chance = 1800},
+	{name = "Shadow Sceptre", chance = 8990}
 }
 
 monster.attacks = {

@@ -75,24 +75,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 44000, maxCount = 40},
-	{id = "Belted Cape", chance = 500},
-	{id = "Ultimate Health Potion", chance = 500, maxCount = 2},
-	{id = "Throwing Star", chance = 500, maxCount = 18},
-	{id = "Knight Axe", chance = 250},
+	{name = "Platinum Coin", chance = 44000, maxCount = 40},
+	{name = "Belted Cape", chance = 500},
+	{name = "Ultimate Health Potion", chance = 500, maxCount = 2},
+	{name = "Throwing Star", chance = 500, maxCount = 18},
+	{name = "Knight Axe", chance = 250},
 	{id = 2419, chance = 500},
-	{id = "protection amulet", chance = 250},
-	{id = "hunting spear", chance = 250},
-	{id = "broken gladiator shield", chance = 250},
-	{id = "dark helmet", chance = 250},
-	{id = "flask of warrior's sweat", chance = 250},
-	{id = "plate armor", chance = 250},
-	{id = "plate legs", chance = 250},
-	{id = "two handed sword", chance = 250},
-	{id = "Great Health Potion", chance = 250, maxCount = 2},
-	{id = "stealth ring", chance = 230},
-	{id = "crusader helmet", chance = 150},
-	{id = "Relic Sword", chance = 150}
+	{name = "protection amulet", chance = 250},
+	{name = "hunting spear", chance = 250},
+	{name = "broken gladiator shield", chance = 250},
+	{name = "dark helmet", chance = 250},
+	{name = "flask of warrior's sweat", chance = 250},
+	{name = "plate armor", chance = 250},
+	{name = "plate legs", chance = 250},
+	{name = "two handed sword", chance = 250},
+	{name = "Great Health Potion", chance = 250, maxCount = 2},
+	{name = "stealth ring", chance = 230},
+	{name = "crusader helmet", chance = 150},
+	{name = "Relic Sword", chance = 150}
 }
 
 monster.attacks = {

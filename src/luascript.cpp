@@ -3166,6 +3166,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Loot", "delete", LuaScriptInterface::luaDeleteLoot);
 
 	registerMethod("Loot", "setId", LuaScriptInterface::luaLootSetId);
+	registerMethod("Loot", "setIdFromName", LuaScriptInterface::luaLootSetIdFromName);
 	registerMethod("Loot", "setMinCount", LuaScriptInterface::luaLootSetMinCount);
 	registerMethod("Loot", "setMaxCount", LuaScriptInterface::luaLootSetMaxCount);
 	registerMethod("Loot", "setSubType", LuaScriptInterface::luaLootSetSubType);
@@ -16230,31 +16231,46 @@ int LuaScriptInterface::luaDeleteLoot(lua_State* L)
 
 int LuaScriptInterface::luaLootSetId(lua_State* L)
 {
-	// loot:setId(id or name)
+	// loot:setId(id)
 	Loot* loot = getUserdata<Loot>(L, 1);
 	if (loot) {
 		if (isNumber(L, 2)) {
 			loot->lootBlock.id = getNumber<uint16_t>(L, 2);
+			pushBoolean(L, true);
 		} else {
-			auto name = getString(L, 2);
-			auto ids = Item::items.nameToItems.equal_range(asLowerCaseString(name));
-
-			if (ids.first == Item::items.nameToItems.cend()) {
-				std::cout << "[Warning - Loot:setId] Unknown loot item \"" << name << "\". " << std::endl;
-				pushBoolean(L, false);
-				return 1;
-			}
-
-			if (std::next(ids.first) != ids.second) {
-				std::cout << "[Warning - Loot:setId] Non-unique loot item \"" << name << "\". " << std::endl;
-				pushBoolean(L, false);
-				return 1;
-			}
-
-			loot->lootBlock.id = ids.first->second;
+			std::cout << "[Warning - Loot:setId] Unknown loot item loot, int value expected. " << std::endl;
+			lua_pushnil(L);
 		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaLootSetIdFromName(lua_State* L)
+{
+	// loot:setIdFromName(name)
+	Loot* loot = getUserdata<Loot>(L, 1);
+	if (loot && isString(L, 2)) {
+		auto name = getString(L, 2);
+		auto ids = Item::items.nameToItems.equal_range(asLowerCaseString(name));
+
+		if (ids.first == Item::items.nameToItems.cend()) {
+			std::cout << "[Warning - Loot:setId] Unknown loot item \"" << name << "\". " << std::endl;
+			lua_pushnil(L);
+			return 1;
+		}
+
+		if (std::next(ids.first) != ids.second) {
+			std::cout << "[Warning - Loot:setId] Non-unique loot item \"" << name << "\". " << std::endl;
+			lua_pushnil(L);
+			return 1;
+		}
+
+		loot->lootBlock.id = ids.first->second;
 		pushBoolean(L, true);
 	} else {
+		std::cout << "[Warning - Loot:setIdFromName] Unknown loot item loot, string value expected. " << std::endl;
 		lua_pushnil(L);
 	}
 	return 1;

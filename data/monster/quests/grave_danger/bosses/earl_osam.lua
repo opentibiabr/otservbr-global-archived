@@ -66,30 +66,30 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", minCount = 1, maxCount = 5, chance = 100000},
-	{id = "crystal coin", minCount = 0, maxCount = 2, chance = 50000},
-	{id = "supreme health potion", minCount = 0, maxCount = 6, chance = 35000},
-	{id = "ultimate mana potion", minCount = 0, maxCount = 20, chance = 32000},
-	{id = "ultimate spirit potion", minCount = 0, maxCount = 20, chance = 32000},
-	{id = "bullseye potion", minCount = 0, maxCount = 10, chance = 12000},
-	{id = "mastermind potion", minCount = 0, maxCount = 10, chance = 12000},
-	{id = "berserk potion", minCount = 0, maxCount = 10, chance = 12000},
-	{id = "piece of draconian steel", minCount = 0, maxCount = 3, chance = 9000},
-	{id = "red gem", minCount = 0, maxCount = 2, chance = 12000},
-	{id = "silver token", minCount = 0, maxCount = 2, chance = 9500},
+	{name = "platinum coin", minCount = 1, maxCount = 5, chance = 100000},
+	{name = "crystal coin", minCount = 0, maxCount = 2, chance = 50000},
+	{name = "supreme health potion", minCount = 0, maxCount = 6, chance = 35000},
+	{name = "ultimate mana potion", minCount = 0, maxCount = 20, chance = 32000},
+	{name = "ultimate spirit potion", minCount = 0, maxCount = 20, chance = 32000},
+	{name = "bullseye potion", minCount = 0, maxCount = 10, chance = 12000},
+	{name = "mastermind potion", minCount = 0, maxCount = 10, chance = 12000},
+	{name = "berserk potion", minCount = 0, maxCount = 10, chance = 12000},
+	{name = "piece of draconian steel", minCount = 0, maxCount = 3, chance = 9000},
+	{name = "red gem", minCount = 0, maxCount = 2, chance = 12000},
+	{name = "silver token", minCount = 0, maxCount = 2, chance = 9500},
 	{id = 26198, chance = 5200},-- collar of blue plasma
 	{id = 26200, chance = 5200},-- collar of red plasma
 	{id = 26185, chance = 5000},-- ring of blue plasma
 	{id = 26189, chance = 5000},-- ring of red plasma
-	{id = "warrior helmet", chance = 11000},
-	{id = "guardian axe", chance = 6400},
-	{id = "gold ingot", minCount = 0, maxCount = 1, chance = 10000},
-	{id = "young lich worm", chance = 5800},
-	{id = "embrace of nature", chance = 1600},
-	{id = "token of love", chance = 1200},
-	{id = "rotten heart", chance = 1700},
-	{id = "terra helmet", chance = 730},
-	{id = "final judgement", chance = 440}
+	{name = "warrior helmet", chance = 11000},
+	{name = "guardian axe", chance = 6400},
+	{name = "gold ingot", minCount = 0, maxCount = 1, chance = 10000},
+	{name = "young lich worm", chance = 5800},
+	{name = "embrace of nature", chance = 1600},
+	{name = "token of love", chance = 1200},
+	{name = "rotten heart", chance = 1700},
+	{name = "terra helmet", chance = 730},
+	{name = "final judgement", chance = 440}
 }
 
 monster.attacks = {

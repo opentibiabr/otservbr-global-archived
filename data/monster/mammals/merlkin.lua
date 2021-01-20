@@ -78,16 +78,16 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 69500, maxCount = 45},
-	{id = "small amethyst", chance = 260},
+	{name = "gold coin", chance = 69500, maxCount = 45},
+	{name = "small amethyst", chance = 260},
 	{id = 2162, chance = 3000},
-	{id = "wand of decay", chance = 1050},
-	{id = "orange", chance = 1000, maxCount = 5},
-	{id = "banana", chance = 30350, maxCount = 12},
-	{id = "banana staff", chance = 100},
-	{id = "ape fur", chance = 1000},
-	{id = "mana potion", chance = 660},
-	{id = "banana sash", chance = 1800}
+	{name = "wand of decay", chance = 1050},
+	{name = "orange", chance = 1000, maxCount = 5},
+	{name = "banana", chance = 30350, maxCount = 12},
+	{name = "banana staff", chance = 100},
+	{name = "ape fur", chance = 1000},
+	{name = "mana potion", chance = 660},
+	{name = "banana sash", chance = 1800}
 }
 
 monster.attacks = {

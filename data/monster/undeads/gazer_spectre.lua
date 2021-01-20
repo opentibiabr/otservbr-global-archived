@@ -80,23 +80,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 5},
-	{id = "Brown Crystal Splinter", chance = 900},
-	{id = "Red Crystal Fragment", chance = 8500},
-	{id = "Small Enchanted Ruby", chance = 7500},
-	{id = "Small Diamond", chance = 6000},
-	{id = "Small Sapphire", chance = 5000},
-	{id = "Red Gem", chance = 4000},
-	{id = "Yellow Gem", chance = 3000},
+	{name = "platinum coin", chance = 100000, maxCount = 5},
+	{name = "Brown Crystal Splinter", chance = 900},
+	{name = "Red Crystal Fragment", chance = 8500},
+	{name = "Small Enchanted Ruby", chance = 7500},
+	{name = "Small Diamond", chance = 6000},
+	{name = "Small Sapphire", chance = 5000},
+	{name = "Red Gem", chance = 4000},
+	{name = "Yellow Gem", chance = 3000},
 	{id = 33938, chance = 1100},
-	{id = "Wand of Draconia", chance = 3500},
-	{id = "Wand of Inferno", chance = 1100},
+	{name = "Wand of Draconia", chance = 3500},
+	{name = "Wand of Inferno", chance = 1100},
 	{id = 34722, chance = 700},
-	{id = "Magma Coat", chance = 900},
-	{id = "Prismatic Quartz", chance = 1500},
-	{id = "Small Enchanted Emerald", chance = 800},
-	{id = "Onyx Chip", chance = 770},
-	{id = "Hexagonal Ruby", chance = 500}
+	{name = "Magma Coat", chance = 900},
+	{name = "Prismatic Quartz", chance = 1500},
+	{name = "Small Enchanted Emerald", chance = 800},
+	{name = "Onyx Chip", chance = 770},
+	{name = "Hexagonal Ruby", chance = 500}
 }
 
 monster.attacks = {

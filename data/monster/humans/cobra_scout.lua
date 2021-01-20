@@ -78,20 +78,20 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 74000, maxCount = 9},
-	{id = "earth arrow", chance = 19490, maxCount = 28},
-	{id = "stone skin amulet", chance = 6800},
-	{id = "gold ingot", chance = 5750, maxCount = 1},
-	{id = "cheesy figurine", chance = 13800},
-	{id = "opal", chance = 23800, maxCount = 5},
-	{id = "cobra crest", chance = 15450},
-	{id = "small emerald", chance = 3000, maxCount = 2},
-	{id = "violet gem", chance = 1300},
-	{id = "yellow gem", chance = 3060},
-	{id = "green gem", chance = 1210},
-	{id = "red gem", chance = 4800},
-	{id = "sacred tree amulet", chance = 5100},
-	{id = "green crystal shard", chance = 2130},
+	{name = "platinum coin", chance = 74000, maxCount = 9},
+	{name = "earth arrow", chance = 19490, maxCount = 28},
+	{name = "stone skin amulet", chance = 6800},
+	{name = "gold ingot", chance = 5750, maxCount = 1},
+	{name = "cheesy figurine", chance = 13800},
+	{name = "opal", chance = 23800, maxCount = 5},
+	{name = "cobra crest", chance = 15450},
+	{name = "small emerald", chance = 3000, maxCount = 2},
+	{name = "violet gem", chance = 1300},
+	{name = "yellow gem", chance = 3060},
+	{name = "green gem", chance = 1210},
+	{name = "red gem", chance = 4800},
+	{name = "sacred tree amulet", chance = 5100},
+	{name = "green crystal shard", chance = 2130},
 	{id = 26189, chance = 740}-- ring of red plasma
 }
 

@@ -75,16 +75,16 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "great health potion", chance = 44810, maxCount = 4},
-	{id = "ice rapier", chance = 25950},
-	{id = "knight axe", chance = 12500},
-	{id = "crystal sword", chance = 19420},
-	{id = "pirate coin", chance = 17810, maxCount = 10},
-	{id = "crowbar", chance = 7810},
-	{id = "knight armor", chance = 9550},
-	{id = "focus cape", chance = 8250},
-	{id = "pirat's tail", chance = 2120},
-	{id = "shark fins", chance = 1750}
+	{name = "great health potion", chance = 44810, maxCount = 4},
+	{name = "ice rapier", chance = 25950},
+	{name = "knight axe", chance = 12500},
+	{name = "crystal sword", chance = 19420},
+	{name = "pirate coin", chance = 17810, maxCount = 10},
+	{name = "crowbar", chance = 7810},
+	{name = "knight armor", chance = 9550},
+	{name = "focus cape", chance = 8250},
+	{name = "pirat's tail", chance = 2120},
+	{name = "shark fins", chance = 1750}
 }
 
 monster.attacks = {

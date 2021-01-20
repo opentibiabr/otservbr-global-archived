@@ -77,14 +77,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "white pearl", chance = 3000},
-	{id = "gold coin", chance = 70000, maxCount = 144},
-	{id = "scarab coin", chance = 10000, maxCount = 3},
+	{name = "white pearl", chance = 3000},
+	{name = "gold coin", chance = 70000, maxCount = 144},
+	{name = "scarab coin", chance = 10000, maxCount = 3},
 	{id = 2175, chance = 6800},
-	{id = "ring of healing", chance = 1000},
-	{id = "orichalcum pearl", chance = 6000, maxCount = 4},
-	{id = "health potion", chance = 15000},
-	{id = "mana potion", chance = 15000},
+	{name = "ring of healing", chance = 1000},
+	{name = "orichalcum pearl", chance = 6000, maxCount = 4},
+	{name = "health potion", chance = 15000},
+	{name = "mana potion", chance = 15000},
 	{id = 13739, chance = 27000}
 }
 

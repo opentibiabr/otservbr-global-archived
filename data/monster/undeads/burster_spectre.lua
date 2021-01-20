@@ -79,27 +79,27 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 7},
-	{id = "great spirit potion", chance = 100000, maxCount = 3},
-	{id = "protection amulet", chance = 15000},
-	{id = "life crystal", chance = 12050},
-	{id = "silver amulet", chance = 15000},
-	{id = "wand of voodoo", chance = 11050},
-	{id = "wand of cosmic energy", chance = 11800},
-	{id = "dragon necklace", chance = 16600},
-	{id = "stone skin amulet", chance = 8860},
+	{name = "platinum coin", chance = 100000, maxCount = 7},
+	{name = "great spirit potion", chance = 100000, maxCount = 3},
+	{name = "protection amulet", chance = 15000},
+	{name = "life crystal", chance = 12050},
+	{name = "silver amulet", chance = 15000},
+	{name = "wand of voodoo", chance = 11050},
+	{name = "wand of cosmic energy", chance = 11800},
+	{name = "dragon necklace", chance = 16600},
+	{name = "stone skin amulet", chance = 8860},
 	{id = 34720, chance = 15600},
-	{id = "glacier amulet", chance = 16890},
-	{id = "orb", chance = 18980},
-	{id = "hailstorm rod", chance = 17550},
-	{id = "elven amulet", chance = 1800},
-	{id = "garlic necklace", chance = 2640},
-	{id = "platinum amulet", chance = 2600},
-	{id = "mind stone", chance = 1800},
-	{id = "glacial rod", chance = 520},
-	{id = "shockwave amulet", chance = 620},
-	{id = "strange symbol", chance = 720},
-	{id = "hexagonal ruby", chance = 480}
+	{name = "glacier amulet", chance = 16890},
+	{name = "orb", chance = 18980},
+	{name = "hailstorm rod", chance = 17550},
+	{name = "elven amulet", chance = 1800},
+	{name = "garlic necklace", chance = 2640},
+	{name = "platinum amulet", chance = 2600},
+	{name = "mind stone", chance = 1800},
+	{name = "glacial rod", chance = 520},
+	{name = "shockwave amulet", chance = 620},
+	{name = "strange symbol", chance = 720},
+	{name = "hexagonal ruby", chance = 480}
 }
 
 monster.attacks = {
