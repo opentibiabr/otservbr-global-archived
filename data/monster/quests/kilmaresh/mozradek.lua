@@ -65,9 +65,9 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Red Gem", chance = 60000},
+	{name = "Red Gem", chance = 60000},
 	{id = 36204, chance = 9000},
-	{id = "Sea Horse Figurine", chance = 6000},
+	{name = "Sea Horse Figurine", chance = 6000},
 	{id = 36392, chance = 3500}
 }
 

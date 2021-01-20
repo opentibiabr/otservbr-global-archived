@@ -65,23 +65,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "silver token", chance = 2732},
-	{id = "gold token", chance = 1530},
-	{id = "gold coin", chance = 100000, maxCount = 200},
-	{id = "platinum coin", chance = 29840, maxCount = 57},
-	{id = "lightning legs", chance = 8723},
-	{id = "yellow gem", chance = 29460},
-	{id = "demon shield", chance = 2270},
-	{id = "shockwave amulet", chance = 15100},
-	{id = "witch hat", chance = 9510},
-	{id = "mysterious remains", chance = 100000},
-	{id = "small amethyst", chance = 14700, maxCount = 10},
-	{id = "small amethyst", chance = 12259, maxCount = 10},
-	{id = "odd organ", chance = 100000},
-	{id = "energy bar", chance = 16872, maxCount = 3},
+	{name = "silver token", chance = 2732},
+	{name = "gold token", chance = 1530},
+	{name = "gold coin", chance = 100000, maxCount = 200},
+	{name = "platinum coin", chance = 29840, maxCount = 57},
+	{name = "lightning legs", chance = 8723},
+	{name = "yellow gem", chance = 29460},
+	{name = "demon shield", chance = 2270},
+	{name = "shockwave amulet", chance = 15100},
+	{name = "witch hat", chance = 9510},
+	{name = "mysterious remains", chance = 100000},
+	{name = "small amethyst", chance = 14700, maxCount = 10},
+	{name = "small amethyst", chance = 12259, maxCount = 10},
+	{name = "odd organ", chance = 100000},
+	{name = "energy bar", chance = 16872, maxCount = 3},
 	{id = 26186, chance = 8762},
-	{id = "ultimate health potion", chance = 27652, maxCount = 10},
-	{id = "blade of corruption", chance = 3775}
+	{name = "ultimate health potion", chance = 27652, maxCount = 10},
+	{name = "blade of corruption", chance = 3775}
 }
 
 monster.attacks = {

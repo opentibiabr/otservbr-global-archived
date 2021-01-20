@@ -79,24 +79,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 32000, maxCount = 100},
-	{id = "gold coin", chance = 32000, maxCount = 100},
-	{id = "gold coin", chance = 32000, maxCount = 27},
-	{id = "small emerald", chance = 2520, maxCount = 4},
-	{id = "platinum coin", chance = 4900, maxCount = 2},
-	{id = "tower shield", chance = 1040},
-	{id = "lizard leather", chance = 1000},
-	{id = "lizard scale", chance = 970},
-	{id = "strong health potion", chance = 11925},
-	{id = "great health potion", chance = 7070},
-	{id = "red lantern", chance = 1220},
-	{id = "bunch of ripe rice", chance = 4950},
-	{id = "Zaoan armor", chance = 80},
-	{id = "Zaoan shoes", chance = 700},
-	{id = "Zaoan legs", chance = 720},
-	{id = "spiked iron ball", chance = 7000},
-	{id = "high guard flag", chance = 2990},
-	{id = "high guard shoulderplates", chance = 8150}
+	{name = "gold coin", chance = 32000, maxCount = 100},
+	{name = "gold coin", chance = 32000, maxCount = 100},
+	{name = "gold coin", chance = 32000, maxCount = 27},
+	{name = "small emerald", chance = 2520, maxCount = 4},
+	{name = "platinum coin", chance = 4900, maxCount = 2},
+	{name = "tower shield", chance = 1040},
+	{name = "lizard leather", chance = 1000},
+	{name = "lizard scale", chance = 970},
+	{name = "strong health potion", chance = 11925},
+	{name = "great health potion", chance = 7070},
+	{name = "red lantern", chance = 1220},
+	{name = "bunch of ripe rice", chance = 4950},
+	{name = "Zaoan armor", chance = 80},
+	{name = "Zaoan shoes", chance = 700},
+	{name = "Zaoan legs", chance = 720},
+	{name = "spiked iron ball", chance = 7000},
+	{name = "high guard flag", chance = 2990},
+	{name = "high guard shoulderplates", chance = 8150}
 }
 
 monster.attacks = {

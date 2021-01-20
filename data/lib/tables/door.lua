@@ -173,6 +173,7 @@ QuestDoorTable = {
 	{ closedDoor = 5132, openDoor = 5133 },
 	{ closedDoor = 5288, openDoor = 5289 },
 	{ closedDoor = 5290, openDoor = 5291 },
+	{ closedDoor = 5748, openDoor = 5749 },
 	{ closedDoor = 6202, openDoor = 6203 },
 	{ closedDoor = 6204, openDoor = 6205 },
 	{ closedDoor = 6259, openDoor = 6260 },

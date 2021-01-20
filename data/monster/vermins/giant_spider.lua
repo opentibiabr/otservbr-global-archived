@@ -90,20 +90,20 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 99990, maxCount = 100},
-	{id = "gold coin", chance = 99990, maxCount = 95},
+	{name = "gold coin", chance = 99990, maxCount = 100},
+	{name = "gold coin", chance = 99990, maxCount = 95},
 	{id = 2169, chance = 710},
-	{id = "platinum amulet", chance = 280},
-	{id = "two handed sword", chance = 5100},
-	{id = "steel helmet", chance = 4980},
-	{id = "plate armor", chance = 9980},
-	{id = "knight armor", chance = 500},
-	{id = "knight legs", chance = 840},
-	{id = "poison arrow", chance = 11950, maxCount = 12},
-	{id = "plate legs", chance = 8333},
-	{id = "spider silk", chance = 1990},
-	{id = "strong health potion", chance = 3550},
-	{id = "lightning headband", chance = 270}
+	{name = "platinum amulet", chance = 280},
+	{name = "two handed sword", chance = 5100},
+	{name = "steel helmet", chance = 4980},
+	{name = "plate armor", chance = 9980},
+	{name = "knight armor", chance = 500},
+	{name = "knight legs", chance = 840},
+	{name = "poison arrow", chance = 11950, maxCount = 12},
+	{name = "plate legs", chance = 8333},
+	{name = "spider silk", chance = 1990},
+	{name = "strong health potion", chance = 3550},
+	{name = "lightning headband", chance = 270}
 }
 
 monster.attacks = {

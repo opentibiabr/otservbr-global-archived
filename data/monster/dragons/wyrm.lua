@@ -81,24 +81,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small diamond", chance = 750, maxCount = 3},
-	{id = "gold coin", chance = 30000, maxCount = 100},
-	{id = "gold coin", chance = 30000, maxCount = 100},
-	{id = "gold coin", chance = 30000, maxCount = 30},
-	{id = "crossbow", chance = 5920},
-	{id = "burst arrow", chance = 7650, maxCount = 10},
-	{id = "dragon ham", chance = 34800, maxCount = 3},
-	{id = "dragonbone staff", chance = 110},
-	{id = "strong health potion", chance = 19970},
-	{id = "strong mana potion", chance = 15310},
-	{id = "lightning pendant", chance = 720},
-	{id = "composite hornbow", chance = 90},
-	{id = "focus cape", chance = 1250},
-	{id = "hibiscus dress", chance = 250},
-	{id = "wand of starstorm", chance = 420},
-	{id = "wand of draconia", chance = 990},
-	{id = "shockwave amulet", chance = 110},
-	{id = "wyrm scale", chance = 15360}
+	{name = "small diamond", chance = 750, maxCount = 3},
+	{name = "gold coin", chance = 30000, maxCount = 100},
+	{name = "gold coin", chance = 30000, maxCount = 100},
+	{name = "gold coin", chance = 30000, maxCount = 30},
+	{name = "crossbow", chance = 5920},
+	{name = "burst arrow", chance = 7650, maxCount = 10},
+	{name = "dragon ham", chance = 34800, maxCount = 3},
+	{name = "dragonbone staff", chance = 110},
+	{name = "strong health potion", chance = 19970},
+	{name = "strong mana potion", chance = 15310},
+	{name = "lightning pendant", chance = 720},
+	{name = "composite hornbow", chance = 90},
+	{name = "focus cape", chance = 1250},
+	{name = "hibiscus dress", chance = 250},
+	{name = "wand of starstorm", chance = 420},
+	{name = "wand of draconia", chance = 990},
+	{name = "shockwave amulet", chance = 110},
+	{name = "wyrm scale", chance = 15360}
 }
 
 monster.attacks = {

@@ -82,19 +82,19 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small blue pillow", chance = 420},
+	{name = "small blue pillow", chance = 420},
 	{id = 2072, chance = 360},
-	{id = "gold coin", chance = 99000, maxCount = 9},
-	{id = "dwarven ring", chance = 120},
+	{name = "gold coin", chance = 99000, maxCount = 9},
+	{name = "dwarven ring", chance = 120},
 	{id = 33528, chance = 55000},
-	{id = "wooden hammer", chance = 6500},
-	{id = "wooden spoon", chance = 9750},
+	{name = "wooden hammer", chance = 6500},
+	{name = "wooden spoon", chance = 9750},
 	{id = 2570, chance = 5650},
-	{id = "meat", chance = 9500},
-	{id = "roll", chance = 22500},
-	{id = "red rose", chance = 4700},
-	{id = "sling herb", chance = 420},
-	{id = "rum flask", chance = 420},
+	{name = "meat", chance = 9500},
+	{name = "roll", chance = 22500},
+	{name = "red rose", chance = 4700},
+	{name = "sling herb", chance = 420},
+	{name = "rum flask", chance = 420},
 	{id = 6092, chance = 300},
 	{id = 9808, chance = 80}
 }

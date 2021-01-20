@@ -81,23 +81,23 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2071, chance = 9620},
-	{id = "silver brooch", chance = 850},
-	{id = "silver brooch", chance = 110},
+	{name = "silver brooch", chance = 850},
+	{name = "silver brooch", chance = 110},
 	{id = 2136, chance = 110},
-	{id = "gold coin", chance = 33000, maxCount = 100},
-	{id = "gold coin", chance = 33000, maxCount = 100},
-	{id = "gold coin", chance = 33000, maxCount = 97},
-	{id = "platinum coin", chance = 3850, maxCount = 7},
-	{id = "stealth ring", chance = 190},
-	{id = "wand of cosmic energy", chance = 9800},
-	{id = "blank rune", chance = 30310, maxCount = 2},
-	{id = "white piece of cloth", chance = 3800},
-	{id = "soul orb", chance = 6005},
+	{name = "gold coin", chance = 33000, maxCount = 100},
+	{name = "gold coin", chance = 33000, maxCount = 100},
+	{name = "gold coin", chance = 33000, maxCount = 97},
+	{name = "platinum coin", chance = 3850, maxCount = 7},
+	{name = "stealth ring", chance = 190},
+	{name = "wand of cosmic energy", chance = 9800},
+	{name = "blank rune", chance = 30310, maxCount = 2},
+	{name = "white piece of cloth", chance = 3800},
+	{name = "soul orb", chance = 6005},
 	{id = 6300, chance = 280},
-	{id = "demonic essence", chance = 6270},
-	{id = "relic sword", chance = 700},
-	{id = "great mana potion", chance = 920},
-	{id = "shiny stone", chance = 1000}
+	{name = "demonic essence", chance = 6270},
+	{name = "relic sword", chance = 700},
+	{name = "great mana potion", chance = 920},
+	{name = "shiny stone", chance = 1000}
 }
 
 monster.attacks = {

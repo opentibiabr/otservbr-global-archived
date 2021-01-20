@@ -80,19 +80,19 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 40000, maxCount = 100},
-	{id = "gold coin", chance = 45000, maxCount = 40},
-	{id = "stealth ring", chance = 450},
-	{id = "gold ring", chance = 10},
-	{id = "halberd", chance = 3003},
-	{id = "golden armor", chance = 10},
-	{id = "green mushroom", chance = 1450},
-	{id = "health potion", chance = 4930},
-	{id = "mana potion", chance = 4950},
-	{id = "spellbook of enlightenment", chance = 520},
-	{id = "gear wheel", chance = 940},
-	{id = "slime mould", chance = 340},
-	{id = "golden can of oil", chance = 40}
+	{name = "gold coin", chance = 40000, maxCount = 100},
+	{name = "gold coin", chance = 45000, maxCount = 40},
+	{name = "stealth ring", chance = 450},
+	{name = "gold ring", chance = 10},
+	{name = "halberd", chance = 3003},
+	{name = "golden armor", chance = 10},
+	{name = "green mushroom", chance = 1450},
+	{name = "health potion", chance = 4930},
+	{name = "mana potion", chance = 4950},
+	{name = "spellbook of enlightenment", chance = 520},
+	{name = "gear wheel", chance = 940},
+	{name = "slime mould", chance = 340},
+	{name = "golden can of oil", chance = 40}
 }
 
 monster.attacks = {

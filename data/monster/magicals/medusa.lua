@@ -82,21 +82,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 90},
-	{id = "small emerald", chance = 3770, maxCount = 4},
-	{id = "platinum coin", chance = 74810, maxCount = 6},
-	{id = "knight armor", chance = 1840},
-	{id = "medusa shield", chance = 3040},
-	{id = "titan axe", chance = 1160},
-	{id = "great mana potion", chance = 10000, maxCount = 2},
-	{id = "terra mantle", chance = 870},
-	{id = "terra legs", chance = 420},
-	{id = "terra amulet", chance = 4060},
-	{id = "ultimate health potion", chance = 9290, maxCount = 2},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 90},
+	{name = "small emerald", chance = 3770, maxCount = 4},
+	{name = "platinum coin", chance = 74810, maxCount = 6},
+	{name = "knight armor", chance = 1840},
+	{name = "medusa shield", chance = 3040},
+	{name = "titan axe", chance = 1160},
+	{name = "great mana potion", chance = 10000, maxCount = 2},
+	{name = "terra mantle", chance = 870},
+	{name = "terra legs", chance = 420},
+	{name = "terra amulet", chance = 4060},
+	{name = "ultimate health potion", chance = 9290, maxCount = 2},
 	{id = 9810, chance = 500},
-	{id = "sacred tree amulet", chance = 850},
-	{id = "strand of medusa hair", chance = 9900}
+	{name = "sacred tree amulet", chance = 850},
+	{name = "strand of medusa hair", chance = 9900}
 }
 
 monster.attacks = {

@@ -52,10 +52,6 @@ function serverstartup.onStartup()
 	print("> Loaded all actions in the map")
 	print("> Loaded all uniques in the map")
 
-	print(">> Loading custom maps")
-	-- Custom maps table
-	loadCustomMaps()
-
 	for i = 1, #startupGlobalStorages do
 		Game.setStorageValue(startupGlobalStorages[i], 0)
 	end
@@ -135,5 +131,8 @@ function serverstartup.onStartup()
 
 	-- Hireling System
 	HirelingsInit()
+
+	-- Load otservbr-custom map (data/world/custom/otservbr-custom.otbm)
+	loadCustomMap()
 end
 serverstartup:register()

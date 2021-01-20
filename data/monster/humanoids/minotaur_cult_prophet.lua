@@ -80,27 +80,27 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 100000, maxCount = 150},
-	{id = "cowbell", chance = 18570},
-	{id = "moonlight rod", chance = 8480},
-	{id = "cultish robe", chance = 15450},
-	{id = "great health potion", chance = 7070},
-	{id = "great mana potion", chance = 16810},
-	{id = "gold ingot", chance = 1120},
-	{id = "small ruby", chance = 7160},
-	{id = "small topaz", chance = 7650},
-	{id = "yellow gem", chance = 490},
-	{id = "platinum coin", chance = 67040, maxCount = 3},
-	{id = "small emerald", chance = 11160},
-	{id = "small diamond", chance = 2900, maxCount = 2},
-	{id = "small amethyst", chance = 6680, maxCount = 2},
-	{id = "red piece of cloth", chance = 630},
-	{id = "ring of healing", chance = 6730},
-	{id = "red gem", chance = 390},
-	{id = "meat", chance = 8040},
-	{id = "ham", chance = 60140},
-	{id = "minotaur leather", chance = 14230},
-	{id = "minotaur horn", chance = 18270, maxCount = 2}
+	{name = "gold coin", chance = 100000, maxCount = 150},
+	{name = "cowbell", chance = 18570},
+	{name = "moonlight rod", chance = 8480},
+	{name = "cultish robe", chance = 15450},
+	{name = "great health potion", chance = 7070},
+	{name = "great mana potion", chance = 16810},
+	{name = "gold ingot", chance = 1120},
+	{name = "small ruby", chance = 7160},
+	{name = "small topaz", chance = 7650},
+	{name = "yellow gem", chance = 490},
+	{name = "platinum coin", chance = 67040, maxCount = 3},
+	{name = "small emerald", chance = 11160},
+	{name = "small diamond", chance = 2900, maxCount = 2},
+	{name = "small amethyst", chance = 6680, maxCount = 2},
+	{name = "red piece of cloth", chance = 630},
+	{name = "ring of healing", chance = 6730},
+	{name = "red gem", chance = 390},
+	{name = "meat", chance = 8040},
+	{name = "ham", chance = 60140},
+	{name = "minotaur leather", chance = 14230},
+	{name = "minotaur horn", chance = 18270, maxCount = 2}
 }
 
 monster.attacks = {

@@ -83,22 +83,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "emerald bangle", chance = 1100},
-	{id = "small diamond", chance = 1020, maxCount = 2},
-	{id = "gold coin", chance = 90000, maxCount = 149},
-	{id = "platinum coin", chance = 9910},
-	{id = "moonlight rod", chance = 5500},
-	{id = "boots of haste", chance = 220},
-	{id = "strong health potion", chance = 5000},
-	{id = "strong mana potion", chance = 10210},
+	{name = "emerald bangle", chance = 1100},
+	{name = "small diamond", chance = 1020, maxCount = 2},
+	{name = "gold coin", chance = 90000, maxCount = 149},
+	{name = "platinum coin", chance = 9910},
+	{name = "moonlight rod", chance = 5500},
+	{name = "boots of haste", chance = 220},
+	{name = "strong health potion", chance = 5000},
+	{name = "strong mana potion", chance = 10210},
 	{id = 7733, chance = 200},
-	{id = "hibiscus dress", chance = 1030},
-	{id = "blood goblet", chance = 60},
+	{name = "hibiscus dress", chance = 1030},
+	{name = "blood goblet", chance = 60},
 	{id = 9809, chance = 1010},
 	{id = 9837, chance = 970},
-	{id = "vampire teeth", chance = 10000},
-	{id = "blood preservation", chance = 4950},
-	{id = "leather whip", chance = 20}
+	{name = "vampire teeth", chance = 10000},
+	{name = "blood preservation", chance = 4950},
+	{name = "leather whip", chance = 20}
 }
 
 monster.attacks = {

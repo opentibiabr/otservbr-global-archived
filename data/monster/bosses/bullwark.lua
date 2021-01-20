@@ -65,24 +65,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 100000, maxCount = 200},
-	{id = "platinum coin", chance = 80000, maxCount = 5},
-	{id = "great health potion", chance = 40000, maxCount = 5},
-	{id = "great mana potion", chance = 40000, maxCount = 5},
-	{id = "great spirit potion", chance = 40000, maxCount = 5},
-	{id = "ham", chance = 35250, maxCount = 5},
-	{id = "meat", chance = 35250, maxCount = 5},
-	{id = "minotaur leather", chance = 26500, maxCount = 2},
-	{id = "moohtant horn", chance = 21000, maxCount = 2},
-	{id = "small diamond", chance = 17900, maxCount = 5},
-	{id = "small emerald", chance = 16350, maxCount = 5},
-	{id = "small ruby", chance = 15500, maxCount = 5},
-	{id = "small sapphire", chance = 14200, maxCount = 5},
-	{id = "giant pacifier", chance = 1920},
-	{id = "moohtant cudgel", chance = 1800},
-	{id = "red piece of cloth", chance = 1500},
-	{id = "yellow gem", chance = 1200},
-	{id = "one hit wonder", chance = 350}
+	{name = "gold coin", chance = 100000, maxCount = 200},
+	{name = "platinum coin", chance = 80000, maxCount = 5},
+	{name = "great health potion", chance = 40000, maxCount = 5},
+	{name = "great mana potion", chance = 40000, maxCount = 5},
+	{name = "great spirit potion", chance = 40000, maxCount = 5},
+	{name = "ham", chance = 35250, maxCount = 5},
+	{name = "meat", chance = 35250, maxCount = 5},
+	{name = "minotaur leather", chance = 26500, maxCount = 2},
+	{name = "moohtant horn", chance = 21000, maxCount = 2},
+	{name = "small diamond", chance = 17900, maxCount = 5},
+	{name = "small emerald", chance = 16350, maxCount = 5},
+	{name = "small ruby", chance = 15500, maxCount = 5},
+	{name = "small sapphire", chance = 14200, maxCount = 5},
+	{name = "giant pacifier", chance = 1920},
+	{name = "moohtant cudgel", chance = 1800},
+	{name = "red piece of cloth", chance = 1500},
+	{name = "yellow gem", chance = 1200},
+	{name = "one hit wonder", chance = 350}
 }
 
 monster.attacks = {

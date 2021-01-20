@@ -75,24 +75,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 120000, maxCount = 4},
-	{id = "Envenomed Arrow", chance = 1200, maxCount = 14},
+	{name = "Platinum Coin", chance = 120000, maxCount = 4},
+	{name = "Envenomed Arrow", chance = 1200, maxCount = 14},
 	{id = 33315, chance = 1200, maxCount = 4},
-	{id = "Poisonous Slime", chance = 1200, maxCount = 4},
-	{id = "Small Diamond", chance = 1200, maxCount = 4},
-	{id = "Small Topaz", chance = 1200, maxCount = 4},
+	{name = "Poisonous Slime", chance = 1200, maxCount = 4},
+	{name = "Small Diamond", chance = 1200, maxCount = 4},
+	{name = "Small Topaz", chance = 1200, maxCount = 4},
 	{id = 7633, chance = 900, maxCount = 4},
-	{id = "Blue Gem", chance = 950, maxCount = 4},
-	{id = "Terra Boots", chance = 850, maxCount = 4},
-	{id = "Terra Hood", chance = 980, maxCount = 4},
-	{id = "Protection Amulet", chance = 1200, maxCount = 4},
-	{id = "Sacred Tree Amulet", chance = 1200, maxCount = 4},
-	{id = "Springsprout Rod", chance = 790, maxCount = 4},
-	{id = "Stone Skin Amulet", chance = 1200, maxCount = 4},
-	{id = "Terra Legs", chance = 650, maxCount = 4},
-	{id = "Terra Mantle", chance = 550, maxCount = 4},
-	{id = "Clay Lump", chance = 1200, maxCount = 4},
-	{id = "Terra Amulet", chance = 1200, maxCount = 4}
+	{name = "Blue Gem", chance = 950, maxCount = 4},
+	{name = "Terra Boots", chance = 850, maxCount = 4},
+	{name = "Terra Hood", chance = 980, maxCount = 4},
+	{name = "Protection Amulet", chance = 1200, maxCount = 4},
+	{name = "Sacred Tree Amulet", chance = 1200, maxCount = 4},
+	{name = "Springsprout Rod", chance = 790, maxCount = 4},
+	{name = "Stone Skin Amulet", chance = 1200, maxCount = 4},
+	{name = "Terra Legs", chance = 650, maxCount = 4},
+	{name = "Terra Mantle", chance = 550, maxCount = 4},
+	{name = "Clay Lump", chance = 1200, maxCount = 4},
+	{name = "Terra Amulet", chance = 1200, maxCount = 4}
 }
 
 monster.attacks = {

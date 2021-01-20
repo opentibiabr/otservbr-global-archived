@@ -591,7 +591,10 @@ Storage = {
 		OrcDoor = 50555,
 		ChorurnDoor = 50556,
 		DwacatraDoor = 50557,
-		FamilyBroochDoor = 50558
+		FamilyBroochDoor = 50558,
+		TheElvenPoetry = 50559,
+		SpectralStoneDoor = 50560,
+		IceMusicDoor = 50561
 	},
 	TravellingTrader = {
 		-- Reserved storage from 50600 - 50619

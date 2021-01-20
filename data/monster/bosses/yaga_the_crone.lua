@@ -68,17 +68,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "cape", chance = 66000},
-	{id = "broom", chance = 62500},
-	{id = "cookie", chance = 62500, maxCount = 8},
-	{id = "gold coin", chance = 29170, maxCount = 55},
-	{id = "star herb", chance = 20833},
-	{id = "wolf tooth chain", chance = 20833},
-	{id = "garlic necklace", chance = 8333},
-	{id = "spellbook of mind control", chance = 8333},
-	{id = "coat", chance = 4170},
-	{id = "necrotic rod", chance = 4170},
-	{id = "silver dagger", chance = 4170}
+	{name = "cape", chance = 66000},
+	{name = "broom", chance = 62500},
+	{name = "cookie", chance = 62500, maxCount = 8},
+	{name = "gold coin", chance = 29170, maxCount = 55},
+	{name = "star herb", chance = 20833},
+	{name = "wolf tooth chain", chance = 20833},
+	{name = "garlic necklace", chance = 8333},
+	{name = "spellbook of mind control", chance = 8333},
+	{name = "coat", chance = 4170},
+	{name = "necrotic rod", chance = 4170},
+	{name = "silver dagger", chance = 4170}
 }
 
 monster.attacks = {

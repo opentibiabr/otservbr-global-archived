@@ -95,47 +95,62 @@ QuestDoorAction = {
 		itemId = false,
 		itemPos = {{x = 33165, y = 31600, z = 15}}
 	},
-	-- Edron
-	[Storage.ExplorerSociety.MemoryStoneDoor] = {
-		itemId = false,
-		itemPos = {{x = 33151, y = 31640, z = 11}}
-	},
-	[Storage.ExplorerSociety.BansheeDoor] = {
-		itemId = false,
-		itemPos = {{x = 32259, y = 31948, z = 14}}
-	},
-	[Storage.ExplorerSociety.CalassaDoor] = {
-		itemId = false,
-		itemPos = {{x = 31939, y = 32771, z = 13}}
-	},
-	[Storage.ExplorerSociety.ElvenDoor] = {
-		itemId = false,
-		itemPos = {{x = 32703, y = 31605, z = 14}}
-	},
-	[Storage.ExplorerSociety.BonelordsDoor] = {
-		itemId = false,
-		itemPos = {{x = 33308, y = 32280, z = 12}}
-	},
-	[Storage.ExplorerSociety.OrcDoor] = {
-		itemId = false,
-		itemPos = {{x = 32703, y = 31605, z = 14}}
-	},
-	-- Lizards
-	[Storage.ExplorerSociety.ChorurnDoor] = {
-		itemId = false,
-		itemPos = {{x = 32957, y = 32835, z = 8}}
-	},
-	-- Dawrfs
+	-- The explorer society quest doors
+	-- Mission in Dwacatra
 	[Storage.ExplorerSociety.DwacatraDoor] = {
 		itemId = false,
 		itemPos = {{x = 32598, y = 31933, z = 15}}
 	},
-	[Storage.ExplorerSociety.FamilyBroochDoor] = {
+	-- Mission in Chor
+	[Storage.ExplorerSociety.ChorurnDoor] = {
+		itemId = false,
+		itemPos = {{x = 32957, y = 32835, z = 8}}
+	},
+	-- Mission in Dark Pyramid
+	[Storage.ExplorerSociety.BonelordsDoor] = {
+		itemId = false,
+		itemPos = {{x = 33308, y = 32280, z = 12}}
+	},
+	-- Mission in Orc Fortress
+	[Storage.ExplorerSociety.OrcDoor] = {
+		itemId = false,
+		itemPos = {{x = 32967, y = 31720, z = 2}}
+	},
+	-- Mission in Hell Gate
+	[Storage.ExplorerSociety.ElvenDoor] = {
+		itemId = false,
+		itemPos = {{x = 32703, y = 31605, z = 14}}
+	},
+	-- Mission in Endron
+	[Storage.ExplorerSociety.MemoryStoneDoor] = {
+		itemId = false,
+		itemPos = {{x = 33151, y = 31640, z = 11}}
+	},
+	-- Mission in Isle of Kings
+	[Storage.ExplorerSociety.BansheeDoor] = {
+		itemId = false,
+		itemPos = {{x = 32259, y = 31948, z = 14}}
+	},
+	-- Astral Bridge from Port Hope to Northport
+	[Storage.ExplorerSociety.SpectralStoneDoor] = {
 		itemId = false,
 		itemPos = {
-			{x = 32360, y = 32808, z = 6},
+			{x = 32665, y = 32734, z = 6},
 			{x = 32500, y = 31622, z = 6}
 		}
+	},
+	-- Astral Bridge from Svargrond to Liberty Bay
+	[Storage.ExplorerSociety.IceMusicDoor] = {
+		itemId = false,
+		itemPos = {
+			{x = 32318, y = 31137, z = 6},
+			{x = 32360, y = 32808, z = 6}
+		}
+	},
+	-- Mission in Calassa
+	[Storage.ExplorerSociety.CalassaDoor] = {
+		itemId = false,
+		itemPos = {{x = 31939, y = 32771, z = 13}}
 	},
 	-- The war djin quest
 	-- Marid faction

@@ -22,11 +22,14 @@
 
 #include <string>
 
+#include "configmanager.h"
 #include "protocol.h"
 #include "chat.h"
 #include "creature.h"
 #include "tasks.h"
 #include "gamestore.h"
+
+extern ConfigManager g_config;
 
 class NetworkMessage;
 class Player;
@@ -446,7 +449,7 @@ private:
 
 	uint32_t eventConnect = 0;
 	uint32_t challengeTimestamp = 0;
-	uint16_t version = CLIENT_VERSION;
+	uint16_t version = g_config.getNumber(ConfigManager::CLIENT_VERSION);
 	uint32_t clientVersion = 0;
 
 	uint8_t challengeRandom = 0;

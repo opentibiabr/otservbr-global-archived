@@ -84,21 +84,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Gold Coin", chance = 405000, maxCount = 200},
-	{id = "Platinum Coin", chance = 4050, maxCount = 2},
-	{id = "Fox Paw", chance = 4050, maxCount = 2},
-	{id = "Werefox Tail", chance = 4050, maxCount = 2},
-	{id = "Strong Mana Potion", chance = 4050, maxCount = 2},
-	{id = "Great Mana Potion", chance = 4050, maxCount = 2},
-	{id = "Mana Potion", chance = 4050, maxCount = 2},
-	{id = "Small Enchanted Emerald", chance = 4050, maxCount = 2},
-	{id = "Emerald Bangle", chance = 4050, maxCount = 2},
-	{id = "Moonlight Rod", chance = 500},
-	{id = "Troll Green", chance = 500, maxCount = 2},
-	{id = "Assassin Star", chance = 300, maxCount = 5},
-	{id = "Platinum Amulet", chance = 130},
-	{id = "Ring of Healing", chance = 200},
-	{id = "Werewolf Amulet", chance = 50},
+	{name = "Gold Coin", chance = 405000, maxCount = 200},
+	{name = "Platinum Coin", chance = 4050, maxCount = 2},
+	{name = "Fox Paw", chance = 4050, maxCount = 2},
+	{name = "Werefox Tail", chance = 4050, maxCount = 2},
+	{name = "Strong Mana Potion", chance = 4050, maxCount = 2},
+	{name = "Great Mana Potion", chance = 4050, maxCount = 2},
+	{name = "Mana Potion", chance = 4050, maxCount = 2},
+	{name = "Small Enchanted Emerald", chance = 4050, maxCount = 2},
+	{name = "Emerald Bangle", chance = 4050, maxCount = 2},
+	{name = "Moonlight Rod", chance = 500},
+	{name = "Troll Green", chance = 500, maxCount = 2},
+	{name = "Assassin Star", chance = 300, maxCount = 5},
+	{name = "Platinum Amulet", chance = 130},
+	{name = "Ring of Healing", chance = 200},
+	{name = "Werewolf Amulet", chance = 50},
 	{id = 30941, chance = 30}
 }
 

@@ -4024,7 +4024,7 @@ if not Quests then
 			missions = {
 				[1] = {
 					name = "Joining the Explorers",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.JoiningTheExplorers,
 					missionId = 11296,
 					startValue = 1,
 					endValue = 4,
@@ -4037,7 +4037,7 @@ if not Quests then
 				},
 				[2] = {
 					name = "The Ice Delivery",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.TheIceDelivery,
 					missionId = 11297,
 					startValue = 5,
 					endValue = 7,
@@ -4050,7 +4050,7 @@ if not Quests then
 				},
 				[3] = {
 					name = "The Butterfly Hunt",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.TheButterflyHunt,
 					missionId = 11298,
 					startValue = 8,
 					endValue = 16,
@@ -4070,7 +4070,7 @@ if not Quests then
 				},
 				[4] = {
 					name = "The Plant Collection",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.ThePlantCollection,
 					missionId = 11299,
 					startValue = 17,
 					endValue = 26,
@@ -4087,7 +4087,7 @@ if not Quests then
 				},
 				[5] = {
 					name = "The Lizard Urn",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.TheLizardUrn,
 					missionId = 11300,
 					startValue = 27,
 					endValue = 29,
@@ -4100,7 +4100,7 @@ if not Quests then
 				},
 				[6] = {
 					name = "The Bonelord Secret",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.TheBonelordSecret,
 					missionId = 11301,
 					startValue = 30,
 					endValue = 32,
@@ -4112,7 +4112,7 @@ if not Quests then
 				},
 				[7] = {
 					name = "The Orc Powder",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.TheOrcPowder,
 					missionId = 11302,
 					startValue = 33,
 					endValue = 35,
@@ -4125,7 +4125,7 @@ if not Quests then
 				},
 				[8] = {
 					name = "The Elven Poetry",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.TheElvenPoetry,
 					missionId = 11303,
 					startValue = 36,
 					endValue = 38,
@@ -4136,7 +4136,7 @@ if not Quests then
 				},
 				[9] = {
 					name = "The Memory Stone",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.TheMemoryStone,
 					missionId = 11304,
 					startValue = 39,
 					endValue = 41,
@@ -4147,10 +4147,10 @@ if not Quests then
 				},
 				[10] = {
 					name = "The Rune Writings",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.TheRuneWritings,
 					missionId = 11305,
 					startValue = 42,
-					endValue = 47,
+					endValue = 44,
 					states = {
 						[42] = "Somewhere under the ape infested city of Banuta, one can find dungeons \z
 							that were once inhabited by lizards. Look there for an atypical structure that \z
@@ -4160,7 +4160,7 @@ if not Quests then
 				},
 				[11] = {
 					name = "The Ectoplasm",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.TheEctoplasm,
 					missionId = 11306,
 					startValue = 45,
 					endValue = 47,
@@ -4171,7 +4171,7 @@ if not Quests then
 				},
 				[12] = {
 					name = "The Spectral Dress",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.TheSpectralDress,
 					missionId = 11307,
 					startValue = 48,
 					endValue = 50,
@@ -4183,7 +4183,7 @@ if not Quests then
 				},
 				[13] = {
 					name = "The Spectral Stone",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.TheSpectralStone,
 					missionId = 11308,
 					startValue = 51,
 					endValue = 55,
@@ -4198,7 +4198,7 @@ if not Quests then
 				},
 				[14] = {
 					name = "The Astral Portals",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.TheAstralPortals,
 					missionId = 11309,
 					startValue = 56,
 					endValue = 56,
@@ -4209,10 +4209,10 @@ if not Quests then
 				},
 				[15] = {
 					name = "The Island of Dragons",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.TheIslandofDragons,
 					missionId = 11310,
 					startValue = 57,
-					endValue = 58,
+					endValue = 59,
 					states = {
 						[57] = "Travel to Okolnir and try to find a proof for the existence of dragon lords there in the old times. \z
 							I think old Buddel might be able to bring you there.",
@@ -4221,10 +4221,10 @@ if not Quests then
 				},
 				[16] = {
 					name = "The Ice Music",
-					storageId = Storage.ExplorerSociety.QuestLine,
+					storageId = Storage.ExplorerSociety.TheIceMusic,
 					missionId = 11311,
 					startValue = 60,
-					endValue = 61,
+					endValue = 62,
 					states = {
 						[60] = "There is a cave on Hrodmir, north of the southernmost barbarian camp Krimhorn. \z
 							In this cave, there are a waterfall and a lot of stalagmites. \z
@@ -4238,7 +4238,7 @@ if not Quests then
 					storageId = Storage.ExplorerSociety.CalassaQuest,
 					missionId = 11312,
 					startValue = 1,
-					endValue = 2,
+					endValue = 3,
 					states = {
 						[1] = "Captain Max will bring you to Calassa whenever you are ready. \z
 							Please try to retrieve the missing logbook which must be in one of the sunken shipwrecks.",

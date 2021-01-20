@@ -79,21 +79,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "black pearl", chance = 720, maxCount = 3},
-	{id = "gold coin", chance = 53000, maxCount = 50},
-	{id = "gold coin", chance = 40000, maxCount = 70},
-	{id = "small amethyst", chance = 500, maxCount = 2},
-	{id = "energy ring", chance = 990},
-	{id = "battle shield", chance = 7760},
-	{id = "black shield", chance = 70},
-	{id = "star herb", chance = 7260},
-	{id = "star herb", chance = 5060},
-	{id = "bat wing", chance = 4900, maxCount = 2},
-	{id = "mercenary sword", chance = 110},
+	{name = "black pearl", chance = 720, maxCount = 3},
+	{name = "gold coin", chance = 53000, maxCount = 50},
+	{name = "gold coin", chance = 40000, maxCount = 70},
+	{name = "small amethyst", chance = 500, maxCount = 2},
+	{name = "energy ring", chance = 990},
+	{name = "battle shield", chance = 7760},
+	{name = "black shield", chance = 70},
+	{name = "star herb", chance = 7260},
+	{name = "star herb", chance = 5060},
+	{name = "bat wing", chance = 4900, maxCount = 2},
+	{name = "mercenary sword", chance = 110},
 	{id = 9808, chance = 12530},
 	{id = 9809, chance = 12530, maxCount = 2},
-	{id = "batwing hat", chance = 80},
-	{id = "mutated bat ear", chance = 4900}
+	{name = "batwing hat", chance = 80},
+	{name = "mutated bat ear", chance = 4900}
 }
 
 monster.attacks = {

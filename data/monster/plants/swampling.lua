@@ -80,11 +80,11 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2120, chance = 5080},
-	{id = "gold coin", chance = 84900, maxCount = 12},
-	{id = "white mushroom", chance = 10220, maxCount = 5},
-	{id = "swampling club", chance = 7410},
-	{id = "swampling moss", chance = 19900},
-	{id = "piece of swampling wood", chance = 14870}
+	{name = "gold coin", chance = 84900, maxCount = 12},
+	{name = "white mushroom", chance = 10220, maxCount = 5},
+	{name = "swampling club", chance = 7410},
+	{name = "swampling moss", chance = 19900},
+	{name = "piece of swampling wood", chance = 14870}
 }
 
 monster.attacks = {

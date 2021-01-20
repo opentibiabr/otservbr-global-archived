@@ -123,24 +123,21 @@ function loadLuaNpcs(tablename)
 	Loaded %d towns with %d houses in total", Game.getMonsterCount(), #Game.getTowns(), #Game.getHouses()))
 end
 
--- Function for load the map and spawn custom
-function loadCustomMaps()
-	for index, value in ipairs(CustomMapTable) do
-		if value.enabled then
-			-- It's load the map
-			Game.loadMap(value.mapFile)
-			print("> Loaded " .. value.mapName .. " map")
-
-			-- It's load the spawn
-			-- 10 * 1000 = 10 seconds delay for load the spawn after loading the map
-			if value.spawnFile then
-				addEvent(
-				function()
-					Game.loadSpawnFile(value.spawnFile)
-					print("> Loaded " .. value.mapName .. " spawn")
-				end, 30 * 1000)
-			end
-		end
+-- Function for load the map and spawm custom (config.lua line 92)
+-- Set mapCustomEnabled to false for disable the custom map
+function loadCustomMap()
+	local mapName = configManager.getString(configKeys.MAP_CUSTOM_NAME)
+	if configManager.getBoolean(configKeys.MAP_CUSTOM_ENABLED) then
+		print(">> Loading custom map")
+		Game.loadMap(configManager.getString(configKeys.MAP_CUSTOM_FILE))
+		print("> Loaded " .. mapName .. " map")
+		-- It's load the spawn
+		-- 10 * 1000 = 10 seconds delay for load the spawn after loading the map
+		addEvent(
+		function()
+			Game.loadSpawnFile(configManager.getString(configKeys.MAP_CUSTOM_SPAWN))
+			print("> Loaded " .. mapName .. " spawn")
+		end, 10 * 1000)
 	end
 end
 

@@ -83,16 +83,16 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2050, chance = 5000},
-	{id = "gold coin", chance = 68000, maxCount = 30},
-	{id = "life ring", chance = 180},
+	{name = "gold coin", chance = 68000, maxCount = 30},
+	{name = "life ring", chance = 180},
 	{id = 2229, chance = 240},
-	{id = "viking helmet", chance = 990},
-	{id = "scale armor", chance = 1000},
-	{id = "worm", chance = 9600, maxCount = 2},
-	{id = "brown piece of cloth", chance = 1000},
-	{id = "rotten piece of cloth", chance = 14470},
-	{id = "ghoul snack", chance = 5130},
-	{id = "pile of grave earth", chance = 950},
+	{name = "viking helmet", chance = 990},
+	{name = "scale armor", chance = 1000},
+	{name = "worm", chance = 9600, maxCount = 2},
+	{name = "brown piece of cloth", chance = 1000},
+	{name = "rotten piece of cloth", chance = 14470},
+	{name = "ghoul snack", chance = 5130},
+	{name = "pile of grave earth", chance = 950},
 	{id = 26654, chance = 1000}
 }
 

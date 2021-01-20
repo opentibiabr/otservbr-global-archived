@@ -80,19 +80,19 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small stone", chance = 30230, maxCount = 10},
-	{id = "gold coin", chance = 99930, maxCount = 100},
-	{id = "platinum coin", chance = 99540, maxCount = 4},
-	{id = "guardian halberd", chance = 560},
-	{id = "tower shield", chance = 820},
-	{id = "iron ore", chance = 1700},
-	{id = "ancient stone", chance = 20020},
-	{id = "shiny stone", chance = 800},
-	{id = "Zaoan sword", chance = 100},
-	{id = "Zaoan halberd", chance = 1860},
-	{id = "spiked iron ball", chance = 9960},
-	{id = "clay lump", chance = 720},
-	{id = "piece of marble rock", chance = 430},
+	{name = "small stone", chance = 30230, maxCount = 10},
+	{name = "gold coin", chance = 99930, maxCount = 100},
+	{name = "platinum coin", chance = 99540, maxCount = 4},
+	{name = "guardian halberd", chance = 560},
+	{name = "tower shield", chance = 820},
+	{name = "iron ore", chance = 1700},
+	{name = "ancient stone", chance = 20020},
+	{name = "shiny stone", chance = 800},
+	{name = "Zaoan sword", chance = 100},
+	{name = "Zaoan halberd", chance = 1860},
+	{name = "spiked iron ball", chance = 9960},
+	{name = "clay lump", chance = 720},
+	{name = "piece of marble rock", chance = 430},
 	{id = 13757, chance = 400}
 }
 
