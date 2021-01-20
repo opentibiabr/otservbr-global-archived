@@ -33958,6 +33958,7 @@
 		<attribute key="loottype" value="wand" />
 		<attribute key="shootType" value="fire" />
 		<attribute key="range" value="3" />
+		<attribute key="description" value="It's warm to the touch." />
 	</item>
 	<item id="23721" article="the" name="chiller">
 		<attribute key="weight" value="1500" />
@@ -33965,6 +33966,7 @@
 		<attribute key="loottype" value="wand" />
 		<attribute key="shootType" value="smallice" />
 		<attribute key="range" value="3" />
+		<attribute key="description" value="It is a little, well, chilly to the touch." />
 	</item>
 	<item id="23722" article="a" name="light stone shower rune">
 		<attribute key="type" value="rune" />
@@ -34044,6 +34046,8 @@
 	</item>
 	<item fromid="23769" toid="23770" article="a" name="dead goblin" />
 	<item id="23771" article="a" name="spellbook of the novice">
+		<attribute key="weight" value="1400" />
+		<attribute key="description" value="It shows your spells and can also shield against attacks when worn." />
 		<attribute key="defense" value="8" />
 		<attribute key="weaponType" value="shield" />
 	</item>
