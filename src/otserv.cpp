@@ -33,6 +33,7 @@
 #include "script.h"
 #include "scriptmanager.h"
 #include "server.h"
+#include "webhook.h"
 
 #if __has_include("gitmetadata.h")
 	#include "gitmetadata.h"
@@ -88,6 +89,9 @@ int main(int argc, char* argv[]) {
 	g_loaderSignal.wait(g_loaderUniqueLock);
 
 	if (serviceManager.is_running()) {
+    webhook_init();
+    webhook_send_message("Server is now online", "Server has successfully started.", 0x00FF00);
+
 		std::cout << ">> " << g_config.getString(ConfigManager::SERVER_NAME)
 								<< " Server Online!" << std::endl << std::endl;
 		serviceManager.run();

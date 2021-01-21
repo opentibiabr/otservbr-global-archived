@@ -168,3 +168,6 @@ ownerName = "OTServBR-Global"
 ownerEmail = ""
 url = "https://github.com/opentibiabr/otservbr-global"
 location = "South America"
+
+-- Notifications
+-- discordWebhookURL = "https://discord.com/api/webhooks/:id/:token"

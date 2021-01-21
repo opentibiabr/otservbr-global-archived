@@ -45,6 +45,7 @@
 #include "imbuements.h"
 #include "account.hpp"
 #include "iostash.h"
+#include "webhook.h"
 
 extern ConfigManager g_config;
 extern Actions* g_actions;
@@ -6517,6 +6518,8 @@ bool Game::gameIsDay()
 
 void Game::shutdown()
 {
+  webhook_send_message("Server is shutting down", "Shutting down...", 0xFF0000);
+
 	std::cout << "Shutting down..." << std::flush;
 
 	g_scheduler.shutdown();
