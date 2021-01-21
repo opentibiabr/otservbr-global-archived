@@ -449,7 +449,7 @@ private:
 	uint32_t eventConnect = 0;
 	uint32_t challengeTimestamp = 0;
 	uint16_t version = g_config.getNumber(ConfigManager::CLIENT_VERSION);
-	uint32_t clientVersion = 0;
+	int32_t clientVersion = 0;
 
 	uint8_t challengeRandom = 0;
 

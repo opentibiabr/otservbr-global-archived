@@ -396,7 +396,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 
 	version = msg.get<uint16_t>();
 
-	clientVersion = msg.get<uint32_t>();
+	clientVersion = static_cast<int32_t>(msg.get<uint32_t>());
 
 	msg.skipBytes(3); // U16 dat revision, game preview state
 
