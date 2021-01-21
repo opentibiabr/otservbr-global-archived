@@ -8,10 +8,10 @@ function serverstartup.onStartup()
 	print("> Loaded " .. (#SignTable) .. " signs in the map")
 	-- Book table
 	loadLuaMapBook(BookTable)
-	print("> Loaded " .. (#BookTable) .. " books in the map")
+	--print("> Loaded " .. (#BookTable) .. " books in the map")
 	-- Documents table
 	loadLuaMapBook(DocumentsTable)
-	print("> Loaded " .. (#DocumentsTable) .. " documents in the map")
+	--print("> Loaded " .. (#DocumentsTable) .. " documents in the map")
 
 	-- Action and unique tables
 	-- Chest table

@@ -101,7 +101,7 @@ The squirrel - Swift and impish, squirrels will run from any human they see. Hun
 		containerBook = true,
 		itemId = 1720,
 		bookId = 1955,
-		itemPos = {x = xxxxx, y = xxxxx, z = x},
+		--itemPos = {x = xxxxx, y = xxxxx, z = x},
 		text = [[
 Kazordoon, the hidden city
 In the blocklike Mountain, known as the big old one, the hidden city of kazordoon is nestled. Its the last refuge of the ancient race of dwarves. Hidden and heavily fortified it was the last stand of dwarvenhood in the wars of creation and the last hope of that race to adapt to and survive the new ages. The famous giant statue, known as colossus guards its entry, alhough the narrow valley makes it difficult to see that fortress-statue and admire its beauty. Kazordoon is known for its safety and masterful smithery throughout the lands.
@@ -333,8 +333,7 @@ The pyramid city of Ankrahmun
 		]]
 	},
 	[24] = {
-		itemId = 1718,
-		bookId = 1965,
+		itemId = 1965,
 		itemPos = {x = 32068, y = 31880, z = 3},
 		text = [[
 Genesis VII, ii. Tibia's Renewal
@@ -345,8 +344,7 @@ It may be that this is yet another one of Zathroth's wicked ploys. It is well kn
 		]]
 	},
 	[25] = {
-		itemId = 1718,
-		bookId = 1965,
+		itemId = 1965,
 		itemPos = {x = 32054, y = 31894, z = 4},
 		text = [[
 GV.i Part 1: The Age of Chaos
@@ -701,14 +699,12 @@ Sailors claim to have travelled as far as the end of the world where the water p
 		]]
 	},
 	[52] = {
-		itemId = 3827,
-		bookId = 12397,
+		itemId = 12397,
 		itemPos = {x = 32075, y = 31898, z = 4},
 		text = "Personal log book of Mr Morris. (The following lines are written in a code that you cannot make out. It seems Mr Morris is a very distrustful person.)"
 	},
 	[53] = {
-		itemId = 3827,
-		bookId = 1958,
+		itemId = 1958,
 		itemPos = {x = 32070, y = 31900, z = 4},
 		text = [[
 The .........
@@ -728,16 +724,14 @@ From this time on ............. manipulate little of the matter of the dreamland
 		]]
 	},
 	[55] = {
-		itemId = 3827,
-		bookId = 7724,
+		itemId = 7724,
 		itemPos = {x = 32070, y = 31900, z = 4},
 		text = [[
 (It is covered with a strange language that you cannot make out.)
 		]]
 	},
 	[56] = {
-		itemId = 3827,
-		bookId = 1966,
+		itemId = 1966,
 		itemPos = {x = 32052, y = 31898, z = 6},
 		text = [[
 ...
