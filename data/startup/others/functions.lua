@@ -86,26 +86,65 @@ function loadLuaMapSign(tablename)
 	end
 end
 
+-- Creates books on the map from the BookTable
 function loadLuaMapBook(tablename)
-	-- It load book on map table
-	for index, value in pairs(tablename) do
+	-- Index 1: total valid, index 2: total loaded
+	local totals = {0, 0}
+	
+	-- Use ipairs to follow an numeric order (pairs order is unspecified)
+	for index, value in ipairs(tablename) do
+		-- Skip silently (some books dont have a know position yet defined, lets ignore them)
+		if not value.itemPos then
+			goto skip
+		end
+		
+		totals[1] = totals[1] + 1
+		
 		local tile = Tile(value.itemPos)
-		local item
-		-- Checks if the position is valid
+		
+		-- Check if is a valid tile/position
 		if tile then
-			-- Checks that you have no items created
-			if tile:getItemCountById(value.itemId) == 0 then
-				-- Create item
-				item = Game.createItem(value.itemId, 1, value.itemPos)
+			local item
+			-- Check if is a contained book (itemId is the container and bookId is the book)
+			if value.containerBook == true then
+				local container = tile:getItemById(value.itemId)
+				
+				if not container then
+					print(string.format("> loadLuaMapBook container item not found id: %d, item id: %d", index, value.itemId))
+					goto skip
+				end
+				
+				-- Create the book item inside the container
+				item = container:addItem(value.bookId, 1, INDEX_WHEREEVER)
+			else
+				-- Try find existing item on the map (itemId is the book)
+				if tile:getItemCountById(value.itemId) == 1 then
+					item = tile:getItemById(value.itemId)
+				else
+					-- Create book item at map position
+					item = Game.createItem(value.itemId, 1, value.itemPos)
+				end
 			end
-			if not item then
-				item = tile:getItemById(value.itemId)
-			end
-			-- If he found the item, add the text
+			
+			-- If the item exists, add the text
 			if item then
 				item:setAttribute(ITEM_ATTRIBUTE_TEXT, value.text)
+				totals[2] = totals[2] + 1
+			else
+				print(string.format("> loadLuaMapBook book item not found id: %d, item id: %d", index, value.itemId))
 			end
+		else
+			print(string.format("> loadLuaMapBook tile not found id: %d, item id: %d", index, value.itemId))
 		end
+		
+		-- Use goto to jump next item due Lua loops dont have continue
+		::skip::
+	end
+	
+	if totals[1] == totals[2] then
+		print(string.format("> Loaded %d books in the map", totals[2]))
+	else
+		print(string.format("> Loaded %d of %d books in the map", totals[1], totals[2]))
 	end
 end
 
