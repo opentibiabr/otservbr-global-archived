@@ -78,17 +78,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 91},
-	{id = "small amethyst", chance = 3270, maxCount = 3},
-	{id = "strong mana potion", chance = 17450},
-	{id = "great mana potion", chance = 5450},
-	{id = "lightning pendant", chance = 730},
-	{id = "lightning legs", chance = 150},
-	{id = "spellbook of warding", chance = 360},
-	{id = "wand of starstorm", chance = 730},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 91},
+	{name = "small amethyst", chance = 3270, maxCount = 3},
+	{name = "strong mana potion", chance = 17450},
+	{name = "great mana potion", chance = 5450},
+	{name = "lightning pendant", chance = 730},
+	{name = "lightning legs", chance = 150},
+	{name = "spellbook of warding", chance = 360},
+	{name = "wand of starstorm", chance = 730},
 	{id = 9809, chance = 730},
-	{id = "shockwave amulet", chance = 500}
+	{name = "shockwave amulet", chance = 500}
 }
 
 monster.attacks = {

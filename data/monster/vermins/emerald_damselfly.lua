@@ -77,12 +77,12 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2120, chance = 4300},
-	{id = "gold coin", chance = 90000, maxCount = 18},
-	{id = "arrow", chance = 7570, maxCount = 5},
-	{id = "health potion", chance = 3580},
-	{id = "mana potion", chance = 3550},
-	{id = "damselfly wing", chance = 11830},
-	{id = "damselfly eye", chance = 9970}
+	{name = "gold coin", chance = 90000, maxCount = 18},
+	{name = "arrow", chance = 7570, maxCount = 5},
+	{name = "health potion", chance = 3580},
+	{name = "mana potion", chance = 3550},
+	{name = "damselfly wing", chance = 11830},
+	{name = "damselfly eye", chance = 9970}
 }
 
 monster.attacks = {

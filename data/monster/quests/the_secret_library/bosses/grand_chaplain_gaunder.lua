@@ -62,23 +62,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "concentrated demonic blood", chance = 50000, maxCount = 2},
-	{id = "ham", chance = 50000, maxCount = 2},
-	{id = "onyx arrow", chance = 35000, maxCount = 3},
-	{id = "small diamond", chance = 30000, maxCount = 3},
-	{id = "small emerald", chance = 30000, maxCount = 3},
-	{id = "small enchanted amethyst", chance = 20000, maxCount = 3},
-	{id = "damaged armor plates", chance = 2350, maxCount = 3},
+	{name = "concentrated demonic blood", chance = 50000, maxCount = 2},
+	{name = "ham", chance = 50000, maxCount = 2},
+	{name = "onyx arrow", chance = 35000, maxCount = 3},
+	{name = "small diamond", chance = 30000, maxCount = 3},
+	{name = "small emerald", chance = 30000, maxCount = 3},
+	{name = "small enchanted amethyst", chance = 20000, maxCount = 3},
+	{name = "damaged armor plates", chance = 2350, maxCount = 3},
 	{id = 7632, chance = 12000, maxCount = 1}, -- giant shimmering pearl
-	{id = "knight armor", chance = 7000},
-	{id = "patch of fine cloth", chance = 1800},
-	{id = "spiked squelcher", chance = 3200},
-	{id = "titan axe", chance = 2400},
-	{id = "falcon battleaxe", chance = 200},
-	{id = "falcon longsword", chance = 200},
-	{id = "falcon mace", chance = 210},
-	{id = "falcon plate", chance = 100},
-	{id = "falcon shield", chance = 100}
+	{name = "knight armor", chance = 7000},
+	{name = "patch of fine cloth", chance = 1800},
+	{name = "spiked squelcher", chance = 3200},
+	{name = "titan axe", chance = 2400},
+	{name = "falcon battleaxe", chance = 200},
+	{name = "falcon longsword", chance = 200},
+	{name = "falcon mace", chance = 210},
+	{name = "falcon plate", chance = 100},
+	{name = "falcon shield", chance = 100}
 }
 
 monster.attacks = {

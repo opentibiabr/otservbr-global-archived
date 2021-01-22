@@ -76,23 +76,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 90},
-	{id = "small amethyst", chance = 8000, maxCount = 2},
-	{id = "platinum coin", chance = 75250},
-	{id = "green gem", chance = 210},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 90},
+	{name = "small amethyst", chance = 8000, maxCount = 2},
+	{name = "platinum coin", chance = 75250},
+	{name = "green gem", chance = 210},
 	{id = 2169, chance = 2400},
-	{id = "platinum amulet", chance = 260},
-	{id = "crusader helmet", chance = 230},
-	{id = "brown mushroom", chance = 7500, maxCount = 3},
-	{id = "mastermind potion", chance = 310},
-	{id = "crystal sword", chance = 2000},
-	{id = "great mana potion", chance = 8000},
-	{id = "great health potion", chance = 5000},
-	{id = "spitter nose", chance = 18000},
-	{id = "compound eye", chance = 15000},
-	{id = "calopteryx cape", chance = 240},
-	{id = "grasshopper legs", chance = 130}
+	{name = "platinum amulet", chance = 260},
+	{name = "crusader helmet", chance = 230},
+	{name = "brown mushroom", chance = 7500, maxCount = 3},
+	{name = "mastermind potion", chance = 310},
+	{name = "crystal sword", chance = 2000},
+	{name = "great mana potion", chance = 8000},
+	{name = "great health potion", chance = 5000},
+	{name = "spitter nose", chance = 18000},
+	{name = "compound eye", chance = 15000},
+	{name = "calopteryx cape", chance = 240},
+	{name = "grasshopper legs", chance = 130}
 }
 
 monster.attacks = {

@@ -1865,6 +1865,15 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(WEAPON_AMMO)
   registerEnum(WEAPON_QUIVER)
 
+	registerEnum(AMMO_NONE)
+	registerEnum(AMMO_BOLT)
+	registerEnum(AMMO_ARROW)
+	registerEnum(AMMO_SPEAR)
+	registerEnum(AMMO_THROWINGSTAR)
+	registerEnum(AMMO_THROWINGKNIFE)
+	registerEnum(AMMO_STONE)
+	registerEnum(AMMO_SNOWBALL)
+
 	registerEnum(WORLD_TYPE_NO_PVP)
 	registerEnum(WORLD_TYPE_PVP)
 	registerEnum(WORLD_TYPE_PVP_ENFORCED)
@@ -2116,7 +2125,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::DEFAULT_PRIORITY)
 	registerEnumIn("configKeys", ConfigManager::MAP_AUTHOR)
 	registerEnumIn("configKeys", ConfigManager::STORE_IMAGES_URL)
-	registerEnumIn("configKeys", ConfigManager::VERSION_STR)
+	registerEnumIn("configKeys", ConfigManager::CLIENT_VERSION_STR)
 
 	registerEnumIn("configKeys", ConfigManager::SQL_PORT)
 	registerEnumIn("configKeys", ConfigManager::MAX_PLAYERS)
@@ -2148,7 +2157,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::EXP_FROM_PLAYERS_LEVEL_RANGE)
 	registerEnumIn("configKeys", ConfigManager::MAX_PACKETS_PER_SECOND)
 	registerEnumIn("configKeys", ConfigManager::STORE_COIN_PACKET)
-	registerEnumIn("configKeys", ConfigManager::VERSION)
+	registerEnumIn("configKeys", ConfigManager::CLIENT_VERSION)
 	registerEnumIn("configKeys", ConfigManager::DAY_KILLS_TO_RED)
 	registerEnumIn("configKeys", ConfigManager::WEEK_KILLS_TO_RED)
 	registerEnumIn("configKeys", ConfigManager::MONTH_KILLS_TO_RED)
@@ -3157,6 +3166,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Loot", "delete", LuaScriptInterface::luaDeleteLoot);
 
 	registerMethod("Loot", "setId", LuaScriptInterface::luaLootSetId);
+	registerMethod("Loot", "setIdFromName", LuaScriptInterface::luaLootSetIdFromName);
 	registerMethod("Loot", "setMinCount", LuaScriptInterface::luaLootSetMinCount);
 	registerMethod("Loot", "setMaxCount", LuaScriptInterface::luaLootSetMaxCount);
 	registerMethod("Loot", "setSubType", LuaScriptInterface::luaLootSetSubType);
@@ -5337,8 +5347,8 @@ int LuaScriptInterface::luaGameGetClientVersion(lua_State* L)
 {
 	// Game.getClientVersion()
 	lua_createtable(L, 0, 3);
-	setField(L, "version", CLIENT_VERSION);
-	setField(L, "string", CLIENT_VERSION_STR);
+	setField(L, "version", g_config.getNumber(ConfigManager::CLIENT_VERSION));
+	setField(L, "string", g_config.getString(ConfigManager::CLIENT_VERSION_STR));
 	return 1;
 }
 
@@ -16221,31 +16231,46 @@ int LuaScriptInterface::luaDeleteLoot(lua_State* L)
 
 int LuaScriptInterface::luaLootSetId(lua_State* L)
 {
-	// loot:setId(id or name)
+	// loot:setId(id)
 	Loot* loot = getUserdata<Loot>(L, 1);
 	if (loot) {
 		if (isNumber(L, 2)) {
 			loot->lootBlock.id = getNumber<uint16_t>(L, 2);
+			pushBoolean(L, true);
 		} else {
-			auto name = getString(L, 2);
-			auto ids = Item::items.nameToItems.equal_range(asLowerCaseString(name));
-
-			if (ids.first == Item::items.nameToItems.cend()) {
-				std::cout << "[Warning - Loot:setId] Unknown loot item \"" << name << "\". " << std::endl;
-				pushBoolean(L, false);
-				return 1;
-			}
-
-			if (std::next(ids.first) != ids.second) {
-				std::cout << "[Warning - Loot:setId] Non-unique loot item \"" << name << "\". " << std::endl;
-				pushBoolean(L, false);
-				return 1;
-			}
-
-			loot->lootBlock.id = ids.first->second;
+			std::cout << "[Warning - Loot:setId] Unknown loot item loot, int value expected. " << std::endl;
+			lua_pushnil(L);
 		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaLootSetIdFromName(lua_State* L)
+{
+	// loot:setIdFromName(name)
+	Loot* loot = getUserdata<Loot>(L, 1);
+	if (loot && isString(L, 2)) {
+		auto name = getString(L, 2);
+		auto ids = Item::items.nameToItems.equal_range(asLowerCaseString(name));
+
+		if (ids.first == Item::items.nameToItems.cend()) {
+			std::cout << "[Warning - Loot:setId] Unknown loot item \"" << name << "\". " << std::endl;
+			lua_pushnil(L);
+			return 1;
+		}
+
+		if (std::next(ids.first) != ids.second) {
+			std::cout << "[Warning - Loot:setId] Non-unique loot item \"" << name << "\". " << std::endl;
+			lua_pushnil(L);
+			return 1;
+		}
+
+		loot->lootBlock.id = ids.first->second;
 		pushBoolean(L, true);
 	} else {
+		std::cout << "[Warning - Loot:setIdFromName] Unknown loot item loot, string value expected. " << std::endl;
 		lua_pushnil(L);
 	}
 	return 1;

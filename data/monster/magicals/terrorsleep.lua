@@ -81,25 +81,25 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small ruby", chance = 9600, maxCount = 3},
-	{id = "gold coin", chance = 100000, maxCount = 100},
-	{id = "small emerald", chance = 14000},
-	{id = "small amethyst", chance = 17000, maxCount = 3},
-	{id = "platinum coin", chance = 100000, maxCount = 8},
-	{id = "giant sword", chance = 560},
-	{id = "warrior helmet", chance = 2820},
-	{id = "knight armor", chance = 4000},
-	{id = "white piece of cloth", chance = 4520},
-	{id = "red piece of cloth", chance = 1130},
-	{id = "great mana potion", chance = 36000, maxCount = 2},
-	{id = "ultimate health potion", chance = 26000},
-	{id = "small topaz", chance = 17000, maxCount = 2},
-	{id = "blue crystal shard", chance = 6000},
-	{id = "blue crystal splinter", chance = 13000},
-	{id = "cyan crystal fragment", chance = 17000},
+	{name = "small ruby", chance = 9600, maxCount = 3},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "small emerald", chance = 14000},
+	{name = "small amethyst", chance = 17000, maxCount = 3},
+	{name = "platinum coin", chance = 100000, maxCount = 8},
+	{name = "giant sword", chance = 560},
+	{name = "warrior helmet", chance = 2820},
+	{name = "knight armor", chance = 4000},
+	{name = "white piece of cloth", chance = 4520},
+	{name = "red piece of cloth", chance = 1130},
+	{name = "great mana potion", chance = 36000, maxCount = 2},
+	{name = "ultimate health potion", chance = 26000},
+	{name = "small topaz", chance = 17000, maxCount = 2},
+	{name = "blue crystal shard", chance = 6000},
+	{name = "blue crystal splinter", chance = 13000},
+	{name = "cyan crystal fragment", chance = 17000},
 	{id = 22363, chance = 1130},
-	{id = "trapped bad dream monster", chance = 13000},
-	{id = "bowl of terror sweat", chance = 18000}
+	{name = "trapped bad dream monster", chance = 13000},
+	{name = "bowl of terror sweat", chance = 18000}
 }
 
 monster.attacks = {

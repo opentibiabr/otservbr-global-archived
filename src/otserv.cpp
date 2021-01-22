@@ -151,9 +151,6 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		"https://otserv.com.br/ and https://forums.otserv.com.br" << std::endl;
 	std::cout << std::endl;
 
-	std::cout << ">> Client Version: " << CLIENT_VERSION_STR
-													<< std::endl;
-
 	// check if config.lua or config.lua.dist exist
 	std::ifstream c_test("./config.lua");
 	if (!c_test.is_open()) {
@@ -175,6 +172,9 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		startupErrorMessage("Unable to load config.lua!");
 		return;
 	}
+
+	std::cout << ">> Client Version: " << g_config.getString(ConfigManager::CLIENT_VERSION_STR)
+													<< std::endl;
 
 #ifdef _WIN32
 	const std::string& defaultPriority = g_config.getString(

@@ -77,13 +77,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 60000, maxCount = 61},
-	{id = "gold coin", chance = 60000, maxCount = 79},
-	{id = "small amethyst", chance = 247},
-	{id = "poisonous slime", chance = 8333},
-	{id = "lump of dirt", chance = 4166},
-	{id = "lancer beetle shell", chance = 16666},
-	{id = "beetle necklace", chance = 1123}
+	{name = "gold coin", chance = 60000, maxCount = 61},
+	{name = "gold coin", chance = 60000, maxCount = 79},
+	{name = "small amethyst", chance = 247},
+	{name = "poisonous slime", chance = 8333},
+	{name = "lump of dirt", chance = 4166},
+	{name = "lancer beetle shell", chance = 16666},
+	{name = "beetle necklace", chance = 1123}
 }
 
 monster.attacks = {

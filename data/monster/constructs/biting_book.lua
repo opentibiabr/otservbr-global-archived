@@ -77,10 +77,10 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2231, chance = 500, maxCount = 2},
-	{id = "Book Page", chance = 500, maxCount = 4},
-	{id = "Glowing Rune", chance = 500, maxCount = 2},
-	{id = "Platinum Coin", chance = 10000, maxCount = 5},
-	{id = "Silken Bookmark", chance = 500, maxCount = 3}
+	{name = "Book Page", chance = 500, maxCount = 4},
+	{name = "Glowing Rune", chance = 500, maxCount = 2},
+	{name = "Platinum Coin", chance = 10000, maxCount = 5},
+	{name = "Silken Bookmark", chance = 500, maxCount = 3}
 }
 
 monster.attacks = {

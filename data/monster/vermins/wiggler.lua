@@ -78,20 +78,20 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 100000, maxCount = 100},
-	{id = "platinum coin", chance = 14790},
-	{id = "terra rod", chance = 850},
-	{id = "serpent sword", chance = 1360},
-	{id = "black shield", chance = 1320},
-	{id = "white mushroom", chance = 7142, maxCount = 5},
-	{id = "blue piece of cloth", chance = 2080},
-	{id = "yellow piece of cloth", chance = 2160},
-	{id = "strong health potion", chance = 4930},
-	{id = "strong mana potion", chance = 5250},
-	{id = "crystalline arrow", chance = 15540, maxCount = 5},
-	{id = "green crystal splinter", chance = 3600},
-	{id = "green crystal fragment", chance = 2070},
-	{id = "drill bolt", chance = 15260, maxCount = 5}
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "platinum coin", chance = 14790},
+	{name = "terra rod", chance = 850},
+	{name = "serpent sword", chance = 1360},
+	{name = "black shield", chance = 1320},
+	{name = "white mushroom", chance = 7142, maxCount = 5},
+	{name = "blue piece of cloth", chance = 2080},
+	{name = "yellow piece of cloth", chance = 2160},
+	{name = "strong health potion", chance = 4930},
+	{name = "strong mana potion", chance = 5250},
+	{name = "crystalline arrow", chance = 15540, maxCount = 5},
+	{name = "green crystal splinter", chance = 3600},
+	{name = "green crystal fragment", chance = 2070},
+	{name = "drill bolt", chance = 15260, maxCount = 5}
 }
 
 monster.attacks = {

@@ -77,11 +77,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 78260, maxCount = 10},
+	{name = "gold coin", chance = 78260, maxCount = 10},
 	{id = 2667, chance = 11040, maxCount = 3},--fish
-	{id = "rainbow trout", chance = 4800},
+	{name = "rainbow trout", chance = 4800},
 	{id = 2669, chance = 5900},--northern pike
-	{id = "green perch", chance = 6200}
+	{name = "green perch", chance = 6200}
 }
 
 monster.attacks = {

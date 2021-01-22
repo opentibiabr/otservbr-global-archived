@@ -78,23 +78,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "piggy bank", chance = 150},
-	{id = "gold coin", chance = 50000, maxCount = 88},
-	{id = "sabre", chance = 10000},
-	{id = "throwing star", chance = 8400, maxCount = 12},
-	{id = "dark armor", chance = 1650},
-	{id = "dark shield", chance = 1000},
-	{id = "pirate boots", chance = 220},
-	{id = "rum flask", chance = 130},
+	{name = "piggy bank", chance = 150},
+	{name = "gold coin", chance = 50000, maxCount = 88},
+	{name = "sabre", chance = 10000},
+	{name = "throwing star", chance = 8400, maxCount = 12},
+	{name = "dark armor", chance = 1650},
+	{name = "dark shield", chance = 1000},
+	{name = "pirate boots", chance = 220},
+	{name = "rum flask", chance = 130},
 	{id = 5813, chance = 130},
-	{id = "pirate backpack", chance = 930},
-	{id = "pirate hat", chance = 1150},
-	{id = "hook", chance = 600},
-	{id = "eye patch", chance = 500},
-	{id = "peg leg", chance = 600},
-	{id = "strong health potion", chance = 820},
-	{id = "compass", chance = 11050},
-	{id = "compass", chance = 11020}
+	{name = "pirate backpack", chance = 930},
+	{name = "pirate hat", chance = 1150},
+	{name = "hook", chance = 600},
+	{name = "eye patch", chance = 500},
+	{name = "peg leg", chance = 600},
+	{name = "strong health potion", chance = 820},
+	{name = "compass", chance = 11050},
+	{name = "compass", chance = 11020}
 }
 
 monster.attacks = {

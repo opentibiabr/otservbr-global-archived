@@ -92,17 +92,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 99400, maxCount = 48},
+	{name = "gold coin", chance = 99400, maxCount = 48},
 	{id = 2175, chance = 4990},
-	{id = "terra rod", chance = 510},
-	{id = "two handed sword", chance = 3950},
-	{id = "morning star", chance = 7020},
-	{id = "longsword", chance = 9060},
-	{id = "steel shield", chance = 3980},
-	{id = "bonelord shield", chance = 110},
-	{id = "bonelord eye", chance = 1010},
-	{id = "mana potion", chance = 300},
-	{id = "small flask of eyedrops", chance = 5060}
+	{name = "terra rod", chance = 510},
+	{name = "two handed sword", chance = 3950},
+	{name = "morning star", chance = 7020},
+	{name = "longsword", chance = 9060},
+	{name = "steel shield", chance = 3980},
+	{name = "bonelord shield", chance = 110},
+	{name = "bonelord eye", chance = 1010},
+	{name = "mana potion", chance = 300},
+	{name = "small flask of eyedrops", chance = 5060}
 }
 
 monster.attacks = {

@@ -78,19 +78,19 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 2},
-	{id = "fafnar symbol", chance = 7360},
+	{name = "platinum coin", chance = 100000, maxCount = 2},
+	{name = "fafnar symbol", chance = 7360},
 	{id = 36268, chance = 6610},
 	{id = 36270, chance = 6610},
 	{id = 36271, chance = 6610},
 	{id = 36166, chance = 2540},
-	{id = "sea horse figurine", chance = 910},
+	{name = "sea horse figurine", chance = 910},
 	{id = 36204, chance = 530},
-	{id = "wand of decay", chance = 1250},
-	{id = "wand of everblazing", chance = 1290},
-	{id = "golden sickle", chance = 1250},
-	{id = "relic sword", chance = 1390},
-	{id = "war axe", chance = 1777}
+	{name = "wand of decay", chance = 1250},
+	{name = "wand of everblazing", chance = 1290},
+	{name = "golden sickle", chance = 1250},
+	{name = "relic sword", chance = 1390},
+	{name = "war axe", chance = 1777}
 }
 
 monster.attacks = {

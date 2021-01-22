@@ -82,21 +82,21 @@ monster.voices = {
 
 monster.loot = {
 	{id = 1860, chance = 2200},
-	{id = "small oil lamp", chance = 160},
-	{id = "gold coin", chance = 50000, maxCount = 75},
-	{id = "gold coin", chance = 60000, maxCount = 50},
-	{id = "small emerald", chance = 7000},
-	{id = "green gem", chance = 200},
-	{id = "wand of inferno", chance = 390},
-	{id = "heavy machete", chance = 5000},
-	{id = "mystic turban", chance = 160},
-	{id = "pear", chance = 9390, maxCount = 5},
-	{id = "green piece of cloth", chance = 3000},
-	{id = "royal spear", chance = 15570, maxCount = 3},
-	{id = "strong mana potion", chance = 3500},
-	{id = "magma monocle", chance = 360},
-	{id = "jewelled belt", chance = 8540},
-	{id = "noble turban", chance = 1130}
+	{name = "small oil lamp", chance = 160},
+	{name = "gold coin", chance = 50000, maxCount = 75},
+	{name = "gold coin", chance = 60000, maxCount = 50},
+	{name = "small emerald", chance = 7000},
+	{name = "green gem", chance = 200},
+	{name = "wand of inferno", chance = 390},
+	{name = "heavy machete", chance = 5000},
+	{name = "mystic turban", chance = 160},
+	{name = "pear", chance = 9390, maxCount = 5},
+	{name = "green piece of cloth", chance = 3000},
+	{name = "royal spear", chance = 15570, maxCount = 3},
+	{name = "strong mana potion", chance = 3500},
+	{name = "magma monocle", chance = 360},
+	{name = "jewelled belt", chance = 8540},
+	{name = "noble turban", chance = 1130}
 }
 
 monster.attacks = {

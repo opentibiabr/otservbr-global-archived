@@ -79,19 +79,19 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small stone", chance = 25280, maxCount = 10},
-	{id = "gold coin", chance = 32000, maxCount = 100},
-	{id = "gold coin", chance = 32000, maxCount = 100},
-	{id = "gold coin", chance = 32000, maxCount = 41},
-	{id = "stone skin amulet", chance = 980},
-	{id = "protection amulet", chance = 1580},
-	{id = "dwarven ring", chance = 2790},
-	{id = "diamond sceptre", chance = 150},
-	{id = "terra amulet", chance = 500},
+	{name = "small stone", chance = 25280, maxCount = 10},
+	{name = "gold coin", chance = 32000, maxCount = 100},
+	{name = "gold coin", chance = 32000, maxCount = 100},
+	{name = "gold coin", chance = 32000, maxCount = 41},
+	{name = "stone skin amulet", chance = 980},
+	{name = "protection amulet", chance = 1580},
+	{name = "dwarven ring", chance = 2790},
+	{name = "diamond sceptre", chance = 150},
+	{name = "terra amulet", chance = 500},
 	{id = 9809, chance = 3300},
-	{id = "small topaz", chance = 5280, maxCount = 2},
-	{id = "lump of earth", chance = 40680},
-	{id = "clay lump", chance = 480},
+	{name = "small topaz", chance = 5280, maxCount = 2},
+	{name = "lump of earth", chance = 40680},
+	{name = "clay lump", chance = 480},
 	{id = 13757, chance = 430}
 }
 

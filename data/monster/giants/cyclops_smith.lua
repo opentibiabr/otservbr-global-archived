@@ -80,20 +80,20 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 82920, maxCount = 70},
-	{id = "club ring", chance = 90},
-	{id = "battle axe", chance = 5450},
-	{id = "double axe", chance = 880},
-	{id = "battle hammer", chance = 5200},
-	{id = "heavy machete", chance = 2000},
-	{id = "dark helmet", chance = 200},
-	{id = "plate shield", chance = 2000},
-	{id = "battle shield", chance = 6190},
-	{id = "meat", chance = 49950},
+	{name = "gold coin", chance = 82920, maxCount = 70},
+	{name = "club ring", chance = 90},
+	{name = "battle axe", chance = 5450},
+	{name = "double axe", chance = 880},
+	{name = "battle hammer", chance = 5200},
+	{name = "heavy machete", chance = 2000},
+	{name = "dark helmet", chance = 200},
+	{name = "plate shield", chance = 2000},
+	{name = "battle shield", chance = 6190},
+	{name = "meat", chance = 49950},
 	{id = 7398, chance = 140},
-	{id = "spiked squelcher", chance = 150},
-	{id = "strong health potion", chance = 390},
-	{id = "cyclops toe", chance = 10280}
+	{name = "spiked squelcher", chance = 150},
+	{name = "strong health potion", chance = 390},
+	{name = "cyclops toe", chance = 10280}
 }
 
 monster.attacks = {

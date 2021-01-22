@@ -83,26 +83,26 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 40000, maxCount = 99},
-	{id = "platinum coin", chance = 55000, maxCount = 8},
-	{id = "golden legs", chance = 30},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 40000, maxCount = 99},
+	{name = "platinum coin", chance = 55000, maxCount = 8},
+	{name = "golden legs", chance = 30},
 	{id = 2558, chance = 5250},
-	{id = "steel boots", chance = 5050},
-	{id = "ham", chance = 60000, maxCount = 2},
-	{id = "orichalcum pearl", chance = 2760, maxCount = 2},
-	{id = "cat's paw", chance = 2222},
-	{id = "jewelled backpack", chance = 1192},
-	{id = "soul orb", chance = 23000},
+	{name = "steel boots", chance = 5050},
+	{name = "ham", chance = 60000, maxCount = 2},
+	{name = "orichalcum pearl", chance = 2760, maxCount = 2},
+	{name = "cat's paw", chance = 2222},
+	{name = "jewelled backpack", chance = 1192},
+	{name = "soul orb", chance = 23000},
 	{id = 6300, chance = 2008},
-	{id = "demonic essence", chance = 8520},
-	{id = "concentrated demonic blood", chance = 33333, maxCount = 3},
-	{id = "assassin star", chance = 2222, maxCount = 5},
-	{id = "vile axe", chance = 480},
-	{id = "butcher's axe", chance = 850},
-	{id = "great mana potion", chance = 14830, maxCount = 2},
-	{id = "great health potion", chance = 10000, maxCount = 2},
-	{id = "gold ingot", chance = 3140}
+	{name = "demonic essence", chance = 8520},
+	{name = "concentrated demonic blood", chance = 33333, maxCount = 3},
+	{name = "assassin star", chance = 2222, maxCount = 5},
+	{name = "vile axe", chance = 480},
+	{name = "butcher's axe", chance = 850},
+	{name = "great mana potion", chance = 14830, maxCount = 2},
+	{name = "great health potion", chance = 10000, maxCount = 2},
+	{name = "gold ingot", chance = 3140}
 }
 
 monster.attacks = {

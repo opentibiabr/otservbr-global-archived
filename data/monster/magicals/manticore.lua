@@ -75,18 +75,18 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 3},
-	{id = "flaming arrow", chance = 4090, maxCount = 11},
-	{id = "royal star", chance = 1120, maxCount = 4},
-	{id = "manticore tail", chance = 8550},
-	{id = "manticore ear", chance = 6690},
-	{id = "magma legs", chance = 740},
-	{id = "magma monocle", chance = 1860},
-	{id = "magma boots", chance = 370},
-	{id = "magma coat", chance = 2970},
-	{id = "wand of everblazing", chance = 1120},
-	{id = "wand of dragonbreath", chance = 740},
-	{id = "wand of draconia", chance = 370}
+	{name = "platinum coin", chance = 100000, maxCount = 3},
+	{name = "flaming arrow", chance = 4090, maxCount = 11},
+	{name = "royal star", chance = 1120, maxCount = 4},
+	{name = "manticore tail", chance = 8550},
+	{name = "manticore ear", chance = 6690},
+	{name = "magma legs", chance = 740},
+	{name = "magma monocle", chance = 1860},
+	{name = "magma boots", chance = 370},
+	{name = "magma coat", chance = 2970},
+	{name = "wand of everblazing", chance = 1120},
+	{name = "wand of dragonbreath", chance = 740},
+	{name = "wand of draconia", chance = 370}
 }
 
 monster.attacks = {

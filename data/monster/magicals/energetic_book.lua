@@ -75,21 +75,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 100000, maxCount = 28},
+	{name = "Platinum Coin", chance = 100000, maxCount = 28},
 	{id = 33316, chance = 900, maxCount = 8},
 	{id = 33317, chance = 900, maxCount = 7},
-	{id = "Ultimate Health Potion", chance = 10000, maxCount = 7},
-	{id = "Ultimate Mana Potion", chance = 10000, maxCount = 7},
-	{id = "Energy Ball", chance = 900, maxCount = 7},
+	{name = "Ultimate Health Potion", chance = 10000, maxCount = 7},
+	{name = "Ultimate Mana Potion", chance = 10000, maxCount = 7},
+	{name = "Energy Ball", chance = 900, maxCount = 7},
 	{id = 33313, chance = 800, maxCount = 7},
-	{id = "Lightning Pendant", chance = 500},
-	{id = "Lightning Boots", chance = 500},
-	{id = "Lightning Headband", chance = 500},
-	{id = "Might Ring", chance = 500},
-	{id = "Spellweaver's Robe", chance = 350},
-	{id = "Wand of Defiance", chance = 350},
-	{id = "Haunted Blade", chance = 550},
-	{id = "Lightning Legs", chance = 350}
+	{name = "Lightning Pendant", chance = 500},
+	{name = "Lightning Boots", chance = 500},
+	{name = "Lightning Headband", chance = 500},
+	{name = "Might Ring", chance = 500},
+	{name = "Spellweaver's Robe", chance = 350},
+	{name = "Wand of Defiance", chance = 350},
+	{name = "Haunted Blade", chance = 550},
+	{name = "Lightning Legs", chance = 350}
 }
 
 monster.attacks = {

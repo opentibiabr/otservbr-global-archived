@@ -674,6 +674,10 @@ function isNumber(str)
 	return tonumber(str) ~= nil
 end
 
+function isInteger(n)
+	return (type(n) == "number") and (math.floor(n) == n)
+end
+
 -- Function for the reload talkaction
 local logFormat = "[%s] %s %s"
 

@@ -81,18 +81,18 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2050, chance = 29980, maxCount = 2},
-	{id = "small diamond", chance = 220},
-	{id = "gold coin", chance = 83210, maxCount = 50},
-	{id = "gold coin", chance = 7250, maxCount = 14},
-	{id = "knife", chance = 9500},
-	{id = "combat knife", chance = 4000},
-	{id = "steel helmet", chance = 3230},
-	{id = "steel shield", chance = 970},
-	{id = "plate shield", chance = 1900},
-	{id = "battle shield", chance = 1600},
-	{id = "leopard armor", chance = 480},
-	{id = "horseman helmet", chance = 230},
-	{id = "viper star", chance = 4200, maxCount = 7}
+	{name = "small diamond", chance = 220},
+	{name = "gold coin", chance = 83210, maxCount = 50},
+	{name = "gold coin", chance = 7250, maxCount = 14},
+	{name = "knife", chance = 9500},
+	{name = "combat knife", chance = 4000},
+	{name = "steel helmet", chance = 3230},
+	{name = "steel shield", chance = 970},
+	{name = "plate shield", chance = 1900},
+	{name = "battle shield", chance = 1600},
+	{name = "leopard armor", chance = 480},
+	{name = "horseman helmet", chance = 230},
+	{name = "viper star", chance = 4200, maxCount = 7}
 }
 
 monster.attacks = {

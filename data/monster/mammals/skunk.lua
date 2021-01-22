@@ -76,8 +76,8 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "bulb of garlic", chance = 4910},
-	{id = "skunk tail", chance = 920}
+	{name = "bulb of garlic", chance = 4910},
+	{name = "skunk tail", chance = 920}
 }
 
 monster.attacks = {

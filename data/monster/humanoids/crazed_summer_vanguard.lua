@@ -80,21 +80,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 1000000, maxCount = 13},
-	{id = "elven astral observer", chance = 1000000, maxCount = 2},
-	{id = "dream essence egg", chance = 15000},
-	{id = "belted cape", chance = 11550},
-	{id = "two handed sword", chance = 13550},
-	{id = "seeds", chance = 14750},
+	{name = "platinum coin", chance = 1000000, maxCount = 13},
+	{name = "elven astral observer", chance = 1000000, maxCount = 2},
+	{name = "dream essence egg", chance = 15000},
+	{name = "belted cape", chance = 11550},
+	{name = "two handed sword", chance = 13550},
+	{name = "seeds", chance = 14750},
 	{id = 2419, chance = 17550},
-	{id = "knife", chance = 15650},
-	{id = "dragon necklace", chance = 14550},
-	{id = "magma amulet", chance = 1655},
-	{id = "wand of dragonbreath", chance = 15150},
-	{id = "wand of draconia", chance = 1263},
-	{id = "magma boots", chance = 11100},
-	{id = "sun fruit", chance = 1800},
-	{id = "bullseye potion", chance = 800}
+	{name = "knife", chance = 15650},
+	{name = "dragon necklace", chance = 14550},
+	{name = "magma amulet", chance = 1655},
+	{name = "wand of dragonbreath", chance = 15150},
+	{name = "wand of draconia", chance = 1263},
+	{name = "magma boots", chance = 11100},
+	{name = "sun fruit", chance = 1800},
+	{name = "bullseye potion", chance = 800}
 }
 
 monster.attacks = {
