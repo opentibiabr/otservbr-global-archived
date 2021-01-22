@@ -20,14 +20,15 @@ function spellbook.onUse(player, item, fromPosition, target, toPosition, isHotke
 			specificSpells[#specificSpells + 1] = spell
 		end
 	end
-	
+
 	if #specificSpells > 0 then
 		text = "Spells for Specific Characters" .. "\n"
 		for i = 1, #specificSpells do
-			text = text .. "  " .. specificSpells[i].words .. " - " .. specificSpells[i].name .. " : " .. ((specificSpells[i].mana > 0) or "-") .. "\n"
+			text = text .. "  " .. specificSpells[i].words .. " - " .. specificSpells[i].name .. " : "
+																	.. ((specificSpells[i].mana > 0) or "-") .. "\n"
 		end
 	end
-	
+
 	text = text.."\n"
 
 	table.sort(tlvl, function(a, b) return a.level < b.level end)
