@@ -86,12 +86,13 @@ function loadLuaMapSign(tablename)
 	end
 end
 
--- Creates books on the map from the BookTable
-function loadLuaMapBook(tablename)
+function loadLuaMapBookDocument(tablename)
 	-- Index 1: total valid, index 2: total loaded
 	local totals = {0, 0}
 	
 	-- Use ipairs to follow an numeric order (pairs order is unspecified)
+	-- So if we want create items in specific order, just have to define them on that order
+	-- (Although it only works for map items, container items are always added at first index. TO BE HANDLED)
 	for index, value in ipairs(tablename) do
 		-- Skip silently (some items dont have a know position yet defined, lets ignore them)
 		if not value.position then
@@ -102,7 +103,7 @@ function loadLuaMapBook(tablename)
 		
 		local tile = Tile(value.position)
 		
-		-- Check if is a valid tile/position
+		-- Check if is a valid tile
 		if tile then
 			local item
 			-- Check if is a contained item
@@ -111,17 +112,17 @@ function loadLuaMapBook(tablename)
 				local container = tile:getItemById(value.containerId)
 				
 				if not container then
-					print(string.format("> loadLuaMapBook container not found! index: %d, containerId: %d", index, value.containerId))
+					print(string.format("> loadLuaMapBookDocument container not found! index: %d, containerId: %d", index, value.containerId))
 					goto skip
 				end
 				
 				-- Create the item inside the container
-				item = container:addItem(value.itemId, 1, INDEX_WHEREEVER)
+				item = container:addItem(value.itemId, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
 			else
-				-- Try first find the item on the map
+				-- Try first find the item on the map (in some cases the item is already on the map)
 				item = tile:getItemById(value.itemId)
 				
-				-- Create item at map position
+				-- Create the item at map position
 				if not item then
 					item = Game.createItem(value.itemId, 1, value.position)
 				end
@@ -132,10 +133,10 @@ function loadLuaMapBook(tablename)
 				item:setAttribute(ITEM_ATTRIBUTE_TEXT, value.text)
 				totals[2] = totals[2] + 1
 			else
-				print(string.format("> loadLuaMapBook item not found or created! index: %d, itemId: %d", index, value.itemId))
+				print(string.format("> loadLuaMapBookDocument item not found or created! index: %d, itemId: %d", index, value.itemId))
 			end
 		else
-			print(string.format("> loadLuaMapBook tile not found! index: %d, position: x=%d y=%d z=%d", index, value.position.x, value.position.y, value.position.z))
+			print(string.format("> loadLuaMapBookDocument tile not found! index: %d, position: x=%d y=%d z=%d", index, value.position.x, value.position.y, value.position.z))
 		end
 		
 		-- Use goto to jump next item due Lua loops dont have continue
@@ -143,9 +144,9 @@ function loadLuaMapBook(tablename)
 	end
 	
 	if totals[1] == totals[2] then
-		print(string.format("> Loaded %d books in the map", totals[2]))
+		print(string.format("> Loaded %d books and documents in the map", totals[2]))
 	else
-		print(string.format("> Loaded %d of %d books in the map", totals[1], totals[2]))
+		print(string.format("> Loaded %d of %d books and documents in the map", totals[1], totals[2]))
 	end
 end
 
