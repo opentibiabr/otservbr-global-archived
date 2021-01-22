@@ -9655,8 +9655,7 @@ int LuaScriptInterface::luaPlayerAddSkillTries(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaPlayerSetMagicLevel(lua_State* L)
-{
+int LuaScriptInterface::luaPlayerSetMagicLevel(lua_State* L) {
   // player:setMagicLevel(level[, manaSpent])
   Player* player = getUserdata<Player>(L, 1);
   if (player) {
@@ -9680,8 +9679,7 @@ int LuaScriptInterface::luaPlayerSetMagicLevel(lua_State* L)
   return 1;
 }
 
-int LuaScriptInterface::luaPlayerSetSkillLevel(lua_State* L)
-{
+int LuaScriptInterface::luaPlayerSetSkillLevel(lua_State* L) {
   // player:setSkillLevel(skillType, level[, tries])
   Player* player = getUserdata<Player>(L, 1);
   if (player) {
