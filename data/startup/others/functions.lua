@@ -89,20 +89,13 @@ end
 function loadLuaMapBookDocument(tablename)
 	-- Index 1: total valid, index 2: total loaded
 	local totals = {0, 0}
-	
-	-- Use ipairs to follow an numeric order (pairs order is unspecified)
-	-- So if we want create items in specific order, just have to define them on that order
-	-- (Although it only works for map items, container items are always added at first index. TO BE HANDLED)
 	for index, value in ipairs(tablename) do
 		-- Skip silently (some items dont have a know position yet defined, lets ignore them)
 		if not value.position then
 			goto skip
 		end
-		
 		totals[1] = totals[1] + 1
-		
 		local tile = Tile(value.position)
-		
 		-- Check if is a valid tile
 		if tile then
 			local item
@@ -110,24 +103,20 @@ function loadLuaMapBookDocument(tablename)
 			if value.containerId then
 				-- Try find the container on the map
 				local container = tile:getItemById(value.containerId)
-				
 				if not container then
 					print(string.format("> loadLuaMapBookDocument container not found! index: %d, containerId: %d", index, value.containerId))
 					goto skip
 				end
-				
 				-- Create the item inside the container
 				item = container:addItem(value.itemId, 1, INDEX_WHEREEVER, FLAG_NOLIMIT)
 			else
 				-- Try first find the item on the map (in some cases the item is already on the map)
 				item = tile:getItemById(value.itemId)
-				
 				-- Create the item at map position
 				if not item then
 					item = Game.createItem(value.itemId, 1, value.position)
 				end
 			end
-			
 			-- If the item exists, add the text
 			if item then
 				item:setAttribute(ITEM_ATTRIBUTE_TEXT, value.text)
@@ -138,11 +127,9 @@ function loadLuaMapBookDocument(tablename)
 		else
 			print(string.format("> loadLuaMapBookDocument tile not found! index: %d, position: x=%d y=%d z=%d", index, value.position.x, value.position.y, value.position.z))
 		end
-		
 		-- Use goto to jump next item due Lua loops dont have continue
 		::skip::
 	end
-	
 	if totals[1] == totals[2] then
 		print(string.format("> Loaded %d books and documents in the map", totals[2]))
 	else
