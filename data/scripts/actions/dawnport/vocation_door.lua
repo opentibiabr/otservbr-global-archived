@@ -24,10 +24,6 @@ local vocationDoors = {
 local vocationDoor = Action()
 
 function vocationDoor.onUse(player, item, target, position, fromPosition)
-	local player = creature:getPlayer()
-	if not player then
-		return true
-	end
 	local door = vocationDoors[item.uid]
 	--Check Oressa storage before choose vocation
 	if player:getStorageValue(Storage.Dawnport.DoorVocation) == door.vocation then
@@ -35,7 +31,10 @@ function vocationDoor.onUse(player, item, target, position, fromPosition)
 		removeMainlandSmugglingItems(player)
 		player:teleportTo(door.destination)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Open the chest and take your gear, young " .. player:getVocation():getName():lower() .. "!")
+		player:sendTextMessage(
+			MESSAGE_EVENT_ADVANCE, 
+			"Open the chest and take your gear, young " .. player:getVocation():getName():lower() .. "!"
+		)
 	elseif player:getStorageValue(Storage.Dawnport.DoorVocation) ~= door.vocation then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 	end

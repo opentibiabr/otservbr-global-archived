@@ -135,7 +135,6 @@ local function addFirstItems(player)
 			[CONST_SLOT_FEET] = Game.createItem(2643)
 		}
 	}
-
 	for slot, item in pairs(firstItems.slots) do
 		local ret = player:addItemEx(item, false, sot)
 		if not ret then
@@ -167,7 +166,6 @@ local function tileStep(player, trial)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("You have received the weapons of a \z
 		".. trial.vocation.name ..'. ' .. trial.message))
 	end
-	
 	return true
 end
 
@@ -182,7 +180,6 @@ local function removeItems(player)
 		2512,	-- Wooden shield
 		40397	-- Quiver
 	}
-
 	for i = 1, #equipmentItemIds do
 		local equipmentItemAmount = player:getItemCount(equipmentItemIds[i])
 		if equipmentItemAmount > 0 then
@@ -246,7 +243,6 @@ local function setOutfit(player, outfit)
 	})
 end
 
-
 -- Dawnport trial tiles step event
 local dawnportVocationTrial = MoveEvent()
 
@@ -255,9 +251,7 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-
 	local trial = vocationTrials[item.actionid]
-	
 	if trial then
 		-- Center room position
 		local centerPosition = Position(32065, 31891, 5)
@@ -280,7 +274,6 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 			return true
 		end
 	end
-	
 	return true
 end
 

@@ -763,11 +763,10 @@ function Player:onLoseExperience(exp)
 end
 
 function Player:onGainSkillTries(skill, tries)
-	-- Dawnport vocations skills limit
+	-- Dawnport skills limit
 	if isSkillGrowthLimited(self, skill) then
 		return 0
 	end
-	
 	if APPLY_SKILL_MULTIPLIER == false then
 		return tries
 	end

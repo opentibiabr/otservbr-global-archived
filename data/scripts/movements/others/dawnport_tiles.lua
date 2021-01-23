@@ -25,17 +25,21 @@ function chestRoomTile.onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-	
 	local chestRoomExit = chestRooms.exits[item.actionid]
-	
 	if chestRoomExit then
 		if player:getVocation():getId() == chestRoomExit.vocation then
 			if player:getStorageValue(Storage.Quest.Dawnport.VocationReward) == -1 then
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You should check the chest for your " .. player:getVocation():getName() .. " equipment.")
+				player:sendTextMessage(
+					MESSAGE_EVENT_ADVANCE, 
+					"You should check the chest for your " .. player:getVocation():getName() .. " equipment."
+				)
 			elseif player:getStorageValue(Storage.Quest.Dawnport.VocationReward) == 1 then
 				player:teleportTo(chestRoomExit.destination, true)
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You should leave for the Mainland now. Go left to reach the ship.")
+				player:sendTextMessage(
+					MESSAGE_EVENT_ADVANCE, 
+					"You should leave for the Mainland now. Go left to reach the ship."
+				)
 			end
 		elseif player:getVocation():getId() ~= chestRoomExit.vocation then
 			player:teleportTo(chestRoomExit.destination, true)
@@ -44,9 +48,7 @@ function chestRoomTile.onStepIn(creature, item, position, fromPosition)
 		end
 		return true
 	end
-	
 	local chestRoomEntrance = chestRooms.entrances[item.actionid]
-	
 	if chestRoomEntrance then
 		if player:getStorageValue(Storage.Dawnport.DoorVocation) == player:getVocation():getId() then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have chosen your vocation. You cannot go back.")
@@ -55,7 +57,6 @@ function chestRoomTile.onStepIn(creature, item, position, fromPosition)
 		end
 		return true
 	end
-	
 	return true
 end
 
@@ -77,16 +78,17 @@ function templeStairs.onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-
 	if player:getStorageValue(Storage.Dawnport.DoorVocation) == player:getVocation():getId() then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot go upstairs. You have chosen a vocation and must now leave for the Mainlands.")
-		player:teleportTo({x = 32063, y = 31891, z= 6}, true)
+		player:sendTextMessage(
+			MESSAGE_EVENT_ADVANCE, 
+			"You cannot go upstairs. You have chosen a vocation and must now leave for the Mainlands."
+		)
+		player:teleportTo({x = 32063, y = 31891, z = 6}, true)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	elseif player:getLevel() >= 20 then
 		player:teleportTo(fromPosition, true)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	end
-	
 	return true
 end
 
@@ -124,19 +126,19 @@ function tutorialTile1.onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-
 	if player:getStorageValue(Storage.Quest.Dawnport.Questline) == 1 then
 		return true
 	end
-
 	if player:getStorageValue(Storage.Quest.Dawnport.Questline) < 1 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Welcome to Dawnport! Walk around and explore on your own, or talk to Inigo if you need directions.")
+		player:sendTextMessage(
+			MESSAGE_EVENT_ADVANCE, 
+			"Welcome to Dawnport! Walk around and explore on your own, or talk to Inigo if you need directions."
+		)
 		player:sendTutorial(2)
 		player:setStorageValue(Storage.Quest.Dawnport.Questline, 1)
 		player:setStorageValue(Storage.Quest.Dawnport.GoMain, 1)
 		player:setTown(Town(TOWNS_LIST.DAWNPORT))
 	end
-	
 	return true
 end
 
@@ -151,14 +153,12 @@ function tutorialTile2.onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-
 	if item.itemid == 22693 then
 		player:teleportTo({x = 32070, y = 31900, z = 6}, true)
 	elseif item.itemid == 23745 then
 		player:teleportTo({x = 32075, y = 31899, z = 5}, true)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "<krrk> <krrrrrk> You move away hurriedly.")
 	end
-	
 	return true
 end
 
@@ -173,13 +173,14 @@ function tutorialTile3.onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-
 	if player:getStorageValue(Storage.Dawnport.Tutorial) ~= 0 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "To walk on STAIRS, use your arrow keys on your keyboard. You can also use them to walk in general.")
+		player:sendTextMessage(
+			MESSAGE_EVENT_ADVANCE, 
+			"To walk on STAIRS, use your arrow keys on your keyboard. You can also use them to walk in general."
+		)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:setStorageValue(Storage.Dawnport.Tutorial, 0)
 	end
-	
 	return true
 end
 
@@ -205,9 +206,12 @@ function tutorialTile4.onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-
 	if player:getStorageValue(Storage.Dawnport.MessageStair) < 1 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "To ATTACK, click on a target in the battle list next to the game window. A red frame shows which enemy you're attacking.")
+		player:sendTextMessage(
+			MESSAGE_EVENT_ADVANCE, 
+			"To ATTACK, click on a target in the battle list next to the game window. \z
+			A red frame shows which enemy you're attacking."
+		)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:setStorageValue(Storage.Dawnport.MessageStair, 1)
 	end
@@ -244,13 +248,11 @@ function cureTile.onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-	
 	if player:getCondition(CONDITION_POISON) then
 		player:removeCondition(CONDITION_POISON)
 		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You are cured.")
 	end
-	
 	return true
 end
 

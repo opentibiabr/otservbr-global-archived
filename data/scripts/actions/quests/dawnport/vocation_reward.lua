@@ -1,12 +1,12 @@
 local adventurersGuildText = [[
-Brave adventurer, 
+Brave adventurer,
 
-the Adventurers' Guild bids you welcome as a new hero of the land. 
+the Adventurers' Guild bids you welcome as a new hero of the land.
 
-Take this adventurer's stone and use it in any city temple to instantly travel to our guild hall. If you should ever lose your adventurer's stone, you can replace it by talking to a priest in the temple. 
-I hope you will be visiting us soon. 
+Take this adventurer's stone and use it in any city temple to instantly travel to our guild hall. If you should ever lose your adventurer's stone, you can replace it by talking to a priest in the temple.
+I hope you will be visiting us soon.
 
-Kind regards, 
+Kind regards,
 Rotem, Head of the Adventurers' Guild
 ]]
 
@@ -67,65 +67,52 @@ function vocationReward.onUse(player, item, fromPosition, itemEx, toPosition)
 	if not vocationItems then
 		return true
 	end
-
 	-- Check quest storage
 	if player:getStorageValue(Storage.Quest.Dawnport.VocationReward) == 1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The " .. item:getName() .. " is empty.")
 		return true
 	end
-	
 	-- Calculate reward weight
 	local rewardsWeight = ItemType(reward.container):getWeight()
-	
 	for i = 1, #vocationItems do
 		rewardsWeight = rewardsWeight + (ItemType(vocationItems[i].id):getWeight() * vocationItems[i].amount)
 	end
-	
 	for i = 1, #reward.commonItems do
 		rewardsWeight = rewardsWeight + (ItemType(reward.commonItems[i].id):getWeight() * reward.commonItems[i].amount)
 	end	
-	
 	-- Check if enough weight capacity
 	if player:getFreeCapacity() < rewardsWeight then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(reward.container) .. ". Weighing " .. (rewardsWeight / 100) .. " oz it is too heavy.")
 		return true
 	end
-	
 	-- Check if enough free slots
 	if player:getFreeBackpackSlots() < 1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(reward.container) .. ". There is no room.")
 		return true
 	end
-	
 	-- Create reward container
 	local container = Game.createItem(reward.container)
-	
 	-- Iterate in inverse order due on addItem/addItemEx by default its added at first index
-	
 	-- Add common items
 	for i = #reward.commonItems, 1, -1 do
 		if reward.commonItems[i].text then
 			-- Create item to customize
 			local document = Game.createItem(reward.commonItems[i].id)
 			document:setAttribute(ITEM_ATTRIBUTE_TEXT, reward.commonItems[i].text)
-			
 			container:addItemEx(document)
 		else
 			container:addItem(reward.commonItems[i].id, reward.commonItems[i].amount)
 		end
 	end	
-	
 	-- Add vocation items
 	for i = #vocationItems, 1, -1 do
 		container:addItem(vocationItems[i].id, vocationItems[i].amount)
 	end
-	
 	-- Ensure reward was added properly to player
 	if player:addItemEx(container, false, CONST_SLOT_WHEREEVER) == RETURNVALUE_NOERROR then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. container:getName() .. ".")
 		player:setStorageValue(Storage.Quest.Dawnport.VocationReward, 1)
 	end
-	
 	return true
 end
 
