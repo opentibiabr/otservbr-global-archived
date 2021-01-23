@@ -133,7 +133,7 @@ function loadLuaMapBookDocument(tablename)
 	if totals[1] == totals[2] then
 		print(string.format("> Loaded %d books and documents in the map", totals[2]))
 	else
-		print(string.format("> Loaded %d of %d books and documents in the map", totals[1], totals[2]))
+		print(string.format("> Loaded %d of %d books and documents in the map", totals[2], totals[1]))
 	end
 end
 
