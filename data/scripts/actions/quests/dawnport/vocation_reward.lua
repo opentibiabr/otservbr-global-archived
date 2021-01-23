@@ -82,12 +82,19 @@ function vocationReward.onUse(player, item, fromPosition, itemEx, toPosition)
 	end	
 	-- Check if enough weight capacity
 	if player:getFreeCapacity() < rewardsWeight then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(reward.container) .. ". Weighing " .. (rewardsWeight / 100) .. " oz it is too heavy.")
+		player:sendTextMessage(
+			MESSAGE_EVENT_ADVANCE,
+			"You have found a " .. getItemName(reward.container) ..
+			". Weighing " .. (rewardsWeight / 100) .. " oz it is too heavy."
+		)
 		return true
 	end
 	-- Check if enough free slots
 	if player:getFreeBackpackSlots() < 1 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(reward.container) .. ". There is no room.")
+		player:sendTextMessage(
+			MESSAGE_EVENT_ADVANCE,
+			"You have found a " .. getItemName(reward.container) .. ". There is no room."
+		)
 		return true
 	end
 	-- Create reward container

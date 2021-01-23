@@ -30,14 +30,14 @@ function chestRoomTile.onStepIn(creature, item, position, fromPosition)
 		if player:getVocation():getId() == chestRoomExit.vocation then
 			if player:getStorageValue(Storage.Quest.Dawnport.VocationReward) == -1 then
 				player:sendTextMessage(
-					MESSAGE_EVENT_ADVANCE, 
+					MESSAGE_EVENT_ADVANCE,
 					"You should check the chest for your " .. player:getVocation():getName() .. " equipment."
 				)
 			elseif player:getStorageValue(Storage.Quest.Dawnport.VocationReward) == 1 then
 				player:teleportTo(chestRoomExit.destination, true)
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 				player:sendTextMessage(
-					MESSAGE_EVENT_ADVANCE, 
+					MESSAGE_EVENT_ADVANCE,
 					"You should leave for the Mainland now. Go left to reach the ship."
 				)
 			end
@@ -80,7 +80,7 @@ function templeStairs.onStepIn(creature, item, position, fromPosition)
 	end
 	if player:getStorageValue(Storage.Dawnport.DoorVocation) == player:getVocation():getId() then
 		player:sendTextMessage(
-			MESSAGE_EVENT_ADVANCE, 
+			MESSAGE_EVENT_ADVANCE,
 			"You cannot go upstairs. You have chosen a vocation and must now leave for the Mainlands."
 		)
 		player:teleportTo({x = 32063, y = 31891, z = 6}, true)
@@ -131,7 +131,7 @@ function tutorialTile1.onStepIn(creature, item, position, fromPosition)
 	end
 	if player:getStorageValue(Storage.Quest.Dawnport.Questline) < 1 then
 		player:sendTextMessage(
-			MESSAGE_EVENT_ADVANCE, 
+			MESSAGE_EVENT_ADVANCE,
 			"Welcome to Dawnport! Walk around and explore on your own, or talk to Inigo if you need directions."
 		)
 		player:sendTutorial(2)
@@ -175,7 +175,7 @@ function tutorialTile3.onStepIn(creature, item, position, fromPosition)
 	end
 	if player:getStorageValue(Storage.Dawnport.Tutorial) ~= 0 then
 		player:sendTextMessage(
-			MESSAGE_EVENT_ADVANCE, 
+			MESSAGE_EVENT_ADVANCE,
 			"To walk on STAIRS, use your arrow keys on your keyboard. You can also use them to walk in general."
 		)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -208,7 +208,7 @@ function tutorialTile4.onStepIn(creature, item, position, fromPosition)
 	end
 	if player:getStorageValue(Storage.Dawnport.MessageStair) < 1 then
 		player:sendTextMessage(
-			MESSAGE_EVENT_ADVANCE, 
+			MESSAGE_EVENT_ADVANCE,
 			"To ATTACK, click on a target in the battle list next to the game window. \z
 			A red frame shows which enemy you're attacking."
 		)

@@ -32,7 +32,7 @@ function vocationDoor.onUse(player, item, target, position, fromPosition)
 		player:teleportTo(door.destination)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:sendTextMessage(
-			MESSAGE_EVENT_ADVANCE, 
+			MESSAGE_EVENT_ADVANCE,
 			"Open the chest and take your gear, young " .. player:getVocation():getName():lower() .. "!"
 		)
 	elseif player:getStorageValue(Storage.Dawnport.DoorVocation) ~= door.vocation then

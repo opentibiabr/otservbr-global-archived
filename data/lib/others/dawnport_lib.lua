@@ -98,11 +98,11 @@ function Player.changeVocation(self, newVocationId)
 			local baseLevel = 7
 			local baseVocation = Vocation(VOCATION.ID.NONE)
 			local level = self:getLevel() - 8
-			stats.health = stats.health 
+			stats.health = stats.health
 			+ (baseLevel * baseVocation:getHealthGain()) + (level * self:getVocation():getHealthGain())
-			stats.mana = stats.mana 
+			stats.mana = stats.mana
 			+ (baseLevel * baseVocation:getManaGain()) + (level * self:getVocation():getManaGain())
-			stats.capacity = stats.capacity 
+			stats.capacity = stats.capacity
 			+ (baseLevel * baseVocation:getCapacityGain()) + (level * self:getVocation():getCapacityGain())
 		end
 		self:setMaxHealth(stats.health)

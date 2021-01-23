@@ -98,7 +98,7 @@ local towns = {
 	[TOWNS_LIST.PORT_HOPE] = {
 		name = "Port Hope",
 		about = {
-			"Port Hope is an outpost right in the middle of the jungle. ...", 
+			"Port Hope is an outpost right in the middle of the jungle. ...",
 			"Apes, bananas, hydras, tarantulas... Who'd want to go there? \z
 			Except for crazy adventurers like these guys here on the island, obviously."
 		},
@@ -135,7 +135,7 @@ local towns = {
 		},
 		canBeSailed = true,
 		isPremium = false,
-		message = 
+		message =
 			"So it's Venore, \z
 			the rich swamp city of traders, recommended for new heroes, that you chose as your new home?",
 		destination = {x = 32954, y = 32022, z = 6}
@@ -184,7 +184,7 @@ end
 buildStrings()
 
 -- Function to handle donations and its messages
-local function donationHandler(cid, message, keywords, parameters, node)	
+local function donationHandler(cid, message, keywords, parameters, node)
 	if not npcHandler:isFocused(cid) then
         return false
     end
@@ -192,7 +192,7 @@ local function donationHandler(cid, message, keywords, parameters, node)
 	if (parameters.confirm ~= true) and (parameters.decline ~= true) then
 		npcHandler:say(
 			"So you want to donate " .. (player:getMoney() - 500) .. " gold coins? \z
-			The little kiddies are going to appreciate it.", 
+			The little kiddies are going to appreciate it.",
 			cid
 		)
 	elseif (parameters.confirm == true) then
@@ -200,7 +200,7 @@ local function donationHandler(cid, message, keywords, parameters, node)
 			player:removeMoney((player:getMoney() - 500))
 			npcHandler:say(
 				"Well, that's really generous of you. That'll feed a lot of hungry mouths for a while. \z
-				Right, now which {city} did you say you wanted to go to?", 
+				Right, now which {city} did you say you wanted to go to?",
 				cid
 			)
 			npcHandler:resetNpc(cid)
@@ -212,7 +212,7 @@ local function donationHandler(cid, message, keywords, parameters, node)
 			npcHandler:say(
 				"By tempest! What's all this gold weighing us down? Don't you think that's a little risky with all \z
 				these pirates around? You can take 500 with you, but that's it. Drop the rest or {donate} it to the \z
-				Adventurers' Orphans Fund, really.", 
+				Adventurers' Orphans Fund, really.",
 				cid
 			)
 		end
@@ -221,7 +221,7 @@ local function donationHandler(cid, message, keywords, parameters, node)
 end
 
 -- Function to handle town travel and its messages
-local function townTravelHandler(cid, message, keywords, parameters, node)	
+local function townTravelHandler(cid, message, keywords, parameters, node)
 	if not npcHandler:isFocused(cid) then
         return false
     end
@@ -237,7 +237,7 @@ local function townTravelHandler(cid, message, keywords, parameters, node)
 		elseif town.isPremium == true and not player:isPremium() then
 			npcHandler:say(
 				"Negative, can't bring you there without a premium account. \
-				You should be glad you get to travel by ship - usually that's a premium service too, you know.", 
+				You should be glad you get to travel by ship - usually that's a premium service too, you know.",
 				cid
 			)
 		else
@@ -249,7 +249,7 @@ local function townTravelHandler(cid, message, keywords, parameters, node)
 			npcHandler:say(
 				"By tempest! What's all this gold weighing us down? Don't you think that's a little risky with all \z
 				these pirates around? You can take 500 with you, but that's it. Drop the rest or {donate} it to the \z
-				Adventurers' Orphans Fund, really.", 
+				Adventurers' Orphans Fund, really.",
 				cid
 			)
 			return true
@@ -265,7 +265,7 @@ local function townTravelHandler(cid, message, keywords, parameters, node)
 		doCreatureSay(cid, town:getId() .. ":" .. town:getName(), TALKTYPE_SAY)
 		npcHandler:say(
 			"Cast off! Don't forget to talk to the guide at the port for directions to nearest bars... err, shops and \z
-			bank and such!", 
+			bank and such!",
 			cid
 		)
 		npcHandler:resetNpc(cid)
@@ -287,90 +287,91 @@ local function townTravelHandler(cid, message, keywords, parameters, node)
 	return true
 end
 -- Other topics
-keywordHandler:addKeyword({"name"}, StdModule.say, 
+keywordHandler:addKeyword({"name"}, StdModule.say,
 {
-	npcHandler = npcHandler, 
+	npcHandler = npcHandler,
 	text = "Ruby Dreadnought. But it's Captain Dreadnought to you!"
 })
-keywordHandler:addKeyword({"job"}, StdModule.say, 
+keywordHandler:addKeyword({"job"}, StdModule.say,
 {
-	npcHandler = npcHandler, 
+	npcHandler = npcHandler,
 	text = "I'm captain of this little sloop here, the Sea Cat."
 })
-keywordHandler:addKeyword({"ship"}, StdModule.say, 
+keywordHandler:addKeyword({"ship"}, StdModule.say,
 {
-	npcHandler = npcHandler, 
+	npcHandler = npcHandler,
 	text = "She's pretty, isn't she? Will ship you safely to any port. Though a young landlubber such as you should \z
 	consider to travel to Venore first. The travel is for free. Just once though! You have to ask for a {passage}."
 })
-keywordHandler:addKeyword({"mainland"}, StdModule.say, 
+keywordHandler:addKeyword({"mainland"}, StdModule.say,
 {
-	npcHandler = npcHandler, 
+	npcHandler = npcHandler,
 	text = "You chose a peaceful world. Not much danger from other adventurers. Just beware the monsters. \z
 	Want go there, ask for a {passage}."
 })
-keywordHandler:addKeyword({"rookgaard"}, StdModule.say, 
+keywordHandler:addKeyword({"rookgaard"}, StdModule.say,
 {
-	npcHandler = npcHandler, 
+	npcHandler = npcHandler,
 	text = "That old place? Sorry, I don't sail there, no loot to be had."
 })
-keywordHandler:addKeyword({"adventurers guild"}, StdModule.say, 
+keywordHandler:addKeyword({"adventurers guild"}, StdModule.say,
 {
-	npcHandler = npcHandler, 
+	npcHandler = npcHandler,
 	text = {
 		"Those fellows help still green adventurers like you, so you learn the lay of the Tibian Mainlands. \z
 		With the adventurer's stone you can reach their guild hall from all major temples. ...", 
 		"I recommend you travel there as soon as possible."
 	}
 })
-keywordHandler:addKeyword({"premium"}, StdModule.say, 
+keywordHandler:addKeyword({"premium"}, StdModule.say,
 {
-	npcHandler = npcHandler, 
+	npcHandler = npcHandler,
 	text = "Some regions in the world can't be accessed by everyone. Gotta pay, you know? \z
 	If you spend some real cash for premium time, I can bring you to much more challenging locations."
 })
-keywordHandler:addKeyword({"tibia"}, StdModule.say, 
+keywordHandler:addKeyword({"tibia"}, StdModule.say,
 {
-	npcHandler = npcHandler, 
+	npcHandler = npcHandler,
 	text = "That's what the whole place is called."
 })
 -- Main topic nodes
-local readyNode = keywordHandler:addKeyword({"yes"}, StdModule.say, 
+local readyNode = keywordHandler:addKeyword({"yes"}, StdModule.say,
 {
-	npcHandler = npcHandler, 
+	npcHandler = npcHandler,
 	text = "Good. Got all you want to take to the mainland, {yes}? Gear, limbs, loot?"
 })
-local notReadyNode = keywordHandler:addKeyword({"no"}, StdModule.say, 
+local notReadyNode = keywordHandler:addKeyword({"no"}, StdModule.say,
 {
-	npcHandler = npcHandler, text = "What? Then what DO you want? Learn about the main Tibian {cities}?"
+	npcHandler = npcHandler,
+	text = "What? Then what DO you want? Learn about the main Tibian {cities}?"
 })
 -- Main subtopic nodes
 -- hi, yes, ...
-local defaultTownNode = readyNode:addChildKeyword({"yes"}, StdModule.say, 
+local defaultTownNode = readyNode:addChildKeyword({"yes"}, StdModule.say,
 {
-	npcHandler = npcHandler, text = 
-	{
+	npcHandler = npcHandler,
+	text = {
 		"Quick learner, good answer. For inexperienced newcomers, \z
-		I'd recommend the city of {" .. towns[defaultTown].name .. "}. Great place to start! ...", 
+		I'd recommend the city of {" .. towns[defaultTown].name .. "}. Great place to start! ...",
 		"Though I can tell you about the other main Tibian {cities} too, if you wish. \z
 		So, ready to set sail for {" .. towns[defaultTown].name .. "}?"
 	}
 })
-readyNode:addChildKeyword({"no"}, StdModule.say, 
+readyNode:addChildKeyword({"no"}, StdModule.say,
 {
-	npcHandler = npcHandler, 
-	text = "While you take time to ponder, I will just stroll over there and pretend not to listen to you thinking.", 
+	npcHandler = npcHandler,
+	text = "While you take time to ponder, I will just stroll over there and pretend not to listen to you thinking.",
 	ungreet = true
 })
 -- hi, no, ...
-local aboutTownsNode = notReadyNode:addChildKeyword({"yes"}, StdModule.say, 
+local aboutTownsNode = notReadyNode:addChildKeyword({"yes"}, StdModule.say,
 {
-	npcHandler = npcHandler, 
+	npcHandler = npcHandler,
 	text = "Well, I can tell you stuff about " .. townNames.all .. "."
 })
-local aboutSailNode = notReadyNode:addChildKeyword({"no"}, townTravelHandler, 
+local aboutSailNode = notReadyNode:addChildKeyword({"no"}, townTravelHandler,
 {
-	sailableTowns = true, 
+	sailableTowns = true,
 	text = "So you know it all, huh? Where do you want me to bring you to, kid? |TOWNS|?"
 })
 -- hi, yes, yes, ...
@@ -378,9 +379,9 @@ defaultTownNode:addChildKeyword({"yes"}, townTravelHandler, {confirm = true, tow
 defaultTownNode:addAliasKeyword({towns[defaultTown].name:lower()})
 defaultTownNode:addChildKeyword({"no"}, townTravelHandler, {decline = true})
 -- Towns topic nodes
-local townsNode = keywordHandler:addKeyword({"cities"}, StdModule.say, 
+local townsNode = keywordHandler:addKeyword({"cities"}, StdModule.say,
 {
-	npcHandler = npcHandler, 
+	npcHandler = npcHandler,
 	text = "Do you want to know about " .. townNames.all .. "?"
 })
 for id, town in pairs(towns) do
@@ -390,9 +391,9 @@ for id, town in pairs(towns) do
 end
 keywordHandler:addAliasKeyword({"city"})
 -- Sail topic nodes
-local sailNode = keywordHandler:addKeyword({"sail"}, StdModule.say, 
+local sailNode = keywordHandler:addKeyword({"sail"}, StdModule.say,
 {
-	npcHandler = npcHandler, 
+	npcHandler = npcHandler,
 	text = "So, you've decided on your new home city? Which one will it be?"
 })
 local confirmNode = KeywordNode:new({"yes"}, townTravelHandler, {confirm = true})
@@ -416,7 +417,7 @@ donateNode:addChildKeywordNode(KeywordNode:new({"no"}, donationHandler, {decline
 local function greetCallback(cid)
 	local player = Player(cid)
 	npcHandler:setMessage(
-		MESSAGE_GREET, 
+		MESSAGE_GREET,
 		"Well, well, a new " .. player:getVocation():getName():lower() .. "! Want me to bring you somewhere nice? \z
 		Just say {yes}."
 	)
@@ -432,14 +433,14 @@ local function creatureSayCallback(cid, type, msg)
 	if #currentNode.children == 0 then
 		npcHandler:say(
 			"Kid, listen. Answering with a clear {yes} or {no} will get you much further in Tibia. \z
-			Most people are not as sharp-eared as I am. Got that?", 
+			Most people are not as sharp-eared as I am. Got that?",
 			cid
 		)
 	elseif currentNode == readyNode then
 		npcHandler:say("Errr... was that a foreign language? Could you just answer with a clear {yes} or {no}?", cid)
 	elseif currentNode == notReadyNode then
 		npcHandler:say(
-		"Aw, come on! Talk to me in human words! {Yes}, {no}, or mention a city's name, that kind of stuff.", 
+		"Aw, come on! Talk to me in human words! {Yes}, {no}, or mention a city's name, that kind of stuff.",
 		cid
 	)
 	end
@@ -448,6 +449,9 @@ end
 
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
-npcHandler:setMessage(MESSAGE_FAREWELL, "You sure you want to spend time on this piece of rock? I can show you the world! Huh.")
+npcHandler:setMessage(
+	MESSAGE_FAREWELL,
+	"You sure you want to spend time on this piece of rock? I can show you the world! Huh."
+)
 
 npcHandler:addModule(FocusModule:new())
