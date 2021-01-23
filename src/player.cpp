@@ -1950,11 +1950,21 @@ void Player::addExperience(Creature* source, uint64_t exp, bool sendText/* = fal
 	uint32_t prevLevel = level;
 	while (experience >= nextLevelExp) {
 		++level;
-		healthMax += vocation->getHPGain();
-		health += vocation->getHPGain();
-		manaMax += vocation->getManaGain();
-		mana += vocation->getManaGain();
-		capacity += vocation->getCapGain();
+		// Player stats gain for vocations level <= 8
+		if (vocation->getId() != VOCATION_NONE && level <= 8) {
+			Vocation* noneVocation = g_vocations.getVocation(VOCATION_NONE);
+			healthMax += noneVocation->getHPGain();
+			health += noneVocation->getHPGain();
+			manaMax += noneVocation->getManaGain();
+			mana += noneVocation->getManaGain();
+			capacity += noneVocation->getCapGain();
+		} else {
+			healthMax += vocation->getHPGain();
+			health += vocation->getHPGain();
+			manaMax += vocation->getManaGain();
+			mana += vocation->getManaGain();
+			capacity += vocation->getCapGain();
+		}
 
 		currLevelExp = nextLevelExp;
 		nextLevelExp = Player::getExpForLevel(level + 1);
@@ -2034,9 +2044,17 @@ void Player::removeExperience(uint64_t exp, bool sendText/* = false*/)
 
 	while (level > 1 && experience < currLevelExp) {
 		--level;
-		healthMax = std::max<int32_t>(0, healthMax - vocation->getHPGain());
-		manaMax = std::max<int32_t>(0, manaMax - vocation->getManaGain());
-		capacity = std::max<int32_t>(0, capacity - vocation->getCapGain());
+		// Player stats loss for vocations level <= 8
+		if (vocation->getId() != VOCATION_NONE && level <= 8) {
+			Vocation* noneVocation = g_vocations.getVocation(VOCATION_NONE);
+			healthMax = std::max<int32_t>(0, healthMax - noneVocation->getHPGain());
+			manaMax = std::max<int32_t>(0, manaMax - noneVocation->getManaGain());
+			capacity = std::max<int32_t>(0, capacity - noneVocation->getCapGain());
+		} else {
+			healthMax = std::max<int32_t>(0, healthMax - vocation->getHPGain());
+			manaMax = std::max<int32_t>(0, manaMax - vocation->getManaGain());
+			capacity = std::max<int32_t>(0, capacity - vocation->getCapGain());
+		}
 		currLevelExp = Player::getExpForLevel(level);
 	}
 
