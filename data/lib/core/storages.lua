@@ -1370,6 +1370,10 @@ Storage = {
 		CarlosNpcGreetStorage = 51677,
 		CarlosQuestLog = 51678
 	},
+	Rookgaard = {
+		--Reserved storage 51260 - 51280
+		BananaQuest = 51260,
+	},
 	BanutaSecretTunnel = {
 		-- Reserved storage from 51680 - 51689
 		DeeperBanutaShortcut = 51680,
@@ -1439,7 +1443,6 @@ Storage = {
 		OutlawCampKey3 = 51762,
 		DoubletQuest = 51763,
 		HoneyFlower = 51764,
-		BananaPalm = 51765,
 		WhisperMoss = 51766,
 		OldParchment = 51767,
 		DragahsSpellbook = 51768,
