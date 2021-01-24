@@ -21,7 +21,9 @@ local invalidTypes = {
 	1145, 1153, 1154, 1155, 1156, 1160, 1170, 1171, 1172, 1176, 1177, 1178, 1182,
 	1192, 1193, 1194, 1198, 1215, 1216, 1225, 1226, 1227, 1228, 1235, 1236, 1237,
 	1238, 1239, 1240, 1241, 1242, 1250, 1254, 1263, 1267, 1273, 1274, 1287, 1302,
-	1318, 1319, 1320, 1327, 1328, 1329, 1330
+	1318, 1319, 1320, 1327, 1328, 1329, 1330, 1340, 1343, 1345, 1347, 1348, 1349,
+	1350, 1351, 1352, 1353, 1354, 1355, 1356, 1357, 1358, 1359, 1360, 1361, 1362,
+	1368, 1369, 1370, 1374, 1375, 1376,
 }
 
 local looktype = TalkAction("/looktype")
@@ -37,7 +39,7 @@ function looktype.onSay(player, words, param)
 	end
 
 	local lookType = tonumber(param)
-	if lookType >= 0 and lookType < 1338 and not table.contains(invalidTypes, lookType) then
+	if lookType >= 0 and lookType < 1384 and not table.contains(invalidTypes, lookType) then
 		local playerOutfit = player:getOutfit()
 		playerOutfit.lookType = lookType
 		player:setOutfit(playerOutfit)

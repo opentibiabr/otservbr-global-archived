@@ -12,7 +12,7 @@
 		<parameter key="keywords" value="job;"/>
 		<parameter key="keyword_reply1" value="I am the humble supplier for distance fighting weapons of the Ironhouse, owned by Abran Ironeye."/>
 		<parameter key="module_shop" value="1"/>
-		<parameter key="shop_buyable" value="crossbow,2455,500;bow,2456,400;bolt,2543,4;arrow,2544,3;spear,2389,10"/>
+		<parameter key="shop_buyable" value="blue quiver,40683,400;crossbow,2455,500;bow,2456,400;bolt,2543,4;arrow,2544,3;quiver,40397,400;red quiver,40684,400;spear,2389,10"/>
 		<parameter key="shop_sellable" value="spear,2389,3"/>
 	</parameters>
 </npc>
