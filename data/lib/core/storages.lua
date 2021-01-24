@@ -1370,10 +1370,6 @@ Storage = {
 		CarlosNpcGreetStorage = 51677,
 		CarlosQuestLog = 51678
 	},
-	Rookgaard = {
-		--Reserved storage 51260 - 51290
-		
-	},
 	BanutaSecretTunnel = {
 		-- Reserved storage from 51680 - 51689
 		DeeperBanutaShortcut = 51680,
