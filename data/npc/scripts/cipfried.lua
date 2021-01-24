@@ -23,23 +23,21 @@ local voices = {
 }
 npcHandler:addModule(VoiceModule:new(voices))
 
--- Greeting and Farewell
-keywordHandler:addGreetKeyword({'hi'}, {npcHandler = npcHandler, text = 'Hello, |PLAYERNAME|! You are looking really bad. Let me heal your wounds. It\'s my job after all.'},
-	function(player) return player:getHealth() < 65 or player:getCondition(CONDITION_POISON) ~= nil end,
-	function(player)
-		local health = player:getHealth()
-		if health < 65 then player:addHealth(65 - health) end
-		player:removeCondition(CONDITION_POISON)
+local function greetCallback(cid)
+	local player = Player(cid)
+	local health = player:getHealth()
+	local lowHealth = health < 65
+	local poisoned = player:getCondition(CONDITION_POISON)
+	if lowHealth or poisoned then
+		npcHandler:setMessage(MESSAGE_GREET, 'Hello, |PLAYERNAME|! You are looking really bad. Let me heal your wounds. It\'s my job after all.')
+		if lowHealth then player:addHealth(65 - health) end
+		if poisoned then player:removeCondition(CONDITION_POISON) end
 		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+	else
+		npcHandler:setMessage(MESSAGE_GREET, 'Hello, |PLAYERNAME|! I\'ll {heal} you if you are injured or poisoned. Feel free to ask me for {help} or general {hints}.')
 	end
-)
-keywordHandler:addAliasKeyword({'hello'})
-
-keywordHandler:addGreetKeyword({'hi'}, {npcHandler = npcHandler, text = 'Hello, |PLAYERNAME|! I\'ll {heal} you if you are injured or poisoned. Feel free to ask me for {help} or general {hints}.'}, function(player) return player:getSex() == PLAYERSEX_FEMALE end)
-keywordHandler:addAliasKeyword({'hello'})
-
-keywordHandler:addFarewellKeyword({'bye'}, {npcHandler = npcHandler, text = 'Farewell, |PLAYERNAME|!'})
-keywordHandler:addAliasKeyword({'farewell'})
+	return true
+end
 
 -- Basic keywords
 keywordHandler:addKeyword({'hint'}, StdModule.rookgaardHints, {npcHandler = npcHandler})
@@ -98,7 +96,7 @@ keywordHandler:addKeyword({'adventure'}, StdModule.say, {npcHandler = npcHandler
 keywordHandler:addAliasKeyword({'explore'})
 
 keywordHandler:addKeyword({'heal'}, StdModule.say, {npcHandler = npcHandler, text = 'You are poisoned. I will help you.'},
-	function(player) return player:getCondition(CONDITION_POISON) ~= nil end,
+	function(player) return player:getCondition(CONDITION_POISON) end,
 	function(player)
 		local health = player:getHealth()
 		if health < 65 then player:addHealth(65 - health) end
@@ -107,14 +105,14 @@ keywordHandler:addKeyword({'heal'}, StdModule.say, {npcHandler = npcHandler, tex
 	end
 )
 keywordHandler:addKeyword({'heal'}, StdModule.say, {npcHandler = npcHandler, text = 'Let me heal your wounds.'},
-	function(player) return player:getHealth() < 185 end,
+	function(player) return player:getHealth() < 185 and player:getHealth() < player:getBaseMaxHealth() end,
 	function(player)
 		local health = player:getHealth()
-		if health < 185 then player:addHealth(185 - health) end
+		player:addHealth(185 - health)
 		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	end
 )
-keywordHandler:addKeyword({'heal'}, StdModule.say, {npcHandler = npcHandler, text = 'You aren\'t looking really bad, |PLAYERNAME|. I can only help in cases of real emergencies. Raise your health simply by eating food.'})
+keywordHandler:addKeyword({'heal'}, StdModule.say, {npcHandler = npcHandler, text = 'You aren\'t looking really bad, |PLAYERNAME|. I can only help in cases of real emergencies. Raise your health simply by eating {food}.'})
 
 -- Names
 keywordHandler:addKeyword({'obi'}, StdModule.say, {npcHandler = npcHandler, text = 'Obi\'s {shop} is to the north-east of this humble temple. He sells {weapons}, and his granddaughter {Dixi} sells {armor} and {shields} upstairs.'})
@@ -138,5 +136,7 @@ keywordHandler:addKeyword({'tom'}, StdModule.say, {npcHandler = npcHandler, text
 keywordHandler:addKeyword({'dallheim'}, StdModule.say, {npcHandler = npcHandler, text = 'May the gods bless our loyal guardsmen! Day and night they stand watch on our bridges, ensuring that it is not passed by dangerous {monsters}!'})
 keywordHandler:addAliasKeyword({'zerbrus'})
 
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Well, bye then.')
+npcHandler:setMessage(MESSAGE_FAREWELL, 'Farewell, |PLAYERNAME|!')
 npcHandler:addModule(FocusModule:new())
