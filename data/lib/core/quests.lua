@@ -5637,6 +5637,147 @@ if not Quests then
 					end
 				},
 			}
+		},
+		[45] = {
+			name = "The Rookie Guard",
+			startStorageId = Storage.Rookgaard.TheRookieGuard.Questline,
+			startStorageValue = 1,
+			missions = {
+				[1] = {
+					name = "Mission 1: A Taste of Things to Come",
+					storageId = Storage.Rookgaard.TheRookieGuard.Mission01,
+					missionId = 10397,
+					startValue = 1,
+					endValue = 1,
+					states = {
+						[1] = ""
+					}
+				},
+				[2] = {
+					name = "Mission 2: Defence!",
+					storageId = Storage.Rookgaard.TheRookieGuard.Mission02,
+					missionId = 10398,
+					startValue = 1,
+					endValue = 5,
+					states = {
+						[1] = "Vascalir promised you some equipment, but first you need to build up some muscles. Find a big pile of stone in a barn to the north and use it to get a heavy stone.",
+						[2] = "You retrieved one stone from the big pile. Climb onto the roof of either Norma's bar, Obi's shop or the academy to find a catapult to use it on.",
+						[3] = "You loaded a stone on one of the catapults. One more to go! Climb onto the roof of either Norma's bar, Obi's shop or the academy to find a catapult to load with a heavy stone.",
+						[4] = "Two of the four catapults on the roofs are loaded. That should be enough to build up a decent defence. Return to Vascalir to turn in your quest.",
+						[5] = "You made sure that Rookgaard's defences are at their best. If the orcs try to enter the village, they won't have an easy time!"
+					}
+				},
+				[3] = {
+					name = "Mission 3: A Rational Request",
+					storageId = Storage.Rookgaard.TheRookieGuard.Mission03,
+					missionId = 10399,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = function(player)
+							return string.format("Vascalir sent you to the Rookgaard sewers to kill 5 rats. You have already killed %d/5. Return to Vascalir once you're done.",
+							(math.max(player:getStorageValue(Storage.Rookgaard.TheRookieGuard.RatsCounter), 0)))
+						end,
+						[2] = "Vascalir was pleased with your hunting efforts. You've proven that you are a skilled hunter, ready for the task at hand."
+					}
+				},
+				[4] = {
+					name = "Mission 04: Home-Brewed",
+					storageId = Storage.Rookgaard.TheRookieGuard.Mission04,
+					missionId = 10400,
+					startValue = 1,
+					endValue = 7,
+					states = {
+						[1] = "Vascalir doesn't have a job for you at the moment. He sent you to Lily in the south-west of town for another mission.",
+						[2] = "Lily gave you a bag with fresh herbs that need to be delivered to Hyacinth outside of the village. Leave the village to the north and walk east to find his little hut up a mountain.",
+						[3] = "",
+						[4] = "",
+						[5] = "",
+						[6] = "You've delivered the herbs to Hyacinth and got potions and a ring as reward. Save the potions for when you're low on health and wear the ring if you want to regain health faster. Return to Vascalir.",
+						[7] = "You've told Vascalir about your successful delivery. The next mission awaits."
+					}
+				},
+				[5] = {
+					name = "Mission 5: Web of Terror",
+					storageId = Storage.Rookgaard.TheRookieGuard.Mission05,
+					missionId = 10401,
+					startValue = 1,
+					endValue = 1,
+					states = {
+						[1] = "Vascalir sent you to the spider queen's lair to retrieve a web sample. Leave the village to the north and cross the bridge to the north-west to find the lair. Look for greasy blue stones."
+					}
+				},
+				[6] = {
+					name = "Mission 6: Run Like a Wolf",
+					storageId = Storage.Rookgaard.TheRookieGuard.Mission06,
+					missionId = 10402,
+					startValue = 1,
+					endValue = 1,
+					states = {
+						[1] = ""
+					}
+				},
+				[7] = {
+					name = "Mission 7: Attack!",
+					storageId = Storage.Rookgaard.TheRookieGuard.Mission07,
+					missionId = 10403,
+					startValue = 1,
+					endValue = 1,
+					states = {
+						[1] = ""
+					}
+				},
+				[8] = {
+					name = "Mission 8: Less Risk - More Fun",
+					storageId = Storage.Rookgaard.TheRookieGuard.Mission08,
+					missionId = 10404,
+					startValue = 1,
+					endValue = 1,
+					states = {
+						[1] = ""
+					}
+				},
+				[9] = {
+					name = "Mission 9: Rock 'n Troll",
+					storageId = Storage.Rookgaard.TheRookieGuard.Mission09,
+					missionId = 10405,
+					startValue = 1,
+					endValue = 1,
+					states = {
+						[1] = ""
+					}
+				},
+				[10] = {
+					name = "Mission 10: Tomb Raiding",
+					storageId = Storage.Rookgaard.TheRookieGuard.Mission10,
+					missionId = 10406,
+					startValue = 1,
+					endValue = 1,
+					states = {
+						[1] = ""
+					}
+				},
+				[11] = {
+					name = "Mission 10: Tomb Raiding",
+					storageId = Storage.Rookgaard.TheRookieGuard.Mission11,
+					missionId = 10407,
+					startValue = 1,
+					endValue = 1,
+					states = {
+						[1] = ""
+					}
+				},
+				[12] = {
+					name = "Mission 12: Into The Fortress",
+					storageId = Storage.Rookgaard.TheRookieGuard.Mission12,
+					missionId = 10408,
+					startValue = 1,
+					endValue = 1,
+					states = {
+						[1] = ""
+					}
+				}
+			}
 		}
 	}
 end
