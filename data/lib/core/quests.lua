@@ -5702,7 +5702,7 @@ if not Quests then
 					storageId = Storage.TheRookieGuard.Mission05,
 					missionId = 10401,
 					startValue = 1,
-					endValue = 1,
+					endValue = 6,
 					states = {
 						[1] = "Vascalir sent you to the spider queen's lair to retrieve a web sample. Leave the village to the north and cross the bridge to the north-west to find the lair. Look for greasy blue stones.",
 						[2] = "You've covered yourself in grease. It's a bit disgusting, but the spider queen will not be able to smell you for about two minutes. Enter her cave and USE an intact spider web to retrieve a sample.",
@@ -5717,7 +5717,7 @@ if not Quests then
 					storageId = Storage.TheRookieGuard.Mission06,
 					missionId = 10402,
 					startValue = 1,
-					endValue = 1,
+					endValue = 7,
 					states = {
 						[1] = "Vascalir sent you to Tom the Tanner, who can be found to the west of the academy. There you will get your next mission.",
 						[2] = "Leave the village to the north and walk north-east into the forest to find the wolves' den that Tom told you about. Hopefully you will find that poacher to take some leather from him!",
@@ -5733,7 +5733,7 @@ if not Quests then
 					storageId = Storage.TheRookieGuard.Mission07,
 					missionId = 10403,
 					startValue = 1,
-					endValue = 1,
+					endValue = 2,
 					states = {
 						[1] = "While you were gone, trolls have infiltrated the academy and set it on fire! Enter the burning vault deep underground and try to recover the copy of the book of orc language before it's destroyed.",
 						[2] = "You've done all you could - but unfortunately the book is lost. No need to lose heart though - there is still hidden knowledge about the orc language in the village, and the next mission awaits."
@@ -5744,7 +5744,7 @@ if not Quests then
 					storageId = Storage.TheRookieGuard.Mission08,
 					missionId = 10404,
 					startValue = 1,
-					endValue = 1,
+					endValue = 2,
 					states = {
 						[1] = "Before getting revenge on the trolls, eliminate the risk of losing money on the way. Paulie has an interesting bonus offer for you if you deposit your money at the bank. Find him below the academy.",
 						[2] = "You've done as Vascalir asked and talked to Paulie. Remember to always leave your gold on your account! That way there's no risk of losing it."
@@ -5755,7 +5755,7 @@ if not Quests then
 					storageId = Storage.TheRookieGuard.Mission09,
 					missionId = 10405,
 					startValue = 1,
-					endValue = 1,
+					endValue = 10,
 					states = {
 						[1] = "Enter the troll lair to the north of the village and find the new tunnel which the trolls dug and used to infiltrate the Rookgaard academy. There, you need to find a way to destroy it.",
 						[2] = "Open the chests in the tunnel and use the pick on the 5 beams to weaken the structure and make the tunnel collapse.",
@@ -5774,7 +5774,7 @@ if not Quests then
 					storageId = Storage.TheRookieGuard.Mission10,
 					missionId = 10406,
 					startValue = 1,
-					endValue = 1,
+					endValue = 2,
 					states = {
 						[1] = "Leave the village to the north and walk south-east to find the haunted graveyard. Descend into the crypt and find a sarcophagus that might still contain a fleshy bone. Bring it to Vascalir.",
 						[2] = "You've brought the fleshy bone back to Vascalir. Talk to him again to receive your reward.",
@@ -5786,7 +5786,7 @@ if not Quests then
 					storageId = Storage.TheRookieGuard.Mission11,
 					missionId = 10407,
 					startValue = 1,
-					endValue = 1,
+					endValue = 5,
 					states = {
 						[1] = "Leave the village to the north and cross the bridge to the west, then walk south-west to find a wasp lair. Make sure you don't lose the flask Vascalir gave you.",
 						[2] = "You've found the wasp lair. Kill one wasp and use the empty flask on its dead body to retrieve some of its poison.",
@@ -5800,7 +5800,7 @@ if not Quests then
 					storageId = Storage.TheRookieGuard.Mission12,
 					missionId = 10408,
 					startValue = 1,
-					endValue = 1,
+					endValue = 15,
 					states = {
 						[1] = "This is it - the infiltration of the orc fortress and revenge on Kraknaknork awaits. Get the required items from a chest in the academy near the bank.",
 						[2] = "You've got all items you need to finally kill Kraknaknork. Don't lose them, and carefully make your way towards the orc fortress located in the far west of Rookgaard. Leave the village to the north.",
