@@ -77,7 +77,7 @@ monster.voices = {
 monster.loot = {
 	{name = "great mana potion", chance = 44810},
 	{name = "wand of inferno", chance = 12500},
-	{name = "grappling hook", chance = 19420},
+	{id = 40423, chance = 19420},
 	{name = "pirate coin", chance = 17810, maxCount = 10},
 	{name = "pirat's tail", chance = 2120},
 	{name = "springsprout rod", chance = 9550},
