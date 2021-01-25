@@ -24313,7 +24313,12 @@
 		<attribute key="weight" value="13000" />
 	</item>
 	<item id="13867" article="a" name="stone pile" />
-	<item id="13868" name="greasy stone" />
+	<item id="13868" article="a" name="greasy stone">
+		<attribute key="description" value="If you use it to cover yourself in grease, you won't be spotted by the spider queen." />
+	</item>
+	<item id="13869" article="a" name="hole" >
+		<attribute key="floorchange" value="down" />
+	</item>
 	<item id="13870" name="eye of a deepling">
 		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="description" value="Did it just twitch...? No, must have been an optical illusion." />
@@ -24367,6 +24372,7 @@
 		<attribute key="slotType" value="ring" />
 		<attribute key="loottype" value="ring" />
 	</item>
+	<item id="13878" article="a" name="dead war wolf" />
 	<item id="13879" article="a" name="war wolf skin">
 		<attribute key="description" value="This is a quest item and cannot be used for anything else." />
 		<attribute key="weight" value="40" />
@@ -24388,7 +24394,10 @@
 		<attribute key="weight" value="475" />
 		<attribute key="showcount" value="0" />
 	</item>
+	<item id="13882" article="a" name="fire field" />
+	<item id="13884" article="a" name="destroy field rune" />
 	<item fromid="13886" toid="13901" name="large spider web" />
+	<item id="13903" article="a" name="trunk" />
 	<item fromid="13904" toid="13920" name="large spider web" />
 	<item fromid="13921" toid="13922" article="a" name="warning sign">
 		<attribute key="allowDistRead" value="true" />
@@ -24413,6 +24422,16 @@
 		<attribute key="description" value="A good item to paralyse fast and rowdy orcs." />
 		<attribute key="weight" value="10" />
 	</item>
+	<item id="13928" article="a" name="rolling pin">
+		<attribute key="description" value="A good item to knock out unsuspicious orcs." />
+		<attribute key="weight" value="500" />
+	</item>
+	<item id="13929" article="a" name="peeing orc">
+		<attribute key="description" value="He doesn't seem to notice your presence." />
+	</item>
+	<item id="13931" article="a" name="elite orc guard" />
+	<item id="13934" article="a" name="energy barrier" />
+	<item id="13936" article="a" name="wooden ladder hole" />
 	<item id="13937" article="an" name="inoperative uniwheel" />
 	<item id="13938" article="a" name="golden can of oil">
 		<attribute key="loottype" value="other" />
