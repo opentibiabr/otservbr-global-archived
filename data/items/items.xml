@@ -24312,6 +24312,7 @@
 		<attribute key="description" value="It can be used to arm catapults." />
 		<attribute key="weight" value="13000" />
 	</item>
+	<item id="13867" article="a" name="stone pile" />
 	<item id="13868" name="greasy stone" />
 	<item id="13870" name="eye of a deepling">
 		<attribute key="loottype" value="creatureproduct" />

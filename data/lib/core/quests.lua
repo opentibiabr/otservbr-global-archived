@@ -5640,12 +5640,12 @@ if not Quests then
 		},
 		[45] = {
 			name = "The Rookie Guard",
-			startStorageId = Storage.Rookgaard.TheRookieGuard.Questline,
+			startStorageId = Storage.TheRookieGuard.Questline,
 			startStorageValue = 1,
 			missions = {
 				[1] = {
 					name = "Mission 1: A Taste of Things to Come",
-					storageId = Storage.Rookgaard.TheRookieGuard.Mission01,
+					storageId = Storage.TheRookieGuard.Mission01,
 					missionId = 10397,
 					startValue = 1,
 					endValue = 1,
@@ -5655,7 +5655,7 @@ if not Quests then
 				},
 				[2] = {
 					name = "Mission 2: Defence!",
-					storageId = Storage.Rookgaard.TheRookieGuard.Mission02,
+					storageId = Storage.TheRookieGuard.Mission02,
 					missionId = 10398,
 					startValue = 1,
 					endValue = 5,
@@ -5669,21 +5669,21 @@ if not Quests then
 				},
 				[3] = {
 					name = "Mission 3: A Rational Request",
-					storageId = Storage.Rookgaard.TheRookieGuard.Mission03,
+					storageId = Storage.TheRookieGuard.Mission03,
 					missionId = 10399,
 					startValue = 1,
 					endValue = 2,
 					states = {
 						[1] = function(player)
 							return string.format("Vascalir sent you to the Rookgaard sewers to kill 5 rats. You have already killed %d/5. Return to Vascalir once you're done.",
-							(math.max(player:getStorageValue(Storage.Rookgaard.TheRookieGuard.RatsCounter), 0)))
+							(math.max(player:getStorageValue(Storage.TheRookieGuard.RatsCounter), 0)))
 						end,
 						[2] = "Vascalir was pleased with your hunting efforts. You've proven that you are a skilled hunter, ready for the task at hand."
 					}
 				},
 				[4] = {
 					name = "Mission 04: Home-Brewed",
-					storageId = Storage.Rookgaard.TheRookieGuard.Mission04,
+					storageId = Storage.TheRookieGuard.Mission04,
 					missionId = 10400,
 					startValue = 1,
 					endValue = 7,
@@ -5699,7 +5699,7 @@ if not Quests then
 				},
 				[5] = {
 					name = "Mission 5: Web of Terror",
-					storageId = Storage.Rookgaard.TheRookieGuard.Mission05,
+					storageId = Storage.TheRookieGuard.Mission05,
 					missionId = 10401,
 					startValue = 1,
 					endValue = 1,
@@ -5714,7 +5714,7 @@ if not Quests then
 				},
 				[6] = {
 					name = "Mission 6: Run Like a Wolf",
-					storageId = Storage.Rookgaard.TheRookieGuard.Mission06,
+					storageId = Storage.TheRookieGuard.Mission06,
 					missionId = 10402,
 					startValue = 1,
 					endValue = 1,
@@ -5730,7 +5730,7 @@ if not Quests then
 				},
 				[7] = {
 					name = "Mission 7: Attack!",
-					storageId = Storage.Rookgaard.TheRookieGuard.Mission07,
+					storageId = Storage.TheRookieGuard.Mission07,
 					missionId = 10403,
 					startValue = 1,
 					endValue = 1,
@@ -5741,7 +5741,7 @@ if not Quests then
 				},
 				[8] = {
 					name = "Mission 8: Less Risk - More Fun",
-					storageId = Storage.Rookgaard.TheRookieGuard.Mission08,
+					storageId = Storage.TheRookieGuard.Mission08,
 					missionId = 10404,
 					startValue = 1,
 					endValue = 1,
@@ -5752,7 +5752,7 @@ if not Quests then
 				},
 				[9] = {
 					name = "Mission 9: Rock 'n Troll",
-					storageId = Storage.Rookgaard.TheRookieGuard.Mission09,
+					storageId = Storage.TheRookieGuard.Mission09,
 					missionId = 10405,
 					startValue = 1,
 					endValue = 1,
@@ -5771,7 +5771,7 @@ if not Quests then
 				},
 				[10] = {
 					name = "Mission 10: Tomb Raiding",
-					storageId = Storage.Rookgaard.TheRookieGuard.Mission10,
+					storageId = Storage.TheRookieGuard.Mission10,
 					missionId = 10406,
 					startValue = 1,
 					endValue = 1,
@@ -5783,7 +5783,7 @@ if not Quests then
 				},
 				[11] = {
 					name = "Mission 11: Sweet Poison",
-					storageId = Storage.Rookgaard.TheRookieGuard.Mission11,
+					storageId = Storage.TheRookieGuard.Mission11,
 					missionId = 10407,
 					startValue = 1,
 					endValue = 1,
@@ -5797,7 +5797,7 @@ if not Quests then
 				},
 				[12] = {
 					name = "Mission 12: Into The Fortress",
-					storageId = Storage.Rookgaard.TheRookieGuard.Mission12,
+					storageId = Storage.TheRookieGuard.Mission12,
 					missionId = 10408,
 					startValue = 1,
 					endValue = 1,
