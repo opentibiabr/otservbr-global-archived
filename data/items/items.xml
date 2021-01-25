@@ -50414,7 +50414,7 @@
 	<item id="38756" name="Malice's spine">
 		<attribute key="weight" value="230" />
 	</item>
-	<item id="38757" name="Cruelty's claw" lural="Cruelty's claws">
+	<item id="38757" name="Cruelty's claw" plural="Cruelty's claws">
 		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="140" />
 	</item>
