@@ -51876,4 +51876,175 @@
 		<attribute key="shootType" value="spectralbolt" />
 		<attribute key="maxHitChance" value="100" />
 	</item>
+	<item id="40746" article="a" name="grandiose cupboard">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40747" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40747" article="a" name="grandiose cupboard">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40746" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40748" article="a" name="grandiose table">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40749" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40749" article="a" name="grandiose table">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40748" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40750" article="a" name="grandiose chair">
+		<attribute key="rotateTo" value="40751" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40751" article="a" name="grandiose chair">
+		<attribute key="rotateTo" value="40752" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40752" article="a" name="grandiose chair">
+		<attribute key="rotateTo" value="40753" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40753" article="a" name="grandiose chair">
+		<attribute key="rotateTo" value="40750" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40754" article="a" name="grandiose refined chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40755" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40755" article="a" name="grandiose refined chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40756" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40756" article="a" name="grandiose refined chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40757" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40757" article="a" name="grandiose refined chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40754" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40758" article="a" name="grandiose gilded chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40759" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40759" article="a" name="grandiose gilded chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40760" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40760" article="a" name="grandiose gilded chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40761" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40761" article="a" name="grandiose gilded chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40758" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40762" article="a" name="grandiose couch left">
+		<attribute key="rotateTo" value="40791" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40791" article="a" name="grandiose couch left">
+		<attribute key="rotateTo" value="40796" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40796" article="a" name="grandiose couch left">
+		<attribute key="rotateTo" value="40799" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40799" article="a" name="grandiose couch left">
+		<attribute key="rotateTo" value="40762" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40789" article="a" name="grandiose couch middle">
+		<attribute key="rotateTo" value="40792" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40792" article="a" name="grandiose couch middle">
+		<attribute key="rotateTo" value="40795" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40795" article="a" name="grandiose couch middle">
+		<attribute key="rotateTo" value="40798" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40798" article="a" name="grandiose couch middle">
+		<attribute key="rotateTo" value="40789" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40790" article="a" name="grandiose couch right">
+		<attribute key="rotateTo" value="40793" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40793" article="a" name="grandiose couch right">
+		<attribute key="rotateTo" value="40794" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40794" article="a" name="grandiose couch right">
+		<attribute key="rotateTo" value="40797" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40797" article="a" name="grandiose couch right">
+		<attribute key="rotateTo" value="40790" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40777" article="a" name="grandiose carpet">
+		<attribute key="type" value="carpet" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40776" article="a" name="folded grandiose carpet">
+		<attribute key="type" value="carpet" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<!-- missing beds -->
+	<item id="40784" article="a" name="portable aqueduct">
+		<attribute key="rotateTo" value="40804" />
+		<attribute key="duration" value="200" />
+		<attribute key="decayTo" value="40785" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40785" article="a" name="portable aqueduct">
+		<attribute key="duration" value="1" />
+		<attribute key="decayTo" value="40786" />
+	</item>
+	<item id="40786" article="a" name="portable aqueduct">
+		<attribute key="duration" value="200" />
+		<attribute key="rotateTo" value="40806" />
+		<attribute key="decayTo" value="40787" />
+	</item>
+	<item id="40787" article="a" name="portable aqueduct">
+		<attribute key="duration" value="1" />
+		<attribute key="decayTo" value="40784" />
+	</item>
+	<item id="40804" article="a" name="portable aqueduct">
+		<attribute key="rotateTo" value="40784" />
+		<attribute key="duration" value="200" />
+		<attribute key="decayTo" value="40805" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40805" article="a" name="portable aqueduct">
+		<attribute key="duration" value="1" />
+		<attribute key="decayTo" value="40806" />
+	</item>
+	<item id="40806" article="a" name="portable aqueduct">
+		<attribute key="duration" value="200" />
+		<attribute key="rotateTo" value="40786" />
+		<attribute key="decayTo" value="40807" />
+	</item>
+	<item id="40807" article="a" name="portable aqueduct">
+		<attribute key="duration" value="1" />
+		<attribute key="decayTo" value="40804" />
+	</item>
 </items>
