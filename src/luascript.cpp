@@ -9124,16 +9124,14 @@ int LuaScriptInterface::luaPlayerSetCapacity(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaPlayerSetTraining(lua_State* L)
-{
+int LuaScriptInterface::luaPlayerSetTraining(lua_State* L) {
 	// player:setTraining(value)
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
 		bool value = getBoolean(L, 2, false);
 		player->setTraining(value);
 		pushBoolean(L, true);
-	}
-	else {
+	} else {
 		lua_pushnil(L);
 	}
 	return 1;
