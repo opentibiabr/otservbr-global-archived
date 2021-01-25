@@ -1370,6 +1370,28 @@ Storage = {
 		CarlosNpcGreetStorage = 51677,
 		CarlosQuestLog = 51678
 	},
+	Rookgaard = {
+		--Reserved storage 51260 - 51290
+		TheRookieGuard = {
+			Questline = 51260,
+			Mission01 = 51261,
+			Mission03 = 51262,
+			Mission04 = 51263,
+			Mission05 = 51264,
+			Mission06 = 51265,
+			Mission07 = 51266,
+			Mission08 = 51267,
+			Mission09 = 51268,
+			Mission10 = 51269,
+			Mission11 = 51270,
+			Mission12 = 51271,
+			StoneTimer = 51272,
+			Catapults = 51273,
+			RatsCounter = 51274,
+			TunnelPillars = 51275,
+			EnergyBarriers = 51276
+		}
+	},
 	BanutaSecretTunnel = {
 		-- Reserved storage from 51680 - 51689
 		DeeperBanutaShortcut = 51680,
