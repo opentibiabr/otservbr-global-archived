@@ -95,6 +95,8 @@ CustomDoorTable = {
 	{ closedDoor = 6200, openDoor = 6201 },
 	{ closedDoor = 6255, openDoor = 6256 },
 	{ closedDoor = 6257, openDoor = 6258 },
+	{ closedDoor = 6894, openDoor = 6895 },
+	{ closedDoor = 6903, openDoor = 6904 },
 	{ closedDoor = 7036, openDoor = 7037 },
 	{ closedDoor = 7045, openDoor = 7046 },
 	{ closedDoor = 7054, openDoor = 7055 },
