@@ -1904,9 +1904,11 @@ void ProtocolGame::parseBestiarysendCreatures(NetworkMessage &msg)
 		std::map<uint16_t, std::string> mtype_list = g_game.getBestiaryList();
 		for (uint16_t monsterCount = 1; monsterCount <= monsterAmount; monsterCount++) {
 			uint16_t raceid = msg.get<uint16_t>();
-			auto it = mtype_list.find(raceid);
-			if (it != mtype_list.end()) {
-				race.insert({raceid, it->second});
+			if (player->getBestiaryKillCount(raceid) > 0) {
+				auto it = mtype_list.find(raceid);
+				if (it != mtype_list.end()) {
+						race.insert({raceid, it->second});
+				}
 			}
 		}
 	} else {
