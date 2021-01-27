@@ -3,7 +3,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   git \
   cmake \
   build-essential \
-	ca-certificates \
+  ca-certificates \
   libboost-date-time-dev \
   libboost-system-dev \
   libboost-filesystem-dev \
