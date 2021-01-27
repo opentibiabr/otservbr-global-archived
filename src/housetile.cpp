@@ -26,9 +26,6 @@
 #include "game.h"
 #include "configmanager.h"
 
-extern Game g_game;
-extern ConfigManager g_config;
-
 HouseTile::HouseTile(int32_t initX, int32_t initY, int32_t initZ, House* initHouse) :
 	DynamicTile(initX, initY, initZ), house(initHouse) {}
 
@@ -114,14 +111,14 @@ Tile* HouseTile::queryDestination(int32_t& index, const Thing& thing, Item** des
 		if (const Player* player = creature->getPlayer()) {
 			if (!house->isInvited(player)) {
 				const Position& entryPos = house->getEntryPosition();
-				Tile* destTile = g_game.map.getTile(entryPos);
+				Tile* destTile = g_game().map.getTile(entryPos);
 				if (!destTile) {
 					std::cout << "Error: [HouseTile::queryDestination] House entry not correct"
 						<< " - Name: " << house->getName()
 						<< " - House id: " << house->getId()
 						<< " - Tile not found: " << entryPos << std::endl;
 
-					destTile = g_game.map.getTile(player->getTemplePosition());
+					destTile = g_game().map.getTile(player->getTemplePosition());
 					if (!destTile) {
 						destTile = &(Tile::nullptr_tile);
 					}
@@ -144,7 +141,7 @@ ReturnValue HouseTile::queryRemove(const Thing& thing, uint32_t count, uint32_t 
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
 
-	if (actor && g_config.getBoolean(ConfigManager::ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS)) {
+	if (actor && g_config().getBoolean(ConfigManager::ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS)) {
 		Player* actorPlayer = actor->getPlayer();
 		if (!house->isInvited(actorPlayer)) {
 			return RETURNVALUE_NOTPOSSIBLE;

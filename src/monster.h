@@ -48,7 +48,7 @@ class Monster final : public Creature
 		explicit Monster(MonsterType* mType);
 		~Monster();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Monster(const Monster&) = delete;
 		Monster& operator=(const Monster&) = delete;
 

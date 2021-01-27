@@ -729,6 +729,40 @@ struct ShopInfo {
 };
 
 struct MarketOffer {
+	MarketOffer() = default;
+	MarketOffer(uint32_t price, uint32_t timestamp, uint16_t amount, uint16_t counter, uint16_t itemId, std::string playerName) :
+		price(price), timestamp(timestamp), amount(amount), counter(counter), itemId(itemId), playerName(std::move(playerName)) {}
+
+	// copyable
+	MarketOffer(const MarketOffer& rhs) :
+		price(rhs.price), timestamp(rhs.timestamp), amount(rhs.amount), counter(rhs.counter), itemId(rhs.itemId), playerName(rhs.playerName) {}
+	MarketOffer& operator=(const MarketOffer& rhs) {
+		if (this != &rhs) {
+			price = rhs.price;
+			timestamp = rhs.timestamp;
+			amount = rhs.amount;
+			counter = rhs.counter;
+			itemId = rhs.itemId;
+			playerName = rhs.playerName;
+		}
+		return *this;
+	}
+
+	// moveable
+	MarketOffer(MarketOffer&& rhs) noexcept :
+		price(rhs.price), timestamp(rhs.timestamp), amount(rhs.amount), counter(rhs.counter), itemId(rhs.itemId), playerName(std::move(rhs.playerName)) {}
+	MarketOffer& operator=(MarketOffer&& rhs) noexcept {
+		if (this != &rhs) {
+			price = rhs.price;
+			timestamp = rhs.timestamp;
+			amount = rhs.amount;
+			counter = rhs.counter;
+			itemId = rhs.itemId;
+			playerName = std::move(rhs.playerName);
+		}
+		return *this;
+	}
+
 	uint32_t price;
 	uint32_t timestamp;
 	uint16_t amount;
@@ -756,6 +790,10 @@ struct MarketOfferEx {
 };
 
 struct HistoryMarketOffer {
+	HistoryMarketOffer() = default;
+	HistoryMarketOffer(uint32_t timestamp, uint32_t price, uint16_t itemId, uint16_t amount, MarketOfferState_t state) :
+		timestamp(timestamp), price(price), itemId(itemId), amount(amount), state(state) {}
+
 	uint32_t timestamp;
 	uint32_t price;
 	uint16_t itemId;
@@ -824,8 +862,8 @@ struct CombatDamage
 };
 
 using StashItemList = std::map<uint16_t, uint32_t>;
-using MarketOfferList = std::list<MarketOffer>;
-using HistoryMarketOfferList = std::list<HistoryMarketOffer>;
+using MarketOfferList = std::vector<MarketOffer>;
+using HistoryMarketOfferList = std::vector<HistoryMarketOffer>;
 using ShopInfoList = std::vector<ShopInfo>;
 
 enum MonstersEvent_t : uint8_t {

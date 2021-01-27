@@ -104,9 +104,10 @@ class NpcEventsHandler
 class Npc final : public Creature
 {
 	public:
+		explicit Npc();
 		~Npc();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Npc(const Npc&) = delete;
 		Npc& operator=(const Npc&) = delete;
 

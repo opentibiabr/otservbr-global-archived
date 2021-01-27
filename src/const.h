@@ -22,6 +22,9 @@
 
 static constexpr size_t NETWORKMESSAGE_PLAYERNAME_MAXLENGTH = 30;
 static constexpr int32_t NETWORKMESSAGE_MAXSIZE = 24590;
+//QT clients probably have bigger input buffer because of exiva options
+//but for now we don't support exiva options
+static constexpr int32_t INPUTMESSAGE_MAXSIZE = 2048;
 
 enum MagicEffectClasses : uint8_t {
 	CONST_ME_NONE,
@@ -692,6 +695,8 @@ static constexpr int32_t PSTRG_MOUNTS_CURRENTMOUNT = (PSTRG_MOUNTS_RANGE_START +
 // [3000 - 3500];
 static constexpr int32_t PSTRG_FAMILIARS_RANGE_START = (PSTRG_RESERVED_RANGE_START + 3000);
 static constexpr int32_t PSTRG_FAMILIARS_RANGE_SIZE = 500;
+
+static constexpr int16_t DEFAULT_ATTACK_SPEED = 2000;
 
 #define IS_IN_KEYRANGE(key, range) (key >= PSTRG_##range##_START && ((key - PSTRG_##range##_START) <= PSTRG_##range##_SIZE))
 

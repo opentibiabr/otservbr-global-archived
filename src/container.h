@@ -56,7 +56,7 @@ class Container : public Item, public Cylinder
 		explicit Container(Tile* type);
 		~Container();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Container(const Container&) = delete;
 		Container& operator=(const Container&) = delete;
 

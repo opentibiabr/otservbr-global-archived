@@ -23,6 +23,17 @@
 class ConfigManager
 {
 	public:
+		// Singleton - ensures we don't accidentally copy it
+		ConfigManager(ConfigManager const&) = delete;
+		void operator=(ConfigManager const&) = delete;
+
+		static ConfigManager& getInstance() {
+			// Guaranteed to be destroyed
+			static ConfigManager instance;
+			// Instantiated on first use
+			return instance;
+		}
+
 		enum boolean_config_t {
 			ALLOW_CHANGEOUTFIT,
 			ONE_PLAYER_ON_ACCOUNT,
@@ -128,6 +139,7 @@ class ConfigManager
 			MAX_MARKET_OFFERS_AT_A_TIME_PER_PLAYER,
 			EXP_FROM_PLAYERS_LEVEL_RANGE,
 			MAX_PACKETS_PER_SECOND,
+			COMPRESSION_LEVEL,
 			STORE_COIN_PACKET,
 			DAY_KILLS_TO_RED,
 			WEEK_KILLS_TO_RED,
@@ -160,6 +172,10 @@ class ConfigManager
 		bool getBoolean(boolean_config_t what) const;
 		float getFloat(floating_config_t what) const;
 
+		void setString(string_config_t what, std::string& value);
+		void setNumber(integer_config_t what, int32_t value);
+		void setBoolean(boolean_config_t what, bool value);
+
 		std::string const& setConfigFileLua(const std::string& what) {
 			configFileLua = { what };
 			return configFileLua;
@@ -169,6 +185,8 @@ class ConfigManager
 		};
 
 	private:
+		ConfigManager() {}
+
 		std::string configFileLua = { "config.lua" };
 		std::string string[LAST_STRING_CONFIG] = {};
 		int32_t integer[LAST_INTEGER_CONFIG] = {};
@@ -177,5 +195,7 @@ class ConfigManager
 
 		bool loaded = false;
 };
+
+constexpr auto g_config = &ConfigManager::getInstance;
 
 #endif

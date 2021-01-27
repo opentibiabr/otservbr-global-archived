@@ -35,6 +35,7 @@
 #include <memory>
 #include <mutex>
 #include <sstream>
+#include "string_extend.h"
 #include <string>
 #include <thread>
 #include <unordered_map>
@@ -43,5 +44,6 @@
 #include <boost/asio.hpp>
 
 #include <pugixml.hpp>
+#include "robin_hood.h"
 
 #endif

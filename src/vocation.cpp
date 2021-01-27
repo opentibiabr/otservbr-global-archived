@@ -153,6 +153,14 @@ bool Vocations::loadFromXml()
 	return true;
 }
 
+void Vocations::addVocation(Vocation voc) {
+	if (voc.getId() <= 0) {
+		std::cout << "[Warning - Vocations::addVocation] Cannot add invalid vocation." << std::endl;
+		return;
+	}
+	vocationsMap.emplace(voc.getId(), voc);
+}
+
 Vocation* Vocations::getVocation(uint16_t id)
 {
 	auto it = vocationsMap.find(id);

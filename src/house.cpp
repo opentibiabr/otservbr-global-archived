@@ -27,9 +27,6 @@
 #include "configmanager.h"
 #include "bed.h"
 
-extern ConfigManager g_config;
-extern Game g_game;
-
 House::House(uint32_t houseId) : id(houseId) {}
 
 void House::addTile(HouseTile* tile)
@@ -87,7 +84,7 @@ void House::setOwner(uint32_t guid, bool updateDatabase/* = true*/, Player* play
 			door->setAccessList("");
 		}
 	} else {
-		std::string strRentPeriod = asLowerCaseString(g_config.getString(ConfigManager::HOUSE_RENT_PERIOD));
+		std::string strRentPeriod = asLowerCaseString(g_config().getString(ConfigManager::HOUSE_RENT_PERIOD));
 		time_t currentTime = time(nullptr);
 		if (strRentPeriod == "yearly") {
 		    currentTime += 24 * 60 * 60 * 365;
@@ -135,7 +132,7 @@ void House::updateDoorDescription() const
 	} else {
 		ss << "It belongs to house '" << houseName << "'. Nobody owns this house.";
 
-		const int32_t housePrice = g_config.getNumber(ConfigManager::HOUSE_PRICE);
+		const int32_t housePrice = g_config().getNumber(ConfigManager::HOUSE_PRICE);
 		if (housePrice != -1) {
 			ss << " It costs " << (houseTiles.size() * housePrice) << " gold coins.";
 		}
@@ -152,7 +149,7 @@ AccessHouseLevel_t House::getHouseAccessLevel(const Player* player)
 		return HOUSE_OWNER;
 	}
 
-	if (g_config.getBoolean(ConfigManager::HOUSE_OWNED_BY_ACCOUNT)) {
+	if (g_config().getBoolean(ConfigManager::HOUSE_OWNED_BY_ACCOUNT)) {
 		if (ownerAccountId == player->getAccount()) {
 			return HOUSE_OWNER;
 		}
@@ -193,9 +190,9 @@ bool House::kickPlayer(Player* player, Player* target)
 	}
 
 	Position oldPosition = target->getPosition();
-	if (g_game.internalTeleport(target, getEntryPosition()) == RETURNVALUE_NOERROR) {
-		g_game.addMagicEffect(oldPosition, CONST_ME_POFF);
-		g_game.addMagicEffect(getEntryPosition(), CONST_ME_TELEPORT);
+	if (g_game().internalTeleport(target, getEntryPosition()) == RETURNVALUE_NOERROR) {
+		g_game().addMagicEffect(oldPosition, CONST_ME_POFF);
+		g_game().addMagicEffect(getEntryPosition(), CONST_ME_TELEPORT);
 	}
 	return true;
 }
@@ -235,7 +232,7 @@ bool House::transferToDepot() const
 		return false;
 	}
 
-	Player* player = g_game.getPlayerByGUID(owner);
+	Player* player = g_game().getPlayerByGUID(owner);
 	if (player) {
 		transferToDepot(player);
 	} else {
@@ -280,7 +277,7 @@ int constructionKits[58][2] = {
 					}
 					std::string itemName = item->getName();
 					uint16_t itemID = item->getID();
-					Item* newItem = g_game.transformItem(item, 26054);
+					Item* newItem = g_game().transformItem(item, 26054);
 					ItemAttributes::CustomAttribute val;
 					val.set<int64_t>(itemID);
 					std::string key = "unWrapId";
@@ -302,7 +299,7 @@ int constructionKits[58][2] = {
 					}
 					for (int i = 0; i < 58; i++) {
 						if (constructionKits[i][1] == item->getID()) {
-							Item* newItem = g_game.transformItem(item, constructionKits[i][0]);
+							Item* newItem = g_game().transformItem(item, constructionKits[i][0]);
 							moveItemList.push_back(newItem);
 							break;
 						}
@@ -313,7 +310,7 @@ int constructionKits[58][2] = {
 								newRotation = Item::items[newRotation].rotateTo;
 								if (newRotation == item->getID()) break;
 								if (newRotation == constructionKits[i][1]) {
-									Item* newItem = g_game.transformItem(item, constructionKits[i][0]);
+									Item* newItem = g_game().transformItem(item, constructionKits[i][0]);
 									moveItemList.push_back(newItem);
 									break;
 								}
@@ -326,7 +323,7 @@ int constructionKits[58][2] = {
 	}
 
 	for (Item* item : moveItemList) {
-		g_game.internalMoveItem(item->getParent(), player->getInbox(), INDEX_WHEREEVER, item, item->getItemCount(), nullptr, FLAG_NOLIMIT);
+		g_game().internalMoveItem(item->getParent(), player->getInbox(), INDEX_WHEREEVER, item, item->getItemCount(), nullptr, FLAG_NOLIMIT);
 	}
 	return true;
 }
@@ -431,7 +428,7 @@ void House::resetTransferItem()
 		transfer_container.setParent(nullptr);
 
 		transfer_container.removeThing(tmpItem, tmpItem->getItemCount());
-		g_game.ReleaseItem(tmpItem);
+		g_game().ReleaseItem(tmpItem);
 	}
 }
 
@@ -454,7 +451,7 @@ void HouseTransferItem::onTradeEvent(TradeEvents_t event, Player* owner)
 			house->executeTransfer(this, owner);
 		}
 
-		g_game.internalRemoveItem(this, 1);
+		g_game().internalRemoveItem(this, 1);
 	} else if (event == ON_TRADE_CANCEL) {
 		if (house) {
 			house->resetTransferItem();
@@ -516,7 +513,7 @@ void AccessList::parseList(const std::string& list)
 
 void AccessList::addPlayer(const std::string& name)
 {
-	Player* player = g_game.getPlayerByName(name);
+	Player* player = g_game().getPlayerByName(name);
 	if (player) {
 		playerList.insert(player->getGUID());
 	} else {
@@ -536,7 +533,7 @@ const Guild* getGuildByName(const std::string& name)
 		return nullptr;
 	}
 
-	const Guild* guild = g_game.getGuild(guildId);
+	const Guild* guild = g_game().getGuild(guildId);
 	if (guild) {
 		return guild;
 	}
@@ -551,16 +548,16 @@ void AccessList::addGuild(const std::string& name)
 	const Guild* guild = getGuildByName(name);
 	if (guild) {
 		for (const auto& rank : guild->getRanks()) {
-			guildRankList.insert(rank->id);
+			guildRankList.insert(rank.id);
 		}
 	}
 }
 
-void AccessList::addGuildRank(const std::string& name, const std::string& guildName)
+void AccessList::addGuildRank(const std::string& name, const std::string& rankName)
 {
-	const Guild* guild = getGuildByName(guildName);
+	const Guild* guild = getGuildByName(name);
 	if (guild) {
-		const GuildRank_ptr rank = guild->getRankByName(name);
+		const GuildRank* rank = guild->getRankByName(rankName);
 		if (rank) {
 			guildRankList.insert(rank->id);
 		}
@@ -578,7 +575,7 @@ bool AccessList::isInList(const Player* player)
 		return true;
 	}
 
-	GuildRank_ptr rank = player->getGuildRank();
+	const GuildRank* rank = player->getGuildRank();
 	return rank && guildRankList.find(rank->id) != guildRankList.end();
 }
 
@@ -731,7 +728,7 @@ void Houses::payHouses(RentPeriod_t rentPeriod) const
 		}
 
 		const uint32_t ownerId = house->getOwner();
-		Town* town = g_game.map.towns.getTown(house->getTownId());
+		Town* town = g_game().map.towns.getTown(house->getTownId());
 		if (!town) {
 			continue;
 		}
@@ -796,7 +793,7 @@ void Houses::payHouses(RentPeriod_t rentPeriod) const
 				std::ostringstream ss;
 				ss << "Warning! \nThe " << period << " rent of " << house->getRent() << " gold for your house \"" << house->getName() << "\" is payable. Have it within " << daysLeft << " days or you will lose this house.";
 				letter->setText(ss.str());
-				g_game.internalAddItem(player.getInbox(), letter, INDEX_WHEREEVER, FLAG_NOLIMIT);
+				g_game().internalAddItem(player.getInbox(), letter, INDEX_WHEREEVER, FLAG_NOLIMIT);
 				house->setPayRentWarnings(house->getPayRentWarnings() + 1);
 			} else {
 				house->setOwner(0, true, &player);

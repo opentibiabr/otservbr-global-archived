@@ -37,8 +37,7 @@ Account::Account() {
   premium_remaining_days_ = 0;
   premium_last_day_ = 0;
   account_type_ = ACCOUNT_TYPE_NORMAL;
-  db_ = &Database::getInstance();
-  db_tasks_ = &g_databaseTasks;
+  db_tasks_ = &g_databaseTasks();
 }
 
 Account::Account(uint32_t id) {
@@ -48,8 +47,7 @@ Account::Account(uint32_t id) {
   premium_remaining_days_ = 0;
   premium_last_day_ = 0;
   account_type_ = ACCOUNT_TYPE_NORMAL;
-  db_ = &Database::getInstance();
-  db_tasks_ = &g_databaseTasks;
+  db_tasks_ = &g_databaseTasks();
 }
 
 Account::Account(std::string name) {
@@ -59,8 +57,7 @@ Account::Account(std::string name) {
   premium_remaining_days_ = 0;
   premium_last_day_ = 0;
   account_type_ = ACCOUNT_TYPE_NORMAL;
-  db_ = &Database::getInstance();
-  db_tasks_ = &g_databaseTasks;
+  db_tasks_ = &g_databaseTasks();
 }
 
 

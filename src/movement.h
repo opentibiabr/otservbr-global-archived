@@ -25,8 +25,6 @@
 #include "luascript.h"
 #include "vocation.h"
 
-extern Vocations g_vocations;
-
 enum MoveEvent_t {
 	MOVE_EVENT_STEP_IN,
 	MOVE_EVENT_STEP_OUT,
@@ -56,9 +54,16 @@ class MoveEvents final : public BaseEvents
 		MoveEvents();
 		~MoveEvents();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		MoveEvents(const MoveEvents&) = delete;
 		MoveEvents& operator=(const MoveEvents&) = delete;
+
+		static MoveEvents& getInstance() {
+			// Guaranteed to be destroyed
+			static MoveEvents instance;
+			// Instantiated on first use
+			return instance;
+		}
 
 		uint32_t onCreatureMove(Creature* creature, const Tile* tile, MoveEvent_t eventType);
 		uint32_t onPlayerEquip(Player* player, Item* item, slots_t slot, bool isCheck);
@@ -151,7 +156,7 @@ class MoveEvent final : public Event
 			return vocEquipMap;
 		}
 		void addVocEquipMap(std::string vocName) {
-			int32_t vocationId = g_vocations.getVocationId(vocName);
+			int32_t vocationId = g_vocations().getVocationId(vocName);
 			if (vocationId != -1) {
 				vocEquipMap[vocationId] = true;
 			}
@@ -247,5 +252,7 @@ class MoveEvent final : public Event
 		std::vector<uint32_t> uniqueIdRange;
 		std::vector<Position> posList;
 };
+
+constexpr auto g_moveEvents = &MoveEvents::getInstance;
 
 #endif

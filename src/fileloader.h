@@ -148,7 +148,7 @@ class PropWriteStream
 	public:
 		PropWriteStream() = default;
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		PropWriteStream(const PropWriteStream&) = delete;
 		PropWriteStream& operator=(const PropWriteStream&) = delete;
 

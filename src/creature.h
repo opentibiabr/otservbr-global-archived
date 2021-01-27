@@ -103,7 +103,7 @@ class Creature : virtual public Thing
 
 		virtual ~Creature();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Creature(const Creature&) = delete;
 		Creature& operator=(const Creature&) = delete;
 
@@ -158,6 +158,7 @@ class Creature : virtual public Thing
 			return skull;
 		}
 		virtual Skulls_t getSkullClient(const Creature* creature) const {
+			if (!creature) return SKULL_NONE;
 			return creature->getSkull();
 		}
 		void setSkull(Skulls_t newSkull);
@@ -470,6 +471,7 @@ class Creature : virtual public Thing
 			return tile;
 		}
 		void setParent(Cylinder* cylinder) override final {
+			if (!cylinder) return;
 			tile = static_cast<Tile*>(cylinder);
 			position = tile->getPosition();
 		}
@@ -555,7 +557,7 @@ class Creature : virtual public Thing
 		uint32_t referenceCounter = 0;
 		uint32_t id = 0;
 		uint32_t scriptEventsBitField = 0;
-		uint32_t eventWalk = 0;
+		uint64_t eventWalk = 0;
 		uint32_t walkUpdateTicks = 0;
 		int32_t returnToMasterInterval = 0;
 		uint32_t lastHitCreatureId = 0;

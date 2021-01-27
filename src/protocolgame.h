@@ -39,8 +39,6 @@ class Quest;
 class ProtocolGame;
 using ProtocolGame_ptr = std::shared_ptr<ProtocolGame>;
 
-extern Game g_game;
-
 struct TextMessage
 {
 	MessageClasses type = MESSAGE_STATUS_DEFAULT;
@@ -321,6 +319,7 @@ private:
 
 	void sendUpdatedVIPStatus(uint32_t guid, VipStatus_t newStatus);
 	void sendVIP(uint32_t guid, const std::string &name, const std::string &description, uint32_t icon, bool notify, VipStatus_t status);
+	void sendVIPEntries();
 
 	void sendPendingStateEntered();
 	void sendEnterWorld();
@@ -428,19 +427,6 @@ private:
 
 	friend class Player;
 
-	// Helpers so we don't need to bind every time
-	template <typename Callable, typename... Args>
-	void addGameTask(Callable function, Args &&... args)
-	{
-		g_dispatcher.addTask(createTask(std::bind(function, &g_game, std::forward<Args>(args)...)));
-	}
-
-	template <typename Callable, typename... Args>
-	void addGameTaskTimed(uint32_t delay, Callable function, Args &&... args)
-	{
-		g_dispatcher.addTask(createTask(delay, std::bind(function, &g_game, std::forward<Args>(args)...)));
-	}
-
 	std::unordered_set<uint32_t> knownCreatureSet;
 	Player *player = nullptr;
 
@@ -461,7 +447,7 @@ private:
 
 	void sendOpenStash();
 	void AddPlayerStowedItems(NetworkMessage &msg);
-	void parseStashWithdraw(NetworkMessage &msg);
+	void parseStashAction(NetworkMessage &msg);
 	void sendSpecialContainersAvailable(bool supplyStashAvailable);
 };
 

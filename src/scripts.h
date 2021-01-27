@@ -17,16 +17,38 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef TFS_XTEA_H
-#define TFS_XTEA_H
+#ifndef FS_SCRIPTS_H
+#define FS_SCRIPTS_H
 
-namespace xtea {
+#include "luascript.h"
+#include "enums.h"
 
-using key = std::array<uint32_t, 4>;
+class Scripts
+{
+	public:
+		Scripts();
+		~Scripts();
 
-void encrypt(uint8_t* data, size_t length, const key& k);
-void decrypt(uint8_t* data, size_t length, const key& k);
+		// Singleton - ensures we don't accidentally copy it
+		Scripts(Scripts const&) = delete;
+		void operator=(Scripts const&) = delete;
 
-} // namespace xtea
+		static Scripts& getInstance() {
+			// Guaranteed to be destroyed
+			static Scripts instance;
+			// Instantiated on first use
+			return instance;
+		}
 
-#endif // TFS_XTEA_H
+		bool loadEventSchedulerScripts(const std::string& fileName);
+		bool loadScripts(std::string folderName, bool isLib, bool reload);
+		LuaScriptInterface& getScriptInterface() {
+			return scriptInterface;
+		}
+	private:
+		LuaScriptInterface scriptInterface;
+};
+
+constexpr auto g_scripts = &Scripts::getInstance;
+
+#endif

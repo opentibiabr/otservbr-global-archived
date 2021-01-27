@@ -65,7 +65,7 @@ class ServicePort : public std::enable_shared_from_this<ServicePort>
 		explicit ServicePort(boost::asio::io_service& init_io_service) : io_service(init_io_service) {}
 		~ServicePort();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		ServicePort(const ServicePort&) = delete;
 		ServicePort& operator=(const ServicePort&) = delete;
 
@@ -98,7 +98,7 @@ class ServiceManager
 		ServiceManager() = default;
 		~ServiceManager();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		ServiceManager(const ServiceManager&) = delete;
 		ServiceManager& operator=(const ServiceManager&) = delete;
 

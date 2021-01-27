@@ -33,11 +33,6 @@
 #include "actions.h"
 #include "spells.h"
 
-extern Game g_game;
-extern Spells* g_spells;
-extern Vocations g_vocations;
-extern Imbuements g_imbuements;
-
 Items Item::items;
 
 Item* Item::CreateItem(const uint16_t type, uint16_t count /*= 0*/)
@@ -210,7 +205,7 @@ Item* Item::clone() const
 		if (item->getDuration() > 0) {
 			item->incrementReferenceCounter();
 			item->setDecaying(DECAYING_TRUE);
-			g_game.toDecayItems.push_front(item);
+			g_game().toDecayItems.push_front(item);
 		}
 	}
 	return item;
@@ -271,7 +266,7 @@ void Item::onRemoved()
 	ScriptEnvironment::removeTempItem(this);
 
 	if (hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
-		g_game.removeUniqueItem(getUniqueId());
+		g_game().removeUniqueItem(getUniqueId());
 	}
 }
 
@@ -1394,7 +1389,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 
 	if (it.isRune()) {
 		if (it.runeLevel > 0 || it.runeMagLevel > 0) {
-			if (RuneSpell* rune = g_spells->getRuneSpell(it.id)) {
+			if (RuneSpell* rune = g_spells().getRuneSpell(it.id)) {
 				int32_t tmpSubType = subType;
 				if (item) {
 					tmpSubType = item->getSubType();
@@ -1409,7 +1404,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 				showVocMap.reserve(vocMap.size() / 2);
 				for (const auto& voc : vocMap) {
 					if (voc.second) {
-						showVocMap.push_back(g_vocations.getVocation(voc.first));
+						showVocMap.push_back(g_vocations().getVocation(voc.first));
 					}
 				}
 
@@ -2257,7 +2252,7 @@ void Item::setUniqueId(uint16_t n)
 		return;
 	}
 
-	if (g_game.addUniqueItem(n, this)) {
+	if (g_game().addUniqueItem(n, this)) {
 		getAttributes()->setUniqueId(n);
 	}
 }
@@ -2418,7 +2413,7 @@ ItemAttributes::Attribute& ItemAttributes::getAttr(itemAttrTypes type)
 
 void Item::startDecaying()
 {
-	g_game.startDecay(this);
+	g_game().startDecay(this);
 }
 
 bool Item::hasMarketAttributes() const

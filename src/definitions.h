@@ -30,6 +30,8 @@ static constexpr auto CLIENT_VERSION_STR = "12.60";
 static constexpr auto AUTHENTICATOR_DIGITS = 6U;
 static constexpr auto AUTHENTICATOR_PERIOD = 30U;
 
+#define SERVER_BEAT_MILISECONDS 50
+
 #ifndef __FUNCTION__
 #define __FUNCTION__ __func__
 #endif

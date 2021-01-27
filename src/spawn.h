@@ -41,7 +41,7 @@ class Spawn
 		Spawn(Position initPos, int32_t initRadius) : centerPos(std::move(initPos)), radius(initRadius) {}
 		~Spawn();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Spawn(const Spawn&) = delete;
 		Spawn& operator=(const Spawn&) = delete;
 

@@ -23,8 +23,6 @@
 #include "game.h"
 #include "iologindata.h"
 
-extern Game g_game;
-
 ReturnValue Mailbox::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t, Creature*) const
 {
 	const Item* item = thing.getItem();
@@ -100,7 +98,7 @@ bool Mailbox::sendItem(Item* item) const
 		return false;
 	}
 
-	Player* player = g_game.getPlayerByName(receiver);
+	Player* player = g_game().getPlayerByName(receiver);
 	std::string writer;
 	time_t date = time(0);
 	std::string text;
@@ -110,9 +108,9 @@ bool Mailbox::sendItem(Item* item) const
 		text = item->getText();
 	}
 	if (player) {
-		if (g_game.internalMoveItem(item->getParent(), player->getInbox(), INDEX_WHEREEVER,
+		if (g_game().internalMoveItem(item->getParent(), player->getInbox(), INDEX_WHEREEVER,
 		                            item, item->getItemCount(), nullptr, FLAG_NOLIMIT) == RETURNVALUE_NOERROR) {
-			Item* newItem = g_game.transformItem(item, item->getID() + 1);
+			Item* newItem = g_game().transformItem(item, item->getID() + 1);
 			if (newItem && newItem->getID() == ITEM_LETTER_STAMPED && writer != "") {
 				newItem->setWriter(writer);
 				newItem->setDate(date);
@@ -127,9 +125,9 @@ bool Mailbox::sendItem(Item* item) const
 			return false;
 		}
 
-		if (g_game.internalMoveItem(item->getParent(), tmpPlayer.getInbox(), INDEX_WHEREEVER,
+		if (g_game().internalMoveItem(item->getParent(), tmpPlayer.getInbox(), INDEX_WHEREEVER,
 		                            item, item->getItemCount(), nullptr, FLAG_NOLIMIT) == RETURNVALUE_NOERROR) {
-			Item* newItem = g_game.transformItem(item, item->getID() + 1);
+			Item* newItem = g_game().transformItem(item, item->getID() + 1);
 			if (newItem && newItem->getID() == ITEM_LETTER_STAMPED && writer != "") {
 				newItem->setWriter(writer);
 				newItem->setDate(date);
