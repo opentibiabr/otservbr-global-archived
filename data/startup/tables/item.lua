@@ -54,6 +54,54 @@ ItemAction = {
 			{ x = 33909, y = 31642, z = 9 },
 			{ x = 33916, y = 31642, z = 9 }
 		}
+	},
+	-- The Rookie Guard Quest - Mission 02: Defence!
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission02_defense.lua
+	-- Stone piles
+	[40005] = {
+		itemId = 13867,
+		itemPos = {
+			{x = 32080, y = 32183, z = 8},
+			{x = 32080, y = 32184, z = 8},
+			{x = 32081, y = 32184, z = 8}
+		}
+	},
+	-- Bar catapult
+	[40006] = {
+		itemId = false,
+		itemPos = {
+			{x = 32098, y = 32176, z = 5},
+			{x = 32099, y = 32176, z = 5},
+			{x = 32098, y = 32177, z = 5},
+			{x = 32099, y = 32177, z = 5}
+		}
+	},
+	-- Academy catapult 1
+	[40007] = {
+		itemId = false,
+		itemPos = {
+			{x = 32105, y = 32189, z = 5},
+			{x = 32105, y = 32190, z = 5},
+			{x = 32106, y = 32190, z = 5}
+		}
+	},
+	-- Academy catapult 2
+	[40008] = {
+		itemId = false,
+		itemPos = {
+			{x = 32105, y = 32194, z = 5},
+			{x = 32105, y = 32195, z = 5}
+		}
+	},
+	-- Shop catapult
+	[40009] = {
+		itemId = false,
+		itemPos = {
+			{x = 32109, y = 32200, z = 5},
+			{x = 32110, y = 32200, z = 5},
+			{x = 32109, y = 32201, z = 5},
+			{x = 32110, y = 32201, z = 5}
+		}
 	}
 }
 

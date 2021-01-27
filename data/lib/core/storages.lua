@@ -1387,7 +1387,7 @@ Storage = {
 		Mission12 = 52372,
 		StonePileTimer = 52373,
 		Catapults = 52374,
-		RatsCounter = 52375,
+		RatKills = 52375,
 		TunnelPillars = 52376
 	},
 	BanutaSecretTunnel = {

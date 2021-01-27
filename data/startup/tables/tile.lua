@@ -316,6 +316,65 @@ TileAction = {
 			{x = 32480, y = 31903, z = 1},
 			{x = 32481, y = 31903, z = 1}
 		}
+	},
+	-- The Rookie Guard Quest - Mission 02: Defence!
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission02_defense.lua
+	-- North exit tiles
+	[50312] = {
+		itemId = false,
+		itemPos = {
+			{x = 32087, y = 32181, z = 7},
+			{x = 32088, y = 32181, z = 7},
+			{x = 32089, y = 32181, z = 7},
+			{x = 32090, y = 32181, z = 7},
+			{x = 32091, y = 32181, z = 7},
+			{x = 32092, y = 32181, z = 7},
+			{x = 32093, y = 32181, z = 7},
+			{x = 32094, y = 32181, z = 7},
+		}
+	},
+	-- Barn tiles
+	[50313] = {
+		itemId = false,
+		itemPos = {
+			{x = 32081, y = 32190, z = 7},
+			{x = 32082, y = 32190, z = 7},
+			{x = 32083, y = 32190, z = 7},
+			{x = 32084, y = 32189, z = 7}
+		}
+	},
+	-- Bar tiles
+	[50314] = {
+		itemId = false,
+		itemPos = {
+			{x = 32095, y = 32182, z = 7},
+			{x = 32095, y = 32183, z = 7},
+			{x = 32095, y = 32184, z = 7},
+			{x = 32095, y = 32185, z = 7}
+		}
+	},
+	-- Academy tiles
+	[50315] = {
+		itemId = false,
+		itemPos = {
+			{x = 32096, y = 32194, z = 7},
+			{x = 32097, y = 32194, z = 7},
+			{x = 32098, y = 32194, z = 7}
+		}
+	},
+	-- Obi shop tiles
+	[50316] = {
+		itemId = false,
+		itemPos = {
+			{x = 32101, y = 32204, z = 7},
+			{x = 32101, y = 32205, z = 7},
+			{x = 32101, y = 32206, z = 7}
+		}
+	},
+	-- Tarantula lair entrance Tile
+	[50317] = {
+		itemId = 13869,
+		itemPos = {{x = 32051, y = 32110, z = 7}}
 	}
 }
 

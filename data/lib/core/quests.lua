@@ -5644,7 +5644,7 @@ if not Quests then
 			startStorageValue = 1,
 			missions = {
 				[1] = {
-					name = "Mission 1: A Taste of Things to Come",
+					name = "Mission 01: A Taste of Things to Come",
 					storageId = Storage.TheRookieGuard.Mission01,
 					missionId = 10397,
 					startValue = 1,
@@ -5654,7 +5654,7 @@ if not Quests then
 					}
 				},
 				[2] = {
-					name = "Mission 2: Defence!",
+					name = "Mission 02: Defence!",
 					storageId = Storage.TheRookieGuard.Mission02,
 					missionId = 10398,
 					startValue = 1,
@@ -5668,15 +5668,17 @@ if not Quests then
 					}
 				},
 				[3] = {
-					name = "Mission 3: A Rational Request",
+					name = "Mission 03: A Rational Request",
 					storageId = Storage.TheRookieGuard.Mission03,
 					missionId = 10399,
 					startValue = 1,
 					endValue = 2,
 					states = {
 						[1] = function(player)
-							return string.format("Vascalir sent you to the Rookgaard sewers to kill 5 rats. You have already killed %d/5. Return to Vascalir once you're done.",
-							(math.max(player:getStorageValue(Storage.TheRookieGuard.RatsCounter), 0)))
+							return string.format(
+								"Vascalir sent you to the Rookgaard sewers to kill 5 rats. You have already killed %d/5. Return to Vascalir once you're done.",
+								player:getStorageValue(Storage.TheRookieGuard.RatKills)
+							)
 						end,
 						[2] = "Vascalir was pleased with your hunting efforts. You've proven that you are a skilled hunter, ready for the task at hand."
 					}
@@ -5698,7 +5700,7 @@ if not Quests then
 					}
 				},
 				[5] = {
-					name = "Mission 5: Web of Terror",
+					name = "Mission 05: Web of Terror",
 					storageId = Storage.TheRookieGuard.Mission05,
 					missionId = 10401,
 					startValue = 1,
@@ -5713,7 +5715,7 @@ if not Quests then
 					}
 				},
 				[6] = {
-					name = "Mission 6: Run Like a Wolf",
+					name = "Mission 06: Run Like a Wolf",
 					storageId = Storage.TheRookieGuard.Mission06,
 					missionId = 10402,
 					startValue = 1,
@@ -5729,7 +5731,7 @@ if not Quests then
 					}
 				},
 				[7] = {
-					name = "Mission 7: Attack!",
+					name = "Mission 07: Attack!",
 					storageId = Storage.TheRookieGuard.Mission07,
 					missionId = 10403,
 					startValue = 1,
@@ -5740,7 +5742,7 @@ if not Quests then
 					}
 				},
 				[8] = {
-					name = "Mission 8: Less Risk - More Fun",
+					name = "Mission 08: Less Risk - More Fun",
 					storageId = Storage.TheRookieGuard.Mission08,
 					missionId = 10404,
 					startValue = 1,
@@ -5751,7 +5753,7 @@ if not Quests then
 					}
 				},
 				[9] = {
-					name = "Mission 9: Rock 'n Troll",
+					name = "Mission 09: Rock 'n Troll",
 					storageId = Storage.TheRookieGuard.Mission09,
 					missionId = 10405,
 					startValue = 1,
