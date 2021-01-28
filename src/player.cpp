@@ -1924,7 +1924,7 @@ void Player::addExperience(Creature* source, uint64_t exp, bool sendText/* = fal
 		if (vocation) {
 			// Player stats gain for vocations level <= 8
 			if (vocation->getId() != VOCATION_NONE && level <= 8) {
-				Vocation* noneVocation = g_vocations.getVocation(VOCATION_NONE);
+				Vocation* noneVocation = g_vocations().getVocation(VOCATION_NONE);
 				healthMax += noneVocation->getHPGain();
 				health += noneVocation->getHPGain();
 				manaMax += noneVocation->getManaGain();
@@ -2020,7 +2020,7 @@ void Player::removeExperience(uint64_t exp, bool sendText/* = false*/)
 		if (vocation) {
 			// Player stats loss for vocations level <= 8
 			if (vocation->getId() != VOCATION_NONE && level <= 8) {
-				Vocation* noneVocation = g_vocations.getVocation(VOCATION_NONE);
+				Vocation* noneVocation = g_vocations().getVocation(VOCATION_NONE);
 				healthMax = std::max<int32_t>(0, healthMax - noneVocation->getHPGain());
 				manaMax = std::max<int32_t>(0, manaMax - noneVocation->getManaGain());
 				capacity = std::max<int32_t>(0, capacity - noneVocation->getCapGain());

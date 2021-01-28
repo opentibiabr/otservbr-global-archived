@@ -163,7 +163,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		return;
 	}
 
-	std::cout << ">> Client Version: " << g_config.getString(ConfigManager::CLIENT_VERSION_STR)
+	std::cout << ">> Client Version: " << g_config().getString(ConfigManager::CLIENT_VERSION_STR)
 													<< std::endl;
 
 #ifdef _WIN32

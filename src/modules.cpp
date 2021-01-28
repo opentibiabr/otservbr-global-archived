@@ -48,12 +48,12 @@ bool Modules::load()
 		if ((attr = eventNode.attribute("versionmin"))) {
 			uint32_t versionMin = pugi::cast<uint32_t>(attr.value());
 			uint32_t versionMax = pugi::cast<uint32_t>(eventNode.attribute("versionmax").value());
-			if (CLIENT_VERSION < versionMin || CLIENT_VERSION > versionMax) {
+			if (g_config().getNumber(ConfigManager::CLIENT_VERSION) < versionMin || g_config().getNumber(ConfigManager::CLIENT_VERSION) > versionMax) {
 				continue;
 			}
 		} else if ((attr = eventNode.attribute("version"))) {
 			uint32_t version = pugi::cast<uint32_t>(attr.value());
-			if (CLIENT_VERSION < version) {
+			if (g_config().getNumber(ConfigManager::CLIENT_VERSION) < version) {
 				continue;
 			}
 		}

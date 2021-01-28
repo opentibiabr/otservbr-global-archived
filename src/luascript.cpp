@@ -5331,8 +5331,8 @@ int LuaScriptInterface::luaGameGetClientVersion(lua_State* L)
 {
 	// Game.getClientVersion()
 	lua_createtable(L, 0, 3);
-	setField(L, "version", g_config.getNumber(ConfigManager::CLIENT_VERSION));
-	setField(L, "string", g_config.getString(ConfigManager::CLIENT_VERSION_STR));
+	setField(L, "version", g_config().getNumber(ConfigManager::CLIENT_VERSION));
+	setField(L, "string", g_config().getString(ConfigManager::CLIENT_VERSION_STR));
 	return 1;
 }
 
