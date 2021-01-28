@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2020  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,6 +23,8 @@
 #include "database.h"
 #include "databasetasks.h"
 #include "tools.h"
+
+#include <string>
 
 bool Ban::acceptConnection(uint32_t clientIP)
 {
@@ -122,8 +124,7 @@ bool IOBan::isPlayerNamelocked(uint32_t playerId)
 	return g_database().storeQuery(query).get() != nullptr;
 }
 
-uint32_t IOBan::getAccountID(const std::string& playerName)
-{
+uint32_t IOBan::getAccountID(const std::string& playerName) {
 	const std::string& escapedName = g_database().escapeString(playerName);
 	std::stringExtended query(escapedName.length() + 64);
 	query << "SELECT `account_id` FROM `players` WHERE `name` = " << escapedName << " LIMIT 1";
@@ -135,8 +136,7 @@ uint32_t IOBan::getAccountID(const std::string& playerName)
 	return result->getNumber<uint32_t>("account_id");
 }
 
-uint32_t IOBan::getAccountLastIP(const std::string& playerName)
-{
+uint32_t IOBan::getAccountLastIP(const std::string& playerName) {
 	const std::string& escapedName = g_database().escapeString(playerName);
 	std::stringExtended query(escapedName.length() + 64);
 	query << "SELECT `lastip` FROM `players` WHERE `name` = " << escapedName << " LIMIT 1";
