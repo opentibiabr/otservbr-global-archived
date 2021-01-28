@@ -64,14 +64,14 @@ set(otbr_SRC
 	${CMAKE_CURRENT_LIST_DIR}/raids.cpp
 	${CMAKE_CURRENT_LIST_DIR}/reward.cpp
 	${CMAKE_CURRENT_LIST_DIR}/rewardchest.cpp
+	${CMAKE_CURRENT_LIST_DIR}/robin_hood.h
 	${CMAKE_CURRENT_LIST_DIR}/rsa.cpp
-	${CMAKE_CURRENT_LIST_DIR}/scheduler.cpp
-	${CMAKE_CURRENT_LIST_DIR}/scriptmanager.cpp
-	${CMAKE_CURRENT_LIST_DIR}/script.cpp
+	${CMAKE_CURRENT_LIST_DIR}/scripts.cpp
 	${CMAKE_CURRENT_LIST_DIR}/server.cpp
 	${CMAKE_CURRENT_LIST_DIR}/signals.cpp
 	${CMAKE_CURRENT_LIST_DIR}/spawn.cpp
 	${CMAKE_CURRENT_LIST_DIR}/spells.cpp
+	${CMAKE_CURRENT_LIST_DIR}/string_extend.h
 	${CMAKE_CURRENT_LIST_DIR}/talkaction.cpp
 	${CMAKE_CURRENT_LIST_DIR}/tasks.cpp
 	${CMAKE_CURRENT_LIST_DIR}/teleport.cpp
@@ -83,5 +83,4 @@ set(otbr_SRC
 	${CMAKE_CURRENT_LIST_DIR}/waitlist.cpp
 	${CMAKE_CURRENT_LIST_DIR}/weapons.cpp
 	${CMAKE_CURRENT_LIST_DIR}/wildcardtree.cpp
-	${CMAKE_CURRENT_LIST_DIR}/xtea.cpp
 	PARENT_SCOPE)
