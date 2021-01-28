@@ -5692,11 +5692,10 @@ if not Quests then
 					states = {
 						[1] = "Vascalir doesn't have a job for you at the moment. He sent you to Lily in the south-west of town for another mission.",
 						[2] = "Lily gave you a bag with fresh herbs that need to be delivered to Hyacinth outside of the village. Leave the village to the north and walk east to find his little hut up a mountain.",
-						[3] = "",
-						[4] = "",
-						[5] = "",
-						[6] = "You've delivered the herbs to Hyacinth and got potions and a ring as reward. Save the potions for when you're low on health and wear the ring if you want to regain health faster. Return to Vascalir.",
-						[7] = "You've told Vascalir about your successful delivery. The next mission awaits."
+						[3] = "You've delivered the fresh herbs to Hyacinth. He still has a reward for you though - make sure to talk to him again!",
+						[4] = "Hyacinth has another reward for you - make sure to talk to him again with enough space in your inventory.",
+						[5] = "You've delivered the herbs to Hyacinth and got potions and a ring as reward. Save the potions for when you're low on health and wear the ring if you want to regain health faster. Return to Vascalir.",
+						[6] = "You've told Vascalir about your successful delivery. The next mission awaits."
 					}
 				},
 				[5] = {

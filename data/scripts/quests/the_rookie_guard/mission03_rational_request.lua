@@ -1,4 +1,7 @@
 -- The Rookie Guard Quest - Mission 03: A Rational Request
+
+-- Mission Kills
+
 local ratKill = CreatureEvent("VascalirRatKills")
 
 function ratKill.onKill(player, target)

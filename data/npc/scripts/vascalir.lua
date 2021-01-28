@@ -34,7 +34,7 @@ local function greetCallback(cid)
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission02) == -1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Welcome, adventurer |PLAYERNAME|. These are dire times for Rookgaard... have you come to help in our {mission}?")
 	-- Not finished mission 2
-	elseif player:getStorageValue(Storage.TheRookieGuard.Mission02) == 1 then
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission02) >= 1 and player:getStorageValue(Storage.TheRookieGuard.Mission02) <= 3 then
 		npcHandler:setMessage(MESSAGE_GREET, "Greetings, |PLAYERNAME|. Your task is still not done - do you remember everything you need to do?")
 	-- Finishing mission 2
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission02) == 4 then
@@ -45,6 +45,15 @@ local function greetCallback(cid)
 	-- Not finished or finishing mission 3
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission03) == 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|. Are you done with the 5 rats I asked you to kill?")
+	-- Started but not finished mission 4
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission04) >= 1 and player:getStorageValue(Storage.TheRookieGuard.Mission04) <= 4 then
+		npcHandler:setMessage(MESSAGE_GREET, "Greetings, |PLAYERNAME|. Right now I don't need your help. I heard that Lily south-west of here requires assistance though.")
+	-- Finishing mission 4
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission04) == 5 then
+		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|. Glad to see you made it back in one piece. I hope you're not too exhausted, because I could use your {help} again.")
+	-- Finished mission 4 but not started mission 5
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission04) == 6 and player:getStorageValue(Storage.TheRookieGuard.Mission05) == -1 then
+		npcHandler:setMessage(MESSAGE_GREET, "Oh, hello |PLAYERNAME|! Have you made up your mind about sneaking into the tarantula's lair and retrieving a sample of her web? Are you up for it?")
 	else
 		npcHandler:say("|PLAYERNAME|, the only thing left for you to do here is to talk to the oracle above the academy and leave for the Isle of Destiny. Thanks again for your great work and good luck on your journeys!", cid)
 		return false
@@ -117,9 +126,7 @@ mission2Accept:addChildKeyword({"no"}, StdModule.say,
 	moveup = 1
 })
 
--- Mission 2: Finish
-
--- Confirm
+-- Mission 2: Finish - Confirm
 keywordHandler:addKeyword({"yes"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -137,7 +144,7 @@ function(player)
 end
 )
 
--- Decline
+-- Mission 2: Finish - Decline
 keywordHandler:addKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -182,7 +189,7 @@ function(player)
 end
 )
 
--- Mission 3: Reject
+-- Mission 3: Decline
 mission3:addChildKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -206,9 +213,7 @@ function(player)
 end
 )
 
--- Mission 3: Finish
-
--- Confirm
+-- Mission 3: Finish - Confirm
 keywordHandler:addKeyword({"yes"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -230,7 +235,7 @@ function(player)
 end
 )
 
--- Decline
+-- Mission 3: Finish - Decline
 keywordHandler:addKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -238,6 +243,63 @@ keywordHandler:addKeyword({"no"}, StdModule.say,
 	moveup = 1
 },
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission03) == 1 and player:getStorageValue(Storage.TheRookieGuard.RatKills) >= 5 end
+)
+
+-- Mission 4: Finish - Confirm
+keywordHandler:addKeyword({"help"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"That's the spirit Rookgaard needs. Listen, while you were gone I thought about a way to weaken and fight Kraknaknork - that orc shaman who terrorises Rookgaard. ...",
+		"Even if we could make our way into his stronghold past all his minions, we cannot hope to defeat him as long as he is powerful enough to summon demons and access other dimensions. ...",
+		"While studying the fauna of Rookgaard I came across an interesting specimen that might help us in our battle. Deep in the underground tunnels, there is a spider queen - a tarantula, who is bigger and deadlier than all the other spiders here. ...",
+		"Her web is enormous - and causes a strong paralysis. If you could get a small sample of her web, I might be able to craft a trap that we can use to paralyse the orcs so you can get past their defences. ...",
+		"Do you dare sneak into the tarantula's lair and retrieve a sample of her web?"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 5 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission04, 6)
+end
+)
+
+-- Mission 4: Finish - No Confirm
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "What do you mean? If you're ready to {help} me again, just say so."
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 5 end
+)
+keywordHandler:addAliasKeyword({"no"})
+
+-- Mission 5: Accept
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"That's very courageous. I'll mark the spider lair on your map. If you leave the village to the north again like before, but walk north-west and cross the bridge, you will find it. ...",
+		"Listen, I have some more important information regarding your task. It will likely be dark in the cave, so maybe you'll want to buy a torch or two from Al Dee's shop to the left of the barn. ...",
+		"The spider queen is far too strong for you to fight and if she catches you, you might end up in her stomach. The good news is that she is almost blind and relies on her sense of smelling to find her prey. ...",
+		"Deep in her lair you'll find some blue greasy stones. If you use them, you'll rub some of the smelly grease on your body. From that moment on you'll be invisible to her, but only for a short time. ...",
+		"If you run into her lair, you should have enough time to retrieve a sample of her web before she catches you. Just USE one of her intact cobwebs in her lair. Good luck!"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 6 and player:getStorageValue(Storage.TheRookieGuard.Mission05) == -1 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission05, 1)
+	--player:addMapMark({x = 32082, y = 32182, z = 7}, MAPMARK_FLAG, "Barn")
+end
+)
+
+-- Mission 5: Decline
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Well, if you change your mind, let me know.",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 6 and player:getStorageValue(Storage.TheRookieGuard.Mission05) == -1 end
 )
 
 

@@ -8,10 +8,6 @@ local CATAPULT_ID = {
 }
 
 local missionTiles = {
-	[50312] = {
-		states = {1, 2, 3, 4},
-		message = "This road is the main access of the village. You might want to finish your business here first."
-	},
 	[50313] = {
 		states = {1},
 		message = "This is the house Vascalir mentioned. You should find a stone pile in the cellar. Use it to get a stone!",
