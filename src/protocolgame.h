@@ -29,8 +29,6 @@
 #include "tasks.h"
 #include "gamestore.h"
 
-
-
 class NetworkMessage;
 class Player;
 class Game;
