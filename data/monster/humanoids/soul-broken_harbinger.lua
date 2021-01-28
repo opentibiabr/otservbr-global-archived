@@ -78,19 +78,19 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 100000, maxCount = 12},
+	{name = "Platinum Coin", chance = 100000, maxCount = 12},
 	{id = 34696, chance = 15750, maxCount = 3},
-	{id = "Dream Essence Egg", chance = 13700},
-	{id = "Elvish Talisman", chance = 4790},
-	{id = "Knight Legs", chance = 4450},
-	{id = "Glacier Kilt", chance = 4110},
-	{id = "Glacier Shoes", chance = 3770},
-	{id = "Ice Rapier", chance = 3770},
-	{id = "Spellbook of Mind Control", chance = 2400},
-	{id = "Crown Shield", chance = 1710},
-	{id = "Wood Cape", chance = 1710},
+	{name = "Dream Essence Egg", chance = 13700},
+	{name = "Elvish Talisman", chance = 4790},
+	{name = "Knight Legs", chance = 4450},
+	{name = "Glacier Kilt", chance = 4110},
+	{name = "Glacier Shoes", chance = 3770},
+	{name = "Ice Rapier", chance = 3770},
+	{name = "Spellbook of Mind Control", chance = 2400},
+	{name = "Crown Shield", chance = 1710},
+	{name = "Wood Cape", chance = 1710},
 	{id = 26185, chance = 1370},
-	{id = "Tower Shield", chance = 680},
+	{name = "Tower Shield", chance = 680},
 	{id = 26199, chance = 680}
 }
 

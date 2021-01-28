@@ -78,25 +78,25 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "ring of the sky", chance = 370},
-	{id = "small ruby", chance = 6910, maxCount = 5},
-	{id = "gold coin", chance = 41000, maxCount = 100},
-	{id = "gold coin", chance = 58000, maxCount = 100},
-	{id = "platinum coin", chance = 25510, maxCount = 5},
-	{id = "green gem", chance = 970},
-	{id = "wand of inferno", chance = 1660},
-	{id = "meat", chance = 30400},
-	{id = "great mana potion", chance = 4970},
-	{id = "focus cape", chance = 1450},
-	{id = "Zaoan shoes", chance = 1980},
-	{id = "weaver's wandtip", chance = 19790},
-	{id = "draken trophy", chance = 10},
-	{id = "spellweaver's robe", chance = 620},
-	{id = "Zaoan robe", chance = 770},
-	{id = "luminous orb", chance = 1980},
-	{id = "draken sulphur", chance = 3930},
-	{id = "harness", chance = 30},
-	{id = "bamboo leaves", chance = 180}
+	{name = "ring of the sky", chance = 370},
+	{name = "small ruby", chance = 6910, maxCount = 5},
+	{name = "gold coin", chance = 41000, maxCount = 100},
+	{name = "gold coin", chance = 58000, maxCount = 100},
+	{name = "platinum coin", chance = 25510, maxCount = 5},
+	{name = "green gem", chance = 970},
+	{name = "wand of inferno", chance = 1660},
+	{name = "meat", chance = 30400},
+	{name = "great mana potion", chance = 4970},
+	{name = "focus cape", chance = 1450},
+	{name = "Zaoan shoes", chance = 1980},
+	{name = "weaver's wandtip", chance = 19790},
+	{name = "draken trophy", chance = 10},
+	{name = "spellweaver's robe", chance = 620},
+	{name = "Zaoan robe", chance = 770},
+	{name = "luminous orb", chance = 1980},
+	{name = "draken sulphur", chance = 3930},
+	{name = "harness", chance = 30},
+	{name = "bamboo leaves", chance = 180}
 }
 
 monster.attacks = {

@@ -79,14 +79,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 100000, maxCount = 166},
-	{id = "strong health potion", chance = 15930},
-	{id = "small topaz", chance = 1238, maxCount = 3},
-	{id = "orcish axe", chance = 9190},
-	{id = "cultish robe", chance = 19360},
-	{id = "red mushroom", chance = 6250, maxCount = 3},
-	{id = "berserk potion", chance = 860, maxCount = 2},
-	{id = "meat", chance = 4780}
+	{name = "gold coin", chance = 100000, maxCount = 166},
+	{name = "strong health potion", chance = 15930},
+	{name = "small topaz", chance = 1238, maxCount = 3},
+	{name = "orcish axe", chance = 9190},
+	{name = "cultish robe", chance = 19360},
+	{name = "red mushroom", chance = 6250, maxCount = 3},
+	{name = "berserk potion", chance = 860, maxCount = 2},
+	{name = "meat", chance = 4780}
 }
 
 monster.attacks = {

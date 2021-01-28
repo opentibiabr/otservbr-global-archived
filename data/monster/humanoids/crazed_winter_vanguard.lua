@@ -78,20 +78,20 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 13},
-	{id = "red crystal fragment", chance = 1000000},
-	{id = "red gem", chance = 1000000},
+	{name = "platinum coin", chance = 100000, maxCount = 13},
+	{name = "red crystal fragment", chance = 1000000},
+	{name = "red gem", chance = 1000000},
 	{id = 34696, chance = 15000, maxCount = 2},
-	{id = "small enchanted ruby", chance = 1155},
-	{id = "miraculum", chance = 13550},
-	{id = "ultimate health potion", chance = 14750, maxCount = 2},
-	{id = "dream essence egg", chance = 17550},
-	{id = "tiger eye", chance = 12350},
-	{id = "northwind rod", chance = 1460},
-	{id = "glacier amulet", chance = 1850},
-	{id = "ice rapier", chance = 11250},
-	{id = "glacier robe", chance = 800},
-	{id = "elven amulet", chance = 500}
+	{name = "small enchanted ruby", chance = 1155},
+	{name = "miraculum", chance = 13550},
+	{name = "ultimate health potion", chance = 14750, maxCount = 2},
+	{name = "dream essence egg", chance = 17550},
+	{name = "tiger eye", chance = 12350},
+	{name = "northwind rod", chance = 1460},
+	{name = "glacier amulet", chance = 1850},
+	{name = "ice rapier", chance = 11250},
+	{name = "glacier robe", chance = 800},
+	{name = "elven amulet", chance = 500}
 }
 
 monster.attacks = {

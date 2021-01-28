@@ -78,23 +78,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small diamond", chance = 2550, maxCount = 5},
-	{id = "gold coin", chance = 33000, maxCount = 100},
-	{id = "gold coin", chance = 32000, maxCount = 100},
-	{id = "gold coin", chance = 32000, maxCount = 36},
-	{id = "platinum coin", chance = 2920, maxCount = 5},
-	{id = "tower shield", chance = 1100},
-	{id = "lizard leather", chance = 2000},
-	{id = "lizard scale", chance = 980, maxCount = 3},
-	{id = "great health potion", chance = 5350, maxCount = 3},
-	{id = "Zaoan armor", chance = 980},
-	{id = "Zaoan helmet", chance = 140},
-	{id = "Zaoan shoes", chance = 810},
-	{id = "Zaoan legs", chance = 940},
-	{id = "spiked iron ball", chance = 9890},
-	{id = "corrupted flag", chance = 3350},
-	{id = "cursed shoulder spikes", chance = 5800},
-	{id = "scale of corruption", chance = 2870}
+	{name = "small diamond", chance = 2550, maxCount = 5},
+	{name = "gold coin", chance = 33000, maxCount = 100},
+	{name = "gold coin", chance = 32000, maxCount = 100},
+	{name = "gold coin", chance = 32000, maxCount = 36},
+	{name = "platinum coin", chance = 2920, maxCount = 5},
+	{name = "tower shield", chance = 1100},
+	{name = "lizard leather", chance = 2000},
+	{name = "lizard scale", chance = 980, maxCount = 3},
+	{name = "great health potion", chance = 5350, maxCount = 3},
+	{name = "Zaoan armor", chance = 980},
+	{name = "Zaoan helmet", chance = 140},
+	{name = "Zaoan shoes", chance = 810},
+	{name = "Zaoan legs", chance = 940},
+	{name = "spiked iron ball", chance = 9890},
+	{name = "corrupted flag", chance = 3350},
+	{name = "cursed shoulder spikes", chance = 5800},
+	{name = "scale of corruption", chance = 2870}
 }
 
 monster.attacks = {

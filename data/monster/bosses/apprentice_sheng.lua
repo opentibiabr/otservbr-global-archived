@@ -73,14 +73,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "minotaur leather", chance = 100000},
+	{name = "minotaur leather", chance = 100000},
 	{id = 2162, chance = 76000},-- magic light wand
-	{id = "gold coin", chance = 38000, maxCount = 10},
+	{name = "gold coin", chance = 38000, maxCount = 10},
 	{id = 2050, chance = 30000, maxCount = 2},-- torch
-	{id = "leather legs", chance = 23000},
+	{name = "leather legs", chance = 23000},
 	{id = 2684, chance = 7690},-- carrot
-	{id = "leather helmet", chance = 7690},
-	{id = "knife", chance = 7690}
+	{name = "leather helmet", chance = 7690},
+	{name = "knife", chance = 7690}
 }
 
 monster.attacks = {

@@ -78,16 +78,16 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2124, chance = 1650},
-	{id = "silver brooch", chance = 4000},
-	{id = "black pearl", chance = 1340},
-	{id = "gold coin", chance = 87000, maxCount = 160},
-	{id = "scarab coin", chance = 10000, maxCount = 3},
-	{id = "strange talisman", chance = 4500},
+	{name = "silver brooch", chance = 4000},
+	{name = "black pearl", chance = 1340},
+	{name = "gold coin", chance = 87000, maxCount = 160},
+	{name = "scarab coin", chance = 10000, maxCount = 3},
+	{name = "strange talisman", chance = 4500},
 	{id = 2162, chance = 6000},
-	{id = "poison dagger", chance = 380},
-	{id = "worm", chance = 20000, maxCount = 3},
-	{id = "gauze bandage", chance = 10000},
-	{id = "flask of embalming fluid", chance = 12600},
+	{name = "poison dagger", chance = 380},
+	{name = "worm", chance = 20000, maxCount = 3},
+	{name = "gauze bandage", chance = 10000},
+	{name = "flask of embalming fluid", chance = 12600},
 	{id = 13472, chance = 2400}
 }
 

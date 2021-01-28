@@ -77,23 +77,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small ruby", chance = 8180, maxCount = 2},
-	{id = "gold coin", chance = 49000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 97},
-	{id = "platinum coin", chance = 66000, maxCount = 3},
-	{id = "ring of healing", chance = 3270},
-	{id = "steel boots", chance = 130},
-	{id = "great mana potion", chance = 8950, maxCount = 4},
+	{name = "small ruby", chance = 8180, maxCount = 2},
+	{name = "gold coin", chance = 49000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 97},
+	{name = "platinum coin", chance = 66000, maxCount = 3},
+	{name = "ring of healing", chance = 3270},
+	{name = "steel boots", chance = 130},
+	{name = "great mana potion", chance = 8950, maxCount = 4},
 	{id = 7632, chance = 2600},
-	{id = "ultimate health potion", chance = 4000, maxCount = 3},
-	{id = "gold ingot", chance = 5160},
-	{id = "kollos shell", chance = 15390},
-	{id = "compound eye", chance = 15720},
-	{id = "calopteryx cape", chance = 360},
-	{id = "carapace shield", chance = 310},
-	{id = "hive scythe", chance = 700},
-	{id = "buggy backpack", chance = 460},
-	{id = "tarsal arrow", chance = 10210, maxCount = 5}
+	{name = "ultimate health potion", chance = 4000, maxCount = 3},
+	{name = "gold ingot", chance = 5160},
+	{name = "kollos shell", chance = 15390},
+	{name = "compound eye", chance = 15720},
+	{name = "calopteryx cape", chance = 360},
+	{name = "carapace shield", chance = 310},
+	{name = "hive scythe", chance = 700},
+	{name = "buggy backpack", chance = 460},
+	{name = "tarsal arrow", chance = 10210, maxCount = 5}
 }
 
 monster.attacks = {

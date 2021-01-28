@@ -78,21 +78,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 37},
-	{id = "platinum coin", chance = 70000, maxCount = 2},
-	{id = "brown mushroom", chance = 14500, maxCount = 2},
-	{id = "iron ore", chance = 9470},
-	{id = "great mana potion", chance = 13470},
-	{id = "great health potion", chance = 14730},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 37},
+	{name = "platinum coin", chance = 70000, maxCount = 2},
+	{name = "brown mushroom", chance = 14500, maxCount = 2},
+	{name = "iron ore", chance = 9470},
+	{name = "great mana potion", chance = 13470},
+	{name = "great health potion", chance = 14730},
 	{id = 13757, chance = 12180},
-	{id = "buckle", chance = 850},
-	{id = "broken throwing axe", chance = 1390},
-	{id = "helmet of the lost", chance = 13560},
-	{id = "lost bracers", chance = 14860},
-	{id = "mad froth", chance = 11810},
-	{id = "basalt fetish", chance = 6150},
-	{id = "basalt figurine", chance = 7900}
+	{name = "buckle", chance = 850},
+	{name = "broken throwing axe", chance = 1390},
+	{name = "helmet of the lost", chance = 13560},
+	{name = "lost bracers", chance = 14860},
+	{name = "mad froth", chance = 11810},
+	{name = "basalt fetish", chance = 6150},
+	{name = "basalt figurine", chance = 7900}
 }
 
 monster.attacks = {

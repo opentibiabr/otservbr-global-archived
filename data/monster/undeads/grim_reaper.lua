@@ -82,23 +82,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 99000, maxCount = 263},
-	{id = "platinum coin", chance = 5200, maxCount = 4},
+	{name = "gold coin", chance = 99000, maxCount = 263},
+	{name = "platinum coin", chance = 5200, maxCount = 4},
 	{id = 2162, chance = 4850},
-	{id = "dark shield", chance = 3000},
-	{id = "scythe", chance = 9000},
-	{id = "orichalcum pearl", chance = 1400, maxCount = 4},
+	{name = "dark shield", chance = 3000},
+	{name = "scythe", chance = 9000},
+	{name = "orichalcum pearl", chance = 1400, maxCount = 4},
 	{id = 6300, chance = 330},
-	{id = "demonic essence", chance = 10600},
-	{id = "concentrated demonic blood", chance = 35000},
-	{id = "nightmare blade", chance = 880},
-	{id = "great mana potion", chance = 10000},
-	{id = "glacier kilt", chance = 330},
-	{id = "ultimate health potion", chance = 9600},
-	{id = "skullcracker armor", chance = 270},
-	{id = "underworld rod", chance = 910},
+	{name = "demonic essence", chance = 10600},
+	{name = "concentrated demonic blood", chance = 35000},
+	{name = "nightmare blade", chance = 880},
+	{name = "great mana potion", chance = 10000},
+	{name = "glacier kilt", chance = 330},
+	{name = "ultimate health potion", chance = 9600},
+	{name = "skullcracker armor", chance = 270},
+	{name = "underworld rod", chance = 910},
 	{id = 9810, chance = 2500},
-	{id = "mystical hourglass", chance = 5300}
+	{name = "mystical hourglass", chance = 5300}
 }
 
 monster.attacks = {

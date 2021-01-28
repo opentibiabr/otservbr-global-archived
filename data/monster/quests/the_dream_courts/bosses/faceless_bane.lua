@@ -65,9 +65,9 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Book Backpack", chance = 100000},
-	{id = "Ectoplasmic Shield", chance = 100000},
-	{id = "Spirit Guide", chance = 100000},
+	{name = "Book Backpack", chance = 100000},
+	{name = "Ectoplasmic Shield", chance = 100000},
+	{name = "Spirit Guide", chance = 100000},
 	{id = 34983, chance = 100000}
 }
 

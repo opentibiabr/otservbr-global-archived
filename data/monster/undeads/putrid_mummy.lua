@@ -80,15 +80,15 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 60870, maxCount = 62},
+	{name = "gold coin", chance = 60870, maxCount = 62},
 	{id = 13472, chance = 3840},
-	{id = "black pearl", chance = 1280},
-	{id = "little bowl of myrrh", chance = 13550},
-	{id = "single human eye", chance = 8950},
-	{id = "green gem", chance = 3070},
-	{id = "green bandage", chance = 1100},
-	{id = "scarab coin", chance = 8180, maxCount = 3},
-	{id = "poison dagger", chance = 1530}
+	{name = "black pearl", chance = 1280},
+	{name = "little bowl of myrrh", chance = 13550},
+	{name = "single human eye", chance = 8950},
+	{name = "green gem", chance = 3070},
+	{name = "green bandage", chance = 1100},
+	{name = "scarab coin", chance = 8180, maxCount = 3},
+	{name = "poison dagger", chance = 1530}
 }
 
 monster.attacks = {

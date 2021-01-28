@@ -5047,24 +5047,50 @@ if not equipmentsTable then
 			type = "deequip",
 			slot = "shield"
 		}, -- broken wooden shield
-		--[[
 		{
-			spellbook of the novice
-			itemid = 23771
-			dawnport scripted equipment
-		},
-		
+			itemid = 23719,
+			type = "equip",
+			slot = "hand",
+			vocation = {
+				{"Sorcerer", true},
+				{"Master Sorcerer"}
+			}
+		}, -- the scorcher
 		{
-			the chiller
-			itemid = 23721
-			dawnport scripted equipment
-		},
+			itemid = 23719,
+			type = "deequip",
+			slot = "hand"
+		}, -- the scorcher
 		{
-			the scorcher
-			itemid = 23719
-			dawnport scripted equipment
-		},
-		]]
+			itemid = 23721,
+			type = "equip",
+			slot = "hand",
+			vocation = {
+				{"Druid", true},
+				{"Elder Druid"}
+			}
+		}, -- the chiller
+		{
+			itemid = 23721,
+			type = "deequip",
+			slot = "hand"
+		}, -- the chiller
+		{
+			itemid = 23771,
+			type = "equip",
+			slot = "shield",
+			vocation = {
+				{"Sorcerer", true},
+				{"Druid", true, true},
+				{"Master Sorcerer"},
+				{"Elder Druid"}
+			}
+		}, -- spellbook of the novice
+		{
+			itemid = 23771,
+			type = "deequip",
+			slot = "shield"
+		}, -- spellbook of the novice
 		{
 			itemid = 23666,
 			type = "equip",

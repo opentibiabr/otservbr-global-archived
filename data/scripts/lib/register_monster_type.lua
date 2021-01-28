@@ -251,8 +251,15 @@ registerMonsterType.loot = function(mtype, mask)
 		local lootError = false
 		for _, loot in pairs(mask.loot) do
 			local parent = Loot()
-			if not parent:setId(loot.id) then
-				lootError = true
+			if loot.name then
+				if not parent:setIdFromName(loot.name) then
+					lootError = true
+				end
+			else
+				if not isInteger(loot.id) or loot.id < 1 then
+					lootError = true
+				end
+				parent:setId(loot.id)
 			end
 			if loot.subType or loot.charges then
 				parent:setSubType(loot.subType or loot.charges)
@@ -304,8 +311,15 @@ registerMonsterType.loot = function(mtype, mask)
 			if loot.child then
 				for _, children in pairs(loot.child) do
 					local child = Loot()
-					if not child:setId(children.id) then
-						lootError = true
+					if children.name then
+						if not child:setIdFromName(children.name) then
+							lootError = true
+						end
+					else
+						if not isInteger(children.id) or children.id < 1 then
+							lootError = true
+						end
+						child:setId(children.id)
 					end
 					if children.subType or children.charges then
 						child:setSubType(children.subType or children.charges)

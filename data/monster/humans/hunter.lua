@@ -82,22 +82,22 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2050, chance = 3300},
-	{id = "small ruby", chance = 150},
-	{id = "dragon necklace", chance = 3000},
-	{id = "bow", chance = 5770},
-	{id = "brass helmet", chance = 5050},
-	{id = "brass armor", chance = 5070},
-	{id = "arrow", chance = 82000, maxCount = 22},
-	{id = "poison arrow", chance = 4500, maxCount = 4},
-	{id = "burst arrow", chance = 5360, maxCount = 3},
-	{id = "orange", chance = 20300, maxCount = 2},
-	{id = "roll", chance = 11370, maxCount = 2},
-	{id = "sniper gloves", chance = 610},
-	{id = "slingshot", chance = 120},
+	{name = "small ruby", chance = 150},
+	{name = "dragon necklace", chance = 3000},
+	{name = "bow", chance = 5770},
+	{name = "brass helmet", chance = 5050},
+	{name = "brass armor", chance = 5070},
+	{name = "arrow", chance = 82000, maxCount = 22},
+	{name = "poison arrow", chance = 4500, maxCount = 4},
+	{name = "burst arrow", chance = 5360, maxCount = 3},
+	{name = "orange", chance = 20300, maxCount = 2},
+	{name = "roll", chance = 11370, maxCount = 2},
+	{name = "sniper gloves", chance = 610},
+	{name = "slingshot", chance = 120},
 	{id = 7394, chance = 190},
 	{id = 7397, chance = 520},
 	{id = 7400, chance = 70},
-	{id = "hunter's quiver", chance = 10240}
+	{name = "hunter's quiver", chance = 10240}
 }
 
 monster.attacks = {

@@ -80,18 +80,18 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 33400, maxCount = 100},
-	{id = "gold coin", chance = 33400, maxCount = 100},
-	{id = "platinum coin", chance = 49610, maxCount = 6},
-	{id = "necrotic rod", chance = 980},
-	{id = "wand of cosmic energy", chance = 910},
-	{id = "spirit container", chance = 140},
+	{name = "gold coin", chance = 33400, maxCount = 100},
+	{name = "gold coin", chance = 33400, maxCount = 100},
+	{name = "platinum coin", chance = 49610, maxCount = 6},
+	{name = "necrotic rod", chance = 980},
+	{name = "wand of cosmic energy", chance = 910},
+	{name = "spirit container", chance = 140},
 	{id = 6300, chance = 300},
-	{id = "great mana potion", chance = 8000},
-	{id = "ultimate health potion", chance = 9400},
-	{id = "souleater trophy", chance = 20},
-	{id = "lizard essence", chance = 15250},
-	{id = "ectoplasmic sushi", chance = 2000}
+	{name = "great mana potion", chance = 8000},
+	{name = "ultimate health potion", chance = 9400},
+	{name = "souleater trophy", chance = 20},
+	{name = "lizard essence", chance = 15250},
+	{name = "ectoplasmic sushi", chance = 2000}
 }
 
 monster.attacks = {

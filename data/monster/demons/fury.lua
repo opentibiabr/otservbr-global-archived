@@ -81,24 +81,24 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2124, chance = 410},
-	{id = "gold coin", chance = 30000, maxCount = 100},
-	{id = "gold coin", chance = 30000, maxCount = 100},
-	{id = "gold coin", chance = 38000, maxCount = 69},
-	{id = "platinum coin", chance = 2800, maxCount = 4},
-	{id = "terra rod", chance = 20000},
-	{id = "golden legs", chance = 130},
-	{id = "steel boots", chance = 790},
-	{id = "orichalcum pearl", chance = 1500, maxCount = 4},
-	{id = "red piece of cloth", chance = 4000},
-	{id = "soul orb", chance = 21500},
-	{id = "soul orb", chance = 50},
+	{name = "gold coin", chance = 30000, maxCount = 100},
+	{name = "gold coin", chance = 30000, maxCount = 100},
+	{name = "gold coin", chance = 38000, maxCount = 69},
+	{name = "platinum coin", chance = 2800, maxCount = 4},
+	{name = "terra rod", chance = 20000},
+	{name = "golden legs", chance = 130},
+	{name = "steel boots", chance = 790},
+	{name = "orichalcum pearl", chance = 1500, maxCount = 4},
+	{name = "red piece of cloth", chance = 4000},
+	{name = "soul orb", chance = 21500},
+	{name = "soul orb", chance = 50},
 	{id = 6301, chance = 60},
-	{id = "demonic essence", chance = 22500},
-	{id = "concentrated demonic blood", chance = 35000, maxCount = 3},
-	{id = "assassin dagger", chance = 660},
-	{id = "noble axe", chance = 2000},
-	{id = "great health potion", chance = 10500},
-	{id = "jalapeno pepper", chance = 29280, maxCount = 4}
+	{name = "demonic essence", chance = 22500},
+	{name = "concentrated demonic blood", chance = 35000, maxCount = 3},
+	{name = "assassin dagger", chance = 660},
+	{name = "noble axe", chance = 2000},
+	{name = "great health potion", chance = 10500},
+	{name = "jalapeno pepper", chance = 29280, maxCount = 4}
 }
 
 monster.attacks = {

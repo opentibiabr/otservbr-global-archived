@@ -77,22 +77,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 50},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 50},
 	{id = 2553, chance = 5280},
-	{id = "worm", chance = 4580, maxCount = 5},
-	{id = "iron ore", chance = 1750},
-	{id = "spiked squelcher", chance = 540},
-	{id = "terra amulet", chance = 2360},
-	{id = "lump of earth", chance = 15000},
-	{id = "clay lump", chance = 700},
+	{name = "worm", chance = 4580, maxCount = 5},
+	{name = "iron ore", chance = 1750},
+	{name = "spiked squelcher", chance = 540},
+	{name = "terra amulet", chance = 2360},
+	{name = "lump of earth", chance = 15000},
+	{name = "clay lump", chance = 700},
 	{id = 13757, chance = 12130},
-	{id = "green crystal splinter", chance = 9780},
-	{id = "brown crystal splinter", chance = 9260},
-	{id = "blue crystal splinter", chance = 9610},
-	{id = "pulverized ore", chance = 5400},
-	{id = "vein of ore", chance = 7280},
-	{id = "drill bolt", chance = 4870, maxCount = 2}
+	{name = "green crystal splinter", chance = 9780},
+	{name = "brown crystal splinter", chance = 9260},
+	{name = "blue crystal splinter", chance = 9610},
+	{name = "pulverized ore", chance = 5400},
+	{name = "vein of ore", chance = 7280},
+	{name = "drill bolt", chance = 4870, maxCount = 2}
 }
 
 monster.attacks = {

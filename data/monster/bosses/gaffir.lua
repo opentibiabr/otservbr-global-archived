@@ -69,27 +69,27 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 17},
-	{id = "small amethyst", chance = 33500, maxCount = 2},
-	{id = "small ruby", chance = 33500, maxCount = 2},
-	{id = "small sapphire", chance = 33500},
-	{id = "small topaz", chance = 33500},
-	{id = "small diamond", chance = 33500},
-	{id = "great spirit potion", chance = 26400},
-	{id = "terra rod", chance = 24000, maxCount = 3},
-	{id = "springsprout rod", chance = 21000},
-	{id = "blue crystal shard", chance = 21000},
-	{id = "blue gem", chance = 21000},
-	{id = "cobra crest", chance = 12560},
-	{id = "violet crystal shard", chance = 14800},
+	{name = "platinum coin", chance = 100000, maxCount = 17},
+	{name = "small amethyst", chance = 33500, maxCount = 2},
+	{name = "small ruby", chance = 33500, maxCount = 2},
+	{name = "small sapphire", chance = 33500},
+	{name = "small topaz", chance = 33500},
+	{name = "small diamond", chance = 33500},
+	{name = "great spirit potion", chance = 26400},
+	{name = "terra rod", chance = 24000, maxCount = 3},
+	{name = "springsprout rod", chance = 21000},
+	{name = "blue crystal shard", chance = 21000},
+	{name = "blue gem", chance = 21000},
+	{name = "cobra crest", chance = 12560},
+	{name = "violet crystal shard", chance = 14800},
 	{id = 7632, chance = 14520}, -- giant shimmering pearl
-	{id = "gold ingot", chance = 14500},
-	{id = "spellbook of warding", chance = 6500},
-	{id = "ring of healing", chance = 5400},
-	{id = "terra hood", chance = 1600},
-	{id = "amulet of loss", chance = 3400},
-	{id = "wand of everblazing", chance = 2900},
-	{id = "cobra wand", chance = 400}
+	{name = "gold ingot", chance = 14500},
+	{name = "spellbook of warding", chance = 6500},
+	{name = "ring of healing", chance = 5400},
+	{name = "terra hood", chance = 1600},
+	{name = "amulet of loss", chance = 3400},
+	{name = "wand of everblazing", chance = 2900},
+	{name = "cobra wand", chance = 400}
 }
 
 monster.attacks = {

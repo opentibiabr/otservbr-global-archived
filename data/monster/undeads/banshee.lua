@@ -87,28 +87,28 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "candlestick", chance = 70000},
-	{id = "wedding ring", chance = 460},
+	{name = "candlestick", chance = 70000},
+	{name = "wedding ring", chance = 460},
 	{id = 2124, chance = 60},
-	{id = "silver brooch", chance = 1250},
-	{id = "white pearl", chance = 1010},
-	{id = "black pearl", chance = 2030},
-	{id = "gold coin", chance = 30000, maxCount = 80},
-	{id = "silver amulet", chance = 8700},
+	{name = "silver brooch", chance = 1250},
+	{name = "white pearl", chance = 1010},
+	{name = "black pearl", chance = 2030},
+	{name = "gold coin", chance = 30000, maxCount = 80},
+	{name = "silver amulet", chance = 8700},
 	{id = 2175, chance = 520},
-	{id = "life crystal", chance = 70},
-	{id = "stone skin amulet", chance = 820},
-	{id = "ring of healing", chance = 730},
+	{name = "life crystal", chance = 70},
+	{name = "stone skin amulet", chance = 820},
+	{name = "ring of healing", chance = 730},
 	{id = 2372, chance = 910},
-	{id = "poison dagger", chance = 1350},
-	{id = "red robe", chance = 150},
-	{id = "blue robe", chance = 700},
-	{id = "simple dress", chance = 6050},
-	{id = "strong mana potion", chance = 680},
-	{id = "terra mantle", chance = 340},
-	{id = "petrified scream", chance = 4150},
-	{id = "hair of a banshee", chance = 4810},
-	{id = "sweet smelling bait", chance = 40}
+	{name = "poison dagger", chance = 1350},
+	{name = "red robe", chance = 150},
+	{name = "blue robe", chance = 700},
+	{name = "simple dress", chance = 6050},
+	{name = "strong mana potion", chance = 680},
+	{name = "terra mantle", chance = 340},
+	{name = "petrified scream", chance = 4150},
+	{name = "hair of a banshee", chance = 4810},
+	{name = "sweet smelling bait", chance = 40}
 }
 
 monster.attacks = {

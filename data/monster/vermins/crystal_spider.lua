@@ -80,23 +80,23 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2124, chance = 1560},
-	{id = "crystal necklace", chance = 1640},
-	{id = "gold coin", chance = 99998, maxCount = 100},
-	{id = "gold coin", chance = 99998, maxCount = 92},
+	{name = "crystal necklace", chance = 1640},
+	{name = "gold coin", chance = 99998, maxCount = 100},
+	{name = "gold coin", chance = 99998, maxCount = 92},
 	{id = 2169, chance = 1480},
-	{id = "platinum amulet", chance = 130},
-	{id = "steel helmet", chance = 5200},
-	{id = "plate armor", chance = 9993},
-	{id = "knight armor", chance = 560},
-	{id = "knight legs", chance = 760},
-	{id = "jewelled backpack", chance = 80},
-	{id = "spider silk", chance = 2010},
-	{id = "shard", chance = 740},
-	{id = "sniper arrow", chance = 5840, maxCount = 6},
-	{id = "sapphire hammer", chance = 140},
-	{id = "crystal sword", chance = 2490},
-	{id = "strong mana potion", chance = 14950},
-	{id = "glacier mask", chance = 670}
+	{name = "platinum amulet", chance = 130},
+	{name = "steel helmet", chance = 5200},
+	{name = "plate armor", chance = 9993},
+	{name = "knight armor", chance = 560},
+	{name = "knight legs", chance = 760},
+	{name = "jewelled backpack", chance = 80},
+	{name = "spider silk", chance = 2010},
+	{name = "shard", chance = 740},
+	{name = "sniper arrow", chance = 5840, maxCount = 6},
+	{name = "sapphire hammer", chance = 140},
+	{name = "crystal sword", chance = 2490},
+	{name = "strong mana potion", chance = 14950},
+	{name = "glacier mask", chance = 670}
 }
 
 monster.attacks = {

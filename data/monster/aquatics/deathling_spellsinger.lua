@@ -77,24 +77,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 86000, maxCount = 14},
-	{id = "crystalline arrow", chance = 26000, maxCount = 25},
-	{id = "Small Emerald", chance = 14040, maxCount = 14},
-	{id = "Deepling Filet", chance = 12470},
-	{id = "Deeptags", chance = 12470},
-	{id = "Great Health Potion", chance = 9130},
-	{id = "Deepling Ridge", chance = 8840},
-	{id = "Deepling Warts", chance = 8540},
-	{id = "Great Mana Potion", chance = 8200},
-	{id = "Vortex Bolt", chance = 6380, maxCount = 25},
-	{id = "Eye of a Deepling", chance = 4760},
-	{id = "Heavy Trident", chance = 4120},
-	{id = "Warrior's Shield", chance = 3090},
-	{id = "Fish Fin", chance = 2990},
-	{id = "Warrior's Axe", chance = 2950},
-	{id = "Small Enchanted Sapphire", chance = 2220, maxCount = 4},
-	{id = "Life Ring", chance = 2010},
-	{id = "Necklace of the Deep", chance = 200}
+	{name = "platinum coin", chance = 86000, maxCount = 14},
+	{name = "crystalline arrow", chance = 26000, maxCount = 25},
+	{name = "Small Emerald", chance = 14040, maxCount = 14},
+	{name = "Deepling Filet", chance = 12470},
+	{name = "Deeptags", chance = 12470},
+	{name = "Great Health Potion", chance = 9130},
+	{name = "Deepling Ridge", chance = 8840},
+	{name = "Deepling Warts", chance = 8540},
+	{name = "Great Mana Potion", chance = 8200},
+	{name = "Vortex Bolt", chance = 6380, maxCount = 25},
+	{name = "Eye of a Deepling", chance = 4760},
+	{name = "Heavy Trident", chance = 4120},
+	{name = "Warrior's Shield", chance = 3090},
+	{name = "Fish Fin", chance = 2990},
+	{name = "Warrior's Axe", chance = 2950},
+	{name = "Small Enchanted Sapphire", chance = 2220, maxCount = 4},
+	{name = "Life Ring", chance = 2010},
+	{name = "Necklace of the Deep", chance = 200}
 }
 
 monster.attacks = {
