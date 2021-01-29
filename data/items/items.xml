@@ -32946,7 +32946,7 @@
 	<item fromid="22647" toid="22648" article="a" name="santa music box">
 		<attribute key="weight" value="750" />
 	</item>
-	<item id="22649" article="a" name="snowflake tapestry">
+	<item id="22649" article="a" name="snow flake tapestry">
 		<attribute key="weight" value="1000" />
 	</item>
 	<item fromid="22650" toid="22653" article="a" name="stony pond" />
@@ -33958,7 +33958,6 @@
 		<attribute key="loottype" value="wand" />
 		<attribute key="shootType" value="fire" />
 		<attribute key="range" value="3" />
-		<attribute key="description" value="It's warm to the touch." />
 	</item>
 	<item id="23721" article="the" name="chiller">
 		<attribute key="weight" value="1500" />
@@ -33966,7 +33965,6 @@
 		<attribute key="loottype" value="wand" />
 		<attribute key="shootType" value="smallice" />
 		<attribute key="range" value="3" />
-		<attribute key="description" value="It is a little, well, chilly to the touch." />
 	</item>
 	<item id="23722" article="a" name="light stone shower rune">
 		<attribute key="type" value="rune" />
@@ -34046,8 +34044,6 @@
 	</item>
 	<item fromid="23769" toid="23770" article="a" name="dead goblin" />
 	<item id="23771" article="a" name="spellbook of the novice">
-		<attribute key="weight" value="1400" />
-		<attribute key="description" value="It shows your spells and can also shield against attacks when worn." />
 		<attribute key="defense" value="8" />
 		<attribute key="weaponType" value="shield" />
 	</item>
@@ -49958,16 +49954,19 @@
 	<item fromid="38607" toid="38609" article="a" name="pool"/>
 	<item id="38611" article="a" name="unknow doll"/>
 	<item id="38612" article="a" name="unknow doll"/>
-	<item id="38613" article="a" name="raw watermelon tourmaline">
+	<item id="38613" article="a" name="raw watermelon tourmaline" plural="raw watermelon tourmalines">
+		<attribute key="loottype" value="valuable" />
 		<attribute key="weight" value="150" />
 	</item>
-	<item id="38614" article="a" name="watermelon tourmaline">
+	<item id="38614" article="a" name="watermelon tourmaline" plural="watermelon tourmalines">
+		<attribute key="loottype" value="valuable" />
 		<attribute key="weight" value="110" />
 	</item>
-	<item id="38615" article="a" name="watermelon tourmaline">
+	<item id="38615" article="a" name="watermelon tourmaline" plural="watermelon tourmalines">
+		<attribute key="loottype" value="valuable" />
 		<attribute key="weight" value="130" />
 	</item>
-	<item id="38616" article="a" name="lion figurine">
+	<item id="38616" article="a" name="lion figurine" plural="lion figurines">
 		<attribute key="description" value="It is made of gold."/>
 		<attribute key="weight" value="650" />
 	</item>
@@ -50415,31 +50414,40 @@
 	<item id="38756" name="Malice's spine">
 		<attribute key="weight" value="230" />
 	</item>
-	<item id="38757" name="Cruelty's claw">
+	<item id="38757" name="Cruelty's claw" plural="Cruelty's claws">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="140" />
 	</item>
-	<item id="38758" name="Cruelty's chest">
+	<item id="38758" name="Cruelty's chest" plural="Cruelty's chests">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="140" />
 	</item>
-	<item id="38759" name="Greed's arm">
+	<item id="38759" name="Greed's arm" plural="Greed's arms">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="125" />
 	</item>
-	<item id="38760" name="Megalomania's skull">
+	<item id="38760" name="Megalomania's skull" plural="Megalomania's skulls">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="100" />
 	</item>
-	<item id="38761" article="a" name="Spite's spirit">
+	<item id="38761" name="Spite's spirit">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="110" />
 	</item>
-	<item id="38762" article="a" name="Vial of Hatred">
+	<item id="38762" article="a" name="vial of Hatred" plural="vials of Hatred">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="110" />
 	</item>
-	<item id="38763" name="Megalomania's essence">
+	<item id="38763" name="Megalomania's essence" plural="Megalomania's essences">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="110" />
 	</item>
 	<item id="38764" article="a" name="rod" plural="rods">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="90" />
 	</item>
 	<item id="38765" article="an" name="salt">
+		<attribute key="loottype" value="food" />
 		<attribute key="weight" value="200" />
 	</item>
 	<item id="38766" article="a" name="empty cask">
@@ -50447,24 +50455,31 @@
 		<attribute key="weight" value="2000" />
 	</item>
 	<item id="38767" article="an" name="head" plural="heads"> <!--many faces-->
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="60" />
 	</item>
 	<item id="38768" article="an" name="apron" plural="aprons">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="30" />
 	</item>
 	<item id="38769" article="a" name="telescope eye" plural="telescope eyes">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="30" />
 	</item>
 	<item id="38770" article="a" name="crown" plural="crowns">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="90" />
 	</item>
 	<item id="38771" article="a" name="hand" plural="hands"> <!--brachiodemon-->
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="90" />
 	</item>
 	<item id="38772" article="a" name="head" plural="heads"> <!--brachiodemon-->
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="90" />
 	</item>
 	<item id="38773" name="roots">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="90" />
 	</item>
 	<item id="38774" article="a" name="cask">
@@ -50484,27 +50499,34 @@
 		<attribute key="weight" value="4400" />
 	</item>
 	<item id="38778" article="a" name="werehyaena nose" plural="werehyaena noses">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="100" />
 	</item>
 	<item id="38779" article="a" name="werehyaena talisman" plural="werehyaena talismans">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="80" />
 	</item>
 	<item id="38780" article="a" name="ivory carving" plural="ivory carvings">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="140" />
 	</item>
 	<item id="38781" article="an" name="cave rat">
 		<attribute key="weight" value="600" />
 	</item>
 	<item id="38782" article="a" name="hard-boiled hydra egg" plural="hard-boiled hydra eggs">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="2000" />
 	</item>
 	<item id="38785" name="cleansed sanity">
 		<attribute key="weight" value="101" />
+		<attribute key="description" value="Can be used to douse Goshnar's madness." />
 	</item>
 	<item id="38787" name="figurine of spite">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="101" />
 	</item>
 	<item id="38788" name="figurine of megalomania">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="50" />
 	</item>
 	<item id="38789" article="a" name="dead lion knight">
@@ -50669,14 +50691,16 @@
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="38817" name="crawler's essence" plural="crawler's essences">
-		<attribute key="weight" value="230" />
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="450" />
 	</item>
 	<item id="38843" name="white silk flower">
 		<attribute key="description" value="The petals are made of silk, the buds and pistil of white pearls. The werelions of the Darama Desert often use such flowers as love pledges." />
 		<attribute key="weight" value="300" />
 	</item>
 	<item id="38849" name="jaws">
-		<attribute key="weight" value="230" />
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="170" />
 	</item>
 	<item id="38850" article="a" name="lion statue" />
 	<item id="38851" article="a" name="lit torch (sparkling)" >
@@ -50691,47 +50715,60 @@
 		<attribute key="weight" value="500" />
 	</item>
 	<item id="38853" name="figurine of malice">
-		<attribute key="weight" value="44" />
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="42" />
 	</item>
 	<item id="38854" name="figurine of cruelty">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="44" />
 	</item>
 	<item id="38855" name="figurine of hatred">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="44" />
 	</item>
 	<item id="38856" article="a" name="figurine of Greed" plural="figurines of Greed">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="44" />
 	</item>
 	<item id="38857" article="a" name="goblet of gloom" plural="goblets of gloom">
+		<attribute key="loottype" value="valuable" />
 		<attribute key="weight" value="190" />
 		<attribute key="description" value="It is adorned with rubies." />
 	</item>
 		<item id="38858" article="a" name="brooch of embracement" plural="brooches of embracement">
+		<attribute key="loottype" value="valuable" />
 		<attribute key="weight" value="80" />
 		<attribute key="description" value="The oval gem looks like a huge onyx." />
 	</item>
 	<item id="38859" article="a" name="gruesome fan" plural="gruesome fans">
+		<attribute key="loottype" value="valuable" />
 		<attribute key="weight" value="170" />
 		<attribute key="description" value="It is made of spider legs and human skin." />
 	</item>
 	<item id="38860" article="a" name="diabolic skull" plural="diabolic skulls">
+		<attribute key="loottype" value="valuable" />
 		<attribute key="weight" value="210" />
 		<attribute key="description" value="It is made of gold and rubies." />
 	</item>	
 	<item id="38907" article="a" name="spectral horseshoe" plural="spectral horseshoes">
+		<attribute key="loottype" value="valuable" />
 		<attribute key="weight" value="120" />
 	</item>
 	<item id="38908" article="a" name="spectral saddle" plural="spectral saddles">
+		<attribute key="loottype" value="valuable" />
 		<attribute key="weight" value="270" />
 	</item>
 	<item id="38909" article="a" name="spectral horse tack" plural="spectral horse tacks">
+		<attribute key="loottype" value="valuable" />
 		<attribute key="weight" value="80" />
 	</item>
 	<item id="38910" name="the skull of a beast">
+		<attribute key="loottype" value="valuable" />
 		<attribute key="weight" value="230" />
 		<attribute key="description" value="Unleash the beast." />
 	</item>
 	<item id="38911" article="a" name="bracelet of strengthening">
+		<attribute key="loottype" value="valuable" />
 		<attribute key="weight" value="150" />
 	</item>
 	<item id="38912" name="chopped lion mane petals">
@@ -50964,18 +51001,22 @@
 		<attribute key="weaponType" value="shield"/>
 		<attribute key="imbuingSlots" value="1" />
 	</item>
-	<item id="38935" name="katex' blood">
+	<item id="38935" name="Katex' blood">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="70" />
 	</item>
-	<item id="38936" article="an" name="utua's poison">
+	<item id="38936" article="an" name="Utua's poison">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="70" />
 	</item>	
-	<item id="38937" article="a" name="yirkas' egg">
+	<item id="38937" article="a" name="Yirkas' egg">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="250" />
 	</item>
-	<item id="38938" article="a" name="srezz' eye">
+	<item id="38938" article="a" name="Srezz' eye">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="80" />
 	</item>
@@ -50988,7 +51029,8 @@
 	<item id="38942" article="a" name="slab with a scorpion">
 	</item>
 	<item id="38944" article="a" name="bag you desire">
-	<attribute key="weight" value="30" />
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="30" />
 	</item>
 	<item id="38945" article="a" name="sandstone statue" />
 	<item id="38946" article="a" name="magic forcefield">
@@ -51116,51 +51158,63 @@
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38973" article="a" name="capricious heart">
+	<item id="38973" article="a" name="capricious heart" plural="capricious hearts">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="75" />
 	</item>
-	<item id="38974" article="an" name="infernal heart">
+	<item id="38974" article="an" name="infernal heart" plural="infernal hearts">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="75" />
 	</item>
-	<item id="38975" article="a" name="hazardous heart">
+	<item id="38975" article="a" name="hazardous heart" plural="hazardous hearts">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="75" />
 	</item>
-	<item id="38976" article="a" name="mould heart">
+	<item id="38976" article="a" name="mould heart" plural="mould hearts">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="75" />
 	</item>
-	<item id="38977" article="a" name="distorted heart">
+	<item id="38977" article="a" name="distorted heart" plural="distorted hearts">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="180" />
 	</item>
-	<item id="38978" article="a" name="vibrant heart">
+	<item id="38978" article="a" name="vibrant heart" plural="vibrant hearts">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="75" />
 	</item>
-	<item id="38979" article="a" name="vibrant robe">
+	<item id="38979" article="a" name="vibrant robe" plural="vibrant robes">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="180" />
 	</item>
-	<item id="38980" article="a" name="capricious robe">
+	<item id="38980" article="a" name="capricious robe" plural="capricious robes">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="180" />
 	</item>
-	<item id="38981" article="an" name="infernal robe">
+	<item id="38981" article="an" name="infernal robe" plural="infernal robes">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="180" />
 	</item>
-	<item id="38982" article="a" name="hazardous robe">
+	<item id="38982" article="a" name="hazardous robe" plural="hazardous robes">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="180" />
 	</item>
-	<item id="38983" article="a" name="mould robe">
+	<item id="38983" article="a" name="mould robe" plural="mould robes">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="180" />
 	</item>
-	<item id="38984" article="a" name="distorted robe">
+	<item id="38984" article="a" name="distorted robe" plural="distorted robes">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="180" />
 	</item>
@@ -51258,23 +51312,28 @@
 		<attribute key="showattributes" value="1" />
 		<attribute key="loottype" value="amulet" />
 	</item>
-	<item id="38995" article="a" name="lion crest">
+	<item id="38995" article="a" name="lion crest" plural="lion crests">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="1240" />
 	</item>
-	<item id="38996" article="a" name="broken longbow">
+	<item id="38996" article="a" name="broken longbow" plural="broken longbows">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="1240" />
 	</item>
-	<item id="38997" article="a" name="lion cloak patch">
+	<item id="38997" article="a" name="lion cloak patch" plural="lion cloak patches">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="500" />
 	</item>
-	<item id="38998" article="a" name="lion seal">
+	<item id="38998" article="a" name="lion seal" plural="lion seals">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="500" />
 	</item>
-	<item id="38999" article="a" name="fur shred">
+	<item id="38999" article="a" name="fur shred" plural="fur shreds">
+		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="500" />
 	</item>
@@ -51285,6 +51344,7 @@
 		<attribute key="floorchange" value="down" />
 	</item>
 	<item id="39005" article="a" name="morbid tapestry">
+		<attribute key="loottype" value="decoration" />
 		<attribute key="weight" value="290" />
 	</item>
 	<item fromid="39006" toid="39007" article="a" name="lion flags">
@@ -51508,6 +51568,7 @@
 	</item>
 	<item fromid="39046" toid="39051" article="a" name="rocky wall" />
 	<item id="39054" article="a" name="werehyaena trophy">
+		<attribute key="loottype" value="other" />
 		<attribute key="weight" value="500" />
 	</item>
 	<item id="39055" article="a" name="grimy wooden plank" />
@@ -51706,6 +51767,19 @@
 	<item id="39932" article="a" name="dead werehyaena">
 		<attribute key="corpseType" value="blood" />
 	</item>
+	<item id="40061" article="a" name="rascoohan rat revealer">
+		<attribute key="description" value="The RRR is a testament if rascoohan ingenuity." />
+		<attribute key="weight" value="4000" />
+	</item>
+	<item id="40126" name="Rita's letter">
+		<attribute key="weight" value="50" />
+	</item>
+	<item id="40171" article="a" name="ballistic boulder">
+		<attribute key="weight" value="2500" />
+	</item>
+	<item id="40172" article="a" name="greenish flintstone">
+		<attribute key="weight" value="375" />
+	</item>
 	<item id="40193" article="a" name="dead exotic cave spider">
 		<attribute key="containerSize" value="30" />
 		<attribute key="decayTo" value="40194" />
@@ -51762,6 +51836,9 @@
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
+	<item id="40211" article="a" name="magical water orb">
+		<attribute key="weight" value="250" />
+	</item>
 	<item id="40212" article="a" name="dead pirat scoundrel">
 		<attribute key="containerSize" value="30" />
 		<attribute key="decayTo" value="0" />
@@ -51790,6 +51867,16 @@
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
+	<item id="40314" article="a" name="bag of smuggled goods">
+		<attribute key="weight" value="800" />
+	</item>
+	<item id="40330" article="a" name="lace-trimmed handkerchief">
+		<attribute key="description" value="It is embroidered with the letter E." />
+		<attribute key="weight" value="50" />
+	</item>
+	<item id="40343" article="a" name="cheesy key">
+		<attribute key="weight" value="250" />
+	</item>
 	<item id="40359" article="a" name="jungle quiver">
 		<attribute key="weight" value="1800" />
 		<attribute key="containerSize" value="8" />
@@ -51807,17 +51894,88 @@
 		<attribute key="weight" value="320" />
 		<attribute key="description" value="This potion can only be consumed by druids and sorcerers of level 14 or higher." />
 	</item>
-	<item id="40407" article="a" name="pirate coin">
+	<item id="40406" article="a" name="small treasure chest" plural="small treasure chests">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="800" />
+	</item>
+	<item id="40407" article="a" name="pirate coin" plural="pirate coins">
 		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="40" />
 	</item>
-	<item id="40408" article="a" name="pirat's tail">
+	<item id="40408" article="a" name="pirat's tail" plural="pirat's tails">
 		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="190" />
 	</item>
 	<item id="40409" name="shark fins">
 		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="620" />
+	</item>
+	<item id="40411" article="a" name="plushie of Tentugly">
+		<attribute key="weight" value="620" />
+	</item>
+	<item id="40413" article="a" name="tiara" plural="tiaras">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="150" />
+	</item>
+	<item id="40414" article="a" name="golden dustbin" plural="golden dustbins">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="720" />
+	</item>
+	<item id="40415" article="a" name="golden skull" plural="golden skulls">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="430" />
+	</item>
+	<item id="40416" article="a" name="golden cheese wedge" plural="golden cheese wedges">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="280" />
+	</item>
+	<item id="40423" article="a" name="grappling hook" plural="grappling hooks">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="620" />
+	</item>
+	<item id="40424" article="a" name="snowbash figurine">
+		<attribute key="loottype" value="decoration" />
+		<attribute key="weight" value="650" />
+	</item>
+	<item id="40425" article="a" name="sandscourge figurine">
+		<attribute key="loottype" value="decoration" />
+		<attribute key="weight" value="650" />
+	</item>
+	<item id="40426" article="a" name="mossmasher figurine">
+		<attribute key="loottype" value="decoration" />
+		<attribute key="weight" value="650" />
+	</item>
+	<item id="40427" article="a" name="bladespark figurine">
+		<attribute key="loottype" value="decoration" />
+		<attribute key="weight" value="650" />
+	</item>
+	<item id="40430" article="a" name="soap" plural="soaps">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="180" />
+	</item>
+	<item id="40431" name="mouldy powder">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="170" />
+	</item>
+	<item id="40445" article="a" name="Tentugly's eye" plural="Tentugly's eyes">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="120" />
+	</item>
+	<item id="40446" article="a" name="tentacle of Tentugly" plural="tentacles of Tentugly">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="480" />
+	</item>
+	<item id="40447" name="Tentugly's jaws">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="320" />
+	</item>
+	<item id="40448" name="Ratmiral's hat" plural="Ratmiral's hats">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="270" />
+	</item>
+	<item id="40449" article="a" name="cheesy membership card" plural="cheesy membership cards">
+		<attribute key="loottype" value="creatureproduct" />
+		<attribute key="weight" value="270" />
 	</item>
 	<item id="40522" article="a" name="dead exotic bat">
 		<attribute key="decayTo" value="0" />
@@ -51845,6 +52003,13 @@
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="venom" />
 		<attribute key="fluidSource" value="slime" />
+	</item>
+	<item id="40527" article="a" name="raccoon santa">
+		<attribute key="weight" value="650" />
+	</item>
+	<item id="40530" article="a" name="scrubbing brush" plural="scrubbing brushes">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="350" />
 	</item>
 	<item id="40683" article="a" name="blue quiver">
 		<attribute key="weight" value="1700" />
@@ -51875,5 +52040,176 @@
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="spectralbolt" />
 		<attribute key="maxHitChance" value="100" />
+	</item>
+	<item id="40746" article="a" name="grandiose cupboard">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40747" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40747" article="a" name="grandiose cupboard">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40746" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40748" article="a" name="grandiose table">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40749" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40749" article="a" name="grandiose table">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40748" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40750" article="a" name="grandiose chair">
+		<attribute key="rotateTo" value="40751" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40751" article="a" name="grandiose chair">
+		<attribute key="rotateTo" value="40752" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40752" article="a" name="grandiose chair">
+		<attribute key="rotateTo" value="40753" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40753" article="a" name="grandiose chair">
+		<attribute key="rotateTo" value="40750" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40754" article="a" name="grandiose refined chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40755" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40755" article="a" name="grandiose refined chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40756" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40756" article="a" name="grandiose refined chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40757" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40757" article="a" name="grandiose refined chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40754" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40758" article="a" name="grandiose gilded chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40759" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40759" article="a" name="grandiose gilded chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40760" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40760" article="a" name="grandiose gilded chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40761" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40761" article="a" name="grandiose gilded chest">
+		<attribute key="containerSize" value="8" />
+		<attribute key="rotateTo" value="40758" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40762" article="a" name="grandiose couch left">
+		<attribute key="rotateTo" value="40791" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40791" article="a" name="grandiose couch left">
+		<attribute key="rotateTo" value="40796" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40796" article="a" name="grandiose couch left">
+		<attribute key="rotateTo" value="40799" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40799" article="a" name="grandiose couch left">
+		<attribute key="rotateTo" value="40762" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40789" article="a" name="grandiose couch middle">
+		<attribute key="rotateTo" value="40792" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40792" article="a" name="grandiose couch middle">
+		<attribute key="rotateTo" value="40795" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40795" article="a" name="grandiose couch middle">
+		<attribute key="rotateTo" value="40798" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40798" article="a" name="grandiose couch middle">
+		<attribute key="rotateTo" value="40789" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40790" article="a" name="grandiose couch right">
+		<attribute key="rotateTo" value="40793" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40793" article="a" name="grandiose couch right">
+		<attribute key="rotateTo" value="40794" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40794" article="a" name="grandiose couch right">
+		<attribute key="rotateTo" value="40797" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40797" article="a" name="grandiose couch right">
+		<attribute key="rotateTo" value="40790" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40777" article="a" name="grandiose carpet">
+		<attribute key="type" value="carpet" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40776" article="a" name="folded grandiose carpet">
+		<attribute key="type" value="carpet" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<!-- missing beds -->
+	<item id="40784" article="a" name="portable aqueduct">
+		<attribute key="rotateTo" value="40804" />
+		<attribute key="duration" value="200" />
+		<attribute key="decayTo" value="40785" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40785" article="a" name="portable aqueduct">
+		<attribute key="duration" value="1" />
+		<attribute key="decayTo" value="40786" />
+	</item>
+	<item id="40786" article="a" name="portable aqueduct">
+		<attribute key="duration" value="200" />
+		<attribute key="rotateTo" value="40806" />
+		<attribute key="decayTo" value="40787" />
+	</item>
+	<item id="40787" article="a" name="portable aqueduct">
+		<attribute key="duration" value="1" />
+		<attribute key="decayTo" value="40784" />
+	</item>
+	<item id="40804" article="a" name="portable aqueduct">
+		<attribute key="rotateTo" value="40784" />
+		<attribute key="duration" value="200" />
+		<attribute key="decayTo" value="40805" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40805" article="a" name="portable aqueduct">
+		<attribute key="duration" value="1" />
+		<attribute key="decayTo" value="40806" />
+	</item>
+	<item id="40806" article="a" name="portable aqueduct">
+		<attribute key="duration" value="200" />
+		<attribute key="rotateTo" value="40786" />
+		<attribute key="decayTo" value="40807" />
+	</item>
+	<item id="40807" article="a" name="portable aqueduct">
+		<attribute key="duration" value="1" />
+		<attribute key="decayTo" value="40804" />
 	</item>
 </items>
