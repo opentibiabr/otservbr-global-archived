@@ -396,7 +396,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 
 	version = msg.get<uint16_t>();
 
-	clientVersion = msg.get<uint32_t>();
+	clientVersion = static_cast<int32_t>(msg.get<uint32_t>());
 
 	msg.skipBytes(3); // U16 dat revision, game preview state
 
@@ -1899,28 +1899,19 @@ void ProtocolGame::parseBestiarysendCreatures(NetworkMessage &msg)
 	std::string text = "";
 	uint8_t search = msg.getByte();
 
-	if (search == 1)
-	{
+	if (search == 1) {
 		uint16_t monsterAmount = msg.get<uint16_t>();
 		std::map<uint16_t, std::string> mtype_list = g_game.getBestiaryList();
-		uint16_t raceid = msg.get<uint16_t>();
-		MonsterType *mtype = g_monsters.getMonsterTypeByRaceId(raceid);
-		if (!mtype)
-		{
-			return;
-		}
-		text = mtype->info.bestiaryClass;
-		for (int8_t i = 1; i <= monsterAmount; i++)
-		{
-			auto it = mtype_list.find(raceid);
-			if (it != mtype_list.end())
-			{
-				race.insert({raceid, it->second});
+		for (uint16_t monsterCount = 1; monsterCount <= monsterAmount; monsterCount++) {
+			uint16_t raceid = msg.get<uint16_t>();
+			if (player->getBestiaryKillCount(raceid) > 0) {
+				auto it = mtype_list.find(raceid);
+				if (it != mtype_list.end()) {
+						race.insert({raceid, it->second});
+				}
 			}
 		}
-	}
-	else
-	{
+	} else {
 		std::string raceName = msg.getString();
 		race = g_bestiary.findRaceByName(raceName);
 

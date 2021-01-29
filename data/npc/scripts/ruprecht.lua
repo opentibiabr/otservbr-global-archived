@@ -23,7 +23,7 @@ local itemsTable = {
 	["jewel case"] = {itemId = 8261, count = 25},
 	["santa hat"] = {itemId = 6531, count = 50},
 	["santa backpack"] = {itemId = 11263, count = 75},
-	["snowflake tapestry"] = {itemId = 22649, count = 75},
+	["snow flake tapestry"] = {itemId = 22649, count = 75},
 	["santa doll"] = {itemId = 6512, count = 100},
 	["snowman doll"] = {itemId = 11256, count = 150},
 	["snow globe"] = {itemId = 22645, count = 150},
@@ -33,7 +33,12 @@ local itemsTable = {
 	["santa teddy"] = {itemId = 11255, count = 500},
 	["maxxen santa"] = {itemId = 24321, count = 250},
 	["present bag"] = {itemId = 6497, count = 1},
-	["ferumbras' teddy santa"] = {itemId = 25535, count = 250}
+	["ferumbras' teddy santa"] = {itemId = 25535, count = 250},
+	["nightmare beast santa"] = {itemId = 34585, count = 250},
+	["orclops santa"] = {itemId = 27062, count = 250},
+	["raccoon santa"] = {itemId = 40527, count = 250},
+	["santa fox"] = {itemId = 30826, count = 250},
+	["santa leech"] = {itemId = 37581, count = 250}
 }
 
 local function creatureSayCallback(cid, type, msg)
