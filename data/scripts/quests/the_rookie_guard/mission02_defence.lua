@@ -85,7 +85,7 @@ function stonePile.onUse(player, item, frompos, item2, topos)
 	if missionState == -1 then
 		return true
 	end
-    if missionState <= 3 then
+	if missionState <= 3 then
 		if missionState == 1 then
 			player:setStorageValue(Storage.TheRookieGuard.Mission02, 2)
 			player:setStorageValue(Storage.TheRookieGuard.Catapults, 0)
@@ -97,10 +97,10 @@ function stonePile.onUse(player, item, frompos, item2, topos)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to wait a few minutes before you can pick up a new stone.")
 		end
-    else
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You don't need any stones anymore. Rookgaard's defences have been fortified.")
-    end
-    return true
+	else
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You don't need any stones anymore. Rookgaard's defences have been fortified.")
+	end
+	return true
 end
 
 stonePile:aid(40005)
@@ -119,7 +119,7 @@ local heavyStone = Action()
 
 function heavyStone.onUse(player, item, frompos, item2, topos)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission02)
-    if missionState >= 2 and missionState <= 3 and catapults[item2.actionid] then
+	if missionState >= 2 and missionState <= 3 and catapults[item2.actionid] then
 		local catapultsState = player:getStorageValue(Storage.TheRookieGuard.Catapults)
 		local hasUsedCatapult = testFlag(catapultsState, catapults[item2.actionid])
 		if not hasUsedCatapult then
@@ -135,8 +135,8 @@ function heavyStone.onUse(player, item, frompos, item2, topos)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have already loaded a stone on this catapult. Look around on other roofs to find the remaining catapults.")
 		end
-    end
-    return true
+	end
+	return true
 end
 
 heavyStone:id(13866)

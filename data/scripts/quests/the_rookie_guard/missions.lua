@@ -24,6 +24,15 @@ local missionTiles = {
 			message = "Follow the path to the east to find Hyacinth's little house.",
 			arrowPosition = {x = 32096, y = 32169, z = 7}
 		}
+	},
+	-- North-west drawbridge
+	[50325] = {
+		{
+			mission = Storage.TheRookieGuard.Mission05,
+			states = {1},
+			message = "Walk to the north and down the stairs to reach the tarantula's lair.",
+			arrowPosition = {x = 32069, y = 32145, z = 6}
+		}
 	}
 }
 

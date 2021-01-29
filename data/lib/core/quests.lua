@@ -5688,7 +5688,7 @@ if not Quests then
 					storageId = Storage.TheRookieGuard.Mission04,
 					missionId = 10400,
 					startValue = 1,
-					endValue = 7,
+					endValue = 6,
 					states = {
 						[1] = "Vascalir doesn't have a job for you at the moment. He sent you to Lily in the south-west of town for another mission.",
 						[2] = "Lily gave you a bag with fresh herbs that need to be delivered to Hyacinth outside of the village. Leave the village to the north and walk east to find his little hut up a mountain.",

@@ -54,6 +54,13 @@ local function greetCallback(cid)
 	-- Finished mission 4 but not started mission 5
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission04) == 6 and player:getStorageValue(Storage.TheRookieGuard.Mission05) == -1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Oh, hello |PLAYERNAME|! Have you made up your mind about sneaking into the tarantula's lair and retrieving a sample of her web? Are you up for it?")
+	-- Finishing mission 5
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission05) == 3 then
+		npcHandler:setMessage(MESSAGE_GREET, "Oh, well done! Let me take that spider web sample from you - careful, careful... it's sturdy, yet fragile. Thank you! I should be able to make a great paralyse trap with this one. Here, I have something sturdy for you as well - want it?")
+		player:setStorageValue(Storage.TheRookieGuard.Mission05, 5)
+	-- Finishing mission 5
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission05) == 5 then
+		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|! How about that studded armor - would you like to have it now?")
 	else
 		npcHandler:say("|PLAYERNAME|, the only thing left for you to do here is to talk to the oracle above the academy and leave for the Isle of Destiny. Thanks again for your great work and good luck on your journeys!", cid)
 		return false
@@ -288,7 +295,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 6 and player:getStorageValue(Storage.TheRookieGuard.Mission05) == -1 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission05, 1)
-	--player:addMapMark({x = 32082, y = 32182, z = 7}, MAPMARK_FLAG, "Barn")
+	player:addMapMark({x = 32051, y = 32110, z = 7}, MAPMARK_GREENSOUTH, "Spider Lair")
 end
 )
 
@@ -300,6 +307,30 @@ keywordHandler:addKeyword({"no"}, StdModule.say,
 	ungreet = true
 },
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 6 and player:getStorageValue(Storage.TheRookieGuard.Mission05) == -1 end
+)
+
+-- Mission 5: Finish (Accept reward)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Here, this studded armor will protect you much better. Fits you perfectly! Now - let's work on your footwear. Tom the Tanner can create great boots out of quality leather. You should pay him a visit!",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission05) == 5 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission05, 6)
+	player:setStorageValue(Storage.TheRookieGuard.Mission06, 1)
+	player:addItemEx(Game.createItem(2484, 1), true, CONST_SLOT_WHEREEVER)
+end
+)
+
+-- Mission 5: Finish (Decline reward)
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Seriously, don't reject that offer. I'm going to give you a studded armor. No one refuses free stuff! If you don't like it, you can sell it - I don't need it anymore. I promise it's not too used or smelly. Want it?"
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission05) == 5 end
 )
 
 
