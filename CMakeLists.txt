@@ -267,9 +267,8 @@ include_directories(SYSTEM
                     ${LUA_INCLUDE_DIR}
                     ${Boost_INCLUDE_DIRS}
                     ${PUGIXML_INCLUDE_DIR}
-                    ${GMP_INCLUDE_DIR}
+                    ${GMP_INCLUDE_DIRS}
                     ${ZLIB_INCLUDE_DIR}
-                    
                     ${CRYPTOPP_INCLUDE_DIR})
 
 target_link_libraries(otbr otbr_lib
