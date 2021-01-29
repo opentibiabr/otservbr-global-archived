@@ -51,11 +51,9 @@ void PrivateChatChannel::invitePlayer(const Player& player, Player& invitePlayer
 	ss << invitePlayer.getName() << " has been invited.";
 	player.sendTextMessage(MESSAGE_INFO_DESCR, ss);
 
-	#if GAME_FEATURE_CHAT_PLAYERLIST > 0
 	for (const auto& it : users) {
 		it.second->sendChannelEvent(id, invitePlayer.getName(), CHANNELEVENT_INVITE);
 	}
-	#endif
 }
 
 void PrivateChatChannel::excludePlayer(const Player& player, Player& excludePlayer)
@@ -72,11 +70,9 @@ void PrivateChatChannel::excludePlayer(const Player& player, Player& excludePlay
 
 	excludePlayer.sendClosePrivate(id);
 
-	#if GAME_FEATURE_CHAT_PLAYERLIST > 0
 	for (const auto& it : users) {
 		it.second->sendChannelEvent(id, excludePlayer.getName(), CHANNELEVENT_EXCLUDE);
 	}
-	#endif
 }
 
 void PrivateChatChannel::closeChannel() const
@@ -104,13 +100,11 @@ bool ChatChannel::addUser(Player& player)
 		}
 	}
 
-	#if GAME_FEATURE_CHAT_PLAYERLIST > 0
 	if (!publicChannel) {
 		for (const auto& it : users) {
 			it.second->sendChannelEvent(id, player.getName(), CHANNELEVENT_JOIN);
 		}
 	}
-	#endif
 
 	users[player.getID()] = &player;
 	return true;
@@ -125,13 +119,11 @@ bool ChatChannel::removeUser(const Player& player)
 
 	users.erase(iter);
 
-	#if GAME_FEATURE_CHAT_PLAYERLIST > 0
 	if (!publicChannel) {
 		for (const auto& it : users) {
 			it.second->sendChannelEvent(id, player.getName(), CHANNELEVENT_LEAVE);
 		}
 	}
-	#endif
 
 	executeOnLeaveEvent(player);
 	return true;
@@ -169,7 +161,13 @@ bool ChatChannel::executeCanJoinEvent(const Player& player)
 	//canJoin(player)
 	LuaScriptInterface* scriptInterface = g_chat().getScriptInterface();
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - CanJoinChannelEvent::execute] Call stack overflow" << std::endl;
+		std::cout << "[Error - CanJoinChannelEvent::execute"
+						<< " Player "
+						<< player.getName()
+						<< " on channel "
+						<< getName()
+						<< "] Call stack overflow. Too many lua script calls being nested."
+						<< std::endl;
 		return false;
 	}
 
@@ -194,7 +192,13 @@ bool ChatChannel::executeOnJoinEvent(const Player& player)
 	//onJoin(player)
 	LuaScriptInterface* scriptInterface = g_chat().getScriptInterface();
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - OnJoinChannelEvent::execute] Call stack overflow" << std::endl;
+		std::cout << "[Error - OnJoinChannelEvent::execute"
+				<< " Player "
+				<< player.getName()
+				<< " on channel "
+				<< getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 		return false;
 	}
 
@@ -219,7 +223,13 @@ bool ChatChannel::executeOnLeaveEvent(const Player& player)
 	//onLeave(player)
 	LuaScriptInterface* scriptInterface = g_chat().getScriptInterface();
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - OnLeaveChannelEvent::execute] Call stack overflow" << std::endl;
+		std::cout << "[Error - OnLeaveChannelEvent::execute"
+				<< " Player "
+				<< player.getName()
+				<< " on channel "
+				<< getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 		return false;
 	}
 
@@ -244,7 +254,13 @@ bool ChatChannel::executeOnSpeakEvent(const Player& player, SpeakClasses& type, 
 	//onSpeak(player, type, message)
 	LuaScriptInterface* scriptInterface = g_chat().getScriptInterface();
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - OnSpeakChannelEvent::execute] Call stack overflow" << std::endl;
+		std::cout << "[Error - OnSpeakChannelEvent::execute"
+				<< " Player "
+				<< player.getName()
+				<< " type "
+				<< type
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
 		return false;
 	}
 
@@ -299,43 +315,7 @@ bool Chat::load()
 	}
 
 	for (auto channelNode : doc.child("channels").children()) {
-		uint16_t channelId = 0;
-		if (pugi::xml_attribute attr = channelNode.attribute("hid")) {
-			std::string tmpStrValue = asLowerCaseString(attr.as_string());
-			if (!tfs_strcmp(tmpStrValue.c_str(), "help")) {
-				#if CLIENT_VERSION >= 871
-				channelId = 7;
-				#elif CLIENT_VERSION == 870
-				channelId = 6;
-				#elif CLIENT_VERSION >= 840
-				channelId = 9;
-				#elif CLIENT_VERSION >= 790
-				channelId = 8;
-				#else
-				channelId = 7;
-				#endif
-			} else if (!tfs_strcmp(tmpStrValue.c_str(), "advertising")) {
-				#if CLIENT_VERSION >= 871
-				channelId = 5;
-				#else
-				channelId = 4;
-				#endif
-			} else if (!tfs_strcmp(tmpStrValue.c_str(), "advertising-rookgaard")) {
-				#if CLIENT_VERSION >= 871
-				channelId = 6;
-				#else
-				channelId = 5;
-				#endif
-			} else if (!tfs_strcmp(tmpStrValue.c_str(), "rvr")) {
-				#if GAME_FEATURE_RULEVIOLATION > 0
-				channelId = 3;
-				#else
-				continue;
-				#endif
-			}
-		} else {
-			channelId = pugi::cast<uint16_t>(channelNode.attribute("id").value());
-		}
+		uint16_t channelId = pugi::cast<uint16_t>(channelNode.attribute("id").value());
 		std::string channelName = channelNode.attribute("name").as_string();
 		bool isPublic = channelNode.attribute("public").as_bool();
 		pugi::xml_attribute scriptAttribute = channelNode.attribute("script");
@@ -386,14 +366,14 @@ bool Chat::load()
 
 ChatChannel* Chat::createChannel(const Player& player, uint16_t channelId)
 {
-	if (getChannel(player, channelId)) {
+	if (getChannel(player, channelId) != nullptr) {
 		return nullptr;
 	}
 
 	switch (channelId) {
 		case CHANNEL_GUILD: {
 			Guild* guild = player.getGuild();
-			if (guild) {
+			if (guild != nullptr) {
 				auto ret = guildChannels.emplace(std::piecewise_construct, std::forward_as_tuple(guild->getId()), std::forward_as_tuple(channelId, guild->getName()));
 				return &ret.first->second;
 			}
@@ -402,7 +382,7 @@ ChatChannel* Chat::createChannel(const Player& player, uint16_t channelId)
 
 		case CHANNEL_PARTY: {
 			Party* party = player.getParty();
-			if (party) {
+			if (party != nullptr) {
 				auto ret = partyChannels.emplace(std::piecewise_construct, std::forward_as_tuple(party), std::forward_as_tuple(channelId, "Party"));
 				return &ret.first->second;
 			}
@@ -411,7 +391,7 @@ ChatChannel* Chat::createChannel(const Player& player, uint16_t channelId)
 
 		case CHANNEL_PRIVATE: {
 			//only 1 private channel for each premium player
-			if (!player.isPremium() || getPrivateChannel(player)) {
+			if (!player.isPremium() || (getPrivateChannel(player) != nullptr)) {
 				return nullptr;
 			}
 
@@ -438,7 +418,7 @@ bool Chat::deleteChannel(const Player& player, uint16_t channelId)
 	switch (channelId) {
 		case CHANNEL_GUILD: {
 			Guild* guild = player.getGuild();
-			if (!guild) {
+			if (guild == nullptr) {
 				return false;
 			}
 
@@ -453,7 +433,7 @@ bool Chat::deleteChannel(const Player& player, uint16_t channelId)
 
 		case CHANNEL_PARTY: {
 			Party* party = player.getParty();
-			if (!party) {
+			if (party == nullptr) {
 				return false;
 			}
 
@@ -484,7 +464,7 @@ bool Chat::deleteChannel(const Player& player, uint16_t channelId)
 ChatChannel* Chat::addUserToChannel(Player& player, uint16_t channelId)
 {
 	ChatChannel* channel = getChannel(player, channelId);
-	if (channel && channel->addUser(player)) {
+	if ((channel != nullptr) && channel->addUser(player)) {
 		return channel;
 	}
 	return nullptr;
@@ -493,7 +473,7 @@ ChatChannel* Chat::addUserToChannel(Player& player, uint16_t channelId)
 bool Chat::removeUserFromChannel(const Player& player, uint16_t channelId)
 {
 	ChatChannel* channel = getChannel(player, channelId);
-	if (!channel || !channel->removeUser(player)) {
+	if ((channel == nullptr) || !channel->removeUser(player)) {
 		return false;
 	}
 
@@ -534,7 +514,7 @@ void Chat::removeUserFromAllChannels(const Player& player)
 bool Chat::talkToChannel(const Player& player, SpeakClasses type, const std::string& text, uint16_t channelId)
 {
 	ChatChannel* channel = getChannel(player, channelId);
-	if (!channel) {
+	if (channel == nullptr) {
 		return false;
 	}
 
@@ -573,12 +553,6 @@ void Chat::openChannelsByServer(Player* player)
 					users = nullptr;
 				}
 
-				#if GAME_FEATURE_RULEVIOLATION > 0
-				if (channel->getId() == 3) {
-					player->sendRuleViolationChannel(channel->getId());
-					continue;
-				}
-				#endif
 				player->sendChannel(channel->getId(), channel->getName(), users, invitedUsers);
 			}
 		}
@@ -651,7 +625,7 @@ ChatChannel* Chat::getChannel(const Player& player, uint16_t channelId)
 	switch (channelId) {
 		case CHANNEL_GUILD: {
 			Guild* guild = player.getGuild();
-			if (guild) {
+			if (guild != nullptr) {
 				auto it = guildChannels.find(guild->getId());
 				if (it != guildChannels.end()) {
 					return &it->second;
@@ -662,7 +636,7 @@ ChatChannel* Chat::getChannel(const Player& player, uint16_t channelId)
 
 		case CHANNEL_PARTY: {
 			Party* party = player.getParty();
-			if (party) {
+			if (party != nullptr) {
 				auto it = partyChannels.find(party);
 				if (it != partyChannels.end()) {
 					return &it->second;

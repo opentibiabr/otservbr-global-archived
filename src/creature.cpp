@@ -25,7 +25,6 @@
 #include "game.h"
 #include "monster.h"
 
-
 double Creature::speedA = 857.36;
 double Creature::speedB = 261.29;
 double Creature::speedC = -4795.01;
@@ -76,7 +75,7 @@ bool Creature::canSee(const Position& pos) const
 
 bool Creature::canSeeCreature(const Creature* creature) const
 {
-	if (!creature) {
+	if (creature == nullptr) {
 		return false;
 	}
 
@@ -417,7 +416,7 @@ void Creature::onRemoveTileItem(const Tile* updateTile, const Position& pos, con
 
 void Creature::onCreatureAppear(Creature* creature, bool isLogin)
 {
-	if (!creature) {
+	if (creature == nullptr) {
 		return;
 	}
 
@@ -439,7 +438,7 @@ void Creature::onCreatureAppear(Creature* creature, bool isLogin)
 
 void Creature::onRemoveCreature(Creature* creature, bool)
 {
-	if (!creature) {
+	if (creature == nullptr) {
 		return;
 	}
 
@@ -453,7 +452,7 @@ void Creature::onRemoveCreature(Creature* creature, bool)
 
 void Creature::onCreatureDisappear(const Creature* creature, bool isLogout)
 {
-	if (!creature) {
+	if (creature == nullptr) {
 		return;
 	}
 
@@ -1225,7 +1224,7 @@ bool Creature::setMaster(Creature* newMaster) {
 
 bool Creature::addCondition(Condition* condition, bool force/* = false*/)
 {
-	if (!condition) {
+	if (condition == nullptr) {
 		return false;
 	}
 
@@ -1256,7 +1255,7 @@ bool Creature::addCondition(Condition* condition, bool force/* = false*/)
 
 bool Creature::addCombatCondition(Condition* condition)
 {
-	if (!condition) {
+	if (condition == nullptr) {
 		return false;
 	}
 
@@ -1341,7 +1340,7 @@ void Creature::removeCombatCondition(ConditionType_t type)
 
 void Creature::removeCondition(Condition* condition, bool force/* = false*/)
 {
-	if (!condition) {
+	if (condition == nullptr) {
 		return;
 	}
 

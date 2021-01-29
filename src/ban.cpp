@@ -25,6 +25,7 @@
 #include "tools.h"
 
 #include <string>
+#include <utility>
 
 bool Ban::acceptConnection(uint32_t clientIP)
 {

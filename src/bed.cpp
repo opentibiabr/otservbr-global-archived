@@ -134,7 +134,7 @@ bool BedItem::trySleep(Player* player)
 
 bool BedItem::sleep(Player* player)
 {
-	if (!house) {
+	if (house == nullptr) {
 		return false;
 	}
 
@@ -146,7 +146,7 @@ bool BedItem::sleep(Player* player)
 
 	internalSetSleeper(player);
 
-	if (nextBedItem) {
+	if (nextBedItem != nullptr) {
 		nextBedItem->internalSetSleeper(player);
 	}
 
@@ -166,7 +166,7 @@ bool BedItem::sleep(Player* player)
 	// change self and partner's appearance
 	updateAppearance(player);
 
-	if (nextBedItem) {
+	if (nextBedItem != nullptr) {
 		nextBedItem->updateAppearance(player);
 	}
 
@@ -175,12 +175,12 @@ bool BedItem::sleep(Player* player)
 
 void BedItem::wakeUp(Player* player)
 {
-	if (!house) {
+	if (house == nullptr) {
 		return;
 	}
 
 	if (sleeperGUID != 0) {
-		if (!player) {
+		if (player == nullptr) {
 			Player regenPlayer(nullptr);
 			if (IOLoginData::loadPlayerById(&regenPlayer, sleeperGUID)) {
 				regeneratePlayer(&regenPlayer);
@@ -200,14 +200,14 @@ void BedItem::wakeUp(Player* player)
 	// unset sleep info
 	internalRemoveSleeper();
 
-	if (nextBedItem) {
+	if (nextBedItem != nullptr) {
 		nextBedItem->internalRemoveSleeper();
 	}
 
 	// change self and partner's appearance
 	updateAppearance(nullptr);
 
-	if (nextBedItem) {
+	if (nextBedItem != nullptr) {
 		nextBedItem->updateAppearance(nullptr);
 	}
 }
@@ -217,7 +217,7 @@ void BedItem::regeneratePlayer(Player* player) const
 	const uint32_t sleptTime = time(nullptr) - sleepStart;
 
 	Condition* condition = player->getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT);
-	if (condition) {
+	if (condition != nullptr) {
 		uint32_t regen;
 		if (condition->getTicks() != -1) {
 			regen = std::min<int32_t>((condition->getTicks() / 1000), sleptTime) / 30;
@@ -243,7 +243,7 @@ void BedItem::updateAppearance(const Player* player)
 {
 	const ItemType& it = Item::items[getID()];
 	if (it.type == ITEM_TYPE_BED) {
-		if (player && it.transformToOnUse[player->getSex()] != 0) {
+		if ((player != nullptr) && it.transformToOnUse[player->getSex()] != 0) {
 			const ItemType& newType = Item::items[it.transformToOnUse[player->getSex()]];
 			if (newType.type == ITEM_TYPE_BED) {
 				g_game().transformItem(this, it.transformToOnUse[player->getSex()]);

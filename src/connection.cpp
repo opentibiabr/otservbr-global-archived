@@ -245,8 +245,9 @@ void Connection::parseHeader(const boost::system::error_code& error)
 		// Read packet content
 		msg.setLength(size + NetworkMessage::HEADER_LENGTH);
 		boost::asio::async_read(socket,
-								boost::asio::buffer(msg.getBodyBuffer(), size),
-		                        std::bind(&Connection::parsePacket, shared_from_this(), std::placeholders::_1));
+					  			boost::asio::buffer(msg.getBodyBuffer(), size),
+								std::bind(&Connection::parsePacket, shared_from_this(),
+								std::placeholders::_1));
 	} catch (boost::system::system_error& e) {
 		std::cout << "[Network error - Connection::parseHeader] " << e.what() << std::endl;
 		close(FORCE_CLOSE);
@@ -310,7 +311,9 @@ void Connection::parsePacket(const boost::system::error_code& error)
 
 		if (!skipReadingNextPacket) {
 			// Wait to the next packet
-			boost::asio::async_read(socket, boost::asio::buffer(msg.getBuffer(), NetworkMessage::HEADER_LENGTH), std::bind(&Connection::parseHeader, shared_from_this(), std::placeholders::_1));
+			boost::asio::async_read(socket, boost::asio::buffer(msg.getBuffer(),
+									NetworkMessage::HEADER_LENGTH), std::bind(&Connection::parseHeader,
+									shared_from_this(), std::placeholders::_1));
 		}
 	} catch (boost::system::system_error& e) {
 		std::cout << "[Network error - Connection::parsePacket] " << e.what() << std::endl;
