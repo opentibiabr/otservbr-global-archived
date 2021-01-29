@@ -21732,6 +21732,8 @@
 	<item id="11700" article="a" name="stone wall" />
 	<item id="11702" article="a" name="stone wall" />
 	<item id="11704" article="an" name="insectoid pore" />
+	<item fromid="11705" toid="11711" name="putrid growth" />
+	<item fromid="11718" toid="11721" name="putrid growth" />
 	<item fromid="11729" toid="11752" name="ground" />
 	<item id="11754" article="a" name="ferumbras doll">
 		<attribute key="description" value="It was awarded by Tibiopedia.pl." />
@@ -21755,6 +21757,7 @@
 	</item>
 	<item id="11758" article="a" name="pitch black gap" />
 	<item id="11759" name="branch" />
+	<item fromid="11761" toid="11772" name="putrid growth" />
 	<item id="11773" article="a" name="bag of oriental spices">
 		<attribute key="description" value="Those spices were gathered all around the Tibian world." />
 		<attribute key="weight" value="1508" />
