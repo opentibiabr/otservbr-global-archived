@@ -320,6 +320,7 @@
     <ClInclude Include="..\src\scripts.h" />
     <ClInclude Include="..\src\server.h" />
     <ClInclude Include="..\src\signals.h" />
+    <ClInclude Include="..\src\simd.h" />
     <ClInclude Include="..\src\spawn.h" />
     <ClInclude Include="..\src\spells.h" />
     <ClInclude Include="..\src\string_extend.h" />
