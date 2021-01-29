@@ -556,16 +556,6 @@ TileAction = {
 			{x = 32002,  y = 32108, z = 11},
 			{x = 32003,  y = 32108, z = 11}
 		}
-	},
-	-- Spider lair entrance hole
-	[50329] = {
-		itemId = 13869,
-		itemPos = {{x = 32051, y = 32110, z = 7}}
-	},
-	-- Spider queen chamber hole
-	[50330] = {
-		itemId = 13869,
-		itemPos = {{x = 32018, y = 32098, z = 11}}
 	}
 }
 
@@ -665,6 +655,18 @@ TileUnique = {
 	[25021] = {
 		itemId = 474,
 		itemPos = {x = 32321, y = 31137, z = 6}
+	},
+	-- The Rookie Guard Quest - Mission 05: Web of Terror
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission05_web_terror.lua
+	-- Spider lair entrance hole
+	[25022] = {
+		itemId = 13869,
+		itemPos = {x = 32051, y = 32110, z = 7}
+	},
+	-- Spider queen chamber hole
+	[25023] = {
+		itemId = 13869,
+		itemPos = {x = 32018, y = 32098, z = 11}
 	},
 	-- Remove/create item on stepIn
 	-- Reserved uniques range from 29001/30000

@@ -79,7 +79,7 @@ function spiderLairHole.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-spiderLairHole:aid(50329)
+spiderLairHole:uid(25022)
 spiderLairHole:register()
 
 -- Greasy stones
@@ -129,7 +129,7 @@ function spiderQueenChamberHole.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-spiderQueenChamberHole:aid(50330)
+spiderQueenChamberHole:uid(25023)
 spiderQueenChamberHole:register()
 
 -- Spider webs
