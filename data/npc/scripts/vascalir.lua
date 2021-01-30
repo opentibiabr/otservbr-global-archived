@@ -58,9 +58,14 @@ local function greetCallback(cid)
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission05) == 3 then
 		npcHandler:setMessage(MESSAGE_GREET, "Oh, well done! Let me take that spider web sample from you - careful, careful... it's sturdy, yet fragile. Thank you! I should be able to make a great paralyse trap with this one. Here, I have something sturdy for you as well - want it?")
 		player:setStorageValue(Storage.TheRookieGuard.Mission05, 5)
+		player:addExperience(50, true)
 	-- Finishing mission 5
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission05) == 5 then
 		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|! How about that studded armor - would you like to have it now?")
+	-- Started but not finished mission 6
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission06) >= 1 and player:getStorageValue(Storage.TheRookieGuard.Mission06) <= 6 then
+		npcHandler:say("Greetings, |PLAYERNAME|. Right now I don't need your help. You should pay a visit to Tom the Tanner. His hut is south-west of the academy!", cid)
+		return false
 	else
 		npcHandler:say("|PLAYERNAME|, the only thing left for you to do here is to talk to the oracle above the academy and leave for the Isle of Destiny. Thanks again for your great work and good luck on your journeys!", cid)
 		return false

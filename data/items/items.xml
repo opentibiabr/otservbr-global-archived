@@ -24375,7 +24375,9 @@
 		<attribute key="slotType" value="ring" />
 		<attribute key="loottype" value="ring" />
 	</item>
-	<item id="13878" article="a" name="dead war wolf" />
+	<item id="13878" article="a" name="dead war wolf">
+		<attribute key="description" value="Use your skinning knife on the head of this war wolf to retrieve its skin." />
+	</item>
 	<item id="13879" article="a" name="war wolf skin">
 		<attribute key="description" value="This is a quest item and cannot be used for anything else." />
 		<attribute key="weight" value="40" />

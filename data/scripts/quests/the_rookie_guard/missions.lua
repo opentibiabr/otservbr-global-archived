@@ -23,6 +23,12 @@ local missionTiles = {
 			states = {2},
 			message = "Follow the path to the east to find Hyacinth's little house.",
 			arrowPosition = {x = 32096, y = 32169, z = 7}
+		},
+		{
+			mission = Storage.TheRookieGuard.Mission06,
+			states = {2},
+			message = "Follow the path east, and when it splits, head north-east to find the wolf forest.",
+			arrowPosition = {x = 32094, y = 32169, z = 7}
 		}
 	},
 	-- North-west drawbridge

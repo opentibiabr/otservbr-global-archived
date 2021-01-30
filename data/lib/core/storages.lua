@@ -1388,7 +1388,8 @@ Storage = {
 		StonePileTimer = 52373,
 		Catapults = 52374,
 		RatKills = 52375,
-		TunnelPillars = 52376
+		PoacherCorpse = 52376,
+		TunnelPillars = 52377
 	},
 	BanutaSecretTunnel = {
 		-- Reserved storage from 51680 - 51689

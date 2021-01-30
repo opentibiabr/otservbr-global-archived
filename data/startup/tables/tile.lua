@@ -556,6 +556,100 @@ TileAction = {
 			{x = 32002,  y = 32108, z = 11},
 			{x = 32003,  y = 32108, z = 11}
 		}
+	},
+	-- Wolf forest path tiles
+	[50329] = {
+		itemId = false,
+		itemPos = {
+			{x = 32107, y = 32167, z = 7},
+			{x = 32107, y = 32168, z = 7},
+			{x = 32107, y = 32169, z = 7},
+			{x = 32107, y = 32170, z = 7}
+		}
+	},
+	-- Wolf forest north limit tiles
+	[50330] = {
+		itemId = false,
+		itemPos = {
+			{x = 32105, y = 32149, z = 7},
+			{x = 32106, y = 32149, z = 7},
+			{x = 32107, y = 32149, z = 7},
+			{x = 32108, y = 32149, z = 7},
+			{x = 32109, y = 32149, z = 7},
+			{x = 32110, y = 32149, z = 7},
+			{x = 32111, y = 32149, z = 7},
+			{x = 32112, y = 32149, z = 7},
+			{x = 32113, y = 32149, z = 7},
+			{x = 32114, y = 32149, z = 7},
+			{x = 32115, y = 32149, z = 7},
+			{x = 32116, y = 32149, z = 7},
+			{x = 32117, y = 32149, z = 7},
+			{x = 32118, y = 32149, z = 7},
+			{x = 32119, y = 32149, z = 7}
+		}
+	},
+	-- Wolf forest north-east limit tiles
+	[50331] = {
+		itemId = false,
+		itemPos = {
+			{x = 32120, y = 32133, z = 7},
+			{x = 32120, y = 32134, z = 7},
+			{x = 32120, y = 32135, z = 7},
+			{x = 32120, y = 32136, z = 7},
+			{x = 32120, y = 32137, z = 7},
+			{x = 32120, y = 32138, z = 7},
+			{x = 32120, y = 32139, z = 7},
+			{x = 32120, y = 32140, z = 7},
+			{x = 32120, y = 32141, z = 7},
+			{x = 32120, y = 32142, z = 7},
+			{x = 32120, y = 32143, z = 7},
+			{x = 32120, y = 32144, z = 7},
+			{x = 32120, y = 32145, z = 7},
+			{x = 32120, y = 32146, z = 7},
+			{x = 32120, y = 32147, z = 7}
+		}
+	},
+	-- War wolf den entrance tiles
+	[50332] = {
+		itemId = false,
+		itemPos = {
+			{x = 32134, y = 32136, z = 7},
+			{x = 32136, y = 32136, z = 7},
+			{x = 32138, y = 32136, z = 7},
+			{x = 32139, y = 32136, z = 7},
+			{x = 32140, y = 32136, z = 7},
+			{x = 32141, y = 32136, z = 7},
+			{x = 32142, y = 32136, z = 7},
+			{x = 32143, y = 32136, z = 7},
+			{x = 32144, y = 32136, z = 7}
+		}
+	},
+	-- War wolf den first floor tiles
+	[50333] = {
+		itemId = false,
+		itemPos = {
+			{x = 32133, y = 32136, z = 8},
+			{x = 32134, y = 32136, z = 8},
+			{x = 32135, y = 32136, z = 8},
+			{x = 32133, y = 32137, z = 8},
+			{x = 32135, y = 32137, z = 8},
+			{x = 32133, y = 32138, z = 8},
+			{x = 32134, y = 32138, z = 8},
+			{x = 32135, y = 32138, z = 8}
+		}
+	},
+	-- War wolf den last floor boost tiles
+	[50334] = {
+		itemId = false,
+		itemPos = {
+			{x = 32116, y = 32128, z = 11},
+			{x = 32116, y = 32129, z = 11},
+			{x = 32116, y = 32130, z = 11},
+			{x = 32116, y = 32131, z = 11},
+			{x = 32116, y = 32132, z = 11},
+			{x = 32116, y = 32133, z = 11},
+			{x = 32116, y = 32134, z = 11}
+		}
 	}
 }
 
@@ -667,6 +761,28 @@ TileUnique = {
 	[25023] = {
 		itemId = 13869,
 		itemPos = {x = 32018, y = 32098, z = 11}
+	},
+	-- The Rookie Guard Quest - Mission 06: Run Like a Wolf
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission06_run_like_wolf.lua
+	-- War wolf den entrance hole
+	[25024] = {
+		itemId = 13869,
+		itemPos = {x = 32138, y = 32132, z = 7}
+	},
+	-- War wolf den fall tile
+	[25025] = {
+		itemId = 9023,
+		itemPos = {x = 32138, y = 32132, z = 8}
+	},
+	-- War wolf den last floor fall tile
+	[25026] = {
+		itemId = 9024,
+		itemPos = {x = 32106, y = 32130, z = 11}
+	},
+	-- War wolf den last floor ramp tile
+	[25027] = {
+		itemId = 8372,
+		itemPos = {x = 32147, y = 32125, z = 11}
 	},
 	-- Remove/create item on stepIn
 	-- Reserved uniques range from 29001/30000

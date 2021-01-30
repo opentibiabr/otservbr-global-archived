@@ -318,5 +318,17 @@ ItemUnique = {
 	[40043] = {
 		itemId = 6966,
 		itemPos = {x = 32078, y = 31217, z = 7}
+	},
+	-- The Rookie Guard Quest - Mission 06: Run Like a Wolf
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission06_run_like_wolf.lua
+	-- Poacher corpse
+	[40044] = {
+		itemId = 2317,
+		itemPos = {x = 32135, y = 32133, z = 8}
+	},
+	-- War wolf corpse
+	[40045] = {
+		itemId = 13878,
+		itemPos = {x = 32109, y = 32132, z = 11}
 	}
 }
