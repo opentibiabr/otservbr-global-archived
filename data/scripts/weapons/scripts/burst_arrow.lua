@@ -11,6 +11,7 @@ combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_BURSTARROW)
 combat:setParameter(COMBAT_PARAM_BLOCKARMOR, true)
 combat:setFormula(COMBAT_FORMULA_SKILL, 0, 0, 1, 0)
 combat:setArea(area)
+combat:setOrigin(ORIGIN_RANGED)
 
 local burstArrow = Weapon(WEAPON_AMMO)
 
