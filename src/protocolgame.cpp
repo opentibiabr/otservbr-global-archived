@@ -3002,7 +3002,7 @@ void ProtocolGame::sendBlessStatus()
 	}
 
 	msg.addByte(0x9C);
-	if (version > 1200) {
+	if (version >= 1200) {
 		if (blessCount >= 5) //Show up the glowing effect in items if have all blesses
 			flag |= 1;
 
