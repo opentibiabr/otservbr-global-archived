@@ -127,21 +127,21 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2230, chance = 30000, maxCount = 1}, 
-	{id = "brass shield", chance = 30000, maxCount = 1}, 
-	{id = "spatial warp almanac", chance = 25000, maxCount = 1}, 
-	{id = "viking helmet", chance = 23000, maxCount = 1}, 
-	{id = "falcon battleaxe", chance = 500, maxCount = 1}, 
-	{id = "falcon longsword", chance = 500, maxCount = 1},
-	{id = "falcon mace", chance = 500, maxCount = 1},
-	{id = "grant of arms", chance = 500, maxCount = 1},
-	{id = "falcon bow", chance = 350, maxCount = 1},
-	{id = "falcon circlet", chance = 350, maxCount = 1},
-	{id = "falcon coif", chance = 350, maxCount = 1},
-	{id = "falcon rod", chance = 350, maxCount = 1},
-	{id = "falcon wand", chance = 350, maxCount = 1},
-	{id = "falcon shield", chance = 200, maxCount = 1},
-	{id = "falcon greaves", chance = 200, maxCount = 1},
-	{id = "falcon plate", chance = 200, maxCount = 1},
+	{name = "brass shield", chance = 30000, maxCount = 1},
+	{name = "spatial warp almanac", chance = 25000, maxCount = 1},
+	{name = "viking helmet", chance = 23000, maxCount = 1},
+	{name = "falcon battleaxe", chance = 500, maxCount = 1},
+	{name = "falcon longsword", chance = 500, maxCount = 1},
+	{name = "falcon mace", chance = 500, maxCount = 1},
+	{name = "grant of arms", chance = 500, maxCount = 1},
+	{name = "falcon bow", chance = 350, maxCount = 1},
+	{name = "falcon circlet", chance = 350, maxCount = 1},
+	{name = "falcon coif", chance = 350, maxCount = 1},
+	{name = "falcon rod", chance = 350, maxCount = 1},
+	{name = "falcon wand", chance = 350, maxCount = 1},
+	{name = "falcon shield", chance = 200, maxCount = 1},
+	{name = "falcon greaves", chance = 200, maxCount = 1},
+	{name = "falcon plate", chance = 200, maxCount = 1},
 }
 
 monster.attacks = {
@@ -178,9 +178,19 @@ monster.immunities = {
 }
 
 mType.onThink = function(monster, interval)
+	if monster:getStorageValue(config.storage.life) <= config.amount_life then
+		local percentageHealth = (monster:getHealth()*100)/monster:getMaxHealth()
+		if percentageHealth <= 20 then
+			sendAsking(monster)
+		end
+	end
 end
 
 mType.onAppear = function(monster, creature)
+	if monster:getId() == creature:getId() then
+		monster:setStorageValue(config.storage.asking, 1)
+		monster:setStorageValue(config.storage.life, 1)
+	end
 	if monster:getType():isRewardBoss() then
 		monster:setReward(true)
 	end
@@ -193,6 +203,19 @@ mType.onMove = function(monster, creature, fromPosition, toPosition)
 end
 
 mType.onSay = function(monster, creature, type, message)
+	local exhaust = config.storage.exhaust
+	if creature:isPlayer() and monster:getStorageValue(exhaust) <= os.time() then
+		message = message:lower()
+		monster:setStorageValue(exhaust, os.time() + 1)
+		for i, v in pairs(responses) do
+			if message == v.msg:lower() then
+				local asking_storage = monster:getStorageValue(config.storage.asking)
+				if asking[i].msg:lower() == asking[asking_storage].msg:lower() then
+					monster:unregisterEvent('OberonImmunity')
+				end
+			end
+		end
+	end
 end
 
 mType:register(monster)

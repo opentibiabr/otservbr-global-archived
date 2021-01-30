@@ -56,7 +56,7 @@ void RSA::loadPEM(const std::string& filename)
 	std::string key = oss.str();
 
 	if (key.substr(0, header.size()) != header) {
-		throw std::runtime_error("Missing RSA private key header.");
+		throw std::runtime_error("Missing RSA private key header.\n>> There is no `key.pem` in the folder.");
 	}
 
 	if (key.substr(key.size() - footer.size(), footer.size()) != footer) {

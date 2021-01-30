@@ -78,24 +78,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 28000, maxCount = 35},
-	{id = "sword ring", chance = 3920},
-	{id = "longsword", chance = 2800},
-	{id = "throwing knife", chance = 9950, maxCount = 4},
-	{id = "broadsword", chance = 610},
+	{name = "gold coin", chance = 28000, maxCount = 35},
+	{name = "sword ring", chance = 3920},
+	{name = "longsword", chance = 2800},
+	{name = "throwing knife", chance = 9950, maxCount = 4},
+	{name = "broadsword", chance = 610},
 	{id = 2419, chance = 1860},
-	{id = "plate armor", chance = 1650},
-	{id = "warrior helmet", chance = 180},
-	{id = "brass legs", chance = 3100},
-	{id = "plate shield", chance = 1650},
-	{id = "plate legs", chance = 440},
+	{name = "plate armor", chance = 1650},
+	{name = "warrior helmet", chance = 180},
+	{name = "brass legs", chance = 3100},
+	{name = "plate shield", chance = 1650},
+	{name = "plate legs", chance = 440},
 	{id = 2667, chance = 29400},
-	{id = "brown mushroom", chance = 9650},
-	{id = "royal spear", chance = 2400},
-	{id = "health potion", chance = 550},
-	{id = "orc tooth", chance = 1030},
-	{id = "orc leather", chance = 19510},
-	{id = "skull belt", chance = 2008}
+	{name = "brown mushroom", chance = 9650},
+	{name = "royal spear", chance = 2400},
+	{name = "health potion", chance = 550},
+	{name = "orc tooth", chance = 1030},
+	{name = "orc leather", chance = 19510},
+	{name = "skull belt", chance = 2008}
 }
 
 monster.attacks = {

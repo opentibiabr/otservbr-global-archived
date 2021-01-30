@@ -6,12 +6,8 @@ function serverstartup.onStartup()
 	-- Sign table
 	loadLuaMapSign(SignTable)
 	print("> Loaded " .. (#SignTable) .. " signs in the map")
-	-- Book table
-	loadLuaMapBook(BookTable)
-	print("> Loaded " .. (#BookTable) .. " books in the map")
-	-- Documents table
-	loadLuaMapBook(DocumentsTable)
-	print("> Loaded " .. (#DocumentsTable) .. " documents in the map")
+	-- Book/Document table
+	loadLuaMapBookDocument(BookDocumentTable)
 
 	-- Action and unique tables
 	-- Chest table
@@ -51,10 +47,6 @@ function serverstartup.onStartup()
 
 	print("> Loaded all actions in the map")
 	print("> Loaded all uniques in the map")
-
-	print(">> Loading custom maps")
-	-- Custom maps table
-	loadCustomMaps()
 
 	for i = 1, #startupGlobalStorages do
 		Game.setStorageValue(startupGlobalStorages[i], 0)
@@ -135,5 +127,8 @@ function serverstartup.onStartup()
 
 	-- Hireling System
 	HirelingsInit()
+
+	-- Load otservbr-custom map (data/world/custom/otservbr-custom.otbm)
+	loadCustomMap()
 end
 serverstartup:register()

@@ -80,7 +80,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "scorpion tail", chance = 4930}
+	{name = "scorpion tail", chance = 4930}
 }
 
 monster.attacks = {

@@ -82,19 +82,19 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 53},
-	{id = "platinum coin", chance = 961, maxCount = 3},
-	{id = "crown helmet", chance = 666},
-	{id = "meat", chance = 50000, maxCount = 4},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 53},
+	{name = "platinum coin", chance = 961, maxCount = 3},
+	{name = "crown helmet", chance = 666},
+	{name = "meat", chance = 50000, maxCount = 4},
 	{id = 6300, chance = 250},
-	{id = "bar of chocolate", chance = 280},
-	{id = "diamond sceptre", chance = 340},
-	{id = "shadow sceptre", chance = 270},
-	{id = "focus cape", chance = 340},
-	{id = "crystal of focus", chance = 100},
-	{id = "essence of a bad dream", chance = 7692},
-	{id = "scythe leg", chance = 4761}
+	{name = "bar of chocolate", chance = 280},
+	{name = "diamond sceptre", chance = 340},
+	{name = "shadow sceptre", chance = 270},
+	{name = "focus cape", chance = 340},
+	{name = "crystal of focus", chance = 100},
+	{name = "essence of a bad dream", chance = 7692},
+	{name = "scythe leg", chance = 4761}
 }
 
 monster.attacks = {

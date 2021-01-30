@@ -80,7 +80,7 @@ local function creatureSayCallback(cid, type, msg)
 		and player:getStorageValue(Storage.ExplorerSociety.QuestLine) < 44
 		or player:getStorageValue(Storage.ExplorerSociety.TheOrcPowder) == 35
 		and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 35
-		or player:getStorageValue(Storage.ExplorerSociety.ElvenDoor) == 38
+		or player:getStorageValue(Storage.ExplorerSociety.TheElvenPoetry) == 38
 		and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 38
 		or player:getStorageValue(Storage.ExplorerSociety.TheMemoryStone) == 41
 		and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 41 then
@@ -297,7 +297,7 @@ local function creatureSayCallback(cid, type, msg)
 				"For sure someone in Ab'Dendriel will own a copy. So you would just have to ask around there. Are you willing to accept this mission?"
 			}, cid)
 			npcHandler.topic[cid] = 21
-		elseif player:getStorageValue(Storage.ExplorerSociety.ElvenDoor) == 37
+		elseif player:getStorageValue(Storage.ExplorerSociety.TheElvenPoetry) == 37
 		and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 36 then
 			npcHandler:say("Did you acquire a copy of 'Songs of the Forest' for us?", cid)
 			npcHandler.topic[cid] = 22
@@ -306,7 +306,7 @@ local function creatureSayCallback(cid, type, msg)
 
 		-- MEMORY STONE
 	elseif msgcontains(msg, "memory stone") then
-		if player:getStorageValue(Storage.ExplorerSociety.ElvenDoor) == 38
+		if player:getStorageValue(Storage.ExplorerSociety.TheElvenPoetry) == 38
 		and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 38 then
 			npcHandler:say({
 				"We acquired some knowledge about special magic stones. Some lost civilisations used it to store knowledge and lore, just like we use books ...",
@@ -492,7 +492,7 @@ local function creatureSayCallback(cid, type, msg)
 			}, cid)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 20 then
-			if player:removeItem(5940, 1) then
+			if player:removeItem(15389, 1) then
 				player:setStorageValue(Storage.ExplorerSociety.TheOrcPowder, 35)
 				player:setStorageValue(Storage.ExplorerSociety.QuestLine, 35)
 				npcHandler:say("You really got it? Amazing! Thank you for your efforts.", cid)
@@ -501,13 +501,14 @@ local function creatureSayCallback(cid, type, msg)
 		-- Orc Powder
 		-- Elven Poetry
 		elseif npcHandler.topic[cid] == 21 then
-			player:setStorageValue(Storage.ExplorerSociety.ElvenDoor, 36)
+			player:setStorageValue(Storage.ExplorerSociety.TheElvenPoetry, 36)
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 36)
+			player:setStorageValue(Storage.ExplorerSociety.ElvenDoor, 1)
 			npcHandler:say("Excellent. This mission is easy but nonetheless vital. Travel to Ab'Dendriel and get the book.", cid)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 22 then
 			if player:removeItem(4855, 1) then
-				player:setStorageValue(Storage.ExplorerSociety.ElvenDoor, 38)
+				player:setStorageValue(Storage.ExplorerSociety.TheElvenPoetry, 38)
 				player:setStorageValue(Storage.ExplorerSociety.QuestLine, 38)
 				npcHandler:say("Let me have a look! Yes, that's what we wanted. A copy of 'Songs of the Forest'. I won't ask any questions about those bloodstains.", cid)
 				npcHandler.topic[cid] = 0
@@ -592,7 +593,7 @@ local function creatureSayCallback(cid, type, msg)
 			}, cid)
 			npcHandler.topic[cid] = 0
 			player:setStorageValue(Storage.ExplorerSociety.TheSpectralStone, 53)
-			player:setStorageValue(Storage.ExplorerSociety.MemoryStone, 1)
+			player:setStorageValue(Storage.ExplorerSociety.SpectralStoneDoor, 1)
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 53)
 			player:addItem(4851, 1) -- Spectral stone
 		-- Spectral Stone
@@ -652,6 +653,15 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
+local function onTradeRequest(cid)
+	if Player(cid):getStorageValue(Storage.ExplorerSociety.TheAstralPortals) ~= 56 then
+		return false
+	end
+
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_ONTRADEREQUEST, onTradeRequest)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
 npcHandler:addModule(FocusModule:new())

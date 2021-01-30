@@ -78,15 +78,15 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 69000, maxCount = 40},
-	{id = "power ring", chance = 300},
-	{id = "protection amulet", chance = 990},
-	{id = "club ring", chance = 230},
-	{id = "plate armor", chance = 950},
-	{id = "banana", chance = 30000, maxCount = 12},
-	{id = "ape fur", chance = 980},
-	{id = "health potion", chance = 570},
-	{id = "kongra's shoulderpad", chance = 4900}
+	{name = "gold coin", chance = 69000, maxCount = 40},
+	{name = "power ring", chance = 300},
+	{name = "protection amulet", chance = 990},
+	{name = "club ring", chance = 230},
+	{name = "plate armor", chance = 950},
+	{name = "banana", chance = 30000, maxCount = 12},
+	{name = "ape fur", chance = 980},
+	{name = "health potion", chance = 570},
+	{name = "kongra's shoulderpad", chance = 4900}
 }
 
 monster.attacks = {

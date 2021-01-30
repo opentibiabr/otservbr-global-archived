@@ -116,15 +116,22 @@ bool ConfigManager::load()
 		boolean[OPTIMIZE_DATABASE] = getGlobalBoolean(L, "startupDatabaseOptimization", true);
 
 		string[IP] = getGlobalString(L, "ip", "127.0.0.1");
-		string[MAP_NAME] = getGlobalString(L, "mapName", "forgotten");
-		string[MAP_AUTHOR] = getGlobalString(L, "mapAuthor", "Unknown");
+		string[MAP_NAME] = getGlobalString(L, "mapName", "otservbr");
+		string[MAP_AUTHOR] = getGlobalString(L, "mapAuthor", "OTServBR");
+		
+		string[MAP_CUSTOM_NAME] = getGlobalString(L, "mapCustomName", "");
+		string[MAP_CUSTOM_FILE] = getGlobalString(L, "mapCustomFile", "");
+		string[MAP_CUSTOM_SPAWN] = getGlobalString(L, "mapCustomSpawn", "");
+		string[MAP_CUSTOM_AUTHOR] = getGlobalString(L, "mapCustomAuthor", "OTServBR");
+		boolean[MAP_CUSTOM_ENABLED] = getGlobalBoolean(L, "mapCustomEnabled", true);
+
 		string[HOUSE_RENT_PERIOD] = getGlobalString(L, "houseRentPeriod", "never");
 		string[MYSQL_HOST] = getGlobalString(L, "mysqlHost", "127.0.0.1");
-		string[MYSQL_USER] = getGlobalString(L, "mysqlUser", "forgottenserver");
+		string[MYSQL_USER] = getGlobalString(L, "mysqlUser", "root");
 		string[MYSQL_PASS] = getGlobalString(L, "mysqlPass", "");
-		string[MYSQL_DB] = getGlobalString(L, "mysqlDatabase", "forgottenserver");
+		string[MYSQL_DB] = getGlobalString(L, "mysqlDatabase", "otservbr-global");
 		string[MYSQL_SOCK] = getGlobalString(L, "mysqlSock", "");
-		string[VERSION_STR] = getGlobalString(L, "clientVersionStr", "");
+		string[CLIENT_VERSION_STR] = getGlobalString(L, "clientVersionStr", "12.61");
 
 		integer[SQL_PORT] = getGlobalNumber(L, "mysqlPort", 3306);
 		integer[GAME_PORT] = getGlobalNumber(L, "gameProtocolPort", 7172);
@@ -133,7 +140,7 @@ bool ConfigManager::load()
 
 		integer[MARKET_OFFER_DURATION] = getGlobalNumber(L, "marketOfferDuration", 30 * 24 * 60 * 60);
 
-		integer[VERSION] = getGlobalNumber(L, "clientVersion", CLIENT_VERSION);
+		integer[CLIENT_VERSION] = getGlobalNumber(L, "clientVersion", 1261);
 		integer[FREE_DEPOT_LIMIT] = getGlobalNumber(L, "freeDepotLimit", 2000);
 		integer[PREMIUM_DEPOT_LIMIT] = getGlobalNumber(L, "premiumDepotLimit", 8000);
 		integer[DEPOT_BOXES] = getGlobalNumber(L, "depotBoxes", 19);

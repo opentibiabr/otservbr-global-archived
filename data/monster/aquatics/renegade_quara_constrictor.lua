@@ -78,20 +78,20 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 79280, maxCount = 3},
-	{id = "quara tentacle", chance = 15240},
-	{id = "mind stone", chance = 6880},
-	{id = "ring of healing", chance = 5580},
-	{id = "great mana potion", chance = 5390, maxCount = 5},
-	{id = "shrimp", chance = 5300, maxCount = 4},
-	{id = "small amethyst", chance = 5200, maxCount = 2},
-	{id = "small ruby", chance = 4650, maxCount = 2},
-	{id = "assassin star", chance = 4460, maxCount = 7},
-	{id = "vortex bolt", chance = 3720, maxCount = 10},
-	{id = "violet crystal shard", chance = 1210},
-	{id = "northwind rod", chance = 740},
-	{id = "fish fin", chance = 370},
-	{id = "piggy bank", chance = 190}
+	{name = "platinum coin", chance = 79280, maxCount = 3},
+	{name = "quara tentacle", chance = 15240},
+	{name = "mind stone", chance = 6880},
+	{name = "ring of healing", chance = 5580},
+	{name = "great mana potion", chance = 5390, maxCount = 5},
+	{name = "shrimp", chance = 5300, maxCount = 4},
+	{name = "small amethyst", chance = 5200, maxCount = 2},
+	{name = "small ruby", chance = 4650, maxCount = 2},
+	{name = "assassin star", chance = 4460, maxCount = 7},
+	{name = "vortex bolt", chance = 3720, maxCount = 10},
+	{name = "violet crystal shard", chance = 1210},
+	{name = "northwind rod", chance = 740},
+	{name = "fish fin", chance = 370},
+	{name = "piggy bank", chance = 190}
 }
 
 

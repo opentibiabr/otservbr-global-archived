@@ -75,27 +75,27 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 100000, maxCount = 8},
-	{id = "Book Page", chance = 100000, maxCount = 3},
-	{id = "Small Diamond", chance = 100000, maxCount = 8},
-	{id = "Small Sapphire", chance = 100000, maxCount = 8},
-	{id = "Quill", chance = 100000, maxCount = 8},
-	{id = "Ultimate Health Potion", chance = 100000, maxCount = 8},
-	{id = "Ultimate Mana Potion", chance = 100000, maxCount = 8},
-	{id = "Diamond Sceptre", chance = 100000},
-	{id = "Frosty Heart", chance = 100000, maxCount = 8},
-	{id = "Glacier Mask", chance = 350},
-	{id = "Ice Rapier", chance = 250},
-	{id = "Silken Bookmark", chance = 100000, maxCount = 8},
-	{id = "Crystal Mace", chance = 250},
-	{id = "Glacier Kilt", chance = 250},
-	{id = "Glacier Robe", chance = 250},
-	{id = "Glacier Shoes", chance = 350},
-	{id = "Strange Helmet", chance = 1000},
-	{id = "Sapphire Hammer", chance = 300},
+	{name = "Platinum Coin", chance = 100000, maxCount = 8},
+	{name = "Book Page", chance = 100000, maxCount = 3},
+	{name = "Small Diamond", chance = 100000, maxCount = 8},
+	{name = "Small Sapphire", chance = 100000, maxCount = 8},
+	{name = "Quill", chance = 100000, maxCount = 8},
+	{name = "Ultimate Health Potion", chance = 100000, maxCount = 8},
+	{name = "Ultimate Mana Potion", chance = 100000, maxCount = 8},
+	{name = "Diamond Sceptre", chance = 100000},
+	{name = "Frosty Heart", chance = 100000, maxCount = 8},
+	{name = "Glacier Mask", chance = 350},
+	{name = "Ice Rapier", chance = 250},
+	{name = "Silken Bookmark", chance = 100000, maxCount = 8},
+	{name = "Crystal Mace", chance = 250},
+	{name = "Glacier Kilt", chance = 250},
+	{name = "Glacier Robe", chance = 250},
+	{name = "Glacier Shoes", chance = 350},
+	{name = "Strange Helmet", chance = 1000},
+	{name = "Sapphire Hammer", chance = 300},
 	{id = 7441, chance = 100000},
-	{id = "Glacial Rod", chance = 150},
-	{id = "Crystalline Armor", chance = 250}
+	{name = "Glacial Rod", chance = 150},
+	{name = "Crystalline Armor", chance = 250}
 }
 
 monster.attacks = {

@@ -79,28 +79,28 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "ruby necklace", chance = 1500},
-	{id = "white pearl", chance = 10000, maxCount = 3},
-	{id = "black pearl", chance = 12000, maxCount = 3},
-	{id = "gold coin", chance = 100000, maxCount = 198},
-	{id = "platinum coin", chance = 100000, maxCount = 7},
-	{id = "red gem", chance = 15000},
-	{id = "stone skin amulet", chance = 2780},
-	{id = "blank rune", chance = 35250, maxCount = 3},
-	{id = "skull staff", chance = 850},
-	{id = "tower shield", chance = 740},
-	{id = "skull helmet", chance = 170},
-	{id = "silver goblet", chance = 4950},
-	{id = "soul orb", chance = 15000},
+	{name = "ruby necklace", chance = 1500},
+	{name = "white pearl", chance = 10000, maxCount = 3},
+	{name = "black pearl", chance = 12000, maxCount = 3},
+	{name = "gold coin", chance = 100000, maxCount = 198},
+	{name = "platinum coin", chance = 100000, maxCount = 7},
+	{name = "red gem", chance = 15000},
+	{name = "stone skin amulet", chance = 2780},
+	{name = "blank rune", chance = 35250, maxCount = 3},
+	{name = "skull staff", chance = 850},
+	{name = "tower shield", chance = 740},
+	{name = "skull helmet", chance = 170},
+	{name = "silver goblet", chance = 4950},
+	{name = "soul orb", chance = 15000},
 	{id = 6300, chance = 2170},
-	{id = "demonic essence", chance = 7500},
-	{id = "skeleton decoration", chance = 1250},
-	{id = "haunted blade", chance = 740},
-	{id = "titan axe", chance = 1000},
-	{id = "great mana potion", chance = 14200, maxCount = 2},
-	{id = "great health potion", chance = 8800, maxCount = 2},
+	{name = "demonic essence", chance = 7500},
+	{name = "skeleton decoration", chance = 1250},
+	{name = "haunted blade", chance = 740},
+	{name = "titan axe", chance = 1000},
+	{name = "great mana potion", chance = 14200, maxCount = 2},
+	{name = "great health potion", chance = 8800, maxCount = 2},
 	{id = 9810, chance = 3500},
-	{id = "unholy bone", chance = 33010}
+	{name = "unholy bone", chance = 33010}
 }
 
 monster.attacks = {

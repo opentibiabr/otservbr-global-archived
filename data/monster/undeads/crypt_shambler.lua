@@ -81,17 +81,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small diamond", chance = 510},
-	{id = "gold coin", chance = 57000, maxCount = 55},
-	{id = "rotten meat", chance = 1850},
+	{name = "small diamond", chance = 510},
+	{name = "gold coin", chance = 57000, maxCount = 55},
+	{name = "rotten meat", chance = 1850},
 	{id = 2230, chance = 5000},
-	{id = "throwing star", chance = 910, maxCount = 3},
-	{id = "bone sword", chance = 1000},
-	{id = "iron helmet", chance = 2130},
-	{id = "iron helmet", chance = 2000},
-	{id = "bone shield", chance = 1000},
-	{id = "worm", chance = 9000, maxCount = 10},
-	{id = "half-digested piece of meat", chance = 5000}
+	{name = "throwing star", chance = 910, maxCount = 3},
+	{name = "bone sword", chance = 1000},
+	{name = "iron helmet", chance = 2130},
+	{name = "iron helmet", chance = 2000},
+	{name = "bone shield", chance = 1000},
+	{name = "worm", chance = 9000, maxCount = 10},
+	{name = "half-digested piece of meat", chance = 5000}
 }
 
 monster.attacks = {

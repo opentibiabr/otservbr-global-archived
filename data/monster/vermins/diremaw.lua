@@ -80,21 +80,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Ham", chance = 40080, maxCount = 4},
-	{id = "Diremaw Brainpan", chance = 24120},
-	{id = "Poisonous Slime", chance = 11930, maxCount = 5},
-	{id = "Blue Crystal Shard", chance = 9660},
-	{id = "Violet Crystal Shard", chance = 8180},
-	{id = "Green Crystal Shard", chance = 8030},
-	{id = "Onyx Chip", chance = 8560, maxCount = 4},
-	{id = "Diremaw Legs", chance = 9650, maxCount = 2},
-	{id = "Small Enchanted Emerald", chance = 2940, maxCount = 2},
-	{id = "Small Emerald", chance = 5080, maxCount = 2},
-	{id = "Gold Ingot", chance = 2970},
+	{name = "Ham", chance = 40080, maxCount = 4},
+	{name = "Diremaw Brainpan", chance = 24120},
+	{name = "Poisonous Slime", chance = 11930, maxCount = 5},
+	{name = "Blue Crystal Shard", chance = 9660},
+	{name = "Violet Crystal Shard", chance = 8180},
+	{name = "Green Crystal Shard", chance = 8030},
+	{name = "Onyx Chip", chance = 8560, maxCount = 4},
+	{name = "Diremaw Legs", chance = 9650, maxCount = 2},
+	{name = "Small Enchanted Emerald", chance = 2940, maxCount = 2},
+	{name = "Small Emerald", chance = 5080, maxCount = 2},
+	{name = "Gold Ingot", chance = 2970},
 	{id = 7632, chance = 3100},
-	{id = "Suspicious Device", chance = 600},
-	{id = "Mycological Bow", chance = 1200},
-	{id = "Mushroom Backpack", chance = 1500}
+	{name = "Suspicious Device", chance = 600},
+	{name = "Mycological Bow", chance = 1200},
+	{name = "Mushroom Backpack", chance = 1500}
 }
 
 monster.attacks = {

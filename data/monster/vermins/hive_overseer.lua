@@ -84,22 +84,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small ruby", chance = 16000, maxCount = 2},
-	{id = "gold coin", chance = 40000, maxCount = 100},
-	{id = "gold coin", chance = 58000, maxCount = 98},
-	{id = "platinum coin", chance = 84000, maxCount = 6},
-	{id = "steel boots", chance = 550},
-	{id = "great mana potion", chance = 18000},
+	{name = "small ruby", chance = 16000, maxCount = 2},
+	{name = "gold coin", chance = 40000, maxCount = 100},
+	{name = "gold coin", chance = 58000, maxCount = 98},
+	{name = "platinum coin", chance = 84000, maxCount = 6},
+	{name = "steel boots", chance = 550},
+	{name = "great mana potion", chance = 18000},
 	{id = 7632, chance = 6000},
-	{id = "ultimate health potion", chance = 12000},
-	{id = "gold ingot", chance = 29000},
-	{id = "kollos shell", chance = 28000},
-	{id = "compound eye", chance = 16000},
-	{id = "calopteryx cape", chance = 830},
-	{id = "carapace shield", chance = 920},
-	{id = "hive scythe", chance = 1650},
-	{id = "gooey mass", chance = 13000, maxCount = 2},
-	{id = "hive bow", chance = 830}
+	{name = "ultimate health potion", chance = 12000},
+	{name = "gold ingot", chance = 29000},
+	{name = "kollos shell", chance = 28000},
+	{name = "compound eye", chance = 16000},
+	{name = "calopteryx cape", chance = 830},
+	{name = "carapace shield", chance = 920},
+	{name = "hive scythe", chance = 1650},
+	{name = "gooey mass", chance = 13000, maxCount = 2},
+	{name = "hive bow", chance = 830}
 }
 
 monster.attacks = {

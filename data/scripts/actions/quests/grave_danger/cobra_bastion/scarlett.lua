@@ -24,7 +24,7 @@ local transformTo = {
 
 local function createArmor(id, amount, pos)
 	local armor = Game.createItem(id, amount, pos)
-	if armor then armor:setActionId(40003) end 
+	if armor then armor:setActionId(40003) end
 end
 
 local graveScarlettUid = Action()
@@ -72,6 +72,29 @@ graveScarlettUid:uid(40028)
 graveScarlettUid:register()
 
 
+local mirror = {
+	fromPos = Position(33389, 32641, 6),
+	toPos = Position(33403, 32655, 6),
+	mirrors = {36309, 36310, 36311, 36312}
+}
+
+local function backMirror()
+	for x = mirror.fromPos.x, mirror.toPos.x do
+		for y = mirror.fromPos.y, mirror.toPos.y do
+			local sqm = Tile(Position(x, y, 6))
+			if sqm then
+				for _, id in pairs(mirror.mirrors) do
+					local item = sqm:getItemById(id)
+					if item then
+						item:transform(mirror.mirrors[math.random(#mirror.mirrors)])
+						item:getPosition():sendMagicEffect(CONST_ME_POFF)
+					end
+				end
+			end
+		end
+	end
+end
+
 local graveScarlettAid = Action();
 function graveScarlettAid.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.actionid == 40003 then
@@ -86,10 +109,11 @@ function graveScarlettAid.onUse(player, item, fromPosition, target, toPosition, 
 			item:remove(1)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You hold the old chestplate of Galthein in front of you. It does not fit and far too old to withstand any attack.")
 			addEvent(createArmor, 20*1000, info.armorId, 1, info.armorPos)
+			addEvent(backMirror, 10*1000)
 			SCARLETT_MAY_TRANSFORM = 1
 			addEvent(function()
 				SCARLETT_MAY_TRANSFORM = 0
-			end, 6*1000)
+			end, 1 * 1000)
 		elseif item.itemid == entry.metalWallId then
 			if player:getPosition().y == entry.roomExitPos.y then
 				player:teleportTo(entry.roomEntryPos)

@@ -88,23 +88,23 @@ monster.voices = {
 
 monster.loot = {
 	{id = 1962, chance = 910},
-	{id = "piggy bank", chance = 130},
-	{id = "small sapphire", chance = 550},
-	{id = "gold coin", chance = 64550, maxCount = 70},
-	{id = "energy ring", chance = 450},
-	{id = "platinum amulet", chance = 200},
-	{id = "wand of inferno", chance = 180},
-	{id = "protection amulet", chance = 790},
-	{id = "skull staff", chance = 350},
-	{id = "blue robe", chance = 40},
-	{id = "jewelled backpack", chance = 100},
-	{id = "pirate voodoo doll", chance = 430},
+	{name = "piggy bank", chance = 130},
+	{name = "small sapphire", chance = 550},
+	{name = "gold coin", chance = 64550, maxCount = 70},
+	{name = "energy ring", chance = 450},
+	{name = "platinum amulet", chance = 200},
+	{name = "wand of inferno", chance = 180},
+	{name = "protection amulet", chance = 790},
+	{name = "skull staff", chance = 350},
+	{name = "blue robe", chance = 40},
+	{name = "jewelled backpack", chance = 100},
+	{name = "pirate voodoo doll", chance = 430},
 	{id = 6090, chance = 490},
-	{id = "amber staff", chance = 100},
-	{id = "strong mana potion", chance = 740},
-	{id = "cultish mask", chance = 10250},
-	{id = "cultish symbol", chance = 890},
-	{id = "broken key ring", chance = 100}
+	{name = "amber staff", chance = 100},
+	{name = "strong mana potion", chance = 740},
+	{name = "cultish mask", chance = 10250},
+	{name = "cultish symbol", chance = 890},
+	{name = "broken key ring", chance = 100}
 }
 
 monster.attacks = {
