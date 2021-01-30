@@ -651,6 +651,18 @@ int32_t WeaponMelee::getElementDamage(const Player* player, const Creature*, con
 	int32_t minValue = level / 5;
 
 	int32_t maxValue = Weapons::getMaxWeaponDamage(level, attackSkill, attackValue, attackFactor, true);
+
+	if (g_config.getBoolean(ConfigManager::FORMULA_CORRECTION)) {
+		int32_t chance = normal_random(1, 100);
+		int32_t minHitDamage = g_config.getNumber(ConfigManager::MIN_HIT_DAMAGE);
+		if (chance <= g_config.getNumber(ConfigManager::AVERAGE_HIT_CHANCE)) {
+			minValue = std::round(maxValue * (minHitDamage/100.));
+			maxValue *= (100-minHitDamage)/100.;
+		} else {
+			minValue = std::round(maxValue * (100-minHitDamage)/100. - minValue);
+		}
+	}
+	
 	return -normal_random(minValue, static_cast<int32_t>(maxValue * player->getVocation()->meleeDamageMultiplier));
 }
 
@@ -670,6 +682,17 @@ int32_t WeaponMelee::getWeaponDamage(const Player* player, const Creature*, cons
 	int32_t maxValue = static_cast<int32_t>(Weapons::getMaxWeaponDamage(level, attackSkill, attackValue, attackFactor, true) * player->getVocation()->meleeDamageMultiplier);
 
 	int32_t minValue = level / 5;
+
+	if (g_config.getBoolean(ConfigManager::FORMULA_CORRECTION)) {
+		int32_t chance = normal_random(1, 100);
+		int32_t minHitDamage = g_config.getNumber(ConfigManager::MIN_HIT_DAMAGE);
+		if (chance <= g_config.getNumber(ConfigManager::AVERAGE_HIT_CHANCE)) {
+			minValue = std::round(maxValue * (minHitDamage/100.));
+			maxValue *= (100-minHitDamage)/100.;
+		} else {
+			minValue = std::round(maxValue * (100-minHitDamage)/100. - minValue);
+		}
+	}
 
 	if (maxDamage) {
 		return -maxValue;
@@ -882,6 +905,17 @@ int32_t WeaponDistance::getElementDamage(const Player* player, const Creature* t
   	int32_t minValue = std::round(player->getLevel() / 5);
   	int32_t maxValue = std::round((0.09f * attackFactor) * attackSkill * attackValue + minValue) / 2;
 
+	if (g_config.getBoolean(ConfigManager::FORMULA_CORRECTION)) {
+		int32_t chance = normal_random(1, 100);
+		int32_t minHitDamage = g_config.getNumber(ConfigManager::MIN_HIT_DAMAGE);
+		if (chance <= g_config.getNumber(ConfigManager::AVERAGE_HIT_CHANCE)) {
+			minValue = std::round(maxValue * (minHitDamage/100.));
+			maxValue *= (100-minHitDamage)/100.;
+		} else {
+			minValue = std::round(maxValue * (100-minHitDamage)/100. - minValue);
+		}
+	}
+
   	if (target) {
     	if (target->getPlayer()) {
       		minValue /= 4;
@@ -919,14 +953,23 @@ int32_t WeaponDistance::getWeaponDamage(const Player* player, const Creature* ta
 
 	int32_t attackSkill = player->getSkillLevel(SKILL_DISTANCE);
 	float attackFactor = player->getAttackFactor();
-
-  	int32_t minValue = player->getLevel() / 5;
-  	int32_t maxValue = std::round((0.09f * attackFactor) * attackSkill * attackValue + minValue);
+	int32_t minValue = player->getLevel() / 5;
+	int32_t maxValue = std::round((0.09f * attackFactor) * attackSkill * attackValue + minValue);
+	if (g_config.getBoolean(ConfigManager::FORMULA_CORRECTION)) {
+		int32_t chance = normal_random(1, 100);
+		int32_t minHitDamage = g_config.getNumber(ConfigManager::MIN_HIT_DAMAGE);
+		if (chance <= g_config.getNumber(ConfigManager::AVERAGE_HIT_CHANCE)) {
+			minValue = std::round(maxValue * (minHitDamage/100.));
+			maxValue *= (100-minHitDamage)/100.;
+		} else {
+			minValue = std::round(maxValue * (100-minHitDamage)/100. - minValue);
+		}
+	}
 	if (maxDamage) {
 		return -maxValue;
 	}
 
-  	if (target->getPlayer()) {
+  	if (target && target->getPlayer()) {
     	if (hasElement) {
       	minValue /= 4;
     	} else {

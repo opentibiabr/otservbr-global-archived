@@ -23,6 +23,11 @@ orangeSkullDuration = 7
 onlyInvitedCanMoveHouseItems = true
 cleanProtectionZones = false
 
+-- Formula Correction
+formulaCorrection = true
+averageHitChance = 80
+minHitDamage = 35
+
 -- Connection Config
 -- NOTE: maxPlayers set to 0 means no limit
 -- NOTE: MaxPacketsPerSeconds if you change you will be subject to bugs by WPE, keep the default value of 25

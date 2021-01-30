@@ -60,6 +60,7 @@ class ConfigManager
 			FREE_QUESTS,
 			ONLY_PREMIUM_ACCOUNT,
 			MAP_CUSTOM_ENABLED,
+			FORMULA_CORRECTION,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
@@ -139,6 +140,8 @@ class ConfigManager
 			PUSH_DELAY,
 			PUSH_DISTANCE_DELAY,
 			STASH_ITEMS,
+			AVERAGE_HIT_CHANCE,
+			MIN_HIT_DAMAGE,
 
 			LAST_INTEGER_CONFIG /* this must be the last one */
 		};

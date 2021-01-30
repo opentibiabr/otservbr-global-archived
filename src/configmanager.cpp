@@ -184,6 +184,8 @@ bool ConfigManager::load()
 
 	boolean[ONLY_PREMIUM_ACCOUNT] = getGlobalBoolean(L, "onlyPremiumAccount", false);
 
+	boolean[FORMULA_CORRECTION] = getGlobalBoolean(L, "formulaCorrection", false);
+
 	string[DEFAULT_PRIORITY] = getGlobalString(L, "defaultPriority", "high");
 	string[SERVER_NAME] = getGlobalString(L, "serverName", "");
 	string[OWNER_NAME] = getGlobalString(L, "ownerName", "");
@@ -231,6 +233,9 @@ bool ConfigManager::load()
 
 	integer[PUSH_DELAY] = getGlobalNumber(L, "pushDelay", 1000);
 	integer[PUSH_DISTANCE_DELAY] = getGlobalNumber(L, "pushDistanceDelay", 1500);
+
+	integer[AVERAGE_HIT_CHANCE] = getGlobalNumber(L, "averageHitChance", 80);
+	integer[MIN_HIT_DAMAGE] = getGlobalNumber(L, "minHitDamage", 35);
 
 	floating[RATE_MONSTER_HEALTH] = getGlobalFloat(L, "rateMonsterHealth", 1.0);
 	floating[RATE_MONSTER_ATTACK] = getGlobalFloat(L, "rateMonsterAttack", 1.0);

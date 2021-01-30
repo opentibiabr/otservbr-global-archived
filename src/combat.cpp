@@ -62,9 +62,10 @@ CombatDamage Combat::getCombatDamage(Creature* creature, Creature* target) const
 				Item* tool = player->getWeapon();
 				const Weapon* weapon = g_weapons->getWeapon(tool);
 				if (weapon) {
+					int32_t weaponDamage = weapon->getWeaponDamage(player, target, tool, false);
 					damage.primary.value = normal_random(
-						static_cast<int32_t>(minb),
-						static_cast<int32_t>(weapon->getWeaponDamage(player, target, tool, true) * maxa + maxb)
+						static_cast<int32_t>(weaponDamage * mina + minb),
+						static_cast<int32_t>(weaponDamage * maxa + maxb)
 					);
 
 					damage.secondary.type = weapon->getElementType();
