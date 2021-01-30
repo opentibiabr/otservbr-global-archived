@@ -471,7 +471,7 @@ bool Npc::canWalkTo(const Position& fromPos, Direction dir) const
 	if (!ignoreHeight && toTile->hasHeight(1)) {
 		return false;
 	}
-	
+
 	if (!toTile->getItemList()->empty()) {
 		return false;
 	}
