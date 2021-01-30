@@ -1166,6 +1166,12 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(DIRECTION_NORTHWEST)
 	registerEnum(DIRECTION_NORTHEAST)
 
+	registerEnum(FACTION_DEFAULT)
+	registerEnum(FACTION_PLAYER)
+	registerEnum(FACTION_LION)
+	registerEnum(FACTION_LIONUSURPERS)
+	registerEnum(FACTION_LAST)
+
 	registerEnum(COMBAT_NONE)
 	registerEnum(COMBAT_PHYSICALDAMAGE)
 	registerEnum(COMBAT_ENERGYDAMAGE)
