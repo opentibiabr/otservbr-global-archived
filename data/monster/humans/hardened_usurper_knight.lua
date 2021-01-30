@@ -1,8 +1,8 @@
-local mType = Game.createMonsterType("Usurper Knight")
+local mType = Game.createMonsterType("Hardened Usurper Knight")
 local monster = {}
 
-monster.description = "a usurper knight"
-monster.experience = 6900
+monster.description = "a hardened usurper knight"
+monster.experience = 0
 monster.outfit = {
 	lookType = 1317,
 	lookHead = 57,
@@ -13,23 +13,10 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.raceId = 1972
-monster.Bestiary = {
-	class = "Human",
-	race = BESTY_RACE_HUMAN,
-	toKill = 2500,
-	FirstUnlock = 100,
-	SecondUnlock = 1000,
-	CharmsPoints = 50,
-	Stars = 4,
-	Occurrence = 0,
-	Locations = "Bounac, the Order of the Lion settlement."
-	}
-
 monster.health = 8200
 monster.maxHealth = 8200
 monster.race = "blood"
-monster.corpse = 38812
+monster.corpse = 0
 monster.speed = 260
 monster.summonCost = 0
 monster.maxSummons = 0
@@ -74,37 +61,17 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
-	{text = "This town is ours now!", yell = false},
-	{text = "You don't deserv Bounac!", yell = false},
-	{text = "My power is fueled by a just cause!", yell = false},
-	{text = "This will be the last thing you witness!", yell = false},
-	{text = "Change of guard! High time ...!", yell = false},
-	{text = "Do you really think you can stand?", yell = false},
-	{text = "'Holding breath'", yell = false},
-	{text = "Die in the flames of true righteousness.", yell = false}
+	chance = 0
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 89725, maxCount = 5},
-	{name = "leather legs", chance = 27060},
-	{name = "meat", chance = 16582},
-	{name = "lion cloak patch", chance = 11190},
-	{name = "violet gem", chance = 6002},
-	{name = "gold ingot", chance = 5799},
-	{name = "lion crest", chance = 5697},
-	{name = "knight legs", chance = 5290},
-	{name = "great mana potion", chance = 4680},
-	{name = "blue gem", chance = 4171},
-	{name = "green gem", chance = 2238},
-	{name = "magma legs", chance = 610}
 }
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 6000, chance = 14, type = COMBAT_DEATHDAMAGE, minDamage = -150, maxDamage = -300, radius = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 6000, chance = 20, type = COMBAT_ICEDAMAGE, minDamage = -150, maxDamage = -400, length = 4, spread = 0, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="singlecloudchain", interval = 8000, chance = 17, minDamage = -200, maxDamage = -450, range = 4, effect = CONST_ME_ENERGYHIT, target = true}
+	{name ="combat", interval = 6000, chance = 9, type = COMBAT_DEATHDAMAGE, minDamage = -150, maxDamage = -300, radius = 3, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 6000, chance = 13, type = COMBAT_ICEDAMAGE, minDamage = -150, maxDamage = -400, length = 4, spread = 0, effect = CONST_ME_ICEATTACK, target = false},
+	{name ="singlecloudchain", interval = 8000, chance = 12, minDamage = -200, maxDamage = -450, range = 4, effect = CONST_ME_ENERGYHIT, target = true}
 }
 
 monster.defenses = {

@@ -689,6 +689,14 @@ struct Outfit_t {
 	uint16_t lookFamiliarsType = 0;
 };
 
+enum Faction_t {
+	FACTION_DEFAULT = 0,
+	FACTION_PLAYER = 1,
+	FACTION_LION = 2,
+	FACTION_LIONUSURPERS = 3,
+	FACTION_LAST = FACTION_LIONUSURPERS,
+};
+
 enum LightState_t {
 	LIGHT_STATE_DAY,
 	LIGHT_STATE_NIGHT,
