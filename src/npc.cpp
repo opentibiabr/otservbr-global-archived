@@ -472,11 +472,9 @@ bool Npc::canWalkTo(const Position& fromPos, Direction dir) const
 		return false;
 	}
 	
-	//prevents walking on map items
 	if (!toTile->getItemList()->empty()) {
 		return false;
 	}
-
 	return true;
 }
 
