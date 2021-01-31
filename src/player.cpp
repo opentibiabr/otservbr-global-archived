@@ -1144,7 +1144,7 @@ void Player::sendHouseWindow(House* house, uint32_t listId) const
 
 void Player::sendImbuementWindow(Item* item)
 {
-	if (!client) {
+	if (!client || !item) {
 		return;
 	}
 
