@@ -37,5 +37,5 @@ function surpriseBag.onUse(cid, item, fromPosition, itemEx, toPosition)
 	return true
 end
 
-supriseBag:id(6570, 6571, 9108, 16094, 16102)
+surpriseBag:id(6570, 6571, 9108, 16094, 16102)
 surpriseBag:register()
