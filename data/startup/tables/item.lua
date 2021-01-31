@@ -124,6 +124,18 @@ ItemAction = {
 			{x = 32007, y = 32094, z = 12},
 			{x = 32015, y = 32096, z = 12}
 		}
+	},
+	-- The Rookie Guard Quest - Mission 07: Attack!
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission07_attack.lua
+	-- Fire fields
+	[40011] = {
+		itemId = 13882,
+		itemPos = {
+			{x = 32084, y = 32141, z = 10},
+			{x = 32082, y = 32142, z = 10},
+			{x = 32083, y = 32142, z = 10},
+			{x = 32084, y = 32142, z = 10},
+		}
 	}
 }
 
@@ -330,5 +342,17 @@ ItemUnique = {
 	[40045] = {
 		itemId = 13878,
 		itemPos = {x = 32109, y = 32132, z = 11}
+	},
+	-- The Rookie Guard Quest - Mission 07: Attack!
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission07_attack.lua
+	-- Destroy field rune
+	[40046] = {
+		itemId = 13884,
+		itemPos = {x = 32082, y = 32143, z = 10}
+	},
+	-- Library vault treasure chest
+	[40047] = {
+		itemId = 12664,
+		itemPos = {x = 32083, y = 32141, z = 10}
 	}
 }

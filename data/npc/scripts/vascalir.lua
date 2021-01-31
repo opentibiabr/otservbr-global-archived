@@ -66,6 +66,16 @@ local function greetCallback(cid)
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission06) >= 1 and player:getStorageValue(Storage.TheRookieGuard.Mission06) <= 6 then
 		npcHandler:say("Greetings, |PLAYERNAME|. Right now I don't need your help. You should pay a visit to Tom the Tanner. His hut is south-west of the academy!", cid)
 		return false
+	-- Finished mission 6 but not started mission 7
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission06) == 7 and player:getStorageValue(Storage.TheRookieGuard.Mission07) == -1 then
+		npcHandler:setMessage(MESSAGE_GREET, "|PLAYERNAME|! Thank the gods you are back! While you were gone, something horrible happened. Do you smell the fire?")
+	-- Started but not finished mission 7
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.OrcLanguageBook) == -1 then
+		npcHandler:say("You can find the vault if you go down the stairs in the northern part of the academy. The book should be in a large blue chest somewhere down there - I hope it's not burnt yet.", cid)
+		return false
+	-- Finishing mission 7
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.OrcLanguageBook) == 1 then
+		npcHandler:setMessage(MESSAGE_GREET, "Oh my, what happened to your hair? Your face is all black, too - it must have been a hell of flames down there. That's so brave of you. Did you get the book?")
 	else
 		npcHandler:say("|PLAYERNAME|, the only thing left for you to do here is to talk to the oracle above the academy and leave for the Isle of Destiny. Thanks again for your great work and good luck on your journeys!", cid)
 		return false
@@ -338,6 +348,101 @@ keywordHandler:addKeyword({"no"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission05) == 5 end
 )
 
+-- Mission 7: Start
+local mission7 = keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"Time is of the essence now. The library vault is on fire! It's where Rookgaard's oldest and most important books are stored. ...",
+		"The trolls from the northern ruins somehow found their way into the vault by digging a tunnel from the other side and set everything on fire. ...",
+		"You HAVE to go down there and look for our copy of the book of orc language - while I'm thinking of a reason why I can't go myself. ...",
+		"Just kidding, I need to find out just how the trolls got in there before they wreak more havoc. I think there's something bigger behind all this. ...",
+		"The vault is likely set on fire - be careful down there, and don't run into open fire, it can and will hurt you. There should be a rune in the vault that can at least weaken fire, just in case. ...",
+		"Are you ready to go?"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission06) == 7 and player:getStorageValue(Storage.TheRookieGuard.Mission07) == -1 end
+)
+--keywordHandler:addAliasKeyword({"no"})
+
+-- Mission 7: Accept
+mission7:addChildKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"You can find the vault if you go down the stairs in the northern part of the academy. The book should be in a large blue chest somewhere down there - I hope it's not burnt yet. ...",
+		"Make sure you're healthy - if you are wounded, ask Cipfried in the temple for a healing first. Good luck!"
+	}
+},
+nil,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission07, 1)
+end
+)
+
+-- Mission 7: Decline
+mission7:addChildKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Then do whatever you have to do first, but please hurry!",
+	ungreet = true
+})
+
+-- Mission 7: Finish - Confirm/Decline (Without having the book)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"What happened, you say? The book was already burnt to ashes? That's too bad... well, you deserve a reward for your courage anyway. Thanks for at least trying. ...",
+		"I was trying to figure out a way to get into the orc fortress by maybe using their language... but that won't work now I fear. ...",
+		"We do have to stop the trolls though before taking care of the orcs. I found their tunnel in the northern ruins. Are you prepared for your next mission?"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.OrcLanguageBook) == 1 and player:getItemCount(13831) <= 0 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission07, 2)
+	player:addExperience(100, true)
+end
+)
+keywordHandler:addAliasKeyword({"no"})
+
+-- Mission 7: Finish - Confirm (Having the book)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"Great job down there! You do deserve a reward for your courage. Here is a platinum coin for you, worth 100 gold coins. Let me take a look at the book... ...",
+		"Argh... the pages are barely readable anymore. I was trying to figure out a way to get into the orc fortress by maybe using their language... but that won't work now I fear. ...",
+		"We do have to stop the trolls though before taking care of the orcs. I found their tunnel in the northern ruins. Are you prepared for your next mission?"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.OrcLanguageBook) == 1 and player:getItemCount(13831) >= 1 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission07, 2)
+	player:addExperience(100, true)
+	player:removeItem(13831, 1)
+	player:addItemEx(Game.createItem(2152, 1), true, CONST_SLOT_WHEREEVER)
+end
+)
+
+-- Mission 7: Finish - Decline (Having the book)
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"Oh, but you have it! <snags it from you> Great job down there! You do deserve a reward for your courage. Here is a platinum coin for you, worth 100 gold coins. Let me take a look at the book... ...",
+		"Argh... the pages are barely readable anymore. I was trying to figure out a way to get into the orc fortress by maybe using their language... but that won't work now I fear. ...",
+		"We do have to stop the trolls though before taking care of the orcs. I found their tunnel in the northern ruins. Are you prepared for your next mission?"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.OrcLanguageBook) == 1 and player:getItemCount(13831) >= 1 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission07, 2)
+	player:removeItem(13831, 1)
+	player:addExperience(100, true)
+	player:addItemEx(Game.createItem(2152, 1), true, CONST_SLOT_WHEREEVER)
+end
+)
 
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setMessage(MESSAGE_FAREWELL, "Farewell.")

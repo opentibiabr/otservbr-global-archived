@@ -39,6 +39,24 @@ local missionTiles = {
 			message = "Walk to the north and down the stairs to reach the tarantula's lair.",
 			arrowPosition = {x = 32069, y = 32145, z = 6}
 		}
+	},
+	-- Academy entrance
+	[50335] = {
+		{
+			mission = Storage.TheRookieGuard.Mission07,
+			states = {1},
+			message = "The library vault is below the academy. Go north and head down several stairs until you find a quest door.",
+			arrowPosition = {x = 32097, y = 32197, z = 7}
+		}
+	},
+	-- Academy downstairs
+	[50336] = {
+		{
+			mission = Storage.TheRookieGuard.Mission07,
+			states = {1},
+			message = "Head through the northern door and follow the hallways to find the library vault.",
+			arrowPosition = {x = 32095, y = 32188, z = 8}
+		}
 	}
 }
 

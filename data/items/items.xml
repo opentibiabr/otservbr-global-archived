@@ -24399,7 +24399,7 @@
 		<attribute key="weight" value="475" />
 		<attribute key="showcount" value="0" />
 	</item>
-	<item id="13882" article="a" name="fire field" />
+	<item fromid="13882" toid="13883" article="a" name="fire field" />
 	<item id="13884" article="a" name="destroy field rune" />
 	<item fromid="13886" toid="13901" name="large spider web" />
 	<item id="13903" article="a" name="trunk" />
