@@ -2538,6 +2538,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "getCapacity", LuaScriptInterface::luaPlayerGetCapacity);
 	registerMethod("Player", "setCapacity", LuaScriptInterface::luaPlayerSetCapacity);
 
+	registerMethod("Player", "setTraining", LuaScriptInterface::luaPlayerSetTraining);
+
 	registerMethod("Player", "getFreeCapacity", LuaScriptInterface::luaPlayerGetFreeCapacity);
 
 	registerMethod("Player", "getKills", LuaScriptInterface::luaPlayerGetKills);
@@ -9115,6 +9117,19 @@ int LuaScriptInterface::luaPlayerSetCapacity(lua_State* L)
 	if (player) {
 		player->capacity = getNumber<uint32_t>(L, 2);
 		player->sendStats();
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetTraining(lua_State* L) {
+	// player:setTraining(value)
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		bool value = getBoolean(L, 2, false);
+		player->setTraining(value);
 		pushBoolean(L, true);
 	} else {
 		lua_pushnil(L);
