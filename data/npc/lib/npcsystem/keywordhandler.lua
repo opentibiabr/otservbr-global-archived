@@ -31,7 +31,7 @@ if KeywordHandler == nil then
 		return (self.callback == nil or self.callback(cid, message, self.keywords, self.parameters, self))
 	end
 
-	function KeywordNode:processAction(cid)
+	function KeywordNode:processAction(cid, message)
 		if not self.action then
 			return
 		end
@@ -41,7 +41,7 @@ if KeywordHandler == nil then
 			return
 		end
 
-		self.action(player, self.parameters.npcHandler)
+		self.action(player, self.parameters.npcHandler, message)
 	end
 
 	-- Returns true if message contains all patterns/strings found in keywords.
@@ -184,7 +184,7 @@ if KeywordHandler == nil then
 				self.lastNode[cid] = childNode
 				childNode.parent = node -- Make sure node is the parent of childNode (as one node can be parent to several nodes).
 				if childNode:processMessage(cid, message) then
-					childNode:processAction(cid)
+					childNode:processAction(cid, message)
 					return true
 				end
 				self.lastNode[cid] = oldLast
