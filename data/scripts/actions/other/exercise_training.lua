@@ -11,13 +11,13 @@ local skills = {
     [32127] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
     [32128] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
     [32129] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE}, -- SORCERER
-	[40114] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
+    [40114] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
     [40115] = {id=SKILL_AXE,voc=4}, -- KNIGHT
     [40116] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
     [40117] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
     [40118] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
     [40119] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE}, -- SORCERER
-	[40120] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
+    [40120] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
     [40121] = {id=SKILL_AXE,voc=4}, -- KNIGHT
     [40122] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
     [40123] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
@@ -77,7 +77,7 @@ local function startTraining(playerId, startPosition, itemid, tilePosition, bonu
                                 else
                                     local training = addEvent(startTraining, voc:getAttackSpeed(), playerId,startPosition,itemid,tilePosition,bonusDummy,dummyId)
                                     player:setStorageValue(Storage.isTraining,1)
-									player:setTraining(true)
+                                    player:setTraining(true)
                                 end
                             else
                                 removeExerciseWeapon(player, exercise)
@@ -89,20 +89,20 @@ local function startTraining(playerId, startPosition, itemid, tilePosition, bonu
                 player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
                 stopEvent(training)
                 player:setStorageValue(Storage.isTraining,0)
-				player:setTraining(false)
+                player:setTraining(false)
             end
         else
             stopEvent(training)
             player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
             player:setStorageValue(Storage.isTraining, 0)
-			player:setTraining(false)
+            player:setTraining(false)
         end
     else
         stopEvent(training)
         if player then
             player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
             player:setStorageValue(Storage.isTraining,0)
-			player:setTraining(false)
+            player:setTraining(false)
         end
     end
     return true
