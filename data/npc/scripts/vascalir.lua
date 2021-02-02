@@ -76,6 +76,13 @@ local function greetCallback(cid)
 	-- Finishing mission 7
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.OrcLanguageBook) == 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Oh my, what happened to your hair? Your face is all black, too - it must have been a hell of flames down there. That's so brave of you. Did you get the book?")
+	-- Finished mission 7 but not started mission 8
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission07) == 2 and player:getStorageValue(Storage.TheRookieGuard.Mission08) == -1 then
+		npcHandler:setMessage(MESSAGE_GREET, "Are you prepared for your next mission, |PLAYERNAME|?")
+	-- Started but not finished mission 8
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission08) == 1 then
+		npcHandler:say("I think it's a good idea to go see Paulie before you leave the village again. Just go downstairs and to the right to find the bank.", cid)
+		return false
 	else
 		npcHandler:say("|PLAYERNAME|, the only thing left for you to do here is to talk to the oracle above the academy and leave for the Isle of Destiny. Thanks again for your great work and good luck on your journeys!", cid)
 		return false
@@ -442,6 +449,34 @@ function(player)
 	player:addExperience(100, true)
 	player:addItemEx(Game.createItem(2152, 1), true, CONST_SLOT_WHEREEVER)
 end
+)
+
+-- Mission 8: Accept
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"First things first. I think by now you should have gathered some money, and it's better to play things safely instead of rushing into the trolls' lair. You might have seen the Bank of Rookgaard downstairs. ...",
+		"Each Tibian inhabitant has a bank account where you can store your money safely - so in case you die, you won't lose it. ...",
+		"You don't have to worry about item loss here on Rookgaard, but as soon as you grow stronger and learn a vocation, it can happen to you that you lose some of your items when dying. ...",
+		"It's probably safer to get used to depositing all of your money on your bank account before you leave for a hunt. ...",
+		"Go downstairs and talk to Paulie. I'm sure he can explain to you everything you need to know, and he might also give you a small bonus for your account."
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 2 and player:getStorageValue(Storage.TheRookieGuard.Mission08) == -1 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission08, 1)
+end
+)
+
+-- Mission 8: Decline
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Take a small break then and return to me when you have recovered... and cleaned your face.",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 2 and player:getStorageValue(Storage.TheRookieGuard.Mission08) == -1 end
 )
 
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)

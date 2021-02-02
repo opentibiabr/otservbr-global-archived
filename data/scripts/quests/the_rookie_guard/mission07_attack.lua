@@ -72,7 +72,7 @@ function libraryVaultSteps.onStepIn(creature, item, position, fromPosition)
 		if health <= (maxHealth / 3) or math.random(100) <= (100 - coughTolerance) then
 			player:teleportTo({x = 32089, y = 32152, z = 9})
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You're coughing so badly that you had to return upstairs. Take a few deep breaths and try again.")
-			player:addHealth((player:getMaxHealth() - player:getHealth()), COMBAT_HEALING)
+			player:addHealth((maxHealth - health), COMBAT_HEALING)
 		end
 	end
 	return true

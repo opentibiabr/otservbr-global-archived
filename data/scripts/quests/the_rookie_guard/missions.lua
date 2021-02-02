@@ -47,6 +47,12 @@ local missionTiles = {
 			states = {1},
 			message = "The library vault is below the academy. Go north and head down several stairs until you find a quest door.",
 			arrowPosition = {x = 32097, y = 32197, z = 7}
+		},
+		{
+			mission = Storage.TheRookieGuard.Mission08,
+			states = {1},
+			message = "The bank is below the academy. Go north and head down the stairs and to the right.",
+			arrowPosition = {x = 32097, y = 32197, z = 7}
 		}
 	},
 	-- Academy downstairs
@@ -56,6 +62,12 @@ local missionTiles = {
 			states = {1},
 			message = "Head through the northern door and follow the hallways to find the library vault.",
 			arrowPosition = {x = 32095, y = 32188, z = 8}
+		},
+		{
+			mission = Storage.TheRookieGuard.Mission08,
+			states = {1},
+			message = "Go to the right to find the bank and talk to Paulie.",
+			arrowPosition = {x = 32100, y = 32191, z = 8}
 		}
 	}
 }

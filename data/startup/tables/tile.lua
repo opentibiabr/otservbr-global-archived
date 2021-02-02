@@ -834,7 +834,7 @@ TileAction = {
 	},
 	-- Academy library vault near rune tile
 	[50341] = {
-		itemId = 414,
+		itemId = 420,
 		itemPos = {{x = 32083, y = 32143, z = 10}}
 	}
 }
