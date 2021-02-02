@@ -54,6 +54,88 @@ ItemAction = {
 			{ x = 33909, y = 31642, z = 9 },
 			{ x = 33916, y = 31642, z = 9 }
 		}
+	},
+	-- The Rookie Guard Quest - Mission 02: Defence!
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission02_defense.lua
+	-- Stone piles
+	[40005] = {
+		itemId = 13867,
+		itemPos = {
+			{x = 32080, y = 32183, z = 8},
+			{x = 32080, y = 32184, z = 8},
+			{x = 32081, y = 32184, z = 8}
+		}
+	},
+	-- Bar catapult
+	[40006] = {
+		itemId = false,
+		itemPos = {
+			{x = 32098, y = 32176, z = 5},
+			{x = 32099, y = 32176, z = 5},
+			{x = 32098, y = 32177, z = 5},
+			{x = 32099, y = 32177, z = 5}
+		}
+	},
+	-- Academy catapult 1
+	[40007] = {
+		itemId = false,
+		itemPos = {
+			{x = 32105, y = 32189, z = 5},
+			{x = 32105, y = 32190, z = 5},
+			{x = 32106, y = 32190, z = 5}
+		}
+	},
+	-- Academy catapult 2
+	[40008] = {
+		itemId = false,
+		itemPos = {
+			{x = 32105, y = 32194, z = 5},
+			{x = 32105, y = 32195, z = 5}
+		}
+	},
+	-- Shop catapult
+	[40009] = {
+		itemId = false,
+		itemPos = {
+			{x = 32109, y = 32200, z = 5},
+			{x = 32110, y = 32200, z = 5},
+			{x = 32109, y = 32201, z = 5},
+			{x = 32110, y = 32201, z = 5}
+		}
+	},
+	-- Spider webs
+	[40010] = {
+		itemId = false,
+		itemPos = {
+			{x = 32011, y = 32076, z = 12},
+			{x = 32007, y = 32076, z = 12},
+			{x = 32005, y = 32078, z = 12},
+			{x = 32015, y = 32078, z = 12},
+			{x = 32016, y = 32078, z = 12},
+			{x = 32005, y = 32079, z = 12},
+			{x = 32020, y = 32080, z = 12},
+			{x = 32001, y = 32082, z = 12},
+			{x = 32002, y = 32083, z = 12},
+			{x = 32021, y = 32083, z = 12},
+			{x = 32002, y = 32085, z = 12},
+			{x = 32002, y = 32087, z = 12},
+			{x = 32002, y = 32092, z = 12},
+			{x = 32004, y = 32093, z = 12},
+			{x = 32007, y = 32094, z = 12},
+			{x = 32015, y = 32096, z = 12}
+		}
+	},
+	-- The Rookie Guard Quest - Mission 07: Attack!
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission07_attack.lua
+	-- Fire fields
+	[40011] = {
+		itemId = 13882,
+		itemPos = {
+			{x = 32084, y = 32141, z = 10},
+			{x = 32082, y = 32142, z = 10},
+			{x = 32083, y = 32142, z = 10},
+			{x = 32084, y = 32142, z = 10},
+		}
 	}
 }
 
@@ -248,5 +330,29 @@ ItemUnique = {
 	[40043] = {
 		itemId = 6966,
 		itemPos = {x = 32078, y = 31217, z = 7}
+	},
+	-- The Rookie Guard Quest - Mission 06: Run Like a Wolf
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission06_run_like_wolf.lua
+	-- Poacher corpse
+	[40044] = {
+		itemId = 2317,
+		itemPos = {x = 32135, y = 32133, z = 8}
+	},
+	-- War wolf corpse
+	[40045] = {
+		itemId = 13878,
+		itemPos = {x = 32109, y = 32132, z = 11}
+	},
+	-- The Rookie Guard Quest - Mission 07: Attack!
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission07_attack.lua
+	-- Destroy field rune
+	[40046] = {
+		itemId = 13884,
+		itemPos = {x = 32082, y = 32143, z = 10}
+	},
+	-- Library vault treasure chest
+	[40047] = {
+		itemId = 12664,
+		itemPos = {x = 32083, y = 32141, z = 10}
 	}
 }

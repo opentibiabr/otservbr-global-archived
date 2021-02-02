@@ -671,6 +671,12 @@ QuestDoorAction = {
 			{x = 33371, y = 31349, z = 4},
 			{x = 33376, y = 31335, z = 3}
 		}
+	},
+	-- The Rookie Guard Quest - Mission 07: Attack!
+	-- The library vault door
+	[Storage.TheRookieGuard.Mission07] = {
+		itemId = false,
+		itemPos = {{x = 32090, y = 32156, z = 9}}
 	}
 }
 

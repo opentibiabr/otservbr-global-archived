@@ -1370,25 +1370,27 @@ Storage = {
 		CarlosNpcGreetStorage = 51677,
 		CarlosQuestLog = 51678
 	},
-	Rookgaard = {
-		--Reserved storage 51260 - 51290
-		TheRookieGuard = {
-			Questline = 51260,
-			Mission01 = 51261,
-			Mission03 = 51262,
-			Mission04 = 51263,
-			Mission05 = 51264,
-			Mission06 = 51265,
-			Mission07 = 51266,
-			Mission08 = 51267,
-			Mission09 = 51268,
-			Mission10 = 51269,
-			Mission11 = 51270,
-			Mission12 = 51271,
-			StoneTimer = 51272,
-			Catapults = 51273,
-			RatsCounter = 51274
-		}
+	TheRookieGuard = {
+		--Reserved storage 52360 - 52380
+		Questline = 52360,
+		Mission01 = 52361,
+		Mission02 = 52362,
+		Mission03 = 52363,
+		Mission04 = 52364,
+		Mission05 = 52365,
+		Mission06 = 52366,
+		Mission07 = 52367,
+		Mission08 = 52368,
+		Mission09 = 52369,
+		Mission10 = 52370,
+		Mission11 = 52371,
+		Mission12 = 52372,
+		StonePileTimer = 52373,
+		Catapults = 52374,
+		RatKills = 52375,
+		PoacherCorpse = 52376,
+		OrcLanguageBook = 52377,
+		TunnelPillars = 52378
 	},
 	BanutaSecretTunnel = {
 		-- Reserved storage from 51680 - 51689
