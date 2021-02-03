@@ -236,7 +236,7 @@ local function townTravelHandler(cid, message, keywords, parameters, node)
 			end
 		elseif town.isPremium == true and not player:isPremium() then
 			npcHandler:say(
-				"Negative, can't bring you there without a premium account. \
+				"Negative, can't bring you there without a premium account. \z
 				You should be glad you get to travel by ship - usually that's a premium service too, you know.",
 				cid
 			)
