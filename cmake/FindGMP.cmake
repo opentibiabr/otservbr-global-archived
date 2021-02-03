@@ -11,103 +11,100 @@
 
 if (ANDROID)
 
-  set( GMP_ROOT ${CMAKE_SOURCE_DIR}/../gmp/${ANDROID_ABI} )
-  if (EXISTS ${GMP_ROOT} )
-    message("Looking good for ${GMP_ROOT}")
-    set(GMP_INCLUDE_DIRS ${GMP_ROOT} CACHE PATH "include search path")
-    set(GMP_LIBRARIES  ${GMP_ROOT}/libgmp.so CACHE FILEPATH "include search path")
-    set(GMP_LIBRARIES_DIR ${GMP_ROOT} CACHE PATH "include search path")
- else()
-    message("Bad call: ${GMP_ROOT} does not exist")
+    set( GMP_ROOT ${CMAKE_SOURCE_DIR}/../gmp/${ANDROID_ABI} )
+    if (EXISTS ${GMP_ROOT} )
+        message("Looking good for ${GMP_ROOT}")
+        set(GMP_INCLUDE_DIRS ${GMP_ROOT} CACHE PATH "include search path")
+        set(GMP_LIBRARIES  ${GMP_ROOT}/libgmp.so CACHE FILEPATH "include search path")
+        set(GMP_LIBRARIES_DIR ${GMP_ROOT} CACHE PATH "include search path")
+    else()
+        message("Bad call: ${GMP_ROOT} does not exist")
     endif()
-set( GMP_ROOT ${CMAKE_SOURCE_DIR}/../../gmp/${ANDROID_ABI} )
-if (EXISTS ${GMP_ROOT} )
-    message("Looking good for ${GMP_ROOT}")
-    set(GMP_INCLUDE_DIRS ${GMP_ROOT} CACHE PATH "include search path")
-    set(GMP_LIBRARIES  ${GMP_ROOT}/libgmp.so CACHE FILEPATH "include search path")
-    set(GMP_LIBRARIES_DIR ${GMP_ROOT} CACHE PATH "include search path")
- else()
-    message("Bad call: ${GMP_ROOT} does not exist")
+    set( GMP_ROOT ${CMAKE_SOURCE_DIR}/../../gmp/${ANDROID_ABI} )
+    if (EXISTS ${GMP_ROOT} )
+        message("Looking good for ${GMP_ROOT}")
+        set(GMP_INCLUDE_DIRS ${GMP_ROOT} CACHE PATH "include search path")
+        set(GMP_LIBRARIES  ${GMP_ROOT}/libgmp.so CACHE FILEPATH "include search path")
+        set(GMP_LIBRARIES_DIR ${GMP_ROOT} CACHE PATH "include search path")
+    else()
+        message("Bad call: ${GMP_ROOT} does not exist")
     endif()
-find_path(GMP_INCLUDE_DIRS
-        NAMES gmp.h
-        HINTS ${GMP_ROOT}
-    NO_SYSTEM_ENVIRONMENT_PATH)
-  find_library(GMP_LIBRARIES NAMES gmp
+    find_path(GMP_INCLUDE_DIRS
+                NAMES gmp.h
+                HINTS ${GMP_ROOT}
+        NO_SYSTEM_ENVIRONMENT_PATH)
+    find_library(GMP_LIBRARIES NAMES gmp
                 PATHS
-      ${GMP_ROOT}
-      NO_SYSTEM_ENVIRONMENT_PATH)
+                ${GMP_ROOT}
+        NO_SYSTEM_ENVIRONMENT_PATH)
 
 
 elseif(MSVC)
-   find_library(GMP_LIBRARIES NAMES mpir mpird
+    find_library(GMP_LIBRARIES NAMES mpir mpird
                 PATHS
-      $ENV{GMP_ROOT}
-      $ENV{GMP_ROOT}/lib
-      ${GMP_ROOT}
-      ${GMP_ROOT}/lib
-      ${CMAKE_SOURCE_DIR}/../tools/mpir/lib
-      ${CMAKE_SOURCE_DIR}/../tools/mpird/lib
-      ${CMAKE_SOURCE_DIR}/../mpir/lib
-      ${CMAKE_SOURCE_DIR}/../mpird/lib
+            $ENV{GMP_ROOT}
+            $ENV{GMP_ROOT}/lib
+            ${GMP_ROOT}
+            ${GMP_ROOT}/lib
+            ${CMAKE_SOURCE_DIR}/../tools/mpir/lib
+            ${CMAKE_SOURCE_DIR}/../tools/mpird/lib
+            ${CMAKE_SOURCE_DIR}/../mpir/lib
+            ${CMAKE_SOURCE_DIR}/../mpird/lib
 
-        $ENV{PROGRAMFILES}/mpir/lib
-      $ENV{PROGRAMFILES}/mpird/lib
-      $ENV{HOME}/mpir/lib
-      $ENV{HOME}/mpird/lib
-      ${CMAKE_INSTALL_PREFIX}/lib
-      DOC "Try first the MPIR DLL when in an Windows environment"
+            $ENV{PROGRAMFILES}/mpir/lib
+            $ENV{PROGRAMFILES}/mpird/lib
+            $ENV{HOME}/mpir/lib
+            $ENV{HOME}/mpird/lib
+            ${CMAKE_INSTALL_PREFIX}/lib
+            DOC "Try first the MPIR DLL when in an Windows environment"
     )
 
     get_filename_component(GMP_LIBRARIES_DIR "${GMP_LIBRARIES}" PATH)
 
-find_file(GMP_LIBRARY_DLL NAMES mpir.dll mpird.dll
-        PATHS
-      ${GMP_LIBRARIES_DIR}/../bin
-      ${GMP_LIBRARIES_DIR}
+    find_file(GMP_LIBRARY_DLL NAMES mpir.dll mpird.dll
+                PATHS
+            ${GMP_LIBRARIES_DIR}/../bin
+            ${GMP_LIBRARIES_DIR}
 )
 
-   find_path(GMP_INCLUDE_DIRS
-        NAMES mpir.h mpird.h
-        PATHS
-      ${GMP_LIBRARIES_DIR}/../include
-      ${GMP_LIBRARIES_DIR}
+     find_path(GMP_INCLUDE_DIRS
+                NAMES mpir.h mpird.h
+                PATHS
+            ${GMP_LIBRARIES_DIR}/../include
+            ${GMP_LIBRARIES_DIR}
 )
 
-else()
 
-#use GMP, notice that there are two cases, everything is the same directory, or everything is in
-#its proper places
-
-
-
-  find_library(GMP_LIBRARIES
-    NAMES gmp	libgmp
-                HINTS
-                .
-      $ENV{GMP_ROOT}
-      $ENV{GMP_ROOT}/lib
-      ${GMP_ROOT}
-                ${GMP_ROOT}/lib
-      /usr/local/opt/gmp/lib
-      /opt/lib
-      /usr/local/lib
-      $ENV{HOME}/lib
-      ${CMAKE_INSTALL_PREFIX}/lib
-  )
+elseif(UNIX)
+    #use GMP, notice that there are two cases, everything is the same directory, or everything is in
+    #its proper places
+    find_library(GMP_LIBRARIES
+        NAMES gmp    libgmp
+                                HINTS
+                                .
+            $ENV{GMP_ROOT}
+            $ENV{GMP_ROOT}/lib
+            ${GMP_ROOT}
+                                ${GMP_ROOT}/lib
+            /usr/local/opt/gmp/lib
+            /opt/lib
+            /usr/local/lib
+            $ENV{HOME}/lib
+            ${CMAKE_INSTALL_PREFIX}/lib
+    )
 
 
-  find_path(GMP_INCLUDE_DIRS
-          NAMES gmp.h
-          HINTS
-              .
-              $ENV{GMP_ROOT}
-              $ENV{GMP_ROOT}/include
-              ${GMP_ROOT}
-              ${GMP_ROOT}/include
-              ${GMP_LIBRARIES_DIR}/../include
-              ${GMP_LIBRARIES_DIR}
-              )
+    find_path(GMP_INCLUDE_DIRS
+                    NAMES gmp.h
+                    HINTS
+                            .
+                            $ENV{GMP_ROOT}
+                            $ENV{GMP_ROOT}/include
+                            ${GMP_ROOT}
+                            ${GMP_ROOT}/include
+                            ${GMP_LIBRARIES_DIR}/../include
+                            ${GMP_LIBRARIES_DIR}
+                            )
 endif()
 
 get_filename_component(GMP_LIBRARIES_DIR "${GMP_LIBRARIES}" PATH CACHE)
@@ -117,10 +114,10 @@ get_filename_component(GMP_LIBRARIES_DIR "${GMP_LIBRARIES}" PATH CACHE)
 # all listed variables are true
 include(FindPackageHandleStandardArgs)
 if(MSVC)
-  find_package_handle_standard_args(GMP DEFAULT_MSG GMP_LIBRARIES GMP_LIBRARIES_DIR GMP_LIBRARY_DLL GMP_INCLUDE_DIRS)
-  mark_as_advanced(GMP_LIBRARY_DLL)
+    find_package_handle_standard_args(GMP DEFAULT_MSG GMP_LIBRARIES GMP_LIBRARIES_DIR GMP_LIBRARY_DLL GMP_INCLUDE_DIRS)
+    mark_as_advanced(GMP_LIBRARY_DLL)
 else()
-  find_package_handle_standard_args(GMP DEFAULT_MSG GMP_LIBRARIES GMP_LIBRARIES_DIR GMP_INCLUDE_DIRS)
+    find_package_handle_standard_args(GMP DEFAULT_MSG GMP_LIBRARIES GMP_LIBRARIES_DIR GMP_INCLUDE_DIRS)
 endif()
 
 
