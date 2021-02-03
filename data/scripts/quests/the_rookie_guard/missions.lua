@@ -29,6 +29,26 @@ local missionTiles = {
 			states = {2},
 			message = "Follow the path east, and when it splits, head north-east to find the wolf forest.",
 			arrowPosition = {x = 32094, y = 32169, z = 7}
+		},
+		{
+			mission = Storage.TheRookieGuard.Mission09,
+			states = {1},
+			message = "Follow the path to the north past the hill to reach the troll caves.",
+			arrowPosition = {x = 32091, y = 32166, z = 7}
+		}
+	},
+	-- Outer east tiles
+	[50323] = {
+		{
+			mission = Storage.TheRookieGuard.Mission05,
+			states = {1},
+			message = "This is not the way to the tarantula's lair. Head northwest and go up the little ramp."
+		},
+		{
+			mission = Storage.TheRookieGuard.Mission09,
+			states = {1},
+			message = "This is not the way to the troll caves. Follow the path to the north past the hill to reach them.",
+			arrowPosition = {x = 32091, y = 32166, z = 7}
 		}
 	},
 	-- North-west drawbridge

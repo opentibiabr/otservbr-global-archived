@@ -1,10 +1,6 @@
 -- The Rookie Guard Quest - Mission 05: Web of Terror
 
 local missionTiles = {
-	[50323] = {
-		states = {1},
-		message = "This is not the way to the tarantula's lair. Head northwest and go up the little ramp."
-	},
 	[50324] = {
 		states = {1},
 		message = "This is not the way to the tarantula's lair. Head up the little ramp to the southwest.",

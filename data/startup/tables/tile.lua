@@ -836,6 +836,33 @@ TileAction = {
 	[50341] = {
 		itemId = 420,
 		itemPos = {{x = 32083, y = 32143, z = 10}}
+	},
+	-- North-west drawbridge upstairs tile
+	[50342] = {
+		itemId = 9043,
+		itemPos = {{x = 32088, y = 32147, z = 6}}
+	},
+	-- Troll caves entrance tiles
+	[50343] = {
+		itemId = 8427,
+		itemPos = {
+			{x = 32094, y= 32140, z = 7},
+			{x = 32095, y= 32140, z = 7},
+			{x = 32096, y= 32140, z = 7},
+			{x = 32097, y= 32140, z = 7},
+			{x = 32098, y= 32140, z = 7},
+			{x = 32099, y= 32140, z = 7}
+		}
+	},
+	-- Troll caves dug tunnel downstair tile
+	[50344] = {
+		itemId = 9022,
+		itemPos = {{x = 32059, y = 32135, z = 10}}
+	},
+	-- Troll caves dug tunnel upstair tile
+	[50345] = {
+		itemId = 9023,
+		itemPos = {{x = 32059, y = 32136, z = 9}}
 	}
 }
 
@@ -969,6 +996,13 @@ TileUnique = {
 	[25027] = {
 		itemId = 8372,
 		itemPos = {x = 32147, y = 32125, z = 11}
+	},
+	-- The Rookie Guard Quest - Mission 09: Rock 'n Troll
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission09_rock_troll.lua
+	-- Troll caves tunnel trapdoor
+	[25028] = {
+		itemId = 8276,
+		itemPos = {x = 32059, y = 32135, z = 9}
 	},
 	-- Remove/create item on stepIn
 	-- Reserved uniques range from 29001/30000

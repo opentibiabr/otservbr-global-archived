@@ -83,6 +83,20 @@ local function greetCallback(cid)
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission08) == 1 then
 		npcHandler:say("I think it's a good idea to go see Paulie before you leave the village again. Just go downstairs and to the right to find the bank.", cid)
 		return false
+	-- Finished mission 8 but not started mission 9
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission08) == 2 and player:getStorageValue(Storage.TheRookieGuard.Mission09) == -1 then
+		npcHandler:setMessage(MESSAGE_GREET, "Now that you know how to store your money, it's time to go after the trolls. I'm even going to give you some more equipment as reward. Do you feel ready for that mission?")
+	-- Started but not finished mission 9
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission09) >= 1 and player:getStorageValue(Storage.TheRookieGuard.Mission09) <= 7 then
+		npcHandler:say("|PLAYERNAME|, you need to discover the troll tunnel and find a way to make it collapse. Maybe you're able to use some of the trolls' tools. Make sure they can't enter the village via that tunnel anymore!", cid)
+		return false
+	-- Finishing mission 9
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission09) == 8 then
+		npcHandler:setMessage(MESSAGE_GREET, "|PLAYERNAME|, welcome back! That was great work you did there. Let me give you something for your efforts - you deserve it. Here, want a helmet?")
+		player:setStorageValue(Storage.TheRookieGuard.Mission09, 9)
+		player:addExperience(50, true)
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission09) == 9 then
+		npcHandler:setMessage(MESSAGE_GREET, "Greetings, |PLAYERNAME|. Do you have enough space for the brass helmet now?")
 	else
 		npcHandler:say("|PLAYERNAME|, the only thing left for you to do here is to talk to the oracle above the academy and leave for the Isle of Destiny. Thanks again for your great work and good luck on your journeys!", cid)
 		return false
@@ -477,6 +491,58 @@ keywordHandler:addKeyword({"no"}, StdModule.say,
 	ungreet = true
 },
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 2 and player:getStorageValue(Storage.TheRookieGuard.Mission08) == -1 end
+)
+
+-- Mission 9: Accept
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"Very well. What I know is the following: somewhere in the northern ruins, the trolls have found a way to dig a tunnel that leads to the library vault. That's how they were able to set fire to it. ...",
+		"You need to discover that tunnel and find a way to make it collapse. Maybe you're able to use some of the trolls' tools. Make sure that they can't enter the village via that tunnel anymore! ...",
+		"And please don't hurt yourself in the process. You'll probably have to fight them, so bring food and maybe a potion. If you need to buy something, don't forget that you can withdraw money from your bank account. Good luck!"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission08) == 2 and player:getStorageValue(Storage.TheRookieGuard.Mission09) == -1 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission09, 1)
+	player:setStorageValue(Storage.TheRookieGuard.TrollChests, 0)
+	player:setStorageValue(Storage.TheRookieGuard.TunnelPillars, 0)
+	player:addMapMark({x = 32094, y = 32137, z = 7}, MAPMARK_GREENSOUTH, "Troll Caves")
+end
+)
+
+-- Mission 9: Decline
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Alright, then just let me know when you're ready. Don't take too much time though.",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission08) == 2 and player:getStorageValue(Storage.TheRookieGuard.Mission09) == -1 end
+)
+
+-- Mission 9: Finish - Confirm (Take brass helmet)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "This brass helmet will make sure you don't hurt your head. I probably should have given that to you BEFORE you made a rocky tunnel collapse! Take your well-deserved break. Once you're ready for the next mission, talk to me again.",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission09) == 9 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission09, 10)
+	player:addItemEx(Game.createItem(2460, 1), true, CONST_SLOT_WHEREEVER)
+end
+)
+
+-- Mission 9: Finish - Decline (Take brass helmet)
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Seriously, don't reject that offer. I'm going to give you a brass helmet. No one refuses free stuff! If you don't like it, you can sell it - I don't need it anymore. I promise there are no fleas in it. Want it?"
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission09) == 9 end
 )
 
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)

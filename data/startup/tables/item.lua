@@ -354,5 +354,42 @@ ItemUnique = {
 	[40047] = {
 		itemId = 12664,
 		itemPos = {x = 32083, y = 32141, z = 10}
+	},
+	-- The Rookie Guard Quest - Mission 09: Rock 'n Troll
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission09_rock_troll.lua
+	-- Troll caves tunnel chest 1
+	[40048] = {
+		itemId = 13903,
+		itemPos = {x = 32058, y = 32132, z = 10}
+	},
+	-- Troll caves tunnel chest 2
+	[40049] = {
+		itemId = 13903,
+		itemPos = {x = 32059, y = 32132, z = 10}
+	},
+	-- Troll caves tunnel pillar 1
+	[40050] = {
+		itemId = 3511,
+		itemPos = {x = 32067, y = 32143, z = 10}
+	},
+	-- Troll caves tunnel pillar 2
+	[40051] = {
+		itemId = 3511,
+		itemPos = {x = 32060, y = 32140, z = 10}
+	},
+	-- Troll caves tunnel pillar 3
+	[40052] = {
+		itemId = 3511,
+		itemPos = {x = 32065, y = 32134, z = 10}
+	},
+	-- Troll caves tunnel pillar 4
+	[40053] = {
+		itemId = 3511,
+		itemPos = {x = 32070, y = 32132, z = 10}
+	},
+	-- Troll caves tunnel pillar 5
+	[40054] = {
+		itemId = 3511,
+		itemPos = {x = 32076, y = 32129, z = 10}
 	}
 }
