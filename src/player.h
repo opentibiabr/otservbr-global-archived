@@ -529,6 +529,12 @@ class Player final : public Creature, public Cylinder
 		void setSupplyStashAvailable(bool value) {
 			supplyStashAvailable = value;
 		}
+		bool isExerciseTraining() {
+			return exerciseTraining;
+		}
+		void setExerciseTraining(bool isTraining) {
+			exerciseTraining = isTraining;
+		}
 		void setLastDepotId(int16_t newId) {
 			lastDepotId = newId;
 		}
@@ -2047,6 +2053,7 @@ class Player final : public Creature, public Cylinder
 		bool scheduledSaleUpdate = false;
 		bool inEventMovePush = false;
 		bool supplyStashAvailable = false;
+		bool exerciseTraining = false;
 
 		static uint32_t playerAutoID;
 
@@ -2097,3 +2104,4 @@ class Player final : public Creature, public Cylinder
 };
 
 #endif  // SRC_PLAYER_H_
+

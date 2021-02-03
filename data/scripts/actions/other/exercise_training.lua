@@ -35,6 +35,7 @@ local function removeExerciseWeapon(player, exercise)
     player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training weapon vanished.")
     stopEvent(training)
     player:setStorageValue(Storage.isTraining,0)
+    player:setTraining(false)
 end
 
 local function startTraining(playerId, startPosition, itemid, tilePosition, bonusDummy, dummyId)
