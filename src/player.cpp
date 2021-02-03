@@ -464,7 +464,7 @@ void Player::updateInventoryWeight()
 }
 
 void Player::setTraining(bool value) {
-	for (const auto& it : g_game.getPlayers()) {
+	for (const auto& it : g_game().getPlayers()) {
 		if (!this->isInGhostMode() || it.second->isAccessPlayer()) {
 			it.second->notifyStatusChange(this, value ? VIPSTATUS_TRAINING : VIPSTATUS_ONLINE, false);
 		}
