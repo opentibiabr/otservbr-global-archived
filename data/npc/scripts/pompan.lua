@@ -66,7 +66,7 @@ local function getTable(player)
 			{name='shiver arrow', id=7839, buy=5},
 			{name='sniper arrow', id=7364, buy=5},
 			{name='spear', id=2389, buy=9, sell=3},
-			{name='spectral bolt', id=40737, buy=100},
+			{name='spectral bolt', id=40737, buy=70},
 			{name='tarsal arrow', id=15648, buy=6},
 			{name='throwing star', id=2399, buy=42},
 			{name='vortex bolt', id=15649, buy=6},
