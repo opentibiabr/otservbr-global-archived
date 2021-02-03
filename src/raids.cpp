@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -118,7 +118,7 @@ bool Raids::startup()
 	setLastRaidEnd(OTSYS_TIME());
 
 	checkRaidsEvent = g_dispatcher().addEvent(CHECK_RAIDS_INTERVAL * 1000,
-											  std::bind(&Raids::checkRaids, this));
+                                              std::bind(&Raids::checkRaids, this));
 
 	started = true;
 	return started;
@@ -146,7 +146,7 @@ void Raids::checkRaids()
 	}
 
 	checkRaidsEvent = g_dispatcher().addEvent(CHECK_RAIDS_INTERVAL * 1000,
-											  std::bind(&Raids::checkRaids, this));
+                                              std::bind(&Raids::checkRaids, this));
 }
 
 void Raids::clear()
@@ -241,7 +241,7 @@ void Raid::startRaid()
 	if (raidEvent) {
 		state = RAIDSTATE_EXECUTING;
 		nextEventEvent = g_dispatcher().addEvent(raidEvent->getDelay(),
-												 std::bind(&Raid::executeRaidEvent, this, raidEvent));
+                                                 std::bind(&Raid::executeRaidEvent, this, raidEvent));
 	}
 }
 
@@ -254,7 +254,7 @@ void Raid::executeRaidEvent(RaidEvent* raidEvent)
 		if (newRaidEvent) {
 			uint32_t ticks = static_cast<uint32_t>(std::max<int32_t>(RAID_MINTICKS, newRaidEvent->getDelay() - raidEvent->getDelay()));
 			nextEventEvent = g_dispatcher().addEvent(ticks, std::bind(&Raid::executeRaidEvent,
-																	  this, newRaidEvent));
+                                                                      this, newRaidEvent));
 		} else {
 			resetRaid();
 		}

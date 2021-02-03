@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019    Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021   Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -645,7 +645,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
         Item::CreateItem(ITEM_STORE_INBOX));
     }
 
-    //load depot items
+    // Load depot items
     itemMap.clear();
 
     query.clear();
@@ -677,7 +677,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
         }
     }
 
-    //load reward chest items
+    // Load reward chest items
     itemMap.clear();
 
     query.clear();
@@ -685,8 +685,8 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
         if ((result = g_database().storeQuery(query))) {
         loadItems(itemMap, result);
 
-        //first loop handles the reward containers to retrieve its date attribute
-        //for (ItemMap::iterator it = itemMap.begin(), end = itemMap.end(); it != end; ++it) {
+        // First loop handles the reward containers to retrieve its date attribute
+        // For (ItemMap::iterator it = itemMap.begin(), end = itemMap.end(); it != end; ++it) {
         for (auto& it : itemMap) {
             const std::pair<Item*, int32_t>& pair = it.second;
             Item* item = pair.first;
@@ -702,8 +702,8 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
             }
         }
 
-        //second loop (this time a reverse one) to insert the items in the correct order
-        //for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
+        // Second loop (this time a reverse one) to insert the items in the correct order
+        // For (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
         for (const auto& it : boost::adaptors::reverse(itemMap)) {
             const std::pair<Item*, int32_t>& pair = it.second;
             Item* item = pair.first;
@@ -725,7 +725,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
         }
     }
 
-    //load inbox items
+    // Load inbox items
     itemMap.clear();
 
     query.clear();
@@ -755,7 +755,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
         }
     }
 
-    //load storage map
+    // Load storage map
     query.clear();
     query << "SELECT `key`, `value` FROM `player_storage` WHERE `player_id` = " << player->getGUID();
     if ((result = g_database().storeQuery(query))) {
@@ -764,7 +764,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
         } while (result->next());
     }
 
-    //load vip
+    // Load vip
     query.clear();
     query << "SELECT `player_id` FROM `account_viplist` WHERE `account_id` = " << player->getAccount();
     if ((result = g_database().storeQuery(query))) {
@@ -1045,14 +1045,14 @@ bool IOLoginData::savePlayer(Player* player)
         return false;
     }
 
-    //player kills
+    // Player kills
     query.clear();
     query << "DELETE FROM `player_kills` WHERE `player_id` = " << player->getGUID();
     if (!g_database().executeQuery(query)) {
         return false;
     }
 
-    //player bestiary charms
+    // Player bestiary charms
     query.clear();
     query << "UPDATE `player_charms` SET ";
     query << "`charm_points` = " << player->charmPoints << ',';    
@@ -1131,7 +1131,7 @@ bool IOLoginData::savePlayer(Player* player)
     }
 
     if (player->lastDepotId != -1) {
-        //save depot items
+        // Save depot items
         query.clear();
         query << "DELETE FROM `player_depotitems` WHERE `player_id` = " << player->getGUID();
 
@@ -1154,7 +1154,7 @@ bool IOLoginData::savePlayer(Player* player)
         }
     }
 
-    //save reward items
+    // Save reward items
     query.clear();
     query << "DELETE FROM `player_rewards` WHERE `player_id` = " << player->getGUID();
 
@@ -1183,7 +1183,7 @@ bool IOLoginData::savePlayer(Player* player)
         }
     }
 
-    //save inbox items
+    // Save inbox items
     query.clear();
     query << "DELETE FROM `player_inboxitems` WHERE `player_id` = " << player->getGUID();
     if (!g_database().executeQuery(query)) {
@@ -1201,7 +1201,7 @@ bool IOLoginData::savePlayer(Player* player)
         return false;
     }
 
-    // New Prey
+    // Load prey slots
     query.clear();
     query << "DELETE FROM `prey_slots` WHERE `player_id` = " << player->getGUID();
     if (!g_database().executeQuery(query)) {
@@ -1244,7 +1244,7 @@ bool IOLoginData::savePlayer(Player* player)
         return false;
     }
 
-    //End the transaction
+    // End the transaction
     return transaction.commit();
 }
 

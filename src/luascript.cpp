@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -4950,12 +4950,12 @@ int LuaScriptInterface::luaGameGetTowns(lua_State* L)
 int LuaScriptInterface::luaGameGetHouses(lua_State* L)
 {
 	// Game.getHouses()
-	const auto& houses = g_game().map.houses.getHouses();
+	auto& houses = g_game().map.houses.getHouses();
 	lua_createtable(L, houses.size(), 0);
 
 	int index = 0;
-	for (auto houseEntry : houses) {
-		pushUserdata<House>(L, houseEntry.second);
+	for (auto& houseEntry : houses) {
+		pushUserdata<House>(L, &houseEntry.second);
 		setMetatable(L, -1, "House");
 		lua_rawseti(L, -2, ++index);
 	}

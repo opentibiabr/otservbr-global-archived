@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -567,6 +567,7 @@ enum item_t : uint16_t {
 	ITEM_SMALLSPLASH = 2019,
 
 	ITEM_PARCEL = 2595,
+	ITEM_PARCEL_STAMPED = 2596,
 	ITEM_LETTER = 2597,
 	ITEM_LETTER_STAMPED = 2598,
 	ITEM_LABEL = 2599,

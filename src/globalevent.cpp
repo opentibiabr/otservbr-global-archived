@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -327,6 +327,7 @@ std::string GlobalEvent::getScriptEventName() const
 		case GLOBALEVENT_SHUTDOWN: return "onShutdown";
 		case GLOBALEVENT_RECORD: return "onRecord";
 		case GLOBALEVENT_TIMER: return "onTime";
+		case GLOBALEVENT_PERIODCHANGE: return "onPeriodChange";
 		default: return "onThink";
 	}
 }
@@ -356,7 +357,10 @@ bool GlobalEvent::executeRecord(uint32_t current, uint32_t old)
 {
 	//onRecord(current, old)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - GlobalEvent::executeRecord] Call stack overflow" << std::endl;
+		std::cout << "[Error - GlobalEvent::executeRecord "
+			<< getName()
+			<< "] Call stack overflow. Too many lua script calls being nested."
+			<< std::endl;
 		return false;
 	}
 
@@ -374,7 +378,10 @@ bool GlobalEvent::executeRecord(uint32_t current, uint32_t old)
 bool GlobalEvent::executeEvent() const
 {
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - GlobalEvent::executeEvent] Call stack overflow" << std::endl;
+		std::cout << "[Error - GlobalEvent::executeEvent "
+			<< getName()
+			<< "] Call stack overflow. Too many lua script calls being nested."
+			<< std::endl;
 		return false;
 	}
 

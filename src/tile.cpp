@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,7 +32,6 @@
 #include "movement.h"
 #include "teleport.h"
 #include "trashholder.h"
-#include "housetile.h"
 #include "iomap.h"
 
 StaticTile real_nullptr_tile(0xFFFF, 0xFFFF, 0xFF);
@@ -472,9 +471,9 @@ void Tile::onRemoveTileItem(const SpectatorHashSet& spectators, const std::vecto
 		spectator->onRemoveTileItem(this, cylinderMapPos, iType, item);
 	}
 
-  if (!hasFlag(TILESTATE_PROTECTIONZONE) || g_config().getBoolean(ConfigManager::CLEAN_PROTECTION_ZONES)) {
+	if (!hasFlag(TILESTATE_PROTECTIONZONE) || g_config().getBoolean(ConfigManager::CLEAN_PROTECTION_ZONES)) {
 		auto items = getItemList();
-		if (!items || items->empty()) {
+		if (!items) {
 			g_game().removeTileToClean(this);
 			return;
 		}
@@ -874,7 +873,7 @@ void Tile::addThing(int32_t, Thing* thing)
 {
 	Creature* creature = thing->getCreature();
 	if (creature) {
-		g_game().map.clearSpectatorCache();
+		g_game().map.clearSpectatorCache(creature->getPlayer());
 		creature->setParent(this);
 		CreatureVector* creatures = makeCreatures();
 		creatures->insert(creatures->begin(), creature);
@@ -971,8 +970,7 @@ void Tile::addThing(int32_t, Thing* thing)
 			}
 
 			items = makeItemList();
-			items->insert(items->getBeginDownItem(), item);
-			items->increaseDownItemCount();
+			items->push_back(item);
 			onAddTileItem(item);
 		}
 	}
@@ -1079,7 +1077,7 @@ void Tile::removeThing(Thing* thing, uint32_t count)
 		if (creatures) {
 			auto it = std::find(creatures->begin(), creatures->end(), thing);
 			if (it != creatures->end()) {
-				g_game().map.clearSpectatorCache();
+				g_game().map.clearSpectatorCache(creature->getPlayer());
 				creatures->erase(it);
 			}
 		}
@@ -1154,7 +1152,7 @@ void Tile::removeThing(Thing* thing, uint32_t count)
 
 			item->setParent(nullptr);
 			items->erase(it);
-			items->decreaseDownItemCount();
+			items->addTopItemCount(-1);
 			onRemoveTileItem(spectators, oldStackPosVector, item);
 		}
 	}
@@ -1367,7 +1365,7 @@ Thing* Tile::getThing(size_t index) const
 	if (items) {
 		uint32_t topItemSize = items->getTopItemCount();
 		if (index < topItemSize) {
-			return items->at(items->getDownItemCount() + index);
+			return (*items)[index];
 		}
 		index -= topItemSize;
 	}
@@ -1380,7 +1378,7 @@ Thing* Tile::getThing(size_t index) const
 	}
 
 	if (items && index < items->getDownItemCount()) {
-		return items->at(index);
+		return (*items)[items->size() - (index + 1)];
 	}
 	return nullptr;
 }
@@ -1468,31 +1466,6 @@ void Tile::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32
 void Tile::internalAddThing(Thing* thing)
 {
 	internalAddThing(0, thing);
-	if (!thing->getParent()) {
-		return;
-	}
-
-	if (HouseTile* houseTile = dynamic_cast<HouseTile*>(thing->getTile())) {
-		if (Item* item = thing->getItem()) {
-			if (item->getParent() != this) {
-				return;
-			}
-
-			Door* door = item->getDoor();
-			House* house = houseTile->getHouse();
-			if (door) {
-				if (door->getDoorId() != 0) {
-					house->addDoor(door);
-				}
-			}
-			else {
-				BedItem* bed = item->getBed();
-				if (bed) {
-					house->addBed(bed);
-				}
-			}
-		}
-	}
 }
 
 void Tile::internalAddThing(uint32_t, Thing* thing)
@@ -1501,7 +1474,7 @@ void Tile::internalAddThing(uint32_t, Thing* thing)
 
 	Creature* creature = thing->getCreature();
 	if (creature) {
-		g_game().map.clearSpectatorCache();
+		g_game.map.clearSpectatorCache(creature->getPlayer());
 		CreatureVector* creatures = makeCreatures();
 		creatures->insert(creatures->begin(), creature);
 	} else {
@@ -1535,11 +1508,11 @@ void Tile::internalAddThing(uint32_t, Thing* thing)
 			}
 
 			if (!isInserted) {
-				items->push_back(item);
+				items->insert(items->getEndTopItem(), item);
 			}
+			items->addTopItemCount(1);
 		} else {
-			items->insert(items->getBeginDownItem(), item);
-			items->increaseDownItemCount();
+			items->push_back(item);
 		}
 
 		setTileFlags(item);

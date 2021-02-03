@@ -1,8 +1,6 @@
 /**
- * @file monster.cpp
- *
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1172,11 +1170,12 @@ void Monster::pushItems(Tile* tile)
 		uint32_t moveCount = 0;
 		uint32_t removeCount = 0;
 
+		int32_t topItemSize = tile->getTopItemCount();
 		int32_t downItemSize = tile->getDownItemCount();
 		for (int32_t i = downItemSize; --i >= 0;) {
-			Item* item = items->at(i);
+			Item* item = (*items)[topItemSize + i];
 			if (item && item->hasProperty(CONST_PROP_MOVEABLE) && (item->hasProperty(CONST_PROP_BLOCKPATH)
-					|| item->hasProperty(CONST_PROP_BLOCKSOLID)) && item->getActionId() != 100 /* non-moveable action*/) {
+               || item->hasProperty(CONST_PROP_BLOCKSOLID)) && item->getActionId() != 100 /* non-moveable action*/) {
 				if (moveCount < 20 && Monster::pushItem(item)) {
 					++moveCount;
 				} else if (!item->isCorpse() && g_game().internalRemoveItem(item) == RETURNVALUE_NOERROR) {

@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -400,7 +400,7 @@ void Spawn::scheduleSpawn(uint32_t spawnId, spawnBlock_t& sb, uint16_t interval)
 	} else {
 		g_game().addMagicEffect(sb.pos, CONST_ME_TELEPORT);
 		g_dispatcher().addEvent(1400, std::bind(&Spawn::scheduleSpawn,
-												this, spawnId, sb, interval - NONBLOCKABLE_SPAWN_INTERVAL));
+                                               this, spawnId, sb, interval - NONBLOCKABLE_SPAWN_INTERVAL));
 	}
 }
 

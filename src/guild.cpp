@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,30 +18,17 @@
  */
 
 #include "otpch.h"
-
 #include "guild.h"
-
 #include "game.h"
 
 void Guild::addMember(Player* player)
 {
 	membersOnline.push_back(player);
-	#if CLIENT_VERSION >= 1000 && CLIENT_VERSION < 1185
-	for (Player* member : membersOnline) {
-		g_game().updatePlayerHelpers(*member);
-	}
-	#endif
 }
 
 void Guild::removeMember(Player* player)
 {
 	membersOnline.remove(player);
-	#if CLIENT_VERSION >= 1000 && CLIENT_VERSION < 1185
-	for (Player* member : membersOnline) {
-		g_game().updatePlayerHelpers(*member);
-	}
-	g_game().updatePlayerHelpers(*player);
-	#endif
 
 	if (membersOnline.empty()) {
 		g_game().removeGuild(id);

@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -125,7 +125,7 @@ void ServicePort::onAccept(Connection_ptr connection, const boost::system::error
 			close();
 			pendingStart = true;
 			g_dispatcher().addEvent(15000, std::bind(&ServicePort::openAcceptor,
-													 std::weak_ptr<ServicePort>(shared_from_this()), serverPort));
+                                                    std::weak_ptr<ServicePort>(shared_from_this()), serverPort));
 		}
 	}
 }
@@ -181,7 +181,7 @@ void ServicePort::open(uint16_t port)
 
 		pendingStart = true;
 		g_dispatcher().addEvent(15000, std::bind(&ServicePort::openAcceptor,
-												 std::weak_ptr<ServicePort>(shared_from_this()), port));
+                                                std::weak_ptr<ServicePort>(shared_from_this()), port));
 	}
 }
 

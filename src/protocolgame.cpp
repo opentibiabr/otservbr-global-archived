@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -473,7 +473,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 	}
 
 	g_dispatcher().addTask(std::bind(&ProtocolGame::login, getThis(),
-									 characterName, accountId, operatingSystem));
+                                     characterName, accountId, operatingSystem));
 }
 
 void ProtocolGame::onConnect()
@@ -2043,7 +2043,7 @@ void ProtocolGame::parseStoreRequestOffers(NetworkMessage &message)
 	if (index >= 0)
 	{
 		g_game().playerShowStoreCategoryOffers(player->getID(),
-											   g_game().gameStore.getCategoryOffers().at(index));
+                                               g_game().gameStore.getCategoryOffers().at(index));
 	}
 	else
 	{
@@ -3549,8 +3549,8 @@ void ProtocolGame::updateCoinBalance()
 				client->player->coinBalance = coins;
 				client->sendCoinBalance();
 			}
-		}
-	,this));
+		}, this)
+	);
 }
 
 void ProtocolGame::sendMarketLeave()
