@@ -5274,34 +5274,6 @@ if not equipmentsTable then
 			slot = "shield"
 		}, -- broken wooden shield
 		{
-			itemid = 23719,
-			type = "equip",
-			slot = "hand",
-			vocation = {
-				{"Sorcerer", true},
-				{"Master Sorcerer"}
-			}
-		}, -- the scorcher
-		{
-			itemid = 23719,
-			type = "deequip",
-			slot = "hand"
-		}, -- the scorcher
-		{
-			itemid = 23721,
-			type = "equip",
-			slot = "hand",
-			vocation = {
-				{"Druid", true},
-				{"Elder Druid"}
-			}
-		}, -- the chiller
-		{
-			itemid = 23721,
-			type = "deequip",
-			slot = "hand"
-		}, -- the chiller
-		{
 			itemid = 23771,
 			type = "equip",
 			slot = "shield",
@@ -5317,6 +5289,34 @@ if not equipmentsTable then
 			type = "deequip",
 			slot = "shield"
 		}, -- spellbook of the novice
+		{
+			itemid = 23721,
+			type = "equip",
+			slot = "hand",
+			vocation = {
+				{"Druid", true},
+				{"Elder Druid"}
+			}
+		}, -- the chiller
+		{
+			itemid = 23721,
+			type = "deequip",
+			slot = "hand"
+		}, -- the chiller
+		{
+			itemid = 23719,
+			type = "equip",
+			slot = "hand",
+			vocation = {
+				{"Sorcerer", true},
+				{"Master Sorcerer"}
+			}
+		}, -- the scorcher
+		{
+			itemid = 23719,
+			type = "deequip",
+			slot = "hand"
+		}, -- the scorcher
 		{
 			itemid = 23666,
 			type = "equip",
