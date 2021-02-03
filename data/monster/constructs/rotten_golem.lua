@@ -89,7 +89,7 @@ monster.loot = {
 	{name = "titan axe", chance = 19500},
 	{name = "underworld rod", chance = 35500},
 	{name = "sacred tree amulet", chance = 17500},
-	{name = "fur amulet", chance = 9500},
+	{name = "fur armor", chance = 9500},
 	{name = "terra mantle", chance = 3500},
 	{name = "wood cape", chance = 2500},
 	{name = "rubber cap", chance = 1500},
