@@ -2104,4 +2104,3 @@ class Player final : public Creature, public Cylinder
 };
 
 #endif  // SRC_PLAYER_H_
-
