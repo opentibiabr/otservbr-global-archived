@@ -4,7 +4,6 @@ function spellbook.onUse(player, item, fromPosition, target, toPosition, isHotke
 	local text = ""
 	local tlvl = {}
 	local tml = {}
-	local specificSpells = {}
 
 	for _, spell in ipairs(player:getInstantSpells()) do
 		if spell.level ~= 0 or spell.mlevel ~= 0 then
@@ -16,20 +15,8 @@ function spellbook.onUse(player, item, fromPosition, target, toPosition, isHotke
 			elseif spell.mlevel > 0 then
 				tml[#tml+1] = spell
 			end
-		else
-			specificSpells[#specificSpells + 1] = spell
 		end
 	end
-
-	if #specificSpells > 0 then
-		text = "Spells for Specific Characters" .. "\n"
-		for i = 1, #specificSpells do
-			text = text .. "  " .. specificSpells[i].words .. " - " .. specificSpells[i].name .. " : "
-																	.. ((specificSpells[i].mana > 0) or "-") .. "\n"
-		end
-	end
-
-	text = text.."\n"
 
 	table.sort(tlvl, function(a, b) return a.level < b.level end)
 	local prevLevel = -1
