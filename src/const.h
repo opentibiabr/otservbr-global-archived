@@ -219,9 +219,12 @@ enum SpeakClasses : uint8_t {
 	TALKTYPE_YELL = 3,
 	TALKTYPE_PRIVATE_FROM = 4,
 	TALKTYPE_PRIVATE_TO = 5,
+	TALKTYPE_CHANNEL_MANAGER = 6,
 	TALKTYPE_CHANNEL_Y = 7,
 	TALKTYPE_CHANNEL_O = 8,
+	TALKTYPE_SPELL_USE = 9,
 	TALKTYPE_PRIVATE_NP = 10,
+	TALKTYPE_NPC_UNKOWN = 11, /* no effect (?)*/
 	TALKTYPE_PRIVATE_PN = 12,
 	TALKTYPE_BROADCAST = 13,
 	TALKTYPE_CHANNEL_R1 = 14, //red - #c text
@@ -235,12 +238,6 @@ enum SpeakClasses : uint8_t {
 
 enum MessageClasses : uint8_t {
 	MESSAGE_NONE = 0, /* None */
-
-	MESSAGE_CHANNEL_MANAGER = 6, /* no effect (?)*/
-
-	MESSAGE_SPELL_USE = 9, /* no effect (?)*/
-
-	MESSAGE_NPC_FROM = 11, /* no effect (?)*/
 
 	MESSAGE_GAMEMASTER_CONSOLE = 13, /* Red message in the console*/ /* TALKTYPE_BROADCAST */
 
@@ -275,7 +272,7 @@ enum MessageClasses : uint8_t {
 	MESSAGE_BOOSTED_CREATURE = 49, /* White message on the game window and in the console*/
 	MESSAGE_OFFLINE_TRAINING = 50, /* White message on the game window and in the console*/
 	MESSAGE_TRANSACTION = 51, /* White message on the game window and in the console*/
-	MESSAGE_POTION = 52, /* no effect (?)*/
+	MESSAGE_POTION = 52, /* Orange creature say*/
 };
 
 enum FluidColors_t : uint8_t {
