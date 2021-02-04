@@ -77,14 +77,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 94000, maxCount = 30},
-	{id = "mantassin tail", chance = 7780},
-	{id = "chain armor", chance = 5061},
+	{name = "gold coin", chance = 94000, maxCount = 30},
+	{name = "mantassin tail", chance = 7780},
+	{name = "chain armor", chance = 5061},
 	{id = 2229, chance = 990},--skull
-	{id = "small sapphire", chance = 990},
-	{id = "two handed sword", chance = 810},
-	{id = "stealth ring", chance = 710},
-	{id = "fish fin", chance = 360}
+	{name = "small sapphire", chance = 990},
+	{name = "two handed sword", chance = 810},
+	{name = "stealth ring", chance = 710},
+	{name = "fish fin", chance = 360}
 }
 
 monster.attacks = {

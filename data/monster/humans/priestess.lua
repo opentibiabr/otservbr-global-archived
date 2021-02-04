@@ -84,23 +84,23 @@ monster.voices = {
 monster.loot = {
 	{id = 1962, chance = 890},
 	{id = 2070, chance = 1410},
-	{id = "piggy bank", chance = 90},
-	{id = "crystal necklace", chance = 640},
-	{id = "talon", chance = 750},
-	{id = "hailstorm rod", chance = 1100},
+	{name = "piggy bank", chance = 90},
+	{name = "crystal necklace", chance = 640},
+	{name = "talon", chance = 750},
+	{name = "hailstorm rod", chance = 1100},
 	{id = 2192, chance = 1250},
 	{id = 2070, chance = 1400},
-	{id = "clerical mace", chance = 1500},
-	{id = "black shield", chance = 210},
-	{id = "red apple", chance = 7500, maxCount = 2},
-	{id = "goat grass", chance = 11720},
-	{id = "wood mushroom", chance = 3240},
-	{id = "sling herb", chance = 13200},
-	{id = "powder herb", chance = 5900},
-	{id = "mana potion", chance = 850},
-	{id = "cultish robe", chance = 1800},
-	{id = "black hood", chance = 5230},
-	{id = "dark rosary", chance = 9840}
+	{name = "clerical mace", chance = 1500},
+	{name = "black shield", chance = 210},
+	{name = "red apple", chance = 7500, maxCount = 2},
+	{name = "goat grass", chance = 11720},
+	{name = "wood mushroom", chance = 3240},
+	{name = "sling herb", chance = 13200},
+	{name = "powder herb", chance = 5900},
+	{name = "mana potion", chance = 850},
+	{name = "cultish robe", chance = 1800},
+	{name = "black hood", chance = 5230},
+	{name = "dark rosary", chance = 9840}
 }
 
 monster.attacks = {

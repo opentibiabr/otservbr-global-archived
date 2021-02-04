@@ -75,21 +75,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 100000, maxCount = 9},
-	{id = "Book Page", chance = 10000, maxCount = 6},
-	{id = "Small Amethyst", chance = 10000, maxCount = 8},
-	{id = "Glowing Rune", chance = 10000, maxCount = 3},
-	{id = "Quill", chance = 10000, maxCount = 3},
-	{id = "Silken Bookmark", chance = 10000, maxCount = 3},
-	{id = "Flash Arrow", chance = 10000, maxCount = 6},
-	{id = "Throwing Star", chance = 10000, maxCount = 10},
-	{id = "Crystal Sword", chance = 10000},
-	{id = "Energy Ring", chance = 10000},
-	{id = "Guardian Shield", chance = 10000},
-	{id = "Mana Potion", chance = 10000, maxCount = 10},
-	{id = "Ultimate Mana Potion", chance = 10000, maxCount = 8},
-	{id = "Ultimate Health Potion", chance = 10000, maxCount = 8},
-	{id = "Wand of Cosmic Energy", chance = 300}
+	{name = "Platinum Coin", chance = 100000, maxCount = 9},
+	{name = "Book Page", chance = 10000, maxCount = 6},
+	{name = "Small Amethyst", chance = 10000, maxCount = 8},
+	{name = "Glowing Rune", chance = 10000, maxCount = 3},
+	{name = "Quill", chance = 10000, maxCount = 3},
+	{name = "Silken Bookmark", chance = 10000, maxCount = 3},
+	{name = "Flash Arrow", chance = 10000, maxCount = 6},
+	{name = "Throwing Star", chance = 10000, maxCount = 10},
+	{name = "Crystal Sword", chance = 10000},
+	{name = "Energy Ring", chance = 10000},
+	{name = "Guardian Shield", chance = 10000},
+	{name = "Mana Potion", chance = 10000, maxCount = 10},
+	{name = "Ultimate Mana Potion", chance = 10000, maxCount = 8},
+	{name = "Ultimate Health Potion", chance = 10000, maxCount = 8},
+	{name = "Wand of Cosmic Energy", chance = 300}
 }
 
 monster.attacks = {

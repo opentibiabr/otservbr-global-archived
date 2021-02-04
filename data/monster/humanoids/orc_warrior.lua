@@ -80,15 +80,15 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 65000, maxCount = 15},
-	{id = "poison dagger", chance = 120},
-	{id = "chain armor", chance = 7360},
-	{id = "copper shield", chance = 560},
-	{id = "meat", chance = 15000},
-	{id = "orc tooth", chance = 700},
-	{id = "broken helmet", chance = 10800},
-	{id = "orc leather", chance = 4000},
-	{id = "skull belt", chance = 980},
+	{name = "gold coin", chance = 65000, maxCount = 15},
+	{name = "poison dagger", chance = 120},
+	{name = "chain armor", chance = 7360},
+	{name = "copper shield", chance = 560},
+	{name = "meat", chance = 15000},
+	{name = "orc tooth", chance = 700},
+	{name = "broken helmet", chance = 10800},
+	{name = "orc leather", chance = 4000},
+	{name = "skull belt", chance = 980},
 	{id = 26654, chance = 1000}
 }
 

@@ -75,21 +75,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 11000, maxCount = 57},
-	{id = "Glowing Rune", chance = 800, maxCount = 4},
-	{id = "Small Sapphire", chance = 900, maxCount = 4},
-	{id = "Frosty Heart", chance = 11000, maxCount = 4},
+	{name = "Platinum Coin", chance = 11000, maxCount = 57},
+	{name = "Glowing Rune", chance = 800, maxCount = 4},
+	{name = "Small Sapphire", chance = 900, maxCount = 4},
+	{name = "Frosty Heart", chance = 11000, maxCount = 4},
 	{id = 7441, chance = 20000},
 	{id = 33315, chance = 20000},
-	{id = "Ultimate Health Potion", chance = 10003, maxCount = 4},
-	{id = "Ultimate Mana Potion", chance = 10003, maxCount = 4},
-	{id = "Ice Rapier", chance = 500},
-	{id = "Glacier Mask", chance = 400},
-	{id = "Piece of Dead Brain", chance = 10001, maxCount = 4},
-	{id = "Crystal Sword", chance = 300},
-	{id = "Glacier Robe", chance = 150},
-	{id = "Glacier Kilt", chance = 150},
-	{id = "Slime Heart", chance = 10002, maxCount = 4}
+	{name = "Ultimate Health Potion", chance = 10003, maxCount = 4},
+	{name = "Ultimate Mana Potion", chance = 10003, maxCount = 4},
+	{name = "Ice Rapier", chance = 500},
+	{name = "Glacier Mask", chance = 400},
+	{name = "Piece of Dead Brain", chance = 10001, maxCount = 4},
+	{name = "Crystal Sword", chance = 300},
+	{name = "Glacier Robe", chance = 150},
+	{name = "Glacier Kilt", chance = 150},
+	{name = "Slime Heart", chance = 10002, maxCount = 4}
 }
 
 monster.attacks = {

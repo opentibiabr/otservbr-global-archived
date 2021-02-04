@@ -1865,6 +1865,15 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(WEAPON_AMMO)
   registerEnum(WEAPON_QUIVER)
 
+	registerEnum(AMMO_NONE)
+	registerEnum(AMMO_BOLT)
+	registerEnum(AMMO_ARROW)
+	registerEnum(AMMO_SPEAR)
+	registerEnum(AMMO_THROWINGSTAR)
+	registerEnum(AMMO_THROWINGKNIFE)
+	registerEnum(AMMO_STONE)
+	registerEnum(AMMO_SNOWBALL)
+
 	registerEnum(WORLD_TYPE_NO_PVP)
 	registerEnum(WORLD_TYPE_PVP)
 	registerEnum(WORLD_TYPE_PVP_ENFORCED)
@@ -2116,7 +2125,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::DEFAULT_PRIORITY)
 	registerEnumIn("configKeys", ConfigManager::MAP_AUTHOR)
 	registerEnumIn("configKeys", ConfigManager::STORE_IMAGES_URL)
-	registerEnumIn("configKeys", ConfigManager::VERSION_STR)
+	registerEnumIn("configKeys", ConfigManager::CLIENT_VERSION_STR)
 
 	registerEnumIn("configKeys", ConfigManager::SQL_PORT)
 	registerEnumIn("configKeys", ConfigManager::MAX_PLAYERS)
@@ -2148,7 +2157,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::EXP_FROM_PLAYERS_LEVEL_RANGE)
 	registerEnumIn("configKeys", ConfigManager::MAX_PACKETS_PER_SECOND)
 	registerEnumIn("configKeys", ConfigManager::STORE_COIN_PACKET)
-	registerEnumIn("configKeys", ConfigManager::VERSION)
+	registerEnumIn("configKeys", ConfigManager::CLIENT_VERSION)
 	registerEnumIn("configKeys", ConfigManager::DAY_KILLS_TO_RED)
 	registerEnumIn("configKeys", ConfigManager::WEEK_KILLS_TO_RED)
 	registerEnumIn("configKeys", ConfigManager::MONTH_KILLS_TO_RED)
@@ -2529,6 +2538,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "getCapacity", LuaScriptInterface::luaPlayerGetCapacity);
 	registerMethod("Player", "setCapacity", LuaScriptInterface::luaPlayerSetCapacity);
 
+	registerMethod("Player", "setTraining", LuaScriptInterface::luaPlayerSetTraining);
+
 	registerMethod("Player", "getFreeCapacity", LuaScriptInterface::luaPlayerGetFreeCapacity);
 
 	registerMethod("Player", "getKills", LuaScriptInterface::luaPlayerGetKills);
@@ -2577,6 +2588,9 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "getSkillPercent", LuaScriptInterface::luaPlayerGetSkillPercent);
 	registerMethod("Player", "getSkillTries", LuaScriptInterface::luaPlayerGetSkillTries);
 	registerMethod("Player", "addSkillTries", LuaScriptInterface::luaPlayerAddSkillTries);
+
+	registerMethod("Player", "setMagicLevel", LuaScriptInterface::luaPlayerSetMagicLevel);
+	registerMethod("Player", "setSkillLevel", LuaScriptInterface::luaPlayerSetSkillLevel);
 
 	registerMethod("Player", "addOfflineTrainingTime", LuaScriptInterface::luaPlayerAddOfflineTrainingTime);
 	registerMethod("Player", "getOfflineTrainingTime", LuaScriptInterface::luaPlayerGetOfflineTrainingTime);
@@ -3157,6 +3171,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Loot", "delete", LuaScriptInterface::luaDeleteLoot);
 
 	registerMethod("Loot", "setId", LuaScriptInterface::luaLootSetId);
+	registerMethod("Loot", "setIdFromName", LuaScriptInterface::luaLootSetIdFromName);
 	registerMethod("Loot", "setMinCount", LuaScriptInterface::luaLootSetMinCount);
 	registerMethod("Loot", "setMaxCount", LuaScriptInterface::luaLootSetMaxCount);
 	registerMethod("Loot", "setSubType", LuaScriptInterface::luaLootSetSubType);
@@ -5337,8 +5352,8 @@ int LuaScriptInterface::luaGameGetClientVersion(lua_State* L)
 {
 	// Game.getClientVersion()
 	lua_createtable(L, 0, 3);
-	setField(L, "version", CLIENT_VERSION);
-	setField(L, "string", CLIENT_VERSION_STR);
+	setField(L, "version", g_config.getNumber(ConfigManager::CLIENT_VERSION));
+	setField(L, "string", g_config.getString(ConfigManager::CLIENT_VERSION_STR));
 	return 1;
 }
 
@@ -9109,6 +9124,19 @@ int LuaScriptInterface::luaPlayerSetCapacity(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaPlayerSetTraining(lua_State* L) {
+	// player:setTraining(value)
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		bool value = getBoolean(L, 2, false);
+		player->setTraining(value);
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 int LuaScriptInterface::luaPlayerGetFreeCapacity(lua_State* L)
 {
 	// player:getFreeCapacity()
@@ -9636,6 +9664,55 @@ int LuaScriptInterface::luaPlayerAddSkillTries(lua_State* L)
 		skills_t skillType = getNumber<skills_t>(L, 2);
 		uint64_t tries = getNumber<uint64_t>(L, 3);
 		player->addSkillAdvance(skillType, tries);
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetMagicLevel(lua_State* L) {
+	// player:setMagicLevel(level[, manaSpent])
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		uint16_t level = getNumber<uint16_t>(L, 2);
+		player->magLevel = level;
+		if (getNumber<uint64_t>(L, 3, 0) > 0) {
+			uint64_t manaSpent = getNumber<uint64_t>(L, 3);
+			uint64_t nextReqMana = player->vocation->getReqMana(level + 1);
+			player->manaSpent = manaSpent;
+			player->magLevelPercent = Player::getPercentLevel(manaSpent, nextReqMana);
+		} else {
+			player->manaSpent = 0;
+			player->magLevelPercent = 0;
+		}
+		player->sendStats();
+		player->sendSkills();
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetSkillLevel(lua_State* L) {
+	// player:setSkillLevel(skillType, level[, tries])
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		skills_t skillType = getNumber<skills_t>(L, 2);
+		uint16_t level = getNumber<uint16_t>(L, 3);
+		player->skills[skillType].level = level;
+		if (getNumber<uint64_t>(L, 4, 0) > 0) {
+			uint64_t tries = getNumber<uint64_t>(L, 4);
+			uint64_t nextReqTries = player->vocation->getReqSkillTries(skillType, level + 1);
+			player->skills[skillType].tries = tries;
+			player->skills[skillType].percent = Player::getPercentLevel(tries, nextReqTries);
+		} else {
+			player->skills[skillType].tries = 0;
+			player->skills[skillType].percent = 0;
+		}
+		player->sendStats();
+		player->sendSkills();
 		pushBoolean(L, true);
 	} else {
 		lua_pushnil(L);
@@ -16221,31 +16298,46 @@ int LuaScriptInterface::luaDeleteLoot(lua_State* L)
 
 int LuaScriptInterface::luaLootSetId(lua_State* L)
 {
-	// loot:setId(id or name)
+	// loot:setId(id)
 	Loot* loot = getUserdata<Loot>(L, 1);
 	if (loot) {
 		if (isNumber(L, 2)) {
 			loot->lootBlock.id = getNumber<uint16_t>(L, 2);
+			pushBoolean(L, true);
 		} else {
-			auto name = getString(L, 2);
-			auto ids = Item::items.nameToItems.equal_range(asLowerCaseString(name));
-
-			if (ids.first == Item::items.nameToItems.cend()) {
-				std::cout << "[Warning - Loot:setId] Unknown loot item \"" << name << "\". " << std::endl;
-				pushBoolean(L, false);
-				return 1;
-			}
-
-			if (std::next(ids.first) != ids.second) {
-				std::cout << "[Warning - Loot:setId] Non-unique loot item \"" << name << "\". " << std::endl;
-				pushBoolean(L, false);
-				return 1;
-			}
-
-			loot->lootBlock.id = ids.first->second;
+			std::cout << "[Warning - Loot:setId] Unknown loot item loot, int value expected. " << std::endl;
+			lua_pushnil(L);
 		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaLootSetIdFromName(lua_State* L)
+{
+	// loot:setIdFromName(name)
+	Loot* loot = getUserdata<Loot>(L, 1);
+	if (loot && isString(L, 2)) {
+		auto name = getString(L, 2);
+		auto ids = Item::items.nameToItems.equal_range(asLowerCaseString(name));
+
+		if (ids.first == Item::items.nameToItems.cend()) {
+			std::cout << "[Warning - Loot:setId] Unknown loot item \"" << name << "\". " << std::endl;
+			lua_pushnil(L);
+			return 1;
+		}
+
+		if (std::next(ids.first) != ids.second) {
+			std::cout << "[Warning - Loot:setId] Non-unique loot item \"" << name << "\". " << std::endl;
+			lua_pushnil(L);
+			return 1;
+		}
+
+		loot->lootBlock.id = ids.first->second;
 		pushBoolean(L, true);
 	} else {
+		std::cout << "[Warning - Loot:setIdFromName] Unknown loot item loot, string value expected. " << std::endl;
 		lua_pushnil(L);
 	}
 	return 1;

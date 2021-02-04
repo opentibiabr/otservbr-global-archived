@@ -76,13 +76,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 86800, maxCount = 52},
-	{id = "small emerald", chance = 413},
-	{id = "small amethyst", chance = 540},
-	{id = "scarab coin", chance = 1098},
-	{id = "daramian mace", chance = 245},
-	{id = "meat", chance = 40000, maxCount = 2},
-	{id = "piece of scarab shell", chance = 4950}
+	{name = "gold coin", chance = 86800, maxCount = 52},
+	{name = "small emerald", chance = 413},
+	{name = "small amethyst", chance = 540},
+	{name = "scarab coin", chance = 1098},
+	{name = "daramian mace", chance = 245},
+	{name = "meat", chance = 40000, maxCount = 2},
+	{name = "piece of scarab shell", chance = 4950}
 }
 
 monster.attacks = {

@@ -83,26 +83,26 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 47000, maxCount = 98},
-	{id = "platinum coin", chance = 50590, maxCount = 8},
-	{id = "meat", chance = 50450, maxCount = 4},
-	{id = "great mana potion", chance = 9950, maxCount = 3},
-	{id = "terra hood", chance = 8730},
-	{id = "great spirit potion", chance = 4905, maxCount = 3},
-	{id = "ultimate health potion", chance = 9400, maxCount = 3},
-	{id = "wand of voodoo", chance = 1020},
-	{id = "small topaz", chance = 2900, maxCount = 4},
-	{id = "Zaoan armor", chance = 470},
-	{id = "Zaoan helmet", chance = 560},
-	{id = "Zaoan legs", chance = 780},
-	{id = "eye of corruption", chance = 12110},
-	{id = "tail of corruption", chance = 6240},
-	{id = "scale of corruption", chance = 10940},
-	{id = "shield of corruption", chance = 10},
-	{id = "draken boots", chance = 540},
-	{id = "snake god's wristguard", chance = 10},
-	{id = "bamboo leaves", chance = 360}
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 47000, maxCount = 98},
+	{name = "platinum coin", chance = 50590, maxCount = 8},
+	{name = "meat", chance = 50450, maxCount = 4},
+	{name = "great mana potion", chance = 9950, maxCount = 3},
+	{name = "terra hood", chance = 8730},
+	{name = "great spirit potion", chance = 4905, maxCount = 3},
+	{name = "ultimate health potion", chance = 9400, maxCount = 3},
+	{name = "wand of voodoo", chance = 1020},
+	{name = "small topaz", chance = 2900, maxCount = 4},
+	{name = "Zaoan armor", chance = 470},
+	{name = "Zaoan helmet", chance = 560},
+	{name = "Zaoan legs", chance = 780},
+	{name = "eye of corruption", chance = 12110},
+	{name = "tail of corruption", chance = 6240},
+	{name = "scale of corruption", chance = 10940},
+	{name = "shield of corruption", chance = 10},
+	{name = "draken boots", chance = 540},
+	{name = "snake god's wristguard", chance = 10},
+	{name = "bamboo leaves", chance = 360}
 }
 
 monster.attacks = {

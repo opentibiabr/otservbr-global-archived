@@ -79,27 +79,27 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 100000, maxCount = 100},
-	{id = "gold coin", chance = 100000, maxCount = 98},
-	{id = "platinum coin", chance = 95000, maxCount = 7},
+	{name = "gold coin", chance = 100000, maxCount = 100},
+	{name = "gold coin", chance = 100000, maxCount = 98},
+	{name = "platinum coin", chance = 95000, maxCount = 7},
 	{id = 2169, chance = 1000},
-	{id = "tower shield", chance = 620},
-	{id = "titan axe", chance = 1540},
-	{id = "bonebreaker", chance = 1150},
-	{id = "strong health potion", chance = 14285, maxCount = 2},
-	{id = "strong mana potion", chance = 15000, maxCount = 2},
-	{id = "great mana potion", chance = 15920, maxCount = 2},
-	{id = "great health potion", chance = 15000, maxCount = 2},
-	{id = "mana potion", chance = 14285, maxCount = 3},
-	{id = "terra boots", chance = 2850},
-	{id = "crystalline armor", chance = 230},
-	{id = "battle stone", chance = 12460},
+	{name = "tower shield", chance = 620},
+	{name = "titan axe", chance = 1540},
+	{name = "bonebreaker", chance = 1150},
+	{name = "strong health potion", chance = 14285, maxCount = 2},
+	{name = "strong mana potion", chance = 15000, maxCount = 2},
+	{name = "great mana potion", chance = 15920, maxCount = 2},
+	{name = "great health potion", chance = 15000, maxCount = 2},
+	{name = "mana potion", chance = 14285, maxCount = 3},
+	{name = "terra boots", chance = 2850},
+	{name = "crystalline armor", chance = 230},
+	{name = "battle stone", chance = 12460},
 	{id = 13757, chance = 6000},
-	{id = "green crystal splinter", chance = 3920, maxCount = 2},
-	{id = "green crystal fragment", chance = 5690, maxCount = 2},
-	{id = "crystalline spikes", chance = 14540},
-	{id = "drill bolt", chance = 7692, maxCount = 5},
-	{id = "envenomed arrow", chance = 10230, maxCount = 10}
+	{name = "green crystal splinter", chance = 3920, maxCount = 2},
+	{name = "green crystal fragment", chance = 5690, maxCount = 2},
+	{name = "crystalline spikes", chance = 14540},
+	{name = "drill bolt", chance = 7692, maxCount = 5},
+	{name = "envenomed arrow", chance = 10230, maxCount = 10}
 }
 
 monster.attacks = {

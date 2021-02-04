@@ -80,24 +80,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 44000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 79},
-	{id = "yellow gem", chance = 550},
-	{id = "might ring", chance = 940},
-	{id = "life crystal", chance = 9150},
-	{id = "wand of cosmic energy", chance = 530},
-	{id = "soul orb", chance = 45000},
-	{id = "bonebreaker", chance = 10},
-	{id = "mastermind potion", chance = 400},
-	{id = "strong health potion", chance = 5790},
-	{id = "strong mana potion", chance = 5980},
-	{id = "lightning pendant", chance = 710},
-	{id = "crystalline armor", chance = 20},
-	{id = "gear wheel", chance = 5000},
+	{name = "gold coin", chance = 44000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 79},
+	{name = "yellow gem", chance = 550},
+	{name = "might ring", chance = 940},
+	{name = "life crystal", chance = 9150},
+	{name = "wand of cosmic energy", chance = 530},
+	{name = "soul orb", chance = 45000},
+	{name = "bonebreaker", chance = 10},
+	{name = "mastermind potion", chance = 400},
+	{name = "strong health potion", chance = 5790},
+	{name = "strong mana potion", chance = 5980},
+	{name = "lightning pendant", chance = 710},
+	{name = "crystalline armor", chance = 20},
+	{name = "gear wheel", chance = 5000},
 	{id = 9976, chance = 5320},
-	{id = "shockwave amulet", chance = 110},
-	{id = "gear crystal", chance = 5000},
-	{id = "slime mould", chance = 480}
+	{name = "shockwave amulet", chance = 110},
+	{name = "gear crystal", chance = 5000},
+	{name = "slime mould", chance = 480}
 }
 
 monster.attacks = {

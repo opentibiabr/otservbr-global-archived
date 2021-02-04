@@ -81,24 +81,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 40000, maxCount = 97},
-	{id = "gold coin", chance = 3390, maxCount = 7},
-	{id = "small amethyst", chance = 2250, maxCount = 3},
-	{id = "stealth ring", chance = 2702},
-	{id = "necrotic rod", chance = 830},
-	{id = "blank rune", chance = 16666, maxCount = 2},
-	{id = "double axe", chance = 1994},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 40000, maxCount = 97},
+	{name = "gold coin", chance = 3390, maxCount = 7},
+	{name = "small amethyst", chance = 2250, maxCount = 3},
+	{name = "stealth ring", chance = 2702},
+	{name = "necrotic rod", chance = 830},
+	{name = "blank rune", chance = 16666, maxCount = 2},
+	{name = "double axe", chance = 1994},
 	{id = 2419, chance = 5660},
-	{id = "guardian shield", chance = 8130},
-	{id = "pitchfork", chance = 50000},
-	{id = "cleaver", chance = 8830},
-	{id = "soul orb", chance = 7230},
+	{name = "guardian shield", chance = 8130},
+	{name = "pitchfork", chance = 50000},
+	{name = "cleaver", chance = 8830},
+	{name = "soul orb", chance = 7230},
 	{id = 6300, chance = 120},
-	{id = "demonic essence", chance = 8000},
-	{id = "concentrated demonic blood", chance = 25000, maxCount = 2},
-	{id = "magma coat", chance = 250},
-	{id = "magma monocle", chance = 430}
+	{name = "demonic essence", chance = 8000},
+	{name = "concentrated demonic blood", chance = 25000, maxCount = 2},
+	{name = "magma coat", chance = 250},
+	{name = "magma monocle", chance = 430}
 }
 
 monster.attacks = {

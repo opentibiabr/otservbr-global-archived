@@ -79,18 +79,18 @@ monster.voices = {
 
 monster.loot = {
 	{id = 2124, chance = 2000},
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 70},
-	{id = "small amethyst", chance = 5000, maxCount = 2},
-	{id = "energy ring", chance = 892},
-	{id = "silver amulet", chance = 1020},
-	{id = "wand of cosmic energy", chance = 636},
-	{id = "throwing star", chance = 9900, maxCount = 5},
-	{id = "obsidian lance", chance = 3571},
-	{id = "guardian shield", chance = 243},
-	{id = "crystal sword", chance = 5882},
-	{id = "strong mana potion", chance = 7692},
-	{id = "mana potion", chance = 11711},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 70},
+	{name = "small amethyst", chance = 5000, maxCount = 2},
+	{name = "energy ring", chance = 892},
+	{name = "silver amulet", chance = 1020},
+	{name = "wand of cosmic energy", chance = 636},
+	{name = "throwing star", chance = 9900, maxCount = 5},
+	{name = "obsidian lance", chance = 3571},
+	{name = "guardian shield", chance = 243},
+	{name = "crystal sword", chance = 5882},
+	{name = "strong mana potion", chance = 7692},
+	{name = "mana potion", chance = 11711},
 	{id = 7838, chance = 10000, maxCount = 10}
 }
 

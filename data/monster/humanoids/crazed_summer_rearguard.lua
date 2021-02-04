@@ -80,23 +80,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "power bolt", chance = 1000000},
-	{id = "small enchanted sapphire", chance = 1000000, maxCount = 2},
-	{id = "platinum coin", chance = 1000000, maxCount = 5},
+	{name = "power bolt", chance = 1000000},
+	{name = "small enchanted sapphire", chance = 1000000, maxCount = 2},
+	{name = "platinum coin", chance = 1000000, maxCount = 5},
 	{id = 5921, chance = 1500},
-	{id = "dream essence egg", chance = 1155},
-	{id = "elvish talisman", chance = 1355},
-	{id = "violet crystal shard", chance = 1475},
-	{id = "small enchanted ruby", chance = 1755},
-	{id = "red crystal fragment", chance = 1565},
-	{id = "leaf star", chance = 11100, maxCount = 8},
+	{name = "dream essence egg", chance = 1155},
+	{name = "elvish talisman", chance = 1355},
+	{name = "violet crystal shard", chance = 1475},
+	{name = "small enchanted ruby", chance = 1755},
+	{name = "red crystal fragment", chance = 1565},
+	{name = "leaf star", chance = 11100, maxCount = 8},
 	{id = 26185, chance = 1000},
-	{id = "sun fruit", chance = 25800},
+	{name = "sun fruit", chance = 25800},
 	{id = 26198, chance = 1590},-- collar of blue plasma
-	{id = "wood cape", chance = 30000},
-	{id = "small diamond", chance = 800},
-	{id = "yellow gem", chance = 640},
-	{id = "crystal crossbow", chance = 600}
+	{name = "wood cape", chance = 30000},
+	{name = "small diamond", chance = 800},
+	{name = "yellow gem", chance = 640},
+	{name = "crystal crossbow", chance = 600}
 }
 
 monster.attacks = {

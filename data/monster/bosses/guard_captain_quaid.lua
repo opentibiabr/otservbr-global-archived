@@ -65,21 +65,21 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 20},
-	{id = "leaf star", chance = 73000, maxCount = 2},
-	{id = "throwing star", chance = 65000, maxCount = 6},
-	{id = "hunting spear", chance = 62000},
-	{id = "gold ingot", chance = 48000},
-	{id = "blue gem", chance = 31000},
-	{id = "yellow gem", chance = 31000},
-	{id = "green crystal shard", chance = 8600},
+	{name = "platinum coin", chance = 100000, maxCount = 20},
+	{name = "leaf star", chance = 73000, maxCount = 2},
+	{name = "throwing star", chance = 65000, maxCount = 6},
+	{name = "hunting spear", chance = 62000},
+	{name = "gold ingot", chance = 48000},
+	{name = "blue gem", chance = 31000},
+	{name = "yellow gem", chance = 31000},
+	{name = "green crystal shard", chance = 8600},
 	{id = 7632, chance = 28000},--giant shimmering pearl
-	{id = "cobra boots", chance = 315},
-	{id = "cobra crest", chance = 11000},
-	{id = "cobra hood", chance = 320},
-	{id = "skull helmet", chance = 7500},
+	{name = "cobra boots", chance = 315},
+	{name = "cobra crest", chance = 11000},
+	{name = "cobra hood", chance = 320},
+	{name = "skull helmet", chance = 7500},
 	{id = 26198, chance = 7200},-- collar of blue plasma
-	{id = "cobra crossbow", chance = 225}
+	{name = "cobra crossbow", chance = 225}
 }
 
 monster.attacks = {

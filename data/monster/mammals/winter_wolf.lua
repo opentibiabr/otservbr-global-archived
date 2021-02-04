@@ -76,8 +76,8 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "meat", chance = 30000, maxCount = 2},
-	{id = "winter wolf fur", chance = 10000}
+	{name = "meat", chance = 30000, maxCount = 2},
+	{name = "winter wolf fur", chance = 10000}
 }
 
 monster.attacks = {

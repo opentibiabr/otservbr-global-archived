@@ -85,24 +85,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small sapphire", chance = 5000},
-	{id = "gold coin", chance = 34000, maxCount = 100},
-	{id = "gold coin", chance = 34000, maxCount = 100},
-	{id = "gold coin", chance = 20000, maxCount = 46},
-	{id = "platinum coin", chance = 48000, maxCount = 3},
-	{id = "life crystal", chance = 570},
-	{id = "boots of haste", chance = 130},
-	{id = "stone skin amulet", chance = 900},
-	{id = "ring of healing", chance = 1190},
-	{id = "warrior helmet", chance = 890},
-	{id = "knight armor", chance = 1000},
-	{id = "royal helmet", chance = 210},
-	{id = "medusa shield", chance = 270},
-	{id = "ham", chance = 60000, maxCount = 4},
-	{id = "hydra egg", chance = 930},
-	{id = "strong mana potion", chance = 380},
-	{id = "cucumber", chance = 4780},
-	{id = "hydra head", chance = 10120}
+	{name = "small sapphire", chance = 5000},
+	{name = "gold coin", chance = 34000, maxCount = 100},
+	{name = "gold coin", chance = 34000, maxCount = 100},
+	{name = "gold coin", chance = 20000, maxCount = 46},
+	{name = "platinum coin", chance = 48000, maxCount = 3},
+	{name = "life crystal", chance = 570},
+	{name = "boots of haste", chance = 130},
+	{name = "stone skin amulet", chance = 900},
+	{name = "ring of healing", chance = 1190},
+	{name = "warrior helmet", chance = 890},
+	{name = "knight armor", chance = 1000},
+	{name = "royal helmet", chance = 210},
+	{name = "medusa shield", chance = 270},
+	{name = "ham", chance = 60000, maxCount = 4},
+	{name = "hydra egg", chance = 930},
+	{name = "strong mana potion", chance = 380},
+	{name = "cucumber", chance = 4780},
+	{name = "hydra head", chance = 10120}
 }
 
 monster.attacks = {

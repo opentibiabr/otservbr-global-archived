@@ -78,23 +78,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small diamond", chance = 11800, maxCount = 4},
-	{id = "gold coin", chance = 100000, maxCount = 200},
-	{id = "platinum coin", chance = 100000, maxCount = 8},
-	{id = "power bolt", chance = 50000, maxCount = 5},
-	{id = "orichalcum pearl", chance = 8000, maxCount = 2},
-	{id = "skull helmet", chance = 390},
-	{id = "golden figurine", chance = 160},
-	{id = "soul orb", chance = 10000},
+	{name = "small diamond", chance = 11800, maxCount = 4},
+	{name = "gold coin", chance = 100000, maxCount = 200},
+	{name = "platinum coin", chance = 100000, maxCount = 8},
+	{name = "power bolt", chance = 50000, maxCount = 5},
+	{name = "orichalcum pearl", chance = 8000, maxCount = 2},
+	{name = "skull helmet", chance = 390},
+	{name = "golden figurine", chance = 160},
+	{name = "soul orb", chance = 10000},
 	{id = 6300, chance = 390},
-	{id = "demonic essence", chance = 19430},
-	{id = "concentrated demonic blood", chance = 65250},
-	{id = "assassin star", chance = 10780, maxCount = 5},
-	{id = "mercenary sword", chance = 1890},
-	{id = "bloody edge", chance = 80},
-	{id = "great mana potion", chance = 15000, maxCount = 3},
-	{id = "ultimate health potion", chance = 15410},
-	{id = "unholy bone", chance = 18410}
+	{name = "demonic essence", chance = 19430},
+	{name = "concentrated demonic blood", chance = 65250},
+	{name = "assassin star", chance = 10780, maxCount = 5},
+	{name = "mercenary sword", chance = 1890},
+	{name = "bloody edge", chance = 80},
+	{name = "great mana potion", chance = 15000, maxCount = 3},
+	{name = "ultimate health potion", chance = 15410},
+	{name = "unholy bone", chance = 18410}
 }
 
 monster.attacks = {

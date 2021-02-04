@@ -85,23 +85,23 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 55},
-	{id = "platinum coin", chance = 2564, maxCount = 3},
-	{id = "boots of haste", chance = 337},
-	{id = "war axe", chance = 95},
-	{id = "knight legs", chance = 961},
-	{id = "ancient shield", chance = 990},
-	{id = "power bolt", chance = 9090, maxCount = 4},
-	{id = "ham", chance = 29000, maxCount = 2},
-	{id = "mysterious voodoo skull", chance = 123},
-	{id = "soul orb", chance = 20000},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 55},
+	{name = "platinum coin", chance = 2564, maxCount = 3},
+	{name = "boots of haste", chance = 337},
+	{name = "war axe", chance = 95},
+	{name = "knight legs", chance = 961},
+	{name = "ancient shield", chance = 990},
+	{name = "power bolt", chance = 9090, maxCount = 4},
+	{name = "ham", chance = 29000, maxCount = 2},
+	{name = "mysterious voodoo skull", chance = 123},
+	{name = "soul orb", chance = 20000},
 	{id = 6300, chance = 1298},
-	{id = "demonic essence", chance = 10000},
-	{id = "skeleton decoration", chance = 337},
-	{id = "concentrated demonic blood", chance = 19666, maxCount = 2},
-	{id = "essence of a bad dream", chance = 15240},
-	{id = "scythe leg", chance = 9090}
+	{name = "demonic essence", chance = 10000},
+	{name = "skeleton decoration", chance = 337},
+	{name = "concentrated demonic blood", chance = 19666, maxCount = 2},
+	{name = "essence of a bad dream", chance = 15240},
+	{name = "scythe leg", chance = 9090}
 }
 
 monster.attacks = {

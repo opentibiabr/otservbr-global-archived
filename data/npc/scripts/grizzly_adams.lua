@@ -79,8 +79,14 @@ local grizzlyAdamsConfig = {
 			{id=7396, buy=0, sell=20000, name="behemoth trophy"},
 			{id=7393, buy=0, sell=40000, name="demon trophy"},
 			{id=7399, buy=0, sell=10000, name="dragon lord trophy"},
+			{id=11338, buy=0, sell=3000, name="disgusting trophy"},
+			{id=24757, buy=0, sell=9000, name="werebadger trophy"},
+			{id=24758, buy=0, sell=10000, name="wereboar trophy"},
+			{id=24759, buy=0, sell=11000, name="werebear trophy"},
+			{id=30941, buy=0, sell=9000, name="werefox trophy"},
+			{id=39054, buy=0, sell=12000, name="werehyaena trophy"},
 			-- BUY OFFERS
-			{id=10518, buy=1000, sell=0, name="demon backpack"},
+			{id=10518, buy=1000, sell=0, name="demon backpack"}
 		},
 	}
 }
