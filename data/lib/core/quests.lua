@@ -5775,7 +5775,7 @@ if not Quests then
 					storageId = Storage.TheRookieGuard.Mission10,
 					missionId = 10406,
 					startValue = 1,
-					endValue = 2,
+					endValue = 3,
 					states = {
 						[1] = "Leave the village to the north and walk south-east to find the haunted graveyard. Descend into the crypt and find a sarcophagus that might still contain a fleshy bone. Bring it to Vascalir.",
 						[2] = "You've brought the fleshy bone back to Vascalir. Talk to him again to receive your reward.",

@@ -355,7 +355,7 @@ TileAction = {
 	},
 	-- Academy tiles
 	[50315] = {
-		itemId = false,
+		itemId = 9146,
 		itemPos = {
 			{x = 32096, y = 32194, z = 7},
 			{x = 32097, y = 32194, z = 7},
@@ -364,7 +364,7 @@ TileAction = {
 	},
 	-- Obi shop tiles
 	[50316] = {
-		itemId = false,
+		itemId = 724,
 		itemPos = {
 			{x = 32101, y = 32204, z = 7},
 			{x = 32101, y = 32205, z = 7},
@@ -653,7 +653,7 @@ TileAction = {
 	},
 	-- Academy entrance tiles
 	[50335] = {
-		itemId = false,
+		itemId = 724,
 		itemPos = {
 			{x = 32096, y = 32200, z = 7},
 			{x = 32097, y = 32200, z = 7},
@@ -844,7 +844,7 @@ TileAction = {
 	},
 	-- Troll caves entrance tiles
 	[50343] = {
-		itemId = 8427,
+		itemId = false,
 		itemPos = {
 			{x = 32094, y= 32140, z = 7},
 			{x = 32095, y= 32140, z = 7},
@@ -863,6 +863,58 @@ TileAction = {
 	[50345] = {
 		itemId = 9023,
 		itemPos = {{x = 32059, y = 32136, z = 9}}
+	},
+	-- Outer east limit tiles
+	[50346] = {
+		itemId = false,
+		itemPos = {
+			{x = 32128, y = 32174, z = 7},
+			{x = 32128, y = 32176, z = 7},
+			{x = 32128, y = 32177, z = 7},
+			{x = 32128, y = 32178, z = 7},
+			{x = 32128, y = 32179, z = 7},
+			{x = 32128, y = 32180, z = 7},
+			{x = 32128, y = 32181, z = 7},
+			{x = 32128, y = 32184, z = 7},
+			{x = 32128, y = 32185, z = 7},
+			{x = 32128, y = 32186, z = 7},
+			{x = 32128, y = 32187, z = 7},
+			{x = 32128, y = 32188, z = 7},
+			{x = 32128, y = 32189, z = 7},
+			{x = 32128, y = 32191, z = 7},
+			{x = 32128, y = 32193, z = 7},
+			{x = 32128, y = 32194, z = 7},
+			{x = 32128, y = 32196, z = 7},
+			{x = 32128, y = 32197, z = 7},
+			{x = 32128, y = 32198, z = 7},
+			{x = 32129, y = 32198, z = 7}
+		}
+	},
+	-- Unholy crypt entrance tiles
+	[50347] = {
+		itemId = false,
+		itemPos = {
+			{x = 32129, y = 32201, z = 7},
+			{x = 32129, y = 32202, z = 7},
+			{x = 32131, y = 32204, z = 7},
+			{x = 32132, y = 32204, z = 7}
+		}
+	},
+	-- Unholy crypt door entrance tiles
+	[50348] = {
+		itemId = 3152,
+		itemPos = {
+			{x = 32146, y = 32187, z = 9},
+			{x = 32147, y = 32187, z = 9}
+		}
+	},
+	-- Unholy crypt near sarcophagus tiles
+	[50349] = {
+		itemId = false,
+		itemPos = {
+			{x = 32140, y = 32202, z = 10},
+			{x = 32140, y = 32203, z = 10}
+		}
 	}
 }
 
@@ -999,9 +1051,9 @@ TileUnique = {
 	},
 	-- The Rookie Guard Quest - Mission 09: Rock 'n Troll
 	-- Path: data\scripts\actions\quests\the_rookie_guard\mission09_rock_troll.lua
-	-- Troll caves tunnel trapdoor
+	-- Troll caves dug tunnel hole
 	[25028] = {
-		itemId = 8276,
+		itemId = 13869,
 		itemPos = {x = 32059, y = 32135, z = 9}
 	},
 	-- Remove/create item on stepIn

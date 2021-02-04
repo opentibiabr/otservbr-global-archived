@@ -1389,9 +1389,10 @@ Storage = {
 		Catapults = 52374,
 		RatKills = 52375,
 		PoacherCorpse = 52376,
-		OrcLanguageBook = 52377,
+		LibraryChest = 52377,
 		TrollChests = 52378,
-		TunnelPillars = 52379
+		TunnelPillars = 52379,
+		Sarcophagus = 52380
 	},
 	BanutaSecretTunnel = {
 		-- Reserved storage from 51680 - 51689

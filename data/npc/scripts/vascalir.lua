@@ -70,11 +70,11 @@ local function greetCallback(cid)
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission06) == 7 and player:getStorageValue(Storage.TheRookieGuard.Mission07) == -1 then
 		npcHandler:setMessage(MESSAGE_GREET, "|PLAYERNAME|! Thank the gods you are back! While you were gone, something horrible happened. Do you smell the fire?")
 	-- Started but not finished mission 7
-	elseif player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.OrcLanguageBook) == -1 then
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.LibraryChest) == -1 then
 		npcHandler:say("You can find the vault if you go down the stairs in the northern part of the academy. The book should be in a large blue chest somewhere down there - I hope it's not burnt yet.", cid)
 		return false
 	-- Finishing mission 7
-	elseif player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.OrcLanguageBook) == 1 then
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.LibraryChest) == 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Oh my, what happened to your hair? Your face is all black, too - it must have been a hell of flames down there. That's so brave of you. Did you get the book?")
 	-- Finished mission 7 but not started mission 8
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission07) == 2 and player:getStorageValue(Storage.TheRookieGuard.Mission08) == -1 then
@@ -95,8 +95,21 @@ local function greetCallback(cid)
 		npcHandler:setMessage(MESSAGE_GREET, "|PLAYERNAME|, welcome back! That was great work you did there. Let me give you something for your efforts - you deserve it. Here, want a helmet?")
 		player:setStorageValue(Storage.TheRookieGuard.Mission09, 9)
 		player:addExperience(50, true)
+	-- Finish mission 9
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission09) == 9 then
 		npcHandler:setMessage(MESSAGE_GREET, "Greetings, |PLAYERNAME|. Do you have enough space for the brass helmet now?")
+	-- Finished mission 9 but not started mission 10
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission09) == 10 and player:getStorageValue(Storage.TheRookieGuard.Mission10) == -1 then
+		npcHandler:setMessage(MESSAGE_GREET, "Greetings, |PLAYERNAME|. Are you ready for your next mission?")
+	-- Started but not finished mission 10
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission10) == 1 and player:getStorageValue(Storage.TheRookieGuard.Sarcophagus) == -1 then
+		npcHandler:setMessage(MESSAGE_GREET, "Greetings, |PLAYERNAME|. I see you haven't explored the whole crypt yet - do you need explanations again?")
+	-- Finishing mission 10
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission10) == 1 and player:getStorageValue(Storage.TheRookieGuard.Sarcophagus) == 1 then
+		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|! Did you find a nice, fleshy bone in the crypt?")
+	-- Finish mission 10
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission10) == 2 then
+		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|! Do you have enough space for that sword now?")
 	else
 		npcHandler:say("|PLAYERNAME|, the only thing left for you to do here is to talk to the oracle above the academy and leave for the Isle of Destiny. Thanks again for your great work and good luck on your journeys!", cid)
 		return false
@@ -117,7 +130,7 @@ function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission02)
 )
 keywordHandler:addAliasKeyword({"mission"})
 
--- Mission 2: Reject
+-- Mission 2: Decline
 keywordHandler:addKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -306,7 +319,7 @@ function(player)
 end
 )
 
--- Mission 4: Finish - No Confirm
+-- Mission 4: Finish - Wrong Confirm
 keywordHandler:addKeyword({"yes"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -345,7 +358,7 @@ keywordHandler:addKeyword({"no"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 6 and player:getStorageValue(Storage.TheRookieGuard.Mission05) == -1 end
 )
 
--- Mission 5: Finish (Accept reward)
+-- Mission 5: Finish - Accept (Reward studded armor)
 keywordHandler:addKeyword({"yes"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -360,7 +373,7 @@ function(player)
 end
 )
 
--- Mission 5: Finish (Decline reward)
+-- Mission 5: Finish - Reject (Reward studded armor)
 keywordHandler:addKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -419,7 +432,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 		"We do have to stop the trolls though before taking care of the orcs. I found their tunnel in the northern ruins. Are you prepared for your next mission?"
 	}
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.OrcLanguageBook) == 1 and player:getItemCount(13831) <= 0 end,
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.LibraryChest) == 1 and player:getItemCount(13831) <= 0 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission07, 2)
 	player:addExperience(100, true)
@@ -437,7 +450,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 		"We do have to stop the trolls though before taking care of the orcs. I found their tunnel in the northern ruins. Are you prepared for your next mission?"
 	}
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.OrcLanguageBook) == 1 and player:getItemCount(13831) >= 1 end,
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.LibraryChest) == 1 and player:getItemCount(13831) >= 1 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission07, 2)
 	player:addExperience(100, true)
@@ -456,7 +469,7 @@ keywordHandler:addKeyword({"no"}, StdModule.say,
 		"We do have to stop the trolls though before taking care of the orcs. I found their tunnel in the northern ruins. Are you prepared for your next mission?"
 	}
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.OrcLanguageBook) == 1 and player:getItemCount(13831) >= 1 end,
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.LibraryChest) == 1 and player:getItemCount(13831) >= 1 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission07, 2)
 	player:removeItem(13831, 1)
@@ -522,7 +535,7 @@ keywordHandler:addKeyword({"no"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission08) == 2 and player:getStorageValue(Storage.TheRookieGuard.Mission09) == -1 end
 )
 
--- Mission 9: Finish - Confirm (Take brass helmet)
+-- Mission 9: Finish - Accept (Reward brass helmet)
 keywordHandler:addKeyword({"yes"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -536,13 +549,118 @@ function(player)
 end
 )
 
--- Mission 9: Finish - Decline (Take brass helmet)
+-- Mission 9: Finish - Reject (Reward brass helmet)
 keywordHandler:addKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
 	text = "Seriously, don't reject that offer. I'm going to give you a brass helmet. No one refuses free stuff! If you don't like it, you can sell it - I don't need it anymore. I promise there are no fleas in it. Want it?"
 },
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission09) == 9 end
+)
+
+-- Mission 10: Accept
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"Now that we got rid of the troll threat, it's about time we get back to the imminent danger coming from the orc side of Rookgaard. The spider web you retrieved was only the first step - I've thought of something else. ...",
+		"To infiltrate the orc fortress, we're going to make use of a technique I've learnt on the battlefield - distraction! I'll explain the plan to you when everything's ready, but for now I have a small favour to ask. ...",
+		"Please go to the graveyard east of the village, enter the crypt and retrieve a bone. Now I know this is a little morbid, but it would be best if it still had some meat on it. ...",
+		"The graveyard hasn't been used by the villagers for a long time. It's cursed - skeletons are roaming around, so be careful. Take this garlic necklace just in case. ...",
+		"Undead monsters tend to drain your life - because their own life force is gone. If you wear it, you'll be protected from it. Search around in the coffins in the crypt, one of them should hold a nice fleshy bone. See you soon!"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission09) == 10 and player:getStorageValue(Storage.TheRookieGuard.Mission10) == -1 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission10, 1)
+	player:addItemEx(Game.createItem(2199, 1), true, CONST_SLOT_WHEREEVER)
+	player:addMapMark({x = 32131,  y = 32201, z = 7}, MAPMARK_GREENSOUTH, "Unholy Crypt")
+end
+)
+
+-- Mission 10: Decline
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Let me know when you're ready. This should be fun.",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission09) == 10 and player:getStorageValue(Storage.TheRookieGuard.Mission10) == -1 end
+)
+
+-- Mission 10: Confirm (Explain again)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"Please go to the graveyard east of the village, enter the crypt and retrieve a bone. Now I know this is a little morbid, but it would be best if it still had some meat on it. ...",
+		"The graveyard hasn't been used by the villagers for a long time. It's cursed - skeletons are roaming around, so be careful. ...",
+		"Undead monsters tend to drain your life - because their own life force is gone. If you wear the garlic necklace I gave you, you'll be protected from it. Search around in the coffins in the crypt, one of them should hold a nice fleshy bone. See you soon!"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission10) == 1 and player:getStorageValue(Storage.TheRookieGuard.Sarcophagus) == -1 end
+)
+
+-- Mission 10: Decline (Explain again)
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Okay, then good hunting.",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission10) == 1 and player:getStorageValue(Storage.TheRookieGuard.Sarcophagus) == -1 end
+)
+
+-- Mission 10: Finish - Confirm/Decline (Having the fleshy bone)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Well done, this bone is exactly what I needed! Great. I have to do some preparations, but as reward for your great work, I have a shiny new weapon for you. Here, would you like to have this sword?"
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission10) == 1 and player:getStorageValue(Storage.TheRookieGuard.Sarcophagus) == 1 and player:getItemCount(13830) >= 1 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission10, 2)
+	player:addExperience(150, true)
+	player:removeItem(13830, 1)
+end
+)
+keywordHandler:addAliasKeyword({"no"})
+
+-- Mission 10: Finish - Confirm/Decline (Without having the fleshy bone)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Ah... well, if you lost that bone on the way, that's too bad. I just hope you didn't get hungry and nibbled on it. I wouldn't eat cursed flesh if I were you. Anyway, you can still have this old sword as reward, do you want it?"
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission10) == 1 and player:getStorageValue(Storage.TheRookieGuard.Sarcophagus) == 1 and player:getItemCount(13830) == 0 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission10, 2)
+	player:addExperience(80, true)
+end
+)
+keywordHandler:addAliasKeyword({"no"})
+
+-- Mission 10: Finish - Accept (Reward sword)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "This sword has helped me in many fierce battles. I hope you can put it to good use. Once you're ready for the next mission, talk to me again.",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission10) == 2 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission10, 3)
+	player:addItemEx(Game.createItem(2376, 1), true, CONST_SLOT_WHEREEVER)
+end
+)
+
+-- Mission 10: Finish - Reject (Reward sword)
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Seriously, don't reject that offer. Just take that sword, it's free. If you don't like it, you can sell it - I don't need it anymore. I promise there are no blood stains on it. Want it?"
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission10) == 2 end
 )
 
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)

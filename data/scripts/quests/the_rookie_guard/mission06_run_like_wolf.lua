@@ -173,11 +173,12 @@ function poacherCorpse.onUse(player, item, frompos, item2, topos)
 	if missionState == 3 then
 		local corpseState = player:getStorageValue(Storage.TheRookieGuard.PoacherCorpse)
 		if corpseState == -1 then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a skinning knife.")
+			local rewardItem = Game.createItem(13828, 1)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. rewardItem:getName() .. ".")
 			player:setStorageValue(Storage.TheRookieGuard.PoacherCorpse, 1)
-			player:addItemEx(Game.createItem(13828, 1), true, CONST_SLOT_WHEREEVER)
+			player:addItemEx(rewardItem, true, CONST_SLOT_WHEREEVER)
 		else
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The dead human is empty.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The " .. item:getName() .. " is empty.")
 		end
 	end
 	return true

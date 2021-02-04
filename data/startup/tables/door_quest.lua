@@ -677,6 +677,12 @@ QuestDoorAction = {
 	[Storage.TheRookieGuard.Mission07] = {
 		itemId = false,
 		itemPos = {{x = 32090, y = 32156, z = 9}}
+	},
+	-- The Rookie Guard Quest - Mission 10: Tomb Raiding
+	-- The unholy crypt door
+	[Storage.TheRookieGuard.Mission10] = {
+		itemId = false,
+		itemPos = {{x = 32147, y = 32186, z = 9}}
 	}
 }
 

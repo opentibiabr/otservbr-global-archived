@@ -24215,11 +24215,11 @@
 		<attribute key="weaponType" value="sword" />
 		<attribute key="loottype" value="sword" />
 	</item>
-	<item id="13830" name="fleshy bone">
+	<item id="13830" article="a" name="fleshy bone">
 		<attribute key="description" value="Dogs would probably find this treat really yummy." />
 		<attribute key="weight" value="200" />
 	</item>
-	<item id="13831" name="book of orc language">
+	<item id="13831" article="a" name="book of orc language">
 		<attribute key="weight" value="1200" />
 	</item>
 	<item fromid="13832" toid="13833" name="bird's nest" />

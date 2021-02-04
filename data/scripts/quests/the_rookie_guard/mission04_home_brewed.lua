@@ -16,10 +16,6 @@ local missionTiles = {
 		message = "This is not the way to Hyacinth. Follow the path to the east to find Hyacinth's little house.",
 		arrowPosition = {x = 32092, y = 32164, z = 7}
 	},
-	[50321] = {
-		states = 2,
-		message = "This is not the way to Hyacinth. Stay on the path a little more to the south to find Hyacinth's little house."
-	},
 	[50322] = {
 		states = 2,
 		message = "This is not the way to Hyacinth. Stay on the path a little more to the north to find Hyacinth's little house."

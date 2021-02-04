@@ -33,9 +33,9 @@ function missionGuide.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 	local tile = missionTiles[item.actionid]
-	local orcLanguageBookState = player:getStorageValue(Storage.TheRookieGuard.OrcLanguageBook)
+	local libraryChestState = player:getStorageValue(Storage.TheRookieGuard.LibraryChest)
 	-- Check if need display message/arrow
-	if missionState == 1 and orcLanguageBookState == -1 then
+	if missionState == 1 and libraryChestState == -1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, tile.message)
 		if tile.arrowPosition then
 			Position(tile.arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
@@ -139,11 +139,12 @@ function treasureChest.onUse(player, item, frompos, item2, topos)
 		return true
 	end
 	if missionState == 1 then
-		local orcLanguageBookState = player:getStorageValue(Storage.TheRookieGuard.OrcLanguageBook)
-		if orcLanguageBookState == -1 then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a book of orc language.")
-			player:setStorageValue(Storage.TheRookieGuard.OrcLanguageBook, 1)
-			player:addItemEx(Game.createItem(13831, 1), true, CONST_SLOT_WHEREEVER)
+		local libraryChestState = player:getStorageValue(Storage.TheRookieGuard.LibraryChest)
+		if libraryChestState == -1 then
+			local rewardItem = Game.createItem(13831, 1)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. rewardItem:getName() .. ".")
+			player:setStorageValue(Storage.TheRookieGuard.LibraryChest, 1)
+			player:addItemEx(rewardItem, true, CONST_SLOT_WHEREEVER)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The " .. item:getName() .. " is empty.")
 		end

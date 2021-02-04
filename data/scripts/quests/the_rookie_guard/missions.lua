@@ -35,6 +35,32 @@ local missionTiles = {
 			states = {1},
 			message = "Follow the path to the north past the hill to reach the troll caves.",
 			arrowPosition = {x = 32091, y = 32166, z = 7}
+		},
+		{
+			mission = Storage.TheRookieGuard.Mission10,
+			states = {1},
+			extra = {
+				storage = Storage.TheRookieGuard.Sarcophagus,
+				state = -1
+			},
+			message = "Follow the way to the east and go south to reach the graveyard.",
+			arrowPosition = {x = 32095, y = 32169, z = 7}
+		}
+	},
+	[50321] = {
+		{
+			mission = Storage.TheRookieGuard.Mission04,
+			states = {2},
+			message = "This is not the way to Hyacinth. Stay on the path a little more to the south to find Hyacinth's little house."
+		},
+		{
+			mission = Storage.TheRookieGuard.Mission10,
+			states = {1},
+			extra = {
+				storage = Storage.TheRookieGuard.Sarcophagus,
+				state = -1
+			},
+			message = "This is not the way to the crypt. Go south to reach the graveyard."
 		}
 	},
 	-- Outer east tiles
@@ -101,15 +127,16 @@ function missionGuide.onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-	local missionTile = missionTiles[item.actionid]
+	local tile = missionTiles[item.actionid]
 	-- Check mission cases for the tile
-	for i = 1, #missionTile do
-		local missionState = player:getStorageValue(missionTile[i].mission)
+	for i = 1, #tile do
+		local missionState = player:getStorageValue(tile[i].mission)
+		local extraState = tile[i].extra == nil or player:getStorageValue(tile[i].extra.storage) == tile[i].extra.state
 		-- Check if need display message/arrow
-		if missionState ~= -1 and table.find(missionTile[i].states, missionState) ~= nil then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, missionTile[i].message)
-			if missionTile[i].arrowPosition then
-				Position(missionTile[i].arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+		if missionState ~= -1 and table.find(tile[i].states, missionState) and extraState then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, tile[i].message)
+			if tile[i].arrowPosition then
+				Position(tile[i].arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
 			end
 			break
 		end

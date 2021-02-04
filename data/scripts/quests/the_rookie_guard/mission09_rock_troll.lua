@@ -57,11 +57,11 @@ for index, value in pairs(missionTiles) do
 end
 missionGuide:register()
 
--- Troll caves dug tunnel trapdoor
+-- Troll caves dug tunnel hole
 
-local tunnelTrapdoor = MoveEvent()
+local tunnelHole = MoveEvent()
 
-function tunnelTrapdoor.onStepIn(creature, item, position, fromPosition)
+function tunnelHole.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return true
@@ -74,8 +74,8 @@ function tunnelTrapdoor.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-tunnelTrapdoor:uid(25028)
-tunnelTrapdoor:register()
+tunnelHole:uid(25028)
+tunnelHole:register()
 
 -- Trunk chests (gather leather legs and pick)
 
