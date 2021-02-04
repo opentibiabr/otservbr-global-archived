@@ -90,7 +90,7 @@ int main(int argc, char* argv[]) {
 
 	if (serviceManager.is_running()) {
     webhook_init();
-    webhook_send_message("Server is now online", "Server has successfully started.", 0x00FF00);
+    webhook_send_message("Server is now online", "Server has successfully started.", WEBHOOK_COLOR_ONLINE);
 
 		std::cout << ">> " << g_config.getString(ConfigManager::SERVER_NAME)
 								<< " Server Online!" << std::endl << std::endl;
@@ -260,10 +260,10 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		return;
 	}
 
-	std::cout << ">> Loading lua monsters" << std::endl;	
-	if (!g_scripts->loadScripts("monster", false, false)) {	
-		startupErrorMessage("Failed to load lua monsters");	
-		return;	
+	std::cout << ">> Loading lua monsters" << std::endl;
+	if (!g_scripts->loadScripts("monster", false, false)) {
+		startupErrorMessage("Failed to load lua monsters");
+		return;
 	}
 
 	std::cout << ">> Loading outfits" << std::endl;

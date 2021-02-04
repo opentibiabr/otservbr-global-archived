@@ -18,7 +18,10 @@ local function ServerSaveWarning(time)
 	-- minus one minutes
 	local remaningTime = tonumber(time) - 60000
 	if configManager.getBoolean(configKeys.SERVER_SAVE_NOTIFY_MESSAGE) then
-		Game.broadcastMessage("Server is saving game in " .. (remaningTime/60000) .." minute(s). Please logout.", MESSAGE_STATUS_WARNING)
+		local message = "Server is saving game in " .. (remaningTime/60000) .." minute(s). Please logout."
+
+		Webhook.send("Server save", "Server is saving game in " .. (remaningTime/60000) .. "", WEBHOOK_COLOR_WARNING)
+		Game.broadcastMessage(message, MESSAGE_STATUS_WARNING)
 	end
 	-- if greater than one minute, schedule another warning
 	-- else the next event will be the server save

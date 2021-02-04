@@ -113,7 +113,7 @@ void Game::loadBoostedCreature()
 			for (auto it : monsterlist) {
 				if (k == random) {
 					newrace = it.first;
-					name = it.second;	
+					name = it.second;
 				}
 				k++;
 			}
@@ -151,11 +151,11 @@ void Game::start(ServiceManager* manager)
 {
 	serviceManager = manager;
 
-	time_t now = time(0);	
-	const tm* tms = localtime(&now);	
-	int minutes = tms->tm_min;	
+	time_t now = time(0);
+	const tm* tms = localtime(&now);
+	int minutes = tms->tm_min;
 	lightHour = (minutes * LIGHT_DAY_LENGTH) / 60;
-	
+
 	g_scheduler.addEvent(createSchedulerTask(EVENT_LIGHTINTERVAL_MS, std::bind(&Game::checkLight, this)));
 	g_scheduler.addEvent(createSchedulerTask(EVENT_CREATURE_THINK_INTERVAL, std::bind(&Game::checkCreatures, this, 0)));
 	g_scheduler.addEvent(createSchedulerTask(EVENT_DECAYINTERVAL, std::bind(&Game::checkDecay, this)));
@@ -219,7 +219,7 @@ bool Game::loadScheduleEventFromXml()
 			daysNow = ((year * 365) + (month * 30) + day);
 			if (daysMath < daysNow) {
 				continue;
-			}	
+			}
 		}
 
 		if ((attr = schedNode.attribute("script"))) {
@@ -341,7 +341,7 @@ void Game::setGameState(GameState_t newState)
 
 void Game::onPressHotkeyEquip(Player* player, uint16_t spriteid)
 {
-	Item* item;	
+	Item* item;
 	const ItemType& itemType = Item::items.getItemIdByClientId(spriteid);
 
 	if (itemType.id == 0) {
@@ -1198,7 +1198,7 @@ void Game::playerMoveCreatureByID(uint32_t playerId, uint32_t movingCreatureId, 
 void Game::playerMoveCreature(Player* player, Creature* movingCreature, const Position& movingCreatureOrigPos, Tile* toTile)
 {
 	if (!player->canDoAction()) {
-		uint32_t delay = 600; 
+		uint32_t delay = 600;
 		SchedulerTask* task = createSchedulerTask(delay, std::bind(&Game::playerMoveCreatureByID,
 			this, player->getID(), movingCreature->getID(), movingCreatureOrigPos, toTile->getPosition()));
 
@@ -1544,7 +1544,7 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 	if (toCylinder->getContainer() != NULL &&
 		toCylinder->getItem()->getID() == ITEM_LOCKER1 &&
 		toPos.getZ() == ITEM_SUPPLY_STASH_INDEX) {
-		player->stowContainer(item, count);		
+		player->stowContainer(item, count);
 			return;
 	}
 
@@ -3689,7 +3689,7 @@ void Game::playerStashWithdraw(Player* player, uint16_t spriteId, uint32_t count
 	if (IOStash::withdrawItem(player->guid, spriteId, WithdrawCount)) {
 		player->addItemFromStash(it.id, WithdrawCount);
 	} else {
-		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);		
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 	}
 }
 
@@ -3795,7 +3795,7 @@ void Game::playerRequestTrade(uint32_t playerId, const Position& pos, uint8_t st
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
-  
+
   if (g_config.getBoolean(ConfigManager::ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS)) {
 		if (HouseTile* houseTile = dynamic_cast<HouseTile*>(tradeItem->getTile())) {
 			House* house = houseTile->getHouse();
@@ -6518,7 +6518,7 @@ bool Game::gameIsDay()
 
 void Game::shutdown()
 {
-  webhook_send_message("Server is shutting down", "Shutting down...", 0xFF0000);
+  webhook_send_message("Server is shutting down", "Shutting down...", WEBHOOK_COLOR_OFFLINE);
 
 	std::cout << "Shutting down..." << std::flush;
 
@@ -7391,10 +7391,10 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 			stashmath = (amount - (amount > stashminus ? stashminus : amount));
 			IOStash::withdrawItem(player->guid, it.wareId, (amount > stashminus ? stashminus : amount));
 		}
-		
+
 		std::forward_list<Item *> itemList = getMarketItemList(it.wareId, stashmath, depotLocker);
 
-		if (!itemList.empty()) {    
+		if (!itemList.empty()) {
 			if (it.stackable) {
 				uint16_t tmpAmount = stashmath;
 				for (Item *item : itemList) {
