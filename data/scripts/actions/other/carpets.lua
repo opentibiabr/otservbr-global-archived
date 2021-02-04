@@ -72,7 +72,7 @@ function carpets.onUse(player, item, fp, target, toPosition, isHotkey)
 	local fromPosition = item:getPosition()
 	local tile = Tile(fromPosition)
 	if not fromPosition:getTile():getHouse() then
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You may use this only inside a house.")
+		player:sendTextMessage(MESSAGE_FAILURE, "You may use this only inside a house.")
 	elseif tile:getItemCountById(item.itemid) == 1 then
 		for k,v in pairs(carpetItems) do
 			if tile:getItemCountById(k) > 0 and k ~= item.itemid then

@@ -68,7 +68,7 @@ function onCastSpell(creature, variant)
 		message = message .. " " .. directions[direction]
 	end
 
-	creature:sendTextMessage(MESSAGE_INFO_DESCR, target:getName() .. " " .. message .. ".")
+	creature:sendTextMessage(MESSAGE_LOOK, target:getName() .. " " .. message .. ".")
 	creaturePosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	return true
 end

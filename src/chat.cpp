@@ -49,11 +49,11 @@ void PrivateChatChannel::invitePlayer(const Player& player, Player& invitePlayer
 
 	std::ostringstream ss;
 	ss << player.getName() << " invites you to " << (player.getSex() == PLAYERSEX_FEMALE ? "her" : "his") << " private chat channel.";
-	invitePlayer.sendTextMessage(MESSAGE_INFO_DESCR, ss.str());
+	invitePlayer.sendTextMessage(MESSAGE_PARTY_MANAGEMENT, ss.str());
 
 	ss.str(std::string());
 	ss << invitePlayer.getName() << " has been invited.";
-	player.sendTextMessage(MESSAGE_INFO_DESCR, ss.str());
+	player.sendTextMessage(MESSAGE_PARTY_MANAGEMENT, ss.str());
 
 	for (const auto& it : users) {
 		it.second->sendChannelEvent(id, invitePlayer.getName(), CHANNELEVENT_INVITE);
@@ -70,7 +70,7 @@ void PrivateChatChannel::excludePlayer(const Player& player, Player& excludePlay
 
 	std::ostringstream ss;
 	ss << excludePlayer.getName() << " has been excluded.";
-	player.sendTextMessage(MESSAGE_INFO_DESCR, ss.str());
+	player.sendTextMessage(MESSAGE_PARTY_MANAGEMENT, ss.str());
 
 	excludePlayer.sendClosePrivate(id);
 

@@ -44,7 +44,7 @@ function secretBrokul.onUse(player, item, fromPosition, target, toPosition, isHo
         end
  
         if (getGlobalStorageValue(bossConfig.bossGlobalStorage) > 0) then
-            player:sendTextMessage(MESSAGE_STATUS_SMALL, "There is already a team inside. Please wait.")
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "There is already a team inside. Please wait.")
             return true
         end
  
@@ -85,9 +85,9 @@ function secretBrokul.onUse(player, item, fromPosition, target, toPosition, isHo
             addEvent(resetBoss, bossConfig.time * 60 * 1000, bossConfig, monster and monster.uid or 0)
         else
             if not errorMsg then
-                player:sendTextMessage(MESSAGE_STATUS_SMALL, ("You need %u players."):format(bossConfig.minPlayersRequired))
+                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, ("You need %u players."):format(bossConfig.minPlayersRequired))
             else
-                player:sendTextMessage(MESSAGE_STATUS_SMALL, errorMsg)
+                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, errorMsg)
             end
             return true
         end

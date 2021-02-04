@@ -1086,7 +1086,7 @@ if Modules == nil then
 			if not player:removeMoneyNpc(totalCost) then
 				return false
 			end
-			player:sendTextMessage(MESSAGE_INFO_DESCR, msg)
+			player:sendTextMessage(MESSAGE_TRADE, msg)
 			self.npcHandler.talkStart[cid] = os.time()
 			return true
 		end
@@ -1122,7 +1122,7 @@ if Modules == nil then
 		if player:removeItem(itemid, amount, subType, ignoreEquipped) then
 			local msg = self.npcHandler:getMessage(MESSAGE_SOLD)
 			msg = self.npcHandler:parseMessage(msg, parseInfo)
-			player:sendTextMessage(MESSAGE_INFO_DESCR, msg)
+			player:sendTextMessage(MESSAGE_TRADE, msg)
 			player:addMoney(amount * shopItem.sell)
 			self.npcHandler.talkStart[cid] = os.time()
 			return true

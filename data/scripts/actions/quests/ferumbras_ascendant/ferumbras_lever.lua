@@ -51,7 +51,7 @@ function ferumbrasAscendantLever.onUse(player, item, fromPosition, target, toPos
 				local playerTile = Tile(Position(x, y, 14)):getTopCreature()
 				if playerTile and playerTile:isPlayer() then
 					if playerTile:getStorageValue(Storage.FerumbrasAscension.FerumbrasTimer) > os.time() then
-						player:sendTextMessage(MESSAGE_STATUS_SMALL, "You or a member in your team have to wait 5 days to face Ferumbras again!")
+						player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You or a member in your team have to wait 5 days to face Ferumbras again!")
 						item:transform(9826)
 						return true
 					end
@@ -63,7 +63,7 @@ function ferumbrasAscendantLever.onUse(player, item, fromPosition, target, toPos
 		for i = 1, #specs do
 			spec = specs[i]
 			if spec:isPlayer() then
-				player:sendTextMessage(MESSAGE_STATUS_SMALL, "There's someone fighting with Ferumbras.")
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "There's someone fighting with Ferumbras.")
 				return true
 			end
 		end
@@ -84,7 +84,7 @@ function ferumbrasAscendantLever.onUse(player, item, fromPosition, target, toPos
 					playerTile:teleportTo(config.newPos)
 					playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 					playerTile:setStorageValue(Storage.FerumbrasAscension.FerumbrasTimer, os.time() + 280 * 60 * 3600) -- 14 days
-					player:sendTextMessage(MESSAGE_STATUS_SMALL, "You have 30 minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.")
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have 30 minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.")
 					addEvent(clearFerumbrasRoom, 60 * config.time * 1000, player:getId(), config.centerRoom, config.range, config.range, config.exitPosition)
 
 					for b = 1,10 do

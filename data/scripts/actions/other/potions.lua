@@ -231,7 +231,7 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 		playerDelayPotion[player:getId()] = 0
 	end
 	if playerDelayPotion[player:getId()] > os.mtime() then
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
+		player:sendTextMessage(MESSAGE_FAILURE, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
 		return true
 	end
 
@@ -242,7 +242,7 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 	end
 
 	if player:getCondition(CONDITION_EXHAUST_HEAL) then
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
+		player:sendTextMessage(MESSAGE_FAILURE, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
 		return true
 	end
 
