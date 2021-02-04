@@ -473,6 +473,14 @@ void Player::updateInventoryWeight()
 	}
 }
 
+void Player::setTraining(bool value) {
+	for (const auto& it : g_game.getPlayers()) {
+		if (!this->isInGhostMode() || it.second->isAccessPlayer()) {
+			it.second->notifyStatusChange(this, value ? VIPSTATUS_TRAINING : VIPSTATUS_ONLINE, false);
+		}
+	}
+}
+
 void Player::addSkillAdvance(skills_t skill, uint64_t count)
 {
 	uint64_t currReqTries = vocation->getReqSkillTries(skill, skills[skill].level);
@@ -1144,7 +1152,7 @@ void Player::sendHouseWindow(House* house, uint32_t listId) const
 
 void Player::sendImbuementWindow(Item* item)
 {
-	if (!client) {
+	if (!client || !item) {
 		return;
 	}
 
@@ -2514,7 +2522,7 @@ void Player::kickPlayer(bool displayEffect)
 	}
 }
 
-void Player::notifyStatusChange(Player* loginPlayer, VipStatus_t status)
+void Player::notifyStatusChange(Player* loginPlayer, VipStatus_t status, bool message)
 {
 	if (!client) {
 		return;
@@ -2527,10 +2535,12 @@ void Player::notifyStatusChange(Player* loginPlayer, VipStatus_t status)
 
 	client->sendUpdatedVIPStatus(loginPlayer->guid, status);
 
-	if (status == VIPSTATUS_ONLINE) {
-		client->sendTextMessage(TextMessage(MESSAGE_STATUS_SMALL, loginPlayer->getName() + " has logged in."));
-	} else if (status == VIPSTATUS_OFFLINE) {
-		client->sendTextMessage(TextMessage(MESSAGE_STATUS_SMALL, loginPlayer->getName() + " has logged out."));
+	if (message) {
+		if (status == VIPSTATUS_ONLINE) {
+			client->sendTextMessage(TextMessage(MESSAGE_STATUS_SMALL, loginPlayer->getName() + " has logged in."));
+		} else if (status == VIPSTATUS_OFFLINE) {
+			client->sendTextMessage(TextMessage(MESSAGE_STATUS_SMALL, loginPlayer->getName() + " has logged out."));
+		}
 	}
 }
 

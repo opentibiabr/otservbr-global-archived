@@ -236,7 +236,7 @@ local function townTravelHandler(cid, message, keywords, parameters, node)
 			end
 		elseif town.isPremium == true and not player:isPremium() then
 			npcHandler:say(
-				"Negative, can't bring you there without a premium account. \
+				"Negative, can't bring you there without a premium account. \z
 				You should be glad you get to travel by ship - usually that's a premium service too, you know.",
 				cid
 			)
@@ -262,7 +262,6 @@ local function townTravelHandler(cid, message, keywords, parameters, node)
 		player:teleportTo(towns[townId].destination)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:setStorageValue(Storage.Dawnport.Mainland, 1)
-		doCreatureSay(cid, town:getId() .. ":" .. town:getName(), TALKTYPE_SAY)
 		npcHandler:say(
 			"Cast off! Don't forget to talk to the guide at the port for directions to nearest bars... err, shops and \z
 			bank and such!",
