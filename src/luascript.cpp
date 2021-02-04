@@ -2062,17 +2062,6 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(LIGHT_STATE_SUNSET);
 	registerEnum(LIGHT_STATE_SUNRISE);
 
-	// Spell group types
-	registerEnum(SPELLGROUP_NONE);
-	registerEnum(SPELLGROUP_ATTACK);
-	registerEnum(SPELLGROUP_HEALING);
-	registerEnum(SPELLGROUP_SUPPORT);
-	registerEnum(SPELLGROUP_SPECIAL);
-	registerEnum(SPELLGROUP_CONJURE);
-	registerEnum(SPELLGROUP_CRIPPLING);
-	registerEnum(SPELLGROUP_FOCUS);
-	registerEnum(SPELLGROUP_ULTIMATESTRIKES);
-
 	// Webhook default colors
 	registerEnum(WEBHOOK_COLOR_ONLINE);
 	registerEnum(WEBHOOK_COLOR_OFFLINE);
