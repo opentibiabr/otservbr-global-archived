@@ -322,7 +322,7 @@ bool AnnounceEvent::configureRaidEvent(const pugi::xml_node& eventNode)
 		} else if (tmpStrValue == "default") {
 			messageType = MESSAGE_EVENT_ADVANCE;
 		} else if (tmpStrValue == "description") {
-			messageType = MESSAGE_INFO_DESCR;
+			messageType = MESSAGE_LOOK;
 		} else if (tmpStrValue == "smallstatus") {
 			messageType = MESSAGE_FAILURE;
 		} else if (tmpStrValue == "redconsole") {
