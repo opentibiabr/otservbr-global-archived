@@ -40,7 +40,6 @@
 #include "script.h"
 #include "weapons.h"
 #include "imbuements.h"
-#include "iostash.h"
 #include "iobestiary.h"
 
 extern Chat* g_chat;
@@ -2602,6 +2601,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "setOfflineTrainingSkill", LuaScriptInterface::luaPlayerSetOfflineTrainingSkill);
 
 	registerMethod("Player", "getItemCount", LuaScriptInterface::luaPlayerGetItemCount);
+	registerMethod("Player", "getStashItemCount", LuaScriptInterface::luaPlayerGetStashItemCount);
 	registerMethod("Player", "getItemById", LuaScriptInterface::luaPlayerGetItemById);
 
 	registerMethod("Player", "getVocation", LuaScriptInterface::luaPlayerGetVocation);
@@ -2653,6 +2653,7 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Player", "addItem", LuaScriptInterface::luaPlayerAddItem);
 	registerMethod("Player", "addItemEx", LuaScriptInterface::luaPlayerAddItemEx);
+	registerMethod("Player", "removeStashItem", LuaScriptInterface::luaPlayerRemoveStashItem);
 	registerMethod("Player", "removeItem", LuaScriptInterface::luaPlayerRemoveItem);
 	registerMethod("Player", "sendContainer", LuaScriptInterface::luaPlayerSendContainer);
 
@@ -9328,8 +9329,7 @@ int LuaScriptInterface::luaPlayerGetStashCounter(lua_State* L)
 	// player:getStashCount()
 	const Player* player = getUserdata<Player>(L, 1);
 	if (player) {
-		StashItemList list = IOStash::getStoredItems(player->guid);
-		uint32_t sizeStash = IOStash::getStashSize(list);
+		uint16_t sizeStash = getStashSize(player->getStashItems());
 		lua_pushnumber(L, sizeStash);
 	} else {
 		lua_pushnil(L);
@@ -9837,6 +9837,36 @@ int LuaScriptInterface::luaPlayerGetItemCount(lua_State* L)
 
 	int32_t subType = getNumber<int32_t>(L, 3, -1);
 	lua_pushnumber(L, player->getItemTypeCount(itemId, subType));
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerGetStashItemCount(lua_State* L)
+{
+	// player:getStashItemCount(itemId)
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	uint16_t itemId;
+	if (isNumber(L, 2)) {
+		itemId = getNumber<uint16_t>(L, 2);
+	} else {
+		itemId = Item::items.getItemIdByName(getString(L, 2));
+		if (itemId == 0) {
+			lua_pushnil(L);
+			return 1;
+		}
+	}
+
+	const ItemType& itemType = Item::items[itemId];
+	if (itemType.id == 0) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	lua_pushnumber(L, player->getStashItemCount(itemType.clientId));
 	return 1;
 }
 
@@ -10515,6 +10545,37 @@ int LuaScriptInterface::luaPlayerAddItemEx(lua_State* L)
 		ScriptEnvironment::removeTempItem(item);
 	}
 	lua_pushnumber(L, returnValue);
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerRemoveStashItem(lua_State* L)
+{
+	// player:removeStashItem(itemId, count)
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	uint16_t itemId;
+	if (isNumber(L, 2)) {
+		itemId = getNumber<uint16_t>(L, 2);
+	} else {
+		itemId = Item::items.getItemIdByName(getString(L, 2));
+		if (itemId == 0) {
+			lua_pushnil(L);
+			return 1;
+		}
+	}
+
+	const ItemType& itemType = Item::items[itemId];
+	if (itemType.id == 0) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	uint32_t count = getNumber<uint32_t>(L, 3);
+	pushBoolean(L, player->withdrawItem(itemType.clientId, count));
 	return 1;
 }
 
