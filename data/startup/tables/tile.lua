@@ -915,6 +915,39 @@ TileAction = {
 			{x = 32140, y = 32202, z = 10},
 			{x = 32140, y = 32203, z = 10}
 		}
+	},
+	-- Near north-west drawbridge tiles
+	[50350] = {
+		itemId = false,
+		itemPos = {
+			{x = 32091, y = 32147, z = 7},
+			{x = 32092, y = 32147, z = 7},
+			{x = 32093, y = 32147, z = 7},
+			{x = 32094, y = 32147, z = 7}
+		}
+	},
+	-- North-west drawbridge south downstairs tiles
+	[50351] = {
+		itemId = 9043,
+		itemPos = {{x = 32065, y = 32156, z = 7}}
+	},
+	-- Orc fortress entrance tiles
+	[50352] = {
+		itemId = false,
+		itemPos = {
+			{x = 32002, y = 32152, z = 7},
+			{x = 32003, y = 32152, z = 7},
+			{x = 32004, y = 32152, z = 7},
+			{x = 32005, y = 32152, z = 7}
+		}
+	},
+	-- Wasp lair entrance tiles
+	[50353] = {
+		itemId = 9025,
+		itemPos = {
+			{x = 31999, y = 32142, z = 7},
+			{x = 32000, y = 32142, z = 7}
+		}
 	}
 }
 

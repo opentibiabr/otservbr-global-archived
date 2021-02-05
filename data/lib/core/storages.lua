@@ -1371,7 +1371,7 @@ Storage = {
 		CarlosQuestLog = 51678
 	},
 	TheRookieGuard = {
-		--Reserved storage 52360 - 52380
+		--Reserved storage 52360 - 52385
 		Questline = 52360,
 		Mission01 = 52361,
 		Mission02 = 52362,

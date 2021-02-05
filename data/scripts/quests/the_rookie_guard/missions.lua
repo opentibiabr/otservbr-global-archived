@@ -45,6 +45,12 @@ local missionTiles = {
 			},
 			message = "Follow the way to the east and go south to reach the graveyard.",
 			arrowPosition = {x = 32095, y = 32169, z = 7}
+		},
+		{
+			mission = Storage.TheRookieGuard.Mission11,
+			states = {1},
+			message = "To reach the wasps' nests follow the path to the north and cross the bridge to the west as if you wanted to reach the spiders.",
+			arrowPosition = {x = 32090, y = 32165, z = 7}
 		}
 	},
 	[50321] = {
@@ -84,6 +90,12 @@ local missionTiles = {
 			states = {1},
 			message = "Walk to the north and down the stairs to reach the tarantula's lair.",
 			arrowPosition = {x = 32069, y = 32145, z = 6}
+		},
+		{
+			mission = Storage.TheRookieGuard.Mission11,
+			states = {1},
+			message = "Take the southern stairs down the bridge to go to the wasps' lair.",
+			arrowPosition = {x = 32068, y = 32149, z = 6}
 		}
 	},
 	-- Academy entrance
@@ -114,6 +126,24 @@ local missionTiles = {
 			states = {1},
 			message = "Go to the right to find the bank and talk to Paulie.",
 			arrowPosition = {x = 32100, y = 32191, z = 8}
+		}
+	},
+	-- North-west drawbridge south downstairs
+	[50351] = {
+		{
+			mission = Storage.TheRookieGuard.Mission11,
+			states = {1},
+			message = "Follow the path to the west to find the wasps' lair.",
+			arrowPosition = {x = 32063, y = 32159, z = 7}
+		}
+	},
+	-- Orc fortress entrance tiles
+	[50352] = {
+		{
+			mission = Storage.TheRookieGuard.Mission11,
+			states = {1},
+			message = "This is not the way to the wasps' lair. Choose the northern path to reach it.",
+			arrowPosition = {x = 32003, y = 32148, z = 7}
 		}
 	}
 }

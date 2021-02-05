@@ -24402,7 +24402,7 @@
 	<item fromid="13882" toid="13883" article="a" name="fire field" />
 	<item id="13884" article="a" name="destroy field rune" />
 	<item fromid="13886" toid="13901" name="large spider web" />
-	<item id="13903" article="a" name="trunk" />
+	<item fromid="13902" toid="13903" article="a" name="trunk" />
 	<item fromid="13904" toid="13920" name="large spider web" />
 	<item fromid="13921" toid="13922" article="a" name="warning sign">
 		<attribute key="allowDistRead" value="true" />
@@ -24411,8 +24411,8 @@
 		<attribute key="description" value="It's very toxic. Do not ever drink green liquids." />
 		<attribute key="weight" value="180" />
 	</item>
-	<item id="13924" article="an" name="empty potion flask">
-		<attribute key="description" value="Return it to a magic store for deposit." />
+	<item id="13924" article="a" name="special flask">
+		<attribute key="description" value="Vascalir gave it to you to collect wasp poison." />
 		<attribute key="weight" value="180" />
 	</item>
 	<item id="13925" article="a" name="plague mask">

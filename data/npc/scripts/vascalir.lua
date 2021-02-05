@@ -110,6 +110,18 @@ local function greetCallback(cid)
 	-- Finish mission 10
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission10) == 2 then
 		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|! Do you have enough space for that sword now?")
+	-- Finished mission 10 but not started mission 11
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission10) == 3 and player:getStorageValue(Storage.TheRookieGuard.Mission11) == -1 then
+		npcHandler:setMessage(MESSAGE_GREET, "Greetings, |PLAYERNAME|! I'm in a really good mood, I must say. We're almost able to infiltrate Kraknaknork's hideout. I have one last little favour to ask and then my plan is complete. Are you ready?")
+	-- Started but not finished mission 11
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission11) == 1 or player:getStorageValue(Storage.TheRookieGuard.Mission11) == 2 then
+		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|! But - back so soon? Please find the wasps' lair in the north-western region of Rookgaard and use the flask I gave you on its dead body. Or did you lose the flask?")
+	-- Finishing mission 11
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission11) == 3 then
+		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|! Were you able to bring back some wasp poison?")
+	-- Finish mission 11
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission11) == 4 then
+		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|! Do you have enough space for that brass shield now?")
 	else
 		npcHandler:say("|PLAYERNAME|, the only thing left for you to do here is to talk to the oracle above the academy and leave for the Isle of Destiny. Thanks again for your great work and good luck on your journeys!", cid)
 		return false
@@ -358,7 +370,7 @@ keywordHandler:addKeyword({"no"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 6 and player:getStorageValue(Storage.TheRookieGuard.Mission05) == -1 end
 )
 
--- Mission 5: Finish - Accept (Reward studded armor)
+-- Mission 5: Finish - Accept Reward (Studded armor)
 keywordHandler:addKeyword({"yes"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -373,7 +385,7 @@ function(player)
 end
 )
 
--- Mission 5: Finish - Reject (Reward studded armor)
+-- Mission 5: Finish - Reject Reward (Studded armor)
 keywordHandler:addKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -535,7 +547,7 @@ keywordHandler:addKeyword({"no"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission08) == 2 and player:getStorageValue(Storage.TheRookieGuard.Mission09) == -1 end
 )
 
--- Mission 9: Finish - Accept (Reward brass helmet)
+-- Mission 9: Finish - Accept Reward (Brass helmet)
 keywordHandler:addKeyword({"yes"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -549,7 +561,7 @@ function(player)
 end
 )
 
--- Mission 9: Finish - Reject (Reward brass helmet)
+-- Mission 9: Finish - Reject Reward (Brass helmet)
 keywordHandler:addKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -640,7 +652,7 @@ end
 )
 keywordHandler:addAliasKeyword({"no"})
 
--- Mission 10: Finish - Accept (Reward sword)
+-- Mission 10: Finish - Accept Reward (Sword)
 keywordHandler:addKeyword({"yes"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -654,13 +666,183 @@ function(player)
 end
 )
 
--- Mission 10: Finish - Reject (Reward sword)
+-- Mission 10: Finish - Reject Reward (Sword)
 keywordHandler:addKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
 	text = "Seriously, don't reject that offer. Just take that sword, it's free. If you don't like it, you can sell it - I don't need it anymore. I promise there are no blood stains on it. Want it?"
 },
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission10) == 2 end
+)
+
+-- Mission 11: Start
+local mission11 = keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"I'm happy to hear that! <whistles> We already have the paralyse trap and the fleshy bone, and now we need one final ingredient to weaken Kraknaknork so that you stand a chance against him. ...",
+		"Wasp poison! There are many toxic creatures - like snakes or poison spiders - but none is as deadly as the wasp. At least none on Rookgaard. If we could poison Kraknaknork with it, I think he won't be able to make use of his spells for quite a while. ...",
+		"The only problem is - to get it, you need to get close to a wasp, kill it and extract some poison from its dead body. Wasps are located on the north-western side of Rookgaard, which is quite dangerous. ...",
+		"However, I can give you something for protection - a silver amulet. As long as you wear it, poison can't harm you as much as it usually would do. I'll also give you the flask which you have to use on a fresh, dead wasp. Are you prepared for that mission?"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission10) == 3 and player:getStorageValue(Storage.TheRookieGuard.Mission11) == -1 end
+)
+
+-- Mission 11: Decline Start
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Well, then just let me know when you're ready.",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission10) == 3 and player:getStorageValue(Storage.TheRookieGuard.Mission11) == -1 end
+)
+
+-- Mission 11: Accept
+mission11:addChildKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Alright. Here is the empty flask to use on a dead wasp. I also marked the wasps' nest on your map. Be careful and don't forget to wear your silver amulet for poison protection!",
+	ungreet = true
+},
+nil,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission11, 1)
+	player:addItemEx(Game.createItem(2170, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(13924, 1), true, CONST_SLOT_WHEREEVER)
+	player:addMapMark({x = 32000, y = 32139, z = 7}, MAPMARK_GREENSOUTH, "Wasps' Nest")
+	-- TODO: Manually ungreet (StdModule.say ungreet = true remove the message when is used doNPCTalkALot due events are cancelled)
+end
+)
+
+-- Mission 11: Decline
+mission11:addChildKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Should I explain it again?",
+	reset = true
+})
+
+-- Mission 11: Confirm - Lost Flask (Having it)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Oh, but there you have it in your inventory! Yeah, your backpack is a bit of a mess. I understand you overlooked it. Dig deeper!",
+	ungreet = true
+},
+function(player) return (player:getStorageValue(Storage.TheRookieGuard.Mission11) == 1 or player:getStorageValue(Storage.TheRookieGuard.Mission11) == 2) and player:getItemCount(13924) > 0 end,
+function(player)
+	print("fask:" .. player:getItemCount(13924))
+end
+)
+
+-- Mission 11: Confirm - Lost Flask (Without having it)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "No problem. Here's a new one. I can only give you one per hour though, so try not to lose it again this time.",
+	ungreet = true
+},
+function(player) return (player:getStorageValue(Storage.TheRookieGuard.Mission11) == 1 or player:getStorageValue(Storage.TheRookieGuard.Mission11) == 2) and player:getItemCount(13924) == 0 end,
+function(player)
+	player:addItemEx(Game.createItem(13924, 1), true, CONST_SLOT_WHEREEVER)
+end
+)
+
+-- Mission 11: Decline - Lost Flask
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Great, then please find the wasps' nest, kill one and use the empty flask on its dead body.",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 1 or player:getStorageValue(Storage.TheRookieGuard.Mission11) == 2 end
+)
+
+-- Mission 11: Finish - Confirm Give (Wasp poison flask, having it)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"|PLAYERNAME|, I must say I'm impressed. Not everyone would dare go into that region of Rookgaard and face creatures as strong as wasps. Wait, let me give something to you... ...",
+		"Here, with a drop of the wasp poison this potion turned into an effective antidote. Should you get poisoned again and are losing a lot of health, use the antidote potion to cure yourself. ...",
+		"There is also a rune and a spell to remove poison available once you leave this island and arrive on the mainland. It's always good to protect yourself! ...",
+		"And I have a good shield for you, too. Here, can you carry it?"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 3 and player:getItemCount(13923) > 0 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission11, 4)
+	player:removeItem(13923, 1)
+	player:addItemEx(Game.createItem(8474, 1), true, CONST_SLOT_WHEREEVER)
+	player:addExperience(150, true)
+end
+)
+
+-- Mission 11: Finish - Decline Give (Wasp poison flask)
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Well, please come back with the poison soon. We won't have much time until Kraknaknork's next attack.",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 3 end
+)
+
+-- Mission 11: Finish - Confirm Give (Wasp poison flask, without having it)
+local mission11Reset = keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Oh, but you don't carry any - did you lose the flask? I can give you a new empty one, but that will also reset your mission, meaning you have to extract new poison. Would you like that?"
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 3 and player:getItemCount(13923) == 0 end
+)
+
+-- Mission 11: Confirm - Reset Mission
+mission11Reset:addChildKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Alright. Here is the empty flask to use on a dead wasp. Don't lose it this time!",
+	ungreet = true
+},
+nil,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission11, 1)
+	player:addItemEx(Game.createItem(13924, 1), true, CONST_SLOT_WHEREEVER)
+end
+)
+
+-- Mission 11: Decline - Reset Mission
+mission11Reset:addChildKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Great, then please find the wasps' nest, kill one and use the empty flask on its dead body.",
+	ungreet = true
+}
+)
+
+-- Mission 11: Finish - Accept Reward(Brass shield)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "This brass shield is actually brand-new. It's never been used! I hope it will serve you well. Take a small break, regenerate your health, and then talk to me again for your final mission!",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 4 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission11, 5)
+	player:addItemEx(Game.createItem(2511, 1), true, CONST_SLOT_WHEREEVER)
+end
+)
+
+-- Mission 11: Finish - Reject Reward (Brass shield)
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Seriously, don't reject that offer. Just take that shield, it's free. If you don't like it, you can sell it - I don't need it anymore. I promise it's really brand-new. Want it?"
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 4 end
 )
 
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
