@@ -2,9 +2,14 @@ dofile('data/modules/scripts/prey_system/assets.lua')
 
 Prey = {
 	Credits = "System remake: Westwol ~ Packet logic: Cjaker ~  Formulas: slavidodo ~  Revision: Rick, Sameshima, RodrigoSilva93",
-	Version = "6.0",
+	Version = "6.1",
 	LastUpdate = "05/02/2021",
 }
+
+CONST_MONSTER_NONE = 0
+CONST_MONSTER_EASY = 1
+CONST_MONSTER_MID = 2
+CONST_MONSTER_HARD = 3
 
 CONST_PREY_SLOT_FIRST = 0
 CONST_PREY_SLOT_SECOND = 1
@@ -84,7 +89,7 @@ Prey.MonsterList = {
 	"True Dawnfire Asura", "True Frost Flower Asura", "True Midnight Asura", "Vexclaw", "Dragon", "Dragon Hatchling",
 	"Dragon Lord", "Dragon Lord Hatchling", "Draken Abomination", "Draken Elite", "Draken Spellweaver", "Draken Warmaster",
 	"Elder Wyrm", "Frost Dragon", "Frost Dragon Hatchling", "Ghastly Dragon", "Hydra", "Wyrm", "Cliff Strider",
-	"Earth Golem", "Energy Elemental", "Fire Elemental", "Furious Fire Elemental", "High Voltage Elemental", "Ironblight",
+	"Earth Elemental", "Energy Elemental", "Fire Elemental", "High Voltage Elemental", "Ironblight",
 	"Knowledge Elemental", "Lava Lurker", "Massive Earth Elemental", "Massive Fire Elemental", "Massive Water Elemental",
 	"Ravenous Lava Lurker", "Turbulent Elemental", "Water Elemental", "Breach Brood", "Courage Leech", "Dread Intruder",
 	"Instable Breach Brood", "Instable Sparkion", "Reality Reaver", "Sparkion", "Stabilizing Dread Intruder",
@@ -96,9 +101,9 @@ Prey.MonsterList = {
 	"Barbarian Skullhunter", "Black Sphinx Acolyte", "Blood Hand", "Blood Priest", "Burning Gladiator", "Cobra Assassin",
 	"Cobra Scout", "Cobra Vizier", "Crazed Beggar", "Crypt Defiler", "Cult Believer", "Cult Enforcer", "Cult Scholar",
 	"Dark Apprentice", "Dark Magician", "Dark Monk", "Enlightened of the Cult", "Feverish Citizen", "Gang Member",
-	"Gladiator", "Glooth Bandit", "Glooth Brigand", "Goldhanded Cultist", "Goldhanded Cultist Bride", "Grave Robber",
-	"Hero", "Hunter", "Ice Witch", "Infernalist", "Mad Scientist", "Midnight Warrior", "Misguided Thief", "Monk",
-	"Mutated Human", "Necromancer", "Nomad", "Nomad Female", "Novice of the Cult", "Pirate Buccaneeer", "Pirate Corsair",
+	"Gladiator", "Glooth Bandit", "Glooth Brigand", "Goldhanded Cultist", "Grave Robber",
+	"Hero", "Hunter", "Ice Witch", "Infernalist", "Mad Scientist", "Misguided Thief", "Monk",
+	"Mutated Human", "Necromancer", "Nomad", "Nomad Female", "Novice of the Cult", "Pirate Buccaneer", "Pirate Corsair",
 	"Pirate Cutthroat", "Pirate Marauder", "Poacher", "Priestess", "Priestess of the Wild Sun", "Renegade Knight",
 	"Shadow Pupil", "Smuggler", "Stalker", "Valkyrie", "Vicious Squire", "Vile Grandmaster", "Warlock", "Wild Warrior",
 	"Witch", "Barkless Devotee", "Barkless Fanatic", "Broken Shaper", "Chakoya Toolshaper", "Chakoya Tribewarden",
@@ -117,18 +122,18 @@ Prey.MonsterList = {
 	"Werebear", "Wereboar", "Werefox", "Werehyaena", "Werehyaena Shaman", "Werelion", "Werelioness", "Werewolf",
 	"Animated Feather", "Arachnophobica", "Armadile", "Blue Djinn", "Bog Raider", "Bonelord", "Brain Squid",
 	"Choking Fear", "Crypt Warden", "Crystal Spider", "Crystal Wolf", "Crystalcrusher", "Cursed Book", "Efreet",
-	"Elder Bonelord", "Elder Forest Fury", "Energetic Book", "Energuardian of Tales", "Enfeebled Silencer",
+	"Elder Bonelord", "Energetic Book", "Energuardian of Tales", "Enfeebled Silencer",
 	"Feral Sphinx", "Feversleep", "Flying Book", "Forest Fury", "Frazzlemaw", "Gargoyle", "Gazer", "Gryphon",
 	"Guardian of Tales", "Guzzlemaw", "Icecold Book", "Lamassu", "Lumbering Carnivor", "Manticore", "Marid", "Medusa",
 	"Menacing Carnivor", "Midnight Panther", "Nightmare", "Nightmare Scion", "Nightstalker", "Phantasm", "Rage Squid",
-	"Retching Horror", "Rorc", "Shock Head", "Slight of Surrender", "Silencer", "Sphinx", "Spiky Carnivor",
-	"Squid Warden", "Terror Sleep", "Thanatursus", "Thornfire Wolf", "Weakened Frazzlemaw", "Badger", "Bat", "Bear",
+	"Retching Horror", "Rorc", "Shock Head", "Sight of Surrender", "Silencer", "Sphinx", "Spiky Carnivor",
+	"Squid Warden", "Terrorsleep", "Thanatursus", "Thornfire Wolf", "Weakened Frazzlemaw", "Badger", "Bat", "Bear",
 	"Boar", "Cave Rat", "Clomp", "Doom Deer", "Elephant", "Evil Sheep", "Evil Sheep Lord", "Exotic Bat", "Fox",
 	"Gloom Wolf", "Gnarlhound", "Hot Dog", "Killer Rabbit", "Kongra", "Lion", "Mammoth", "Merlkin", "Mole",
 	"Mutated Bat", "Mutated Rat", "Mutated Tiger", "Noble Lion", "Panda", "Polar Bear", "Rat", "Roaring Lion",
 	"Sibang", "Skunk", "Starving Wolf", "Stone Rhino", "Tiger", "Vulcongra", "War Wolf", "Water Buffalo",
 	"White Lion", "Winter Wolf", "Wolf", "Branchy Crawler", "Carniphila", "Cloak Of Terror", "Glooth Anemone",
-	"Haunted Treeling", "Hideous Fungus", "Humongous Fungus", "Leaf Golem", "Omnivora", "Spit Nettle", "Sawmpling",
+	"Haunted Treeling", "Hideous Fungus", "Humongous Fungus", "Leaf Golem", "Omnivora", "Spit Nettle", "Swampling",
 	"Wilting Leaf Golem", "Adult Goanna", "Cobra", "Crocodile", "Killer Caiman", "Lizard Chosen",
 	"Lizard Dragon Priest", "Lizard High Guard", "Lizard Legionnaire", "Lizard Magistratus", "Lizard Noble",
 	"Lizard Sentinel", "Lizard Snakecharmer", "Lizard Templar", "Lizard Zaogun", "Sea Serpent", "Seacrest Serpent",
@@ -144,7 +149,7 @@ Prey.MonsterList = {
 	"Pirate Skeleton", "Putrid Mummy", "Ripper Spectre", "Rot Elemental", "Skeleton", "Skeleton Elite Warrior",
 	"Skeleton Warrior", "Sorcerer's Apparition", "Souleater", "Spectre", "Tarnished Spirit", "Tomb Servant",
 	"Undead Dragon", "Undead Elite Gladiator", "Undead Gladiator", "Vampire", "Vampire Bride", "Vampire Pig",
-	"Vampire Viscount", "Vibrant Phantom", "Vicous Manbat", "White Shade", "Zombie", "Ancient Scarab",
+	"Vampire Viscount", "Vibrant Phantom", "Vicious Manbat", "White Shade", "Zombie", "Ancient Scarab",
 	"Brimstone Bug", "Bug", "Carrion Worm", "Cave Devourer", "Centipede", "Crawler", "Deepworm", "Diremaw",
 	"Drillworm", "Emerald Damselfly", "Exotic Cave Spider", "Giant Spider", "Hibernal Moth", "Hive Overseer",
 	"Insect Swarm", "Insectoid Scout", "Insectoid Worker", "Kollos", "Lacewing Moth", "Ladybug", "Lancer Beetle",
@@ -218,12 +223,27 @@ function Player.createMonsterList(self)
 	end
 	-- Generating monsterList
 	local monsters = {}
+	local counters = {
+		Easy = 0,
+		Mid = 0,
+		Hard = 0
+	}
 	while (#monsters ~= 9) do
 		local randomMonster = Prey.MonsterList[math.random(#Prey.MonsterList)]
+		local diff = getMonsterDifficulty(randomMonster)
 		-- Verify that monster actually exists
 		if MonsterType(randomMonster) and not table.contains(monsters, randomMonster)
 		and not table.contains(repeatedList, randomMonster) then
-			monsters[#monsters + 1] = randomMonster
+			if diff == CONST_MONSTER_EASY and counters.Easy < 3 then
+				monsters[#monsters + 1] = randomMonster
+				counters.Easy = counters.Easy + 1
+			elseif diff == CONST_MONSTER_MID and counters.Mid < 3 then
+				monsters[#monsters + 1] = randomMonster
+				counters.Mid = counters.Mid + 1
+			elseif diff == CONST_MONSTER_HARD and counters.Hard < 3 then
+				monsters[#monsters + 1] = randomMonster
+				counters.Hard = counters.Hard + 1
+			end
 		end
 	end
 	return table.concat(monsters, ";")
@@ -644,4 +664,22 @@ function Player:sendPreyRerollPrice()
 	msg:addByte(0)
 
 	msg:sendToPlayer(self)
+end
+
+function getMonsterDifficulty(monster)
+	local stars
+
+	if MonsterType(monster) == nil then
+		return CONST_MONSTER_NONE
+	else
+		stars = MonsterType(monster):BestiaryStars()
+	end
+
+	if stars <= 2 then
+		return CONST_MONSTER_EASY
+	elseif stars <= 4 then
+		return CONST_MONSTER_MID
+	elseif stars == 5 then
+		return CONST_MONSTER_HARD
+	end
 end
