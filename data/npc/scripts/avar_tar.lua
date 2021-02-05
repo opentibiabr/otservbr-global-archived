@@ -66,18 +66,18 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif npcHandler.topic[cid] == 2 then
 		if msgcontains(msg, 'base') then
-			if player:getStorageValue(Storage.TheAnnihilator.AnnihilatorDone) == 1 then
+			if player:getStorageValue(Storage.Quest.TheAnnihilator.Reward) == 1 then
 				player:addOutfit(541)
 				player:addOutfit(542)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-				player:setStorageValue(Storage.TheAnnihilator.AnnihilatorDone, 2)
+				player:setStorageValue(Storage.Quest.TheAnnihilator.Reward, 2)
 				npcHandler:say('Receive the base outfit, |PLAYERNAME|.', cid)
 			else
 				npcHandler:say('You need to complete annihilator quest first, |PLAYERNAME|.', cid)
 				npcHandler.topic[cid] = 2
 			end
 		elseif msgcontains(msg, 'shield') then
-			if player:getStorageValue(Storage.TheAnnihilator.AnnihilatorDone) == 2
+			if player:getStorageValue(Storage.Quest.TheAnnihilator.Reward) == 2
 			and player:getStorageValue(Storage.QuestChests.DemonHelmetQuestDemonHelmet) == 1 then
 				player:addOutfitAddon(541, 1)
 				player:addOutfitAddon(542, 1)
@@ -89,12 +89,12 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler.topic[cid] = 2
 			end
 		elseif msgcontains(msg, 'helmet') then
-			if player:getStorageValue(Storage.TheAnnihilator.AnnihilatorDone) == 2
-			and player:getStorageValue(Storage.DemonOak.Done) == 3 then
+			if player:getStorageValue(Storage.Quest.TheAnnihilator.Reward) == 2
+			and player:getStorageValue(Storage.Quest.DemonOak.Done) == 3 then
 				player:addOutfitAddon(541, 2)
 				player:addOutfitAddon(542, 2)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-				player:setStorageValue(Storage.DemonOak.Done, 4)
+				player:setStorageValue(Storage.Quest.DemonOak.Done, 4)
 				npcHandler:say('Receive the helmet, |PLAYERNAME|.', cid)
 			else
 				npcHandler:say('The helmet is for those who have hunted down all 6666 demons and finished the demon oak as well, |PLAYERNAME|.', cid)
