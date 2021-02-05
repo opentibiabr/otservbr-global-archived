@@ -39,6 +39,11 @@ static int webhook_send_message_(const char *url, const char *payload, std::stri
 static std::string get_payload(std::string title, std::string message, int color);
 
 void webhook_send_message(std::string title, std::string message, int color) {
+	std::string url = g_config.getString(ConfigManager::DISCORD_WEBHOOK_URL);
+	if (url.empty()) {
+		return;
+	}
+
 	if (!init) {
 		std::cout << "Failed to send webhook message; Did not (successfully) init." << std::endl;
 		return;
@@ -46,11 +51,6 @@ void webhook_send_message(std::string title, std::string message, int color) {
 
 	if (title.empty() || message.empty()) {
 		std::cout << "Failed to send webhook message; Title or message to send was empty." << std::endl;
-		return;
-	}
-
-	std::string url = g_config.getString(ConfigManager::DISCORD_WEBHOOK_URL);
-	if (url.empty()) {
 		return;
 	}
 
