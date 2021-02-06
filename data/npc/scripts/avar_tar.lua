@@ -78,11 +78,11 @@ local function creatureSayCallback(cid, type, msg)
 			end
 		elseif msgcontains(msg, 'shield') then
 			if player:getStorageValue(Storage.Quest.TheAnnihilator.Reward) == 2
-			and player:getStorageValue(Storage.QuestChests.DemonHelmetQuestDemonHelmet) == 1 then
+			and player:getStorageValue(Storage.Quest.DemonHelmet.DemonHelmet) == 1 then
 				player:addOutfitAddon(541, 1)
 				player:addOutfitAddon(542, 1)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-				player:setStorageValue(Storage.QuestChests.DemonHelmetQuestDemonHelmet, 2)
+				player:setStorageValue(Storage.Quest.DemonHelmet.DemonHelmet, 2)
 				npcHandler:say('Receive the shield, |PLAYERNAME|.', cid)
 			else
 				npcHandler:say('The shield will only be granted to those adventurers who have finished the demon helmet quest, |PLAYERNAME|.', cid)
@@ -90,11 +90,11 @@ local function creatureSayCallback(cid, type, msg)
 			end
 		elseif msgcontains(msg, 'helmet') then
 			if player:getStorageValue(Storage.Quest.TheAnnihilator.Reward) == 2
-			and player:getStorageValue(Storage.Quest.DemonOak.Done) == 3 then
+			and player:getStorageValue(Storage.DemonOak.Done) == 3 then
 				player:addOutfitAddon(541, 2)
 				player:addOutfitAddon(542, 2)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-				player:setStorageValue(Storage.Quest.DemonOak.Done, 4)
+				player:setStorageValue(Storage.DemonOak.Done, 4)
 				npcHandler:say('Receive the helmet, |PLAYERNAME|.', cid)
 			else
 				npcHandler:say('The helmet is for those who have hunted down all 6666 demons and finished the demon oak as well, |PLAYERNAME|.', cid)
