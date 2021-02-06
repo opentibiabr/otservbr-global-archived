@@ -39,6 +39,7 @@
 #include "globalevent.h"
 #include "script.h"
 #include "weapons.h"
+#include "webhook.h"
 #include "imbuements.h"
 #include "iostash.h"
 #include "iobestiary.h"
@@ -1787,7 +1788,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(BESTY_RACE_NONE)
 	registerEnum(BESTY_RACE_FIRST)
 	registerEnum(BESTY_RACE_AMPHIBIC)
-	registerEnum(BESTY_RACE_AQUATIC)	
+	registerEnum(BESTY_RACE_AQUATIC)
 	registerEnum(BESTY_RACE_BIRD)
 	registerEnum(BESTY_RACE_CONSTRUCT)
 	registerEnum(BESTY_RACE_DEMON)
@@ -2060,6 +2061,12 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(LIGHT_STATE_NIGHT);
 	registerEnum(LIGHT_STATE_SUNSET);
 	registerEnum(LIGHT_STATE_SUNRISE);
+
+	// Webhook default colors
+	registerEnum(WEBHOOK_COLOR_ONLINE);
+	registerEnum(WEBHOOK_COLOR_OFFLINE);
+	registerEnum(WEBHOOK_COLOR_WARNING);
+	registerEnum(WEBHOOK_COLOR_RAID);
 
 	// _G
 	registerGlobalVariable("INDEX_WHEREEVER", INDEX_WHEREEVER);
@@ -3412,6 +3419,10 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Mount", "getId", LuaScriptInterface::luaMountGetId);
 	registerMethod("Mount", "getClientId", LuaScriptInterface::luaMountGetClientId);
 	registerMethod("Mount", "getSpeed", LuaScriptInterface::luaMountGetSpeed);
+
+	// Webhook
+	registerTable("Webhook");
+	registerMethod("Webhook", "send", LuaScriptInterface::webhookSend);
 }
 
 #undef registerEnum
@@ -8933,10 +8944,10 @@ int LuaScriptInterface::luaPlayeraddCharmPoints(lua_State* L)
 		IOBestiary g_bestiary;
 		int16_t charms = getNumber<int16_t>(L, 2);
 		if (charms >= 0) {
-			g_bestiary.addCharmPoints(player, static_cast<uint16_t>(charms));			
+			g_bestiary.addCharmPoints(player, static_cast<uint16_t>(charms));
 		} else {
 			charms = -charms;
-			g_bestiary.addCharmPoints(player, static_cast<uint16_t>(charms), true);		
+			g_bestiary.addCharmPoints(player, static_cast<uint16_t>(charms), true);
 		}
 		pushBoolean(L, true);
 	} else {
@@ -9087,7 +9098,7 @@ int LuaScriptInterface::luaPlayercharmExpansion(lua_State* L)
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
 		if (lua_gettop(L) == 1) {
-			pushBoolean(L, player->hasCharmExpansion());			
+			pushBoolean(L, player->hasCharmExpansion());
 		} else {
 			player->setCharmExpansion(getBoolean(L, 2, false));
 			pushBoolean(L, true);
@@ -19523,6 +19534,19 @@ int LuaScriptInterface::luaMountGetSpeed(lua_State* L)
   	}
 
   	return 1;
+}
+
+int LuaScriptInterface::webhookSend(lua_State* L)
+{
+	// Webhook.send(title, message, color)
+	std::string title = getString(L, 1);
+	std::string message = getString(L, 2);
+	uint32_t color = getNumber<uint32_t>(L, 3, 0);
+
+	webhook_send_message(title, message, color);
+	lua_pushnil(L);
+
+	return 1;
 }
 
 //
