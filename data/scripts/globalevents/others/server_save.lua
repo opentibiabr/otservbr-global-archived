@@ -41,7 +41,7 @@ function serversave.onTime(interval)
 		local message = "Server is saving game in " .. (remaningTime/60000) .." minute(s). Please logout."
 
 		Webhook.send("Server save", message, WEBHOOK_COLOR_WARNING)
-		Game.broadcastMessage("Server is saving game in " .. (remaningTime/60000) .." minute(s). Please logout.", MESSAGE_STATUS_WARNING)
+		Game.broadcastMessage(message, MESSAGE_STATUS_WARNING)
 	end
 	addEvent(ServerSaveWarning, 60000, remaningTime)	-- Schedule next event in 1 minute(60000)
 	return not configManager.getBoolean(configKeys.SERVER_SAVE_SHUTDOWN)
