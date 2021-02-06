@@ -2,7 +2,7 @@ dofile('data/modules/scripts/prey_system/assets.lua')
 
 Prey = {
 	Credits = "System remake: Westwol ~ Packet logic: Cjaker ~  Formulas: slavidodo ~  Revision: Rick, Sameshima, RodrigoSilva93",
-	Version = "6.1",
+	Version = "6.2",
 	LastUpdate = "05/02/2021",
 }
 
@@ -234,13 +234,13 @@ function Player.createMonsterList(self)
 		-- Verify that monster actually exists
 		if MonsterType(randomMonster) and not table.contains(monsters, randomMonster)
 		and not table.contains(repeatedList, randomMonster) then
-			if diff == CONST_MONSTER_EASY and counters.Easy < 3 then
+			if diff == CONST_MONSTER_EASY and counters.Easy < getMaxMonster(self, CONST_MONSTER_EASY) then
 				monsters[#monsters + 1] = randomMonster
 				counters.Easy = counters.Easy + 1
-			elseif diff == CONST_MONSTER_MID and counters.Mid < 3 then
+			elseif diff == CONST_MONSTER_MID and counters.Mid < getMaxMonster(self, CONST_MONSTER_MID) then
 				monsters[#monsters + 1] = randomMonster
 				counters.Mid = counters.Mid + 1
-			elseif diff == CONST_MONSTER_HARD and counters.Hard < 3 then
+			elseif diff == CONST_MONSTER_HARD and counters.Hard < getMaxMonster(self, CONST_MONSTER_HARD) then
 				monsters[#monsters + 1] = randomMonster
 				counters.Hard = counters.Hard + 1
 			end
@@ -681,5 +681,23 @@ function getMonsterDifficulty(monster)
 		return CONST_MONSTER_MID
 	elseif stars == 5 then
 		return CONST_MONSTER_HARD
+	end
+end
+
+function getMaxMonster(self, tier)
+	local level = self:getLevel()
+
+	if level >=8 and level <= 100 then
+		if tier == CONST_MONSTER_EASY then return 6
+		elseif tier == CONST_MONSTER_MID then return 2
+		elseif tier == CONST_MONSTER_HARD then return 1 end
+	elseif level >= 101 and level <= 250 then
+		if tier == CONST_MONSTER_EASY then return 3
+		elseif tier == CONST_MONSTER_MID then return 4
+		elseif tier == CONST_MONSTER_HARD then return 2 end
+	else
+		if tier == CONST_MONSTER_EASY then return 2
+		elseif tier == CONST_MONSTER_MID then return 4
+		elseif tier == CONST_MONSTER_HARD then return 3 end
 	end
 end
