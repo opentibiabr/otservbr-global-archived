@@ -1024,8 +1024,8 @@ bool IOLoginData::savePlayer(Player* player)
   query.str(std::string());
   query << "DELETE FROM `player_stash` WHERE `player_id` = " << player->getGUID();
   db.executeQuery(query.str());
-  query.str(std::string());
   for (auto it : player->getStashItems()) {
+	query.str(std::string());
     query << "INSERT INTO `player_stash` (`player_id`,`item_id`,`item_count`) VALUES (";
     query << player->getGUID() << ", ";
     query << it.first << ", ";
