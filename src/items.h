@@ -191,6 +191,9 @@ class ItemType
 		bool hasSubType() const {
 			return (isFluidContainer() || isSplash() || stackable || charges != 0);
 		}
+		bool isFilledBath() const {
+			return (id == 29313);
+		}
 
 		Abilities& getAbilities() {
 			if (!abilities) {

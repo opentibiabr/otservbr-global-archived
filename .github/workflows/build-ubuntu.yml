@@ -32,8 +32,8 @@ jobs:
 
     - name: Install Dependencies
       run: >
-        sudo apt-get update && sudo apt-get install cmake build-essential
-        liblua5.2-dev libmysqlclient-dev libboost-system-dev
+        sudo apt-get update && sudo apt-get install cmake build-essential ca-certificates
+        libcurl4-openssl-dev libjsoncpp-dev liblua5.2-dev libmysqlclient-dev libboost-system-dev
         libboost-iostreams-dev libboost-filesystem-dev libpugixml-dev
         libcrypto++-dev libspdlog-dev libluajit-5.1-dev libboost-date-time-dev
         unrar zip
