@@ -1128,7 +1128,7 @@ class Player final : public Creature, public Cylinder
 				client->sendLootContainers();
 			}
 		}
-		void sendLootStats(Item* item, u_int8_t count) {
+		void sendLootStats(Item* item, uint8_t count) {
 			if (client) {
 				client->sendLootStats(item, count);
 			}

@@ -3295,7 +3295,7 @@ void ProtocolGame::sendLootContainers()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendLootStats(Item *item, u_int8_t count)
+void ProtocolGame::sendLootStats(Item *item, uint8_t count)
 {
 	if (!item)
 	{

@@ -4127,7 +4127,7 @@ int LuaScriptInterface::luaPlayerSendLootStats(lua_State* L)
 	}
 
 	uint8_t count = getNumber<uint8_t>(L, 3, 0);
-	if(count == 0){
+	if(count == 0) {
 		lua_pushnil(L);
 		return 1;
 	}

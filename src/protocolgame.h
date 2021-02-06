@@ -374,7 +374,7 @@ private:
 
 	//quickloot
 	void sendLootContainers();
-	void sendLootStats(Item *item, u_int8_t count);
+	void sendLootStats(Item *item, uint8_t count);
 
 	//inventory
 	void sendInventoryItem(slots_t slot, const Item *item);
