@@ -8,7 +8,7 @@ function rookVillage.onStepIn(creature, item, position, fromPosition)
 
 	if player:getLevel() < 150 then
 		player:teleportTo(Position(32075, 32250, 6))
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "You need level 150+ to enter in the Village.")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need level 150+ to enter in the Village.")
 		return true
 	end
 	return true

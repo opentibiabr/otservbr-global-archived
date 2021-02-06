@@ -217,7 +217,7 @@ void IOBestiary::addBestiaryKill(Player* player, MonsterType* mtype, uint32_t am
 	if (curCount == 0) {
 		player->sendBestiaryEntryChanged(raceid);
 		ss << "You unlocked details for the creature '" << mtype->name << "'";
-		player->sendTextMessage(MESSAGE_STATUS_DEFAULT, ss.str());
+		player->sendTextMessage(MESSAGE_STATUS, ss.str());
 		return;
 	}
 
@@ -225,11 +225,11 @@ void IOBestiary::addBestiaryKill(Player* player, MonsterType* mtype, uint32_t am
 
 	if ((curCount == mtype->info.bestiaryFirstUnlock) || (curCount == mtype->info.bestiarySecondUnlock)) {
 		ss << "You unlocked details for the creature '" << mtype->name << "'";
-		player->sendTextMessage(MESSAGE_STATUS_DEFAULT, ss.str());
+		player->sendTextMessage(MESSAGE_STATUS, ss.str());
 		player->sendBestiaryEntryChanged(raceid);
 	} else if (curCount == mtype->info.bestiaryToUnlock) {
 		ss << "You unlocked details for the creature '" << mtype->name << "'";
-		player->sendTextMessage(MESSAGE_STATUS_DEFAULT, ss.str());
+		player->sendTextMessage(MESSAGE_STATUS, ss.str());
 		addCharmPoints(player, mtype->info.bestiaryCharmsPoints);
 		player->sendBestiaryEntryChanged(raceid);
 	}

@@ -327,12 +327,12 @@ DailyReward.init = function(playerId)
 			timeMath = math.ceil(timeMath/(DailyReward.serverTimeThreshold))
 			if player:getJokerTokens() >= timeMath then
 				player:setJokerTokens(player:getJokerTokens() - timeMath)
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You lost " .. timeMath .. " joker tokens to prevent loosing your streak.")
+				player:sendTextMessage(MESSAGE_LOGIN, "You lost " .. timeMath .. " joker tokens to prevent loosing your streak.")
 			else
 				player:setStreakLevel(0)
 				if player:getLastLoginSaved() > 0 then -- message wont appear at first character login
 					player:setJokerTokens(-(player:getJokerTokens()))
-					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You just lost your daily reward streak.")
+					player:sendTextMessage(MESSAGE_LOGIN, "You just lost your daily reward streak.")
 				end
 			end
 		end

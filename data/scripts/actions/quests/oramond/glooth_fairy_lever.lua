@@ -49,7 +49,7 @@ function oramondGloothLever.onUse(player, item, fromPosition, target, toPosition
 		for i = 1, #specs do
 			spec = specs[i]
 			if spec:isPlayer() then
-				player:sendTextMessage(MESSAGE_STATUS_SMALL, "A team is already inside the quest room.")
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "A team is already inside the quest room.")
 				return true
 			end
 			spec:remove()

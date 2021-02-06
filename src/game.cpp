@@ -2455,9 +2455,9 @@ void Game::internalQuickLootCorpse(Player* player, Container* corpse)
 	}
 
 	if (player->lastQuickLootNotification + 15000 < OTSYS_TIME()) {
-		player->sendTextMessage(MESSAGE_STATUS_WARNING, ss.str());
+		player->sendTextMessage(MESSAGE_GAME_HIGHLIGHT, ss.str());
 	} else {
-		player->sendTextMessage(MESSAGE_EVENT_DEFAULT, ss.str());
+		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, ss.str());
 	}
 
 	player->lastQuickLootNotification = OTSYS_TIME();
@@ -3768,14 +3768,14 @@ void Game::playerRequestTrade(uint32_t playerId, const Position& pos, uint8_t st
 
 	Player* tradePartner = getPlayerByID(tradePlayerId);
 	if (!tradePartner || tradePartner == player) {
-		player->sendTextMessage(MESSAGE_INFO_DESCR, "Sorry, not possible.");
+		player->sendTextMessage(MESSAGE_FAILURE, "Sorry, not possible.");
 		return;
 	}
 
 	if (!Position::areInRange<2, 2, 0>(tradePartner->getPosition(), player->getPosition())) {
 		std::ostringstream ss;
 		ss << tradePartner->getName() << " tells you to move closer.";
-		player->sendTextMessage(MESSAGE_INFO_DESCR, ss.str());
+		player->sendTextMessage(MESSAGE_TRADE, ss.str());
 		return;
 	}
 
@@ -3833,18 +3833,18 @@ void Game::playerRequestTrade(uint32_t playerId, const Position& pos, uint8_t st
 		for (const auto& it : tradeItems) {
 			Item* item = it.first;
 			if (tradeItem == item) {
-				player->sendTextMessage(MESSAGE_INFO_DESCR, "This item is already being traded.");
+				player->sendTextMessage(MESSAGE_TRADE, "This item is already being traded.");
 				return;
 			}
 
 			if (tradeItemContainer->isHoldingItem(item)) {
-				player->sendTextMessage(MESSAGE_INFO_DESCR, "This item is already being traded.");
+				player->sendTextMessage(MESSAGE_TRADE, "This item is already being traded.");
 				return;
 			}
 
 			Container* container = item->getContainer();
 			if (container && container->isHoldingItem(tradeItem)) {
-				player->sendTextMessage(MESSAGE_INFO_DESCR, "This item is already being traded.");
+				player->sendTextMessage(MESSAGE_TRADE, "This item is already being traded.");
 				return;
 			}
 		}
@@ -3852,13 +3852,13 @@ void Game::playerRequestTrade(uint32_t playerId, const Position& pos, uint8_t st
 		for (const auto& it : tradeItems) {
 			Item* item = it.first;
 			if (tradeItem == item) {
-				player->sendTextMessage(MESSAGE_INFO_DESCR, "This item is already being traded.");
+				player->sendTextMessage(MESSAGE_TRADE, "This item is already being traded.");
 				return;
 			}
 
 			Container* container = item->getContainer();
 			if (container && container->isHoldingItem(tradeItem)) {
-				player->sendTextMessage(MESSAGE_INFO_DESCR, "This item is already being traded.");
+				player->sendTextMessage(MESSAGE_TRADE, "This item is already being traded.");
 				return;
 			}
 		}
@@ -3866,7 +3866,7 @@ void Game::playerRequestTrade(uint32_t playerId, const Position& pos, uint8_t st
 
 	Container* tradeContainer = tradeItem->getContainer();
 	if (tradeContainer && tradeContainer->getItemHoldingCount() + 1 > 100) {
-		player->sendTextMessage(MESSAGE_INFO_DESCR, "You can not trade more than 100 items.");
+		player->sendTextMessage(MESSAGE_TRADE, "You can not trade more than 100 items.");
 		return;
 	}
 
@@ -3898,7 +3898,7 @@ bool Game::internalStartTrade(Player* player, Player* tradePartner, Item* tradeI
 	if (tradePartner->tradeState == TRADE_NONE) {
 		std::ostringstream ss;
 		ss << player->getName() << " wants to trade with you.";
-		tradePartner->sendTextMessage(MESSAGE_EVENT_ADVANCE, ss.str());
+		tradePartner->sendTextMessage(MESSAGE_TRANSACTION, ss.str());
 		tradePartner->tradeState = TRADE_ACKNOWLEDGE;
 		tradePartner->tradePartner = player;
 	} else {
@@ -3988,13 +3988,13 @@ void Game::playerAcceptTrade(uint32_t playerId)
 
 			if (tradePartner->tradeItem) {
 				errorDescription = getTradeErrorDescription(ret1, tradeItem1);
-				tradePartner->sendTextMessage(MESSAGE_EVENT_ADVANCE, errorDescription);
+				tradePartner->sendTextMessage(MESSAGE_TRANSACTION, errorDescription);
 				tradePartner->tradeItem->onTradeEvent(ON_TRADE_CANCEL, tradePartner);
 			}
 
 			if (player->tradeItem) {
 				errorDescription = getTradeErrorDescription(ret2, tradeItem2);
-				player->sendTextMessage(MESSAGE_EVENT_ADVANCE, errorDescription);
+				player->sendTextMessage(MESSAGE_TRANSACTION, errorDescription);
 				player->tradeItem->onTradeEvent(ON_TRADE_CANCEL, player);
 			}
 		}
@@ -4129,7 +4129,7 @@ void Game::internalCloseTrade(Player* player)
 	player->setTradeState(TRADE_NONE);
 	player->tradePartner = nullptr;
 
-	player->sendTextMessage(MESSAGE_STATUS_SMALL, "Trade cancelled.");
+	player->sendTextMessage(MESSAGE_FAILURE, "Trade cancelled.");
 	player->sendTradeClose();
 
 	if (tradePartner) {
@@ -4147,7 +4147,7 @@ void Game::internalCloseTrade(Player* player)
 		tradePartner->setTradeState(TRADE_NONE);
 		tradePartner->tradePartner = nullptr;
 
-		tradePartner->sendTextMessage(MESSAGE_STATUS_SMALL, "Trade cancelled.");
+		tradePartner->sendTextMessage(MESSAGE_FAILURE, "Trade cancelled.");
 		tradePartner->sendTradeClose();
 	}
 }
@@ -4269,7 +4269,7 @@ void Game::playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count)
 
 	std::ostringstream ss;
 	ss << "You see " << Item::getDescription(it, 1, nullptr, subType);
-	player->sendTextMessage(MESSAGE_INFO_DESCR, ss.str());
+	player->sendTextMessage(MESSAGE_LOOK, ss.str());
 }
 
 void Game::playerLookAt(uint32_t playerId, const Position& pos, uint8_t stackPos)
@@ -4445,9 +4445,9 @@ void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spri
 		}
 
 		if (player->lastQuickLootNotification + 15000 < OTSYS_TIME()) {
-			player->sendTextMessage(MESSAGE_STATUS_WARNING, ss.str());
+			player->sendTextMessage(MESSAGE_GAME_HIGHLIGHT, ss.str());
 		} else {
-			player->sendTextMessage(MESSAGE_EVENT_DEFAULT, ss.str());
+			player->sendTextMessage(MESSAGE_EVENT_ADVANCE, ss.str());
 		}
 
 		player->lastQuickLootNotification = OTSYS_TIME();
@@ -4679,19 +4679,19 @@ void Game::playerRequestAddVip(uint32_t playerId, const std::string& name)
 		bool specialVip;
 		std::string formattedName = name;
 		if (!IOLoginData::getGuidByNameEx(guid, specialVip, formattedName)) {
-			player->sendTextMessage(MESSAGE_STATUS_SMALL, "A player with this name does not exist.");
+			player->sendTextMessage(MESSAGE_FAILURE, "A player with this name does not exist.");
 			return;
 		}
 
 		if (specialVip && !player->hasFlag(PlayerFlag_SpecialVIP)) {
-			player->sendTextMessage(MESSAGE_STATUS_SMALL, "You can not add this player.");
+			player->sendTextMessage(MESSAGE_FAILURE, "You can not add this player.");
 			return;
 		}
 
 		player->addVIP(guid, formattedName, VIPSTATUS_OFFLINE);
 	} else {
 		if (vipPlayer->hasFlag(PlayerFlag_SpecialVIP) && !player->hasFlag(PlayerFlag_SpecialVIP)) {
-			player->sendTextMessage(MESSAGE_STATUS_SMALL, "You can not add this player.");
+			player->sendTextMessage(MESSAGE_FAILURE, "You can not add this player.");
 			return;
 		}
 
@@ -4911,7 +4911,7 @@ void Game::playerSay(uint32_t playerId, uint16_t channelId, SpeakClasses type,
 	if (muteTime > 0) {
 		std::ostringstream ss;
 		ss << "You are still muted for " << muteTime << " seconds.";
-		player->sendTextMessage(MESSAGE_STATUS_SMALL, ss.str());
+		player->sendTextMessage(MESSAGE_FAILURE, ss.str());
 		return;
 	}
 
@@ -4978,7 +4978,7 @@ bool Game::playerSaySpell(Player* player, SpeakClasses type, const std::string& 
 		player->cancelPush();
 
 		if (!g_config.getBoolean(ConfigManager::EMOTE_SPELLS)) {
-			return internalCreatureSay(player, TALKTYPE_SAY, words, false);
+			return internalCreatureSay(player, TALKTYPE_SPELL_USE, words, false);
 		} else {
 			return internalCreatureSay(player, TALKTYPE_MONSTER_SAY, words, false);
 		}
@@ -5017,7 +5017,7 @@ void Game::playerWhisper(Player* player, const std::string& text)
 bool Game::playerYell(Player* player, const std::string& text)
 {
 	if (player->getLevel() == 1) {
-		player->sendTextMessage(MESSAGE_STATUS_SMALL, "You may not yell as long as you are on level 1.");
+		player->sendTextMessage(MESSAGE_FAILURE, "You may not yell as long as you are on level 1.");
 		return false;
 	}
 
@@ -5040,7 +5040,7 @@ bool Game::playerSpeakTo(Player* player, SpeakClasses type, const std::string& r
 {
 	Player* toPlayer = getPlayerByName(receiver);
 	if (!toPlayer) {
-		player->sendTextMessage(MESSAGE_STATUS_SMALL, "A player with this name is not online.");
+		player->sendTextMessage(MESSAGE_FAILURE, "A player with this name is not online.");
 		return false;
 	}
 
@@ -5054,11 +5054,11 @@ bool Game::playerSpeakTo(Player* player, SpeakClasses type, const std::string& r
 	toPlayer->onCreatureSay(player, type, text);
 
 	if (toPlayer->isInGhostMode() && !player->isAccessPlayer()) {
-		player->sendTextMessage(MESSAGE_STATUS_SMALL, "A player with this name is not online.");
+		player->sendTextMessage(MESSAGE_FAILURE, "A player with this name is not online.");
 	} else {
 		std::ostringstream ss;
 		ss << "Message sent to " << toPlayer->getName() << '.';
-		player->sendTextMessage(MESSAGE_STATUS_SMALL, ss.str());
+		player->sendTextMessage(MESSAGE_FAILURE, ss.str());
 	}
 	return true;
 }
@@ -6787,7 +6787,7 @@ void Game::playerInviteToParty(uint32_t playerId, uint32_t invitedId)
 	if (invitedPlayer->getParty()) {
 		std::ostringstream ss;
 		ss << invitedPlayer->getName() << " is already in a party.";
-		player->sendTextMessage(MESSAGE_INFO_DESCR, ss.str());
+		player->sendTextMessage(MESSAGE_PARTY_MANAGEMENT, ss.str());
 		return;
 	}
 
@@ -6819,7 +6819,7 @@ void Game::playerJoinParty(uint32_t playerId, uint32_t leaderId)
 	}
 
 	if (player->getParty()) {
-		player->sendTextMessage(MESSAGE_INFO_DESCR, "You are already in a party.");
+		player->sendTextMessage(MESSAGE_PARTY_MANAGEMENT, "You are already in a party.");
 		return;
 	}
 

@@ -20,7 +20,7 @@ function tiles.onStepIn(creature, item, position, fromPosition)
 		if player:getLevel() < item.actionid - 1000 then
 			player:teleportTo(fromPosition, false)
 			position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "The tile seems to be protected against unwanted intruders.")
+			player:sendTextMessage(MESSAGE_FAILURE, "The tile seems to be protected against unwanted intruders.")
 		end
 		return true
 	end
@@ -36,7 +36,7 @@ function tiles.onStepIn(creature, item, position, fromPosition)
 				depotItems = depotItems + player:getDepotChest(id, true):getItemHoldingCount()
 			end
 
-			player:sendTextMessage(MESSAGE_STATUS_DEFAULT, "Your depot contains " .. depotItems .. " item" .. (depotItems > 1 and "s." or ".") .. "\
+			player:sendTextMessage(MESSAGE_FAILURE, "Your depot contains " .. depotItems .. " item" .. (depotItems > 1 and "s." or ".") .. "\
 			Your supply stash contains " .. player:getStashCount() .. " item" .. (player:getStashCount()	 > 1 and "s." or "."))
 			player:setSpecialContainersAvailable(true)
 			return true

@@ -49,7 +49,7 @@ function offlineTraining.onLogin(player)
 		end
 	end
 	text = string.format("%s.", text)
-	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, text)
+	player:sendTextMessage(MESSAGE_OFFLINE_TRAINING, text)
 
 	local vocation = player:getVocation()
 	local promotion = vocation:getPromotion()
