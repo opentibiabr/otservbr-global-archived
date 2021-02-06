@@ -33,6 +33,7 @@
 #include "script.h"
 #include "scriptmanager.h"
 #include "server.h"
+#include "webhook.h"
 
 #if __has_include("gitmetadata.h")
 	#include "gitmetadata.h"
@@ -256,10 +257,10 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		return;
 	}
 
-	std::cout << ">> Loading lua monsters" << std::endl;	
-	if (!g_scripts->loadScripts("monster", false, false)) {	
-		startupErrorMessage("Failed to load lua monsters");	
-		return;	
+	std::cout << ">> Loading lua monsters" << std::endl;
+	if (!g_scripts->loadScripts("monster", false, false)) {
+		startupErrorMessage("Failed to load lua monsters");
+		return;
 	}
 
 	std::cout << ">> Loading outfits" << std::endl;
@@ -348,5 +349,9 @@ void mainLoader(int, char*[], ServiceManager* services) {
 
 	g_game.start(services);
 	g_game.setGameState(GAME_STATE_NORMAL);
+
+	webhook_init();
+	webhook_send_message("Server is now online", "Server has successfully started.", WEBHOOK_COLOR_ONLINE);
+
 	g_loaderSignal.notify_all();
 }

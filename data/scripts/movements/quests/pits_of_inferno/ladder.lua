@@ -1,3 +1,4 @@
+local ladderPosition = Position(32854, 32321, 11)
 local ladder = MoveEvent()
 
 function ladder.onStepIn(creature, item, position, fromPosition)

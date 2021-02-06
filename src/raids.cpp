@@ -27,6 +27,7 @@
 #include "configmanager.h"
 #include "scheduler.h"
 #include "monster.h"
+#include "webhook.h"
 
 extern Game g_game;
 extern ConfigManager g_config;
@@ -340,6 +341,7 @@ bool AnnounceEvent::configureRaidEvent(const pugi::xml_node& eventNode)
 bool AnnounceEvent::executeEvent()
 {
 	g_game.broadcastMessage(message, messageType);
+  webhook_send_message("Incoming raid!", message, WEBHOOK_COLOR_RAID);
 	return true;
 }
 
