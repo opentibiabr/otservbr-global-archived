@@ -63,7 +63,7 @@ bool Ban::acceptConnection(uint32_t clientIP)
 
 bool IOBan::isAccountBanned(uint32_t accountId, BanInfo& banInfo)
 {
-	std::stringExtended query(256);
+	std::stringExtended query(1024);
 	query << "SELECT `reason`, `expires_at`, `banned_at`, `banned_by`, (SELECT `name` FROM `players` WHERE `id` = `banned_by`) AS `name` FROM `account_bans` WHERE `account_id` = " << accountId << " LIMIT 1";
 
 	DBResult_ptr result = g_database().storeQuery(query);
