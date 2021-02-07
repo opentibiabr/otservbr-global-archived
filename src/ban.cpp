@@ -24,9 +24,6 @@
 #include "databasetasks.h"
 #include "tools.h"
 
-#include <string>
-#include <utility>
-
 bool Ban::acceptConnection(uint32_t clientIP)
 {
 	std::lock_guard<std::recursive_mutex> lockClass(lock);
