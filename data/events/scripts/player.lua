@@ -848,7 +848,7 @@ function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
 	end
 
 	for _, pid in pairs(imbuement:getItems()) do
-		if self:getItemCount(pid.itemid) < pid.count then
+		if (self:getItemCount(pid.itemid) + self:getStashItemCount(pid.itemid)) < pid.count then
 			self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You don't have all necessary items.")
 			return false
 		end
@@ -878,9 +878,22 @@ function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
 
 	-- Removing items
 	for _, pid in pairs(imbuement:getItems()) do
-		if not self:removeItem(pid.itemid, pid.count) then
-			self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You don't have all necessary items.")
-			return false
+		local invertoryItemCount = self:getItemCount(pid.itemid)
+		if invertoryItemCount >= pid.count then
+			if not(self:removeItem(pid.itemid, pid.count)) then
+				self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ERROR, "An error ocurred, please reopen imbuement window.")
+				return false
+			end
+		else
+			local mathItemCount = pid.count
+			if invertoryItemCount > 0 and self:removeItem(pid.itemid, invertoryItemCount) then
+				mathItemCount = mathItemCount - invertoryItemCount
+			end
+
+			if not(self:removeStashItem(pid.itemid, mathItemCount)) then
+				self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ERROR, "An error ocurred, please reopen imbuement window.")
+				return false
+			end
 		end
 	end
 

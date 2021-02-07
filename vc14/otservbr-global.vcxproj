@@ -191,7 +191,6 @@
     <ClCompile Include="..\src\iomap.cpp" />
     <ClCompile Include="..\src\iomapserialize.cpp" />
     <ClCompile Include="..\src\iomarket.cpp" />
-    <ClCompile Include="..\src\iostash.cpp" />
     <ClCompile Include="..\src\item.cpp" />
     <ClCompile Include="..\src\items.cpp" />
     <ClCompile Include="..\src\luascript.cpp" />
@@ -290,7 +289,6 @@
     <ClInclude Include="..\src\iomap.h" />
     <ClInclude Include="..\src\iomapserialize.h" />
     <ClInclude Include="..\src\iomarket.h" />
-    <ClInclude Include="..\src\iostash.h" />
     <ClInclude Include="..\src\item.h" />
     <ClInclude Include="..\src\itemloader.h" />
     <ClInclude Include="..\src\items.h" />

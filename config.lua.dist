@@ -61,6 +61,7 @@ onlyPremiumAccount = false
 weatherRain = false
 thunderEffect = false
 freeQuests = false
+allConsoleLog = false
 
 -- Deaths
 -- NOTE: Leave deathLosePercent as -1 if you want to use the default

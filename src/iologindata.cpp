@@ -496,6 +496,15 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
     }
   }
 
+  // Stash load items
+  query.str(std::string());
+  query << "SELECT `item_count`, `item_id`  FROM `player_stash` WHERE `player_id` = " << player->getGUID();
+  if ((result = db.storeQuery(query.str()))) {
+    do {
+	  player->addItemOnStash(result->getNumber<uint16_t>("item_id"), result->getNumber<uint32_t>("item_count"));
+    } while (result->next());
+  }
+
   // Bestiary charms
   query.str(std::string());
   query << "SELECT * FROM `player_charms` WHERE `player_guid` = " << player->getGUID();
@@ -1009,6 +1018,19 @@ bool IOLoginData::savePlayer(Player* player)
 
   if (!db.executeQuery(query.str())) {
     return false;
+  }
+
+  // Stash save items
+  query.str(std::string());
+  query << "DELETE FROM `player_stash` WHERE `player_id` = " << player->getGUID();
+  db.executeQuery(query.str());
+  for (auto it : player->getStashItems()) {
+	query.str(std::string());
+    query << "INSERT INTO `player_stash` (`player_id`,`item_id`,`item_count`) VALUES (";
+    query << player->getGUID() << ", ";
+    query << it.first << ", ";
+    query << it.second << ")";
+	db.executeQuery(query.str());
   }
 
   // learned spells
