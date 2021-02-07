@@ -266,9 +266,10 @@ endif()
 # *****************************************************************************
 include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR}
                     ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR}
-                    ${CRYPTOPP_INCLUDE_DIR} ${CURL_INCLUDE_DIRS} ${GMP_INCLUDE_DIRS} ${ZLIB_INCLUDE_DIR} $<TARGET_PROPERTY:jsoncpp_lib,INTERFACE_INCLUDE_DIRECTORIES>)
+                    ${CRYPTOPP_INCLUDE_DIR} ${CURL_INCLUDE_DIRS} ${GMP_INCLUDE_DIRS} ${ZLIB_INCLUDE_DIRS} $<TARGET_PROPERTY:jsoncpp_lib,INTERFACE_INCLUDE_DIRECTORIES>)
 
 target_link_libraries(otbr otbr_lib ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
                       ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY}
                       ${PUGIXML_LIBRARIES} ${CRYPTOPP_LIBRARIES}
-                      ${CMAKE_THREAD_LIBS_INIT} ${CURL_LIBRARIES} ${GMP_LIBRARIES} ${ZLIB_LIBRARY} jsoncpp_lib)
+                      ${CMAKE_THREAD_LIBS_INIT} ${CURL_LIBRARIES} ${GMP_LIBRARIES} ${ZLIB_LIBRARIES} jsoncpp_lib
+)
