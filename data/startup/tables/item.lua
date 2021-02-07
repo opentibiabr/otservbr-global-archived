@@ -136,6 +136,16 @@ ItemAction = {
 			{x = 32083, y = 32142, z = 10},
 			{x = 32084, y = 32142, z = 10},
 		}
+	},
+	-- Orc fortress large cauldron
+	[40012] = {
+		itemId = false,
+		itemPos = {
+			{x = 31987, y = 32154, z = 8},
+			{x = 31988, y = 32154, z = 8},
+			{x = 31987, y = 32155, z = 8},
+			{x = 31988, y = 32155, z = 8}
+		}
 	}
 }
 
@@ -398,5 +408,107 @@ ItemUnique = {
 	[40055] = {
 		itemId = 1417,
 		itemPos = {x = 32145, y = 32204, z = 10}
+	},
+	-- The Rookie Guard Quest - Mission 12: Into The Fortress
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission12_into_fortress.lua
+	-- Academy treasure chest
+	[40056] = {
+		itemId = 12664,
+		itemPos = {x = 32109, y = 32187, z = 8}
+	},
+	-- Kraknaknork lair teleport
+	[40057] = {
+		itemId = 8058,
+		itemPos = {x = 31977, y = 32166, z = 9}
+	},
+	-- Kraknaknork lair energy barrier 1
+	[40058] = {
+		itemId = 13934,
+		itemPos = {x = 31974, y = 32174, z = 10}
+	},
+	-- Kraknaknork lair energy barrier 2
+	[40059] = {
+		itemId = 13934,
+		itemPos = {x = 31962, y = 32174, z = 10}
+	},
+	-- Kraknaknork lair energy barrier 3
+	[40060] = {
+		itemId = 13934,
+		itemPos = {x = 31960, y = 32184, z = 10}
+	},
+	-- Kraknaknork lair energy barrier 4
+	[40061] = {
+		itemId = 13934,
+		itemPos = {x = 31953, y = 32187, z = 10}
+	},
+	-- Kraknaknork lair energy barrier 5
+	[40062] = {
+		itemId = 13934,
+		itemPos = {x = 31972, y = 32183, z = 10}
+	},
+	-- Kraknaknork lair energy barrier 6
+	[40063] = {
+		itemId = 13934,
+		itemPos = {x = 31952, y = 32174, z = 10}
+	},
+	-- Kraknaknork lair lever 1
+	[40064] = {
+		itemId = 10029,
+		itemPos = {x = 31975, y = 32170, z = 10}
+	},
+	-- Kraknaknork lair lever 2
+	[40065] = {
+		itemId = 10029,
+		itemPos = {x = 31961, y = 32168, z = 10}
+	},
+	-- Kraknaknork lair lever 3
+	[40066] = {
+		itemId = 10029,
+		itemPos = {x = 31957, y = 32190, z = 10}
+	},
+	-- Kraknaknork lair lever 4
+	[40067] = {
+		itemId = 10029,
+		itemPos = {x = 31968, y = 32179, z = 10}
+	},
+	-- Kraknaknork lair lever 5
+	[40068] = {
+		itemId = 10029,
+		itemPos = {x = 31949, y = 32187, z = 10}
+	},
+	-- Kraknaknork lair lever 6
+	[40069] = {
+		itemId = 10029,
+		itemPos = {x = 31976, y = 32180, z = 10}
+	},
+	-- Kraknaknork room enter teleport
+	[40070] = {
+		itemId = 8058,
+		itemPos = {x = 31948, y = 32174, z = 10}
+	},
+	-- Kraknaknork room exit teleport
+	[40071] = {
+		itemId = 8058,
+		itemPos = {x = 31945, y = 32174, z = 10}
+	},
+	-- Kraknaknork treasure room enter teleport
+	[40072] = {
+		itemId = 8058,
+		itemPos = {x = 31929, y = 32171, z = 10}
+	},
+	-- Kraknaknork left treasure chest
+	[40073] = {
+		itemId = 12664,
+		itemPos = {x = 31930, y = 32169, z = 11}
+	},
+	-- Kraknaknork right treasure chest
+	[40074] = {
+		itemId = 12664,
+		itemPos = {x = 31935, y = 32169, z = 11}
+	},
+	-- Kraknaknork treasure room exit teleport
+	[40075] = {
+		itemId = 8058,
+		itemPos = {x = 31932, y = 32167, z = 11}
 	}
 }

@@ -5805,7 +5805,7 @@ if not Quests then
 					states = {
 						[1] = "This is it - the infiltration of the orc fortress and revenge on Kraknaknork awaits. Get the required items from a chest in the academy near the bank.",
 						[2] = "You've got all items you need to finally kill Kraknaknork. Don't lose them, and carefully make your way towards the orc fortress located in the far west of Rookgaard. Leave the village to the north.",
-						[3] = "",
+						[3] = "You've knocked out the unsuspecting orc. USE the orc before it wakes up again to disguise yourself as an orc!",
 						[4] = "Even your mom wouldn't recognise you. You might not be able to fool all orcs in your disguise, but it should be enough to walk past the orc guarding the entrance.",
 						[5] = "You managed to sneak into the fortress. Use the fleshy bone and click on the elite orc guard with the crosshairs to create a distraction!",
 						[6] = "The guard is indeed very distracted - he smells delicious. At least to the wild dogs that entered the scene. This is the perfect time to enter the lower levels of the orc fortress.",

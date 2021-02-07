@@ -24434,9 +24434,14 @@
 	<item id="13929" article="a" name="peeing orc">
 		<attribute key="description" value="He doesn't seem to notice your presence." />
 	</item>
-	<item id="13931" article="a" name="elite orc guard" />
+	<item id="13930" article="an" name="unconscious orc">
+		<attribute key="description" value="Use it quickly to steal his outfit." />
+	</item>
+	<item id="13931" article="an" name="elite orc guard" />
 	<item id="13934" article="a" name="energy barrier" />
-	<item id="13936" article="a" name="wooden ladder hole" />
+	<item id="13936" article="a" name="wooden ladder hole">
+		<attribute key="floorchange" value="down" />
+	</item>
 	<item id="13937" article="an" name="inoperative uniwheel" />
 	<item id="13938" article="a" name="golden can of oil">
 		<attribute key="loottype" value="other" />

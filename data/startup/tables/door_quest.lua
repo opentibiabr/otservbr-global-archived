@@ -683,6 +683,12 @@ QuestDoorAction = {
 	[Storage.TheRookieGuard.Mission10] = {
 		itemId = false,
 		itemPos = {{x = 32147, y = 32186, z = 9}}
+	},
+	-- The Rookie Guard Quest - Mission 12: Into The Fortress
+	-- Lower academy floor door
+	[Storage.TheRookieGuard.Mission12] = {
+		itemId = false,
+		itemPos = {{x = 32109, y = 32189, z = 8}}
 	}
 }
 

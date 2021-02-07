@@ -1392,7 +1392,9 @@ Storage = {
 		LibraryChest = 52377,
 		TrollChests = 52378,
 		TunnelPillars = 52379,
-		Sarcophagus = 52380
+		Sarcophagus = 52380,
+		AcademyChest = 52381,
+		KraknaknorkChests = 52382
 	},
 	BanutaSecretTunnel = {
 		-- Reserved storage from 51680 - 51689

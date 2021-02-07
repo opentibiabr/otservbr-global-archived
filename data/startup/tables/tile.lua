@@ -319,7 +319,7 @@ TileAction = {
 	},
 	-- The Rookie Guard Quest - Mission 02: Defence!
 	-- Path: data\scripts\actions\quests\the_rookie_guard\mission02_defense.lua
-	-- North exit tiles
+	-- North exit
 	[50312] = {
 		itemId = false,
 		itemPos = {
@@ -333,7 +333,7 @@ TileAction = {
 			{x = 32094, y = 32181, z = 7},
 		}
 	},
-	-- Barn tiles
+	-- Barn entrance
 	[50313] = {
 		itemId = false,
 		itemPos = {
@@ -343,7 +343,7 @@ TileAction = {
 			{x = 32084, y = 32189, z = 7}
 		}
 	},
-	-- Bar tiles
+	-- Bar entrance
 	[50314] = {
 		itemId = false,
 		itemPos = {
@@ -353,7 +353,7 @@ TileAction = {
 			{x = 32095, y = 32185, z = 7}
 		}
 	},
-	-- Academy tiles
+	-- Academy center
 	[50315] = {
 		itemId = 9146,
 		itemPos = {
@@ -362,7 +362,7 @@ TileAction = {
 			{x = 32098, y = 32194, z = 7}
 		}
 	},
-	-- Obi shop tiles
+	-- Obi shop entrance
 	[50316] = {
 		itemId = 724,
 		itemPos = {
@@ -371,7 +371,7 @@ TileAction = {
 			{x = 32101, y = 32206, z = 7}
 		}
 	},
-	-- Center north road tiles
+	-- Center north road
 	[50317] = {
 		itemId = false,
 		itemPos = {
@@ -382,7 +382,7 @@ TileAction = {
 			{x = 32093, y = 32197, z = 7}
 		}
 	},
-	-- Center north-west road tiles
+	-- Center north-west road
 	[50318] = {
 		itemId = false,
 		itemPos = {
@@ -395,7 +395,7 @@ TileAction = {
 			{x = 32086, y = 32195, z = 7}
 		}
 	},
-	-- North bridge exit tile
+	-- North bridge exit
 	[50319] = {
 		itemId = 724,
 		itemPos = {{x = 32091, y = 32169, z = 7}}
@@ -473,7 +473,7 @@ TileAction = {
 			{x = 32137, y = 32181, z = 7}
 		}
 	},
-	-- Outer east path limit tiles
+	-- Outer east path limit
 	[50323] = {
 		itemId = false,
 		itemPos = {
@@ -492,7 +492,7 @@ TileAction = {
 			{x = 32096, y = 32174, z = 7}
 		}
 	},
-	-- Outer north troll cave limit tiles
+	-- Outer north troll cave limit
 	[50324] = {
 		itemId = false,
 		itemPos = {
@@ -507,7 +507,7 @@ TileAction = {
 			{x = 32096, y = 32145, z = 7}
 		}
 	},
-	-- North-west drawbridge limit tiles
+	-- North-west drawbridge limit
 	[50325] = {
 		itemId = false,
 		itemPos = {
@@ -515,7 +515,7 @@ TileAction = {
 			{x = 32070, y = 32148, z = 6}
 		}
 	},
-	-- North-west drawbridge, north exit limit tiles
+	-- North-west drawbridge, north exit limit
 	[50326] = {
 		itemId = false,
 		itemPos = {
@@ -526,7 +526,7 @@ TileAction = {
 			{x = 32068, y = 32137, z = 7}
 		}
 	},
-	-- Spider lair entrance tiles
+	-- Spider lair entrance
 	[50327] = {
 		itemId = false,
 		itemPos = {
@@ -548,7 +548,7 @@ TileAction = {
 			{x = 32069, y = 32110, z = 7}
 		}
 	},
-	-- Spider lair 3nd floor tiles
+	-- Spider lair 3nd floor
 	[50328] = {
 		itemId = false,
 		itemPos = {
@@ -557,7 +557,7 @@ TileAction = {
 			{x = 32003,  y = 32108, z = 11}
 		}
 	},
-	-- Wolf forest path tiles
+	-- Wolf forest path
 	[50329] = {
 		itemId = false,
 		itemPos = {
@@ -567,7 +567,7 @@ TileAction = {
 			{x = 32107, y = 32170, z = 7}
 		}
 	},
-	-- Wolf forest north limit tiles
+	-- Wolf forest north limit
 	[50330] = {
 		itemId = false,
 		itemPos = {
@@ -588,7 +588,7 @@ TileAction = {
 			{x = 32119, y = 32149, z = 7}
 		}
 	},
-	-- Wolf forest north-east limit tiles
+	-- Wolf forest north-east limit
 	[50331] = {
 		itemId = false,
 		itemPos = {
@@ -609,7 +609,7 @@ TileAction = {
 			{x = 32120, y = 32147, z = 7}
 		}
 	},
-	-- War wolf den entrance tiles
+	-- War wolf den entrance
 	[50332] = {
 		itemId = false,
 		itemPos = {
@@ -624,7 +624,7 @@ TileAction = {
 			{x = 32144, y = 32136, z = 7}
 		}
 	},
-	-- War wolf den first floor tiles
+	-- War wolf den first floor
 	[50333] = {
 		itemId = false,
 		itemPos = {
@@ -638,7 +638,7 @@ TileAction = {
 			{x = 32135, y = 32138, z = 8}
 		}
 	},
-	-- War wolf den last floor boost tiles
+	-- War wolf den boost floor
 	[50334] = {
 		itemId = false,
 		itemPos = {
@@ -651,7 +651,7 @@ TileAction = {
 			{x = 32116, y = 32134, z = 11}
 		}
 	},
-	-- Academy entrance tiles
+	-- Academy entrance
 	[50335] = {
 		itemId = 724,
 		itemPos = {
@@ -660,12 +660,12 @@ TileAction = {
 			{x = 32098, y = 32200, z = 7}
 		}
 	},
-	-- Academy low floor downstairs tile
+	-- Academy low floor downstairs
 	[50336] = {
 		itemId = 414,
 		itemPos = {{x = 32096,  y = 32191, z = 8}}
 	},
-	-- Academy library vault entrance tiles
+	-- Academy library vault entrance
 	[50337] = {
 		itemId = 9146,
 		itemPos = {
@@ -674,12 +674,12 @@ TileAction = {
 			{x = 32091, y = 32157, z = 9}
 		}
 	},
-	-- Library vault downstairs tile
+	-- Library vault downstairs
 	[50338] = {
 		itemId = 414,
 		itemPos = {{x = 32089, y = 32154, z = 10}}
 	},
-	-- Library vault walk able tiles
+	-- Library vault room floor
 	[50339] = {
 		itemId = 414,
 		itemPos = {
@@ -823,7 +823,7 @@ TileAction = {
 			{x = 32091, y = 32154, z = 10}
 		}
 	},
-	-- Academy library vault tiles
+	-- Academy library vault center
 	[50340] = {
 		itemId = 414,
 		itemPos = {
@@ -832,17 +832,17 @@ TileAction = {
 			{x = 32091, y = 32145, z = 10}
 		}
 	},
-	-- Academy library vault near rune tile
+	-- Academy library vault near rune
 	[50341] = {
 		itemId = 420,
 		itemPos = {{x = 32083, y = 32143, z = 10}}
 	},
-	-- North-west drawbridge upstairs tile
+	-- North-west drawbridge upstairs
 	[50342] = {
 		itemId = 9043,
 		itemPos = {{x = 32088, y = 32147, z = 6}}
 	},
-	-- Troll caves entrance tiles
+	-- Troll caves entrance
 	[50343] = {
 		itemId = false,
 		itemPos = {
@@ -854,17 +854,17 @@ TileAction = {
 			{x = 32099, y= 32140, z = 7}
 		}
 	},
-	-- Troll caves dug tunnel downstair tile
+	-- Troll caves dug tunnel downstair
 	[50344] = {
 		itemId = 9022,
 		itemPos = {{x = 32059, y = 32135, z = 10}}
 	},
-	-- Troll caves dug tunnel upstair tile
+	-- Troll caves dug tunnel upstair
 	[50345] = {
 		itemId = 9023,
 		itemPos = {{x = 32059, y = 32136, z = 9}}
 	},
-	-- Outer east limit tiles
+	-- Outer east limit
 	[50346] = {
 		itemId = false,
 		itemPos = {
@@ -890,7 +890,7 @@ TileAction = {
 			{x = 32129, y = 32198, z = 7}
 		}
 	},
-	-- Unholy crypt entrance tiles
+	-- Unholy crypt entrance
 	[50347] = {
 		itemId = false,
 		itemPos = {
@@ -900,7 +900,7 @@ TileAction = {
 			{x = 32132, y = 32204, z = 7}
 		}
 	},
-	-- Unholy crypt door entrance tiles
+	-- Unholy crypt door entrance
 	[50348] = {
 		itemId = 3152,
 		itemPos = {
@@ -908,7 +908,7 @@ TileAction = {
 			{x = 32147, y = 32187, z = 9}
 		}
 	},
-	-- Unholy crypt near sarcophagus tiles
+	-- Unholy crypt near sarcophagus
 	[50349] = {
 		itemId = false,
 		itemPos = {
@@ -916,7 +916,7 @@ TileAction = {
 			{x = 32140, y = 32203, z = 10}
 		}
 	},
-	-- Near north-west drawbridge tiles
+	-- Near north-west drawbridge
 	[50350] = {
 		itemId = false,
 		itemPos = {
@@ -926,12 +926,12 @@ TileAction = {
 			{x = 32094, y = 32147, z = 7}
 		}
 	},
-	-- North-west drawbridge south downstairs tiles
+	-- North-west drawbridge south downstairs
 	[50351] = {
 		itemId = 9043,
 		itemPos = {{x = 32065, y = 32156, z = 7}}
 	},
-	-- Orc fortress entrance tiles
+	-- Orc land entrance
 	[50352] = {
 		itemId = false,
 		itemPos = {
@@ -941,12 +941,111 @@ TileAction = {
 			{x = 32005, y = 32152, z = 7}
 		}
 	},
-	-- Wasp lair entrance tiles
+	-- Wasp lair entrance
 	[50353] = {
 		itemId = 9025,
 		itemPos = {
 			{x = 31999, y = 32142, z = 7},
 			{x = 32000, y = 32142, z = 7}
+		}
+	},
+	-- Academy downfloor trasure door entrance
+	[50354] = {
+		itemId = 414,
+		itemPos = {
+			{x = 32108, y = 32190, z = 8},
+			{x = 32109, y = 32190, z = 8},
+			{x = 32110, y = 32190, z = 8}
+		}
+	},
+	-- Orc fortress peeing area
+	[50355] = {
+		itemId = 194,
+		itemPos = {
+			{x = 31968, y = 32148, z = 7},
+			{x = 31969, y = 32148, z = 7}
+		}
+	},
+	-- Orc fortress entrance
+	[50356] = {
+		itemId = 194,
+		itemPos = {
+			{x = 31986, y = 32158, z = 7},
+			{x = 31986, y = 32159, z = 7}
+		}
+	},
+	-- Orc fortress near elite orc guard
+	[50357] = {
+		itemId = 194,
+		itemPos = {
+			{x = 31976, y = 32151, z = 7},
+			{x = 31978, y = 32151, z = 7},
+			{x = 31976, y = 32152, z = 7},
+			{x = 31978, y = 32152, z = 7},
+			{x = 31972, y = 32152, z = 7},
+			{x = 31973, y = 32152, z = 7},
+			{x = 31974, y = 32152, z = 7},
+			{x = 31975, y = 32152, z = 7},
+			{x = 31976, y = 32152, z = 7},
+			{x = 31978, y = 32152, z = 7},
+			{x = 31979, y = 32152, z = 7},
+			{x = 31980, y = 32152, z = 7},
+			{x = 31981, y = 32152, z = 7},
+			{x = 31982, y = 32152, z = 7}
+		}
+	},
+	-- Orc fortress in front elite orc guard
+	[50358] = {
+		itemId = 194,
+		itemPos = {
+			{x = 31977, y = 32151, z = 7},
+			{x = 31977, y = 32152, z = 7}
+		}
+	},
+	-- Orc fortress interior
+	[50359] = {
+		itemId = 9023,
+		itemPos = {{x = 31977, y = 32149, z = 8}}
+	},
+	-- Orc fortress interior kitchen
+	[50360] = {
+		itemId = false,
+		itemPos = {
+			{x = 31981, y = 32157, z = 8},
+			{x = 31981, y = 32158, z = 8},
+			{x = 31981, y = 32159, z = 8},
+			{x = 31981, y = 32160, z = 8},
+			{x = 31982, y = 32160, z = 8},
+			{x = 31983, y = 32160, z = 8},
+			{x = 31984, y = 32160, z = 8},
+			{x = 31985, y = 32160, z = 8},
+			{x = 31986, y = 32160, z = 8},
+			{x = 31987, y = 32160, z = 8},
+			{x = 31988, y = 32160, z = 8}
+		}
+	},
+	-- Orc fortress interior south path
+	[50361] = {
+		itemId = false,
+		itemPos = {
+			{x = 31978, y = 32173, z = 8},
+			{x = 31979, y = 32173, z = 8}
+		}
+	},
+	-- Orc fortress interior near south downstair
+	[50362] = {
+		itemId = 9021,
+		itemPos = {
+			{x = 31978, y = 32178, z = 8},
+			{x = 31979, y = 32178, z = 8}
+		}
+	},
+	-- Kraknaknork lair near room teleport
+	[50363] = {
+		itemId = false,
+		itemPos = {
+			{x = 31951, y = 32173, z = 10},
+			{x = 31951, y = 32174, z = 10}
 		}
 	}
 }

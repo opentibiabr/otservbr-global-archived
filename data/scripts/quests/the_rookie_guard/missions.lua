@@ -51,6 +51,16 @@ local missionTiles = {
 			states = {1},
 			message = "To reach the wasps' nests follow the path to the north and cross the bridge to the west as if you wanted to reach the spiders.",
 			arrowPosition = {x = 32090, y = 32165, z = 7}
+		},
+		{
+			mission = Storage.TheRookieGuard.Mission12,
+			states = {2},
+			extra = {
+				storage = Storage.TheRookieGuard.AcademyChest,
+				state = 1
+			},
+			message = "Follow the path to the north, cross the bridge to the south and walk west to reach the orc fortress.",
+			arrowPosition = {x = 32091, y = 32166, z = 7}
 		}
 	},
 	[50321] = {
@@ -69,7 +79,7 @@ local missionTiles = {
 			message = "This is not the way to the crypt. Go south to reach the graveyard."
 		}
 	},
-	-- Outer east tiles
+	-- Outer east
 	[50323] = {
 		{
 			mission = Storage.TheRookieGuard.Mission05,
@@ -111,6 +121,16 @@ local missionTiles = {
 			states = {1},
 			message = "The bank is below the academy. Go north and head down the stairs and to the right.",
 			arrowPosition = {x = 32097, y = 32197, z = 7}
+		},
+		{
+			mission = Storage.TheRookieGuard.Mission12,
+			states = {1},
+			extra = {
+				storage = Storage.TheRookieGuard.AcademyChest,
+				state = -1
+			},
+			message = "You don't have the bag with the items yet. Open the door in the basement of the academy to the left of Paulie to get them!",
+			arrowPosition = {x = 32097, y = 32197, z = 7}
 		}
 	},
 	-- Academy downstairs
@@ -135,15 +155,34 @@ local missionTiles = {
 			states = {1},
 			message = "Follow the path to the west to find the wasps' lair.",
 			arrowPosition = {x = 32063, y = 32159, z = 7}
+		},
+		{
+			mission = Storage.TheRookieGuard.Mission12,
+			states = {2},
+			extra = {
+				storage = Storage.TheRookieGuard.AcademyChest,
+				state = 1
+			},
+			message = "Follow the path to the west to reach the orc fortress.",
+			arrowPosition = {x = 32063, y = 32159, z = 7}
 		}
 	},
-	-- Orc fortress entrance tiles
+	-- Orc land entrance
 	[50352] = {
 		{
 			mission = Storage.TheRookieGuard.Mission11,
 			states = {1},
 			message = "This is not the way to the wasps' lair. Choose the northern path to reach it.",
 			arrowPosition = {x = 32003, y = 32148, z = 7}
+		},
+		{
+			mission = Storage.TheRookieGuard.Mission12,
+			states = {2},
+			extra = {
+				storage = Storage.TheRookieGuard.AcademyChest,
+				state = 1
+			},
+			message = "You're entering orcland."
 		}
 	}
 }
