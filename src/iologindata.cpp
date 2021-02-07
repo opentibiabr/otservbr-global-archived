@@ -238,7 +238,7 @@ bool IOLoginData::savePlayerPreyById(Player* player, uint32_t id)
     std::ostringstream querycheck;
     std::stringExtended query(1024);
     querycheck << "SELECT `bonus_type1` FROM `player_preytimes` WHERE `player_id` = " << id;
-     DBResult_ptr returnQuery = g_database().storeQuery(querycheck.str());
+    DBResult_ptr returnQuery = g_database().storeQuery(querycheck.str());
 
     if (!returnQuery) {
         query << "INSERT INTO `player_preytimes` (`player_id`, `bonus_type1`, `bonus_value1`, `bonus_name1`, `bonus_type2`, `bonus_value2`, `bonus_name2`, `bonus_type3`, `bonus_value3`, `bonus_name3`) VALUES (";
@@ -1046,7 +1046,7 @@ bool IOLoginData::savePlayer(Player* player)
         query << player->getGUID() << ", ";
         query << it.first << ", ";
         query << it.second << ")";
-	    g_database().executeQuery(query);
+        g_database().executeQuery(query);
     }
 
     // Learned spells
