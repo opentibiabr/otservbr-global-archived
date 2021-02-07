@@ -23,7 +23,7 @@ function mission9TheDeepestCatacombTeleport.onStepIn(creature, item, position, f
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		else
 			player:teleportTo(fromPosition, true)
-			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You don't have access to this area.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You don't have access to this area.")
 		end
 	elseif item.uid == 12130 then
 		for i = 1, #config.amphoraPositions do
@@ -32,7 +32,7 @@ function mission9TheDeepestCatacombTeleport.onStepIn(creature, item, position, f
 				player:teleportTo({x = 32852, y = 32544, z = 10})
 				position:sendMagicEffect(CONST_ME_TELEPORT)
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				player:sendTextMessage(MESSAGE_STATUS_SMALL,
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
 					"There are 4 large amphoras that must be broken in order to open the teleporter.")
 				return true
 			end

@@ -37,7 +37,7 @@ end
 local theApeMiss9 = Action()
 function theApeMiss9.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid ~= 1945 then
-		player:sendTextMessage(MESSAGE_INFO_DESCR, 'It doesn\'t move.')
+		player:sendTextMessage(MESSAGE_FAILURE, 'It doesn\'t move.')
 		return true
 	end
 

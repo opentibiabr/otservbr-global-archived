@@ -298,7 +298,7 @@ local bosses = {
 		rangeX = 6, rangeY = 5,
 		flamePosition = Position(33076, 31029, 12)
 	},
-	[17521] = {
+	[3260] = {
 		bossName = 'necropharus',
 		storage = 17521,
 		playerPosition = Position(33028, 32426, 12),
@@ -307,7 +307,7 @@ local bosses = {
 		rangeX = 6, rangeY = 5,
 		flamePosition = Position(33070, 31035, 12)
 	},
-	[17522] = {
+	[3261] = {
 		bossName = 'the horned fox',
 		storage = 17522,
 		playerPosition = Position(32458, 31994, 9),
@@ -316,7 +316,7 @@ local bosses = {
 		rangeX = 5, rangeY = 8,
 		flamePosition = Position(33070, 31029, 12)
 	},
-	[17523] = {
+	[3262] = {
 		bossName = 'lethal lissy',
 		storage = 17523,
 		playerPosition = Position(31976, 32896, 0),
@@ -369,6 +369,4 @@ for index, value in pairs(bosses) do
 	boss:uid(index)
 end
 
-boss:uid(3260, 3261, 3262)
-boss:aid(3244)
 boss:register()

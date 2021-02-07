@@ -7,7 +7,7 @@ function playerDeath.onDeath(player, corpse, killer, mostDamageKiller, unjustifi
 		nextUseStaminaTime[playerId] = nil
 	end
 
-	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You are dead.')
+	player:sendTextMessage(MESSAGE_BEYOND_LAST, 'You are dead.')
 	if player:getStorageValue(Storage.SvargrondArena.PitDoor) > 0 then
 		player:setStorageValue(Storage.SvargrondArena.PitDoor, 0)
 	end
