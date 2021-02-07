@@ -6,5 +6,5 @@
 		<parameter key="message_greet" value="Psst, not that loud."/>
 		<parameter key="message_farewell" value="Bye."/>
 		<parameter key="message_walkaway" value="Bye."/>
-</parameters>
+	</parameters>
 </npc>

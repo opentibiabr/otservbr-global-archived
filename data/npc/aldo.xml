@@ -8,7 +8,37 @@
 		<parameter key="message_walkaway" value="Yeah, get lost."/>
 		<parameter key="message_onsendtrade" value="Yeah, buy something."/>
 		<parameter key="module_shop" value="1"/>
-		<parameter key="shop_buyable" value="   Brass Helmet,2460,120;   Brass Legs,2478,195;   Chain Helmet,2458,52;   Chain Legs,2648,80;   Iron Helmet,2459,390;   Leather Boots,2643,10;   Leather Helmet,2461,12;   Leather Legs,2649,10;   Sandals,2642,2;   Soldier Helmet,2481,110;   Steel Helmet,2457,580;   Studded Helmet,2482,63;   Studded Legs,2468,50;   Viking Helmet,2473,265  "/>
-		<parameter key="shop_sellable" value="   Brass Helmet,2460,30;   Brass Legs,2478,49;   Chain Helmet,2458,17;   Chain Legs,2648,25;   Iron Helmet,2459,150;   Leather Boots,2643,2;   Leather Helmet,2461,4;   Leather Legs,2649,9;   Legion Helmet,2480,22;   Plate Legs,2647,115;   Small Axe,2559,5;   Soldier Helmet,2481,16;   Steel Helmet,2457,293;   Studded Helmet,2482,20;   Studded Legs,2468,15;   Viking Helmet,2473,66  "/>
+		<parameter key="shop_buyable" value="
+			brass helmet, 2460, 120;
+			brass legs, 2478, 195;
+			chain helmet, 2458, 52;
+			chain legs, 2648, 80;
+			iron helmet, 2459, 390;
+			leather boots, 2643, 10;
+			leather helmet, 2461, 12;
+			leather legs, 2649, 10;
+			sandals, 2642, 2;
+			soldier helmet, 2481, 110;
+			steel helmet, 2457, 580;
+			studded helmet, 2482, 63;
+			studded legs, 2468, 50;
+			viking helmet, 2473, 265;"/>
+		<parameter key="shop_sellable" value="
+			brass helmet, 2460, 30;
+			brass legs, 2478, 49;
+			chain helmet, 2458, 17;
+			chain legs, 2648, 25;
+			iron helmet, 2459, 150;
+			leather boots, 2643, 2;
+			leather helmet, 2461, 4;
+			leather legs, 2649, 9;
+			legion helmet, 2480, 22;
+			plate legs, 2647, 115;
+			small axe, 2559, 5;
+			soldier helmet, 2481, 16;
+			steel helmet, 2457, 293;
+			studded helmet, 2482, 20;
+			studded legs, 2468, 15;
+			viking helmet, 2473, 66;"/>
 	</parameters>
 </npc>
