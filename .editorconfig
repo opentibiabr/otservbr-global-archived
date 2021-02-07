@@ -22,9 +22,8 @@ indent_size = 2
 indent_style = space
 indent_size = 2
 
-# Google Style
 [*.{cpp,hpp,h}]
-indent_style = space
+indent_style = tab
 indent_size = 2
 indent_brace_style = K&R
 spaces_around_brackets = none
