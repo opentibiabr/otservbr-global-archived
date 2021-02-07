@@ -66,6 +66,8 @@ find_package(ZLIB REQUIRED)
 find_package(MySQL REQUIRED)
 find_package(Threads REQUIRED)
 find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams date_time REQUIRED)
+find_package(CURL REQUIRED)
+find_package(jsoncpp REQUIRED)
 
 # Selects LuaJIT if user defines or auto-detected
 if (DEFINED USE_LUAJIT AND NOT USE_LUAJIT)
@@ -262,22 +264,11 @@ endif()
 # *****************************************************************************
 # Includes & Libraries
 # *****************************************************************************
-include_directories(SYSTEM
-                    ${MYSQL_INCLUDE_DIR}
-                    ${LUA_INCLUDE_DIR}
-                    ${Boost_INCLUDE_DIRS}
-                    ${PUGIXML_INCLUDE_DIR}
-                    ${GMP_INCLUDE_DIR}
-                    ${ZLIB_INCLUDE_DIR}
-                    ${CRYPTOPP_INCLUDE_DIR})
+include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR}
+                    ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR}
+                    ${CRYPTOPP_INCLUDE_DIR} ${CURL_INCLUDE_DIRS} ${GMP_INCLUDE_DIRS} $<TARGET_PROPERTY:jsoncpp_lib,INTERFACE_INCLUDE_DIRECTORIES>)
 
-target_link_libraries(otbr otbr_lib
-                      ${MYSQL_CLIENT_LIBS}
-                      ${LUA_LIBRARIES}
-                      ${Boost_LIBRARIES}
-                      ${Boost_FILESYSTEM_LIBRARY}
-                      ${GMP_LIBRARIES}
-                      ${PUGIXML_LIBRARIES}
-                      ${ZLIB_LIBRARY}
-                      ${CRYPTOPP_LIBRARIES}
-                      ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(otbr otbr_lib ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
+                      ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY}
+                      ${PUGIXML_LIBRARIES} ${CRYPTOPP_LIBRARIES}
+                      ${CMAKE_THREAD_LIBS_INIT} ${CURL_LIBRARIES} ${GMP_LIBRARIES} jsoncpp_lib)

@@ -30,19 +30,19 @@ local foundItem = data[item.itemid]
 	if (player:getStorageValue(foundItem.ExhaustStor)) < os.time() then
 		if foundItem.Type == "mana" then
 			player:addMana(player:getMaxMana())	
-			player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your mana has been refilled.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your mana has been refilled.")
 		elseif foundItem.Type == "health" then
 			player:addHealth(player:getMaxHealth())
-			player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your health has been refilled.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your health has been refilled.")
 		elseif foundItem.Type == "skill" then
 			player:addCondition(lemon)
-			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You feel more focused.")
+			player:sendTextMessage(MESSAGE_FAILURE, "You feel more focused.")
 		end
 		player:say("Mmmm.",TALKTYPE_ORANGE_1)
 		item:remove(1)
 		player:setStorageValue(foundItem.ExhaustStor, os.time() + (foundItem.timestamp * 60))	
 	else
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You need to wait before using it again.")
+		player:sendTextMessage(MESSAGE_FAILURE, "You need to wait before using it again.")
 	end
 	return true
 end

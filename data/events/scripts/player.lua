@@ -222,7 +222,7 @@ function Player:onLook(thing, position, distance)
 			end
 		end
 	end
-	self:sendTextMessage(MESSAGE_INFO_DESCR, description)
+	self:sendTextMessage(MESSAGE_LOOK, description)
 end
 
 function Player:onLookInBattleList(creature, distance)
@@ -253,11 +253,11 @@ function Player:onLookInBattleList(creature, distance)
 			description = string.format("%s\nIP: %s", description, Game.convertIpToString(creature:getIp()))
 		end
 	end
-	self:sendTextMessage(MESSAGE_INFO_DESCR, description)
+	self:sendTextMessage(MESSAGE_LOOK, description)
 end
 
 function Player:onLookInTrade(partner, item, distance)
-	self:sendTextMessage(MESSAGE_INFO_DESCR, "You see " .. item:getDescription(distance))
+	self:sendTextMessage(MESSAGE_LOOK, "You see " .. item:getDescription(distance))
 end
 
 function Player:onLookInShop(itemType, count)
@@ -444,7 +444,7 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		if moveItem then
 			local parent = item:getParent()
 			if parent:getSize() == parent:getCapacity() then
-				self:sendTextMessage(MESSAGE_STATUS_SMALL, Game.getReturnMessage(RETURNVALUE_CONTAINERNOTENOUGHROOM))
+				self:sendTextMessage(MESSAGE_FAILURE, Game.getReturnMessage(RETURNVALUE_CONTAINERNOTENOUGHROOM))
 				return false
 			else
 				return moveItem:moveTo(parent)
@@ -538,13 +538,13 @@ end
 function Player:onReportRuleViolation(targetName, reportType, reportReason, comment, translation)
 	local name = self:getName()
 	if hasPendingReport(name, targetName, reportType) then
-		self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your report is being processed.")
+		self:sendTextMessage(MESSAGE_REPORT, "Your report is being processed.")
 		return
 	end
 
 	local file = io.open(string.format("data/reports/players/%s-%s-%d.txt", name, targetName, reportType), "a")
 	if not file then
-		self:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+		self:sendTextMessage(MESSAGE_REPORT,
 			"There was an error when processing your report, please contact a gamemaster.")
 		return
 	end
@@ -561,7 +561,7 @@ function Player:onReportRuleViolation(targetName, reportType, reportReason, comm
 	end
 	io.write("------------------------------\n")
 	io.close(file)
-	self:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Thank you for reporting %s. Your report \z
+	self:sendTextMessage(MESSAGE_REPORT, string.format("Thank you for reporting %s. Your report \z
 	will be processed by %s team as soon as possible.", targetName, configManager.getString(configKeys.SERVER_NAME)))
 	return
 end
@@ -575,7 +575,7 @@ function Player:onReportBug(message, position, category)
 	local file = io.open("data/reports/bugs/" .. name .. " report.txt", "a")
 
 	if not file then
-		self:sendTextMessage(MESSAGE_EVENT_DEFAULT,
+		self:sendTextMessage(MESSAGE_REPORT,
 			"There was an error when processing your report, please contact a gamemaster.")
 		return true
 	end
@@ -591,7 +591,7 @@ function Player:onReportBug(message, position, category)
 	io.write("Comment: " .. message .. "\n")
 	io.close(file)
 
-	self:sendTextMessage(MESSAGE_EVENT_DEFAULT,
+	self:sendTextMessage(MESSAGE_REPORT,
 		"Your report has been sent to " .. configManager.getString(configKeys.SERVER_NAME) .. ".")
 	return true
 end

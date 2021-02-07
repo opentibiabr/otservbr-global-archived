@@ -45,11 +45,11 @@ void PrivateChatChannel::invitePlayer(const Player& player, Player& invitePlayer
 
 	std::stringExtended ss(NETWORKMESSAGE_PLAYERNAME_MAXLENGTH + 42);
 	ss << player.getName() << " invites you to " << (player.getSex() == PLAYERSEX_FEMALE ? "her" : "his") << " private chat channel.";
-	invitePlayer.sendTextMessage(MESSAGE_INFO_DESCR, ss);
+	invitePlayer.sendTextMessage(MESSAGE_PARTY_MANAGEMENT, ss);
 
 	ss.clear();
 	ss << invitePlayer.getName() << " has been invited.";
-	player.sendTextMessage(MESSAGE_INFO_DESCR, ss);
+	player.sendTextMessage(MESSAGE_PARTY_MANAGEMENT, ss);
 
 	for (const auto& it : users) {
 		it.second->sendChannelEvent(id, invitePlayer.getName(), CHANNELEVENT_INVITE);
@@ -66,7 +66,7 @@ void PrivateChatChannel::excludePlayer(const Player& player, Player& excludePlay
 
 	std::stringExtended ss(NETWORKMESSAGE_PLAYERNAME_MAXLENGTH + 32);
 	ss << excludePlayer.getName() << " has been excluded.";
-	player.sendTextMessage(MESSAGE_INFO_DESCR, ss);
+	player.sendTextMessage(MESSAGE_PARTY_MANAGEMENT, ss);
 
 	excludePlayer.sendClosePrivate(id);
 

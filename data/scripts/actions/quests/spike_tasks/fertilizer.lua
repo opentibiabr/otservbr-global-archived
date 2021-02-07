@@ -27,7 +27,7 @@ function spikeTasksFertilizer.onUse(player, item, fromPosition, target, toPositi
 
 	if sum == 4 then
 		item:remove()
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "Report the task to Gnombold.")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Report the task to Gnombold.")
 	end
 	return toPosition:sendMagicEffect(46)
 end
