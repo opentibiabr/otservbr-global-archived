@@ -31,6 +31,9 @@
 void printXMLError(const std::string& where, const std::string& fileName, const pugi::xml_parse_result& result);
 
 std::string transformToSHA1(const std::string& input);
+
+uint16_t getStashSize(StashItemList itemList);
+
 std::string generateToken(const std::string& secret, uint32_t ticks);
 
 void replaceString(std::string& str, const std::string& sought, const std::string& replacement);

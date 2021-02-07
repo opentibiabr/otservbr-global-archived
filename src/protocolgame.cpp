@@ -39,7 +39,6 @@
 #include "spells.h"
 #include "weapons.h"
 #include "imbuements.h"
-#include "iostash.h"
 #include "iobestiary.h"
 #include "monsters.h"
 
@@ -3471,7 +3470,7 @@ void ProtocolGame::sendMarketEnter(uint32_t depotId)
 			depotItems[itemType.wareId] += Item::countByType(item, -1);
 		}
 	} while (!containerList.empty());
-	StashItemList stashToSend = IOStash::getStoredItems(player->guid);
+	StashItemList stashToSend = player->getStashItems();
 	uint16_t size = 0;
 	for (auto item : stashToSend)
 	{
@@ -5633,6 +5632,10 @@ void ProtocolGame::sendImbuementWindow(Item *item)
 			if (!needItems.count(itm.first))
 			{
 				needItems[itm.first] = player->getItemTypeCount(itm.first);
+				uint32_t stashCount = player->getStashItemCount(Item::items[itm.first].clientId);
+				if (stashCount > 0) {
+					needItems[itm.first] += stashCount;
+				}
 			}
 		}
 	}
@@ -5956,7 +5959,7 @@ void ProtocolGame::sendOpenStash()
 
 void ProtocolGame::AddPlayerStowedItems(NetworkMessage &msg)
 {
-	StashItemList list = IOStash::getStoredItems(player->guid);
+	StashItemList list = player->getStashItems();
 
 	msg.add<uint16_t>(list.size());
 
@@ -5965,7 +5968,7 @@ void ProtocolGame::AddPlayerStowedItems(NetworkMessage &msg)
 		msg.add<uint16_t>(item.first);
 		msg.add<uint32_t>(item.second);
 	}
-	msg.add<uint16_t>(g_config().getNumber(ConfigManager::STASH_ITEMS) - IOStash::getStashSize(list));
+	msg.add<uint16_t>(g_config().getNumber(ConfigManager::STASH_ITEMS) - getStashSize(list));
 }
 
 void ProtocolGame::parseStashAction(NetworkMessage &msg)

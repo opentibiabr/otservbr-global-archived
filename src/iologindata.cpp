@@ -238,7 +238,7 @@ bool IOLoginData::savePlayerPreyById(Player* player, uint32_t id)
     std::ostringstream querycheck;
     std::stringExtended query(1024);
     querycheck << "SELECT `bonus_type1` FROM `player_preytimes` WHERE `player_id` = " << id;
-    DBResult_ptr returnQuery = g_database().storeQuery(querycheck.str());
+     DBResult_ptr returnQuery = g_database().storeQuery(querycheck.str());
 
     if (!returnQuery) {
         query << "INSERT INTO `player_preytimes` (`player_id`, `bonus_type1`, `bonus_value1`, `bonus_name1`, `bonus_type2`, `bonus_value2`, `bonus_name2`, `bonus_type3`, `bonus_value3`, `bonus_name3`) VALUES (";
@@ -514,6 +514,15 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
                 guild->setMemberCount(result->getNumber<uint32_t>("members"));
             }
         }
+    }
+
+    // Stash load items
+    query.clear();
+    query << "SELECT `item_count`, `item_id`  FROM `player_stash` WHERE `player_id` = " << player->getGUID();
+    if ((result = g_database().storeQuery(query))) {
+        do {
+            player->addItemOnStash(result->getNumber<uint16_t>("item_id"), result->getNumber<uint32_t>("item_count"));
+        } while (result->next());
     }
     
     // Bestiary charms
@@ -1024,6 +1033,20 @@ bool IOLoginData::savePlayer(Player* player)
 
     if (!g_database().executeQuery(query)) {
         return false;
+    }
+
+    // Stash save items
+    query.clear();
+    query << "DELETE FROM `player_stash` WHERE `player_id` = " << player->getGUID();
+    g_database().executeQuery(query);
+
+    for (auto it : player->getStashItems()) {
+        query.clear();
+        query << "INSERT INTO `player_stash` (`player_id`,`item_id`,`item_count`) VALUES (";
+        query << player->getGUID() << ", ";
+        query << it.first << ", ";
+        query << it.second << ")";
+	    g_database().executeQuery(query);
     }
 
     // Learned spells

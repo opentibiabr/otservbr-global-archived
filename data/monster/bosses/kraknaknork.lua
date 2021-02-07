@@ -77,9 +77,9 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -10, condition = {type = CONDITION_POISON, totalDamage = 5, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -1, maxDamage = -15, length = 7, spread = 3, effect = CONST_ME_ICEAREA, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -1, maxDamage = -10, length = 6, spread = 3, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_PHYSICALDAMAGE, minDamage = -1, maxDamage = -12, length = 7, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
+	{name ="kraknaknork ice wave", interval = 2000, chance = 10, minDamage = -1, maxDamage = -15, target = false},
+	{name ="kraknaknork poison wave", interval = 2000, chance = 10, minDamage = -1, maxDamage = -10, target = false},
+	{name ="kraknaknork explosion wave", interval = 2000, chance = 10, minDamage = 0, maxDamage = -12, target = false},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -8, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = false},
 	{name ="speed", interval = 1000, chance = 6, speedChange = -100, range = 7, effect = CONST_ME_MAGIC_RED, target = false, duration = 20000},
 	{name ="outfit", interval = 2000, chance = 10, range = 7, target = false, duration = 3000, outfitMonster = "Sheep"}

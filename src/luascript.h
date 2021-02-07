@@ -948,6 +948,7 @@ class LuaScriptInterface
 		static int luaPlayerSetOfflineTrainingSkill(lua_State* L);
 
 		static int luaPlayerGetItemCount(lua_State* L);
+		static int luaPlayerGetStashItemCount(lua_State* L);
 		static int luaPlayerGetItemById(lua_State* L);
 
 		static int luaPlayerGetVocation(lua_State* L);
@@ -1000,6 +1001,7 @@ class LuaScriptInterface
 
 		static int luaPlayerAddItem(lua_State* L);
 		static int luaPlayerAddItemEx(lua_State* L);
+		static int luaPlayerRemoveStashItem(lua_State* L);
 		static int luaPlayerRemoveItem(lua_State* L);
 		static int luaPlayerSendContainer(lua_State* L);
 
