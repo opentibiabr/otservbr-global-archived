@@ -60,7 +60,7 @@ bool Ban::acceptConnection(uint32_t clientIP)
 
 bool IOBan::isAccountBanned(uint32_t accountId, BanInfo& banInfo)
 {
-	std::stringExtended query(1024);
+	std::stringExtended query(256);
 	query << "SELECT `reason`, `expires_at`, `banned_at`, `banned_by`, (SELECT `name` FROM `players` WHERE `id` = `banned_by`) AS `name` FROM `account_bans` WHERE `account_id` = " << accountId << " LIMIT 1";
 
 	DBResult_ptr result = g_database().storeQuery(query);
@@ -72,7 +72,7 @@ bool IOBan::isAccountBanned(uint32_t accountId, BanInfo& banInfo)
 	if (expiresAt != 0 && time(nullptr) > expiresAt) {
 		// Move the ban to history if it has expired
 		query.clear();
-		query << "INSERT INTO `account_ban_history` (`account_id`, `reason`, `banned_at`, `expired_at`, `banned_by`) VALUES (" << accountId << ',' << g_database().escapeString(result->getString("reason")) << ',' << result->getNumber<time_t>("banned_at") << ',' << expiresAt << ',' << result->getNumber<uint32_t>("banned_by") << ')';
+		query << "INSERT INTO `account_ban_history` (`account_id`, `reason`, `banned_at`, `expired_at`, `banned_by`) VALUES (" << accountId << ',' << g_database().escapeString(result->getString("reason")) << ',' << expiresAt << ',' << result->getNumber<uint32_t>("banned_by") << ')';
 		g_databaseTasks().addTask(query);
 
 		query.clear();
