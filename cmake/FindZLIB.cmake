@@ -22,7 +22,7 @@ This module defines the following variables:
 
 ::
 
-  ZLIB_INCLUDE_DIRS   - where to find zlib.h, etc.
+  ZLIB_INCLUDE_DIRSS   - where to find zlib.h, etc.
   ZLIB_LIBRARIES      - List of libraries when using zlib.
   ZLIB_FOUND          - True if zlib found.
 
@@ -55,89 +55,47 @@ A user may set ``ZLIB_ROOT`` to a zlib installation root to tell this
 module where to look.
 #]=======================================================================]
 
-set(_ZLIB_SEARCHES)
+FIND_PATH(ZLIB_INCLUDE_DIRS NAMES zlib.h)
+SET(_ZLIB_STATIC_LIBS libz.a libzlib.a zlib1.a)
+SET(_ZLIB_SHARED_LIBS libz.dll.a zdll zlib zlib1 z)
+IF(USE_STATIC_LIBS)
+    FIND_LIBRARY(ZLIB_LIBRARIES NAMES ${_ZLIB_STATIC_LIBS} ${_ZLIB_SHARED_LIBS})
+ELSE()
+    FIND_LIBRARY(ZLIB_LIBRARIES NAMES ${_ZLIB_SHARED_LIBS} ${_ZLIB_STATIC_LIBS})
+ENDIF()
 
-# Search ZLIB_ROOT first if it is set.
-if(ZLIB_ROOT)
-  set(_ZLIB_SEARCH_ROOT PATHS ${ZLIB_ROOT} NO_DEFAULT_PATH)
-  list(APPEND _ZLIB_SEARCHES _ZLIB_SEARCH_ROOT)
-endif()
-
-# Normal search.
-set(_ZLIB_x86 "(x86)")
-set(_ZLIB_SEARCH_NORMAL
-    PATHS "[HKEY_LOCAL_MACHINE\\SOFTWARE\\GnuWin32\\Zlib;InstallPath]"
-          "$ENV{ProgramFiles}/zlib"
-          "$ENV{ProgramFiles${_ZLIB_x86}}/zlib")
-unset(_ZLIB_x86)
-list(APPEND _ZLIB_SEARCHES _ZLIB_SEARCH_NORMAL)
-
-set(ZLIB_NAMES z zlib zdll zlib1 zlibstatic)
-set(ZLIB_NAMES_DEBUG zd zlibd zdlld zlibd1 zlib1d zlibstaticd)
-
-# Try each search configuration.
-foreach(search ${_ZLIB_SEARCHES})
-  find_path(ZLIB_INCLUDE_DIR NAMES zlib.h ${${search}} PATH_SUFFIXES include)
-endforeach()
-
-unset(ZLIB_NAMES)
-unset(ZLIB_NAMES_DEBUG)
-
-mark_as_advanced(ZLIB_INCLUDE_DIR)
-
-if(ZLIB_INCLUDE_DIR AND EXISTS "${ZLIB_INCLUDE_DIR}/zlib.h")
-    file(STRINGS "${ZLIB_INCLUDE_DIR}/zlib.h" ZLIB_H REGEX "^#define ZLIB_VERSION \"[^\"]*\"$")
-
-    string(REGEX REPLACE "^.*ZLIB_VERSION \"([0-9]+).*$" "\\1" ZLIB_VERSION_MAJOR "${ZLIB_H}")
-    string(REGEX REPLACE "^.*ZLIB_VERSION \"[0-9]+\\.([0-9]+).*$" "\\1" ZLIB_VERSION_MINOR  "${ZLIB_H}")
-    string(REGEX REPLACE "^.*ZLIB_VERSION \"[0-9]+\\.[0-9]+\\.([0-9]+).*$" "\\1" ZLIB_VERSION_PATCH "${ZLIB_H}")
-    set(ZLIB_VERSION_STRING "${ZLIB_VERSION_MAJOR}.${ZLIB_VERSION_MINOR}.${ZLIB_VERSION_PATCH}")
-
-    # only append a TWEAK version if it exists:
-    set(ZLIB_VERSION_TWEAK "")
-    if( "${ZLIB_H}" MATCHES "ZLIB_VERSION \"[0-9]+\\.[0-9]+\\.[0-9]+\\.([0-9]+)")
-        set(ZLIB_VERSION_TWEAK "${CMAKE_MATCH_1}")
-        string(APPEND ZLIB_VERSION_STRING ".${ZLIB_VERSION_TWEAK}")
-    endif()
-
-    set(ZLIB_MAJOR_VERSION "${ZLIB_VERSION_MAJOR}")
-    set(ZLIB_MINOR_VERSION "${ZLIB_VERSION_MINOR}")
-    set(ZLIB_PATCH_VERSION "${ZLIB_VERSION_PATCH}")
-endif()
-
-INCLUDE(FindPackageHandleStandardArgs)
-FIND_PACKAGE_HANDLE_STANDARD_ARGS(ZLIB REQUIRED_VARS ZLIB_LIBRARY ZLIB_INCLUDE_DIR
-                                       VERSION_VAR ZLIB_VERSION_STRING)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(ZLIB DEFAULT_MSG ZLIB_LIBRARIES ZLIB_INCLUDE_DIR)
+MARK_AS_ADVANCED(ZLIB_LIBRARIES ZLIB_INCLUDE_DIR)
 
 if(ZLIB_FOUND)
-    set(ZLIB_INCLUDE_DIRS ${ZLIB_INCLUDE_DIR})
+    set(ZLIB_INCLUDE_DIRSS ${ZLIB_INCLUDE_DIRS})
 
     if(NOT ZLIB_LIBRARIES)
-      set(ZLIB_LIBRARIES ${ZLIB_LIBRARY})
+      set(ZLIB_LIBRARIES ${ZLIB_LIBRARIES})
     endif()
 
     if(NOT TARGET ZLIB::ZLIB)
       add_library(ZLIB::ZLIB UNKNOWN IMPORTED)
       set_target_properties(ZLIB::ZLIB PROPERTIES
-        INTERFACE_INCLUDE_DIRECTORIES "${ZLIB_INCLUDE_DIRS}")
+        INTERFACE_INCLUDE_DIRECTORIES "${ZLIB_INCLUDE_DIRSS}")
 
-      if(ZLIB_LIBRARY_RELEASE)
+      if(ZLIB_LIBRARIES_RELEASE)
         set_property(TARGET ZLIB::ZLIB APPEND PROPERTY
           IMPORTED_CONFIGURATIONS RELEASE)
         set_target_properties(ZLIB::ZLIB PROPERTIES
-          IMPORTED_LOCATION_RELEASE "${ZLIB_LIBRARY_RELEASE}")
+          IMPORTED_LOCATION_RELEASE "${ZLIB_LIBRARIES_RELEASE}")
       endif()
 
-      if(ZLIB_LIBRARY_DEBUG)
+      if(ZLIB_LIBRARIES_DEBUG)
         set_property(TARGET ZLIB::ZLIB APPEND PROPERTY
           IMPORTED_CONFIGURATIONS DEBUG)
         set_target_properties(ZLIB::ZLIB PROPERTIES
-          IMPORTED_LOCATION_DEBUG "${ZLIB_LIBRARY_DEBUG}")
+          IMPORTED_LOCATION_DEBUG "${ZLIB_LIBRARIES_DEBUG}")
       endif()
 
-      if(NOT ZLIB_LIBRARY_RELEASE AND NOT ZLIB_LIBRARY_DEBUG)
+      if(NOT ZLIB_LIBRARIES_RELEASE AND NOT ZLIB_LIBRARIES_DEBUG)
         set_property(TARGET ZLIB::ZLIB APPEND PROPERTY
-          IMPORTED_LOCATION "${ZLIB_LIBRARY}")
+          IMPORTED_LOCATION "${ZLIB_LIBRARIES}")
       endif()
     endif()
 endif()
