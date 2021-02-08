@@ -42,8 +42,7 @@ function arenaPit.onStepIn(creature, item, position, fromPosition)
 		end
 
 		player:setStorageValue(Storage.SvargrondArena.Arena, player:getStorageValue(Storage.SvargrondArena.Arena) + 1)
-		player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE,
-			"Congratulations! You completed " .. ARENA[arenaId].name .. " arena, you should take your reward now.")
+		player:say("Congratulations! You completed " .. ARENA[arenaId].name .. " arena, you should take your reward now.")
 		player:setStorageValue(ARENA[arenaId].questLog, 2)
 		player:addAchievement(ARENA[arenaId].achievement)
 		SvargrondArena.cancelEvents(playerId)

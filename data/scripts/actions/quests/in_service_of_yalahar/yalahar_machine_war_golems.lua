@@ -35,7 +35,7 @@ function inServiceYalaharWarGolem.onUse(player, item, fromPosition, target, toPo
 	end
 
 	if player:getItemCount(9690) < 4 then
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You don\'t have enough gear wheels to activate the machine.')
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You don\'t have enough gear wheels to activate the machine.')
 		return true
 	end
 

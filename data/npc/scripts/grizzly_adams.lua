@@ -128,15 +128,15 @@ end
 local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
 	local player = Player(cid)
 	if not ignoreCap and player:getFreeCapacity() < ItemType(items[item].id):getWeight(amount) then
-		return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough cap.")
+		return player:sendTextMessage(MESSAGE_FAILURE, "You don't have enough cap.")
 	end
 	if items[item].buy then
 		if player:removeMoneyNpc(amount * items[item].buy) then
 			player:addItem(items[item].id, amount)
-			return player:sendTextMessage(MESSAGE_INFO_DESCR,
+			return player:sendTextMessage(MESSAGE_TRADE,
 						"Bought "..amount.."x "..items[item].name.." for "..items[item].buy * amount.." gold coins.")
 		else
-			return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough money.")
+			return player:sendTextMessage(MESSAGE_FAILURE, "You don't have enough money.")
 		end
 	end
 	return true
@@ -147,10 +147,10 @@ local function onSell(cid, item, subType, amount, ignoreCap, inBackpacks)
 	if items[item].sell then
 		if player:removeItem(items[item].id, amount) then
 			player:addMoney(items[item].sell * amount)
-			return player:sendTextMessage(MESSAGE_INFO_DESCR,
+			return player:sendTextMessage(MESSAGE_TRADE,
 						"Sold "..amount.."x "..items[item].name.." for "..items[item].sell * amount.." gold coins.")
 		else
-			return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have the items you're trying to sell.")
+			return player:sendTextMessage(MESSAGE_TRADE, "You don't have the items you're trying to sell.")
 		end
 	end
 	return true

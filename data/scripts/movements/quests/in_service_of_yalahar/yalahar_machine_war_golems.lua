@@ -29,7 +29,7 @@ function yalaharMachineWarGolems.onStepIn(creature, item, position, fromPosition
 	end
 
 	if machine.storage and Game.getStorageValue(machine.storage) ~= 1 then
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, "The machines are not activated.")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The machines are not activated.")
 		player:teleportTo(Position(32875, 31321, 10))
 		position:sendMagicEffect(CONST_ME_POFF)
 		return true

@@ -13,7 +13,7 @@ function middleSpikeKill.onKill(creature, target)
 				creature:setStorageValue(SPIKE_MIDDLE_KILL_MAIN, sum)
 				creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have slayed " .. sum .. " out of 7 Crystalcrushers.")
 				if sum == 7 then
-					creature:sendTextMessage(MESSAGE_INFO_DESCR, "Report the task to Gnombold.")
+					creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Report the task to Gnombold.")
 				end
 			end
 		end

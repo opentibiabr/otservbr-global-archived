@@ -12,10 +12,10 @@ function spikeTasksNests.onUse(player, item, fromPosition, target, toPosition, i
 
 	local sum = player:getStorageValue(SPIKE_MIDDLE_NEST_MAIN) + 1
 	player:setStorageValue(SPIKE_MIDDLE_NEST_MAIN, sum)
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, "You have destroyed a monster nest.")
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have destroyed a monster nest.")
 
 	if sum == 8 then
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "Report the task to Gnombold.")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Report the task to Gnombold.")
 	end
 
 	if math.random(100) > 60 then

@@ -32,7 +32,7 @@ local magicRateDefault = configManager.getNumber(configKeys.RATE_MAGIC)
 
 local function removeExerciseWeapon(player, exercise)
     exercise:remove(1)
-    player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training weapon vanished.")
+    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your training weapon vanished.")
     stopEvent(training)
     player:setStorageValue(Storage.isTraining,0)
     player:setTraining(false)
@@ -87,21 +87,21 @@ local function startTraining(playerId, startPosition, itemid, tilePosition, bonu
                     end
                 end
             else
-                player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
+                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your training has stopped.")
                 stopEvent(training)
                 player:setStorageValue(Storage.isTraining,0)
                 player:setTraining(false)
             end
         else
             stopEvent(training)
-            player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your training has stopped.")
             player:setStorageValue(Storage.isTraining, 0)
             player:setTraining(false)
         end
     else
         stopEvent(training)
         if player then
-            player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your training has stopped.")
             player:setStorageValue(Storage.isTraining,0)
             player:setTraining(false)
         end
@@ -114,25 +114,25 @@ local exerciseTraining = Action()
 function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     local startPos = player:getPosition()
     if player:getStorageValue(Storage.isTraining) == 1 then
-        player:sendTextMessage(MESSAGE_INFO_DESCR, "You are already training.")
+        player:sendTextMessage(MESSAGE_FAILURE, "You are already training.")
         return false
     end
     if target:isItem() then
         if isInArray(houseDummies,target:getId()) then
             if not skills[item.itemid].range and (startPos:getDistance(target:getPosition()) > 1) then
-                player:sendTextMessage(MESSAGE_INFO_DESCR, "Get closer to the dummy.")
+                player:sendTextMessage(MESSAGE_FAILURE, "Get closer to the dummy.")
                 stopEvent(training)
                 return true
             end
-            player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You started training.")
             startTraining(player:getId(),startPos,item.itemid,target:getPosition(), true, target:getId())
         elseif isInArray(freeDummies, target:getId()) then
             if not skills[item.itemid].range and (startPos:getDistance(target:getPosition()) > 1) then
-                player:sendTextMessage(MESSAGE_INFO_DESCR, "Get closer to the dummy.")
+                player:sendTextMessage(MESSAGE_FAILURE, "Get closer to the dummy.")
                 stopEvent(training)
                 return true
             end
-            player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You started training.")
             startTraining(player:getId(),startPos,item.itemid,target:getPosition(), false, target:getId())
         end
     end

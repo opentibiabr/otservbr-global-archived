@@ -34,7 +34,6 @@
 #include "movement.h"
 #include "scheduler.h"
 #include "weapons.h"
-#include "iostash.h"
 #include "iobestiary.h"
 
 extern ConfigManager g_config;
@@ -1158,7 +1157,7 @@ void Player::sendImbuementWindow(Item* item)
 	}
 
 	if (item->getTopParent() != this) {
-		this->sendTextMessage(MESSAGE_STATUS_SMALL,
+		this->sendTextMessage(MESSAGE_FAILURE,
 			"You have to pick up the item to imbue it.");
 		return;
 	}
@@ -1166,7 +1165,7 @@ void Player::sendImbuementWindow(Item* item)
 	const ItemType& it = Item::items[item->getID()];
 	uint8_t slot = it.imbuingSlots;
 	if (slot <= 0 ) {
-		this->sendTextMessage(MESSAGE_STATUS_SMALL, "This item is not imbuable.");
+		this->sendTextMessage(MESSAGE_FAILURE, "This item is not imbuable.");
 		return;
 	}
 
@@ -1357,7 +1356,7 @@ void Player::onAttackedCreatureDisappear(bool isLogout)
 	sendCancelTarget();
 
 	if (!isLogout) {
-		sendTextMessage(MESSAGE_STATUS_SMALL, "Target lost.");
+		sendTextMessage(MESSAGE_FAILURE, "Target lost.");
 	}
 }
 
@@ -1366,7 +1365,7 @@ void Player::onFollowCreatureDisappear(bool isLogout)
 	sendCancelTarget();
 
 	if (!isLogout) {
-		sendTextMessage(MESSAGE_STATUS_SMALL, "Target lost.");
+		sendTextMessage(MESSAGE_FAILURE, "Target lost.");
 	}
 }
 
@@ -1783,7 +1782,7 @@ void Player::onThink(uint32_t interval)
 		} else if (client && idleTime == 60000 * kickAfterMinutes) {
 			std::ostringstream ss;
 			ss << "There was no variation in your behaviour for " << kickAfterMinutes << " minutes. You will be disconnected in one minute if there is no change in your actions until then.";
-			client->sendTextMessage(TextMessage(MESSAGE_STATUS_WARNING, ss.str()));
+			client->sendTextMessage(TextMessage(MESSAGE_ADMINISTRADOR, ss.str()));
 		}
 	}
 
@@ -1841,7 +1840,7 @@ void Player::removeMessageBuffer()
 
 			std::ostringstream ss;
 			ss << "You are muted for " << muteTime << " seconds.";
-			sendTextMessage(MESSAGE_STATUS_SMALL, ss.str());
+			sendTextMessage(MESSAGE_FAILURE, ss.str());
 		}
 	}
 }
@@ -2538,9 +2537,9 @@ void Player::notifyStatusChange(Player* loginPlayer, VipStatus_t status, bool me
 
 	if (message) {
 		if (status == VIPSTATUS_ONLINE) {
-			client->sendTextMessage(TextMessage(MESSAGE_STATUS_SMALL, loginPlayer->getName() + " has logged in."));
+			client->sendTextMessage(TextMessage(MESSAGE_FAILURE, loginPlayer->getName() + " has logged in."));
 		} else if (status == VIPSTATUS_OFFLINE) {
-			client->sendTextMessage(TextMessage(MESSAGE_STATUS_SMALL, loginPlayer->getName() + " has logged out."));
+			client->sendTextMessage(TextMessage(MESSAGE_FAILURE, loginPlayer->getName() + " has logged out."));
 		}
 	}
 }
@@ -2558,13 +2557,13 @@ bool Player::removeVIP(uint32_t vipGuid)
 bool Player::addVIP(uint32_t vipGuid, const std::string& vipName, VipStatus_t status)
 {
 	if (VIPList.size() >= getMaxVIPEntries() || VIPList.size() == 200) { // max number of buddies is 200 in 9.53
-		sendTextMessage(MESSAGE_STATUS_SMALL, "You cannot add more buddies.");
+		sendTextMessage(MESSAGE_FAILURE, "You cannot add more buddies.");
 		return false;
 	}
 
 	auto result = VIPList.insert(vipGuid);
 	if (!result.second) {
-		sendTextMessage(MESSAGE_STATUS_SMALL, "This player is already in your list.");
+		sendTextMessage(MESSAGE_FAILURE, "This player is already in your list.");
 		return false;
 	}
 
@@ -3240,6 +3239,67 @@ uint32_t Player::getItemTypeCount(uint16_t itemId, int32_t subType /*= -1*/) con
 	return count;
 }
 
+void Player::stashContainer(StashContainerList itemDict)
+{
+	StashItemList stashItemDict; // ClientID - Count
+	for (auto item : itemDict) {
+		stashItemDict[item.first] = item.second.second;
+	}
+
+	for (auto item : stashItems) {
+		if(!stashItemDict[item.first]) {
+			stashItemDict[item.first] = item.second;
+		} else {
+			stashItemDict[item.first] += item.second;
+		}
+	}
+
+	if (getStashSize(stashItemDict) > g_config.getNumber(ConfigManager::STASH_ITEMS)) {
+		sendCancelMessage("You don't have capacity in the Supply Stash to store this item.");
+		return;
+	}
+
+	uint32_t totalStowed = 0;
+	std::ostringstream retString;
+	for (auto stashTable : itemDict) {
+		if (removeItemClientId(stashTable.first, stashTable.second.second)) {
+			addItemOnStash(stashTable.first, stashTable.second.second);
+			totalStowed += stashTable.second.second;
+		}
+	}
+
+	if (totalStowed == 0) {
+		sendCancelMessage("You need to pick up the item first.");
+		return;
+	}
+
+	retString << "Stowed " << totalStowed << " object" << (totalStowed > 1 ? "s." : ".");
+	sendCancelMessage(retString.str());
+}
+
+bool Player::removeItemClientId(uint16_t clientId, uint32_t count) const
+{
+	Item* tmpItem = getItemByClientId(clientId);
+	if (!tmpItem || count == 0 || getItemTypeCount(tmpItem->getID()) < count) {
+		return false;
+	}
+
+	uint32_t amount = count;
+	while (tmpItem && amount > 0) {
+		if (tmpItem->getItemCount() >= amount) {
+			return (g_game.internalRemoveItem(tmpItem, amount) == RETURNVALUE_NOERROR);
+		} else {
+			uint16_t itemCount = tmpItem->getItemCount();
+			if (g_game.internalRemoveItem(tmpItem, itemCount) == RETURNVALUE_NOERROR) {
+				amount -= itemCount;
+			}
+		}
+		tmpItem = getItemByClientId(clientId);
+	}
+
+	return false;
+}
+
 bool Player::removeItemOfType(uint16_t itemId, uint32_t amount, int32_t subType, bool ignoreEquipped/* = false*/) const
 {
 	if (amount == 0) {
@@ -3783,35 +3843,35 @@ void Player::onAddCombatCondition(ConditionType_t type)
 {
 	switch (type) {
 		case CONDITION_POISON:
-			sendTextMessage(MESSAGE_STATUS_DEFAULT, "You are poisoned.");
+			sendTextMessage(MESSAGE_FAILURE, "You are poisoned.");
 			break;
 
 		case CONDITION_DROWN:
-			sendTextMessage(MESSAGE_STATUS_DEFAULT, "You are drowning.");
+			sendTextMessage(MESSAGE_FAILURE, "You are drowning.");
 			break;
 
 		case CONDITION_PARALYZE:
-			sendTextMessage(MESSAGE_STATUS_DEFAULT, "You are paralyzed.");
+			sendTextMessage(MESSAGE_FAILURE, "You are paralyzed.");
 			break;
 
 		case CONDITION_DRUNK:
-			sendTextMessage(MESSAGE_STATUS_DEFAULT, "You are drunk.");
+			sendTextMessage(MESSAGE_FAILURE, "You are drunk.");
 			break;
 
 		case CONDITION_CURSED:
-			sendTextMessage(MESSAGE_STATUS_DEFAULT, "You are cursed.");
+			sendTextMessage(MESSAGE_FAILURE, "You are cursed.");
 			break;
 
 		case CONDITION_FREEZING:
-			sendTextMessage(MESSAGE_STATUS_DEFAULT, "You are freezing.");
+			sendTextMessage(MESSAGE_FAILURE, "You are freezing.");
 			break;
 
 		case CONDITION_DAZZLED:
-			sendTextMessage(MESSAGE_STATUS_DEFAULT, "You are dazzled.");
+			sendTextMessage(MESSAGE_FAILURE, "You are dazzled.");
 			break;
 
 		case CONDITION_BLEEDING:
-			sendTextMessage(MESSAGE_STATUS_DEFAULT, "You are bleeding.");
+			sendTextMessage(MESSAGE_FAILURE, "You are bleeding.");
 			break;
 
 		default:
@@ -5314,67 +5374,36 @@ bool Player::addItemFromStash(uint16_t itemId, uint32_t itemCount) {
 	return true;
 }
 
-void Player::stowContainer(Item* item, uint32_t count,  bool stowalltype/* = false*/) {
-	if (item == nullptr || !isItemStorable(item)) {
+void Player::stowContainer(Item* item, uint32_t count) {
+	if (!item || !isItemStorable(item)) {
 		sendCancelMessage("This item cannot be stowed here.");
 		return;
 	}
 
 	ItemDeque itemList = ItemDeque();
-	std::map<uint16_t, std::pair<bool, uint32_t>> itemDict;	
-	uint32_t totalStowed = 0;
-	std::ostringstream retString;
-  const ItemType& itemType = Item::items[item->getID()];
+	StashContainerList itemDict;
+	const ItemType& itemType = Item::items[item->getID()];
 
 	if (itemType.isContainer()) {
 		itemList = getAllStorableItemsInContainer(item);
-	}	else {
+	} else {
 		itemList.push_back(item);
 	}
 
 	for (Item* i : itemList) {
-    auto sameItemCountSum = itemType.isContainer() ? i->getItemCount() : count;
-
+		auto sameItemCountSum = itemType.isContainer() ? i->getItemCount() : count;
 		if (itemDict.count(i->getClientID()) == 1) {
 			sameItemCountSum += itemDict[i->getClientID()].second;
 		}
-
 		itemDict[i->getClientID()] = std::pair<bool, uint32_t>(false, sameItemCountSum);
 	}
 
-		  if (itemList.size() == 0) {
-		  sendCancelMessage("There is nothing to stash in this container");
-			return;
-		  }
+	if (itemList.size() == 0) {
+		sendCancelMessage("There is nothing to stash in this container");
+		return;
+	}
 
-	itemDict = IOStash::stashContainer(this->guid, itemDict, g_config.getNumber(ConfigManager::STASH_ITEMS));
-
-  if (itemDict.size() == 0) {
-    if(itemList.size() == 0)
-      sendCancelMessage("There is nothing to stash in this container");
-    else if (itemList.size() == 1 && !itemType.isContainer())
-      sendCancelMessage("You don't have capacity in the Supply Stash to store this item");
-    else
-      sendCancelMessage("You don't have capacity in the Supply Stash to store this container");
-    return;
-  }
-
-  if (itemType.isContainer()) {
-    for (auto itemToRemove : itemList) {
-      g_game.internalRemoveItem(itemToRemove, itemToRemove->getItemCount());
-      totalStowed += itemToRemove->getItemCount();
-    }
-  } else if (stowalltype) {
-	uint16_t allstowitems = this->getItemTypeCount(item->getID(), -1);
-	this->removeItemOfType(item->getID(), allstowitems, -1, false);
-    totalStowed += allstowitems;
-  } else {
-    g_game.internalRemoveItem(item, count);
-    totalStowed += count;
-  }
-
-	retString << "Stowed " << totalStowed << " object" << (totalStowed > 1 ? "s." : ".");
-	sendCancelMessage(retString.str());
+	stashContainer(itemDict);
 }
 
 

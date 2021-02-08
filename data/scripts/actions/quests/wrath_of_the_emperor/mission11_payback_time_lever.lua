@@ -17,7 +17,7 @@ local wrathEmperorMiss11Payback = Action()
 function wrathEmperorMiss11Payback.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	if Game.getStorageValue(Storage.WrathoftheEmperor.Mission11) == 1 then
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, 'The arena is already in use.')
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The arena is already in use.')
 		return true
 	end
 

@@ -57,12 +57,12 @@ function theNewFrontierArena.onUse(player, item, fromPosition, target, toPositio
 	end
 
 	if player1:getStorageValue(Storage.TheNewFrontier.Questline) ~= 25 then
-		player1:sendTextMessage(MESSAGE_STATUS_SMALL, 'You already finished this battle.')
+		player1:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You already finished this battle.')
 		return true
 	end
 
 	if Game.getStorageValue(Storage.TheNewFrontier.Mission09) == 1 then
-		player1:sendTextMessage(MESSAGE_STATUS_SMALL, 'The arena is already in use.')
+		player1:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The arena is already in use.')
 		return true
 	end
 
