@@ -47,7 +47,7 @@ extern Game g_game;
 
 struct TextMessage
 {
-	MessageClasses type = MESSAGE_STATUS_DEFAULT;
+	MessageClasses type = MESSAGE_STATUS;
 	std::string text;
 	Position position;
 	uint16_t channelId;

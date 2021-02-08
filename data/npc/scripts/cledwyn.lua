@@ -53,7 +53,7 @@ local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
 	local player = Player(cid)
 	local itemsTable = setNewTradeTable(shop)
 	if not ignoreCap and player:getFreeCapacity() < ItemType(itemsTable[item].id):getWeight(amount) then
-		return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough cap.")
+		return player:sendTextMessage(MESSAGE_FAILURE, "You don't have enough cap.")
 	end
 	if itemsTable[item].buy then
 		if player:removeItem(Npc():getCurrency(), amount * itemsTable[item].buy) then
@@ -63,10 +63,10 @@ local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
 				currencyName = ItemType(Npc():getCurrency()):getName():lower()
 			end
 			player:addItem(itemsTable[item].id, amount)
-			return player:sendTextMessage(MESSAGE_INFO_DESCR,
+			return player:sendTextMessage(MESSAGE_TRADE,
 						"Bought "..amount.."x "..itemsTable[item].name.." for "..itemsTable[item].buy * amount.." "..currencyName..".")
 		else
-			return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough "..currencyName..".")
+			return player:sendTextMessage(MESSAGE_FAILURE, "You don't have enough "..currencyName..".")
 		end
 	end
 
@@ -122,7 +122,7 @@ function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 1
 	elseif isInArray({'pendulet', 'sleep shawl', 'blister ring', 'theurgic amulet'}, msg:lower()) and npcHandler.topic[cid] == 1 then
 		npcHandler:say("Should I enchant the item pendulet for 2 ".. ItemType(Npc():getCurrency()):getPluralName():lower() .."?", cid)
-		local charge = msg:lower()
+		charge = msg:lower()
 		npcHandler.topic[cid] = 2
 	elseif npcHandler.topic[cid] == 2 then
 		if msgcontains(msg, 'yes') then

@@ -14,6 +14,9 @@
 		<parameter key="keyword_reply5" value="If you want to buy a parcel, ask me for a {trade}. Or do you want me to {explain} how parcels work?"/>
 		<parameter key="keyword_reply6" value="In a parcel you can send items to another Tibian's {depot}. Put your items into the parcel and also place a completed {label} with the name and the {city} of the {receiver} inside. Then drag your parcel on one of the blue {mailboxes} here to send it."/>
 		<parameter key="module_shop" value="1"/>
-		<parameter key="shop_buyable" value="parcel,2595,15;letter,2597,8;label,2599,1;"/>
+		<parameter key="shop_buyable" value="
+			label, 2599, 1;
+			letter, 2597, 8;
+			parcel, 2595, 15;"/>
 	</parameters>
 </npc>

@@ -5327,11 +5327,9 @@ if not Quests then
 					endValue = 2,
 					states = {
 						[1] = function(player)
-							return string.format(
-								"Destroy makeshift homes of the Lost to force them to fight you! Try making some \z
+							return ("Destroy makeshift homes of the Lost to force them to fight you! Try making some \z
 							prisoners in the progress and report back to Klom Stonecutter.\n\nLost Exiles: %d/20\nPrisoners (bonus): \z
-							%d/3"
-							):format(
+							%d/3"):format(
 								math.max(player:getStorageValue(Storage.DangerousDepths.Dwarves.LostExiles), 0),
 								math.max(player:getStorageValue(Storage.DangerousDepths.Dwarves.Prisoners), 0)
 							)
@@ -5347,11 +5345,11 @@ if not Quests then
 					endValue = 2,
 					states = {
 						[1] = function(player)
-							return string.format(
-								"Klome Stonecutter sent you on a grave mission to exterminate large populaces of \z
+							return ("Klome Stonecutter sent you on a grave mission to exterminate large populaces of \z
 							subterranian life. Looks like the dwarves make short work of the deep intruders.\n\nSubterranean organisms: \z
-							%d/50"
-							):format(math.max(player:getStorageValue(Storage.DangerousDepths.Dwarves.Organisms), 0))
+							%d/50"):format(
+								math.max(player:getStorageValue(Storage.DangerousDepths.Dwarves.Organisms), 0)
+							)
 						end,
 						[2] = "You helped Klom defend the outpost by cutting down a number of vermin from deep down below. \z
 						The gnomes don't seem to completely approve of this but everyone appreciates the drop in the enemy's ranks."
@@ -5365,10 +5363,8 @@ if not Quests then
 					endValue = 2,
 					states = {
 						[1] = function(player)
-							return string.format(
-								"Gnomus sent you on a mission to measure the rising heat from below.\n\nLocation A: \z
-							%d/1\nLocation B: %d/1\nLocation C: %d/1\nLocation D: %d/1\nLocation E: %d/1"
-							):format(
+							return ("Gnomus sent you on a mission to measure the rising heat from below.\n\nLocation A: \z
+							%d/1\nLocation B: %d/1\nLocation C: %d/1\nLocation D: %d/1\nLocation E: %d/1"):format(
 								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.LocationA), 0),
 								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.LocationB), 0),
 								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.LocationC), 0),
@@ -5390,10 +5386,8 @@ if not Quests then
 						[1] = "Gnomus sent you to find and rescue the gnome ordnance the outpost is currently waiting for. \z
 						Travel to the east of the cave system and find the old gnome trail where reinforcements will arrive.",
 						[2] = function(player)
-							return string.format(
-								"You found the old gnome trail where ordnance for the gnome outpost arrive, escort them \z
-							and their pack animals to safety and return to Gnomus.\n\nRescued gnomes: %d/5\nRescued animals: %d/3"
-							):format(
+							return ("You found the old gnome trail where ordnance for the gnome outpost arrive, escort them \z
+							and their pack animals to safety and return to Gnomus.\n\nRescued gnomes: %d/5\nRescued animals: %d/3"):format(
 								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.GnomesCount), 0),
 								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.CrawlersCount), 0)
 							)
@@ -5410,11 +5404,9 @@ if not Quests then
 					endValue = 2,
 					states = {
 						[1] = function(player)
-							return string.format(
-								"Chart the area around the deep base for Gnomus. Look for especific landmarks: \z
+							return ("Chart the area around the deep base for Gnomus. Look for especific landmarks: \z
 							\n\nOld Gate: %d/1\nThe Gaze: %d/1\nLost Ruin: %d/1\nOutpost: %d/1\nBastion: %d/1\nBroken Tower: \z
-							%d/1"
-							):format(
+							%d/1"):format(
 								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.OldGate), 0),
 								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.TheGaze), 0),
 								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.LostRuin), 0),
@@ -5435,10 +5427,8 @@ if not Quests then
 					endValue = 2,
 					states = {
 						[1] = function(player)
-							return string.format(
-								"You found the mine shaft. Burn all the growth and report back to Lardoc Bashsmite! \z
-							\n\nFirst Room: %d/1\nSecond room: %d/1\nThird room: %d/1\nFourth room: %d/1\nFifth room: %d/1"
-							):format(
+							return ("You found the mine shaft. Burn all the growth and report back to Lardoc Bashsmite! \z
+							\n\nFirst Room: %d/1\nSecond room: %d/1\nThird room: %d/1\nFourth room: %d/1\nFifth room: %d/1"):format(
 								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.FirstBarrel), 0),
 								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.SecondBarrel), 0),
 								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.ThirdBarrel), 0),
@@ -5458,11 +5448,11 @@ if not Quests then
 					endValue = 2,
 					states = {
 						[1] = function(player)
-							return string.format(
-								"Lardoc asked you to follow a plan of the gnomes to stop the deep threat by trying to \z
+							return ("Lardoc asked you to follow a plan of the gnomes to stop the deep threat by trying to \z
 							neutralise diremaw spawn with pesticies. Diremaws lay eggs inside corpses of their skin. \z
-							\n\nNeutralised: %d/20"
-							):format(math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.DiremawsCount), 0))
+							\n\nNeutralised: %d/20"):format(
+								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.DiremawsCount), 0)
+							)
 						end,
 						[2] = "You reported back to Lardoc Bashsmite to inform him that the gnome's plan to \z
 						neutralise diremaw corpses seems to work."

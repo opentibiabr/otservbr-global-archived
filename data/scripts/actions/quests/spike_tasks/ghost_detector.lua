@@ -82,7 +82,7 @@ function spikeTasksGhost.onUse(player, item, fromPosition, target, toPosition, i
 		if stat == 2 then
 			item:remove()
 			GHOST_DETECTOR_MAP[player:getGuid()] = nil
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "Report the task to Gnomilly.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Report the task to Gnomilly.")
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You found a malignant presence, the glowing detector signals that it does not need any further data.")
 		else
 			GHOST_DETECTOR_MAP[player:getGuid()] = getFreeSand()

@@ -244,7 +244,7 @@ enum charm_t {
 	CHARM_PASSIVE = 3,
 };
 
-enum BestiaryType_t : uint8_t { 
+enum BestiaryType_t : uint8_t {
 	BESTY_RACE_NONE = 0,
 
 	BESTY_RACE_AMPHIBIC = 1,
@@ -820,6 +820,7 @@ struct CombatDamage
 	}
 };
 
+using StashContainerList = std::map<uint16_t, std::pair<bool, uint32_t>>;
 using StashItemList = std::map<uint16_t, uint32_t>;
 using MarketOfferList = std::list<MarketOffer>;
 using HistoryMarketOfferList = std::list<HistoryMarketOffer>;
@@ -988,6 +989,13 @@ enum Cipbia_Elementals_t : uint8_t {
 	CIPBIA_ELEMENTAL_DROWN = 8,
 	CIPBIA_ELEMENTAL_LIFEDRAIN = 9,
 	CIPBIA_ELEMENTAL_UNDEFINED = 10
+};
+
+enum Webhook_Colors_t : uint32_t {
+	WEBHOOK_COLOR_ONLINE = 0x00FF00,
+	WEBHOOK_COLOR_OFFLINE = 0xFF0000,
+	WEBHOOK_COLOR_WARNING = 0xFFFF00,
+	WEBHOOK_COLOR_RAID = 0x0000FF
 };
 
 /**

@@ -21,7 +21,7 @@ function spikeTasksShovel.onUse(player, item, fromPosition, target, toPosition, 
 	local luck = math.random(100)
 	for i, result in ipairs(chance) do
 		if luck >= result[1] then
-			player:sendTextMessage(MESSAGE_INFO_DESCR, result[2])
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, result[2])
 			if result[3] then
 				Game.createMonster(result[3], toPosition)
 			end
@@ -30,7 +30,7 @@ function spikeTasksShovel.onUse(player, item, fromPosition, target, toPosition, 
 				player:setStorageValue(SPIKE_UPPER_MOUND_MAIN, sum)
 				if sum == 4 then
 					item:remove()
-					player:sendTextMessage(MESSAGE_INFO_DESCR, "Report the task to Gnomilly.")
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Report the task to Gnomilly.")
 				end
 			end
 			break

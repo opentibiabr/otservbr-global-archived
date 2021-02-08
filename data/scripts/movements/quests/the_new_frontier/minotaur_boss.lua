@@ -26,7 +26,7 @@ function minotaurBoss.onStepIn(creature, item, position, fromPosition)
 	if player:getStorageValue(Storage.TheNewFrontier.Questline) ~= 18 then
 		player:teleportTo(fromPosition)
 		fromPosition:sendMagicEffect(CONST_ME_TELEPORT)
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You don't have access to this area.")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You don't have access to this area.")
 		return true
 	end
 

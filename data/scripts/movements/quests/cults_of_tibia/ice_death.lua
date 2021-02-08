@@ -59,16 +59,16 @@ function iceDeath.onStepIn(creature, item, position, fromPosition)
 			it:decay()
 		end
 		player:addHealth((-player:getHealth() + 1))
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You were killed by something evil and others.")
+		player:sendTextMessage(MESSAGE_BEYOND_LAST, "You were killed by something evil and others.")
 		-- TODO parse active blessings and show that you didn't lose any blessings
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 
+		player:sendTextMessage(MESSAGE_BEYOND_LAST, 
 		"You are still blessed with Wisdom of Solitude, Spark of the Phoenix,Fire of the Suns, \z
 		Spiritual Shielding, Embrace of Tibia, Heart of the Mountani, Blood of the Montain and Twist of Fate.")
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You lost 0 experience and 0.00% of all of your skills.")
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You did not lose any items.")
+		player:sendTextMessage(MESSAGE_BEYOND_LAST, "You lost 0 experience and 0.00% of all of your skills.")
+		player:sendTextMessage(MESSAGE_BEYOND_LAST, "You did not lose any items.")
 		player:setStorageValue(Storage.CultsOfTibia.Barkless.Mission, 3)
 		player:setStorageValue(Storage.CultsOfTibia.Barkless.AccessDoor, 1)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The cold has all but disappeared from your body and you're getting warmer. You need to renew all preparations for purification.")
+		player:sendTextMessage(MESSAGE_BEYOND_LAST, "The cold has all but disappeared from your body and you're getting warmer. You need to renew all preparations for purification.")
 		player:sendFakeDeathWindow()
 	else
 		player:teleportTo(fromPosition, true)

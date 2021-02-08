@@ -227,7 +227,7 @@ function Player.removeMoneyNpc(self, amount)
 		-- Removes player inventory money
 		self:removeMoney(amount)
 
-		self:sendTextMessage(MESSAGE_INFO_DESCR, ("Paid %d gold from inventory."):format(amount))
+		self:sendTextMessage(MESSAGE_TRADE, ("Paid %d gold from inventory."):format(amount))
 		return true
 
 	-- The player doens't have all the money with him
@@ -242,12 +242,12 @@ function Player.removeMoneyNpc(self, amount)
 			-- Removes player bank money
 			self:setBankBalance(bankCount - remains)
 
-			self:sendTextMessage(MESSAGE_INFO_DESCR, ("Paid %d from inventory and %d gold from bank account. Your account balance is now %d gold."):format(moneyCount, amount - moneyCount, self:getBankBalance()))
+			self:sendTextMessage(MESSAGE_TRADE, ("Paid %d from inventory and %d gold from bank account. Your account balance is now %d gold."):format(moneyCount, amount - moneyCount, self:getBankBalance()))
 			return true
 
 		else
 			self:setBankBalance(bankCount - amount)
-			self:sendTextMessage(MESSAGE_INFO_DESCR, ("Paid %d gold from bank account. Your account balance is now %d gold."):format(amount, self:getBankBalance()))
+			self:sendTextMessage(MESSAGE_TRADE, ("Paid %d gold from bank account. Your account balance is now %d gold."):format(amount, self:getBankBalance()))
 			return true
 		end
 	end

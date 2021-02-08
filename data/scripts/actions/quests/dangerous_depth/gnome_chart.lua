@@ -18,7 +18,7 @@ function dangerousDepthChart.onUse(player, item, isHotkey)
 			if player:getStorageValue(Storage.DangerousDepths.Gnomes.OldGate) < 1 then
 				player:setStorageValue(Storage.DangerousDepths.Gnomes.OldGate, 1)
 				player:setStorageValue(Storage.DangerousDepths.Gnomes.ChartingCount, player:getStorageValue(Storage.DangerousDepths.Gnomes.ChartingCount) + 1)
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You charted the  location and dimensions of a strange structure, an ancient gate.")
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You charted the location and dimensions of a strange structure, an ancient gate.")
 				player:getPosition():sendMagicEffect(CONST_ME_HITAREA)
 			end
 		end

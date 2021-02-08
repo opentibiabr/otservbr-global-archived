@@ -7,6 +7,6 @@
 		<parameter key="message_farewell" value="Good bye."/>
 		<parameter key="message_walkaway" value="How rude!"/>
 		<parameter key="module_shop" value="1"/>
-		<parameter key="shop_buyable" value="orichalcum pearl,5022,80"/>
+		<parameter key="shop_buyable" value="orichalcum pearl, 5022, 80;"/>
 	</parameters>
 </npc>
