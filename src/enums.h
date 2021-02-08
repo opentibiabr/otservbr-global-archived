@@ -101,7 +101,8 @@ enum itemAttrTypes : uint32_t {
 enum VipStatus_t : uint8_t {
 	VIPSTATUS_OFFLINE = 0,
 	VIPSTATUS_ONLINE = 1,
-	VIPSTATUS_PENDING = 2
+	VIPSTATUS_PENDING = 2,
+	VIPSTATUS_TRAINING = 3
 };
 
 enum MarketAction_t {
@@ -243,7 +244,7 @@ enum charm_t {
 	CHARM_PASSIVE = 3,
 };
 
-enum BestiaryType_t : uint8_t { 
+enum BestiaryType_t : uint8_t {
 	BESTY_RACE_NONE = 0,
 
 	BESTY_RACE_AMPHIBIC = 1,
@@ -987,6 +988,13 @@ enum Cipbia_Elementals_t : uint8_t {
 	CIPBIA_ELEMENTAL_DROWN = 8,
 	CIPBIA_ELEMENTAL_LIFEDRAIN = 9,
 	CIPBIA_ELEMENTAL_UNDEFINED = 10
+};
+
+enum Webhook_Colors_t : uint32_t {
+	WEBHOOK_COLOR_ONLINE = 0x00FF00,
+	WEBHOOK_COLOR_OFFLINE = 0xFF0000,
+	WEBHOOK_COLOR_WARNING = 0xFFFF00,
+	WEBHOOK_COLOR_RAID = 0x0000FF
 };
 
 #endif

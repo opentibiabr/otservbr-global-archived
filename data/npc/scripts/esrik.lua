@@ -17,10 +17,18 @@ end
 
 local function getTable(player)
 	local itemsList = {
+		{name="durable exercise axe", id=40115, buy=945000, subType = 1800},
+		{name="durable exercise bow", id=40117, buy=945000, subType = 1800},
+		{name="durable exercise club", id=40116, buy=945000, subType = 1800},
+		{name="durable exercise sword", id=40114, buy=945000, subType = 1800},
 		{name="exercise sword", id=32384, buy=262500, subType = 500},
 		{name="exercise axe", id=32385, buy=262500, subType = 500},
 		{name="exercise club", id=32386, buy=262500, subType = 500},
 		{name="exercise bow", id=32387, buy=262500, subType = 500},
+		{name="lasting exercise axe", id=40121, buy=7560000, subType = 14400},
+		{name="lasting exercise bow", id=40123, buy=7560000, subType = 14400},
+		{name="lasting exercise club", id=40122, buy=7560000, subType = 14400},
+		{name="lasting exercise sword", id=40120, buy=7560000, subType = 14400},
 		{name="axe", id=2386, buy=20, sell=7},
 		{name="battle axe", id=2378, buy=235, sell=80},
 		{name="battle hammer", id=2417, buy=350, sell=120},

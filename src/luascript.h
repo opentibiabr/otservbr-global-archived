@@ -885,6 +885,8 @@ class LuaScriptInterface
 		static int luaPlayerGetCapacity(lua_State* L);
 		static int luaPlayerSetCapacity(lua_State* L);
 
+		static int luaPlayerSetTraining(lua_State* L);
+
 		static int luaPlayerGetKills(lua_State* L);
 		static int luaPlayerSetKills(lua_State* L);
 
@@ -1705,6 +1707,7 @@ class LuaScriptInterface
 		static int luaMountGetId(lua_State* L);
 		static int luaMountGetClientId(lua_State* L);
 		static int luaMountGetSpeed(lua_State* L);
+		static int webhookSend(lua_State* L);
 
 		//
 		std::string lastLuaError;

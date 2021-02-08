@@ -529,6 +529,12 @@ class Player final : public Creature, public Cylinder
 		void setSupplyStashAvailable(bool value) {
 			supplyStashAvailable = value;
 		}
+		bool isExerciseTraining() {
+			return exerciseTraining;
+		}
+		void setExerciseTraining(bool isTraining) {
+			exerciseTraining = isTraining;
+		}
 		void setLastDepotId(int16_t newId) {
 			lastDepotId = newId;
 		}
@@ -741,7 +747,7 @@ class Player final : public Creature, public Cylinder
 		}
 
 		//V.I.P. functions
-		void notifyStatusChange(Player* player, VipStatus_t status);
+		void notifyStatusChange(Player* player, VipStatus_t status, bool message = true);
 		bool removeVIP(uint32_t vipGuid);
 		bool addVIP(uint32_t vipGuid, const std::string& vipName, VipStatus_t status);
 		bool addVIPInternal(uint32_t vipGuid);
@@ -1629,6 +1635,8 @@ class Player final : public Creature, public Cylinder
 			return idleTime;
 		}
 
+		void setTraining(bool value);
+
 		void onEquipImbueItem(Imbuement* imbuement);
 		void onDeEquipImbueItem(Imbuement* imbuement);
 
@@ -2045,6 +2053,7 @@ class Player final : public Creature, public Cylinder
 		bool scheduledSaleUpdate = false;
 		bool inEventMovePush = false;
 		bool supplyStashAvailable = false;
+		bool exerciseTraining = false;
 
 		static uint32_t playerAutoID;
 
