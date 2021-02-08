@@ -122,7 +122,18 @@ local function greetCallback(cid)
 	-- Finish mission 11
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission11) == 4 then
 		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|! Do you have enough space for that brass shield now?")
-	else
+	-- Finished mission 11 but not started mission 12
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission11) == 5 and player:getStorageValue(Storage.TheRookieGuard.Mission12) == -1 then
+		npcHandler:setMessage(MESSAGE_GREET, "|PLAYERNAME|, the time of our triumph has come. Are you ready to vanquish Kraknaknork once and for all?")
+	-- Started but not finished mission 12
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission12) >= 1 and player:getStorageValue(Storage.TheRookieGuard.Mission12) <= 13 then
+		npcHandler:say("|PLAYERNAME|, the air smells like victory. Head into the orc fortress and vanquish Kraknaknork once and for all. Don't forget to take the items from below the academy!", cid)
+		return false
+	-- Finish mission 12
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission12) == 14 then
+		npcHandler:setMessage(MESSAGE_GREET, "|PLAYERNAME|! You're back! And you're covered in orc blood... that can only mean... were you able to kill Kraknaknork?")
+	-- Completed all missions
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission12) == 15 then
 		npcHandler:say("|PLAYERNAME|, the only thing left for you to do here is to talk to the oracle above the academy and leave for the Isle of Destiny. Thanks again for your great work and good luck on your journeys!", cid)
 		return false
 	end
@@ -844,6 +855,55 @@ keywordHandler:addKeyword({"no"}, StdModule.say,
 },
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 4 end
 )
+
+-- Mission 12: Accept
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"The air smells like victory today. I've kept the items you brought from your journeys safe - the time has come to use them. ...",
+		"Enter the small treasure room under the academy - just down the stairs and to the right, near Paulie - and open the large blue chest to retrieve them. You'll find a rolling pin, the fleshy bone, the wasp poison and a tarantula trap. ...",
+		"Now let me explain the plan in detail. Go to the orc fortress - you've already been nearby when hunting for the wasp poison, it's the same way, but I'll mark it on your map just in case. ...",
+		"There you will have to find a way to sneak past the guards, they are much too strong for you. The rolling pin might come in handy during that part. Afterwards, the fleshy bone will help to create a distraction to get into the fortress. ...",
+		"Once you're inside the fortress, find the orc kitchen and pour the wasp poison into Kraknaknork's soup! The tarantula trap will come in handy if you meet a guard who might seem simply too fast for you. You can use it on him to slow him down. ...",
+		"|PLAYERNAME|, take the items and go claim your victory. I know you will do us proud. Good luck!"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 5 and player:getStorageValue(Storage.TheRookieGuard.Mission12) == -1 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission12, 1)
+	player:setStorageValue(Storage.TheRookieGuard.KraknaknorkChests, 0)
+	player:addMapMark({x = 31976, y = 32156, z = 7}, MAPMARK_SKULL, "Orc Fortress")
+end
+)
+
+-- Mission 12: Decline
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Rest for a bit, but don't take too much time to come back.",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 5 and player:getStorageValue(Storage.TheRookieGuard.Mission12) == -1 end
+)
+
+-- Mission 12: Finish - Confirm/Decline
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"You DID kill him indeed! Incredible! This little village can finally live in peace again - and you've grown so strong, too. I'm proud of you, Synanceia Horrida. My work here is done, and yours too. Thank you for all you've done for us. ...",
+		"Now all that is left for you to do here is to talk to the oracle above the academy and travel to the Isle of Destiny. There, you will determine your future - which I'm sure is a bright one. ...",
+		"What will become of you? A mighty sorcerer? A fierce knight? A skilled paladin? Or a powerful druid? Only you can decide. ...",
+		"Rookgaard will miss you, but the whole world of Tibia is open to you now. Take care, |PLAYERNAME|. It's good to know you."
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission12) == 14 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission12, 15)
+end
+)
+keywordHandler:addAliasKeyword({"no"})
 
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setMessage(MESSAGE_FAREWELL, "Farewell.")

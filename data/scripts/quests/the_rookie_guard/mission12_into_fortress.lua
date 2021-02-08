@@ -114,7 +114,6 @@ function missionGuide.onStepIn(creature, item, position, fromPosition)
 	for i = 1, #tile do
 		local extraState = tile[i].extra == nil or player:getStorageValue(tile[i].extra.storage) == tile[i].extra.state
 		local condition = tile[i].condition == nil or tile[i].condition(player)
-		--print("state:" .. missionState .. " tile " .. item.actionid .. " i:" .. i .. " condition:" .. tostring(condition))
 		-- Check if is active
 		if table.find(tile[i].states, missionState) and extraState and condition then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, tile[i].message)
@@ -318,9 +317,11 @@ local taranturaTrap = Action()
 function taranturaTrap.onUse(player, item, frompos, item2, topos)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission12)
 	target = Tile(topos):getTopCreature()
-	if missionState == 8 and target:getName() == "Furious Orc Berserker" then
+	if missionState >= 8 and target:getName() == "Furious Orc Berserker" then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The berserker can't catch you anymore - but only for 20 seconds. You need to lure him away from the teleporter!")
-		player:setStorageValue(Storage.TheRookieGuard.Mission12, 9)
+		if missionState == 8 then
+			player:setStorageValue(Storage.TheRookieGuard.Mission12, 9)
+		end
 		local conditionSlow = Condition(CONDITION_PARALYZE)
 		conditionSlow:setParameter(CONDITION_PARAM_TICKS, 20000)
 		conditionSlow:setFormula(-0.3, 0, -0.45, 0)
@@ -346,15 +347,15 @@ function bossLairTeleport.onStepIn(creature, item, position, fromPosition)
 	if missionState == -1 then
 		return true
 	end
-	local spectators = Game.getSpectators(position, false, false, 2, 2, 2, 2)
-	for i = 1, #spectators do
-		if not spectators[i]:isPlayer() and spectators[i]:getName() == "Furious Orc Berserker" then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "As long as the orc berserker is near that teleporter, you can't enter.")
-			player:teleportTo(fromPosition, true)
-			return false
-		end
-	end
 	if missionState >= 9 then
+		local spectators = Game.getSpectators(position, false, false, 2, 2, 2, 2)
+		for i = 1, #spectators do
+			if not spectators[i]:isPlayer() and spectators[i]:getName() == "Furious Orc Berserker" then
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "As long as the orc berserker is near that teleporter, you can't enter.")
+				player:teleportTo(fromPosition, true)
+				return false
+			end
+		end
 		if missionState == 9 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You're entering Kraknaknork's lair.")
 			player:setStorageValue(Storage.TheRookieGuard.Mission12, 10)
@@ -696,6 +697,11 @@ function exitTreasureRoomTeleport.onStepIn(creature, item, position, fromPositio
 	end
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission12)
 	if missionState == 13 then
+		local health, maxHealth = player:getHealth(), player:getBaseMaxHealth()
+		-- Heal the player if needed
+		if health < maxHealth then
+			player:addHealth((maxHealth - health), COMBAT_HEALING)
+		end
 		-- Teleport the player to the orcland exit
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "With Kraknaknork's final source of energy, you escape the fortress. Time to return to Vascalir.")
 		player:setStorageValue(Storage.TheRookieGuard.Mission12, 14)
