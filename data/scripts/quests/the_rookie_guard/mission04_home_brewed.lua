@@ -37,11 +37,14 @@ function missionGuide.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 	local missionTile = missionTiles[item.actionid]
-	-- Check if need display message/arrow
+	-- Check if the tile is active
 	if missionTile.states == missionState then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, missionTile.message)
-		if missionTile.arrowPosition then
-			Position(missionTile.arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+		-- Check delayed notifications (message/arrow)
+		if not isTutorialNotificationDelayed(player) then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, missionTile.message)
+			if missionTile.arrowPosition then
+				Position(missionTile.arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+			end
 		end
 	end
 	return true

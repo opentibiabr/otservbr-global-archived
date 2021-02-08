@@ -95,7 +95,7 @@ mission6:addChildKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
 	text = "Well, then walk Rookgaard barefoot. It's up to you!",
-	moveup = 1
+	reset = true
 })
 
 -- Mission 6: Finish - Confirm (Give skin)

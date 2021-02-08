@@ -1,5 +1,16 @@
 -- The Rookie Guard Quest
 
+-- Handle avoid spam (message and arrow) in mission tiles
+function isTutorialNotificationDelayed(player)
+	-- Check delay
+	if player:getStorageValue(Storage.TheRookieGuard.TutorialDelay) - os.time() <= 0 then
+		-- Reset delay
+		player:setStorageValue(Storage.TheRookieGuard.TutorialDelay, os.time() + 4)
+		return false
+	end
+	return true
+end
+
 -- Missions shared tiles (Handled together due not possible more than one MoveEvent per action id)
 
 local missionTiles = {
@@ -113,6 +124,10 @@ local missionTiles = {
 		{
 			mission = Storage.TheRookieGuard.Mission07,
 			states = {1},
+			extra = {
+				storage = Storage.TheRookieGuard.LibraryChest,
+				state = -1
+			},
 			message = "The library vault is below the academy. Go north and head down several stairs until you find a quest door.",
 			arrowPosition = {x = 32097, y = 32197, z = 7}
 		},
@@ -138,6 +153,10 @@ local missionTiles = {
 		{
 			mission = Storage.TheRookieGuard.Mission07,
 			states = {1},
+			extra = {
+				storage = Storage.TheRookieGuard.LibraryChest,
+				state = -1
+			},
 			message = "Head through the northern door and follow the hallways to find the library vault.",
 			arrowPosition = {x = 32095, y = 32188, z = 8}
 		},
@@ -201,11 +220,14 @@ function missionGuide.onStepIn(creature, item, position, fromPosition)
 	for i = 1, #tile do
 		local missionState = player:getStorageValue(tile[i].mission)
 		local extraState = tile[i].extra == nil or player:getStorageValue(tile[i].extra.storage) == tile[i].extra.state
-		-- Check if need display message/arrow
+		-- Check if the tile is active
 		if missionState ~= -1 and table.find(tile[i].states, missionState) and extraState then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, tile[i].message)
-			if tile[i].arrowPosition then
-				Position(tile[i].arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+			-- Check delayed notifications (message/arrow)
+			if not isTutorialNotificationDelayed(player) then
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, tile[i].message)
+				if tile[i].arrowPosition then
+					Position(tile[i].arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+				end
 			end
 			break
 		end

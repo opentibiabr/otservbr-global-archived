@@ -13,7 +13,9 @@ function ratKill.onKill(player, target)
 	end
 	if player:getStorageValue(Storage.TheRookieGuard.Mission03) == 1 then
 		local counter = player:getStorageValue(Storage.TheRookieGuard.RatKills)
-		player:setStorageValue(Storage.TheRookieGuard.RatKills, counter + 1)
+		if counter < 5 then
+			player:setStorageValue(Storage.TheRookieGuard.RatKills, counter + 1)
+		end
 	end
 	return true
 end

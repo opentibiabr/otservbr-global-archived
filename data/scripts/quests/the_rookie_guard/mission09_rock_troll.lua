@@ -13,14 +13,14 @@ local missionTiles = {
 	},
 	[50344] = {
 		state = 1,
+		newState = 2,
 		message = "You've reached the newly dug troll tunnel. Take what you find in this chest and use it to bring down all support beams!",
-		arrowPosition = {x = 32059, y = 32132, z = 10},
-		newState = 2
+		arrowPosition = {x = 32059, y = 32132, z = 10}
 	},
 	[50345] = {
 		state = 7,
-		message = "You hear a crumbling below you. The tunnel collapsed. Vascalir will be pleased to hear about that.",
-		newState = 8
+		newState = 8,
+		message = "You hear a crumbling below you. The tunnel collapsed. Vascalir will be pleased to hear about that."
 	}
 }
 
@@ -38,15 +38,18 @@ function missionGuide.onStepIn(creature, item, position, fromPosition)
 	if missionState == -1 or missionState > 7 then
 		return true
 	end
-	local tile = missionTiles[item.actionid]
-	-- Check if need display message/arrow
-	if missionState == tile.state then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, tile.message)
-		if tile.newState then
-			player:setStorageValue(Storage.TheRookieGuard.Mission09, tile.newState)
+	local missionTile = missionTiles[item.actionid]
+	-- Check if the tile is active
+	if missionState == missionTile.state then
+		-- Check delayed notifications (message/arrow)
+		if not isTutorialNotificationDelayed(player) then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, missionTile.message)
+			if missionTile.arrowPosition then
+				Position(missionTile.arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+			end
 		end
-		if tile.arrowPosition then
-			Position(tile.arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+		if missionTile.newState then
+			player:setStorageValue(Storage.TheRookieGuard.Mission09, missionTile.newState)
 		end
 	end
 	return true

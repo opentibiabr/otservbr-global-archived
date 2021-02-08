@@ -32,13 +32,16 @@ function missionGuide.onStepIn(creature, item, position, fromPosition)
 	if missionState == -1 or missionState == 2 then
 		return true
 	end
-	local tile = missionTiles[item.actionid]
+	local missionTile = missionTiles[item.actionid]
 	local libraryChestState = player:getStorageValue(Storage.TheRookieGuard.LibraryChest)
-	-- Check if need display message/arrow
+	-- Check if the tile is active
 	if missionState == 1 and libraryChestState == -1 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, tile.message)
-		if tile.arrowPosition then
-			Position(tile.arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+		-- Check delayed notifications (message/arrow)
+		if not isTutorialNotificationDelayed(player) then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, missionTile.message)
+			if missionTile.arrowPosition then
+				Position(missionTile.arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+			end
 		end
 	end
 	return true

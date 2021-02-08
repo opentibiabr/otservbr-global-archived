@@ -1394,7 +1394,8 @@ Storage = {
 		TunnelPillars = 52379,
 		Sarcophagus = 52380,
 		AcademyChest = 52381,
-		KraknaknorkChests = 52382
+		KraknaknorkChests = 52382,
+		TutorialDelay = 52383
 	},
 	BanutaSecretTunnel = {
 		-- Reserved storage from 51680 - 51689

@@ -40,11 +40,14 @@ function missionGuide.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 	local tile = missionTiles[item.actionid]
-	-- Check if need display message/arrow
+	-- Check if the tile is active
 	if missionState == tile.state then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, tile.message)
-		if tile.arrowPosition then
-			Position(tile.arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+		-- Check delayed notifications (message/arrow)
+		if not isTutorialNotificationDelayed(player) then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, tile.message)
+			if tile.arrowPosition then
+				Position(tile.arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+			end
 		end
 	end
 	return true
@@ -107,14 +110,18 @@ function warWolfDenTiles.onStepIn(creature, item, position, fromPosition)
 	if missionState == -1 then
 		return true
 	end
-	local tile = specialMissionTiles[item.uid]
-	if missionState == tile.state then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, tile.message)
-		if tile.newState then
-			player:setStorageValue(Storage.TheRookieGuard.Mission06, tile.newState)
+	local missionTile = specialMissionTiles[item.uid]
+	-- Check if the tile is active
+	if missionState == missionTile.state then
+		-- Check delayed notifications (message/arrow)
+		if not isTutorialNotificationDelayed(player) then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, missionTile.message)
+			if missionTile.arrowPosition then
+				Position(missionTile.arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+			end
 		end
-		if tile.arrowPosition then
-			Position(tile.arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+		if missionTile.newState then
+			player:setStorageValue(Storage.TheRookieGuard.Mission06, missionTile.newState)
 		end
 	end
 	return true

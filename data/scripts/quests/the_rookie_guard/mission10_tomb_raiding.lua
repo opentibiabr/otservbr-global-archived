@@ -54,11 +54,14 @@ function missionGuide.onStepIn(creature, item, position, fromPosition)
 	local sarcophagusState = player:getStorageValue(Storage.TheRookieGuard.Sarcophagus)
 	-- Check mission state cases for the tile
 	for i = 1, #missionTile do
-		-- Check if need display message/arrow
+		-- Check if the tile is active
 		if missionState == 1 and sarcophagusState == missionTile[i].sarcophagus then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, missionTile[i].message)
-			if missionTile[i].arrowPosition then
-				Position(missionTile[i].arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+			-- Check delayed notifications (message/arrow)
+			if not isTutorialNotificationDelayed(player) then
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, missionTile[i].message)
+				if missionTile[i].arrowPosition then
+					Position(missionTile[i].arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+				end
 			end
 			break
 		end

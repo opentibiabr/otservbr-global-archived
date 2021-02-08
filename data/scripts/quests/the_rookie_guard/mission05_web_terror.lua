@@ -38,15 +38,18 @@ function missionGuide.onStepIn(creature, item, position, fromPosition)
 	if state == -1 or state == 3 then
 		return true
 	end
-	local tile = missionTiles[item.actionid]
-	-- Check if need display message/arrow
-	if table.find(tile.states, state) then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, tile.message)
-		if tile.arrowPosition then
-			Position(tile.arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+	local missionTile = missionTiles[item.actionid]
+	-- Check if the tile is active
+	if table.find(missionTile.states, state) then
+		-- Check delayed notifications (message/arrow)
+		if not isTutorialNotificationDelayed(player) then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, missionTile.message)
+			if missionTile.arrowPosition then
+				Position(missionTile.arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+			end
 		end
 		-- Walk back from south to north
-		if tile.walkBack and (fromPosition.y > position.y or fromPosition.y == position.y and fromPosition.x ~= position.x) then
+		if missionTile.walkBack and (fromPosition.y > position.y or fromPosition.y == position.y and fromPosition.x ~= position.x) then
 			player:teleportTo(fromPosition, true)
 		end
 	end
@@ -92,9 +95,12 @@ function greasyStone.onUse(player, item, frompos, item2, topos)
 		local condition = Condition(CONDITION_INVISIBLE)
 		condition:setParameter(CONDITION_PARAM_TICKS, 120000)
 		player:addCondition(condition)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You rub the strange grease on your body. The spider queen will not be able to smell you for about 2 minutes. Hurry!")
+		-- Check delayed notifications (message/arrow)
+		if not isTutorialNotificationDelayed(player) then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You rub the strange grease on your body. The spider queen will not be able to smell you for about 2 minutes. Hurry!")
+			Position({x = 32018, y = 32098, z = 11}):sendMagicEffect(CONST_ME_TUTORIALARROW)
+		end
 		player:setStorageValue(Storage.TheRookieGuard.Mission05, 2)
-		Position({x = 32018, y = 32098, z = 11}):sendMagicEffect(CONST_ME_TUTORIALARROW)
 	else
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You already retrieved some of the spider queen's web. No need to go back down there.")
 	end
@@ -115,11 +121,17 @@ function spiderQueenChamberHole.onStepIn(creature, item, position, fromPosition)
 	end
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission05)
 	if missionState == 1 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Don't enter the lair without a protective grease. Use one of the stones to the north to become invisible to her.")
+		-- Check delayed notifications (message/arrow)
+		if not isTutorialNotificationDelayed(player) then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Don't enter the lair without a protective grease. Use one of the stones to the north to become invisible to her.")
+			Position({x = 32014, y = 32096, z = 11}):sendMagicEffect(CONST_ME_TUTORIALARROW)
+		end
 		player:teleportTo(fromPosition, true)
-		Position({x = 32014, y = 32096, z = 11}):sendMagicEffect(CONST_ME_TUTORIALARROW)
 	elseif missionState == 3 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You already have the spider queen's web. You should go back to Vascalir and not take any further risks.")
+		-- Check delayed notifications (message/arrow)
+		if not isTutorialNotificationDelayed(player) then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You already have the spider queen's web. You should go back to Vascalir and not take any further risks.")
+		end
 		player:teleportTo(fromPosition, true)
 	end
 	return true

@@ -114,21 +114,27 @@ function missionGuide.onStepIn(creature, item, position, fromPosition)
 	for i = 1, #tile do
 		local extraState = tile[i].extra == nil or player:getStorageValue(tile[i].extra.storage) == tile[i].extra.state
 		local condition = tile[i].condition == nil or tile[i].condition(player)
-		-- Check if is active
+		-- Check if the tile is active
 		if table.find(tile[i].states, missionState) and extraState and condition then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, tile[i].message)
+			-- Check delayed notifications (message/arrow)
+			if not isTutorialNotificationDelayed(player) then
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, tile[i].message)
+				if tile[i].arrowPosition then
+					Position(tile[i].arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
+				end
+			end
+			-- Update state
 			if tile[i].newState then
 				player:setStorageValue(Storage.TheRookieGuard.Mission12, tile[i].newState)
 			end
+			-- Walk to relative position
 			if tile[i].walkTo then
 				local walkTo = tile[i].walkTo
 				player:teleportTo(Position(position.x + walkTo.x, position.y + walkTo.y, position.z + walkTo.z), true)
 			end
+			-- Teleport to position
 			if tile[i].teleportTo then
 				player:teleportTo(Position(tile[i].teleportTo), false)
-			end
-			if tile[i].arrowPosition then
-				Position(tile[i].arrowPosition):sendMagicEffect(CONST_ME_TUTORIALARROW)
 			end
 			break
 		end

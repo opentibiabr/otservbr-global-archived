@@ -47,13 +47,17 @@ local function greetCallback(cid)
 		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|. Are you done with the 5 rats I asked you to kill?")
 	-- Started but not finished mission 4
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission04) >= 1 and player:getStorageValue(Storage.TheRookieGuard.Mission04) <= 4 then
-		npcHandler:setMessage(MESSAGE_GREET, "Greetings, |PLAYERNAME|. Right now I don't need your help. I heard that Lily south-west of here requires assistance though.")
+		npcHandler:say("Greetings, |PLAYERNAME|. Right now I don't need your help. I heard that Lily south-west of here requires assistance though.", cid)
+		return false
 	-- Finishing mission 4
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission04) == 5 then
 		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|. Glad to see you made it back in one piece. I hope you're not too exhausted, because I could use your {help} again.")
 	-- Finished mission 4 but not started mission 5
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission04) == 6 and player:getStorageValue(Storage.TheRookieGuard.Mission05) == -1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Oh, hello |PLAYERNAME|! Have you made up your mind about sneaking into the tarantula's lair and retrieving a sample of her web? Are you up for it?")
+	-- Started but not finished mission 5
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission05) >= 1 and player:getStorageValue(Storage.TheRookieGuard.Mission05) <= 2 then
+		npcHandler:setMessage(MESSAGE_GREET, "Do you need the instruction for the tarantula's lair again?")
 	-- Finishing mission 5
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission05) == 3 then
 		npcHandler:setMessage(MESSAGE_GREET, "Oh, well done! Let me take that spider web sample from you - careful, careful... it's sturdy, yet fragile. Thank you! I should be able to make a great paralyse trap with this one. Here, I have something sturdy for you as well - want it?")
@@ -213,8 +217,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 		"Well done! The villagers are much safer now that the catapults are ready to fire. You also look like you've built some muscles. ...",
 		"Great - so the piece of equipment I just gave you will not go to waste. Take this studded shield and put it to good use! ...",
 		"Actually I have some more equipment I could give to you, but first I want to see how you fight. You have fought before, haven't you?"
-	},
-	reset = true
+	}
 },
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission02) == 4 end,
 function(player)
@@ -227,8 +230,7 @@ end
 keywordHandler:addKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
-	text = "Oh, but you have... you should say {yes}!",
-	moveup = 1
+	text = "Oh, but you have... you should say {yes}!"
 },
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission02) == 4 end
 )
@@ -243,6 +245,15 @@ local mission3 = keywordHandler:addKeyword({"yes"}, StdModule.say,
 		"So, back to the topic - please kill 5 rats and then come back to me. Shouldn't be too hard, should it? Just pay attention they don't trap you in a narrow passage and take on one at a time. ...",
 		"If you run low on health, go on full defence - click the little shield icon - and leave the dungeon. Nothing corwardish about running, because dying hurts. Are you ready to go?"
 	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission02) == 5 and player:getStorageValue(Storage.TheRookieGuard.Mission03) == -1 end
+)
+
+-- Mission 3: Decline
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "No worries, let's refresh your memory. To fight a monster, click on it in the battle list and you'll automatically attack it. It's as easy as that! If you want to practice, just hunt a few harmless rabbits south of here. Remember it now?"
 },
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission02) == 5 and player:getStorageValue(Storage.TheRookieGuard.Mission03) == -1 end
 )
@@ -291,6 +302,7 @@ function(player)
 	npcHandler:say("You still need to kill " .. (5 - ratKills) .. " more rats. Come back once you've killed enough for some experience and equipment!", player.uid)
 end
 )
+keywordHandler:addAliasKeyword({"no"})
 
 -- Mission 3: Finish - Confirm
 keywordHandler:addKeyword({"yes"}, StdModule.say,
@@ -304,7 +316,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 		"Anyway, I think you're well enough equipped now to leave the village of Rookgaard for another small task. Find Lily south-west of here, she will tell you what she needs done."
 	}
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission03) == 1 and player:getStorageValue(Storage.TheRookieGuard.RatKills) >= 5 end,
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission03) == 1 and player:getStorageValue(Storage.TheRookieGuard.RatKills) == 5 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission03, 2)
 	player:setStorageValue(Storage.TheRookieGuard.Mission04, 1)
@@ -318,10 +330,9 @@ end
 keywordHandler:addKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
-	text = "Actually I think you have killed enough. You should reply with {yes}!",
-	moveup = 1
+	text = "Actually I think you have killed enough. You should reply with {yes}!"
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission03) == 1 and player:getStorageValue(Storage.TheRookieGuard.RatKills) >= 5 end
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission03) == 1 and player:getStorageValue(Storage.TheRookieGuard.RatKills) == 5 end
 )
 
 -- Mission 4: Finish - Confirm
@@ -352,7 +363,7 @@ function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04)
 )
 keywordHandler:addAliasKeyword({"no"})
 
--- Mission 5: Accept
+-- Mission 5: Accept - Explain again
 keywordHandler:addKeyword({"yes"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -364,21 +375,21 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 		"If you run into her lair, you should have enough time to retrieve a sample of her web before she catches you. Just USE one of her intact cobwebs in her lair. Good luck!"
 	}
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 6 and player:getStorageValue(Storage.TheRookieGuard.Mission05) == -1 end,
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 6 and player:getStorageValue(Storage.TheRookieGuard.Mission05) == -1 or (player:getStorageValue(Storage.TheRookieGuard.Mission05) >= 1 and player:getStorageValue(Storage.TheRookieGuard.Mission05) <= 2) end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission05, 1)
 	player:addMapMark({x = 32051, y = 32110, z = 7}, MAPMARK_GREENSOUTH, "Spider Lair")
 end
 )
 
--- Mission 5: Decline
+-- Mission 5: Decline - Explain again
 keywordHandler:addKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
 	text = "Well, if you change your mind, let me know.",
 	ungreet = true
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 6 and player:getStorageValue(Storage.TheRookieGuard.Mission05) == -1 end
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 6 and player:getStorageValue(Storage.TheRookieGuard.Mission05) == -1 or (player:getStorageValue(Storage.TheRookieGuard.Mission05) >= 1 and player:getStorageValue(Storage.TheRookieGuard.Mission05) <= 2) end
 )
 
 -- Mission 5: Finish - Accept Reward (Studded armor)
