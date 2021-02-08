@@ -188,7 +188,7 @@ Condition* Condition::createCondition(ConditionId_t id, ConditionType_t type, in
     	case CONDITION_MANASHIELD:
       		return new ConditionManaShield(id, type, ticks, buff, subId);
 
-        case CONDITION_ROOTED:
+    case CONDITION_ROOTED:
 		case CONDITION_INFIGHT:
 		case CONDITION_DRUNK:
 		case CONDITION_EXHAUST:
@@ -334,8 +334,8 @@ uint32_t ConditionGeneric::getIcons() const
 			icons |= ICON_DRUNK;
 			break;
 
-        case CONDITION_ROOTED:
-            icons |= ICON_ROOTED;
+    case CONDITION_ROOTED:
+      icons |= ICON_ROOTED;
 			break;
 
 		default:
