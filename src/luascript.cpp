@@ -1388,6 +1388,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CONST_ME_ORANGE_FIREWORKS)
 	registerEnum(CONST_ME_PINK_FIREWORKS)
 	registerEnum(CONST_ME_BLUE_FIREWORKS)
+  registerEnum(CONST_ME_ROOTS)
 	registerEnum(CONST_ME_CHIVALRIOUS_CHALLENGE)
 	registerEnum(CONST_ME_DIVINE_DAZZLE)
 
