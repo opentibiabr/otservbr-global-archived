@@ -1293,4 +1293,5 @@
 	<instant name="summon challenge" words="###471" blockwalls="1" needtarget="0" needlearn="1" script="monster/summonchallenge.lua"/>
 	<instant name="energized raging mage skill reducer" words="###472" blockwalls="1" needtarget="0" needlearn="1" script="monster/energized raging mage skill reducer.lua"/>
 	<instant name="werelion wave" words="###473" direction="1" exhaustion="2000" needlearn="1" script="monster/werelion_wave.lua"/>
+	<instant name="root" words="###475" blockwalls="1" needtarget="1" needlearn="1" script="monster/root_branchy_rotten.lua"/>
 </spells>
