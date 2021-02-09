@@ -445,6 +445,7 @@ mission7:addChildKeyword({"yes"}, StdModule.say,
 nil,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission07, 1)
+	player:setStorageValue(Storage.TheRookieGuard.LibraryDoor, 1)
 end
 )
 
@@ -469,6 +470,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.LibraryChest) == 1 and player:getItemCount(13831) <= 0 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission07, 2)
+	player:setStorageValue(Storage.TheRookieGuard.LibraryDoor, -1)
 	player:addExperience(100, true)
 end
 )
@@ -487,8 +489,9 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.LibraryChest) == 1 and player:getItemCount(13831) >= 1 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission07, 2)
-	player:addExperience(100, true)
+	player:setStorageValue(Storage.TheRookieGuard.LibraryDoor, -1)
 	player:removeItem(13831, 1)
+	player:addExperience(100, true)
 	player:addItemEx(Game.createItem(2152, 1), true, CONST_SLOT_WHEREEVER)
 end
 )
@@ -506,6 +509,7 @@ keywordHandler:addKeyword({"no"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.LibraryChest) == 1 and player:getItemCount(13831) >= 1 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission07, 2)
+	player:setStorageValue(Storage.TheRookieGuard.LibraryDoor, -1)
 	player:removeItem(13831, 1)
 	player:addExperience(100, true)
 	player:addItemEx(Game.createItem(2152, 1), true, CONST_SLOT_WHEREEVER)
@@ -607,6 +611,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission09) == 10 and player:getStorageValue(Storage.TheRookieGuard.Mission10) == -1 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission10, 1)
+	player:setStorageValue(Storage.TheRookieGuard.UnholyCryptDoor, 1)
 	player:addItemEx(Game.createItem(2199, 1), true, CONST_SLOT_WHEREEVER)
 	player:addMapMark({x = 32131,  y = 32201, z = 7}, MAPMARK_GREENSOUTH, "Unholy Crypt")
 end
@@ -883,6 +888,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 5 and player:getStorageValue(Storage.TheRookieGuard.Mission12) == -1 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission12, 1)
+	player:setStorageValue(Storage.TheRookieGuard.AcademyDoor, 1)
 	player:setStorageValue(Storage.TheRookieGuard.KraknaknorkChests, 0)
 	player:addMapMark({x = 31976, y = 32156, z = 7}, MAPMARK_SKULL, "Orc Fortress")
 end
@@ -912,6 +918,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission12) == 14 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission12, 15)
+	player:setStorageValue(Storage.TheRookieGuard.AcademyDoor, -1)
 end
 )
 keywordHandler:addAliasKeyword({"no"})
