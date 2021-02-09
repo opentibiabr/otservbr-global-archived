@@ -131,8 +131,7 @@ void House::updateDoorDescription() const
 
 		const int32_t housePrice = g_config().getNumber(ConfigManager::HOUSE_PRICE);
 		if (housePrice != -1) {
-			ss << " It costs " << (houseTiles.size() * housePrice) << " gold coins.";
-		}
+			ss << " It costs " << static_cast<uint32_t>((houseTiles.size() * housePrice)) << " gold coins.";		}
 	}
 
 	for (const auto& it : doorSet) {
