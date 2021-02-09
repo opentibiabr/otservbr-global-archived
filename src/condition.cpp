@@ -185,9 +185,10 @@ Condition* Condition::createCondition(ConditionId_t id, ConditionType_t type, in
 		case CONDITION_SPELLGROUPCOOLDOWN:
 			return new ConditionSpellGroupCooldown(id, type, ticks, buff, subId);
 
-    	case CONDITION_MANASHIELD:
-      		return new ConditionManaShield(id, type, ticks, buff, subId);
+    case CONDITION_MANASHIELD:
+      return new ConditionManaShield(id, type, ticks, buff, subId);
 
+    case CONDITION_ROOTED:
 		case CONDITION_INFIGHT:
 		case CONDITION_DRUNK:
 		case CONDITION_EXHAUST:
@@ -331,6 +332,10 @@ uint32_t ConditionGeneric::getIcons() const
 
 		case CONDITION_DRUNK:
 			icons |= ICON_DRUNK;
+			break;
+
+    case CONDITION_ROOTED:
+      icons |= ICON_ROOTED;
 			break;
 
 		default:
@@ -928,7 +933,7 @@ void ConditionManaShield::addCondition(Creature* creature, const Condition* addC
 	manaShield = conditionManaShield.manaShield;
 	creature->setManaShield(manaShield);
 	creature->setMaxManaShield(manaShield);
-	
+
 	if (Player* player = creature->getPlayer()) {
 		player->sendStats();
 	}
@@ -1599,7 +1604,7 @@ void ConditionInvisible::endCondition(Creature* creature)
 
 /**
  * ConditionOutfit
- */ 
+ */
 
 void ConditionOutfit::setOutfit(const Outfit_t& newOutfit)
 {
@@ -1637,7 +1642,7 @@ bool ConditionOutfit::startCondition(Creature* creature)
 			return false;
 		}
 	}
-	
+
 	if (!Condition::startCondition(creature)) {
 		return false;
 	}
@@ -1681,7 +1686,7 @@ void ConditionOutfit::addCondition(Creature* creature, const Condition* addCondi
 
 /**
  *  ConditionLight
- */ 
+ */
 
 bool ConditionLight::startCondition(Creature* creature)
 {
