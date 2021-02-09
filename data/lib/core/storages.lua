@@ -1398,7 +1398,8 @@ Storage = {
 		TutorialDelay = 52383,
 		LibraryDoor = 52384,
 		UnholyCryptDoor = 52385,
-		AcademyDoor = 52386
+		AcademyDoor = 52386,
+		AcademyChestTimer = 52387
 	},
 	BanutaSecretTunnel = {
 		-- Reserved storage from 51680 - 51689

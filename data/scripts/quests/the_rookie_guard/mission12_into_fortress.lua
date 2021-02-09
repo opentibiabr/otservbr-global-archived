@@ -167,15 +167,17 @@ function treasureChest.onUse(player, item, frompos, item2, topos)
 	if missionState == -1 then
 		return true
 	end
-	if missionState == 1 then
-		local academyChestState = player:getStorageValue(Storage.TheRookieGuard.AcademyChest)
-		if academyChestState == -1 then
+	if missionState >= 1 and missionState <= 13 then
+		local chestState = player:getStorageValue(Storage.TheRookieGuard.AcademyChest)
+		local chestTimer = player:getStorageValue(Storage.TheRookieGuard.AcademyChestTimer)
+		if chestState == -1 or chestTimer - os.time() <= 0 then
 			local container = Game.createItem(reward.containerId)
 			for i = #reward.itemIds, 1, -1 do
 				container:addItem(reward.itemIds[i], 1)
 			end
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. container:getName() .. ".")
 			player:setStorageValue(Storage.TheRookieGuard.AcademyChest, 1)
+			player:setStorageValue(Storage.TheRookieGuard.AcademyChestTimer, os.time() + 24 * 60 * 60)
 			player:addItemEx(container, true, CONST_SLOT_WHEREEVER)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The " .. item:getName() .. " is empty.")
@@ -563,7 +565,7 @@ function enterBossRoomTeleport.onStepIn(creature, item, position, fromPosition)
 		position:sendMagicEffect(CONST_ME_TELEPORT)
 		roomPosition:sendMagicEffect(CONST_ME_TELEPORT)
 		-- Start boss fight timer
-		boss.fight = addEvent(finishBossFight, 30000, player.uid, bossCreature.uid)
+		boss.fight = addEvent(finishBossFight, 5*60*1000, player.uid, bossCreature.uid)
 	end
 	return true
 end
