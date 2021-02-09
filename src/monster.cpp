@@ -1283,7 +1283,7 @@ bool Monster::getNextStep(Direction& nextDirection, uint32_t& flags)
 	}
 
 	if (result) {
-		const Position& pos = Spells::getCasterPosition(this, direction);
+		const Position& pos = getNextPosition(nextDirection, getPosition());
 		Tile* posTile = g_game.map.getTile(pos);
 		if (posTile) {
 			if (canPushItems()) {
