@@ -3294,18 +3294,22 @@ void ProtocolGame::sendLootContainers()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendLootStats(Item *item)
+void ProtocolGame::sendLootStats(Item *item, uint8_t count)
 {
 	if (!item)
 	{
 		return;
 	}
+	Item* lootedItem = nullptr;
+	lootedItem = item->clone();
+	lootedItem->setItemCount(count);
 
 	NetworkMessage msg;
 	msg.addByte(0xCF);
-	AddItem(msg, item);
-	msg.addString(item->getName());
+	AddItem(msg, lootedItem);
+	msg.addString(lootedItem->getName());
 
+	lootedItem = nullptr;
 	writeToOutputBuffer(msg);
 }
 

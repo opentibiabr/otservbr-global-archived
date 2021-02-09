@@ -4115,7 +4115,7 @@ int LuaScriptInterface::luaPlayerSendInventory(lua_State* L)
 
 int LuaScriptInterface::luaPlayerSendLootStats(lua_State* L)
 {
-	// player:sendLootStats(item)
+	// player:sendLootStats(item, count)
 	Player* player = getUserdata<Player>(L, 1);
 	if (!player) {
 		lua_pushnil(L);
@@ -4128,7 +4128,13 @@ int LuaScriptInterface::luaPlayerSendLootStats(lua_State* L)
 		return 1;
 	}
 
- 	player->sendLootStats(item);
+	uint8_t count = getNumber<uint8_t>(L, 3, 0);
+	if(count == 0) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+ 	player->sendLootStats(item, count);
 	pushBoolean(L, true);
 
  	return 1;

@@ -1578,6 +1578,11 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 	if (ret != RETURNVALUE_NOERROR) {
 		player->sendCancelMessage(ret);
 	} else {
+		if (toCylinder->getContainer() != nullptr && fromCylinder->getContainer() != nullptr
+			&& fromCylinder->getContainer()->isCorpse()
+			&& toCylinder->getContainer()->getTopParent() == player) {
+			player->sendLootStats(item, count);
+		}
 		player->cancelPush();
 
 		g_events->eventPlayerOnItemMoved(player, item, count, fromPos, toPos, fromCylinder, toCylinder);
@@ -2370,7 +2375,7 @@ void Game::internalQuickLootCorpse(Player* player, Container* corpse)
 		if (worth != 0) {
 			missedAnyGold = missedAnyGold || !success;
 			if (success) {
-				player->sendLootStats(item);
+				player->sendLootStats(item, worth);
 				totalLootedGold += worth;
 			} else {
 				// item is not completely moved
@@ -2380,7 +2385,7 @@ void Game::internalQuickLootCorpse(Player* player, Container* corpse)
 			missedAnyItem = missedAnyItem || !success;
 			if (success || item->getItemCount() != baseCount) {
 				totalLootedItems++;
-				player->sendLootStats(item);
+				player->sendLootStats(item, totalLootedItems);
 			}
 		}
 	}
@@ -4428,7 +4433,7 @@ void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spri
 			ss << "Attention! The container for " << getObjectCategoryName(category) << " is full.";
 		} else {
 			if (ret == RETURNVALUE_NOERROR) {
-				player->sendLootStats(item);
+				player->sendLootStats(item, item->getItemCount());
 				ss << "You looted ";
 			} else {
 				ss << "You could not loot ";
