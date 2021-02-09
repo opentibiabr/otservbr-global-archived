@@ -318,7 +318,13 @@ local questTable = {
 [317] = {storageId = Storage.AdventurersGuild.GreatDragonHunt.WarriorSkeleton, storageValue = 1},
 [318] = {storageId = Storage.AdventurersGuild.GreatDragonHunt.WarriorSkeleton, storageValue = 2},
 [319] = {storageId = Storage.Quest.Dawnport.Questline, storageValue = 1},
-[320] = {storageId = Storage.Quest.Dawnport.GoMain, storageValue = 1}
+[320] = {storageId = Storage.Quest.Dawnport.GoMain, storageValue = 1},
+[321] = {storageId = Storage.ForgottenKnowledge.AccessDeath, storageValue = 1},
+[322] = {storageId = Storage.ForgottenKnowledge.AccessViolet, storageValue = 1},
+[323] = {storageId = Storage.ForgottenKnowledge.AccessEarth, storageValue = 1},
+[324] = {storageId = Storage.ForgottenKnowledge.AccessFire, storageValue = 1},
+[325] = {storageId = Storage.ForgottenKnowledge.AccessIce, storageValue = 1},
+[326] = {storageId = Storage.ForgottenKnowledge.AccessGolden, storageValue = 1}
 }
 
 local upperLimit = 1 -- change upperLimit to a higher one after adding a new quest to questTable
