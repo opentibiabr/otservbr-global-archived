@@ -20,6 +20,8 @@
 #ifndef FS_BAN_H_CADB975222D745F0BDA12D982F1006E3
 #define FS_BAN_H_CADB975222D745F0BDA12D982F1006E3
 
+#include <string>
+
 struct BanInfo {
 	std::string bannedBy;
 	std::string reason;

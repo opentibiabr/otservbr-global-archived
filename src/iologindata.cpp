@@ -192,7 +192,7 @@ bool IOLoginData::loadPlayerPreyData(Player* player)
         DBInsert preyDataQuery(&g_database(), "INSERT INTO `prey_slots` (`player_id`, `num`, `state`, `unlocked`, `current`, `monster_list`, `free_reroll_in`, `time_left`, `next_use`, `bonus_type`, `bonus_value`, `bonus_grade`, `tick`) VALUES ");
         for (size_t num = 0; num < PREY_SLOTNUM_THIRD + 1; num++) {
             query.clear();
-            query << player->getGUID() << ',' << num << ',' << 0 << ',' << 0 << ',' << g_database().escapeString("") << ',' << g_database().escapeString("") << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0;
+            query << player->getGUID() << ',' << static_cast<uint32_t>(num) << ',' << 0 << ',' << 0 << ',' << g_database().escapeString("") << ',' << g_database().escapeString("") << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0;
             if (!preyDataQuery.addRow(query)) {
                 return false;
             }
