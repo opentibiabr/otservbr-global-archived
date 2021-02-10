@@ -1402,7 +1402,8 @@ Storage = {
 		AcademyChestTimer = 52387,
 		WarWolfDenChest = 52388,
 		UnholyCryptChests = 52389,
-		OrcFortressChests = 52390
+		OrcFortressChests = 52390,
+		Level8Warning = 52391
 	},
 	BanutaSecretTunnel = {
 		-- Reserved storage from 51680 - 51689

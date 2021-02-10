@@ -26,9 +26,21 @@ npcHandler:addModule(VoiceModule:new(voices))
 
 local function greetCallback(cid)
 	local player = Player(cid)
-	-- Reject start missions
-	if player:getStorageValue(Storage.TheRookieGuard.Mission02) == -1 and player:getLevel() > 5 then
+	-- Reject to start missions
+	if player:getStorageValue(Storage.TheRookieGuard.Questline) == -1 and player:getLevel() > 5 then
 		npcHandler:say("Welcome, adventurer |PLAYERNAME|. Thank you for offering your help - but you are already too experienced to start this quest. Just go on hunting monsters, you'll be better off that way.", cid)
+		return false
+	-- Warn if started missions and reached level 8
+	elseif player:getStorageValue(Storage.TheRookieGuard.Questline) == 1 and player:getLevel() == 8 and player:getStorageValue(Storage.TheRookieGuard.Level8Warning) == -1 then
+		npcHandler:setMessage(MESSAGE_GREET, {
+			"|PLAYERNAME| - a small word of advice before we continue this mission. You are level 8 now, while it is possible to reach higher levels while still on Rookgaard, you should consider leaving Rookgaard at about level 9. ...",
+			"You can still go on with this mission, but you won't be able to finish the quest once you've reached level 9. So only kill the monsters you absolutely have to kill - if you want to finish this quest! ...",
+			"If you don't care about that, you can also simply leave Rookgaard now and learn a vocation by talking to the oracle above the academy. It's up to you. Or - I could simply clean up your questlog, if you prefer. ...",
+			"What would you like to do? {Continue} the mission or {delete} the unfinished questline from your questlog?"
+		})
+	-- Completed all missions
+	elseif player:getStorageValue(Storage.TheRookieGuard.Questline) == 2 then
+		npcHandler:say("|PLAYERNAME|, the only thing left for you to do here is to talk to the oracle above the academy and leave for the Isle of Destiny. Thanks again for your great work and good luck on your journeys!", cid)
 		return false
 	-- Not started mission 2
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission02) == -1 then
@@ -136,10 +148,6 @@ local function greetCallback(cid)
 	-- Finish mission 12
 	elseif player:getStorageValue(Storage.TheRookieGuard.Mission12) == 14 then
 		npcHandler:setMessage(MESSAGE_GREET, "|PLAYERNAME|! You're back! And you're covered in orc blood... that can only mean... were you able to kill Kraknaknork?")
-	-- Completed all missions
-	elseif player:getStorageValue(Storage.TheRookieGuard.Mission12) == 15 then
-		npcHandler:say("|PLAYERNAME|, the only thing left for you to do here is to talk to the oracle above the academy and leave for the Isle of Destiny. Thanks again for your great work and good luck on your journeys!", cid)
-		return false
 	end
 	return true
 end
@@ -914,10 +922,49 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission12) == 14 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission12, 15)
+	player:setStorageValue(Storage.TheRookieGuard.Questline, 2)
 	player:setStorageValue(Storage.TheRookieGuard.AcademyDoor, -1)
 end
 )
 keywordHandler:addAliasKeyword({"no"})
+
+-- Missions: Confirm - Continue (Level 8)
+keywordHandler:addKeyword({"continue"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Alright. Talk to me again to continue with your mission, but heed my words!",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Questline) == 1 and player:getLevel() == 8 and player:getStorageValue(Storage.TheRookieGuard.Level8Warning) == -1 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Level8Warning, 1)
+end
+)
+
+-- Missions: Confirm - Delete (Level 8)
+keywordHandler:addKeyword({"delete"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Alright.",
+	ungreet = true
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Questline) == 1 and player:getLevel() == 8 and player:getStorageValue(Storage.TheRookieGuard.Level8Warning) == -1 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Questline, -1)
+	player:setStorageValue(Storage.TheRookieGuard.Mission01, -1)
+	player:setStorageValue(Storage.TheRookieGuard.Mission02, -1)
+	player:setStorageValue(Storage.TheRookieGuard.Mission03, -1)
+	player:setStorageValue(Storage.TheRookieGuard.Mission04, -1)
+	player:setStorageValue(Storage.TheRookieGuard.Mission05, -1)
+	player:setStorageValue(Storage.TheRookieGuard.Mission06, -1)
+	player:setStorageValue(Storage.TheRookieGuard.Mission07, -1)
+	player:setStorageValue(Storage.TheRookieGuard.Mission08, -1)
+	player:setStorageValue(Storage.TheRookieGuard.Mission09, -1)
+	player:setStorageValue(Storage.TheRookieGuard.Mission10, -1)
+	player:setStorageValue(Storage.TheRookieGuard.Mission11, -1)
+	player:setStorageValue(Storage.TheRookieGuard.Mission12, -1)
+end
+)
 
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setMessage(MESSAGE_FAREWELL, "Farewell.")
