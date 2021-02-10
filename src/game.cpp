@@ -1081,6 +1081,14 @@ bool Game::removeCreature(Creature* creature, bool isLogout/* = true*/)
 		summon->setSkillLoss(false);
 		removeCreature(summon);
 	}
+
+	if (creature->getPlayer() && isLogout) {
+		auto it = teamFinderMap.find(creature->getPlayer()->getGUID());
+		if (it != teamFinderMap.end()) {
+			teamFinderMap.erase(it);
+		}
+	}
+
 	return true;
 }
 

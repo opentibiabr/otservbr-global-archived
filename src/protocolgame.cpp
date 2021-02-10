@@ -576,6 +576,8 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0x1D: addGameTask(&Game::playerReceivePingBack, player->getID()); break;
 		case 0x1E: addGameTask(&Game::playerReceivePing, player->getID()); break;
 		case 0x2a: addBestiaryTrackerList(msg); break;
+		case 0x2c: parseLeaderFinderWindow(msg); break;
+		case 0x2d: parseMemberFinderWindow(msg); break;
 		case 0x28: parseStashWithdraw(msg); break;
 		case 0x32: parseExtendedOpcode(msg); break; //otclient extended opcode
 		case 0x64: parseAutoWalk(msg); break;
@@ -1788,6 +1790,334 @@ void ProtocolGame::addBestiaryTrackerList(NetworkMessage &msg)
 		{
 			player->addBestiaryTrackerList(mtype);
 		}
+	}
+}
+
+void ProtocolGame::sendTeamFinderList()
+{
+	if (!player)
+		return;
+
+	NetworkMessage msg;
+	msg.addByte(0x2D);
+	msg.addByte(0x00); // Bool value, with 'true' the player exceed packets for second.
+	std::map<uint32_t, TeamFinder*> teamFinder = g_game.getTeamFinderList();
+	msg.add<uint16_t>(teamFinder.size());
+	for (auto it : teamFinder) {
+		Player* leader = g_game.getPlayerByGUID(it.first);
+		if (!leader)
+			return;
+
+		TeamFinder* teamAssemble = it.second;
+		if (!teamAssemble)
+			return;
+
+		uint8_t status = 0;
+		uint16_t membersSize = 0;
+		msg.add<uint32_t>(leader->getGUID());
+		msg.addString(leader->getName());
+		msg.add<uint16_t>(teamAssemble->minLevel);
+		msg.add<uint16_t>(teamAssemble->maxLevel);
+		msg.addByte(teamAssemble->vocationIDs);
+		msg.add<uint16_t>(teamAssemble->teamSlots);
+		for (auto itt : teamAssemble->membersMap) {
+			Player* member = g_game.getPlayerByGUID(it.first);
+			if (member) {
+				if (itt.first == player->getGUID())
+					status = itt.second;
+
+				if (itt.second == 3)
+					membersSize += 1;
+			}
+		}
+		msg.add<uint16_t>(std::max<uint16_t>((teamAssemble->teamSlots - teamAssemble->freeSlots), membersSize));
+		// The leader does not count on this math, he is included inside the 'freeSlots'.
+		msg.add<uint32_t>(teamAssemble->timestamp);
+		msg.addByte(teamAssemble->teamType);
+
+		switch (teamAssemble->teamType) {
+			case 1: {
+				msg.add<uint16_t>(teamAssemble->bossID);
+				break;
+			}
+			case 2: {
+				msg.add<uint16_t>(teamAssemble->hunt_type);
+				msg.add<uint16_t>(teamAssemble->hunt_area);
+				break;
+			}
+			case 3: {
+				msg.add<uint16_t>(teamAssemble->questID);
+				break;
+			}
+
+			default:
+				break;
+		}
+
+		msg.addByte(status);
+	}
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendLeaderTeamFinder(bool reset)
+{
+	if (!player)
+		return;
+
+	TeamFinder* teamAssemble = nullptr;
+	std::map<uint32_t, TeamFinder*> teamFinder = g_game.getTeamFinderList();
+	auto it = teamFinder.find(player->getGUID());
+	if (it != teamFinder.end()) {
+		teamAssemble = it->second;
+	}
+
+	if (!teamAssemble)
+		return;
+
+	NetworkMessage msg;
+	msg.addByte(0x2C);
+	msg.addByte(reset ? 1 : 0);
+	if (reset) {
+		g_game.removeTeamFinderListed(player->getGUID());
+		return;
+	}
+	msg.add<uint16_t>(teamAssemble->minLevel);
+	msg.add<uint16_t>(teamAssemble->maxLevel);
+	msg.addByte(teamAssemble->vocationIDs);
+	msg.add<uint16_t>(teamAssemble->teamSlots);
+	msg.add<uint16_t>(teamAssemble->freeSlots);
+	msg.add<uint32_t>(teamAssemble->timestamp);
+	msg.addByte(teamAssemble->teamType);
+
+	switch (teamAssemble->teamType) {
+		case 1: {
+			msg.add<uint16_t>(teamAssemble->bossID);
+			break;
+		}
+		case 2: {
+			msg.add<uint16_t>(teamAssemble->hunt_type);
+			msg.add<uint16_t>(teamAssemble->hunt_area);
+			break;
+		}
+		case 3: {
+			msg.add<uint16_t>(teamAssemble->questID);
+			break;
+		}
+
+		default:
+			break;
+	}
+
+	uint16_t membersSize = 1;
+	for (auto memberPair : teamAssemble->membersMap) {
+		Player* member = g_game.getPlayerByGUID(memberPair.first);
+		if (member) {
+			membersSize += 1;
+		}
+	}
+
+	msg.add<uint16_t>(membersSize);
+	Player* leader = g_game.getPlayerByGUID(teamAssemble->leaderGuid);
+	if (!leader)
+		return;
+
+	msg.add<uint32_t>(leader->getGUID());
+	msg.addString(leader->getName());
+	msg.add<uint16_t>(leader->getLevel());
+	msg.addByte(leader->getVocation()->getClientId());
+	msg.addByte(3);
+
+	for (auto memberPair : teamAssemble->membersMap) {
+		Player* member = g_game.getPlayerByGUID(memberPair.first);
+		if (!member) {
+			continue;
+		}
+		msg.add<uint32_t>(member->getGUID());
+		msg.addString(member->getName());
+		msg.add<uint16_t>(member->getLevel());
+		msg.addByte(member->getVocation()->getClientId());
+		msg.addByte(memberPair.second);
+	}
+
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::createLeaderTeamFinder(NetworkMessage &msg)
+{
+	if (!player)
+		return;
+
+	std::map<uint32_t, uint8_t> members;
+	std::map<uint32_t, TeamFinder*> teamFinder = g_game.getTeamFinderList();
+	TeamFinder* teamAssemble = nullptr;
+	auto it = teamFinder.find(player->getGUID());
+	if (it != teamFinder.end()) {
+		members = it->second->membersMap;
+		teamAssemble = it->second;
+	}
+
+	if (!teamAssemble)
+		teamAssemble = new TeamFinder();
+
+	teamAssemble->minLevel = msg.get<uint16_t>();
+	teamAssemble->maxLevel = msg.get<uint16_t>();
+	teamAssemble->vocationIDs = msg.getByte();
+	teamAssemble->teamSlots = msg.get<uint16_t>();
+	teamAssemble->freeSlots = msg.get<uint16_t>();
+	teamAssemble->partyBool = (msg.getByte() == 1);
+	teamAssemble->timestamp = msg.get<uint32_t>();
+	teamAssemble->teamType = msg.getByte();
+
+	uint16_t bossID = 0;
+	uint16_t huntType1 = 0;
+	uint16_t huntType2 = 0;
+	uint16_t questID = 0;
+
+	switch (teamAssemble->teamType) {
+		case 1: {
+			bossID = msg.get<uint16_t>();
+			break;
+		}
+		case 2: {
+			huntType1 = msg.get<uint16_t>();
+			huntType2 = msg.get<uint16_t>();
+			break;
+		}
+
+		case 3: {
+			questID = msg.get<uint16_t>();
+			break;
+		}
+
+		default:
+			break;
+	}
+
+	teamAssemble->bossID = bossID;
+	teamAssemble->hunt_type = huntType1;
+	teamAssemble->hunt_area = huntType2;
+	teamAssemble->questID = questID;
+	teamAssemble->leaderGuid = player->getGUID();
+
+	if (teamAssemble->partyBool && player->getParty()) {
+		for (Player* member : player->getParty()->getMembers()) {
+			if (member && member->getGUID() != player->getGUID()) {
+				members.insert({member->getGUID(), 3});
+			}
+		}
+		if (player->getParty()->getLeader()->getGUID() != player->getGUID()) {
+			members.insert({player->getParty()->getLeader()->getGUID(), 3});
+		}
+	}
+	teamAssemble->membersMap = members;
+	g_game.registerTeamFinderAssemble(player->getGUID(), teamAssemble);
+}
+
+void ProtocolGame::parseLeaderFinderWindow(NetworkMessage &msg)
+{
+	if (!player)
+		return;
+
+	uint8_t action = msg.getByte();
+	switch (action) {
+		case 0: {
+			player->sendLeaderTeamFinder(false);
+			break;
+		}
+		case 1: {
+			player->sendLeaderTeamFinder(true);
+			break;
+		}
+		case 2: {
+			uint32_t memberID = msg.get<uint32_t>();
+			Player* member = g_game.getPlayerByGUID(memberID);
+			if (!member)
+				return;
+
+			std::map<uint32_t, TeamFinder*> teamFinder = g_game.getTeamFinderList();
+			TeamFinder* teamAssemble = nullptr;
+			auto it = teamFinder.find(player->getGUID());
+			if (it != teamFinder.end()) {
+				teamAssemble = it->second;
+			}
+
+			if (!teamAssemble)
+				return;
+
+			uint8_t memberStatus = msg.getByte();
+			for (auto& memberPair : teamAssemble->membersMap) {
+				if (memberPair.first == memberID) {
+					memberPair.second = memberStatus;
+				}
+			}
+
+			switch (memberStatus) {
+				case 2: {
+					member->sendTextMessage(MESSAGE_STATUS, "You are invited to a new team.");
+					break;
+				}
+				case 3: {
+					member->sendTextMessage(MESSAGE_STATUS, "Your team finder request was accepted.");
+					break;
+				}
+				case 4: {
+					member->sendTextMessage(MESSAGE_STATUS, "Your team finder request was denied.");
+					break;
+				}
+
+				default:
+					break;
+			}
+			player->sendLeaderTeamFinder(false);
+			break;
+		}
+		case 3: {
+			player->createLeaderTeamFinder(msg);
+			player->sendLeaderTeamFinder(false);
+			break;
+		}
+
+		default:
+			break;
+	}
+}
+
+void ProtocolGame::parseMemberFinderWindow(NetworkMessage &msg)
+{
+	if (!player)
+		return;
+
+	uint8_t action = msg.getByte();
+	if (action == 0) {
+			player->sendTeamFinderList();
+	} else {
+		uint32_t leaderID = msg.get<uint32_t>();
+		Player* leader = g_game.getPlayerByGUID(leaderID);
+		if (!leader)
+			return;
+
+		std::map<uint32_t, TeamFinder*> teamFinder = g_game.getTeamFinderList();
+		TeamFinder* teamAssemble = nullptr;
+		auto it = teamFinder.find(leaderID);
+		if (it != teamFinder.end()) {
+			teamAssemble = it->second;
+		}
+
+		if (!teamAssemble)
+			return;
+
+		if (action == 1) {
+			leader->sendTextMessage(MESSAGE_STATUS, "There is a new request to join your team.");
+			teamAssemble->membersMap.insert({player->getGUID(), 1});
+		} else {
+			for (auto itt = teamAssemble->membersMap.begin(), end = teamAssemble->membersMap.end(); itt != end; ++itt) {
+				if (itt->first == player->getGUID()) {
+					teamAssemble->membersMap.erase(itt);
+					break;
+				}
+			}
+		}
+		player->sendTeamFinderList();
 	}
 }
 
