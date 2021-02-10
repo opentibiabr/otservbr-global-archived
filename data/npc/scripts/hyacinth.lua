@@ -44,7 +44,7 @@ end
 keywordHandler:addAliasKeyword({"herbs"})
 
 -- Mission 4: Decline (Give herbs)
-local mission4Lost = keywordHandler:addKeyword({"no"}, StdModule.say,
+local mission4LostHerbs = keywordHandler:addKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
 	text = "Well, then I must have mistaken you with someone else. Or did you lose it on the way?"
@@ -53,7 +53,7 @@ function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04)
 )
 
 -- Mission 4: Confirm (Lost herbs)
-mission4Lost:addChildKeyword({"yes"}, StdModule.say,
+mission4LostHerbs:addChildKeyword({"yes"}, StdModule.say,
 {
 	npcHandler = npcHandler,
 	text = "That's too bad... but I'm sure Lily could give you another one. Just walk back and talk to her again.",
@@ -61,7 +61,7 @@ mission4Lost:addChildKeyword({"yes"}, StdModule.say,
 })
 
 -- Mission 4: Decline (Lost herbs)
-mission4Lost:addChildKeyword({"no"}, StdModule.say,
+mission4LostHerbs:addChildKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
 	text = "Alright then. Good luck on your travels.",

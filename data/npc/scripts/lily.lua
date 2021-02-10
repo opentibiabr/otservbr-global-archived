@@ -27,10 +27,14 @@ npcHandler:addModule(VoiceModule:new(voices))
 
 local function greetCallback(cid)
 	local player = Player(cid)
+	-- Continue mission 4
 	if player:getStorageValue(Storage.TheRookieGuard.Mission04) == 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Oh hey, |PLAYERNAME|! Vascalir must have sent you to help me with a little {mission}, right?")
+	-- Not finished mission 4
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission04) == 2 then
+		npcHandler:setMessage(MESSAGE_GREET, "Hello, |PLAYERNAME|! Back so soon? Have you delivered the herbs to Hyacinth?")
 	else
-		npcHandler:setMessage(MESSAGE_GREET, 'Welcome, |PLAYERNAME|! You look a little stressed today. If you like to view my offers of potions, just ask me for a {trade}. In case you\'re looking for the marketplace and dungeons, just follow the path to the east!')
+		npcHandler:setMessage(MESSAGE_GREET, "Welcome, |PLAYERNAME|! You look a little stressed today. If you like to view my offers of potions, just ask me for a {trade}. In case you're looking for the marketplace and dungeons, just follow the path to the east!")
 	end
 	return true
 end
@@ -50,11 +54,12 @@ function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04)
 )
 keywordHandler:addAliasKeyword({"mission"})
 
--- Mission 4: Reject
+-- Mission 4: Decline
 keywordHandler:addKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
-	text = "Oh. In that case, maybe you're interested in a {trade} - I sell potions and buy a few other things."
+	text = "Oh. In that case, maybe you're interested in a {trade} - I sell potions and buy a few other things.",
+	reset = true
 },
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 1 end
 )
@@ -82,7 +87,64 @@ mission4:addChildKeyword({"no"}, StdModule.say,
 {
 	npcHandler = npcHandler,
 	text = "Oh. Well, if you change your mind, let me know.",
-	moveup = 1
+	reset = true
+})
+
+-- Mission 4: Confirm Delivered (Without)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "No, you haven't. If you're looking for the way to Hyacinth, just leave the village to the north and then go east. I've marked it on your map!"
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 2 end
+)
+
+-- Mission 4: Confirm Not Delivered (Without)
+local mission4LostHerbs = keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Is something... wrong? You didn't lose the herbs, did you?"
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 2 end
+)
+
+-- Mission 4: Confirm Lost Herbs
+local mission4AcceptAnotherHerbs = mission4LostHerbs:addChildKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Well, at least you're honest. I can give you another sack, but only if you promise not to lose them this time. Okay?"
+})
+
+-- Mission 4: Decline Lost Herbs
+mission4LostHerbs:addChildKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Phew. That's a relief. Well, don't forget to deliver them to Hyacinth! They have to be fresh to create potions.",
+	reset = true
+})
+
+-- Mission 4: Accept Lost Herbs
+mission4AcceptAnotherHerbs:addChildKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"Here you go, honey. I really appreciate your help. To find Hyacinth, leave the village to the north and go pretty much straight to the east. ...",
+		"His little alchemy lab is on top of a mountain. I'll mark the ramp leading up on your map, here. Don't stray from the path! There are dangerous monsters roaming the island."
+	},
+	reset = true
+},
+nil,
+function(player)
+	player:addItemEx(Game.createItem(13827, 1), true, CONST_SLOT_WHEREEVER)
+end
+)
+
+-- Mission 4: Reject Lost Herbs
+mission4AcceptAnotherHerbs:addChildKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Oh. Well, if you change your mind, let me know.",
+	reset = true
 })
 
 -- Basic Keywords
