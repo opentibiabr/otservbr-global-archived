@@ -175,7 +175,7 @@ function treasureChest.onUse(player, item, frompos, item2, topos)
 			for i = #reward.itemIds, 1, -1 do
 				container:addItem(reward.itemIds[i], 1)
 			end
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. container:getName() .. ".")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. container:getArticle() .. " " .. container:getName() .. ".")
 			player:setStorageValue(Storage.TheRookieGuard.AcademyChest, 1)
 			player:setStorageValue(Storage.TheRookieGuard.AcademyChestTimer, os.time() + 24 * 60 * 60)
 			player:addItemEx(container, true, CONST_SLOT_WHEREEVER)
@@ -284,10 +284,10 @@ function fleshyBone.onUse(player, item, frompos, item2, topos)
 		item2:remove()
 		monsters = {}
 		for i = 1, #monstersList do
+			if i == 2 then
+				spawnPosition.y = spawnPosition.y + 2
+			end
 			for j = 1, monstersList[i].amount do
-				if j == 2 then
-					spawnPosition.y = spawnPosition.y + 2
-				end
 				monsters[#monsters + 1] = Game.createMonster(monstersList[i].name, spawnPosition)
 			end
 		end
