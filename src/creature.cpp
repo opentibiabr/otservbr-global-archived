@@ -274,6 +274,10 @@ bool Creature::getNextStep(Direction& dir, uint32_t&)
 
 void Creature::startAutoWalk(const std::forward_list<Direction>& listDir)
 {
+	if (hasCondition(CONDITION_ROOTED)) {
+		return;
+	}
+
 	listWalkDir = listDir;
 
 	size_t size = 0;
@@ -473,9 +477,6 @@ void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Pos
                               const Tile* oldTile, const Position& oldPos, bool teleport)
 {
 	if (creature == this) {
-    if (hasCondition(CONDITION_ROOTED)) {
-        stopEventWalk();
-    }
 		lastStep = OTSYS_TIME();
 		lastStepCost = 1;
 
