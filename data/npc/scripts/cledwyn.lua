@@ -122,7 +122,7 @@ function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 1
 	elseif isInArray({'pendulet', 'sleep shawl', 'blister ring', 'theurgic amulet'}, msg:lower()) and npcHandler.topic[cid] == 1 then
 		npcHandler:say("Should I enchant the item pendulet for 2 ".. ItemType(Npc():getCurrency()):getPluralName():lower() .."?", cid)
-		local charge = msg:lower()
+		charge = msg:lower()
 		npcHandler.topic[cid] = 2
 	elseif npcHandler.topic[cid] == 2 then
 		if msgcontains(msg, 'yes') then

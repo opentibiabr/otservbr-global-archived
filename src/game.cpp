@@ -44,8 +44,8 @@
 #include "modules.h"
 #include "imbuements.h"
 #include "account.hpp"
-#include "iostash.h"
 #include "webhook.h"
+
 
 extern ConfigManager g_config;
 extern Actions* g_actions;
@@ -1578,6 +1578,11 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 	if (ret != RETURNVALUE_NOERROR) {
 		player->sendCancelMessage(ret);
 	} else {
+		if (toCylinder->getContainer() != nullptr && fromCylinder->getContainer() != nullptr
+			&& fromCylinder->getContainer()->isCorpse()
+			&& toCylinder->getContainer()->getTopParent() == player) {
+			player->sendLootStats(item, count);
+		}
 		player->cancelPush();
 
 		g_events->eventPlayerOnItemMoved(player, item, count, fromPos, toPos, fromCylinder, toCylinder);
@@ -2370,7 +2375,7 @@ void Game::internalQuickLootCorpse(Player* player, Container* corpse)
 		if (worth != 0) {
 			missedAnyGold = missedAnyGold || !success;
 			if (success) {
-				player->sendLootStats(item);
+				player->sendLootStats(item, worth);
 				totalLootedGold += worth;
 			} else {
 				// item is not completely moved
@@ -2380,7 +2385,7 @@ void Game::internalQuickLootCorpse(Player* player, Container* corpse)
 			missedAnyItem = missedAnyItem || !success;
 			if (success || item->getItemCount() != baseCount) {
 				totalLootedItems++;
-				player->sendLootStats(item);
+				player->sendLootStats(item, totalLootedItems);
 			}
 		}
 	}
@@ -3625,7 +3630,7 @@ void Game::playerStowAllItems(Player* player, const Position& pos, uint16_t spri
 	auto itemCID = Item::items.getItemIdByClientId(spriteId).id;
 	uint16_t allitems = player->getItemTypeCount(itemCID, -1);
 
-	player->stowContainer(item, static_cast<uint32_t>(allitems), true);
+	player->stowContainer(item, static_cast<uint32_t>(allitems));
 }
 
 void Game::playerStashWithdraw(Player* player, uint16_t spriteId, uint32_t count, uint8_t)
@@ -3686,7 +3691,7 @@ void Game::playerStashWithdraw(Player* player, uint16_t spriteId, uint32_t count
 	std::string stringResult = ss.str();
 	player->sendCancelMessage(stringResult);
 
-	if (IOStash::withdrawItem(player->guid, spriteId, WithdrawCount)) {
+	if (player->withdrawItem(spriteId, WithdrawCount)) {
 		player->addItemFromStash(it.id, WithdrawCount);
 	} else {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
@@ -4428,7 +4433,7 @@ void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spri
 			ss << "Attention! The container for " << getObjectCategoryName(category) << " is full.";
 		} else {
 			if (ret == RETURNVALUE_NOERROR) {
-				player->sendLootStats(item);
+				player->sendLootStats(item, item->getItemCount());
 				ss << "You looted ";
 			} else {
 				ss << "You could not loot ";
@@ -7386,10 +7391,10 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
       account.RemoveCoins(static_cast<uint32_t>(amount));
     } else {
 		uint16_t stashmath = amount;
-		uint16_t stashminus = IOStash::getStashItemCount(player->guid, it.wareId);
+		uint16_t stashminus = player->getStashItemCount(it.wareId);
 		if (stashminus > 0) {
 			stashmath = (amount - (amount > stashminus ? stashminus : amount));
-			IOStash::withdrawItem(player->guid, it.wareId, (amount > stashminus ? stashminus : amount));
+			player->withdrawItem(it.wareId, (amount > stashminus ? stashminus : amount));
 		}
 
 		std::forward_list<Item *> itemList = getMarketItemList(it.wareId, stashmath, depotLocker);

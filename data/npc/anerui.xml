@@ -4,6 +4,8 @@
 	<look type="63"/>
 	<parameters>
 		<parameter key="module_shop" value="1"/>
-		<parameter key="shop_buyable" value="meat,2666,4;ham,2671,6"/>
+		<parameter key="shop_buyable" value="
+			meat, 2666, 4;
+			ham, 2671, 6;"/>
 	</parameters>
 </npc>
