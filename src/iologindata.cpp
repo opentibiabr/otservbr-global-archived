@@ -937,7 +937,7 @@ bool IOLoginData::savePlayer(Player* player)
     query << "`sex` = " << static_cast<uint16_t>(player->sex) << ',';
 
     if (player->lastLoginSaved != 0) {
-        query << "`lastlogin` = " << player->lastLoginSaved << ',';
+        query << "`lastlogin` = " << static_cast<int32_t>(player->lastLoginSaved) << ',';
     }
 
     if (player->lastIP != 0) {
