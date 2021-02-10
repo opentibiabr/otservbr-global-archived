@@ -144,10 +144,10 @@ function treasureChest.onUse(player, item, frompos, item2, topos)
 	if missionState == 1 then
 		local libraryChestState = player:getStorageValue(Storage.TheRookieGuard.LibraryChest)
 		if libraryChestState == -1 then
-			local rewardItem = Game.createItem(13831, 1)
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. rewardItem:getName() .. ".")
+			local reward = Game.createItem(13831, 1)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. reward:getArticle() .. " " .. reward:getName() .. ".")
 			player:setStorageValue(Storage.TheRookieGuard.LibraryChest, 1)
-			player:addItemEx(rewardItem, true, CONST_SLOT_WHEREEVER)
+			player:addItemEx(reward, true, CONST_SLOT_WHEREEVER)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The " .. item:getName() .. " is empty.")
 		end

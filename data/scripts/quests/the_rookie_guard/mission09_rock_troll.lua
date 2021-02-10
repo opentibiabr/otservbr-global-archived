@@ -106,15 +106,15 @@ function trunkChest.onUse(player, item, frompos, item2, topos)
 	if missionState == -1 then
 		return true
 	end
-	if missionState == 2 then
+	if missionState >= 2 then
 		local chest = chests[item.uid]
 		local chestsState = player:getStorageValue(Storage.TheRookieGuard.TrollChests)
-		local hasUsedChest = testFlag(chestsState, chest.id)
-		if not hasUsedChest then
-			local rewardItem = Game.createItem(chest.itemId, 1)
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. rewardItem:getName() .. ".")
+		local hasOpenedChest = testFlag(chestsState, chest.id)
+		if not hasOpenedChest then
+			local reward = Game.createItem(chest.itemId, 1)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. reward:getArticle() .. " " .. reward:getName() .. ".")
 			player:setStorageValue(Storage.TheRookieGuard.TrollChests, chestsState + chest.id)
-			player:addItemEx(rewardItem, true, CONST_SLOT_WHEREEVER)
+			player:addItemEx(reward, true, CONST_SLOT_WHEREEVER)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The " .. item:getName() .. " is empty.")
 		end

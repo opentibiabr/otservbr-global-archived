@@ -2185,7 +2185,7 @@
 		<attribute key="weight" value="20" />
 		<attribute key="description" value="There are many rumours about these magic gems." />
 	</item>
-	<item id="2152" article="a" name="platinum coin">
+	<item id="2152" article="a" name="platinum coin" plural="platinum coins">
 		<attribute key="loottype" value="gold" />
 		<attribute key="weight" value="10" />
 	</item>
@@ -16463,7 +16463,7 @@
 		<attribute key="containerSize" value="6" />
 		<attribute key="weight" value="1300" />
 	</item>
-	<item id="8704" article="a" name="small health potion">
+	<item id="8704" article="a" name="small health potion" plural="small health potions">
 		<attribute key="weight" value="265" />
 	</item>
 	<item fromid="8705" toid="8706" name="balloons" />

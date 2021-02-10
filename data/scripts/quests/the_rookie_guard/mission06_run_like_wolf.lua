@@ -180,10 +180,10 @@ function poacherCorpse.onUse(player, item, frompos, item2, topos)
 	if missionState == 3 then
 		local corpseState = player:getStorageValue(Storage.TheRookieGuard.PoacherCorpse)
 		if corpseState == -1 then
-			local rewardItem = Game.createItem(13828, 1)
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. rewardItem:getName() .. ".")
+			local reward = Game.createItem(13828, 1)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. reward:getArticle() .. " " .. reward:getName() .. ".")
 			player:setStorageValue(Storage.TheRookieGuard.PoacherCorpse, 1)
-			player:addItemEx(rewardItem, true, CONST_SLOT_WHEREEVER)
+			player:addItemEx(reward, true, CONST_SLOT_WHEREEVER)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The " .. item:getName() .. " is empty.")
 		end
@@ -212,3 +212,28 @@ end
 
 skinningKnife:id(13828)
 skinningKnife:register()
+
+-- War wolf den chest (Small health potion)
+
+local warWolfDenChest = Action()
+
+function warWolfDenChest.onUse(player, item, frompos, item2, topos)
+	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission06)
+	-- Skip if not was started
+	if missionState == -1 then
+		return true
+	end
+	local chestState = player:getStorageValue(Storage.TheRookieGuard.WarWolfDenChest)
+	if chestState == -1 then
+		local reward = Game.createItem(8704, 1)
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. reward:getArticle() .. " " .. reward:getName() .. ".")
+		player:setStorageValue(Storage.TheRookieGuard.WarWolfDenChest, 1)
+		player:addItemEx(reward, true, CONST_SLOT_WHEREEVER)
+	else
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The " .. item:getName() .. " is empty.")
+	end
+	return true
+end
+
+warWolfDenChest:uid(40076)
+warWolfDenChest:register()

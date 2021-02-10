@@ -496,12 +496,12 @@ ItemUnique = {
 		itemId = 8058,
 		itemPos = {x = 31929, y = 32171, z = 10}
 	},
-	-- Kraknaknork left treasure chest
+	-- Kraknaknork treasure room left treasure chest
 	[40073] = {
 		itemId = 12664,
 		itemPos = {x = 31930, y = 32169, z = 11}
 	},
-	-- Kraknaknork right treasure chest
+	-- Kraknaknork treasure room right treasure chest
 	[40074] = {
 		itemId = 12664,
 		itemPos = {x = 31935, y = 32169, z = 11}
@@ -510,5 +510,35 @@ ItemUnique = {
 	[40075] = {
 		itemId = 8058,
 		itemPos = {x = 31932, y = 32167, z = 11}
+	},
+	-- War wolf den chest
+	[40076] = {
+		itemId = 1740,
+		itemPos = {x = 32126, y = 32137, z = 9}
+	},
+	-- Unholy crypt box
+	[40077] = {
+		itemId = 1738,
+		itemPos = {x = 32144, y = 32177, z = 10}
+	},
+	-- Unholy crypt coffin
+	[40078] = {
+		itemId = 1744,
+		itemPos = {x = 32153, y = 32184, z = 10}
+	},
+	-- Orc fortress treasure chest
+	[40079] = {
+		itemId = 12665,
+		itemPos = {x = 31991, y = 32157, z = 8}
+	},
+	-- Orc fortress trunk
+	[40080] = {
+		itemId = 13902,
+		itemPos = {x = 31975, y = 32170, z = 8}
+	},
+	-- Kraknaknork lair treasure chest
+	[40081] = {
+		itemId = 12665,
+		itemPos = {x = 31978, y = 32184, z = 10}
 	}
 }

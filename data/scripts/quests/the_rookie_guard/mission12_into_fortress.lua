@@ -676,14 +676,14 @@ function bossChests.onUse(player, item, frompos, item2, topos)
 		local chestsState = player:getStorageValue(Storage.TheRookieGuard.KraknaknorkChests)
 		local hasUsedChest = testFlag(chestsState, chest.id)
 		if not hasUsedChest then
-			local rewardItem = Game.createItem(chest.item.id, chest.item.amount)
-			if rewardItem:getCount() == 1 then
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. rewardItem:getName() .. ".")
-			elseif rewardItem:getCount() > 1 then
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. rewardItem:getCount() .. " " .. rewardItem:getName() .. ".")
+			local reward = Game.createItem(chest.item.id, chest.item.amount)
+			if reward:getCount() == 1 then
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. reward:getArticle() .. " " .. reward:getName() .. ".")
+			elseif reward:getCount() > 1 then
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. reward:getCount() .. " " .. reward:getPluralName() .. ".")
 			end
 			player:setStorageValue(Storage.TheRookieGuard.KraknaknorkChests, chestsState + chest.id)
-			player:addItemEx(rewardItem, true, CONST_SLOT_WHEREEVER)
+			player:addItemEx(reward, true, CONST_SLOT_WHEREEVER)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The " .. item:getName() .. " is empty.")
 		end
@@ -723,3 +723,64 @@ end
 
 exitTreasureRoomTeleport:uid(40075)
 exitTreasureRoomTeleport:register()
+
+-- Orc fortress and Kraknaknork lair chests
+
+local CHEST_ID = {
+	FORTRESS_TREASURE_CHEST = 1,
+	FORTRESS_TRUNK = 2,
+	LAIR_TREASURE_CHEST = 4
+}
+
+local chests = {
+	[40079] = {
+		id = CHEST_ID.FORTRESS_TREASURE_CHEST,
+		item = {
+			id = 2695,
+			amount = 30
+		}
+	},
+	[40080] = {
+		id = CHEST_ID.FORTRESS_TRUNK,
+		item = {
+			id = 8704,
+			amount = 2
+		}
+	},
+	[40081] = {
+		id = CHEST_ID.LAIR_TREASURE_CHEST,
+		item = {
+			id = 8704,
+			amount = 1
+		}
+	}
+}
+
+local orcFortressChests = Action()
+
+function orcFortressChests.onUse(player, item, frompos, item2, topos)
+	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission10)
+	-- Skip if not was started
+	if missionState == -1 then
+		return true
+	end
+	local chest = chests[item.uid]
+	local chestsState = player:getStorageValue(Storage.TheRookieGuard.OrcFortressChests)
+	local hasOpenedChest = testFlag(chestsState, chest.id)
+	if not hasOpenedChest then
+		local reward = Game.createItem(chest.item.id, chest.item.amount)
+		if reward:getCount() == 1 then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. reward:getArticle() .. " " .. reward:getName() .. ".")
+		elseif reward:getCount() > 1 then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. reward:getCount() .. " " .. reward:getPluralName() .. ".")
+		end
+		player:setStorageValue(Storage.TheRookieGuard.OrcFortressChests, chestsState + chest.id)
+		player:addItemEx(reward, true, CONST_SLOT_WHEREEVER)
+	else
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The " .. item:getName() .. " is empty.")
+	end
+	return true
+end
+
+orcFortressChests:uid(40079, 40080, 40081)
+orcFortressChests:register()

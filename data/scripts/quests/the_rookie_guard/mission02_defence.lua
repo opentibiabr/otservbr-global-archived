@@ -91,7 +91,6 @@ function stonePile.onUse(player, item, frompos, item2, topos)
 	if missionState <= 3 then
 		if missionState == 1 then
 			player:setStorageValue(Storage.TheRookieGuard.Mission02, 2)
-			player:setStorageValue(Storage.TheRookieGuard.Catapults, 0)
 		end
 		-- Gather delay
 		if player:getStorageValue(Storage.TheRookieGuard.StonePileTimer) - os.time() <= 0 then		

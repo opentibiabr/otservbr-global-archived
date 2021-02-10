@@ -1371,7 +1371,7 @@ Storage = {
 		CarlosQuestLog = 51678
 	},
 	TheRookieGuard = {
-		--Reserved storage 52360 - 52390
+		--Reserved storage 52360 - 52395
 		Questline = 52360,
 		Mission01 = 52361,
 		Mission02 = 52362,
@@ -1399,7 +1399,10 @@ Storage = {
 		LibraryDoor = 52384,
 		UnholyCryptDoor = 52385,
 		AcademyDoor = 52386,
-		AcademyChestTimer = 52387
+		AcademyChestTimer = 52387,
+		WarWolfDenChest = 52388,
+		UnholyCryptChests = 52389,
+		OrcFortressChests = 52390
 	},
 	BanutaSecretTunnel = {
 		-- Reserved storage from 51680 - 51689

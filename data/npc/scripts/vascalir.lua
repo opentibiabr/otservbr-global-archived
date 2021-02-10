@@ -184,6 +184,7 @@ nil,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Questline, 1)
 	player:setStorageValue(Storage.TheRookieGuard.Mission02, 1)
+	player:setStorageValue(Storage.TheRookieGuard.Catapults, 0)
 	player:addMapMark({x = 32082, y = 32182, z = 7}, MAPMARK_FLAG, "Barn")
 	player:addMapMark({x = 32097, y = 32181, z = 7}, MAPMARK_BAG, "Norma's Bar")
 	player:addMapMark({x = 32105, y = 32203, z = 7}, MAPMARK_BAG, "Obi's Shop")
@@ -275,7 +276,6 @@ function(player)
 	player:setStorageValue(Storage.TheRookieGuard.RatKills, 0)
 	player:addMapMark({x = 32097, y = 32205, z = 7}, MAPMARK_GREENSOUTH, "Rat Dungeon")
 	player:addMapMark({x = 32041, y = 32228, z = 7}, MAPMARK_GREENSOUTH, "Rat Dungeon")
-	-- TODO: Manually ungreet (StdModule.say ungreet = true remove the message when is used doNPCTalkALot due events are cancelled)
 end
 )
 
@@ -298,7 +298,6 @@ keywordHandler:addKeyword({"yes"}, nil,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission03) == 1 and player:getStorageValue(Storage.TheRookieGuard.RatKills) < 5 end,
 function(player)
 	local ratKills = player:getStorageValue(Storage.TheRookieGuard.RatKills)
-	-- Dynamic reply
 	npcHandler:say("You still need to kill " .. (5 - ratKills) .. " more rats. Come back once you've killed enough for some experience and equipment!", player.uid)
 end
 )
@@ -322,7 +321,6 @@ function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission04, 1)
 	player:addExperience(30, true)
 	player:addItemEx(Game.createItem(2385, 1), true, CONST_SLOT_WHEREEVER)
-	-- TODO: Manually ungreet (StdModule.say ungreet = true remove the message when is used doNPCTalkALot due events are cancelled)
 end
 )
 
@@ -612,6 +610,7 @@ function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission09)
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission10, 1)
 	player:setStorageValue(Storage.TheRookieGuard.UnholyCryptDoor, 1)
+	player:setStorageValue(Storage.TheRookieGuard.UnholyCryptChests, 0)
 	player:addItemEx(Game.createItem(2199, 1), true, CONST_SLOT_WHEREEVER)
 	player:addMapMark({x = 32131,  y = 32201, z = 7}, MAPMARK_GREENSOUTH, "Unholy Crypt")
 end
@@ -739,7 +738,6 @@ function(player)
 	player:addItemEx(Game.createItem(2170, 1), true, CONST_SLOT_WHEREEVER)
 	player:addItemEx(Game.createItem(13924, 1), true, CONST_SLOT_WHEREEVER)
 	player:addMapMark({x = 32000, y = 32139, z = 7}, MAPMARK_GREENSOUTH, "Wasps' Nest")
-	-- TODO: Manually ungreet (StdModule.say ungreet = true remove the message when is used doNPCTalkALot due events are cancelled)
 end
 )
 
@@ -758,10 +756,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 	text = "Oh, but there you have it in your inventory! Yeah, your backpack is a bit of a mess. I understand you overlooked it. Dig deeper!",
 	ungreet = true
 },
-function(player) return (player:getStorageValue(Storage.TheRookieGuard.Mission11) == 1 or player:getStorageValue(Storage.TheRookieGuard.Mission11) == 2) and player:getItemCount(13924) > 0 end,
-function(player)
-	print("fask:" .. player:getItemCount(13924))
-end
+function(player) return (player:getStorageValue(Storage.TheRookieGuard.Mission11) == 1 or player:getStorageValue(Storage.TheRookieGuard.Mission11) == 2) and player:getItemCount(13924) > 0 end
 )
 
 -- Mission 11: Confirm - Lost Flask (Without having it)
@@ -849,7 +844,7 @@ mission11Reset:addChildKeyword({"no"}, StdModule.say,
 }
 )
 
--- Mission 11: Finish - Accept Reward(Brass shield)
+-- Mission 11: Finish - Accept Reward (Brass shield)
 keywordHandler:addKeyword({"yes"}, StdModule.say,
 {
 	npcHandler = npcHandler,
@@ -889,6 +884,7 @@ function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11)
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission12, 1)
 	player:setStorageValue(Storage.TheRookieGuard.AcademyDoor, 1)
+	player:setStorageValue(Storage.TheRookieGuard.OrcFortressChests, 0)
 	player:setStorageValue(Storage.TheRookieGuard.KraknaknorkChests, 0)
 	player:addMapMark({x = 31976, y = 32156, z = 7}, MAPMARK_SKULL, "Orc Fortress")
 end
