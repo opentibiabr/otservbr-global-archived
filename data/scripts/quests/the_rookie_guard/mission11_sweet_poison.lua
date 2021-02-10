@@ -24,7 +24,7 @@ function missionGuide.onStepIn(creature, item, position, fromPosition)
 	end
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission11)
 	-- Skip if not was started or finished
-	if missionState == -1 or missionState > 7 then
+	if missionState == -1 or missionState > 1 then
 		return true
 	end
 	local missionTile = missionTiles[item.actionid]
