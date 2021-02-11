@@ -24,12 +24,12 @@ def do_login(data):
 
         sql_select_Query = "SELECT id, premdays, lastday FROM accounts WHERE name = '" + data['accountname'] + "'"
 
-        print("Loading account information!")
+        Spdlog.info("Loading account information...")
         cursor = connection.cursor()
         cursor.execute(sql_select_Query)
         records = cursor.fetchall()
         for row in records:
-            print("Id = ", row[0])
+            Spdlog.info("Id = ".. row[0])
         account_id = row[0]
         account_premdays = row[1]
         account_lastday = row[2]
@@ -48,18 +48,18 @@ def do_login(data):
             'tournamentticketpurchasestate': 0,
             'emailcoderequest': False
         };
-        print(session)
+        Spdlog.debug(session)
 
         sql_select_Query = "SELECT name, level, sex, vocation, looktype, lookhead, lookbody, looklegs, lookfeet, lookaddons, lastlogin from players where account_id = '" + str(account_id) + "'"
 
         cursor = connection.cursor()
         cursor.execute(sql_select_Query)
         records = cursor.fetchall()
-        print(records)
+        Spdlog.debug(records)
 
         players = []
         vocations = ['None', 'Sorcerer', 'Druid', 'Paladin', 'Knight']
-        print("Loading account players information!")
+        Spdlog.info("Loading account players information")
         for (name, level, sex, vocation, looktype, lookhead, lookbody, looklegs, lookfeet, lookaddons, lastlogin) in records:
             player = {
                     'worldid': 0,
@@ -79,7 +79,7 @@ def do_login(data):
                     'remainingdailytournamentplaytime': 0            
             }
             players.append(player)
-        print(players)
+        Spdlog.debug(players)
 
         playdata = {
             'worlds': [
@@ -160,13 +160,13 @@ def do_login(data):
         return jsonify(answer)
 
     except Error as e:
-        print("Error reading data from MySQL table", e)
+        Spdlog.error("Reading data from MySQL table ".. e)
 
     finally:
         if (connection.is_connected()):
             connection.close()
             cursor.close()
-        print("MySQL connection is closed")
+        Spdlog.debug("MySQL connection is closed")
 
   
 def news(data):
@@ -204,7 +204,7 @@ def news(data):
 def action():
 
     data = request.get_json()
-    print(data)
+    Spdlog.debug(data)
 
     if(data['type'] == 'cacheinfo'):
         return jsonify({

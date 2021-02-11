@@ -97,7 +97,8 @@ bool GlobalEvents::registerEvent(Event_ptr event, const pugi::xml_node&)
 		}
 	}
 
-	std::cout << "[Warning - GlobalEvents::configureEvent] Duplicate registered globalevent with name: " << name << std::endl;
+	spdlog::warn("[GlobalEvents::configureEvent] - "
+                "Duplicate registered globalevent with name: {}", name);
 	return false;
 }
 
@@ -129,7 +130,8 @@ bool GlobalEvents::registerLuaEvent(GlobalEvent* event)
 		}
 	}
 
-	std::cout << "[Warning - GlobalEvents::configureEvent] Duplicate registered globalevent with name: " << name << std::endl;
+	spdlog::warn("[GlobalEvents::configureEvent] - "
+                "Duplicate registered globalevent with name: ", name);
 	return false;
 }
 
@@ -195,7 +197,8 @@ void GlobalEvents::think()
 		}
 
 		if (!globalEvent.executeEvent()) {
-			std::cout << "[Error - GlobalEvents::think] Failed to execute event: " << globalEvent.getName() << std::endl;
+			spdlog::error("[GlobalEvents::think] - "
+                         "Failed to execute event: {}", globalEvent.getName());
 		}
 
 		nextExecutionTime = globalEvent.getInterval();
@@ -248,7 +251,7 @@ bool GlobalEvent::configureEvent(const pugi::xml_node& node)
 {
 	pugi::xml_attribute nameAttribute = node.attribute("name");
 	if (!nameAttribute) {
-		std::cout << "[Error - GlobalEvent::configureEvent] Missing name for a globalevent" << std::endl;
+		spdlog::error("[GlobalEvent::configureEvent] - Missing name for a globalevent");
 		return false;
 	}
 
@@ -261,25 +264,30 @@ bool GlobalEvent::configureEvent(const pugi::xml_node& node)
 
 		int32_t hour = params.front();
 		if (hour < 0 || hour > 23) {
-			std::cout << "[Error - GlobalEvent::configureEvent] Invalid hour \"" << attr.as_string() << "\" for globalevent with name: " << name << std::endl;
+			spdlog::error("[GlobalEvent::configureEvent] - "
+                         "Invalid hour {} for globalevent with name: {}", attr.as_string(), name);
 			return false;
 		}
 
-		interval |= hour << 16;
+		interval |= hour, 16;
 
 		int32_t min = 0;
 		int32_t sec = 0;
 		if (params.size() > 1) {
 			min = params[1];
 			if (min < 0 || min > 59) {
-				std::cout << "[Error - GlobalEvent::configureEvent] Invalid minute \"" << attr.as_string() << "\" for globalevent with name: " << name << std::endl;
+				spdlog::error("[GlobalEvent::configureEvent] - "
+                             "Invalid minute {} for globalevent with name: {}",
+                             attr.as_string(), name);
 				return false;
 			}
 
 			if (params.size() > 2) {
 				sec = params[2];
 				if (sec < 0 || sec > 59) {
-					std::cout << "[Error - GlobalEvent::configureEvent] Invalid second \"" << attr.as_string() << "\" for globalevent with name: " << name << std::endl;
+					spdlog::error("[GlobalEvent::configureEvent] - "
+                                 "Invalid second {} for globalevent with name: {}",
+                                 attr.as_string(), name);
 					return false;
 				}
 			}
@@ -307,14 +315,17 @@ bool GlobalEvent::configureEvent(const pugi::xml_node& node)
 		} else if (strcasecmp(value, "record") == 0) {
 			eventType = GLOBALEVENT_RECORD;
 		} else {
-			std::cout << "[Error - GlobalEvent::configureEvent] No valid type \"" << attr.as_string() << "\" for globalevent with name " << name << std::endl;
+			spdlog::error("[GlobalEvent::configureEvent] - "
+                         "No valid type {} for globalevent with name: {}",
+                         attr.as_string(), name);
 			return false;
 		}
 	} else if ((attr = node.attribute("interval"))) {
 		interval = std::max<int32_t>(SERVER_BEAT_MILISECONDS, pugi::cast<int32_t>(attr.value()));
 		nextExecution = OTSYS_TIME() + interval;
 	} else {
-		std::cout << "[Error - GlobalEvent::configureEvent] No interval for globalevent with name " << name << std::endl;
+		spdlog::error("[GlobalEvent::configureEvent] - "
+                     "No interval for globalevent with name: {}", name);
 		return false;
 	}
 	return true;
@@ -335,10 +346,9 @@ std::string GlobalEvent::getScriptEventName() const
 bool GlobalEvent::executePeriodChange(LightState_t lightState, LightInfo lightInfo) {
 	//onPeriodChange(lightState, lightTime)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - GlobalEvent::executePeriodChange "
-			<< getName()
-			<< "] Call stack overflow. Too many lua script calls being nested."
-			<< std::endl;
+		spdlog::error("[GlobalEvent::executePeriodChange - {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     getName());
 		return false;
 	}
 
@@ -357,10 +367,9 @@ bool GlobalEvent::executeRecord(uint32_t current, uint32_t old)
 {
 	//onRecord(current, old)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - GlobalEvent::executeRecord "
-			<< getName()
-			<< "] Call stack overflow. Too many lua script calls being nested."
-			<< std::endl;
+		spdlog::error("[GlobalEvent::executeRecord - {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     getName());
 		return false;
 	}
 
@@ -378,10 +387,9 @@ bool GlobalEvent::executeRecord(uint32_t current, uint32_t old)
 bool GlobalEvent::executeEvent() const
 {
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - GlobalEvent::executeEvent "
-			<< getName()
-			<< "] Call stack overflow. Too many lua script calls being nested."
-			<< std::endl;
+		spdlog::error("[GlobalEvent::executeEvent - {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     getName());
 		return false;
 	}
 

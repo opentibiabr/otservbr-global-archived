@@ -51,7 +51,8 @@
 // #define ROBIN_HOOD_LOG_ENABLED
 #ifdef ROBIN_HOOD_LOG_ENABLED
 #    include <iostream>
-#    define ROBIN_HOOD_LOG(x) std::cout << __FUNCTION__ << "@" << __LINE__ << ": " << x << std::endl
+#    define ROBIN_HOOD_LOG(x)
+        spdlog::info("{}@{}: {}", __FUNCTION__, __LINE__, x);
 #else
 #    define ROBIN_HOOD_LOG(x)
 #endif
@@ -60,7 +61,7 @@
 #ifdef ROBIN_HOOD_TRACE_ENABLED
 #    include <iostream>
 #    define ROBIN_HOOD_TRACE(x) \
-        std::cout << __FUNCTION__ << "@" << __LINE__ << ": " << x << std::endl
+        spdlog::info("{}@{}: {}", __FUNCTION__, __LINE__, x);
 #else
 #    define ROBIN_HOOD_TRACE(x)
 #endif
@@ -496,7 +497,7 @@ private:
         size_t const numElementsToAlloc = calcNumElementsToAlloc();
 
         // alloc new memory: [prev |T, T, ... T]
-        // std::cout << (sizeof(T*) + ALIGNED_SIZE * numElementsToAlloc) << " bytes" << std::endl;
+        // spdlog::info("{} bytes", (sizeof(T*) + ALIGNED_SIZE * numElementsToAlloc));
         size_t const bytes = ALIGNMENT + ALIGNED_SIZE * numElementsToAlloc;
         add(assertNotNull<std::bad_alloc>(malloc(bytes)), bytes);
         return mHead;
@@ -2155,7 +2156,7 @@ private:
 
         // This protection against not deleting mMask shouldn't be needed as it's sufficiently
         // protected with the 0==mMask check, but I have this anyways because g++ 7 otherwise
-        // reports a compile error: attempt to free a non-heap object ‘fm’
+        // reports a compile error: attempt to free a non-heap object ï¿½fmï¿½
         // [-Werror=free-nonheap-object]
         if (mKeyVals != reinterpret_cast<Node*>(&mMask)) {
             free(mKeyVals);

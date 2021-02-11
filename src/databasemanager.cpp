@@ -35,16 +35,19 @@ bool DatabaseManager::optimizeTables()
 
 	do {
 		std::string tableName = result->getString("TABLE_NAME");
-		std::cout << "> Optimizing table " << tableName << "..." << std::flush;
 
 		query.clear();
 		query << "OPTIMIZE TABLE `" << tableName << '`';
 
+		std::string tableResult;
 		if (g_database().executeQuery(query)) {
-			std::cout << " [success]" << std::endl;
+			tableResult = "[Success]";
 		} else {
-			std::cout << " [failed]" << std::endl;
+			tableResult = "[Failed]";
 		}
+
+		spdlog::info("Optimizing table {}... {}", tableName, tableResult);
+
 	} while (result->next());
 	return true;
 }
@@ -104,7 +107,8 @@ void DatabaseManager::updateDatabase()
 		std::stringExtended ss(32);
 		ss << "data/migrations/" << version << ".lua";
 		if (luaL_dofile(L, static_cast<std::string&>(ss).c_str()) != 0) {
-			std::cout << "[Error - DatabaseManager::updateDatabase - Version: " << version << "] " << lua_tostring(L, -1) << std::endl;
+			spdlog::warn("[DatabaseManager::updateDatabase - Version: {}] {}",
+                         version, lua_tostring(L, -1));
 			break;
 		}
 
@@ -115,7 +119,8 @@ void DatabaseManager::updateDatabase()
 		lua_getglobal(L, "onUpdateDatabase");
 		if (lua_pcall(L, 0, 1, 0) != 0) {
 			LuaScriptInterface::resetScriptEnv();
-			std::cout << "[Error - DatabaseManager::updateDatabase - Version: " << version << "] " << lua_tostring(L, -1) << std::endl;
+			spdlog::warn("[DatabaseManager::updateDatabase - Version: {}] {}",
+                         version, lua_tostring(L, -1));
 			break;
 		}
 
@@ -125,7 +130,7 @@ void DatabaseManager::updateDatabase()
 		}
 
 		++version;
-		std::cout << "> Database has been updated to version " << version << '.' << std::endl;
+		spdlog::info("Database has been updated to version {}", version);
 		registerDatabaseConfig("db_version", version);
 
 		LuaScriptInterface::resetScriptEnv();

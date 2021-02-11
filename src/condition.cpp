@@ -1630,7 +1630,7 @@ bool ConditionOutfit::startCondition(Creature* creature)
 		if (monsterType) {
 			setOutfit(monsterType->info.outfit);
 		} else {
-			std::cout << "[Error - ConditionOutfit::startCondition] Monster " << monsterName << " does not exist" << std::endl;;
+			spdlog::error("[ConditionOutfit::startCondition] Monster {} does not exist", monsterName);
 			return false;
 		}
 	}
@@ -1664,7 +1664,7 @@ void ConditionOutfit::addCondition(Creature* creature, const Condition* addCondi
 			if (monsterType) {
 				setOutfit(monsterType->info.outfit);
 			} else {
-				std::cout << "[Error - ConditionOutfit::addCondition] Monster " << monsterName << " does not exist" << std::endl;;
+				spdlog::error("[ConditionOutfit::addCondition] - Monster {} does not exist", monsterName);
 				return;
 			}
 		}

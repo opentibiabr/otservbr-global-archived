@@ -8,14 +8,14 @@ local spawns = {
 	[7] = {position = Position(33335,31873,9), monster = 'Mad Mage'}
 }
 
-local mad = GlobalEvent("mad")
+local mad = GlobalEvent("MadMage")
 function mad.onThink(interval, lastExecution)
 	local spawn = spawns[math.random(#spawns)]
 	local monster = Game.createMonster(spawn.monster, spawn.position, true, true)
 	monster:setReward(true)
 
 	if not monster then
-		print('>> Failed to spawn '..rand.bossName..'.')
+		Spdlog.error("[mad.onThink] - Failed to spawn ".. rand.bossName)
 		return true
 	end
 	return true

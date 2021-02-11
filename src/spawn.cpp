@@ -101,7 +101,10 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 				if (interval > MINSPAWN_INTERVAL) {
 					spawn.addMonster(nameAttribute.as_string(), pos, dir, interval);
 				} else {
-					std::cout << "[Warning - Spawns::loadFromXml] " << nameAttribute.as_string() << ' ' << pos << " spawntime can not be less than " << MINSPAWN_INTERVAL / 1000 << " seconds." << std::endl;
+					spdlog::warn("[Spawns::loadFromXml] - "
+                                "{} {} spawntime cannot be less than {} seconds",
+                                nameAttribute.as_string(), pos.toString(),
+                                MINSPAWN_INTERVAL / 1000);
 				}
 			} else if (strcasecmp(childNode.name(), "npc") == 0) {
 				pugi::xml_attribute nameAttribute = childNode.attribute("name");
@@ -134,7 +137,9 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 bool Spawns::loadCustomSpawnXml(const std::string& _filename)
 {
 	if (!loaded) {
-		std::cout << "Error - Spawns::loadCustomSpawnXml - trying to load custom spawn xml before game startup. FileName: " << _filename << std::endl;
+		spdlog::error("[Spawns::loadCustomSpawnXml] - "
+                     "Trying to load custom spawn xml before game startup, "
+                     "fileName: ", _filename);
 		return false;
 	}
 
@@ -202,7 +207,10 @@ bool Spawns::loadCustomSpawnXml(const std::string& _filename)
 				if (interval > MINSPAWN_INTERVAL) {
 					spawn.addMonster(nameAttribute.as_string(), pos, dir, interval);
 				} else {
-					std::cout << "[Warning - Spawns::loadCustomSpawnXml - '" << _filename.c_str() << "'] " << nameAttribute.as_string() << ' ' << pos << " spawntime can not be less than " << MINSPAWN_INTERVAL / 1000 << " seconds." << std::endl;
+					spdlog::warn("[Spawns::loadCustomSpawnXml] - "
+                                "'{}'] {} {} spawntime cannot be less than {} seconds",
+                                _filename.c_str(), nameAttribute.as_string(),
+                                pos.toString(), MINSPAWN_INTERVAL / 1000);
 				}
 			} else if (strcasecmp(childNode.name(), "npc") == 0) {
 				pugi::xml_attribute nameAttribute = childNode.attribute("name");
@@ -424,7 +432,7 @@ bool Spawn::addMonster(const std::string& name, const Position& pos, Direction d
 {
 	MonsterType* mType = g_monsters().getMonsterType(name);
 	if (!mType) {
-		std::cout << "[Spawn::addMonster] Can not find " << name << std::endl;
+		spdlog::error("[Spawn::addMonster] Can not find {}", name);
 		return false;
 	}
 

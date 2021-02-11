@@ -2386,8 +2386,8 @@ table.sort(extraction) -- Sort the table
 if #extraction > 1 then
 	for i = 1, #extraction - 1 do
 		if extraction[i] == extraction[i+1] then
-			print(">> Duplicate storage value found: ".. extraction[i])
-			print(string.format("> Processed in %.4f(s)", os.clock() - benchmark))
+			Spdlog.warn("Duplicate storage value found: ".. extraction[i])
+			Spdlog.warn("Processed in ".. os.clock() - benchmark ..".4f(s)")
 		end
 	end
 end

@@ -39,7 +39,7 @@
 bool Database::init()
 {
 	if (mysql_library_init(0, NULL, NULL) != 0) {
-		std::cout << std::endl << "Failed to initialize MySQL client library." << std::endl;
+		spdlog::error("[Database::init] - Failed to initialize MySQL client library");
 		return false;
 	}
 	return true;
@@ -54,14 +54,14 @@ bool Database::connect()
 {
 	// thread-specific variables initialization
 	if (mysql_thread_init() != 0) {
-		std::cout << std::endl << "Failed to initialize MySQL thread-specific variables." << std::endl;
+		spdlog::error("[Database::connect] - Failed to initialize MySQL thread-specific variables");
 		return false;
 	}
 
 	// connection handle initialization
 	handle = mysql_init(nullptr);
 	if (!handle) {
-		std::cout << std::endl << "Failed to initialize MySQL connection handle." << std::endl;
+		spdlog::error("[Database::connect] - Failed to initialize MySQL connection handle");
 		return false;
 	}
 
@@ -71,7 +71,7 @@ bool Database::connect()
 
 	// connects to database
 	if (!mysql_real_connect(handle, g_config().getString(ConfigManager::MYSQL_HOST).c_str(), g_config().getString(ConfigManager::MYSQL_USER).c_str(), g_config().getString(ConfigManager::MYSQL_PASS).c_str(), g_config().getString(ConfigManager::MYSQL_DB).c_str(), g_config().getNumber(ConfigManager::SQL_PORT), g_config().getString(ConfigManager::MYSQL_SOCK).c_str(), 0)) {
-		std::cout << std::endl << "MySQL Error Message: " << mysql_error(handle) << std::endl;
+		spdlog::error("[Database::connect] - Message: {}", mysql_error(handle));
 		return false;
 	}
 
@@ -104,7 +104,7 @@ bool Database::beginTransaction()
 bool Database::rollback()
 {
 	if (mysql_rollback(handle) != 0) {
-		std::cout << "[Error - mysql_rollback] Message: " << mysql_error(handle) << std::endl;
+		spdlog::error("[Database::rollback] - Message: {}", mysql_error(handle));
 		return false;
 	}
 
@@ -114,7 +114,7 @@ bool Database::rollback()
 bool Database::commit()
 {
 	if (mysql_commit(handle) != 0) {
-		std::cout << "[Error - mysql_commit] Message: " << mysql_error(handle) << std::endl;
+		spdlog::error("[Database::commit] - Message: {}", mysql_error(handle));
 		return false;
 	}
 
@@ -127,7 +127,8 @@ bool Database::executeQuery(const std::string& query)
 
 	// executes the query
 	while (mysql_real_query(handle, query.c_str(), query.length()) != 0) {
-		std::cout << "[Error - mysql_real_query] Query: " << query.substr(0, 256) << std::endl << "Message: " << mysql_error(handle) << std::endl;
+		spdlog::error("[Database::executeQuery] - Query: {}", query.substr(0, 256));
+		spdlog::error("Message: {}", mysql_error(handle));
 		auto error = mysql_errno(handle);
 		if (error != CR_SERVER_LOST && error != CR_SERVER_GONE_ERROR && error != CR_CONN_HOST_ERROR && error != 1053/*ER_SERVER_SHUTDOWN*/ && error != CR_CONNECTION_ERROR) {
 			success = false;
@@ -148,7 +149,8 @@ DBResult_ptr Database::storeQuery(const std::string& query)
 {
 	retry:
 	while (mysql_real_query(handle, query.c_str(), query.length()) != 0) {
-		std::cout << "[Error - mysql_real_query] Query: " << query << std::endl << "Message: " << mysql_error(handle) << std::endl;
+		spdlog::error("[Database::storeQuery] - Query: {}", query);
+		spdlog::error("Message: {}", mysql_error(handle));
 		auto error = mysql_errno(handle);
 		if (error != CR_SERVER_LOST && error != CR_SERVER_GONE_ERROR && error != CR_CONN_HOST_ERROR && error != 1053/*ER_SERVER_SHUTDOWN*/ && error != CR_CONNECTION_ERROR) {
 			break;
@@ -160,7 +162,8 @@ DBResult_ptr Database::storeQuery(const std::string& query)
 	// as it is described in MySQL manual: "it doesn't hurt" :P
 	MYSQL_RES* res = mysql_store_result(handle);
 	if (res == nullptr) {
-		std::cout << "[Error - mysql_store_result] Query: " << query << std::endl << "Message: " << mysql_error(handle) << std::endl;
+		spdlog::error("[Database::storeQuery] - Query: {}", query);
+		spdlog::error("Message: {}", mysql_error(handle));
 		auto error = mysql_errno(handle);
 		if (error != CR_SERVER_LOST && error != CR_SERVER_GONE_ERROR && error != CR_CONN_HOST_ERROR && error != 1053/*ER_SERVER_SHUTDOWN*/ && error != CR_CONNECTION_ERROR) {
 			return nullptr;
@@ -225,7 +228,7 @@ std::string DBResult::getString(const std::string& s) const
 {
 	auto it = listNames.find(s);
 	if (it == listNames.end()) {
-		std::cout << "[Error - DBResult::getString] Column '" << s << "' does not exist in result set." << std::endl;
+		spdlog::error("[DBResult::getString] - Column '{}' does not exist in result set", s);
 		return std::string();
 	}
 
@@ -240,7 +243,7 @@ const char* DBResult::getStream(const std::string& s, unsigned long& size) const
 {
 	auto it = listNames.find(s);
 	if (it == listNames.end()) {
-		std::cout << "[Error - DBResult::getStream] Column '" << s << "' doesn't exist in the result set" << std::endl;
+		spdlog::error("[DBResult::getStream] - Column '{}' doesn't exist in the result set", s);
 		size = 0;
 		return nullptr;
 	}

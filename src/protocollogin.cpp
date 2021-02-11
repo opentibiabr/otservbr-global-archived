@@ -135,7 +135,7 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 	 */
 
 	if (!Protocol::RSA_decrypt(msg)) {
-		std::cout << "[ProtocolLogin::onRecvFirstMessage] RSA Decrypt Failed" << std::endl;
+		spdlog::warn("[ProtocolLogin::onRecvFirstMessage] - RSA Decrypt Failed");
 		disconnect();
 		return;
 	}

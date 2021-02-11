@@ -140,13 +140,13 @@ bool Npc::loadFromXml()
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file(filename.c_str());
 	if (!result) {
-		printXMLError("Error - Npc::loadFromXml", filename, result);
+		printXMLError("[Npc::loadFromXml] - {} {}", filename, result);
 		return false;
 	}
 
 	pugi::xml_node npcNode = doc.child("npc");
 	if (!npcNode) {
-		std::cout << "[Error - Npc::loadFromXml] Missing npc tag in " << filename << std::endl;
+		spdlog::error("[Npc::loadFromXml] - Missing npc tag in {}", filename);
 		return false;
 	}
 
@@ -621,7 +621,7 @@ bool NpcScriptInterface::loadNpcLib(const std::string& file)
 	}
 
 	if (loadFile(file) == -1) {
-		std::cout << "[Warning - NpcScriptInterface::loadNpcLib] Can not load " << file << std::endl;
+		spdlog::warn("[NpcScriptInterface::loadNpcLib] - Can not load {}", file);
 		return false;
 	}
 
@@ -1118,8 +1118,8 @@ NpcEventsHandler::NpcEventsHandler(const std::string& file, Npc* npcEvent) :
 {
 	loaded = scriptInterface->loadFile("data/npc/scripts/" + file, npc) == 0;
 	if (!loaded) {
-		std::cout << "[Warning - NpcScript::NpcScript] Can not load script: " << file << std::endl;
-		std::cout << scriptInterface->getLastLuaError() << std::endl;
+		spdlog::warn("[NpcScript::NpcScript] - Can not load script: {}", file);
+		spdlog::warn("{}", scriptInterface->getLastLuaError());
 	} else {
 		creatureSayEvent = scriptInterface->getEvent("onCreatureSay");
 		creatureDisappearEvent = scriptInterface->getEvent("onCreatureDisappear");
@@ -1144,13 +1144,9 @@ void NpcEventsHandler::onCreatureAppear(Creature* creature)
 
 	//onCreatureAppear(creature)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onCreatureAppear"
-				<< " NPC "
-				<< npc->getName()
-				<< " creature "
-				<< creature->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
+		spdlog::error("[NpcScript::onCreatureAppear - NPC {} creature {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     npc->getName(), creature->getName());
 		return;
 	}
 
@@ -1173,13 +1169,9 @@ void NpcEventsHandler::onCreatureDisappear(Creature* creature)
 
 	//onCreatureDisappear(creature)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onCreatureDisappear"
-				<< " NPC "
-				<< npc->getName()
-				<< " creature "
-				<< creature->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
+		spdlog::error("[NpcScript::onCreatureDisappear - NPC {} creature {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     npc->getName(), creature->getName());
 		return;
 	}
 
@@ -1202,13 +1194,9 @@ void NpcEventsHandler::onCreatureMove(Creature* creature, const Position& oldPos
 
 	//onCreatureMove(creature, oldPos, newPos)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onCreatureMove"
-				<< " NPC "
-				<< npc->getName()
-				<< " creature "
-				<< creature->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
+		spdlog::error("[NpcScript::onCreatureMove - NPC {} creature {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     npc->getName(), creature->getName());
 		return;
 	}
 
@@ -1233,13 +1221,9 @@ void NpcEventsHandler::onCreatureSay(Creature* creature, SpeakClasses type, cons
 
 	//onCreatureSay(creature, type, msg)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onCreatureSay"
-				<< " NPC "
-				<< npc->getName()
-				<< " creature "
-				<< creature->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
+		spdlog::error("[NpcScript::onCreatureSay - NPC {} creature {}] "
+		             "Call stack overflow. Too many lua script calls being nested.",
+		             npc->getName(), creature->getName());
 		return;
 	}
 
@@ -1265,13 +1249,9 @@ void NpcEventsHandler::onPlayerTrade(Player* player, int32_t callback, uint16_t 
 
 	//onBuy(player, itemid, count, amount, ignore, inbackpacks)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onPlayerTrade"
-				<< " NPC "
-				<< npc->getName()
-				<< " player "
-				<< player->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
+		spdlog::error("[NpcScript::onPlayerTrade - NPC {} player {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     npc->getName(), player->getName());
 		return;
 	}
 
@@ -1299,13 +1279,9 @@ void NpcEventsHandler::onPlayerCloseChannel(Player* player)
 
 	//onPlayerCloseChannel(player)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onPlayerCloseChannel"
-				<< " NPC "
-				<< npc->getName()
-				<< " player "
-				<< player->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
+		spdlog::error("[NpcScript::onPlayerCloseChannel - NPC {} player {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     npc->getName(), player->getName());
 		return;
 	}
 
@@ -1328,13 +1304,9 @@ void NpcEventsHandler::onPlayerEndTrade(Player* player)
 
 	//onPlayerEndTrade(player)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onPlayerEndTrade"
-				<< " NPC "
-				<< npc->getName()
-				<< " player "
-				<< player->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
+		spdlog::error("[NpcScript::onPlayerEndTrade - NPC {} player {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     npc->getName(), player->getName());
 		return;
 	}
 
@@ -1357,11 +1329,9 @@ void NpcEventsHandler::onThink()
 
 	//onThink()
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onThink"
-				<< " NPC "
-				<< npc->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
+		spdlog::error("[NpcScript::onThink - NPC {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     npc->getName());
 		return;
 	}
 

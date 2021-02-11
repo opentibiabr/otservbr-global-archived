@@ -55,7 +55,7 @@ void ServiceManager::stop()
 		try {
 			io_service.post(std::bind(&ServicePort::onStopServer, servicePortIt.second));
 		} catch (boost::system::system_error& e) {
-			std::cout << "[ServiceManager::stop] Network Error: " << e.what() << std::endl;
+			spdlog::warn("[ServiceManager::stop] - Network error: {}", e.what());
 		}
 	}
 
@@ -177,7 +177,7 @@ void ServicePort::open(uint16_t port)
 
 		accept();
 	} catch (boost::system::system_error& e) {
-		std::cout << "[ServicePort::open] Error: " << e.what() << std::endl;
+		spdlog::warn("[ServicePort::open] - Error: {}", e.what());
 
 		pendingStart = true;
 		g_dispatcher().addEvent(15000, std::bind(&ServicePort::openAcceptor,

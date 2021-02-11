@@ -22,7 +22,7 @@
 
 static constexpr auto STATUS_SERVER_NAME = "OTServBR - Global";
 static constexpr auto STATUS_SERVER_VERSION = "TFS 1.3";
-static constexpr auto STATUS_SERVER_DEVELOPERS = "OTServBR-Global Team and Contributors, SaiyansKing";
+static constexpr auto STATUS_SERVER_DEVELOPERS = "OTServBR-Global Team and SaiyansKing";
 
 static constexpr auto AUTHENTICATOR_DIGITS = 6U;
 static constexpr auto AUTHENTICATOR_PERIOD = 30U;

@@ -399,10 +399,10 @@ if Modules == nil then
 				if reply then
 					self:addKeyword(keywords, reply)
 				else
-					print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "Parameter '" .. "keyword_reply" .. n .. "' missing. Skipping...")
+					Spdlog.warn("[KeywordModule:parseKeywords] - " .. Npc():getName() .. "] NpcSystem: Parameter '" .. "keyword_reply" .. n .. "' missing. Skipping...")
 				end
 			else
-				print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "No keywords found for keyword set #" .. n .. ". Skipping...")
+				Spdlog.warn("[KeywordModule:parseKeywords] - " .. Npc():getName() .. "] NpcSystem: No keywords found for keyword set #" .. n .. ". Skipping...")
 			end
 
 			n = n + 1
@@ -476,7 +476,7 @@ if Modules == nil then
 				elseif i == 6 then
 					premium = temp == "true"
 				else
-					print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "Unknown parameter found in travel destination parameter.", temp, destination)
+					Spdlog.warn("[TravelModule:parseDestinations] - " .. Npc():getName() .. "] NpcSystem: Unknown parameter found in travel destination parameter.", temp, destination)
 				end
 				i = i + 1
 			end
@@ -484,7 +484,7 @@ if Modules == nil then
 			if name and x and y and z and cost then
 				self:addDestination(name, {x=x, y=y, z=z}, cost, premium)
 			else
-				print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "Parameter(s) missing for travel destination:", name, x, y, z, cost, premium)
+				Spdlog.warn("[TravelModule:parseDestinations] - " .. Npc():getName() .. "] NpcSystem: Parameter(s) missing for travel destination:", name, x, y, z, cost, premium)
 			end
 		end
 	end
@@ -698,7 +698,7 @@ if Modules == nil then
 				elseif i == 5 then
 					realName = temp
 				else
-					print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "Unknown parameter found in buyable items parameter.", temp, item)
+					Spdlog.warn("[ShopModule:parseBuyable] - " .. Npc():getName() .. "] NpcSystem: Unknown parameter found in buyable items parameter.", temp, item)
 				end
 				i = i + 1
 			end
@@ -711,18 +711,18 @@ if Modules == nil then
 			if SHOPMODULE_MODE == SHOPMODULE_MODE_TRADE then
 				if itemid and cost then
 					if subType == nil and it:isFluidContainer() then
-						print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "SubType missing for parameter item:", item)
+						Spdlog.warn("[ShopModule:parseBuyable] - " .. Npc():getName() .. "] NpcSystem: SubType missing for parameter item:", item)
 					else
 						self:addBuyableItem(nil, itemid, cost, subType, realName)
 					end
 				else
-					print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "Parameter(s) missing for item:", itemid, cost)
+					Spdlog.warn("[ShopModule:parseBuyable] - " .. Npc():getName() .. "] NpcSystem: Parameter(s) missing for item:", itemid, cost)
 				end
 			else
 				if name and itemid and cost then
 					local VIAL = 2006
 					if subType == nil and it:isFluidContainer() then
-						print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "SubType missing for parameter item:", item)
+						Spdlog.warn("[ShopModule:parseBuyable] - " .. Npc():getName() .. "] NpcSystem: SubType missing for parameter item:", item)
 					elseif itemid == VIAL then
 						local vials = {"vial of water","vial of blood", nil, "vial of slime", nil, nil, nil, nil, nil, nil, "vial of oil", nil, "vial of urine", nil, "vial of oil"}
 						self:addBuyableItem(nil, itemid, cost, subType, vials[subType])
@@ -732,7 +732,7 @@ if Modules == nil then
 						self:addBuyableItem(names, itemid, cost, subType, realName)
 					end
 				else
-					print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "Parameter(s) missing for item:", name, itemid, cost)
+					Spdlog.warn("[ShopModule:parseBuyable] - " .. Npc():getName() .. "] NpcSystem: Parameter(s) missing for item:", name, itemid, cost)
 				end
 			end
 		end
@@ -761,7 +761,7 @@ if Modules == nil then
 				elseif i == 5 then
 					subType = tonumber(temp)
 				else
-					print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "Unknown parameter found in sellable items parameter.", temp, item)
+					Spdlog.warn("[ShopModule:parseSellable] - " .. Npc():getName() .. "] NpcSystem: Unknown parameter found in sellable items parameter.", temp, item)
 				end
 				i = i + 1
 			end
@@ -770,7 +770,7 @@ if Modules == nil then
 				if itemid and cost then
 					self:addSellableItem(nil, itemid, cost, realName, subType)
 				else
-					print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "Parameter(s) missing for item:", itemid, cost)
+					Spdlog.warn("[ShopModule:parseSellable] - " .. Npc():getName() .. "] NpcSystem: Parameter(s) missing for item:", itemid, cost)
 				end
 			else
 				if name and itemid and cost then
@@ -778,7 +778,7 @@ if Modules == nil then
 					names[#names + 1] = name
 					self:addSellableItem(names, itemid, cost, realName, subType)
 				else
-					print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "Parameter(s) missing for item:", name, itemid, cost)
+					Spdlog.warn("[ShopModule:parseSellable] - " .. Npc():getName() .. "] NpcSystem: Parameter(s) missing for item:", name, itemid, cost)
 				end
 			end
 		end
@@ -810,21 +810,21 @@ if Modules == nil then
 				elseif i == 6 then
 					realName = temp
 				else
-					print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "Unknown parameter found in buyable items parameter.", temp, item)
+					Spdlog.warn("[ShopModule:parseBuyableContainers] - " .. Npc():getName() .. "] NpcSystem: Unknown parameter found in buyable items parameter.", temp, item)
 				end
 				i = i + 1
 			end
 
 			if name and container and itemid and cost then
 				if subType == nil and ItemType(itemid):isFluidContainer() then
-					print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "SubType missing for parameter item:", item)
+					Spdlog.warn("[ShopModule:parseBuyableContainers] - " .. Npc():getName() .. "] NpcSystem: SubType missing for parameter item:", item)
 				else
 					local names = {}
 					names[#names + 1] = name
 					self:addBuyableItemContainer(names, container, itemid, cost, subType, realName)
 				end
 			else
-				print("[Warning : " .. Npc():getName() .. "] NpcSystem:", "Parameter(s) missing for item:", name, container, itemid, cost)
+				Spdlog.warn("[ShopModule:parseBuyableContainers] - " .. Npc():getName() .. "] NpcSystem: Parameter(s) missing for item:", name, container, itemid, cost)
 			end
 		end
 	end

@@ -144,7 +144,9 @@ bool Spells::registerEvent(Event_ptr event, const pugi::xml_node&)
 	if (instant) {
 		auto result = instants.emplace(instant->getWords(), std::move(*instant));
 		if (!result.second) {
-			std::cout << "[Warning - Spells::registerEvent] Duplicate registered instant spell with words: " << instant->getWords() << std::endl;
+			spdlog::warn("[Spells::registerEvent] - "
+                        "Duplicate registered instant spell with words: {}",
+                        instant->getWords());
 		}
 		return result.second;
 	}
@@ -153,7 +155,9 @@ bool Spells::registerEvent(Event_ptr event, const pugi::xml_node&)
 	if (rune) {
 		auto result = runes.emplace(rune->getRuneItemId(), std::move(*rune));
 		if (!result.second) {
-			std::cout << "[Warning - Spells::registerEvent] Duplicate registered rune with id: " << rune->getRuneItemId() << std::endl;
+			spdlog::warn("[Spells::registerEvent] - "
+                        "Duplicate registered rune with id: {}",
+                        rune->getRuneItemId());
 		}
 		return result.second;
 	}
@@ -168,7 +172,8 @@ bool Spells::registerInstantLuaEvent(InstantSpell* event)
 		std::string words = instant->getWords();
 		auto result = instants.emplace(instant->getWords(), std::move(*instant));
 		if (!result.second) {
-			std::cout << "[Warning - Spells::registerInstantLuaEvent] Duplicate registered instant spell with words: " << words << std::endl;
+			spdlog::warn("[Spells::registerInstantLuaEvent] - "
+                        "Duplicate registered instant spell with words: {}", words);
 		}
 		return result.second;
 	}
@@ -183,7 +188,8 @@ bool Spells::registerRuneLuaEvent(RuneSpell* event)
 		uint16_t id = rune->getRuneItemId();
 		auto result = runes.emplace(rune->getRuneItemId(), std::move(*rune));
 		if (!result.second) {
-			std::cout << "[Warning - Spells::registerRuneLuaEvent] Duplicate registered rune with id: " << id << std::endl;
+			spdlog::warn("[Spells::registerRuneLuaEvent] - "
+                        "Duplicate registered rune with id: {}", id);
 		}
 		return result.second;
 	}
@@ -380,11 +386,9 @@ bool CombatSpell::executeCastSpell(Creature* creature, const LuaVariant& var)
 {
 	//onCastSpell(creature, var)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - CombatSpell::executeCastSpell"
-				<< " Creature "
-				<< creature->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
+		spdlog::error("[CombatSpell::executeCastSpell - Creature {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     creature->getName());
 		return false;
 	}
 
@@ -407,7 +411,7 @@ bool Spell::configureSpell(const pugi::xml_node& node)
 {
 	pugi::xml_attribute nameAttribute = node.attribute("name");
 	if (!nameAttribute) {
-		std::cout << "[Error - Spell::configureSpell] Spell without name" << std::endl;
+		spdlog::error("[Spell::configureSpell] - Spell without name");
 		return false;
 	}
 
@@ -443,7 +447,8 @@ bool Spell::configureSpell(const pugi::xml_node& node)
 	//for (size_t i = 0; i < size; ++i) {
 	for (const char* reserved : reservedList) {
 		if (strcasecmp(reserved, name.c_str()) == 0) {
-			std::cout << "[Error - Spell::configureSpell] Spell is using a reserved name: " << reserved << std::endl;
+			spdlog::error("[Spell::configureSpell] - "
+                         "Spell is using a reserved name: {}", reserved);
 			return false;
 		}
 	}
@@ -459,7 +464,8 @@ bool Spell::configureSpell(const pugi::xml_node& node)
 		if (spellgroup != SPELLGROUP_NONE) {
 			group = spellgroup;
 		} else {
-			std::cout << "[Warning - Spell::configureSpell] Unknown group: " << attr.as_string() << std::endl;
+			spdlog::warn("[Spell::configureSpell] - "
+                        "Unknown group: {}", attr.as_string());
 		}
 	}
 
@@ -473,7 +479,8 @@ bool Spell::configureSpell(const pugi::xml_node& node)
 		if (spellgroup != SPELLGROUP_NONE) {
 			secondaryGroup = spellgroup;
 		} else {
-			std::cout << "[Warning - Spell::configureSpell] Unknown secondarygroup: " << attr.as_string() << std::endl;
+			spdlog::warn("[Spell::configureSpell] - "
+                        "Unknown secondarygroup: {}", attr.as_string());
 		}
 	}
 
@@ -552,7 +559,8 @@ bool Spell::configureSpell(const pugi::xml_node& node)
 		} else if (tmpStrValue == "creature") {
 			blockingCreature = true;
 		} else {
-			std::cout << "[Warning - Spell::configureSpell] Blocktype \"" << attr.as_string() << "\" does not exist." << std::endl;
+			spdlog::warn("[Spell::configureSpell] - "
+                        "Blocktype {} does not exist", attr.as_string());
 		}
 	}
 
@@ -574,7 +582,8 @@ bool Spell::configureSpell(const pugi::xml_node& node)
 			attr = vocationNode.attribute("showInDescription");
 			vocSpellMap[vocationId] = !attr || attr.as_bool();
 		} else {
-			std::cout << "[Warning - Spell::configureSpell] Wrong vocation name: " << attr.as_string() << std::endl;
+			spdlog::warn("[Spell::configureSpell] - "
+                        "Wrong vocation name: {]", attr.as_string());
 		}
 	}
 	return true;
@@ -1090,13 +1099,9 @@ bool InstantSpell::executeCastSpell(Creature* creature, const LuaVariant& var)
 {
 	//onCastSpell(creature, var)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - InstantSpell::executeCastSpell"
-				<< " Creature "
-				<< creature->getName()
-				<< " words "
-				<< getWords()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
+		spdlog::error("[InstantSpell::executeCastSpell - Creature {} words {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     creature->getName(), getWords());
 		return false;
 	}
 
@@ -1157,7 +1162,7 @@ bool RuneSpell::configureEvent(const pugi::xml_node& node)
 
 	pugi::xml_attribute attr;
 	if (!(attr = node.attribute("id"))) {
-		std::cout << "[Error - RuneSpell::configureSpell] Rune spell without id." << std::endl;
+		spdlog::error("[RuneSpell::configureEvent] - Rune spell without id");
 		return false;
 	}
 	runeId = pugi::cast<uint16_t>(attr.value());
@@ -1282,13 +1287,9 @@ bool RuneSpell::executeCastSpell(Creature* creature, const LuaVariant& var, bool
 {
 	//onCastSpell(creature, var, isHotkey)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - RuneSpell::executeCastSpell"
-				<< " Creature "
-				<< creature->getName() 
-				<< " runeId "
-				<< getRuneItemId()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
+		spdlog::error("[RuneSpell::executeCastSpell - Creature {} runeId {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     creature->getName(), getRuneItemId());
 		return false;
 	}
 

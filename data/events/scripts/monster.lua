@@ -27,7 +27,7 @@ function Monster:onDropLoot(corpse)
 				local itemBoosted = corpse:createLootItem(monsterLoot[i], boolCharm)
 			end
 			if not item then
-				print('[Warning] DropLoot:', 'Could not add loot item to corpse.')
+				Spdlog.warn("[Monster:onDropLoot] - Could not add loot item to corpse.")
 			end
 		end
 

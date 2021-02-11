@@ -53,8 +53,8 @@ bool Modules::load()
 			scriptId = it->second;
 		} else {
 			if (scriptInterface.loadFile("data/modules/scripts/" + lowercase) != 0) {
-				std::cout << "[Warning - Modules::load] Can not load script: " << lowercase << std::endl;
-				std::cout << scriptInterface.getLastLuaError() << std::endl;
+				spdlog::warn("[Modules::load] - Can not load script: {}", lowercase);
+				spdlog::warn("{}", scriptInterface.getLastLuaError());
 			}
 
 			scriptId = scriptInterface.getEvent("onRecvbyte");
@@ -64,7 +64,8 @@ bool Modules::load()
 		uint16_t byte = static_cast<uint16_t>(strtoul(eventNode.attribute("byte").as_string(), nullptr, 0));
 		auto res = modules.emplace(static_cast<uint8_t>(byte), scriptId);
 		if (!res.second) {
-			std::cout << "[Warning - Modules::load] Duplicate registered module with byte: " << byte << std::endl;
+			spdlog::warn("[Modules::load] - "
+                        "Duplicate registered module with byte: {}", byte);
 		}
 	}
 	return true;
@@ -80,7 +81,7 @@ bool Modules::eventOnRecvByte(Player* player, uint8_t recvbyte, NetworkMessage& 
 
 	// onRecvbyte(player, msg, byte)
 	if (!scriptInterface.reserveScriptEnv()) {
-		std::cout << "[Error - Modules::eventOnRecvByte] Call stack overflow" << std::endl;
+		spdlog::error("[Modules::eventOnRecvByte] - Call stack overflow");
 		return false;
 	}
 

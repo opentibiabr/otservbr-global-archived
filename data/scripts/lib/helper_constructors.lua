@@ -1,3 +1,4 @@
+-- HelperConstructors
 local classes = {Action, CreatureEvent, Spell, TalkAction, MoveEvent, GlobalEvent, Weapon}
 
 for _, class in ipairs(classes) do
@@ -41,7 +42,7 @@ for _, class in ipairs(classes) do
 		-- Only register if callback has already been defined, otherwise defining afterwards will not work
 		if def.register then
 			if not hasCallback then
-				print("Warning: Event not registered due to there being no callback.")
+				Spdlog.warn("[HelperConstructors] - Event not registered due to there being no callback")
 			else
 				obj:register()
 			end

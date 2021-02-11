@@ -517,7 +517,8 @@ void Protocol::enableCompression()
 			defStream->opaque = Z_NULL;
 			if (deflateInit2(defStream.get(), compressionLevel, Z_DEFLATED, -15, 9, Z_DEFAULT_STRATEGY) != Z_OK) {
 				defStream.reset();
-				std::cout << "Zlib deflateInit2 error: " << (defStream->msg ? defStream->msg : "unknown error") << std::endl;
+				spdlog::warn("[Protocol::enableCompression] - "
+                            "ZLIB deflateInit2: {} ", (defStream->msg ? defStream->msg : "unknown error"));
 			} else {
 				compreesionEnabled = true;
 			}

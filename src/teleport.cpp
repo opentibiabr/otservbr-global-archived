@@ -94,7 +94,8 @@ void Teleport::addThing(int32_t, Thing* thing)
 	// Prevent infinity loop
 	if (checkInfinityLoop(destTile)) {
 		const Position& pos = getPosition();
-		std::cout << "[Warning - Teleport:addThing] Infinity loop teleport at position: " << pos << std::endl;
+		spdlog::warn("[Teleport:addThing] - "
+                    "Infinity loop teleport at position: {}", pos.toString());
 		return;
 	}
 
