@@ -189,7 +189,7 @@ void IOMarket::checkExpiredOffers()
 	const time_t lastExpireDate = time(nullptr) - g_config().getNumber(ConfigManager::MARKET_OFFER_DURATION);
 
 	std::stringExtended query(128);
-	query << "SELECT `id`, `amount`, `price`, `itemtype`, `player_id`, `sale` FROM `market_offers` WHERE `created` <= " << lastExpireDate;
+	query << "SELECT `id`, `amount`, `price`, `itemtype`, `player_id`, `sale` FROM `market_offers` WHERE `created` <= " << static_cast<int32_t>(lastExpireDate);
 	g_databaseTasks().addTask(std::move(static_cast<std::string&>(query)), IOMarket::processExpiredOffers, true);
 
 	int32_t checkExpiredMarketOffersEachMinutes = g_config().getNumber(ConfigManager::CHECK_EXPIRED_MARKET_OFFERS_EACH_MINUTES);
@@ -253,7 +253,7 @@ void IOMarket::createOffer(uint32_t playerId, MarketAction_t action, uint32_t it
 	query << itemId << ',';
 	query << amount << ',';
 	query << price << ',';
-	query << time(nullptr) << ',';
+	query << static_cast<int32_t>(time(nullptr)) << ',';
 	query << (anonymous ? "1" : "0") << ')';
 	g_database().executeQuery(query);
 }
@@ -281,8 +281,8 @@ void IOMarket::appendHistory(uint32_t playerId, MarketAction_t type, uint16_t it
 	query << itemId << ',';
 	query << amount << ',';
 	query << price << ',';
-	query << timestamp << ',';
-	query << time(nullptr) << ',';
+	query << static_cast<int32_t>(timestamp) << ',';
+	query << static_cast<int32_t>(time(nullptr)) << ',';
 	query << state << ')';
 	g_databaseTasks().addTask(std::move(static_cast<std::string&>(query)));
 }
