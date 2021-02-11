@@ -156,6 +156,11 @@ private:
 	void BestiarysendCharms();
 	void sendBestiaryEntryChanged(uint16_t raceid);
 	void refreshBestiaryTracker(std::list<MonsterType *> trackerList);
+	void sendTeamFinderList();
+	void sendLeaderTeamFinder(bool reset);
+	void createLeaderTeamFinder(NetworkMessage &msg);
+	void parseLeaderFinderWindow(NetworkMessage &msg);
+	void parseMemberFinderWindow(NetworkMessage &msg);
 	void parseSendBuyCharmRune(NetworkMessage &msg);
 	void parseBestiarysendMonsterData(NetworkMessage &msg);
 	void addBestiaryTrackerList(NetworkMessage &msg);
