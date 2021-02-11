@@ -159,7 +159,7 @@ Prey.MonsterList = {
 	"Insect Swarm", "Insectoid Scout", "Insectoid Worker", "Kollos", "Lacewing Moth", "Ladybug", "Lancer Beetle",
 	"Larva", "Poison Spider", "Rotworm", "Sacred Spider", "Sandcrawler", "Scarab", "Scorpion", "Spider", "Spidris",
 	"Spidris Elite", "Spitter", "Swarmer", "Tarantula", "Terramite", "Tunnel Tyrant", "Wailing Widow", "Wasp",
-	"Waspoid", "Wiggler"
+	"Waspoid", "Wiggler", "Terrified Elephant"
 }
 
 -- Communication functions
