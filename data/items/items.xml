@@ -10118,7 +10118,7 @@
 	<item id="5939" name="Ceiron's waterskin">
 		<attribute key="weight" value="700" />
 	</item>
-	<item id="5940" name="Ceiron's wolf tooth chain">
+	<item id="5940" article="a" name="wolf tooth chain">
 		<attribute key="description" value="It has the letter 'C' carved into one of the teeth." />
 		<attribute key="weight" value="330" />
 		<attribute key="slotType" value="necklace" />

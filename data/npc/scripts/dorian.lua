@@ -178,7 +178,7 @@ local function creatureSayCallback(cid, type, msg)
 			}, cid)
 			npcHandler.topic[cid] = 0
 		end
-	elseif msgcontains(msg, 'thieves') then
+	elseif msgcontains(msg, 'thieves') or msgcontains(msg, 'join') then
 		if player:getStorageValue(Storage.ThievesGuild.Quest) < 1 then
 			npcHandler:say('Hm. Well, we could use some fresh blood. Ahum. Do you want to join the thieves guild, |PLAYERNAME|?', cid)
 			npcHandler.topic[cid] = 1
