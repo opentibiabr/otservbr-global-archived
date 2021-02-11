@@ -556,7 +556,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0x2a: addBestiaryTrackerList(msg); break;
 		case 0x2c: parseLeaderFinderWindow(msg); break;
 		case 0x2d: parseMemberFinderWindow(msg); break;
-		case 0x28: parseStashWithdraw(msg); break;
+		case 0x28: parseStashAction(msg); break;
 		case 0x32: parseExtendedOpcode(msg); break; //otclient extended opcode
 		case 0x64: parseAutoWalk(msg); break;
 		case 0x65: g_game().playerMove(player, DIRECTION_NORTH); break;
@@ -1772,10 +1772,10 @@ void ProtocolGame::sendTeamFinderList()
 	NetworkMessage msg;
 	msg.addByte(0x2D);
 	msg.addByte(0x00); // Bool value, with 'true' the player exceed packets for second.
-	std::map<uint32_t, TeamFinder*> teamFinder = g_game.getTeamFinderList();
+	std::map<uint32_t, TeamFinder*> teamFinder = g_game().getTeamFinderList();
 	msg.add<uint16_t>(teamFinder.size());
 	for (auto it : teamFinder) {
-		Player* leader = g_game.getPlayerByGUID(it.first);
+		Player* leader = g_game().getPlayerByGUID(it.first);
 		if (!leader)
 			return;
 
@@ -1792,7 +1792,7 @@ void ProtocolGame::sendTeamFinderList()
 		msg.addByte(teamAssemble->vocationIDs);
 		msg.add<uint16_t>(teamAssemble->teamSlots);
 		for (auto itt : teamAssemble->membersMap) {
-			Player* member = g_game.getPlayerByGUID(it.first);
+			Player* member = g_game().getPlayerByGUID(it.first);
 			if (member) {
 				if (itt.first == player->getGUID())
 					status = itt.second;
@@ -1836,7 +1836,7 @@ void ProtocolGame::sendLeaderTeamFinder(bool reset)
 		return;
 
 	TeamFinder* teamAssemble = nullptr;
-	std::map<uint32_t, TeamFinder*> teamFinder = g_game.getTeamFinderList();
+	std::map<uint32_t, TeamFinder*> teamFinder = g_game().getTeamFinderList();
 	auto it = teamFinder.find(player->getGUID());
 	if (it != teamFinder.end()) {
 		teamAssemble = it->second;
@@ -1849,7 +1849,7 @@ void ProtocolGame::sendLeaderTeamFinder(bool reset)
 	msg.addByte(0x2C);
 	msg.addByte(reset ? 1 : 0);
 	if (reset) {
-		g_game.removeTeamFinderListed(player->getGUID());
+		g_game().removeTeamFinderListed(player->getGUID());
 		return;
 	}
 	msg.add<uint16_t>(teamAssemble->minLevel);
@@ -1881,14 +1881,14 @@ void ProtocolGame::sendLeaderTeamFinder(bool reset)
 
 	uint16_t membersSize = 1;
 	for (auto memberPair : teamAssemble->membersMap) {
-		Player* member = g_game.getPlayerByGUID(memberPair.first);
+		Player* member = g_game().getPlayerByGUID(memberPair.first);
 		if (member) {
 			membersSize += 1;
 		}
 	}
 
 	msg.add<uint16_t>(membersSize);
-	Player* leader = g_game.getPlayerByGUID(teamAssemble->leaderGuid);
+	Player* leader = g_game().getPlayerByGUID(teamAssemble->leaderGuid);
 	if (!leader)
 		return;
 
@@ -1899,7 +1899,7 @@ void ProtocolGame::sendLeaderTeamFinder(bool reset)
 	msg.addByte(3);
 
 	for (auto memberPair : teamAssemble->membersMap) {
-		Player* member = g_game.getPlayerByGUID(memberPair.first);
+		Player* member = g_game().getPlayerByGUID(memberPair.first);
 		if (!member) {
 			continue;
 		}
@@ -1919,7 +1919,7 @@ void ProtocolGame::createLeaderTeamFinder(NetworkMessage &msg)
 		return;
 
 	std::map<uint32_t, uint8_t> members;
-	std::map<uint32_t, TeamFinder*> teamFinder = g_game.getTeamFinderList();
+	std::map<uint32_t, TeamFinder*> teamFinder = g_game().getTeamFinderList();
 	TeamFinder* teamAssemble = nullptr;
 	auto it = teamFinder.find(player->getGUID());
 	if (it != teamFinder.end()) {
@@ -1981,7 +1981,7 @@ void ProtocolGame::createLeaderTeamFinder(NetworkMessage &msg)
 		}
 	}
 	teamAssemble->membersMap = members;
-	g_game.registerTeamFinderAssemble(player->getGUID(), teamAssemble);
+	g_game().registerTeamFinderAssemble(player->getGUID(), teamAssemble);
 }
 
 void ProtocolGame::parseLeaderFinderWindow(NetworkMessage &msg)
@@ -2001,11 +2001,11 @@ void ProtocolGame::parseLeaderFinderWindow(NetworkMessage &msg)
 		}
 		case 2: {
 			uint32_t memberID = msg.get<uint32_t>();
-			Player* member = g_game.getPlayerByGUID(memberID);
+			Player* member = g_game().getPlayerByGUID(memberID);
 			if (!member)
 				return;
 
-			std::map<uint32_t, TeamFinder*> teamFinder = g_game.getTeamFinderList();
+			std::map<uint32_t, TeamFinder*> teamFinder = g_game().getTeamFinderList();
 			TeamFinder* teamAssemble = nullptr;
 			auto it = teamFinder.find(player->getGUID());
 			if (it != teamFinder.end()) {
@@ -2063,11 +2063,11 @@ void ProtocolGame::parseMemberFinderWindow(NetworkMessage &msg)
 			player->sendTeamFinderList();
 	} else {
 		uint32_t leaderID = msg.get<uint32_t>();
-		Player* leader = g_game.getPlayerByGUID(leaderID);
+		Player* leader = g_game().getPlayerByGUID(leaderID);
 		if (!leader)
 			return;
 
-		std::map<uint32_t, TeamFinder*> teamFinder = g_game.getTeamFinderList();
+		std::map<uint32_t, TeamFinder*> teamFinder = g_game().getTeamFinderList();
 		TeamFinder* teamAssemble = nullptr;
 		auto it = teamFinder.find(leaderID);
 		if (it != teamFinder.end()) {
