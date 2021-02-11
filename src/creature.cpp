@@ -273,6 +273,10 @@ bool Creature::getNextStep(Direction& dir, uint32_t&)
 
 void Creature::startAutoWalk(const std::forward_list<Direction>& listDir)
 {
+	if (hasCondition(CONDITION_ROOTED)) {
+		return;
+	}
+
 	listWalkDir = listDir;
 
 	size_t size = 0;

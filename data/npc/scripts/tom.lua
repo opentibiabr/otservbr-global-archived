@@ -22,13 +22,110 @@ local voices = {
 }
 npcHandler:addModule(VoiceModule:new(voices))
 
--- Greeting and Farewell
-keywordHandler:addGreetKeyword({'hi'}, {npcHandler = npcHandler, text = 'Hey there, |PLAYERNAME|. I\'m Tom the tanner. If you have fresh {corpses}, leather, paws or other animal body parts, {trade} with me.'})
-keywordHandler:addAliasKeyword({'hello'})
-keywordHandler:addFarewellKeyword({'bye'}, {npcHandler = npcHandler, text = 'Good hunting, child.'}, function(player) return player:getSex() == PLAYERSEX_FEMALE end)
-keywordHandler:addAliasKeyword({'farewell'})
-keywordHandler:addFarewellKeyword({'bye'}, {npcHandler = npcHandler, text = 'Good hunting, son.'})
-keywordHandler:addAliasKeyword({'farewell'})
+local function greetCallback(cid)
+	local player = Player(cid)
+	-- Starting mission 6
+	if player:getStorageValue(Storage.TheRookieGuard.Mission06) == 1 then
+		npcHandler:setMessage(MESSAGE_GREET, "Hey there, |PLAYERNAME|. Did Vascalir send you to me for a {mission}?")
+	-- Not finished mission 6
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission06) > 1 and player:getStorageValue(Storage.TheRookieGuard.Mission06) < 6 then
+		npcHandler:setMessage(MESSAGE_GREET, "Now, now - we can't work with that. Go back to that wolf den and fulfil your mission! Unless there is anything else I can help you with.")
+	-- Finishing mission 6
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission06) == 6 then
+		npcHandler:setMessage(MESSAGE_GREET, "Hey there, |PLAYERNAME|. You look... exhausted. Did you run a lot? And more importantly, were you able to find some war wolf leather?")
+	else
+		npcHandler:setMessage(MESSAGE_GREET, "Hey there, |PLAYERNAME|. I'm Tom the tanner. If you have fresh {corpses}, leather, paws or other animal body parts, {trade} with me.")
+	end
+	return true
+end
+
+local function farewellCallback(cid)
+	local player = Player(cid)
+	if player:getSex() == PLAYERSEX_FEMALE then
+		npcHandler:setMessage(MESSAGE_FAREWELL, "Good hunting, child.")
+	else
+		npcHandler:setMessage(MESSAGE_FAREWELL, "Good hunting, son.")
+	end
+	return true
+end
+
+-- The Rookie Guard Quest - Mission 06: Run Like a Wolf
+
+-- Mission 6: Start
+local mission6 = keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"I can help you get boots, but I can't give them to you for free. Besides, you'd want good boots, not that stuff made from rat leather. The best leather you'd find on Rook is wolf leather. ...",
+		"War wolf leather, to be precise. Problem is - war wolves are rare, and you can't hope to fight and defeat them. So your only chance is to find an already dead war wolf, take his skin, and escape really fast. ...",
+		"What an interesting coincidence that I've seen a poacher sneak into the wolf den just a few hours ago. I'm not exactly a fan of poachers - they kill too many of our wolves. ...",
+		"Sooo... what I'm suggesting is: follow his traces into the wolf den, and if you get lucky, you'll be able to take one of his illegally obtained war wolf skins. ...",
+		"That's why I wouldn't call it 'stealing', what an ugly word... anyway, if you bring the skin back to me, I'll make some great war wolf boots from them. What do you say?"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission06) == 1 end
+)
+keywordHandler:addAliasKeyword({"mission"})
+
+-- Mission 6: Decline start
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Alright. Can I help you with something else then?"
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission06) == 1 end
+)
+
+-- Mission 6: Accept
+mission6:addChildKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "That's what I thought. I marked the wolf den on your map. To go there, exit the village to the north and walk north-east. Good luck finding that poacher and figuring out a plan to take those skins! Hehe.",
+	ungreet = true
+},
+nil,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission06, 2)
+	player:addMapMark({x = 32138, y = 32132, z = 7}, MAPMARK_GREENSOUTH, "War Wolf Den")
+end
+)
+
+-- Mission 6: Decline
+mission6:addChildKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Well, then walk Rookgaard barefoot. It's up to you!",
+	reset = true
+})
+
+-- Mission 6: Finish - Confirm (Give skin)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"Hmm... unfortunately the skin is damaged too badly. Whoever skinned this wolf wasn't very skilled at it. Hmm. ...",
+		"Ah, no need to fret. Tell you what kid, I'm gonna give you some normal leather boots instead. They should keep your feet warm as well. Here you go. ...",
+		"By the way... that running you did to get out of the cave will be your normal walking speed when you are several levels higher. With each level you gain, you'll also become a little faster. ...",
+		"There are also other items, spells and equipment that increase your speed. ...",
+		"You can also tame creatures to ride on that will also increase your speed. So don't worry if you're out of breath now - you won't always be that slow. Now off with you and back to Vascalir, I have work to do."
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission06) == 6 and player:getItemCount(13879) >= 1 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission06, 7)
+	player:removeItem(13879, 1)
+	player:addItemEx(Game.createItem(2643, 1), true, CONST_SLOT_WHEREEVER)
+end
+)
+
+-- Mission 6: Finish - Decline (Give skin)
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Are you sure? I think I see some war wolf leather on you. You should reply with {yes}."
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission06) == 6 and player:getItemCount(13879) >= 1 end
+)
 
 -- Basic keywords
 keywordHandler:addKeyword({'hint'}, StdModule.rookgaardHints, {npcHandler = npcHandler})
@@ -123,6 +220,8 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
+npcHandler:setCallback(CALLBACK_FAREWELL, farewellCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'D\'oh?')
 npcHandler:setMessage(MESSAGE_SENDTRADE, 'Sure, check what I buy.')

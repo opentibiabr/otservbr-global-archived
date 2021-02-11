@@ -2185,7 +2185,7 @@
 		<attribute key="weight" value="20" />
 		<attribute key="description" value="There are many rumours about these magic gems." />
 	</item>
-	<item id="2152" article="a" name="platinum coin">
+	<item id="2152" article="a" name="platinum coin" plural="platinum coins">
 		<attribute key="loottype" value="gold" />
 		<attribute key="weight" value="10" />
 	</item>
@@ -10118,7 +10118,7 @@
 	<item id="5939" name="Ceiron's waterskin">
 		<attribute key="weight" value="700" />
 	</item>
-	<item id="5940" name="Ceiron's wolf tooth chain">
+	<item id="5940" article="a" name="wolf tooth chain">
 		<attribute key="description" value="It has the letter 'C' carved into one of the teeth." />
 		<attribute key="weight" value="330" />
 		<attribute key="slotType" value="necklace" />
@@ -16463,7 +16463,7 @@
 		<attribute key="containerSize" value="6" />
 		<attribute key="weight" value="1300" />
 	</item>
-	<item id="8704" article="a" name="small health potion">
+	<item id="8704" article="a" name="small health potion" plural="small health potions">
 		<attribute key="weight" value="265" />
 	</item>
 	<item fromid="8705" toid="8706" name="balloons" />
@@ -21732,6 +21732,8 @@
 	<item id="11700" article="a" name="stone wall" />
 	<item id="11702" article="a" name="stone wall" />
 	<item id="11704" article="an" name="insectoid pore" />
+	<item fromid="11705" toid="11711" name="putrid growth" />
+	<item fromid="11718" toid="11721" name="putrid growth" />
 	<item fromid="11729" toid="11752" name="ground" />
 	<item id="11754" article="a" name="ferumbras doll">
 		<attribute key="description" value="It was awarded by Tibiopedia.pl." />
@@ -21755,6 +21757,7 @@
 	</item>
 	<item id="11758" article="a" name="pitch black gap" />
 	<item id="11759" name="branch" />
+	<item fromid="11761" toid="11772" name="putrid growth" />
 	<item id="11773" article="a" name="bag of oriental spices">
 		<attribute key="description" value="Those spices were gathered all around the Tibian world." />
 		<attribute key="weight" value="1508" />
@@ -24212,11 +24215,11 @@
 		<attribute key="weaponType" value="sword" />
 		<attribute key="loottype" value="sword" />
 	</item>
-	<item id="13830" name="fleshy bone">
+	<item id="13830" article="a" name="fleshy bone">
 		<attribute key="description" value="Dogs would probably find this treat really yummy." />
 		<attribute key="weight" value="200" />
 	</item>
-	<item id="13831" name="book of orc language">
+	<item id="13831" article="a" name="book of orc language">
 		<attribute key="weight" value="1200" />
 	</item>
 	<item fromid="13832" toid="13833" name="bird's nest" />
@@ -24312,7 +24315,13 @@
 		<attribute key="description" value="It can be used to arm catapults." />
 		<attribute key="weight" value="13000" />
 	</item>
-	<item id="13868" name="greasy stone" />
+	<item id="13867" article="a" name="stone pile" />
+	<item id="13868" article="a" name="greasy stone">
+		<attribute key="description" value="If you use it to cover yourself in grease, you won't be spotted by the spider queen." />
+	</item>
+	<item id="13869" article="a" name="hole" >
+		<attribute key="floorchange" value="down" />
+	</item>
 	<item id="13870" name="eye of a deepling">
 		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="description" value="Did it just twitch...? No, must have been an optical illusion." />
@@ -24366,6 +24375,9 @@
 		<attribute key="slotType" value="ring" />
 		<attribute key="loottype" value="ring" />
 	</item>
+	<item id="13878" article="a" name="dead war wolf">
+		<attribute key="description" value="Use your skinning knife on the head of this war wolf to retrieve its skin." />
+	</item>
 	<item id="13879" article="a" name="war wolf skin">
 		<attribute key="description" value="This is a quest item and cannot be used for anything else." />
 		<attribute key="weight" value="40" />
@@ -24387,7 +24399,10 @@
 		<attribute key="weight" value="475" />
 		<attribute key="showcount" value="0" />
 	</item>
+	<item fromid="13882" toid="13883" article="a" name="fire field" />
+	<item id="13884" article="a" name="destroy field rune" />
 	<item fromid="13886" toid="13901" name="large spider web" />
+	<item fromid="13902" toid="13903" article="a" name="trunk" />
 	<item fromid="13904" toid="13920" name="large spider web" />
 	<item fromid="13921" toid="13922" article="a" name="warning sign">
 		<attribute key="allowDistRead" value="true" />
@@ -24396,8 +24411,8 @@
 		<attribute key="description" value="It's very toxic. Do not ever drink green liquids." />
 		<attribute key="weight" value="180" />
 	</item>
-	<item id="13924" article="an" name="empty potion flask">
-		<attribute key="description" value="Return it to a magic store for deposit." />
+	<item id="13924" article="a" name="special flask">
+		<attribute key="description" value="Vascalir gave it to you to collect wasp poison." />
 		<attribute key="weight" value="180" />
 	</item>
 	<item id="13925" article="a" name="plague mask">
@@ -24411,6 +24426,21 @@
 	<item id="13927" article="a" name="tarantula trap">
 		<attribute key="description" value="A good item to paralyse fast and rowdy orcs." />
 		<attribute key="weight" value="10" />
+	</item>
+	<item id="13928" article="a" name="rolling pin">
+		<attribute key="description" value="A good item to knock out unsuspicious orcs." />
+		<attribute key="weight" value="500" />
+	</item>
+	<item id="13929" article="a" name="peeing orc">
+		<attribute key="description" value="He doesn't seem to notice your presence." />
+	</item>
+	<item id="13930" article="an" name="unconscious orc">
+		<attribute key="description" value="Use it quickly to steal his outfit." />
+	</item>
+	<item id="13931" article="an" name="elite orc guard" />
+	<item id="13934" article="a" name="energy barrier" />
+	<item id="13936" article="a" name="wooden ladder hole">
+		<attribute key="floorchange" value="down" />
 	</item>
 	<item id="13937" article="an" name="inoperative uniwheel" />
 	<item id="13938" article="a" name="golden can of oil">
