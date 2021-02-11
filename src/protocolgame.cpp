@@ -219,7 +219,7 @@ void ProtocolGame::login(const std::string &name, uint32_t accountId, OperatingS
 			std::stringExtended ss(128);
 
 			ss << "Too many players online.\nYou are at place "
-			   << currentSlot << " on the waiting list.";
+			   << static_cast<uint32_t>(currentSlot) << " on the waiting list.";
 
 			auto output = OutputMessagePool::getOutputMessage();
 			output->addByte(0x16);
