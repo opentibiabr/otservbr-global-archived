@@ -4,7 +4,7 @@ local monster = {}
 monster.description = "a furious orc berserker"
 monster.experience = 0
 monster.outfit = {
-	lookType = 74,
+	lookType = 8,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -13,11 +13,11 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 15
-monster.maxHealth = 15
+monster.health = 210
+monster.maxHealth = 210
 monster.race = "blood"
-monster.corpse = 6017
-monster.speed = 380
+monster.corpse = 5980
+monster.speed = 250
 monster.manaCost = 220
 monster.maxSummons = 0
 
@@ -31,18 +31,18 @@ monster.strategiesTarget = {
 }
 
 monster.flags = {
-	summonable = true,
+	summonable = false,
 	attackable = true,
-	hostile = false,
-	convinceable = true,
-	pushable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
 	rewardBoss = false,
-	illusionable = true,
+	illusionable = false,
 	canPushItems = false,
 	canPushCreatures = false,
 	staticAttackChance = 90,
 	targetDistance = 1,
-	runHealth = 15,
+	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
@@ -62,8 +62,7 @@ monster.voices = {
 	{text = "KRAK ORRRRRRK!", yell = false}
 }
 
-monster.loot = {
-}
+monster.loot = {}
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = 0}
@@ -75,23 +74,23 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_PHYSICALDAMAGE, percent = 100},
+	{type = COMBAT_ENERGYDAMAGE, percent = 100},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_MANADRAIN, percent = 100},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
+	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_HOLYDAMAGE , percent = 100},
+	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 
 monster.immunities = {
 	{type = "paralyze", condition = false},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = false},
-	{type = "bleed", condition = false}
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = true}
 }
 
 mType:register(monster)
