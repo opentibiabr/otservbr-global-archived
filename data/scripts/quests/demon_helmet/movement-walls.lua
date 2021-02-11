@@ -53,7 +53,6 @@ function walls.onStepOut(creature, item, position, fromPosition)
 			Position(wallsPositions[i]):hasCreature({x = 33211, y = 31631, z = 13})
 			Game.createItem(1050, 1, wallsPositions[i])
 		end
-		
 	end
 	return true
 end
