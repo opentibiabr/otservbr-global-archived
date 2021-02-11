@@ -39,7 +39,7 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = true,
+	rewardBoss = false,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = false,
@@ -72,7 +72,8 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 95000, maxCount = 15}
+	{name = "gold coin", chance = 95000, maxCount = 15},
+	{name = "orc leather", chance = 4300}
 }
 
 monster.attacks = {
@@ -114,9 +115,6 @@ mType.onThink = function(monster, interval)
 end
 
 mType.onAppear = function(monster, creature)
-	if monster:getType():isRewardBoss() then
-		monster:setReward(true)
-	end
 end
 
 mType.onDisappear = function(monster, creature)

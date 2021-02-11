@@ -1294,4 +1294,5 @@
 	<instant name="energized raging mage skill reducer" words="###472" blockwalls="1" needtarget="0" needlearn="1" script="monster/energized raging mage skill reducer.lua"/>
 	<instant name="werelion wave" words="###473" direction="1" exhaustion="2000" needlearn="1" script="monster/werelion_wave.lua"/>
 	<instant name="root" words="###475" blockwalls="1" needtarget="1" needlearn="1" script="monster/root_branchy_rotten.lua"/>
+	<instant name="spider queen wrap" words="###484" aggressive="1" needtarget="1" range="1" needlearn="1" script="monster/spider_queen_wrap.lua"/>
 </spells>

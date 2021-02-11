@@ -5,15 +5,14 @@ function rookVillage.onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-
-	if player:getLevel() < 150 then
-		player:teleportTo(Position(32075, 32250, 6))
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need level 150+ to enter in the Village.")
-		return true
-	end
+	
+	player:teleportTo(Position(player:getPosition().x, player:getPosition().y-1, player:getPosition().z))
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You don't have any business there anymore.")
+	
 	return true
+
 end
 
 rookVillage:type("stepin")
-rookVillage:aid(50999)
+rookVillage:id(8716)
 rookVillage:register()
