@@ -1081,6 +1081,14 @@ bool Game::removeCreature(Creature* creature, bool isLogout/* = true*/)
 		summon->setSkillLoss(false);
 		removeCreature(summon);
 	}
+
+	if (creature->getPlayer() && isLogout) {
+		auto it = teamFinderMap.find(creature->getPlayer()->getGUID());
+		if (it != teamFinderMap.end()) {
+			teamFinderMap.erase(it);
+		}
+	}
+
 	return true;
 }
 
@@ -1333,6 +1341,10 @@ ReturnValue Game::internalMoveCreature(Creature* creature, Direction direction, 
 
 ReturnValue Game::internalMoveCreature(Creature& creature, Tile& toTile, uint32_t flags /*= 0*/)
 {
+	if (creature.hasCondition(CONDITION_ROOTED)) {
+		return RETURNVALUE_NOTPOSSIBLE;
+	}
+
 	//check if we can move the creature to the destination
 	ReturnValue ret = toTile.queryAdd(0, creature, 1, flags);
 	if (ret != RETURNVALUE_NOERROR) {
