@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libjsoncpp-dev \
   zlib1g-dev \
   libgmp-dev \
+  libspdlog-dev \
   unzip
 
 WORKDIR /opt/otserver
