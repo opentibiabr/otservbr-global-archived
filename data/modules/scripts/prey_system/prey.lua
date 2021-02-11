@@ -2,14 +2,18 @@ dofile('data/modules/scripts/prey_system/assets.lua')
 
 Prey = {
 	Credits = "System remake: Westwol ~ Packet logic: Cjaker ~  Formulas: slavidodo ~  Revision: Rick, Sameshima, RodrigoSilva93",
-	Version = "6.2",
-	LastUpdate = "05/02/2021",
+	Version = "6.3",
+	LastUpdate = "11/02/2021",
 }
 
-CONST_MONSTER_NONE = 0
-CONST_MONSTER_EASY = 1
-CONST_MONSTER_MID = 2
-CONST_MONSTER_HARD = 3
+Prey.Difficulty = {
+	HARMLESS = 0,
+	TRIVIAL = 1,
+	EASY = 2,
+	MEDIUM = 3,
+	HARD = 4,
+	CHALLEGING = 5
+}
 
 CONST_PREY_SLOT_FIRST = 0
 CONST_PREY_SLOT_SECOND = 1
@@ -224,26 +228,34 @@ function Player.createMonsterList(self)
 	-- Generating monsterList
 	local monsters = {}
 	local counters = {
+		Trivial = 0,
 		Easy = 0,
-		Mid = 0,
-		Hard = 0
+		Medium = 0,
+		Hard = 0,
+		Challeging = 0
 	}
 	while (#monsters ~= 9) do
 		local randomMonster = Prey.MonsterList[math.random(#Prey.MonsterList)]
-		local diff = getMonsterDifficulty(randomMonster)
+		local difficulty = getMonsterDifficulty(randomMonster)
 		-- Verify that monster actually exists
 		if MonsterType(randomMonster) and not table.contains(monsters, randomMonster)
-		and not table.contains(repeatedList, randomMonster) then
-			if diff == CONST_MONSTER_EASY and counters.Easy < getMaxMonster(self, CONST_MONSTER_EASY) then
-				monsters[#monsters + 1] = randomMonster
-				counters.Easy = counters.Easy + 1
-			elseif diff == CONST_MONSTER_MID and counters.Mid < getMaxMonster(self, CONST_MONSTER_MID) then
-				monsters[#monsters + 1] = randomMonster
-				counters.Mid = counters.Mid + 1
-			elseif diff == CONST_MONSTER_HARD and counters.Hard < getMaxMonster(self, CONST_MONSTER_HARD) then
-				monsters[#monsters + 1] = randomMonster
-				counters.Hard = counters.Hard + 1
-			end
+			and not table.contains(repeatedList, randomMonster) then
+				if difficulty == Prey.Difficulty.TRIVIAL and counters.Trivial < getMaxMonster(self, Prey.Difficulty.TRIVIAL) then
+					monsters[#monsters + 1] = randomMonster
+					counters.Trivial = counters.Trivial + 1
+				elseif difficulty == Prey.Difficulty.EASY and counters.Easy < getMaxMonster(self, Prey.Difficulty.EASY) then
+					monsters[#monsters + 1] = randomMonster
+					counters.Easy = counters.Easy + 1
+				elseif difficulty == Prey.Difficulty.MEDIUM and counters.Medium < getMaxMonster(self, Prey.Difficulty.MEDIUM) then
+					monsters[#monsters + 1] = randomMonster
+					counters.Medium = counters.Medium + 1
+				elseif difficulty == Prey.Difficulty.HARD and counters.Hard < getMaxMonster(self, Prey.Difficulty.HARD) then
+					monsters[#monsters + 1] = randomMonster
+					counters.Hard = counters.Hard + 1
+				elseif difficulty == Prey.Difficulty.CHALLEGING and counters.Challeging < getMaxMonster(self, Prey.Difficulty.CHALLEGING) then
+					monsters[#monsters + 1] = randomMonster
+					counters.Challeging = counters.Challeging + 1
+				end
 		end
 	end
 	return table.concat(monsters, ";")
@@ -668,36 +680,36 @@ end
 
 function getMonsterDifficulty(monster)
 	local stars
-
 	if MonsterType(monster) == nil then
-		return CONST_MONSTER_NONE
+		return 0
 	else
 		stars = MonsterType(monster):BestiaryStars()
 	end
-
-	if stars <= 2 then
-		return CONST_MONSTER_EASY
-	elseif stars <= 4 then
-		return CONST_MONSTER_MID
-	elseif stars == 5 then
-		return CONST_MONSTER_HARD
-	end
+	return stars
 end
 
 function getMaxMonster(self, tier)
 	local level = self:getLevel()
 
+	if(tier == Prey.Difficulty.HARMLESS) then return 0 end
+
 	if level >=8 and level <= 100 then
-		if tier == CONST_MONSTER_EASY then return 6
-		elseif tier == CONST_MONSTER_MID then return 2
-		elseif tier == CONST_MONSTER_HARD then return 1 end
+		if tier == Prey.Difficulty.TRIVIAL then return 1
+		elseif tier == Prey.Difficulty.EASY then return 4
+		elseif tier == Prey.Difficulty.MEDIUM then return 4
+		elseif tier == Prey.Difficulty.HARD then return 4
+		elseif tier == Prey.Difficulty.CHALLEGING then return 1 end
 	elseif level >= 101 and level <= 250 then
-		if tier == CONST_MONSTER_EASY then return 3
-		elseif tier == CONST_MONSTER_MID then return 4
-		elseif tier == CONST_MONSTER_HARD then return 2 end
+		if tier == Prey.Difficulty.TRIVIAL then return 1
+		elseif tier == Prey.Difficulty.EASY then return 3
+		elseif tier == Prey.Difficulty.MEDIUM then return 5
+		elseif tier == Prey.Difficulty.HARD then return 4
+		elseif tier == Prey.Difficulty.CHALLEGING then return 1 end
 	else
-		if tier == CONST_MONSTER_EASY then return 2
-		elseif tier == CONST_MONSTER_MID then return 4
-		elseif tier == CONST_MONSTER_HARD then return 3 end
+		if tier == Prey.Difficulty.TRIVIAL then return 1
+		elseif tier == Prey.Difficulty.EASY then return 3
+		elseif tier == Prey.Difficulty.MEDIUM then return 4
+		elseif tier == Prey.Difficulty.HARD then return 5
+		elseif tier == Prey.Difficulty.CHALLEGING then return 1 end
 	end
 end
