@@ -480,6 +480,14 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
             return true
         end
     end
+	
+	-- The Rookie Guard Quest - Mission 09: Rock 'n Troll
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission09_rock_troll.lua
+	-- Damage tunnel pillars
+	if player:getStorageValue(Storage.TheRookieGuard.Mission09) ~= -1 and target.itemid == 3511 then
+		return onUsePickAtTunnelPillar(player, item, fromPosition, target, toPosition)
+	end
+	
     --Dawnport some cracks down
     local crackPosition = Position(32099, 31930, 7)
     if (toPosition == crackPosition) then

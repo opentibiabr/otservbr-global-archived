@@ -335,16 +335,6 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		return false
 	end
 
-	-- Loot Analyser
-	local t = Tile(fromCylinder:getPosition())
-	local corpse = t:getTopDownItem()
-	if corpse then
-		local itemType = corpse:getType()
-		if itemType:isCorpse() and toPosition.x == CONTAINER_POSITION then
-			self:sendLootStats(item)
-		end
-	end
-
 	-- Cults of Tibia begin
 	local frompos = Position(33023, 31904, 14) -- Checagem
 	local topos = Position(33052, 31932, 15) -- Checagem

@@ -1166,9 +1166,9 @@ class Player final : public Creature, public Cylinder
 				client->sendLootContainers();
 			}
 		}
-		void sendLootStats(Item* item) {
+		void sendLootStats(Item* item, uint8_t count) {
 			if (client) {
-				client->sendLootStats(item);
+				client->sendLootStats(item, count);
 			}
 		}
 
@@ -1726,6 +1726,24 @@ class Player final : public Creature, public Cylinder
  			}
  		}
 
+   		void createLeaderTeamFinder(NetworkMessage &msg)
+ 		{
+  			if (client) {
+ 				client->createLeaderTeamFinder(msg);
+ 			}
+ 		}
+   		void sendLeaderTeamFinder(bool reset)
+ 		{
+  			if (client) {
+ 				client->sendLeaderTeamFinder(reset);
+ 			}
+ 		}
+   		void sendTeamFinderList()
+ 		{
+  			if (client) {
+ 				client->sendTeamFinderList();
+ 			}
+ 		}
 		uint32_t getCharmPoints() {
 			return charmPoints;
 		}

@@ -128,7 +128,7 @@ class Container : public Item, public Cylinder
 		uint32_t getWeight() const override final;
 
 		bool isUnlocked() const {
-			return unlocked;
+			return !this->isCorpse() && unlocked;
 		}
 		bool hasPagination() const {
 			return pagination;

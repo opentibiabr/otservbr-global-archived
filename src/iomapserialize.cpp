@@ -321,20 +321,20 @@ bool IOMapSerialize::saveHouseInfo()
 		query << "INSERT INTO `houses` (`id`, `owner`, `paid`, `warnings`, `name`, `town_id`, `rent`, `size`, `beds`) VALUES (";
 		query << house->getId() << ',';
 		query << house->getOwner() << ',';
-		query << house->getPaidUntil() << ',';
+		query << static_cast<int32_t>(house->getPaidUntil()) << ',';
 		query << house->getPayRentWarnings() << ',';
 		query << escapedName << ',';
 		query << house->getTownId() << ',';
 		query << house->getRent() << ',';
-		query << house->getTiles().size() << ',';
+		query << static_cast<uint32_t>(house->getTiles().size()) << ',';
 		query << house->getBedCount() << ')';
 		query << "ON DUPLICATE KEY UPDATE `owner` = " << house->getOwner();
-		query << ",`paid` = " << house->getPaidUntil();
+		query << ",`paid` = " << static_cast<int32_t>(house->getPaidUntil());
 		query << ",`warnings` = " << house->getPayRentWarnings();
 		query << ",`name` = " << escapedName;
 		query << ",`town_id` = " << house->getTownId();
 		query << ",`rent` = " << house->getRent();
-		query << ",`size` = " << house->getTiles().size();
+		query << ",`size` = " << static_cast<uint32_t>(house->getTiles().size());
 		query << ",`beds` = " << house->getBedCount();
 		g_database().executeQuery(query);
 	}

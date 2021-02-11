@@ -39,8 +39,8 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = true,
-	illusionable = true,
+	rewardBoss = false,
+	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = false,
 	staticAttackChance = 90,
@@ -68,12 +68,13 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, skill = 60, attack = 40, condition = {type = CONDITION_POISON, totalDamage = 80, interval = 4000}}
+	{name = "spider queen wrap", interval = 5000, chance = 100, target = true, range = 1}
 }
 
 monster.defenses = {
 	defense = 5,
-	armor = 10
+	armor = 10,
+	{name ="speed", interval = 1000, chance = 10, speedChange = 480, effect = CONST_ME_MAGIC_RED, target = false, duration = 5000}
 }
 
 monster.elements = {
@@ -92,7 +93,7 @@ monster.elements = {
 monster.immunities = {
 	{type = "paralyze", condition = false},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
+	{type = "invisible", condition = false},
 	{type = "bleed", condition = false}
 }
 

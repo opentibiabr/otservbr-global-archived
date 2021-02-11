@@ -1202,6 +1202,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CONDITION_PACIFIED)
 	registerEnum(CONDITION_SPELLCOOLDOWN)
 	registerEnum(CONDITION_SPELLGROUPCOOLDOWN)
+	registerEnum(CONDITION_ROOTED)
 
 	registerEnum(CONDITIONID_DEFAULT)
 	registerEnum(CONDITIONID_COMBAT)
@@ -1376,6 +1377,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CONST_ME_ORANGE_FIREWORKS)
 	registerEnum(CONST_ME_PINK_FIREWORKS)
 	registerEnum(CONST_ME_BLUE_FIREWORKS)
+  registerEnum(CONST_ME_ROOTS)
 	registerEnum(CONST_ME_CHIVALRIOUS_CHALLENGE)
 	registerEnum(CONST_ME_DIVINE_DAZZLE)
 
@@ -4113,7 +4115,7 @@ int LuaScriptInterface::luaPlayerSendInventory(lua_State* L)
 
 int LuaScriptInterface::luaPlayerSendLootStats(lua_State* L)
 {
-	// player:sendLootStats(item)
+	// player:sendLootStats(item, count)
 	Player* player = getUserdata<Player>(L, 1);
 	if (!player) {
 		lua_pushnil(L);
@@ -4126,7 +4128,13 @@ int LuaScriptInterface::luaPlayerSendLootStats(lua_State* L)
 		return 1;
 	}
 
- 	player->sendLootStats(item);
+	uint8_t count = getNumber<uint8_t>(L, 3, 0);
+	if(count == 0) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+ 	player->sendLootStats(item, count);
 	pushBoolean(L, true);
 
  	return 1;

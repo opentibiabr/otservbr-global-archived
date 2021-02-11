@@ -908,7 +908,7 @@ bool IOLoginData::savePlayer(Player* player)
 
 	if (result->getNumber<uint16_t>("save") == 0) {
 		query.clear();
-		query << "UPDATE `players` SET `lastlogin` = " << player->lastLoginSaved << ", `lastip` = " << player->lastIP << " WHERE `id` = " << player->getGUID();
+		query << "UPDATE `players` SET `lastlogin` = " << static_cast<int32_t>(player->lastLoginSaved) << ", `lastip` = " << player->lastIP << " WHERE `id` = " << player->getGUID();
 		return g_database().executeQuery(query);
 	}
 
@@ -949,7 +949,7 @@ bool IOLoginData::savePlayer(Player* player)
     query << "`sex` = " << static_cast<uint16_t>(player->sex) << ',';
 
     if (player->lastLoginSaved != 0) {
-        query << "`lastlogin` = " << player->lastLoginSaved << ',';
+        query << "`lastlogin` = " << static_cast<int32_t>(player->lastLoginSaved) << ',';
     }
 
     if (player->lastIP != 0) {
@@ -988,7 +988,7 @@ bool IOLoginData::savePlayer(Player* player)
         query << "`skull` = " << static_cast<int64_t>(skull) << ',';
     }
 
-    query << "`lastlogout` = " << player->getLastLogout() << ',';
+    query << "`lastlogout` = " << static_cast<int32_t>(player->getLastLogout()) << ',';
     query << "`balance` = " << player->bankBalance << ',';
     query << "`offlinetraining_time` = " << player->getOfflineTrainingTime() / 1000 << ',';
     query << "`offlinetraining_skill` = " << player->getOfflineTrainingSkill() << ',';
@@ -1031,7 +1031,7 @@ bool IOLoginData::savePlayer(Player* player)
     query << "`quickloot_fallback` = " << (player->quickLootFallbackToMainContainer ? 1 : 0) << ',';
 
     if (!player->isOffline()) {
-        query << "`onlinetime` = `onlinetime` + " << (time(nullptr) - player->lastLoginSaved) << ',';
+        query << "`onlinetime` = `onlinetime` + " << static_cast<int32_t>((time(nullptr) - player->lastLoginSaved)) << ',';
     }
     for (int i = 1; i <= 8; i++) {
         query << "`blessings" << i << "`" << " = " << static_cast<uint32_t>(player->getBlessingCount(i)) << ((i == 8) ? ' ' : ',');
@@ -1278,7 +1278,7 @@ bool IOLoginData::savePlayer(Player* player)
     DBInsert preyDataQuery(&g_database(), "INSERT INTO `prey_slots` (`player_id`, `num`, `state`, `unlocked`, `current`, `monster_list`, `free_reroll_in`, `time_left`, `next_use`, `bonus_type`, `bonus_value`, `bonus_grade`, `tick`) VALUES ");
     for (size_t num = 0; num < PREY_SLOTNUM_THIRD + 1; num++) {
         query.clear();
-        query << player->getGUID() << ',' << num << ',' << player->preySlotState[num] << ',' << player->preySlotUnlocked[num] << ',' << g_database().escapeString(player->preySlotCurrentMonster[num]) << ',' << g_database().escapeString(player->preySlotMonsterList[num]) << ',' << player->preySlotFreeRerollIn[num] << ',' << player->preySlotTimeLeft[num] << ',' << player->preySlotNextUse[num] << ',' << player->preySlotBonusType[num] << ',' << player->preySlotBonusValue[num] << ',' << player->preySlotBonusGrade[num] << ',' << player->preySlotTick[num];
+        query << player->getGUID() << ',' << static_cast<uint32_t>(num) << ',' << player->preySlotState[num] << ',' << player->preySlotUnlocked[num] << ',' << g_database().escapeString(player->preySlotCurrentMonster[num]) << ',' << g_database().escapeString(player->preySlotMonsterList[num]) << ',' << player->preySlotFreeRerollIn[num] << ',' << player->preySlotTimeLeft[num] << ',' << player->preySlotNextUse[num] << ',' << player->preySlotBonusType[num] << ',' << player->preySlotBonusValue[num] << ',' << player->preySlotBonusGrade[num] << ',' << player->preySlotTick[num];
         if (!preyDataQuery.addRow(query)) {
             return false;
         }

@@ -73,7 +73,7 @@ monster.loot = {
 	{name = "cookie", chance = 62500, maxCount = 8},
 	{name = "gold coin", chance = 29170, maxCount = 55},
 	{name = "star herb", chance = 20833},
-	{name = "wolf tooth chain", chance = 20833},
+	{id = 2129, chance = 20833},
 	{name = "garlic necklace", chance = 8333},
 	{name = "spellbook of mind control", chance = 8333},
 	{name = "coat", chance = 4170},

@@ -213,6 +213,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		startupErrorMessage("Can not load: data/items/items.otb");
 		return;
 	}
+	std::cout << "> Loaded startup.lua" << std::endl;
 
 	// Lua libs
 	// Load global.lua (data/libs folder)
@@ -221,6 +222,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	if (g_luaEnvironment.loadFile("data/global.lua") == -1) {
 		startupErrorMessage("Cannot load: data/global.lua");
 	}
+	std::cout << "> Loaded items.otb" << std::endl;
 
 	// Load stages.lua
 	spdlog::info("Loading stages.lua");
@@ -228,6 +230,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		startupErrorMessage("Can not load: data/stages.lua");
 		return;
 	}
+	std::cout << "> Loaded items" << std::endl;
 
 	// Load startup folder
 	spdlog::info("Loading startup.lua");
@@ -235,6 +238,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		startupErrorMessage("Can not load: data/startup/startup.lua");
 		return;
 	}
+	std::cout << "> Loaded modules" << std::endl;
 
 	// Load items.xml
 	spdlog::info("Loading XML scripts...");
@@ -243,6 +247,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		startupErrorMessage("Can not load: data/items/items.xml");
 		return;
 	}
+	std::cout << "> Loaded vocations" << std::endl;
 
 	// Load modules
 	spdlog::info("Loading modules.xml");
@@ -264,6 +269,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		startupErrorMessage("Can not load: data/XML/imbuements.xml");
 		return;
 	}
+	std::cout << "> Loaded imbuements" << std::endl;
 
 	// Load schedule events
 	spdlog::info("Loading events.xml");
@@ -277,6 +283,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		startupErrorMessage("Can not load: data/XML/outfits.xml");
 		return;
 	}
+	std::cout << "> Loaded outfits" << std::endl;
 
 	// Load familiars
 	spdlog::info("Loading familiars.xml");
@@ -291,6 +298,29 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		startupErrorMessage("Can not load: data/spells/spells.xml");
 		return;
 	}
+	std::cout << "> Loaded familiars" << std::endl;
+
+	// Load lua scripts
+	std::cout << ">> Loading revscriptsys" << std::endl;
+	if (!g_scripts().loadScripts("scripts/lib", true, false)) {
+		startupErrorMessage("Unable to load libs!");
+		return;
+	}
+	std::cout << "> Loaded lib" << std::endl;
+
+	// Load folder data/scripts
+	if (!g_scripts().loadScripts("scripts", false, false)) {
+		startupErrorMessage("Unable to load scripts!");
+		return;
+	}
+	std::cout << "> Loaded scripts" << std::endl;
+
+	// Load monsters
+	if (!g_scripts().loadScripts("monster", false, false)) {	
+		startupErrorMessage("Unable to load monsters!");	
+		return;	
+	}
+	std::cout << "> Loaded monsters" << std::endl;	
 
 	// Load lua scripts
 	spdlog::info("Loading revscriptsys...");
@@ -342,6 +372,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		startupErrorMessage("Failed to load map");
 		return;
 	}
+	std::cout << "> Loaded map" << std::endl;
 
 	spdlog::info("Initializing gamestate...");
 	g_game().setGameState(GAME_STATE_INIT);

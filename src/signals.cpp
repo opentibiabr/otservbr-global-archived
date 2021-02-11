@@ -130,35 +130,35 @@ void Signals::sighupHandler()
 	spdlog::info("SIGHUP received, reloading config files...");
 
 	g_config().reload();
-	spdlog::info("Reloaded config.");
+	spdlog::info("Reloaded config");
 
 	Npcs::reload();
-	spdlog::info("Reloaded npcs.");
+	spdlog::info("Reloaded npcs");
 
 	g_game().raids.reload();
 	g_game().raids.startup();
-	spdlog::info("Reloaded raids.");
+	spdlog::info("Reloaded raids");
 
 	g_monsters().reload();
-	spdlog::info("Reloaded spells.");
+	spdlog::info("Reloaded spells");
 
 	Item::items.reload();
-	spdlog::info("Reloaded items.");
+	spdlog::info("Reloaded items");
 
 	g_game().mounts.reload();
-	spdlog::info("Reloaded mounts.");
+	spdlog::info("Reloaded mounts");
 
 	g_events().load();
-	spdlog::info("Reloaded events.");
+	spdlog::info("Reloaded events");
 
 	g_chat().load();
-	spdlog::info("Reloaded chatchannels.");
+	spdlog::info("Reloaded chatchannels");
 
 	g_luaEnvironment.loadFile("data/global.lua");
-	spdlog::info("Reloaded global.lua.");
+	spdlog::info("Reloaded global.lua");
 	
 	g_luaEnvironment.loadFile("data/stages.lua");
-	spdlog::info("Reloaded stages.lua.");
+	spdlog::info("Reloaded stages.lua");
 
 	lua_gc(g_luaEnvironment.getLuaState(), LUA_GCCOLLECT, 0);
 }

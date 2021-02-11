@@ -54,6 +54,98 @@ ItemAction = {
 			{ x = 33909, y = 31642, z = 9 },
 			{ x = 33916, y = 31642, z = 9 }
 		}
+	},
+	-- The Rookie Guard Quest - Mission 02: Defence!
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission02_defense.lua
+	-- Stone piles
+	[40005] = {
+		itemId = 13867,
+		itemPos = {
+			{x = 32080, y = 32183, z = 8},
+			{x = 32080, y = 32184, z = 8},
+			{x = 32081, y = 32184, z = 8}
+		}
+	},
+	-- Bar catapult
+	[40006] = {
+		itemId = false,
+		itemPos = {
+			{x = 32098, y = 32176, z = 5},
+			{x = 32099, y = 32176, z = 5},
+			{x = 32098, y = 32177, z = 5},
+			{x = 32099, y = 32177, z = 5}
+		}
+	},
+	-- Academy catapult 1
+	[40007] = {
+		itemId = false,
+		itemPos = {
+			{x = 32105, y = 32189, z = 5},
+			{x = 32105, y = 32190, z = 5},
+			{x = 32106, y = 32190, z = 5}
+		}
+	},
+	-- Academy catapult 2
+	[40008] = {
+		itemId = false,
+		itemPos = {
+			{x = 32105, y = 32194, z = 5},
+			{x = 32105, y = 32195, z = 5}
+		}
+	},
+	-- Shop catapult
+	[40009] = {
+		itemId = false,
+		itemPos = {
+			{x = 32109, y = 32200, z = 5},
+			{x = 32110, y = 32200, z = 5},
+			{x = 32109, y = 32201, z = 5},
+			{x = 32110, y = 32201, z = 5}
+		}
+	},
+	-- Spider webs
+	[40010] = {
+		itemId = false,
+		itemPos = {
+			{x = 32011, y = 32076, z = 12},
+			{x = 32007, y = 32076, z = 12},
+			{x = 32005, y = 32078, z = 12},
+			{x = 32015, y = 32078, z = 12},
+			{x = 32016, y = 32078, z = 12},
+			{x = 32005, y = 32079, z = 12},
+			{x = 32020, y = 32080, z = 12},
+			{x = 32001, y = 32082, z = 12},
+			{x = 32002, y = 32083, z = 12},
+			{x = 32021, y = 32083, z = 12},
+			{x = 32002, y = 32085, z = 12},
+			{x = 32002, y = 32087, z = 12},
+			{x = 32002, y = 32092, z = 12},
+			{x = 32004, y = 32093, z = 12},
+			{x = 32007, y = 32094, z = 12},
+			{x = 32015, y = 32096, z = 12}
+		}
+	},
+	-- The Rookie Guard Quest - Mission 07: Attack!
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission07_attack.lua
+	-- Fire fields
+	[40011] = {
+		itemId = 13882,
+		itemPos = {
+			{x = 32084, y = 32141, z = 10},
+			{x = 32082, y = 32142, z = 10},
+			{x = 32083, y = 32142, z = 10},
+			{x = 32084, y = 32142, z = 10},
+		}
+	},
+	-- Orc fortress large cauldron
+	[40012] = {
+		itemId = false,
+		itemPos = {
+			{x = 31987, y = 32154, z = 8},
+			{x = 31988, y = 32154, z = 8},
+			{x = 31987, y = 32155, z = 8},
+			{x = 31988, y = 32155, z = 8}
+		}
 	}
 }
 
@@ -248,5 +340,205 @@ ItemUnique = {
 	[40043] = {
 		itemId = 6966,
 		itemPos = {x = 32078, y = 31217, z = 7}
+	},
+	-- The Rookie Guard Quest - Mission 06: Run Like a Wolf
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission06_run_like_wolf.lua
+	-- Poacher corpse
+	[40044] = {
+		itemId = 2317,
+		itemPos = {x = 32135, y = 32133, z = 8}
+	},
+	-- War wolf corpse
+	[40045] = {
+		itemId = 13878,
+		itemPos = {x = 32109, y = 32132, z = 11}
+	},
+	-- The Rookie Guard Quest - Mission 07: Attack!
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission07_attack.lua
+	-- Destroy field rune
+	[40046] = {
+		itemId = 13884,
+		itemPos = {x = 32082, y = 32143, z = 10}
+	},
+	-- Library vault treasure chest
+	[40047] = {
+		itemId = 12664,
+		itemPos = {x = 32083, y = 32141, z = 10}
+	},
+	-- The Rookie Guard Quest - Mission 09: Rock 'n Troll
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission09_rock_troll.lua
+	-- Troll caves dug tunnel chest 1
+	[40048] = {
+		itemId = 13903,
+		itemPos = {x = 32058, y = 32132, z = 10}
+	},
+	-- Troll caves dug tunnel chest 2
+	[40049] = {
+		itemId = 13903,
+		itemPos = {x = 32059, y = 32132, z = 10}
+	},
+	-- Troll caves dug tunnel pillar 1
+	[40050] = {
+		itemId = 3511,
+		itemPos = {x = 32067, y = 32143, z = 10}
+	},
+	-- Troll caves dug tunnel pillar 2
+	[40051] = {
+		itemId = 3511,
+		itemPos = {x = 32060, y = 32140, z = 10}
+	},
+	-- Troll caves dug tunnel pillar 3
+	[40052] = {
+		itemId = 3511,
+		itemPos = {x = 32065, y = 32134, z = 10}
+	},
+	-- Troll caves dug tunnel pillar 4
+	[40053] = {
+		itemId = 3511,
+		itemPos = {x = 32070, y = 32132, z = 10}
+	},
+	-- Troll caves dug tunnel pillar 5
+	[40054] = {
+		itemId = 3511,
+		itemPos = {x = 32076, y = 32129, z = 10}
+	},
+	-- The Rookie Guard Quest - Mission 10: Tomb Raiding
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission10_tomb_raiding.lua
+	-- Unholy crypt sarcophagus
+	[40055] = {
+		itemId = 1417,
+		itemPos = {x = 32145, y = 32204, z = 10}
+	},
+	-- The Rookie Guard Quest - Mission 12: Into The Fortress
+	-- Path: data\scripts\actions\quests\the_rookie_guard\mission12_into_fortress.lua
+	-- Academy treasure chest
+	[40056] = {
+		itemId = 12664,
+		itemPos = {x = 32109, y = 32187, z = 8}
+	},
+	-- Kraknaknork lair teleport
+	[40057] = {
+		itemId = 8058,
+		itemPos = {x = 31977, y = 32166, z = 9}
+	},
+	-- Kraknaknork lair energy barrier 1
+	[40058] = {
+		itemId = 13934,
+		itemPos = {x = 31974, y = 32174, z = 10}
+	},
+	-- Kraknaknork lair energy barrier 2
+	[40059] = {
+		itemId = 13934,
+		itemPos = {x = 31962, y = 32174, z = 10}
+	},
+	-- Kraknaknork lair energy barrier 3
+	[40060] = {
+		itemId = 13934,
+		itemPos = {x = 31960, y = 32184, z = 10}
+	},
+	-- Kraknaknork lair energy barrier 4
+	[40061] = {
+		itemId = 13934,
+		itemPos = {x = 31953, y = 32187, z = 10}
+	},
+	-- Kraknaknork lair energy barrier 5
+	[40062] = {
+		itemId = 13934,
+		itemPos = {x = 31972, y = 32183, z = 10}
+	},
+	-- Kraknaknork lair energy barrier 6
+	[40063] = {
+		itemId = 13934,
+		itemPos = {x = 31952, y = 32174, z = 10}
+	},
+	-- Kraknaknork lair lever 1
+	[40064] = {
+		itemId = 10029,
+		itemPos = {x = 31975, y = 32170, z = 10}
+	},
+	-- Kraknaknork lair lever 2
+	[40065] = {
+		itemId = 10029,
+		itemPos = {x = 31961, y = 32168, z = 10}
+	},
+	-- Kraknaknork lair lever 3
+	[40066] = {
+		itemId = 10029,
+		itemPos = {x = 31957, y = 32190, z = 10}
+	},
+	-- Kraknaknork lair lever 4
+	[40067] = {
+		itemId = 10029,
+		itemPos = {x = 31968, y = 32179, z = 10}
+	},
+	-- Kraknaknork lair lever 5
+	[40068] = {
+		itemId = 10029,
+		itemPos = {x = 31949, y = 32187, z = 10}
+	},
+	-- Kraknaknork lair lever 6
+	[40069] = {
+		itemId = 10029,
+		itemPos = {x = 31976, y = 32180, z = 10}
+	},
+	-- Kraknaknork room enter teleport
+	[40070] = {
+		itemId = 8058,
+		itemPos = {x = 31948, y = 32174, z = 10}
+	},
+	-- Kraknaknork room exit teleport
+	[40071] = {
+		itemId = 8058,
+		itemPos = {x = 31945, y = 32174, z = 10}
+	},
+	-- Kraknaknork treasure room enter teleport
+	[40072] = {
+		itemId = 8058,
+		itemPos = {x = 31929, y = 32171, z = 10}
+	},
+	-- Kraknaknork treasure room left treasure chest
+	[40073] = {
+		itemId = 12664,
+		itemPos = {x = 31930, y = 32169, z = 11}
+	},
+	-- Kraknaknork treasure room right treasure chest
+	[40074] = {
+		itemId = 12664,
+		itemPos = {x = 31935, y = 32169, z = 11}
+	},
+	-- Kraknaknork treasure room exit teleport
+	[40075] = {
+		itemId = 8058,
+		itemPos = {x = 31932, y = 32167, z = 11}
+	},
+	-- War wolf den chest
+	[40076] = {
+		itemId = 1740,
+		itemPos = {x = 32126, y = 32137, z = 9}
+	},
+	-- Unholy crypt box
+	[40077] = {
+		itemId = 1738,
+		itemPos = {x = 32144, y = 32177, z = 10}
+	},
+	-- Unholy crypt coffin
+	[40078] = {
+		itemId = 1744,
+		itemPos = {x = 32153, y = 32184, z = 10}
+	},
+	-- Orc fortress treasure chest
+	[40079] = {
+		itemId = 12665,
+		itemPos = {x = 31991, y = 32157, z = 8}
+	},
+	-- Orc fortress trunk
+	[40080] = {
+		itemId = 13902,
+		itemPos = {x = 31975, y = 32170, z = 8}
+	},
+	-- Kraknaknork lair treasure chest
+	[40081] = {
+		itemId = 12665,
+		itemPos = {x = 31978, y = 32184, z = 10}
 	}
 }
