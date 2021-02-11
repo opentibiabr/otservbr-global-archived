@@ -58,7 +58,7 @@ function spawnsByTime.onPeriodChange(period, light)
 			local target = Npc(value.name)
 			if target then
 				if configManager.getBoolean(configKeys.ALL_CONSOLE_LOG) then
-					Spdlog.info("> NPC " .. value.name .. " removed")
+					Spdlog.info("NPC " .. value.name .. " removed")
 				end
 				target:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 				target:remove()
