@@ -18,7 +18,7 @@ end
 local function greetCallback(cid)
 	local player = Player(cid)
 	if player:getCondition(CONDITION_POISON) then
-		player:sendTextMessage(MESSAGE_STATUS_WARNING, "Venture the path of decay!")
+		player:sendTextMessage(MESSAGE_GAME_HIGHLIGHT, "Venture the path of decay!")
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo(Position(33396, 32836, 14))
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)

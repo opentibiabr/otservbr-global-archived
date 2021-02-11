@@ -186,6 +186,15 @@ std::string transformToSHA1(const std::string& input)
 	return std::string(hexstring, 40);
 }
 
+uint16_t getStashSize(StashItemList itemList)
+{
+	uint16_t size = 0;
+	for (auto item : itemList) {
+		size += ceil(item.second / 100.0);
+	}
+	return size;
+}
+
 std::string generateToken(const std::string& key, uint32_t ticks)
 {
 	// generate message from ticks

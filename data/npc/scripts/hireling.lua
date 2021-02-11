@@ -824,13 +824,13 @@ local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
 		return false
 	end
 	if not ignoreCap and player:getFreeCapacity() < itemType:getWeight(amount) then
-		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'You don\'t have enough cap.')
+		return player:sendTextMessage(MESSAGE_FAILURE, 'You don\'t have enough cap.')
 	end
 	if not player:removeMoneyNpc(items[item].buyPrice * amount) then
 		selfSay("You don't have enough money.", cid)
 	else
 		player:addItem(itemType:getId(), amount, true, subType)
-		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
+		return player:sendTextMessage(MESSAGE_LOOK, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
 	end
 	return true
 end

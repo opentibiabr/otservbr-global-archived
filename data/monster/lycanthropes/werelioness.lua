@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1966
+monster.Bestiary = {
+	class = "Lycanthrope",
+	race = BESTY_RACE_LYCANTHROPE,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
+	CharmsPoints = 50,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "This monster we can find in Hyaena Lairs."
+	}
+	
 monster.health = 3000
 monster.maxHealth = 3000
 monster.race = "blood"

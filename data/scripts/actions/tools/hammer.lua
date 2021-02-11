@@ -107,8 +107,8 @@ function hammer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 
 			player:setStorageValue(Storage.RottinWoodAndMaried.RottinStart, player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) +1)
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
-			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You fixed this broken wall.")
+			else player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You already fixed many broken walls today.")
 			end
 
 			-- parte 2
@@ -124,8 +124,8 @@ function hammer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 
 			player:setStorageValue(Storage.RottinWoodAndMaried.RottinStart, player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) +1)
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
-			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You fixed this broken wall.")
+			else player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You already fixed many broken walls today.")
 			end
 
 			-- parte 3
@@ -140,8 +140,8 @@ function hammer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 
 			player:setStorageValue(Storage.RottinWoodAndMaried.RottinStart, player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) +1)
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
-			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You fixed this broken wall.")
+			else player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You already fixed many broken walls today.")
 			end
 
 			-- parte 4
@@ -156,8 +156,8 @@ function hammer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 
 			player:setStorageValue(Storage.RottinWoodAndMaried.RottinStart, player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) +1)
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
-			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You fixed this broken wall.")
+			else player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You already fixed many broken walls today.")
 			end
 
 			-- parte 5
@@ -172,8 +172,8 @@ function hammer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 
 			player:setStorageValue(Storage.RottinWoodAndMaried.RottinStart, player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) +1)
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
-			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You fixed this broken wall.")
+			else player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You already fixed many broken walls today.")
 			end
 
 

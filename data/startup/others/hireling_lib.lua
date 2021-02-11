@@ -351,18 +351,18 @@ function Hireling:returnToLamp(player_id)
 
 	if self:getOwnerId() ~= player_id then
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
-		return player:sendTextMessage(MESSAGE_INFO_DESCR, "You are not the master of this hireling.")
+		return player:sendTextMessage(MESSAGE_FAILURE, "You are not the master of this hireling.")
 	end
 
 	if player:getFreeCapacity() < lampType:getWeight(1) then
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
-		return player:sendTextMessage(MESSAGE_INFO_DESCR, "You do not have enough capacity.")
+		return player:sendTextMessage(MESSAGE_FAILURE, "You do not have enough capacity.")
 	end
 
 	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
 	if not inbox or inbox:getEmptySlots() == 0 then
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
-		return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough room in your inbox.")
+		return player:sendTextMessage(MESSAGE_FAILURE, "You don't have enough room in your inbox.")
 	end
 
 
@@ -498,14 +498,14 @@ function Player:addNewHireling(name, sex)
 	local lampType = ItemType(HIRELING_LAMP_ID)
 	if self:getFreeCapacity() < lampType:getWeight(1) then
 		self:getPosition():sendMagicEffect(CONST_ME_POFF)
-		self:sendTextMessage(MESSAGE_INFO_DESCR, "You do not have enough capacity.")
+		self:sendTextMessage(MESSAGE_FAILURE, "You do not have enough capacity.")
 		return false
 	end
 
 	local inbox = self:getSlotItem(CONST_SLOT_STORE_INBOX)
 	if not inbox or inbox:getEmptySlots() == 0 then
 		self:getPosition():sendMagicEffect(CONST_ME_POFF)
-		self:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough room in your inbox.")
+		self:sendTextMessage(MESSAGE_FAILURE, "You don't have enough room in your inbox.")
 		return false
 	end
 

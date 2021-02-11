@@ -36,7 +36,7 @@ jobs:
             triplet: x64-osx
             packages: >
               boost-asio boost-iostreams boost-system boost-filesystem boost-variant boost-lockfree
-              lua libmariadb pugixml cryptopp
+              curl jsoncpp lua libmariadb pugixml cryptopp
 
     steps:
       - uses: actions/checkout@v2

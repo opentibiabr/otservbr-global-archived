@@ -6,19 +6,19 @@ function hirelingLamp.onUse(player, item, fromPosition, target, toPosition, isHo
 	local house = spawnPosition and spawnPosition:getTile() and spawnPosition:getTile():getHouse() or nil
 	if not house then
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "You may use this only inside a house.")
+		player:sendTextMessage(MESSAGE_FAILURE, "You may use this only inside a house.")
 		return false
 	elseif house:getDoorIdByPosition(spawnPosition) then
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "You cannot spawn a hireling on the door")
+		player:sendTextMessage(MESSAGE_FAILURE, "You cannot spawn a hireling on the door")
 		return false
 	elseif getHirelingByPosition(spawnPosition) then
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "You cannot spawn another hireling here.")
+		player:sendTextMessage(MESSAGE_FAILURE, "You cannot spawn another hireling here.")
 		return false
 	elseif house:getOwnerGuid() ~= player:getGuid() then
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "You cannot spawn a hireling on another's person house.")
+		player:sendTextMessage(MESSAGE_FAILURE, "You cannot spawn a hireling on another's person house.")
 		return false
 	end
 

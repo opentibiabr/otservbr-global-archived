@@ -20,7 +20,7 @@
 #ifndef FS_CONDITION_H_F92FF8BDDD5B4EA59E2B1BB5C9C0A086
 #define FS_CONDITION_H_F92FF8BDDD5B4EA59E2B1BB5C9C0A086
 
-#include <list>  
+#include <list>
 
 #include "fileloader.h"
 #include "enums.h"

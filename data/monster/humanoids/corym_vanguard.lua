@@ -98,7 +98,7 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -140},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -50, maxDamage = -100, length = 5, spread = 3, effect = CONST_ME_GREEN_RINGS, target = false},
+	{name ="corym vanguard wave", interval = 2000, chance = 10, minDamage = -50, maxDamage = -100, target = false},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -40, maxDamage = -70, radius = 4, effect = CONST_ME_MORTAREA, target = true}
 }
 
