@@ -1,33 +1,41 @@
-# Locate Spdlog library
-# This module defines
-#   SPDLOG_FOUND
-#   SPDLOG_INCLUDE_DIR
-#   SPDLOG_LIBRARY
+# Find the spdlog include directory
+# The following variables are set if spdlog is found.
+#  spdlog_FOUND        - True when the spdlog include directory is found.
+#  spdlog_INCLUDE_DIR  - The path to where the spdlog include files are.
+# If spdlog is not found, spdlog_FOUND is set to false.
 
-find_path(SPDLOG_INCLUDE_DIR NAMES spdlog/spdlog.h)
+find_package(PkgConfig)
 
-find_library(SPDLOG_LIBRARY NAMES spdlog spdlog)
+if(NOT EXISTS "${spdlog_INCLUDE_DIR}")
+  find_path(spdlog_INCLUDE_DIR
+    NAMES spdlog/spdlog.h
+    DOC "spdlog library header files"
+    )
+endif()
 
-include(FindPackageHandleStandardArgs)
-FIND_PACKAGE_HANDLE_STANDARD_ARGS(spdlog DEFAULT_MSG SPDLOG_INCLUDE_DIR SPDLOG_LIBRARY)
+if(EXISTS "${spdlog_INCLUDE_DIR}")
+  include(FindPackageHandleStandardArgs)
+  mark_as_advanced(spdlog_INCLUDE_DIR)
+else()
+  include(ExternalProject)
+  ExternalProject_Add(spdlog
+    GIT_REPOSITORY https://github.com/gabime/spdlog.git
+    TIMEOUT 5
+    CMAKE_ARGS -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER} -DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}
+    PREFIX "${CMAKE_CURRENT_BINARY_DIR}"
+    CONFIGURE_COMMAND "" # Disable configure step
+    BUILD_COMMAND "" # Disable build step
+    INSTALL_COMMAND "" # Disable install step
+    UPDATE_COMMAND "" # Disable update step: clones the project only once
+    )
+  
+  # Specify include dir
+  ExternalProject_Get_Property(spdlog source_dir)
+  set(spdlog_INCLUDE_DIR ${source_dir}/include)
+endif()
 
-mark_as_advanced(SPDLOG_INCLUDE_DIR SPDLOG_LIBRARY)
-
-# Add imported target.
-if(SPDLOG_FOUND)
-    set(SPDLOG_INCLUDE_DIRS "${SPDLOG_INCLUDE_DIR}")
-
-    if(NOT SPDLOG_FIND_QUIETLY)
-        message(STATUS "SPDLOG_INCLUDE_DIRS ........... ${SPDLOG_INCLUDE_DIR}")
-        message(STATUS "SPDLOG_LIBRARY ................ ${SPDLOG_LIBRARY}")
-    endif()
-
-    if(NOT TARGET spdlog::spdlog)
-        add_library(spdlog::spdlog UNKNOWN IMPORTED)
-        set_target_properties(spdlog::spdlog PROPERTIES
-            INTERFACE_INCLUDE_DIRECTORIES "${SPDLOG_INCLUDE_DIRS}")
-
-        set_property(TARGET spdlog::spdlog APPEND PROPERTY
-            IMPORTED_LOCATION "${SPDLOG_LIBRARY}")
-    endif()
+if(EXISTS "${spdlog_INCLUDE_DIR}")
+  set(spdlog_FOUND 1)
+else()
+  set(spdlog_FOUND 0)
 endif()
