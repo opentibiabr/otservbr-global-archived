@@ -96,11 +96,16 @@ bool BedItem::canUse(Player* player)
 		return false;
 	}
 
-	if (sleeperGUID == 0) {
+	BedItem* nextBedItem = getNextBedItem();
+	if (nextBedItem == nullptr) {
+		return false;
+	}
+
+	if (sleeperGUID == 0 && house->getHouseAccessLevel(player) > 0 && player->getZone() == ZONE_PROTECTION) {
 		return true;
 	}
 
-	if (house->getHouseAccessLevel(player) == HOUSE_OWNER) {
+	if (house->getHouseAccessLevel(player) == HOUSE_OWNER && player->getZone() == ZONE_PROTECTION) {
 		return true;
 	}
 

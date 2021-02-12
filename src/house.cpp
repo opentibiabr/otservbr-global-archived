@@ -124,10 +124,13 @@ void House::setOwner(uint32_t guid, bool updateDatabase/* = true*/, Player* play
 void House::updateDoorDescription() const
 {
 	std::stringExtended ss(houseName.length() + ownerName.length() + static_cast<size_t>(128));
+	std::string numBeds = maxBeds > 1 ? "beds" : "bed";
 	if (owner != 0) {
-		ss << "It belongs to house '" << houseName << "'. " << ownerName << " owns this house.";
+		ss << "It belongs to house '" << houseName << "'. " << ownerName <<
+							" owns this house. This house can have up to " << (maxBeds / 2) << " " << numBeds << ".";
 	} else {
-		ss << "It belongs to house '" << houseName << "'. Nobody owns this house.";
+		ss << "It belongs to house '" << houseName << "'. Nobody owns this house. This house can have up to "
+																			<< (maxBeds / 4) << " " << numBeds << ".";
 
 		const int32_t housePrice = g_config().getNumber(ConfigManager::HOUSE_PRICE);
 		if (housePrice != -1) {
