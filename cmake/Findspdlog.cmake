@@ -6,7 +6,7 @@
 
 find_path(SPDLOG_INCLUDE_DIR NAMES spdlog/spdlog.h)
 
-find_library(SPDLOG_LIBRARY NAMES spdlog spdlogd)
+find_library(SPDLOG_LIBRARY NAMES spdlog spdlog)
 
 include(FindPackageHandleStandardArgs)
 FIND_PACKAGE_HANDLE_STANDARD_ARGS(spdlog DEFAULT_MSG SPDLOG_INCLUDE_DIR SPDLOG_LIBRARY)
