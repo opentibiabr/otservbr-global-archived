@@ -1134,7 +1134,7 @@ bool IOLoginData::savePlayer(Player* player)
     DBInsert killsQuery(&g_database(), "INSERT INTO `player_kills` (`player_id`, `target`, `time`, `unavenged`) VALUES");
     for (const auto& kill : player->unjustifiedKills) {
         query.clear();
-        query << player->getGUID() << ',' << kill.target << ',' << kill.time << ',' << kill.unavenged;
+        query << player->getGUID() << ',' << kill.target << ',' << static_cast<int32_t>(kill.time) << ',' << kill.unavenged;
         if (!killsQuery.addRow(query)) {
             return false;
         }
