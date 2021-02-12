@@ -1,19 +1,17 @@
-# ------------------------------------------------------------------------------------------------ #
-#                                This file is part of CosmoScout VR                                #
-#       and may be used under the terms of the MIT license. See the LICENSE file for details.      #
-#                         Copyright: (c) 2019 German Aerospace Center (DLR)                        #
-# ------------------------------------------------------------------------------------------------ #
+# Locate Spdlog library
+# This module defines
+#   SPDLOG_FOUND
+#   SPDLOG_INCLUDE_DIR
+#   SPDLOG_LIBRARY
 
-# Locate header.
-find_path(SPDLOG_INCLUDE_DIR spdlog/spdlog.h
-    HINTS ${SPDLOG_ROOT_DIR}/include)
+find_path(SPDLOG_INCLUDE_DIR NAMES spdlog/spdlog.h)
 
-# Locate library.
-find_library(SPDLOG_LIBRARY NAMES spdlog spdlogd
-    HINTS ${SPDLOG_ROOT_DIR}/lib ${SPDLOG_ROOT_DIR}/lib64)
+find_library(SPDLOG_LIBRARY NAMES spdlog spdlogd)
 
 include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(spdlog DEFAULT_MSG SPDLOG_INCLUDE_DIR SPDLOG_LIBRARY)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(spdlog DEFAULT_MSG SPDLOG_INCLUDE_DIR SPDLOG_LIBRARY)
+
+mark_as_advanced(SPDLOG_INCLUDE_DIR SPDLOG_LIBRARY)
 
 # Add imported target.
 if(SPDLOG_FOUND)
