@@ -2,8 +2,8 @@ dofile('data/modules/scripts/prey_system/assets.lua')
 
 Prey = {
 	Credits = "System remake: Westwol ~ Packet logic: Cjaker ~  Formulas: slavidodo ~  Revision: Rick, Sameshima, RodrigoSilva93",
-	Version = "6.3",
-	LastUpdate = "11/02/2021",
+	Version = "6.4",
+	LastUpdate = "12/02/2021",
 }
 
 Prey.Difficulty = {
@@ -98,7 +98,7 @@ Prey.MonsterList = {
 	"Ravenous Lava Lurker", "Turbulent Elemental", "Water Elemental", "Breach Brood", "Courage Leech", "Dread Intruder",
 	"Instable Breach Brood", "Instable Sparkion", "Reality Reaver", "Sparkion", "Stabilizing Dread Intruder",
 	"Stabilizing Reality Reaver", "Yielothax", "Arctic Faun", "Boogy", "Dark Faun", "Dryad", "Faun", "Nymph", "Percht",
-	"Pixie", "Pooka", "Schiach", "Swan Maiden", "Twisted Pooka", "Wisp", "Behemoth", "Cyclops", "Cyclops Drone",
+	"Pixie", "Pooka", "Schiach", "Swan Maiden", "Twisted Pooka", "Behemoth", "Cyclops", "Cyclops Drone",
 	"Cyclops Smith", "Frost Giant", "Frost Giantess", "Ogre Brute", "Ogre Rowdy", "Ogre Ruffian", "Ogre Sage",
 	"Ogre Savage", "Ogre Shaman", "Orclops Doomhauler", "Orclops Ravager", "Acolyte of the Cult", "Adept of the Cult",
 	"Adventurer", "Amazon", "Assassin", "Bandit", "Barbarian Bloodwalker", "Barbarian Brutetamer", "Barbarian Headsplitter",
@@ -680,7 +680,7 @@ end
 
 function getMonsterDifficulty(monster)
 	local stars
-	if MonsterType(monster) == nil then
+	if MonsterType(monster) == nil or MonsterType(monster):experience() == 0 then
 		return 0
 	else
 		stars = MonsterType(monster):BestiaryStars()
