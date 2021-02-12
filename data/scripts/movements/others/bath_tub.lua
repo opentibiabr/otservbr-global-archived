@@ -2,17 +2,17 @@ local bathtubEnter = MoveEvent()
 local playerBathTub = 29323
 
 function bathtubEnter.onStepIn(creature, item, position, fromPosition)
-    if not creature:isPlayer() then
+	if not creature:isPlayer() then
 		return false
-    end
+	end
 
-    local condition = Condition(CONDITION_OUTFIT)
-    condition:setOutfit({lookTypeEx = playerBathTub})
-    condition:setTicks(-1)
-	
+	local condition = Condition(CONDITION_OUTFIT)
+	condition:setOutfit({lookTypeEx = playerBathTub})
+	condition:setTicks(-1)
+
 	position:sendMagicEffect(CONST_ME_WATERSPLASH)
 	item:transform(BATHTUB_FILLED_NOTMOVABLE)
-    creature:addCondition(condition)
+	creature:addCondition(condition)
 	return true
 end
 
@@ -21,13 +21,13 @@ bathtubEnter:register()
 
 local bathtubExit = MoveEvent()
 function bathtubExit.onStepOut(creature, item, position, fromPosition)
-    if not creature:isPlayer() then
+	if not creature:isPlayer() then
 		return false
-    end
-	
+	end
+
 	item:transform(BATHTUB_FILLED)
-    creature:removeCondition(CONDITION_OUTFIT)
-    return true
+	creature:removeCondition(CONDITION_OUTFIT)
+	return true
 end
 
 bathtubExit:id(BATHTUB_FILLED_NOTMOVABLE)
