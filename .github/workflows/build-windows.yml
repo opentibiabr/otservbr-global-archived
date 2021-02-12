@@ -33,7 +33,7 @@ jobs:
             packages: >
               boost-asio boost-iostreams boost-system boost-filesystem
               boost-variant boost-lockfree cryptopp curl jsoncpp
-              luajit libmariadb pugixml
+              luajit libmariadb pugixml mpir zlib
 
     steps:
       - uses: actions/checkout@v2

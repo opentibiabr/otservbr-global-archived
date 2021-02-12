@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,9 +43,16 @@ class GlobalEvents final : public BaseEvents
 		GlobalEvents();
 		~GlobalEvents();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		GlobalEvents(const GlobalEvents&) = delete;
 		GlobalEvents& operator=(const GlobalEvents&) = delete;
+
+		static GlobalEvents& getInstance() {
+			// Guaranteed to be destroyed
+			static GlobalEvents instance;
+			// Instantiated on first use
+			return instance;
+		}
 
 		void startup() const;
 
@@ -124,5 +131,7 @@ class GlobalEvent final : public Event
 		int64_t nextExecution = 0;
 		uint32_t interval = 0;
 };
+
+constexpr auto g_globalEvents = &GlobalEvents::getInstance;
 
 #endif

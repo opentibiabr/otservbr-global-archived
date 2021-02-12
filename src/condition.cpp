@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,9 +21,6 @@
 
 #include "condition.h"
 #include "game.h"
-
-extern Game g_game;
-extern Monsters g_monsters;
 
 bool Condition::setParam(ConditionParam_t param, int32_t value)
 {
@@ -521,7 +518,7 @@ void ConditionAttributes::updateBuffs(Creature* creature)
     }
   }
   if (creature->getMonster() && needUpdate) {
-    g_game.updateCreatureIcon(creature);
+    g_game().updateCreatureIcon(creature);
   }
 }
 
@@ -563,7 +560,7 @@ void ConditionAttributes::endCondition(Creature* creature)
     }
   }
   if (creature->getMonster() && needUpdateIcons) {
-    g_game.updateCreatureIcon(creature);
+    g_game().updateCreatureIcon(creature);
   }
 
   if (disableDefense) {
@@ -846,7 +843,7 @@ bool ConditionRegeneration::executeCondition(Creature* creature, int32_t interva
 					player->sendTextMessage(message);
 
 					SpectatorHashSet spectators;
-					g_game.map.getSpectators(spectators, player->getPosition(), false, true);
+					g_game().map.getSpectators(spectators, player->getPosition(), false, true);
 					spectators.erase(player);
 					if (!spectators.empty()) {
 						message.type = MESSAGE_HEALED_OTHERS;
@@ -1296,22 +1293,22 @@ bool ConditionDamage::doDamage(Creature* creature, int32_t healthChange)
 	damage.primary.value = healthChange;
 	damage.primary.type = Combat::ConditionToDamageType(conditionType);
 
-	Creature* attacker = g_game.getCreatureByID(owner);
+	Creature* attacker = g_game().getCreatureByID(owner);
 	if (field && creature->getPlayer() && attacker && attacker->getPlayer()) {
 		damage.primary.value = static_cast<int32_t>(std::round(damage.primary.value / 2.));
 	}
 
 	if (!creature->isAttackable() || Combat::canDoCombat(attacker, creature) != RETURNVALUE_NOERROR) {
 		if (!creature->isInGhostMode()) {
-			g_game.addMagicEffect(creature->getPosition(), CONST_ME_POFF);
+			g_game().addMagicEffect(creature->getPosition(), CONST_ME_POFF);
 		}
 		return false;
 	}
 
-	if (g_game.combatBlockHit(damage, attacker, creature, false, false, field)) {
+	if (g_game().combatBlockHit(damage, attacker, creature, false, false, field)) {
 		return false;
 	}
-	return g_game.combatChangeHealth(attacker, creature, damage);
+	return g_game().combatChangeHealth(attacker, creature, damage);
 }
 
 void ConditionDamage::endCondition(Creature*)
@@ -1520,7 +1517,7 @@ bool ConditionSpeed::startCondition(Creature* creature)
 		speedDelta = uniform_random(min, max);
 	}
 
-	g_game.changeSpeed(creature, speedDelta);
+	g_game().changeSpeed(creature, speedDelta);
 	return true;
 }
 
@@ -1531,7 +1528,7 @@ bool ConditionSpeed::executeCondition(Creature* creature, int32_t interval)
 
 void ConditionSpeed::endCondition(Creature* creature)
 {
-	g_game.changeSpeed(creature, -speedDelta);
+	g_game().changeSpeed(creature, -speedDelta);
 }
 
 void ConditionSpeed::addCondition(Creature* creature, const Condition* addCondition)
@@ -1563,7 +1560,7 @@ void ConditionSpeed::addCondition(Creature* creature, const Condition* addCondit
 
 	int32_t newSpeedChange = (speedDelta - oldSpeedDelta);
 	if (newSpeedChange != 0) {
-		g_game.changeSpeed(creature, newSpeedChange);
+		g_game().changeSpeed(creature, newSpeedChange);
 	}
 }
 
@@ -1591,14 +1588,14 @@ bool ConditionInvisible::startCondition(Creature* creature)
 		return false;
 	}
 
-	g_game.internalCreatureChangeVisible(creature, false);
+	g_game().internalCreatureChangeVisible(creature, false);
 	return true;
 }
 
 void ConditionInvisible::endCondition(Creature* creature)
 {
 	if (!creature->isInvisible()) {
-		g_game.internalCreatureChangeVisible(creature, true);
+		g_game().internalCreatureChangeVisible(creature, true);
 	}
 }
 
@@ -1634,7 +1631,7 @@ void ConditionOutfit::serialize(PropWriteStream& propWriteStream)
 bool ConditionOutfit::startCondition(Creature* creature)
 {
 	if ((outfit.lookType == 0 && outfit.lookTypeEx == 0) && !monsterName.empty()) {
-		MonsterType* monsterType = g_monsters.getMonsterType(monsterName);
+		MonsterType* monsterType = g_monsters().getMonsterType(monsterName);
 		if (monsterType) {
 			setOutfit(monsterType->info.outfit);
 		} else {
@@ -1647,7 +1644,7 @@ bool ConditionOutfit::startCondition(Creature* creature)
 		return false;
 	}
 
-	g_game.internalCreatureChangeOutfit(creature, outfit);
+	g_game().internalCreatureChangeOutfit(creature, outfit);
 	return true;
 }
 
@@ -1658,7 +1655,7 @@ bool ConditionOutfit::executeCondition(Creature* creature, int32_t interval)
 
 void ConditionOutfit::endCondition(Creature* creature)
 {
-	g_game.internalCreatureChangeOutfit(creature, creature->getDefaultOutfit());
+	g_game().internalCreatureChangeOutfit(creature, creature->getDefaultOutfit());
 }
 
 void ConditionOutfit::addCondition(Creature* creature, const Condition* addCondition)
@@ -1668,7 +1665,7 @@ void ConditionOutfit::addCondition(Creature* creature, const Condition* addCondi
 
 		const ConditionOutfit& conditionOutfit = static_cast<const ConditionOutfit&>(*addCondition);
 		if (!conditionOutfit.monsterName.empty() && conditionOutfit.monsterName.compare(monsterName) != 0) {
-			MonsterType* monsterType = g_monsters.getMonsterType(conditionOutfit.monsterName);
+			MonsterType* monsterType = g_monsters().getMonsterType(conditionOutfit.monsterName);
 			if (monsterType) {
 				setOutfit(monsterType->info.outfit);
 			} else {
@@ -1680,7 +1677,7 @@ void ConditionOutfit::addCondition(Creature* creature, const Condition* addCondi
 			setOutfit(conditionOutfit.outfit);
 		}
 
-		g_game.internalCreatureChangeOutfit(creature, outfit);
+		g_game().internalCreatureChangeOutfit(creature, outfit);
 	}
 }
 
@@ -1697,7 +1694,7 @@ bool ConditionLight::startCondition(Creature* creature)
 	internalLightTicks = 0;
 	lightChangeInterval = ticks / lightInfo.level;
 	creature->setCreatureLight(lightInfo);
-	g_game.changeLight(creature);
+	g_game().changeLight(creature);
 	return true;
 }
 
@@ -1712,7 +1709,7 @@ bool ConditionLight::executeCondition(Creature* creature, int32_t interval)
 		if (creatureLightInfo.level > 0) {
 			--creatureLightInfo.level;
 			creature->setCreatureLight(creatureLightInfo);
-			g_game.changeLight(creature);
+			g_game().changeLight(creature);
 		}
 	}
 
@@ -1722,7 +1719,7 @@ bool ConditionLight::executeCondition(Creature* creature, int32_t interval)
 void ConditionLight::endCondition(Creature* creature)
 {
 	creature->setNormalCreatureLight();
-	g_game.changeLight(creature);
+	g_game().changeLight(creature);
 }
 
 void ConditionLight::addCondition(Creature* creature, const Condition* condition)
@@ -1736,7 +1733,7 @@ void ConditionLight::addCondition(Creature* creature, const Condition* condition
 		lightChangeInterval = ticks / lightInfo.level;
 		internalLightTicks = 0;
 		creature->setCreatureLight(lightInfo);
-		g_game.changeLight(creature);
+		g_game().changeLight(creature);
 	}
 }
 

@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,8 +29,6 @@
 #include "tasks.h"
 #include "gamestore.h"
 
-
-
 class NetworkMessage;
 class Player;
 class Game;
@@ -41,9 +39,6 @@ class Connection;
 class Quest;
 class ProtocolGame;
 using ProtocolGame_ptr = std::shared_ptr<ProtocolGame>;
-
-extern ConfigManager g_config;
-extern Game g_game;
 
 struct TextMessage
 {
@@ -330,6 +325,7 @@ private:
 
 	void sendUpdatedVIPStatus(uint32_t guid, VipStatus_t newStatus);
 	void sendVIP(uint32_t guid, const std::string &name, const std::string &description, uint32_t icon, bool notify, VipStatus_t status);
+	void sendVIPEntries();
 
 	void sendPendingStateEntered();
 	void sendEnterWorld();
@@ -437,25 +433,12 @@ private:
 
 	friend class Player;
 
-	// Helpers so we don't need to bind every time
-	template <typename Callable, typename... Args>
-	void addGameTask(Callable function, Args &&... args)
-	{
-		g_dispatcher.addTask(createTask(std::bind(function, &g_game, std::forward<Args>(args)...)));
-	}
-
-	template <typename Callable, typename... Args>
-	void addGameTaskTimed(uint32_t delay, Callable function, Args &&... args)
-	{
-		g_dispatcher.addTask(createTask(delay, std::bind(function, &g_game, std::forward<Args>(args)...)));
-	}
-
 	std::unordered_set<uint32_t> knownCreatureSet;
 	Player *player = nullptr;
 
 	uint32_t eventConnect = 0;
 	uint32_t challengeTimestamp = 0;
-	uint32_t version = g_config.getNumber(ConfigManager::CLIENT_VERSION);
+	uint32_t version = g_config().getNumber(ConfigManager::CLIENT_VERSION);
 	int32_t clientVersion = 0;
 
 	uint8_t challengeRandom = 0;
@@ -470,7 +453,7 @@ private:
 
 	void sendOpenStash();
 	void AddPlayerStowedItems(NetworkMessage &msg);
-	void parseStashWithdraw(NetworkMessage &msg);
+	void parseStashAction(NetworkMessage &msg);
 	void sendSpecialContainersAvailable(bool supplyStashAvailable);
 };
 

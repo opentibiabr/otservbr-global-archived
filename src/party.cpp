@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,10 +24,6 @@
 #include "configmanager.h"
 #include "events.h"
 
-extern Game g_game;
-extern ConfigManager g_config;
-extern Events* g_events;
-
 Party::Party(Player* initLeader) : leader(initLeader)
 {
 	leader->setParty(this);
@@ -35,7 +31,7 @@ Party::Party(Player* initLeader) : leader(initLeader)
 
 void Party::disband()
 {
-	if (!g_events->eventPartyOnDisband(this)) {
+	if (!g_events().eventPartyOnDisband(this)) {
 		return;
 	}
 
@@ -44,7 +40,7 @@ void Party::disband()
 
 	currentLeader->setParty(nullptr);
 	currentLeader->sendClosePrivate(CHANNEL_PARTY);
-	g_game.updatePlayerShield(currentLeader);
+	g_game().updatePlayerShield(currentLeader);
 	currentLeader->sendCreatureSkull(currentLeader);
 	currentLeader->sendTextMessage(MESSAGE_PARTY_MANAGEMENT, "Your party has been disbanded.");
 
@@ -61,7 +57,7 @@ void Party::disband()
 	}
 
 	for (Player* member : memberList) {
-		g_game.updatePlayerShield(member);
+		g_game().updatePlayerShield(member);
 
 		for (Player* otherMember : memberList) {
 			otherMember->sendCreatureSkull(member);
@@ -84,7 +80,7 @@ bool Party::leaveParty(Player* player)
 		return false;
 	}
 
-	if (!g_events->eventPartyOnLeave(this, player)) {
+	if (!g_events().eventPartyOnLeave(this, player)) {
 		return false;
 	}
 
@@ -109,7 +105,7 @@ bool Party::leaveParty(Player* player)
 
 	player->setParty(nullptr);
 	player->sendClosePrivate(CHANNEL_PARTY);
-	g_game.updatePlayerShield(player);
+	g_game().updatePlayerShield(player);
 
 	for (Player* member : memberList) {
 		member->sendCreatureSkull(player);
@@ -179,7 +175,7 @@ bool Party::passPartyLeadership(Player* player)
 
 bool Party::joinParty(Player& player)
 {
-	if (!g_events->eventPartyOnJoin(this, &player)) {
+	if (!g_events().eventPartyOnJoin(this, &player)) {
 		return false;
 	}
 
@@ -196,7 +192,7 @@ bool Party::joinParty(Player& player)
 
 	player.setParty(this);
 
-	g_game.updatePlayerShield(&player);
+	g_game().updatePlayerShield(&player);
 
 	for (Player* member : memberList) {
 		member->sendCreatureSkull(&player);
@@ -267,7 +263,7 @@ bool Party::invitePlayer(Player& player)
 
 	if (empty()) {
 		ss << " Open the party channel to communicate with your members.";
-		g_game.updatePlayerShield(leader);
+		g_game().updatePlayerShield(leader);
 		leader->sendCreatureSkull(leader);
 	}
 
@@ -361,7 +357,7 @@ bool Party::setSharedExperience(Player* player, bool newSharedExpActive)
 void Party::shareExperience(uint64_t experience, Creature* source/* = nullptr*/)
 {
 	uint64_t shareExperience = experience;
-	g_events->eventPartyOnShareExperience(this, shareExperience);
+	g_events().eventPartyOnShareExperience(this, shareExperience);
 	for (Player* member : memberList) {
 		member->onGainSharedExperience(shareExperience, source);
 	}
@@ -398,7 +394,7 @@ bool Party::canUseSharedExperience(const Player* player) const
 		}
 
 		uint64_t timeDiff = OTSYS_TIME() - it->second;
-		if (timeDiff > static_cast<uint64_t>(g_config.getNumber(ConfigManager::PZ_LOCKED))) {
+		if (timeDiff > static_cast<uint64_t>(g_config().getNumber(ConfigManager::PZ_LOCKED))) {
 			return false;
 		}
 	}
@@ -438,7 +434,7 @@ void Party::clearPlayerPoints(Player* player)
 
 bool Party::canOpenCorpse(uint32_t ownerId) const
 {
-	if (Player* player = g_game.getPlayerByID(ownerId)) {
+	if (Player* player = g_game().getPlayerByID(ownerId)) {
 		return leader->getID() == ownerId || player->getParty() == this;
 	}
 	return false;

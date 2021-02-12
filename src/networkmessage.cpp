@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,13 +23,6 @@
 
 #include "container.h"
 #include "creature.h"
-
-int32_t NetworkMessage::decodeHeader()
-{
-	int32_t newSize = buffer[0] | buffer[1] << 8;
-	info.length = newSize;
-	return info.length;
-}
 
 std::string NetworkMessage::getString(uint16_t stringLen/* = 0*/)
 {
@@ -58,7 +51,7 @@ Position NetworkMessage::getPosition()
 void NetworkMessage::addString(const std::string& value)
 {
 	size_t stringLen = value.length();
-	if (!canAdd(stringLen + 2) || stringLen > 8192) {
+	if (!canAdd(stringLen + 2)) {
 		return;
 	}
 
@@ -68,15 +61,9 @@ void NetworkMessage::addString(const std::string& value)
 	info.length += stringLen;
 }
 
-void NetworkMessage::addDouble(double value, uint8_t precision/* = 2*/)
-{
-	addByte(precision);
-	add<uint32_t>((value * std::pow(static_cast<float>(10), precision)) + std::numeric_limits<int32_t>::max());
-}
-
 void NetworkMessage::addBytes(const char* bytes, size_t size)
 {
-	if (!canAdd(size) || size > 8192) {
+	if (!canAdd(size)) {
 		return;
 	}
 
@@ -87,9 +74,11 @@ void NetworkMessage::addBytes(const char* bytes, size_t size)
 
 void NetworkMessage::addPaddingBytes(size_t n)
 {
+	#define canAdd(size) ((size + info.position) < NETWORKMESSAGE_MAXSIZE)
 	if (!canAdd(n)) {
 		return;
 	}
+	#undef canAdd
 
 	memset(buffer + info.position, 0x33, n);
 	info.length += n;

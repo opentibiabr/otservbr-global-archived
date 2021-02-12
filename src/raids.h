@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -52,7 +52,7 @@ class Raids
 		Raids();
 		~Raids();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Raids(const Raids&) = delete;
 		Raids& operator=(const Raids&) = delete;
 
@@ -109,7 +109,7 @@ class Raid
 			name(std::move(initName)), interval(initInterval), margin(initMarginTime), repeat(initRepeat) {}
 		~Raid();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Raid(const Raid&) = delete;
 		Raid& operator=(const Raid&) = delete;
 

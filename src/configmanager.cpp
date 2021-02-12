@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,8 +32,6 @@
 #undef lua_strlen
 #define lua_strlen lua_rawlen
 #endif
-
-extern Game g_game;
 
 namespace {
 
@@ -223,6 +221,7 @@ bool ConfigManager::load()
 	integer[CHECK_EXPIRED_MARKET_OFFERS_EACH_MINUTES] = getGlobalNumber(L, "checkExpiredMarketOffersEachMinutes", 60);
 	integer[MAX_MARKET_OFFERS_AT_A_TIME_PER_PLAYER] = getGlobalNumber(L, "maxMarketOffersAtATimePerPlayer", 100);
 	integer[MAX_PACKETS_PER_SECOND] = getGlobalNumber(L, "maxPacketsPerSecond", 25);
+	integer[COMPRESSION_LEVEL] = getGlobalNumber(L, "packetCompressionLevel", 6);
 	integer[STORE_COIN_PACKET] = getGlobalNumber(L, "coinPacketSize", 25);
 	integer[DAY_KILLS_TO_RED] = getGlobalNumber(L, "dayKillsToRedSkull", 3);
 	integer[WEEK_KILLS_TO_RED] = getGlobalNumber(L, "weekKillsToRedSkull", 5);
@@ -247,8 +246,8 @@ bool ConfigManager::load()
 bool ConfigManager::reload()
 {
 	bool result = load();
-	if (transformToSHA1(getString(ConfigManager::MOTD)) != g_game.getMotdHash()) {
-		g_game.incrementMotdNum();
+	if (transformToSHA1(getString(ConfigManager::MOTD)) != g_game().getMotdHash()) {
+		g_game().incrementMotdNum();
 	}
 	return result;
 }
@@ -298,4 +297,28 @@ float ConfigManager::getFloat(floating_config_t what) const
 		return 0;
 	}
 	return floating[what];
+}
+
+void ConfigManager::setString(string_config_t what, std::string& value) {
+	if (what >= LAST_STRING_CONFIG) {
+		std::cout << "[Warning - ConfigManager::setString] Accessing invalid index: " << what << std::endl;
+		return;
+	}
+	string[what] = value;
+}
+
+void ConfigManager::setNumber(integer_config_t what, int32_t value) {
+	if (what >= LAST_INTEGER_CONFIG) {
+		std::cout << "[Warning - ConfigManager::setNumber] Accessing invalid index: " << what << std::endl;
+		return;
+	}
+	integer[what] = value;
+}
+
+void ConfigManager::setBoolean(boolean_config_t what, bool value) {
+	if (what >= LAST_BOOLEAN_CONFIG) {
+		std::cout << "[Warning - ConfigManager::setBoolean] Accessing invalid index: " << what << std::endl;
+		return;
+	}
+	boolean[what] = value;
 }

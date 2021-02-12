@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -85,9 +85,16 @@ class Game
 		Game();
 		~Game();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Game(const Game&) = delete;
 		Game& operator=(const Game&) = delete;
+
+		static Game& getInstance() {
+			// Guaranteed to be destroyed
+			static Game instance;
+			// Instantiated on first use
+			return instance;
+		}
 
 		void loadBoostedCreature();
 		void start(ServiceManager* manager);
@@ -381,25 +388,25 @@ class Game
 		void playerMoveItemByPlayerID(uint32_t playerId, const Position& fromPos, uint16_t spriteId, uint8_t fromStackPos, const Position& toPos, uint8_t count);
 		void playerMoveItem(Player* player, const Position& fromPos,
 							uint16_t spriteId, uint8_t fromStackPos, const Position& toPos, uint8_t count, Item* item, Cylinder* toCylinder);
-		void playerEquipItem(uint32_t playerId, uint16_t spriteId);
-		void playerMove(uint32_t playerId, Direction direction);
-		void playerCreatePrivateChannel(uint32_t playerId);
-		void playerChannelInvite(uint32_t playerId, const std::string& name);
-		void playerChannelExclude(uint32_t playerId, const std::string& name);
-		void playerRequestChannels(uint32_t playerId);
-		void playerOpenChannel(uint32_t playerId, uint16_t channelId);
-		void playerCloseChannel(uint32_t playerId, uint16_t channelId);
-		void playerOpenPrivateChannel(uint32_t playerId, std::string& receiver);
+		void playerEquipItem(Player* player, uint16_t spriteId);
+		void playerMove(Player* player, Direction direction);
+		void playerCreatePrivateChannel(Player* player);
+		void playerChannelInvite(Player* player, const std::string& name);
+		void playerChannelExclude(Player* player, const std::string& name);
+		void playerRequestChannels(Player* player);
+		void playerOpenChannel(Player* player, uint16_t channelId);
+		void playerCloseChannel(Player* player, uint16_t channelId);
+		void playerOpenPrivateChannel(Player* player, std::string& receiver);
 		void playerStowItem(Player* player, Item* item, uint32_t count);
 		void playerStowItem(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos, uint32_t count);
 		void playerStowContainer(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos);
 		void playerStowAllItems(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos);
 		void playerStashWithdraw(Player* player, uint16_t spriteId, uint32_t count, uint8_t stackpos);
-		void playerCloseNpcChannel(uint32_t playerId);
-		void playerReceivePing(uint32_t playerId);
-		void playerReceivePingBack(uint32_t playerId);
+		void playerCloseNpcChannel(Player* player);
+		void playerReceivePing(Player* player);
+		void playerReceivePingBack(Player* player);
 		void playerAutoWalk(uint32_t playerId, const std::forward_list<Direction>& listDir);
-		void playerStopAutoWalk(uint32_t playerId);
+		void playerStopAutoWalk(Player* player);
 		void playerUseItemEx(uint32_t playerId, const Position& fromPos, uint8_t fromStackPos,
 							 uint16_t fromSpriteId, const Position& toPos, uint8_t toStackPos, uint16_t toSpriteId);
 		void playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPos, uint8_t index, uint16_t spriteId);
@@ -415,18 +422,18 @@ class Game
 		void playerUpdateHouseWindow(uint32_t playerId, uint8_t listId, uint32_t windowTextId, const std::string& text);
 		void playerRequestTrade(uint32_t playerId, const Position& pos, uint8_t stackPos,
 								uint32_t tradePlayerId, uint16_t spriteId);
-		void playerAcceptTrade(uint32_t playerId);
+		void playerAcceptTrade(Player* player);
 		void playerLookInTrade(uint32_t playerId, bool lookAtCounterOffer, uint8_t index);
 		void playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount,
 								bool ignoreCap = false, bool inBackpacks = false);
 		void playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count,
 								uint8_t amount, bool ignoreEquipped = false);
-		void playerCloseShop(uint32_t playerId);
+		void playerCloseShop(Player* player);
 		void playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count);
-		void playerCloseTrade(uint32_t playerId);
+		void playerCloseTrade(Player* player);
 		void playerSetAttackedCreature(uint32_t playerId, uint32_t creatureId);
 		void playerFollowCreature(uint32_t playerId, uint32_t creatureId);
-		void playerCancelAttackAndFollow(uint32_t playerId);
+		void playerCancelAttackAndFollow(uint32_t playerI);
 		void playerSetFightModes(uint32_t playerId, fightMode_t fightMode, bool chaseMode, bool secureMode);
 		void playerLookAt(uint32_t playerId, const Position& pos, uint8_t stackPos);
 		void playerLookInBattleList(uint32_t playerId, uint32_t creatureId);
@@ -446,20 +453,20 @@ class Game
 		void playerApplyImbuement(uint32_t playerId, uint32_t imbuementid, uint8_t slot, bool protectionCharm);
 		void playerClearingImbuement(uint32_t playerid, uint8_t slot);
 		void playerCloseImbuingWindow(uint32_t playerid);
-		void playerTurn(uint32_t playerId, Direction dir);
-		void playerRequestOutfit(uint32_t playerId);
-		void playerShowQuestLog(uint32_t playerId);
+		void playerTurn(Player* player, Direction dir);
+		void playerRequestOutfit(Player* player);
+		void playerShowQuestLog(Player* player);
 		void playerShowQuestLine(uint32_t playerId, uint16_t questId);
 		void playerSay(uint32_t playerId, uint16_t channelId, SpeakClasses type,
 					   const std::string& receiver, const std::string& text);
-		void playerChangeOutfit(uint32_t playerId, Outfit_t outfit);
+		void playerChangeOutfit(Player* player, Outfit_t outfit);
 		void playerInviteToParty(uint32_t playerId, uint32_t invitedId);
 		void playerJoinParty(uint32_t playerId, uint32_t leaderId);
 		void playerRevokePartyInvitation(uint32_t playerId, uint32_t invitedId);
 		void playerPassPartyLeadership(uint32_t playerId, uint32_t newLeaderId);
-		void playerLeaveParty(uint32_t playerId);
+		void playerLeaveParty(Player* player);
 		void playerEnableSharedPartyExperience(uint32_t playerId, bool sharedExpActive);
-		void playerToggleMount(uint32_t playerId, bool mount);
+		void playerToggleMount(Player* player, bool mount);
 		void playerLeaveMarket(uint32_t playerId);
 		void playerBrowseMarket(uint32_t playerId, uint16_t spriteId);
 		void playerBrowseMarketOwnOffers(uint32_t playerId);
@@ -741,5 +748,7 @@ class Game
 		std::map<uint16_t, uint32_t> itemsPriceMap;
 		uint16_t itemsSaleCount;
 };
+
+constexpr auto g_game = &Game::getInstance;
 
 #endif
