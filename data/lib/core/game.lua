@@ -14,7 +14,7 @@ end
 
 function Game.broadcastMessage(message, messageType)
 	if not messageType then
-		messageType = MESSAGE_STATUS_WARNING
+		messageType = MESSAGE_GAME_HIGHLIGHT
 	end
 
 	for _, player in ipairs(Game.getPlayers()) do

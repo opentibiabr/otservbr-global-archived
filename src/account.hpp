@@ -1,6 +1,6 @@
 /**
  * Open Tibia Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2020 Open Tibia Community
+ * Copyright (C) 2021 Open Tibia Community
  */
 
 #ifndef SRC_ACCOUNT_HPP_

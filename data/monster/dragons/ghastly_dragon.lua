@@ -81,32 +81,32 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 33725, maxCount = 100},
-	{id = "gold coin", chance = 33725, maxCount = 100},
-	{id = "gold coin", chance = 33725, maxCount = 66},
-	{id = "platinum coin", chance = 29840, maxCount = 2},
-	{id = "soul orb", chance = 12170},
-	{id = "demonic essence", chance = 8920},
-	{id = "great mana potion", chance = 30560, maxCount = 2},
-	{id = "terra legs", chance = 3130},
-	{id = "terra boots", chance = 9510},
-	{id = "great spirit potion", chance = 29460, maxCount = 2},
-	{id = "ultimate health potion", chance = 24700},
+	{name = "gold coin", chance = 33725, maxCount = 100},
+	{name = "gold coin", chance = 33725, maxCount = 100},
+	{name = "gold coin", chance = 33725, maxCount = 66},
+	{name = "platinum coin", chance = 29840, maxCount = 2},
+	{name = "soul orb", chance = 12170},
+	{name = "demonic essence", chance = 8920},
+	{name = "great mana potion", chance = 30560, maxCount = 2},
+	{name = "terra legs", chance = 3130},
+	{name = "terra boots", chance = 9510},
+	{name = "great spirit potion", chance = 29460, maxCount = 2},
+	{name = "ultimate health potion", chance = 24700},
 	{id = 9810, chance = 180},
-	{id = "shiny stone", chance = 860},
-	{id = "guardian boots", chance = 200},
-	{id = "Zaoan armor", chance = 870},
-	{id = "Zaoan helmet", chance = 150},
-	{id = "Zaoan shoes", chance = 870},
-	{id = "Zaoan legs", chance = 1400},
-	{id = "drakinata", chance = 1470},
-	{id = "Zaoan sword", chance = 100},
-	{id = "twin hooks", chance = 15100},
-	{id = "Zaoan halberd", chance = 15020},
-	{id = "spellweaver's robe", chance = 690},
-	{id = "ghastly dragon head", chance = 6650},
-	{id = "undead heart", chance = 19830},
-	{id = "jade hat", chance = 810}
+	{name = "shiny stone", chance = 860},
+	{name = "guardian boots", chance = 200},
+	{name = "Zaoan armor", chance = 870},
+	{name = "Zaoan helmet", chance = 150},
+	{name = "Zaoan shoes", chance = 870},
+	{name = "Zaoan legs", chance = 1400},
+	{name = "drakinata", chance = 1470},
+	{name = "Zaoan sword", chance = 100},
+	{name = "twin hooks", chance = 15100},
+	{name = "Zaoan halberd", chance = 15020},
+	{name = "spellweaver's robe", chance = 690},
+	{name = "ghastly dragon head", chance = 6650},
+	{name = "undead heart", chance = 19830},
+	{name = "jade hat", chance = 810}
 }
 
 monster.attacks = {
@@ -115,7 +115,7 @@ monster.attacks = {
 	-- poison
 	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 10, minDamage = -920, maxDamage = -1280, range = 5, effect = CONST_ME_SMALLCLOUDS, target = true},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_LIFEDRAIN, minDamage = -80, maxDamage = -230, range = 7, effect = CONST_ME_MAGIC_RED, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -120, maxDamage = -250, length = 8, spread = 3, effect = CONST_ME_LOSEENERGY, target = false},
+	{name ="ghastly dragon wave", interval = 2000, chance = 10, minDamage = -120, maxDamage = -250, target = false},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -110, maxDamage = -180, radius = 4, effect = CONST_ME_MORTAREA, target = false},
 	{name ="speed", interval = 2000, chance = 20, speedChange = -800, range = 7, effect = CONST_ME_SMALLCLOUDS, target = true, duration = 30000}
 }

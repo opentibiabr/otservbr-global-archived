@@ -8,6 +8,9 @@
 		<parameter key="message_walkaway" value="Good bye, |PLAYERNAME|."/>
 		<parameter key="message_sendtrade" value="I'm currently interested in these materials."/>
 		<parameter key="module_shop" value="1"/>
-		<parameter key="shop_sellable" value="bear paw,5896,100;wolf paw,5897,70;wolf tooth chain,2129,100"/>
+		<parameter key="shop_sellable" value="
+			bear paw, 5896, 100;
+			wolf paw, 5897, 70;
+			wolf tooth chain, 2129, 100;"/>
 	</parameters>
 </npc>

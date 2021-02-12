@@ -4,7 +4,8 @@ local walkback = MoveEvent()
 
 function walkback.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
-	if not player or player:getAccountType() ~= ACCOUNT_TYPE_NORMAL then
+
+	if not player or (player:getAccountType() ~= ACCOUNT_TYPE_NORMAL and player:getGroup():getId() > GROUP_TYPE_SENIORTUTOR) then
 		return true
 	end
 

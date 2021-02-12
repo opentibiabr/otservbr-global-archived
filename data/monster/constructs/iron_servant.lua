@@ -80,11 +80,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 82000, maxCount = 55},
-	{id = "halberd", chance = 1000},
-	{id = "gear wheel", chance = 4840},
+	{name = "gold coin", chance = 82000, maxCount = 55},
+	{name = "halberd", chance = 1000},
+	{name = "gear wheel", chance = 4840},
 	{id = 9808, chance = 200},
-	{id = "slime mould", chance = 310}
+	{name = "slime mould", chance = 310}
 }
 
 monster.attacks = {

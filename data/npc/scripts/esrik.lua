@@ -17,10 +17,18 @@ end
 
 local function getTable(player)
 	local itemsList = {
+		{name="durable exercise axe", id=40115, buy=945000, subType = 1800},
+		{name="durable exercise bow", id=40117, buy=945000, subType = 1800},
+		{name="durable exercise club", id=40116, buy=945000, subType = 1800},
+		{name="durable exercise sword", id=40114, buy=945000, subType = 1800},
 		{name="exercise sword", id=32384, buy=262500, subType = 500},
 		{name="exercise axe", id=32385, buy=262500, subType = 500},
 		{name="exercise club", id=32386, buy=262500, subType = 500},
 		{name="exercise bow", id=32387, buy=262500, subType = 500},
+		{name="lasting exercise axe", id=40121, buy=7560000, subType = 14400},
+		{name="lasting exercise bow", id=40123, buy=7560000, subType = 14400},
+		{name="lasting exercise club", id=40122, buy=7560000, subType = 14400},
+		{name="lasting exercise sword", id=40120, buy=7560000, subType = 14400},
 		{name="axe", id=2386, buy=20, sell=7},
 		{name="battle axe", id=2378, buy=235, sell=80},
 		{name="battle hammer", id=2417, buy=350, sell=120},
@@ -165,13 +173,13 @@ local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
 		return false
 	end
 	if not ignoreCap and player:getFreeCapacity() < ItemType(items[item].itemId):getWeight(amount) then
-		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'You don\'t have enough cap.')
+		return player:sendTextMessage(MESSAGE_FAILURE, 'You don\'t have enough cap.')
 	end
 	if not player:removeMoneyNpc(items[item].buyPrice * amount) then
 		selfSay("You don't have enough money.", cid)
 	else
 		player:addItem(items[item].itemId, amount, true, subType)
-		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
+		return player:sendTextMessage(MESSAGE_TRADE, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
 	end
 	return true
 end
@@ -181,7 +189,7 @@ local function onSell(cid, item, subType, amount, ignoreCap, inBackpacks)
 	local items = setNewTradeTable(getTable(player))
 	if items[item].sellPrice and player:removeItem(items[item].itemId, amount) then
 		player:addMoney(items[item].sellPrice * amount)
-		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Sold '..amount..'x '..items[item].realName..' for '..items[item].sellPrice * amount..' gold coins.')
+		return player:sendTextMessage(MESSAGE_TRADE, 'Sold '..amount..'x '..items[item].realName..' for '..items[item].sellPrice * amount..' gold coins.')
 	else
 		selfSay("You don't have item to sell.", cid)
 	end

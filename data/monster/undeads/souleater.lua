@@ -80,25 +80,25 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 33400, maxCount = 100},
-	{id = "gold coin", chance = 33400, maxCount = 100},
-	{id = "platinum coin", chance = 49610, maxCount = 6},
-	{id = "necrotic rod", chance = 980},
-	{id = "wand of cosmic energy", chance = 910},
-	{id = "spirit container", chance = 140},
+	{name = "gold coin", chance = 33400, maxCount = 100},
+	{name = "gold coin", chance = 33400, maxCount = 100},
+	{name = "platinum coin", chance = 49610, maxCount = 6},
+	{name = "necrotic rod", chance = 980},
+	{name = "wand of cosmic energy", chance = 910},
+	{name = "spirit container", chance = 140},
 	{id = 6300, chance = 300},
-	{id = "great mana potion", chance = 8000},
-	{id = "ultimate health potion", chance = 9400},
-	{id = "souleater trophy", chance = 20},
-	{id = "lizard essence", chance = 15250},
-	{id = "ectoplasmic sushi", chance = 2000}
+	{name = "great mana potion", chance = 8000},
+	{name = "ultimate health potion", chance = 9400},
+	{name = "souleater trophy", chance = 20},
+	{name = "lizard essence", chance = 15250},
+	{name = "ectoplasmic sushi", chance = 2000}
 }
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -210},
 	{name ="combat", interval = 2000, chance = 100, type = COMBAT_ICEDAMAGE, minDamage = -50, maxDamage = -100, range = 7, shootEffect = CONST_ANI_SMALLICE, target = true},
 	{name ="souleater drown", interval = 2000, chance = 10, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -100, maxDamage = -200, length = 4, spread = 3, effect = CONST_ME_SOUND_RED, target = false},
+	{name ="souleater wave", interval = 2000, chance = 10, minDamage = -100, maxDamage = -200, target = false},
 	{name ="combat", interval = 2000, chance = 25, type = COMBAT_LIFEDRAIN, minDamage = -30, maxDamage = -60, radius = 4, effect = CONST_ME_MAGIC_RED, target = false}
 }
 

@@ -1,6 +1,6 @@
 ﻿/**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -191,6 +191,9 @@ class ItemType
 		bool hasSubType() const {
 			return (isFluidContainer() || isSplash() || stackable || charges != 0);
 		}
+		bool isFilledBath() const {
+			return (id == 29313);
+		}
 
 		Abilities& getAbilities() {
 			if (!abilities) {
@@ -318,7 +321,7 @@ class Items
 
 		Items();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Items(const Items&) = delete;
 		Items& operator=(const Items&) = delete;
 

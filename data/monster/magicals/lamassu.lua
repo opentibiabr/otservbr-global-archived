@@ -75,18 +75,18 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 100000},
-	{id = "Lamassu Horn", chance = 13400, maxCount = 5},
-	{id = "Red Crystal Fragment", chance = 10500},
-	{id = "Terra Amulet", chance = 10000},
-	{id = "Lamassu Hoof", chance = 7700},
-	{id = "Violet Crystal Shard", chance = 6800},
-	{id = "Blue Crystal Shard", chance = 6500},
-	{id = "Red Gem", chance = 6200},
-	{id = "Terra Hood", chance = 5900},
-	{id = "Sacred Tree Amulet", chance = 2300},
-	{id = "Elven Amulet", chance = 2000},
-	{id = "Violet Gem", chance = 1700}
+	{name = "Platinum Coin", chance = 100000},
+	{name = "Lamassu Horn", chance = 13400, maxCount = 5},
+	{name = "Red Crystal Fragment", chance = 10500},
+	{name = "Terra Amulet", chance = 10000},
+	{name = "Lamassu Hoof", chance = 7700},
+	{name = "Violet Crystal Shard", chance = 6800},
+	{name = "Blue Crystal Shard", chance = 6500},
+	{name = "Red Gem", chance = 6200},
+	{name = "Terra Hood", chance = 5900},
+	{name = "Sacred Tree Amulet", chance = 2300},
+	{name = "Elven Amulet", chance = 2000},
+	{name = "Violet Gem", chance = 1700}
 }
 
 monster.attacks = {

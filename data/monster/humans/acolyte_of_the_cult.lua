@@ -86,18 +86,18 @@ monster.voices = {
 
 monster.loot = {
 	{id = 1962, chance = 730},
-	{id = "gold coin", chance = 66940, maxCount = 40},
-	{id = "small emerald", chance = 550},
-	{id = "life ring", chance = 560},
-	{id = "terra rod", chance = 250},
-	{id = "dragon necklace", chance = 1050},
-	{id = "morning star", chance = 4990},
-	{id = "pirate voodoo doll", chance = 1060},
+	{name = "gold coin", chance = 66940, maxCount = 40},
+	{name = "small emerald", chance = 550},
+	{name = "life ring", chance = 560},
+	{name = "terra rod", chance = 250},
+	{name = "dragon necklace", chance = 1050},
+	{name = "morning star", chance = 4990},
+	{name = "pirate voodoo doll", chance = 1060},
 	{id = 6088, chance = 480},
-	{id = "cultish robe", chance = 8070},
-	{id = "cultish symbol", chance = 40},
-	{id = "rope belt", chance = 10420},
-	{id = "broken key ring", chance = 60}
+	{name = "cultish robe", chance = 8070},
+	{name = "cultish symbol", chance = 40},
+	{name = "rope belt", chance = 10420},
+	{name = "broken key ring", chance = 60}
 }
 
 monster.attacks = {

@@ -83,17 +83,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 37500, maxCount = 100},
-	{id = "gold coin", chance = 37500, maxCount = 100},
-	{id = "gold coin", chance = 37500, maxCount = 27},
-	{id = "strong health potion", chance = 24480, maxCount = 2},
-	{id = "strong mana potion", chance = 16900, maxCount = 2},
-	{id = "blazing bone", chance = 12410}
+	{name = "gold coin", chance = 37500, maxCount = 100},
+	{name = "gold coin", chance = 37500, maxCount = 100},
+	{name = "gold coin", chance = 37500, maxCount = 27},
+	{name = "strong health potion", chance = 24480, maxCount = 2},
+	{name = "strong mana potion", chance = 16900, maxCount = 2},
+	{name = "blazing bone", chance = 12410}
 }
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -210},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -120, maxDamage = -250, length = 5, spread = 2, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_HITBYFIRE, target = false},
+	{name ="dragonling wave", interval = 2000, chance = 10, minDamage = -120, maxDamage = -250, target = false},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -115, maxDamage = -180, radius = 3, effect = CONST_ME_PURPLEENERGY, target = false},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -95, maxDamage = -150, radius = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = -700, radius = 1, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_STUN, target = true, duration = 16000}

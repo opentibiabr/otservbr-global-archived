@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -132,15 +132,30 @@ class Vocation
 class Vocations
 {
 	public:
+		Vocations() {}
+
+		// Singleton - ensures we don't accidentally copy it
+		Vocations(Vocations const&) = delete;
+		void operator=(Vocations const&) = delete;
+
+		static Vocations& getInstance() {
+			static Vocations instance; // Guaranteed to be destroyed.
+														// Instantiated on first use.
+			return instance;
+		}
+
 		bool loadFromXml();
 
+		void addVocation(Vocation voc);
 		Vocation* getVocation(uint16_t id);
-    const std::map<uint16_t, Vocation>& getVocations() const {return vocationsMap;}
+		const std::map<uint16_t, Vocation>& getVocations() const {return vocationsMap;}
 		int32_t getVocationId(const std::string& name) const;
 		uint16_t getPromotedVocation(uint16_t vocationId) const;
 
 	private:
 		std::map<uint16_t, Vocation> vocationsMap;
 };
+
+constexpr auto g_vocations = &Vocations::getInstance;
 
 #endif

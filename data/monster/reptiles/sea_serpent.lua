@@ -77,26 +77,26 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small sapphire", chance = 5600, maxCount = 3},
-	{id = "gold coin", chance = 38000, maxCount = 100},
-	{id = "gold coin", chance = 30000, maxCount = 100},
-	{id = "gold coin", chance = 30000, maxCount = 36},
-	{id = "platinum coin", chance = 25000, maxCount = 3},
-	{id = "stealth ring", chance = 400},
-	{id = "ring of healing", chance = 1100},
-	{id = "serpent sword", chance = 4200},
-	{id = "plate legs", chance = 7150},
-	{id = "dragon ham", chance = 60000, maxCount = 2},
-	{id = "strong health potion", chance = 5500},
-	{id = "strong mana potion", chance = 3850},
-	{id = "great mana potion", chance = 920},
-	{id = "glacier amulet", chance = 880},
-	{id = "glacier kilt", chance = 430},
-	{id = "spirit cloak", chance = 2900},
-	{id = "focus cape", chance = 370},
-	{id = "crystalline armor", chance = 90},
-	{id = "northwind rod", chance = 930},
-	{id = "sea serpent scale", chance = 10200}
+	{name = "small sapphire", chance = 5600, maxCount = 3},
+	{name = "gold coin", chance = 38000, maxCount = 100},
+	{name = "gold coin", chance = 30000, maxCount = 100},
+	{name = "gold coin", chance = 30000, maxCount = 36},
+	{name = "platinum coin", chance = 25000, maxCount = 3},
+	{name = "stealth ring", chance = 400},
+	{name = "ring of healing", chance = 1100},
+	{name = "serpent sword", chance = 4200},
+	{name = "plate legs", chance = 7150},
+	{name = "dragon ham", chance = 60000, maxCount = 2},
+	{name = "strong health potion", chance = 5500},
+	{name = "strong mana potion", chance = 3850},
+	{name = "great mana potion", chance = 920},
+	{name = "glacier amulet", chance = 880},
+	{name = "glacier kilt", chance = 430},
+	{name = "spirit cloak", chance = 2900},
+	{name = "focus cape", chance = 370},
+	{name = "crystalline armor", chance = 90},
+	{name = "northwind rod", chance = 930},
+	{name = "sea serpent scale", chance = 10200}
 }
 
 monster.attacks = {

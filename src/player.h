@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -140,7 +140,7 @@ class Player final : public Creature, public Cylinder
 		explicit Player(ProtocolGame_ptr p);
 		~Player();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Player(const Player&) = delete;
 		Player& operator=(const Player&) = delete;
 
@@ -219,6 +219,7 @@ class Player final : public Creature, public Cylinder
 			return guid;
 		}
 		bool canSeeInvisibility() const override {
+			if (!group) return false;
 			return hasFlag(PlayerFlag_CanSenseInvisibility) || group->access;
 		}
 
@@ -339,10 +340,10 @@ class Player final : public Creature, public Cylinder
 		}
 		void setGuild(Guild* guild);
 
-		  GuildRank_ptr getGuildRank() const {
+		const GuildRank* getGuildRank() const {
 			return guildRank;
 		}
-		void setGuildRank(GuildRank_ptr newGuildRank) {
+		void setGuildRank(const GuildRank* newGuildRank) {
 			guildRank = newGuildRank;
 		}
 
@@ -414,7 +415,7 @@ class Player final : public Creature, public Cylinder
 			operatingSystem = clientos;
 		}
 
-		uint16_t getProtocolVersion() const {
+		uint32_t getProtocolVersion() const {
 			if (!client) {
 				return 0;
 			}
@@ -449,6 +450,7 @@ class Player final : public Creature, public Cylinder
 		}
 
 		bool hasFlag(PlayerFlags value) const {
+			if (!group) return false;
 			return (group->flags & value) != 0;
 		}
 
@@ -529,6 +531,12 @@ class Player final : public Creature, public Cylinder
 		void setSupplyStashAvailable(bool value) {
 			supplyStashAvailable = value;
 		}
+		bool isExerciseTraining() {
+			return exerciseTraining;
+		}
+		void setExerciseTraining(bool isTraining) {
+			exerciseTraining = isTraining;
+		}
 		void setLastDepotId(int16_t newId) {
 			lastDepotId = newId;
 		}
@@ -572,6 +580,7 @@ class Player final : public Creature, public Cylinder
 			return soul;
 		}
 		bool isAccessPlayer() const {
+			if (!group) return false;
 			return group->access;
 		}
 		bool isPremium() const;
@@ -583,7 +592,7 @@ class Player final : public Creature, public Cylinder
 
 		bool setVocation(uint16_t vocId);
 		uint16_t getVocationId() const {
-			return vocation->getId();
+			return vocation ? vocation->getId() : 0;
 		}
 
 		PlayerSex_t getSex() const {
@@ -606,7 +615,7 @@ class Player final : public Creature, public Cylinder
 			return loginPosition;
 		}
 		const Position& getTemplePosition() const {
-			return town->getTemplePosition();
+			return town ? town->getTemplePosition() : getPosition();
 		}
 		Town* getTown() const {
 			return town;
@@ -624,7 +633,42 @@ class Player final : public Creature, public Cylinder
 		void addMessageBuffer();
 		void removeMessageBuffer();
 
+		bool removeItemClientId(uint16_t clientId, uint32_t count) const;
 		bool removeItemOfType(uint16_t itemId, uint32_t amount, int32_t subType, bool ignoreEquipped = false) const;
+
+		void addItemOnStash(uint16_t clientId, uint32_t amount) {
+			auto it = stashItems.find(clientId);
+			if (it != stashItems.end()) {
+				stashItems[clientId] += amount;
+				return;
+			}
+
+			stashItems[clientId] = amount;
+		}
+		uint16_t getStashItemCount(uint16_t clientId) const {
+			auto it = stashItems.find(clientId);
+			if (it != stashItems.end()) {
+				return static_cast<uint16_t>(it->second);
+			}
+			return 0;
+		}
+		bool withdrawItem(uint16_t clientId, uint32_t amount) {
+			auto it = stashItems.find(clientId);
+			if (it != stashItems.end()) {
+				if (it->second > amount) {
+					stashItems[clientId] -= amount;
+				} else if (it->second == amount) {
+					stashItems.erase(clientId);
+				} else {
+					return false;
+				}
+				return true;
+			}
+			return false;
+		}
+		StashItemList getStashItems() const {
+			return stashItems;
+		}
 
 		uint32_t getBaseCapacity() const {
 			if (hasFlag(PlayerFlag_CannotPickupItem)) {
@@ -741,7 +785,7 @@ class Player final : public Creature, public Cylinder
 		}
 
 		//V.I.P. functions
-		void notifyStatusChange(Player* player, VipStatus_t status);
+		void notifyStatusChange(Player* player, VipStatus_t status, bool message = true);
 		bool removeVIP(uint32_t vipGuid);
 		bool addVIP(uint32_t vipGuid, const std::string& vipName, VipStatus_t status);
 		bool addVIPInternal(uint32_t vipGuid);
@@ -783,7 +827,7 @@ class Player final : public Creature, public Cylinder
 
 		//stash functions
 		bool addItemFromStash(uint16_t itemId, uint32_t itemCount);
-		void stowContainer(Item* item, uint32_t count, bool stowalltype = false);
+		void stowContainer(Item* item, uint32_t count);
 
 		void changeHealth(int32_t healthChange, bool sendHealthChange = true) override;
 		void changeMana(int32_t manaChange) override;
@@ -1122,9 +1166,9 @@ class Player final : public Creature, public Cylinder
 				client->sendLootContainers();
 			}
 		}
-		void sendLootStats(Item* item) {
+		void sendLootStats(Item* item, uint8_t count) {
 			if (client) {
-				client->sendLootStats(item);
+				client->sendLootStats(item, count);
 			}
 		}
 
@@ -1157,7 +1201,7 @@ class Player final : public Creature, public Cylinder
 
 		void sendCancelMessage(const std::string& msg) const {
 			if (client) {
-				client->sendTextMessage(TextMessage(MESSAGE_STATUS_SMALL, msg));
+				client->sendTextMessage(TextMessage(MESSAGE_FAILURE, msg));
 			}
 		}
 		void sendCancelMessage(ReturnValue message) const;
@@ -1629,6 +1673,8 @@ class Player final : public Creature, public Cylinder
 			return idleTime;
 		}
 
+		void setTraining(bool value);
+
 		void onEquipImbueItem(Imbuement* imbuement);
 		void onDeEquipImbueItem(Imbuement* imbuement);
 
@@ -1680,6 +1726,24 @@ class Player final : public Creature, public Cylinder
  			}
  		}
 
+   		void createLeaderTeamFinder(NetworkMessage &msg)
+ 		{
+  			if (client) {
+ 				client->createLeaderTeamFinder(msg);
+ 			}
+ 		}
+   		void sendLeaderTeamFinder(bool reset)
+ 		{
+  			if (client) {
+ 				client->sendLeaderTeamFinder(reset);
+ 			}
+ 		}
+   		void sendTeamFinderList()
+ 		{
+  			if (client) {
+ 				client->sendTeamFinderList();
+ 			}
+ 		}
 		uint32_t getCharmPoints() {
 			return charmPoints;
 		}
@@ -1809,11 +1873,12 @@ class Player final : public Creature, public Cylinder
 		bool isItemStorable(Item* item);
 		ItemDeque getAllStorableItemsInContainer(Item* container);
 
-		void setNextWalkActionTask(SchedulerTask* task);
-		void setNextWalkTask(SchedulerTask* task);
-		void setNextActionTask(SchedulerTask* task, bool resetIdleTime = true);
-		void setNextActionPushTask(SchedulerTask* task);
-		void setNextPotionActionTask(SchedulerTask* task);
+		void stopNextWalkActionTask();
+		void stopNextWalkTask();
+		void stopNextActionTask();
+		void setNextWalkActionTask(uint32_t delay, std::function<void (void)> f);
+		void setNextWalkTask(uint32_t delay, std::function<void (void)> f);
+		void setNextActionTask(uint32_t delay, std::function<void (void)> f);
 
 		void death(Creature* lastHitCreature) override;
 		bool dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreature, bool lastHitUnjustified, bool mostDamageUnjustified) override;
@@ -1840,6 +1905,7 @@ class Player final : public Creature, public Cylinder
 		size_t getFirstIndex() const override;
 		size_t getLastIndex() const override;
 		uint32_t getItemTypeCount(uint16_t itemId, int32_t subType = -1) const override;
+		void stashContainer(StashContainerList itemDict);
 		std::map<uint32_t, uint32_t>& getAllItemTypeCount(std::map<uint32_t, uint32_t>& countMap) const override;
 		Item* getItemByClientId(uint16_t clientId) const;
 		std::map<uint16_t, uint16_t> getInventoryClientIds() const;
@@ -1894,6 +1960,9 @@ class Player final : public Creature, public Cylinder
 		uint64_t lastAttack = 0;
 		uint64_t bankBalance = 0;
 		uint64_t lastQuestlogUpdate = 0;
+		uint64_t walkTaskEvent = 0;
+		uint64_t asyncOngoingTasks = 0;
+
 		int64_t lastFailedFollow = 0;
 		int64_t skullTicks = 0;
 		int64_t lastWalkthroughAttempt = 0;
@@ -1905,13 +1974,12 @@ class Player final : public Creature, public Cylinder
 		int64_t nextPotionAction = 0;
 		int64_t lastQuickLootNotification = 0;
 		int64_t lastWalking = 0;
-    uint64_t asyncOngoingTasks = 0;
 
 		std::vector<Kill> unjustifiedKills;
 
 		BedItem* bedItem = nullptr;
 		Guild* guild = nullptr;
-		GuildRank_ptr guildRank;
+		const GuildRank* guildRank;
 		Group* group = nullptr;
 		Inbox* inbox;
 		Item* imbuing = nullptr; // for intarnal use
@@ -1923,7 +1991,7 @@ class Player final : public Creature, public Cylinder
 		Party* party = nullptr;
 		Player* tradePartner = nullptr;
 		ProtocolGame_ptr client;
-		SchedulerTask* walkTask = nullptr;
+		std::pair<uint32_t, std::function<void (void)>>* walkTask = nullptr;
 		Town* town = nullptr;
 		Vocation* vocation = nullptr;
 		RewardChest* rewardChest = nullptr;
@@ -1940,7 +2008,6 @@ class Player final : public Creature, public Cylinder
 		uint32_t actionTaskEventPush = 0;
 		uint32_t actionPotionTaskEvent = 0;
 		uint32_t nextStepEvent = 0;
-		uint32_t walkTaskEvent = 0;
 		uint32_t MessageBufferTicks = 0;
 		uint32_t lastIP = 0;
 		uint32_t accountNumber = 0;
@@ -1977,6 +2044,7 @@ class Player final : public Creature, public Cylinder
 		uint16_t storeXpBoost = 0;
 		uint16_t staminaXpBoost = 100;
 		int16_t lastDepotId = -1;
+		StashItemList stashItems; // [ClientID] = amount
 
 		// Bestiary
 		bool charmExpansion = false;
@@ -2045,6 +2113,7 @@ class Player final : public Creature, public Cylinder
 		bool scheduledSaleUpdate = false;
 		bool inEventMovePush = false;
 		bool supplyStashAvailable = false;
+		bool exerciseTraining = false;
 
 		static uint32_t playerAutoID;
 
@@ -2053,7 +2122,7 @@ class Player final : public Creature, public Cylinder
 			return std::max<int32_t>(PLAYER_MIN_SPEED, std::min<int32_t>(PLAYER_MAX_SPEED, getSpeed()));
 		}
 		void updateBaseSpeed() {
-			if (!hasFlag(PlayerFlag_SetMaxSpeed)) {
+			if (vocation && !hasFlag(PlayerFlag_SetMaxSpeed)) {
 				baseSpeed = vocation->getBaseSpeed() + (2 * (level - 1));
 			} else {
 				baseSpeed = PLAYER_MAX_SPEED;
@@ -2063,7 +2132,7 @@ class Player final : public Creature, public Cylinder
 		bool isPromoted() const;
 
 		uint32_t getAttackSpeed() const {
-			return vocation->getAttackSpeed();
+			return vocation ? vocation->getAttackSpeed() : DEFAULT_ATTACK_SPEED;
 		}
 
 		static double_t getPercentLevel(uint64_t count, uint64_t nextLevelCount);

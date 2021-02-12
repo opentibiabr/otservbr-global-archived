@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,85 +22,91 @@
 #include "tasks.h"
 #include "game.h"
 
-extern Game g_game;
-
-Task* createTask(std::function<void (void)> f)
-{
-	return new Task(std::move(f));
-}
-
-Task* createTask(uint32_t expiration, std::function<void (void)> f)
-{
-	return new Task(expiration, std::move(f));
-}
-
 void Dispatcher::threadMain()
 {
-	// NOTE: second argument defer_lock is to prevent from immediate locking
-	std::unique_lock<std::mutex> taskLockUnique(taskLock, std::defer_lock);
-
-	while (getState() != THREAD_STATE_TERMINATED) {
-		// check if there are tasks waiting
-		taskLockUnique.lock();
-
-		if (taskList.empty()) {
-			//if the list is empty wait for signal
-			taskSignal.wait(taskLockUnique);
-		}
-
-		if (!taskList.empty()) {
-			// take the first task
-			Task* task = taskList.front();
-			taskList.pop_front();
-			taskLockUnique.unlock();
-
-			if (!task->hasExpired()) {
-				++dispatcherCycle;
-				// execute it
-				(*task)();
-			}
-			delete task;
-		} else {
-			taskLockUnique.unlock();
-		}
-	}
+	io_service.run();
+	g_database().disconnect();
 }
 
-void Dispatcher::addTask(Task* task, bool push_front /*= false*/)
+void Dispatcher::addTask(std::function<void (void)> functor)
 {
-	bool do_signal = false;
+	#if BOOST_VERSION >= 106600
+	boost::asio::post(io_service,
+	#else
+	io_service.post(
+	#endif
+	#ifdef __cpp_generic_lambdas
+	[this, f = std::move(functor)]() {
+		++dispatcherCycle;
 
-	taskLock.lock();
+		// execute it
+		(f)();
+	});
+	#else
+	[this, functor]() {
+		++dispatcherCycle;
 
-	if (getState() == THREAD_STATE_RUNNING) {
-		do_signal = taskList.empty();
+		// execute it
+		(functor)();
+	});
+	#endif
+}
 
-		if (push_front) {
-			taskList.push_front(task);
-		} else {
-			taskList.push_back(task);
-		}
-	} else {
-		delete task;
+uint64_t Dispatcher::addEvent(uint32_t delay, std::function<void (void)> functor)
+{
+	if (getState() == THREAD_STATE_TERMINATED) {
+		return 0;
 	}
 
-	taskLock.unlock();
+	uint64_t eventId = ++lastEventId;
+	auto res = eventIds.emplace(std::piecewise_construct, std::forward_as_tuple(eventId), std::forward_as_tuple(io_service));
 
-	// send a signal if the list was empty
-	if (do_signal) {
-		taskSignal.notify_one();
+	boost::asio::deadline_timer& timer = res.first->second;
+	timer.expires_from_now(boost::posix_time::milliseconds(delay));
+	#ifdef __cpp_generic_lambdas
+	timer.async_wait([this, eventId, f = std::move(functor)](const boost::system::error_code& error) {
+	#else
+	timer.async_wait([this, eventId, functor](const boost::system::error_code& error) {
+	#endif
+		eventIds.erase(eventId);
+
+		if (error == boost::asio::error::operation_aborted || getState() == THREAD_STATE_TERMINATED) {
+			return;
+		}
+
+		// execute it
+		++dispatcherCycle;
+		#ifdef __cpp_generic_lambdas
+		(f)();
+		#else
+		(functor)();
+		#endif
+	});
+
+	return eventId;
+}
+
+void Dispatcher::stopEvent(uint64_t eventId)
+{
+	auto it = eventIds.find(eventId);
+	if (it != eventIds.end()) {
+		it->second.cancel();
 	}
 }
 
 void Dispatcher::shutdown()
 {
-	Task* task = createTask([this]() {
-		setState(THREAD_STATE_TERMINATED);
-		taskSignal.notify_one();
+	setState(THREAD_STATE_TERMINATED);
+	#if BOOST_VERSION >= 106600
+	boost::asio::post(io_service,
+	#else
+	io_service.post(
+	#endif
+	[this]() {
+		for (auto& it : eventIds) {
+			it.second.cancel();
+		}
+
+		work.reset();
 	});
-
-	std::lock_guard<std::mutex> lockClass(taskLock);
-	taskList.push_back(task);
-
-	taskSignal.notify_one();
 }

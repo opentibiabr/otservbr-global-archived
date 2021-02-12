@@ -31,7 +31,7 @@ monster.health = 150
 monster.maxHealth = 150
 monster.race = "venom"
 monster.corpse = 6062
-monster.speed = 78
+monster.speed = 0
 monster.manaCost = 0
 monster.maxSummons = 0
 
@@ -76,11 +76,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 10750, maxCount = 5},
-	{id = "shadow herb", chance = 11080},
-	{id = "nettle spit", chance = 9620},
-	{id = "sling herb", chance = 5680, maxCount = 2},
-	{id = "nettle blossom", chance = 970}
+	{name = "gold coin", chance = 10750, maxCount = 5},
+	{name = "shadow herb", chance = 11080},
+	{name = "nettle spit", chance = 9620},
+	{name = "sling herb", chance = 5680, maxCount = 2},
+	{name = "nettle blossom", chance = 970}
 }
 
 monster.attacks = {

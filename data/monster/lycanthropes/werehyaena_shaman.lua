@@ -13,6 +13,19 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.raceId = 1964
+monster.Bestiary = {
+	class = "Lycanthrope",
+	race = BESTY_RACE_LYCANTHROPE,
+	toKill = 1000,
+	FirstUnlock = 50,
+	SecondUnlock = 500,
+	CharmsPoints = 25,
+	Stars = 3,
+	Occurrence = 0,
+	Locations = "This monster you can find in Hyaena Lairs."
+	}
+	
 monster.health = 2500
 monster.maxHealth = monster.health
 monster.race = "blood"
@@ -62,22 +75,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000},
-	{id = "great mana potion", chance = 20070},
-	{id = "werehyaena nose", chance = 15550},
-	{id = "small amethyst", chance = 10840},
-	{id = "green crystal splinter", chance = 9120},
-	{id = "hailstorm rod", chance = 6430},
-	{id = "doublet", chance = 5390},
-	{id = "brown crystal splinter", chance = 5030},
-	{id = "wand of starstorm", chance = 4920},
-	{id = "small enchanted emerald", chance = 4630},
-	{id = "sword ring", chance = 4490},
-	{id = "wand of voodoo", chance = 3990},
-	{id = "protection amulet", chance = 2660},
-	{id = "werehyaena talisman", chance = 650},
-	{id = "moonlight crystals", chance = 610},
-	{id = "werehyaena trophy", chance = 140}
+	{name = "platinum coin", chance = 100000},
+	{name = "great mana potion", chance = 20070},
+	{name = "werehyaena nose", chance = 15550},
+	{name = "small amethyst", chance = 10840},
+	{name = "green crystal splinter", chance = 9120},
+	{name = "hailstorm rod", chance = 6430},
+	{name = "doublet", chance = 5390},
+	{name = "brown crystal splinter", chance = 5030},
+	{name = "wand of starstorm", chance = 4920},
+	{name = "small enchanted emerald", chance = 4630},
+	{name = "sword ring", chance = 4490},
+	{name = "wand of voodoo", chance = 3990},
+	{name = "protection amulet", chance = 2660},
+	{name = "werehyaena talisman", chance = 650},
+	{name = "moonlight crystals", chance = 610},
+	{name = "werehyaena trophy", chance = 140}
 }
 
 monster.attacks = {

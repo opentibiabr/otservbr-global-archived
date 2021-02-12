@@ -75,17 +75,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 3},
-	{id = "wand of draconia", chance = 4770},
-	{id = "sphinx feather", chance = 3450},
-	{id = "fire axe", chance = 2650},
+	{name = "platinum coin", chance = 100000, maxCount = 3},
+	{name = "wand of draconia", chance = 4770},
+	{name = "sphinx feather", chance = 3450},
+	{name = "fire axe", chance = 2650},
 	{id = 36273, chance = 3450},
-	{id = "magma legs", chance = 1860},
-	{id = "magma monocle", chance = 1590},
-	{id = "magma boots", chance = 2120},
-	{id = "magma amulet", chance = 7160},
-	{id = "wand of inferno", chance = 7690},
-	{id = "dragon necklace", chance = 800}
+	{name = "magma legs", chance = 1860},
+	{name = "magma monocle", chance = 1590},
+	{name = "magma boots", chance = 2120},
+	{name = "magma amulet", chance = 7160},
+	{name = "wand of inferno", chance = 7690},
+	{name = "dragon necklace", chance = 800}
 }
 
 monster.attacks = {

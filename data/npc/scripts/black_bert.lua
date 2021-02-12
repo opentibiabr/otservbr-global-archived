@@ -94,6 +94,7 @@ shopModule:addBuyableItem({"unworked sacred wood"}, 12295, 1000, 1)
 shopModule:addBuyableItem({"whisper moss"}, 4838, 18000, 1)
 shopModule:addBuyableItem({"worm queen tooth"}, 10157, 12500, 1)
 shopModule:addBuyableItem({"wrinkled parchment"}, 14336, 4000, 1)
+shopModule:addBuyableItem({"wolf tooth chain"}, 5940, 10000, 1)
 
 local function onTradeRequest(cid)
 	local player = Player(cid)

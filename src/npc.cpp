@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,6 @@
 #include "game.h"
 #include "pugicast.h"
 
-extern Game g_game;
 extern LuaEnvironment g_luaEnvironment;
 
 uint32_t Npc::npcAutoID = 0x80000000;
@@ -31,7 +30,7 @@ NpcScriptInterface* Npc::scriptInterface = nullptr;
 
 void Npcs::reload()
 {
-	const std::map<uint32_t, Npc*>& npcs = g_game.getNpcs();
+	const std::map<uint32_t, Npc*>& npcs = g_game().getNpcs();
 	for (const auto& it : npcs) {
 		it.second->closeAllShopWindows();
 	}
@@ -53,6 +52,14 @@ Npc* Npc::createNpc(const std::string& name)
 	return npc.release();
 }
 
+Npc::Npc() :
+	Creature(),
+	npcEventHandler(nullptr),
+	masterRadius(-1),
+	loaded(false) {
+	reset();
+}
+
 Npc::Npc(const std::string& initName) :
 	Creature(),
 	filename("data/npc/" + initName + ".xml"),
@@ -70,12 +77,12 @@ Npc::~Npc()
 
 void Npc::addList()
 {
-	g_game.addNpc(this);
+	g_game().addNpc(this);
 }
 
 void Npc::removeList()
 {
-	g_game.removeNpc(this);
+	g_game().removeNpc(this);
 }
 
 bool Npc::load()
@@ -362,7 +369,7 @@ void Npc::onThink(uint32_t interval)
 
 void Npc::doSay(const std::string& text)
 {
-	g_game.internalCreatureSay(this, TALKTYPE_SAY, text, false);
+	g_game().internalCreatureSay(this, TALKTYPE_SAY, text, false);
 }
 
 void Npc::doSayToPlayer(Player* player, const std::string& text)
@@ -380,7 +387,7 @@ void Npc::onPlayerTrade(Player* player, int32_t callback, uint16_t itemId, uint8
 		return;
 	} 
 	
-	g_dispatcher.addTask(createTask(std::bind(&Game::updatePlayerSaleItems, &g_game, player->getID())));
+	g_dispatcher().addTask(std::bind(&Game::updatePlayerSaleItems, &g_game(), player->getID()));
 	player->setScheduledSaleUpdate(true);
 	if (npcEventHandler) {
 		npcEventHandler->onPlayerTrade(player, callback, itemId, count, amount, ignore, inBackpacks);
@@ -459,7 +466,7 @@ bool Npc::canWalkTo(const Position& fromPos, Direction dir) const
 		return false;
 	}
 
-	Tile* toTile = g_game.map.getTile(toPos);
+	Tile* toTile = g_game().map.getTile(toPos);
 	if (!toTile || toTile->queryAdd(0, *this, 1, 0) != RETURNVALUE_NOERROR) {
 		return false;
 	}
@@ -540,7 +547,7 @@ void Npc::turnToCreature(Creature* creature)
 			dir = DIRECTION_SOUTH;
 		}
 	}
-	g_game.internalCreatureTurn(this, dir);
+	g_game().internalCreatureTurn(this, dir);
 }
 
 void Npc::setCreatureFocus(Creature* creature)
@@ -672,7 +679,7 @@ int NpcScriptInterface::luaActionMove(lua_State* L)
 	//selfMove(direction)
 	Npc* npc = getScriptEnv()->getNpc();
 	if (npc) {
-		g_game.internalMoveCreature(npc, getNumber<Direction>(L, 1));
+		g_game().internalMoveCreature(npc, getNumber<Direction>(L, 1));
 	}
 	return 0;
 }
@@ -698,7 +705,7 @@ int NpcScriptInterface::luaActionTurn(lua_State* L)
 	//selfTurn(direction)
 	Npc* npc = getScriptEnv()->getNpc();
 	if (npc) {
-		g_game.internalCreatureTurn(npc, getNumber<Direction>(L, 1));
+		g_game().internalCreatureTurn(npc, getNumber<Direction>(L, 1));
 	}
 	return 0;
 }
@@ -939,7 +946,7 @@ int NpcScriptInterface::luaDoSellItem(lua_State* L)
 				item->setActionId(actionId);
 			}
 
-			if (g_game.internalPlayerAddItem(player, item, canDropOnMap) != RETURNVALUE_NOERROR) {
+			if (g_game().internalPlayerAddItem(player, item, canDropOnMap) != RETURNVALUE_NOERROR) {
 				delete item;
 				lua_pushnumber(L, sellCount);
 				return 1;
@@ -955,7 +962,7 @@ int NpcScriptInterface::luaDoSellItem(lua_State* L)
 				item->setActionId(actionId);
 			}
 
-			if (g_game.internalPlayerAddItem(player, item, canDropOnMap) != RETURNVALUE_NOERROR) {
+			if (g_game().internalPlayerAddItem(player, item, canDropOnMap) != RETURNVALUE_NOERROR) {
 				delete item;
 				lua_pushnumber(L, sellCount);
 				return 1;

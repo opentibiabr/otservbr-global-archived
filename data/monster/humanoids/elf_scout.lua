@@ -82,17 +82,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "waterskin", chance = 1350},
-	{id = "gold coin", chance = 75000, maxCount = 25},
-	{id = "bow", chance = 4000},
-	{id = "arrow", chance = 30710, maxCount = 12},
-	{id = "poison arrow", chance = 15400, maxCount = 4},
-	{id = "sandals", chance = 1180},
-	{id = "grapes", chance = 17750},
+	{name = "waterskin", chance = 1350},
+	{name = "gold coin", chance = 75000, maxCount = 25},
+	{name = "bow", chance = 4000},
+	{name = "arrow", chance = 30710, maxCount = 12},
+	{name = "poison arrow", chance = 15400, maxCount = 4},
+	{name = "sandals", chance = 1180},
+	{name = "grapes", chance = 17750},
 	{id = 5921, chance = 1130},
-	{id = "elvish bow", chance = 140},
-	{id = "elvish talisman", chance = 5200},
-	{id = "elven scouting glass", chance = 9750}
+	{name = "elvish bow", chance = 140},
+	{name = "elvish talisman", chance = 5200},
+	{name = "elven scouting glass", chance = 9750}
 }
 
 monster.attacks = {

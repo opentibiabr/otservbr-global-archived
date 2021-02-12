@@ -8,5 +8,5 @@ function theThievesDoor.onUse(player, item, fromPosition, target, toPosition, is
 	return true
 end
 
-theThievesDoor:aid(12505)
+theThievesDoor:aid(51394)
 theThievesDoor:register()

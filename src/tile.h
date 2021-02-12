@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -77,78 +77,63 @@ enum ZoneType_t {
 	ZONE_NORMAL,
 };
 
-class TileItemVector : private ItemVector
+class TileItemVector
 {
 	public:
-		using ItemVector::begin;
-		using ItemVector::end;
-		using ItemVector::rbegin;
-		using ItemVector::rend;
-		using ItemVector::size;
-		using ItemVector::clear;
-		using ItemVector::at;
-		using ItemVector::insert;
-		using ItemVector::erase;
-		using ItemVector::push_back;
-		using ItemVector::value_type;
-		using ItemVector::iterator;
-		using ItemVector::const_iterator;
-		using ItemVector::reverse_iterator;
-		using ItemVector::const_reverse_iterator;
-    using ItemVector::empty;
+		TileItemVector() = default;
 
-		iterator getBeginDownItem() {
-			return begin();
-		}
-		const_iterator getBeginDownItem() const {
-			return begin();
-		}
-		iterator getEndDownItem() {
-			return begin() + downItemCount;
-		}
-		const_iterator getEndDownItem() const {
-			return begin() + downItemCount;
-		}
-		iterator getBeginTopItem() {
-			return getEndDownItem();
-		}
-		const_iterator getBeginTopItem() const {
-			return getEndDownItem();
-		}
-		iterator getEndTopItem() {
-			return end();
-		}
-		const_iterator getEndTopItem() const {
-			return end();
-		}
+		inline ItemVector::iterator begin() noexcept { return vec.begin(); }
+		inline ItemVector::iterator end() noexcept { return vec.end(); }
+		inline ItemVector::const_iterator begin() const noexcept { return vec.begin(); }
+		inline ItemVector::const_iterator end() const noexcept { return vec.end(); }
+		inline ItemVector::reverse_iterator rbegin() noexcept { return vec.rbegin(); }
+		inline ItemVector::reverse_iterator rend() noexcept { return vec.rend(); }
+		inline ItemVector::const_reverse_iterator rbegin() const noexcept { return vec.rbegin(); }
+		inline ItemVector::const_reverse_iterator rend() const noexcept { return vec.rend(); }
+		inline size_t size() const noexcept { return vec.size(); }
+		inline void clear() noexcept { vec.clear(); }
+		inline void push_back(ItemVector::value_type element) { return vec.push_back(element); }
+		inline void emplace_back(ItemVector::value_type element) { return vec.emplace_back(element); }
+		inline ItemVector::iterator erase(ItemVector::const_iterator it) { return vec.erase(it); }
+		inline ItemVector::iterator erase(ItemVector::const_iterator first, ItemVector::const_iterator last) { return vec.erase(first, last); }
+		inline ItemVector::reference operator[](size_t index) { return vec.operator[](index); }
+		inline ItemVector::const_reference operator[](size_t index) const { return vec.operator[](index); }
 
-		uint32_t getTopItemCount() const {
-			return size() - downItemCount;
-		}
-		uint32_t getDownItemCount() const {
-			return downItemCount;
-		}
-		inline Item* getTopTopItem() const {
-			if (getTopItemCount() == 0) {
+		template<class inputIterator>
+		inline void insert(ItemVector::const_iterator it, inputIterator first, inputIterator last) { vec.insert(it, first, last); }
+		inline void insert(ItemVector::const_iterator it, ItemVector::value_type element) { vec.insert(it, element); }
+
+		inline ItemVector::iterator getBeginDownItem() { return begin() + topItemCount; }
+		inline ItemVector::const_iterator getBeginDownItem() const { return begin() + topItemCount; }
+		inline ItemVector::iterator getEndDownItem() noexcept { return end(); }
+		inline ItemVector::const_iterator getEndDownItem() const noexcept { return end(); }
+		inline ItemVector::iterator getBeginTopItem() noexcept { return begin(); }
+		inline ItemVector::const_iterator getBeginTopItem() const noexcept { return begin(); }
+		inline ItemVector::iterator getEndTopItem() { return getBeginDownItem(); }
+		inline ItemVector::const_iterator getEndTopItem() const { return getBeginDownItem(); }
+
+		inline uint32_t getTopItemCount() const noexcept { return topItemCount; }
+		inline uint32_t getDownItemCount() const noexcept { return size() - topItemCount; }
+		inline void addTopItemCount(int32_t increment) noexcept { topItemCount += increment; }
+		inline Item* getTopTopItem() const noexcept {
+			if (topItemCount == 0) {
 				return nullptr;
 			}
 			return *(getEndTopItem() - 1);
 		}
-		inline Item* getTopDownItem() const {
-			if (downItemCount == 0) {
+		inline Item* getTopDownItem() const noexcept {
+			if (getDownItemCount() == 0) {
 				return nullptr;
 			}
-			return *getBeginDownItem();
-		}
-		void increaseDownItemCount() {
-			downItemCount += 1;
-		}
-		void decreaseDownItemCount() {
-			downItemCount -= 1;
+			return *(getEndDownItem() - 1);
 		}
 
+		//Allow implicit conversion to ItemVector&
+		operator ItemVector&() { return vec; }
+
 	private:
-		uint32_t downItemCount = 0;
+		ItemVector vec;
+		int32_t topItemCount = 0;
 };
 
 class Tile : public Cylinder
@@ -160,7 +145,7 @@ class Tile : public Cylinder
 			delete ground;
 		};
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Tile(const Tile&) = delete;
 		Tile& operator=(const Tile&) = delete;
 
@@ -268,8 +253,8 @@ class Tile : public Cylinder
 		void postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t link = LINK_OWNER) override final;
 		void postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t link = LINK_OWNER) override final;
 
-		void internalAddThing(Thing* thing) override;
-		void virtual internalAddThing(uint32_t index, Thing* thing) override;
+		void internalAddThing(Thing* thing) override final;
+		void internalAddThing(uint32_t index, Thing* thing) override;
 
 		const Position& getPosition() const override final {
 			return tilePos;
@@ -320,7 +305,7 @@ class DynamicTile : public Tile
 			}
 		}
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		DynamicTile(const DynamicTile&) = delete;
 		DynamicTile& operator=(const DynamicTile&) = delete;
 
@@ -362,7 +347,7 @@ class StaticTile final : public Tile
 			}
 		}
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		StaticTile(const StaticTile&) = delete;
 		StaticTile& operator=(const StaticTile&) = delete;
 

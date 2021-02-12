@@ -83,28 +83,28 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small ruby", chance = 12500, maxCount = 5},
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 78},
-	{id = "platinum coin", chance = 33333, maxCount = 4},
-	{id = "stealth ring", chance = 5000},
-	{id = "wand of inferno", chance = 892},
-	{id = "steel boots", chance = 89},
-	{id = "brown mushroom", chance = 4545},
-	{id = "magic sulphur", chance = 534},
-	{id = "butcher's axe", chance = 357},
-	{id = "bullseye potion", chance = 714},
-	{id = "strong health potion", chance = 14285},
-	{id = "strong mana potion", chance = 14285},
-	{id = "magma coat", chance = 714},
-	{id = "demonic finger", chance = 178}
+	{name = "small ruby", chance = 12500, maxCount = 5},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 78},
+	{name = "platinum coin", chance = 33333, maxCount = 4},
+	{name = "stealth ring", chance = 5000},
+	{name = "wand of inferno", chance = 892},
+	{name = "steel boots", chance = 89},
+	{name = "brown mushroom", chance = 4545},
+	{name = "magic sulphur", chance = 534},
+	{name = "butcher's axe", chance = 357},
+	{name = "bullseye potion", chance = 714},
+	{name = "strong health potion", chance = 14285},
+	{name = "strong mana potion", chance = 14285},
+	{name = "magma coat", chance = 714},
+	{name = "demonic finger", chance = 178}
 }
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -319},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -40, maxDamage = -90, range = 7, radius = 6, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -100, maxDamage = -200, length = 4, spread = 3, effect = CONST_ME_FIREATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -150, maxDamage = -250, length = 4, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
+	{name ="shaburak wave", interval = 2000, chance = 15, minDamage = -100, maxDamage = -200, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -150, maxDamage = -250, length = 4, spread = 0, effect = CONST_ME_HITBYFIRE, target = false},
 	{name ="speed", interval = 2000, chance = 15, speedChange = -700, radius = 1, effect = CONST_ME_MAGIC_RED, target = true, duration = 15000}
 }
 

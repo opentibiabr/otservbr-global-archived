@@ -76,19 +76,19 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "small emerald", chance = 2702, maxCount = 4},
-	{id = "stealth ring", chance = 892},
-	{id = "platinum amulet", chance = 110},
-	{id = "magic sulphur", chance = 1639},
-	{id = "strong health potion", chance = 9003},
-	{id = "strong mana potion", chance = 9025},
-	{id = "poisonous slime", chance = 50000},
-	{id = "lump of earth", chance = 20000},
-	{id = "sulphurous stone", chance = 14970},
-	{id = "brimstone fangs", chance = 5710},
-	{id = "brimstone shell", chance = 10000}
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "small emerald", chance = 2702, maxCount = 4},
+	{name = "stealth ring", chance = 892},
+	{name = "platinum amulet", chance = 110},
+	{name = "magic sulphur", chance = 1639},
+	{name = "strong health potion", chance = 9003},
+	{name = "strong mana potion", chance = 9025},
+	{name = "poisonous slime", chance = 50000},
+	{name = "lump of earth", chance = 20000},
+	{name = "sulphurous stone", chance = 14970},
+	{name = "brimstone fangs", chance = 5710},
+	{name = "brimstone shell", chance = 10000}
 }
 
 monster.attacks = {
@@ -96,7 +96,7 @@ monster.attacks = {
 	{name ="speed", interval = 2000, chance = 20, speedChange = -600, range = 7, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_MORTAREA, target = false, duration = 10000},
 	{name ="combat", interval = 2000, chance = 5, type = COMBAT_EARTHDAMAGE, minDamage = -140, maxDamage = -310, radius = 6, effect = CONST_ME_SMALLPLANTS, target = false},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_MANADRAIN, minDamage = -130, maxDamage = -200, length = 6, spread = 3, effect = CONST_ME_HITBYPOISON, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -80, maxDamage = -120, length = 8, spread = 3, effect = CONST_ME_YELLOW_RINGS, target = false}
+	{name ="brimstone bug wave", interval = 2000, chance = 15, minDamage = -80, maxDamage = -120, target = false}
 }
 
 monster.defenses = {

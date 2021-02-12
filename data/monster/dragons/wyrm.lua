@@ -81,30 +81,30 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small diamond", chance = 750, maxCount = 3},
-	{id = "gold coin", chance = 30000, maxCount = 100},
-	{id = "gold coin", chance = 30000, maxCount = 100},
-	{id = "gold coin", chance = 30000, maxCount = 30},
-	{id = "crossbow", chance = 5920},
-	{id = "burst arrow", chance = 7650, maxCount = 10},
-	{id = "dragon ham", chance = 34800, maxCount = 3},
-	{id = "dragonbone staff", chance = 110},
-	{id = "strong health potion", chance = 19970},
-	{id = "strong mana potion", chance = 15310},
-	{id = "lightning pendant", chance = 720},
-	{id = "composite hornbow", chance = 90},
-	{id = "focus cape", chance = 1250},
-	{id = "hibiscus dress", chance = 250},
-	{id = "wand of starstorm", chance = 420},
-	{id = "wand of draconia", chance = 990},
-	{id = "shockwave amulet", chance = 110},
-	{id = "wyrm scale", chance = 15360}
+	{name = "small diamond", chance = 750, maxCount = 3},
+	{name = "gold coin", chance = 30000, maxCount = 100},
+	{name = "gold coin", chance = 30000, maxCount = 100},
+	{name = "gold coin", chance = 30000, maxCount = 30},
+	{name = "crossbow", chance = 5920},
+	{name = "burst arrow", chance = 7650, maxCount = 10},
+	{name = "dragon ham", chance = 34800, maxCount = 3},
+	{name = "dragonbone staff", chance = 110},
+	{name = "strong health potion", chance = 19970},
+	{name = "strong mana potion", chance = 15310},
+	{name = "lightning pendant", chance = 720},
+	{name = "composite hornbow", chance = 90},
+	{name = "focus cape", chance = 1250},
+	{name = "hibiscus dress", chance = 250},
+	{name = "wand of starstorm", chance = 420},
+	{name = "wand of draconia", chance = 990},
+	{name = "shockwave amulet", chance = 110},
+	{name = "wyrm scale", chance = 15360}
 }
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -235},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -100, maxDamage = -220, radius = 3, effect = CONST_ME_YELLOWENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -130, maxDamage = -200, length = 5, spread = 2, effect = CONST_ME_PURPLEENERGY, target = false},
+	{name ="wyrm wave", interval = 2000, chance = 40, minDamage = -130, maxDamage = -200, target = false},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -100, maxDamage = -125, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = false},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_LIFEDRAIN, minDamage = -98, maxDamage = -145, length = 4, spread = 3, effect = CONST_ME_POFF, target = false}
 }

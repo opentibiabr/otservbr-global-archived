@@ -24,7 +24,7 @@ Imbuements_Weapons = {
 	["crit_wandrod"] = {35234, 38986},
 	["life_wandrod"] = {35235, 38987},
 	["elemental_swords"] = {30886, 34059, 34060, 36449, 38918, 38917, 38990},
-	["elemental_axes"] = {32424, 35231, 39088, 38919, 38920},
+	["elemental_axes"] = {32424, 35231, 39088, 38919, 38920, 37451},
 	["elemental_clubs"] = {32425, 34057, 35230, 36415, 38922, 38921, 39089},
 	-- Note: if an armor has native protection, it can't be imbue with this protection
 	["armor_energy"] = {30883},

@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,17 +22,14 @@
 #include "outputmessage.h"
 #include "protocol.h"
 #include "lockfree.h"
-#include "scheduler.h"
-
-extern Scheduler g_scheduler;
+#include "tasks.h"
 
 const uint16_t OUTPUTMESSAGE_FREE_LIST_CAPACITY = 2048;
 const std::chrono::milliseconds OUTPUTMESSAGE_AUTOSEND_DELAY {10};
 
 void OutputMessagePool::scheduleSendAll()
 {
-	auto functor = std::bind(&OutputMessagePool::sendAll, this);
-	g_scheduler.addEvent(createSchedulerTask(OUTPUTMESSAGE_AUTOSEND_DELAY.count(), functor));
+	g_dispatcher().addEvent(OUTPUTMESSAGE_AUTOSEND_DELAY.count(), std::bind(&OutputMessagePool::sendAll, this));
 }
 
 void OutputMessagePool::sendAll()
@@ -64,7 +61,7 @@ void OutputMessagePool::removeProtocolFromAutosend(const Protocol_ptr& protocol)
 	//dispatcher thread
 	auto it = std::find(bufferedProtocols.begin(), bufferedProtocols.end(), protocol);
 	if (it != bufferedProtocols.end()) {
-		std::swap(*it, bufferedProtocols.back());
+		*it = bufferedProtocols.back();
 		bufferedProtocols.pop_back();
 	}
 }

@@ -70,7 +70,7 @@ function theCursedMedusa.onUse(player, item, fromPosition, target, toPosition, i
 			return
 		end
 	end
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, "Sorry, not possible.")
+	player:sendTextMessage(MESSAGE_FAILURE, "Sorry, not possible.")
 end
 
 theCursedMedusa:id(10025,12422,23873,23874,23876)

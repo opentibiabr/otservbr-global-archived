@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -56,7 +56,7 @@ void RSA::loadPEM(const std::string& filename)
 	std::string key = oss.str();
 
 	if (key.substr(0, header.size()) != header) {
-		throw std::runtime_error("Missing RSA private key header.");
+		throw std::runtime_error("Missing RSA private key header.\n>> There is no `key.pem` in the folder.");
 	}
 
 	if (key.substr(key.size() - footer.size(), footer.size()) != footer) {

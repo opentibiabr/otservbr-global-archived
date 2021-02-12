@@ -83,27 +83,27 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "piggy bank", chance = 1052},
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 40000, maxCount = 35},
-	{id = "small emerald", chance = 6250, maxCount = 4},
-	{id = "energy ring", chance = 961},
-	{id = "brown mushroom", chance = 3846, maxCount = 5},
-	{id = "magic sulphur", chance = 102},
-	{id = "assassin star", chance = 4761, maxCount = 5},
-	{id = "mastermind potion", chance = 431},
-	{id = "strong health potion", chance = 5263},
-	{id = "strong mana potion", chance = 5263},
-	{id = "terra legs", chance = 123},
-	{id = "springsprout rod", chance = 512}
+	{name = "piggy bank", chance = 1052},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 40000, maxCount = 35},
+	{name = "small emerald", chance = 6250, maxCount = 4},
+	{name = "energy ring", chance = 961},
+	{name = "brown mushroom", chance = 3846, maxCount = 5},
+	{name = "magic sulphur", chance = 102},
+	{name = "assassin star", chance = 4761, maxCount = 5},
+	{name = "mastermind potion", chance = 431},
+	{name = "strong health potion", chance = 5263},
+	{name = "strong mana potion", chance = 5263},
+	{name = "terra legs", chance = 123},
+	{name = "springsprout rod", chance = 512}
 }
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -143},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -20, maxDamage = -60, range = 7, radius = 6, shootEffect = CONST_ANI_POISON, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -75, maxDamage = -140, length = 4, spread = 3, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -130, maxDamage = -170, length = 4, spread = 3, effect = CONST_ME_GREEN_RINGS, target = false},
+	{name ="askarak wave", interval = 2000, chance = 15, minDamage = -75, maxDamage = -140, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -130, maxDamage = -170, length = 4, spread = 0, effect = CONST_ME_GREEN_RINGS, target = false},
 	{name ="speed", interval = 2000, chance = 10, speedChange = -600, radius = 1, effect = CONST_ME_MAGIC_RED, target = true, duration = 15000}
 }
 

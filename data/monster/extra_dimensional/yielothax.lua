@@ -80,24 +80,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small diamond", chance = 4761, maxCount = 5},
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 27},
-	{id = "talon", chance = 917},
-	{id = "might ring", chance = 3846},
-	{id = "wand of cosmic energy", chance = 523},
-	{id = "epee", chance = 564},
-	{id = "brown mushroom", chance = 9090, maxCount = 3},
-	{id = "mastermind potion", chance = 490},
-	{id = "strong health potion", chance = 20000},
-	{id = "strong mana potion", chance = 20000},
-	{id = "lightning pendant", chance = 862},
-	{id = "lightning legs", chance = 480},
-	{id = "shockwave amulet", chance = 571},
-	{id = "broken ring of ending", chance = 261},
-	{id = "yielowax", chance = 300},
-	{id = "yielocks", chance = 320}
+	{name = "small diamond", chance = 4761, maxCount = 5},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 27},
+	{name = "talon", chance = 917},
+	{name = "might ring", chance = 3846},
+	{name = "wand of cosmic energy", chance = 523},
+	{name = "epee", chance = 564},
+	{name = "brown mushroom", chance = 9090, maxCount = 3},
+	{name = "mastermind potion", chance = 490},
+	{name = "strong health potion", chance = 20000},
+	{name = "strong mana potion", chance = 20000},
+	{name = "lightning pendant", chance = 862},
+	{name = "lightning legs", chance = 480},
+	{name = "shockwave amulet", chance = 571},
+	{name = "broken ring of ending", chance = 261},
+	{name = "yielowax", chance = 300},
+	{name = "yielocks", chance = 320}
 }
 
 monster.attacks = {

@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -108,7 +108,7 @@ class ScriptEnvironment
 		ScriptEnvironment();
 		~ScriptEnvironment();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		ScriptEnvironment(const ScriptEnvironment&) = delete;
 		ScriptEnvironment& operator=(const ScriptEnvironment&) = delete;
 
@@ -205,7 +205,7 @@ class LuaScriptInterface
 		explicit LuaScriptInterface(std::string interfaceName);
 		virtual ~LuaScriptInterface();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		LuaScriptInterface(const LuaScriptInterface&) = delete;
 		LuaScriptInterface& operator=(const LuaScriptInterface&) = delete;
 
@@ -885,6 +885,8 @@ class LuaScriptInterface
 		static int luaPlayerGetCapacity(lua_State* L);
 		static int luaPlayerSetCapacity(lua_State* L);
 
+		static int luaPlayerSetTraining(lua_State* L);
+
 		static int luaPlayerGetKills(lua_State* L);
 		static int luaPlayerSetKills(lua_State* L);
 
@@ -933,6 +935,9 @@ class LuaScriptInterface
 		static int luaPlayerGetSkillTries(lua_State* L);
 		static int luaPlayerAddSkillTries(lua_State* L);
 
+		static int luaPlayerSetMagicLevel(lua_State* L);
+		static int luaPlayerSetSkillLevel(lua_State* L);
+
 		static int luaPlayerAddOfflineTrainingTime(lua_State* L);
 		static int luaPlayerGetOfflineTrainingTime(lua_State* L);
 		static int luaPlayerRemoveOfflineTrainingTime(lua_State* L);
@@ -943,6 +948,7 @@ class LuaScriptInterface
 		static int luaPlayerSetOfflineTrainingSkill(lua_State* L);
 
 		static int luaPlayerGetItemCount(lua_State* L);
+		static int luaPlayerGetStashItemCount(lua_State* L);
 		static int luaPlayerGetItemById(lua_State* L);
 
 		static int luaPlayerGetVocation(lua_State* L);
@@ -995,6 +1001,7 @@ class LuaScriptInterface
 
 		static int luaPlayerAddItem(lua_State* L);
 		static int luaPlayerAddItemEx(lua_State* L);
+		static int luaPlayerRemoveStashItem(lua_State* L);
 		static int luaPlayerRemoveItem(lua_State* L);
 		static int luaPlayerSendContainer(lua_State* L);
 
@@ -1496,6 +1503,7 @@ class LuaScriptInterface
 		static int luaCreateLoot(lua_State* L);
 		static int luaDeleteLoot(lua_State* L);
 		static int luaLootSetId(lua_State* L);
+		static int luaLootSetIdFromName(lua_State* L);
 		static int luaLootSetMinCount(lua_State* L);
 		static int luaLootSetMaxCount(lua_State* L);
 		static int luaLootSetSubType(lua_State* L);
@@ -1706,6 +1714,7 @@ class LuaScriptInterface
 		static int luaMountGetId(lua_State* L);
 		static int luaMountGetClientId(lua_State* L);
 		static int luaMountGetSpeed(lua_State* L);
+		static int webhookSend(lua_State* L);
 
 		//
 		std::string lastLuaError;
@@ -1724,9 +1733,16 @@ class LuaEnvironment : public LuaScriptInterface
 		LuaEnvironment();
 		~LuaEnvironment();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		LuaEnvironment(const LuaEnvironment&) = delete;
 		LuaEnvironment& operator=(const LuaEnvironment&) = delete;
+
+		static LuaEnvironment& getInstance() {
+			// Guaranteed to be destroyed
+			static LuaEnvironment instance;
+			// Instantiated on first use
+			return instance;
+		}
 
 		bool initState() override;
 		bool reInitState();
@@ -1761,5 +1777,7 @@ class LuaEnvironment : public LuaScriptInterface
 		friend class LuaScriptInterface;
 		friend class CombatSpell;
 };
+
+constexpr auto g_luaEnvironment2 = &LuaEnvironment::getInstance;
 
 #endif

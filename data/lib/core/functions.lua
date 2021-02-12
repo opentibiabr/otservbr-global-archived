@@ -1,4 +1,3 @@
--- From here down are the functions of TFS
 function getTibiaTimerDayOrNight()
 	local light = getWorldLight()
 	if (light == 40) then
@@ -37,7 +36,6 @@ debug.sethook(function(event, line)
 	end
 end, "l")
 
--- OTServBr-Global functions
 function getJackLastMissionState(player)
 	if player:getStorageValue(Storage.TibiaTales.JackFutureQuest.LastMissionState) == 1 then
 		return "You told Jack the truth about his personality. You also explained that you and Spectulus \z
@@ -86,7 +84,7 @@ function getBankMoney(cid, amount)
 	local player = Player(cid)
 	if player:getBankBalance() >= amount then
 		player:setBankBalance(player:getBankBalance() - amount)
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "Paid " .. amount .. " gold from bank account. Your account balance is now " .. player:getBankBalance() .. " gold.")
+		player:sendTextMessage(MESSAGE_TRADE, "Paid " .. amount .. " gold from bank account. Your account balance is now " .. player:getBankBalance() .. " gold.")
 		return true
 	end
 	return false
@@ -674,6 +672,10 @@ function isNumber(str)
 	return tonumber(str) ~= nil
 end
 
+function isInteger(n)
+	return (type(n) == "number") and (math.floor(n) == n)
+end
+
 -- Function for the reload talkaction
 local logFormat = "[%s] %s %s"
 
@@ -913,3 +915,18 @@ function Player:doCheckBossRoom(bossName, fromPos, toPos)
 	end
 	return true
 end	
+
+-- Store module function
+function addPlayerEvent(callable, delay, playerId, ...)
+	local player = Player(playerId)
+	if not player then
+		return false
+	end
+
+	addEvent(function(callable, playerId, ...)
+		local player = Player(playerId)
+		if player then
+			pcall(callable, player, ...)
+		end
+	end, delay, callable, player.uid, ...)
+end

@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@
 
 #include "protocol.h"
 #include "chat.h"
+#include "configmanager.h"
 #include "creature.h"
 #include "tasks.h"
 #include "gamestore.h"
@@ -39,11 +40,9 @@ class Quest;
 class ProtocolGame;
 using ProtocolGame_ptr = std::shared_ptr<ProtocolGame>;
 
-extern Game g_game;
-
 struct TextMessage
 {
-	MessageClasses type = MESSAGE_STATUS_DEFAULT;
+	MessageClasses type = MESSAGE_STATUS;
 	std::string text;
 	Position position;
 	uint16_t channelId;
@@ -88,7 +87,7 @@ public:
 
 	void sendLockerItems(std::map<uint16_t, uint16_t> itemMap, uint16_t count);
 
-	uint16_t getVersion() const
+	uint32_t getVersion() const
 	{
 		return version;
 	}
@@ -152,6 +151,11 @@ private:
 	void BestiarysendCharms();
 	void sendBestiaryEntryChanged(uint16_t raceid);
 	void refreshBestiaryTracker(std::list<MonsterType *> trackerList);
+	void sendTeamFinderList();
+	void sendLeaderTeamFinder(bool reset);
+	void createLeaderTeamFinder(NetworkMessage &msg);
+	void parseLeaderFinderWindow(NetworkMessage &msg);
+	void parseMemberFinderWindow(NetworkMessage &msg);
 	void parseSendBuyCharmRune(NetworkMessage &msg);
 	void parseBestiarysendMonsterData(NetworkMessage &msg);
 	void addBestiaryTrackerList(NetworkMessage &msg);
@@ -321,6 +325,7 @@ private:
 
 	void sendUpdatedVIPStatus(uint32_t guid, VipStatus_t newStatus);
 	void sendVIP(uint32_t guid, const std::string &name, const std::string &description, uint32_t icon, bool notify, VipStatus_t status);
+	void sendVIPEntries();
 
 	void sendPendingStateEntered();
 	void sendEnterWorld();
@@ -370,7 +375,7 @@ private:
 
 	//quickloot
 	void sendLootContainers();
-	void sendLootStats(Item *item);
+	void sendLootStats(Item *item, uint8_t count);
 
 	//inventory
 	void sendInventoryItem(slots_t slot, const Item *item);
@@ -428,26 +433,13 @@ private:
 
 	friend class Player;
 
-	// Helpers so we don't need to bind every time
-	template <typename Callable, typename... Args>
-	void addGameTask(Callable function, Args &&... args)
-	{
-		g_dispatcher.addTask(createTask(std::bind(function, &g_game, std::forward<Args>(args)...)));
-	}
-
-	template <typename Callable, typename... Args>
-	void addGameTaskTimed(uint32_t delay, Callable function, Args &&... args)
-	{
-		g_dispatcher.addTask(createTask(delay, std::bind(function, &g_game, std::forward<Args>(args)...)));
-	}
-
 	std::unordered_set<uint32_t> knownCreatureSet;
 	Player *player = nullptr;
 
 	uint32_t eventConnect = 0;
 	uint32_t challengeTimestamp = 0;
-	uint16_t version = CLIENT_VERSION;
-	uint32_t clientVersion = 0;
+	uint32_t version = g_config().getNumber(ConfigManager::CLIENT_VERSION);
+	int32_t clientVersion = 0;
 
 	uint8_t challengeRandom = 0;
 
@@ -461,7 +453,7 @@ private:
 
 	void sendOpenStash();
 	void AddPlayerStowedItems(NetworkMessage &msg);
-	void parseStashWithdraw(NetworkMessage &msg);
+	void parseStashAction(NetworkMessage &msg);
 	void sendSpecialContainersAvailable(bool supplyStashAvailable);
 };
 

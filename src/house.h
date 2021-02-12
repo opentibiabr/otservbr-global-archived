@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2020  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,11 +43,26 @@ class AccessList
 
 		void getList(std::string& list) const;
 
+		void setMaxBeds(uint32_t maxBeds) {
+			this->maxBeds = maxBeds;
+		}
+
+		uint32_t getMaxBeds() const {
+			return maxBeds;
+		}
+
+		void setBedsCount(uint32_t bedsCount) {
+			this->bedsCount = bedsCount;
+		}
+
+		uint32_t getBedsCount() const {
+			return bedsCount;
+		}
+
 	private:
 		std::string list;
 		std::unordered_set<uint32_t> playerList;
 		std::unordered_set<uint32_t> guildRankList;
-		bool allowEveryone = false;
 };
 
 class Door final : public Item
@@ -108,15 +123,16 @@ enum AccessHouseLevel_t {
 	HOUSE_OWNER = 3,
 };
 
-using HouseTileList = std::list<HouseTile*>;
-using HouseBedItemList = std::list<BedItem*>;
+using HouseTileList = std::vector<HouseTile*>;
+using HouseDoors = std::vector<Door*>;
+using HouseBedItemList = std::vector<BedItem*>;
 
 class HouseTransferItem final : public Item
 {
 	public:
 		static HouseTransferItem* createHouseTransferItem(House* house);
 
-		explicit HouseTransferItem(House* newHouse) : Item(0), house(newHouse) {}
+		explicit HouseTransferItem(House* house) : Item(0), house(house) {}
 
 		void onTradeEvent(TradeEvents_t event, Player* owner) override;
 		bool canTransform() const override {
@@ -154,8 +170,8 @@ class House
 			return posEntry;
 		}
 
-		void setName(std::string newHouseName) {
-			this->houseName = newHouseName;
+		void setName(std::string houseName) {
+			this->houseName = houseName;
 		}
 		const std::string& getName() const {
 			return houseName;
@@ -173,8 +189,8 @@ class House
 			return paidUntil;
 		}
 
-		void setRent(uint32_t newRent) {
-			this->rent = newRent;
+		void setRent(uint32_t rent) {
+			this->rent = rent;
 		}
 		uint32_t getRent() const {
 			return rent;
@@ -187,8 +203,8 @@ class House
 			return rentWarnings;
 		}
 
-		void setTownId(uint32_t newTownId) {
-			this->townId = newTownId;
+		void setTownId(uint32_t townId) {
+			this->townId = townId;
 		}
 		uint32_t getTownId() const {
 			return townId;
@@ -205,14 +221,14 @@ class House
 
 		HouseTransferItem* getTransferItem();
 		void resetTransferItem();
-		bool executeTransfer(HouseTransferItem* item, Player* player);
+		bool executeTransfer(HouseTransferItem* item, Player* newOwner);
 
 		const HouseTileList& getTiles() const {
 			return houseTiles;
 		}
 
-		const std::list<Door*>& getDoors() const {
-			return doorList;
+		const HouseDoors& getDoors() const {
+			return doorSet;
 		}
 
 		void addBed(BedItem* bed);
@@ -249,7 +265,7 @@ class House
 		Container transfer_container{ITEM_LOCKER1};
 
 		HouseTileList houseTiles;
-		std::list<Door*> doorList;
+		HouseDoors doorSet;
 		HouseBedItemList bedsList;
 
 		std::string houseName;
@@ -274,7 +290,7 @@ class House
 		bool isLoaded = false;
 };
 
-using HouseMap = std::map<uint32_t, House*>;
+using HouseMap = std::map<uint32_t, House>;
 
 enum RentPeriod_t {
 	RENTPERIOD_DAILY,
@@ -288,11 +304,6 @@ class Houses
 {
 	public:
 		Houses() = default;
-		~Houses() {
-			for (const auto& it : houseMap) {
-				delete it.second;
-			}
-		}
 
 		// non-copyable
 		Houses(const Houses&) = delete;
@@ -301,12 +312,10 @@ class Houses
 		House* addHouse(uint32_t id) {
 			auto it = houseMap.find(id);
 			if (it != houseMap.end()) {
-				return it->second;
+				return &it->second;
 			}
 
-			House* house = new House(id);
-			houseMap[id] = house;
-			return house;
+			return &houseMap.emplace(std::piecewise_construct, std::forward_as_tuple(id), std::forward_as_tuple(id)).first->second;
 		}
 
 		House* getHouse(uint32_t houseId) {
@@ -314,7 +323,7 @@ class Houses
 			if (it == houseMap.end()) {
 				return nullptr;
 			}
-			return it->second;
+			return &it->second;
 		}
 
 		House* getHouseByPlayerId(uint32_t playerId);
@@ -323,7 +332,7 @@ class Houses
 
 		void payHouses(RentPeriod_t rentPeriod) const;
 
-		const HouseMap& getHouses() const {
+		HouseMap& getHouses() {
 			return houseMap;
 		}
 

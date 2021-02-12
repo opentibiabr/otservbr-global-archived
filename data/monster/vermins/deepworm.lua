@@ -80,22 +80,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Deepworm Jaws", chance = 24010},
-	{id = "Life Ring", chance = 7320},
-	{id = "Meat", chance = 19660, maxCount = 4},
-	{id = "Ham", chance = 19660, maxCount = 4},
-	{id = "Wood Mushroom", chance = 22280},
-	{id = "Dark Mushroom", chance = 14960},
-	{id = "Green Mushroom", chance = 18520},
-	{id = "Green Crystal Shard", chance = 5360},
+	{name = "Deepworm Jaws", chance = 24010},
+	{name = "Life Ring", chance = 7320},
+	{name = "Meat", chance = 19660, maxCount = 4},
+	{name = "Ham", chance = 19660, maxCount = 4},
+	{name = "Wood Mushroom", chance = 22280},
+	{name = "Dark Mushroom", chance = 14960},
+	{name = "Green Mushroom", chance = 18520},
+	{name = "Green Crystal Shard", chance = 5360},
 	{id = 30828, chance = 13210, maxCount = 2},
-	{id = "Deepworm Spikes", chance = 9880},
-	{id = "Small Enchanted Amethyst", chance = 3430, maxCount = 2},
-	{id = "Terra Amulet", chance = 5060},
-	{id = "Springsprout Rod", chance = 1120},
-	{id = "Sacred Tree Amulet", chance = 2390},
+	{name = "Deepworm Spikes", chance = 9880},
+	{name = "Small Enchanted Amethyst", chance = 3430, maxCount = 2},
+	{name = "Terra Amulet", chance = 5060},
+	{name = "Springsprout Rod", chance = 1120},
+	{name = "Sacred Tree Amulet", chance = 2390},
 	{id = 7632, chance = 860},
-	{id = "Suspicious Device", chance = 530}
+	{name = "Suspicious Device", chance = 530}
 }
 
 monster.attacks = {

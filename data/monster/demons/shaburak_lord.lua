@@ -83,26 +83,26 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small ruby", chance = 6120, maxCount = 5},
-	{id = "gold coin", chance = 50000, maxCount = 100},
-	{id = "gold coin", chance = 50000, maxCount = 78},
-	{id = "platinum coin", chance = 33333, maxCount = 2},
-	{id = "energy ring", chance = 1652},
-	{id = "wand of inferno", chance = 800},
-	{id = "steel boots", chance = 160},
-	{id = "brown mushroom", chance = 5346},
-	{id = "magic sulphur", chance = 620},
-	{id = "bullseye potion", chance = 400},
-	{id = "strong health potion", chance = 7000},
-	{id = "strong mana potion", chance = 7000},
-	{id = "magma coat", chance = 100}
+	{name = "small ruby", chance = 6120, maxCount = 5},
+	{name = "gold coin", chance = 50000, maxCount = 100},
+	{name = "gold coin", chance = 50000, maxCount = 78},
+	{name = "platinum coin", chance = 33333, maxCount = 2},
+	{name = "energy ring", chance = 1652},
+	{name = "wand of inferno", chance = 800},
+	{name = "steel boots", chance = 160},
+	{name = "brown mushroom", chance = 5346},
+	{name = "magic sulphur", chance = 620},
+	{name = "bullseye potion", chance = 400},
+	{name = "strong health potion", chance = 7000},
+	{name = "strong mana potion", chance = 7000},
+	{name = "magma coat", chance = 100}
 }
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -251},
 	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -30, maxDamage = -75, range = 7, radius = 6, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -80, maxDamage = -170, length = 4, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -140, maxDamage = -200, length = 4, spread = 3, effect = CONST_ME_FIREATTACK, target = false},
+	{name ="shaburak wave", interval = 2000, chance = 15, minDamage = -80, maxDamage = -170, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -140, maxDamage = -200, length = 4, spread = 0, effect = CONST_ME_FIREATTACK, target = false},
 	{name ="speed", interval = 2000, chance = 10, speedChange = -650, radius = 1, effect = CONST_ME_MAGIC_RED, target = true, duration = 15000}
 }
 

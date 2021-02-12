@@ -75,22 +75,22 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "Platinum Coin", chance = 100000, maxCount = 3},
-	{id = "Envenomed Arrow", chance = 55360, maxCount = 8},
-	{id = "Earth Arrow", chance = 16800, maxCount = 29},
-	{id = "Terra Rod", chance = 11000},
-	{id = "Goanna Meat", chance = 12140},
-	{id = "Goanna Claw", chance = 4290},
-	{id = "Lizard Heart", chance = 1400},
-	{id = "Red Goanna Scale", chance = 10000},
-	{id = "Fur Armor", chance = 3200},
-	{id = "Serpent Sword", chance = 3600},
-	{id = "Terra Amulet", chance = 4650},
-	{id = "Terra Hood", chance = 7100},
-	{id = "Wood Cape", chance = 1800},
-	{id = "Scared Frog", chance = 2100},
-	{id = "Sacred Tree Amulet", chance = 2500},
-	{id = "Small Tortoise", chance = 1800}
+	{name = "Platinum Coin", chance = 100000, maxCount = 3},
+	{name = "Envenomed Arrow", chance = 55360, maxCount = 8},
+	{name = "Earth Arrow", chance = 16800, maxCount = 29},
+	{name = "Terra Rod", chance = 11000},
+	{name = "Goanna Meat", chance = 12140},
+	{name = "Goanna Claw", chance = 4290},
+	{name = "Lizard Heart", chance = 1400},
+	{name = "Red Goanna Scale", chance = 10000},
+	{name = "Fur Armor", chance = 3200},
+	{name = "Serpent Sword", chance = 3600},
+	{name = "Terra Amulet", chance = 4650},
+	{name = "Terra Hood", chance = 7100},
+	{name = "Wood Cape", chance = 1800},
+	{name = "Scared Frog", chance = 2100},
+	{name = "Sacred Tree Amulet", chance = 2500},
+	{name = "Small Tortoise", chance = 1800}
 }
 
 monster.attacks = {

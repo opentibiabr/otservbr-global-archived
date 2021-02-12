@@ -21,70 +21,6 @@ local config = {
 		},
 		storage = Storage.QuestChests.SixRubiesQuest
 	},
-	[3003] = {
-		items = {
-			{itemId = 4858}
-		},
-		storage = Storage.ExplorerSociety.TheLizardUrn,
-		formerValue = 27,
-		newValue = 28
-	},
-	[3005] = {
-		items = {
-			{itemId = 4857}
-		},
-		storage = Storage.ExplorerSociety.TheBonelordSecret,
-		formerValue = 30,
-		newValue = 31
-	},
-	[3006] = {
-		items = {
-			{itemId = 5940} -- strange powder (Orc fortress)
-		},
-		storage = Storage.ExplorerSociety.TheOrcPowder,
-		formerValue = 33,
-		newValue = 34
-	},
-	[3007] = {
-		items = {
-			{itemId = 15389}
-		},
-		storage = Storage.ExplorerSociety.TheOrcPowder,
-		formerValue = 33,
-		newValue = 34
-	},
-	[3009] = {
-		items = {
-			{itemId = 4855}
-		},
-		storage = Storage.ExplorerSociety.ElvenDoor,
-		formerValue = 36,
-		newValue = 37
-	},
-	[3012] = {
-		items = {
-			{itemId = 4852}
-		},
-		storage = Storage.ExplorerSociety.TheMemoryStone,
-		formerValue = 39,
-		newValue = 40
-	},
-	[3014] = {
-		items = {
-			{itemId = 4847}
-		},
-		storage = Storage.ExplorerSociety.TheSpectralDress,
-		formerValue = 48,
-		newValue = 49
-	},
-	[3114] = {
-		items = {
-			{itemId = 6124}
-		},
-		storage = Storage.ExplorerSociety.CalassaQuest,
-		formerValue = 1,
-		newValue = 2
-	},
 	[3018] = {
 		items = {
 			{itemId = 2332}
@@ -143,14 +79,6 @@ local config = {
 		formerValue = 35,
 		newValue = 36,
 		missionStorage = { key = Storage.TheIceIslands.Mission09, value = 2 }
-	},
-	[3114] = {
-		items = {
-			{itemId = 6124}
-		},
-		storage = Storage.ExplorerSociety.CalassaQuest,
-		formerValue = 1,
-		newValue = 2
 	},
 	[3116] = {
 		items = {

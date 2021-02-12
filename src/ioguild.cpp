@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,16 +25,14 @@
 
 Guild* IOGuild::loadGuild(uint32_t guildId)
 {
-	Database& db = Database::getInstance();
-	std::ostringstream query;
-	query << "SELECT `name`, `balance` FROM `guilds` WHERE `id` = " << guildId;
-	if (DBResult_ptr result = db.storeQuery(query.str())) {
-		Guild* guild = new Guild(guildId, result->getString("name"));
-    guild->setBankBalance(result->getNumber<uint64_t>("balance"));
-		query.str(std::string());
-		query << "SELECT `id`, `name`, `level` FROM `guild_ranks` WHERE `guild_id` = " << guildId;
+	std::stringExtended query(128);
+	query << "SELECT `name` FROM `guilds` WHERE `id` = " << guildId << " LIMIT 1";
+	if (DBResult_ptr result = g_database().storeQuery(query)) {
+		Guild* guild = new Guild(guildId, std::move(result->getString("name")));
 
-		if ((result = db.storeQuery(query.str()))) {
+		query.clear();
+		query << "SELECT `id`, `name`, `level` FROM `guild_ranks` WHERE `guild_id` = " << guildId;
+		if ((result = g_database().storeQuery(query))) {
 			do {
 				guild->addRank(result->getNumber<uint32_t>("id"), result->getString("name"), result->getNumber<uint16_t>("level"));
 			} while (result->next());
@@ -45,24 +43,23 @@ Guild* IOGuild::loadGuild(uint32_t guildId)
 }
 
 void IOGuild::saveGuild(Guild* guild) {
-  if (!guild)
-    return;
-  Database& db = Database::getInstance();
-  std::ostringstream updateQuery;
-  updateQuery << "UPDATE `guilds` SET ";
-  updateQuery << "`balance` = " << guild->getBankBalance();
-  updateQuery << " WHERE `id` = " << guild->getId();
-  db.executeQuery(updateQuery.str());
+	if (!guild)
+		return;
+
+	std::stringExtended query(128);
+	query << "UPDATE `guilds` SET ";
+	query << "`balance` = " << guild->getBankBalance();
+	query << " WHERE `id` = " << guild->getId();
+	g_database().executeQuery(query);
 }
 
 uint32_t IOGuild::getGuildIdByName(const std::string& name)
 {
-	Database& db = Database::getInstance();
+	const std::string& escapedName = g_database().escapeString(name);
+	std::stringExtended query(escapedName.length() + static_cast<size_t>(64));
+	query << "SELECT `id` FROM `guilds` WHERE `name` = " << escapedName << " LIMIT 1";
 
-	std::ostringstream query;
-	query << "SELECT `id` FROM `guilds` WHERE `name` = " << db.escapeString(name);
-
-	DBResult_ptr result = db.storeQuery(query.str());
+	DBResult_ptr result = g_database().storeQuery(query);
 	if (!result) {
 		return 0;
 	}
@@ -71,10 +68,10 @@ uint32_t IOGuild::getGuildIdByName(const std::string& name)
 
 void IOGuild::getWarList(uint32_t guildId, GuildWarVector& guildWarVector)
 {
-	std::ostringstream query;
+	std::stringExtended query(140);
 	query << "SELECT `guild1`, `guild2` FROM `guild_wars` WHERE (`guild1` = " << guildId << " OR `guild2` = " << guildId << ") AND `ended` = 0 AND `status` = 1";
 
-	DBResult_ptr result = Database::getInstance().storeQuery(query.str());
+	DBResult_ptr result = g_database().storeQuery(query);
 	if (!result) {
 		return;
 	}

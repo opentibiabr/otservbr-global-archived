@@ -231,18 +231,18 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 		playerDelayPotion[player:getId()] = 0
 	end
 	if playerDelayPotion[player:getId()] > os.mtime() then
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
+		player:sendTextMessage(MESSAGE_FAILURE, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
 		return true
 	end
 
 	local potion = potions[item:getId()]
 	if potion.level and player:getLevel() < potion.level or potion.vocations and not table.contains(potion.vocations, player:getVocation():getClientId()) and not (player:getGroup():getId() >= 2) then
-		player:say(potion.description, TALKTYPE_MONSTER_SAY)
+		player:say(potion.description, MESSAGE_POTION)
 		return true
 	end
 
 	if player:getCondition(CONDITION_EXHAUST_HEAL) then
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
+		player:sendTextMessage(MESSAGE_FAILURE, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
 		return true
 	end
 
@@ -260,7 +260,7 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 		end
 
 		player:addAchievementProgress('Potion Addict', 100000)
-		target:say("Aaaah...", TALKTYPE_MONSTER_SAY)
+		target:say("Aaaah...", MESSAGE_POTION)
 		player:addItem(potion.flask, 1)
 		player:addCondition(exhaust)
 		player:setStorageValue(38412, player:getStorageValue(38412)+1)
@@ -272,14 +272,14 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 	if potion.func then
 		potion.func(player)
 		if potion.text then
-			player:say(potion.text, TALKTYPE_MONSTER_SAY)
+			player:say(potion.text, MESSAGE_POTION)
 		end
 		player:getPosition():sendMagicEffect(potion.effect)
 	end
 
 	if potion.condition then
 		player:addCondition(potion.condition)
-		player:say(potion.text, TALKTYPE_MONSTER_SAY)
+		player:say(potion.text, MESSAGE_POTION)
 		player:getPosition():sendMagicEffect(potion.effect)
 	end
 

@@ -5,13 +5,11 @@ function beds.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if not kit then
         return false
     end
-    
     local tile = fromPosition:getTile() 
     if not tile or not tile:getHouse() then
         player:sendTextMessage(MESSAGE_STATUS_SMALL, "You may construct this only inside a house.")
         return false
     end
-    
     if tile:getHouse():getMaxBeds() < tile:getHouse():getBedsCount() + 1 then
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You may only put ".. tile:getHouse():getMaxBeds() .." beds in this house")
         return false        

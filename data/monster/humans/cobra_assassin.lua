@@ -78,15 +78,15 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 3},
-	{id = "knife", chance = 10500},
-	{id = "cobra crest", chance = 7750},
+	{name = "platinum coin", chance = 100000, maxCount = 3},
+	{name = "knife", chance = 10500},
+	{name = "cobra crest", chance = 7750},
 	{id = 2419, chance = 7750},
-	{id = "protection amulet", chance = 7500},
-	{id = "heavy machete", chance = 6500},
-	{id = "bone sword", chance = 5000},
-	{id = "machete", chance = 2250},
-	{id = "carlin sword", chance = 2250},
+	{name = "protection amulet", chance = 7500},
+	{name = "heavy machete", chance = 6500},
+	{name = "bone sword", chance = 5000},
+	{name = "machete", chance = 2250},
+	{name = "carlin sword", chance = 2250},
 	{id = 26189, chance = 1690}
 }
 

@@ -3,7 +3,7 @@
 	<health now="100" max="100"/>
 	<look type="507" head="94" body="114" legs="98" feet="115"/>
 	<parameters>
-   		<parameter key="message_greet" value="Hi |PLAYERNAME|, welcome to War Zone III!"/>
+		<parameter key="message_greet" value="Hi |PLAYERNAME|, welcome to War Zone III!"/>
 		<parameter key="message_farewell" value="Good bye."/>
 	</parameters>
 </npc>

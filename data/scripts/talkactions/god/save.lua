@@ -19,7 +19,7 @@ function save.onSay(player, words, param)
 			saveServer()
 			SaveHirelings()
 			print("> Saved Hirelings")
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Server is saved ...")
+			player:sendTextMessage(MESSAGE_ADMINISTRADOR, "Server is saved ...")
 		end
 	end
 end

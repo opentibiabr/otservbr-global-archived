@@ -75,16 +75,16 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 10000, maxCount = 3},
-	{id = "lost soul", chance = 45240},
-	{id = "death toll", chance = 6250},
-	{id = "emerald bangle", chance = 5980},
-	{id = "gemmed figurine", chance = 3800},
-	{id = "ensouled essence", chance = 2720},
+	{name = "platinum coin", chance = 10000, maxCount = 3},
+	{name = "lost soul", chance = 45240},
+	{name = "death toll", chance = 6250},
+	{name = "emerald bangle", chance = 5980},
+	{name = "gemmed figurine", chance = 3800},
+	{name = "ensouled essence", chance = 2720},
 	{id = 26185, chance = 1220},
-	{id = "silver hand mirror", chance = 1090},
-	{id = "ornate crossbow", chance = 1090},
-	{id = "crystal crossbow", chance = 270}
+	{name = "silver hand mirror", chance = 1090},
+	{name = "ornate crossbow", chance = 1090},
+	{name = "crystal crossbow", chance = 270}
 }
 
 monster.attacks = {

@@ -81,16 +81,16 @@ monster.voices = {
 
 monster.loot = {
 	{id = 1965, chance = 2280},
-	{id = "gold coin", chance = 41000, maxCount = 70},
-	{id = "gold coin", chance = 51000, maxCount = 45},
-	{id = "small emerald", chance = 2960, maxCount = 4},
-	{id = "mystic turban", chance = 140},
+	{name = "gold coin", chance = 41000, maxCount = 70},
+	{name = "gold coin", chance = 51000, maxCount = 45},
+	{name = "small emerald", chance = 2960, maxCount = 4},
+	{name = "mystic turban", chance = 140},
 	{id = 2696, chance = 23500},
-	{id = "grave flower", chance = 1000},
-	{id = "green piece of cloth", chance = 2000},
-	{id = "royal spear", chance = 4870, maxCount = 2},
-	{id = "mana potion", chance = 490},
-	{id = "dirty turban", chance = 2210}
+	{name = "grave flower", chance = 1000},
+	{name = "green piece of cloth", chance = 2000},
+	{name = "royal spear", chance = 4870, maxCount = 2},
+	{name = "mana potion", chance = 490},
+	{name = "dirty turban", chance = 2210}
 }
 
 monster.attacks = {

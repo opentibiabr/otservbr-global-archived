@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,6 +23,17 @@
 class ConfigManager
 {
 	public:
+		// Singleton - ensures we don't accidentally copy it
+		ConfigManager(ConfigManager const&) = delete;
+		void operator=(ConfigManager const&) = delete;
+
+		static ConfigManager& getInstance() {
+			// Guaranteed to be destroyed
+			static ConfigManager instance;
+			// Instantiated on first use
+			return instance;
+		}
+
 		enum boolean_config_t {
 			ALLOW_CHANGEOUTFIT,
 			ONE_PLAYER_ON_ACCOUNT,
@@ -51,14 +62,16 @@ class ConfigManager
 			SERVER_SAVE_SHUTDOWN,
 			FORCE_MONSTERTYPE_LOAD,
 			HOUSE_OWNED_BY_ACCOUNT,
-      CLEAN_PROTECTION_ZONES,
+			CLEAN_PROTECTION_ZONES,
 			STOREMODULES,
 			ALLOW_BLOCK_SPAWN,
-      ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS,
+			ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS,
 			WEATHER_RAIN,
 			WEATHER_THUNDER,
 			FREE_QUESTS,
 			ONLY_PREMIUM_ACCOUNT,
+			MAP_CUSTOM_ENABLED,
+			ALL_CONSOLE_LOG,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
@@ -82,7 +95,12 @@ class ConfigManager
 			DEFAULT_PRIORITY,
 			MAP_AUTHOR,
 			STORE_IMAGES_URL,
-			VERSION_STR,
+			CLIENT_VERSION_STR,
+			MAP_CUSTOM_NAME,
+			MAP_CUSTOM_FILE,
+			MAP_CUSTOM_SPAWN,
+			MAP_CUSTOM_AUTHOR,
+			DISCORD_WEBHOOK_URL,
 
 			LAST_STRING_CONFIG /* this must be the last one */
 		};
@@ -115,7 +133,7 @@ class ConfigManager
 			MAX_CONTAINER,
 			MAX_ITEM,
 			MARKET_OFFER_DURATION,
-			VERSION,
+			CLIENT_VERSION,
 			DEPOT_BOXES,
 			FREE_DEPOT_LIMIT,
 			PREMIUM_DEPOT_LIMIT,
@@ -123,6 +141,7 @@ class ConfigManager
 			MAX_MARKET_OFFERS_AT_A_TIME_PER_PLAYER,
 			EXP_FROM_PLAYERS_LEVEL_RANGE,
 			MAX_PACKETS_PER_SECOND,
+			COMPRESSION_LEVEL,
 			STORE_COIN_PACKET,
 			DAY_KILLS_TO_RED,
 			WEEK_KILLS_TO_RED,
@@ -155,6 +174,10 @@ class ConfigManager
 		bool getBoolean(boolean_config_t what) const;
 		float getFloat(floating_config_t what) const;
 
+		void setString(string_config_t what, std::string& value);
+		void setNumber(integer_config_t what, int32_t value);
+		void setBoolean(boolean_config_t what, bool value);
+
 		std::string const& setConfigFileLua(const std::string& what) {
 			configFileLua = { what };
 			return configFileLua;
@@ -164,6 +187,8 @@ class ConfigManager
 		};
 
 	private:
+		ConfigManager() {}
+
 		std::string configFileLua = { "config.lua" };
 		std::string string[LAST_STRING_CONFIG] = {};
 		int32_t integer[LAST_INTEGER_CONFIG] = {};
@@ -172,5 +197,7 @@ class ConfigManager
 
 		bool loaded = false;
 };
+
+constexpr auto g_config = &ConfigManager::getInstance;
 
 #endif

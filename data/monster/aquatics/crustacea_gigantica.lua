@@ -81,13 +81,13 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 96000, maxCount = 100},
-	{id = "gold coin", chance = 56000, maxCount = 75},
-	{id = "strong mana potion", chance = 8885},
-	{id = "strong health potion", chance = 3880},
-	{id = "giant crab pincer", chance = 5000, maxCount = 2},
-	{id = "ring of healing", chance = 3000},
-	{id = "great mana potion", chance = 1220},
+	{name = "gold coin", chance = 96000, maxCount = 100},
+	{name = "gold coin", chance = 56000, maxCount = 75},
+	{name = "strong mana potion", chance = 8885},
+	{name = "strong health potion", chance = 3880},
+	{name = "giant crab pincer", chance = 5000, maxCount = 2},
+	{name = "ring of healing", chance = 3000},
+	{name = "great mana potion", chance = 1220},
 }
 
 monster.attacks = {

@@ -86,21 +86,21 @@ monster.voices = {
 
 monster.loot = {
 	{id = 1962, chance = 940},
-	{id = "small ruby", chance = 320},
-	{id = "gold coin", chance = 65520, maxCount = 60},
+	{name = "small ruby", chance = 320},
+	{name = "gold coin", chance = 65520, maxCount = 60},
 	{id = 2169, chance = 420},
-	{id = "silver amulet", chance = 1020},
-	{id = "hailstorm rod", chance = 220},
-	{id = "clerical mace", chance = 1260},
-	{id = "red robe", chance = 80},
-	{id = "pirate voodoo doll", chance = 1730},
+	{name = "silver amulet", chance = 1020},
+	{name = "hailstorm rod", chance = 220},
+	{name = "clerical mace", chance = 1260},
+	{name = "red robe", chance = 80},
+	{name = "pirate voodoo doll", chance = 1730},
 	{id = 6089, chance = 700},
-	{id = "lunar staff", chance = 120},
-	{id = "amber staff", chance = 680},
-	{id = "cultish robe", chance = 10080},
-	{id = "cultish symbol", chance = 90},
-	{id = "rope belt", chance = 10000},
-	{id = "broken key ring", chance = 120}
+	{name = "lunar staff", chance = 120},
+	{name = "amber staff", chance = 680},
+	{name = "cultish robe", chance = 10080},
+	{name = "cultish symbol", chance = 90},
+	{name = "rope belt", chance = 10000},
+	{name = "broken key ring", chance = 120}
 }
 
 monster.attacks = {

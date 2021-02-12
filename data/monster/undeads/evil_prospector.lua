@@ -75,14 +75,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "platinum coin", chance = 100000, maxCount = 5},
-	{id = "spectral silver nugget", chance = 17110, maxCount = 2},
-	{id = "wand of starstorm", chance = 13160, maxCount = 10},
-	{id = "lightning pendant", chance = 9210},
-	{id = "emerald bangle", chance = 3950},
-	{id = "strange talisman", chance = 2630},
-	{id = "wand of defiance", chance = 2630},
-	{id = "lightning headband", chance = 1320}
+	{name = "platinum coin", chance = 100000, maxCount = 5},
+	{name = "spectral silver nugget", chance = 17110, maxCount = 2},
+	{name = "wand of starstorm", chance = 13160, maxCount = 10},
+	{name = "lightning pendant", chance = 9210},
+	{name = "emerald bangle", chance = 3950},
+	{name = "strange talisman", chance = 2630},
+	{name = "wand of defiance", chance = 2630},
+	{name = "lightning headband", chance = 1320}
 }
 
 monster.attacks = {

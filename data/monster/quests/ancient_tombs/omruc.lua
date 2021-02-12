@@ -73,19 +73,19 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "small diamond", chance = 7000, maxCount = 3},
-	{id = "gold coin", chance = 50000, maxCount = 90},
-	{id = "gold coin", chance = 50000, maxCount = 70},
-	{id = "yellow gem", chance = 5000},
-	{id = "stealth ring", chance = 5000},
-	{id = "boots of haste", chance = 1500},
-	{id = "crystal arrow", chance = 100000},
-	{id = "arrow", chance = 10000, maxCount = 21},
-	{id = "poison arrow", chance = 10000, maxCount = 20},
-	{id = "burst arrow", chance = 10000, maxCount = 15},
-	{id = "power bolt", chance = 10000, maxCount = 3},
-	{id = "onyx arrow", chance = 10000, maxCount = 2},
-	{id = "great health potion", chance = 7000}
+	{name = "small diamond", chance = 7000, maxCount = 3},
+	{name = "gold coin", chance = 50000, maxCount = 90},
+	{name = "gold coin", chance = 50000, maxCount = 70},
+	{name = "yellow gem", chance = 5000},
+	{name = "stealth ring", chance = 5000},
+	{name = "boots of haste", chance = 1500},
+	{name = "crystal arrow", chance = 100000},
+	{name = "arrow", chance = 10000, maxCount = 21},
+	{name = "poison arrow", chance = 10000, maxCount = 20},
+	{name = "burst arrow", chance = 10000, maxCount = 15},
+	{name = "power bolt", chance = 10000, maxCount = 3},
+	{name = "onyx arrow", chance = 10000, maxCount = 2},
+	{name = "great health potion", chance = 7000}
 }
 
 monster.attacks = {

@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,8 @@
 #ifndef FS_BAN_H_CADB975222D745F0BDA12D982F1006E3
 #define FS_BAN_H_CADB975222D745F0BDA12D982F1006E3
 
+#include <string>
+
 struct BanInfo {
 	std::string bannedBy;
 	std::string reason;
@@ -27,8 +29,8 @@ struct BanInfo {
 };
 
 struct ConnectBlock {
-	constexpr ConnectBlock(uint64_t lastAttempt, uint64_t blockTime, uint32_t count) :
-		lastAttempt(lastAttempt), blockTime(blockTime), count(count) {}
+	ConnectBlock(uint64_t lastAttempt, uint64_t blockTime, uint32_t count) :
+				lastAttempt(lastAttempt), blockTime(blockTime), count(count) {}
 
 	uint64_t lastAttempt;
 	uint64_t blockTime;
@@ -40,9 +42,20 @@ using IpConnectMap = std::map<uint32_t, ConnectBlock>;
 class Ban
 {
 	public:
+		// Singleton - ensures we don't accidentally copy it
+		Ban(Ban const&) = delete;
+		void operator=(Ban const&) = delete;
+
+		static Ban& getInstance() {
+			// Guaranteed to be destroyed
+			static Ban instance;
+			// Instantiated on first use
+			return instance;
+		}
 		bool acceptConnection(uint32_t clientIP);
 
 	private:
+		Ban() {}
 		IpConnectMap ipConnectMap;
 		std::recursive_mutex lock;
 };
@@ -53,6 +66,11 @@ class IOBan
 		static bool isAccountBanned(uint32_t accountId, BanInfo& banInfo);
 		static bool isIpBanned(uint32_t clientIP, BanInfo& banInfo);
 		static bool isPlayerNamelocked(uint32_t playerId);
+
+		static uint32_t getAccountID(const std::string& playerName);
+		static uint32_t getAccountLastIP(const std::string& playerName);
 };
+
+constexpr auto g_ban = &Ban::getInstance;
 
 #endif

@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,8 +34,7 @@ class ChatChannel
 	public:
 		ChatChannel() = default;
 		ChatChannel(uint16_t channelId, std::string channelName):
-			name(std::move(channelName)),
-			id(channelId) {}
+			id(channelId), name(std::move(channelName)) {}
 
 		virtual ~ChatChannel() = default;
 
@@ -73,6 +72,9 @@ class ChatChannel
 	protected:
 		UsersMap users;
 
+		uint16_t id;
+
+	private:
 		std::string name;
 
 		int32_t canJoinEvent = -1;
@@ -80,7 +82,6 @@ class ChatChannel
 		int32_t onLeaveEvent = -1;
 		int32_t onSpeakEvent = -1;
 
-		uint16_t id;
 		bool publicChannel = false;
 
 	friend class Chat;
@@ -94,8 +95,8 @@ class PrivateChatChannel final : public ChatChannel
 		uint32_t getOwner() const override {
 			return owner;
 		}
-		void setOwner(uint32_t newOwner) {
-			this->owner = newOwner;
+		void setOwner(uint32_t owner) {
+			this->owner = owner;
 		}
 
 		bool isInvited(uint32_t guid) const;
@@ -116,16 +117,23 @@ class PrivateChatChannel final : public ChatChannel
 		uint32_t owner = 0;
 };
 
-using ChannelList = std::list<ChatChannel*>;
+using ChannelList = std::vector<ChatChannel*>;
 
 class Chat
 {
 	public:
 		Chat();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Chat(const Chat&) = delete;
 		Chat& operator=(const Chat&) = delete;
+
+		static Chat& getInstance() {
+			// Guaranteed to be destroyed
+			static Chat instance;
+			// Instantiated on first use
+			return instance;
+		}
 
 		bool load();
 
@@ -137,6 +145,7 @@ class Chat
 		void removeUserFromAllChannels(const Player& player);
 
 		bool talkToChannel(const Player& player, SpeakClasses type, const std::string& text, uint16_t channelId);
+		void openChannelsByServer(Player* player);
 
 		ChannelList getChannelList(const Player& player);
 
@@ -150,6 +159,7 @@ class Chat
 		}
 
 	private:
+		std::vector<uint16_t> cachedChannels;
 		std::map<uint16_t, ChatChannel> normalChannels;
 		std::map<uint16_t, PrivateChatChannel> privateChannels;
 		std::map<Party*, ChatChannel> partyChannels;
@@ -159,5 +169,7 @@ class Chat
 
 		PrivateChatChannel dummyPrivate;
 };
+
+constexpr auto g_chat = &Chat::getInstance;
 
 #endif

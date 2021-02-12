@@ -76,17 +76,17 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = "gold coin", chance = 55000, maxCount = 90},
-	{id = "obsidian lance", chance = 1110},
-	{id = "orcish axe", chance = 1320},
-	{id = "crossbow", chance = 440},
-	{id = "bow", chance = 5210},
-	{id = "meat", chance = 24600},
-	{id = "silkweaver bow", chance = 70},
-	{id = "orc tooth", chance = 3890},
-	{id = "shaggy tail", chance = 10090},
-	{id = "broken crossbow", chance = 4830},
-	{id = "orc leather", chance = 3800}
+	{name = "gold coin", chance = 55000, maxCount = 90},
+	{name = "obsidian lance", chance = 1110},
+	{name = "orcish axe", chance = 1320},
+	{name = "crossbow", chance = 440},
+	{name = "bow", chance = 5210},
+	{name = "meat", chance = 24600},
+	{name = "silkweaver bow", chance = 70},
+	{name = "orc tooth", chance = 3890},
+	{name = "shaggy tail", chance = 10090},
+	{name = "broken crossbow", chance = 4830},
+	{name = "orc leather", chance = 3800}
 }
 
 monster.attacks = {

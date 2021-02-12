@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,11 +26,6 @@
 
 #include "movement.h"
 #include "imbuements.h"
-
-extern Game g_game;
-extern Vocations g_vocations;
-extern Events* g_events;
-extern Imbuements* g_imbuements;
 
 MoveEvents::MoveEvents() :
 	scriptInterface("MoveEvents Interface")
@@ -332,6 +327,18 @@ MoveEvent* MoveEvents::getEvent(Item* item, MoveEvent_t eventType, slots_t slot)
 		default: slotp = 0; break;
 	}
 
+  if (item->hasAttribute(ITEM_ATTRIBUTE_ACTIONID)) {
+		MoveListMap::iterator it = actionIdMap.find(item->getActionId());
+		if (it != actionIdMap.end()) {
+			std::list<MoveEvent>& moveEventList = it->second.moveEvent[eventType];
+			for (MoveEvent& moveEvent : moveEventList) {
+				if ((moveEvent.getSlot() & slotp) != 0) {
+					return &moveEvent;
+				}
+			}
+		}
+	}
+
 	auto it = itemIdMap.find(item->getID());
 	if (it != itemIdMap.end()) {
 		std::list<MoveEvent>& moveEventList = it->second.moveEvent[eventType];
@@ -604,7 +611,7 @@ bool MoveEvent::configureEvent(const pugi::xml_node& node)
 				continue;
 			}
 
-			int32_t vocationId = g_vocations.getVocationId(vocationNameAttribute.as_string());
+			int32_t vocationId = g_vocations().getVocationId(vocationNameAttribute.as_string());
 			if (vocationId != -1) {
 				vocEquipMap[vocationId] = true;
 				if (vocationNode.attribute("showInDescription").as_bool(true)) {
@@ -696,8 +703,8 @@ uint32_t MoveEvent::EquipItem(MoveEvent* moveEvent, Player* player, Item* item, 
 
 	const ItemType& it = Item::items[item->getID()];
 	if (it.transformEquipTo != 0) {
-		Item* newItem = g_game.transformItem(item, it.transformEquipTo);
-		g_game.startDecay(newItem);
+		Item* newItem = g_game().transformItem(item, it.transformEquipTo);
+		g_game().startDecay(newItem);
 	} else {
 		player->setItemAbility(slot, true);
 	}
@@ -709,10 +716,10 @@ uint32_t MoveEvent::EquipItem(MoveEvent* moveEvent, Player* player, Item* item, 
 			if (info >> 8 == 0) {
 				continue;
 			}
-			imbuement.push_back(g_imbuements->getImbuement(info & 0xFF));
+			imbuement.push_back(g_imbuements().getImbuement(info & 0xFF));
 		}
 		if(!imbuement.empty()) {
-			g_game.startImbuementCountdown(item);
+			g_game().startImbuementCountdown(item);
 			for (Imbuement* ib : imbuement) {
 				player->onEquipImbueItem(ib);
 			}
@@ -734,7 +741,7 @@ uint32_t MoveEvent::EquipItem(MoveEvent* moveEvent, Player* player, Item* item, 
 	}
 
 	if (it.abilities->speed != 0) {
-		g_game.changeSpeed(player, it.abilities->speed);
+		g_game().changeSpeed(player, it.abilities->speed);
 	}
 
 	if (it.abilities->conditionSuppressions != 0) {
@@ -804,8 +811,8 @@ uint32_t MoveEvent::DeEquipItem(MoveEvent*, Player* player, Item* item, slots_t 
 
 	const ItemType& it = Item::items[item->getID()];
 	if (it.transformDeEquipTo != 0) {
-		g_game.transformItem(item, it.transformDeEquipTo);
-		g_game.startDecay(item);
+		g_game().transformItem(item, it.transformDeEquipTo);
+		g_game().startDecay(item);
 	}
 
 	if (it.imbuingSlots > 0) {
@@ -815,7 +822,7 @@ uint32_t MoveEvent::DeEquipItem(MoveEvent*, Player* player, Item* item, slots_t 
 			if (info >> 8 == 0) {
 				continue;
 			}
-			imbuement.push_back(g_imbuements->getImbuement(info & 0xFF));
+			imbuement.push_back(g_imbuements().getImbuement(info & 0xFF));
 		}
 		if(!imbuement.empty()) {
 			for (Imbuement* ib : imbuement) {
@@ -837,7 +844,7 @@ uint32_t MoveEvent::DeEquipItem(MoveEvent*, Player* player, Item* item, slots_t 
 	}
 
 	if (it.abilities->speed != 0) {
-		g_game.changeSpeed(player, -it.abilities->speed);
+		g_game().changeSpeed(player, -it.abilities->speed);
 	}
 
 	if (it.abilities->conditionSuppressions != 0) {
