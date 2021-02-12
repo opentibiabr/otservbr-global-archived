@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,9 +40,16 @@ class Spells final : public BaseEvents
 		Spells();
 		~Spells();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Spells(const Spells&) = delete;
 		Spells& operator=(const Spells&) = delete;
+
+		static Spells& getInstance() {
+			// Guaranteed to be destroyed
+			static Spells instance;
+			// Instantiated on first use
+			return instance;
+		}
 
 		Spell* getSpellByName(const std::string& name);
 		RuneSpell* getRuneSpell(uint32_t id);
@@ -81,6 +88,8 @@ class Spells final : public BaseEvents
 		LuaScriptInterface scriptInterface { "Spell Interface" };
 };
 
+constexpr auto g_spells = &Spells::getInstance;
+
 using RuneSpellFunction = std::function<bool(const RuneSpell* spell, Player* player, const Position& posTo)>;
 
 class BaseSpell
@@ -99,7 +108,7 @@ class CombatSpell final : public Event, public BaseSpell
 		CombatSpell(Combat* combat, bool needTarget, bool needDirection);
 		~CombatSpell();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		CombatSpell(const CombatSpell&) = delete;
 		CombatSpell& operator=(const CombatSpell&) = delete;
 

@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -108,7 +108,7 @@ class ScriptEnvironment
 		ScriptEnvironment();
 		~ScriptEnvironment();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		ScriptEnvironment(const ScriptEnvironment&) = delete;
 		ScriptEnvironment& operator=(const ScriptEnvironment&) = delete;
 
@@ -205,7 +205,7 @@ class LuaScriptInterface
 		explicit LuaScriptInterface(std::string interfaceName);
 		virtual ~LuaScriptInterface();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		LuaScriptInterface(const LuaScriptInterface&) = delete;
 		LuaScriptInterface& operator=(const LuaScriptInterface&) = delete;
 
@@ -1728,9 +1728,16 @@ class LuaEnvironment : public LuaScriptInterface
 		LuaEnvironment();
 		~LuaEnvironment();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		LuaEnvironment(const LuaEnvironment&) = delete;
 		LuaEnvironment& operator=(const LuaEnvironment&) = delete;
+
+		static LuaEnvironment& getInstance() {
+			// Guaranteed to be destroyed
+			static LuaEnvironment instance;
+			// Instantiated on first use
+			return instance;
+		}
 
 		bool initState() override;
 		bool reInitState();
@@ -1765,5 +1772,7 @@ class LuaEnvironment : public LuaScriptInterface
 		friend class LuaScriptInterface;
 		friend class CombatSpell;
 };
+
+constexpr auto g_luaEnvironment2 = &LuaEnvironment::getInstance;
 
 #endif

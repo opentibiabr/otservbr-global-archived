@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,11 +26,6 @@
 #include "events.h"
 #include "weapons.h"
 
-extern Game g_game;
-extern Vocations g_vocations;
-extern ConfigManager g_config;
-extern Weapons* g_weapons;
-extern Events* g_events;
 
 Weapons::Weapons()
 {
@@ -193,7 +188,7 @@ bool Weapon::configureEvent(const pugi::xml_node& node)
 		premium = attr.as_bool();
 	}
 
-	if ((attr = node.attribute("breakchance")) && g_config.getBoolean(ConfigManager::REMOVE_WEAPON_CHARGES)) {
+	if ((attr = node.attribute("breakchance")) && g_config().getBoolean(ConfigManager::REMOVE_WEAPON_CHARGES)) {
 		breakChance = std::min<uint8_t>(100, pugi::cast<uint16_t>(attr.value()));
 	}
 
@@ -218,10 +213,10 @@ bool Weapon::configureEvent(const pugi::xml_node& node)
 			continue;
 		}
 
-		int32_t vocationId = g_vocations.getVocationId(attr.as_string());
+		int32_t vocationId = g_vocations().getVocationId(attr.as_string());
 		if (vocationId != -1) {
 			vocWeaponMap[vocationId] = true;
-			int32_t promotedVocation = g_vocations.getPromotedVocation(vocationId);
+			int32_t promotedVocation = g_vocations().getPromotedVocation(vocationId);
 			if (promotedVocation != VOCATION_NONE) {
 				vocWeaponMap[promotedVocation] = true;
 			}
@@ -448,7 +443,7 @@ void Weapon::internalUseWeapon(Player* player, Item* item, Tile* tile) const
 		executeUseWeapon(player, var);
 	} else {
 		Combat::postCombatEffects(player, tile->getPosition(), params);
-		g_game.addMagicEffect(tile->getPosition(), CONST_ME_POFF);
+		g_game().addMagicEffect(tile->getPosition(), CONST_ME_POFF);
 	}
 
 	onUsedWeapon(player, item, tile);
@@ -487,7 +482,7 @@ void Weapon::onUsedWeapon(Player* player, Item* item, Tile* destTile) const
 
 	switch (action) {
 		case WEAPONACTION_REMOVECOUNT:
-			if(g_config.getBoolean(ConfigManager::REMOVE_WEAPON_AMMO)) {
+			if(g_config().getBoolean(ConfigManager::REMOVE_WEAPON_AMMO)) {
 				Weapon::decrementItemCount(item);
 				player->updateSupplyTracker(item);
 			}
@@ -495,14 +490,14 @@ void Weapon::onUsedWeapon(Player* player, Item* item, Tile* destTile) const
 
 		case WEAPONACTION_REMOVECHARGE: {
 			uint16_t charges = item->getCharges();
-			if (charges != 0 && g_config.getBoolean(ConfigManager::REMOVE_WEAPON_CHARGES)) {
-				g_game.transformItem(item, item->getID(), charges - 1);
+			if (charges != 0 && g_config().getBoolean(ConfigManager::REMOVE_WEAPON_CHARGES)) {
+				g_game().transformItem(item, item->getID(), charges - 1);
 			}
 			break;
 		}
 
 		case WEAPONACTION_MOVE:
-			g_game.internalMoveItem(item->getParent(), destTile, INDEX_WHEREEVER, item, 1, nullptr, FLAG_NOLIMIT);
+			g_game().internalMoveItem(item->getParent(), destTile, INDEX_WHEREEVER, item, 1, nullptr, FLAG_NOLIMIT);
 			break;
 
 		default:
@@ -567,9 +562,9 @@ void Weapon::decrementItemCount(Item* item)
 {
 	uint16_t count = item->getItemCount();
 	if (count > 1) {
-		g_game.transformItem(item, item->getID(), count - 1);
+		g_game().transformItem(item, item->getID(), count - 1);
 	} else {
-		g_game.internalRemoveItem(item);
+		g_game().internalRemoveItem(item);
 	}
 }
 
@@ -708,7 +703,7 @@ bool WeaponDistance::useWeapon(Player* player, Item* item, Creature* target) con
 	const ItemType& it = Item::items[id];
 	if (it.weaponType == WEAPON_AMMO) {
 		Item* mainWeaponItem = player->getWeapon(true);
-		const Weapon* mainWeapon = g_weapons->getWeapon(mainWeaponItem);
+		const Weapon* mainWeapon = g_weapons().getWeapon(mainWeaponItem);
 		if (mainWeapon) {
 			damageModifier = mainWeapon->playerWeaponCheck(player, target, mainWeaponItem->getShootRange());
 		} else {
@@ -848,7 +843,7 @@ bool WeaponDistance::useWeapon(Player* player, Item* item, Creature* target) con
 
 			for (const auto& dir : destList) {
 				// Blocking tiles or tiles without ground ain't valid targets for spears
-				Tile* tmpTile = g_game.map.getTile(destPos.x + dir.first, destPos.y + dir.second, destPos.z);
+				Tile* tmpTile = g_game().map.getTile(destPos.x + dir.first, destPos.y + dir.second, destPos.z);
 				if (tmpTile && !tmpTile->hasFlag(TILESTATE_IMMOVABLEBLOCKSOLID) && tmpTile->getGround() != nullptr) {
 					destTile = tmpTile;
 					break;

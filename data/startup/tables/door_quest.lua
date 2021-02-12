@@ -671,6 +671,24 @@ QuestDoorAction = {
 			{x = 33371, y = 31349, z = 4},
 			{x = 33376, y = 31335, z = 3}
 		}
+	},
+	-- The Rookie Guard Quest - Mission 07: Attack!
+	-- The library vault door
+	[Storage.TheRookieGuard.LibraryDoor] = {
+		itemId = false,
+		itemPos = {{x = 32090, y = 32156, z = 9}}
+	},
+	-- The Rookie Guard Quest - Mission 10: Tomb Raiding
+	-- The unholy crypt door
+	[Storage.TheRookieGuard.UnholyCryptDoor] = {
+		itemId = false,
+		itemPos = {{x = 32147, y = 32186, z = 9}}
+	},
+	-- The Rookie Guard Quest - Mission 12: Into The Fortress
+	-- Lower academy floor door
+	[Storage.TheRookieGuard.AcademyDoor] = {
+		itemId = false,
+		itemPos = {{x = 32109, y = 32189, z = 8}}
 	}
 }
 

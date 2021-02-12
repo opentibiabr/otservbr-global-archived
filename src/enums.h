@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -457,6 +457,7 @@ enum ConditionType_t {
 	CONDITION_PACIFIED = 1 << 25,
 	CONDITION_SPELLCOOLDOWN = 1 << 26,
 	CONDITION_SPELLGROUPCOOLDOWN = 1 << 27,
+	CONDITION_ROOTED = 1 << 28,
 };
 
 enum ConditionId_t : int8_t {
@@ -726,6 +727,40 @@ struct ShopInfo {
 };
 
 struct MarketOffer {
+	MarketOffer() = default;
+	MarketOffer(uint32_t price, uint32_t timestamp, uint16_t amount, uint16_t counter, uint16_t itemId, std::string playerName) :
+		price(price), timestamp(timestamp), amount(amount), counter(counter), itemId(itemId), playerName(std::move(playerName)) {}
+
+	// copyable
+	MarketOffer(const MarketOffer& rhs) :
+		price(rhs.price), timestamp(rhs.timestamp), amount(rhs.amount), counter(rhs.counter), itemId(rhs.itemId), playerName(rhs.playerName) {}
+	MarketOffer& operator=(const MarketOffer& rhs) {
+		if (this != &rhs) {
+			price = rhs.price;
+			timestamp = rhs.timestamp;
+			amount = rhs.amount;
+			counter = rhs.counter;
+			itemId = rhs.itemId;
+			playerName = rhs.playerName;
+		}
+		return *this;
+	}
+
+	// moveable
+	MarketOffer(MarketOffer&& rhs) noexcept :
+		price(rhs.price), timestamp(rhs.timestamp), amount(rhs.amount), counter(rhs.counter), itemId(rhs.itemId), playerName(std::move(rhs.playerName)) {}
+	MarketOffer& operator=(MarketOffer&& rhs) noexcept {
+		if (this != &rhs) {
+			price = rhs.price;
+			timestamp = rhs.timestamp;
+			amount = rhs.amount;
+			counter = rhs.counter;
+			itemId = rhs.itemId;
+			playerName = std::move(rhs.playerName);
+		}
+		return *this;
+	}
+
 	uint32_t price;
 	uint32_t timestamp;
 	uint16_t amount;
@@ -753,6 +788,10 @@ struct MarketOfferEx {
 };
 
 struct HistoryMarketOffer {
+	HistoryMarketOffer() = default;
+	HistoryMarketOffer(uint32_t timestamp, uint32_t price, uint16_t itemId, uint16_t amount, MarketOfferState_t state) :
+		timestamp(timestamp), price(price), itemId(itemId), amount(amount), state(state) {}
+
 	uint32_t timestamp;
 	uint32_t price;
 	uint16_t itemId;
@@ -822,8 +861,8 @@ struct CombatDamage
 
 using StashContainerList = std::map<uint16_t, std::pair<bool, uint32_t>>;
 using StashItemList = std::map<uint16_t, uint32_t>;
-using MarketOfferList = std::list<MarketOffer>;
-using HistoryMarketOfferList = std::list<HistoryMarketOffer>;
+using MarketOfferList = std::vector<MarketOffer>;
+using HistoryMarketOfferList = std::vector<HistoryMarketOffer>;
 using ShopInfoList = std::vector<ShopInfo>;
 
 enum MonstersEvent_t : uint8_t {
@@ -996,6 +1035,36 @@ enum Webhook_Colors_t : uint32_t {
 	WEBHOOK_COLOR_OFFLINE = 0xFF0000,
 	WEBHOOK_COLOR_WARNING = 0xFFFF00,
 	WEBHOOK_COLOR_RAID = 0x0000FF
+};
+
+/**
+  * [OTServer BR]
+  * Team assemble finder.
+  * This class is responsible control and manage the team finder feature.
+**/
+
+class TeamFinder
+{
+ public:
+	TeamFinder() = default;
+	TeamFinder(uint16_t initMinLevel, uint16_t initMaxLevel, uint8_t initVocationIDs, uint16_t initTeamSlots, uint16_t initFreeSlots, bool initPartyBool, uint32_t initTimestamp, uint8_t initTeamType, uint16_t initBossID, uint16_t initHunt_type, uint16_t initHunt_area, uint16_t initQuestID, uint32_t initLeaderGuid, std::map<uint32_t, uint8_t> initMembersMap) :
+		minLevel(initMinLevel), maxLevel(initMaxLevel), vocationIDs(initVocationIDs), teamSlots(initTeamSlots), freeSlots(initFreeSlots), partyBool(initPartyBool), timestamp(initTimestamp), teamType(initTeamType), bossID(initBossID), hunt_type(initHunt_type), hunt_area(initHunt_area), questID(initQuestID), leaderGuid(initLeaderGuid), membersMap(initMembersMap) {}
+	virtual ~TeamFinder() = default;
+
+	uint16_t minLevel = 0;
+	uint16_t maxLevel = 0;
+	uint8_t vocationIDs = 0;
+	uint16_t teamSlots = 0;
+	uint16_t freeSlots = 0;
+	bool partyBool = false;
+	uint32_t timestamp = 0;
+	uint8_t teamType = 0;
+	uint16_t bossID = 0;
+	uint16_t hunt_type = 0;
+	uint16_t hunt_area = 0;
+	uint16_t questID = 0;
+	uint32_t leaderGuid = 0;
+	std::map<uint32_t, uint8_t> membersMap = {}; // list: player:getGuid(), player status
 };
 
 #endif

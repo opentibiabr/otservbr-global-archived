@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -112,6 +112,14 @@ std::string getObjectCategoryName(ObjectCategory_t category);
 int64_t OTSYS_TIME();
 
 SpellGroup_t stringToSpellGroup(std::string value);
+
+#if defined(__SSE4_2__)
+int tfs_strncmp(const char* s1, const char* s2, size_t n);
+int tfs_strcmp(const char* s1, const char* s2);
+#else
+#define tfs_strncmp strncmp
+#define tfs_strcmp strcmp
+#endif
 
 static inline Cipbia_Elementals_t getCipbiaElement(CombatType_t combatType) {
 	switch (combatType) {

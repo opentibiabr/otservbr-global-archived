@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,15 +27,14 @@ struct GuildRank {
 	std::string name;
 	uint8_t level;
 
-	GuildRank(uint32_t initId, std::string initName, uint8_t initLevel) :
-		id(initId), name(std::move(initName)), level(initLevel) {}
+	GuildRank(uint32_t id, std::string name, uint8_t level) :
+		id(id), name(std::move(name)), level(level) {}
 };
 
-using GuildRank_ptr = std::shared_ptr<GuildRank>;
 class Guild
 {
 	public:
-		Guild(uint32_t initId, std::string initName) : name(std::move(initName)), id(initId) {}
+		Guild(uint32_t id, std::string name) : name(std::move(name)), id(id) {}
 
 		void addMember(Player* player);
 		void removeMember(Player* player);
@@ -55,37 +54,37 @@ class Guild
 		void setMemberCount(uint32_t count) {
 			memberCount = count;
 		}
-    uint64_t getBankBalance() const {
-      return bankBalance;
-    }
-    void setBankBalance(uint64_t balance) {
-      bankBalance = balance;
-    }
-
-		const std::vector<GuildRank_ptr>& getRanks() const {
-			return ranks;
+		uint64_t getBankBalance() const {
+			return bankBalance;
+		}
+		void setBankBalance(uint64_t balance) {
+			bankBalance = balance;
 		}
 
-		GuildRank_ptr getRankById(uint32_t id);
-		GuildRank_ptr getRankByName(const std::string& name) const;
-		GuildRank_ptr getRankByLevel(uint8_t level) const;
-		void addRank(uint32_t id, const std::string& name, uint8_t level);
+		const std::forward_list<GuildRank>& getRanks() const {
+			return ranks;
+		}
+		GuildRank* getRankById(uint32_t rankId);
+		const GuildRank* getRankByName(const std::string& name) const;
+		const GuildRank* getRankByLevel(uint8_t level) const;
+		void addRank(uint32_t rankId, const std::string& rankName, uint8_t level);
 
 		const std::string& getMotd() const {
 			return motd;
 		}
-		void setMotd(const std::string& newMotd) {
-			this->motd = newMotd;
+		void setMotd(const std::string& motd) {
+			this->motd = motd;
 		}
 
 	private:
 		std::list<Player*> membersOnline;
-		std::vector<GuildRank_ptr> ranks;
+		std::forward_list<GuildRank> ranks;
 		std::string name;
-    uint64_t bankBalance = 0;
 		std::string motd;
 		uint32_t id;
 		uint32_t memberCount = 0;
+	
+		uint64_t bankBalance = 0;
 };
 
 #endif

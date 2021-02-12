@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,8 +21,6 @@
 
 #include "tools.h"
 #include "configmanager.h"
-
-extern ConfigManager g_config;
 
 void printXMLError(const std::string& where, const std::string& fileName, const pugi::xml_parse_result& result)
 {
@@ -1437,3 +1435,60 @@ std::string getObjectCategoryName(ObjectCategory_t category)
 		default: return std::string();
 	}
 }
+
+#if defined(__SSE4_2__)
+int tfs_strncmp(const char* s1, const char* s2, size_t n)
+{
+	__m128i* ptr1 = reinterpret_cast<__m128i*>(const_cast<char*>(s1));
+	__m128i* ptr2 = reinterpret_cast<__m128i*>(const_cast<char*>(s2));
+
+	const uint8_t mode = (_SIDD_UBYTE_OPS | _SIDD_CMP_EQUAL_EACH | _SIDD_NEGATIVE_POLARITY | _SIDD_LEAST_SIGNIFICANT);
+	for (; n != 0; ++ptr1, ++ptr2) {
+		const __m128i a = _mm_loadu_si128(ptr1);
+		const __m128i b = _mm_loadu_si128(ptr2);
+		if (_mm_cmpestrc(a, n, b, n, mode)) {
+			const auto idx = _mm_cmpestri(a, n, b, n, mode);
+
+			const uint8_t b1 = (reinterpret_cast<char*>(ptr1))[idx];
+			const uint8_t b2 = (reinterpret_cast<char*>(ptr2))[idx];
+			if (b1 < b2) {
+				return -1;
+			} else if (b1 > b2) {
+				return 1;
+			} else {
+				return 0;
+			}
+		}
+		n = (n > 16 ? n - 16 : 0);
+	}
+	return 0;
+}
+
+int tfs_strcmp(const char* s1, const char* s2)
+{
+	__m128i* ptr1 = reinterpret_cast<__m128i*>(const_cast<char*>(s1));
+	__m128i* ptr2 = reinterpret_cast<__m128i*>(const_cast<char*>(s2));
+
+	const uint8_t mode = (_SIDD_UBYTE_OPS | _SIDD_CMP_EQUAL_EACH | _SIDD_NEGATIVE_POLARITY | _SIDD_LEAST_SIGNIFICANT);
+	for (; ; ++ptr1, ++ptr2) {
+		const __m128i a = _mm_loadu_si128(ptr1);
+		const __m128i b = _mm_loadu_si128(ptr2);
+		if (_mm_cmpistrc(a, b, mode)) {
+			const auto idx = _mm_cmpistri(a, b, mode);
+
+			const uint8_t b1 = (reinterpret_cast<char*>(ptr1))[idx];
+			const uint8_t b2 = (reinterpret_cast<char*>(ptr2))[idx];
+			if (b1 < b2) {
+				return -1;
+			} else if (b1 > b2) {
+				return 1;
+			} else {
+				return 0;
+			}
+		} else if (_mm_cmpistrz(a, b, mode)) {
+			break;
+		}
+	}
+	return 0;
+}
+#endif

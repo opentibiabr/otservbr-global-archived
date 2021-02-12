@@ -15,6 +15,114 @@ function onThink()
     npcHandler:onThink()
 end
 
+local function greetCallback(cid)
+	local player = Player(cid)
+	if player:getStorageValue(Storage.TheRookieGuard.Mission04) == 2 then
+		npcHandler:setMessage(MESSAGE_GREET, "Greetings, traveller |PLAYERNAME|. You must be the one sent by Lily. Do you have a sack of {herbs} for me?")
+	elseif player:getStorageValue(Storage.TheRookieGuard.Mission04) == 3 or player:getStorageValue(Storage.TheRookieGuard.Mission04) == 4 then
+		npcHandler:setMessage(MESSAGE_GREET, "Greetings, traveller |PLAYERNAME|. I still have a present for you! Would you like to have it now?")
+	else
+		npcHandler:setMessage(MESSAGE_GREET, 'Greetings, traveller |PLAYERNAME|. As you have found the way to my hut, how can I {help} you?')
+	end
+	return true
+end
+
+-- The Rookie Guard Quest - Mission 04: Home-Brewed
+
+-- Mission 4: Confirm (Give herbs)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Thank you so much! I'm just too old to walk into the village each day, and the herbs must be fresh. Say, would you like to have a sample of my potions as reward?"
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 2 and player:getItemCount(13827) >= 1 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission04, 3)
+	player:removeItem(13827, 1)
+end
+)
+keywordHandler:addAliasKeyword({"herbs"})
+
+-- Mission 4: Decline (Give herbs)
+local mission4LostHerbs = keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Well, then I must have mistaken you with someone else. Or did you lose it on the way?"
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 2 end
+)
+
+-- Mission 4: Confirm (Lost herbs)
+mission4LostHerbs:addChildKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "That's too bad... but I'm sure Lily could give you another one. Just walk back and talk to her again.",
+	reset = true
+})
+
+-- Mission 4: Decline (Lost herbs)
+mission4LostHerbs:addChildKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Alright then. Good luck on your travels.",
+	ungreet = true
+})
+
+-- Mission 4: Accept (First reward)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"Here you go - two small health potions. If you use them on yourself, they will recover some of your hitpoints. ...",
+		"I recommend setting them on a hotkey so you don't have to search for them in a case of emergency. ...",
+		"Once you are a bit more experienced and have chosen a vocation, you'll have access to many different potions and also spells to restore your health. ...",
+		"Oh, and I also have another present for you! Do you still have some space in your inventory?"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 3 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission04, 4)
+	player:addItemEx(Game.createItem(8704, 2), true, CONST_SLOT_BACKPACK)
+end
+)
+
+-- Mission 4: Accept (Second reward)
+keywordHandler:addKeyword({"yes"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = {
+		"Take this star ring. When you wear it in your ring slot, it will improve the effect of food that you have eaten for a limited time. So as long as you're not hungry, you will have increased hitpoint regeneration. ...",
+		"It makes sense to undress it when you have full hitpoints, so that the effect of the ring won't be wasted. ...",
+		"There are a lot of different rings in Tibia, but this one only works as long as you haven't learnt a vocation, so don't be afraid to use it. ...",
+		"Anyway, thanks so much for your help. I can brew a lot of potions from these herbs. If you're in the area and find yourself in need of potions, don't hesitate to drop by and ask me for a {trade}. ...",
+		"Anyway, this old man has taken enough of your time. Why don't you go back to the village and talk to Vascalir? If you stay on the path, you should be safe. Don't forget your potions!"
+	}
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 4 end,
+function(player)
+	player:setStorageValue(Storage.TheRookieGuard.Mission04, 5)
+	player:addItemEx(Game.createItem(13825, 1), true, CONST_SLOT_BACKPACK)
+end
+)
+
+-- Mission 4: Decline (First reward)
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Oh, but I insist! After all you made the long way. Please, take my reward!"
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 3 end
+)
+
+-- Mission 4: Decline (Second reward)
+keywordHandler:addKeyword({"no"}, StdModule.say,
+{
+	npcHandler = npcHandler,
+	text = "Well, make some space and then talk to me again. I give you something really useful."
+},
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 4 end
+)
+
 -- Basic Keywords
 keywordHandler:addKeyword({'hint'}, StdModule.rookgaardHints, {npcHandler = npcHandler})
 keywordHandler:addKeyword({'time'}, StdModule.say, {npcHandler = npcHandler, text = 'Time doesn\'t matter to me.'})
@@ -85,6 +193,6 @@ keywordHandler:addAliasKeyword({'zerbrus'})
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'May Crunor bless you.')
 npcHandler:setMessage(MESSAGE_FAREWELL, 'May Crunor bless you.')
 npcHandler:setMessage(MESSAGE_SENDTRADE, 'Here. Don\'t forget, if you buy potions, there\'s a {deposit} of 5 gold on the empty flask.')
-npcHandler:setMessage(MESSAGE_GREET, 'Greetings, traveller |PLAYERNAME|. As you have found the way to my hut, how can I {help} you?')
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 
 npcHandler:addModule(FocusModule:new())
