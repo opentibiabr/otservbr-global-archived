@@ -84,7 +84,7 @@ function sarcophagus.onUse(player, item, frompos, item2, topos)
 	if missionState == -1 then
 		return true
 	end
-	if missionState == 1 then
+	if missionState >= 1 then
 		local sarcophagusState = player:getStorageValue(Storage.TheRookieGuard.Sarcophagus)
 		if sarcophagusState == -1 then
 			local reward = Game.createItem(13830, 1)
