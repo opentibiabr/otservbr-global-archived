@@ -274,6 +274,6 @@ target_link_libraries(otbr otbr_lib ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
                       ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY}
                       ${PUGIXML_LIBRARIES} ${CRYPTOPP_LIBRARIES}
                       ${CMAKE_THREAD_LIBS_INIT} ${CURL_LIBRARIES} ${GMP_LIBRARIES} ${ZLIB_LIBRARIES}
-                      spdlog::spdlog ALIAS otbr_lib
+                      ${SPDLOG_LIBRARY}
                       jsoncpp_lib
 )
