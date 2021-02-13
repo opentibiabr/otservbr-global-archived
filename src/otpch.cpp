@@ -18,4 +18,3 @@
  */
 
 #include "otpch.h"
-#include "spdlog/spdlog.h"
