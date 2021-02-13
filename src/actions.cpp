@@ -95,8 +95,7 @@ bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node)
 	} else if ((attr = node.attribute("fromid"))) {
 		pugi::xml_attribute toIdAttribute = node.attribute("toid");
 		if (!toIdAttribute) {
-			spdlog::warn("[Actions::registerEvent] - Missing toid in "
-                        "fromid: {}", attr.as_string());
+			spdlog::warn("[Actions::registerEvent] - Missing toid in fromid: {}", attr.as_string());
 			return false;
 		}
 
@@ -611,8 +610,7 @@ bool Action::executeUse(Player* player, Item* item, const Position& fromPosition
 {
 	//onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[Action::executeUse - Player {}, on item {}] "
-                    "Call stack overflow. Too many lua script calls being nested.",
+		spdlog::error("[Action::executeUse - Player {}, on item {}] Call stack overflow. Too many lua script calls being nested.",
                     player->getName(), item->getName());
 		return false;
 	}
