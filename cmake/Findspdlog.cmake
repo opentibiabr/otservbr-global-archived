@@ -6,9 +6,8 @@ find_path(SPDLOG_INCLUDE_DIR spdlog/spdlog.h
 find_library(SPDLOG_LIBRARY NAMES spdlog spdlogd
     HINTS ${SPDLOG_ROOT_DIR}/lib ${SPDLOG_ROOT_DIR}/lib64)
 
-include(FindPackageHandleStandardArgs)
-
 find_package_handle_standard_args(spdlog DEFAULT_MSG SPDLOG_INCLUDE_DIR SPDLOG_LIBRARY)
+MARK_AS_ADVANCED(SPDLOG_LIBRARY SPDLOG_INCLUDE_DIR)
 
 # Add imported target.
 if(SPDLOG_FOUND)
