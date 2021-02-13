@@ -4,7 +4,7 @@
 #   Spdlog_INCLUDE_DIR
 #   Spdlog_LIBRARIES
 
-find_path(Spdlog_INCLUDE_DIR NAMES cryptopp/cryptlib.h)
+find_path(Spdlog_INCLUDE_DIR NAMES spdlog/spdlog.h)
 find_library(Spdlog_LIBRARIES NAMES cryptopp libcryptopp)
 
 include(FindPackageHandleStandardArgs)
