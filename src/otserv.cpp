@@ -17,8 +17,6 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include <spdlog/spdlog.h>
-
 #include "otpch.h"
 
 #include <fstream>
@@ -67,9 +65,6 @@ void badAllocationHandler() {
 
 #ifndef UNIT_TESTING
 int main(int argc, char* argv[]) {
-	#ifdef DEBUG
-		spdlog::set_pattern("[%Y-%d-%m %H:%M:%S.%e] [file %@] [func %!] [thread %t] [%l] %v ");
-	#endif
 
 	// Setup bad allocation handler
 	std::set_new_handler(badAllocationHandler);

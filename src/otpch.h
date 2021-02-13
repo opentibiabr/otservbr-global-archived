@@ -46,5 +46,6 @@
 #include <pugixml.hpp>
 #include "robin_hood.h"
 #include "simd.h"
+#include "spdlog/spdlog.h"
 
 #endif
