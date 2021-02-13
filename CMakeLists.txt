@@ -7,6 +7,12 @@ cmake_minimum_required(VERSION 3.5)
 # Enable interprocedural optimization for a target.
 set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
 
+# Global gives error when building spdlog
+# Avoid changes by cmake/make on the source tree
+# https://gitlab.kitware.com/cmake/cmake/issues/18403
+set(CMAKE_DISABLE_SOURCE_CHANGES ON)
+set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
+
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -67,7 +73,6 @@ find_package(MySQL REQUIRED)
 find_package(Threads REQUIRED)
 find_package(CURL REQUIRED)
 find_package(jsoncpp REQUIRED)
-find_package(Spdlog REQUIRED)
 find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams date_time REQUIRED)
 
 # Selects LuaJIT if user defines or auto-detected
@@ -267,10 +272,10 @@ endif()
 # *****************************************************************************
 include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR}
                     ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR}
-                    ${CRYPTOPP_INCLUDE_DIR} ${CURL_INCLUDE_DIRS} ${GMP_INCLUDE_DIRS} ${ZLIB_INCLUDE_DIRS} ${spdlog_INCLUDE_DIR} $<TARGET_PROPERTY:jsoncpp_lib,INTERFACE_INCLUDE_DIRECTORIES>)
+                    ${CRYPTOPP_INCLUDE_DIR} ${CURL_INCLUDE_DIRS} ${GMP_INCLUDE_DIRS} ${ZLIB_INCLUDE_DIRS} $<TARGET_PROPERTY:jsoncpp_lib,INTERFACE_INCLUDE_DIRECTORIES>)
 
 target_link_libraries(otbr otbr_lib ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
                       ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY}
                       ${PUGIXML_LIBRARIES} ${CRYPTOPP_LIBRARIES}
-                      ${CMAKE_THREAD_LIBS_INIT} ${CURL_LIBRARIES} ${GMP_LIBRARIES} ${ZLIB_LIBRARIES} ${Spdlog_LIBRARIES} jsoncpp_lib
+                      ${CMAKE_THREAD_LIBS_INIT} ${CURL_LIBRARIES} ${GMP_LIBRARIES} ${ZLIB_LIBRARIES} jsoncpp_lib
 )
