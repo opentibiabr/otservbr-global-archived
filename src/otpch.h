@@ -22,6 +22,7 @@
 
 // Definitions should be global.
 #include "definitions.h"
+#include "spdlog/spdlog.h"
 
 #include <algorithm>
 #include <chrono>
@@ -46,6 +47,5 @@
 #include <pugixml.hpp>
 #include "robin_hood.h"
 #include "simd.h"
-#include "spdlog/spdlog.h"
 
 #endif
