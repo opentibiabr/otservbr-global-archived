@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -140,7 +140,7 @@ class Player final : public Creature, public Cylinder
 		explicit Player(ProtocolGame_ptr p);
 		~Player();
 
-		// Singleton - ensures we don't accidentally copy it
+		// non-copyable
 		Player(const Player&) = delete;
 		Player& operator=(const Player&) = delete;
 
@@ -219,7 +219,6 @@ class Player final : public Creature, public Cylinder
 			return guid;
 		}
 		bool canSeeInvisibility() const override {
-			if (!group) return false;
 			return hasFlag(PlayerFlag_CanSenseInvisibility) || group->access;
 		}
 
@@ -340,10 +339,10 @@ class Player final : public Creature, public Cylinder
 		}
 		void setGuild(Guild* guild);
 
-		const GuildRank* getGuildRank() const {
+		  GuildRank_ptr getGuildRank() const {
 			return guildRank;
 		}
-		void setGuildRank(const GuildRank* newGuildRank) {
+		void setGuildRank(GuildRank_ptr newGuildRank) {
 			guildRank = newGuildRank;
 		}
 
@@ -450,7 +449,6 @@ class Player final : public Creature, public Cylinder
 		}
 
 		bool hasFlag(PlayerFlags value) const {
-			if (!group) return false;
 			return (group->flags & value) != 0;
 		}
 
@@ -580,7 +578,6 @@ class Player final : public Creature, public Cylinder
 			return soul;
 		}
 		bool isAccessPlayer() const {
-			if (!group) return false;
 			return group->access;
 		}
 		bool isPremium() const;
@@ -592,7 +589,7 @@ class Player final : public Creature, public Cylinder
 
 		bool setVocation(uint16_t vocId);
 		uint16_t getVocationId() const {
-			return vocation ? vocation->getId() : 0;
+			return vocation->getId();
 		}
 
 		PlayerSex_t getSex() const {
@@ -615,7 +612,7 @@ class Player final : public Creature, public Cylinder
 			return loginPosition;
 		}
 		const Position& getTemplePosition() const {
-			return town ? town->getTemplePosition() : getPosition();
+			return town->getTemplePosition();
 		}
 		Town* getTown() const {
 			return town;
@@ -1873,12 +1870,11 @@ class Player final : public Creature, public Cylinder
 		bool isItemStorable(Item* item);
 		ItemDeque getAllStorableItemsInContainer(Item* container);
 
-		void stopNextWalkActionTask();
-		void stopNextWalkTask();
-		void stopNextActionTask();
-		void setNextWalkActionTask(uint32_t delay, std::function<void (void)> f);
-		void setNextWalkTask(uint32_t delay, std::function<void (void)> f);
-		void setNextActionTask(uint32_t delay, std::function<void (void)> f);
+		void setNextWalkActionTask(SchedulerTask* task);
+		void setNextWalkTask(SchedulerTask* task);
+		void setNextActionTask(SchedulerTask* task, bool resetIdleTime = true);
+		void setNextActionPushTask(SchedulerTask* task);
+		void setNextPotionActionTask(SchedulerTask* task);
 
 		void death(Creature* lastHitCreature) override;
 		bool dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreature, bool lastHitUnjustified, bool mostDamageUnjustified) override;
@@ -1960,9 +1956,6 @@ class Player final : public Creature, public Cylinder
 		uint64_t lastAttack = 0;
 		uint64_t bankBalance = 0;
 		uint64_t lastQuestlogUpdate = 0;
-		uint64_t walkTaskEvent = 0;
-		uint64_t asyncOngoingTasks = 0;
-
 		int64_t lastFailedFollow = 0;
 		int64_t skullTicks = 0;
 		int64_t lastWalkthroughAttempt = 0;
@@ -1974,12 +1967,13 @@ class Player final : public Creature, public Cylinder
 		int64_t nextPotionAction = 0;
 		int64_t lastQuickLootNotification = 0;
 		int64_t lastWalking = 0;
+    uint64_t asyncOngoingTasks = 0;
 
 		std::vector<Kill> unjustifiedKills;
 
 		BedItem* bedItem = nullptr;
 		Guild* guild = nullptr;
-		const GuildRank* guildRank;
+		GuildRank_ptr guildRank;
 		Group* group = nullptr;
 		Inbox* inbox;
 		Item* imbuing = nullptr; // for intarnal use
@@ -1991,7 +1985,7 @@ class Player final : public Creature, public Cylinder
 		Party* party = nullptr;
 		Player* tradePartner = nullptr;
 		ProtocolGame_ptr client;
-		std::pair<uint32_t, std::function<void (void)>>* walkTask = nullptr;
+		SchedulerTask* walkTask = nullptr;
 		Town* town = nullptr;
 		Vocation* vocation = nullptr;
 		RewardChest* rewardChest = nullptr;
@@ -2008,6 +2002,7 @@ class Player final : public Creature, public Cylinder
 		uint32_t actionTaskEventPush = 0;
 		uint32_t actionPotionTaskEvent = 0;
 		uint32_t nextStepEvent = 0;
+		uint32_t walkTaskEvent = 0;
 		uint32_t MessageBufferTicks = 0;
 		uint32_t lastIP = 0;
 		uint32_t accountNumber = 0;
@@ -2122,7 +2117,7 @@ class Player final : public Creature, public Cylinder
 			return std::max<int32_t>(PLAYER_MIN_SPEED, std::min<int32_t>(PLAYER_MAX_SPEED, getSpeed()));
 		}
 		void updateBaseSpeed() {
-			if (vocation && !hasFlag(PlayerFlag_SetMaxSpeed)) {
+			if (!hasFlag(PlayerFlag_SetMaxSpeed)) {
 				baseSpeed = vocation->getBaseSpeed() + (2 * (level - 1));
 			} else {
 				baseSpeed = PLAYER_MAX_SPEED;
@@ -2132,7 +2127,7 @@ class Player final : public Creature, public Cylinder
 		bool isPromoted() const;
 
 		uint32_t getAttackSpeed() const {
-			return vocation ? vocation->getAttackSpeed() : DEFAULT_ATTACK_SPEED;
+			return vocation->getAttackSpeed();
 		}
 
 		static double_t getPercentLevel(uint64_t count, uint64_t nextLevelCount);

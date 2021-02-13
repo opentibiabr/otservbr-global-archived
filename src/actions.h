@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -238,16 +238,9 @@ class Actions final : public BaseEvents
 		Actions();
 		~Actions();
 
-		// Singleton - ensures we don't accidentally copy it
+		// non-copyable
 		Actions(const Actions&) = delete;
 		Actions& operator=(const Actions&) = delete;
-
-		static Actions& getInstance() {
-			// Guaranteed to be destroyed
-			static Actions instance;
-			// Instantiated on first use
-			return instance;
-		}
 
 		bool useItem(Player* player, const Position& pos, uint8_t index, Item* item, bool isHotkey);
 		bool useItemEx(Player* player, const Position& fromPos, const Position& toPos, uint8_t toStackPos, Item* item, bool isHotkey, Creature* creature = nullptr);
@@ -278,7 +271,5 @@ class Actions final : public BaseEvents
 
 		LuaScriptInterface scriptInterface;
 };
-
-constexpr auto g_actions = &Actions::getInstance;
 
 #endif

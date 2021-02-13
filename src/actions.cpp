@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,6 +27,11 @@
 #include "pugicast.h"
 #include "spells.h"
 #include "rewardchest.h"
+
+extern Game g_game;
+extern Spells* g_spells;
+extern Actions* g_actions;
+extern ConfigManager g_config;
 
 Actions::Actions() :
 	scriptInterface("Action Interface")
@@ -297,7 +302,7 @@ ReturnValue Actions::canUseFar(const Creature* creature, const Position& toPos,
 		return RETURNVALUE_TOOFARAWAY;
 	}
 
-	if (checkLineOfSight && !g_game().canThrowObjectTo(creaturePos, toPos)) {
+	if (checkLineOfSight && !g_game.canThrowObjectTo(creaturePos, toPos)) {
 		return RETURNVALUE_CANNOTTHROW;
 	}
 
@@ -326,7 +331,7 @@ Action* Actions::getAction(const Item* item)
 	}
 
 	//rune items
-	return g_spells().getRuneSpell(item->getID());
+	return g_spells->getRuneSpell(item->getID());
 }
 
 ReturnValue Actions::internalUseItem(Player* player, const Position& pos, uint8_t index, Item* item, bool isHotkey)
@@ -361,7 +366,7 @@ ReturnValue Actions::internalUseItem(Player* player, const Position& pos, uint8_
 
 		if (bed->trySleep(player)) {
 			player->setBedItem(bed);
-			g_game().sendOfflineTrainingDialog(player);
+			g_game.sendOfflineTrainingDialog(player);
 		}
 
 		return RETURNVALUE_NOERROR;
@@ -456,9 +461,9 @@ bool Actions::useItem(Player* player, const Position& pos, uint8_t index, Item* 
 			return false;
 		}
 
-		player->setNextPotionAction(OTSYS_TIME() + g_config().getNumber(ConfigManager::ACTIONS_DELAY_INTERVAL));
+		player->setNextPotionAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::ACTIONS_DELAY_INTERVAL));
 	} else {
-		player->setNextAction(OTSYS_TIME() + g_config().getNumber(ConfigManager::ACTIONS_DELAY_INTERVAL));
+		player->setNextAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::ACTIONS_DELAY_INTERVAL));
 	}
 
 	if (isHotkey) {
@@ -483,9 +488,9 @@ bool Actions::useItemEx(Player* player, const Position& fromPos, const Position&
 			player->sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED);
 			return false;
 		}
-		player->setNextPotionAction(OTSYS_TIME() + g_config().getNumber(ConfigManager::EX_ACTIONS_DELAY_INTERVAL));
+		player->setNextPotionAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::EX_ACTIONS_DELAY_INTERVAL));
 	} else {
-		player->setNextAction(OTSYS_TIME() + g_config().getNumber(ConfigManager::EX_ACTIONS_DELAY_INTERVAL));
+		player->setNextAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::EX_ACTIONS_DELAY_INTERVAL));
 	}
 
 	Action* action = getAction(item);
@@ -567,10 +572,10 @@ std::string Action::getScriptEventName() const
 ReturnValue Action::canExecuteAction(const Player* player, const Position& toPos)
 {
 	if (!allowFarUse) {
-		return g_actions().canUse(player, toPos);
+		return g_actions->canUse(player, toPos);
 	}
 
-	return g_actions().canUseFar(player, toPos, checkLineOfSight, checkFloor);
+	return g_actions->canUseFar(player, toPos, checkLineOfSight, checkFloor);
 }
 
 Thing* Action::getTarget(Player* player, Creature* targetCreature,
@@ -579,7 +584,7 @@ Thing* Action::getTarget(Player* player, Creature* targetCreature,
 	if (targetCreature != nullptr) {
 		return targetCreature;
 	}
-	return g_game().internalGetThing(player, toPosition, toStackPos, 0, STACKPOS_USETARGET);
+	return g_game.internalGetThing(player, toPosition, toStackPos, 0, STACKPOS_USETARGET);
 }
 
 bool Action::executeUse(Player* player, Item* item, const Position& fromPosition, Thing* target, const Position& toPosition, bool isHotkey)

@@ -3,7 +3,7 @@
  *
  *
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -37,7 +37,8 @@ Account::Account() {
   premium_remaining_days_ = 0;
   premium_last_day_ = 0;
   account_type_ = ACCOUNT_TYPE_NORMAL;
-  db_tasks_ = &g_databaseTasks();
+  db_ = &Database::getInstance();
+  db_tasks_ = &g_databaseTasks;
 }
 
 Account::Account(uint32_t id) {
@@ -47,7 +48,8 @@ Account::Account(uint32_t id) {
   premium_remaining_days_ = 0;
   premium_last_day_ = 0;
   account_type_ = ACCOUNT_TYPE_NORMAL;
-  db_tasks_ = &g_databaseTasks();
+  db_ = &Database::getInstance();
+  db_tasks_ = &g_databaseTasks;
 }
 
 Account::Account(std::string name) {
@@ -57,7 +59,8 @@ Account::Account(std::string name) {
   premium_remaining_days_ = 0;
   premium_last_day_ = 0;
   account_type_ = ACCOUNT_TYPE_NORMAL;
-  db_tasks_ = &g_databaseTasks();
+  db_ = &Database::getInstance();
+  db_tasks_ = &g_databaseTasks;
 }
 
 

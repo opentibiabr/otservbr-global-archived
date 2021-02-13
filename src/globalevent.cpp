@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,8 +22,10 @@
 #include "configmanager.h"
 #include "globalevent.h"
 #include "tools.h"
-#include "tasks.h"
+#include "scheduler.h"
 #include "pugicast.h"
+
+extern ConfigManager g_config;
 
 GlobalEvents::GlobalEvents() :
 	scriptInterface("GlobalEvent Interface")
@@ -49,9 +51,9 @@ void GlobalEvents::clearMap(GlobalEventMap& map, bool fromLua)
 
 void GlobalEvents::clear(bool fromLua)
 {
-	g_dispatcher().stopEvent(thinkEventId);
+	g_scheduler.stopEvent(thinkEventId);
 	thinkEventId = 0;
-	g_dispatcher().stopEvent(timerEventId);
+	g_scheduler.stopEvent(timerEventId);
 	timerEventId = 0;
 
 	clearMap(thinkMap, fromLua);
@@ -71,65 +73,61 @@ Event_ptr GlobalEvents::getEvent(const std::string& nodeName)
 
 bool GlobalEvents::registerEvent(Event_ptr event, const pugi::xml_node&)
 {
-	GlobalEvent_ptr globalEvent{ static_cast<GlobalEvent*>(event.release()) }; //event is guaranteed to be a GlobalEvent
-
-	std::string name = globalEvent->getName();
+	GlobalEvent_ptr globalEvent{static_cast<GlobalEvent*>(event.release())}; //event is guaranteed to be a GlobalEvent
 	if (globalEvent->getEventType() == GLOBALEVENT_TIMER) {
-		auto result = timerMap.emplace(name, std::move(*globalEvent));
+		auto result = timerMap.emplace(globalEvent->getName(), std::move(*globalEvent));
 		if (result.second) {
 			if (timerEventId == 0) {
-				timerEventId = g_dispatcher().addEvent(SERVER_BEAT_MILISECONDS, std::bind(&GlobalEvents::timer, this));
+				timerEventId = g_scheduler.addEvent(createSchedulerTask(SCHEDULER_MINTICKS, std::bind(&GlobalEvents::timer, this)));
 			}
 			return true;
 		}
 	} else if (globalEvent->getEventType() != GLOBALEVENT_NONE) {
-		auto result = serverMap.emplace(name, std::move(*globalEvent));
+		auto result = serverMap.emplace(globalEvent->getName(), std::move(*globalEvent));
 		if (result.second) {
 			return true;
 		}
 	} else { // think event
-		auto result = thinkMap.emplace(name, std::move(*globalEvent));
+		auto result = thinkMap.emplace(globalEvent->getName(), std::move(*globalEvent));
 		if (result.second) {
 			if (thinkEventId == 0) {
-				thinkEventId = g_dispatcher().addEvent(SERVER_BEAT_MILISECONDS, std::bind(&GlobalEvents::think, this));
+				thinkEventId = g_scheduler.addEvent(createSchedulerTask(SCHEDULER_MINTICKS, std::bind(&GlobalEvents::think, this)));
 			}
 			return true;
 		}
 	}
 
-	std::cout << "[Warning - GlobalEvents::configureEvent] Duplicate registered globalevent with name: " << name << std::endl;
+	std::cout << "[Warning - GlobalEvents::configureEvent] Duplicate registered globalevent with name: " << globalEvent->getName() << std::endl;
 	return false;
 }
 
 bool GlobalEvents::registerLuaEvent(GlobalEvent* event)
 {
 	GlobalEvent_ptr globalEvent{ event };
-
-	std::string name = globalEvent->getName();
 	if (globalEvent->getEventType() == GLOBALEVENT_TIMER) {
-		auto result = timerMap.emplace(name, std::move(*globalEvent));
+		auto result = timerMap.emplace(globalEvent->getName(), std::move(*globalEvent));
 		if (result.second) {
 			if (timerEventId == 0) {
-				timerEventId = g_dispatcher().addEvent(SERVER_BEAT_MILISECONDS, std::bind(&GlobalEvents::timer, this));
+				timerEventId = g_scheduler.addEvent(createSchedulerTask(SCHEDULER_MINTICKS, std::bind(&GlobalEvents::timer, this)));
 			}
 			return true;
 		}
 	} else if (globalEvent->getEventType() != GLOBALEVENT_NONE) {
-		auto result = serverMap.emplace(name, std::move(*globalEvent));
+		auto result = serverMap.emplace(globalEvent->getName(), std::move(*globalEvent));
 		if (result.second) {
 			return true;
 		}
 	} else { // think event
-		auto result = thinkMap.emplace(name, std::move(*globalEvent));
+		auto result = thinkMap.emplace(globalEvent->getName(), std::move(*globalEvent));
 		if (result.second) {
 			if (thinkEventId == 0) {
-				thinkEventId = g_dispatcher().addEvent(SERVER_BEAT_MILISECONDS, std::bind(&GlobalEvents::think, this));
+				thinkEventId = g_scheduler.addEvent(createSchedulerTask(SCHEDULER_MINTICKS, std::bind(&GlobalEvents::think, this)));
 			}
 			return true;
 		}
 	}
 
-	std::cout << "[Warning - GlobalEvents::configureEvent] Duplicate registered globalevent with name: " << name << std::endl;
+	std::cout << "[Warning - GlobalEvents::configureEvent] Duplicate registered globalevent with name: " << globalEvent->getName() << std::endl;
 	return false;
 }
 
@@ -174,7 +172,8 @@ void GlobalEvents::timer()
 	}
 
 	if (nextScheduledTime != std::numeric_limits<int64_t>::max()) {
-		timerEventId = g_dispatcher().addEvent(std::max<int64_t>(1000, nextScheduledTime * 1000), std::bind(&GlobalEvents::timer, this));
+		timerEventId = g_scheduler.addEvent(createSchedulerTask(std::max<int64_t>(1000, nextScheduledTime * 1000),
+							                std::bind(&GlobalEvents::timer, this)));
 	}
 }
 
@@ -207,7 +206,7 @@ void GlobalEvents::think()
 	}
 
 	if (nextScheduledTime != std::numeric_limits<int64_t>::max()) {
-		thinkEventId = g_dispatcher().addEvent(nextScheduledTime, std::bind(&GlobalEvents::think, this));
+		thinkEventId = g_scheduler.addEvent(createSchedulerTask(nextScheduledTime, std::bind(&GlobalEvents::think, this)));
 	}
 }
 
@@ -227,6 +226,7 @@ GlobalEventMap GlobalEvents::getEventMap(GlobalEvent_t type)
 	switch (type) {
 		case GLOBALEVENT_NONE: return thinkMap;
 		case GLOBALEVENT_TIMER: return timerMap;
+		case GLOBALEVENT_PERIODCHANGE:
 		case GLOBALEVENT_STARTUP:
 		case GLOBALEVENT_SHUTDOWN:
 		case GLOBALEVENT_RECORD: {
@@ -311,7 +311,7 @@ bool GlobalEvent::configureEvent(const pugi::xml_node& node)
 			return false;
 		}
 	} else if ((attr = node.attribute("interval"))) {
-		interval = std::max<int32_t>(SERVER_BEAT_MILISECONDS, pugi::cast<int32_t>(attr.value()));
+		interval = std::max<int32_t>(SCHEDULER_MINTICKS, pugi::cast<int32_t>(attr.value()));
 		nextExecution = OTSYS_TIME() + interval;
 	} else {
 		std::cout << "[Error - GlobalEvent::configureEvent] No interval for globalevent with name " << name << std::endl;
