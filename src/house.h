@@ -43,22 +43,6 @@ class AccessList
 
 		void getList(std::string& list) const;
 
-		void setMaxBeds(uint32_t maxBeds) {
-			this->maxBeds = maxBeds;
-		}
-
-		uint32_t getMaxBeds() const {
-			return maxBeds;
-		}
-
-		void setBedsCount(uint32_t bedsCount) {
-			this->bedsCount = bedsCount;
-		}
-
-		uint32_t getBedsCount() const {
-			return bedsCount;
-		}
-
 	private:
 		std::string list;
 		std::unordered_set<uint32_t> playerList;
@@ -237,6 +221,22 @@ class House
 		}
 		uint32_t getBedCount() {
 			return static_cast<uint32_t>(std::ceil(bedsList.size() / 2.)); //each bed takes 2 sqms of space, ceil is just for bad maps
+		}
+
+		void setMaxBeds(uint32_t maxBeds) {
+			this->maxBeds = maxBeds;
+		}
+
+		uint32_t getMaxBeds() const {
+			return maxBeds;
+		}
+
+		void setBedsCount(uint32_t bedsCount) {
+			this->bedsCount = bedsCount;
+		}
+
+		uint32_t getBedsCount() const {
+			return bedsCount;
 		}
 
 	private:
