@@ -30,11 +30,6 @@ else()
   cmake_policy(VERSION 3.15)
 endif()
 
-# Avoid changes by cmake/make on the source tree
-# https://gitlab.kitware.com/cmake/cmake/issues/18403
-set(CMAKE_DISABLE_SOURCE_CHANGES ON)
-set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
-
 find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)
     set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
@@ -279,6 +274,6 @@ target_link_libraries(otbr otbr_lib ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
                       ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY}
                       ${PUGIXML_LIBRARIES} ${CRYPTOPP_LIBRARIES}
                       ${CMAKE_THREAD_LIBS_INIT} ${CURL_LIBRARIES} ${GMP_LIBRARIES} ${ZLIB_LIBRARIES}
-                      spdlog::spdlog
+                      spdlog::spdlog ALIAS otbr_lib
                       jsoncpp_lib
 )
