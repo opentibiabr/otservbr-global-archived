@@ -21,7 +21,6 @@
 #define FS_OTPCH_H_F00C737DA6CA4C8D90F57430C614367F
 
 // Definitions should be global.
-#include "spdlog/spdlog.h"
 #include "definitions.h"
 
 #include <algorithm>
@@ -47,5 +46,6 @@
 #include <pugixml.hpp>
 #include "robin_hood.h"
 #include "simd.h"
+#include "spdlog/spdlog.h"
 
 #endif
