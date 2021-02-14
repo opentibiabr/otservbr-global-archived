@@ -17,6 +17,7 @@ set(otbr_SRC
 	${CMAKE_CURRENT_LIST_DIR}/database.cpp
 	${CMAKE_CURRENT_LIST_DIR}/databasemanager.cpp
 	${CMAKE_CURRENT_LIST_DIR}/databasetasks.cpp
+	${CMAKE_CURRENT_LIST_DIR}/definitions.h
 	${CMAKE_CURRENT_LIST_DIR}/depotchest.cpp
 	${CMAKE_CURRENT_LIST_DIR}/depotlocker.cpp
 	${CMAKE_CURRENT_LIST_DIR}/events.cpp
@@ -63,7 +64,9 @@ set(otbr_SRC
 	${CMAKE_CURRENT_LIST_DIR}/reward.cpp
 	${CMAKE_CURRENT_LIST_DIR}/rewardchest.cpp
 	${CMAKE_CURRENT_LIST_DIR}/rsa.cpp
-	${CMAKE_CURRENT_LIST_DIR}/scripts.cpp
+	${CMAKE_CURRENT_LIST_DIR}/scheduler.cpp
+	${CMAKE_CURRENT_LIST_DIR}/scriptmanager.cpp
+	${CMAKE_CURRENT_LIST_DIR}/script.cpp
 	${CMAKE_CURRENT_LIST_DIR}/server.cpp
 	${CMAKE_CURRENT_LIST_DIR}/signals.cpp
 	${CMAKE_CURRENT_LIST_DIR}/spawn.cpp
@@ -80,4 +83,5 @@ set(otbr_SRC
 	${CMAKE_CURRENT_LIST_DIR}/weapons.cpp
 	${CMAKE_CURRENT_LIST_DIR}/webhook.cpp
 	${CMAKE_CURRENT_LIST_DIR}/wildcardtree.cpp
+	${CMAKE_CURRENT_LIST_DIR}/xtea.cpp
 	PARENT_SCOPE)

@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -84,7 +84,7 @@ struct Floor {
 	constexpr Floor() = default;
 	~Floor();
 
-	// Singleton - ensures we don't accidentally copy it
+	// non-copyable
 	Floor(const Floor&) = delete;
 	Floor& operator=(const Floor&) = delete;
 
@@ -100,7 +100,7 @@ class QTreeNode
 		constexpr QTreeNode() = default;
 		virtual ~QTreeNode();
 
-		// Singleton - ensures we don't accidentally copy it
+		// non-copyable
 		QTreeNode(const QTreeNode&) = delete;
 		QTreeNode& operator=(const QTreeNode&) = delete;
 
@@ -141,7 +141,7 @@ class QTreeLeafNode final : public QTreeNode
 		QTreeLeafNode() { leaf = true; newLeaf = true; }
 		~QTreeLeafNode();
 
-		// Singleton - ensures we don't accidentally copy it
+		// non-copyable
 		QTreeLeafNode(const QTreeLeafNode&) = delete;
 		QTreeLeafNode& operator=(const QTreeLeafNode&) = delete;
 
@@ -224,7 +224,7 @@ class Map
 						   int32_t minRangeX = 0, int32_t maxRangeX = 0,
 						   int32_t minRangeY = 0, int32_t maxRangeY = 0);
 
-		void clearSpectatorCache(bool clearPlayer);
+		void clearSpectatorCache();
 
 		/**
 		  * Checks if you can throw an object to that position
