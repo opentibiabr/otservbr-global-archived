@@ -4,6 +4,6 @@
 	<look type="683" head="97" body="0" legs="96" feet="114" addons="3"/>
 	<parameters>
 		<parameter key="module_shop" value="1"/>
-		<parameter key="shop_buyable" value="royal spear,7378,100;"/>
+		<parameter key="shop_buyable" value="royal spear, 7378, 100;"/>
 	</parameters>
 </npc>
