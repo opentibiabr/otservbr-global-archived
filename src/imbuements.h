@@ -41,17 +41,6 @@ struct Category {
 
 class Imbuements {
 	public:
-		// Singleton - ensures we don't accidentally copy it
-		Imbuements(Imbuements const&) = delete;
-		void operator=(Imbuements const&) = delete;
-
-		static Imbuements& getInstance() {
-			// Guaranteed to be destroyed
-			static Imbuements instance;
-			// Instantiated on first use
-			return instance;
-		}
-
 		bool loadFromXml(bool reloading = false);
 		bool reload();
 
@@ -71,7 +60,6 @@ class Imbuements {
 		bool loaded = false;
 
 	private:
-		Imbuements() {}
 		uint32_t runningid = 0;
 
 };
@@ -137,7 +125,5 @@ class Imbuement
 
 		std::vector<std::pair<uint16_t, uint16_t>> items;
 };
-
-constexpr auto g_imbuements = &Imbuements::getInstance;
 
 #endif

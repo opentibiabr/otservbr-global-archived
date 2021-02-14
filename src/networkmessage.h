@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,7 +41,7 @@ class NetworkMessage
 		enum { CHECKSUM_LENGTH = 4 };
 		enum { XTEA_MULTIPLE = 8 };
 		enum { MAX_BODY_LENGTH = NETWORKMESSAGE_MAXSIZE - HEADER_LENGTH - CHECKSUM_LENGTH - XTEA_MULTIPLE };
-		enum { MAX_PROTOCOL_BODY_LENGTH = MAX_BODY_LENGTH - XTEA_MULTIPLE };
+		enum { MAX_PROTOCOL_BODY_LENGTH = MAX_BODY_LENGTH - 10 };
 
 		NetworkMessage() = default;
 
@@ -108,18 +108,7 @@ class NetworkMessage
 
 		void addString(const std::string& value);
 
-		template<uint8_t precision>
-		inline void addDouble(double value) {
-			if (!canAdd(5)) {
-				return;
-			}
-
-			uint32_t doubleValue = (value * std::pow(10.0, precision)) + std::numeric_limits<int32_t>::max();
-			buffer[info.position] = precision;
-			memcpy(buffer + info.position + 1, &doubleValue, sizeof(doubleValue));
-			info.position += sizeof(doubleValue) + 1;
-			info.length += sizeof(doubleValue) + 1;
-		}
+		void addDouble(double value, uint8_t precision = 2);
 
 		// write functions for complex types
 		void addPosition(const Position& pos);
@@ -137,13 +126,15 @@ class NetworkMessage
 			return info.position;
 		}
 
-		void setBufferPosition(MsgSize_t newPosition) {
-			info.position = newPosition;
-		}
+    void setBufferPosition(MsgSize_t newPosition) {
+      info.position = newPosition;
+    }
 
 		uint16_t getLengthHeader() const {
 			return static_cast<uint16_t>(buffer[0] | buffer[1] << 8);
 		}
+
+		int32_t decodeHeader();
 
 		bool isOverrun() const {
 			return info.overrun;
@@ -158,21 +149,11 @@ class NetworkMessage
 		}
 
 		uint8_t* getBodyBuffer() {
-			info.position = HEADER_LENGTH;
+			info.position = 2;
 			return buffer + HEADER_LENGTH;
 		}
 
 	protected:
-		struct NetworkMessageInfo {
-			MsgSize_t length = 0;
-			MsgSize_t position = INITIAL_BUFFER_POSITION;
-			bool overrun = false;
-		};
-
-		NetworkMessageInfo info;
-		uint8_t buffer[NETWORKMESSAGE_MAXSIZE];
-
-	private:
 		bool canAdd(size_t size) const {
 			return (size + info.position) < MAX_BODY_LENGTH;
 		}
@@ -184,6 +165,15 @@ class NetworkMessage
 			}
 			return true;
 		}
+
+		struct NetworkMessageInfo {
+			MsgSize_t length = 0;
+			MsgSize_t position = INITIAL_BUFFER_POSITION;
+			bool overrun = false;
+		};
+
+		NetworkMessageInfo info;
+		uint8_t buffer[NETWORKMESSAGE_MAXSIZE];
 };
 
 #endif // #ifndef __NETWORK_MESSAGE_H__

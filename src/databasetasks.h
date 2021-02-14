@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,8 +26,8 @@
 #include "enums.h"
 
 struct DatabaseTask {
-	DatabaseTask(std::string&& query, std::function<void(DBResult_ptr, bool)>&& callback, bool store) :
-		query(std::move(query)), callback(std::move(callback)), store(store) {}
+	DatabaseTask(std::string&& initQuery, std::function<void(DBResult_ptr, bool)>&& initCallback, bool initStore) :
+		query(std::move(initQuery)), callback(std::move(initCallback)), store(initStore) {}
 
 	std::string query;
 	std::function<void(DBResult_ptr, bool)> callback;
@@ -37,21 +37,12 @@ struct DatabaseTask {
 class DatabaseTasks : public ThreadHolder<DatabaseTasks>
 {
 	public:
-		DatabaseTasks() = default;
-
-		// Singleton - ensures we don't accidentally copy it
-		DatabaseTasks(DatabaseTasks const&) = delete;
-		void operator=(DatabaseTasks const&) = delete;
-
-		static DatabaseTasks& getInstance() {
-			// Guaranteed to be destroyed
-			static DatabaseTasks instance;
-			// Instantiated on first use
-			return instance;
-		}
-
-		void flush();
-		void shutdown();
+		DatabaseTasks();
+    bool SetDatabaseInterface(Database *database);
+    void start();
+    void startThread();
+    void flush();
+    void shutdown();
 
 		void addTask(std::string query, std::function<void(DBResult_ptr, bool)> callback = nullptr, bool store = false);
 
@@ -59,14 +50,13 @@ class DatabaseTasks : public ThreadHolder<DatabaseTasks>
 	private:
 		void runTask(const DatabaseTask& task);
 
-		Database db;
+		Database *db_;
+		std::thread thread;
 		std::list<DatabaseTask> tasks;
 		std::mutex taskLock;
 		std::condition_variable taskSignal;
-		std::condition_variable flushSignal;
-		bool flushTasks = false;
 };
 
-constexpr auto g_databaseTasks = &DatabaseTasks::getInstance;
+extern DatabaseTasks g_databaseTasks;
 
 #endif

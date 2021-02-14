@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,8 +25,12 @@
 
 #include "game.h"
 #include "configmanager.h"
+#include "scheduler.h"
 #include "monster.h"
 #include "webhook.h"
+
+extern Game g_game;
+extern ConfigManager g_config;
 
 Raids::Raids()
 {
@@ -117,8 +121,7 @@ bool Raids::startup()
 
 	setLastRaidEnd(OTSYS_TIME());
 
-	checkRaidsEvent = g_dispatcher().addEvent(CHECK_RAIDS_INTERVAL * 1000,
-                                              std::bind(&Raids::checkRaids, this));
+	checkRaidsEvent = g_scheduler.addEvent(createSchedulerTask(CHECK_RAIDS_INTERVAL * 1000, std::bind(&Raids::checkRaids, this)));
 
 	started = true;
 	return started;
@@ -145,13 +148,12 @@ void Raids::checkRaids()
 		}
 	}
 
-	checkRaidsEvent = g_dispatcher().addEvent(CHECK_RAIDS_INTERVAL * 1000,
-                                              std::bind(&Raids::checkRaids, this));
+	checkRaidsEvent = g_scheduler.addEvent(createSchedulerTask(CHECK_RAIDS_INTERVAL * 1000, std::bind(&Raids::checkRaids, this)));
 }
 
 void Raids::clear()
 {
-	g_dispatcher().stopEvent(checkRaidsEvent);
+	g_scheduler.stopEvent(checkRaidsEvent);
 	checkRaidsEvent = 0;
 
 	for (Raid* raid : raidList) {
@@ -213,7 +215,7 @@ bool Raid::loadFromXml(const std::string& filename)
 		} else if (strcasecmp(eventNode.name(), "areaspawn") == 0) {
 			event = new AreaSpawnEvent();
 		} else if (strcasecmp(eventNode.name(), "script") == 0) {
-			event = new ScriptEvent(&g_game().raids.getScriptInterface());
+			event = new ScriptEvent(&g_game.raids.getScriptInterface());
 		} else {
 			continue;
 		}
@@ -240,8 +242,7 @@ void Raid::startRaid()
 	RaidEvent* raidEvent = getNextRaidEvent();
 	if (raidEvent) {
 		state = RAIDSTATE_EXECUTING;
-		nextEventEvent = g_dispatcher().addEvent(raidEvent->getDelay(),
-                                                 std::bind(&Raid::executeRaidEvent, this, raidEvent));
+		nextEventEvent = g_scheduler.addEvent(createSchedulerTask(raidEvent->getDelay(), std::bind(&Raid::executeRaidEvent, this, raidEvent)));
 	}
 }
 
@@ -253,8 +254,7 @@ void Raid::executeRaidEvent(RaidEvent* raidEvent)
 
 		if (newRaidEvent) {
 			uint32_t ticks = static_cast<uint32_t>(std::max<int32_t>(RAID_MINTICKS, newRaidEvent->getDelay() - raidEvent->getDelay()));
-			nextEventEvent = g_dispatcher().addEvent(ticks, std::bind(&Raid::executeRaidEvent,
-                                                                      this, newRaidEvent));
+			nextEventEvent = g_scheduler.addEvent(createSchedulerTask(ticks, std::bind(&Raid::executeRaidEvent, this, newRaidEvent)));
 		} else {
 			resetRaid();
 		}
@@ -267,14 +267,14 @@ void Raid::resetRaid()
 {
 	nextEvent = 0;
 	state = RAIDSTATE_IDLE;
-	g_game().raids.setRunning(nullptr);
-	g_game().raids.setLastRaidEnd(OTSYS_TIME());
+	g_game.raids.setRunning(nullptr);
+	g_game.raids.setLastRaidEnd(OTSYS_TIME());
 }
 
 void Raid::stopEvents()
 {
 	if (nextEventEvent != 0) {
-		g_dispatcher().stopEvent(nextEventEvent);
+		g_scheduler.stopEvent(nextEventEvent);
 		nextEventEvent = 0;
 	}
 }
@@ -340,7 +340,8 @@ bool AnnounceEvent::configureRaidEvent(const pugi::xml_node& eventNode)
 
 bool AnnounceEvent::executeEvent()
 {
-	g_game().broadcastMessage(message, messageType);
+	g_game.broadcastMessage(message, messageType);
+  webhook_send_message("Incoming raid!", message, WEBHOOK_COLOR_RAID);
 	return true;
 }
 
@@ -389,7 +390,7 @@ bool SingleSpawnEvent::executeEvent()
 		return false;
 	}
 
-	if (!g_game().placeCreature(monster, position, false, true)) {
+	if (!g_game.placeCreature(monster, position, false, true)) {
 		delete monster;
 		std::cout << "[Error] Raids: Cant place monster " << monsterName << std::endl;
 		return false;
@@ -532,8 +533,8 @@ bool AreaSpawnEvent::executeEvent()
 
 			bool success = false;
 			for (int32_t tries = 0; tries < MAXIMUM_TRIES_PER_MONSTER; tries++) {
-				Tile* tile = g_game().map.getTile(uniform_random(fromPos.x, toPos.x), uniform_random(fromPos.y, toPos.y), uniform_random(fromPos.z, toPos.z));
-				if (tile && !tile->isMoveableBlocking() && !tile->hasFlag(TILESTATE_PROTECTIONZONE) && tile->getTopCreature() == nullptr && g_game().placeCreature(monster, tile->getPosition(), false, true)) {
+				Tile* tile = g_game.map.getTile(uniform_random(fromPos.x, toPos.x), uniform_random(fromPos.y, toPos.y), uniform_random(fromPos.z, toPos.z));
+				if (tile && !tile->isMoveableBlocking() && !tile->hasFlag(TILESTATE_PROTECTIONZONE) && tile->getTopCreature() == nullptr && g_game.placeCreature(monster, tile->getPosition(), false, true)) {
 					success = true;
 					break;
 				}

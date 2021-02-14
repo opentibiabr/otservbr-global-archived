@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,8 +18,12 @@
  */
 
 #include "otpch.h"
+
 #include "guild.h"
+
 #include "game.h"
+
+extern Game g_game;
 
 void Guild::addMember(Player* player)
 {
@@ -29,38 +33,37 @@ void Guild::addMember(Player* player)
 void Guild::removeMember(Player* player)
 {
 	membersOnline.remove(player);
-
 	if (membersOnline.empty()) {
-		g_game().removeGuild(id);
+		g_game.removeGuild(id);
 		delete this;
 	}
 }
 
-GuildRank* Guild::getRankById(uint32_t rankId)
+GuildRank_ptr Guild::getRankById(uint32_t rankId)
 {
-	for (auto& rank : ranks) {
-		if (rank.id == rankId) {
-			return &rank;
+	for (auto rank : ranks) {
+		if (rank->id == rankId) {
+			return rank;
 		}
 	}
 	return nullptr;
 }
 
-const GuildRank* Guild::getRankByName(const std::string& name) const
+GuildRank_ptr Guild::getRankByName(const std::string& guildName) const
 {
-	for (const auto& rank : ranks) {
-		if (rank.name == name) {
-			return &rank;
+	for (auto rank : ranks) {
+		if (rank->name == guildName) {
+			return rank;
 		}
 	}
 	return nullptr;
 }
 
-const GuildRank* Guild::getRankByLevel(uint8_t level) const
+GuildRank_ptr Guild::getRankByLevel(uint8_t level) const
 {
-	for (const auto& rank : ranks) {
-		if (rank.level == level) {
-			return &rank;
+	for (auto rank : ranks) {
+		if (rank->level == level) {
+			return rank;
 		}
 	}
 	return nullptr;
@@ -68,5 +71,5 @@ const GuildRank* Guild::getRankByLevel(uint8_t level) const
 
 void Guild::addRank(uint32_t rankId, const std::string& rankName, uint8_t level)
 {
-	ranks.emplace_front(rankId, rankName, level);
+	ranks.emplace_back(std::make_shared<GuildRank>(rankId,rankName,level));
 }

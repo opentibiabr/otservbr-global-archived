@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,20 +21,11 @@
 #define FS_DATABASE_H_A484B0CDFDE542838F506DCE3D40C693
 
 #include <boost/lexical_cast.hpp>
-
-#ifdef __has_include
-
-#if __has_include(<mysql/mysql.h>)
 #include <mysql/mysql.h>
-#elif __has_include(<mysql.h>)
-#include <mysql.h>
-#else
-#error "Cannot detect mysql library"
-#endif
-
-#else
-#include <mysql.h>
-#endif
+#include <memory>
+#include <mutex>
+#include <map>
+#include <iostream>
 
 class DBResult;
 using DBResult_ptr = std::shared_ptr<DBResult>;
@@ -43,31 +34,22 @@ class Database
 {
 	public:
 		Database() = default;
+		~Database();
 
-		// Singleton - ensures we don't accidentally copy it
+		// non-copyable
 		Database(const Database&) = delete;
 		Database& operator=(const Database&) = delete;
 
-		static Database& getInstance() {
-			// Guaranteed to be destroyed
+		/**
+		 * Singleton implementation.
+		 *
+		 * @return database connection handler singleton
+		 */
+		static Database& getInstance()
+		{
 			static Database instance;
-			// Instantiated on first use
 			return instance;
 		}
-
-		/**
-		 * Inits MySQL Client library
-		 *
-		 * @return true on successful init, false on error
-		 */
-		bool init();
-
-		/**
-		 * Ends MySQL Client library
-		 *
-		 * @return nothing
-		 */
-		void end();
 
 		/**
 		 * Connects to the database
@@ -76,14 +58,22 @@ class Database
 		 */
 		bool connect();
 
-		/**
-		 * Disconnects from the database
-		 *
-		 * @return nothing
-		 */
-		void disconnect();
+    /**
+     * @brief Connect to the database using parameters
+     *
+     * @param host
+     * @param user
+     * @param password
+     * @param database
+     * @param port
+     * @param sock
+     * @return true Success
+     * @return false Fail
+     */
+    bool connect(const char *host, const char *user, const char *password,
+                const char *database, uint32_t port, const char *sock);
 
-		/**
+    /**
 		 * Executes command.
 		 *
 		 * Executes query which doesn't generates results (eg. INSERT, UPDATE, DELETE...).
@@ -157,7 +147,9 @@ class Database
 		bool rollback();
 		bool commit();
 
+	private:
 		MYSQL* handle = nullptr;
+		std::recursive_mutex databaseLock;
 		uint64_t maxPacketSize = 1048576;
 
 	friend class DBTransaction;
@@ -169,7 +161,7 @@ class DBResult
 		explicit DBResult(MYSQL_RES* res);
 		~DBResult();
 
-		// Singleton - ensures we don't accidentally copy it
+		// non-copyable
 		DBResult(const DBResult&) = delete;
 		DBResult& operator=(const DBResult&) = delete;
 
@@ -186,11 +178,25 @@ class DBResult
 				return static_cast<T>(0);
 			}
 
-			T data;
+			T data = { 0 };
 			try {
-				data = boost::lexical_cast<T>(row[it->second], lengths[it->second]);
-			} catch (boost::bad_lexical_cast&) {
-				data = 0;
+				data = boost::lexical_cast<T>(row[it->second]);
+			}
+			catch (boost::bad_lexical_cast&) {
+				// overflow; tries to get it as uint64 (as big as possible);
+				uint64_t u64data;
+				try {
+					u64data = boost::lexical_cast<uint64_t>(row[it->second]);
+					if (u64data > 0) {
+						// is a valid! thus truncate into int max for data type;
+						data = std::numeric_limits<T>::max();
+					}
+				}
+				catch (boost::bad_lexical_cast &e) {
+					// invalid! discard value.
+					std::cout << "[Error - DBResult::getNumber] Column '" << s << "' has an invalid value set: " << e.what() << std::endl;
+					data = 0;
+				}
 			}
 			return data;
 		}
@@ -198,17 +204,15 @@ class DBResult
 		std::string getString(const std::string& s) const;
 		const char* getStream(const std::string& s, unsigned long& size) const;
 
-		size_t countResults() const;
-
+    size_t countResults() const;  
 		bool hasNext() const;
 		bool next();
 
 	private:
 		MYSQL_RES* handle;
 		MYSQL_ROW row;
-		unsigned long* lengths;
 
-		std::unordered_map<std::string, size_t> listNames;
+		std::map<std::string, size_t> listNames;
 
 	friend class Database;
 };
@@ -219,13 +223,12 @@ class DBResult
 class DBInsert
 {
 	public:
-		explicit DBInsert(Database* dtb, std::string query);
+		explicit DBInsert(std::string query);
 		bool addRow(const std::string& row);
 		bool addRow(std::ostringstream& row);
 		bool execute();
 
 	private:
-		Database* dtb;
 		std::string query;
 		std::string values;
 		size_t length;
@@ -234,22 +237,21 @@ class DBInsert
 class DBTransaction
 {
 	public:
-		explicit DBTransaction(Database* dtb) {
-			this->dtb = dtb;
-		}
+		constexpr DBTransaction() = default;
+
 		~DBTransaction() {
 			if (state == STATE_START) {
-				dtb->rollback();
+				Database::getInstance().rollback();
 			}
 		}
 
-		// Singleton - ensures we don't accidentally copy it
+		// non-copyable
 		DBTransaction(const DBTransaction&) = delete;
 		DBTransaction& operator=(const DBTransaction&) = delete;
 
 		bool begin() {
 			state = STATE_START;
-			return dtb->beginTransaction();
+			return Database::getInstance().beginTransaction();
 		}
 
 		bool commit() {
@@ -258,7 +260,7 @@ class DBTransaction
 			}
 
 			state = STATE_COMMIT;
-			return dtb->commit();
+			return Database::getInstance().commit();
 		}
 
 	private:
@@ -268,10 +270,7 @@ class DBTransaction
 			STATE_COMMIT,
 		};
 
-		Database* dtb;
 		TransactionStates_t state = STATE_NO_START;
 };
-
-constexpr auto g_database = &Database::getInstance;
 
 #endif

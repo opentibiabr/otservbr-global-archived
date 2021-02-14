@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,6 +27,8 @@
 #include "const.h"
 #include "vocation.h"
 
+extern Vocations g_vocations;
+
 class Weapon;
 class WeaponMelee;
 class WeaponDistance;
@@ -40,16 +42,9 @@ class Weapons final : public BaseEvents
 		Weapons();
 		~Weapons();
 
-		// Singleton - ensures we don't accidentally copy it
+		// non-copyable
 		Weapons(const Weapons&) = delete;
 		Weapons& operator=(const Weapons&) = delete;
-
-		static Weapons& getInstance() {
-			// Guaranteed to be destroyed
-			static Weapons instance;
-			// Instantiated on first use
-			return instance;
-		}
 
 		void loadDefaults();
 		const Weapon* getWeapon(const Item* item) const;
@@ -70,8 +65,6 @@ class Weapons final : public BaseEvents
 
 		LuaScriptInterface scriptInterface { "Weapon Interface" };
 };
-
-constexpr auto g_weapons = &Weapons::getInstance;
 
 class Weapon : public Event
 {
@@ -188,7 +181,7 @@ class Weapon : public Event
 		}
 
 		void addVocWeaponMap(std::string vocName) {
-			int32_t vocationId = g_vocations().getVocationId(vocName);
+			int32_t vocationId = g_vocations.getVocationId(vocName);
 			if (vocationId != -1) {
 				vocWeaponMap[vocationId] = true;
 			}

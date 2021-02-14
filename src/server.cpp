@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,10 +21,12 @@
 
 #include "outputmessage.h"
 #include "server.h"
-
+#include "scheduler.h"
 #include "configmanager.h"
 #include "ban.h"
-#include "tasks.h"
+
+extern ConfigManager g_config;
+Ban g_bans;
 
 ServiceManager::~ServiceManager()
 {
@@ -108,7 +110,7 @@ void ServicePort::onAccept(Connection_ptr connection, const boost::system::error
 		}
 
 		auto remote_ip = connection->getIP();
-		if (remote_ip != 0 && g_ban().acceptConnection(remote_ip)) {
+		if (remote_ip != 0 && g_bans.acceptConnection(remote_ip)) {
 			Service_ptr service = services.front();
 			if (service->is_single_socket()) {
 				connection->accept(service->make_protocol(connection));
@@ -124,8 +126,8 @@ void ServicePort::onAccept(Connection_ptr connection, const boost::system::error
 		if (!pendingStart) {
 			close();
 			pendingStart = true;
-			g_dispatcher().addEvent(15000, std::bind(&ServicePort::openAcceptor,
-                                                    std::weak_ptr<ServicePort>(shared_from_this()), serverPort));
+			g_scheduler.addEvent(createSchedulerTask(15000,
+			                     std::bind(&ServicePort::openAcceptor, std::weak_ptr<ServicePort>(shared_from_this()), serverPort)));
 		}
 	}
 }
@@ -165,9 +167,9 @@ void ServicePort::open(uint16_t port)
 	pendingStart = false;
 
 	try {
-		if (g_config().getBoolean(ConfigManager::BIND_ONLY_GLOBAL_ADDRESS)) {
+		if (g_config.getBoolean(ConfigManager::BIND_ONLY_GLOBAL_ADDRESS)) {
 			acceptor.reset(new boost::asio::ip::tcp::acceptor(io_service, boost::asio::ip::tcp::endpoint(
-			            boost::asio::ip::address(boost::asio::ip::address_v4::from_string(g_config().getString(ConfigManager::IP))), serverPort)));
+			            boost::asio::ip::address(boost::asio::ip::address_v4::from_string(g_config.getString(ConfigManager::IP))), serverPort)));
 		} else {
 			acceptor.reset(new boost::asio::ip::tcp::acceptor(io_service, boost::asio::ip::tcp::endpoint(
 			            boost::asio::ip::address(boost::asio::ip::address_v4(INADDR_ANY)), serverPort)));
@@ -180,8 +182,8 @@ void ServicePort::open(uint16_t port)
 		std::cout << "[ServicePort::open] Error: " << e.what() << std::endl;
 
 		pendingStart = true;
-		g_dispatcher().addEvent(15000, std::bind(&ServicePort::openAcceptor,
-                                                std::weak_ptr<ServicePort>(shared_from_this()), port));
+		g_scheduler.addEvent(createSchedulerTask(15000,
+		                     std::bind(&ServicePort::openAcceptor, std::weak_ptr<ServicePort>(shared_from_this()), port)));
 	}
 }
 

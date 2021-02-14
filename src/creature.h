@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -103,7 +103,7 @@ class Creature : virtual public Thing
 
 		virtual ~Creature();
 
-		// Singleton - ensures we don't accidentally copy it
+		// non-copyable
 		Creature(const Creature&) = delete;
 		Creature& operator=(const Creature&) = delete;
 
@@ -158,7 +158,6 @@ class Creature : virtual public Thing
 			return skull;
 		}
 		virtual Skulls_t getSkullClient(const Creature* creature) const {
-			if (creature == nullptr) return SKULL_NONE;
 			return creature->getSkull();
 		}
 		void setSkull(Skulls_t newSkull);
@@ -471,7 +470,6 @@ class Creature : virtual public Thing
 			return tile;
 		}
 		void setParent(Cylinder* cylinder) override final {
-			if (cylinder == nullptr) return;
 			tile = static_cast<Tile*>(cylinder);
 			position = tile->getPosition();
 		}
@@ -557,7 +555,7 @@ class Creature : virtual public Thing
 		uint32_t referenceCounter = 0;
 		uint32_t id = 0;
 		uint32_t scriptEventsBitField = 0;
-		uint64_t eventWalk = 0;
+		uint32_t eventWalk = 0;
 		uint32_t walkUpdateTicks = 0;
 		int32_t returnToMasterInterval = 0;
 		uint32_t lastHitCreatureId = 0;
