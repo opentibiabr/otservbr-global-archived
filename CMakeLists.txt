@@ -72,7 +72,7 @@ find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams date_time REQUI
 find_package(LuaJIT)
 if (APPLE)
   set(CMAKE_EXE_LINKER_FLAGS "-pagezero_size 10000 -image_base 100000000")
-
+endif ()
 
 # *****************************************************************************
 # Build Type Release or Debug
