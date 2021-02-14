@@ -11,6 +11,8 @@
 #include "imbuements.h"
 #include "pugicast.h"
 
+extern Events* g_events;
+
 Imbuement* Imbuements::getImbuement(uint16_t id)
 {
 	auto it = imbues.find(id);
@@ -331,7 +333,7 @@ std::vector<Imbuement*> Imbuements::getImbuements(Player* player, Item* item)
 	std::vector<Imbuement*> filtered;
 	for (auto& info : imbues) {
 		Imbuement* imbuement = &info.second;
-		if (!g_events().eventPlayerCanBeAppliedImbuement(player, imbuement, item)) {
+		if (!g_events->eventPlayerCanBeAppliedImbuement(player, imbuement, item)) {
 			continue;
 		}
 

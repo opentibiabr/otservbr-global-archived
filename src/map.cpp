@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,6 +25,8 @@
 #include "creature.h"
 #include "game.h"
 #include "monster.h"
+
+extern Game g_game;
 
 bool Map::loadMap(const std::string& identifier, bool loadHouses, bool loadSpawns)
 {
@@ -467,12 +469,10 @@ void Map::getSpectators(SpectatorHashSet& spectators, const Position& centerPos,
 	}
 }
 
-void Map::clearSpectatorCache(bool clearPlayer)
+void Map::clearSpectatorCache()
 {
 	spectatorCache.clear();
-	if (clearPlayer) {
-		playersSpectatorCache.clear();
-	}
+	playersSpectatorCache.clear();
 }
 
 bool Map::canThrowObjectTo(const Position& fromPos, const Position& toPos, bool checkLineOfSight /*= true*/,
@@ -1162,12 +1162,12 @@ uint32_t Map::clean() const
 	uint64_t start = OTSYS_TIME();
 	size_t tiles = 0;
 
-	if (g_game().getGameState() == GAME_STATE_NORMAL) {
-		g_game().setGameState(GAME_STATE_MAINTAIN);
+	if (g_game.getGameState() == GAME_STATE_NORMAL) {
+		g_game.setGameState(GAME_STATE_MAINTAIN);
 	}
 
 	std::vector<Item*> toRemove;
-	for (auto tile : g_game().getTilesToClean()) {
+	for (auto tile : g_game.getTilesToClean()) {
     if (!tile) {
       continue;
     }
@@ -1182,14 +1182,14 @@ uint32_t Map::clean() const
 	}
 
   for (auto item : toRemove) {
-		g_game().internalRemoveItem(item, -1);
+		g_game.internalRemoveItem(item, -1);
 	}
 
 	size_t count = toRemove.size();
-	g_game().clearTilesToClean();
+	g_game.clearTilesToClean();
 
-	if (g_game().getGameState() == GAME_STATE_MAINTAIN) {
-		g_game().setGameState(GAME_STATE_NORMAL);
+	if (g_game.getGameState() == GAME_STATE_MAINTAIN) {
+		g_game.setGameState(GAME_STATE_NORMAL);
 	}
 
 	std::cout << "> CLEAN: Removed " << count << " item" << (count != 1 ? "s" : "")

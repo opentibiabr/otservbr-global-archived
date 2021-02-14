@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,6 +28,11 @@
 #include "game.h"
 
 #include "pugicast.h"
+
+extern Game g_game;
+extern Spells* g_spells;
+extern Monsters g_monsters;
+extern ConfigManager g_config;
 
 spellBlock_t::~spellBlock_t()
 {
@@ -61,7 +66,7 @@ bool Monsters::loadFromXml(bool reloading /*= false*/)
 	for (auto monsterNode : doc.child("monsters").children()) {
 		std::string name = asLowerCaseString(monsterNode.attribute("name").as_string());
 		std::string file = "data/monster/" + std::string(monsterNode.attribute("file").as_string());
-		auto forceLoad = g_config().getBoolean(ConfigManager::FORCE_MONSTERTYPE_LOAD);
+		auto forceLoad = g_config.getBoolean(ConfigManager::FORCE_MONSTERTYPE_LOAD);
 		if (forceLoad) {
 			loadMonster(file, name, true);
 			continue;
@@ -79,7 +84,7 @@ bool Monsters::loadFromXml(bool reloading /*= false*/)
 bool MonsterType::canSpawn(const Position& pos)
 {
 	bool canSpawn = true;
-	bool isDay = g_game().gameIsDay();
+	bool isDay = g_game.gameIsDay();
 
 	if ((isDay && info.respawnType.period == RESPAWNPERIOD_NIGHT) ||
 		(!isDay && info.respawnType.period == RESPAWNPERIOD_DAY)) {
@@ -163,7 +168,7 @@ bool Monsters::deserializeSpell(const pugi::xml_node& node, spellBlock_t& sb, co
 		}
 	}
 
-	if (auto spell = g_spells().getSpellByName(name)) {
+	if (auto spell = g_spells->getSpellByName(name)) {
 		sb.spell = spell;
 		return true;
 	}
@@ -182,7 +187,7 @@ bool Monsters::deserializeSpell(const pugi::xml_node& node, spellBlock_t& sb, co
 		}
 
 		std::unique_ptr<CombatSpell> combatSpellPtr(new CombatSpell(nullptr, needTarget, needDirection));
-		if (!combatSpellPtr->loadScript("data/" + g_spells().getScriptBaseName() + "/scripts/" + scriptName)) {
+		if (!combatSpellPtr->loadScript("data/" + g_spells->getScriptBaseName() + "/scripts/" + scriptName)) {
 			return false;
 		}
 
@@ -367,7 +372,7 @@ bool Monsters::deserializeSpell(const pugi::xml_node& node, spellBlock_t& sb, co
 			}
 
 			if ((attr = node.attribute("monster"))) {
-				MonsterType* mType = g_monsters().getMonsterType(attr.as_string());
+				MonsterType* mType = g_monsters.getMonsterType(attr.as_string());
 				if (mType) {
 					ConditionOutfit* condition = static_cast<ConditionOutfit*>(Condition::createCondition(CONDITIONID_COMBAT, CONDITION_OUTFIT, duration, 0));
 					condition->setOutfit(mType->info.outfit);
@@ -527,7 +532,7 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 	sb.range = std::min((int) spell->range, Map::maxViewportX * 2);
 	sb.minCombatValue = std::min(spell->minCombatValue, spell->maxCombatValue);
 	sb.maxCombatValue = std::max(spell->minCombatValue, spell->maxCombatValue);
-	sb.spell = g_spells().getSpellByName(spell->name);
+	sb.spell = g_spells->getSpellByName(spell->name);
 
 	if (sb.spell) {
 		return true;
@@ -537,7 +542,7 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 
 	if (spell->isScripted) {
 		std::unique_ptr<CombatSpell> combatSpellPtr(new CombatSpell(nullptr, spell->needTarget, spell->needDirection));
-		if (!combatSpellPtr->loadScript("data/" + g_spells().getScriptBaseName() + "/scripts/" + spell->scriptName)) {
+		if (!combatSpellPtr->loadScript("data/" + g_spells->getScriptBaseName() + "/scripts/" + spell->scriptName)) {
 			std::cout << "cannot find file" << std::endl;
 			return false;
 		}
@@ -1425,12 +1430,12 @@ MonsterType* Monsters::getMonsterType(const std::string& name)
 }
 
 MonsterType* Monsters::getMonsterTypeByRaceId(uint16_t thisrace) {
-	std::map<uint16_t, std::string> raceid_list = g_game().getBestiaryList();
+	std::map<uint16_t, std::string> raceid_list = g_game.getBestiaryList();
 	auto it = raceid_list.find(thisrace);
 	if (it == raceid_list.end()) {
 		return nullptr;
 	}
-	MonsterType* mtype = g_monsters().getMonsterType(it->second);
+	MonsterType* mtype = g_monsters.getMonsterType(it->second);
 	return (mtype ? mtype : nullptr);
 }
 

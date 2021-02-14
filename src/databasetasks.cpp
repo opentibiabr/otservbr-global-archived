@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,17 +22,41 @@
 #include "databasetasks.h"
 #include "tasks.h"
 
+extern Dispatcher g_dispatcher;
+
+DatabaseTasks::DatabaseTasks() {
+  db_ = &Database::getInstance();
+}
+
+bool DatabaseTasks::SetDatabaseInterface(Database *database) {
+  if (database == nullptr) {
+    return false;
+  }
+
+  db_ = database;
+  return true;
+}
+
+void DatabaseTasks::start()
+{
+  if (db_ == nullptr) {
+    return;
+  }
+	db_->connect();
+	ThreadHolder::start();
+}
+
+void DatabaseTasks::startThread()
+{
+	ThreadHolder::start();
+}
+
 void DatabaseTasks::threadMain()
 {
 	std::unique_lock<std::mutex> taskLockUnique(taskLock, std::defer_lock);
-	db.connect();
-
 	while (getState() != THREAD_STATE_TERMINATED) {
 		taskLockUnique.lock();
 		if (tasks.empty()) {
-			if (flushTasks) {
-				flushSignal.notify_one();
-			}
 			taskSignal.wait(taskLockUnique);
 		}
 
@@ -45,8 +69,6 @@ void DatabaseTasks::threadMain()
 			taskLockUnique.unlock();
 		}
 	}
-
-	db.disconnect();
 }
 
 void DatabaseTasks::addTask(std::string query, std::function<void(DBResult_ptr, bool)> callback/* = nullptr*/, bool store/* = false*/)
@@ -66,34 +88,41 @@ void DatabaseTasks::addTask(std::string query, std::function<void(DBResult_ptr, 
 
 void DatabaseTasks::runTask(const DatabaseTask& task)
 {
-	bool success;
+  if (db_ == nullptr) {
+    return;
+  }
+  bool success;
 	DBResult_ptr result;
 	if (task.store) {
-		result = db.storeQuery(task.query);
+		result = db_->storeQuery(task.query);
 		success = true;
 	} else {
 		result = nullptr;
-		success = db.executeQuery(task.query);
+		success = db_->executeQuery(task.query);
 	}
 
 	if (task.callback) {
-		g_dispatcher().addTask(std::bind(task.callback, result, success));
+		g_dispatcher.addTask(createTask(std::bind(task.callback, result, success)));
 	}
 }
 
 void DatabaseTasks::flush()
 {
 	std::unique_lock<std::mutex> guard{ taskLock };
-	if (!tasks.empty()) {
-		flushTasks = true;
-		flushSignal.wait(guard);
-		flushTasks = false;
+	while (!tasks.empty()) {
+		auto task = std::move(tasks.front());
+		tasks.pop_front();
+		guard.unlock();
+		runTask(task);
+		guard.lock();
 	}
 }
 
 void DatabaseTasks::shutdown()
 {
-	flush();
+	taskLock.lock();
 	setState(THREAD_STATE_TERMINATED);
+	taskLock.unlock();
+	flush();
 	taskSignal.notify_one();
 }

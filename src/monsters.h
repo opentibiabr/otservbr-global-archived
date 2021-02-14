@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -69,7 +69,7 @@ class Loot {
 	public:
 		Loot() = default;
 
-		// Singleton - ensures we don't accidentally copy it
+		// non-copyable
 		Loot(const Loot&) = delete;
 		Loot& operator=(const Loot&) = delete;
 
@@ -205,7 +205,7 @@ class MonsterType
 	public:
 		MonsterType() = default;
 
-		// Singleton - ensures we don't accidentally copy it
+		// non-copyable
 		MonsterType(const MonsterType&) = delete;
 		MonsterType& operator=(const MonsterType&) = delete;
 
@@ -271,16 +271,9 @@ class Monsters
 {
 	public:
 		Monsters() = default;
-		// Singleton - ensures we don't accidentally copy it
+		// non-copyable
 		Monsters(const Monsters&) = delete;
 		Monsters& operator=(const Monsters&) = delete;
-
-		static Monsters& getInstance() {
-			// Guaranteed to be destroyed
-			static Monsters instance;
-			// Instantiated on first use
-			return instance;
-		}
 
 		bool loadFromXml(bool reloading = false);
 		bool isLoaded() const {
@@ -310,7 +303,5 @@ class Monsters
 
 		bool loaded = false;
 };
-
-constexpr auto g_monsters = &Monsters::getInstance;
 
 #endif
