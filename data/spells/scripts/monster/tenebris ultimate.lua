@@ -71,7 +71,7 @@ local function delayedCastSpell(cid, var)
 		return
 	end
 	if creature:getHealth() >= 1 then
-        creature:setMoveLocked(false)
+		creature:setMoveLocked(false)
 		return combat:execute(creature, positionToVariant(creature:getPosition()))
 	end
 	return
@@ -85,7 +85,7 @@ function onCastSpell(creature, var)
 			spec:teleportTo(Position(32912, 31599, 14))
 		elseif spec:getName():lower() == 'lady tenebris' then
 			spec:teleportTo(Position(32912, 31599, 14))
-            spec:setMoveLocked(true)
+			spec:setMoveLocked(true)
 		end
 	end
 	creature:say("LADY TENEBRIS BEGINS TO CHANNEL A POWERFULL SPELL! TAKE COVER!", TALKTYPE_MONSTER_YELL)
