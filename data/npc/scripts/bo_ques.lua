@@ -55,6 +55,7 @@ local function creatureSayCallback(cid, type, msg)
 				'Fine! Even though I know so many recipes, I\'m looking for the description of some dwarven meals. ...',
 				'So, if you could bring me a cookbook of the dwarven kitchen, I\'ll reward you well.'
 			}, cid)
+			player:setStorageValue(Storage.DjinnWar.MaridFaction.Start, 1)
 			player:setStorageValue(Storage.DjinnWar.MaridFaction.Mission01, 1)
 
 		elseif msgcontains(msg, 'no') then

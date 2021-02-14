@@ -1,3 +1,4 @@
+-- From here down are the functions of TFS
 function getTibiaTimerDayOrNight()
 	local light = getWorldLight()
 	if (light == 40) then
@@ -36,6 +37,7 @@ debug.sethook(function(event, line)
 	end
 end, "l")
 
+-- OTServBr-Global functions
 function getJackLastMissionState(player)
 	if player:getStorageValue(Storage.TibiaTales.JackFutureQuest.LastMissionState) == 1 then
 		return "You told Jack the truth about his personality. You also explained that you and Spectulus \z
@@ -915,18 +917,3 @@ function Player:doCheckBossRoom(bossName, fromPos, toPos)
 	end
 	return true
 end	
-
--- Store module function
-function addPlayerEvent(callable, delay, playerId, ...)
-	local player = Player(playerId)
-	if not player then
-		return false
-	end
-
-	addEvent(function(callable, playerId, ...)
-		local player = Player(playerId)
-		if player then
-			pcall(callable, player, ...)
-		end
-	end, delay, callable, player.uid, ...)
-end

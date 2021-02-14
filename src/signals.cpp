@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,9 +32,24 @@
 #include "globalevent.h"
 #include "monster.h"
 #include "events.h"
-
+#include "scheduler.h"
 #include "databasetasks.h"
 
+
+extern Scheduler g_scheduler;
+extern DatabaseTasks g_databaseTasks;
+extern Dispatcher g_dispatcher;
+
+extern ConfigManager g_config;
+extern Actions* g_actions;
+extern Monsters g_monsters;
+extern TalkActions* g_talkActions;
+extern Spells* g_spells;
+extern Game g_game;
+extern CreatureEvents* g_creatureEvents;
+extern GlobalEvents* g_globalEvents;
+extern Events* g_events;
+extern Chat* g_chat;
 extern LuaEnvironment g_luaEnvironment;
 
 using ErrorCode = boost::system::error_code;
@@ -77,25 +92,25 @@ void Signals::dispatchSignalHandler(int signal)
 {
 	switch(signal) {
 		case SIGINT: //Shuts the server down
-			g_dispatcher().addTask(sigintHandler);
+			g_dispatcher.addTask(createTask(sigintHandler));
 			break;
 		case SIGTERM: //Shuts the server down
-			g_dispatcher().addTask(sigtermHandler);
+			g_dispatcher.addTask(createTask(sigtermHandler));
 			break;
 #ifndef _WIN32
 		case SIGHUP: //Reload config/data
-			g_dispatcher().addTask(sighupHandler);
+			g_dispatcher.addTask(createTask(sighupHandler));
 			break;
 		case SIGUSR1: //Saves game state
-			g_dispatcher().addTask(sigusr1Handler);
+			g_dispatcher.addTask(createTask(sigusr1Handler));
 			break;
 #else
 		case SIGBREAK: //Shuts the server down
-			g_dispatcher().addTask(sigbreakHandler);
+			g_dispatcher.addTask(createTask(sigbreakHandler));
 			// hold the thread until other threads end
-			g_dispatcher().join();
-			g_databaseTasks().join();
-			g_dispatcher().join();
+			g_scheduler.join();
+			g_databaseTasks.join();
+			g_dispatcher.join();
 			break;
 #endif
 		default:
@@ -107,21 +122,21 @@ void Signals::sigbreakHandler()
 {
 	//Dispatcher thread
 	spdlog::info("SIGBREAK received, shutting game server down...");
-	g_game().setGameState(GAME_STATE_SHUTDOWN);
+	g_game.setGameState(GAME_STATE_SHUTDOWN);
 }
 
 void Signals::sigtermHandler()
 {
 	//Dispatcher thread
 	spdlog::info("SIGTERM received, shutting game server down...");
-	g_game().setGameState(GAME_STATE_SHUTDOWN);
+	g_game.setGameState(GAME_STATE_SHUTDOWN);
 }
 
 void Signals::sigusr1Handler()
 {
 	//Dispatcher thread
 	spdlog::info("SIGUSR1 received, saving the game state...");
-	g_game().saveGameState();
+	g_game.saveGameState();
 }
 
 void Signals::sighupHandler()
@@ -129,29 +144,29 @@ void Signals::sighupHandler()
 	//Dispatcher thread
 	spdlog::info("SIGHUP received, reloading config files...");
 
-	g_config().reload();
+	g_config.reload();
 	spdlog::info("Reloaded config");
 
 	Npcs::reload();
 	spdlog::info("Reloaded npcs");
 
-	g_game().raids.reload();
-	g_game().raids.startup();
+	g_game.raids.reload();
+	g_game.raids.startup();
 	spdlog::info("Reloaded raids");
 
-	g_monsters().reload();
+	g_monsters.reload();
 	spdlog::info("Reloaded spells");
 
 	Item::items.reload();
 	spdlog::info("Reloaded items");
 
-	g_game().mounts.reload();
+	g_game.mounts.reload();
 	spdlog::info("Reloaded mounts");
 
-	g_events().load();
+	g_events->load();
 	spdlog::info("Reloaded events");
 
-	g_chat().load();
+	g_chat->load();
 	spdlog::info("Reloaded chatchannels");
 
 	g_luaEnvironment.loadFile("data/global.lua");
@@ -167,5 +182,5 @@ void Signals::sigintHandler()
 {
 	//Dispatcher thread
 	spdlog::info("SIGINT received, shutting game server down...");
-	g_game().setGameState(GAME_STATE_SHUTDOWN);
+	g_game.setGameState(GAME_STATE_SHUTDOWN);
 }

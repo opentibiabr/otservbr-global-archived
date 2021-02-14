@@ -61,9 +61,7 @@ else ()
   find_package(CryptoPP REQUIRED)
 endif ()
 
-find_package(GMP REQUIRED)
 find_package(PugiXML REQUIRED)
-find_package(ZLIB REQUIRED)
 find_package(MySQL REQUIRED)
 find_package(Threads REQUIRED)
 find_package(CURL REQUIRED)
@@ -268,7 +266,7 @@ endif()
 # *****************************************************************************
 include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR}
                     ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR}
-                    ${CRYPTOPP_INCLUDE_DIR} ${CURL_INCLUDE_DIRS} ${GMP_INCLUDE_DIRS} ${ZLIB_INCLUDE_DIRS} $<TARGET_PROPERTY:jsoncpp_lib,INTERFACE_INCLUDE_DIRECTORIES>)
+                    ${CRYPTOPP_INCLUDE_DIR} ${CURL_INCLUDE_DIRS} $<TARGET_PROPERTY:jsoncpp_lib,INTERFACE_INCLUDE_DIRECTORIES>)
 
 target_link_libraries(otbr otbr_lib ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
                       ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY}

@@ -1,3 +1,11 @@
+local UniqueTable = {
+	[14024] = {
+		itemId = 6125,
+		name = "tortoise egg from Nargor",
+		count = 1
+	}
+}
+
 local tortoiseEggNargor = Action()
 
 function tortoiseEggNargor.onUse(player, item, fromPosition, target, toPosition, isHotkey)

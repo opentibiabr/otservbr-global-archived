@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,18 +29,32 @@
 #include "protocollogin.h"
 #include "protocolstatus.h"
 #include "rsa.h"
-
+#include "scheduler.h"
 #include "scripts.h"
 #include "server.h"
-#include "spells.h"
-#include "modules.h"
 #include "webhook.h"
+#include "modules.h"
+#include "spells.h"
+#include "imbuements.h"
 
 #if __has_include("gitmetadata.h")
 	#include "gitmetadata.h"
 #endif
 
-LuaEnvironment g_luaEnvironment;
+DatabaseTasks g_databaseTasks;
+Dispatcher g_dispatcher;
+Scheduler g_scheduler;
+
+Game g_game;
+ConfigManager g_config;
+Monsters g_monsters;
+Vocations g_vocations;
+extern Scripts* g_scripts;
+extern Modules* g_modules;
+extern Spells* g_spells;
+extern Imbuements* g_imbuements;
+extern LuaEnvironment g_luaEnvironment;
+RSA g_RSA;
 
 std::mutex g_loaderLock;
 std::condition_variable g_loaderSignal;
@@ -71,33 +85,34 @@ int main(int argc, char* argv[]) {
 
 	ServiceManager serviceManager;
 
-	g_dispatcher().start();
+	g_dispatcher.start();
+	g_scheduler.start();
 
-	g_dispatcher().addTask(std::bind(mainLoader, argc, argv,
-                                     &serviceManager));
+	g_dispatcher.addTask(createTask(std::bind(mainLoader, argc, argv,
+												&serviceManager)));
 
 	g_loaderSignal.wait(g_loaderUniqueLock);
 
 	if (serviceManager.is_running()) {
-		spdlog::info("{} {}", g_config().getString(ConfigManager::SERVER_NAME),
+		spdlog::info("{} {}", g_config.getString(ConfigManager::SERVER_NAME),
                     "server online!");
 		serviceManager.run();
 	} else {
 		spdlog::error("No services running. The server is NOT online!");
-		g_databaseTasks().shutdown();
-		g_dispatcher().shutdown();
+		g_databaseTasks.shutdown();
+		g_dispatcher.shutdown();
 	}
 
-	g_dispatcher().join();
-	g_databaseTasks().join();
-	g_database().end();
+	g_scheduler.join();
+	g_databaseTasks.join();
+	g_dispatcher.join();
 	return 0;
 }
 #endif
 
 void mainLoader(int, char*[], ServiceManager* services) {
 	// dispatcher thread
-	g_game().setGameState(GAME_STATE_STARTUP);
+	g_game.setGameState(GAME_STATE_STARTUP);
 
 	srand(static_cast<unsigned int>(OTSYS_TIME()));
 #ifdef _WIN32
@@ -155,16 +170,16 @@ void mainLoader(int, char*[], ServiceManager* services) {
 
 	spdlog::info("Loading config.lua");
 	// Read global config
-	if (!g_config().load()) {
+	if (!g_config.load()) {
 		startupErrorMessage("Unable to load config.lua!");
 		return;
 	}
 
 	spdlog::info("Server protocol: {}",
-                g_config().getString(ConfigManager::CLIENT_VERSION_STR));
+                g_config.getString(ConfigManager::CLIENT_VERSION_STR));
 
 #ifdef _WIN32
-	const std::string& defaultPriority = g_config().getString(
+	const std::string& defaultPriority = g_config.getString(
 											ConfigManager::DEFAULT_PRIORITY);
 	if (strcasecmp(defaultPriority.c_str(), "high") == 0) {
 		SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS);
@@ -175,7 +190,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 
 	// set RSA key
 	try {
-		g_RSA().loadPEM("key.pem");
+		g_RSA.loadPEM("key.pem");
 	} catch(const std::exception& e) {
 		startupErrorMessage(e.what());
 		return;
@@ -198,11 +213,11 @@ void mainLoader(int, char*[], ServiceManager* services) {
                            "empty, please import the schema.sql to your database.");
 		return;
 	}
-	g_databaseTasks().start();
+	g_databaseTasks.start();
 
 	DatabaseManager::updateDatabase();
 
-	if (g_config().getBoolean(ConfigManager::OPTIMIZE_DATABASE)
+	if (g_config.getBoolean(ConfigManager::OPTIMIZE_DATABASE)
 			&& !DatabaseManager::optimizeTables()) {
 		spdlog::info("No tables were optimized");
 	}
@@ -246,28 +261,28 @@ void mainLoader(int, char*[], ServiceManager* services) {
 
 	// Load modules
 	spdlog::info("Loading modules.xml");
-	if (!g_modules().load()) {
+	if (!g_modules->loadFromXml()) {
 		startupErrorMessage("Can not load: data/modules/modules.xml");
 		return;
 	}
 
 	// Load vocations
 	spdlog::info("Loading vocations.xml");
-	if (!g_vocations().loadFromXml()) {
+	if (!g_vocations.loadFromXml()) {
 		startupErrorMessage("Can not load: data/XML/vocations.xml");
 		return;
 	}
 	
 	// Load imbuements
 	spdlog::info("Loading imbuements.xml");
-	if (!g_imbuements().loadFromXml()) {
+	if (!g_imbuements->loadFromXml()) {
 		startupErrorMessage("Can not load: data/XML/imbuements.xml");
 		return;
 	}
 
 	// Load schedule events
 	spdlog::info("Loading events.xml");
-	if (!g_game().loadScheduleEventFromXml()) {
+	if (!g_game.loadScheduleEventFromXml()) {
 		startupErrorMessage("Can not load: data/XML/events.xml");
 	}
 
@@ -287,7 +302,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 
 	// Load spells
 	spdlog::info("Loading spells.xml");
-	if (!g_spells().loadFromXml()) {
+	if (!g_spells->loadFromXml()) {
 		startupErrorMessage("Can not load: data/spells/spells.xml");
 		return;
 	}
@@ -295,41 +310,40 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	// Load lua scripts
 	spdlog::info("Loading revscriptsys...");
 	spdlog::info("Loading lib");
-	if (!g_scripts().loadScripts("scripts/lib", true, false)) {
+	if (!g_scripts->loadScripts("scripts/lib", true, false)) {
 		startupErrorMessage("Can not load: data/scripts/libs");
 		return;
 	}
 
 	// Load folder data/scripts
 	spdlog::info("Loading scripts");
-	if (!g_scripts().loadScripts("scripts", false, false)) {
+	if (!g_scripts->loadScripts("scripts", false, false)) {
 		startupErrorMessage("Can not load: data/scripts");
 		return;
 	}
 
 	// Load monsters
 	spdlog::info("Loading monsters");	
-	if (!g_scripts().loadScripts("monster", false, false)) {	
+	if (!g_scripts->loadScripts("monster", false, false)) {	
 		startupErrorMessage("Can not load: data/monster");	
 		return;	
 	}
 
-	// Load boosted creature
-	g_game().loadBoostedCreature();
+	g_game.loadBoostedCreature();
 
-	std::string worldType = asLowerCaseString(g_config().getString(
+	std::string worldType = asLowerCaseString(g_config.getString(
                             ConfigManager::WORLD_TYPE));
 	if (worldType == "pvp") {
-		g_game().setWorldType(WORLD_TYPE_PVP);
+		g_game.setWorldType(WORLD_TYPE_PVP);
 	} else if (worldType == "no-pvp") {
-		g_game().setWorldType(WORLD_TYPE_NO_PVP);
+		g_game.setWorldType(WORLD_TYPE_NO_PVP);
 	} else if (worldType == "pvp-enforced") {
-		g_game().setWorldType(WORLD_TYPE_PVP_ENFORCED);
+		g_game.setWorldType(WORLD_TYPE_PVP_ENFORCED);
 	} else {
 		std::string str;
 		str.reserve(64);
 		str.append("Unknown world type: ")
-           .append(g_config().getString(ConfigManager::WORLD_TYPE))
+           .append(g_config.getString(ConfigManager::WORLD_TYPE))
            .append(", valid world types are: pvp, no-pvp and pvp-enforced");
 		startupErrorMessage(str);
 		return;
@@ -338,25 +352,25 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	spdlog::info("World type set as {}", asUpperCaseString(worldType));
 
 	spdlog::info("Loading map...");
-	if (!g_game().loadMainMap(g_config().getString(ConfigManager::MAP_NAME))) {
+	if (!g_game.loadMainMap(g_config.getString(ConfigManager::MAP_NAME))) {
 		startupErrorMessage("Failed to load map");
 		return;
 	}
 
 	spdlog::info("Initializing gamestate...");
-	g_game().setGameState(GAME_STATE_INIT);
+	g_game.setGameState(GAME_STATE_INIT);
 
 	// Game client protocols
-	services->add<ProtocolGame>(static_cast<uint16_t>(g_config().getNumber(
+	services->add<ProtocolGame>(static_cast<uint16_t>(g_config.getNumber(
 												ConfigManager::GAME_PORT)));
-	services->add<ProtocolLogin>(static_cast<uint16_t>(g_config().getNumber(
+	services->add<ProtocolLogin>(static_cast<uint16_t>(g_config.getNumber(
 												ConfigManager::LOGIN_PORT)));
 	// OT protocols
-	services->add<ProtocolStatus>(static_cast<uint16_t>(g_config().getNumber(
+	services->add<ProtocolStatus>(static_cast<uint16_t>(g_config.getNumber(
 												ConfigManager::STATUS_PORT)));
 
 	RentPeriod_t rentPeriod;
-	std::string strRentPeriod = asLowerCaseString(g_config().getString(
+	std::string strRentPeriod = asLowerCaseString(g_config.getString(
 											ConfigManager::HOUSE_RENT_PERIOD));
 
 	if (strRentPeriod == "yearly") {
@@ -371,7 +385,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		rentPeriod = RENTPERIOD_NEVER;
 	}
 
-	g_game().map.houses.payHouses(rentPeriod);
+	g_game.map.houses.payHouses(rentPeriod);
 
 	IOMarket::checkExpiredOffers();
 	IOMarket::getInstance().updateStatistics();
@@ -386,8 +400,8 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	}
 #endif
 
-	g_game().start(services);
-	g_game().setGameState(GAME_STATE_NORMAL);
+	g_game.start(services);
+	g_game.setGameState(GAME_STATE_NORMAL);
 
 	webhook_init();
 	webhook_send_message("Server is now online", "Server has successfully started.", WEBHOOK_COLOR_ONLINE);

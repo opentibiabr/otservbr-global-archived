@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -100,16 +100,9 @@ class CreatureEvents final : public BaseEvents
 	public:
 		CreatureEvents();
 
-		// Singleton - ensures we don't accidentally copy it
+		// non-copyable
 		CreatureEvents(const CreatureEvents&) = delete;
 		CreatureEvents& operator=(const CreatureEvents&) = delete;
-
-		static CreatureEvents& getInstance() {
-			// Guaranteed to be destroyed
-			static CreatureEvents instance;
-			// Instantiated on first use
-			return instance;
-		}
 
 		// global events
 		bool playerLogin(Player* player) const;
@@ -134,7 +127,5 @@ class CreatureEvents final : public BaseEvents
 
 		LuaScriptInterface scriptInterface;
 };
-
-constexpr auto g_creatureEvents = &CreatureEvents::getInstance;
 
 #endif

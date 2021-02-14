@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2021 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,17 +29,6 @@ class Scripts
 		Scripts();
 		~Scripts();
 
-		// Singleton - ensures we don't accidentally copy it
-		Scripts(Scripts const&) = delete;
-		void operator=(Scripts const&) = delete;
-
-		static Scripts& getInstance() {
-			// Guaranteed to be destroyed
-			static Scripts instance;
-			// Instantiated on first use
-			return instance;
-		}
-
 		bool loadEventSchedulerScripts(const std::string& fileName);
 		bool loadScripts(std::string folderName, bool isLib, bool reload);
 		LuaScriptInterface& getScriptInterface() {
@@ -48,7 +37,5 @@ class Scripts
 	private:
 		LuaScriptInterface scriptInterface;
 };
-
-constexpr auto g_scripts = &Scripts::getInstance;
 
 #endif

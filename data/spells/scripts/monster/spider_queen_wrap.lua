@@ -23,8 +23,8 @@ function onCastSpell(creature, var)
 	if target and target:isPlayer() then
 		if combat:execute(creature, var) then
 			target:addCondition(conditionOutfit)
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The spider queen caught you in her net and paralysed you!")
-			player:setStorageValue(Storage.TheRookieGuard.Mission05, 4)
+			target:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The spider queen caught you in her net and paralysed you!")
+			target:setStorageValue(Storage.TheRookieGuard.Mission05, 4)
 			addEvent(moveToSpiderNest, 4500, target:getId())
 			return true
 		end
