@@ -133,10 +133,10 @@ void House::updateDoorDescription() const
 	std::ostringstream ss;
 	if (owner != 0) {
 		ss << "It belongs to house '" << houseName << "'. " << ownerName <<
-							" owns this house. This house can have up to " << (maxBeds / 2) << " " << numBeds << ".";
+							" owns this house. This house can have up to " << maxBeds << " " << numBeds << ".";
 	} else {
 		ss << "It belongs to house '" << houseName << "'. Nobody owns this house. This house can have up to "
-																			<< (maxBeds / 4) << " " << numBeds << ".";
+																			<< maxBeds << " " << numBeds << ".";
 
 		const int32_t housePrice = g_config.getNumber(ConfigManager::HOUSE_PRICE);
 		if (housePrice != -1) {
