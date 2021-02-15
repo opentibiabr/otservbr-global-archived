@@ -504,6 +504,12 @@ enum GuildEmblems_t : uint8_t {
 	GUILDEMBLEM_OTHER = 5,
 };
 
+enum BedItemPart_t : uint8_t {
+	BED_NONE_PART,
+	BED_PILLOW_PART,
+	BED_BLANKET_PART,
+};
+
 enum item_t : uint16_t {
 	ITEM_BROWSEFIELD = 460, // for internal use
 
