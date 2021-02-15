@@ -11,6 +11,12 @@
 		<parameter key="keyword_reply2" value="You can buy a lyre, lute, drum, and simple fanfare. I also sell pianos and harps. If you'd like to see my offers, ask me for a {trade}."/>
 		<parameter key="keyword_reply3" value="I make instruments and sometimes I'm wandering through the lands of Tibia as a bard."/>
 		<parameter key="module_shop" value="1"/>
-		<parameter key="shop_buyable" value="drum,2073,140;lute,2072,195;lyre,2071,120;simple fanfare,2075,150;piano kit,3933,200;harp kit,3934,50;"/>
+		<parameter key="shop_buyable" value="
+			drum, 2073, 140;
+			harp kit , 3934, 50;
+			lute, 2072, 195;
+			lyre, 2071, 120;
+			piano kit, 3933, 200;
+			simple fanfare, 2075, 150;"/>
 	</parameters>
 </npc>

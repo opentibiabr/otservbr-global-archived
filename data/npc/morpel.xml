@@ -9,7 +9,7 @@
 		<parameter key="message_decline" value="Fine!"/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-            axe, 2386, 20;
+			axe, 2386, 20;
 			barbarian axe, 2429, 590;
 			battle axe, 2378, 235;
 			battle hammer, 2417, 350;

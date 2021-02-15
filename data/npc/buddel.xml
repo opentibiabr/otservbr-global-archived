@@ -9,7 +9,7 @@
 	</voices>
 	<parameters>
 		<parameter key="module_shop" value="1"/>
-		<parameter key="shop_sellable" value="compass,11219,45;"/>
+		<parameter key="shop_sellable" value="compass, 11219, 45;"/>
 		<parameter key="message_sendtrade" value="Got any compasses for me?"/>
 		<parameter key="message_greet" value="Ho ho, *HICKS*. Captain Buddel is always at your service!"/>
 		<parameter key="message_farewell" value="Bye."/>
