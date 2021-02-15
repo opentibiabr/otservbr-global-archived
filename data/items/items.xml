@@ -41044,9 +41044,11 @@
 	</item>
 	<item id="29312" article="a" name="bath tub">
 		<attribute key="wrapableTo" value="26054" />
+		<attribute key="description" value="A very inviting bath tub." />
 	</item>
 	<item id="29313" article="a" name="bath tub">
-		<attribute key="moveable" value="0" />
+		<attribute key="wrapableTo" value="26054" />
+		<attribute key="description" value="A very inviting bath tub filled with water." />
 	</item>
 	<item id="29314" article="a" name="terrarium spider">
 		<attribute key="description" value="A spider minding her own business." />
@@ -41152,7 +41154,9 @@
 		<attribute key="maleSleeper" value="29326" />
 		<attribute key="femaleSleeper" value="29331" />
 	</item>
-	<item id="29336" article="a" name="bath tub" />
+	<item id="29336" article="a" name="bath tub">
+		<attribute key="description" value="A very inviting bath tub filled with water." />
+	</item>
 	<item id="29337" article="a" name="verdant chair">
 		<attribute key="rotateTo" value="29338" />
 		<attribute key="wrapableTo" value="26054" />

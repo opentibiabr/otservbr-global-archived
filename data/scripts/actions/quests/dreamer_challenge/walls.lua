@@ -58,5 +58,8 @@ function dreamerWalls.onUse(player, item, fromPosition, target, toPosition, isHo
 	return true
 end
 
-dreamerWalls:id(2246,2247,2248,2249)
+for index, value in pairs(config) do
+	dreamerWalls:uid(index)
+end
+
 dreamerWalls:register()
