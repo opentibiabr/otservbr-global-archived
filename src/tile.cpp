@@ -1489,12 +1489,6 @@ void Tile::internalAddThing(Thing* thing)
 					house->addDoor(door);
 				}
 			}
-			else {
-				BedItem* bed = item->getBed();
-				if (bed) {
-					house->addBed(bed);
-				}
-			}
 		}
 	}
 }
