@@ -713,9 +713,17 @@ bool Houses::loadHousesXML(const std::string& filename)
 					    << " - House id: " << houseId << std::endl;
 		}
 		house->setEntryPos(entryPos);
-
+		
 		house->setRent(pugi::cast<uint32_t>(houseNode.attribute("rent").value()));
 		house->setTownId(pugi::cast<uint32_t>(houseNode.attribute("townid").value()));
+		if (maxBeds <= 0) {
+			std::cout << "[Warning - Houses::loadHousesXML] House maxBeds <= 0"
+					    << " - Name: " << house->getName()
+					    << " - House id: " << houseId 
+							<< " - MaxBeds: " << maxBeds
+							<< std::endl;
+		}
+
 		house->setMaxBeds(maxBeds);
 
 		house->setOwner(0, false);
