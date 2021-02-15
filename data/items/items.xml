@@ -565,15 +565,18 @@
 	</item>
 	<item fromid="1440" toid="1441" article="a" name="sign" />
 	<item id="1442" article="a" name="statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1476" />
 	</item>
 	<item id="1443" article="a" name="statue" />
 	<item id="1444" article="a" name="hero statue" />
 	<item id="1445" article="a" name="monument" />
 	<item id="1446" article="a" name="minotaur statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1462" />
 	</item>
 	<item id="1447" article="a" name="goblin statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1465" />
 	</item>
 	<item id="1448" article="an" name="angel statue" />
@@ -583,21 +586,27 @@
 	<item fromid="1452" toid="1455" article="a" name="gargoyle statue" />
 	<item fromid="1456" toid="1459" article="a" name="pedestal" />
 	<item id="1460" article="a" name="minotaur statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1461" />
 	</item>
 	<item id="1461" article="a" name="minotaur statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1446" />
 	</item>
 	<item id="1462" article="a" name="minotaur statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1460" />
 	</item>
 	<item id="1463" article="a" name="goblin statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1464" />
 	</item>
 	<item id="1464" article="a" name="goblin statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1447" />
 	</item>
 	<item id="1465" article="a" name="goblin statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1463" />
 	</item>
 	<item id="1466" article="a" name="pedestal" />
@@ -608,12 +617,15 @@
 	<item id="1474" article="a" name="cobra statue" />
 	<item id="1475" article="a" name="pedestal" />
 	<item id="1476" article="a" name="statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1477" />
 	</item>
 	<item id="1477" article="a" name="statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1478" />
 	</item>
 	<item id="1478" article="a" name="statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1442" />
 	</item>
 	<item fromid="1479" toid="1480" article="a" name="street lamp" />
@@ -869,11 +881,19 @@
 	<item fromid="1578" toid="1581" article="a" name="ramp" />
 	<item fromid="1582" toid="1593" article="a" name="white stone railing" />
 	<item fromid="1594" toid="1601" article="a" name="wooden railing" />
-	<item fromid="1602" toid="1614" article="a" name="big table" />
-	<item id="1615" article="a" name="square table" />
-	<item id="1616" article="a" name="small round table" />
+	<item fromid="1602" toid="1614" article="a" name="big table" >
+		<attribute key="wrapableTo" value="26129" />
+	</item>
+	<item id="1615" article="a" name="square table" >
+		<attribute key="wrapableTo" value="26129" />
+	</item>
+	<item id="1616" article="a" name="small round table" >
+		<attribute key="wrapableTo" value="26129" />
+	</item>
 	<item fromid="1617" toid="1618" article="a" name="counter" />
-	<item id="1619" article="a" name="small table" />
+	<item id="1619" article="a" name="small table" >
+		<attribute key="wrapableTo" value="26129" />
+	</item>
 	<item fromid="1620" toid="1621" article="a" name="counter" />
 	<item fromid="1622" toid="1633" article="a" name="table" />
 	<item fromid="1634" toid="1638" article="a" name="table">
@@ -889,65 +909,85 @@
 	<item fromid="1642" toid="1645" article="a" name="counter" />
 	<item fromid="1646" toid="1649" article="a" name="throne" />
 	<item id="1650" article="a" name="wooden chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1651" />
 	</item>
 	<item id="1651" article="a" name="wooden chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1652" />
 	</item>
 	<item id="1652" article="a" name="wooden chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1653" />
 	</item>
 	<item id="1653" article="a" name="wooden chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1650" />
 	</item>
 	<item fromid="1654" toid="1657" article="a" name="throne" />
 	<item id="1658" article="a" name="sofa chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1661" />
 	</item>
 	<item id="1659" article="a" name="sofa chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1660" />
 	</item>
 	<item id="1660" article="a" name="sofa chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1658" />
 	</item>
 	<item id="1661" article="a" name="sofa chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1659" />
 	</item>
 	<item fromid="1662" toid="1665" article="a" name="bench" />
 	<item id="1666" article="a" name="red cushioned chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1669" />
 	</item>
 	<item id="1667" article="a" name="red cushioned chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1668" />
 	</item>
 	<item id="1668" article="a" name="red cushioned chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1666" />
 	</item>
 	<item id="1669" article="a" name="red cushioned chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1667" />
 	</item>
 	<item id="1670" article="a" name="green cushioned chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1673" />
 	</item>
 	<item id="1671" article="a" name="green cushioned chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1672" />
 	</item>
 	<item id="1672" article="a" name="green cushioned chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1670" />
 	</item>
 	<item id="1673" article="a" name="green cushioned chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1671" />
 	</item>
 	<item id="1674" article="a" name="rocking chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1677" />
 	</item>
 	<item id="1675" article="a" name="rocking chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1676" />
 	</item>
 	<item id="1676" article="a" name="rocking chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1674" />
 	</item>
 	<item id="1677" article="a" name="rocking chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1675" />
 	</item>
 	<item id="1678" article="a" name="small purple pillow">
@@ -1005,18 +1045,22 @@
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="1714" name="drawers">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1717" />
 		<attribute key="containerSize" value="10" />
 	</item>
 	<item id="1715" name="drawers">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1714" />
 		<attribute key="containerSize" value="10" />
 	</item>
 	<item id="1716" name="drawers">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1715" />
 		<attribute key="containerSize" value="10" />
 	</item>
 	<item id="1717" name="drawers">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1716" />
 		<attribute key="containerSize" value="10" />
 	</item>
@@ -1024,46 +1068,58 @@
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="1724" article="a" name="dresser">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1727" />
 		<attribute key="containerSize" value="10" />
 	</item>
 	<item id="1725" article="a" name="dresser">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1724" />
 		<attribute key="containerSize" value="10" />
 	</item>
 	<item id="1726" article="a" name="dresser">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1725" />
 		<attribute key="containerSize" value="10" />
 	</item>
 	<item id="1727" article="a" name="dresser">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1726" />
 		<attribute key="containerSize" value="10" />
 	</item>
 	<item id="1728" article="a" name="pendulum clock">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1731" />
 	</item>
 	<item id="1729" article="a" name="pendulum clock">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1728" />
 	</item>
 	<item id="1730" article="a" name="pendulum clock">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1729" />
 	</item>
 	<item id="1731" article="a" name="pendulum clock">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1730" />
 	</item>
 	<item id="1732" article="a" name="locker">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1735" />
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="1733" article="a" name="locker">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1734" />
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="1734" article="a" name="locker">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1732" />
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="1735" article="a" name="locker">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1733" />
 		<attribute key="containerSize" value="6" />
 	</item>
@@ -1118,6 +1174,7 @@
 		<attribute key="containerSize" value="15" />
 	</item>
 	<item id="1750" article="a" name="large trunk">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="1753" />
 		<attribute key="containerSize" value="18" />
 	</item>
@@ -1234,9 +1291,12 @@
 		<attribute key="fluidSource" value="wine" />
 	</item>
 	<item id="1774" article="a" name="barrel">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="containerSize" value="25" />
 	</item>
-	<item id="1775" article="a" name="trough" />
+	<item id="1775" article="a" name="trough" >
+		<attribute key="wrapableTo" value="26129" />
+	</item>
 	<item id="1776" article="a" name="lemonade cask">
 		<attribute key="fluidSource" value="lemonade" />
 	</item>
@@ -1753,7 +1813,9 @@
 		<attribute key="weight" value="470" />
 		<attribute key="pickupable" value="1" />
 	</item>
-	<item id="2034" article="a" name="large amphora" />
+	<item id="2034" article="a" name="large amphora">
+		<attribute key="wrapableTo" value="26129" />
+	</item>
 	<item id="2035" article="a" name="plate">
 		<attribute key="loottype" value="tool" />
 		<attribute key="weight" value="150" />
@@ -1870,7 +1932,9 @@
 		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="900" />
 	</item>
-	<item id="2064" article="a" name="table lamp" />
+	<item id="2064" article="a" name="table lamp">
+		<attribute key="wrapableTo" value="26129" />
+	</item>
 	<item id="2065" article="a" name="lit table lamp" />
 	<item id="2066" article="a" name="wall lamp" />
 	<item id="2067" article="a" name="lit wall lamp" />
@@ -1912,21 +1976,27 @@
 		<attribute key="weight" value="1500" />
 	</item>
 	<item id="2080" article="a" name="piano">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="2083" />
 	</item>
 	<item id="2081" article="a" name="piano">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="2082" />
 	</item>
 	<item id="2082" article="a" name="piano">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="2080" />
 	</item>
 	<item id="2083" article="a" name="piano">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="2081" />
 	</item>
 	<item id="2084" article="a" name="harp">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="2085" />
 	</item>
 	<item id="2085" article="a" name="harp">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="2084" />
 	</item>
 	<item id="2086" article="a" name="magical cage key">
@@ -1962,10 +2032,12 @@
 		<attribute key="weight" value="6500" />
 	</item>
 	<item id="2094" article="a" name="birdcage">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="description" value="The poor bird seems to have died from a heart attack." />
 		<attribute key="weight" value="9200" />
 	</item>
 	<item id="2095" article="a" name="birdcage">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="description" value="You see a little bird inside." />
 		<attribute key="weight" value="9200" />
 	</item>
@@ -1977,14 +2049,18 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="1250" />
 	</item>
-	<item id="2098" article="a" name="globe" />
+	<item id="2098" article="a" name="globe">
+		<attribute key="wrapableTo" value="26129" />
+	</item>
 	<item id="2099" article="a" name="water pipe">
 		<attribute key="weight" value="5600" />
 	</item>
 	<item id="2100" name="god flowers">
 		<attribute key="weight" value="1100" />
 	</item>
-	<item id="2101" article="an" name="indoor plant" />
+	<item id="2101" article="an" name="indoor plant">
+		<attribute key="wrapableTo" value="26129" />
+	</item>
 	<item id="2102" article="a" name="flower bowl">
 		<attribute key="weight" value="1100" />
 	</item>
@@ -2029,15 +2105,19 @@
 		<attribute key="weight" value="750" />
 	</item>
 	<item id="2116" article="a" name="rocking horse">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="2117" />
 	</item>
 	<item id="2117" article="a" name="rocking horse">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="2118" />
 	</item>
 	<item id="2118" article="a" name="rocking horse">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="2119" />
 	</item>
 	<item id="2119" article="a" name="rocking horse">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="2116" />
 	</item>
 	<item id="2120" article="a" name="rope">
@@ -7470,50 +7550,68 @@
 	<item id="3803" article="a" name="large totem pole" />
 	<item id="3804" article="a" name="totem pole" />
 	<item id="3805" article="a" name="carved stone table">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3806" />
 	</item>
 	<item id="3806" article="a" name="stone table">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3805" />
 	</item>
 	<item id="3807" article="a" name="tusk table">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3808" />
 	</item>
 	<item id="3808" article="a" name="tusk table">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3807" />
 	</item>
 	<item id="3809" article="a" name="bamboo table">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3810" />
 	</item>
 	<item id="3810" article="a" name="bamboo table">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3809" />
 	</item>
-	<item id="3811" article="a" name="thick trunk" />
+	<item id="3811" article="a" name="thick trunk" >
+		<attribute key="wrapableTo" value="26129" />
+	</item>
 	<item id="3812" article="an" name="ornamented stone table" />
 	<item id="3813" article="a" name="tusk chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3816" />
 	</item>
 	<item id="3814" article="a" name="tusk chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3815" />
 	</item>
 	<item id="3815" article="a" name="tusk chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3813" />
 	</item>
 	<item id="3816" article="a" name="tusk chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3814" />
 	</item>
 	<item id="3817" article="an" name="ivory chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3820" />
 	</item>
 	<item id="3818" article="an" name="ivory chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3819" />
 	</item>
 	<item id="3819" article="an" name="ivory chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3817" />
 	</item>
 	<item id="3820" article="an" name="ivory chair">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3818" />
 	</item>
-	<item id="3821" article="a" name="small trunk" />
+	<item id="3821" article="a" name="small trunk">
+		<attribute key="wrapableTo" value="26129" />
+	</item>
 	<item fromid="3822" toid="3825" article="a" name="bamboo wardrobe">
 		<attribute key="containerSize" value="6" />
 	</item>
@@ -7524,18 +7622,22 @@
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="3832" article="a" name="bamboo drawer">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3835" />
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="3833" article="a" name="bamboo drawer">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3832" />
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="3834" article="a" name="bamboo drawer">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3833" />
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="3835" article="a" name="bamboo drawer">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="3834" />
 		<attribute key="containerSize" value="6" />
 	</item>
@@ -8789,13 +8891,16 @@
 	<item fromid="5025" toid="5044" article="a" name="bamboo lamp" />
 	<item id="5045" article="a" name="flat roof" />
 	<item id="5046" article="a" name="monkey statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="description" value="The words 'See no evil' are engraved on it." />
 	</item>
 	<item fromid="5047" toid="5054" article="a" name="flat roof" />
 	<item id="5055" article="a" name="monkey statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="description" value="The words 'Hear no evil' are engraved on it." />
 	</item>
 	<item id="5056" article="a" name="monkey statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="description" value="The words 'Speak no evil' are engraved on it." />
 	</item>
 	<item id="5057" article="a" name="small snake head">
@@ -11134,18 +11239,22 @@
 		<attribute key="weight" value="1300" />
 	</item>
 	<item id="6109" article="a" name="weapon rack">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6110" />
 		<attribute key="containerSize" value="20" />
 	</item>
 	<item id="6110" article="a" name="weapon rack">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6109" />
 		<attribute key="containerSize" value="20" />
 	</item>
 	<item id="6111" article="an" name="armor rack">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6112" />
 		<attribute key="containerSize" value="20" />
 	</item>
 	<item id="6112" article="an" name="armor rack">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6111" />
 		<attribute key="containerSize" value="20" />
 	</item>
@@ -11717,27 +11826,35 @@
 		<attribute key="corpseType" value="undead" />
 	</item>
 	<item id="6356" article="an" name="oven">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6358" />
 	</item>
 	<item id="6357" article="an" name="oven">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6359" />
 	</item>
 	<item id="6358" article="an" name="oven">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6360" />
 	</item>
 	<item id="6359" article="an" name="oven">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6361" />
 	</item>
 	<item id="6360" article="an" name="oven">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6362" />
 	</item>
 	<item id="6361" article="an" name="oven">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6363" />
 	</item>
 	<item id="6362" article="an" name="oven">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6356" />
 	</item>
 	<item id="6363" article="an" name="oven">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6357" />
 	</item>
 	<item id="6364" article="a" name="dead diabolic imp">
@@ -11765,18 +11882,22 @@
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="6368" article="a" name="bookcase">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6371" />
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="6369" article="a" name="bookcase">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6368" />
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="6370" article="a" name="bookcase">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6369" />
 		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="6371" article="a" name="bookcase">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="6370" />
 		<attribute key="containerSize" value="6" />
 	</item>
@@ -16412,15 +16533,19 @@
 	<item fromid="8682" toid="8683" name="armor parts" />
 	<item fromid="8684" toid="8687" article="a" name="chimney" />
 	<item id="8688" article="a" name="chimney">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="8690" />
 	</item>
 	<item id="8689" article="a" name="chimney">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="8691" />
 	</item>
 	<item id="8690" article="a" name="chimney">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="8688" />
 	</item>
 	<item id="8691" article="a" name="chimney">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="8689" />
 	</item>
 	<item id="8692" article="a" name="chimney kit">
@@ -18792,6 +18917,7 @@
 		<attribute key="weight" value="2500" />
 	</item>
 	<item id="9975" article="a" name="crystal table">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="weight" value="2500" />
 	</item>
 	<item id="9976" article="a" name="crystal pedestal">
@@ -20666,6 +20792,7 @@
 		<attribute key="weight" value="3500" />
 	</item>
 	<item id="11125" article="a" name="snowman">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="description" value="Someone seems to have had a lot of fun decorating it." />
 	</item>
 	<item id="11126" article="a" name="lizard weapon rack kit">
@@ -20673,21 +20800,27 @@
 		<attribute key="weight" value="5500" />
 	</item>
 	<item id="11127" article="a" name="lizard weapon rack">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="11128" />
 	</item>
 	<item id="11128" article="a" name="lizard weapon rack">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="11127" />
 	</item>
 	<item id="11129" article="a" name="dragon statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="11131" />
 	</item>
 	<item id="11130" article="a" name="dragon statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="11129" />
 	</item>
 	<item id="11131" article="a" name="dragon statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="11132" />
 	</item>
 	<item id="11132" article="a" name="dragon statue">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="11130" />
 	</item>
 	<item id="11133" article="a" name="dragon statue kit">
@@ -20796,9 +20929,11 @@
 	</item>
 	<item fromid="11201" toid="11202" article="a" name="stone wall" />
 	<item id="11203" article="a" name="dragon throne">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="11204" />
 	</item>
 	<item id="11204" article="a" name="dragon throne">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="rotateTo" value="11203" />
 	</item>
 	<item id="11205" article="a" name="dragon throne kit">
@@ -26003,6 +26138,7 @@
 		<attribute key="description" value="Paint is dripping from its tip." />
 	</item>
 	<item fromid="16020" toid="16021" article="an" name="artist's easel">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="weight" value="1600" />
 	</item>
 	<item fromid="16022" toid="16023" article="an" name="artist's easel">
@@ -28684,26 +28820,32 @@
 	<item fromid="20291" toid="20292" article="a" name="gate" />
 	<item id="20293" article="a" name="stone floor" />
 	<item id="20295" article="a" name="cabinet">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="containerSize" value="8" />
 		<attribute key="rotateTo" value="20296" />
 	</item>
 	<item id="20296" article="a" name="cabinet">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="containerSize" value="8" />
 		<attribute key="rotateTo" value="20295" />
 	</item>
 	<item id="20297" article="a" name="wardrobe">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="containerSize" value="10" />
 		<attribute key="rotateTo" value="20298" />
 	</item>
 	<item id="20298" article="a" name="wardrobe">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="containerSize" value="10" />
 		<attribute key="rotateTo" value="20297" />
 	</item>
 	<item id="20299" article="a" name="drawer">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="containerSize" value="8" />
 		<attribute key="rotateTo" value="20300" />
 	</item>
 	<item id="20300" article="a" name="drawer">
+		<attribute key="wrapableTo" value="26129" />
 		<attribute key="containerSize" value="8" />
 		<attribute key="rotateTo" value="20299" />
 	</item>
