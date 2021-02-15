@@ -153,15 +153,15 @@ ItemUnique = {
 	-- The shattered isles
 	-- data\scripts\actions\quests\the_shattered_isles\nargor_maps.lua
 	[40001] = {
-		itemId = false,
+		itemId = 6118,
 		itemPos = {x = 31978, y = 32828, z = 2}
 	},
 	[40002] = {
-		itemId = false,
+		itemId = 6118,
 		itemPos = {x = 31982, y = 32844, z = 2}
 	},
 	[40003] = {
-		itemId = false,
+		itemId = 6118,
 		itemPos = {x = 31992, y = 32847, z = 2}
 	},
 	-- Lions rock quest

@@ -43,19 +43,19 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say("Are you here to claim a prize?", cid)
 		npcHandler.topic[cid] = 4
 	elseif msgcontains(msg, "fafnar fire") then
-		if player:getStorageValue(StorageTheShatteredIsles.RaysMission1) == 1 then
+		if player:getStorageValue(Storage.TheShatteredIsles.RaysMission1) == 1 then
 			npcHandler:say("Pssht, not that loud. So they have sent you to get... the stuff?", cid)
 			npcHandler.topic[cid] = 5
 		end
 	elseif msgcontains(msg, "your continued existence is payment enough") then
 		if npcHandler.topic[cid] == 6 then
-			if player:getStorageValue(StorageTheShatteredIsles.RaysMission1) == 1 then
+			if player:getStorageValue(Storage.TheShatteredIsles.RaysMission1) == 1 then
 				npcHandler:say(
 					"What?? How dare you?! I am a sorcerer of the most reknown academy on the face of this world. \
 					Do you think some lousy pirates could scare me? Get lost! Now! \
 					I will have no further dealings with the likes of you!",
 				cid)
-				player:setStorageValue(StorageTheShatteredIsles.RaysMission1, 2)
+				player:setStorageValue(Storage.TheShatteredIsles.RaysMission1, 2)
 				npcHandler.topic[cid] = 0
 			end
 		end
@@ -113,7 +113,7 @@ local function creatureSayCallback(cid, type, msg)
 			end
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 5 then
-			if player:getStorageValue(StorageTheShatteredIsles.RaysMission1) == 1 then
+			if player:getStorageValue(Storage.TheShatteredIsles.RaysMission1) == 1 then
 				npcHandler:say(
 					"Finally. You have no idea how difficult it is to keep something secret here. \
 					And you brought me all the crystal coins I demanded?",
