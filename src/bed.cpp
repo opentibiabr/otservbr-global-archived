@@ -100,10 +100,15 @@ bool BedItem::canUse(Player* player)
 	}
 
 	BedItem* nextBedItem = getNextBedItem();
+
 	if (nextBedItem == nullptr) {
 		return false;
 	}
 
+	BedItemPart_t bedPart = Item::items[id].bedPart;
+	if (bedPart != BED_PILLOW_PART) {
+		return false;
+	}
 	if (sleeperGUID == 0 && house->getHouseAccessLevel(player) > 0 && player->getZone() == ZONE_PROTECTION) {
 		return true;
 	}
