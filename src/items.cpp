@@ -910,6 +910,11 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			it.replaceable = valueAttribute.as_bool();
 		} else if (tmpStrValue == "partnerdirection") {
 			it.bedPartnerDir = getDirection(valueAttribute.as_string());
+			//!@#
+		} else if (tmpStrValue == "bedpart") {
+			it.bedPart = getBedPart(valueAttribute.as_string());
+		} else if (tmpStrValue == "bedpartof") {
+			it.bedPartOf = pugi::cast<uint16_t>(valueAttribute.value());
 		} else if (tmpStrValue == "leveldoor") {
 			it.levelDoor = pugi::cast<uint32_t>(valueAttribute.value());
 		} else if (tmpStrValue == "maletransformto" || tmpStrValue == "malesleeper") {
