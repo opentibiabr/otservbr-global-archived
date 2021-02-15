@@ -355,13 +355,15 @@ function bossLairTeleport.onStepIn(creature, item, position, fromPosition)
 	if missionState == -1 then
 		return true
 	end
-	if missionState >= 9 then
+	if missionState >= 8 then
 		local spectators = Game.getSpectators(position, false, false, 2, 2, 2, 2)
 		for i = 1, #spectators do
 			if not spectators[i]:isPlayer() and spectators[i]:getName() == "Furious Orc Berserker" then
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "As long as the orc berserker is near that teleporter, you can't enter.")
 				player:teleportTo(fromPosition, true)
-				return false
+				position:sendMagicEffect(CONST_ME_TELEPORT)
+				fromPosition:sendMagicEffect(CONST_ME_TELEPORT)
+				return true
 			end
 		end
 		if missionState == 9 then
