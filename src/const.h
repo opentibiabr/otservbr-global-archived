@@ -511,7 +511,7 @@ enum item_t : uint16_t {
 	ITEM_DEPOT_NULL = 25452, // for internal use
 	ITEM_GOLD_POUCH = 26377,
 	STORE_BOX_ID = 26054, // for internal use
-	FURNITURE_BOX_ID = 26129,
+	FURNITURE_BOX_ID = 26129, // for internal use
 
 	ITEM_DEPOT_I = 25453,
 	ITEM_DEPOT_II = 25454,

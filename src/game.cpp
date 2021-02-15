@@ -3447,7 +3447,7 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 		uint16_t oldItemID = item->getID();
 		addMagicEffect(item->getPosition(), CONST_ME_POFF);
 		uint16_t newBoxId = Item::items[item->getID()].wrapableTo;
-	  	Item* newItem = transformItem(item, newBoxId);
+		Item* newItem = transformItem(item, newBoxId);
 		ItemAttributes::CustomAttribute val;
 		val.set<int64_t>(oldItemID);
 		std::string key = "unWrapId";
