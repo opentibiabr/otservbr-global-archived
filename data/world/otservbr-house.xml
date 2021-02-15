@@ -332,7 +332,7 @@
 	<house name="The City Wall 5a" houseid="3001" entryx="32416" entryy="32220" entryz="7" rent="50000" townid="8" size="10" clientid="11001" beds="0" />
 	<house name="The City Wall 5c" houseid="3002" entryx="32416" entryy="32223" entryz="7" rent="50000" townid="8" size="10" clientid="11003" beds="0" />
 	<house name="The City Wall 5e" houseid="3003" entryx="32416" entryy="32226" entryz="7" rent="50000" townid="8" size="10" clientid="11005" beds="0" />
-	<house name="Warriors' Guildhall" houseid="3004" entryx="32348" entryy="32213" entryz="7" rent="5000000" guildhall="true" townid="8" size="278" clientid="10801" beds="0" />
+	<house name="Warriors' Guildhall" houseid="3004" entryx="32348" entryy="32213" entryz="7" rent="5000000" guildhall="true" townid="8" size="278" clientid="10801" beds="11" />
 	<house name="The Tibianic" houseid="3005" entryx="32277" entryy="32011" entryz="5" rent="500000" guildhall="true" townid="8" size="446" clientid="14001" beds="0" />
 	<house name="Bloodhall" houseid="3006" entryx="32469" entryy="32170" entryz="7" rent="500000" guildhall="true" townid="8" size="246" clientid="10005" beds="0" />
 	<house name="Fibula Clanhall" houseid="3007" entryx="32178" entryy="32373" entryz="7" rent="250000" guildhall="true" townid="8" size="127" clientid="12010" beds="0" />
