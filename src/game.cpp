@@ -3383,13 +3383,20 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 	}
 
 	Item* item = thing->getItem();
+	ItemType& iType = Item::items.getItemType(item->getID());
 	Tile* tile = map.getTile(item->getPosition());
 	HouseTile* houseTile = dynamic_cast<HouseTile*>(tile);
+
 	if (!tile->hasFlag(TILESTATE_PROTECTIONZONE) || !houseTile) {
 		player->sendCancelMessage("You may construct this only inside a house.");
 		return;
 	}
-	if (houseTile->getHouse() != house) {
+
+	House* houseByTile = houseTile->getHouse();
+
+	if (!houseByTile) { return; }
+
+	if (houseByTile != house) {
 		player->sendCancelMessage("Only owners can wrap/unwrap inside a house.");
 			return;
 	}
@@ -3445,6 +3452,10 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 			hiddenCharges = item->getSubType();
 		}
 		uint16_t oldItemID = item->getID();
+		if (iType.isBed()) {
+			houseByTile->setBedsCount(houseByTile->getBedsCount() - 1); // 2 PARTS = 1 ENTIRE BED
+			houseByTile->removeBed(item->getBed());
+		}
 		addMagicEffect(item->getPosition(), CONST_ME_POFF);
 		uint16_t newBoxId = Item::items[item->getID()].wrapableTo;
 		Item* newItem = transformItem(item, newBoxId);
@@ -3460,9 +3471,20 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 	}
 	else if (item->isWrapBox() && unWrapId != 0) {
 		uint16_t hiddenCharges = item->getDate();
+		ItemType& newiType = Item::items.getItemType(unWrapId);
+		//UNWRAP BED !@#
+		if (newiType.isBed()) {
+			if (houseByTile->getBedCount() + 1 > houseByTile->getMaxBeds()) {
+				player->sendCancelMessage("You reached the maximum beds in this house");
+				return;
+			}
+		}
 		item->removeAttribute(ITEM_ATTRIBUTE_DESCRIPTION);
 		addMagicEffect(item->getPosition(), CONST_ME_POFF);
-		transformItem(item, unWrapId);
+		Item* newItem = transformItem(item, unWrapId);
+		if (newiType.isBed()) {
+			houseByTile->addBed(newItem->getBed());
+		}
 		if (hiddenCharges > 0 && isCaskItem(unWrapId)) {
 			item->setSubType(hiddenCharges);
 		}
