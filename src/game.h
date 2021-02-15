@@ -657,6 +657,8 @@ class Game
 			return CharmList;
 		}
 
+		bool loadedMAP = false;
+
 	private:
 		void checkImbuements();
 		bool playerSaySpell(Player* player, SpeakClasses type, const std::string& text);

@@ -61,6 +61,7 @@ void IOMapSerialize::loadHouseItems(Map* map)
 			loadItem(propStream, tile);
 		}
 	} while (result->next());
+	g_game.loadedMAP = true;
 	std::cout << "> Loaded house items in: " << (OTSYS_TIME() - start) / (1000.) << " seconds" << std::endl;
 }
 
