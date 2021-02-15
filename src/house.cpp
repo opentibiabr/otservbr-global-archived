@@ -374,6 +374,12 @@ void House::removeDoor(Door* door)
 	}
 }
 
+void House::removeBed(BedItem* bed)
+{
+	bed->setHouse(nullptr);
+	bedsList.remove(bed);
+}
+
 void House::addBed(BedItem* bed)
 {
 	bedsList.push_back(bed);

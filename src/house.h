@@ -216,6 +216,7 @@ class House
 		}
 
 		void addBed(BedItem* bed);
+		void removeBed(BedItem* bed);
 		const HouseBedItemList& getBeds() const {
 			return bedsList;
 		}
