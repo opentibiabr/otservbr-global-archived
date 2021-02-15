@@ -23,13 +23,19 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 	if msgcontains(msg, "mission") and player:getStorageValue(Storage.TheNewFrontier.Questline) == 9 then
 		if npcHandler.topic[cid] == 0 then
-			npcHandler:say("Me people wanting peace. No war with others. No war with little men. We few. We weak. Need help. We not wanting make war. No hurt. Say {mission} again.", cid)
+			npcHandler:say("Me people wanting {peace}. No war with others. No war with {little men}. We few. We weak. Need {help}. We not wanting make {war}. No hurt.", cid)
 			npcHandler.topic[cid] = 10
-		elseif npcHandler.topic[cid] == 10 then
-			npcHandler:say("You mean you want help us?", cid)
-			npcHandler.topic[cid] = 11
 		end
-	elseif msgcontains(msg, "mission") and player:getStorageValue(Storage.UnnaturalSelection.Questline) < 1 then
+	elseif msgcontains(msg, "peace") and npcHandler.topic[cid] == 10 and player:getStorageValue(Storage.TheNewFrontier.Questline) == 9 then
+		npcHandler:say("Me people wanting peace. No war with others. No war with little men.", cid)
+		player:setStorageValue(Storage.TheNewFrontier.Questline, 10)
+		player:setStorageValue(Storage.TheNewFrontier.Mission03, 2) --Questlog, The New Frontier Quest "Mission 03: Strangers in the Night"
+		npcHandler.topic[cid] = 0
+	elseif msgcontains(msg, "help") then
+		npcHandler:say("You mean you want help us?", cid)
+		npcHandler.topic[cid] = 11
+	elseif msgcontains(msg, "mission") and npcHandler.topic[cid] == 12 and player:getStorageValue(Storage.UnnaturalSelection.Questline) < 1 
+	and player:getStorageValue(Storage.TheNewFrontier.Mission03) == 3 then
 		npcHandler:say({
 				"Big problem we have! Skull of first leader gone. He ancestor of whole tribe but died long ago in war. We have keep his skull on our sacred place. ...",
 				"Then one night, green men came with wolves... and one of wolves took skull and ran off chewing on it! We need back - many wisdom and power is in skull. Maybe they took to north fortress. But can be hard getting in. You try get our holy skull back?"
@@ -115,10 +121,13 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler.topic[cid] = 0
 			end
 		elseif npcHandler.topic[cid] == 11 then
-			player:setStorageValue(Storage.TheNewFrontier.Questline, 10)
-			player:setStorageValue(Storage.TheNewFrontier.Mission03, 2) --Questlog, The New Frontier Quest "Mission 03: Strangers in the Night"
-			npcHandler.topic[cid] = 0
+			npcHandler:say("Me have many small task, but also big {mission}. You say what want.", cid)
+			npcHandler.topic[cid] = 12
 		end
+	elseif msgcontains(msg, "war") then
+		npcHandler:say("Many mighty monster rule land. We fight. We lose. We flee to mountain to hide.", cid)
+	elseif msgcontains(msg, "little men") then
+		npcHandler:say("We come and see little men. They like us, only very little. They having good weapon and armor, like the greens.", cid)
 	end
 	return true
 end
