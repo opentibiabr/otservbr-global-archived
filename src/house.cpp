@@ -692,12 +692,13 @@ bool Houses::loadHousesXML(const std::string& filename)
 		}
 
 		int32_t houseId = pugi::cast<int32_t>(houseIdAttribute.value());
-
 		House* house = getHouse(houseId);
 		if (!house) {
 			std::cout << "Error: [Houses::loadHousesXML] Unknown house, id = " << houseId << std::endl;
 			return false;
 		}
+
+		uint32_t maxBeds = pugi::cast<uint32_t>(houseNode.attribute("beds").value());
 
 		house->setName(houseNode.attribute("name").as_string());
 
@@ -715,6 +716,7 @@ bool Houses::loadHousesXML(const std::string& filename)
 
 		house->setRent(pugi::cast<uint32_t>(houseNode.attribute("rent").value()));
 		house->setTownId(pugi::cast<uint32_t>(houseNode.attribute("townid").value()));
+		house->setMaxBeds(maxBeds);
 
 		house->setOwner(0, false);
 	}
