@@ -54,7 +54,7 @@ function missionGuide.onStepIn(creature, item, position, fromPosition)
 		local catapultsState = player:getStorageValue(Storage.TheRookieGuard.Catapults)
 		for i = 1, #missionTile.catapults do
 			-- Check if the catapult was used
-			hasUsedCatapult = testFlag(catapultsState, missionTile.catapults[i])
+			hasUsedCatapult = hasBitSet(catapultsState, missionTile.catapults[i])
 			if hasUsedCatapult then
 				break
 			end
@@ -123,7 +123,7 @@ function heavyStone.onUse(player, item, frompos, item2, topos)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission02)
 	if missionState >= 2 and missionState <= 3 and catapults[item2.actionid] then
 		local catapultsState = player:getStorageValue(Storage.TheRookieGuard.Catapults)
-		local hasUsedCatapult = testFlag(catapultsState, catapults[item2.actionid])
+		local hasUsedCatapult = hasBitSet(catapultsState, catapults[item2.actionid])
 		if not hasUsedCatapult then
 			if missionState == 2 then
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You load the heavy stone on the catapult. Now, get another stone and find the remaining catapult.")

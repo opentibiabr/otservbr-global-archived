@@ -17,7 +17,7 @@ end
 
 local function greetCallback(cid)
 	local player = Player(cid)
-	if player:getStorageValue(Storage.Kilmaresh.Fifth.Memories) == 4 then
+	if player:getStorageValue(Storage.Kilmaresh.Fifth.Memories) == 5 then
 		player:addItem(36249, 1)
 		npcHandler:setMessage(MESSAGE_GREET, {
 			"I see. There is enough and adequate evidence that the Ambassador of Rathleton is indeed an arch traitor. So, Eshaya was right. Well done, mortal being. You have proven your loyalty and bravery, therefore allow me to ask you one more favour. ...", 

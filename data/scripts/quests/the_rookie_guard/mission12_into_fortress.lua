@@ -676,7 +676,7 @@ function bossChests.onUse(player, item, frompos, item2, topos)
 	if missionState == 13 then
 		local chest = chests[item.uid]
 		local chestsState = player:getStorageValue(Storage.TheRookieGuard.KraknaknorkChests)
-		local hasUsedChest = testFlag(chestsState, chest.id)
+		local hasUsedChest = hasBitSet(chestsState, chest.id)
 		if not hasUsedChest then
 			local reward = Game.createItem(chest.item.id, chest.item.amount)
 			if reward:getCount() == 1 then
@@ -768,7 +768,7 @@ function orcFortressChests.onUse(player, item, frompos, item2, topos)
 	end
 	local chest = chests[item.uid]
 	local chestsState = player:getStorageValue(Storage.TheRookieGuard.OrcFortressChests)
-	local hasOpenedChest = testFlag(chestsState, chest.id)
+	local hasOpenedChest = hasBitSet(chestsState, chest.id)
 	if not hasOpenedChest then
 		local reward = Game.createItem(chest.item.id, chest.item.amount)
 		if reward:getCount() == 1 then

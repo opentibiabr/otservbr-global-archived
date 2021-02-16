@@ -112,7 +112,7 @@ function trunkChest.onUse(player, item, frompos, item2, topos)
 	if missionState >= 2 then
 		local chest = chests[item.uid]
 		local chestsState = player:getStorageValue(Storage.TheRookieGuard.TrollChests)
-		local hasOpenedChest = testFlag(chestsState, chest.id)
+		local hasOpenedChest = hasBitSet(chestsState, chest.id)
 		if not hasOpenedChest then
 			local reward = Game.createItem(chest.itemId, 1)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. reward:getArticle() .. " " .. reward:getName() .. ".")
@@ -152,7 +152,7 @@ function onUsePickAtTunnelPillar(player, item, fromPosition, item2, toPosition)
 	local pillarId = tunnelPillars[item2.uid]
 	if missionState >= 2 and missionState <= 7 and pillarId then
 		local pillarsState = player:getStorageValue(Storage.TheRookieGuard.TunnelPillars)
-		local hasDamagedPillar = testFlag(pillarsState, pillarId)
+		local hasDamagedPillar = hasBitSet(pillarsState, pillarId)
 		if not hasDamagedPillar then
 			local newMissionState = missionState + 1
 			if table.find({3, 4, 5, 6}, newMissionState) then

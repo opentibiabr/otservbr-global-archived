@@ -32,7 +32,7 @@ function masksAction.onUse(player, item, fromPosition, target, toPosition, isHot
     local mask = masks[maskDiscovered]
 
     if player:getStorageValue(Storage.Kilmaresh.Sixth.Favor) >= 1 and
-		not testFlag(player:getStorageValue(Storage.Kilmaresh.Sixth.FourMasks), mask.storage)
+		not hasBitSet(player:getStorageValue(Storage.Kilmaresh.Sixth.FourMasks), mask.storage)
 	then
 		player:addItem(maskDiscovered, 1)
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, mask.successMessage)
@@ -49,4 +49,3 @@ end
 
 masksAction:uid(40033, 40034, 40035)
 masksAction:register()
-

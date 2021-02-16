@@ -135,7 +135,7 @@ function unholyCryptChests.onUse(player, item, frompos, item2, topos)
 	end
 	local chest = chests[item.uid]
 	local chestsState = player:getStorageValue(Storage.TheRookieGuard.UnholyCryptChests)
-	local hasOpenedChest = testFlag(chestsState, chest.id)
+	local hasOpenedChest = hasBitSet(chestsState, chest.id)
 	if not hasOpenedChest then
 		local reward = Game.createItem(chest.item.id, chest.item.amount)
 		if reward:getCount() == 1 then

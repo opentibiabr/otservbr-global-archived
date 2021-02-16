@@ -31,7 +31,7 @@ function statuesActions.onUse(player, item, fromPosition, target, toPosition, is
     end
 
     if player:getStorageValue(Storage.Kilmaresh.Sixth.Favor) >= 5 and
-		not testFlag(player:getStorageValue(Storage.Kilmaresh.Sixth.BlessedStatues), key.storage)
+		not hasBitSet(player:getStorageValue(Storage.Kilmaresh.Sixth.BlessedStatues), key.storage)
 	then
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You bless the statue.")
         player:setStorageValue(Storage.Kilmaresh.Sixth.Favor, player:getStorageValue(Storage.Kilmaresh.Sixth.Favor) + 1)
