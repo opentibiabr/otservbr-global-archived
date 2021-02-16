@@ -1285,8 +1285,6 @@ class LuaScriptInterface
 
 		static int luaHouseGetMaxBeds(lua_State* L);
 		static int luaHouseSetMaxBeds(lua_State* L);
-		static int luaHouseGetBedsCount(lua_State* L);
-		static int luaHouseSetBedsCount(lua_State* L);
 		// ItemType
 		static int luaItemTypeCreate(lua_State* L);
 

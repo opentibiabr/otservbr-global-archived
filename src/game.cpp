@@ -3453,7 +3453,6 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 		}
 		uint16_t oldItemID = item->getID();
 		if (iType.isBed()) {
-			houseByTile->setBedsCount(houseByTile->getBedsCount() - 1); // 2 PARTS = 1 ENTIRE BED
 			houseByTile->removeBed(item->getBed());
 		}
 		addMagicEffect(item->getPosition(), CONST_ME_POFF);

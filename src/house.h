@@ -232,14 +232,6 @@ class House
 			return maxBeds;
 		}
 
-		void setBedsCount(uint32_t bedsCount) {
-			this->bedsCount = bedsCount;
-		}
-
-		uint32_t getBedsCount() const {
-			return bedsCount;
-		}
-
 	private:
 		bool transferToDepot() const;
 		bool transferToDepot(Player* player) const;

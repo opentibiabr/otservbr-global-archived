@@ -2961,8 +2961,6 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("House", "getMaxBeds", LuaScriptInterface::luaHouseGetMaxBeds);
 	registerMethod("House", "setMaxBeds", LuaScriptInterface::luaHouseSetMaxBeds);
-	registerMethod("House", "getBedsCount", LuaScriptInterface::luaHouseGetBedsCount);
-	registerMethod("House", "setBedsCount", LuaScriptInterface::luaHouseSetBedsCount);
 
 	// ItemType
 	registerClass("ItemType", "", LuaScriptInterface::luaItemTypeCreate);
@@ -13789,30 +13787,6 @@ int LuaScriptInterface::luaHouseSetMaxBeds(lua_State* L) {
 	return 1;
 }
 
-int LuaScriptInterface::luaHouseGetBedsCount(lua_State* L) {
-	// house:getBedsCount()
-	House* house = getUserdata<House>(L, 1);
-	if (house) {
-		lua_pushnumber(L, house->getBedsCount());
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaHouseSetBedsCount(lua_State* L) {
-	// house:setBedsCount()
-	House* house = getUserdata<House>(L, 1);
-	if (!house) {
-		lua_pushnil(L);
-		return 1;
-	}
-
-	uint32_t BedsCount = getNumber<uint32_t>(L, 2);
-	house->setBedsCount(BedsCount);
-	pushBoolean(L, true);
-	return 1;
-}
 // ItemType
 int LuaScriptInterface::luaItemTypeCreate(lua_State* L)
 {
