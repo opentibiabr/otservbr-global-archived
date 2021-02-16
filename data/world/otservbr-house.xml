@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <houses>
-	<house name="Castle of the Winds" houseid="2628" entryx="32657" entryy="31583" entryz="7" rent="500000" guildhall="true" townid="5" size="415" clientid="40112" beds="0" />
-	<house name="Ab'Dendriel Clanhall" houseid="2629" entryx="32714" entryy="31643" entryz="7" rent="250000" guildhall="true" townid="5" size="263" clientid="40111" beds="0" />
+	<house name="Castle of the Winds" houseid="2628" entryx="32657" entryy="31583" entryz="7" rent="500000" guildhall="true" townid="5" size="451" clientid="40112" beds="18" />
+	<house name="Ab'Dendriel Clanhall" houseid="2629" entryx="32714" entryy="31643" entryz="7" rent="250000" guildhall="true" townid="5" size="283" clientid="40111" beds="10" />
 	<house name="Underwood 9" houseid="2630" entryx="32712" entryy="31665" entryz="7" rent="50000" townid="5" size="8" clientid="40109" beds="0" />
 	<house name="Treetop 13" houseid="2631" entryx="32713" entryy="31665" entryz="6" rent="100000" townid="5" size="18" clientid="40413" beds="0" />
 	<house name="Underwood 8" houseid="2632" entryx="32690" entryy="31647" entryz="7" rent="50000" townid="5" size="12" clientid="40108" beds="0" />
@@ -55,9 +55,9 @@
 	<house name="Harbour Lane 3" houseid="2708" entryx="32362" entryy="31823" entryz="7" rent="400000" townid="6" size="77" clientid="20702" beds="0" />
 	<house name="Magician's Alley 8" houseid="2709" entryx="32331" entryy="31819" entryz="7" rent="150000" townid="6" size="21" clientid="20514" beds="0" />
 	<house name="Lonely Sea Side Hostel" houseid="2710" entryx="32319" entryy="31839" entryz="7" rent="400000" townid="6" size="215" clientid="20902" beds="0" />
-	<house name="Suntower" houseid="2711" entryx="32341" entryy="31847" entryz="7" rent="500000" guildhall="true" townid="6" size="204" clientid="20901" beds="0" />
-	<house name="House of Recreation" houseid="2712" entryx="32280" entryy="31823" entryz="7" rent="500000" guildhall="true" townid="6" size="339" clientid="20002" beds="0" />
-	<house name="Carlin Clanhall" houseid="2713" entryx="32307" entryy="31818" entryz="7" rent="250000" guildhall="true" townid="6" size="169" clientid="20515" beds="0" />
+	<house name="Suntower" houseid="2711" entryx="32341" entryy="31847" entryz="7" rent="500000" guildhall="true" townid="6" size="218" clientid="20901" beds="9" />
+	<house name="House of Recreation" houseid="2712" entryx="32280" entryy="31823" entryz="7" rent="500000" guildhall="true" townid="6" size="371" clientid="20002" beds="16" />
+	<house name="Carlin Clanhall" houseid="2713" entryx="32307" entryy="31818" entryz="7" rent="250000" guildhall="true" townid="6" size="189" clientid="20515" beds="10" />
 	<house name="Magician's Alley 4" houseid="2714" entryx="32317" entryy="31820" entryz="7" rent="200000" townid="6" size="40" clientid="20513" beds="0" />
 	<house name="Theater Avenue 14 (Shop)" houseid="2715" entryx="32302" entryy="31801" entryz="7" rent="200000" townid="6" size="37" clientid="20403" beds="0" />
 	<house name="Theater Avenue 12" houseid="2716" entryx="32310" entryy="31791" entryz="7" rent="80000" townid="6" size="14" clientid="20402" beds="0" />
@@ -103,7 +103,7 @@
 	<house name="Theater Avenue 11a" houseid="2765" entryx="32314" entryy="31781" entryz="5" rent="100000" townid="6" size="24" clientid="20404" beds="0" />
 	<house name="Theater Avenue 11b" houseid="2767" entryx="32311" entryy="31781" entryz="5" rent="100000" townid="6" size="24" clientid="20405" beds="0" />
 	<house name="Caretaker's Residence" houseid="2768" entryx="32407" entryy="31772" entryz="7" rent="600000" townid="6" size="236" clientid="20012" beds="0" />
-	<house name="Moonkeep" houseid="2769" entryx="32432" entryy="31762" entryz="7" rent="250000" guildhall="true" townid="6" size="240" clientid="20001" beds="0" />
+	<house name="Moonkeep" houseid="2769" entryx="32432" entryy="31762" entryz="7" rent="250000" guildhall="true" townid="6" size="272" clientid="20001" beds="16" />
 	<house name="Mangrove 1" houseid="2770" entryx="32648" entryy="31602" entryz="7" rent="80000" townid="5" size="24" clientid="40301" beds="0" />
 	<house name="Coastwood 2" houseid="2771" entryx="32647" entryy="31599" entryz="6" rent="50000" townid="5" size="11" clientid="40502" beds="0" />
 	<house name="Coastwood 1" houseid="2772" entryx="32647" entryy="31603" entryz="6" rent="50000" townid="5" size="11" clientid="40501" beds="0" />
@@ -120,8 +120,8 @@
 	<house name="Treetop 1" houseid="2783" entryx="32636" entryy="31689" entryz="6" rent="25000" townid="5" size="10" clientid="40401" beds="0" />
 	<house name="Mangrove 3" houseid="2784" entryx="32693" entryy="31605" entryz="7" rent="80000" townid="5" size="16" clientid="40303" beds="0" />
 	<house name="Mangrove 2" houseid="2785" entryx="32681" entryy="31592" entryz="7" rent="50000" townid="5" size="20" clientid="40302" beds="0" />
-	<house name="The Hideout" houseid="2786" entryx="32546" entryy="31666" entryz="7" rent="250000" guildhall="true" townid="5" size="306" clientid="40002" beds="0" />
-	<house name="Shadow Towers" houseid="2787" entryx="32698" entryy="31773" entryz="7" rent="250000" guildhall="true" townid="5" size="343" clientid="40001" beds="0" />
+	<house name="The Hideout" houseid="2786" entryx="32546" entryy="31666" entryz="7" rent="250000" guildhall="true" townid="5" size="346" clientid="40002" beds="20" />
+	<house name="Shadow Towers" houseid="2787" entryx="32698" entryy="31773" entryz="7" rent="250000" guildhall="true" townid="5" size="377" clientid="40001" beds="18" />
 	<house name="Druids Retreat A" houseid="2788" entryx="32277" entryy="31729" entryz="7" rent="50000" townid="6" size="26" clientid="20004" beds="0" />
 	<house name="Druids Retreat C" houseid="2789" entryx="32284" entryy="31766" entryz="7" rent="50000" townid="6" size="17" clientid="20006" beds="0" />
 	<house name="Druids Retreat B" houseid="2790" entryx="32272" entryy="31767" entryz="7" rent="50000" townid="6" size="24" clientid="20005" beds="0" />
@@ -151,9 +151,9 @@
 	<house name="Northport Village 2" houseid="2814" entryx="32482" entryy="31609" entryz="7" rent="50000" townid="6" size="20" clientid="22002" beds="0" />
 	<house name="Northport Village 1" houseid="2815" entryx="32482" entryy="31614" entryz="7" rent="50000" townid="6" size="20" clientid="22001" beds="0" />
 	<house name="Nautic Observer" houseid="2816" entryx="32483" entryy="31825" entryz="7" rent="200000" townid="6" size="144" clientid="20011" beds="0" />
-	<house name="Nordic Stronghold" houseid="2817" entryx="32297" entryy="31675" entryz="7" rent="250000" guildhall="true" townid="6" size="331" clientid="20003" beds="0" />
-	<house name="Senja Clanhall" houseid="2818" entryx="32168" entryy="31664" entryz="7" rent="250000" guildhall="true" townid="6" size="174" clientid="24014" beds="0" />
-	<house name="Seawatch" houseid="2819" entryx="32520" entryy="31600" entryz="7" rent="250000" guildhall="true" townid="6" size="367" clientid="22005" beds="0" />
+	<house name="Nordic Stronghold" houseid="2817" entryx="32297" entryy="31675" entryz="7" rent="250000" guildhall="true" townid="6" size="373" clientid="20003" beds="21" />
+	<house name="Senja Clanhall" houseid="2818" entryx="32168" entryy="31664" entryz="7" rent="250000" guildhall="true" townid="6" size="192" clientid="24014" beds="10" />
+	<house name="Seawatch" houseid="2819" entryx="32520" entryy="31600" entryz="7" rent="250000" guildhall="true" townid="6" size="405" clientid="22005" beds="19" />
 	<house name="Dwarven Magnate's Estate" houseid="2820" entryx="32643" entryy="31927" entryz="2" rent="300000" townid="7" size="242" clientid="30107" beds="0" />
 	<house name="Forge Master's Quarters" houseid="2821" entryx="32649" entryy="31889" entryz="8" rent="300000" townid="7" size="78" clientid="30405" beds="0" />
 	<house name="Upper Barracks 13" houseid="2822" entryx="32615" entryy="31923" entryz="5" rent="25000" townid="7" size="11" clientid="30313" beds="0" />
@@ -204,13 +204,13 @@
 	<house name="Lower Barracks 5" houseid="2871" entryx="32625" entryy="31921" entryz="9" rent="100000" townid="7" size="55" clientid="30504" beds="0" />
 	<house name="Lower Barracks 6" houseid="2872" entryx="32625" entryy="31916" entryz="9" rent="100000" townid="7" size="53" clientid="30510" beds="0" />
 	<house name="Lower Barracks 7" houseid="2873" entryx="32625" entryy="31906" entryz="9" rent="80000" townid="7" size="22" clientid="30512" beds="0" />
-	<house name="Wolftower" houseid="2874" entryx="32643" entryy="32025" entryz="7" rent="500000" guildhall="true" townid="7" size="315" clientid="30001" beds="0" />
-	<house name="Riverspring" houseid="2875" entryx="32761" entryy="32128" entryz="7" rent="250000" guildhall="true" townid="7" size="277" clientid="30003" beds="0" />
-	<house name="Outlaw Castle" houseid="2876" entryx="32660" entryy="32236" entryz="7" rent="250000" guildhall="true" townid="7" size="164" clientid="32015" beds="0" />
-	<house name="Marble Guildhall" houseid="2877" entryx="32622" entryy="31954" entryz="9" rent="250000" guildhall="true" townid="7" size="282" clientid="30701" beds="0" />
-	<house name="Iron Guildhall" houseid="2878" entryx="32607" entryy="31893" entryz="9" rent="250000" guildhall="true" townid="7" size="240" clientid="30702" beds="0" />
-	<house name="Hill Hideout" houseid="2879" entryx="32593" entryy="31826" entryz="9" rent="250000" guildhall="true" townid="7" size="195" clientid="30002" beds="0" />
-	<house name="Granite Guildhall" houseid="2880" entryx="32599" entryy="31949" entryz="5" rent="250000" guildhall="true" townid="7" size="294" clientid="30703" beds="0" />
+	<house name="Wolftower" houseid="2874" entryx="32643" entryy="32025" entryz="7" rent="500000" guildhall="true" townid="7" size="361" clientid="30001" beds="23" />
+	<house name="Riverspring" houseid="2875" entryx="32761" entryy="32128" entryz="7" rent="250000" guildhall="true" townid="7" size="313" clientid="30003" beds="19" />
+	<house name="Outlaw Castle" houseid="2876" entryx="32660" entryy="32236" entryz="7" rent="250000" guildhall="true" townid="7" size="182" clientid="32015" beds="9" />
+	<house name="Marble Guildhall" houseid="2877" entryx="32622" entryy="31954" entryz="9" rent="250000" guildhall="true" townid="7" size="316" clientid="30701" beds="17" />
+	<house name="Iron Guildhall" houseid="2878" entryx="32607" entryy="31893" entryz="9" rent="250000" guildhall="true" townid="7" size="274" clientid="30702" beds="18" />
+	<house name="Hill Hideout" houseid="2879" entryx="32593" entryy="31826" entryz="9" rent="250000" guildhall="true" townid="7" size="225" clientid="30002" beds="15" />
+	<house name="Granite Guildhall" houseid="2880" entryx="32599" entryy="31949" entryz="5" rent="250000" guildhall="true" townid="7" size="328" clientid="30703" beds="17" />
 	<house name="Alai Flats, Flat 01" houseid="2881" entryx="32377" entryy="32256" entryz="7" rent="50000" townid="8" size="14" clientid="10301" beds="0" />
 	<house name="Alai Flats, Flat 02" houseid="2882" entryx="32382" entryy="32256" entryz="7" rent="50000" townid="8" size="14" clientid="10302" beds="0" />
 	<house name="Alai Flats, Flat 03" houseid="2883" entryx="32374" entryy="32264" entryz="7" rent="50000" townid="8" size="14" clientid="10303" beds="0" />
@@ -257,12 +257,12 @@
 	<house name="Fibula Village 5" houseid="2924" entryx="32171" entryy="32440" entryz="7" rent="50000" townid="8" size="21" clientid="12007" beds="0" />
 	<house name="Fibula Village 3" houseid="2925" entryx="32196" entryy="32438" entryz="7" rent="80000" townid="8" size="46" clientid="12005" beds="0" />
 	<house name="Fibula Village, Tower Flat" houseid="2926" entryx="32159" entryy="32439" entryz="7" rent="100000" townid="8" size="73" clientid="12008" beds="0" />
-	<house name="Guildhall of the Red Rose" houseid="2927" entryx="32180" entryy="32427" entryz="7" rent="250000" guildhall="true" townid="8" size="343" clientid="12002" beds="0" />
+	<house name="Guildhall of the Red Rose" houseid="2927" entryx="32180" entryy="32427" entryz="7" rent="250000" guildhall="true" townid="8" size="373" clientid="12002" beds="15" />
 	<house name="Fibula Village, Bar (Shop)" houseid="2928" entryx="32151" entryy="32399" entryz="7" rent="100000" townid="8" size="60" clientid="12009" beds="0" />
 	<house name="Fibula Village, Villa" houseid="2929" entryx="32140" entryy="32374" entryz="7" rent="200000" townid="8" size="182" clientid="12100" beds="0" />
 	<house name="Greenshore Village 1" houseid="2930" entryx="32274" entryy="32062" entryz="7" rent="80000" townid="8" size="30" clientid="14005" beds="0" />
-	<house name="Greenshore Clanhall" houseid="2931" entryx="32278" entryy="32069" entryz="7" rent="250000" guildhall="true" townid="8" size="133" clientid="14012" beds="0" />
-	<house name="Castle of Greenshore" houseid="2932" entryx="32290" entryy="32070" entryz="7" rent="250000" guildhall="true" townid="8" size="253" clientid="14002" beds="0" />
+	<house name="Greenshore Clanhall" houseid="2931" entryx="32278" entryy="32069" entryz="7" rent="250000" guildhall="true" townid="8" size="153" clientid="14012" beds="10" />
+	<house name="Castle of Greenshore" houseid="2932" entryx="32290" entryy="32070" entryz="7" rent="250000" guildhall="true" townid="8" size="277" clientid="14002" beds="12" />
 	<house name="Greenshore Village, Shop" houseid="2933" entryx="32278" entryy="32052" entryz="7" rent="80000" townid="8" size="20" clientid="14004" beds="0" />
 	<house name="Greenshore Village, Villa" houseid="2934" entryx="32276" entryy="32045" entryz="7" rent="300000" townid="8" size="117" clientid="14003" beds="0" />
 	<house name="Greenshore Village 7" houseid="2935" entryx="32266" entryy="32032" entryz="7" rent="25000" townid="8" size="18" clientid="14011" beds="0" />
@@ -333,16 +333,16 @@
 	<house name="The City Wall 5c" houseid="3002" entryx="32416" entryy="32223" entryz="7" rent="50000" townid="8" size="10" clientid="11003" beds="0" />
 	<house name="The City Wall 5e" houseid="3003" entryx="32416" entryy="32226" entryz="7" rent="50000" townid="8" size="10" clientid="11005" beds="0" />
 	<house name="Warriors' Guildhall" houseid="3004" entryx="32348" entryy="32213" entryz="7" rent="5000000" guildhall="true" townid="8" size="278" clientid="10801" beds="11" />
-	<house name="The Tibianic" houseid="3005" entryx="32277" entryy="32011" entryz="5" rent="500000" guildhall="true" townid="8" size="446" clientid="14001" beds="0" />
-	<house name="Bloodhall" houseid="3006" entryx="32469" entryy="32170" entryz="7" rent="500000" guildhall="true" townid="8" size="246" clientid="10005" beds="0" />
-	<house name="Fibula Clanhall" houseid="3007" entryx="32178" entryy="32373" entryz="7" rent="250000" guildhall="true" townid="8" size="127" clientid="12010" beds="0" />
-	<house name="Dark Mansion" houseid="3008" entryx="32397" entryy="32155" entryz="7" rent="1000000" guildhall="true" townid="8" size="293" clientid="10004" beds="0" />
-	<house name="Halls of the Adventurers" houseid="3009" entryx="32396" entryy="32042" entryz="7" rent="250000" guildhall="true" townid="8" size="244" clientid="10003" beds="0" />
-	<house name="Mercenary Tower" houseid="3010" entryx="32208" entryy="32437" entryz="7" rent="250000" guildhall="true" townid="8" size="528" clientid="12001" beds="0" />
-	<house name="Snake Tower" houseid="3011" entryx="32435" entryy="32359" entryz="7" rent="500000" guildhall="true" townid="8" size="533" clientid="10002" beds="0" />
-	<house name="Southern Thais Guildhall" houseid="3012" entryx="32401" entryy="32254" entryz="7" rent="1000000" guildhall="true" townid="8" size="287" clientid="10406" beds="0" />
-	<house name="Spiritkeep" houseid="3013" entryx="32265" entryy="32316" entryz="7" rent="500000" guildhall="true" townid="8" size="213" clientid="10001" beds="0" />
-	<house name="Thais Clanhall" houseid="3014" entryx="32326" entryy="32272" entryz="7" rent="500000" guildhall="true" townid="8" size="153" clientid="10601" beds="0" />
+	<house name="The Tibianic" houseid="3005" entryx="32277" entryy="32011" entryz="5" rent="500000" guildhall="true" townid="8" size="466" clientid="14001" beds="10" />
+	<house name="Bloodhall" houseid="3006" entryx="32469" entryy="32170" entryz="7" rent="500000" guildhall="true" townid="8" size="276" clientid="10005" beds="16" />
+	<house name="Fibula Clanhall" houseid="3007" entryx="32178" entryy="32373" entryz="7" rent="250000" guildhall="true" townid="8" size="147" clientid="12010" beds="10" />
+	<house name="Dark Mansion" houseid="3008" entryx="32397" entryy="32155" entryz="7" rent="1000000" guildhall="true" townid="8" size="327" clientid="10004" beds="17" />
+	<house name="Halls of the Adventurers" houseid="3009" entryx="32396" entryy="32042" entryz="7" rent="250000" guildhall="true" townid="8" size="280" clientid="10003" beds="18" />
+	<house name="Mercenary Tower" houseid="3010" entryx="32208" entryy="32437" entryz="7" rent="250000" guildhall="true" townid="8" size="580" clientid="12001" beds="26" />
+	<house name="Snake Tower" houseid="3011" entryx="32435" entryy="32359" entryz="7" rent="500000" guildhall="true" townid="8" size="575" clientid="10002" beds="21" />
+	<house name="Southern Thais Guildhall" houseid="3012" entryx="32401" entryy="32254" entryz="7" rent="1000000" guildhall="true" townid="8" size="319" clientid="10406" beds="16" />
+	<house name="Spiritkeep" houseid="3013" entryx="32265" entryy="32316" entryz="7" rent="500000" guildhall="true" townid="8" size="365" clientid="10001" beds="23" />
+	<house name="Thais Clanhall" houseid="3014" entryx="32326" entryy="32272" entryz="7" rent="500000" guildhall="true" townid="8" size="173" clientid="10601" beds="10" />
 	<house name="The Lair" houseid="3015" entryx="32993" entryy="32152" entryz="7" rent="200000" townid="9" size="155" clientid="35065" beds="0" />
 	<house name="Silver Street 4" houseid="3016" entryx="32997" entryy="32077" entryz="6" rent="300000" townid="9" size="63" clientid="35055" beds="0" />
 	<house name="Dream Street 1 (Shop)" houseid="3017" entryx="32897" entryy="32107" entryz="6" rent="600000" townid="9" size="81" clientid="35009" beds="0" />
@@ -369,10 +369,10 @@
 	<house name="Lucky Lane 3 (Tower)" houseid="3038" entryx="32936" entryy="32152" entryz="6" rent="600000" townid="9" size="113" clientid="35068" beds="0" />
 	<house name="Iron Alley 1" houseid="3039" entryx="32942" entryy="32126" entryz="6" rent="300000" townid="9" size="60" clientid="35007" beds="0" />
 	<house name="Iron Alley 2" houseid="3040" entryx="32948" entryy="32126" entryz="6" rent="300000" townid="9" size="60" clientid="35008" beds="0" />
-	<house name="Swamp Watch" houseid="3041" entryx="32958" entryy="32119" entryz="6" rent="500000" guildhall="true" townid="9" size="173" clientid="35003" beds="0" />
-	<house name="Golden Axe Guildhall" houseid="3042" entryx="32987" entryy="32109" entryz="6" rent="500000" guildhall="true" townid="9" size="166" clientid="35004" beds="0" />
+	<house name="Swamp Watch" houseid="3041" entryx="32958" entryy="32119" entryz="6" rent="500000" guildhall="true" townid="9" size="197" clientid="35003" beds="12" />
+	<house name="Golden Axe Guildhall" houseid="3042" entryx="32987" entryy="32109" entryz="6" rent="500000" guildhall="true" townid="9" size="186" clientid="35004" beds="10" />
 	<house name="Silver Street 1" houseid="3043" entryx="32998" entryy="32109" entryz="6" rent="200000" townid="9" size="54" clientid="35052" beds="0" />
-	<house name="Valorous Venore" houseid="3044" entryx="32979" entryy="32096" entryz="6" rent="500000" guildhall="true" townid="9" size="254" clientid="35005" beds="0" />
+	<house name="Valorous Venore" houseid="3044" entryx="32979" entryy="32096" entryz="6" rent="500000" guildhall="true" townid="9" size="272" clientid="35005" beds="9" />
 	<house name="Salvation Street 2" houseid="3045" entryx="32967" entryy="32096" entryz="6" rent="300000" townid="9" size="76" clientid="35048" beds="0" />
 	<house name="Salvation Street 3" houseid="3046" entryx="32972" entryy="32096" entryz="6" rent="300000" townid="9" size="76" clientid="35049" beds="0" />
 	<house name="Silver Street 2" houseid="3047" entryx="32998" entryy="32088" entryz="6" rent="200000" townid="9" size="40" clientid="35053" beds="0" />
@@ -382,8 +382,8 @@
 	<house name="Market Street 6" houseid="3051" entryx="32993" entryy="32052" entryz="6" rent="600000" townid="9" size="98" clientid="35063" beds="0" />
 	<house name="Iron Alley Watch, Upper" houseid="3052" entryx="32869" entryy="32125" entryz="6" rent="600000" townid="9" size="111" clientid="35069" beds="0" />
 	<house name="Iron Alley Watch, Lower" houseid="3053" entryx="32869" entryy="32126" entryz="6" rent="600000" townid="9" size="114" clientid="35070" beds="0" />
-	<house name="Blessed Shield Guildhall" houseid="3054" entryx="32908" entryy="32126" entryz="6" rent="500000" guildhall="true" townid="9" size="125" clientid="35001" beds="0" />
-	<house name="Steel Home" houseid="3055" entryx="32929" entryy="32125" entryz="6" rent="500000" guildhall="true" townid="9" size="226" clientid="35002" beds="0" />
+	<house name="Blessed Shield Guildhall" houseid="3054" entryx="32908" entryy="32126" entryz="6" rent="500000" guildhall="true" townid="9" size="143" clientid="35001" beds="9" />
+	<house name="Steel Home" houseid="3055" entryx="32929" entryy="32125" entryz="6" rent="500000" guildhall="true" townid="9" size="252" clientid="35002" beds="13" />
 	<house name="Salvation Street 1 (Shop)" houseid="3056" entryx="32929" entryy="32096" entryz="6" rent="600000" townid="9" size="114" clientid="35047" beds="0" />
 	<house name="Lucky Lane 1 (Shop)" houseid="3057" entryx="32936" entryy="32090" entryz="6" rent="800000" townid="9" size="131" clientid="35019" beds="0" />
 	<house name="Paupers Palace, Flat 34" houseid="3058" entryx="32906" entryy="32095" entryz="4" rent="100000" townid="9" size="30" clientid="35046" beds="0" />
@@ -466,10 +466,10 @@
 	<house name="Central Circle 6 (Shop)" houseid="3143" entryx="33214" entryy="31864" entryz="7" rent="400000" townid="11" size="84" clientid="50406" beds="0" />
 	<house name="Central Circle 9a" houseid="3144" entryx="33191" entryy="31864" entryz="7" rent="150000" townid="11" size="16" clientid="50409" beds="0" />
 	<house name="Central Circle 9b" houseid="3145" entryx="33191" entryy="31864" entryz="6" rent="150000" townid="11" size="16" clientid="50410" beds="0" />
-	<house name="Sky Lane, Guild 1" houseid="3146" entryx="33221" entryy="31874" entryz="7" rent="1000000" guildhall="true" townid="11" size="339" clientid="50601" beds="0" />
+	<house name="Sky Lane, Guild 1" houseid="3146" entryx="33221" entryy="31874" entryz="7" rent="1000000" guildhall="true" townid="11" size="385" clientid="50601" beds="23" />
 	<house name="Sky Lane, Sea Tower" houseid="3147" entryx="33245" entryy="31890" entryz="7" rent="300000" townid="11" size="80" clientid="50604" beds="0" />
-	<house name="Sky Lane, Guild 3" houseid="3148" entryx="33230" entryy="31889" entryz="7" rent="1000000" guildhall="true" townid="11" size="294" clientid="50603" beds="0" />
-	<house name="Sky Lane, Guild 2" houseid="3149" entryx="33226" entryy="31876" entryz="7" rent="1000000" guildhall="true" townid="11" size="344" clientid="50602" beds="0" />
+	<house name="Sky Lane, Guild 3" houseid="3148" entryx="33230" entryy="31889" entryz="7" rent="1000000" guildhall="true" townid="11" size="330" clientid="50603" beds="18" />
+	<house name="Sky Lane, Guild 2" houseid="3149" entryx="33226" entryy="31876" entryz="7" rent="1000000" guildhall="true" townid="11" size="372" clientid="50602" beds="14" />
 	<house name="Wood Avenue 11" houseid="3150" entryx="33231" entryy="31861" entryz="7" rent="600000" townid="11" size="130" clientid="50514" beds="0" />
 	<house name="Wood Avenue 8" houseid="3151" entryx="33231" entryy="31854" entryz="7" rent="800000" townid="11" size="117" clientid="50509" beds="0" />
 	<house name="Wood Avenue 7" houseid="3152" entryx="33231" entryy="31847" entryz="7" rent="800000" townid="11" size="117" clientid="50508" beds="0" />
@@ -505,7 +505,7 @@
 	<house name="Stonehome Village 7" houseid="3186" entryx="33313" entryy="31753" entryz="7" rent="100000" townid="11" size="21" clientid="52007" beds="0" />
 	<house name="Stonehome Village 8" houseid="3187" entryx="33318" entryy="31753" entryz="7" rent="25000" townid="11" size="14" clientid="52008" beds="0" />
 	<house name="Stonehome Village 9" houseid="3188" entryx="33324" entryy="31755" entryz="7" rent="50000" townid="11" size="14" clientid="52009" beds="0" />
-	<house name="Stonehome Clanhall" houseid="3189" entryx="33333" entryy="31760" entryz="7" rent="250000" guildhall="true" townid="11" size="157" clientid="52022" beds="0" />
+	<house name="Stonehome Clanhall" houseid="3189" entryx="33333" entryy="31760" entryz="7" rent="250000" guildhall="true" townid="11" size="175" clientid="52022" beds="10" />
 	<house name="Mad Scientist's Lab" houseid="3190" entryx="32754" entryy="31245" entryz="7" rent="600000" townid="17" size="60" clientid="37020" beds="0" />
 	<house name="Radiant Plaza 4" houseid="3191" entryx="32769" entryy="31231" entryz="7" rent="800000" townid="17" size="176" clientid="37016" beds="0" />
 	<house name="Radiant Plaza 3" houseid="3192" entryx="32766" entryy="31224" entryz="7" rent="800000" townid="17" size="112" clientid="37015" beds="0" />
@@ -516,19 +516,19 @@
 	<house name="Aureate Court 5" houseid="3197" entryx="32774" entryy="31200" entryz="7" rent="600000" townid="17" size="136" clientid="37019" beds="0" />
 	<house name="Aureate Court 2" houseid="3198" entryx="32768" entryy="31185" entryz="7" rent="400000" townid="17" size="114" clientid="37002" beds="0" />
 	<house name="Aureate Court 1" houseid="3199" entryx="32767" entryy="31181" entryz="7" rent="600000" townid="17" size="112" clientid="37001" beds="0" />
-	<house name="Halls of Serenity" houseid="3205" entryx="32783" entryy="31167" entryz="7" rent="5000000" guildhall="true" townid="17" size="418" clientid="38001" beds="0" />
+	<house name="Halls of Serenity" houseid="3205" entryx="32783" entryy="31167" entryz="7" rent="5000000" guildhall="true" townid="17" size="484" clientid="38001" beds="33" />
 	<house name="Fortune Wing 3" houseid="3206" entryx="32822" entryy="31171" entryz="7" rent="600000" townid="17" size="133" clientid="37007" beds="0" />
 	<house name="Fortune Wing 4" houseid="3207" entryx="32825" entryy="31172" entryz="7" rent="600000" townid="17" size="128" clientid="37008" beds="0" />
 	<house name="Fortune Wing 2" houseid="3208" entryx="32819" entryy="31179" entryz="7" rent="600000" townid="17" size="130" clientid="37006" beds="0" />
 	<house name="Fortune Wing 1" houseid="3209" entryx="32844" entryy="31173" entryz="7" rent="800000" townid="17" size="235" clientid="37005" beds="0" />
-	<house name="Cascade Towers" houseid="3211" entryx="32844" entryy="31195" entryz="7" rent="5000000" guildhall="true" townid="17" size="312" clientid="38002" beds="0" />
+	<house name="Cascade Towers" houseid="3211" entryx="32844" entryy="31195" entryz="7" rent="5000000" guildhall="true" townid="17" size="378" clientid="38002" beds="34" />
 	<house name="Luminous Arc 5" houseid="3212" entryx="32858" entryy="31199" entryz="7" rent="800000" townid="17" size="122" clientid="37018" beds="0" />
 	<house name="Luminous Arc 2" houseid="3213" entryx="32840" entryy="31217" entryz="7" rent="600000" townid="17" size="143" clientid="37010" beds="0" />
 	<house name="Luminous Arc 1" houseid="3214" entryx="32849" entryy="31229" entryz="7" rent="800000" townid="17" size="147" clientid="37009" beds="0" />
 	<house name="Luminous Arc 3" houseid="3215" entryx="32834" entryy="31220" entryz="7" rent="600000" townid="17" size="118" clientid="37011" beds="0" />
 	<house name="Luminous Arc 4" houseid="3216" entryx="32834" entryy="31243" entryz="7" rent="800000" townid="17" size="173" clientid="37012" beds="0" />
 	<house name="Harbour Promenade 1" houseid="3217" entryx="32780" entryy="31259" entryz="6" rent="800000" townid="17" size="124" clientid="37017" beds="0" />
-	<house name="Sun Palace" houseid="3218" entryx="32760" entryy="31209" entryz="7" rent="5000000" guildhall="true" townid="17" size="457" clientid="38003" beds="0" />
+	<house name="Sun Palace" houseid="3218" entryx="32760" entryy="31209" entryz="7" rent="5000000" guildhall="true" townid="17" size="511" clientid="38003" beds="27" />
 	<house name="Haggler's Hangout 3" houseid="3219" entryx="32612" entryy="32739" entryz="7" rent="300000" townid="15" size="136" clientid="45003" beds="0" />
 	<house name="Haggler's Hangout 7" houseid="3220" entryx="32614" entryy="32728" entryz="7" rent="400000" townid="15" size="136" clientid="45008" beds="0" />
 	<house name="Big Game Hunter's Lodge" houseid="3221" entryx="32627" entryy="32731" entryz="7" rent="600000" townid="15" size="162" clientid="45009" beds="0" />
@@ -539,7 +539,7 @@
 	<house name="Haggler's Hangout 2" houseid="3226" entryx="32601" entryy="32761" entryz="7" rent="100000" townid="15" size="23" clientid="45002" beds="0" />
 	<house name="Haggler's Hangout 1" houseid="3227" entryx="32593" entryy="32759" entryz="7" rent="100000" townid="15" size="21" clientid="45001" beds="0" />
 	<house name="Bamboo Garden 3" houseid="3228" entryx="32645" entryy="32789" entryz="7" rent="150000" townid="15" size="26" clientid="46021" beds="0" />
-	<house name="Bamboo Fortress" houseid="3229" entryx="32664" entryy="32791" entryz="7" rent="500000" guildhall="true" townid="15" size="365" clientid="46041" beds="0" />
+	<house name="Bamboo Fortress" houseid="3229" entryx="32664" entryy="32791" entryz="7" rent="500000" guildhall="true" townid="15" size="405" clientid="46041" beds="20" />
 	<house name="Bamboo Garden 2" houseid="3230" entryx="32622" entryy="32796" entryz="7" rent="80000" townid="15" size="16" clientid="46020" beds="0" />
 	<house name="Bamboo Garden 1" houseid="3231" entryx="32574" entryy="32795" entryz="7" rent="100000" townid="15" size="24" clientid="46019" beds="0" />
 	<house name="Banana Bay 4" houseid="3232" entryx="32556" entryy="32814" entryz="6" rent="25000" townid="15" size="7" clientid="46004" beds="0" />
@@ -574,7 +574,7 @@
 	<house name="Coconut Quay 3" houseid="3261" entryx="32586" entryy="32773" entryz="6" rent="200000" townid="15" size="32" clientid="46024" beds="0" />
 	<house name="Coconut Quay 2" houseid="3262" entryx="32577" entryy="32766" entryz="6" rent="100000" townid="15" size="16" clientid="46023" beds="0" />
 	<house name="Coconut Quay 1" houseid="3263" entryx="32568" entryy="32775" entryz="6" rent="150000" townid="15" size="32" clientid="46022" beds="0" />
-	<house name="Shark Manor" houseid="3264" entryx="32556" entryy="32767" entryz="6" rent="250000" guildhall="true" townid="15" size="123" clientid="46040" beds="0" />
+	<house name="Shark Manor" houseid="3264" entryx="32556" entryy="32767" entryz="6" rent="250000" guildhall="true" townid="15" size="153" clientid="46040" beds="15" />
 	<house name="Glacier Side 2" houseid="3265" entryx="32203" entryy="31132" entryz="7" rent="300000" townid="16" size="82" clientid="55003" beds="0" />
 	<house name="Glacier Side 1" houseid="3266" entryx="32206" entryy="31126" entryz="7" rent="150000" townid="16" size="23" clientid="55002" beds="0" />
 	<house name="Glacier Side 3" houseid="3267" entryx="32206" entryy="31140" entryz="7" rent="150000" townid="16" size="30" clientid="55004" beds="0" />
@@ -590,7 +590,7 @@
 	<house name="Arena Walk 1" houseid="3277" entryx="32238" entryy="31134" entryz="7" rent="300000" townid="16" size="51" clientid="55011" beds="0" />
 	<house name="Bears Paw 2" houseid="3278" entryx="32241" entryy="31133" entryz="7" rent="300000" townid="16" size="42" clientid="55102" beds="0" />
 	<house name="Bears Paw 1" houseid="3279" entryx="32264" entryy="31132" entryz="7" rent="200000" townid="16" size="32" clientid="55101" beds="0" />
-	<house name="Crystal Glance" houseid="3280" entryx="32246" entryy="31118" entryz="7" rent="1000000" guildhall="true" townid="16" size="234" clientid="55302" beds="0" />
+	<house name="Crystal Glance" houseid="3280" entryx="32246" entryy="31118" entryz="7" rent="1000000" guildhall="true" townid="16" size="282" clientid="55302" beds="24" />
 	<house name="Shady Rocks 2" houseid="3281" entryx="32259" entryy="31119" entryz="7" rent="200000" townid="16" size="27" clientid="55127" beds="0" />
 	<house name="Shady Rocks 1" houseid="3282" entryx="32259" entryy="31110" entryz="7" rent="300000" townid="16" size="63" clientid="55126" beds="0" />
 	<house name="Shady Rocks 3" houseid="3283" entryx="32277" entryy="31121" entryz="7" rent="300000" townid="16" size="77" clientid="55128" beds="0" />
@@ -623,7 +623,7 @@
 	<house name="Raven Corner 2" houseid="3310" entryx="32233" entryy="31156" entryz="7" rent="150000" townid="16" size="24" clientid="55107" beds="0" />
 	<house name="Raven Corner 1" houseid="3311" entryx="32234" entryy="31154" entryz="7" rent="80000" townid="16" size="15" clientid="55106" beds="0" />
 	<house name="Raven Corner 3" houseid="3312" entryx="32234" entryy="31157" entryz="7" rent="100000" townid="16" size="15" clientid="55108" beds="0" />
-	<house name="Mammoth Belly" houseid="3313" entryx="32241" entryy="31174" entryz="7" rent="1000000" guildhall="true" townid="16" size="278" clientid="55301" beds="0" />
+	<house name="Mammoth Belly" houseid="3313" entryx="32241" entryy="31174" entryz="7" rent="1000000" guildhall="true" townid="16" size="338" clientid="55301" beds="30" />
 	<house name="Darashia 3, Flat 01" houseid="3314" entryx="33229" entryy="32442" entryz="7" rent="150000" townid="13" size="20" clientid="61024" beds="0" />
 	<house name="Darashia 3, Flat 05" houseid="3315" entryx="33230" entryy="32442" entryz="7" rent="150000" townid="13" size="22" clientid="61028" beds="0" />
 	<house name="Darashia 3, Flat 02" houseid="3316" entryx="33227" entryy="32447" entryz="7" rent="200000" townid="13" size="32" clientid="61025" beds="0" />
@@ -642,8 +642,8 @@
 	<house name="Darashia 8, Flat 14" houseid="3330" entryx="33254" entryy="32449" entryz="6" rent="150000" townid="13" size="32" clientid="62022" beds="0" />
 	<house name="Darashia 8, Flat 13" houseid="3331" entryx="33254" entryy="32449" entryz="6" rent="150000" townid="13" size="36" clientid="62021" beds="0" />
 	<house name="Darashia, Villa" houseid="3332" entryx="33266" entryy="32453" entryz="7" rent="800000" townid="13" size="93" clientid="62016" beds="0" />
-	<house name="Darashia, Eastern Guildhall" houseid="3333" entryx="33232" entryy="32470" entryz="7" rent="1000000" guildhall="true" townid="13" size="194" clientid="62018" beds="0" />
-	<house name="Darashia, Western Guildhall" houseid="3334" entryx="33228" entryy="32470" entryz="7" rent="500000" guildhall="true" townid="13" size="149" clientid="62017" beds="0" />
+	<house name="Darashia, Eastern Guildhall" houseid="3333" entryx="33232" entryy="32470" entryz="7" rent="1000000" guildhall="true" townid="13" size="226" clientid="62018" beds="16" />
+	<house name="Darashia, Western Guildhall" houseid="3334" entryx="33228" entryy="32470" entryz="7" rent="500000" guildhall="true" townid="13" size="177" clientid="62017" beds="14" />
 	<house name="Darashia 2, Flat 03" houseid="3335" entryx="33204" entryy="32435" entryz="7" rent="100000" townid="13" size="26" clientid="61011" beds="0" />
 	<house name="Darashia 2, Flat 02" houseid="3336" entryx="33207" entryy="32434" entryz="7" rent="100000" townid="13" size="22" clientid="61010" beds="0" />
 	<house name="Darashia 2, Flat 01" houseid="3337" entryx="33212" entryy="32436" entryz="7" rent="150000" townid="13" size="22" clientid="61009" beds="0" />
@@ -699,7 +699,7 @@
 	<house name="Darashia 7, Flat 13" houseid="3387" entryx="33267" entryy="32427" entryz="6" rent="100000" townid="13" size="22" clientid="62009" beds="0" />
 	<house name="Pirate Shipwreck 1" houseid="3388" entryx="33278" entryy="32422" entryz="7" rent="800000" townid="13" size="145" clientid="62023" beds="0" />
 	<house name="Pirate Shipwreck 2" houseid="3389" entryx="33281" entryy="32431" entryz="7" rent="800000" townid="13" size="178" clientid="62024" beds="0" />
-	<house name="The Shelter" houseid="3390" entryx="32267" entryy="32859" entryz="7" rent="250000" guildhall="true" townid="14" size="276" clientid="65023" beds="0" />
+	<house name="The Shelter" houseid="3390" entryx="32267" entryy="32859" entryz="7" rent="250000" guildhall="true" townid="14" size="338" clientid="65023" beds="31" />
 	<house name="Litter Promenade 1" houseid="3391" entryx="32271" entryy="32862" entryz="7" rent="25000" townid="14" size="5" clientid="65018" beds="0" />
 	<house name="Litter Promenade 2" houseid="3392" entryx="32277" entryy="32861" entryz="7" rent="50000" townid="14" size="7" clientid="65019" beds="0" />
 	<house name="Litter Promenade 3" houseid="3394" entryx="32286" entryy="32865" entryz="7" rent="25000" townid="14" size="12" clientid="65020" beds="0" />
@@ -755,7 +755,7 @@
 	<house name="Trader's Point 3 (Shop)" houseid="3445" entryx="32344" entryy="32826" entryz="7" rent="600000" townid="14" size="103" clientid="64005" beds="0" />
 	<house name="Ivory Mansion" houseid="3446" entryx="32345" entryy="32843" entryz="7" rent="800000" townid="14" size="271" clientid="63012" beds="0" />
 	<house name="Ivory Circle 2" houseid="3447" entryx="32364" entryy="32818" entryz="7" rent="400000" townid="14" size="120" clientid="63009" beds="0" />
-	<house name="Ivy Cottage" houseid="3448" entryx="32277" entryy="32775" entryz="7" rent="500000" guildhall="true" townid="14" size="464" clientid="64026" beds="0" />
+	<house name="Ivy Cottage" houseid="3448" entryx="32277" entryy="32775" entryz="7" rent="500000" guildhall="true" townid="14" size="516" clientid="64026" beds="26" />
 	<house name="Marble Lane 1" houseid="3449" entryx="32300" entryy="32772" entryz="7" rent="600000" townid="14" size="174" clientid="63001" beds="0" />
 	<house name="Freedom Street 2" houseid="3450" entryx="32325" entryy="32812" entryz="7" rent="400000" townid="14" size="103" clientid="64002" beds="0" />
 	<house name="Meriana Beach" houseid="3452" entryx="32383" entryy="32584" entryz="7" rent="150000" townid="14" size="142" clientid="63010" beds="0" />
@@ -768,7 +768,7 @@
 	<house name="The Tavern 2d" houseid="3459" entryx="32298" entryy="32838" entryz="5" rent="100000" townid="14" size="20" clientid="64036" beds="0" />
 	<house name="The Tavern 2c" houseid="3460" entryx="32302" entryy="32838" entryz="5" rent="50000" townid="14" size="16" clientid="64035" beds="0" />
 	<house name="The Yeah Beach Project" houseid="3461" entryx="32294" entryy="32555" entryz="6" rent="150000" townid="14" size="108" clientid="63011" beds="0" />
-	<house name="Mountain Hideout" houseid="3462" entryx="32392" entryy="32705" entryz="6" rent="500000" guildhall="true" townid="14" size="223" clientid="64028" beds="0" />
+	<house name="Mountain Hideout" houseid="3462" entryx="32392" entryy="32705" entryz="6" rent="500000" guildhall="true" townid="14" size="257" clientid="64028" beds="17" />
 	<house name="Darashia 8, Flat 02" houseid="3463" entryx="33249" entryy="32447" entryz="7" rent="300000" townid="13" size="67" clientid="62012" beds="0" />
 	<house name="Castle, Basement, Flat 01" houseid="3464" entryx="33204" entryy="31790" entryz="8" rent="50000" townid="11" size="10" clientid="50120" beds="0" />
 	<house name="Castle, Basement, Flat 02" houseid="3465" entryx="33204" entryy="31791" entryz="8" rent="50000" townid="11" size="10" clientid="50121" beds="0" />
@@ -797,7 +797,7 @@
 	<house name="Cormaya 7" houseid="3490" entryx="33287" entryy="31994" entryz="7" rent="200000" townid="11" size="46" clientid="54019" beds="0" />
 	<house name="Cormaya 8" houseid="3491" entryx="33287" entryy="32000" entryz="7" rent="200000" townid="11" size="52" clientid="54020" beds="0" />
 	<house name="Cormaya 5" houseid="3492" entryx="33278" entryy="31980" entryz="7" rent="300000" townid="11" size="77" clientid="54017" beds="0" />
-	<house name="Castle of the White Dragon" houseid="3493" entryx="33297" entryy="31986" entryz="7" rent="1000000" guildhall="true" townid="11" size="436" clientid="54027" beds="0" />
+	<house name="Castle of the White Dragon" houseid="3493" entryx="33297" entryy="31986" entryz="7" rent="1000000" guildhall="true" townid="11" size="474" clientid="54027" beds="19" />
 	<house name="Cormaya 9b" houseid="3494" entryx="33286" entryy="32012" entryz="7" rent="150000" townid="11" size="50" clientid="54022" beds="0" />
 	<house name="Cormaya 9a" houseid="3495" entryx="33288" entryy="32013" entryz="7" rent="80000" townid="11" size="20" clientid="54021" beds="0" />
 	<house name="Cormaya 9d" houseid="3496" entryx="33286" entryy="32012" entryz="6" rent="150000" townid="11" size="50" clientid="54024" beds="0" />
@@ -807,7 +807,7 @@
 	<house name="Edron Flats, Flat 22" houseid="3500" entryx="33189" entryy="31845" entryz="5" rent="50000" townid="11" size="7" clientid="50318" beds="0" />
 	<house name="Magic Academy, Shop" houseid="3501" entryx="33254" entryy="31840" entryz="8" rent="150000" townid="11" size="18" clientid="50702" beds="0" />
 	<house name="Magic Academy, Flat 1" houseid="3502" entryx="33282" entryy="31832" entryz="8" rent="100000" townid="11" size="15" clientid="50703" beds="0" />
-	<house name="Magic Academy, Guild" houseid="3503" entryx="33271" entryy="31825" entryz="6" rent="500000" guildhall="true" townid="11" size="155" clientid="50701" beds="0" />
+	<house name="Magic Academy, Guild" houseid="3503" entryx="33271" entryy="31825" entryz="6" rent="500000" guildhall="true" townid="11" size="183" clientid="50701" beds="14" />
 	<house name="Magic Academy, Flat 2" houseid="3504" entryx="33282" entryy="31832" entryz="7" rent="80000" townid="11" size="21" clientid="50704" beds="0" />
 	<house name="Magic Academy, Flat 3" houseid="3505" entryx="33282" entryy="31832" entryz="5" rent="100000" townid="11" size="23" clientid="50705" beds="0" />
 	<house name="Magic Academy, Flat 4" houseid="3506" entryx="33282" entryy="31832" entryz="4" rent="100000" townid="11" size="21" clientid="50706" beds="0" />
@@ -829,7 +829,7 @@
 	<house name="Murkhol I c" houseid="3523" entryx="33084" entryy="32841" entryz="7" rent="50000" townid="10" size="8" clientid="59023" beds="0" />
 	<house name="Murkhol I b" houseid="3524" entryx="33084" entryy="32841" entryz="7" rent="50000" townid="10" size="8" clientid="59022" beds="0" />
 	<house name="Charsirakh I b" houseid="3525" entryx="33073" entryy="32820" entryz="7" rent="150000" townid="10" size="32" clientid="59001" beds="0" />
-	<house name="Harrah I" houseid="3526" entryx="33088" entryy="32827" entryz="7" rent="250000" guildhall="true" townid="10" size="93" clientid="59020" beds="0" />
+	<house name="Harrah I" houseid="3526" entryx="33088" entryy="32827" entryz="7" rent="250000" guildhall="true" townid="10" size="113" clientid="59020" beds="10" />
 	<house name="Thanah I d" houseid="3527" entryx="33109" entryy="32826" entryz="7" rent="200000" townid="10" size="40" clientid="58005" beds="0" />
 	<house name="Thanah I c" houseid="3528" entryx="33109" entryy="32811" entryz="7" rent="200000" townid="10" size="51" clientid="58004" beds="0" />
 	<house name="Thanah I b" houseid="3529" entryx="33114" entryy="32821" entryz="6" rent="150000" townid="10" size="47" clientid="58003" beds="0" />
@@ -869,7 +869,7 @@
 	<house name="Esuph IV c" houseid="3564" entryx="33239" entryy="32832" entryz="7" rent="80000" townid="10" size="17" clientid="59074" beds="0" />
 	<house name="Esuph IV d" houseid="3565" entryx="33236" entryy="32839" entryz="7" rent="25000" townid="10" size="16" clientid="59075" beds="0" />
 	<house name="Esuph IV a" houseid="3566" entryx="33234" entryy="32831" entryz="6" rent="25000" townid="10" size="7" clientid="59072" beds="0" />
-	<house name="Horakhal" houseid="3567" entryx="33217" entryy="32836" entryz="6" rent="250000" guildhall="true" townid="10" size="172" clientid="59076" beds="0" />
+	<house name="Horakhal" houseid="3567" entryx="33217" entryy="32836" entryz="6" rent="250000" guildhall="true" townid="10" size="200" clientid="59076" beds="14" />
 	<house name="Botham II d" houseid="3568" entryx="33209" entryy="32849" entryz="7" rent="100000" townid="10" size="32" clientid="58026" beds="0" />
 	<house name="Botham II e" houseid="3569" entryx="33220" entryy="32845" entryz="7" rent="100000" townid="10" size="26" clientid="58027" beds="0" />
 	<house name="Botham II f" houseid="3570" entryx="33213" entryy="32860" entryz="7" rent="80000" townid="10" size="26" clientid="58028" beds="0" />
@@ -890,7 +890,7 @@
 	<house name="Botham IV g" houseid="3586" entryx="33179" entryy="32849" entryz="7" rent="100000" townid="10" size="24" clientid="58044" beds="0" />
 	<house name="Botham IV e" houseid="3587" entryx="33169" entryy="32855" entryz="6" rent="100000" townid="10" size="73" clientid="58042" beds="0" />
 	<house name="Botham IV a" houseid="3591" entryx="33175" entryy="32853" entryz="5" rent="100000" townid="10" size="21" clientid="58038" beds="0" />
-	<house name="Ramen Tah" houseid="3592" entryx="33174" entryy="32843" entryz="7" rent="250000" guildhall="true" townid="10" size="83" clientid="58047" beds="0" />
+	<house name="Ramen Tah" houseid="3592" entryx="33174" entryy="32843" entryz="7" rent="250000" guildhall="true" townid="10" size="115" clientid="58047" beds="16" />
 	<house name="Botham I c" houseid="3593" entryx="33187" entryy="32830" entryz="7" rent="150000" townid="10" size="26" clientid="58020" beds="0" />
 	<house name="Botham I e" houseid="3594" entryx="33192" entryy="32838" entryz="7" rent="80000" townid="10" size="26" clientid="58022" beds="0" />
 	<house name="Botham I d" houseid="3595" entryx="33199" entryy="32838" entryz="7" rent="150000" townid="10" size="49" clientid="58021" beds="0" />
@@ -931,12 +931,12 @@
 	<house name="Uthemath I d" houseid="3630" entryx="33181" entryy="32806" entryz="7" rent="80000" townid="10" size="18" clientid="59063" beds="0" />
 	<house name="Uthemath I e" houseid="3631" entryx="33195" entryy="32806" entryz="7" rent="80000" townid="10" size="16" clientid="59064" beds="0" />
 	<house name="Uthemath I f" houseid="3632" entryx="33189" entryy="32816" entryz="7" rent="150000" townid="10" size="46" clientid="59065" beds="0" />
-	<house name="Uthemath II" houseid="3633" entryx="33208" entryy="32816" entryz="7" rent="250000" guildhall="true" townid="10" size="76" clientid="59066" beds="0" />
+	<house name="Uthemath II" houseid="3633" entryx="33208" entryy="32816" entryz="7" rent="250000" guildhall="true" townid="10" size="92" clientid="59066" beds="8" />
 	<house name="Marketplace 1" houseid="3634" entryx="33937" entryy="31505" entryz="7" rent="400000" townid="22" size="67" clientid="48001" beds="0" />
 	<house name="Marketplace 2" houseid="3635" entryx="33951" entryy="31501" entryz="7" rent="400000" townid="22" size="74" clientid="48002" beds="0" />
 	<house name="Quay 1" houseid="3636" entryx="33885" entryy="31552" entryz="7" rent="200000" townid="22" size="76" clientid="48003" beds="0" />
 	<house name="Quay 2" houseid="3637" entryx="33896" entryy="31544" entryz="7" rent="200000" townid="22" size="121" clientid="48004" beds="0" />
-	<house name="Halls of Sun and Sea" houseid="3638" entryx="33909" entryy="31535" entryz="7" rent="1000000" guildhall="true" townid="22" size="334" clientid="48007" beds="0" />
+	<house name="Halls of Sun and Sea" houseid="3638" entryx="33909" entryy="31535" entryz="7" rent="1000000" guildhall="true" townid="22" size="352" clientid="48007" beds="15" />
 	<house name="Palace Vicinity" houseid="3639" entryx="33866" entryy="31516" entryz="7" rent="200000" townid="22" size="109" clientid="48006" beds="0" />
 	<house name="Wave Tower" houseid="3640" entryx="33879" entryy="31525" entryz="7" rent="400000" townid="22" size="166" clientid="48005" beds="0" />
 	<house name="Old Sanctuary of God King Qjell" houseid="3641" entryx="33473" entryy="31310" entryz="9" rent="300000" townid="18" size="408" clientid="17001" beds="0" />
@@ -952,12 +952,12 @@
 	<house name="Wallside Lane 2" houseid="3651" entryx="33637" entryy="31928" entryz="6" rent="600000" townid="20" size="168" clientid="19011" beds="0" />
 	<house name="Vanward Flats B" houseid="3652" entryx="33614" entryy="31935" entryz="6" rent="400000" townid="20" size="144" clientid="19013" beds="0" />
 	<house name="Vanward Flats A" houseid="3653" entryx="33621" entryy="31935" entryz="6" rent="400000" townid="20" size="145" clientid="19012" beds="0" />
-	<house name="Bronze Brothers Bastion" houseid="3654" entryx="33599" entryy="31933" entryz="6" rent="5000000" guildhall="true" townid="20" size="705" clientid="19007" beds="0" />
+	<house name="Bronze Brothers Bastion" houseid="3654" entryx="33599" entryy="31933" entryz="6" rent="5000000" guildhall="true" townid="20" size="735" clientid="19007" beds="16" />
 	<house name="Cistern Ave" houseid="3655" entryx="33588" entryy="31926" entryz="6" rent="300000" townid="20" size="73" clientid="19008" beds="0" />
 	<house name="Antimony Lane 4" houseid="3656" entryx="33614" entryy="31922" entryz="6" rent="400000" townid="20" size="96" clientid="19017" beds="0" />
 	<house name="Antimony Lane 3" houseid="3657" entryx="33630" entryy="31921" entryz="6" rent="400000" townid="20" size="69" clientid="19016" beds="0" />
 	<house name="Rathleton Hills Residence" houseid="3658" entryx="33651" entryy="31910" entryz="6" rent="400000" townid="20" size="138" clientid="19003" beds="0" />
-	<house name="Rathleton Hills Estate" houseid="3659" entryx="33662" entryy="31917" entryz="6" rent="1000000" guildhall="true" townid="20" size="393" clientid="19002" beds="0" />
+	<house name="Rathleton Hills Estate" houseid="3659" entryx="33662" entryy="31917" entryz="6" rent="1000000" guildhall="true" townid="20" size="419" clientid="19002" beds="13" />
 	<house name="Lion's Head Reef" houseid="3660" entryx="32365" entryy="32501" entryz="7" rent="400000" townid="25" size="143" clientid="63013" beds="0" />
 	<house name="Shadow Caves 1" houseid="3661" entryx="32654" entryy="31672" entryz="8" rent="50000" townid="5" size="17" clientid="40611" beds="0" />
 	<house name="Shadow Caves 2" houseid="3662" entryx="32656" entryy="31672" entryz="8" rent="50000" townid="5" size="20" clientid="40614" beds="0" />
@@ -965,9 +965,9 @@
 	<house name="Shadow Caves 4" houseid="3664" entryx="32656" entryy="31664" entryz="9" rent="100000" townid="5" size="38" clientid="40622" beds="0" />
 	<house name="Shadow Caves 5" houseid="3665" entryx="32654" entryy="31672" entryz="9" rent="100000" townid="5" size="38" clientid="40625" beds="0" />
 	<house name="Shadow Caves 6" houseid="3666" entryx="32656" entryy="31672" entryz="9" rent="100000" townid="5" size="38" clientid="40638" beds="0" />
-	<house name="Northport Clanhall" houseid="3667" entryx="32468" entryy="31614" entryz="7" rent="250000" guildhall="true" townid="6" size="132" clientid="22008" beds="0" />
-	<house name="The Treehouse" houseid="3668" entryx="32747" entryy="32697" entryz="7" rent="250000" guildhall="true" townid="15" size="478" clientid="47001" beds="0" />
-	<house name="Frost Manor" houseid="3669" entryx="32287" entryy="31106" entryz="5" rent="500000" guildhall="true" townid="16" size="364" clientid="55303" beds="0" />
+	<house name="Northport Clanhall" houseid="3667" entryx="32468" entryy="31614" entryz="7" rent="250000" guildhall="true" townid="6" size="152" clientid="22008" beds="10" />
+	<house name="The Treehouse" houseid="3668" entryx="32747" entryy="32697" entryz="7" rent="250000" guildhall="true" townid="15" size="524" clientid="47001" beds="23" />
+	<house name="Frost Manor" houseid="3669" entryx="32287" entryy="31106" entryz="5" rent="500000" guildhall="true" townid="16" size="412" clientid="55303" beds="26" />
 	<house name="Hare's Den" houseid="3670" entryx="32687" entryy="32193" entryz="10" rent="150000" townid="7" size="166" clientid="32016" beds="0" />
 	<house name="Lost Cavern" houseid="3671" entryx="32559" entryy="31856" entryz="7" rent="200000" townid="7" size="481" clientid="33001" beds="0" />
 	<house name="Caveman Shelter" houseid="3673" entryx="33007" entryy="31426" entryz="6" rent="150000" townid="12" size="78" clientid="15001" beds="0" />
