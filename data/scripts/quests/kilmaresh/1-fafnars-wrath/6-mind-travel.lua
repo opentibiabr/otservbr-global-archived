@@ -4,7 +4,7 @@ local brainPositions = {
 }
 
 local mirrorTeleportPositions = {
-    {x = 33899, y = 31644, z = 9}, -- left
+	{x = 33899, y = 31644, z = 9}, -- left
 	{x = 33936, y = 31648, z = 9}  -- right
 }
 
@@ -45,14 +45,14 @@ potion:register()
 local leftMirror = MoveEvent()
 
 function leftMirror.onStepIn(creature)
-    if creature:isPlayer() then
-        creature:teleportTo(mirrorTeleportPositions[2])
-        creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You were moved to the right brain side")
-		    creature:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
-        return true
-    end
+	if creature:isPlayer() then
+		creature:teleportTo(mirrorTeleportPositions[2])
+		creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You were moved to the right brain side.")
+		creature:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
+	return true
+	end
 
-    return false
+	return false
 end
 
 leftMirror:uid(57505)
@@ -62,14 +62,14 @@ leftMirror:register()
 local rightMirror = MoveEvent()
 
 function rightMirror.onStepIn(creature)
-	  if creature:isPlayer() then
-        creature:teleportTo(mirrorTeleportPositions[1])
-        creature:sendTextMessage(MESSAGE_EVENT_ADVANCE,  "You were moved to the left brain side")
-        creature:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
-        return true
-    end
+	if creature:isPlayer() then
+		creature:teleportTo(mirrorTeleportPositions[1])
+		creature:sendTextMessage(MESSAGE_EVENT_ADVANCE,  "You were moved to the left brain side.")
+		creature:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
+		return true
+	end
 
-    return false
+	return false
 end
 
 rightMirror:uid(57506)
@@ -81,34 +81,34 @@ rightMirror:register()
 local shardIds = {36189, 36190, 36191}
 
 local memoriesWords = {
-    "The Ambassador tells another dignitary: Rathleton must never be surpassed! I will procure that the Empire falters!",
-    "Through a dimensional gate you can see the Ambassador of Rathleton wearing a cloak with a black sphinx on it.",
-    "Through a dimensional gate you can see how the Ambassador of Rathleton is talking to Fafnar cultists in a quite familiar way. The proof is absolutely substantive. The Ambassador is a betrayer!"
+	"The Ambassador tells another dignitary: Rathleton must never be surpassed! I will procure that the Empire falters!",
+	"Through a dimensional gate you can see the Ambassador of Rathleton wearing a cloak with a black sphinx on it.",
+	"Through a dimensional gate you can see how the Ambassador of Rathleton is talking to Fafnar cultists in a quite familiar way. The proof is absolutely substantive. The Ambassador is a betrayer!"
 }
 
 local memoryShardsItemIdsBitmasks = {
-    [36189] = 1,
-    [36190] = 2,
-    [36191] = 4
+	[36189] = 1,
+	[36190] = 2,
+	[36191] = 4
 }
 
 local memoryShards = Action()
 
 function memoryShards.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-    local memoryStorage = player:getStorageValue(Storage.Kilmaresh.Fifth.Memories)
-    local memoriesShardsStorage = player:getStorageValue(Storage.Kilmaresh.Fifth.MemoriesShards)
-    local hasUsedShard = hasBitSet(memoriesShardsStorage, memoryShardsItemIdsBitmasks[item:getId()])
-    if memoryStorage >= 1 and -- following the quest
-        not hasUsedShard and -- making sure we don't use the same shard twice
-        target.uid == 57507 -- is it the shrine?
-    then
-	player:say(memoriesWords[memoryStorage], TALKTYPE_MONSTER_SAY, false, player, toPosition)
-	player:setStorageValue(Storage.Kilmaresh.Fifth.Memories, memoryStorage + 1)
-	player:setStorageValue(Storage.Kilmaresh.Fifth.MemoriesShards, setFlag(memoriesShardsStorage, memoryShardsItemIdsBitmasks[item:getId()]))
-	toPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
-        return true
-    end
-    return false
+	local memoryStorage = player:getStorageValue(Storage.Kilmaresh.Fifth.Memories)
+	local memoriesShardsStorage = player:getStorageValue(Storage.Kilmaresh.Fifth.MemoriesShards)
+	local hasUsedShard = hasBitSet(memoriesShardsStorage, memoryShardsItemIdsBitmasks[item:getId()])
+	if memoryStorage >= 1 and -- following the quest
+		not hasUsedShard and -- making sure we don't use the same shard twice
+		target.uid == 57507 -- is it the shrine?
+	then
+		player:say(memoriesWords[memoryStorage], TALKTYPE_MONSTER_SAY, false, player, toPosition)
+		player:setStorageValue(Storage.Kilmaresh.Fifth.Memories, memoryStorage + 1)
+		player:setStorageValue(Storage.Kilmaresh.Fifth.MemoriesShards, setFlag(memoriesShardsStorage, memoryShardsItemIdsBitmasks[item:getId()]))
+		toPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
+		return true
+	end
+	return false
 end
 
 memoryShards:id(36189, 36190, 36191) -- Green, blue and purple memory shards
@@ -121,27 +121,27 @@ local energyField = MoveEvent()
 
 function energyField.onStepIn(creature, item, position, fromPosition)
 
-    local player = creature:getPlayer()
+	local player = creature:getPlayer()
 
-    if not player then
-        return true
-    end
+	if not player then
+		return true
+	end
 
-    local playerShardIds = {}
+	local playerShardIds = {}
 
-    -- Get player owned shards
-    for i = 1, #shardIds do
-        if player:getItemById(shardIds[i], true) then
-            table.insert(playerShardIds, shardIds[i])
-        end
-    end
+	-- Get player owned shards
+	for i = 1, #shardIds do
+		if player:getItemById(shardIds[i], true) then
+			table.insert(playerShardIds, shardIds[i])
+		end
+	end
 
-    -- Remove a random one, if have any
-    if #playerShardIds > 0 then
-        player:removeItem(playerShardIds[math.random(#playerShardIds)], 1)
-    end
+	-- Remove a random one, if have any
+	if #playerShardIds > 0 then
+		player:removeItem(playerShardIds[math.random(#playerShardIds)], 1)
+	end
 
-    return true
+	return true
 end
 
 energyField:aid(40004)
