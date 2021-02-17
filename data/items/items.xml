@@ -41228,74 +41228,6 @@
 	</item>
 	<item fromid="29321" toid="29322" article="a" name="goromaphone(Replica)" />
 	<item id="29323" article="a" name="bath tub" />
-	<item id="29324" article="a" name="bed">
-		<attribute key="type" value="bed" />
-		<attribute key="partnerDirection" value="south" />
-		<attribute key="femaleSleeper" value="29328" />
-	</item>
-	<item id="29325" article="a" name="bed">
-		<attribute key="type" value="bed" />
-		<attribute key="partnerDirection" value="north" />
-		<attribute key="maleSleeper" value="29323" />
-		<attribute key="femaleSleeper" value="29329" />
-	</item>
-	<item id="29326" article="a" name="bed">
-		<attribute key="type" value="bed" />
-		<attribute key="partnerDirection" value="east" />
-		<attribute key="femaleSleeper" value="29330" />
-	</item>
-	<item id="29327" article="a" name="bed">
-		<attribute key="type" value="bed" />
-		<attribute key="partnerDirection" value="west" />
-		<attribute key="maleSleeper" value="29325" />
-		<attribute key="femaleSleeper" value="29331" />
-	</item>
-	<item id="29328" article="a" name="bed">
-		<attribute key="type" value="bed" />
-		<attribute key="partnerDirection" value="south" />
-		<attribute key="maleSleeper" value="29324" />
-	</item>
-	<item id="29329" article="a" name="bed">
-		<attribute key="type" value="bed" />
-		<attribute key="partnerDirection" value="north" />
-		<attribute key="maleSleeper" value="29323" />
-		<attribute key="maleSleeper" value="29325" />
-	</item>
-	<item id="29330" article="a" name="bed">
-		<attribute key="type" value="bed" />
-		<attribute key="partnerDirection" value="east" />
-		<attribute key="maleSleeper" value="29326" />
-	</item>
-	<item id="29331" article="a" name="bed">
-		<attribute key="type" value="bed" />
-		<attribute key="partnerDirection" value="west" />
-		<attribute key="maleSleeper" value="29325" />
-		<attribute key="maleSleeper" value="29327" />
-	</item>
-	<item id="29332" article="a" name="bed">
-		<attribute key="type" value="bed" />
-		<attribute key="partnerDirection" value="south" />
-		<attribute key="maleSleeper" value="29324" />
-		<attribute key="femaleSleeper" value="29328" />
-	</item>
-	<item id="29333" article="a" name="bed">
-		<attribute key="type" value="bed" />
-		<attribute key="partnerDirection" value="north" />
-		<attribute key="maleSleeper" value="29325" />
-		<attribute key="femaleSleeper" value="29329" />
-	</item>
-	<item id="29334" article="a" name="bed">
-		<attribute key="type" value="bed" />
-		<attribute key="partnerDirection" value="east" />
-		<attribute key="maleSleeper" value="29326" />
-		<attribute key="femaleSleeper" value="29330" />
-	</item>
-	<item id="29335" article="a" name="bed">
-		<attribute key="type" value="bed" />
-		<attribute key="partnerDirection" value="west" />
-		<attribute key="maleSleeper" value="29326" />
-		<attribute key="femaleSleeper" value="29331" />
-	</item>
 	<item id="29336" article="a" name="bath tub">
 		<attribute key="description" value="A very inviting bath tub filled with water." />
 	</item>
@@ -49123,12 +49055,6 @@
 	<item id="37372" toid="37373" article="a" name="luminescent crystal" />
 	<item fromid="37374" toid="37375" name="reserved sprite"/>
 	<item id="37402" article="a" name="luminescent crystal" />
-	<item id="37403" article="a" name="unknow">
-		<attribute key="weight" value="170" />
-	</item>
-	<item id="37404" article="a" name="unknow">
-		<attribute key="weight" value="170" />
-	</item>
 	<item id="37405" article="a" name="unknow">
 		<attribute key="weight" value="170" />
 	</item>
@@ -52553,62 +52479,6 @@
 		<attribute key="maleSleeper" value="37353"/>
 		<attribute key="femaleSleeper" value="37344"/>
 	</item>
-	<item article="a" id="37309" name="bed">
-		<attribute key="rotateTo" value="37327"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37354"/>
-		<attribute key="femaleSleeper" value="37345"/>
-	</item>
-	<item article="a" id="37310" name="bed">
-		<attribute key="rotateTo" value="37328"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37355"/>
-		<attribute key="femaleSleeper" value="37346"/>
-	</item>
-	<item article="a" id="37311" name="bed">
-		<attribute key="rotateTo" value="37329"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37356"/>
-		<attribute key="femaleSleeper" value="37347"/>
-	</item>
-	<item article="a" id="37312" name="bed">
-		<attribute key="rotateTo" value="37330"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37357"/>
-		<attribute key="femaleSleeper" value="37348"/>
-	</item>
-	<item article="a" id="37313" name="bed">
-		<attribute key="rotateTo" value="37331"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37358"/>
-		<attribute key="femaleSleeper" value="37349"/>
-	</item> 
-	<item article="a" id="37314" name="bed">
-		<attribute key="rotateTo" value="37332"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37359"/>
-		<attribute key="femaleSleeper" value="37350"/>
-	</item> 
-	<item article="a" id="37315" name="bed">
-		<attribute key="rotateTo" value="37333"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37360"/>
-		<attribute key="femaleSleeper" value="37351"/>
-	</item> 
-	<item article="a" id="37316" name="bed">
-		<attribute key="rotateTo" value="37334"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37361"/>
-		<attribute key="femaleSleeper" value="37352"/>
-	</item> 
 	<item article="a" id="37317" name="bed">
 		<attribute key="bedPart" value="blanket"/>
 		<attribute key="bedPartOf" value="37308"/>
@@ -52618,62 +52488,6 @@
 		<attribute key="partnerDirection" value="north"/>
 		<attribute key="maleSleeper" value="37362"/>
 		<attribute key="femaleSleeper" value="37362"/>
-	</item> 
-	<item article="a" id="37318" name="bed">
-		<attribute key="rotateTo" value="37336"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37363"/>
-		<attribute key="femaleSleeper" value="37363"/>
-	</item> 
-	<item article="a" id="37319" name="bed">
-		<attribute key="rotateTo" value="37337"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37364"/>
-		<attribute key="femaleSleeper" value="37364"/>
-	</item> 
-	<item article="a" id="37320" name="bed">
-		<attribute key="rotateTo" value="37338"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37365"/>
-		<attribute key="femaleSleeper" value="37365"/>
-	</item> 
-	<item article="a" id="37321" name="bed">
-		<attribute key="rotateTo" value="37339"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37366"/>
-		<attribute key="femaleSleeper" value="37366"/>
-	</item> 
-	<item article="a" id="37322" name="bed">
-		<attribute key="rotateTo" value="37340"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37367"/>
-		<attribute key="femaleSleeper" value="37367"/>
-	</item> 
-	<item article="a" id="37323" name="bed">
-		<attribute key="rotateTo" value="37341"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37368"/>
-		<attribute key="femaleSleeper" value="37368"/>
-	</item> 
-	<item article="a" id="37324" name="bed">
-		<attribute key="rotateTo" value="37342"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37369"/>
-		<attribute key="femaleSleeper" value="37369"/>
-	</item> 
-	<item article="a" id="37325" name="bed">
-		<attribute key="rotateTo" value="37343"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37370"/>
-		<attribute key="femaleSleeper" value="37370"/>
 	</item> 
 	<item article="a" id="37326" name="bed">
 		<attribute key="bedPart" value="pillow"/>
@@ -52685,62 +52499,6 @@
 		<attribute key="maleSleeper" value="37384"/>
 		<attribute key="femaleSleeper" value="37371"/>
 	</item> 
-	<item article="a" id="37327" name="bed">
-		<attribute key="rotateTo" value="37309"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37376"/>
-		<attribute key="femaleSleeper" value="37385"/>
-	</item> 
-	<item article="a" id="37328" name="bed">
-		<attribute key="rotateTo" value="37310"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37377"/>
-		<attribute key="femaleSleeper" value="37386"/>
-	</item> 
-	<item article="a" id="37329" name="bed">
-		<attribute key="rotateTo" value="37311"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37378"/>
-		<attribute key="femaleSleeper" value="37387"/>
-	</item> 
-	<item article="a" id="37330" name="bed">
-		<attribute key="rotateTo" value="37312"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37379"/>
-		<attribute key="femaleSleeper" value="37388"/>
-	</item> 
-	<item article="a" id="37331" name="bed">
-		<attribute key="rotateTo" value="37313"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37380"/>
-		<attribute key="femaleSleeper" value="37389"/>
-	</item> 
-	<item article="a" id="37332" name="bed">
-		<attribute key="rotateTo" value="37314"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37381"/>
-		<attribute key="femaleSleeper" value="37390"/>
-	</item> 
-	<item article="a" id="37333" name="bed">
-		<attribute key="rotateTo" value="37315"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37382"/>
-		<attribute key="femaleSleeper" value="37391"/>
-	</item> 
-	<item article="a" id="37334" name="bed">
-		<attribute key="rotateTo" value="37316"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37383"/>
-		<attribute key="femaleSleeper" value="37392"/>
-	</item> 
 	<item article="a" id="37335" name="bed">
 		<attribute key="bedPart" value="blanket"/>
 		<attribute key="bedPartOf" value="37326"/>
@@ -52751,62 +52509,6 @@
 		<attribute key="maleSleeper" value="37393"/>
 		<attribute key="femaleSleeper" value="37393"/>
 	</item>
-	<item article="a" id="37336" name="bed">
-		<attribute key="rotateTo" value="37318"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37394"/>
-		<attribute key="femaleSleeper" value="37394"/>
-	</item>
-	<item article="a" id="37337" name="bed">
-		<attribute key="rotateTo" value="37319"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37395"/>
-		<attribute key="femaleSleeper" value="37395"/>
-	</item>
-	<item article="a" id="37338" name="bed">
-		<attribute key="rotateTo" value="37320"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37396"/>
-		<attribute key="femaleSleeper" value="37396"/>
-	</item>
-	<item article="a" id="37339" name="bed">
-		<attribute key="rotateTo" value="37321"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37397"/>
-		<attribute key="femaleSleeper" value="37397"/>
-	</item>
-	<item article="a" id="37340" name="bed">
-		<attribute key="rotateTo" value="37322"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37398"/>
-		<attribute key="femaleSleeper" value="37398"/>
-	</item>
-	<item article="a" id="37341" name="bed">
-		<attribute key="rotateTo" value="37323"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37399"/>
-		<attribute key="femaleSleeper" value="37399"/>
-	</item>
-	<item article="a" id="37342" name="bed">
-		<attribute key="rotateTo" value="37324"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37400"/>
-		<attribute key="femaleSleeper" value="37400"/>
-	</item>
-	<item article="a" id="37343" name="bed">
-		<attribute key="rotateTo" value="37325"/>
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37401"/>
-		<attribute key="femaleSleeper" value="37401"/>
-	</item>
 	<item article="a" id="37344" name="bed">
 		<attribute key="bedPart" value="pillow"/>
 		<attribute key="bedPartOf" value="37362"/>
@@ -52815,170 +52517,17 @@
 		<attribute key="femaleSleeper" value="37308"/>
 		<attribute key="maleSleeper" value="37308"/>
 	</item> 
-	<item article="a" id="37345" name="bed">
-		<attribute key="type" value="bed"/>
-    <attribute key="wrapableTo" value="26054" />
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="femaleSleeper" value="37309"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37346" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="femaleSleeper" value="37310"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37347" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="femaleSleeper" value="37311"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37348" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="femaleSleeper" value="37312"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37349" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="femaleSleeper" value="37313"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37350" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="femaleSleeper" value="37314"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37351" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="femaleSleeper" value="37315"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37352" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="femaleSleeper" value="37316"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
 	<item article="a" id="37353" name="bed">
 		<attribute key="bedPart" value="pillow"/>
 		<attribute key="bedPartOf" value="37362"/>
 		<attribute key="type" value="bed"/>
 		<attribute key="partnerDirection" value="south"/>
 	</item> 
-	<item article="a" id="37354" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37309"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37355" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37310"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37356" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37311"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37357" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37312"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37358" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37313"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37359" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37314"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37360" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37315"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37361" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="south"/>
-		<attribute key="maleSleeper" value="37316"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
 	<item article="a" id="37362" name="bed">
 		<attribute key="bedPart" value="blanket"/>
 		<attribute key="bedPartOf" value="37353"/>
 		<attribute key="type" value="bed"/>
 		<attribute key="partnerDirection" value="north"/>
-	</item> 
-	<item article="a" id="37363" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37318"/>
-		<attribute key="femaleSleeper" value="37318"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37364" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37319"/>
-		<attribute key="femaleSleeper" value="37319"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37365" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37320"/>
-		<attribute key="femaleSleeper" value="37320"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37366" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37321"/>
-		<attribute key="femaleSleeper" value="37321"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37367" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37322"/>
-		<attribute key="femaleSleeper" value="37322"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37368" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37323"/>
-		<attribute key="femaleSleeper" value="37323"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37369" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37324"/>
-		<attribute key="femaleSleeper" value="37324"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37370" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="north"/>
-		<attribute key="maleSleeper" value="37325"/>
-		<attribute key="femaleSleeper" value="37325"/>
-		<attribute key="sleepingPerson" value="1"/>
 	</item> 
 	<item article="a" id="37371" name="bed">
 		<attribute key="bedPart" value="pillow"/>
@@ -52988,54 +52537,6 @@
 		<attribute key="femaleSleeper" value="37326"/>
 		<attribute key="maleSleeper" value="37326"/>
 	</item> 
-	<item article="a" id="37376" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="femaleSleeper" value="37327"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37377" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="femaleSleeper" value="37328"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37378" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="femaleSleeper" value="37329"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37379" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="femaleSleeper" value="37330"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37380" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="femaleSleeper" value="37331"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37381" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="femaleSleeper" value="37332"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37382" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="femaleSleeper" value="37333"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37383" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="femaleSleeper" value="37334"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
 	<item article="a" id="37384" name="bed">
 		<attribute key="bedPart" value="pillow"/>
 		<attribute key="bedPartOf" value="37393"/>
@@ -53043,54 +52544,6 @@
 		<attribute key="partnerDirection" value="east"/>
 		<attribute key="maleSleeper" value="37326"/>
 		<attribute key="femaleSleeper" value="37326"/>
-	</item> 
-	<item article="a" id="37385" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37327"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37386" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37328"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37387" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37329"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37388" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37330"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37389" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37331"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37390" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37332"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37391" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37333"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37392" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="east"/>
-		<attribute key="maleSleeper" value="37334"/>
-		<attribute key="sleepingPerson" value="1"/>
 	</item> 
 	<item article="a" id="37393" name="bed">
 		<attribute key="bedPart" value="blanket"/>
@@ -53100,60 +52553,1093 @@
 		<attribute key="maleSleeper" value="37335"/>
 		<attribute key="femaleSleeper" value="37335"/>
 	</item> 
-	<item article="a" id="37394" name="bed">
+	<item article="a" id="37316" name="canopy bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37325"/>
+		<attribute key="rotateTo" value="37334"/>
 		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37336"/>
-		<attribute key="femaleSleeper" value="37336"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37395" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37337"/>
-		<attribute key="femaleSleeper" value="37337"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37396" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37338"/>
-		<attribute key="femaleSleeper" value="37338"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37397" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37339"/>
-		<attribute key="femaleSleeper" value="37339"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37398" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37340"/>
-		<attribute key="femaleSleeper" value="37340"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37399" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37341"/>
-		<attribute key="femaleSleeper" value="37341"/>
-		<attribute key="sleepingPerson" value="1"/>
-	</item> 
-	<item article="a" id="37400" name="bed">
-		<attribute key="type" value="bed"/>
-		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37342"/>
-		<attribute key="femaleSleeper" value="37342"/>
-		<attribute key="sleepingPerson" value="1"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="37361"/>
+		<attribute key="femaleSleeper" value="37352"/>
 	</item>
-	<item article="a" id="37401" name="bed">
+	<item article="a" id="37325" name="canopy bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37316"/>
+		<attribute key="rotateTo" value="37343"/>
 		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="37370"/>
+		<attribute key="femaleSleeper" value="37403"/>
+	</item>
+	<item article="a" id="37334" name="canopy bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37343"/>
+		<attribute key="rotateTo" value="37316"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
 		<attribute key="partnerDirection" value="west"/>
-		<attribute key="maleSleeper" value="37343"/>
-		<attribute key="femaleSleeper" value="37343"/>
-		<attribute key="sleepingPerson" value="1"/>
+		<attribute key="maleSleeper" value="37392"/>
+		<attribute key="femaleSleeper" value="37383"/>
+	</item>
+	<item article="a" id="37343" name="canopy bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37334"/>
+		<attribute key="rotateTo" value="37325"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="37404"/>
+		<attribute key="femaleSleeper" value="37401"/>
+	</item>
+	<item article="a" id="37361" name="canopy bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37370" name="canopy bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37392" name="canopy bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37404" name="canopy bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37352" name="canopy bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37403" name="canopy bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37383" name="canopy bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37401" name="canopy bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40694" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="40695"/>
+		<attribute key="rotateTo" value="40696"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="40686"/>
+		<attribute key="femaleSleeper" value="40690"/>
+	</item>
+	<item article="a" id="40695" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="40694"/>
+		<attribute key="rotateTo" value="40697"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="40687"/>
+		<attribute key="femaleSleeper" value="40691"/>
+	</item>
+	<item article="a" id="40696" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="40697"/>
+		<attribute key="rotateTo" value="40694"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="40688"/>
+		<attribute key="femaleSleeper" value="40692"/>
+	</item>
+	<item article="a" id="40697" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="40696"/>
+		<attribute key="rotateTo" value="40695"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="40689"/>
+		<attribute key="femaleSleeper" value="40693"/>
+	</item>
+	<item article="a" id="40686" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40687" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40690" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40691" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40688" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40689" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40692" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40693" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40706" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="40707"/>
+		<attribute key="rotateTo" value="40708"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="40698"/>
+		<attribute key="femaleSleeper" value="40702"/>
+	</item>
+	<item article="a" id="40707" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="40706"/>
+		<attribute key="rotateTo" value="40709"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="40699"/>
+		<attribute key="femaleSleeper" value="40703"/>
+	</item>
+	<item article="a" id="40708" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="40709"/>
+		<attribute key="rotateTo" value="40706"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="40700"/>
+		<attribute key="femaleSleeper" value="40704"/>
+	</item>
+	<item article="a" id="40709" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="40708"/>
+		<attribute key="rotateTo" value="40707"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="40701"/>
+		<attribute key="femaleSleeper" value="40705"/>
+	</item>
+	<item article="a" id="40698" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40699" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40702" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40703" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40700" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40701" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40704" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40705" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40718" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="40719"/>
+		<attribute key="rotateTo" value="40720"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="40710"/>
+		<attribute key="femaleSleeper" value="40714"/>
+	</item>
+	<item article="a" id="40719" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="40718"/>
+		<attribute key="rotateTo" value="40721"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="40711"/>
+		<attribute key="femaleSleeper" value="40715"/>
+	</item>
+	<item article="a" id="40720" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="40721"/>
+		<attribute key="rotateTo" value="40718"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="40712"/>
+		<attribute key="femaleSleeper" value="40716"/>
+	</item>
+	<item article="a" id="40721" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="40720"/>
+		<attribute key="rotateTo" value="40719"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="40713"/>
+		<attribute key="femaleSleeper" value="40717"/>
+	</item>
+	<item article="a" id="40710" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40711" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40714" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40715" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40712" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40713" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40716" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40717" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40771" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="40772"/>
+		<attribute key="rotateTo" value="40773"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="40763"/>
+		<attribute key="femaleSleeper" value="40767"/>
+	</item>
+	<item article="a" id="40772" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="40771"/>
+		<attribute key="rotateTo" value="40774"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="40764"/>
+		<attribute key="femaleSleeper" value="40768"/>
+	</item>
+	<item article="a" id="40773" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="40774"/>
+		<attribute key="rotateTo" value="40771"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="40765"/>
+		<attribute key="femaleSleeper" value="40769"/>
+	</item>
+	<item article="a" id="40774" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="40773"/>
+		<attribute key="rotateTo" value="40772"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="40766"/>
+		<attribute key="femaleSleeper" value="40770"/>
+	</item>
+	<item article="a" id="40763" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40764" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40767" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40768" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40765" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40766" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40769" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40770" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40041" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="40042"/>
+		<attribute key="rotateTo" value="40043"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="40024"/>
+		<attribute key="femaleSleeper" value="40028"/>
+	</item>
+	<item article="a" id="40042" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="40041"/>
+		<attribute key="rotateTo" value="40044"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="40025"/>
+		<attribute key="femaleSleeper" value="40038"/>
+	</item>
+	<item article="a" id="40043" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="40044"/>
+		<attribute key="rotateTo" value="40041"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="40026"/>
+		<attribute key="femaleSleeper" value="40039"/>
+	</item>
+	<item article="a" id="40044" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="40043"/>
+		<attribute key="rotateTo" value="40042"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="40027"/>
+		<attribute key="femaleSleeper" value="40040"/>
+	</item>
+	<item article="a" id="40024" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40025" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40028" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40038" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40026" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40027" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40039" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40040" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="39155" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="39156"/>
+		<attribute key="rotateTo" value="39157"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="39147"/>
+		<attribute key="femaleSleeper" value="39151"/>
+	</item>
+	<item article="a" id="39156" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="39155"/>
+		<attribute key="rotateTo" value="39158"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="39148"/>
+		<attribute key="femaleSleeper" value="39152"/>
+	</item>
+	<item article="a" id="39157" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="39158"/>
+		<attribute key="rotateTo" value="39155"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="39149"/>
+		<attribute key="femaleSleeper" value="39153"/>
+	</item>
+	<item article="a" id="39158" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="39157"/>
+		<attribute key="rotateTo" value="39156"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="39150"/>
+		<attribute key="femaleSleeper" value="39154"/>
+	</item>
+	<item article="a" id="39147" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="39148" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="39151" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="39152" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="39149" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="39150" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40053" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="40054" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="29332" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="29333"/>
+		<attribute key="rotateTo" value="29334"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="29324"/>
+		<attribute key="femaleSleeper" value="29328"/>
+	</item>
+	<item article="a" id="29333" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="29332"/>
+		<attribute key="rotateTo" value="29335"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="29325"/>
+		<attribute key="femaleSleeper" value="29329"/>
+	</item>
+	<item article="a" id="29334" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="29335"/>
+		<attribute key="rotateTo" value="29332"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="29326"/>
+		<attribute key="femaleSleeper" value="29330"/>
+	</item>
+	<item article="a" id="29335" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="29334"/>
+		<attribute key="rotateTo" value="29333"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="29327"/>
+		<attribute key="femaleSleeper" value="29331"/>
+	</item>
+	<item article="a" id="29324" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="29325" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="29328" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="29329" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="29326" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="29327" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="29330" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="29331" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37313" name="hammock">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37322"/>
+		<attribute key="rotateTo" value="37331"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="37358"/>
+		<attribute key="femaleSleeper" value="37349"/>
+	</item>
+	<item article="a" id="37322" name="hammock">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37313"/>
+		<attribute key="rotateTo" value="37340"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="37367"/>
+		<attribute key="femaleSleeper" value="37367"/>
+	</item>
+	<item article="a" id="37331" name="hammock">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37340"/>
+		<attribute key="rotateTo" value="37313"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="37389"/>
+		<attribute key="femaleSleeper" value="37380"/>
+	</item>
+	<item article="a" id="37340" name="hammock">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37331"/>
+		<attribute key="rotateTo" value="37322"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="37398"/>
+		<attribute key="femaleSleeper" value="37398"/>
+	</item>
+	<item article="a" id="37358" name="hammock">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37367" name="hammock">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37349" name="hammock">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37389" name="hammock">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37398" name="hammock">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37380" name="hammock">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37315" name="straw mat">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37324"/>
+		<attribute key="rotateTo" value="37333"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="37360"/>
+		<attribute key="femaleSleeper" value="37351"/>
+	</item>
+	<item article="a" id="37324" name="straw mat">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37315"/>
+		<attribute key="rotateTo" value="37342"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="37369"/>
+		<attribute key="femaleSleeper" value="37369"/>
+	</item>
+	<item article="a" id="37333" name="straw mat">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37342"/>
+		<attribute key="rotateTo" value="37315"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="37391"/>
+		<attribute key="femaleSleeper" value="37382"/>
+	</item>
+	<item article="a" id="37342" name="straw mat">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37333"/>
+		<attribute key="rotateTo" value="37324"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="37400"/>
+		<attribute key="femaleSleeper" value="37400"/>
+	</item>
+	<item article="a" id="37360" name="straw mat">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37369" name="straw mat">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37351" name="straw mat">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37391" name="straw mat">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37400" name="straw mat">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37382" name="straw mat">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37309" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37318"/>
+		<attribute key="rotateTo" value="37327"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="37354"/>
+		<attribute key="femaleSleeper" value="37345"/>
+	</item>
+	<item article="a" id="37318" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37309"/>
+		<attribute key="rotateTo" value="37336"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="37363"/>
+		<attribute key="femaleSleeper" value="37363"/>
+	</item>
+	<item article="a" id="37327" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37336"/>
+		<attribute key="rotateTo" value="37309"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="37385"/>
+		<attribute key="femaleSleeper" value="37376"/>
+	</item>
+	<item article="a" id="37336" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37327"/>
+		<attribute key="rotateTo" value="37318"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="37394"/>
+		<attribute key="femaleSleeper" value="37394"/>
+	</item>
+	<item article="a" id="37354" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37363" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37345" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37385" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37394" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37376" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37311" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37320"/>
+		<attribute key="rotateTo" value="37329"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="37356"/>
+		<attribute key="femaleSleeper" value="37347"/>
+	</item>
+	<item article="a" id="37320" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37311"/>
+		<attribute key="rotateTo" value="37338"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="37365"/>
+		<attribute key="femaleSleeper" value="37365"/>
+	</item>
+	<item article="a" id="37329" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37338"/>
+		<attribute key="rotateTo" value="37311"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="37387"/>
+		<attribute key="femaleSleeper" value="37378"/>
+	</item>
+	<item article="a" id="37338" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37329"/>
+		<attribute key="rotateTo" value="37320"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="37396"/>
+		<attribute key="femaleSleeper" value="37396"/>
+	</item>
+	<item article="a" id="37356" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37365" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37347" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37387" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37396" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37378" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37310" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37319"/>
+		<attribute key="rotateTo" value="37328"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="37355"/>
+		<attribute key="femaleSleeper" value="37346"/>
+	</item>
+	<item article="a" id="37319" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37310"/>
+		<attribute key="rotateTo" value="37337"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="37364"/>
+		<attribute key="femaleSleeper" value="37364"/>
+	</item>
+	<item article="a" id="37328" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37337"/>
+		<attribute key="rotateTo" value="37310"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="37386"/>
+		<attribute key="femaleSleeper" value="37377"/>
+	</item>
+	<item article="a" id="37337" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37328"/>
+		<attribute key="rotateTo" value="37319"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="37395"/>
+		<attribute key="femaleSleeper" value="37395"/>
+	</item>
+	<item article="a" id="37355" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37364" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37346" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37386" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37395" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37377" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37314" name="simple bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37323"/>
+		<attribute key="rotateTo" value="37332"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="37359"/>
+		<attribute key="femaleSleeper" value="37350"/>
+	</item>
+	<item article="a" id="37323" name="simple bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37314"/>
+		<attribute key="rotateTo" value="37341"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="37368"/>
+		<attribute key="femaleSleeper" value="37368"/>
+	</item>
+	<item article="a" id="37332" name="simple bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37341"/>
+		<attribute key="rotateTo" value="37314"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="37390"/>
+		<attribute key="femaleSleeper" value="37381"/>
+	</item>
+	<item article="a" id="37341" name="simple bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37332"/>
+		<attribute key="rotateTo" value="37323"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="37399"/>
+		<attribute key="femaleSleeper" value="37399"/>
+	</item>
+	<item article="a" id="37359" name="simple bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37368" name="simple bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37350" name="simple bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37390" name="simple bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37399" name="simple bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37381" name="simple bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37312" name="cot">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37321"/>
+		<attribute key="rotateTo" value="37330"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="37357"/>
+		<attribute key="femaleSleeper" value="37348"/>
+	</item>
+	<item article="a" id="37321" name="cot">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37312"/>
+		<attribute key="rotateTo" value="37339"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="37366"/>
+		<attribute key="femaleSleeper" value="37366"/>
+	</item>
+	<item article="a" id="37330" name="cot">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37339"/>
+		<attribute key="rotateTo" value="37312"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="37388"/>
+		<attribute key="femaleSleeper" value="37379"/>
+	</item>
+	<item article="a" id="37339" name="cot">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37330"/>
+		<attribute key="rotateTo" value="37321"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26129"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="37397"/>
+		<attribute key="femaleSleeper" value="37397"/>
+	</item>
+	<item article="a" id="37357" name="cot">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37366" name="cot">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37348" name="cot">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37388" name="cot">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37397" name="cot">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37379" name="cot">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+
+	<item article="a" id="37630" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37631"/>
+		<attribute key="rotateTo" value="37632"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="maleSleeper" value="37635"/>
+		<attribute key="femaleSleeper" value="37634"/>
+	</item>
+	<item article="a" id="37631" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37630"/>
+		<attribute key="rotateTo" value="37633"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="maleSleeper" value="37636"/>
+		<attribute key="femaleSleeper" value="37636"/>
+	</item>
+	<item article="a" id="37632" name="bed">
+		<attribute key="bedPart" value="pillow"/>
+		<attribute key="bedPartOf" value="37633"/>
+		<attribute key="rotateTo" value="37630"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="maleSleeper" value="37638"/>
+		<attribute key="femaleSleeper" value="37637"/>
+	</item>
+	<item article="a" id="37633" name="bed">
+		<attribute key="bedPart" value="blanket"/>
+		<attribute key="bedPartOf" value="37632"/>
+		<attribute key="rotateTo" value="37631"/>
+		<attribute key="type" value="bed"/>
+		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="maleSleeper" value="37639"/>
+		<attribute key="femaleSleeper" value="37639"/>
+	</item>
+	<item article="a" id="37634" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37635" name="bed">
+		<attribute key="partnerDirection" value="south"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37636" name="bed">
+		<attribute key="partnerDirection" value="north"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37637" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37638" name="bed">
+		<attribute key="partnerDirection" value="east"/>
+		<attribute key="type" value="bed"/>
+	</item>
+	<item article="a" id="37639" name="bed">
+		<attribute key="partnerDirection" value="west"/>
+		<attribute key="type" value="bed"/>
 	</item>
 </items>
