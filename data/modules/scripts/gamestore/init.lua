@@ -1366,21 +1366,33 @@ function GameStore.processHouseRelatedPurchase(player, offerId, offerCount)
 		(itemId >= ITEM_SPIRIT_CASK_START and itemId <= ITEM_SPIRIT_CASK_END)
 	end
 
-	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
-	if inbox and inbox:getEmptySlots() > 0 then
-		local decoKit = inbox:addItem(26054, 1)
-		local function changeKit(kit)
-			local decoItemName = ItemType(offerId):getName()
-			if kit then
-				kit:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "You bought this item in the Store.\nUnwrap it in your own house to create a <" .. decoItemName .. ">.")
-				kit:setCustomAttribute("unWrapId", offerId)
+	isTable = type(offerId) == "table" and true
+	slotsNeeded = 1
+	decoKits = {}
 
-				if isCaskItem(offerId) then
-					kit:setAttribute(ITEM_ATTRIBUTE_DATE, offerCount)
+	if isTable then slotsNeeded = #offerId end
+
+	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
+	if inbox and inbox:getEmptySlots() >= slotsNeeded then
+		for i = 1, (isTable and #offerId or 1) do
+			table.insert(decoKits, inbox:addItem(26054, 1))
+		end
+		--local decoKit = inbox:addItem(26054, 1)
+		local function changeKit(kits)
+			for i = 1, (isTable and #offerId or 1) do
+				newOfferId = isTable and offerId[i] or offerId
+				local decoItemName = ItemType(newOfferId):getName()
+				if kits[i] then
+					kits[i]:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "You bought this item in the Store.\nUnwrap it in your own house to create a <" .. decoItemName .. ">.")
+					kits[i]:setCustomAttribute("unWrapId", newOfferId)
+
+					if isCaskItem(newOfferId) then
+						kits[i]:setAttribute(ITEM_ATTRIBUTE_DATE, offerCount)
+					end
 				end
 			end
 		end
-		addEvent(function() changeKit(decoKit) end, 250)
+		addEvent(function() changeKit(decoKits) end, 250)
 	else
 		return error({code = 0, message = "Please make sure you have free slots in your store inbox."})
 	end
