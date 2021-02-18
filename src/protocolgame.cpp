@@ -5935,10 +5935,6 @@ void ProtocolGame::AddCreature(NetworkMessage &msg, const Creature *creature, bo
 			msg.addByte(0);
 		}
 	}
-	
-	if (creatureType == CREATURETYPE_PLAYER) {
-		msg.addByte(creature->getPlayer()->getVocation()->getClientId());
-	}
 
 	msg.addByte(creature->getSpeechBubble());
 	msg.addByte(0xFF); // MARK_UNMARKED
