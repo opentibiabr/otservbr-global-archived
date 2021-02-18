@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 125000
 monster.maxHealth = monster.health
 monster.race = "venom"
-monster.corpse = 36443
+monster.corpse = 36444
 monster.speed = 425
 monster.maxSummons = 6
 

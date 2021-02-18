@@ -7,11 +7,11 @@ local fafnar = CreatureEvent("FafnarKill")
 
 function fafnar.onKill(creature, target)
 	local storage = monster[target:getName():lower()]
-	if target:isPlayer() or target:getMaster() or not storage then
+	if target:isPlayer() or target:getMaster() or not storage or creature:getStorageValue(Storage.Kilmaresh.Twelve.Boss) ~= 3 then
 		return false
 	end
 
-	local kills = creature:getStorageValue(storage)
+	local kills = creature:getStorageValue(storage) and 0
 	if kills == 300 and creature:getStorageValue(storage) == 1 then
 		creature:say('You slayed ' .. target:getName() .. '.', TALKTYPE_MONSTER_SAY)
 	else
