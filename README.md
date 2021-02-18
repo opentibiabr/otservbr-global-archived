@@ -45,3 +45,5 @@ If you want to sponsor here, join on discord and send a message for one of our a
 [![Supported by OTServ Brasil](https://forums.otserv.com.br/uploads/monthly_2018_05/otbr.png.9f34d819278e170c73dd155a0ca1b501.png)](https://forums.otserv.com.br)
 
 [![Protected by ServerCore](https://mktsc.servercore.com.br/protectedbyservercore.png)](https://bit.ly/1q2q4de)
+
+[![Supported by OTHispano](https://othispano.com/styles/purplefreak/logo3.png)](https://othispano.com/)
