@@ -90,6 +90,11 @@ pushDistanceDelay = 1500
 mapName = "otservbr"
 mapAuthor = "OTServBR"
 
+-- Party List limitations
+-- max distance in which players in party list are visible
+-- NOTE partyListMaxDistance set to 0 means no limit
+partyListMaxDistance = 30
+
 -- Custom Map
 -- NOTE: mapCustomEnabled: true = activate the map, false = disable the map
 mapCustomName = "otservbr-custom"

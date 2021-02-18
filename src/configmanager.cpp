@@ -232,6 +232,8 @@ bool ConfigManager::load()
 	integer[ORANGE_SKULL_DURATION] = getGlobalNumber(L, "orangeSkullDuration", 7);
 	integer[SERVER_SAVE_NOTIFY_DURATION] = getGlobalNumber(L, "serverSaveNotifyDuration", 5);
 
+	integer[PARTY_LIST_MAX_DISTANCE] = getGlobalNumber(L, "partyListMaxDistance", 0);
+
 	integer[PUSH_DELAY] = getGlobalNumber(L, "pushDelay", 1000);
 	integer[PUSH_DISTANCE_DELAY] = getGlobalNumber(L, "pushDistanceDelay", 1500);
 
