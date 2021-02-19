@@ -140,7 +140,7 @@ class Player final : public Creature, public Cylinder
 		explicit Player(ProtocolGame_ptr p);
 		~Player();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Player(const Player&) = delete;
 		Player& operator=(const Player&) = delete;
 

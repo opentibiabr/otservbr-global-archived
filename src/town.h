@@ -62,7 +62,7 @@ class Towns
 			}
 		}
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Towns(const Towns&) = delete;
 		Towns& operator=(const Towns&) = delete;
 

@@ -36,18 +36,13 @@ class Database
 		Database() = default;
 		~Database();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Database(const Database&) = delete;
 		Database& operator=(const Database&) = delete;
 
-		/**
-		 * Singleton implementation.
-		 *
-		 * @return database connection handler singleton
-		 */
-		static Database& getInstance()
-		{
-			static Database instance;
+		static Database& getInstance() {
+			static Database instance; // Guaranteed to be destroyed.
+														// Instantiated on first use.
 			return instance;
 		}
 
@@ -161,7 +156,7 @@ class DBResult
 		explicit DBResult(MYSQL_RES* res);
 		~DBResult();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		DBResult(const DBResult&) = delete;
 		DBResult& operator=(const DBResult&) = delete;
 
@@ -245,7 +240,7 @@ class DBTransaction
 			}
 		}
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		DBTransaction(const DBTransaction&) = delete;
 		DBTransaction& operator=(const DBTransaction&) = delete;
 
@@ -272,5 +267,7 @@ class DBTransaction
 
 		TransactionStates_t state = STATE_NO_START;
 };
+
+constexpr auto g_database = &Database::getInstance;
 
 #endif

@@ -19,6 +19,7 @@
 
 #ifndef FS_GLOBALEVENT_H_B3FB9B848EA3474B9AFC326873947E3C
 #define FS_GLOBALEVENT_H_B3FB9B848EA3474B9AFC326873947E3C
+
 #include "baseevents.h"
 
 #include "const.h"
@@ -43,9 +44,16 @@ class GlobalEvents final : public BaseEvents
 		GlobalEvents();
 		~GlobalEvents();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		GlobalEvents(const GlobalEvents&) = delete;
 		GlobalEvents& operator=(const GlobalEvents&) = delete;
+
+		static GlobalEvents& getInstance() {
+			// Guaranteed to be destroyed
+			static GlobalEvents instance;
+			// Instantiated on first use
+			return instance;
+		}
 
 		void startup() const;
 
@@ -124,5 +132,7 @@ class GlobalEvent final : public Event
 		int64_t nextExecution = 0;
 		uint32_t interval = 0;
 };
+
+constexpr auto g_globalEvents = &GlobalEvents::getInstance;
 
 #endif

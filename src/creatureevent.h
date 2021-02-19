@@ -100,9 +100,16 @@ class CreatureEvents final : public BaseEvents
 	public:
 		CreatureEvents();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		CreatureEvents(const CreatureEvents&) = delete;
 		CreatureEvents& operator=(const CreatureEvents&) = delete;
+
+		static CreatureEvents& getInstance() {
+			// Guaranteed to be destroyed
+			static CreatureEvents instance;
+			// Instantiated on first use
+			return instance;
+		}
 
 		// global events
 		bool playerLogin(Player* player) const;
@@ -127,5 +134,7 @@ class CreatureEvents final : public BaseEvents
 
 		LuaScriptInterface scriptInterface;
 };
+
+constexpr auto g_creatureEvents = &CreatureEvents::getInstance;
 
 #endif

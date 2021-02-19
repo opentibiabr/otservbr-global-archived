@@ -55,7 +55,7 @@ class Door final : public Item
 	public:
 		explicit Door(uint16_t type);
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Door(const Door&) = delete;
 		Door& operator=(const Door&) = delete;
 
@@ -275,7 +275,7 @@ class Houses
 			}
 		}
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Houses(const Houses&) = delete;
 		Houses& operator=(const Houses&) = delete;
 

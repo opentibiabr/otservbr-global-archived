@@ -22,7 +22,6 @@
 
 #include "creature.h"
 
-
 const uint32_t MAX_LOOTCHANCE = 100000;
 const uint32_t MAX_STATICWALK = 100;
 
@@ -69,7 +68,7 @@ class Loot {
 	public:
 		Loot() = default;
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Loot(const Loot&) = delete;
 		Loot& operator=(const Loot&) = delete;
 
@@ -205,7 +204,7 @@ class MonsterType
 	public:
 		MonsterType() = default;
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		MonsterType(const MonsterType&) = delete;
 		MonsterType& operator=(const MonsterType&) = delete;
 
@@ -271,9 +270,17 @@ class Monsters
 {
 	public:
 		Monsters() = default;
-		// non-copyable
+
+		// Singleton - ensures we don't accidentally copy it
 		Monsters(const Monsters&) = delete;
 		Monsters& operator=(const Monsters&) = delete;
+
+		static Monsters& getInstance() {
+			// Guaranteed to be destroyed
+			static Monsters instance;
+			// Instantiated on first use
+			return instance;
+		}
 
 		bool loadFromXml(bool reloading = false);
 		bool isLoaded() const {
@@ -303,5 +310,7 @@ class Monsters
 
 		bool loaded = false;
 };
+
+constexpr auto g_monsters = &Monsters::getInstance;
 
 #endif

@@ -29,6 +29,17 @@ class Scripts
 		Scripts();
 		~Scripts();
 
+		// Singleton - ensures we don't accidentally copy it
+		Scripts(Scripts const&) = delete;
+		void operator=(Scripts const&) = delete;
+
+		static Scripts& getInstance() {
+			// Guaranteed to be destroyed
+			static Scripts instance;
+			// Instantiated on first use
+			return instance;
+		}
+
 		bool loadEventSchedulerScripts(const std::string& fileName);
 		bool loadScripts(std::string folderName, bool isLib, bool reload);
 		LuaScriptInterface& getScriptInterface() {
@@ -37,5 +48,7 @@ class Scripts
 	private:
 		LuaScriptInterface scriptInterface;
 };
+
+constexpr auto g_scripts = &Scripts::getInstance;
 
 #endif

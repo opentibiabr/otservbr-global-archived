@@ -78,9 +78,16 @@ class Modules final : public BaseEvents
 	public:
 		Modules();
 
-		// non-copyable
-		Modules(const Modules&) = delete;
-		Modules& operator=(const Modules&) = delete;
+		// Singleton - ensures we don't accidentally copy it
+		Modules(Modules const&) = delete;
+		void operator=(Modules const&) = delete;
+
+		static Modules& getInstance() {
+			// Guaranteed to be destroyed
+			static Modules instance;
+			// Instantiated on first use.
+			return instance;
+		}
 	
 		void executeOnRecvbyte(Player* player, NetworkMessage& msg, uint8_t byte) const;
 		Module* getEventByRecvbyte(uint8_t recvbyte, bool force);
@@ -97,5 +104,7 @@ class Modules final : public BaseEvents
 
 		LuaScriptInterface scriptInterface;
 };
+
+constexpr auto g_modules = &Modules::getInstance;
 
 #endif

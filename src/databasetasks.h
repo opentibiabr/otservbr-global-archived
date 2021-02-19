@@ -37,12 +37,24 @@ struct DatabaseTask {
 class DatabaseTasks : public ThreadHolder<DatabaseTasks>
 {
 	public:
-		DatabaseTasks();
-    bool SetDatabaseInterface(Database *database);
-    void start();
-    void startThread();
-    void flush();
-    void shutdown();
+		DatabaseTasks() = default;
+
+		// Singleton - ensures we don't accidentally copy it
+		DatabaseTasks(DatabaseTasks const&) = delete;
+		void operator=(DatabaseTasks const&) = delete;
+
+		static DatabaseTasks& getInstance() {
+			// Guaranteed to be destroyed
+			static DatabaseTasks instance;
+			// Instantiated on first use.
+			return instance;
+		}
+
+		bool SetDatabaseInterface(Database *database);
+		void start();
+		void startThread();
+		void flush();
+		void shutdown();
 
 		void addTask(std::string query, std::function<void(DBResult_ptr, bool)> callback = nullptr, bool store = false);
 
@@ -57,6 +69,6 @@ class DatabaseTasks : public ThreadHolder<DatabaseTasks>
 		std::condition_variable taskSignal;
 };
 
-extern DatabaseTasks g_databaseTasks;
+constexpr auto g_databaseTasks = &DatabaseTasks::getInstance;
 
 #endif

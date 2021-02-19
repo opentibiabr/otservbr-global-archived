@@ -85,9 +85,16 @@ class Game
 		Game();
 		~Game();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Game(const Game&) = delete;
 		Game& operator=(const Game&) = delete;
+
+		static Game& getInstance() {
+			// Guaranteed to be destroyed
+			static Game instance;
+			// Instantiated on first use
+			return instance;
+		}
 
 		void loadBoostedCreature();
 		void start(ServiceManager* manager);
@@ -741,5 +748,7 @@ class Game
 		std::map<uint16_t, uint32_t> itemsPriceMap;
 		uint16_t itemsSaleCount;
 };
+
+constexpr auto g_game = &Game::getInstance;
 
 #endif

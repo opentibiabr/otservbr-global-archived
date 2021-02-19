@@ -22,8 +22,6 @@
 #include "tasks.h"
 #include "game.h"
 
-extern Game g_game;
-
 Task* createTask(std::function<void (void)> f)
 {
 	return new Task(std::move(f));

@@ -160,7 +160,7 @@ class Tile : public Cylinder
 			delete ground;
 		};
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Tile(const Tile&) = delete;
 		Tile& operator=(const Tile&) = delete;
 
@@ -320,7 +320,7 @@ class DynamicTile : public Tile
 			}
 		}
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		DynamicTile(const DynamicTile&) = delete;
 		DynamicTile& operator=(const DynamicTile&) = delete;
 
@@ -362,7 +362,7 @@ class StaticTile final : public Tile
 			}
 		}
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		StaticTile(const StaticTile&) = delete;
 		StaticTile& operator=(const StaticTile&) = delete;
 

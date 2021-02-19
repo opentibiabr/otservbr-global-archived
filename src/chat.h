@@ -123,9 +123,16 @@ class Chat
 	public:
 		Chat();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Chat(const Chat&) = delete;
 		Chat& operator=(const Chat&) = delete;
+
+		static Chat& getInstance() {
+			// Guaranteed to be destroyed
+			static Chat instance;
+			// Instantiated on first use
+			return instance;
+		}
 
 		bool load();
 
@@ -159,5 +166,7 @@ class Chat
 
 		PrivateChatChannel dummyPrivate;
 };
+
+constexpr auto g_chat = &Chat::getInstance;
 
 #endif

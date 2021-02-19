@@ -84,7 +84,7 @@ struct Floor {
 	constexpr Floor() = default;
 	~Floor();
 
-	// non-copyable
+	// Singleton - ensures we don't accidentally copy it
 	Floor(const Floor&) = delete;
 	Floor& operator=(const Floor&) = delete;
 
@@ -100,7 +100,7 @@ class QTreeNode
 		constexpr QTreeNode() = default;
 		virtual ~QTreeNode();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		QTreeNode(const QTreeNode&) = delete;
 		QTreeNode& operator=(const QTreeNode&) = delete;
 
@@ -141,7 +141,7 @@ class QTreeLeafNode final : public QTreeNode
 		QTreeLeafNode() { leaf = true; newLeaf = true; }
 		~QTreeLeafNode();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		QTreeLeafNode(const QTreeLeafNode&) = delete;
 		QTreeLeafNode& operator=(const QTreeLeafNode&) = delete;
 

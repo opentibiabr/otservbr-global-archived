@@ -28,10 +28,6 @@
 
 #include <limits>
 
-extern ConfigManager g_config;
-extern Game g_game;
-extern Monsters g_monsters;
-
 bool IOLoginData::LoginServerAuthentication(const std::string& name,
                                             const std::string& password) {
   account::Account account;
@@ -103,7 +99,7 @@ void IOLoginData::setAccountType(uint32_t accountId, account::AccountType accoun
 
 void IOLoginData::updateOnlineStatus(uint32_t guid, bool login)
 {
-  if (g_config.getBoolean(ConfigManager::ALLOW_CLONES)) {
+  if (g_config().getBoolean(ConfigManager::ALLOW_CLONES)) {
     return;
   }
 
@@ -122,7 +118,7 @@ bool IOLoginData::preloadPlayer(Player* player, const std::string& name)
 
   std::ostringstream query;
   query << "SELECT `id`, `account_id`, `group_id`, `deletion`, (SELECT `type` FROM `accounts` WHERE `accounts`.`id` = `account_id`) AS `account_type`";
-  if (!g_config.getBoolean(ConfigManager::FREE_PREMIUM)) {
+  if (!g_config().getBoolean(ConfigManager::FREE_PREMIUM)) {
     query << ", (SELECT `premdays` FROM `accounts` WHERE `accounts`.`id` = `account_id`) AS `premium_days`";
   }
   query << " FROM `players` WHERE `name` = " << db.escapeString(name);
@@ -136,7 +132,7 @@ bool IOLoginData::preloadPlayer(Player* player, const std::string& name)
   }
 
   player->setGUID(result->getNumber<uint32_t>("id"));
-  Group* group = g_game.groups.getGroup(result->getNumber<uint16_t>("group_id"));
+  Group* group = g_game().groups.getGroup(result->getNumber<uint16_t>("group_id"));
   if (!group) {
     std::cout << "[Error - IOLoginData::preloadPlayer] " << player->name << " has Group ID " << result->getNumber<uint16_t>("group_id") << " which doesn't exist." << std::endl;
     return false;
@@ -144,7 +140,7 @@ bool IOLoginData::preloadPlayer(Player* player, const std::string& name)
   player->setGroup(group);
   player->accountNumber = result->getNumber<uint32_t>("account_id");
   player->accountType = static_cast<account::AccountType>(result->getNumber<uint16_t>("account_type"));
-  if (!g_config.getBoolean(ConfigManager::FREE_PREMIUM)) {
+  if (!g_config().getBoolean(ConfigManager::FREE_PREMIUM)) {
     player->premiumDays = result->getNumber<uint16_t>("premium_days");
   } else {
     player->premiumDays = std::numeric_limits<uint16_t>::max();
@@ -291,7 +287,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   acc.GetID(&(player->accountNumber));
   acc.GetAccountType(&(player->accountType));
 
-  if (g_config.getBoolean(ConfigManager::FREE_PREMIUM)) {
+  if (g_config().getBoolean(ConfigManager::FREE_PREMIUM)) {
     player->premiumDays = std::numeric_limits<uint16_t>::max();
   } else {
     acc.GetPremiumRemaningDays(&(player->premiumDays));
@@ -301,7 +297,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
   player->preyBonusRerolls = result->getNumber<uint16_t>("bonus_rerolls");
 
-  Group* group = g_game.groups.getGroup(result->getNumber<uint16_t>("group_id"));
+  Group* group = g_game().groups.getGroup(result->getNumber<uint16_t>("group_id"));
   if (!group) {
     std::cout << "[Error - IOLoginData::loadPlayer] " << player->name << " has Group ID " << result->getNumber<uint16_t>("group_id") << " which doesn't exist" << std::endl;
     return false;
@@ -389,7 +385,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   player->isDailyReward = result->getNumber<uint16_t>("isreward");
   player->currentOutfit = player->defaultOutfit;
 
-  if (g_game.getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
+  if (g_game().getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
     const time_t skullSeconds = result->getNumber<time_t>("skulltime") - time(nullptr);
     if (skullSeconds > 0) {
       //ensure that we round up the number of ticks
@@ -414,7 +410,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   player->offlineTrainingTime = result->getNumber<int32_t>("offlinetraining_time") * 1000;
   player->offlineTrainingSkill = result->getNumber<int32_t>("offlinetraining_skill");
 
-  Town* town = g_game.map.towns.getTown(result->getNumber<uint32_t>("town_id"));
+  Town* town = g_game().map.towns.getTown(result->getNumber<uint32_t>("town_id"));
   if (!town) {
     std::cout << "[Error - IOLoginData::loadPlayer] " << player->name << " has Town ID " << result->getNumber<uint32_t>("town_id") << " which doesn't exist" << std::endl;
     return false;
@@ -461,10 +457,10 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
     uint32_t playerRankId = result->getNumber<uint32_t>("rank_id");
     player->guildNick = result->getString("nick");
 
-    Guild* guild = g_game.getGuild(guildId);
+    Guild* guild = g_game().getGuild(guildId);
     if (!guild) {
       guild = IOGuild::loadGuild(guildId);
-      g_game.addGuild(guild);
+      g_game().addGuild(guild);
     }
 
     if (guild) {
@@ -541,7 +537,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	for (int i = 0; i <= propBestStream.size(); i++) {
 	 uint16_t raceid_t;
 	 if (propBestStream.read<uint16_t>(raceid_t)) {
-	  MonsterType* tmp_tt = g_monsters.getMonsterTypeByRaceId(raceid_t);
+	  MonsterType* tmp_tt = g_monsters().getMonsterTypeByRaceId(raceid_t);
 	  if (tmp_tt) {
 	   player->addBestiaryTrackerList(tmp_tt);
 	  }
@@ -570,7 +566,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   if ((result = db.storeQuery(query.str()))) {
     do {
       time_t killTime = result->getNumber<time_t>("time");
-      if ((time(nullptr) - killTime) <= g_config.getNumber(ConfigManager::FRAG_TIME)) {
+      if ((time(nullptr) - killTime) <= g_config().getNumber(ConfigManager::FRAG_TIME)) {
         player->unjustifiedKills.emplace_back(result->getNumber<uint32_t>("target"), killTime, result->getNumber<bool>("unavenged"));
       }
     } while (result->next());
@@ -627,7 +623,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
   for (auto& it : openContainersList) {
     player->addContainer(it.first - 1, it.second);
-    g_scheduler.addEvent(createSchedulerTask(((it.first) * 50), std::bind(&Game::playerUpdateContainer, &g_game, player->getGUID(), it.first - 1)));
+    g_scheduler().addEvent(createSchedulerTask(((it.first) * 50), std::bind(&Game::playerUpdateContainer, &g_game(), player->getGUID(), it.first - 1)));
   }
 
   // Store Inbox
@@ -943,7 +939,7 @@ bool IOLoginData::savePlayer(Player* player)
 
   query << "`conditions` = " << db.escapeBlob(attributes, attributesSize) << ',';
 
-  if (g_game.getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
+  if (g_game().getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
     int64_t skullTime = 0;
 
     if (player->skullTicks > 0) {
@@ -1295,7 +1291,7 @@ bool IOLoginData::getGuidByNameEx(uint32_t& guid, bool& specialVip, std::string&
 
   name = result->getString("name");
   guid = result->getNumber<uint32_t>("id");
-  Group* group = g_game.groups.getGroup(result->getNumber<uint16_t>("group_id"));
+  Group* group = g_game().groups.getGroup(result->getNumber<uint16_t>("group_id"));
 
   uint64_t flags;
   if (group) {

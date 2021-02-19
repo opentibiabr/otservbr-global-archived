@@ -75,9 +75,16 @@ class TalkActions final : public BaseEvents
 		TalkActions();
 		~TalkActions();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		TalkActions(const TalkActions&) = delete;
 		TalkActions& operator=(const TalkActions&) = delete;
+
+		static TalkActions& getInstance() {
+			// Guaranteed to be destroyed
+			static TalkActions instance;
+			// Instantiated on first use
+			return instance;
+		}
 
 		TalkActionResult_t playerSaySpell(Player* player, SpeakClasses type, const std::string& words) const;
 
@@ -94,5 +101,7 @@ class TalkActions final : public BaseEvents
 
 		LuaScriptInterface scriptInterface;
 };
+
+constexpr auto g_talkActions = &TalkActions::getInstance;
 
 #endif

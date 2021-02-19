@@ -22,12 +22,6 @@
 #include "databasetasks.h"
 #include "tasks.h"
 
-extern Dispatcher g_dispatcher;
-
-DatabaseTasks::DatabaseTasks() {
-  db_ = &Database::getInstance();
-}
-
 bool DatabaseTasks::SetDatabaseInterface(Database *database) {
   if (database == nullptr) {
     return false;
@@ -102,7 +96,7 @@ void DatabaseTasks::runTask(const DatabaseTask& task)
 	}
 
 	if (task.callback) {
-		g_dispatcher.addTask(createTask(std::bind(task.callback, result, success)));
+		g_dispatcher().addTask(createTask(std::bind(task.callback, result, success)));
 	}
 }
 

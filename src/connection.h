@@ -64,7 +64,7 @@ class ConnectionManager
 class Connection : public std::enable_shared_from_this<Connection>
 {
 	public:
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Connection(const Connection&) = delete;
 		Connection& operator=(const Connection&) = delete;
 

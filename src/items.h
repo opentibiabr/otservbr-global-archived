@@ -318,7 +318,7 @@ class Items
 
 		Items();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Items(const Items&) = delete;
 		Items& operator=(const Items&) = delete;
 

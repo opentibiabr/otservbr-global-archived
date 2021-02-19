@@ -27,8 +27,6 @@
 #include "scheduler.h"
 #include "server.h"
 
-extern ConfigManager g_config;
-
 Connection_ptr ConnectionManager::createConnection(boost::asio::io_service& io_service, ConstServicePort_ptr servicePort)
 {
 	std::lock_guard<std::mutex> lockClass(connectionManagerLock);
@@ -71,7 +69,7 @@ void Connection::close(bool force)
 	connectionState = CONNECTION_STATE_DISCONNECTED;
 
 	if (protocol) {
-		g_dispatcher.addTask(
+		g_dispatcher().addTask(
 			createTask(std::bind(&Protocol::release, protocol)));
 	}
 
@@ -105,7 +103,7 @@ Connection::~Connection()
 void Connection::accept(Protocol_ptr conProtocol)
 {
 	this->protocol = conProtocol;
-	g_dispatcher.addTask(createTask(std::bind(&Protocol::onConnect, protocol)));
+	g_dispatcher().addTask(createTask(std::bind(&Protocol::onConnect, protocol)));
 	connectionState = CONNECTION_STATE_CONNECTING_STAGE2;
 
 	accept();
@@ -151,7 +149,7 @@ void Connection::parseHeader(const boost::system::error_code& error)
 	}
 
 	uint32_t timePassed = std::max<uint32_t>(1, (time(nullptr) - timeConnected) + 1);
-	if ((++packetsSent / timePassed) > static_cast<uint32_t>(g_config.getNumber(ConfigManager::MAX_PACKETS_PER_SECOND))) {
+	if ((++packetsSent / timePassed) > static_cast<uint32_t>(g_config().getNumber(ConfigManager::MAX_PACKETS_PER_SECOND))) {
 			std::cout << convertIPToString(getIP()) << " disconnected for exceeding packet per second limit." << std::endl;
 			close();
 			return;
@@ -163,7 +161,7 @@ void Connection::parseHeader(const boost::system::error_code& error)
 		if (!receivedName && msgBuffer[1] == 0x00) {
 			receivedLastChar = true;
 		} else {
-			std::string serverName = g_config.getString(ConfigManager::SERVER_NAME) + "\n";
+			std::string serverName = g_config().getString(ConfigManager::SERVER_NAME) + "\n";
 
 			if (!receivedName) {
 				if (static_cast<char>(msgBuffer[0]) == serverName[0]

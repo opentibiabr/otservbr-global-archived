@@ -25,8 +25,6 @@
 
 #include "pugicast.h"
 
-extern Weapons* g_weapons;
-
 Items::Items(){}
 
 void Items::clear()
@@ -84,7 +82,7 @@ bool Items::reload()
 		return false;
 	}
 
-	g_weapons->loadDefaults();
+	g_weapons().loadDefaults();
 	return true;
 }
 

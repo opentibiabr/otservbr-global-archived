@@ -40,9 +40,22 @@ using IpConnectMap = std::map<uint32_t, ConnectBlock>;
 class Ban
 {
 	public:
+		// Singleton - ensures we don't accidentally copy it
+		Ban(Ban const&) = delete;
+		void operator=(Ban const&) = delete;
+
+		static Ban& getInstance() {
+			// Guaranteed to be destroyed
+			static Ban instance;
+			// Instantiated on first use
+			return instance;
+		}
+
 		bool acceptConnection(uint32_t clientIP);
 
 	private:
+		Ban() {}
+
 		IpConnectMap ipConnectMap;
 		std::recursive_mutex lock;
 };
@@ -54,5 +67,7 @@ class IOBan
 		static bool isIpBanned(uint32_t clientIP, BanInfo& banInfo);
 		static bool isPlayerNamelocked(uint32_t playerId);
 };
+
+constexpr auto g_ban = &Ban::getInstance;
 
 #endif

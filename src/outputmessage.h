@@ -31,7 +31,7 @@ class OutputMessage : public NetworkMessage
 	public:
 		OutputMessage() = default;
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		OutputMessage(const OutputMessage&) = delete;
 		OutputMessage& operator=(const OutputMessage&) = delete;
 
@@ -83,7 +83,7 @@ class OutputMessage : public NetworkMessage
 class OutputMessagePool
 {
 	public:
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		OutputMessagePool(const OutputMessagePool&) = delete;
 		OutputMessagePool& operator=(const OutputMessagePool&) = delete;
 

@@ -103,7 +103,7 @@ class Creature : virtual public Thing
 
 		virtual ~Creature();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Creature(const Creature&) = delete;
 		Creature& operator=(const Creature&) = delete;
 

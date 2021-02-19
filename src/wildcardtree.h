@@ -28,7 +28,7 @@ class WildcardTreeNode
 		explicit WildcardTreeNode(bool initBreakpoint) : breakpoint(initBreakpoint) {}
 		WildcardTreeNode(WildcardTreeNode&& other) = default;
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		WildcardTreeNode(const WildcardTreeNode&) = delete;
 		WildcardTreeNode& operator=(const WildcardTreeNode&) = delete;
 

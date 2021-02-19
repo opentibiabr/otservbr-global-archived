@@ -24,15 +24,13 @@
 #include "lockfree.h"
 #include "scheduler.h"
 
-extern Scheduler g_scheduler;
-
 const uint16_t OUTPUTMESSAGE_FREE_LIST_CAPACITY = 2048;
 const std::chrono::milliseconds OUTPUTMESSAGE_AUTOSEND_DELAY {10};
 
 void OutputMessagePool::scheduleSendAll()
 {
 	auto functor = std::bind(&OutputMessagePool::sendAll, this);
-	g_scheduler.addEvent(createSchedulerTask(OUTPUTMESSAGE_AUTOSEND_DELAY.count(), functor));
+	g_scheduler().addEvent(createSchedulerTask(OUTPUTMESSAGE_AUTOSEND_DELAY.count(), functor));
 }
 
 void OutputMessagePool::sendAll()

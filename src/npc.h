@@ -106,7 +106,7 @@ class Npc final : public Creature
 	public:
 		~Npc();
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Npc(const Npc&) = delete;
 		Npc& operator=(const Npc&) = delete;
 

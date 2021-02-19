@@ -24,9 +24,6 @@
 #include "pugicast.h"
 #include "scheduler.h"
 
-extern Chat* g_chat;
-extern Game g_game;
-
 bool PrivateChatChannel::isInvited(uint32_t guid) const
 {
 	if (guid == getOwner()) {
@@ -100,7 +97,7 @@ bool ChatChannel::addUser(Player& player)
 	if (id == CHANNEL_GUILD) {
 		Guild* guild = player.getGuild();
 		if (guild && !guild->getMotd().empty()) {
-			g_scheduler.addEvent(createSchedulerTask(150, std::bind(&Game::sendGuildMotd, &g_game, player.getID())));
+			g_scheduler().addEvent(createSchedulerTask(150, std::bind(&Game::sendGuildMotd, &g_game(), player.getID())));
 		}
 	}
 
@@ -163,7 +160,7 @@ bool ChatChannel::executeCanJoinEvent(const Player& player)
 	}
 
 	//canJoin(player)
-	LuaScriptInterface* scriptInterface = g_chat->getScriptInterface();
+	LuaScriptInterface* scriptInterface = g_chat().getScriptInterface();
 	if (!scriptInterface->reserveScriptEnv()) {
 		std::cout << "[Error - CanJoinChannelEvent::execute"
 				<< " Player "
@@ -194,7 +191,7 @@ bool ChatChannel::executeOnJoinEvent(const Player& player)
 	}
 
 	//onJoin(player)
-	LuaScriptInterface* scriptInterface = g_chat->getScriptInterface();
+	LuaScriptInterface* scriptInterface = g_chat().getScriptInterface();
 	if (!scriptInterface->reserveScriptEnv()) {
 		std::cout << "[Error - OnJoinChannelEvent::execute"
 				<< " Player "
@@ -225,7 +222,7 @@ bool ChatChannel::executeOnLeaveEvent(const Player& player)
 	}
 
 	//onLeave(player)
-	LuaScriptInterface* scriptInterface = g_chat->getScriptInterface();
+	LuaScriptInterface* scriptInterface = g_chat().getScriptInterface();
 	if (!scriptInterface->reserveScriptEnv()) {
 		std::cout << "[Error - OnLeaveChannelEvent::execute"
 				<< " Player "
@@ -256,7 +253,7 @@ bool ChatChannel::executeOnSpeakEvent(const Player& player, SpeakClasses& type, 
 	}
 
 	//onSpeak(player, type, message)
-	LuaScriptInterface* scriptInterface = g_chat->getScriptInterface();
+	LuaScriptInterface* scriptInterface = g_chat().getScriptInterface();
 	if (!scriptInterface->reserveScriptEnv()) {
 		std::cout << "[Error - OnSpeakChannelEvent::execute"
 				<< " Player "

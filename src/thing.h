@@ -34,7 +34,7 @@ class Thing
 		constexpr Thing() = default;
 		virtual ~Thing() = default;
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Thing(const Thing&) = delete;
 		Thing& operator=(const Thing&) = delete;
 

@@ -244,7 +244,7 @@ class Combat
 	public:
 		Combat() = default;
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Combat(const Combat&) = delete;
 		Combat& operator=(const Combat&) = delete;
 

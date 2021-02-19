@@ -29,7 +29,7 @@ class Protocol : public std::enable_shared_from_this<Protocol>
 		explicit Protocol(Connection_ptr initConnection) : connection(initConnection) {}
 		virtual ~Protocol() = default;
 
-		// non-copyable
+		// Singleton - ensures we don't accidentally copy it
 		Protocol(const Protocol&) = delete;
 		Protocol& operator=(const Protocol&) = delete;
 

@@ -29,8 +29,6 @@
 #include "tasks.h"
 #include "gamestore.h"
 
-
-
 class NetworkMessage;
 class Player;
 class Game;
@@ -42,8 +40,6 @@ class Quest;
 class ProtocolGame;
 using ProtocolGame_ptr = std::shared_ptr<ProtocolGame>;
 
-extern ConfigManager g_config;
-extern Game g_game;
 
 struct TextMessage
 {
@@ -441,13 +437,13 @@ private:
 	template <typename Callable, typename... Args>
 	void addGameTask(Callable function, Args &&... args)
 	{
-		g_dispatcher.addTask(createTask(std::bind(function, &g_game, std::forward<Args>(args)...)));
+		g_dispatcher().addTask(createTask(std::bind(function, &g_game(), std::forward<Args>(args)...)));
 	}
 
 	template <typename Callable, typename... Args>
 	void addGameTaskTimed(uint32_t delay, Callable function, Args &&... args)
 	{
-		g_dispatcher.addTask(createTask(delay, std::bind(function, &g_game, std::forward<Args>(args)...)));
+		g_dispatcher().addTask(createTask(delay, std::bind(function, &g_game(), std::forward<Args>(args)...)));
 	}
 
 	std::unordered_set<uint32_t> knownCreatureSet;
@@ -455,7 +451,7 @@ private:
 
 	uint32_t eventConnect = 0;
 	uint32_t challengeTimestamp = 0;
-	uint32_t version = g_config.getNumber(ConfigManager::CLIENT_VERSION);
+	uint32_t version = g_config().getNumber(ConfigManager::CLIENT_VERSION);
 	int32_t clientVersion = 0;
 
 	uint8_t challengeRandom = 0;
