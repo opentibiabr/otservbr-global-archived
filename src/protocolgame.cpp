@@ -42,7 +42,6 @@
 #include "iobestiary.h"
 #include "monsters.h"
 
-extern Chat *g_chat;
 void ProtocolGame::AddItem(NetworkMessage &msg, uint16_t id, uint8_t count)
 {
 	const ItemType &it = Item::items[id];
