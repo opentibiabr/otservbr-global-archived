@@ -19,14 +19,13 @@ on:
 
 jobs:
   job:
-    name: ${{ matrix.os }}-${{ matrix.buildtype }}-luajit=${{ matrix.luajit }}
+    name: ${{ matrix.os }}-${{ matrix.buildtype }}
     runs-on: ${{ matrix.os }}-latest
     strategy:
       fail-fast: false
       matrix:
         name: [windows]
         buildtype: [Debug, Release]
-        luajit: [on, off]
         include:
           - os: windows
             triplet: x64-windows
@@ -65,7 +64,6 @@ jobs:
           useVcpkgToolchainFile: true
           buildDirectory: ${{ runner.workspace }}/build
           cmakeBuildType: ${{ matrix.buildtype }}
-          cmakeAppendedArgs: -DUSE_LUAJIT=${{ matrix.luajit }}
 
       - name: dir
         run: find $RUNNER_WORKSPACE
@@ -92,6 +90,6 @@ jobs:
       - name: Upload datapack
         uses: actions/upload-artifact@v2
         with:
-          name: otbr-${{ matrix.os }}-${{ matrix.buildtype }}-luajit=${{ matrix.luajit }}-${{ github.sha }}
+          name: otbr-${{ matrix.os }}-${{ matrix.buildtype }}-${{ github.sha }}
           path: ${{ runner.workspace }}/otservbr.zip
         if: contains( matrix.os, 'windows')
