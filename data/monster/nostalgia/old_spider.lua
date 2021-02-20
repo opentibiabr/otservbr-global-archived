@@ -3,7 +3,7 @@ local monster = {}
 
 monster.name = "Spider"
 monster.description = "a spider"
-monster.experience = 12
+monster.experience = 10
 monster.outfit = {
 	lookType = 922,
 	lookHead = 0,
@@ -68,7 +68,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -9}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -25}
 }
 
 monster.defenses = {

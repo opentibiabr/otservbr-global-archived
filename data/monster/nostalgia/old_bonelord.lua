@@ -1,9 +1,9 @@
-local mType = Game.createMonsterType("Old Beholder")
+local mType = Game.createMonsterType("Old Bonelord")
 local monster = {}
 
-monster.name = "Beholder"
-monster.description = "a beholder"
-monster.experience = 170
+monster.name = "Bonelord"
+monster.description = "a bonelord"
+monster.experience = 157
 monster.outfit = {
 	lookType = 924,
 	lookHead = 0,
@@ -20,7 +20,7 @@ monster.race = "venom"
 monster.corpse = 5992
 monster.speed = 170
 monster.manaCost = 0
-monster.maxSummons = 6
+monster.maxSummons = 4
 
 monster.changeTarget = {
 	interval = 4000,
@@ -38,9 +38,9 @@ monster.flags = {
 	convinceable = false,
 	pushable = false,
 	rewardBoss = false,
-	illusionable = true,
+	illusionable = false,
 	canPushItems = true,
-	canPushCreatures = false,
+	canPushCreatures = true,
 	staticAttackChance = 90,
 	targetDistance = 4,
 	runHealth = 0,
@@ -48,7 +48,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -58,16 +58,15 @@ monster.light = {
 }
 
 monster.summons = {
-	{name = "Skeleton", chance = 20, interval = 2000, max = 6}
+	{name = "Skeleton", chance = 20, interval = 2000, max = 4}
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Olho por Olho!", yell = false},
-	{text = "Estou olhando para voce!", yell = false},
-	{text = "Deixe-me dar uma olhada em voce!", yell = false},
-	{text = "Voce tem o olhar!", yell = false}
+	{text = "You've got the look!", yell = false},
+	{text = "Eye for eye!", yell = false},
+	{text = "Here's looking at you!", yell = false}
 }
 
 monster.loot = {
@@ -76,8 +75,7 @@ monster.loot = {
 	{name = "two handed sword", chance = 3840},
 	{name = "morning star", chance = 6950},
 	{name = "longsword", chance = 8980},
-	{name = "steel shield", chance = 4001},
-	{name = "bonelord eye", chance = 940}
+	{name = "steel shield", chance = 4001}
 }
 
 monster.attacks = {

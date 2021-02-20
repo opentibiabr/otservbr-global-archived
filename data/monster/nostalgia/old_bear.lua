@@ -3,7 +3,7 @@ local monster = {}
 
 monster.name = "Bear"
 monster.description = "a bear"
-monster.experience = 23
+monster.experience = 21
 monster.outfit = {
 	lookType = 919,
 	lookHead = 0,
@@ -60,8 +60,7 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Grrrr", yell = false},
-	{text = "Groar", yell = false}
+	{text = "Grrrr", yell = false}
 }
 
 monster.loot = {

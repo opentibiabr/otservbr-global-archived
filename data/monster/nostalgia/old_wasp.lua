@@ -3,7 +3,7 @@ local monster = {}
 
 monster.name = "Wasp"
 monster.description = "a wasp"
-monster.experience = 24
+monster.experience = 21
 monster.outfit = {
 	lookType = 923,
 	lookHead = 0,
@@ -48,7 +48,7 @@ monster.flags = {
 	isBlockable = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnPoison = true,
 	pet = false
 }
 
