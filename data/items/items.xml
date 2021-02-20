@@ -38390,6 +38390,9 @@
 		<attribute key="slotType" value="feet" />
 		<attribute key="loottype" value="boots" />
 	</item>
+	<item id="27082" article="a" name="sewing table">
+		<attribute key="description" value="It has to be magical. The needles and scissors are moving by themselves." />
+	</item>
 	<item id="27083" article="an" name="old rag">
 		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="300" />
@@ -38479,9 +38482,255 @@
 	<item id="27107" article="a" name="shell" plural="shells">
 		<attribute key="weight" value="100" />
 	</item>
+	<item fromid="27110" toid="27117" name="colorful bunting"/>
+	<item fromid="27118" toid="27125" article="an" name="emblem"/>
+	<item fromid="27126" toid="27143" article="a" name="market stand"/>
+	<item id="27144" name="ten cans"/>
+	<item id="27145" name="nine cans"/>
+	<item id="27146" name="eight cans"/>
+	<item id="27147" name="seven cans"/>
+	<item id="27148" name="six cans"/>
+	<item id="27149" name="five cans"/>
+	<item id="27150" name="four cans"/>
+	<item id="27151" name="tree cans"/>
+	<item id="27152" name="two cans"/>
+	<item id="27153" article="a" name="can"/>
+	<item fromid="27154" toid="27156" article="a" name="can knockdown game"/>
+	<item id="27158" name="apples"/>
+	<item id="27159" name="bunting"/>
+	<item id="27160" name="roasted meat"/>
+	<item id="27161" name="candied fruit"/>
+	<item id="27162" name="candy canes"/>
+	<item id="27163" name="firework rockets"/>
+	<item id="27164" name="paper streamers"/>
+	<item fromid="27166" toid="27171" article="a" name="big tent"/>
+	<item id="27174" article="a" name="baking tray"/>
+	<item id="27175" article="a" name="beech"/>
+	<item id="27176" article="a" name="anecdotal shield">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="weaponType" value="shield" />
+		<attribute key="defense" value="28" />
+	</item>
+	<item fromid="27177" toid="27178" article="a" name="blackboard"/>
+	<item id="27179" article="a" name="blood herb"/>
+	<item id="27180" article="a" name="box"/>
+	<item id="27181" article="a" name="branch"/>
+	<item id="27182" name="brass legs">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="armor" value="5" />
+	</item>
+	<item id="27183" article="a" name="brass shield">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="weaponType" value="shield" />
+		<attribute key="defense" value="16" />
+	</item>
+	<item fromid="27184" toid="27187" article="a" name="brick wall"/>
+	<item fromid="27188" toid="27189" article="a" name="brick window"/>
+	<item id="27190" article="a" name="bush"/>
+	<item fromid="27191" toid="27192" article="a" name="cactus"/>
+	<item fromid="27193" toid="27196" article="a" name="wooden chair"/>
+	<item id="27197" article="a" name="coat">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="armor" value="1" />
+	</item>
+	<item id="27198" article="a" name="cooper shield">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="weaponType" value="shield" />
+		<attribute key="defense" value="19" />
+	</item>
+	<item id="27199" article="a" name="crown armor">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="armor" value="13" />
+	</item>
+	<item id="27200" article="a" name="crown helmet">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="armor" value="7" />
+	</item>
+	<item id="27201" name="crown legs">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="armor" value="8" />
+	</item>
+	<item id="27202" article="a" name="crown shield">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="weaponType" value="shield" />
+		<attribute key="defense" value="32" />
+	</item>
+	<item id="27203" article="a" name="dark helmet">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="armor" value="6" />
+	</item>
+	<item id="27204" article="a" name="dark shield">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="weaponType" value="shield" />
+		<attribute key="defense" value="25" />
+	</item>
+	<item fromid="27205" toid="27207" article="a" name="dead tree"/>
+	<item id="27208" name="earth"/>
+	<item id="27209" article="a" name="closed door"/>
+	<item id="27210" article="an" name="open door"/>
+	<item id="27211" article="a" name="closed door"/>
+	<item id="27212" article="an" name="open door"/>
+	<item id="27213" article="a" name="dragon shield">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="weaponType" value="shield" />
+		<attribute key="defense" value="31" />
+	</item>
+	<item id="27214" name="wooden floor"/>
+	<item id="27215" article="a" name="dry bush"/>
+	<item fromid="27216" toid="27220" name="dirt floor"/>
+	<item fromid="27221" toid="27232" article="a" name="dirt wall"/>
+	<item id="27233" article="a" name="dwarf tree"/>
+	<item fromid="27234" toid="27245" article="a" name="stone wall"/>
+	<item id="27246" article="a" name="dwarven shield">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="weaponType" value="shield" />
+		<attribute key="defense" value="26" />
+	</item>
+	<item id="27247" article="an" name="egg"/>
+	<item fromid="27248" toid="27253" article="a" name="fence"/>
+	<item id="27254" article="a" name="closed fence gate"/>
+	<item id="27255" article="an" name="open fence gate"/>
+	<item id="27256" article="a" name="closed fence gate"/>
+	<item id="27257" article="an" name="open fence gate"/>
+	<item id="27258" article="a" name="fir tree"/>
+	<item id="27259" article="a" name="flag of Tibia"/>
+	<item fromid="27260" toid="27263" article="a" name="flat roof"/>
+	<item id="27264" name="flour"/>
+	<item id="27265" article="a" name="trapdoor"/>
+	<item fromid="27266" toid="27269" article="a" name="framework wall"/>
+	<item fromid="27270" toid="27271" article="a" name="framework window"/>
+	<item id="27258" article="a" name="goat grass"/>
+	<item fromid="27273" toid="27285" name="grass"/>
+	<item id="27286" article="a" name="grave flower"/>
+	<item fromid="27287" toid="27289" article="a" name="grave stone"/>
+	<item fromid="27290" toid="27302" name="gravel"/>
+	<item id="27303" name="heaven blossoms"/>
+	<item id="27304" article="a" name="leather armor">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="armor" value="4" />
+	</item>
+	<item id="27305" article="a" name="leather helmet">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="armor" value="1" />
+	</item>
+	<item id="27306" name="leather legs">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="armor" value="1" />
+	</item>
+	<item id="27307" name="black marble floor"/>
+	<item id="27308" name="white marble floor"/>
+	<item id="27309" article="a" name="mast"/>
+	<item id="27310" article="a" name="mastermind shield">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="weaponType" value="shield" />
+		<attribute key="defense" value="37" />
+	</item>
+	<item id="27311" article="a" name="melon"/>
+	<item id="27312" article="a" name="portable hole"/>
+	<item id="27313" article="a" name="menhir"/>
+	<item id="27314" article="a" name="noble armor">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="armor" value="11" />
+	</item>
+	<item id="27315" article="an" name="old tree"/>
+	<item id="27316" article="a" name="ornamented shield">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="weaponType" value="shield" />
+		<attribute key="defense" value="22" />
+	</item>
+	<item id="27317" article="a" name="pan"/>
+	<item id="27318" article="a" name="paper"/>
+	<item id="27319" article="a" name="pear tree"/>
+	<item id="27320" article="a" name="pine"/>
+	<item id="27321" article="a" name="flask of life fluid"/>
+	<item id="27322" article="a" name="flask of beer"/>
+	<item id="27323" article="a" name="flask of mana fluid"/>
+	<item id="27324" name="rock soil"/>
+	<item fromid="27333" toid="27336" article="a" name="sacrificial stone"/>
+	<item fromid="27337" toid="27362" name="sand"/>
+	<item id="27363" article="a" name="scale armor">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="armor" value="9" />
+	</item>
+	<item fromid="27365" toid="27406" article="a" name="big tent"/>
+	<item fromid="27409" toid="27412" article="a" name="rope"/>
+	<item fromid="27413" toid="27414" article="a" name="strut"/>
+	<item fromid="27415" toid="27416" name="colorful bunting"/>
+	<item id="27417" name="shallow water"/>
+	<item id="27418" article="a" name="sickle">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="weaponType" value="axe" />
+		<attribute key="attack" value="5" />
+		<attribute key="defense" value="4" />
+	</item>
+	<item id="27419" article="a" name="small fir tree"/>
+	<item id="27420" article="a" name="studded armor">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="armor" value="4" />
+	</item>
+	<item id="27421" article="a" name="mud whip" />
+	<item id="27422" article="a" name="swamp lilly" />
+	<item id="27423" article="a" name="lady in the fog plant" />
+	<item id="27424" article="a" name="bog fingers plant" />
+	<item id="27425" article="a" name="swamp reed" />
+	<item id="27426" article="a" name="sludge fern" />
+	<item id="27427" article="a" name="dusk catcher" />
+	<item id="27428" article="a" name="moon herb" />
+	<item id="27429" article="a" name="mire sprout" />
+	<item id="27430" article="a" name="frog leaf" />
+	<item id="27431" article="a" name="sycamore"/>
+	<item fromid="27432" toid="27449" article="a" name="tiled roof"/>
+	<item id="27450" article="a" name="tower shield">
+		<attribute key="description" value="It looks primitive." />
+		<attribute key="weaponType" value="shield" />
+		<attribute key="defense" value="32" />
+	</item>
+	<item id="27451" article="a" name="twigs"/>
+	<item fromid="27452" toid="27453" article="a" name="mirror"/>
+	<item fromid="27454" toid="27455" article="a" name="water wheel"/>
+	<item fromid="27456" toid="27459" article="a" name="millstone"/>
+	<item id="27460" article="a" name="waterskin"/>
+	<item id="27461" name="wheat">
+		<attribute key="description" value="It has just been cut." />
+		<attribute key="decayTo" value="27462" />
+		<attribute key="duration" value="240" />
+	</item>
+	<item id="27462" name="wheat">
+		<attribute key="description" value="It is not mature yet." />
+		<attribute key="decayTo" value="27463" />
+		<attribute key="duration" value="240" />
+	</item>
+	<item id="27463" name="wheat" />
+	<item id="27464" article="a" name="yellow maple"/>
+	<item fromid="27465" toid="27470" article="a" name="wooden railing"/>
+	<item fromid="27471" toid="27473" article="a" name="mountain"/>
+	<item id="27474" article="a" name="ramp">
+		<attribute key="floorchange" value="east" />
+	</item>
+	<item id="27475" article="a" name="ramp"/>
 	<item id="27476" article="a" name="ramp">
 		<attribute key="floorchange" value="west" />
 	</item>
+	<item id="27477" article="a" name="ramp"/>
+	<item id="27478" article="a" name="ramp">
+		<attribute key="floorchange" value="south" />
+	</item>
+	<item id="27479" article="a" name="ramp"/>
+	<item id="27480" article="a" name="ramp">
+		<attribute key="floorchange" value="north" />
+	</item>
+	<item id="27481" article="a" name="ramp"/>
+	<item fromid="27482" toid="27485" article="a" name="stone wall"/>
+	<item fromid="27486" toid="27489" article="a" name="stone archway"/>
+	<item fromid="27490" toid="27506" name="rock soil"/>
+	<item id="27509" article="a" name="flower bowl"/>
+	<item id="27510" article="a" name="sewing table">
+		<attribute key="description" value="It has to be magical. The needles and scissors are moving by themselves." />
+	</item>
+	<item fromid="27511" toid="27512" article="an" name="ancient inscription">
+		<attribute key="description" value="It displays a dragon relief and strange runes. It is already heavily weathered." />
+	</item>
+	<item fromid="27513" toid="27528" article="a" name="colorful wild flowers"/>
 	<item fromid="27529" toid="27530" article="a" name="treasure chest">
 		<attribute key="containerSize" value="10" />
 		<attribute key="weight" value="9500" />
@@ -38490,6 +38739,15 @@
 		<attribute key="containerSize" value="10" />
 		<attribute key="weight" value="1500" />
 	</item>
+	<item fromid="27536" toid="27537" article="a" name="sail" />
+	<item id="27538" article="a" name="studded shield">
+		<attribute key="weaponType" value="shield" />
+		<attribute key="defense" value="15" />
+	</item>
+	<item id="27539" name="studded legs">
+		<attribute key="armor" value="2" />
+	</item>
+	<item id="27540" article="a" name="flask of milk"/>
 	<item id="27543" article="a" name="dragon chest" />
 	<item id="27545" article="a" name="dragon chest" />
 	<item id="27595" article="a" name="dead lloyd">
@@ -38699,19 +38957,17 @@
 	<item id="27728" article="an" name="imbuing shrine" />
 	<item id="27729" article="an" name="imbuing shrine" />
 	<item id="27730" article="a" name="pinata dragon" />
-	<item id="27731" article="a" name="dead pinata king">
+	<item id="27731" article="a" name="dead pinata dragon">
 		<attribute key="containerSize" value="10" />
 		<attribute key="decayTo" value="27732" />
 		<attribute key="duration" value="600" />
-		<attribute key="corpseType" value="blood" />
-		<attribute key="fluidSource" value="blood" />
+		<attribute key="corpseType" value="undead" />
 	</item>
 	<item id="27732" article="a" name="dead pinata dragon">
 		<attribute key="containerSize" value="10" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="6000" />
-		<attribute key="corpseType" value="blood" />
-		<attribute key="fluidSource" value="blood" />
+		<attribute key="corpseType" value="undead" />
 	</item>
 	<item id="27733" article="a" name="dead dragon king">
 		<attribute key="containerSize" value="20" />
@@ -41243,6 +41499,23 @@
 	<item id="29359" article="a" name="wooden planks">
 		<attribute key="type" value="carpet" />
 		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="29361" name="creature remains">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="2850" />
+		<attribute key="duration" value="900" />
+	</item>
+	<item id="29362" name="creature remains">
+		<attribute key="decayTo" value="2851" />
+		<attribute key="duration" value="600" />
+	</item>
+	<item id="29363" name="creature remains">
+		<attribute key="decayTo" value="2852" />
+		<attribute key="duration" value="600" />
+	</item>
+	<item id="29364" name="creature remains">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
 	</item>
 	<item id="29368" article="a" name="dead boss">
 		<attribute key="decayTo" value="29369" />
