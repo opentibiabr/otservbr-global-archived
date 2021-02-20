@@ -93,9 +93,9 @@ monster.loot = {
 	{id = 2600, chance = 1000},
 	{name = "sandals", chance = 950},
 	{name = "green tunic", chance = 7000},
-	{name = "melon", chance = 22000},
+	{id = 2682, chance = 22000}, -- melon
 	{name = "bread", chance = 14000},
-	{name = "grave flower", chance = 880},
+	{id = 2747, chance = 880}, -- grave flower
 	{name = "sling herb", chance = 5000},
 	{name = "holy orchid", chance = 2100},
 	{name = "strong mana potion", chance = 3000},

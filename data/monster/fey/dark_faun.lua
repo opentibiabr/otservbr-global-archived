@@ -102,7 +102,7 @@ monster.loot = {
 	{name = "prismatic quartz", chance = 719},
 	{name = "leaf star", chance = 10000, maxCount = 8},
 	{name = "strong health potion", chance = 6800, maxCount = 2},
-	{name = "goat grass", chance = 5155},
+	{id = 2760, chance = 5155}, -- goat grass
 	{name = "great health potion", chance = 591}
 }
 

@@ -83,8 +83,8 @@ monster.loot = {
 	{name = "yellow gem", chance = 1030},
 	{name = "dwarven ring", chance = 4660},
 	{name = "knight legs", chance = 1910},
-	{name = "crown armor", chance = 370},
-	{name = "crown helmet", chance = 890},
+	{id = 2487, chance = 370}, -- crown armor
+	{id = 2491, chance = 890}, -- crown helmet
 	{name = "iron ore", chance = 15000},
 	{name = "magic sulphur", chance = 3000},
 	{name = "titan axe", chance = 2600},

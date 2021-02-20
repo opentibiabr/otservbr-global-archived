@@ -103,7 +103,7 @@ monster.loot = {
 	{name = "knight axe", chance = 950},
 	{name = "terra boots", chance = 240},
 	{name = "suspicious device", chance = 250},
-	{name = "tower shield", chance = 240},
+	{id = 2528, chance = 240}, -- tower shield
 	{name = "terra legs", chance = 240},
 	{name = "fire axe", chance = 710},
 	{name = "skull staff", chance = 480},

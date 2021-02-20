@@ -93,7 +93,7 @@ monster.loot = {
 	{name = "platinum coin", chance = 87730, maxCount = 4},
 	{name = "stealth ring", chance = 550},
 	{name = "blank rune", chance = 22500, maxCount = 2},
-	{name = "crown armor", chance = 660},
+	{id = 2487, chance = 660}, -- crown armor
 	{name = "shadow herb", chance = 26930, maxCount = 2},
 	{id = 6300, chance = 330},
 	{name = "demonic essence", chance = 16320},

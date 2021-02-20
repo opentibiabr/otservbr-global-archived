@@ -83,7 +83,7 @@ monster.loot = {
 	{name = "bronze amulet", chance = 110},
 	{id = 2229, chance = 1000, maxCount = 2},
 	{name = "poison dagger", chance = 1500},
-	{name = "leather armor", chance = 10000},
+	{id = 2467, chance = 10000}, -- leather armor
 	{name = "poison arrow", chance = 5000, maxCount = 3},
 	{name = "tribal mask", chance = 510},
 	{name = "bast skirt", chance = 100},

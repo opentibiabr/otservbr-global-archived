@@ -68,7 +68,7 @@ monster.loot = {
 	{id = 2229, chance = 100000, maxCount = 2},
 	{name = "gold coin", chance = 66666, maxCount = 34},
 	{name = "sabre", chance = 33000},
-	{name = "studded shield", chance = 33000}
+	{id = 2526, chance = 33000} -- studded shield
 }
 
 monster.attacks = {

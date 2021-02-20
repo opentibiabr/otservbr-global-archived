@@ -83,8 +83,8 @@ monster.loot = {
 	{name = "knife", chance = 9920},
 	{name = "combat knife", chance = 4400},
 	{name = "short sword", chance = 10000},
-	{name = "leather helmet", chance = 10050},
-	{name = "leather legs", chance = 14840},
+	{id = 2461, chance = 10050}, -- leather helmet
+	{id = 2649, chance = 14840}, -- leather legs
 	{name = "ham", chance = 10200},
 	{id = 7397, chance = 110},
 	{name = "raspberry", chance = 5000, maxCount = 5}

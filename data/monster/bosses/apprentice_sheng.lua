@@ -77,9 +77,9 @@ monster.loot = {
 	{id = 2162, chance = 76000},-- magic light wand
 	{name = "gold coin", chance = 38000, maxCount = 10},
 	{id = 2050, chance = 30000, maxCount = 2},-- torch
-	{name = "leather legs", chance = 23000},
+	{id = 2649, chance = 23000}, -- leather legs
 	{id = 2684, chance = 7690},-- carrot
-	{name = "leather helmet", chance = 7690},
+	{id = 2461, chance = 7690}, -- leather helmet
 	{name = "knife", chance = 7690}
 }
 

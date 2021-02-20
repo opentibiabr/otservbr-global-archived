@@ -83,8 +83,8 @@ monster.loot = {
 	{name = "sabre", chance = 10250},
 	{name = "axe", chance = 12250},
 	{name = "studded helmet", chance = 9500},
-	{name = "studded armor", chance = 7000},
-	{name = "studded shield", chance = 1200},
+	{id = 2484, chance = 7000}, -- studded armor
+	{id = 2526, chance = 1200}, -- studded shield
 	{id = 6570, chance = 500},
 	{id = 6571, chance = 500}
 }

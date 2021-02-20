@@ -84,7 +84,7 @@ monster.loot = {
 	{name = "gold coin", chance = 44000, maxCount = 30},
 	{name = "longsword", chance = 10800},
 	{name = "studded helmet", chance = 13500},
-	{name = "studded armor", chance = 8960},
+	{id = 2484, chance = 8960}, -- studded armor
 	{name = "plate shield", chance = 9300},
 	{name = "arrow", chance = 7060, maxCount = 3},
 	{name = "leather boots", chance = 11410},

@@ -93,7 +93,7 @@ monster.loot = {
 	{name = "clerical mace", chance = 1500},
 	{name = "black shield", chance = 210},
 	{name = "red apple", chance = 7500, maxCount = 2},
-	{name = "goat grass", chance = 11720},
+	{id = 2760, chance = 11720}, -- goat grass
 	{name = "wood mushroom", chance = 3240},
 	{name = "sling herb", chance = 13200},
 	{name = "powder herb", chance = 5900},

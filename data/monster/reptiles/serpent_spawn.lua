@@ -92,9 +92,9 @@ monster.loot = {
 	{name = "snakebite rod", chance = 930},
 	{name = "warrior helmet", chance = 560},
 	{name = "strange helmet", chance = 670},
-	{name = "crown armor", chance = 510},
+	{id = 2487, chance = 510}, -- crown armor
 	{name = "royal helmet", chance = 140},
-	{name = "tower shield", chance = 920},
+	{id = 2528, chance = 920}, -- tower shield
 	{name = "power bolt", chance = 6200},
 	{name = "green mushroom", chance = 18200},
 	{name = "charmer's tiara", chance = 180},

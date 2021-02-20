@@ -84,7 +84,7 @@ monster.loot = {
 	{name = "protection amulet", chance = 250},
 	{name = "hunting spear", chance = 250},
 	{name = "broken gladiator shield", chance = 250},
-	{name = "dark helmet", chance = 250},
+	{id = 2490, chance = 250}, -- dark helmet
 	{name = "flask of warrior's sweat", chance = 250},
 	{name = "plate armor", chance = 250},
 	{name = "plate legs", chance = 250},

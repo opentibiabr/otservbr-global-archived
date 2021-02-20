@@ -89,7 +89,7 @@ monster.loot = {
 	{name = "war hammer", chance = 5050},
 	{name = "warrior helmet", chance = 580},
 	{name = "guardian shield", chance = 2300},
-	{name = "tower shield", chance = 190},
+	{id = 2528, chance = 190}, -- tower shield
 	{name = "ancient shield", chance = 3690},
 	{name = "brown mushroom", chance = 15150, maxCount = 2},
 	{name = "iron ore", chance = 11070},

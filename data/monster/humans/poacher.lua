@@ -81,11 +81,11 @@ monster.voices = {
 monster.loot = {
 	{id = 2050, chance = 4180},
 	{name = "bow", chance = 14930},
-	{name = "leather helmet", chance = 30600},
+	{id = 2461, chance = 30600}, -- leather helmet
 	{name = "arrow", chance = 49500, maxCount = 17},
 	{name = "poison arrow", chance = 2930, maxCount = 3},
 	{id = 2578, chance = 710},
-	{name = "leather legs", chance = 26740},
+	{id = 2649, chance = 26740}, -- leather legs
 	{name = "roll", chance = 11110, maxCount = 2}
 }
 

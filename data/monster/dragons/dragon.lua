@@ -98,7 +98,7 @@ monster.loot = {
 	{name = "crossbow", chance = 10000},
 	{name = "steel helmet", chance = 3000},
 	{name = "steel shield", chance = 15000},
-	{name = "dragon shield", chance = 320},
+	{id = 2516, chance = 320}, -- dragon shield
 	{name = "burst arrow", chance = 8060, maxCount = 10},
 	{name = "plate legs", chance = 2000},
 	{name = "dragon ham", chance = 65500, maxCount = 3},

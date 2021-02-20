@@ -70,7 +70,7 @@ monster.loot = {
 	{name = "cape", chance = 64500},
 	{id = 2129, chance = 41670},
 	{name = "broom", chance = 37500},
-	{name = "coat", chance = 37500},
+	{id = 2651, chance = 37500}, -- coat
 	{name = "cookie", chance = 25000, maxCount = 10},
 	{name = "star herb", chance = 11333},
 	{name = "bag of apple slices", chance = 2940},

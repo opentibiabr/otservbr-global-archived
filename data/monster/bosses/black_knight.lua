@@ -74,7 +74,7 @@ monster.loot = {
 	{name = "spear", chance = 30800, maxCount = 3},
 	{name = "brown bread", chance = 21600, maxCount = 2},
 	{id = 2120, chance = 16020},--rope
-	{name = "brass legs", chance = 12200},
+	{id = 2478, chance = 12200}, -- brass legs
 	{name = "halberd", chance = 11850},
 	{name = "plate armor", chance = 10370},
 	{name = "steel helmet", chance = 11220},
@@ -82,7 +82,7 @@ monster.loot = {
 	{name = "battle hammer", chance = 6910},
 	{name = "warrior helmet", chance = 4710},
 	{name = "knight axe", chance = 2630},
-	{name = "dark helmet", chance = 2430},
+	{id = 2490, chance = 2430}, -- dark helmet
 	{name = "dark armor", chance = 2020},
 	{name = "knight legs", chance = 1050},
 	{name = "knight armor", chance = 750},

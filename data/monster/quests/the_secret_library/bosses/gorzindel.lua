@@ -82,7 +82,7 @@ monster.loot = {
 	{name = "bullseye potion", chance = 90000, maxCount = 2},
 	{name = "mastermind potion", chance = 90000, maxCount = 2},
 	{name = "chaos mace", chance = 30000},
-	{name = "crown armor", chance = 30000},
+	{id = 2487, chance = 30000}, -- crown armor
 	{name = "curious matter", chance = 30000},
 	{name = "demon horn", chance = 30000},
 	{name = "dreaded cleaver", chance = 30000},

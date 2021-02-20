@@ -95,7 +95,7 @@ monster.loot = {
 	{name = "sudden death rune", chance = 4200, maxCount = 8},
 	{name = "skull staff", chance = 700},
 	{name = "knight armor", chance = 4550},
-	{name = "crown armor", chance = 1400},
+	{id = 2487, chance = 1400}, -- crown armor
 	{name = "mysterious voodoo skull", chance = 247},
 	{name = "soul orb", chance = 31111},
 	{id = 6300, chance = 1750},

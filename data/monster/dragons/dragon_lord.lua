@@ -98,7 +98,7 @@ monster.loot = {
 	{name = "strange helmet", chance = 360},
 	{name = "dragon scale mail", chance = 170},
 	{name = "royal helmet", chance = 280},
-	{name = "tower shield", chance = 250},
+	{id = 2528, chance = 250}, -- tower shield
 	{name = "power bolt", chance = 6700, maxCount = 7},
 	{name = "dragon ham", chance = 80000, maxCount = 5},
 	{name = "green mushroom", chance = 12000},

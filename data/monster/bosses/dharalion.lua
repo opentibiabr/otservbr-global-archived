@@ -80,7 +80,7 @@ monster.loot = {
 	{name = "elven astral observer", chance = 82000},
 	{name = "yellow gem", chance = 41790},
 	{name = "blank rune", chance = 25370, maxCount = 1},
-	{name = "melon", chance = 22390},
+	{id = 2682, chance = 22390}, -- melon
 	{name = "bread", chance = 16420},
 	{name = "elven amulet", chance = 14930},
 	{name = "great mana potion", chance = 13430},

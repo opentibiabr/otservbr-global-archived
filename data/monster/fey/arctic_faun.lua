@@ -87,7 +87,7 @@ monster.loot = {
 	{name = "fresh fruit", chance = 10290},
 	{name = "shimmering beetles", chance = 9330},
 	{name = "leaf star", chance = 8720, maxCount = 3},
-	{name = "goat grass", chance = 7280},
+	{id = 2760, chance = 7280}, -- goat grass
 	{name = "cookie", chance = 6150, maxCount = 5},
 	{name = "grapes", chance = 5400},
 	{name = "rainbow quartz", chance = 5260, maxCount = 2},

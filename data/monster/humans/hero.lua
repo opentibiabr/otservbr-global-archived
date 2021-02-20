@@ -93,10 +93,10 @@ monster.loot = {
 	{name = "war hammer", chance = 870},
 	{name = "fire sword", chance = 550},
 	{name = "bow", chance = 13300},
-	{name = "crown armor", chance = 490},
-	{name = "crown legs", chance = 660},
-	{name = "crown helmet", chance = 450},
-	{name = "crown shield", chance = 280},
+	{id = 2487, chance = 490}, -- crown armor
+	{id = 2488, chance = 660}, -- crown legs
+	{id = 2491, chance = 450}, -- crown helmet
+	{id = 2519, chance = 280}, -- crown shield
 	{name = "arrow", chance = 26000, maxCount = 13},
 	{name = "green tunic", chance = 8000},
 	{name = "scarf", chance = 1110},

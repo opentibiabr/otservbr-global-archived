@@ -79,11 +79,11 @@ monster.loot = {
 	{name = "halberd", chance = 20000},
 	{name = "guardian halberd", chance = 20000},
 	{name = "heavy mace", chance = 25000},
-	{name = "mastermind shield", chance = 4166},
+	{id = 2514, chance = 4166}, -- mastermind shield
 	{name = "guardian shield", chance = 7692},
-	{name = "crown shield", chance = 11111},
+	{id = 2519, chance = 11111}, -- crown shield
 	{name = "demon shield", chance = 4166},
-	{name = "tower shield", chance = 9090},
+	{id = 2528, chance = 9090}, -- tower shield
 	{name = "power bolt", chance = 16666, maxCount = 94},
 	{name = "soul orb", chance = 20000, maxCount = 5},
 	{name = "demon horn", chance = 12500, maxCount = 2},

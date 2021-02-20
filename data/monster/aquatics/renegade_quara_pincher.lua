@@ -91,7 +91,7 @@ monster.loot = {
 	{id = 7632, chance = 1430},--giant shimmering pearl(brown)
 	{name = "warrior helmet", chance = 1430},
 	{name = "fish fin", chance = 920},
-	{name = "crown armor", chance = 611},
+	{id = 2487, chance = 611}, -- crown armor
 	{id = 2169, chance = 410}, -- time ring
 	{name = "talon", chance = 310},
 	{name = "glacier robe", chance = 200},

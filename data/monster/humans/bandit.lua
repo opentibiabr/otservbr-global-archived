@@ -84,8 +84,8 @@ monster.loot = {
 	{name = "chain helmet", chance = 5000},
 	{name = "iron helmet", chance = 520},
 	{name = "brass armor", chance = 2500},
-	{name = "brass shield", chance = 16800},
-	{name = "leather legs", chance = 15500},
+	{id = 2511, chance = 16800}, -- brass shield
+	{id = 2649, chance = 15500}, -- leather legs
 	{name = "tomato", chance = 7630, maxCount = 2}
 }
 

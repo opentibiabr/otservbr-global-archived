@@ -84,7 +84,7 @@ monster.loot = {
 	{name = "fire axe", chance = 330},
 	{name = "skull staff", chance = 280},
 	{name = "guardian shield", chance = 830},
-	{name = "tower shield", chance = 440},
+	{id = 2528, chance = 440}, -- tower shield
 	{name = "brown mushroom", chance = 14920, maxCount = 2},
 	{name = "spiked squelcher", chance = 50},
 	{name = "strong health potion", chance = 11050, maxCount = 3},

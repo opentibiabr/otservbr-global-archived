@@ -82,7 +82,7 @@ monster.loot = {
 	{name = "spear", chance = 8750, maxCount = 3},
 	{name = "obsidian lance", chance = 1120},
 	{name = "chain armor", chance = 8560},
-	{name = "scale armor", chance = 7730},
+	{id = 2483, chance = 7730}, -- scale armor
 	{name = "hunting spear", chance = 4700},
 	{name = "sentinel shield", chance = 320},
 	{name = "lizard leather", chance = 990},

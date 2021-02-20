@@ -81,7 +81,7 @@ monster.loot = {
 	{name = "Small Diamond", chance = 1500, maxCount = 2},
 	{name = "War Hammer", chance = 1500},
 	{name = "Doublet", chance = 1500},
-	{name = "Dark Shield", chance = 1500},
+	{id = 2521, chance = 1500}, -- dark shield
 	{name = "Titan Axe", chance = 1500},
 	{name = "Spiked Squelcher", chance = 1500},
 	{name = "Glorious Axe", chance = 1500},

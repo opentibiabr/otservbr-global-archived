@@ -93,7 +93,7 @@ monster.loot = {
 	{name = "giant emerald", chance = 31500},
 	{name = "ice rapier", chance = 27500},
 	{name = "magic plate armor", chance = 13000},
-	{name = "mastermind shield", chance = 17500},
+	{id = 2514, chance = 17500}, -- mastermind shield
 	{name = "purple tome", chance = 12600},
 	{name = "ring of the sky", chance = 13500},
 	{name = "silver dagger", chance = 15500},

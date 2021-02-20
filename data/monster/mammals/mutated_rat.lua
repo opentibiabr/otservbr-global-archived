@@ -86,7 +86,7 @@ monster.loot = {
 	{name = "mouldy cheese", chance = 950},
 	{name = "halberd", chance = 2990},
 	{name = "plate shield", chance = 3750},
-	{name = "tower shield", chance = 50},
+	{id = 2528, chance = 50}, -- tower shield
 	{name = "green mushroom", chance = 1390},
 	{name = "stone herb", chance = 4920},
 	{name = "health potion", chance = 560},

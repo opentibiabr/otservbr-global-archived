@@ -76,7 +76,7 @@ monster.loot = {
 	{id = 2129, chance = 20833},
 	{name = "garlic necklace", chance = 8333},
 	{name = "spellbook of mind control", chance = 8333},
-	{name = "coat", chance = 4170},
+	{id = 2651, chance = 4170}, -- coat
 	{name = "necrotic rod", chance = 4170},
 	{name = "silver dagger", chance = 4170}
 }

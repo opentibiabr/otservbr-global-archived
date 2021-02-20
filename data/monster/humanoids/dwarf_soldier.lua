@@ -83,7 +83,7 @@ monster.loot = {
 	{name = "crossbow", chance = 3000},
 	{name = "chain armor", chance = 8000},
 	{name = "soldier helmet", chance = 12000},
-	{name = "dwarven shield", chance = 3000},
+	{id = 2525, chance = 3000}, -- dwarven shield
 	{name = "bolt", chance = 40000, maxCount = 7},
 	{id = 2554, chance = 10000},
 	{name = "white mushroom", chance = 40000, maxCount = 3},

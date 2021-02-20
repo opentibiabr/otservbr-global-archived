@@ -93,7 +93,7 @@ monster.loot = {
 	{id = 38772, chance = 7500}, -- Head
 	{name = "fire axe", chance = 13500},
 	{name = "royal helmet", chance = 15500},
-	{name = "mastermind shield", chance = 9500},
+	{id = 2514, chance = 9500}, -- mastermind shield
 	{name = "assassin dagger", chance = 8500},
 	{name = "butcher's axe", chance = 7500},
 	{name = "jade hammer", chance = 6500},

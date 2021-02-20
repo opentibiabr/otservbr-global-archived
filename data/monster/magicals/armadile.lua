@@ -83,7 +83,7 @@ monster.loot = {
 	{name = "gold coin", chance = 100000, maxCount = 98},
 	{name = "platinum coin", chance = 95000, maxCount = 7},
 	{id = 2169, chance = 1000},
-	{name = "tower shield", chance = 620},
+	{id = 2528, chance = 620}, -- tower shield
 	{name = "titan axe", chance = 1540},
 	{name = "bonebreaker", chance = 1150},
 	{name = "strong health potion", chance = 14285, maxCount = 2},

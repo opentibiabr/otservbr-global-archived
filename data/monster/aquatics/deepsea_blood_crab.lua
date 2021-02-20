@@ -80,7 +80,7 @@ monster.loot = {
 	{id = 2667, chance = 10450},
 	{name = "bloody pincers", chance = 6980},
 	{name = "chain armor", chance = 5020},
-	{name = "brass legs", chance = 2720},
+	{id = 2478, chance = 2720}, -- brass legs
 	{name = "white pearl", chance = 620}
 }
 

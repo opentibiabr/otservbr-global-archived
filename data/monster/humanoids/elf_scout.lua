@@ -82,7 +82,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "waterskin", chance = 1350},
+	{id = 2031, chance = 1350}, -- waterskin
 	{name = "gold coin", chance = 75000, maxCount = 25},
 	{name = "bow", chance = 4000},
 	{name = "arrow", chance = 30710, maxCount = 12},

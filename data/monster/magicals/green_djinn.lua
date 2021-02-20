@@ -86,7 +86,7 @@ monster.loot = {
 	{name = "small emerald", chance = 2960, maxCount = 4},
 	{name = "mystic turban", chance = 140},
 	{id = 2696, chance = 23500},
-	{name = "grave flower", chance = 1000},
+	{id = 2747, chance = 1000}, -- grave flower
 	{name = "green piece of cloth", chance = 2000},
 	{name = "royal spear", chance = 4870, maxCount = 2},
 	{name = "mana potion", chance = 490},

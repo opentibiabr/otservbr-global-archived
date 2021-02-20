@@ -92,7 +92,7 @@ monster.loot = {
 	{name = "Damaged Armor Plates", chance = 1120},
 	{name = "Falcon Crest", chance = 730},
 	{name = "Golden Armor", chance = 310},
-	{name = "Mastermind Shield", chance = 310}
+	{id = 2514, chance = 310} -- mastermind shield
 }
 
 monster.attacks = {
