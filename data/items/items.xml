@@ -38533,7 +38533,7 @@
 		<attribute key="description" value="It looks primitive." />
 		<attribute key="armor" value="1" />
 	</item>
-	<item id="27198" article="a" name="cooper shield">
+	<item id="27198" article="a" name="copper shield">
 		<attribute key="description" value="It looks primitive." />
 		<attribute key="weaponType" value="shield" />
 		<attribute key="defense" value="19" />
@@ -38599,7 +38599,7 @@
 	<item id="27265" article="a" name="trapdoor"/>
 	<item fromid="27266" toid="27269" article="a" name="framework wall"/>
 	<item fromid="27270" toid="27271" article="a" name="framework window"/>
-	<item id="27258" article="a" name="goat grass"/>
+	<item id="27272" article="a" name="goat grass"/>
 	<item fromid="27273" toid="27285" name="grass"/>
 	<item id="27286" article="a" name="grave flower"/>
 	<item fromid="27287" toid="27289" article="a" name="grave stone"/>
@@ -38741,10 +38741,12 @@
 	</item>
 	<item fromid="27536" toid="27537" article="a" name="sail" />
 	<item id="27538" article="a" name="studded shield">
+		<attribute key="description" value="It looks primitive." />
 		<attribute key="weaponType" value="shield" />
 		<attribute key="defense" value="15" />
 	</item>
 	<item id="27539" name="studded legs">
+		<attribute key="description" value="It looks primitive." />
 		<attribute key="armor" value="2" />
 	</item>
 	<item id="27540" article="a" name="flask of milk"/>
