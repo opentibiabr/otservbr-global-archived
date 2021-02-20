@@ -890,7 +890,7 @@ class Player final : public Creature, public Cylinder
 		void onAttacked() override;
 		void onAttackedCreatureDrainHealth(Creature* target, int32_t points) override;
 		void onTargetCreatureGainHealth(Creature* target, int32_t points) override;
-		bool onKilledCreature(Creature* target, bool lastHit = true) override;
+		bool onKilledCreature(Creature* target, bool lastHit = true, bool mostDamage = true) override;
 		void onGainExperience(uint64_t gainExp, Creature* target) override;
 		void onGainSharedExperience(uint64_t gainExp, Creature* source);
 		void onAttackedCreatureBlockHit(BlockType_t blockType) override;

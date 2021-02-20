@@ -6989,7 +6989,7 @@ void Game::playerCyclopediaCharacterInfo(Player* player, uint32_t characterID, C
 						cause << cause1;
 					}
 
-					if (!cause2.empty()) {
+					if (!cause2.empty() && cause2.compare(cause1) != 0) {
 						if (!cause1.empty()) {
 							cause << " and ";
 						}

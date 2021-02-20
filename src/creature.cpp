@@ -641,7 +641,7 @@ void Creature::onDeath()
 	Creature* lastHitCreature = g_game.getCreatureByID(lastHitCreatureId);
 	Creature* lastHitCreatureMaster;
 	if (lastHitCreature) {
-		lastHitUnjustified = lastHitCreature->onKilledCreature(this, true);
+		lastHitUnjustified = lastHitCreature->onKilledCreature(this, true, false);
 		lastHitCreatureMaster = lastHitCreature->getMaster();
 	} else {
 		lastHitCreatureMaster = nullptr;
@@ -690,7 +690,7 @@ void Creature::onDeath()
 		if (mostDamageCreature != lastHitCreature && mostDamageCreature != lastHitCreatureMaster) {
 			Creature* mostDamageCreatureMaster = mostDamageCreature->getMaster();
 			if (lastHitCreature != mostDamageCreatureMaster && (lastHitCreatureMaster == nullptr || mostDamageCreatureMaster != lastHitCreatureMaster)) {
-				mostDamageUnjustified = mostDamageCreature->onKilledCreature(this, false);
+				mostDamageUnjustified = mostDamageCreature->onKilledCreature(this, false, true);
 			}
 		}
 	}
@@ -1125,10 +1125,10 @@ void Creature::onAttackedCreatureKilled(Creature* target)
 	}
 }
 
-bool Creature::onKilledCreature(Creature* target, bool lastHit)
+bool Creature::onKilledCreature(Creature* target, bool lastHit, bool mostDamage)
 {
 	if (master) {
-		master->onKilledCreature(target, lastHit);
+		master->onKilledCreature(target, lastHit, mostDamage);
 	}
 
 	//scripting event - onKill

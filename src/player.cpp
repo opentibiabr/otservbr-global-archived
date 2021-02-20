@@ -2469,9 +2469,14 @@ Item* Player::getCorpse(Creature* lastHitCreature, Creature* mostDamageCreature)
 	if (corpse && corpse->getContainer()) {
 		std::ostringstream ss;
 		if (lastHitCreature) {
-			ss << "You recognize " << getNameDescription() << ". " << (getSex() == PLAYERSEX_FEMALE ? "She" : "He") << " was killed by " << lastHitCreature->getNameDescription() << '.';
+			ss << "You recognize " << getNameDescription() << ". " << (getSex() == PLAYERSEX_FEMALE ? "She" : "He") << " was killed by " << lastHitCreature->getNameDescription();
+			if (mostDamageCreature && lastHitCreature->getNameDescription().compare(mostDamageCreature->getNameDescription()) != 0) {
+				ss << " and " << mostDamageCreature->getNameDescription() << ".";
+			} else {
+				ss << ".";
+			}
 		} else {
-			ss << "You recognize " << getNameDescription() << '.';
+			ss << "You recognize " << getNameDescription() << ".";
 		}
 
 		corpse->setSpecialDescription(ss.str());
@@ -4039,7 +4044,7 @@ void Player::onTargetCreatureGainHealth(Creature* target, int32_t points)
 	}
 }
 
-bool Player::onKilledCreature(Creature* target, bool lastHit/* = true*/)
+bool Player::onKilledCreature(Creature* target, bool lastHit, bool mostDamage)
 {
 	bool unjustified = false;
 
@@ -4047,14 +4052,16 @@ bool Player::onKilledCreature(Creature* target, bool lastHit/* = true*/)
 		target->setDropLoot(false);
 	}
 
-	Creature::onKilledCreature(target, lastHit);
+	Creature::onKilledCreature(target, lastHit, mostDamage);
 
 	if (Player* targetPlayer = target->getPlayer()) {
 		if (targetPlayer && targetPlayer->getZone() == ZONE_PVP) {
 			targetPlayer->setDropLoot(false);
 			targetPlayer->setSkillLoss(false);
 		} else if (!hasFlag(PlayerFlag_NotGainInFight) && !isPartner(targetPlayer)) {
-			if (!Combat::isInPvpZone(this, targetPlayer) && hasAttacked(targetPlayer) && !targetPlayer->hasAttacked(this) && !isGuildMate(targetPlayer) && targetPlayer != this) {
+			if (!Combat::isInPvpZone(this, targetPlayer)
+			&& ((hasAttacked(targetPlayer) || mostDamage) && !targetPlayer->hasAttacked(this))
+			&& !isGuildMate(targetPlayer) && targetPlayer != this) {
 				if (targetPlayer->hasKilled(this)) {
 					for (auto& kill : targetPlayer->unjustifiedKills) {
 						if (kill.target == getGUID() && kill.unavenged) {
@@ -4069,7 +4076,7 @@ bool Player::onKilledCreature(Creature* target, bool lastHit/* = true*/)
 					addUnjustifiedDead(targetPlayer);
 				}
 
-				if (lastHit && hasCondition(CONDITION_INFIGHT)) {
+				if ((lastHit || mostDamage) && hasCondition(CONDITION_INFIGHT)) {
 					pzLocked = true;
 					Condition* condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_INFIGHT, g_config.getNumber(ConfigManager::WHITE_SKULL_TIME), 0);
 					addCondition(condition);
@@ -5453,4 +5460,3 @@ error_t Player::GetAccountInterface(account::Account *account) {
   account = account_;
   return account::ERROR_NO;
 }
-
