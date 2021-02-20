@@ -86,7 +86,7 @@ monster.loot = {
 	{name = "silver amulet", chance = 15000},
 	{name = "sword ring", chance = 11050},
 	{name = "spider fangs", chance = 11800},
-	{name = "mind stone", chance = 17800},
+	{id = 2178, chance = 17800}, -- mind stone
 	{name = "wand of cosmic energy", chance = 17800},
 	{name = "magma amulet", chance = 8900},
 	{name = "elven amulet", chance = 8100, maxCount = 2},

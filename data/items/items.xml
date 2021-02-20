@@ -38626,7 +38626,7 @@
 		<attribute key="defense" value="37" />
 	</item>
 	<item id="27311" article="a" name="melon"/>
-	<item id="27312" article="a" name="portable hole"/>
+	<item id="27312" article="a" name="mind stone"/>
 	<item id="27313" article="a" name="menhir"/>
 	<item id="27314" article="a" name="noble armor">
 		<attribute key="description" value="It looks primitive." />
@@ -38642,9 +38642,9 @@
 	<item id="27318" article="a" name="paper"/>
 	<item id="27319" article="a" name="pear tree"/>
 	<item id="27320" article="a" name="pine"/>
-	<item id="27321" article="a" name="flask of life fluid"/>
-	<item id="27322" article="a" name="flask of beer"/>
-	<item id="27323" article="a" name="flask of mana fluid"/>
+	<item id="27321" article="an" name="old health potion"/>
+	<item id="27322" article="an" name="old bullseye potion"/>
+	<item id="27323" article="an" name="old mana potion"/>
 	<item id="27324" name="rock soil"/>
 	<item fromid="27333" toid="27336" article="a" name="sacrificial stone"/>
 	<item fromid="27337" toid="27362" name="sand"/>
@@ -38749,7 +38749,7 @@
 		<attribute key="description" value="It looks primitive." />
 		<attribute key="armor" value="2" />
 	</item>
-	<item id="27540" article="a" name="flask of milk"/>
+	<item id="27540" article="an" name="old bottle of milk"/>
 	<item id="27543" article="a" name="dragon chest" />
 	<item id="27545" article="a" name="dragon chest" />
 	<item id="27595" article="a" name="dead lloyd">

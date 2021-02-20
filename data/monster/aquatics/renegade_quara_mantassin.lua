@@ -79,7 +79,7 @@ monster.voices = {
 
 monster.loot = {
 	{name = "mantassin tail", chance = 14490},
-	{name = "mind stone", chance = 10370},
+	{id = 2178, chance = 10370}, -- mind stone
 	{name = "shrimp", chance = 3950, maxCount = 3},
 	{name = "small sapphire", chance = 3540, maxCount = 3},
 	{name = "stealth ring", chance = 3290},

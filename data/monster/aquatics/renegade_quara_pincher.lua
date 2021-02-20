@@ -84,7 +84,7 @@ monster.loot = {
 	{name = "great health potion", chance = 9010, maxCount = 2},
 	{name = "small ruby", chance = 9010, maxCount = 2},
 	{name = "small diamond", chance = 7060, maxCount = 2},
-	{name = "mind stone", chance = 6140},
+	{id = 2178, chance = 6140}, -- mind stone
 	{name = "red gem", chance = 5120},
 	{name = "shrimp", chance = 4810, maxCount = 5},
 	{name = "vortex bolt", chance = 3790, maxCount = 5},

@@ -83,7 +83,7 @@ monster.loot = {
 	{name = "black pearl", chance = 2900},
 	{name = "small ruby", chance = 1400},
 	{name = "gold coin", chance = 97000, maxCount = 75},
-	{name = "mind stone", chance = 520},
+	{id = 2178, chance = 520}, -- mind stone
 	{name = "mysterious fetish", chance = 690},
 	{name = "throwing star", chance = 10000, maxCount = 3},
 	{name = "battle hammer", chance = 4000},

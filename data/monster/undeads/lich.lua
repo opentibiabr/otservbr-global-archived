@@ -98,7 +98,7 @@ monster.loot = {
 	{name = "yellow gem", chance = 690},
 	{name = "platinum amulet", chance = 450},
 	{id = 2175, chance = 10000},
-	{name = "mind stone", chance = 350},
+	{id = 2178, chance = 350}, -- mind stone
 	{name = "ring of healing", chance = 1540},
 	{name = "skull staff", chance = 550},
 	{name = "strange helmet", chance = 740},

@@ -94,7 +94,7 @@ monster.loot = {
 	{name = "great spirit potion", chance = 18000},
 	{name = "magic plate armor", chance = 18000},
 	{name = "might ring", chance = 18000},
-	{name = "mind stone", chance = 18000},
+	{id = 2178, chance = 18000}, -- mind stone
 	{name = "stealth ring", chance = 18000},
 	{name = "fireborn giant armor", chance = 18000},
 	{name = "royal crossbow", chance = 18000},
