@@ -39,8 +39,8 @@ function ferumbrasAscendantRagiaz.onUse(player, item, fromPosition, target, toPo
 				playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			end
 		end
-		Game.setStorageValue(GlobalStorage.FerumbrasAscendant.RagiazTimer, 1)
-		addEvent(clearForgotten, 30 * 60 * 1000, Position(33472, 32323, 13), Position(33493, 32347, 13), Position(33319, 32318, 13), GlobalStorage.FerumbrasAscendant.RagiazTimer)
+		Game.setStorageValue(Storage.FerumbrasAscendant.RagiazTimer, 1)
+		addEvent(clearForgotten, 30 * 60 * 1000, Position(33472, 32323, 13), Position(33493, 32347, 13), Position(33319, 32318, 13), Storage.FerumbrasAscendant.RagiazTimer)
 		item:transform(9826)
 	elseif item.itemid == 9826 then
 		item:transform(9825)
