@@ -534,6 +534,17 @@ Storage = {
 		TheShattererLever = 60033,
 		TheShattererTimer = 50421,
 		
+		--second boss --
+		Statue = 50453,
+		Ring = 50452,
+		Flower = 50456,
+		Bone = 50458,
+		Vampire = 50455,
+		Ring2 = 50457,
+		
+		
+		
+		
 		RiftRunner = 50420, -- Scroll
 		
 		
@@ -550,13 +561,10 @@ Storage = {
 		ColorLever = 50449,
 		BoneFluteWall = 50450,
 		BoneFlute = 50451,
-		Ring = 50452,
-		Statue = 50453,
+		
+		
 		Fount = 50454,
-		Vampire = 50455,
-		Flower = 50456,
-		Ring2 = 50457,
-		Bone = 50458,
+		
 		Reward = 50459,
 		
 		

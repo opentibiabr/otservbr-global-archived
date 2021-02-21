@@ -6,7 +6,7 @@ function gateOfDeathstruction.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if player:getStorageValue(Storage.FerumbrasAscension.Statue) < 1 then
+	if player:getStorageValue(Storage.FerumbrasAscendant.Statue) < 1 then
 		position:sendMagicEffect(CONST_ME_TELEPORT)
 		position.y = position.y + 2
 		player:teleportTo(position)

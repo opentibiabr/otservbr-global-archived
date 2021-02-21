@@ -7,7 +7,7 @@ local fount = {
 
 local ferumbrasAscendantStatue = Action()
 function ferumbrasAscendantStatue.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if Tile(Position(33415, 32379, 12)):getItemById(24819) or player:getStorageValue(Storage.FerumbrasAscension.Fount) < 4 or player:getStorageValue(Storage.FerumbrasAscension.Statue) >= 1 then
+	if Tile(Position(33415, 32379, 12)):getItemById(24819) or player:getStorageValue(Storage.FerumbrasAscendant.Fount) < 4 or player:getStorageValue(Storage.FerumbrasAscendant.Statue) >= 1 then
 		return false
 	end
 	for i = 1, #fount do
@@ -17,7 +17,7 @@ function ferumbrasAscendantStatue.onUse(player, item, fromPosition, target, toPo
 		founts:setActionId(53805)
 	end
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You douse the sacred statue\'s flame. The room darkens.')
-	player:setStorageValue(Storage.FerumbrasAscension.Statue, 1)
+	player:setStorageValue(Storage.FerumbrasAscendant.Statue, 1)
 	item:transform(24819)
 	return true
 end

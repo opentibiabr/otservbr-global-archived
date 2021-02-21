@@ -488,6 +488,13 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		return onUsePickAtTunnelPillar(player, item, fromPosition, target, toPosition)
 	end
 	
+	if target.itemid == 25528 and target.actionid == 53803 then
+		if player:getStorageValue(Storage.FerumbrasAscendant.Ring) < 1 then
+			player:addItem(24826,1)
+			player:setStorageValue(Storage.FerumbrasAscendant.Ring,1)
+		end
+	end
+
     --Dawnport some cracks down
     local crackPosition = Position(32099, 31930, 7)
     if (toPosition == crackPosition) then
