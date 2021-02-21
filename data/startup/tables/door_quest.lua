@@ -245,15 +245,15 @@ QuestDoorAction = {
 		itemPos = {{x = 33452, y = 32241, z = 7}}
 	},
 	-- Ferumbras ascension door
-	[Storage.FerumbrasAscension.FirstDoor] = {
+	[Storage.FerumbrasAscendant.FirstDoor] = {
 		itemId = false,
 		itemPos = {{x = 33479, y = 32782, z = 11}}
 	},
-	[Storage.FerumbrasAscension.MonsterDoor] = {
+	[Storage.FerumbrasAscendant.MonsterDoor] = {
 		itemId = false,
 		itemPos = {{x = 33482, y = 32786, z = 11}}
 	},
-	[Storage.FerumbrasAscension.TarbazDoor] = {
+	[Storage.FerumbrasAscendant.TarbazDoor] = {
 		itemId = false,
 		itemPos = {{x = 33470, y = 32786, z = 11}}
 	},

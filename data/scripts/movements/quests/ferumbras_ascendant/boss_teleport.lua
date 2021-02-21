@@ -1,11 +1,11 @@
 local config = {
-	[24830] = {storage = Storage.FerumbrasAscension.Razzagorn},
-	[24831] = {storage = Storage.FerumbrasAscension.Ragiaz},
-	[24832] = {storage = Storage.FerumbrasAscension.Zamulosh},
-	[24833] = {storage = Storage.FerumbrasAscension.Mazoran},
-	[24834] = {storage = Storage.FerumbrasAscension.Tarbaz},
-	[24835] = {storage = Storage.FerumbrasAscension.Shulgrax},
-	[24836] = {storage = Storage.FerumbrasAscension.Plagirath}
+	[24830] = {storage = Storage.FerumbrasAscendant.Razzagorn},
+	[24831] = {storage = Storage.FerumbrasAscendant.Ragiaz},
+	[24832] = {storage = Storage.FerumbrasAscendant.Zamulosh},
+	[24833] = {storage = Storage.FerumbrasAscendant.Mazoran},
+	[24834] = {storage = Storage.FerumbrasAscendant.Tarbaz},
+	[24835] = {storage = Storage.FerumbrasAscendant.Shulgrax},
+	[24836] = {storage = Storage.FerumbrasAscendant.Plagirath}
 }
 
 local bossTeleport = MoveEvent()

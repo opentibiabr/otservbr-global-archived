@@ -43,7 +43,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say("My studies indicate that without all doubt Ferumbras the fiendish is in the process of accumulating nearly godlike powers. We have to stop him. ...", cid)
 		npcHandler:say("Therefore I need you to enter a hellish dimension and acquire the parts of a weapon, the {godbreaker}, powerful enough to stop him once and for all. Are you willing to help me in this dire mission?", cid)
 		npcHandler.topic[cid] = 2
-	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 2 and player:getStorageValue(Storage.FerumbrasAscension.Access) < 1 then
+	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 2 and player:getStorageValue(Storage.FerumbrasAscendant.Access) < 1 then
 		npcHandler:say("Good!, but I need 30 {demonic essences} to exchange with the demonic messenger for a ticket for you to enter the Abodes of Torments.", cid)
 	elseif msgcontains(msg, "demonic essence") or msgcontains(msg, "essence") then
 		npcHandler:say("Do you have 30 demonic essences to offer to the demonic messenger?", cid)
@@ -52,7 +52,7 @@ local function creatureSayCallback(cid, type, msg)
 		if player:removeItem(6500, 30) then
 			npcHandler:say("Excellent! This will empower possibilty to create a breach is enough to let you pass into that hellish hiding place. ...", cid)
 			player:addItem(24838, 1)
-			player:setStorageValue(Storage.FerumbrasAscension.Access, 1)
+			player:setStorageValue(Storage.FerumbrasAscendant.Access, 1)
 		else
 			npcHandler:say("You don\'t have the demonic essences, back here when you get it.", cid)
 			npcHandler:releaseFocus(cid)

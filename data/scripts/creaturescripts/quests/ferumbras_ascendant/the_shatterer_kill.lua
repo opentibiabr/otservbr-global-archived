@@ -87,7 +87,7 @@ function theShattererKill.onKill(creature, target)
 		local attackerPlayer = Player(pid)
 		if attackerPlayer then
 			if targetMonster:getName():lower() == 'the shatterer' then
-				attackerPlayer:setStorageValue(Storage.FerumbrasAscension.TheShatterer, 1)
+				attackerPlayer:setStorageValue(Storage.FerumbrasAscendant.TheShatterer, 1)
 			end
 		end
 	end
@@ -103,8 +103,8 @@ function theShattererKill.onKill(creature, target)
 		addEvent(revertTeleport, 2 * 60 * 1000, teleportPos, 25417, 1387, oldPos)
 		revert()
 	end
-	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever, 0)
-	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererTimer, 0)
+	Game.setStorageValue(Storage.FerumbrasAscendant.TheShattererLever, 0)
+	Game.setStorageValue(Storage.FerumbrasAscendant.TheShattererTimer, 0)
 	return true
 end
 

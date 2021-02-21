@@ -472,10 +472,53 @@ Storage = {
 		AccessTeleport2 = 50405,
 		AccessTeleport3 = 50406
 	},
-	FerumbrasAscension = {
+	FerumbrasAscendant = {
 		-- Reserved storage from 50420 - 50469
-		RiftRunner = 50420, -- Scroll
-		TheShattererTimer = 50421,
+		Access = 50438,
+
+		FirstDoor = 50443,
+		MonsterDoor = 50444,
+		TarbazDoor = 50445,
+
+		Crystals = {
+			Crystal1 = 60040,
+			Crystal2 = 60041,
+			Crystal3 = 60042,
+			Crystal4 = 60043,
+			Crystal5 = 60044,
+			Crystal6 = 60045,
+			Crystal7 = 60046,
+			Crystal8 = 60047,
+			AllCrystals = 60048
+		},
+		Habitats = {
+			Roshamuul = 60050,
+			Grass = 60051,
+			Mushroom = 60052,
+			Desert = 60053,
+			Venom = 60054,
+			Ice = 60055,
+			Corrupted = 60056,
+			Dimension = 60057,
+			AllHabitats = 60058
+		},
+		Elements = {
+			First = 60060,
+			Second = 60061,
+			Third = 60062,
+			Four = 60063,
+			Active = 60064,
+			Done = 60065
+		},
+		
+		Tarbaz = 50431,
+		Razzagorn = 50432,
+		Ragiaz = 50433,
+		Zamulosh = 50434,
+		Shulgrax = 50435,
+		Mazoran = 50436,
+		Plagirath = 50437,
+		
 		TheLordOfTheLiceTimer = 50422,
 		TarbazTimer = 50423,
 		RazzagornTimer = 50424,
@@ -485,21 +528,22 @@ Storage = {
 		MazoranTimer = 50428,
 		PlagirathTimer = 50429,
 		FerumbrasTimer = 50430,
-		Tarbaz = 50431,
-		Razzagorn = 50432,
-		Ragiaz = 50433,
-		Zamulosh = 50434,
-		Shulgrax = 50435,
-		Mazoran = 50436,
-		Plagirath = 50437,
-		Access = 50438,
+
+		--first boss --
 		TheShatterer = 50439,
+		TheShattererLever = 60033,
+		TheShattererTimer = 50421,
+		
+		RiftRunner = 50420, -- Scroll
+		
+		
+
+		
+		
 		ZamuloshTeleports = 50440,
 		BasinCounter = 50441,
 		TheLordOfTheLiceAccess = 50442,
-		FirstDoor = 50443,
-		MonsterDoor = 50444,
-		TarbazDoor = 50445,
+		
 		HabitatsAccess = 50446,
 		HabitatsTimer = 50447,
 		TarbazNotes = 50448,
@@ -513,7 +557,15 @@ Storage = {
 		Flower = 50456,
 		Ring2 = 50457,
 		Bone = 50458,
-		Reward = 50459
+		Reward = 50459,
+		
+		
+		-- Reserved storage from 60030 - 60069
+		ZamuloshSummon = 60030,
+		FerumbrasEssence = 60031,
+		DesperateSoul = 60032,
+		
+
 	},
 	ForgottenKnowledge = {
 		-- Reserved storage from 50470 - 50519
@@ -2210,7 +2262,7 @@ Storage = {
 		TheLostBrother = {},
 		TheTaintedSouls = {},
 		-- update 10.90
-		FerumbrasAscension = {},
+		FerumbrasAscendant = {},
 		Krailos = {},
 		RiftWarriorOutfits = {},
 		-- update 10.94
@@ -2270,42 +2322,6 @@ GlobalStorage = {
 		-- Reserved storage from 60020 - 60029
 		Chance = 60020,
 		Active = 60021
-	},
-	FerumbrasAscendant = {
-		-- Reserved storage from 60030 - 60069
-		ZamuloshSummon = 60030,
-		FerumbrasEssence = 60031,
-		DesperateSoul = 60032,
-		Crystals = {
-			Crystal1 = 60040,
-			Crystal2 = 60041,
-			Crystal3 = 60042,
-			Crystal4 = 60043,
-			Crystal5 = 60044,
-			Crystal6 = 60045,
-			Crystal7 = 60046,
-			Crystal8 = 60047,
-			AllCrystals = 60048
-		},
-		Habitats = {
-			Roshamuul = 60050,
-			Grass = 60051,
-			Mushroom = 60052,
-			Desert = 60053,
-			Venom = 60054,
-			Ice = 60055,
-			Corrupted = 60056,
-			Dimension = 60057,
-			AllHabitats = 60058
-		},
-		Elements = {
-			First = 60060,
-			Second = 60061,
-			Third = 60062,
-			Four = 60063,
-			Active = 60064,
-			Done = 60065
-		}
 	},
 	HeroRathleton = {
 		-- Reserved storage from 60070 - 60089

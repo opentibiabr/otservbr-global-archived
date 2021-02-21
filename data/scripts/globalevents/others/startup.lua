@@ -93,8 +93,8 @@ function serverstartup.onStartup()
 	end
 
 	-- Ferumbras Ascendant quest
-	for i = 1, #GlobalStorage.FerumbrasAscendant.Habitats do
-		local storage = GlobalStorage.FerumbrasAscendant.Habitats[i]
+	for i = 1, #Storage.FerumbrasAscendant.Habitats do
+		local storage = Storage.FerumbrasAscendant.Habitats[i]
 		Game.setStorageValue(storage, 0)
 	end
 

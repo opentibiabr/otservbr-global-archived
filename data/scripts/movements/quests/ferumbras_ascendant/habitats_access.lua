@@ -2,7 +2,7 @@ local config = {
 	[34323] = {
 		toPosition = Position(33630, 32651, 12),
 		backPosition = Position(33630, 32651, 12),
-		timer = Storage.FerumbrasAscension.HabitatsTimer
+		timer = Storage.FerumbrasAscendant.HabitatsTimer
 	}
 }
 
@@ -20,7 +20,7 @@ function habitatsAccess.onStepIn(creature, item, position, fromPosition)
 	end
 
 	if item.actionid == 34323 then
-		if player:getStorageValue(Storage.FerumbrasAscension.HabitatsAccess) >= 1 then
+		if player:getStorageValue(Storage.FerumbrasAscendant.HabitatsAccess) >= 1 then
 			if player:getStorageValue(setting.timer) < os.time() then
 				player:teleportTo(setting.toPosition)
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
