@@ -19,7 +19,7 @@ on:
 
 jobs:
   job:
-    name: ${{ matrix.os }}-${{ matrix.cxx }}-${{ matrix.buildtype }}-luajit=${{ matrix.luajit }}
+    name: ${{ matrix.os }}-${{ matrix.cxx }}-${{ matrix.buildtype }}
     runs-on: ${{ matrix.os }}-latest
     strategy:
       fail-fast: false
@@ -27,7 +27,6 @@ jobs:
       matrix:
         name: [macos-clang]
         buildtype: [Debug, Release]
-        luajit: [on, off]
         include:
           - name: macos-clang
             os: macos
@@ -72,7 +71,6 @@ jobs:
           useVcpkgToolchainFile: true
           buildDirectory: ${{ runner.workspace }}/build
           cmakeBuildType: ${{ matrix.buildtype }}
-          cmakeAppendedArgs: -DUSE_LUAJIT=${{ matrix.luajit }}
 
       - name: dir
         run: find $RUNNER_WORKSPACE
@@ -85,5 +83,5 @@ jobs:
       - name: Upload datapack contents
         uses: actions/upload-artifact@v2
         with:
-          name: otbr-${{ matrix.name }}-${{ matrix.buildtype }}-luajit=${{ matrix.luajit }}-${{ github.sha }}
+          name: otbr-${{ matrix.name }}-${{ matrix.buildtype }}-${{ github.sha }}
           path: ${{ github.workspace }}
