@@ -3438,6 +3438,24 @@ void ProtocolGame::sendTextMessage(const TextMessage &message)
 {
 	NetworkMessage msg;
 	msg.addByte(0xB4);
+	if(version < 1200 && message.type > MESSAGE_MARKET)
+	{
+		switch(message.type)
+		{
+			case MESSAGE_BOOSTED_CREATURE:
+				message.type = MESSAGE_LOOT;
+				break;
+			case MESSAGE_OFFLINE_TRAINING:
+			case MESSAGE_BEYOND_LAST:
+			case MESSAGE_TRANSACTION:
+				message.type = MESSAGE_EVENT_ADVANCE;
+				break;
+			case MESSAGE_ATTENTION:
+			case MESSAGE_POTION:
+				message.type = MESSAGE_HEALED;
+				break;
+		}
+	}
 	msg.addByte(message.type);
 	switch (message.type)
 	{
