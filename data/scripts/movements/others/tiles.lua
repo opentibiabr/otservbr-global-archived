@@ -38,7 +38,7 @@ function tiles.onStepIn(creature, item, position, fromPosition)
 
 			player:sendTextMessage(MESSAGE_FAILURE, "Your depot contains " .. depotItems .. " item" .. (depotItems > 1 and "s." or ".") .. "\
 			Your supply stash contains " .. player:getStashCount() .. " item" .. (player:getStashCount()	 > 1 and "s." or "."))
-			player:setSpecialContainersAvailable(true)
+			player:setSpecialContainersAvailable(true, true)
 			return true
 		end
 	end
@@ -72,7 +72,7 @@ function tiles.onStepOut(creature, item, position, fromPosition)
 	end
 
 	item:transform(decreasing[item.itemid])
-	player:setSpecialContainersAvailable(false)
+	player:setSpecialContainersAvailable(false, false)
 	return true
 end
 
