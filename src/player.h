@@ -529,6 +529,12 @@ class Player final : public Creature, public Cylinder
 		void setSupplyStashAvailable(bool value) {
 			supplyStashAvailable = value;
 		}
+		bool isExerciseTraining() {
+			return exerciseTraining;
+		}
+		void setExerciseTraining(bool isTraining) {
+			exerciseTraining = isTraining;
+		}
 		void setLastDepotId(int16_t newId) {
 			lastDepotId = newId;
 		}
@@ -624,7 +630,42 @@ class Player final : public Creature, public Cylinder
 		void addMessageBuffer();
 		void removeMessageBuffer();
 
+		bool removeItemClientId(uint16_t clientId, uint32_t count) const;
 		bool removeItemOfType(uint16_t itemId, uint32_t amount, int32_t subType, bool ignoreEquipped = false) const;
+
+		void addItemOnStash(uint16_t clientId, uint32_t amount) {
+			auto it = stashItems.find(clientId);
+			if (it != stashItems.end()) {
+				stashItems[clientId] += amount;
+				return;
+			}
+
+			stashItems[clientId] = amount;
+		}
+		uint16_t getStashItemCount(uint16_t clientId) const {
+			auto it = stashItems.find(clientId);
+			if (it != stashItems.end()) {
+				return static_cast<uint16_t>(it->second);
+			}
+			return 0;
+		}
+		bool withdrawItem(uint16_t clientId, uint32_t amount) {
+			auto it = stashItems.find(clientId);
+			if (it != stashItems.end()) {
+				if (it->second > amount) {
+					stashItems[clientId] -= amount;
+				} else if (it->second == amount) {
+					stashItems.erase(clientId);
+				} else {
+					return false;
+				}
+				return true;
+			}
+			return false;
+		}
+		StashItemList getStashItems() const {
+			return stashItems;
+		}
 
 		uint32_t getBaseCapacity() const {
 			if (hasFlag(PlayerFlag_CannotPickupItem)) {
@@ -783,7 +824,7 @@ class Player final : public Creature, public Cylinder
 
 		//stash functions
 		bool addItemFromStash(uint16_t itemId, uint32_t itemCount);
-		void stowContainer(Item* item, uint32_t count, bool stowalltype = false);
+		void stowContainer(Item* item, uint32_t count);
 
 		void changeHealth(int32_t healthChange, bool sendHealthChange = true) override;
 		void changeMana(int32_t manaChange) override;
@@ -1127,9 +1168,9 @@ class Player final : public Creature, public Cylinder
 				client->sendLootContainers();
 			}
 		}
-		void sendLootStats(Item* item) {
+		void sendLootStats(Item* item, uint8_t count) {
 			if (client) {
-				client->sendLootStats(item);
+				client->sendLootStats(item, count);
 			}
 		}
 
@@ -1162,7 +1203,7 @@ class Player final : public Creature, public Cylinder
 
 		void sendCancelMessage(const std::string& msg) const {
 			if (client) {
-				client->sendTextMessage(TextMessage(MESSAGE_STATUS_SMALL, msg));
+				client->sendTextMessage(TextMessage(MESSAGE_FAILURE, msg));
 			}
 		}
 		void sendCancelMessage(ReturnValue message) const;
@@ -1687,6 +1728,24 @@ class Player final : public Creature, public Cylinder
  			}
  		}
 
+   		void createLeaderTeamFinder(NetworkMessage &msg)
+ 		{
+  			if (client) {
+ 				client->createLeaderTeamFinder(msg);
+ 			}
+ 		}
+   		void sendLeaderTeamFinder(bool reset)
+ 		{
+  			if (client) {
+ 				client->sendLeaderTeamFinder(reset);
+ 			}
+ 		}
+   		void sendTeamFinderList()
+ 		{
+  			if (client) {
+ 				client->sendTeamFinderList();
+ 			}
+ 		}
 		uint32_t getCharmPoints() {
 			return charmPoints;
 		}
@@ -1847,6 +1906,7 @@ class Player final : public Creature, public Cylinder
 		size_t getFirstIndex() const override;
 		size_t getLastIndex() const override;
 		uint32_t getItemTypeCount(uint16_t itemId, int32_t subType = -1) const override;
+		void stashContainer(StashContainerList itemDict);
 		std::map<uint32_t, uint32_t>& getAllItemTypeCount(std::map<uint32_t, uint32_t>& countMap) const override;
 		Item* getItemByClientId(uint16_t clientId) const;
 		std::map<uint16_t, uint16_t> getInventoryClientIds() const;
@@ -1984,6 +2044,7 @@ class Player final : public Creature, public Cylinder
 		uint16_t storeXpBoost = 0;
 		uint16_t staminaXpBoost = 100;
 		int16_t lastDepotId = -1;
+		StashItemList stashItems; // [ClientID] = amount
 
 		// Bestiary
 		bool charmExpansion = false;
@@ -2052,6 +2113,7 @@ class Player final : public Creature, public Cylinder
 		bool scheduledSaleUpdate = false;
 		bool inEventMovePush = false;
 		bool supplyStashAvailable = false;
+		bool exerciseTraining = false;
 
 		static uint32_t playerAutoID;
 

@@ -4,11 +4,11 @@ function pickenchanted.onUse(player, item, fromPosition, target, toPosition, isH
 
 	if player:getStorageValue(Storage.Kilmaresh.Eighth.Yonan) == 2 then
 		if table.contains({35273}, target.itemid) then
-            player:sendTextMessage(MESSAGE_INFO_DESCR,"You are quarrying some tagralt.")
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You are quarrying some tagralt.")
 			player:addItem(36168, 1)
 		end
 	else
-		player:sendTextMessage(MESSAGE_INFO_DESCR,"Sorry.")
+		player:sendTextMessage(MESSAGE_FAILURE, "Sorry, not possible.")
 	end
 	
     return true

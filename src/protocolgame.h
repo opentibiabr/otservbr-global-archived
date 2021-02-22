@@ -47,7 +47,7 @@ extern Game g_game;
 
 struct TextMessage
 {
-	MessageClasses type = MESSAGE_STATUS_DEFAULT;
+	MessageClasses type = MESSAGE_STATUS;
 	std::string text;
 	Position position;
 	uint16_t channelId;
@@ -156,6 +156,11 @@ private:
 	void BestiarysendCharms();
 	void sendBestiaryEntryChanged(uint16_t raceid);
 	void refreshBestiaryTracker(std::list<MonsterType *> trackerList);
+	void sendTeamFinderList();
+	void sendLeaderTeamFinder(bool reset);
+	void createLeaderTeamFinder(NetworkMessage &msg);
+	void parseLeaderFinderWindow(NetworkMessage &msg);
+	void parseMemberFinderWindow(NetworkMessage &msg);
 	void parseSendBuyCharmRune(NetworkMessage &msg);
 	void parseBestiarysendMonsterData(NetworkMessage &msg);
 	void addBestiaryTrackerList(NetworkMessage &msg);
@@ -375,7 +380,7 @@ private:
 
 	//quickloot
 	void sendLootContainers();
-	void sendLootStats(Item *item);
+	void sendLootStats(Item *item, uint8_t count);
 
 	//inventory
 	void sendInventoryItem(slots_t slot, const Item *item);

@@ -64,22 +64,13 @@ find_package(PugiXML REQUIRED)
 find_package(MySQL REQUIRED)
 find_package(Threads REQUIRED)
 find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams date_time REQUIRED)
+find_package(CURL REQUIRED)
+find_package(jsoncpp REQUIRED)
 
 # Selects LuaJIT if user defines or auto-detected
-if (DEFINED USE_LUAJIT AND NOT USE_LUAJIT)
-    set(FORCE_LUAJIT ${USE_LUAJIT})
-else ()
-    find_package(LuaJIT)
-    set(FORCE_LUAJIT ${LuaJIT_FOUND})
-endif ()
-option(USE_LUAJIT "Use LuaJIT" ${FORCE_LUAJIT})
-
-if (FORCE_LUAJIT)
-    if (APPLE)
-        set(CMAKE_EXE_LINKER_FLAGS "-pagezero_size 10000 -image_base 100000000")
-    endif ()
-else ()
-    find_package(Lua REQUIRED)
+find_package(LuaJIT)
+if (APPLE)
+  set(CMAKE_EXE_LINKER_FLAGS "-pagezero_size 10000 -image_base 100000000")
 endif ()
 
 
@@ -262,9 +253,9 @@ endif()
 # *****************************************************************************
 include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR}
                     ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR}
-                    ${CRYPTOPP_INCLUDE_DIR})
+                    ${CRYPTOPP_INCLUDE_DIR} ${CURL_INCLUDE_DIRS} $<TARGET_PROPERTY:jsoncpp_lib,INTERFACE_INCLUDE_DIRECTORIES>)
 
 target_link_libraries(otbr otbr_lib ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
                       ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY}
                       ${PUGIXML_LIBRARIES} ${CRYPTOPP_LIBRARIES}
-                      ${CMAKE_THREAD_LIBS_INIT})
+                      ${CMAKE_THREAD_LIBS_INIT} ${CURL_LIBRARIES} jsoncpp_lib)

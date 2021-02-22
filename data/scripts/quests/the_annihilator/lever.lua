@@ -33,14 +33,14 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				return true
 			end
 			if creature and creature:getLevel() < setting.requiredLevel then
-				player:sendTextMessage(MESSAGE_STATUS_SMALL, "All the players need to be level ".. setting.requiredLevel .." or higher.")
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "All the players need to be level ".. setting.requiredLevel .." or higher.")
 				return true
 			end
 		end
 
 		-- Checks if there are still players inside the room, if so, return true
 		if Position.hasPlayer(setting.centerDemonRoomPosition, 4, 4) then
-			player:sendTextMessage(MESSAGE_STATUS_SMALL, "A team is already inside the quest room.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "A team is already inside the quest room.")
 			return true
 		end
 
@@ -68,7 +68,7 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 		-- Not be able to push the lever back if someone is still inside the monsters room
 		if Position.hasPlayer(setting.centerDemonRoomPosition, 4, 4) then
-			player:sendTextMessage(MESSAGE_STATUS_SMALL, "A team is already inside the quest room.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "A team is already inside the quest room.")
 			return true
 		end
 		-- Removes all monsters so that the next team can enter

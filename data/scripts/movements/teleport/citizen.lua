@@ -8,7 +8,7 @@ local config = {
 	[9062] = TOWNS_LIST.ANKRAHMUN,
 	[9063] = TOWNS_LIST.EDRON,
 	[9068] = TOWNS_LIST.FARMINE,
-	[9064] = TOWNS_LIST.DARASHIA,
+	[9064] = TOWNS_LIST.LIBERTY_BAY,
 	[9065] = TOWNS_LIST.PORT_HOPE,
 	[9066] = TOWNS_LIST.SVARGROND,
 	[9067] = TOWNS_LIST.YALAHAR,
@@ -37,7 +37,7 @@ function citizen.onStepIn(creature, item, position, fromPosition)
 	end
 
 	if town:getId() == TOWNS_LIST.SVARGROND and player:getStorageValue(Storage.BarbarianTest.Questline) < 8 then
-		player:sendTextMessage(MESSAGE_STATUS_WARNING, 'You first need to absolve the Barbarian Test Quest to become citizen!')
+		player:sendTextMessage(MESSAGE_GAME_HIGHLIGHT, 'You first need to absolve the Barbarian Test Quest to become citizen!')
 		player:teleportTo(town:getTemplePosition())
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		return true

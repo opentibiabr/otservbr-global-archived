@@ -6,6 +6,6 @@
 		<parameter key="message_greet" value="Wha'd'ya want? Ask me 'bout the instructions if you don't know what to do! If you wanna head back to {Svargrond}, let me know."/>
 		<parameter key="message_farewell" value="Bye."/>
 		<parameter key="module_shop" value="1"/>
-		<parameter key="shop_buyable" value="bait,8297,50;"/>
+		<parameter key="shop_buyable" value="bait, 8297, 50;"/>
 	</parameters>
 </npc>

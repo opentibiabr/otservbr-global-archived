@@ -102,7 +102,7 @@ void Npc::reset()
 	pushable = true;
 	floorChange = false;
 	attackable = false;
-	ignoreHeight = true;
+	ignoreHeight = false;
 	focusCreature = 0;
 	speechBubble = SPEECHBUBBLE_NONE;
 

@@ -1,5 +1,5 @@
 local combat = createCombatObject()
-combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ENERGY)
+combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ENERGYDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ENERGYAREA)
 
 	arr = {

@@ -25,8 +25,8 @@ function addOutfit.onSay(player, words, param)
 	local target = Player(name)
 	if target then
 		target:addOutfit(lookType)
-		target:sendTextMessage(MESSAGE_EVENT_ADVANCE, "".. player:getName() .." has been added a new outfit for you.")
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have sucessfull added looktype ".. lookType .. " to the player ".. target:getName() ..".")
+		target:sendTextMessage(MESSAGE_ADMINISTRADOR, "".. player:getName() .." has been added a new outfit for you.")
+		player:sendTextMessage(MESSAGE_ADMINISTRADOR, "You have sucessfull added looktype ".. lookType .. " to the player ".. target:getName() ..".")
 		if printConsole then
 			print("[Info - TalkAction /addOutfit] Player: '".. player:getName() .."' has been added looktype: '".. lookType .. "' to the player: '".. target:getName() .."'")
 		end

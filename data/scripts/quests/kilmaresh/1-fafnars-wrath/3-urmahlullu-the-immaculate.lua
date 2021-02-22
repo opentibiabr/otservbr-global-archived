@@ -21,7 +21,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 	if item.itemid == 9825 then
 		-- Check if the player that pulled the lever is on the correct position
 		if player:getPosition() ~= config.playerPositions[1] then
-			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You can\'t start the battle.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You can\'t start the battle.")
 			return true
 		end
 		
@@ -34,7 +34,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 			if participant and participant:isPlayer() then
 				-- Check participant level
 				if participant:getLevel() < config.requiredLevel then
-					player:sendTextMessage(MESSAGE_STATUS_SMALL,
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
 						"All the players need to be level ".. config.requiredLevel .." or higher.")
 					return true
 				end
@@ -55,7 +55,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 		for i = 1, #specs do
 			spec = specs[i]
 			if spec:isPlayer() then
-				player:sendTextMessage(MESSAGE_STATUS_SMALL, "A team is already inside the boss room.")
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "A team is already inside the boss room.")
 				return true
 			end
 

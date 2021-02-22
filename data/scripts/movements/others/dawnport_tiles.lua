@@ -256,5 +256,5 @@ function cureTile.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-cureTile:aid(20001, 20002, 20003, 20004)
+cureTile:aid(20001)
 cureTile:register()

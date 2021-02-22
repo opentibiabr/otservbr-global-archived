@@ -13,7 +13,7 @@ function lowerSpikeKill.onKill(creature, target)
 				creature:setStorageValue(SPIKE_LOWER_KILL_MAIN, sum)
 				creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have slayed " .. sum .. " out of 7 Drillworms.")
 				if sum == 7 then
-					creature:sendTextMessage(MESSAGE_INFO_DESCR, "Report the task to Gnomargery.")
+					creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Report the task to Gnomargery.")
 				end
 			end
 		end

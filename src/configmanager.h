@@ -61,6 +61,7 @@ class ConfigManager
 			ONLY_PREMIUM_ACCOUNT,
 			ALLOW_CLIENT_OLD,
 			MAP_CUSTOM_ENABLED,
+			ALL_CONSOLE_LOG,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
@@ -89,6 +90,7 @@ class ConfigManager
 			MAP_CUSTOM_FILE,
 			MAP_CUSTOM_SPAWN,
 			MAP_CUSTOM_AUTHOR,
+      DISCORD_WEBHOOK_URL,
 
 			LAST_STRING_CONFIG /* this must be the last one */
 		};

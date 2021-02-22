@@ -59,7 +59,7 @@ function reload.onSay(player, words, param)
 	local reloadType = reloadTypes[param:lower()]
 	if reloadType then
 		Game.reload(reloadType)
-		player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Reloaded %s.", param:lower()))
+		player:sendTextMessage(MESSAGE_ADMINISTRADOR, string.format("Reloaded %s.", param:lower()))
 		print("Reloaded: " .. param:lower() .. ".")
 		return true
 	elseif not reloadType then

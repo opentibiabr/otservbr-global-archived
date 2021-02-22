@@ -15,6 +15,9 @@
 ## Project
 OTServ Brasil - Global Server is a free and open-source MMORPG server emulator written in C++. It is a fork of the [Forgotten Server](https://github.com/otland/forgottenserver) project. To connect to the server and to take a stable experience, you can use our [own client](https://forums.otserv.com.br/index.php?/forums/topic/167933-otservbr-global-cliente-tibia-12/) and if you want to edit something, check our [customized tools](https://github.com/opentibiabr/tools).
 
+You are subject to our code of conduct, read at [this link](https://github.com/opentibiabr/otservbr-global/blob/develop/CODE_OF_CONDUCT.md).
+
+
 ### Getting Started
 * **WARNING: YOU NEED TO UNZIP THE MAP BEFORE START THE SERVER.**
 * [Compiling on Windows](https://forums.otserv.com.br/index.php?/forums/topic/169235-windowsvc2019-compilando-sources-otservbr-global/), alternatively download [nightly builds for Windows](https://ci.appveyor.com/project/opentibiabr/otservbr-global).
@@ -42,3 +45,5 @@ If you want to sponsor here, join on discord and send a message for one of our a
 [![Supported by OTServ Brasil](https://forums.otserv.com.br/uploads/monthly_2018_05/otbr.png.9f34d819278e170c73dd155a0ca1b501.png)](https://forums.otserv.com.br)
 
 [![Protected by ServerCore](https://mktsc.servercore.com.br/protectedbyservercore.png)](https://bit.ly/1q2q4de)
+
+[![Supported by OTHispano](https://othispano.com/styles/purplefreak/logo3.png)](https://othispano.com/)
