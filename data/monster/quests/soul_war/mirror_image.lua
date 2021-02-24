@@ -126,7 +126,6 @@ function mirrorImageTransform.onHealthChange(creature, attacker, primaryDamage, 
 			newForm = "Knight's Apparition"
 		end
 		if newForm then
-			local mType = creature:getType()
 			creature:setType(newForm)
 		end
 	end
