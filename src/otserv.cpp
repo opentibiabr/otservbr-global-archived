@@ -24,6 +24,7 @@
 #include "configmanager.h"
 #include "databasemanager.h"
 #include "databasetasks.h"
+#include "events.h"
 #include "game.h"
 #include "iomarket.h"
 #include "modules.h"
@@ -272,7 +273,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	}
 
 	// Load schedule events
-	std::cout << "> Loading events.xml" << std::endl;
+	std::cout << "> Loading schedule events.xml" << std::endl;
 	if (!g_game().loadScheduleEventFromXml()) {
 		startupErrorMessage("Can not load: data/XML/events.xml");
 	}
@@ -298,23 +299,29 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		return;
 	}
 
+	std::cout << "> Loading events.xml" << std::endl;
+	if (!g_events().load()) {
+		startupErrorMessage("Can not load: data/events/events.xml");
+		return;
+	}
+
 	// Load lua scripts
 	std::cout << ">> Loading revscriptsys..." << std::endl;
-	std::cout << "> Loading lib" << std::endl;
+	std::cout << "> Loading folder data/scripts/lib" << std::endl;
 	if (!g_scripts().loadScripts("scripts/lib", true, false)) {
 		startupErrorMessage("Can not load: data/scripts/libs");
 		return;
 	}
 
 	// Load folder data/scripts
-	std::cout << "> Loading scripts" << std::endl;
+	std::cout << "> Loading folder: data/scripts" << std::endl;
 	if (!g_scripts().loadScripts("scripts", false, false)) {
 		startupErrorMessage("Can not load: data/scripts");
 		return;
 	}
 
 	// Load monsters
-	std::cout << "> Loading monsters" << std::endl;
+	std::cout << "> Loading folder: data/monsters" << std::endl;
 	if (!g_scripts().loadScripts("monster", false, false)) {
 		startupErrorMessage("Can not load: data/monster");
 		return;
