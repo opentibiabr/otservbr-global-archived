@@ -2814,6 +2814,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Monster", "isMonster", LuaScriptInterface::luaMonsterIsMonster);
 
 	registerMethod("Monster", "getType", LuaScriptInterface::luaMonsterGetType);
+	registerMethod("Monster", "setType", LuaScriptInterface::luaMonsterSetType);
 
 	registerMethod("Monster", "getSpawnPosition", LuaScriptInterface::luaMonsterGetSpawnPosition);
 	registerMethod("Monster", "isInSpawnRange", LuaScriptInterface::luaMonsterIsInSpawnRange);
@@ -12317,6 +12318,56 @@ int LuaScriptInterface::luaMonsterGetType(lua_State* L)
 	if (monster) {
 		pushUserdata<MonsterType>(L, monster->mType);
 		setMetatable(L, -1, "MonsterType");
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterSetType(lua_State* L) {
+	// monster:setType(name or raceid)
+	Monster* monster = getUserdata<Monster>(L, 1);
+	if (monster) {
+		MonsterType* monsterType = nullptr;
+		if (isNumber(L, 2)) {
+			monsterType = g_monsters.getMonsterTypeByRaceId(getNumber<uint16_t>(L, 2));
+		} else {
+			monsterType = g_monsters.getMonsterType(getString(L, 2));
+		}
+		// Unregister creature events (current MonsterType)
+		for (const std::string& scriptName : monster->mType->info.scripts) {
+			if (!monster->unregisterCreatureEvent(scriptName)) {
+				std::cout << "[Warning - Monster::Monster] Unknown event name: " << scriptName << std::endl;
+			}
+		}
+		// Assign new MonsterType
+		monster->mType = monsterType;
+		monster->strDescription = asLowerCaseString(monsterType->nameDescription);
+		monster->defaultOutfit = monsterType->info.outfit;
+		monster->currentOutfit = monsterType->info.outfit;
+		monster->skull = monsterType->info.skull;
+		float multiplier = g_config.getFloat(ConfigManager::RATE_MONSTER_HEALTH);
+		monster->health = monsterType->info.health * multiplier;
+		monster->healthMax = monsterType->info.healthMax * multiplier;
+		monster->baseSpeed = monsterType->info.baseSpeed;
+		monster->internalLight = monsterType->info.light;
+		monster->hiddenHealth = monsterType->info.hiddenHealth;
+		monster->targetDistance = monsterType->info.targetDistance;
+		// Register creature events (new MonsterType)
+		for (const std::string& scriptName : monsterType->info.scripts) {
+			if (!monster->registerCreatureEvent(scriptName)) {
+				std::cout << "[Warning - Monster::Monster] Unknown event name: " << scriptName << std::endl;
+			}
+		}
+		// Reload creature on spectators
+		SpectatorHashSet spectators;
+		g_game.map.getSpectators(spectators, monster->getPosition(), true);
+		for (Creature* spectator : spectators) {
+			if (Player* tmpPlayer = spectator->getPlayer()) {
+				tmpPlayer->sendCreatureReload(monster);
+			}
+		}
+		pushBoolean(L, true);
 	} else {
 		lua_pushnil(L);
 	}
