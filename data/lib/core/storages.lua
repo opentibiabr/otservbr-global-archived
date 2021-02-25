@@ -2395,7 +2395,10 @@ GlobalStorage = {
 	CobraBastionFlask = 65012,
 	Inquisition = 65013,
 	Yasir = 65014,
-	NightmareIsle = 65015
+	NightmareIsle = 65015,
+	PreyMonster = {
+		Count = 66001
+	}
 }
 
 
