@@ -37,6 +37,12 @@ jobs:
         libcrypto++-dev libspdlog-dev libluajit-5.1-dev libboost-date-time-dev
         unrar zip
 
+    - name: Install spdlog
+      run: |
+        git clone --depth 1 --branch v1.8.2 https://github.com/gabime/spdlog.git
+        cd spdlog && mkdir build && cd build
+        cmake .. && make -j && sudo make install
+
     - name: Prepare build Environment
       run: |
         mkdir build && cd build
