@@ -44,4 +44,6 @@
 
 #include <pugixml.hpp>
 
+#include "spdlog/spdlog.h"
+
 #endif

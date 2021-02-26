@@ -2196,6 +2196,14 @@ void LuaScriptInterface::registerFunctions()
 	// table
 	registerMethod("table", "create", LuaScriptInterface::luaTableCreate);
 
+	// Spdlog
+	registerTable("Spdlog");
+
+	registerMethod("Spdlog", "info", LuaScriptInterface::luaSpdlogInfo);
+	registerMethod("Spdlog", "warn", LuaScriptInterface::luaSpdlogWarn);
+	registerMethod("Spdlog", "error", LuaScriptInterface::luaSpdlogError);
+	registerMethod("Spdlog", "debug", LuaScriptInterface::luaSpdlogDebug);
+
 	// Game
 	registerTable("Game");
 
@@ -4809,6 +4817,55 @@ int LuaScriptInterface::luaTableCreate(lua_State* L)
 {
 	// table.create(arrayLength, keyLength)
 	lua_createtable(L, getNumber<int32_t>(L, 1), getNumber<int32_t>(L, 2));
+	return 1;
+}
+
+// Spdlog
+int LuaScriptInterface::luaSpdlogInfo(lua_State* L)
+{
+	// Spdlog.info(text)
+	const std::string& info = getString(L, 1);
+	if (isString(L, 1)) {
+		spdlog::info("{}", info);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaSpdlogWarn(lua_State* L)
+{
+	// Spdlog.warn(text)
+	const std::string& warn = getString(L, 1);
+	if (isString(L, 1)) {
+		spdlog::warn("{}", warn);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaSpdlogError(lua_State* L)
+{
+	// Spdlog.error(text)
+	const std::string& error = getString(L, 1);
+	if (isString(L, 1)) {
+		spdlog::error("{}", error);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaSpdlogDebug(lua_State* L)
+{
+	// Spdlog.debug(text)
+	const std::string& debug = getString(L, 1);
+	if (isString(L, 1)) {
+		spdlog::debug("{}", debug);
+	} else {
+		lua_pushnil(L);
+	}
 	return 1;
 }
 
