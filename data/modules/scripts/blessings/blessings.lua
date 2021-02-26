@@ -61,11 +61,11 @@ Blessings.DebugPrint = function(content,pre,pos)
 		pos = " " .. pos
 	end
 	if type(content) == "boolean" then
-		print("[Blessings] START BOOL - "..pre)
-		print(content)
-		print("[Blessings] END BOOL - "..pos)
+		Spdlog.info("[Blessings] START BOOL - "..pre)
+		Spdlog.info(content)
+		Spdlog.info("[Blessings] END BOOL - "..pos)
 	else
-		print("[Blessings] "..pre .. content..pos)
+		Spdlog.info("[Blessings] "..pre .. content..pos)
 	end
 end
 

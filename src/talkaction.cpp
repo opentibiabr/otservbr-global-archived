@@ -143,7 +143,8 @@ bool TalkAction::configureEvent(const pugi::xml_node& node)
 {
 	pugi::xml_attribute wordsAttribute = node.attribute("words");
 	if (!wordsAttribute) {
-		std::cout << "[Error - TalkAction::configureEvent] Missing words for talk action or spell" << std::endl;
+		spdlog::error("[TalkAction::configureEvent] "
+                     "Missing words for talkaction or spell");
 		return false;
 	}
 
@@ -167,13 +168,9 @@ bool TalkAction::executeSay(Player* player, const std::string& words, const std:
 {
 	//onSay(player, words, param, type)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - TalkAction::executeSay"
-				<< " Player "
-				<< player->getName()
-				<< " words "
-				<< getWords()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
+		spdlog::error("[TalkAction::executeSay - Player {} words {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     player->getName(), getWords());
 		return false;
 	}
 

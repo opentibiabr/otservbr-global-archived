@@ -221,6 +221,6 @@ function Player.loadDailyRewardBonuses(self)
 		end
 	end
 	--[[ Message for testing
-	print(string.format("> Player: %s, streak level: %d, active bonuses: %s", self:getName(), streakLevel, self:getActiveDailyRewardBonusesName()))
+	Spdlog.info("Player: ".. self:getName() ..", streak level: ".. streakLevel ..", active bonuses: ".. self:getActiveDailyRewardBonusesName())
 	]]--
 end

@@ -123,7 +123,7 @@ function furygates.onStartup(interval)
 	
 	setGlobalStorageValue(GlobalStorage.FuryGates, gateId)
 	
-	print('>> Fury Gate will be active in ' .. gates[gateId].city .. ' today')
+	Spdlog.info("Fury Gate will be active in " .. gates[gateId].city .. " today")
 	
 	return true
 end

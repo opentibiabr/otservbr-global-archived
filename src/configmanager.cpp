@@ -105,7 +105,7 @@ bool ConfigManager::load()
 	luaL_openlibs(L);
 
 	if (luaL_dofile(L, configFileLua.c_str())) {
-		std::cout << "[Error - ConfigManager::load] " << lua_tostring(L, -1) << std::endl;
+		spdlog::error("[ConfigManager::load] - {}", lua_tostring(L, -1));
 		lua_close(L);
 		return false;
 	}
@@ -258,7 +258,7 @@ static std::string dummyStr;
 const std::string& ConfigManager::getString(string_config_t what) const
 {
 	if (what >= LAST_STRING_CONFIG) {
-		std::cout << "[Warning - ConfigManager::getString] Accessing invalid index: " << what << std::endl;
+		spdlog::warn("[ConfigManager::getString] - Accessing invalid index: {}", what);
 		return dummyStr;
 	}
 	return string[what];
@@ -267,7 +267,7 @@ const std::string& ConfigManager::getString(string_config_t what) const
 int32_t ConfigManager::getNumber(integer_config_t what) const
 {
 	if (what >= LAST_INTEGER_CONFIG) {
-		std::cout << "[Warning - ConfigManager::getNumber] Accessing invalid index: " << what << std::endl;
+		spdlog::warn("[ConfigManager::getNumber] - Accessing invalid index: {}", what);
 		return 0;
 	}
 	return integer[what];
@@ -276,7 +276,7 @@ int32_t ConfigManager::getNumber(integer_config_t what) const
 int16_t ConfigManager::getShortNumber(integer_config_t what) const
 {
 	if (what >= LAST_INTEGER_CONFIG) {
-		std::cout << "[Warning - ConfigManager::getShortNumber] Accessing invalid index: " << what << std::endl;
+		spdlog::warn("[ConfigManager::getShortNumber] - Accessing invalid index: {}", what);
 		return 0;
 	}
 	return integer[what];
@@ -285,7 +285,7 @@ int16_t ConfigManager::getShortNumber(integer_config_t what) const
 bool ConfigManager::getBoolean(boolean_config_t what) const
 {
 	if (what >= LAST_BOOLEAN_CONFIG) {
-		std::cout << "[Warning - ConfigManager::getBoolean] Accessing invalid index: " << what << std::endl;
+		spdlog::warn("[ConfigManager::getBoolean] - Accessing invalid index: {}", what);
 		return false;
 	}
 	return boolean[what];
@@ -294,7 +294,7 @@ bool ConfigManager::getBoolean(boolean_config_t what) const
 float ConfigManager::getFloat(floating_config_t what) const
 {
 	if (what >= LAST_FLOATING_CONFIG) {
-		std::cout << "[Warning - ConfigManager::getFLoat] Accessing invalid index: " << what << std::endl;
+		spdlog::warn("[ConfigManager::getFLoat] - Accessing invalid index: {}", what);
 		return 0;
 	}
 	return floating[what];

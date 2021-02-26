@@ -142,7 +142,7 @@ registerMonsterType.flags = function(mtype, mask)
 			mtype:isPet(mask.flags.pet)
 		end
 		if mask.flags.respawntype or mask.flags.respawnType then
-			print("[Error - Loading monsters] Monster: \"".. mtype:name() .. "\". Deprecated flag 'respawnType', use instead table 'respawnType = { period = RespawnPeriod_t, underground = boolean}'")
+			Spdlog.warn("[registerMonsterType.flags] - Monster: ".. mtype:name() .. ". Deprecated flag 'respawnType', use instead table 'respawnType = { period = RespawnPeriod_t, underground = boolean}'")
 		end
 		if mask.flags.canPushCreatures ~= nil then
 			mtype:canPushCreatures(mask.flags.canPushCreatures)
@@ -374,7 +374,7 @@ registerMonsterType.loot = function(mtype, mask)
 			mtype:addLoot(parent)
 		end
 		if lootError then
-			print("[Warning - end] Monster: \"".. mtype:name() .. "\" loot could not correctly be load.")
+			Spdlog.warn("[registerMonsterType.loot] - Monster: ".. mtype:name() .. " loot could not correctly be load")
 		end
 	end
 end
@@ -466,7 +466,7 @@ function readSpell(incomingLua)
 				elseif incomingLua.name == "condition" then
 					spell:setConditionType(incomingLua.type)
 				else 
-					print("[Warning - register_monster_type] Monster \"".. mtype:name() .. "\": Loading spell \"".. incomingLua.name .. "\". Parameter type applies only for condition and combat.")
+					Spdlog.warn("[readSpell] - Monster ".. mtype:name() .. ": Loading spell ".. incomingLua.name .. ". Parameter type applies only for condition and combat.")
 				end
 			end
 			if incomingLua.interval then

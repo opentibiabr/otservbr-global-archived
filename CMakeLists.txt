@@ -65,6 +65,7 @@ find_package(MySQL REQUIRED)
 find_package(Threads REQUIRED)
 find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams date_time REQUIRED)
 find_package(CURL REQUIRED)
+find_package(spdlog REQUIRED)
 find_package(jsoncpp REQUIRED)
 
 # Selects LuaJIT if user defines or auto-detected
@@ -258,4 +259,4 @@ include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR}
 target_link_libraries(otbr otbr_lib ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
                       ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY}
                       ${PUGIXML_LIBRARIES} ${CRYPTOPP_LIBRARIES}
-                      ${CMAKE_THREAD_LIBS_INIT} ${CURL_LIBRARIES} jsoncpp_lib)
+                      ${CMAKE_THREAD_LIBS_INIT} ${CURL_LIBRARIES} ${SPDLOG_LIBRARY} jsoncpp_lib)

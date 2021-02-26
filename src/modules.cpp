@@ -63,7 +63,7 @@ bool Modules::registerEvent(Event_ptr event, const pugi::xml_node&)
 {
 	Module_ptr module {static_cast<Module*>(event.release())};
 	if (module->getEventType() == MODULE_TYPE_NONE) {
-		std::cout << "Error: [Modules::registerEvent] Trying to register event without type!" << std::endl;
+		spdlog::error("[Modules::registerEvent] Trying to register event without type!");
 		return false;
 	}
 
@@ -117,7 +117,7 @@ bool Module::configureEvent(const pugi::xml_node& node)
 
 	pugi::xml_attribute typeAttribute = node.attribute("type");
 	if (!typeAttribute) {
-		std::cout << "[Error - Modules::configureEvent] Missing type for module." << std::endl;
+		spdlog::error("Modules::configureEvent] Missing type for module.");
 		return false;
 	}
 
@@ -125,14 +125,14 @@ bool Module::configureEvent(const pugi::xml_node& node)
 	if (tmpStr == "recvbyte") {
 		pugi::xml_attribute byteAttribute = node.attribute("byte");
 		if (!byteAttribute) {
-			std::cout << "[Error - Modules::configureEvent] Missing byte for module typed recvbyte." << std::endl;
+			spdlog::error("Modules::configureEvent] Missing byte for module typed recvbyte.");
 			return false;
 		}
 
 		recvbyte = static_cast<uint8_t>(byteAttribute.as_int());
 		type = MODULE_TYPE_RECVBYTE;
 	} else {
-		std::cout << "[Error - Modules::configureEvent] Invalid type for module." << std::endl;
+		spdlog::error("Modules::configureEvent] Invalid type for module.");
 		return false;
 	}
 
@@ -175,10 +175,9 @@ void Module::executeOnRecvbyte(Player* player, NetworkMessage& msg)
 {
 	//onAdvance(player, skill, oldLevel, newLevel)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - CreatureEvent::executeAdvance"
-				<< " Player "
-				<< player->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested." << std::endl;
+		spdlog::error("[CreatureEvent::executeAdvance - Player] "
+                     "Call stack overflow. Too many lua script calls being nested",
+				player->getName());
 		return;
 	}
 
