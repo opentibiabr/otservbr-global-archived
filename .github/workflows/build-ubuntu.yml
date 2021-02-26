@@ -47,6 +47,12 @@ jobs:
           ${{ matrix.os }}-${{ matrix.buildtype }}-${{ hashFiles('**/src') }}
           ${{ matrix.os }}-${{ matrix.buildtype }}-
 
+    - name: Install spdlog
+      run: |
+        git clone --depth 1 --branch v1.8.2 https://github.com/gabime/spdlog.git
+        cd spdlog && mkdir build && cd build
+        cmake .. && make -j && sudo make install
+
     - name: Prepare build Environment
       run: |
         mkdir build && cd build
