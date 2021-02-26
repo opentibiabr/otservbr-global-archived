@@ -24,14 +24,16 @@
 #include "configmanager.h"
 #include "databasemanager.h"
 #include "databasetasks.h"
+#include "events.h"
 #include "game.h"
 #include "iomarket.h"
+#include "modules.h"
 #include "protocollogin.h"
 #include "protocolstatus.h"
 #include "rsa.h"
 #include "scheduler.h"
-#include "script.h"
-#include "scriptmanager.h"
+#include "scripts.h"
+#include "spells.h"
 #include "server.h"
 #include "webhook.h"
 
@@ -45,29 +47,34 @@ Scheduler g_scheduler;
 
 Game g_game;
 ConfigManager g_config;
+extern Events* g_events;
+extern Imbuements* g_imbuements;
+extern LuaEnvironment g_luaEnvironment;
+extern Modules* g_modules;
 Monsters g_monsters;
 Vocations g_vocations;
 extern Scripts* g_scripts;
+extern Spells* g_spells;
 RSA g_RSA;
+
 
 std::mutex g_loaderLock;
 std::condition_variable g_loaderSignal;
 std::unique_lock<std::mutex> g_loaderUniqueLock(g_loaderLock);
 
-void startupErrorMessage(const std::string& errorStr) {
-  std::cout << "\033[1;31m>> " << errorStr << std::endl;
-  std::cout << ">> The program will close after pressing the enter key..." << "\033[0m" << std::endl;
+void startupErrorMessage() {
   g_loaderSignal.notify_all();
   getchar();
   exit(-1);
+  return;
 }
 
 void mainLoader(int argc, char* argv[], ServiceManager* servicer);
 
 void badAllocationHandler() {
 	// Use functions that only use stack allocation
-	puts("Allocation failed, server out of memory.\nDecrease the size of your "
-		"map or compile in 64 bits mode.\n");
+	spdlog::error("Allocation failed, server out of memory, "
+                 "decrease the size of your map or compile in 64 bits mode");
 	getchar();
 	exit(-1);
 }
@@ -89,12 +96,11 @@ int main(int argc, char* argv[]) {
 	g_loaderSignal.wait(g_loaderUniqueLock);
 
 	if (serviceManager.is_running()) {
-		std::cout << ">> " << g_config.getString(ConfigManager::SERVER_NAME)
-								<< " Server Online!" << std::endl << std::endl;
+		spdlog::info("{} {}", g_config.getString(ConfigManager::SERVER_NAME),
+                    "server online!");
 		serviceManager.run();
 	} else {
-		std::cout << ">> No services running. The server is NOT online." << std::endl;
-		g_scheduler.shutdown();
+		spdlog::error("No services running. The server is NOT online!");
 		g_databaseTasks.shutdown();
 		g_dispatcher.shutdown();
 	}
@@ -115,49 +121,46 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	SetConsoleTitle(STATUS_SERVER_NAME);
 #endif
 #if defined(GIT_RETRIEVED_STATE) && GIT_RETRIEVED_STATE
-	std::cout << STATUS_SERVER_NAME << " - Version [" << GIT_HEAD_SHA1 << "]"
-				<< " dated [" << GIT_COMMIT_DATE_ISO8601 << "]" <<std::endl;
+	spdlog::info("{} - Based on [{}] dated [{}]",
+                STATUS_SERVER_NAME, STATUS_SERVER_VERSION, GIT_COMMIT_DATE_ISO8601);
 	#if GIT_IS_DIRTY
-	std::cout << "*** DIRTY - NOT OFFICIAL RELEASE ***" << std::endl;
+	spdlog::warn("DIRTY - NOT OFFICIAL RELEASE");
 	#endif
 #else
-	std::cout << STATUS_SERVER_NAME << " - Version " << STATUS_SERVER_VERSION
-																<< std::endl;
+	spdlog::info("{} - Based on {}", STATUS_SERVER_NAME, STATUS_SERVER_VERSION);
 #endif
-	std::cout << std::endl;
 
-	std::cout << "Compiled with " << BOOST_COMPILER << std::endl;
-	std::cout << "Compiled on " << __DATE__ << ' ' << __TIME__ << " for platform ";
-#if defined(__amd64__) || defined(_M_X64)
-	std::cout << "x64" << std::endl;
-#elif defined(__i386__) || defined(_M_IX86) || defined(_X86_)
-	std::cout << "x86" << std::endl;
-#elif defined(__arm__)
-	std::cout << "ARM" << std::endl;
-#else
-	std::cout << "unknown" << std::endl;
-#endif
+	spdlog::info("Compiled with {}", BOOST_COMPILER);
+
+	std::string platform;
+	#if defined(__amd64__) || defined(_M_X64)
+		platform = "x64";
+	#elif defined(__i386__) || defined(_M_IX86) || defined(_X86_)
+		platform = "x86";
+	#elif defined(__arm__)
+		platform = "ARM";
+	#else
+		platform = "unknown";
+	#endif
+
+	spdlog::info("Compiled on {} {} for platform {}\n", __DATE__, __TIME__, platform);
+
 #if defined(LUAJIT_VERSION)
-	std::cout << "Linked with " << LUAJIT_VERSION << " for Lua support"
-																<< std::endl;
+	spdlog::info("Linked with {} for Lua support", LUAJIT_VERSION);
 #else
-	std::cout << "Linked with " << LUA_RELEASE << " for Lua support"
-																<< std::endl;
+	spdlog::info("Linked with {} for Lua support", LUA_RELEASE);
 #endif
-	std::cout << std::endl;
 
-	std::cout << "A server developed by " << STATUS_SERVER_DEVELOPERS
-																<< std::endl;
-	std::cout << "Visit our forum for updates, support, and resources: "
-		"https://otserv.com.br/, https://forums.otserv.com.br and https://othispano.com" << std::endl;
-	std::cout << std::endl;
+	spdlog::info("A server developed by: {}", STATUS_SERVER_DEVELOPERS);
+	spdlog::info("Visit our forum for updates, support, and resources: "
+		"https://otserv.com.br/, https://forums.otserv.com.br and https://othispano.com");
 
 	// check if config.lua or config.lua.dist exist
 	std::ifstream c_test("./config.lua");
 	if (!c_test.is_open()) {
 		std::ifstream config_lua_dist("./config.lua.dist");
 		if (config_lua_dist.is_open()) {
-			std::cout << ">> copying config.lua.dist to config.lua" << std::endl;
+			spdlog::info("Copying config.lua.dist to config.lua");
 			std::ofstream config_lua("config.lua");
 			config_lua << config_lua_dist.rdbuf();
 			config_lua.close();
@@ -167,15 +170,18 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		c_test.close();
 	}
 
-	// read global config
-	std::cout << ">> Loading config" << std::endl;
+	std::string result;
+	// Read global config
 	if (!g_config.load()) {
-		startupErrorMessage("Unable to load config.lua!");
-		return;
+		spdlog::error("Unable to load config.lua!");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
 	}
+	spdlog::info("Loading config.lua {}", result);
 
-	std::cout << ">> Client Version: " << g_config.getString(ConfigManager::CLIENT_VERSION_STR)
-													<< std::endl;
+	spdlog::info("Server protocol: {}",
+                g_config.getString(ConfigManager::CLIENT_VERSION_STR));
 
 #ifdef _WIN32
 	const std::string& defaultPriority = g_config.getString(
@@ -191,95 +197,202 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	try {
 		g_RSA.loadPEM("key.pem");
 	} catch(const std::exception& e) {
-		startupErrorMessage(e.what());
-		return;
+		spdlog::error(e.what());
+		startupErrorMessage();
 	}
-
-	std::cout << ">> Establishing database connection..." << std::flush;
 
 	if (!Database::getInstance().connect()) {
-		startupErrorMessage("Failed to connect to database.");
-		return;
+		spdlog::error("Failed to connect to database!");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
 	}
+	spdlog::info("Establishing database connection... {}", result);
 
-	std::cout << " MySQL " << Database::getClientVersion() << std::endl;
+	spdlog::info("MySQL Version: {}", Database::getClientVersion());
 
-	// run database manager
-	std::cout << ">> Running database manager" << std::endl;
+	// Run database manager
 
 	if (!DatabaseManager::isDatabaseSetup()) {
-		startupErrorMessage("The database you have specified in config.lua is "
-					"empty, please import the schema.sql to your database.");
-		return;
+		spdlog::error("The database you have specified in config.lua is "
+                     "empty, please import the schema.sql to your database.");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
 	}
+	spdlog::info("Running database manager...", result);
+
 	g_databaseTasks.start();
 
 	DatabaseManager::updateDatabase();
 
 	if (g_config.getBoolean(ConfigManager::OPTIMIZE_DATABASE)
 			&& !DatabaseManager::optimizeTables()) {
-		std::cout << "> No tables were optimized" << std::endl;
+		spdlog::info("No tables were optimized");
 	}
 
-	// load vocations
-	std::cout << ">> Loading vocations" << std::endl;
-	if (!g_vocations.loadFromXml()) {
-		startupErrorMessage("Unable to load vocations!");
-		return;
-	}
-
-	// load item data
-	std::cout << ">> Loading items" << std::endl;
+	// Load items.otb
 	if (Item::items.loadFromOtb("data/items/items.otb") != ERROR_NONE) {
-		startupErrorMessage("Unable to load items (OTB)!");
-		return;
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
 	}
+	spdlog::info("Loading items.otb {}", result);
 
+	spdlog::info("Loading script systems...");
+	// Load items.xml
 	if (!Item::items.loadFromXml()) {
-		startupErrorMessage("Unable to load items (XML)!");
-		return;
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
+	}
+	spdlog::info("Loading items.xml {}", result);
+
+	if (!Scripts::getInstance().loadScriptSystems()) {
+		spdlog::error("Failed to load script systems");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
 	}
 
-	std::cout << ">> Loading script systems" << std::endl;
-	if (!ScriptingManager::getInstance().loadScriptSystems()) {
-		startupErrorMessage("Failed to load script systems");
-		return;
+	// Lua libs
+	// Load global.lua (data/libs folder)
+	if (g_luaEnvironment.loadFile("data/global.lua") == -1) {
+		spdlog::error("Cannot load data/global.lua");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
 	}
+	spdlog::info("Loading global.lua {}", result);
 
-	std::cout << ">> Loading event scheduler" << std::endl;
+	// Load stages.lua (data/stages.lua)
+	if (g_luaEnvironment.loadFile("data/stages.lua") == -1) {
+		spdlog::error("Cannot load data/stages.lua");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
+	}
+	spdlog::info("Loading stages.lua {}", result);
+
+	// Load startup.lua (data/startup folder)
+	if (g_luaEnvironment.loadFile("data/startup/startup.lua") == -1) {
+		spdlog::error("Cannot load data/startup/startup.lua");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
+	}
+	spdlog::info("Loading startup.lua {}", result);
+
+	// Load folder data/scripts/lib
+	g_scripts = new Scripts();
+	if (!g_scripts->loadScripts("scripts/lib", true, false)) {
+		spdlog::warn("Cannot load data/scripts/libs");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
+	}
+	spdlog::info("Loading scripts/lib {}", result);
+
+	// XML scripts
+	// Load vocations
+	if (!g_vocations.loadFromXml()) {
+		spdlog::error("Can not load: data/XML/vocations.xml");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
+	}
+	spdlog::info("Loading vocations.xml {}", result);
+
+	// Load schedule events
 	if (!g_game.loadScheduleEventFromXml()) {
-		startupErrorMessage("Unable to load event schedule!");
+		spdlog::error("Can not load: data/XML/events.xml");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
 	}
+	spdlog::info("Loading scheduler events.xml {}", result);
 
-	std::cout << ">> Loading lua scripts" << std::endl;
-	if (!g_scripts->loadScripts("scripts", false, false)) {
-		startupErrorMessage("Failed to load lua scripts");
-		return;
-	}
-
-	std::cout << ">> Loading lua monsters" << std::endl;
-	if (!g_scripts->loadScripts("monster", false, false)) {
-		startupErrorMessage("Failed to load lua monsters");
-		return;
-	}
-
-	std::cout << ">> Loading outfits" << std::endl;
+	// Load outfits
 	if (!Outfits::getInstance().loadFromXml()) {
-		startupErrorMessage("Unable to load outfits!");
-		return;
+		spdlog::error("Can not load: data/XML/outfits.xml");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
 	}
+	spdlog::info("Loading outfits.xml {}", result);
 
-	std::cout << ">> Loading familiars" << std::endl;
+	// Load familiars
 	if (!Familiars::getInstance().loadFromXml()) {
-		startupErrorMessage("Unable to load familiars!");
-		return;
+		spdlog::error("Can not load: data/XML/familiars.xml");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
 	}
+	spdlog::info("Loading familiars.xml {}", result);
+
+	// Load imbuements
+	g_imbuements = new Imbuements();
+	if (!g_imbuements->loadFromXml()) {
+		spdlog::warn("Cannot load: data/XML/imbuements.xml");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
+	}
+	spdlog::info("Loading imbuements.xml {}", result);
+
+	// Load modules
+	g_modules = new Modules();
+	if (!g_modules->loadFromXml()) {
+		spdlog::warn("Cannot load: data/modules/modules.xml");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
+	}
+	spdlog::info("Loading modules.xml {}", result);
+
+	// Load spells
+	g_spells = new Spells();
+	if (!g_spells->loadFromXml()) {
+		spdlog::warn("Cannot load: data/spells/spells.xml");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
+	}
+	spdlog::info("Loading spells.xml {}", result);
+
+	// Load events
+	g_events = new Events();
+	if (!g_events->load()) {
+		spdlog::warn("Cannot load: data/events/events.xml");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
+	}
+	spdlog::info("Loading events.xml {}", result);
+
+	// Lua scripts
+	// Load folder data/scripts
+	if (!g_scripts->loadScripts("scripts", false, false)) {
+		spdlog::error("Can not load: data/scripts");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
+	}
+	spdlog::info("Loading data/scripts {}", result);
+
+	// Load folder data/monsters
+	if (!g_scripts->loadScripts("monster", false, false)) {
+		spdlog::error("Can not load: data/monster");
+		startupErrorMessage();
+	} else {
+		result = "[Success]";
+	}
+	spdlog::info("Loading data/monsters {}", result);
 
 	g_game.loadBoostedCreature();
 
-	std::cout << ">> Checking world type... " << std::flush;
 	std::string worldType = asLowerCaseString(g_config.getString(
-													ConfigManager::WORLD_TYPE));
+                            ConfigManager::WORLD_TYPE));
 	if (worldType == "pvp") {
 		g_game.setWorldType(WORLD_TYPE_PVP);
 	} else if (worldType == "no-pvp") {
@@ -287,24 +400,24 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	} else if (worldType == "pvp-enforced") {
 		g_game.setWorldType(WORLD_TYPE_PVP_ENFORCED);
 	} else {
-		std::cout << std::endl;
-
-		std::ostringstream ss;
-		ss << "> ERROR: Unknown world type: " << g_config.getString(
-			ConfigManager::WORLD_TYPE) << ", valid world types are: pvp, no-pvp"
-											" and pvp-enforced.";
-		startupErrorMessage(ss.str());
-		return;
+		std::string str;
+		str.reserve(64);
+		str.append("Unknown world type: ")
+           .append(g_config.getString(ConfigManager::WORLD_TYPE))
+           .append(", valid world types are: pvp, no-pvp and pvp-enforced");
+		spdlog::error(str);
+		startupErrorMessage();
 	}
-	std::cout << asUpperCaseString(worldType) << std::endl;
 
-	std::cout << ">> Loading map" << std::endl;
+	spdlog::info("World type set as {}", asUpperCaseString(worldType));
+
+	spdlog::info("Loading map...");
 	if (!g_game.loadMainMap(g_config.getString(ConfigManager::MAP_NAME))) {
-		startupErrorMessage("Failed to load map");
-		return;
+		spdlog::error("Failed to load map");
+		startupErrorMessage();
 	}
 
-	std::cout << ">> Initializing gamestate" << std::endl;
+	spdlog::info("Initializing gamestate...");
 	g_game.setGameState(GAME_STATE_INIT);
 
 	// Game client protocols
@@ -337,13 +450,13 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	IOMarket::checkExpiredOffers();
 	IOMarket::getInstance().updateStatistics();
 
-	std::cout << ">> Loaded all modules, server starting up..." << std::endl;
+	spdlog::info("Loaded all modules, server starting up...");
 
 #ifndef _WIN32
 	if (getuid() == 0 || geteuid() == 0) {
-		std::cout << "> Warning: " << STATUS_SERVER_NAME << " has been executed"
-				" as root user, please consider running it as a normal user."
-				<< std::endl;
+		spdlog::warn("{} has been executed as root user, "
+                    "please consider running it as a normal user",
+                    STATUS_SERVER_NAME);
 	}
 #endif
 

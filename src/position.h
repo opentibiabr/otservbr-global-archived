@@ -123,6 +123,17 @@ struct Position
 		return Position(x - p1.x, y - p1.y, z - p1.z);
 	}
 
+	std::string toString() const {
+		std::string str;
+		return str.append("( ")
+                  .append(std::to_string(getX()))
+                  .append(" / ")
+                  .append(std::to_string(getY()))
+                  .append(" / ")
+                  .append(std::to_string(getZ()))
+                  .append(" )");
+	}
+
 	int_fast32_t getX() const { return x; }
 	int_fast32_t getY() const { return y; }
 	int_fast16_t getZ() const { return z; }

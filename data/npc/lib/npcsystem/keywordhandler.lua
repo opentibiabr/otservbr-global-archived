@@ -102,7 +102,7 @@ if KeywordHandler == nil then
 
 	function KeywordNode:addAliasKeyword(keywords)
 		if #self.children == 0 then
-			print('KeywordNode:addAliasKeyword no previous node found')
+			Spdlog.error('[KeywordNode:addAliasKeyword] - No previous node found')
 			return false
 		end
 

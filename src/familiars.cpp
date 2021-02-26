@@ -26,7 +26,7 @@ bool Familiars::loadFromXml() {
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file("data/XML/familiars.xml");
 	if (!result) {
-		printXMLError("Error - Familiars::loadFromXml", "data/XML/familiars.xml", result);
+		printXMLError("[Familiars::loadFromXml] - ", "data/XML/familiars.xml", result);
 		return false;
 	}
 
@@ -37,19 +37,19 @@ bool Familiars::loadFromXml() {
 		}
 
 		if (!(attr = familiarsNode.attribute("vocation"))) {
-			std::cout << "[Warning - Familiars::loadFromXml] Missing familiar vocation." << std::endl;
+			spdlog::warn("[Familiars::loadFromXml] - Missing familiar vocation.");
 			continue;
 		}
 
 		uint16_t vocation = pugi::cast<uint16_t>(attr.value());
 		if (vocation > VOCATION_LAST) {
-			std::cout << "[Warning - Familiars::loadFromXml] Invalid familiar vocation " << vocation << "." << std::endl;
+			spdlog::warn("[Familiars::loadFromXml] - Invalid familiar vocation {}", vocation);
 			continue;
 		}
 
 		pugi::xml_attribute lookTypeAttribute = familiarsNode.attribute("lookType");
 		if (!lookTypeAttribute) {
-			std::cout << "[Warning - Familiars::loadFromXml] Missing looktype on familiar." << std::endl;
+			spdlog::warn("[Familiars::loadFromXml] - Missing looktype on familiar.");
 			continue;
 		}
 

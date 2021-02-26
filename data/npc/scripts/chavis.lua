@@ -44,7 +44,6 @@ local function creatureSayCallback(cid, type, msg)
 			end
 		end
 	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 1 then
-		print("go")
 		npcHandler:say("Spend it wisely, though, put in a word for the poor, will ye? Sure you will.", cid)
 		player:setStorageValue(Storage.Oramond.VotingPoints,
 			player:getStorageValue(Storage.Oramond.VotingPoints) + 1)

@@ -20,7 +20,7 @@ local NightmareIsle = GlobalEvent("NightmareIsle")
 function NightmareIsle.onStartup(interval)
 	local select = config[math.random(#config)]
 	Game.loadMap('data/world/nightmareisle/' .. select.mapName .. '.otbm')
-	print('>> Nightmare Isle will be active '.. select.displayName ..' today')
+	Spdlog.info("Nightmare Isle will be active ".. select.displayName .." today")
 	
 	setGlobalStorageValue(GlobalStorage.NightmareIsle, 1)
 		

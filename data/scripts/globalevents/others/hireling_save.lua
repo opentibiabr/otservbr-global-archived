@@ -1,6 +1,6 @@
 local hirelingSave = GlobalEvent("hirelingSave")
 function hirelingSave.onShutdown()
-	print('>> Saving Hirelings')
+	Spdlog.info("Saving Hirelings")
 	SaveHirelings()
 	return true
 end

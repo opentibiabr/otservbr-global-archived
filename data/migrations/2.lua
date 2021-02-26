@@ -1,5 +1,5 @@
 function onUpdateDatabase()
-	print("> Updating database to version 3 (account refactor)")
+	Spdlog.info("Updating database to version 3 (account refactor)")
 
 	db.query([[
 		LOCK TABLES

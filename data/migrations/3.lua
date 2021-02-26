@@ -1,5 +1,5 @@
 function onUpdateDatabase()
-    print("> Updating database to version 4 (prey tick)")
+    Spdlog.info("Updating database to version 4 (prey tick)")
 
     db.query([[
         ALTER TABLE `prey_slots`
