@@ -65,7 +65,7 @@ find_package(MySQL REQUIRED)
 find_package(Threads REQUIRED)
 find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams date_time REQUIRED)
 find_package(CURL REQUIRED)
-find_package(spdlog REQUIRED)
+find_package(Spdlog REQUIRED)
 find_package(jsoncpp REQUIRED)
 
 # Selects LuaJIT if user defines or auto-detected
