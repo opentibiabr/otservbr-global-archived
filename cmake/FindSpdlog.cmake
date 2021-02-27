@@ -5,17 +5,15 @@
 # If spdlog is not found, SPDLOG_FOUND is set to false.
 
 # Locate header.
-if(MSVC)
-    find_path(SPDLOG_INCLUDE_DIR spdlog/spdlog.h
-        HINTS ${SPDLOG_ROOT_DIR}/include)
+find_path(SPDLOG_INCLUDE_DIR spdlog/spdlog.h
+         HINTS ${SPDLOG_ROOT_DIR}/include)
 
-    # Locate library.
-    find_library(SPDLOG_LIBRARY NAMES spdlog spdlogd
+ # Locate library.
+find_library(SPDLOG_LIBRARY NAMES spdlog spdlogd
         HINTS ${SPDLOG_ROOT_DIR}/lib ${SPDLOG_ROOT_DIR}/lib64)
 
-    find_package_handle_standard_args(Spdlog DEFAULT_MSG SPDLOG_INCLUDE_DIR SPDLOG_LIBRARY)
-    MARK_AS_ADVANCED(SPDLOG_LIBRARY SPDLOG_INCLUDE_DIR)
-endif()
+find_package_handle_standard_args(Spdlog DEFAULT_MSG SPDLOG_INCLUDE_DIR SPDLOG_LIBRARY)
+MARK_AS_ADVANCED(SPDLOG_LIBRARY SPDLOG_INCLUDE_DIR)
 
 # Add imported target.
 if(SPDLOG_FOUND)
