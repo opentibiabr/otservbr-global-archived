@@ -92,7 +92,7 @@ class Container : public Item, public Cylinder
 
 		Attr_ReadValue readAttr(AttrTypes_t attr, PropStream& propStream) override;
 		bool unserializeItemNode(OTB::Loader& loader, const OTB::Node& node, PropStream& propStream) override;
-		std::string getContentDescription() const;
+		std::string getContentDescription(bool oldClient = false) const;
 
 		size_t size() const {
 			return itemlist.size();
@@ -167,7 +167,7 @@ class Container : public Item, public Cylinder
 		void startDecaying() override final;
 
 	protected:
-		std::ostringstream& getContentDescription(std::ostringstream& os) const;
+		std::ostringstream& getContentDescription(std::ostringstream& os, bool oldClient) const;
 
 		uint32_t maxSize;
 		uint32_t totalWeight = 0;

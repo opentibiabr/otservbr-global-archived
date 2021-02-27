@@ -6646,6 +6646,18 @@ void Game::updatePlayerShield(Player* player)
 	}
 }
 
+void Game::updatePlayerHelpers(const Player& player)
+{
+	uint32_t creatureId = player.getID();
+	uint16_t helpers = player.getHelpers();
+
+	SpectatorHashSet spectators;
+	map.getSpectators(spectators, player.getPosition(), true, true);
+	for (Creature* spectator : spectators) {
+		spectator->getPlayer()->sendCreatureHelpers(creatureId, helpers);
+	}
+} 
+
 void Game::updateCreatureType(Creature* creature)
 {
 	const Player* masterPlayer = nullptr;

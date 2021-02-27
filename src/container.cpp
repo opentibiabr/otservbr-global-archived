@@ -179,13 +179,13 @@ uint32_t Container::getWeight() const
 	return Item::getWeight() + totalWeight;
 }
 
-std::string Container::getContentDescription() const
+std::string Container::getContentDescription(bool oldClient) const
 {
 	std::ostringstream os;
-	return getContentDescription(os).str();
+	return getContentDescription(os, oldClient).str();
 }
 
-std::ostringstream& Container::getContentDescription(std::ostringstream& os) const
+std::ostringstream& Container::getContentDescription(std::ostringstream& os, bool oldClient) const
 {
 	bool firstitem = true;
 	for (ContainerIterator it = iterator(); it.hasNext(); it.advance()) {
@@ -202,7 +202,10 @@ std::ostringstream& Container::getContentDescription(std::ostringstream& os) con
 			os << ", ";
 		}
 
-		os << "{" << item->getClientID() << "|" << item->getNameDescription() << "}";
+		if (!oldClient)
+			os << "{" << item->getClientID() << "|" << item->getNameDescription() << "}";
+		else
+			os << item->getNameDescription();
 	}
 
 	if (firstitem) {

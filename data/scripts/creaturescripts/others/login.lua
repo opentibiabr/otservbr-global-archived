@@ -186,6 +186,9 @@ function playerLogin.onLogin(player)
 	end
 
 	-- Open channels
+	if player:getClient().version < 1200 then
+		player:openChannel(9)
+	end
 	if table.contains({TOWNS_LIST.DAWNPORT, TOWNS_LIST.DAWNPORT_TUTORIAL}, player:getTown():getId())then
 		player:openChannel(3) -- World chat
 	else
