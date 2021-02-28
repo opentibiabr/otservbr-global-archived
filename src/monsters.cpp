@@ -1023,7 +1023,7 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 				mType->info.attackSpells.emplace_back(std::move(sb));
 			} else {
 				spdlog::warn("[Monsters::loadMonster] - "
-                            "Cant load spell. ", file);
+                            "Cant load spell. {}", file);
 			}
 		}
 	}
@@ -1043,7 +1043,7 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 				mType->info.defenseSpells.emplace_back(std::move(sb));
 			} else {
 				spdlog::warn("[Monsters::loadMonster] - "
-                            "Cant load spell. ", file);
+                            "Cant load spell. {}", file);
 			}
 		}
 	}

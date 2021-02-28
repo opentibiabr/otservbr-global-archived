@@ -144,7 +144,7 @@ bool Spawns::loadCustomSpawnXml(const std::string& _filename)
 	if (!loaded) {
 		spdlog::error("[Spawns::loadCustomSpawnXml] - "
                      "Trying to load custom spawn xml before game startup, "
-                     "fileName: ", _filename);
+                     "fileName: {}", _filename);
 		return false;
 	}
 

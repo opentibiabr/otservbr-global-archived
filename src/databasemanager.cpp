@@ -135,7 +135,7 @@ void DatabaseManager::updateDatabase()
 			break;
 		}
 
-		++version;
+		version++;
 		spdlog::info("Database has been updated to version {}", version);
 		registerDatabaseConfig("db_version", version);
 
