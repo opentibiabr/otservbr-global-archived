@@ -107,6 +107,7 @@ bool Database::rollback()
 
 	if (mysql_rollback(handle) != 0) {
 		spdlog::error("[Database::rollback] - Message: {}", mysql_error(handle));
+		databaseLock.unlock();
 		return false;
 	}
 
@@ -123,6 +124,7 @@ bool Database::commit()
 
 	if (mysql_commit(handle) != 0) {
 		spdlog::error("[Database::commit] - Message: {}", mysql_error(handle));
+		databaseLock.unlock();
 		return false;
 	}
 
