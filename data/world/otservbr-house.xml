@@ -154,56 +154,56 @@
 	<house name="Nordic Stronghold" houseid="2817" entryx="32297" entryy="31675" entryz="7" rent="250000" guildhall="true" townid="6" size="373" clientid="20003" beds="21" />
 	<house name="Senja Clanhall" houseid="2818" entryx="32168" entryy="31664" entryz="7" rent="250000" guildhall="true" townid="6" size="192" clientid="24014" beds="10" />
 	<house name="Seawatch" houseid="2819" entryx="32520" entryy="31600" entryz="7" rent="250000" guildhall="true" townid="6" size="405" clientid="22005" beds="19" />
-	<house name="Dwarven Magnate's Estate" houseid="2820" entryx="32643" entryy="31927" entryz="2" rent="300000" townid="7" size="242" clientid="30107" beds="0" />
-	<house name="Forge Master's Quarters" houseid="2821" entryx="32649" entryy="31889" entryz="8" rent="300000" townid="7" size="78" clientid="30405" beds="0" />
-	<house name="Upper Barracks 13" houseid="2822" entryx="32615" entryy="31923" entryz="5" rent="25000" townid="7" size="11" clientid="30313" beds="0" />
-	<house name="Upper Barracks 5" houseid="2823" entryx="32615" entryy="31917" entryz="5" rent="80000" townid="7" size="19" clientid="30312" beds="0" />
-	<house name="Upper Barracks 3" houseid="2824" entryx="32608" entryy="31922" entryz="5" rent="80000" townid="7" size="11" clientid="30307" beds="0" />
-	<house name="Upper Barracks 4" houseid="2825" entryx="32612" entryy="31925" entryz="5" rent="50000" townid="7" size="11" clientid="30308" beds="0" />
-	<house name="Upper Barracks 2" houseid="2826" entryx="32605" entryy="31917" entryz="5" rent="80000" townid="7" size="19" clientid="30304" beds="0" />
-	<house name="Upper Barracks 1" houseid="2827" entryx="32605" entryy="31923" entryz="5" rent="50000" townid="7" size="11" clientid="30301" beds="0" />
-	<house name="Tunnel Gardens 9" houseid="2828" entryx="32603" entryy="31924" entryz="12" rent="150000" townid="7" size="56" clientid="30610" beds="0" />
-	<house name="Tunnel Gardens 8" houseid="2829" entryx="32594" entryy="31911" entryz="12" rent="25000" townid="7" size="16" clientid="30608" beds="0" />
-	<house name="Tunnel Gardens 7" houseid="2830" entryx="32594" entryy="31907" entryz="12" rent="50000" townid="7" size="16" clientid="30607" beds="0" />
-	<house name="Tunnel Gardens 6" houseid="2831" entryx="32594" entryy="31910" entryz="11" rent="25000" townid="7" size="16" clientid="30606" beds="0" />
-	<house name="Tunnel Gardens 5" houseid="2832" entryx="32594" entryy="31905" entryz="11" rent="25000" townid="7" size="16" clientid="30605" beds="0" />
-	<house name="Tunnel Gardens 4" houseid="2835" entryx="32602" entryy="31909" entryz="11" rent="80000" townid="7" size="23" clientid="30604" beds="0" />
-	<house name="Tunnel Gardens 2" houseid="2836" entryx="32606" entryy="31909" entryz="11" rent="80000" townid="7" size="20" clientid="30602" beds="0" />
-	<house name="Tunnel Gardens 1" houseid="2837" entryx="32606" entryy="31908" entryz="11" rent="80000" townid="7" size="20" clientid="30601" beds="0" />
-	<house name="Tunnel Gardens 3" houseid="2838" entryx="32603" entryy="31908" entryz="11" rent="80000" townid="7" size="23" clientid="30603" beds="0" />
-	<house name="The Market 4 (Shop)" houseid="2839" entryx="32635" entryy="31933" entryz="8" rent="80000" townid="7" size="28" clientid="30404" beds="0" />
-	<house name="The Market 3 (Shop)" houseid="2840" entryx="32635" entryy="31926" entryz="8" rent="80000" townid="7" size="22" clientid="30403" beds="0" />
-	<house name="The Market 2 (Shop)" houseid="2841" entryx="32634" entryy="31930" entryz="8" rent="50000" townid="7" size="16" clientid="30402" beds="0" />
-	<house name="The Market 1 (Shop)" houseid="2842" entryx="32631" entryy="31922" entryz="8" rent="25000" townid="7" size="7" clientid="30401" beds="0" />
-	<house name="The Farms 6, Fishing Hut" houseid="2843" entryx="32629" entryy="31888" entryz="7" rent="50000" townid="7" size="16" clientid="30106" beds="0" />
-	<house name="The Farms 5" houseid="2844" entryx="32650" entryy="31890" entryz="2" rent="50000" townid="7" size="21" clientid="30105" beds="0" />
-	<house name="The Farms 4" houseid="2845" entryx="32648" entryy="31899" entryz="2" rent="25000" townid="7" size="21" clientid="30104" beds="0" />
-	<house name="The Farms 3" houseid="2846" entryx="32645" entryy="31908" entryz="2" rent="80000" townid="7" size="21" clientid="30103" beds="0" />
-	<house name="The Farms 2" houseid="2847" entryx="32641" entryy="31918" entryz="2" rent="50000" townid="7" size="21" clientid="30102" beds="0" />
-	<house name="The Farms 1" houseid="2849" entryx="32627" entryy="31921" entryz="2" rent="80000" townid="7" size="34" clientid="30101" beds="0" />
-	<house name="Outlaw Camp 14 (Shop)" houseid="2850" entryx="32665" entryy="32199" entryz="8" rent="25000" townid="7" size="15" clientid="32014" beds="0" />
-	<house name="Outlaw Camp 13 (Shop)" houseid="2852" entryx="32666" entryy="32200" entryz="8" rent="50000" townid="7" size="16" clientid="32013" beds="0" />
-	<house name="Outlaw Camp 9" houseid="2853" entryx="32663" entryy="32209" entryz="8" rent="80000" townid="7" size="12" clientid="32009" beds="0" />
-	<house name="Outlaw Camp 7" houseid="2854" entryx="32648" entryy="32212" entryz="8" rent="25000" townid="7" size="12" clientid="32007" beds="0" />
-	<house name="Outlaw Camp 4" houseid="2855" entryx="32663" entryy="32209" entryz="7" rent="50000" townid="7" size="14" clientid="32004" beds="0" />
-	<house name="Outlaw Camp 2" houseid="2856" entryx="32649" entryy="32212" entryz="7" rent="50000" townid="7" size="10" clientid="32002" beds="0" />
-	<house name="Outlaw Camp 3" houseid="2857" entryx="32649" entryy="32212" entryz="6" rent="50000" townid="7" size="11" clientid="32003" beds="0" />
-	<house name="Outlaw Camp 1" houseid="2858" entryx="32643" entryy="32206" entryz="7" rent="80000" townid="7" size="36" clientid="32001" beds="0" />
-	<house name="Nobility Quarter 5" houseid="2859" entryx="32612" entryy="31921" entryz="4" rent="100000" townid="7" size="76" clientid="30206" beds="0" />
-	<house name="Nobility Quarter 4" houseid="2860" entryx="32607" entryy="31921" entryz="4" rent="50000" townid="7" size="32" clientid="30204" beds="0" />
-	<house name="Nobility Quarter 3" houseid="2861" entryx="32602" entryy="31912" entryz="4" rent="80000" townid="7" size="30" clientid="30203" beds="0" />
-	<house name="Nobility Quarter 2" houseid="2862" entryx="32602" entryy="31919" entryz="4" rent="50000" townid="7" size="30" clientid="30202" beds="0" />
-	<house name="Nobility Quarter 1" houseid="2863" entryx="32595" entryy="31924" entryz="4" rent="80000" townid="7" size="30" clientid="30201" beds="0" />
-	<house name="Lower Barracks 10" houseid="2864" entryx="32637" entryy="31931" entryz="9" rent="80000" townid="7" size="20" clientid="30513" beds="0" />
-	<house name="Lower Barracks 9" houseid="2865" entryx="32637" entryy="31921" entryz="9" rent="80000" townid="7" size="20" clientid="30517" beds="0" />
-	<house name="Lower Barracks 8" houseid="2866" entryx="32637" entryy="31911" entryz="9" rent="80000" townid="7" size="20" clientid="30523" beds="0" />
-	<house name="Lower Barracks 1" houseid="2867" entryx="32624" entryy="31911" entryz="9" rent="80000" townid="7" size="20" clientid="30501" beds="0" />
-	<house name="Lower Barracks 2" houseid="2868" entryx="32624" entryy="31921" entryz="9" rent="80000" townid="7" size="20" clientid="30507" beds="0" />
-	<house name="Lower Barracks 3" houseid="2869" entryx="32624" entryy="31931" entryz="9" rent="80000" townid="7" size="20" clientid="30511" beds="0" />
-	<house name="Lower Barracks 4" houseid="2870" entryx="32625" entryy="31931" entryz="9" rent="50000" townid="7" size="22" clientid="30502" beds="0" />
-	<house name="Lower Barracks 5" houseid="2871" entryx="32625" entryy="31921" entryz="9" rent="100000" townid="7" size="55" clientid="30504" beds="0" />
-	<house name="Lower Barracks 6" houseid="2872" entryx="32625" entryy="31916" entryz="9" rent="100000" townid="7" size="53" clientid="30510" beds="0" />
-	<house name="Lower Barracks 7" houseid="2873" entryx="32625" entryy="31906" entryz="9" rent="80000" townid="7" size="22" clientid="30512" beds="0" />
+	<house name="Dwarven Magnate's Estate" houseid="2820" entryx="32643" entryy="31927" entryz="2" rent="300000" townid="7" size="242" clientid="30107" beds="8" />
+	<house name="Forge Master's Quarters" houseid="2821" entryx="32649" entryy="31889" entryz="8" rent="300000" townid="7" size="78" clientid="30405" beds="10" />
+	<house name="Upper Barracks 13" houseid="2822" entryx="32615" entryy="31923" entryz="5" rent="25000" townid="7" size="15" clientid="30313" beds="2" />
+	<house name="Upper Barracks 5" houseid="2823" entryx="32615" entryy="31917" entryz="5" rent="80000" townid="7" size="25" clientid="30312" beds="3" />
+	<house name="Upper Barracks 3" houseid="2824" entryx="32608" entryy="31922" entryz="5" rent="80000" townid="7" size="15" clientid="30307" beds="2" />
+	<house name="Upper Barracks 4" houseid="2825" entryx="32612" entryy="31925" entryz="5" rent="50000" townid="7" size="15" clientid="30308" beds="2" />
+	<house name="Upper Barracks 2" houseid="2826" entryx="32605" entryy="31917" entryz="5" rent="80000" townid="7" size="25" clientid="30304" beds="3" />
+	<house name="Upper Barracks 1" houseid="2827" entryx="32605" entryy="31923" entryz="5" rent="50000" townid="7" size="15" clientid="30301" beds="2" />
+	<house name="Tunnel Gardens 9" houseid="2828" entryx="32603" entryy="31924" entryz="12" rent="150000" townid="7" size="70" clientid="30610" beds="4" />
+	<house name="Tunnel Gardens 8" houseid="2829" entryx="32594" entryy="31911" entryz="12" rent="25000" townid="7" size="20" clientid="30608" beds="2" />
+	<house name="Tunnel Gardens 7" houseid="2830" entryx="32594" entryy="31907" entryz="12" rent="50000" townid="7" size="20" clientid="30607" beds="2" />
+	<house name="Tunnel Gardens 6" houseid="2831" entryx="32594" entryy="31910" entryz="11" rent="25000" townid="7" size="20" clientid="30606" beds="2" />
+	<house name="Tunnel Gardens 5" houseid="2832" entryx="32594" entryy="31905" entryz="11" rent="25000" townid="7" size="20" clientid="30605" beds="2" />
+	<house name="Tunnel Gardens 4" houseid="2835" entryx="32602" entryy="31909" entryz="11" rent="80000" townid="7" size="29" clientid="30604" beds="3" />
+	<house name="Tunnel Gardens 2" houseid="2836" entryx="32606" entryy="31909" entryz="11" rent="80000" townid="7" size="26" clientid="30602" beds="3" />
+	<house name="Tunnel Gardens 1" houseid="2837" entryx="32606" entryy="31908" entryz="11" rent="80000" townid="7" size="26" clientid="30601" beds="3" />
+	<house name="Tunnel Gardens 3" houseid="2838" entryx="32603" entryy="31908" entryz="11" rent="80000" townid="7" size="29" clientid="30603" beds="3" />
+	<house name="The Market 4 (Shop)" houseid="2839" entryx="32635" entryy="31933" entryz="8" rent="80000" townid="7" size="30" clientid="30404" beds="1" />
+	<house name="The Market 3 (Shop)" houseid="2840" entryx="32635" entryy="31926" entryz="8" rent="80000" townid="7" size="24" clientid="30403" beds="1" />
+	<house name="The Market 2 (Shop)" houseid="2841" entryx="32634" entryy="31930" entryz="8" rent="50000" townid="7" size="18" clientid="30402" beds="1" />
+	<house name="The Market 1 (Shop)" houseid="2842" entryx="32631" entryy="31922" entryz="8" rent="25000" townid="7" size="9" clientid="30401" beds="1" />
+	<house name="The Farms 6, Fishing Hut" houseid="2843" entryx="32629" entryy="31888" entryz="7" rent="50000" townid="7" size="20" clientid="30106" beds="2" />
+	<house name="The Farms 5" houseid="2844" entryx="32650" entryy="31890" entryz="2" rent="50000" townid="7" size="25" clientid="30105" beds="2" />
+	<house name="The Farms 4" houseid="2845" entryx="32648" entryy="31899" entryz="2" rent="25000" townid="7" size="25" clientid="30104" beds="2" />
+	<house name="The Farms 3" houseid="2846" entryx="32645" entryy="31908" entryz="2" rent="80000" townid="7" size="25" clientid="30103" beds="2" />
+	<house name="The Farms 2" houseid="2847" entryx="32641" entryy="31918" entryz="2" rent="50000" townid="7" size="25" clientid="30102" beds="2" />
+	<house name="The Farms 1" houseid="2849" entryx="32627" entryy="31921" entryz="2" rent="80000" townid="7" size="40" clientid="30101" beds="3" />
+	<house name="Outlaw Camp 14 (Shop)" houseid="2850" entryx="32665" entryy="32199" entryz="8" rent="25000" townid="7" size="15" clientid="32014" beds="1" />
+	<house name="Outlaw Camp 13 (Shop)" houseid="2852" entryx="32666" entryy="32200" entryz="8" rent="50000" townid="7" size="16" clientid="32013" beds="1" />
+	<house name="Outlaw Camp 9" houseid="2853" entryx="32663" entryy="32209" entryz="8" rent="80000" townid="7" size="16" clientid="32009" beds="2" />
+	<house name="Outlaw Camp 7" houseid="2854" entryx="32648" entryy="32212" entryz="8" rent="25000" townid="7" size="16" clientid="32007" beds="2" />
+	<house name="Outlaw Camp 4" houseid="2855" entryx="32663" entryy="32209" entryz="7" rent="50000" townid="7" size="16" clientid="32004" beds="1" />
+	<house name="Outlaw Camp 2" houseid="2856" entryx="32649" entryy="32212" entryz="7" rent="50000" townid="7" size="12" clientid="32002" beds="1" />
+	<house name="Outlaw Camp 3" houseid="2857" entryx="32649" entryy="32212" entryz="6" rent="50000" townid="7" size="15" clientid="32003" beds="2" />
+	<house name="Outlaw Camp 1" houseid="2858" entryx="32643" entryy="32206" entryz="7" rent="80000" townid="7" size="40" clientid="32001" beds="2" />
+	<house name="Nobility Quarter 5" houseid="2859" entryx="32612" entryy="31921" entryz="4" rent="100000" townid="7" size="84" clientid="30206" beds="4" />
+	<house name="Nobility Quarter 4" houseid="2860" entryx="32607" entryy="31921" entryz="4" rent="50000" townid="7" size="36" clientid="30204" beds="2" />
+	<house name="Nobility Quarter 3" houseid="2861" entryx="32602" entryy="31912" entryz="4" rent="80000" townid="7" size="36" clientid="30203" beds="3" />
+	<house name="Nobility Quarter 2" houseid="2862" entryx="32602" entryy="31919" entryz="4" rent="50000" townid="7" size="36" clientid="30202" beds="3" />
+	<house name="Nobility Quarter 1" houseid="2863" entryx="32595" entryy="31924" entryz="4" rent="80000" townid="7" size="36" clientid="30201" beds="3" />
+	<house name="Lower Barracks 10" houseid="2864" entryx="32637" entryy="31931" entryz="9" rent="80000" townid="7" size="24" clientid="30513" beds="2" />
+	<house name="Lower Barracks 9" houseid="2865" entryx="32637" entryy="31921" entryz="9" rent="80000" townid="7" size="24" clientid="30517" beds="2" />
+	<house name="Lower Barracks 8" houseid="2866" entryx="32637" entryy="31911" entryz="9" rent="80000" townid="7" size="24" clientid="30523" beds="2" />
+	<house name="Lower Barracks 1" houseid="2867" entryx="32624" entryy="31911" entryz="9" rent="80000" townid="7" size="24" clientid="30501" beds="2" />
+	<house name="Lower Barracks 2" houseid="2868" entryx="32624" entryy="31921" entryz="9" rent="80000" townid="7" size="24" clientid="30507" beds="2" />
+	<house name="Lower Barracks 3" houseid="2869" entryx="32624" entryy="31931" entryz="9" rent="80000" townid="7" size="24" clientid="30511" beds="2" />
+	<house name="Lower Barracks 4" houseid="2870" entryx="32625" entryy="31931" entryz="9" rent="50000" townid="7" size="24" clientid="30502" beds="1" />
+	<house name="Lower Barracks 5" houseid="2871" entryx="32625" entryy="31921" entryz="9" rent="100000" townid="7" size="57" clientid="30504" beds="4" />
+	<house name="Lower Barracks 6" houseid="2872" entryx="32625" entryy="31916" entryz="9" rent="100000" townid="7" size="57" clientid="30510" beds="4" />
+	<house name="Lower Barracks 7" houseid="2873" entryx="32625" entryy="31906" entryz="9" rent="80000" townid="7" size="24" clientid="30512" beds="2" />
 	<house name="Wolftower" houseid="2874" entryx="32643" entryy="32025" entryz="7" rent="500000" guildhall="true" townid="7" size="361" clientid="30001" beds="23" />
 	<house name="Riverspring" houseid="2875" entryx="32761" entryy="32128" entryz="7" rent="250000" guildhall="true" townid="7" size="313" clientid="30003" beds="19" />
 	<house name="Outlaw Castle" houseid="2876" entryx="32660" entryy="32236" entryz="7" rent="250000" guildhall="true" townid="7" size="182" clientid="32015" beds="9" />
@@ -697,7 +697,7 @@
 	<house name="Darashia 7, Flat 11" houseid="3385" entryx="33263" entryy="32422" entryz="6" rent="100000" townid="13" size="24" clientid="62007" beds="1" />
 	<house name="Darashia 7, Flat 14" houseid="3386" entryx="33267" entryy="32427" entryz="6" rent="200000" townid="13" size="56" clientid="62010" beds="4" />
 	<house name="Darashia 7, Flat 13" houseid="3387" entryx="33267" entryy="32427" entryz="6" rent="100000" townid="13" size="24" clientid="62009" beds="1" />
-	<house name="Pirate Shipwreck 1" houseid="3388" entryx="33278" entryy="32422" entryz="7" rent="800000" townid="13" size="145" clientid="62023" beds="6" />
+	<house name="Pirate Shipwreck 1" houseid="3388" entryx="33278" entryy="32422" entryz="7" rent="800000" townid="13" size="149" clientid="62023" beds="6" />
 	<house name="Pirate Shipwreck 2" houseid="3389" entryx="33281" entryy="32431" entryz="7" rent="800000" townid="13" size="178" clientid="62024" beds="8" />
 	<house name="The Shelter" houseid="3390" entryx="32267" entryy="32859" entryz="7" rent="250000" guildhall="true" townid="14" size="338" clientid="65023" beds="31" />
 	<house name="Litter Promenade 1" houseid="3391" entryx="32271" entryy="32862" entryz="7" rent="25000" townid="14" size="5" clientid="65018" beds="0" />
@@ -932,14 +932,14 @@
 	<house name="Uthemath I e" houseid="3631" entryx="33195" entryy="32806" entryz="7" rent="80000" townid="10" size="20" clientid="59064" beds="2" />
 	<house name="Uthemath I f" houseid="3632" entryx="33189" entryy="32816" entryz="7" rent="150000" townid="10" size="52" clientid="59065" beds="3" />
 	<house name="Uthemath II" houseid="3633" entryx="33208" entryy="32816" entryz="7" rent="250000" guildhall="true" townid="10" size="92" clientid="59066" beds="8" />
-	<house name="Marketplace 1" houseid="3634" entryx="33937" entryy="31505" entryz="7" rent="400000" townid="22" size="67" clientid="48001" beds="0" />
-	<house name="Marketplace 2" houseid="3635" entryx="33951" entryy="31501" entryz="7" rent="400000" townid="22" size="74" clientid="48002" beds="0" />
-	<house name="Quay 1" houseid="3636" entryx="33885" entryy="31552" entryz="7" rent="200000" townid="22" size="76" clientid="48003" beds="0" />
-	<house name="Quay 2" houseid="3637" entryx="33896" entryy="31544" entryz="7" rent="200000" townid="22" size="121" clientid="48004" beds="0" />
+	<house name="Marketplace 1" houseid="3634" entryx="33937" entryy="31505" entryz="7" rent="400000" townid="22" size="69" clientid="48001" beds="2" />
+	<house name="Marketplace 2" houseid="3635" entryx="33951" entryy="31501" entryz="7" rent="400000" townid="22" size="78" clientid="48002" beds="2" />
+	<house name="Quay 1" houseid="3636" entryx="33885" entryy="31552" entryz="7" rent="200000" townid="22" size="80" clientid="48003" beds="4" />
+	<house name="Quay 2" houseid="3637" entryx="33896" entryy="31544" entryz="7" rent="200000" townid="22" size="127" clientid="48004" beds="3" />
 	<house name="Halls of Sun and Sea" houseid="3638" entryx="33909" entryy="31535" entryz="7" rent="1000000" guildhall="true" townid="22" size="352" clientid="48007" beds="15" />
-	<house name="Palace Vicinity" houseid="3639" entryx="33866" entryy="31516" entryz="7" rent="200000" townid="22" size="109" clientid="48006" beds="0" />
-	<house name="Wave Tower" houseid="3640" entryx="33879" entryy="31525" entryz="7" rent="400000" townid="22" size="166" clientid="48005" beds="0" />
-	<house name="Old Sanctuary of God King Qjell" houseid="3641" entryx="33473" entryy="31310" entryz="9" rent="300000" townid="18" size="408" clientid="17001" beds="0" />
+	<house name="Palace Vicinity" houseid="3639" entryx="33866" entryy="31516" entryz="7" rent="200000" townid="22" size="113" clientid="48006" beds="4" />
+	<house name="Wave Tower" houseid="3640" entryx="33879" entryy="31525" entryz="7" rent="400000" townid="22" size="166" clientid="48005" beds="6" />
+	<house name="Old Sanctuary of God King Qjell" houseid="3641" entryx="33473" entryy="31310" entryz="9" rent="300000" townid="18" size="408" clientid="17001" beds="6" />
 	<house name="Old Heritage Estate" houseid="3642" entryx="33598" entryy="31909" entryz="6" rent="600000" townid="20" size="231" clientid="19009" beds="0" />
 	<house name="Rathleton Plaza 4" houseid="3643" entryx="33604" entryy="31915" entryz="6" rent="400000" townid="20" size="101" clientid="19018" beds="0" />
 	<house name="Rathleton Plaza 3" houseid="3644" entryx="33615" entryy="31913" entryz="6" rent="400000" townid="20" size="113" clientid="19006" beds="0" />
@@ -968,10 +968,10 @@
 	<house name="Northport Clanhall" houseid="3667" entryx="32468" entryy="31614" entryz="7" rent="250000" guildhall="true" townid="6" size="152" clientid="22008" beds="10" />
 	<house name="The Treehouse" houseid="3668" entryx="32747" entryy="32697" entryz="7" rent="250000" guildhall="true" townid="15" size="524" clientid="47001" beds="23" />
 	<house name="Frost Manor" houseid="3669" entryx="32287" entryy="31106" entryz="5" rent="500000" guildhall="true" townid="16" size="412" clientid="55303" beds="26" />
-	<house name="Hare's Den" houseid="3670" entryx="32687" entryy="32193" entryz="10" rent="150000" townid="7" size="166" clientid="32016" beds="0" />
-	<house name="Lost Cavern" houseid="3671" entryx="32559" entryy="31856" entryz="7" rent="200000" townid="7" size="481" clientid="33001" beds="0" />
-	<house name="Caveman Shelter" houseid="3673" entryx="33007" entryy="31426" entryz="6" rent="150000" townid="12" size="78" clientid="15001" beds="0" />
-	<house name="Eastern House of Tranquility" houseid="3674" entryx="33389" entryy="31453" entryz="4" rent="200000" townid="12" size="241" clientid="15002" beds="0" />
+	<house name="Hare's Den" houseid="3670" entryx="32687" entryy="32193" entryz="10" rent="150000" townid="7" size="166" clientid="32016" beds="4" />
+	<house name="Lost Cavern" houseid="3671" entryx="32559" entryy="31856" entryz="7" rent="200000" townid="7" size="495" clientid="33001" beds="7" />
+	<house name="Caveman Shelter" houseid="3673" entryx="33007" entryy="31426" entryz="6" rent="150000" townid="12" size="86" clientid="15001" beds="4" />
+	<house name="Eastern House of Tranquility" houseid="3674" entryx="33389" entryy="31453" entryz="4" rent="200000" townid="12" size="267" clientid="15002" beds="5" />
 	<house name="Lakeside Mansion" houseid="3675" entryx="32322" entryy="31147" entryz="6" rent="300000" townid="16" size="127" clientid="55015" beds="0" />
 	<house name="Pilchard Bin 1" houseid="3676" entryx="32280" entryy="31164" entryz="7" rent="80000" townid="16" size="8" clientid="55116" beds="0" />
 	<house name="Pilchard Bin 2" houseid="3677" entryx="32280" entryy="31160" entryz="7" rent="50000" townid="16" size="8" clientid="55117" beds="0" />
