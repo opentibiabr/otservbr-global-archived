@@ -211,127 +211,127 @@
 	<house name="Iron Guildhall" houseid="2878" entryx="32607" entryy="31893" entryz="9" rent="250000" guildhall="true" townid="7" size="274" clientid="30702" beds="18" />
 	<house name="Hill Hideout" houseid="2879" entryx="32593" entryy="31826" entryz="9" rent="250000" guildhall="true" townid="7" size="225" clientid="30002" beds="15" />
 	<house name="Granite Guildhall" houseid="2880" entryx="32599" entryy="31949" entryz="5" rent="250000" guildhall="true" townid="7" size="328" clientid="30703" beds="17" />
-	<house name="Alai Flats, Flat 01" houseid="2881" entryx="32377" entryy="32256" entryz="7" rent="50000" townid="8" size="14" clientid="10301" beds="0" />
-	<house name="Alai Flats, Flat 02" houseid="2882" entryx="32382" entryy="32256" entryz="7" rent="50000" townid="8" size="14" clientid="10302" beds="0" />
-	<house name="Alai Flats, Flat 03" houseid="2883" entryx="32374" entryy="32264" entryz="7" rent="50000" townid="8" size="14" clientid="10303" beds="0" />
-	<house name="Alai Flats, Flat 04" houseid="2884" entryx="32386" entryy="32261" entryz="7" rent="80000" townid="8" size="14" clientid="10304" beds="0" />
-	<house name="Alai Flats, Flat 05" houseid="2885" entryx="32386" entryy="32268" entryz="7" rent="100000" townid="8" size="20" clientid="10305" beds="0" />
-	<house name="Alai Flats, Flat 06" houseid="2886" entryx="32386" entryy="32268" entryz="7" rent="100000" townid="8" size="20" clientid="10306" beds="0" />
-	<house name="Alai Flats, Flat 07" houseid="2887" entryx="32382" entryy="32268" entryz="7" rent="25000" townid="8" size="14" clientid="10307" beds="0" />
-	<house name="Alai Flats, Flat 08" houseid="2888" entryx="32377" entryy="32268" entryz="7" rent="50000" townid="8" size="14" clientid="10308" beds="0" />
-	<house name="Alai Flats, Flat 11" houseid="2889" entryx="32382" entryy="32256" entryz="6" rent="80000" townid="8" size="14" clientid="10311" beds="0" />
-	<house name="Alai Flats, Flat 12" houseid="2890" entryx="32377" entryy="32256" entryz="6" rent="25000" townid="8" size="14" clientid="10312" beds="0" />
-	<house name="Alai Flats, Flat 13" houseid="2891" entryx="32377" entryy="32268" entryz="6" rent="50000" townid="8" size="14" clientid="10313" beds="0" />
-	<house name="Alai Flats, Flat 14" houseid="2892" entryx="32386" entryy="32261" entryz="6" rent="80000" townid="8" size="16" clientid="10314" beds="0" />
-	<house name="Alai Flats, Flat 15" houseid="2893" entryx="32386" entryy="32268" entryz="6" rent="100000" townid="8" size="24" clientid="10315" beds="0" />
-	<house name="Alai Flats, Flat 16" houseid="2894" entryx="32386" entryy="32268" entryz="6" rent="100000" townid="8" size="24" clientid="10316" beds="0" />
-	<house name="Alai Flats, Flat 17" houseid="2895" entryx="32382" entryy="32268" entryz="6" rent="80000" townid="8" size="16" clientid="10317" beds="0" />
-	<house name="Alai Flats, Flat 18" houseid="2896" entryx="32377" entryy="32268" entryz="6" rent="50000" townid="8" size="16" clientid="10318" beds="0" />
-	<house name="Alai Flats, Flat 21" houseid="2897" entryx="32382" entryy="32256" entryz="5" rent="50000" townid="8" size="14" clientid="10320" beds="0" />
-	<house name="Alai Flats, Flat 22" houseid="2898" entryx="32377" entryy="32256" entryz="5" rent="50000" townid="8" size="14" clientid="10319" beds="0" />
-	<house name="Alai Flats, Flat 23" houseid="2899" entryx="32377" entryy="32268" entryz="5" rent="25000" townid="8" size="14" clientid="10321" beds="0" />
-	<house name="Alai Flats, Flat 28" houseid="2900" entryx="32377" entryy="32268" entryz="5" rent="80000" townid="8" size="16" clientid="10326" beds="0" />
-	<house name="Alai Flats, Flat 27" houseid="2901" entryx="32382" entryy="32268" entryz="5" rent="80000" townid="8" size="16" clientid="10325" beds="0" />
-	<house name="Alai Flats, Flat 26" houseid="2902" entryx="32386" entryy="32268" entryz="5" rent="100000" townid="8" size="24" clientid="10324" beds="0" />
-	<house name="Alai Flats, Flat 25" houseid="2903" entryx="32386" entryy="32268" entryz="5" rent="100000" townid="8" size="24" clientid="10323" beds="0" />
-	<house name="Alai Flats, Flat 24" houseid="2904" entryx="32386" entryy="32261" entryz="5" rent="80000" townid="8" size="16" clientid="10322" beds="0" />
-	<house name="Beach Home Apartments, Flat 01" houseid="2905" entryx="32314" entryy="32245" entryz="7" rent="50000" townid="8" size="10" clientid="10201" beds="0" />
-	<house name="Beach Home Apartments, Flat 02" houseid="2906" entryx="32314" entryy="32240" entryz="7" rent="80000" townid="8" size="10" clientid="10202" beds="0" />
-	<house name="Beach Home Apartments, Flat 03" houseid="2907" entryx="32317" entryy="32235" entryz="7" rent="80000" townid="8" size="10" clientid="10203" beds="0" />
-	<house name="Beach Home Apartments, Flat 04" houseid="2908" entryx="32313" entryy="32235" entryz="7" rent="50000" townid="8" size="10" clientid="10204" beds="0" />
-	<house name="Beach Home Apartments, Flat 05" houseid="2909" entryx="32309" entryy="32235" entryz="7" rent="80000" townid="8" size="10" clientid="10205" beds="0" />
-	<house name="Beach Home Apartments, Flat 06" houseid="2910" entryx="32309" entryy="32243" entryz="7" rent="100000" townid="8" size="14" clientid="10206" beds="0" />
-	<house name="Beach Home Apartments, Flat 11" houseid="2911" entryx="32314" entryy="32243" entryz="6" rent="25000" townid="8" size="10" clientid="10211" beds="0" />
-	<house name="Beach Home Apartments, Flat 12" houseid="2912" entryx="32314" entryy="32238" entryz="6" rent="50000" townid="8" size="13" clientid="10212" beds="0" />
-	<house name="Beach Home Apartments, Flat 13" houseid="2913" entryx="32314" entryy="32234" entryz="6" rent="80000" townid="8" size="13" clientid="10213" beds="0" />
-	<house name="Beach Home Apartments, Flat 14" houseid="2914" entryx="32312" entryy="32234" entryz="6" rent="25000" townid="8" size="4" clientid="10214" beds="0" />
-	<house name="Beach Home Apartments, Flat 15" houseid="2915" entryx="32309" entryy="32234" entryz="6" rent="25000" townid="8" size="4" clientid="10215" beds="0" />
-	<house name="Beach Home Apartments, Flat 16" houseid="2916" entryx="32303" entryy="32244" entryz="6" rent="80000" townid="8" size="14" clientid="10216" beds="0" />
-	<house name="Demon Tower" houseid="2917" entryx="32601" entryy="32116" entryz="7" rent="100000" townid="8" size="50" clientid="10006" beds="0" />
+	<house name="Alai Flats, Flat 01" houseid="2881" entryx="32377" entryy="32256" entryz="7" rent="50000" townid="8" size="16" clientid="10301" beds="1" />
+	<house name="Alai Flats, Flat 02" houseid="2882" entryx="32382" entryy="32256" entryz="7" rent="50000" townid="8" size="16" clientid="10302" beds="1" />
+	<house name="Alai Flats, Flat 03" houseid="2883" entryx="32374" entryy="32264" entryz="7" rent="50000" townid="8" size="16" clientid="10303" beds="1" />
+	<house name="Alai Flats, Flat 04" houseid="2884" entryx="32386" entryy="32261" entryz="7" rent="80000" townid="8" size="16" clientid="10304" beds="1" />
+	<house name="Alai Flats, Flat 05" houseid="2885" entryx="32386" entryy="32268" entryz="7" rent="100000" townid="8" size="24" clientid="10305" beds="2" />
+	<house name="Alai Flats, Flat 06" houseid="2886" entryx="32386" entryy="32268" entryz="7" rent="100000" townid="8" size="24" clientid="10306" beds="2" />
+	<house name="Alai Flats, Flat 07" houseid="2887" entryx="32382" entryy="32268" entryz="7" rent="25000" townid="8" size="16" clientid="10307" beds="1" />
+	<house name="Alai Flats, Flat 08" houseid="2888" entryx="32377" entryy="32268" entryz="7" rent="50000" townid="8" size="16" clientid="10308" beds="1" />
+	<house name="Alai Flats, Flat 11" houseid="2889" entryx="32382" entryy="32256" entryz="6" rent="80000" townid="8" size="16" clientid="10311" beds="1" />
+	<house name="Alai Flats, Flat 12" houseid="2890" entryx="32377" entryy="32256" entryz="6" rent="25000" townid="8" size="16" clientid="10312" beds="1" />
+	<house name="Alai Flats, Flat 13" houseid="2891" entryx="32377" entryy="32268" entryz="6" rent="50000" townid="8" size="16" clientid="10313" beds="1" />
+	<house name="Alai Flats, Flat 14" houseid="2892" entryx="32386" entryy="32261" entryz="6" rent="80000" townid="8" size="18" clientid="10314" beds="1" />
+	<house name="Alai Flats, Flat 15" houseid="2893" entryx="32386" entryy="32268" entryz="6" rent="100000" townid="8" size="28" clientid="10315" beds="2" />
+	<house name="Alai Flats, Flat 16" houseid="2894" entryx="32386" entryy="32268" entryz="6" rent="100000" townid="8" size="28" clientid="10316" beds="2" />
+	<house name="Alai Flats, Flat 17" houseid="2895" entryx="32382" entryy="32268" entryz="6" rent="80000" townid="8" size="18" clientid="10317" beds="1" />
+	<house name="Alai Flats, Flat 18" houseid="2896" entryx="32377" entryy="32268" entryz="6" rent="50000" townid="8" size="18" clientid="10318" beds="1" />
+	<house name="Alai Flats, Flat 21" houseid="2897" entryx="32382" entryy="32256" entryz="5" rent="50000" townid="8" size="16" clientid="10320" beds="1" />
+	<house name="Alai Flats, Flat 22" houseid="2898" entryx="32377" entryy="32256" entryz="5" rent="50000" townid="8" size="16" clientid="10319" beds="1" />
+	<house name="Alai Flats, Flat 23" houseid="2899" entryx="32377" entryy="32268" entryz="5" rent="25000" townid="8" size="16" clientid="10321" beds="1" />
+	<house name="Alai Flats, Flat 28" houseid="2900" entryx="32377" entryy="32268" entryz="5" rent="80000" townid="8" size="18" clientid="10326" beds="1" />
+	<house name="Alai Flats, Flat 27" houseid="2901" entryx="32382" entryy="32268" entryz="5" rent="80000" townid="8" size="18" clientid="10325" beds="1" />
+	<house name="Alai Flats, Flat 26" houseid="2902" entryx="32386" entryy="32268" entryz="5" rent="100000" townid="8" size="28" clientid="10324" beds="2" />
+	<house name="Alai Flats, Flat 25" houseid="2903" entryx="32386" entryy="32268" entryz="5" rent="100000" townid="8" size="28" clientid="10323" beds="2" />
+	<house name="Alai Flats, Flat 24" houseid="2904" entryx="32386" entryy="32261" entryz="5" rent="80000" townid="8" size="18" clientid="10322" beds="1" />
+	<house name="Beach Home Apartments, Flat 01" houseid="2905" entryx="32314" entryy="32245" entryz="7" rent="50000" townid="8" size="12" clientid="10201" beds="1" />
+	<house name="Beach Home Apartments, Flat 02" houseid="2906" entryx="32314" entryy="32240" entryz="7" rent="80000" townid="8" size="12" clientid="10202" beds="1" />
+	<house name="Beach Home Apartments, Flat 03" houseid="2907" entryx="32317" entryy="32235" entryz="7" rent="80000" townid="8" size="12" clientid="10203" beds="1" />
+	<house name="Beach Home Apartments, Flat 04" houseid="2908" entryx="32313" entryy="32235" entryz="7" rent="50000" townid="8" size="12" clientid="10204" beds="1" />
+	<house name="Beach Home Apartments, Flat 05" houseid="2909" entryx="32309" entryy="32235" entryz="7" rent="80000" townid="8" size="12" clientid="10205" beds="1" />
+	<house name="Beach Home Apartments, Flat 06" houseid="2910" entryx="32309" entryy="32243" entryz="7" rent="100000" townid="8" size="18" clientid="10206" beds="2" />
+	<house name="Beach Home Apartments, Flat 11" houseid="2911" entryx="32314" entryy="32243" entryz="6" rent="25000" townid="8" size="12" clientid="10211" beds="1" />
+	<house name="Beach Home Apartments, Flat 12" houseid="2912" entryx="32314" entryy="32238" entryz="6" rent="50000" townid="8" size="15" clientid="10212" beds="1" />
+	<house name="Beach Home Apartments, Flat 13" houseid="2913" entryx="32314" entryy="32234" entryz="6" rent="80000" townid="8" size="15" clientid="10213" beds="1" />
+	<house name="Beach Home Apartments, Flat 14" houseid="2914" entryx="32312" entryy="32234" entryz="6" rent="25000" townid="8" size="6" clientid="10214" beds="1" />
+	<house name="Beach Home Apartments, Flat 15" houseid="2915" entryx="32309" entryy="32234" entryz="6" rent="25000" townid="8" size="6" clientid="10215" beds="1" />
+	<house name="Beach Home Apartments, Flat 16" houseid="2916" entryx="32303" entryy="32244" entryz="6" rent="80000" townid="8" size="18" clientid="10216" beds="2" />
+	<house name="Demon Tower" houseid="2917" entryx="32601" entryy="32116" entryz="7" rent="100000" townid="8" size="54" clientid="10006" beds="2" />
 	<house name="Farm Lane, 1st floor (Shop)" houseid="2918" entryx="32382" entryy="32232" entryz="7" rent="80000" townid="8" size="15" clientid="10702" beds="0" />
 	<house name="Farm Lane, 2nd Floor (Shop)" houseid="2919" entryx="32382" entryy="32233" entryz="6" rent="50000" townid="8" size="15" clientid="10703" beds="0" />
 	<house name="Farm Lane, Basement (Shop)" houseid="2920" entryx="32382" entryy="32231" entryz="8" rent="50000" townid="8" size="15" clientid="10701" beds="0" />
-	<house name="Fibula Village 1" houseid="2921" entryx="32176" entryy="32433" entryz="7" rent="25000" townid="8" size="10" clientid="12003" beds="0" />
-	<house name="Fibula Village 2" houseid="2922" entryx="32184" entryy="32433" entryz="7" rent="25000" townid="8" size="10" clientid="12004" beds="0" />
-	<house name="Fibula Village 4" houseid="2923" entryx="32175" entryy="32440" entryz="7" rent="25000" townid="8" size="21" clientid="12006" beds="0" />
-	<house name="Fibula Village 5" houseid="2924" entryx="32171" entryy="32440" entryz="7" rent="50000" townid="8" size="21" clientid="12007" beds="0" />
-	<house name="Fibula Village 3" houseid="2925" entryx="32196" entryy="32438" entryz="7" rent="80000" townid="8" size="46" clientid="12005" beds="0" />
-	<house name="Fibula Village, Tower Flat" houseid="2926" entryx="32159" entryy="32439" entryz="7" rent="100000" townid="8" size="73" clientid="12008" beds="0" />
+	<house name="Fibula Village 1" houseid="2921" entryx="32176" entryy="32433" entryz="7" rent="25000" townid="8" size="12" clientid="12003" beds="1" />
+	<house name="Fibula Village 2" houseid="2922" entryx="32184" entryy="32433" entryz="7" rent="25000" townid="8" size="12" clientid="12004" beds="1" />
+	<house name="Fibula Village 4" houseid="2923" entryx="32175" entryy="32440" entryz="7" rent="25000" townid="8" size="25" clientid="12006" beds="2" />
+	<house name="Fibula Village 5" houseid="2924" entryx="32171" entryy="32440" entryz="7" rent="50000" townid="8" size="25" clientid="12007" beds="2" />
+	<house name="Fibula Village 3" houseid="2925" entryx="32196" entryy="32438" entryz="7" rent="80000" townid="8" size="54" clientid="12005" beds="4" />
+	<house name="Fibula Village, Tower Flat" houseid="2926" entryx="32159" entryy="32439" entryz="7" rent="100000" townid="8" size="77" clientid="12008" beds="2" />
 	<house name="Guildhall of the Red Rose" houseid="2927" entryx="32180" entryy="32427" entryz="7" rent="250000" guildhall="true" townid="8" size="373" clientid="12002" beds="15" />
-	<house name="Fibula Village, Bar (Shop)" houseid="2928" entryx="32151" entryy="32399" entryz="7" rent="100000" townid="8" size="60" clientid="12009" beds="0" />
-	<house name="Fibula Village, Villa" houseid="2929" entryx="32140" entryy="32374" entryz="7" rent="200000" townid="8" size="182" clientid="12100" beds="0" />
-	<house name="Greenshore Village 1" houseid="2930" entryx="32274" entryy="32062" entryz="7" rent="80000" townid="8" size="30" clientid="14005" beds="0" />
+	<house name="Fibula Village, Bar (Shop)" houseid="2928" entryx="32151" entryy="32399" entryz="7" rent="100000" townid="8" size="64" clientid="12009" beds="2" />
+	<house name="Fibula Village, Villa" houseid="2929" entryx="32140" entryy="32374" entryz="7" rent="200000" townid="8" size="192" clientid="12100" beds="5" />
+	<house name="Greenshore Village 1" houseid="2930" entryx="32274" entryy="32062" entryz="7" rent="80000" townid="8" size="36" clientid="14005" beds="3" />
 	<house name="Greenshore Clanhall" houseid="2931" entryx="32278" entryy="32069" entryz="7" rent="250000" guildhall="true" townid="8" size="153" clientid="14012" beds="10" />
 	<house name="Castle of Greenshore" houseid="2932" entryx="32290" entryy="32070" entryz="7" rent="250000" guildhall="true" townid="8" size="277" clientid="14002" beds="12" />
-	<house name="Greenshore Village, Shop" houseid="2933" entryx="32278" entryy="32052" entryz="7" rent="80000" townid="8" size="20" clientid="14004" beds="0" />
-	<house name="Greenshore Village, Villa" houseid="2934" entryx="32276" entryy="32045" entryz="7" rent="300000" townid="8" size="117" clientid="14003" beds="0" />
-	<house name="Greenshore Village 7" houseid="2935" entryx="32266" entryy="32032" entryz="7" rent="25000" townid="8" size="18" clientid="14011" beds="0" />
-	<house name="Greenshore Village 3" houseid="2936" entryx="32264" entryy="32041" entryz="7" rent="50000" townid="8" size="20" clientid="14008" beds="0" />
-	<house name="Greenshore Village 2" houseid="2939" entryx="32264" entryy="32042" entryz="7" rent="50000" townid="8" size="20" clientid="14006" beds="0" />
-	<house name="Greenshore Village 6" houseid="2940" entryx="32258" entryy="32041" entryz="6" rent="150000" townid="8" size="62" clientid="14010" beds="0" />
-	<house name="Harbour Place 1 (Shop)" houseid="2941" entryx="32336" entryy="32222" entryz="7" rent="800000" townid="8" size="14" clientid="11404" beds="0" />
-	<house name="Harbour Place 2 (Shop)" houseid="2942" entryx="32336" entryy="32210" entryz="7" rent="600000" townid="8" size="19" clientid="11401" beds="0" />
-	<house name="Harbour Place 3" houseid="2943" entryx="32331" entryy="32208" entryz="7" rent="800000" townid="8" size="84" clientid="11402" beds="0" />
-	<house name="Harbour Street 4" houseid="2944" entryx="32332" entryy="32257" entryz="7" rent="80000" townid="8" size="14" clientid="10602" beds="0" />
-	<house name="Lower Swamp Lane 1" houseid="2945" entryx="32356" entryy="32262" entryz="7" rent="400000" townid="8" size="58" clientid="10403" beds="0" />
-	<house name="Lower Swamp Lane 3" houseid="2946" entryx="32368" entryy="32262" entryz="7" rent="400000" townid="8" size="58" clientid="10404" beds="0" />
-	<house name="Main Street 9, 1st floor (Shop)" houseid="2947" entryx="32377" entryy="32224" entryz="7" rent="200000" townid="8" size="25" clientid="10802" beds="0" />
-	<house name="Main Street 9a, 2nd floor (Shop)" houseid="2948" entryx="32377" entryy="32222" entryz="6" rent="100000" townid="8" size="12" clientid="10803" beds="0" />
-	<house name="Main Street 9b, 2nd floor (Shop)" houseid="2949" entryx="32377" entryy="32224" entryz="6" rent="150000" townid="8" size="22" clientid="10804" beds="0" />
-	<house name="Mill Avenue 1 (Shop)" houseid="2950" entryx="32398" entryy="32181" entryz="7" rent="200000" townid="8" size="18" clientid="10901" beds="0" />
-	<house name="Mill Avenue 2 (Shop)" houseid="2951" entryx="32404" entryy="32181" entryz="7" rent="200000" townid="8" size="35" clientid="10902" beds="0" />
-	<house name="Mill Avenue 3" houseid="2952" entryx="32410" entryy="32184" entryz="7" rent="100000" townid="8" size="21" clientid="10903" beds="0" />
-	<house name="Mill Avenue 4" houseid="2953" entryx="32413" entryy="32189" entryz="6" rent="100000" townid="8" size="21" clientid="10904" beds="0" />
-	<house name="Mill Avenue 5" houseid="2954" entryx="32422" entryy="32178" entryz="7" rent="300000" townid="8" size="47" clientid="10905" beds="0" />
-	<house name="Open-Air Theatre" houseid="2955" entryx="32262" entryy="32238" entryz="7" rent="150000" townid="8" size="51" clientid="10007" beds="0" />
-	<house name="Smuggler's Den" houseid="2956" entryx="32419" entryy="32262" entryz="9" rent="400000" townid="8" size="170" clientid="11024" beds="0" />
-	<house name="Sorcerer's Avenue 1a" houseid="2957" entryx="32300" entryy="32254" entryz="7" rent="100000" townid="8" size="16" clientid="10501" beds="0" />
-	<house name="Sorcerer's Avenue 5 (Shop)" houseid="2958" entryx="32284" entryy="32256" entryz="7" rent="150000" townid="8" size="42" clientid="10504" beds="0" />
-	<house name="Sorcerer's Avenue 1b" houseid="2959" entryx="32300" entryy="32251" entryz="6" rent="80000" townid="8" size="12" clientid="10502" beds="0" />
-	<house name="Sorcerer's Avenue 1c" houseid="2960" entryx="32300" entryy="32249" entryz="6" rent="100000" townid="8" size="16" clientid="10503" beds="0" />
-	<house name="Sorcerer's Avenue Labs 2a" houseid="2961" entryx="32297" entryy="32273" entryz="8" rent="50000" townid="8" size="24" clientid="10505" beds="0" />
-	<house name="Sorcerer's Avenue Labs 2c" houseid="2962" entryx="32297" entryy="32274" entryz="8" rent="50000" townid="8" size="24" clientid="10510" beds="0" />
-	<house name="Sorcerer's Avenue Labs 2b" houseid="2963" entryx="32301" entryy="32274" entryz="8" rent="50000" townid="8" size="24" clientid="10508" beds="0" />
-	<house name="Sunset Homes, Flat 01" houseid="2964" entryx="32333" entryy="32232" entryz="7" rent="100000" townid="8" size="10" clientid="10101" beds="0" />
-	<house name="Sunset Homes, Flat 02" houseid="2965" entryx="32333" entryy="32237" entryz="7" rent="80000" townid="8" size="10" clientid="10102" beds="0" />
-	<house name="Sunset Homes, Flat 03" houseid="2966" entryx="32334" entryy="32244" entryz="7" rent="80000" townid="8" size="10" clientid="10103" beds="0" />
-	<house name="Sunset Homes, Flat 11" houseid="2967" entryx="32333" entryy="32232" entryz="6" rent="80000" townid="8" size="10" clientid="10104" beds="0" />
-	<house name="Sunset Homes, Flat 12" houseid="2968" entryx="32333" entryy="32237" entryz="6" rent="50000" townid="8" size="10" clientid="10112" beds="0" />
-	<house name="Sunset Homes, Flat 13" houseid="2969" entryx="32334" entryy="32244" entryz="6" rent="100000" townid="8" size="14" clientid="10113" beds="0" />
-	<house name="Sunset Homes, Flat 14" houseid="2970" entryx="32334" entryy="32249" entryz="6" rent="50000" townid="8" size="10" clientid="10114" beds="0" />
-	<house name="Sunset Homes, Flat 21" houseid="2971" entryx="32333" entryy="32232" entryz="5" rent="50000" townid="8" size="10" clientid="10121" beds="0" />
-	<house name="Sunset Homes, Flat 22" houseid="2972" entryx="32333" entryy="32237" entryz="5" rent="50000" townid="8" size="10" clientid="10122" beds="0" />
-	<house name="Sunset Homes, Flat 23" houseid="2973" entryx="32334" entryy="32244" entryz="5" rent="80000" townid="8" size="14" clientid="10123" beds="0" />
-	<house name="Sunset Homes, Flat 24" houseid="2974" entryx="32334" entryy="32249" entryz="5" rent="50000" townid="8" size="10" clientid="10124" beds="0" />
-	<house name="Thais Hostel" houseid="2975" entryx="32333" entryy="32255" entryz="6" rent="200000" townid="8" size="64" clientid="10603" beds="0" />
-	<house name="The City Wall 1a" houseid="2976" entryx="32422" entryy="32189" entryz="7" rent="150000" townid="8" size="21" clientid="11022" beds="0" />
-	<house name="The City Wall 1b" houseid="2977" entryx="32422" entryy="32189" entryz="6" rent="100000" townid="8" size="21" clientid="11023" beds="0" />
-	<house name="The City Wall 3a" houseid="2978" entryx="32423" entryy="32208" entryz="7" rent="100000" townid="8" size="16" clientid="11016" beds="0" />
-	<house name="The City Wall 3b" houseid="2979" entryx="32423" entryy="32203" entryz="7" rent="100000" townid="8" size="16" clientid="11017" beds="0" />
-	<house name="The City Wall 3c" houseid="2980" entryx="32423" entryy="32198" entryz="7" rent="100000" townid="8" size="16" clientid="11018" beds="0" />
-	<house name="The City Wall 3d" houseid="2981" entryx="32423" entryy="32208" entryz="6" rent="100000" townid="8" size="16" clientid="11019" beds="0" />
-	<house name="The City Wall 3e" houseid="2982" entryx="32423" entryy="32203" entryz="6" rent="100000" townid="8" size="16" clientid="11020" beds="0" />
-	<house name="The City Wall 3f" houseid="2983" entryx="32423" entryy="32198" entryz="6" rent="100000" townid="8" size="16" clientid="11021" beds="0" />
-	<house name="Upper Swamp Lane 12" houseid="2984" entryx="32419" entryy="32256" entryz="7" rent="300000" townid="8" size="44" clientid="10408" beds="0" />
-	<house name="Upper Swamp Lane 10" houseid="2985" entryx="32412" entryy="32256" entryz="7" rent="150000" townid="8" size="24" clientid="10407" beds="0" />
-	<house name="Upper Swamp Lane 8" houseid="2986" entryx="32398" entryy="32256" entryz="7" rent="600000" townid="8" size="122" clientid="10405" beds="0" />
-	<house name="Upper Swamp Lane 4" houseid="2987" entryx="32360" entryy="32252" entryz="7" rent="600000" townid="8" size="58" clientid="10402" beds="0" />
-	<house name="Upper Swamp Lane 2" houseid="2988" entryx="32348" entryy="32252" entryz="7" rent="600000" townid="8" size="58" clientid="10401" beds="0" />
-	<house name="The City Wall 9" houseid="2989" entryx="32419" entryy="32247" entryz="7" rent="80000" townid="8" size="14" clientid="11015" beds="0" />
-	<house name="The City Wall 7h" houseid="2990" entryx="32419" entryy="32238" entryz="6" rent="50000" townid="8" size="10" clientid="11014" beds="0" />
-	<house name="The City Wall 7b" houseid="2991" entryx="32419" entryy="32237" entryz="6" rent="25000" townid="8" size="10" clientid="11008" beds="0" />
-	<house name="The City Wall 7d" houseid="2992" entryx="32413" entryy="32237" entryz="6" rent="50000" townid="8" size="12" clientid="11010" beds="0" />
-	<house name="The City Wall 7f" houseid="2993" entryx="32413" entryy="32238" entryz="6" rent="80000" townid="8" size="12" clientid="11012" beds="0" />
-	<house name="The City Wall 7c" houseid="2994" entryx="32413" entryy="32237" entryz="7" rent="80000" townid="8" size="12" clientid="11009" beds="0" />
-	<house name="The City Wall 7a" houseid="2995" entryx="32419" entryy="32237" entryz="7" rent="80000" townid="8" size="10" clientid="11007" beds="0" />
-	<house name="The City Wall 7g" houseid="2996" entryx="32419" entryy="32238" entryz="7" rent="50000" townid="8" size="10" clientid="11013" beds="0" />
-	<house name="The City Wall 7e" houseid="2997" entryx="32413" entryy="32238" entryz="7" rent="80000" townid="8" size="12" clientid="11011" beds="0" />
-	<house name="The City Wall 5b" houseid="2998" entryx="32416" entryy="32220" entryz="6" rent="50000" townid="8" size="10" clientid="11002" beds="0" />
-	<house name="The City Wall 5d" houseid="2999" entryx="32416" entryy="32223" entryz="6" rent="50000" townid="8" size="10" clientid="11004" beds="0" />
-	<house name="The City Wall 5f" houseid="3000" entryx="32416" entryy="32226" entryz="6" rent="25000" townid="8" size="10" clientid="11006" beds="0" />
-	<house name="The City Wall 5a" houseid="3001" entryx="32416" entryy="32220" entryz="7" rent="50000" townid="8" size="10" clientid="11001" beds="0" />
-	<house name="The City Wall 5c" houseid="3002" entryx="32416" entryy="32223" entryz="7" rent="50000" townid="8" size="10" clientid="11003" beds="0" />
-	<house name="The City Wall 5e" houseid="3003" entryx="32416" entryy="32226" entryz="7" rent="50000" townid="8" size="10" clientid="11005" beds="0" />
+	<house name="Greenshore Village, Shop" houseid="2933" entryx="32278" entryy="32052" entryz="7" rent="80000" townid="8" size="22" clientid="14004" beds="1" />
+	<house name="Greenshore Village, Villa" houseid="2934" entryx="32276" entryy="32045" entryz="7" rent="300000" townid="8" size="125" clientid="14003" beds="4" />
+	<house name="Greenshore Village 7" houseid="2935" entryx="32266" entryy="32032" entryz="7" rent="25000" townid="8" size="20" clientid="14011" beds="1" />
+	<house name="Greenshore Village 3" houseid="2936" entryx="32264" entryy="32041" entryz="7" rent="50000" townid="8" size="24" clientid="14008" beds="2" />
+	<house name="Greenshore Village 2" houseid="2939" entryx="32264" entryy="32042" entryz="7" rent="50000" townid="8" size="24" clientid="14006" beds="2" />
+	<house name="Greenshore Village 6" houseid="2940" entryx="32258" entryy="32041" entryz="6" rent="150000" townid="8" size="66" clientid="14010" beds="2" />
+	<house name="Harbour Place 1 (Shop)" houseid="2941" entryx="32336" entryy="32222" entryz="7" rent="800000" townid="8" size="16" clientid="11404" beds="1" />
+	<house name="Harbour Place 2 (Shop)" houseid="2942" entryx="32336" entryy="32210" entryz="7" rent="600000" townid="8" size="21" clientid="11401" beds="1" />
+	<house name="Harbour Place 3" houseid="2943" entryx="32331" entryy="32208" entryz="7" rent="800000" townid="8" size="84" clientid="11402" beds="5" />
+	<house name="Harbour Street 4" houseid="2944" entryx="32332" entryy="32257" entryz="7" rent="80000" townid="8" size="16" clientid="10602" beds="1" />
+	<house name="Lower Swamp Lane 1" houseid="2945" entryx="32356" entryy="32262" entryz="7" rent="400000" townid="8" size="66" clientid="10403" beds="4" />
+	<house name="Lower Swamp Lane 3" houseid="2946" entryx="32368" entryy="32262" entryz="7" rent="400000" townid="8" size="66" clientid="10404" beds="4" />
+	<house name="Main Street 9, 1st floor (Shop)" houseid="2947" entryx="32377" entryy="32224" entryz="7" rent="200000" townid="8" size="25" clientid="10802" beds="1" />
+	<house name="Main Street 9a, 2nd floor (Shop)" houseid="2948" entryx="32377" entryy="32222" entryz="6" rent="100000" townid="8" size="12" clientid="10803" beds="1" />
+	<house name="Main Street 9b, 2nd floor (Shop)" houseid="2949" entryx="32377" entryy="32224" entryz="6" rent="150000" townid="8" size="22" clientid="10804" beds="1" />
+	<house name="Mill Avenue 1 (Shop)" houseid="2950" entryx="32398" entryy="32181" entryz="7" rent="200000" townid="8" size="20" clientid="10901" beds="1" />
+	<house name="Mill Avenue 2 (Shop)" houseid="2951" entryx="32404" entryy="32181" entryz="7" rent="200000" townid="8" size="39" clientid="10902" beds="2" />
+	<house name="Mill Avenue 3" houseid="2952" entryx="32410" entryy="32184" entryz="7" rent="100000" townid="8" size="25" clientid="10903" beds="2" />
+	<house name="Mill Avenue 4" houseid="2953" entryx="32413" entryy="32189" entryz="6" rent="100000" townid="8" size="25" clientid="10904" beds="2" />
+	<house name="Mill Avenue 5" houseid="2954" entryx="32422" entryy="32178" entryz="7" rent="300000" townid="8" size="55" clientid="10905" beds="4" />
+	<house name="Open-Air Theatre" houseid="2955" entryx="32262" entryy="32238" entryz="7" rent="150000" townid="8" size="53" clientid="10007" beds="1" />
+	<house name="Smuggler's Den" houseid="2956" entryx="32419" entryy="32262" entryz="9" rent="400000" townid="8" size="170" clientid="11024" beds="7" />
+	<house name="Sorcerer's Avenue 1a" houseid="2957" entryx="32300" entryy="32254" entryz="7" rent="100000" townid="8" size="20" clientid="10501" beds="2" />
+	<house name="Sorcerer's Avenue 5 (Shop)" houseid="2958" entryx="32284" entryy="32256" entryz="7" rent="150000" townid="8" size="44" clientid="10504" beds="1" />
+	<house name="Sorcerer's Avenue 1b" houseid="2959" entryx="32300" entryy="32251" entryz="6" rent="80000" townid="8" size="16" clientid="10502" beds="2" />
+	<house name="Sorcerer's Avenue 1c" houseid="2960" entryx="32300" entryy="32249" entryz="6" rent="100000" townid="8" size="20" clientid="10503" beds="2" />
+	<house name="Sorcerer's Avenue Labs 2a" houseid="2961" entryx="32297" entryy="32273" entryz="8" rent="50000" townid="8" size="28" clientid="10505" beds="2" />
+	<house name="Sorcerer's Avenue Labs 2c" houseid="2962" entryx="32297" entryy="32274" entryz="8" rent="50000" townid="8" size="28" clientid="10510" beds="2" />
+	<house name="Sorcerer's Avenue Labs 2b" houseid="2963" entryx="32301" entryy="32274" entryz="8" rent="50000" townid="8" size="28" clientid="10508" beds="2" />
+	<house name="Sunset Homes, Flat 01" houseid="2964" entryx="32333" entryy="32232" entryz="7" rent="100000" townid="8" size="12" clientid="10101" beds="1" />
+	<house name="Sunset Homes, Flat 02" houseid="2965" entryx="32333" entryy="32237" entryz="7" rent="80000" townid="8" size="12" clientid="10102" beds="1" />
+	<house name="Sunset Homes, Flat 03" houseid="2966" entryx="32334" entryy="32244" entryz="7" rent="80000" townid="8" size="12" clientid="10103" beds="1" />
+	<house name="Sunset Homes, Flat 11" houseid="2967" entryx="32333" entryy="32232" entryz="6" rent="80000" townid="8" size="12" clientid="10104" beds="1" />
+	<house name="Sunset Homes, Flat 12" houseid="2968" entryx="32333" entryy="32237" entryz="6" rent="50000" townid="8" size="12" clientid="10112" beds="1" />
+	<house name="Sunset Homes, Flat 13" houseid="2969" entryx="32334" entryy="32244" entryz="6" rent="100000" townid="8" size="18" clientid="10113" beds="2" />
+	<house name="Sunset Homes, Flat 14" houseid="2970" entryx="32334" entryy="32249" entryz="6" rent="50000" townid="8" size="12" clientid="10114" beds="1" />
+	<house name="Sunset Homes, Flat 21" houseid="2971" entryx="32333" entryy="32232" entryz="5" rent="50000" townid="8" size="12" clientid="10121" beds="1" />
+	<house name="Sunset Homes, Flat 22" houseid="2972" entryx="32333" entryy="32237" entryz="5" rent="50000" townid="8" size="12" clientid="10122" beds="1" />
+	<house name="Sunset Homes, Flat 23" houseid="2973" entryx="32334" entryy="32244" entryz="5" rent="80000" townid="8" size="18" clientid="10123" beds="2" />
+	<house name="Sunset Homes, Flat 24" houseid="2974" entryx="32334" entryy="32249" entryz="5" rent="50000" townid="8" size="12" clientid="10124" beds="1" />
+	<house name="Thais Hostel" houseid="2975" entryx="32333" entryy="32255" entryz="6" rent="200000" townid="8" size="112" clientid="10603" beds="24" />
+	<house name="The City Wall 1a" houseid="2976" entryx="32422" entryy="32189" entryz="7" rent="150000" townid="8" size="25" clientid="11022" beds="2" />
+	<house name="The City Wall 1b" houseid="2977" entryx="32422" entryy="32189" entryz="6" rent="100000" townid="8" size="25" clientid="11023" beds="2" />
+	<house name="The City Wall 3a" houseid="2978" entryx="32423" entryy="32208" entryz="7" rent="100000" townid="8" size="20" clientid="11016" beds="2" />
+	<house name="The City Wall 3b" houseid="2979" entryx="32423" entryy="32203" entryz="7" rent="100000" townid="8" size="20" clientid="11017" beds="2" />
+	<house name="The City Wall 3c" houseid="2980" entryx="32423" entryy="32198" entryz="7" rent="100000" townid="8" size="20" clientid="11018" beds="2" />
+	<house name="The City Wall 3d" houseid="2981" entryx="32423" entryy="32208" entryz="6" rent="100000" townid="8" size="20" clientid="11019" beds="2" />
+	<house name="The City Wall 3e" houseid="2982" entryx="32423" entryy="32203" entryz="6" rent="100000" townid="8" size="20" clientid="11020" beds="2" />
+	<house name="The City Wall 3f" houseid="2983" entryx="32423" entryy="32198" entryz="6" rent="100000" townid="8" size="20" clientid="11021" beds="2" />
+	<house name="Upper Swamp Lane 12" houseid="2984" entryx="32419" entryy="32256" entryz="7" rent="300000" townid="8" size="50" clientid="10408" beds="3" />
+	<house name="Upper Swamp Lane 10" houseid="2985" entryx="32412" entryy="32256" entryz="7" rent="150000" townid="8" size="30" clientid="10407" beds="3" />
+	<house name="Upper Swamp Lane 8" houseid="2986" entryx="32398" entryy="32256" entryz="7" rent="600000" townid="8" size="128" clientid="10405" beds="3" />
+	<house name="Upper Swamp Lane 4" houseid="2987" entryx="32360" entryy="32252" entryz="7" rent="600000" townid="8" size="66" clientid="10402" beds="4" />
+	<house name="Upper Swamp Lane 2" houseid="2988" entryx="32348" entryy="32252" entryz="7" rent="600000" townid="8" size="66" clientid="10401" beds="4" />
+	<house name="The City Wall 9" houseid="2989" entryx="32419" entryy="32247" entryz="7" rent="80000" townid="8" size="18" clientid="11015" beds="2" />
+	<house name="The City Wall 7h" houseid="2990" entryx="32419" entryy="32238" entryz="6" rent="50000" townid="8" size="12" clientid="11014" beds="1" />
+	<house name="The City Wall 7b" houseid="2991" entryx="32419" entryy="32237" entryz="6" rent="25000" townid="8" size="12" clientid="11008" beds="1" />
+	<house name="The City Wall 7d" houseid="2992" entryx="32413" entryy="32237" entryz="6" rent="50000" townid="8" size="16" clientid="11010" beds="2" />
+	<house name="The City Wall 7f" houseid="2993" entryx="32413" entryy="32238" entryz="6" rent="80000" townid="8" size="16" clientid="11012" beds="2" />
+	<house name="The City Wall 7c" houseid="2994" entryx="32413" entryy="32237" entryz="7" rent="80000" townid="8" size="16" clientid="11009" beds="2" />
+	<house name="The City Wall 7a" houseid="2995" entryx="32419" entryy="32237" entryz="7" rent="80000" townid="8" size="12" clientid="11007" beds="1" />
+	<house name="The City Wall 7g" houseid="2996" entryx="32419" entryy="32238" entryz="7" rent="50000" townid="8" size="12" clientid="11013" beds="1" />
+	<house name="The City Wall 7e" houseid="2997" entryx="32413" entryy="32238" entryz="7" rent="80000" townid="8" size="16" clientid="11011" beds="2" />
+	<house name="The City Wall 5b" houseid="2998" entryx="32416" entryy="32220" entryz="6" rent="50000" townid="8" size="12" clientid="11002" beds="1" />
+	<house name="The City Wall 5d" houseid="2999" entryx="32416" entryy="32223" entryz="6" rent="50000" townid="8" size="12" clientid="11004" beds="1" />
+	<house name="The City Wall 5f" houseid="3000" entryx="32416" entryy="32226" entryz="6" rent="25000" townid="8" size="12" clientid="11006" beds="1" />
+	<house name="The City Wall 5a" houseid="3001" entryx="32416" entryy="32220" entryz="7" rent="50000" townid="8" size="12" clientid="11001" beds="1" />
+	<house name="The City Wall 5c" houseid="3002" entryx="32416" entryy="32223" entryz="7" rent="50000" townid="8" size="12" clientid="11003" beds="1" />
+	<house name="The City Wall 5e" houseid="3003" entryx="32416" entryy="32226" entryz="7" rent="50000" townid="8" size="12" clientid="11005" beds="1" />
 	<house name="Warriors' Guildhall" houseid="3004" entryx="32348" entryy="32213" entryz="7" rent="5000000" guildhall="true" townid="8" size="278" clientid="10801" beds="11" />
 	<house name="The Tibianic" houseid="3005" entryx="32277" entryy="32011" entryz="5" rent="500000" guildhall="true" townid="8" size="466" clientid="14001" beds="10" />
 	<house name="Bloodhall" houseid="3006" entryx="32469" entryy="32170" entryz="7" rent="500000" guildhall="true" townid="8" size="276" clientid="10005" beds="16" />
@@ -529,100 +529,100 @@
 	<house name="Luminous Arc 4" houseid="3216" entryx="32834" entryy="31243" entryz="7" rent="800000" townid="17" size="173" clientid="37012" beds="0" />
 	<house name="Harbour Promenade 1" houseid="3217" entryx="32780" entryy="31259" entryz="6" rent="800000" townid="17" size="124" clientid="37017" beds="0" />
 	<house name="Sun Palace" houseid="3218" entryx="32760" entryy="31209" entryz="7" rent="5000000" guildhall="true" townid="17" size="511" clientid="38003" beds="27" />
-	<house name="Haggler's Hangout 3" houseid="3219" entryx="32612" entryy="32739" entryz="7" rent="300000" townid="15" size="136" clientid="45003" beds="0" />
-	<house name="Haggler's Hangout 7" houseid="3220" entryx="32614" entryy="32728" entryz="7" rent="400000" townid="15" size="136" clientid="45008" beds="0" />
-	<house name="Big Game Hunter's Lodge" houseid="3221" entryx="32627" entryy="32731" entryz="7" rent="600000" townid="15" size="162" clientid="45009" beds="0" />
-	<house name="Haggler's Hangout 6" houseid="3222" entryx="32638" entryy="32750" entryz="7" rent="400000" townid="15" size="112" clientid="45007" beds="0" />
-	<house name="Haggler's Hangout 5 (Shop)" houseid="3223" entryx="32630" entryy="32757" entryz="7" rent="200000" townid="15" size="23" clientid="45006" beds="0" />
-	<house name="Haggler's Hangout 4b (Shop)" houseid="3224" entryx="32616" entryy="32758" entryz="7" rent="150000" townid="15" size="23" clientid="45005" beds="0" />
-	<house name="Haggler's Hangout 4a (Shop)" houseid="3225" entryx="32616" entryy="32752" entryz="7" rent="200000" townid="15" size="29" clientid="45004" beds="0" />
-	<house name="Haggler's Hangout 2" houseid="3226" entryx="32601" entryy="32761" entryz="7" rent="100000" townid="15" size="23" clientid="45002" beds="0" />
-	<house name="Haggler's Hangout 1" houseid="3227" entryx="32593" entryy="32759" entryz="7" rent="100000" townid="15" size="21" clientid="45001" beds="0" />
-	<house name="Bamboo Garden 3" houseid="3228" entryx="32645" entryy="32789" entryz="7" rent="150000" townid="15" size="26" clientid="46021" beds="0" />
+	<house name="Haggler's Hangout 3" houseid="3219" entryx="32612" entryy="32739" entryz="7" rent="300000" townid="15" size="144" clientid="45003" beds="4" />
+	<house name="Haggler's Hangout 7" houseid="3220" entryx="32614" entryy="32728" entryz="7" rent="400000" townid="15" size="136" clientid="45008" beds="7" />
+	<house name="Big Game Hunter's Lodge" houseid="3221" entryx="32627" entryy="32731" entryz="7" rent="600000" townid="15" size="162" clientid="45009" beds="8" />
+	<house name="Haggler's Hangout 6" houseid="3222" entryx="32638" entryy="32750" entryz="7" rent="400000" townid="15" size="120" clientid="45007" beds="4" />
+	<house name="Haggler's Hangout 5 (Shop)" houseid="3223" entryx="32630" entryy="32757" entryz="7" rent="200000" townid="15" size="25" clientid="45006" beds="1" />
+	<house name="Haggler's Hangout 4b (Shop)" houseid="3224" entryx="32616" entryy="32758" entryz="7" rent="150000" townid="15" size="25" clientid="45005" beds="1" />
+	<house name="Haggler's Hangout 4a (Shop)" houseid="3225" entryx="32616" entryy="32752" entryz="7" rent="200000" townid="15" size="31" clientid="45004" beds="1" />
+	<house name="Haggler's Hangout 2" houseid="3226" entryx="32601" entryy="32761" entryz="7" rent="100000" townid="15" size="25" clientid="45002" beds="1" />
+	<house name="Haggler's Hangout 1" houseid="3227" entryx="32593" entryy="32759" entryz="7" rent="100000" townid="15" size="25" clientid="45001" beds="2" />
+	<house name="Bamboo Garden 3" houseid="3228" entryx="32645" entryy="32789" entryz="7" rent="150000" townid="15" size="30" clientid="46021" beds="2" />
 	<house name="Bamboo Fortress" houseid="3229" entryx="32664" entryy="32791" entryz="7" rent="500000" guildhall="true" townid="15" size="405" clientid="46041" beds="20" />
-	<house name="Bamboo Garden 2" houseid="3230" entryx="32622" entryy="32796" entryz="7" rent="80000" townid="15" size="16" clientid="46020" beds="0" />
-	<house name="Bamboo Garden 1" houseid="3231" entryx="32574" entryy="32795" entryz="7" rent="100000" townid="15" size="24" clientid="46019" beds="0" />
-	<house name="Banana Bay 4" houseid="3232" entryx="32556" entryy="32814" entryz="6" rent="25000" townid="15" size="7" clientid="46004" beds="0" />
-	<house name="Banana Bay 2" houseid="3233" entryx="32550" entryy="32803" entryz="6" rent="50000" townid="15" size="14" clientid="46002" beds="0" />
-	<house name="Banana Bay 3" houseid="3234" entryx="32561" entryy="32805" entryz="6" rent="50000" townid="15" size="7" clientid="46003" beds="0" />
-	<house name="Banana Bay 1" houseid="3235" entryx="32553" entryy="32799" entryz="6" rent="25000" townid="15" size="7" clientid="46001" beds="0" />
-	<house name="Crocodile Bridge 1" houseid="3236" entryx="32571" entryy="32794" entryz="6" rent="80000" townid="15" size="16" clientid="46005" beds="0" />
-	<house name="Crocodile Bridge 2" houseid="3237" entryx="32571" entryy="32787" entryz="6" rent="80000" townid="15" size="12" clientid="46006" beds="0" />
-	<house name="Crocodile Bridge 3" houseid="3238" entryx="32579" entryy="32788" entryz="6" rent="100000" townid="15" size="21" clientid="46007" beds="0" />
-	<house name="Crocodile Bridge 4" houseid="3239" entryx="32592" entryy="32792" entryz="6" rent="300000" townid="15" size="88" clientid="46008" beds="0" />
-	<house name="Crocodile Bridge 5" houseid="3240" entryx="32605" entryy="32793" entryz="6" rent="200000" townid="15" size="80" clientid="46009" beds="0" />
-	<house name="Woodway 1" houseid="3241" entryx="32618" entryy="32787" entryz="6" rent="80000" townid="15" size="14" clientid="46010" beds="0" />
-	<house name="Woodway 2" houseid="3242" entryx="32629" entryy="32784" entryz="6" rent="50000" townid="15" size="10" clientid="46011" beds="0" />
-	<house name="Woodway 3" houseid="3243" entryx="32642" entryy="32784" entryz="6" rent="150000" townid="15" size="26" clientid="46012" beds="0" />
-	<house name="Woodway 4" houseid="3244" entryx="32653" entryy="32782" entryz="6" rent="25000" townid="15" size="6" clientid="46013" beds="0" />
-	<house name="Flamingo Flats 5" houseid="3245" entryx="32664" entryy="32786" entryz="6" rent="150000" townid="15" size="38" clientid="46018" beds="0" />
-	<house name="Flamingo Flats 4" houseid="3246" entryx="32674" entryy="32783" entryz="6" rent="80000" townid="15" size="12" clientid="46017" beds="0" />
-	<house name="Flamingo Flats 1" houseid="3247" entryx="32664" entryy="32773" entryz="6" rent="50000" townid="15" size="8" clientid="46014" beds="0" />
-	<house name="Flamingo Flats 2" houseid="3248" entryx="32672" entryy="32774" entryz="6" rent="80000" townid="15" size="16" clientid="46015" beds="0" />
-	<house name="Flamingo Flats 3" houseid="3249" entryx="32681" entryy="32770" entryz="6" rent="50000" townid="15" size="8" clientid="46016" beds="0" />
-	<house name="Jungle Edge 1" houseid="3250" entryx="32662" entryy="32752" entryz="6" rent="200000" townid="15" size="44" clientid="46030" beds="0" />
-	<house name="Jungle Edge 2" houseid="3251" entryx="32673" entryy="32746" entryz="6" rent="200000" townid="15" size="57" clientid="46031" beds="0" />
-	<house name="Jungle Edge 4" houseid="3252" entryx="32674" entryy="32757" entryz="6" rent="80000" townid="15" size="12" clientid="46033" beds="0" />
-	<house name="Jungle Edge 5" houseid="3253" entryx="32680" entryy="32756" entryz="6" rent="80000" townid="15" size="12" clientid="46034" beds="0" />
-	<house name="Jungle Edge 6" houseid="3254" entryx="32690" entryy="32757" entryz="6" rent="25000" townid="15" size="7" clientid="46035" beds="0" />
-	<house name="Jungle Edge 3" houseid="3255" entryx="32680" entryy="32745" entryz="6" rent="80000" townid="15" size="12" clientid="46032" beds="0" />
-	<house name="River Homes 3" houseid="3256" entryx="32647" entryy="32769" entryz="6" rent="200000" townid="15" size="82" clientid="46029" beds="0" />
-	<house name="River Homes 2b" houseid="3257" entryx="32634" entryy="32773" entryz="6" rent="150000" townid="15" size="24" clientid="46028" beds="0" />
-	<house name="River Homes 2a" houseid="3258" entryx="32627" entryy="32773" entryz="6" rent="100000" townid="15" size="21" clientid="46027" beds="0" />
-	<house name="River Homes 1" houseid="3259" entryx="32618" entryy="32773" entryz="6" rent="300000" townid="15" size="66" clientid="46026" beds="0" />
-	<house name="Coconut Quay 4" houseid="3260" entryx="32598" entryy="32773" entryz="6" rent="150000" townid="15" size="36" clientid="46025" beds="0" />
-	<house name="Coconut Quay 3" houseid="3261" entryx="32586" entryy="32773" entryz="6" rent="200000" townid="15" size="32" clientid="46024" beds="0" />
-	<house name="Coconut Quay 2" houseid="3262" entryx="32577" entryy="32766" entryz="6" rent="100000" townid="15" size="16" clientid="46023" beds="0" />
-	<house name="Coconut Quay 1" houseid="3263" entryx="32568" entryy="32775" entryz="6" rent="150000" townid="15" size="32" clientid="46022" beds="0" />
+	<house name="Bamboo Garden 2" houseid="3230" entryx="32622" entryy="32796" entryz="7" rent="80000" townid="15" size="20" clientid="46020" beds="2" />
+	<house name="Bamboo Garden 1" houseid="3231" entryx="32574" entryy="32795" entryz="7" rent="100000" townid="15" size="30" clientid="46019" beds="3" />
+	<house name="Banana Bay 4" houseid="3232" entryx="32556" entryy="32814" entryz="6" rent="25000" townid="15" size="9" clientid="46004" beds="1" />
+	<house name="Banana Bay 2" houseid="3233" entryx="32550" entryy="32803" entryz="6" rent="50000" townid="15" size="16" clientid="46002" beds="1" />
+	<house name="Banana Bay 3" houseid="3234" entryx="32561" entryy="32805" entryz="6" rent="50000" townid="15" size="9" clientid="46003" beds="1" />
+	<house name="Banana Bay 1" houseid="3235" entryx="32553" entryy="32799" entryz="6" rent="25000" townid="15" size="9" clientid="46001" beds="1" />
+	<house name="Crocodile Bridge 1" houseid="3236" entryx="32571" entryy="32794" entryz="6" rent="80000" townid="15" size="20" clientid="46005" beds="2" />
+	<house name="Crocodile Bridge 2" houseid="3237" entryx="32571" entryy="32787" entryz="6" rent="80000" townid="15" size="16" clientid="46006" beds="2" />
+	<house name="Crocodile Bridge 3" houseid="3238" entryx="32579" entryy="32788" entryz="6" rent="100000" townid="15" size="25" clientid="46007" beds="2" />
+	<house name="Crocodile Bridge 4" houseid="3239" entryx="32592" entryy="32792" entryz="6" rent="300000" townid="15" size="92" clientid="46008" beds="2" />
+	<house name="Crocodile Bridge 5" houseid="3240" entryx="32605" entryy="32793" entryz="6" rent="200000" townid="15" size="84" clientid="46009" beds="2" />
+	<house name="Woodway 1" houseid="3241" entryx="32618" entryy="32787" entryz="6" rent="80000" townid="15" size="16" clientid="46010" beds="1" />
+	<house name="Woodway 2" houseid="3242" entryx="32629" entryy="32784" entryz="6" rent="50000" townid="15" size="12" clientid="46011" beds="1" />
+	<house name="Woodway 3" houseid="3243" entryx="32642" entryy="32784" entryz="6" rent="150000" townid="15" size="30" clientid="46012" beds="2" />
+	<house name="Woodway 4" houseid="3244" entryx="32653" entryy="32782" entryz="6" rent="25000" townid="15" size="8" clientid="46013" beds="1" />
+	<house name="Flamingo Flats 5" houseid="3245" entryx="32664" entryy="32786" entryz="6" rent="150000" townid="15" size="40" clientid="46018" beds="1" />
+	<house name="Flamingo Flats 4" houseid="3246" entryx="32674" entryy="32783" entryz="6" rent="80000" townid="15" size="16" clientid="46017" beds="2" />
+	<house name="Flamingo Flats 1" houseid="3247" entryx="32664" entryy="32773" entryz="6" rent="50000" townid="15" size="12" clientid="46014" beds="2" />
+	<house name="Flamingo Flats 2" houseid="3248" entryx="32672" entryy="32774" entryz="6" rent="80000" townid="15" size="20" clientid="46015" beds="2" />
+	<house name="Flamingo Flats 3" houseid="3249" entryx="32681" entryy="32770" entryz="6" rent="50000" townid="15" size="12" clientid="46016" beds="2" />
+	<house name="Jungle Edge 1" houseid="3250" entryx="32662" entryy="32752" entryz="6" rent="200000" townid="15" size="50" clientid="46030" beds="3" />
+	<house name="Jungle Edge 2" houseid="3251" entryx="32673" entryy="32746" entryz="6" rent="200000" townid="15" size="63" clientid="46031" beds="3" />
+	<house name="Jungle Edge 4" houseid="3252" entryx="32674" entryy="32757" entryz="6" rent="80000" townid="15" size="16" clientid="46033" beds="2" />
+	<house name="Jungle Edge 5" houseid="3253" entryx="32680" entryy="32756" entryz="6" rent="80000" townid="15" size="16" clientid="46034" beds="2" />
+	<house name="Jungle Edge 6" houseid="3254" entryx="32690" entryy="32757" entryz="6" rent="25000" townid="15" size="9" clientid="46035" beds="1" />
+	<house name="Jungle Edge 3" houseid="3255" entryx="32680" entryy="32745" entryz="6" rent="80000" townid="15" size="16" clientid="46032" beds="2" />
+	<house name="River Homes 3" houseid="3256" entryx="32647" entryy="32769" entryz="6" rent="200000" townid="15" size="96" clientid="46029" beds="7" />
+	<house name="River Homes 2b" houseid="3257" entryx="32634" entryy="32773" entryz="6" rent="150000" townid="15" size="30" clientid="46028" beds="3" />
+	<house name="River Homes 2a" houseid="3258" entryx="32627" entryy="32773" entryz="6" rent="100000" townid="15" size="25" clientid="46027" beds="2" />
+	<house name="River Homes 1" houseid="3259" entryx="32618" entryy="32773" entryz="6" rent="300000" townid="15" size="72" clientid="46026" beds="3" />
+	<house name="Coconut Quay 4" houseid="3260" entryx="32598" entryy="32773" entryz="6" rent="150000" townid="15" size="42" clientid="46025" beds="3" />
+	<house name="Coconut Quay 3" houseid="3261" entryx="32586" entryy="32773" entryz="6" rent="200000" townid="15" size="40" clientid="46024" beds="4" />
+	<house name="Coconut Quay 2" houseid="3262" entryx="32577" entryy="32766" entryz="6" rent="100000" townid="15" size="20" clientid="46023" beds="2" />
+	<house name="Coconut Quay 1" houseid="3263" entryx="32568" entryy="32775" entryz="6" rent="150000" townid="15" size="36" clientid="46022" beds="2" />
 	<house name="Shark Manor" houseid="3264" entryx="32556" entryy="32767" entryz="6" rent="250000" guildhall="true" townid="15" size="153" clientid="46040" beds="15" />
-	<house name="Glacier Side 2" houseid="3265" entryx="32203" entryy="31132" entryz="7" rent="300000" townid="16" size="82" clientid="55003" beds="0" />
-	<house name="Glacier Side 1" houseid="3266" entryx="32206" entryy="31126" entryz="7" rent="150000" townid="16" size="23" clientid="55002" beds="0" />
-	<house name="Glacier Side 3" houseid="3267" entryx="32206" entryy="31140" entryz="7" rent="150000" townid="16" size="30" clientid="55004" beds="0" />
-	<house name="Glacier Side 4" houseid="3268" entryx="32204" entryy="31147" entryz="6" rent="150000" townid="16" size="37" clientid="55005" beds="0" />
-	<house name="Shelf Site" houseid="3269" entryx="32197" entryy="31150" entryz="6" rent="300000" townid="16" size="80" clientid="55001" beds="0" />
-	<house name="Spirit Homes 5" houseid="3270" entryx="32223" entryy="31142" entryz="7" rent="150000" townid="16" size="21" clientid="55010" beds="0" />
-	<house name="Spirit Homes 4" houseid="3271" entryx="32220" entryy="31129" entryz="7" rent="80000" townid="16" size="18" clientid="55009" beds="0" />
-	<house name="Spirit Homes 1" houseid="3272" entryx="32210" entryy="31124" entryz="7" rent="150000" townid="16" size="26" clientid="55006" beds="0" />
-	<house name="Spirit Homes 2" houseid="3273" entryx="32219" entryy="31124" entryz="7" rent="150000" townid="16" size="29" clientid="55007" beds="0" />
-	<house name="Spirit Homes 3" houseid="3274" entryx="32216" entryy="31124" entryz="6" rent="300000" townid="16" size="74" clientid="55008" beds="0" />
-	<house name="Arena Walk 3" houseid="3275" entryx="32235" entryy="31118" entryz="7" rent="300000" townid="16" size="59" clientid="55013" beds="0" />
-	<house name="Arena Walk 2" houseid="3276" entryx="32239" entryy="31126" entryz="7" rent="150000" townid="16" size="20" clientid="55012" beds="0" />
-	<house name="Arena Walk 1" houseid="3277" entryx="32238" entryy="31134" entryz="7" rent="300000" townid="16" size="51" clientid="55011" beds="0" />
-	<house name="Bears Paw 2" houseid="3278" entryx="32241" entryy="31133" entryz="7" rent="300000" townid="16" size="42" clientid="55102" beds="0" />
-	<house name="Bears Paw 1" houseid="3279" entryx="32264" entryy="31132" entryz="7" rent="200000" townid="16" size="32" clientid="55101" beds="0" />
+	<house name="Glacier Side 2" houseid="3265" entryx="32203" entryy="31132" entryz="7" rent="300000" townid="16" size="88" clientid="55003" beds="3" />
+	<house name="Glacier Side 1" houseid="3266" entryx="32206" entryy="31126" entryz="7" rent="150000" townid="16" size="27" clientid="55002" beds="2" />
+	<house name="Glacier Side 3" houseid="3267" entryx="32206" entryy="31140" entryz="7" rent="150000" townid="16" size="34" clientid="55004" beds="2" />
+	<house name="Glacier Side 4" houseid="3268" entryx="32204" entryy="31147" entryz="6" rent="150000" townid="16" size="39" clientid="55005" beds="1" />
+	<house name="Shelf Site" houseid="3269" entryx="32197" entryy="31150" entryz="6" rent="300000" townid="16" size="86" clientid="55001" beds="3" />
+	<house name="Spirit Homes 5" houseid="3270" entryx="32223" entryy="31142" entryz="7" rent="150000" townid="16" size="25" clientid="55010" beds="2" />
+	<house name="Spirit Homes 4" houseid="3271" entryx="32220" entryy="31129" entryz="7" rent="80000" townid="16" size="20" clientid="55009" beds="1" />
+	<house name="Spirit Homes 1" houseid="3272" entryx="32210" entryy="31124" entryz="7" rent="150000" townid="16" size="30" clientid="55006" beds="2" />
+	<house name="Spirit Homes 2" houseid="3273" entryx="32219" entryy="31124" entryz="7" rent="150000" townid="16" size="33" clientid="55007" beds="2" />
+	<house name="Spirit Homes 3" houseid="3274" entryx="32216" entryy="31124" entryz="6" rent="300000" townid="16" size="80" clientid="55008" beds="3" />
+	<house name="Arena Walk 3" houseid="3275" entryx="32235" entryy="31118" entryz="7" rent="300000" townid="16" size="65" clientid="55013" beds="3" />
+	<house name="Arena Walk 2" houseid="3276" entryx="32239" entryy="31126" entryz="7" rent="150000" townid="16" size="24" clientid="55012" beds="2" />
+	<house name="Arena Walk 1" houseid="3277" entryx="32238" entryy="31134" entryz="7" rent="300000" townid="16" size="57" clientid="55011" beds="3" />
+	<house name="Bears Paw 2" houseid="3278" entryx="32241" entryy="31133" entryz="7" rent="300000" townid="16" size="46" clientid="55102" beds="2" />
+	<house name="Bears Paw 1" houseid="3279" entryx="32264" entryy="31132" entryz="7" rent="200000" townid="16" size="36" clientid="55101" beds="2" />
 	<house name="Crystal Glance" houseid="3280" entryx="32246" entryy="31118" entryz="7" rent="1000000" guildhall="true" townid="16" size="282" clientid="55302" beds="24" />
-	<house name="Shady Rocks 2" houseid="3281" entryx="32259" entryy="31119" entryz="7" rent="200000" townid="16" size="27" clientid="55127" beds="0" />
-	<house name="Shady Rocks 1" houseid="3282" entryx="32259" entryy="31110" entryz="7" rent="300000" townid="16" size="63" clientid="55126" beds="0" />
-	<house name="Shady Rocks 3" houseid="3283" entryx="32277" entryy="31121" entryz="7" rent="300000" townid="16" size="77" clientid="55128" beds="0" />
-	<house name="Shady Rocks 4 (Shop)" houseid="3284" entryx="32282" entryy="31123" entryz="7" rent="200000" townid="16" size="47" clientid="55129" beds="0" />
-	<house name="Shady Rocks 5" houseid="3285" entryx="32288" entryy="31125" entryz="7" rent="300000" townid="16" size="55" clientid="55130" beds="0" />
-	<house name="Tusk Flats 2" houseid="3286" entryx="32301" entryy="31117" entryz="7" rent="80000" townid="16" size="16" clientid="55202" beds="0" />
-	<house name="Tusk Flats 1" houseid="3287" entryx="32300" entryy="31124" entryz="7" rent="80000" townid="16" size="14" clientid="55201" beds="0" />
-	<house name="Tusk Flats 3" houseid="3288" entryx="32308" entryy="31111" entryz="7" rent="80000" townid="16" size="11" clientid="55203" beds="0" />
-	<house name="Tusk Flats 4" houseid="3289" entryx="32307" entryy="31105" entryz="7" rent="25000" townid="16" size="6" clientid="55204" beds="0" />
-	<house name="Tusk Flats 6" houseid="3290" entryx="32308" entryy="31099" entryz="7" rent="50000" townid="16" size="12" clientid="55206" beds="0" />
-	<house name="Tusk Flats 5" houseid="3291" entryx="32320" entryy="31108" entryz="7" rent="25000" townid="16" size="11" clientid="55205" beds="0" />
-	<house name="Corner Shop (Shop)" houseid="3292" entryx="32304" entryy="31141" entryz="7" rent="200000" townid="16" size="36" clientid="55131" beds="0" />
-	<house name="Bears Paw 5" houseid="3293" entryx="32272" entryy="31157" entryz="7" rent="200000" townid="16" size="32" clientid="55105" beds="0" />
-	<house name="Bears Paw 4" houseid="3294" entryx="32256" entryy="31158" entryz="7" rent="400000" townid="16" size="96" clientid="55104" beds="0" />
-	<house name="Trout Plaza 2" houseid="3295" entryx="32260" entryy="31161" entryz="7" rent="150000" townid="16" size="26" clientid="55112" beds="0" />
-	<house name="Trout Plaza 1" houseid="3296" entryx="32248" entryy="31166" entryz="7" rent="200000" townid="16" size="43" clientid="55111" beds="0" />
-	<house name="Trout Plaza 5 (Shop)" houseid="3297" entryx="32275" entryy="31167" entryz="7" rent="300000" townid="16" size="73" clientid="55115" beds="0" />
-	<house name="Trout Plaza 3" houseid="3298" entryx="32255" entryy="31173" entryz="7" rent="80000" townid="16" size="16" clientid="55113" beds="0" />
-	<house name="Trout Plaza 4" houseid="3299" entryx="32255" entryy="31177" entryz="7" rent="80000" townid="16" size="16" clientid="55114" beds="0" />
-	<house name="Skiffs End 2" houseid="3300" entryx="32257" entryy="31189" entryz="7" rent="80000" townid="16" size="12" clientid="55110" beds="0" />
-	<house name="Skiffs End 1" houseid="3301" entryx="32250" entryy="31187" entryz="7" rent="100000" townid="16" size="25" clientid="55109" beds="0" />
-	<house name="Furrier Quarter 3" houseid="3302" entryx="32232" entryy="31191" entryz="7" rent="100000" townid="16" size="20" clientid="55213" beds="0" />
-	<house name="Fimbul Shelf 4" houseid="3303" entryx="32218" entryy="31191" entryz="7" rent="100000" townid="16" size="21" clientid="55210" beds="0" />
-	<house name="Fimbul Shelf 3" houseid="3304" entryx="32215" entryy="31177" entryz="7" rent="100000" townid="16" size="27" clientid="55209" beds="0" />
-	<house name="Furrier Quarter 2" houseid="3305" entryx="32225" entryy="31177" entryz="7" rent="80000" townid="16" size="21" clientid="55212" beds="0" />
-	<house name="Furrier Quarter 1" houseid="3306" entryx="32221" entryy="31176" entryz="7" rent="150000" townid="16" size="32" clientid="55211" beds="0" />
-	<house name="Fimbul Shelf 2" houseid="3307" entryx="32209" entryy="31175" entryz="7" rent="100000" townid="16" size="21" clientid="55208" beds="0" />
-	<house name="Fimbul Shelf 1" houseid="3308" entryx="32204" entryy="31169" entryz="7" rent="80000" townid="16" size="20" clientid="55207" beds="0" />
-	<house name="Bears Paw 3" houseid="3309" entryx="32248" entryy="31157" entryz="7" rent="200000" townid="16" size="33" clientid="55103" beds="0" />
-	<house name="Raven Corner 2" houseid="3310" entryx="32233" entryy="31156" entryz="7" rent="150000" townid="16" size="24" clientid="55107" beds="0" />
-	<house name="Raven Corner 1" houseid="3311" entryx="32234" entryy="31154" entryz="7" rent="80000" townid="16" size="15" clientid="55106" beds="0" />
-	<house name="Raven Corner 3" houseid="3312" entryx="32234" entryy="31157" entryz="7" rent="100000" townid="16" size="15" clientid="55108" beds="0" />
+	<house name="Shady Rocks 2" houseid="3281" entryx="32259" entryy="31119" entryz="7" rent="200000" townid="16" size="35" clientid="55127" beds="4" />
+	<house name="Shady Rocks 1" houseid="3282" entryx="32259" entryy="31110" entryz="7" rent="300000" townid="16" size="71" clientid="55126" beds="4" />
+	<house name="Shady Rocks 3" houseid="3283" entryx="32277" entryy="31121" entryz="7" rent="300000" townid="16" size="83" clientid="55128" beds="3" />
+	<house name="Shady Rocks 4 (Shop)" houseid="3284" entryx="32282" entryy="31123" entryz="7" rent="200000" townid="16" size="51" clientid="55129" beds="2" />
+	<house name="Shady Rocks 5" houseid="3285" entryx="32288" entryy="31125" entryz="7" rent="300000" townid="16" size="59" clientid="55130" beds="2" />
+	<house name="Tusk Flats 2" houseid="3286" entryx="32301" entryy="31117" entryz="7" rent="80000" townid="16" size="20" clientid="55202" beds="2" />
+	<house name="Tusk Flats 1" houseid="3287" entryx="32300" entryy="31124" entryz="7" rent="80000" townid="16" size="18" clientid="55201" beds="2" />
+	<house name="Tusk Flats 3" houseid="3288" entryx="32308" entryy="31111" entryz="7" rent="80000" townid="16" size="15" clientid="55203" beds="2" />
+	<house name="Tusk Flats 4" houseid="3289" entryx="32307" entryy="31105" entryz="7" rent="25000" townid="16" size="8" clientid="55204" beds="1" />
+	<house name="Tusk Flats 6" houseid="3290" entryx="32308" entryy="31099" entryz="7" rent="50000" townid="16" size="16" clientid="55206" beds="2" />
+	<house name="Tusk Flats 5" houseid="3291" entryx="32320" entryy="31108" entryz="7" rent="25000" townid="16" size="13" clientid="55205" beds="1" />
+	<house name="Corner Shop (Shop)" houseid="3292" entryx="32304" entryy="31141" entryz="7" rent="200000" townid="16" size="40" clientid="55131" beds="2" />
+	<house name="Bears Paw 5" houseid="3293" entryx="32272" entryy="31157" entryz="7" rent="200000" townid="16" size="38" clientid="55105" beds="3" />
+	<house name="Bears Paw 4" houseid="3294" entryx="32256" entryy="31158" entryz="7" rent="400000" townid="16" size="104" clientid="55104" beds="4" />
+	<house name="Trout Plaza 2" houseid="3295" entryx="32260" entryy="31161" entryz="7" rent="150000" townid="16" size="30" clientid="55112" beds="2" />
+	<house name="Trout Plaza 1" houseid="3296" entryx="32248" entryy="31166" entryz="7" rent="200000" townid="16" size="47" clientid="55111" beds="2" />
+	<house name="Trout Plaza 5 (Shop)" houseid="3297" entryx="32275" entryy="31167" entryz="7" rent="300000" townid="16" size="77" clientid="55115" beds="2" />
+	<house name="Trout Plaza 3" houseid="3298" entryx="32255" entryy="31173" entryz="7" rent="80000" townid="16" size="18" clientid="55113" beds="1" />
+	<house name="Trout Plaza 4" houseid="3299" entryx="32255" entryy="31177" entryz="7" rent="80000" townid="16" size="18" clientid="55114" beds="1" />
+	<house name="Skiffs End 2" houseid="3300" entryx="32257" entryy="31189" entryz="7" rent="80000" townid="16" size="16" clientid="55110" beds="2" />
+	<house name="Skiffs End 1" houseid="3301" entryx="32250" entryy="31187" entryz="7" rent="100000" townid="16" size="29" clientid="55109" beds="2" />
+	<house name="Furrier Quarter 3" houseid="3302" entryx="32232" entryy="31191" entryz="7" rent="100000" townid="16" size="24" clientid="55213" beds="2" />
+	<house name="Fimbul Shelf 4" houseid="3303" entryx="32218" entryy="31191" entryz="7" rent="100000" townid="16" size="25" clientid="55210" beds="2" />
+	<house name="Fimbul Shelf 3" houseid="3304" entryx="32215" entryy="31177" entryz="7" rent="100000" townid="16" size="31" clientid="55209" beds="2" />
+	<house name="Furrier Quarter 2" houseid="3305" entryx="32225" entryy="31177" entryz="7" rent="80000" townid="16" size="25" clientid="55212" beds="2" />
+	<house name="Furrier Quarter 1" houseid="3306" entryx="32221" entryy="31176" entryz="7" rent="150000" townid="16" size="38" clientid="55211" beds="3" />
+	<house name="Fimbul Shelf 2" houseid="3307" entryx="32209" entryy="31175" entryz="7" rent="100000" townid="16" size="25" clientid="55208" beds="2" />
+	<house name="Fimbul Shelf 1" houseid="3308" entryx="32204" entryy="31169" entryz="7" rent="80000" townid="16" size="24" clientid="55207" beds="2" />
+	<house name="Bears Paw 3" houseid="3309" entryx="32248" entryy="31157" entryz="7" rent="200000" townid="16" size="39" clientid="55103" beds="0" />
+	<house name="Raven Corner 2" houseid="3310" entryx="32233" entryy="31156" entryz="7" rent="150000" townid="16" size="30" clientid="55107" beds="3" />
+	<house name="Raven Corner 1" houseid="3311" entryx="32234" entryy="31154" entryz="7" rent="80000" townid="16" size="17" clientid="55106" beds="1" />
+	<house name="Raven Corner 3" houseid="3312" entryx="32234" entryy="31157" entryz="7" rent="100000" townid="16" size="17" clientid="55108" beds="1" />
 	<house name="Mammoth Belly" houseid="3313" entryx="32241" entryy="31174" entryz="7" rent="1000000" guildhall="true" townid="16" size="338" clientid="55301" beds="30" />
 	<house name="Darashia 3, Flat 01" houseid="3314" entryx="33229" entryy="32442" entryz="7" rent="150000" townid="13" size="24" clientid="61024" beds="2" />
 	<house name="Darashia 3, Flat 05" houseid="3315" entryx="33230" entryy="32442" entryz="7" rent="150000" townid="13" size="24" clientid="61028" beds="1" />
@@ -700,74 +700,74 @@
 	<house name="Pirate Shipwreck 1" houseid="3388" entryx="33278" entryy="32422" entryz="7" rent="800000" townid="13" size="149" clientid="62023" beds="6" />
 	<house name="Pirate Shipwreck 2" houseid="3389" entryx="33281" entryy="32431" entryz="7" rent="800000" townid="13" size="178" clientid="62024" beds="8" />
 	<house name="The Shelter" houseid="3390" entryx="32267" entryy="32859" entryz="7" rent="250000" guildhall="true" townid="14" size="338" clientid="65023" beds="31" />
-	<house name="Litter Promenade 1" houseid="3391" entryx="32271" entryy="32862" entryz="7" rent="25000" townid="14" size="5" clientid="65018" beds="0" />
-	<house name="Litter Promenade 2" houseid="3392" entryx="32277" entryy="32861" entryz="7" rent="50000" townid="14" size="7" clientid="65019" beds="0" />
-	<house name="Litter Promenade 3" houseid="3394" entryx="32286" entryy="32865" entryz="7" rent="25000" townid="14" size="12" clientid="65020" beds="0" />
-	<house name="Litter Promenade 4" houseid="3395" entryx="32288" entryy="32865" entryz="7" rent="25000" townid="14" size="10" clientid="65021" beds="0" />
-	<house name="Rum Alley 3" houseid="3396" entryx="32272" entryy="32854" entryz="7" rent="25000" townid="14" size="8" clientid="65011" beds="0" />
-	<house name="Straycat's Corner 5" houseid="3397" entryx="32281" entryy="32853" entryz="7" rent="80000" townid="14" size="16" clientid="65016" beds="0" />
-	<house name="Straycat's Corner 6" houseid="3398" entryx="32281" entryy="32858" entryz="7" rent="25000" townid="14" size="7" clientid="65017" beds="0" />
-	<house name="Litter Promenade 5" houseid="3399" entryx="32290" entryy="32859" entryz="7" rent="25000" townid="14" size="11" clientid="65022" beds="0" />
-	<house name="Straycat's Corner 4" houseid="3401" entryx="32291" entryy="32852" entryz="7" rent="50000" townid="14" size="12" clientid="65015" beds="0" />
-	<house name="Straycat's Corner 2" houseid="3402" entryx="32284" entryy="32845" entryz="7" rent="50000" townid="14" size="18" clientid="65013" beds="0" />
-	<house name="Straycat's Corner 1" houseid="3403" entryx="32280" entryy="32843" entryz="7" rent="25000" townid="14" size="7" clientid="65012" beds="0" />
-	<house name="Rum Alley 2" houseid="3404" entryx="32260" entryy="32846" entryz="7" rent="25000" townid="14" size="7" clientid="65010" beds="0" />
-	<house name="Rum Alley 1" houseid="3405" entryx="32257" entryy="32839" entryz="7" rent="25000" townid="14" size="14" clientid="65009" beds="0" />
-	<house name="Smuggler Backyard 3" houseid="3406" entryx="32263" entryy="32838" entryz="7" rent="50000" townid="14" size="14" clientid="65003" beds="0" />
-	<house name="Shady Trail 3" houseid="3407" entryx="32274" entryy="32835" entryz="7" rent="25000" townid="14" size="7" clientid="65008" beds="0" />
-	<house name="Shady Trail 1" houseid="3408" entryx="32283" entryy="32834" entryz="7" rent="100000" townid="14" size="14" clientid="65006" beds="0" />
-	<house name="Shady Trail 2" houseid="3409" entryx="32274" entryy="32830" entryz="7" rent="25000" townid="14" size="8" clientid="65007" beds="0" />
-	<house name="Smuggler Backyard 4" houseid="3410" entryx="32263" entryy="32830" entryz="7" rent="25000" townid="14" size="10" clientid="65004" beds="0" />
-	<house name="Smuggler Backyard 2" houseid="3411" entryx="32261" entryy="32829" entryz="7" rent="25000" townid="14" size="14" clientid="65002" beds="0" />
-	<house name="Smuggler Backyard 1" houseid="3412" entryx="32264" entryy="32823" entryz="7" rent="25000" townid="14" size="14" clientid="65001" beds="0" />
-	<house name="Smuggler Backyard 5" houseid="3413" entryx="32272" entryy="32823" entryz="7" rent="25000" townid="14" size="11" clientid="65005" beds="0" />
-	<house name="Sugar Street 1" houseid="3414" entryx="32256" entryy="32815" entryz="7" rent="200000" townid="14" size="48" clientid="64006" beds="0" />
-	<house name="Sugar Street 2" houseid="3415" entryx="32262" entryy="32815" entryz="7" rent="150000" townid="14" size="39" clientid="64007" beds="0" />
-	<house name="Sugar Street 3a" houseid="3416" entryx="32271" entryy="32813" entryz="7" rent="100000" townid="14" size="22" clientid="64008" beds="0" />
-	<house name="Sugar Street 3b" houseid="3417" entryx="32275" entryy="32798" entryz="7" rent="150000" townid="14" size="30" clientid="64009" beds="0" />
-	<house name="Sugar Street 4d" houseid="3418" entryx="32287" entryy="32801" entryz="7" rent="50000" townid="14" size="8" clientid="64013" beds="0" />
-	<house name="Sugar Street 4c" houseid="3419" entryx="32287" entryy="32805" entryz="7" rent="25000" townid="14" size="10" clientid="64012" beds="0" />
-	<house name="Sugar Street 4b" houseid="3420" entryx="32287" entryy="32810" entryz="7" rent="100000" townid="14" size="12" clientid="64011" beds="0" />
-	<house name="Sugar Street 4a" houseid="3421" entryx="32279" entryy="32813" entryz="7" rent="80000" townid="14" size="12" clientid="64010" beds="0" />
-	<house name="Harvester's Haven, Flat 01" houseid="3422" entryx="32274" entryy="32792" entryz="7" rent="50000" townid="14" size="12" clientid="64014" beds="0" />
-	<house name="Harvester's Haven, Flat 03" houseid="3423" entryx="32274" entryy="32787" entryz="7" rent="50000" townid="14" size="12" clientid="64016" beds="0" />
-	<house name="Harvester's Haven, Flat 05" houseid="3424" entryx="32274" entryy="32783" entryz="7" rent="50000" townid="14" size="12" clientid="64018" beds="0" />
-	<house name="Harvester's Haven, Flat 06" houseid="3425" entryx="32276" entryy="32783" entryz="7" rent="50000" townid="14" size="12" clientid="64019" beds="0" />
-	<house name="Harvester's Haven, Flat 04" houseid="3426" entryx="32276" entryy="32786" entryz="7" rent="50000" townid="14" size="12" clientid="64017" beds="0" />
-	<house name="Harvester's Haven, Flat 02" houseid="3427" entryx="32276" entryy="32791" entryz="7" rent="50000" townid="14" size="12" clientid="64015" beds="0" />
-	<house name="Harvester's Haven, Flat 07" houseid="3428" entryx="32274" entryy="32783" entryz="6" rent="80000" townid="14" size="12" clientid="64020" beds="0" />
-	<house name="Harvester's Haven, Flat 09" houseid="3429" entryx="32274" entryy="32787" entryz="6" rent="50000" townid="14" size="12" clientid="64022" beds="0" />
-	<house name="Harvester's Haven, Flat 11" houseid="3430" entryx="32274" entryy="32792" entryz="6" rent="25000" townid="14" size="12" clientid="64024" beds="0" />
-	<house name="Harvester's Haven, Flat 08" houseid="3431" entryx="32276" entryy="32783" entryz="6" rent="50000" townid="14" size="12" clientid="64021" beds="0" />
-	<house name="Harvester's Haven, Flat 10" houseid="3432" entryx="32276" entryy="32786" entryz="6" rent="50000" townid="14" size="12" clientid="64023" beds="0" />
-	<house name="Harvester's Haven, Flat 12" houseid="3433" entryx="32276" entryy="32791" entryz="6" rent="25000" townid="14" size="12" clientid="64025" beds="0" />
-	<house name="Marble Lane 3" houseid="3434" entryx="32301" entryy="32782" entryz="7" rent="600000" townid="14" size="130" clientid="63003" beds="0" />
-	<house name="Marble Lane 2" houseid="3435" entryx="32298" entryy="32782" entryz="7" rent="400000" townid="14" size="105" clientid="63002" beds="0" />
-	<house name="Marble Lane 4" houseid="3436" entryx="32298" entryy="32792" entryz="7" rent="400000" townid="14" size="100" clientid="63004" beds="0" />
-	<house name="Admiral's Avenue 1" houseid="3437" entryx="32309" entryy="32805" entryz="7" rent="400000" townid="14" size="83" clientid="63005" beds="0" />
-	<house name="Admiral's Avenue 2" houseid="3438" entryx="32326" entryy="32806" entryz="7" rent="400000" townid="14" size="82" clientid="63006" beds="0" />
-	<house name="Admiral's Avenue 3" houseid="3439" entryx="32336" entryy="32806" entryz="7" rent="300000" townid="14" size="67" clientid="63007" beds="0" />
-	<house name="Ivory Circle 1" houseid="3440" entryx="32347" entryy="32799" entryz="7" rent="400000" townid="14" size="67" clientid="63008" beds="0" />
-	<house name="Sugar Street 5" houseid="3441" entryx="32301" entryy="32811" entryz="7" rent="150000" townid="14" size="20" clientid="64027" beds="0" />
-	<house name="Freedom Street 1" houseid="3442" entryx="32323" entryy="32812" entryz="7" rent="200000" townid="14" size="41" clientid="64001" beds="0" />
-	<house name="Trader's Point 1" houseid="3443" entryx="32306" entryy="32826" entryz="7" rent="200000" townid="14" size="36" clientid="64003" beds="0" />
-	<house name="Trader's Point 2 (Shop)" houseid="3444" entryx="32330" entryy="32826" entryz="7" rent="600000" townid="14" size="92" clientid="64004" beds="0" />
-	<house name="Trader's Point 3 (Shop)" houseid="3445" entryx="32344" entryy="32826" entryz="7" rent="600000" townid="14" size="103" clientid="64005" beds="0" />
-	<house name="Ivory Mansion" houseid="3446" entryx="32345" entryy="32843" entryz="7" rent="800000" townid="14" size="271" clientid="63012" beds="0" />
-	<house name="Ivory Circle 2" houseid="3447" entryx="32364" entryy="32818" entryz="7" rent="400000" townid="14" size="120" clientid="63009" beds="0" />
+	<house name="Litter Promenade 1" houseid="3391" entryx="32271" entryy="32862" entryz="7" rent="25000" townid="14" size="9" clientid="65018" beds="2" />
+	<house name="Litter Promenade 2" houseid="3392" entryx="32277" entryy="32861" entryz="7" rent="50000" townid="14" size="9" clientid="65019" beds="1" />
+	<house name="Litter Promenade 3" houseid="3394" entryx="32286" entryy="32865" entryz="7" rent="25000" townid="14" size="14" clientid="65020" beds="1" />
+	<house name="Litter Promenade 4" houseid="3395" entryx="32288" entryy="32865" entryz="7" rent="25000" townid="14" size="12" clientid="65021" beds="1" />
+	<house name="Rum Alley 3" houseid="3396" entryx="32272" entryy="32854" entryz="7" rent="25000" townid="14" size="10" clientid="65011" beds="1" />
+	<house name="Straycat's Corner 5" houseid="3397" entryx="32281" entryy="32853" entryz="7" rent="80000" townid="14" size="20" clientid="65016" beds="2" />
+	<house name="Straycat's Corner 6" houseid="3398" entryx="32281" entryy="32858" entryz="7" rent="25000" townid="14" size="9" clientid="65017" beds="1" />
+	<house name="Litter Promenade 5" houseid="3399" entryx="32290" entryy="32859" entryz="7" rent="25000" townid="14" size="15" clientid="65022" beds="2" />
+	<house name="Straycat's Corner 4" houseid="3401" entryx="32291" entryy="32852" entryz="7" rent="50000" townid="14" size="16" clientid="65015" beds="2" />
+	<house name="Straycat's Corner 2" houseid="3402" entryx="32284" entryy="32845" entryz="7" rent="50000" townid="14" size="20" clientid="65013" beds="1" />
+	<house name="Straycat's Corner 1" houseid="3403" entryx="32280" entryy="32843" entryz="7" rent="25000" townid="14" size="9" clientid="65012" beds="1" />
+	<house name="Rum Alley 2" houseid="3404" entryx="32260" entryy="32846" entryz="7" rent="25000" townid="14" size="9" clientid="65010" beds="1" />
+	<house name="Rum Alley 1" houseid="3405" entryx="32257" entryy="32839" entryz="7" rent="25000" townid="14" size="16" clientid="65009" beds="1" />
+	<house name="Smuggler Backyard 3" houseid="3406" entryx="32263" entryy="32838" entryz="7" rent="50000" townid="14" size="18" clientid="65003" beds="2" />
+	<house name="Shady Trail 3" houseid="3407" entryx="32274" entryy="32835" entryz="7" rent="25000" townid="14" size="9" clientid="65008" beds="1" />
+	<house name="Shady Trail 1" houseid="3408" entryx="32283" entryy="32834" entryz="7" rent="100000" townid="14" size="24" clientid="65006" beds="5" />
+	<house name="Shady Trail 2" houseid="3409" entryx="32274" entryy="32830" entryz="7" rent="25000" townid="14" size="12" clientid="65007" beds="2" />
+	<house name="Smuggler Backyard 4" houseid="3410" entryx="32263" entryy="32830" entryz="7" rent="25000" townid="14" size="12" clientid="65004" beds="1" />
+	<house name="Smuggler Backyard 2" houseid="3411" entryx="32261" entryy="32829" entryz="7" rent="25000" townid="14" size="18" clientid="65002" beds="2" />
+	<house name="Smuggler Backyard 1" houseid="3412" entryx="32264" entryy="32823" entryz="7" rent="25000" townid="14" size="18" clientid="65001" beds="2" />
+	<house name="Smuggler Backyard 5" houseid="3413" entryx="32272" entryy="32823" entryz="7" rent="25000" townid="14" size="15" clientid="65005" beds="2" />
+	<house name="Sugar Street 1" houseid="3414" entryx="32256" entryy="32815" entryz="7" rent="200000" townid="14" size="54" clientid="64006" beds="3" />
+	<house name="Sugar Street 2" houseid="3415" entryx="32262" entryy="32815" entryz="7" rent="150000" townid="14" size="45" clientid="64007" beds="3" />
+	<house name="Sugar Street 3a" houseid="3416" entryx="32271" entryy="32813" entryz="7" rent="100000" townid="14" size="28" clientid="64008" beds="3" />
+	<house name="Sugar Street 3b" houseid="3417" entryx="32275" entryy="32798" entryz="7" rent="150000" townid="14" size="36" clientid="64009" beds="3" />
+	<house name="Sugar Street 4d" houseid="3418" entryx="32287" entryy="32801" entryz="7" rent="50000" townid="14" size="12" clientid="64013" beds="2" />
+	<house name="Sugar Street 4c" houseid="3419" entryx="32287" entryy="32805" entryz="7" rent="25000" townid="14" size="12" clientid="64012" beds="1" />
+	<house name="Sugar Street 4b" houseid="3420" entryx="32287" entryy="32810" entryz="7" rent="100000" townid="14" size="16" clientid="64011" beds="2" />
+	<house name="Sugar Street 4a" houseid="3421" entryx="32279" entryy="32813" entryz="7" rent="80000" townid="14" size="16" clientid="64010" beds="2" />
+	<house name="Harvester's Haven, Flat 01" houseid="3422" entryx="32274" entryy="32792" entryz="7" rent="50000" townid="14" size="16" clientid="64014" beds="2" />
+	<house name="Harvester's Haven, Flat 03" houseid="3423" entryx="32274" entryy="32787" entryz="7" rent="50000" townid="14" size="16" clientid="64016" beds="2" />
+	<house name="Harvester's Haven, Flat 05" houseid="3424" entryx="32274" entryy="32783" entryz="7" rent="50000" townid="14" size="16" clientid="64018" beds="2" />
+	<house name="Harvester's Haven, Flat 06" houseid="3425" entryx="32276" entryy="32783" entryz="7" rent="50000" townid="14" size="16" clientid="64019" beds="2" />
+	<house name="Harvester's Haven, Flat 04" houseid="3426" entryx="32276" entryy="32786" entryz="7" rent="50000" townid="14" size="16" clientid="64017" beds="2" />
+	<house name="Harvester's Haven, Flat 02" houseid="3427" entryx="32276" entryy="32791" entryz="7" rent="50000" townid="14" size="16" clientid="64015" beds="2" />
+	<house name="Harvester's Haven, Flat 07" houseid="3428" entryx="32274" entryy="32783" entryz="6" rent="80000" townid="14" size="16" clientid="64020" beds="2" />
+	<house name="Harvester's Haven, Flat 09" houseid="3429" entryx="32274" entryy="32787" entryz="6" rent="50000" townid="14" size="16" clientid="64022" beds="2" />
+	<house name="Harvester's Haven, Flat 11" houseid="3430" entryx="32274" entryy="32792" entryz="6" rent="25000" townid="14" size="16" clientid="64024" beds="2" />
+	<house name="Harvester's Haven, Flat 08" houseid="3431" entryx="32276" entryy="32783" entryz="6" rent="50000" townid="14" size="16" clientid="64021" beds="2" />
+	<house name="Harvester's Haven, Flat 10" houseid="3432" entryx="32276" entryy="32786" entryz="6" rent="50000" townid="14" size="16" clientid="64023" beds="2" />
+	<house name="Harvester's Haven, Flat 12" houseid="3433" entryx="32276" entryy="32791" entryz="6" rent="25000" townid="14" size="16" clientid="64025" beds="2" />
+	<house name="Marble Lane 3" houseid="3434" entryx="32301" entryy="32782" entryz="7" rent="600000" townid="14" size="138" clientid="63003" beds="4" />
+	<house name="Marble Lane 2" houseid="3435" entryx="32298" entryy="32782" entryz="7" rent="400000" townid="14" size="111" clientid="63002" beds="3" />
+	<house name="Marble Lane 4" houseid="3436" entryx="32298" entryy="32792" entryz="7" rent="400000" townid="14" size="108" clientid="63004" beds="4" />
+	<house name="Admiral's Avenue 1" houseid="3437" entryx="32309" entryy="32805" entryz="7" rent="400000" townid="14" size="87" clientid="63005" beds="2" />
+	<house name="Admiral's Avenue 2" houseid="3438" entryx="32326" entryy="32806" entryz="7" rent="400000" townid="14" size="90" clientid="63006" beds="4" />
+	<house name="Admiral's Avenue 3" houseid="3439" entryx="32336" entryy="32806" entryz="7" rent="300000" townid="14" size="71" clientid="63007" beds="2" />
+	<house name="Ivory Circle 1" houseid="3440" entryx="32347" entryy="32799" entryz="7" rent="400000" townid="14" size="71" clientid="63008" beds="2" />
+	<house name="Sugar Street 5" houseid="3441" entryx="32301" entryy="32811" entryz="7" rent="150000" townid="14" size="24" clientid="64027" beds="2" />
+	<house name="Freedom Street 1" houseid="3442" entryx="32323" entryy="32812" entryz="7" rent="200000" townid="14" size="45" clientid="64001" beds="2" />
+	<house name="Trader's Point 1" houseid="3443" entryx="32306" entryy="32826" entryz="7" rent="200000" townid="14" size="40" clientid="64003" beds="2" />
+	<house name="Trader's Point 2 (Shop)" houseid="3444" entryx="32330" entryy="32826" entryz="7" rent="600000" townid="14" size="96" clientid="64004" beds="2" />
+	<house name="Trader's Point 3 (Shop)" houseid="3445" entryx="32344" entryy="32826" entryz="7" rent="600000" townid="14" size="107" clientid="64005" beds="2" />
+	<house name="Ivory Mansion" houseid="3446" entryx="32345" entryy="32843" entryz="7" rent="800000" townid="14" size="271" clientid="63012" beds="7" />
+	<house name="Ivory Circle 2" houseid="3447" entryx="32364" entryy="32818" entryz="7" rent="400000" townid="14" size="124" clientid="63009" beds="2" />
 	<house name="Ivy Cottage" houseid="3448" entryx="32277" entryy="32775" entryz="7" rent="500000" guildhall="true" townid="14" size="516" clientid="64026" beds="26" />
-	<house name="Marble Lane 1" houseid="3449" entryx="32300" entryy="32772" entryz="7" rent="600000" townid="14" size="174" clientid="63001" beds="0" />
-	<house name="Freedom Street 2" houseid="3450" entryx="32325" entryy="32812" entryz="7" rent="400000" townid="14" size="103" clientid="64002" beds="0" />
-	<house name="Meriana Beach" houseid="3452" entryx="32383" entryy="32584" entryz="7" rent="150000" townid="14" size="142" clientid="63010" beds="0" />
-	<house name="The Tavern 1a" houseid="3453" entryx="32295" entryy="32837" entryz="6" rent="150000" townid="14" size="40" clientid="64029" beds="0" />
-	<house name="The Tavern 1b" houseid="3454" entryx="32297" entryy="32836" entryz="6" rent="100000" townid="14" size="31" clientid="64030" beds="0" />
-	<house name="The Tavern 1c" houseid="3455" entryx="32299" entryy="32839" entryz="6" rent="200000" townid="14" size="70" clientid="64031" beds="0" />
-	<house name="The Tavern 1d" houseid="3456" entryx="32297" entryy="32840" entryz="6" rent="100000" townid="14" size="24" clientid="64032" beds="0" />
-	<house name="The Tavern 2a" houseid="3457" entryx="32301" entryy="32835" entryz="5" rent="300000" townid="14" size="90" clientid="64033" beds="0" />
-	<house name="The Tavern 2b" houseid="3458" entryx="32303" entryy="32838" entryz="5" rent="100000" townid="14" size="26" clientid="64034" beds="0" />
-	<house name="The Tavern 2d" houseid="3459" entryx="32298" entryy="32838" entryz="5" rent="100000" townid="14" size="20" clientid="64036" beds="0" />
-	<house name="The Tavern 2c" houseid="3460" entryx="32302" entryy="32838" entryz="5" rent="50000" townid="14" size="16" clientid="64035" beds="0" />
-	<house name="The Yeah Beach Project" houseid="3461" entryx="32294" entryy="32555" entryz="6" rent="150000" townid="14" size="108" clientid="63011" beds="0" />
+	<house name="Marble Lane 1" houseid="3449" entryx="32300" entryy="32772" entryz="7" rent="600000" townid="14" size="186" clientid="63001" beds="6" />
+	<house name="Freedom Street 2" houseid="3450" entryx="32325" entryy="32812" entryz="7" rent="400000" townid="14" size="111" clientid="64002" beds="4" />
+	<house name="Meriana Beach" houseid="3452" entryx="32383" entryy="32584" entryz="7" rent="150000" townid="14" size="148" clientid="63010" beds="3" />
+	<house name="The Tavern 1a" houseid="3453" entryx="32295" entryy="32837" entryz="6" rent="150000" townid="14" size="48" clientid="64029" beds="4" />
+	<house name="The Tavern 1b" houseid="3454" entryx="32297" entryy="32836" entryz="6" rent="100000" townid="14" size="35" clientid="64030" beds="2" />
+	<house name="The Tavern 1c" houseid="3455" entryx="32299" entryy="32839" entryz="6" rent="200000" townid="14" size="76" clientid="64031" beds="3" />
+	<house name="The Tavern 1d" houseid="3456" entryx="32297" entryy="32840" entryz="6" rent="100000" townid="14" size="28" clientid="64032" beds="2" />
+	<house name="The Tavern 2a" houseid="3457" entryx="32301" entryy="32835" entryz="5" rent="300000" townid="14" size="100" clientid="64033" beds="5" />
+	<house name="The Tavern 2b" houseid="3458" entryx="32303" entryy="32838" entryz="5" rent="100000" townid="14" size="30" clientid="64034" beds="2" />
+	<house name="The Tavern 2d" houseid="3459" entryx="32298" entryy="32838" entryz="5" rent="100000" townid="14" size="24" clientid="64036" beds="2" />
+	<house name="The Tavern 2c" houseid="3460" entryx="32302" entryy="32838" entryz="5" rent="50000" townid="14" size="18" clientid="64035" beds="1" />
+	<house name="The Yeah Beach Project" houseid="3461" entryx="32294" entryy="32555" entryz="6" rent="150000" townid="14" size="114" clientid="63011" beds="3" />
 	<house name="Mountain Hideout" houseid="3462" entryx="32392" entryy="32705" entryz="6" rent="500000" guildhall="true" townid="14" size="257" clientid="64028" beds="17" />
 	<house name="Darashia 8, Flat 02" houseid="3463" entryx="33249" entryy="32447" entryz="7" rent="300000" townid="13" size="71" clientid="62012" beds="2" />
 	<house name="Castle, Basement, Flat 01" houseid="3464" entryx="33204" entryy="31790" entryz="8" rent="50000" townid="11" size="12" clientid="50120" beds="1" />
@@ -940,25 +940,24 @@
 	<house name="Palace Vicinity" houseid="3639" entryx="33866" entryy="31516" entryz="7" rent="200000" townid="22" size="113" clientid="48006" beds="4" />
 	<house name="Wave Tower" houseid="3640" entryx="33879" entryy="31525" entryz="7" rent="400000" townid="22" size="166" clientid="48005" beds="6" />
 	<house name="Old Sanctuary of God King Qjell" houseid="3641" entryx="33473" entryy="31310" entryz="9" rent="300000" townid="18" size="408" clientid="17001" beds="6" />
-	<house name="Old Heritage Estate" houseid="3642" entryx="33598" entryy="31909" entryz="6" rent="600000" townid="20" size="231" clientid="19009" beds="0" />
-	<house name="Rathleton Plaza 4" houseid="3643" entryx="33604" entryy="31915" entryz="6" rent="400000" townid="20" size="101" clientid="19018" beds="0" />
-	<house name="Rathleton Plaza 3" houseid="3644" entryx="33615" entryy="31913" entryz="6" rent="400000" townid="20" size="113" clientid="19006" beds="0" />
-	<house name="Rathleton Plaza 2" houseid="3645" entryx="33625" entryy="31912" entryz="6" rent="400000" townid="20" size="49" clientid="19005" beds="0" />
-	<house name="Rathleton Plaza 1" houseid="3646" entryx="33637" entryy="31911" entryz="6" rent="300000" townid="20" size="55" clientid="19004" beds="0" />
-	<house name="Antimony Lane 2" houseid="3647" entryx="33637" entryy="31921" entryz="6" rent="400000" townid="20" size="92" clientid="19015" beds="0" />
-	<house name="Antimony Lane 1" houseid="3648" entryx="33656" entryy="31915" entryz="6" rent="400000" townid="20" size="134" clientid="19014" beds="0" />
-	<house name="Wallside Residence" houseid="3649" entryx="33658" entryy="31921" entryz="6" rent="400000" townid="20" size="131" clientid="19001" beds="0" />
-	<house name="Wallside Lane 1" houseid="3650" entryx="33646" entryy="31933" entryz="6" rent="800000" townid="20" size="147" clientid="19010" beds="0" />
-	<house name="Wallside Lane 2" houseid="3651" entryx="33637" entryy="31928" entryz="6" rent="600000" townid="20" size="168" clientid="19011" beds="0" />
-	<house name="Vanward Flats B" houseid="3652" entryx="33614" entryy="31935" entryz="6" rent="400000" townid="20" size="144" clientid="19013" beds="0" />
-	<house name="Vanward Flats A" houseid="3653" entryx="33621" entryy="31935" entryz="6" rent="400000" townid="20" size="145" clientid="19012" beds="0" />
+	<house name="Old Heritage Estate" houseid="3642" entryx="33598" entryy="31909" entryz="6" rent="600000" townid="20" size="245" clientid="19009" beds="7" />
+	<house name="Rathleton Plaza 4" houseid="3643" entryx="33604" entryy="31915" entryz="6" rent="400000" townid="20" size="105" clientid="19018" beds="2" />
+	<house name="Rathleton Plaza 3" houseid="3644" entryx="33615" entryy="31913" entryz="6" rent="400000" townid="20" size="119" clientid="19006" beds="3" />
+	<house name="Rathleton Plaza 2" houseid="3645" entryx="33625" entryy="31912" entryz="6" rent="400000" townid="20" size="53" clientid="19005" beds="2" />
+	<house name="Rathleton Plaza 1" houseid="3646" entryx="33637" entryy="31911" entryz="6" rent="300000" townid="20" size="59" clientid="19004" beds="2" />
+	<house name="Antimony Lane 2" houseid="3647" entryx="33637" entryy="31921" entryz="6" rent="400000" townid="20" size="92" clientid="19015" beds="3" />
+	<house name="Antimony Lane 1" houseid="3648" entryx="33656" entryy="31915" entryz="6" rent="400000" townid="20" size="144" clientid="19014" beds="5" />
+	<house name="Wallside Residence" houseid="3649" entryx="33658" entryy="31921" entryz="6" rent="400000" townid="20" size="131" clientid="19001" beds="4" />
+	<house name="Wallside Lane 1" houseid="3650" entryx="33646" entryy="31933" entryz="6" rent="800000" townid="20" size="155" clientid="19010" beds="4" />
+	<house name="Wallside Lane 2" houseid="3651" entryx="33637" entryy="31928" entryz="6" rent="600000" townid="20" size="176" clientid="19011" beds="4" />
+	<house name="Vanward Flats B" houseid="3652" entryx="33614" entryy="31935" entryz="6" rent="400000" townid="20" size="152" clientid="19013" beds="4" />
+	<house name="Vanward Flats A" houseid="3653" entryx="33621" entryy="31935" entryz="6" rent="400000" townid="20" size="153" clientid="19012" beds="4" />
 	<house name="Bronze Brothers Bastion" houseid="3654" entryx="33599" entryy="31933" entryz="6" rent="5000000" guildhall="true" townid="20" size="735" clientid="19007" beds="16" />
-	<house name="Cistern Ave" houseid="3655" entryx="33588" entryy="31926" entryz="6" rent="300000" townid="20" size="73" clientid="19008" beds="0" />
-	<house name="Antimony Lane 4" houseid="3656" entryx="33614" entryy="31922" entryz="6" rent="400000" townid="20" size="96" clientid="19017" beds="0" />
-	<house name="Antimony Lane 3" houseid="3657" entryx="33630" entryy="31921" entryz="6" rent="400000" townid="20" size="69" clientid="19016" beds="0" />
-	<house name="Rathleton Hills Residence" houseid="3658" entryx="33651" entryy="31910" entryz="6" rent="400000" townid="20" size="138" clientid="19003" beds="0" />
+	<house name="Cistern Ave" houseid="3655" entryx="33588" entryy="31926" entryz="6" rent="300000" townid="20" size="77" clientid="19008" beds="2" />
+	<house name="Antimony Lane 4" houseid="3656" entryx="33614" entryy="31922" entryz="6" rent="400000" townid="20" size="102" clientid="19017" beds="3" />
+	<house name="Antimony Lane 3" houseid="3657" entryx="33630" entryy="31921" entryz="6" rent="400000" townid="20" size="75" clientid="19016" beds="3" />
+	<house name="Rathleton Hills Residence" houseid="3658" entryx="33651" entryy="31910" entryz="6" rent="400000" townid="20" size="144" clientid="19003" beds="3" />
 	<house name="Rathleton Hills Estate" houseid="3659" entryx="33662" entryy="31917" entryz="6" rent="1000000" guildhall="true" townid="20" size="419" clientid="19002" beds="13" />
-	<house name="Lion's Head Reef" houseid="3660" entryx="32365" entryy="32501" entryz="7" rent="400000" townid="25" size="143" clientid="63013" beds="0" />
 	<house name="Shadow Caves 1" houseid="3661" entryx="32654" entryy="31672" entryz="8" rent="50000" townid="5" size="21" clientid="40611" beds="2" />
 	<house name="Shadow Caves 2" houseid="3662" entryx="32656" entryy="31672" entryz="8" rent="50000" townid="5" size="24" clientid="40614" beds="2" />
 	<house name="Shadow Caves 3" houseid="3663" entryx="32654" entryy="31664" entryz="9" rent="100000" townid="5" size="42" clientid="40621" beds="4" />
@@ -972,16 +971,17 @@
 	<house name="Lost Cavern" houseid="3671" entryx="32559" entryy="31856" entryz="7" rent="200000" townid="7" size="495" clientid="33001" beds="7" />
 	<house name="Caveman Shelter" houseid="3673" entryx="33007" entryy="31426" entryz="6" rent="150000" townid="12" size="86" clientid="15001" beds="4" />
 	<house name="Eastern House of Tranquility" houseid="3674" entryx="33389" entryy="31453" entryz="4" rent="200000" townid="12" size="267" clientid="15002" beds="5" />
-	<house name="Lakeside Mansion" houseid="3675" entryx="32322" entryy="31147" entryz="6" rent="300000" townid="16" size="127" clientid="55015" beds="0" />
-	<house name="Pilchard Bin 1" houseid="3676" entryx="32280" entryy="31164" entryz="7" rent="80000" townid="16" size="8" clientid="55116" beds="0" />
-	<house name="Pilchard Bin 2" houseid="3677" entryx="32280" entryy="31160" entryz="7" rent="50000" townid="16" size="8" clientid="55117" beds="0" />
-	<house name="Pilchard Bin 3" houseid="3678" entryx="32280" entryy="31156" entryz="7" rent="50000" townid="16" size="10" clientid="55118" beds="0" />
-	<house name="Pilchard Bin 4" houseid="3679" entryx="32280" entryy="31152" entryz="7" rent="50000" townid="16" size="10" clientid="55119" beds="0" />
-	<house name="Pilchard Bin 5" houseid="3680" entryx="32280" entryy="31148" entryz="7" rent="80000" townid="16" size="8" clientid="55120" beds="0" />
-	<house name="Pilchard Bin 6" houseid="3681" entryx="32281" entryy="31164" entryz="6" rent="25000" townid="16" size="7" clientid="55121" beds="0" />
-	<house name="Pilchard Bin 7" houseid="3682" entryx="32281" entryy="31160" entryz="6" rent="25000" townid="16" size="7" clientid="55122" beds="0" />
-	<house name="Pilchard Bin 8" houseid="3683" entryx="32281" entryy="31156" entryz="6" rent="25000" townid="16" size="5" clientid="55123" beds="0" />
-	<house name="Pilchard Bin 9" houseid="3684" entryx="32281" entryy="31152" entryz="6" rent="50000" townid="16" size="7" clientid="55124" beds="0" />
-	<house name="Pilchard Bin 10" houseid="3685" entryx="32281" entryy="31148" entryz="6" rent="0" townid="16" size="7" clientid="55125" beds="0" />
-	<house name="Mammoth House" houseid="3686" entryx="32234" entryy="31227" entryz="7" rent="300000" townid="16" size="160" clientid="55014" beds="0" />
+	<house name="Lakeside Mansion" houseid="3675" entryx="32322" entryy="31147" entryz="6" rent="300000" townid="16" size="127" clientid="55015" beds="5" />
+	<house name="Pilchard Bin 1" houseid="3676" entryx="32280" entryy="31164" entryz="7" rent="80000" townid="16" size="12" clientid="55116" beds="2" />
+	<house name="Pilchard Bin 2" houseid="3677" entryx="32280" entryy="31160" entryz="7" rent="50000" townid="16" size="12" clientid="55117" beds="2" />
+	<house name="Pilchard Bin 3" houseid="3678" entryx="32280" entryy="31156" entryz="7" rent="50000" townid="16" size="12" clientid="55118" beds="1" />
+	<house name="Pilchard Bin 4" houseid="3679" entryx="32280" entryy="31152" entryz="7" rent="50000" townid="16" size="12" clientid="55119" beds="1" />
+	<house name="Pilchard Bin 5" houseid="3680" entryx="32280" entryy="31148" entryz="7" rent="80000" townid="16" size="12" clientid="55120" beds="2" />
+	<house name="Pilchard Bin 6" houseid="3681" entryx="32281" entryy="31164" entryz="6" rent="25000" townid="16" size="9" clientid="55121" beds="1" />
+	<house name="Pilchard Bin 7" houseid="3682" entryx="32281" entryy="31160" entryz="6" rent="25000" townid="16" size="9" clientid="55122" beds="1" />
+	<house name="Pilchard Bin 8" houseid="3683" entryx="32281" entryy="31156" entryz="6" rent="25000" townid="16" size="9" clientid="55123" beds="2" />
+	<house name="Pilchard Bin 9" houseid="3684" entryx="32281" entryy="31152" entryz="6" rent="50000" townid="16" size="9" clientid="55124" beds="1" />
+	<house name="Pilchard Bin 10" houseid="3685" entryx="32281" entryy="31148" entryz="6" rent="0" townid="16" size="9" clientid="55125" beds="1" />
+	<house name="Mammoth House" houseid="3686" entryx="32234" entryy="31227" entryz="7" rent="300000" townid="16" size="172" clientid="55014" beds="6" />
+	<house name="Lion's Head Reef" houseid="3688" entryx="32365" entryy="32501" entryz="7" rent="400000" townid="14" size="145" clientid="63013" beds="5" />
 </houses>
