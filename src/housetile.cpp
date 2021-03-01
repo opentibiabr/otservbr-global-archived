@@ -69,13 +69,12 @@ void HouseTile::updateHouse(Item* item)
 		if (door->getDoorId() != 0) {
 			house->addDoor(door);
 		}
-	}
-	else if (!g_game.loadedMAP) {
+	} else if (!g_game.loadedMAP) {
 		BedItem* bed = item->getBed();
 		if (bed) {
 			house->addBed(bed);
 		}
-	} 
+	}
 }
 
 ReturnValue HouseTile::queryAdd(int32_t index, const Thing& thing, uint32_t count, uint32_t tileFlags, Creature* actor/* = nullptr*/) const

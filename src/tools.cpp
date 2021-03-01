@@ -397,8 +397,7 @@ std::string formatDateShort(time_t time)
 	return {buffer, 11};
 }
 
-BedItemPart_t getBedPart(const std::string& part) 
-{
+BedItemPart_t getBedPart(const std::string& part) {
 	if (asLowerCaseString(part) == "pillow" || part == "1") {
 		return BED_PILLOW_PART;
 	} else if (asLowerCaseString(part) == "blanket" || part == "2") {

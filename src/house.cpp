@@ -719,7 +719,7 @@ bool Houses::loadHousesXML(const std::string& filename)
 		if (maxBeds <= 0) {
 			std::cout << "[Warning - Houses::loadHousesXML] House maxBeds <= 0"
 					    << " - Name: " << house->getName()
-					    << " - House id: " << houseId 
+					    << " - House id: " << houseId
 							<< " - MaxBeds: " << maxBeds
 							<< std::endl;
 		}
