@@ -2397,7 +2397,7 @@ void Game::internalQuickLootCorpse(Player* player, Container* corpse)
 			missedAnyItem = missedAnyItem || !success;
 			if (success || item->getItemCount() != baseCount) {
 				totalLootedItems++;
-				player->sendLootStats(item, totalLootedItems);
+				player->sendLootStats(item, item->getItemCount());
 			}
 		}
 	}
