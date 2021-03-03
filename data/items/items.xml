@@ -10229,7 +10229,11 @@
 		<attribute key="fluidSource" value="blood" />
 	</item>
 	<item id="5965" article="a" name="dead human">
-		<attribute key="containerSize" value="10" />
+		<attribute key="containerSize" value="15" />
+		<attribute key="decayTo" value="6082" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
 	</item>
 	<item id="5966" article="a" name="dead orc">
 		<attribute key="containerSize" value="10" />
@@ -10615,7 +10619,11 @@
 		<attribute key="fluidSource" value="slime" />
 	</item>
 	<item id="6022" article="a" name="dead human">
-		<attribute key="containerSize" value="10" />
+		<attribute key="containerSize" value="15" />
+		<attribute key="decayTo" value="5965" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
 	</item>
 	<item id="6023" article="a" name="dead larva">
 		<attribute key="containerSize" value="5" />
@@ -11007,28 +11015,37 @@
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-	<item id="6080" article="a" name="dead human">
-		<attribute key="containerSize" value="10" />
-		<attribute key="decayTo" value="3058" />
+	<item id="6080" article="a" name="dead human" editorsuffix=" (Creature)">
+		<attribute key="containerSize" value="15" />
+		<attribute key="decayTo" value="6022" />
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-	<item id="6081" article="a" name="dead human">
-		<attribute key="containerSize" value="10" />
-		<attribute key="decayTo" value="3065" />
+	<item id="6081" article="a" name="dead human" editorsuffix=" (Creature)">
+		<attribute key="containerSize" value="15" />
+		<attribute key="decayTo" value="6083" />
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-	<item id="6082" article="a" name="dead human" />
-	<item id="6083" article="a" name="dead human" editorsuffix=" (Creature)">
-		<attribute key="containerSize" value="10" />
+	<item id="6082" article="a" name="dead human">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+	</item>
+	<item id="6083" article="a" name="dead human">
+		<attribute key="containerSize" value="15" />
+		<attribute key="decayTo" value="6084" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
 	</item>
 	<item id="6084" article="a" name="dead human">
-		<attribute key="containerSize" value="10" />
+		<attribute key="containerSize" value="15" />
 		<attribute key="decayTo" value="6082" />
-		<attribute key="duration" value="120" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
 	</item>
 	<item id="6085" article="a" name="large trunk" />
 	<item id="6086" article="a" name="faked label">
