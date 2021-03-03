@@ -68,7 +68,7 @@ monster.loot = {
 	{name = "moonstone", chance = 33333, maxCount = 2},
 	{name = "diamond", chance = 8300},
 	{name = "machete", chance = 8300},
-	{name = "pair of nightmare boots", chance = 8300},
+	{name = "pair of nightmare boots", chance = 150},
 	{name = "skull staff", chance = 8300},
 	{name = "warrior's axe", chance = 8300},
 	{name = "death toll", chance = 150},

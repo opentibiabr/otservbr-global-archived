@@ -74,7 +74,7 @@ monster.loot = {
 	{name = "wand of starstorm", chance = 8330},
 	{name = "wand of cosmic energy", chance = 8330},
 	{name = "death toll", chance = 8330},
-	{name = "pair of nightmare boots", chance = 330}
+	{name = "pair of nightmare boots", chance = 150}
 }
 
 monster.attacks = {
