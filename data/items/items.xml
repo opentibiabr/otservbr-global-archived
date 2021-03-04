@@ -49065,8 +49065,9 @@
 		<attribute key="weight" value="650" />
 		<attribute key="description" value="It is made of ivory." />
 	</item>
-	<item id="37425" article="a" name="unknow">
-		<attribute key="weight" value="170" />
+	<item id="37425" article="a" name="worm tunnel">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="15" />
 	</item>
 	<item id="37426" article="a" name="soulforged lantern">
 		<attribute key="loottype" value="ammo" />
@@ -49536,11 +49537,13 @@
 		<attribute key="weight" value="6000" />
 	</item>
 	<item fromid="37597" toid="37601" name="reserved sprite"/>
-	<item id="37602" article="a" name="unknow">
-		<attribute key="weight" value="500" />
+	<item id="37602" article="a" name="boss sandtimer">
+		<attribute key="decayTo" value="37603" />
+		<attribute key="duration" value="300" />
+		<attribute key="showduration" value="1" />
 	</item>
-	<item id="37603" article="a" name="unknow">
-		<attribute key="weight" value="500" />
+	<item id="37603" article="a" name="boss sandtimer">
+		<attribute key="description" value="It hasn't started yet." />
 	</item>
 	<item id="37604" article="a" name="white gem">
 		<attribute key="loottype" value="valuable" />

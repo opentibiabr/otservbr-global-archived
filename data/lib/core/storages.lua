@@ -2247,8 +2247,50 @@ Storage = {
 		-- Kilmaresh = {}, done earlier in the file
 		GraveDanger = {},
 		-- update 12.30
-		FeasterOfSouls = {},
-		PoltergeistOutfits = {}
+		FeasterOfSouls = {
+			Bosses = {
+				BrainHead = {
+					Timer = 284700,
+					Killed = 284701,
+				},
+				UnazTheMean = {
+					Timer = 284702,
+					Killed = 284712,
+				},
+				IrgixTheFlimsy = {
+					Timer = 284703,
+					Killed = 284713,
+				},
+				VokTheFreakish = {
+					Timer = 284704,
+					Killed = 284714,
+				},
+				TheUnwelcome = {
+					Timer = 284705,
+					Killed = 284715,
+				},
+				TheDreadMaiden = {
+					Timer = 284706,
+					Souls = 284707,
+					Killed = 284716,
+				},
+				TheFearFeaster = {
+					Timer = 284708,
+					Totem = 284709,
+					Killed = 284717,
+				},
+				ThePaleWorm = {
+					Timer = 284710,
+					WeakSpot = 284711,
+					Killed = 284718,
+				}
+			}
+		},
+		PoltergeistOutfits = {
+			Outfit = 284719,
+			Addon1 = 284720,
+			Addon2 = 284721,
+		}
 	}
 }
 
