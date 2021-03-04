@@ -1441,6 +1441,129 @@ void ConditionDamage::generateDamageList(int32_t amount, int32_t start, std::lis
 	}
 }
 
+bool ConditionHex::setParam(ConditionParam_t param, int32_t value)
+{
+	Condition::setParam(param, value);
+	if (param == CONDITION_PARAM_BUFF_HEALINGRECEIVED) {
+		healingReceivedPercent = value;
+	}
+	else if (param == CONDITION_PARAM_BUFF_DAMAGEDEALT) {
+		damageDealtPercent = value;
+	}
+	else if (param == CONDITION_PARAM_HEALTHREDUCTIONPERCENT) {
+		healthReductionPercent = value;
+	}
+	else {
+		return false;
+	}
+	return true;
+}
+
+bool ConditionHex::startCondition(Creature* creature)
+{
+	if (!Condition::startCondition(creature)) {
+		return false;
+	}
+	bool needUpdate = false;
+	Player* player = creature->getPlayer();
+	if (player) {
+		if (healingReceivedPercent != 0) {
+			healingReceived = static_cast<int32_t>(player->getBuff(BUFF_HEALINGRECEIVED) * ((healingReceivedPercent - 100) / 100.f));
+			player->setBuff(BUFF_HEALINGRECEIVED, healingReceived);
+		}
+		if (damageDealtPercent != 0) {
+			damageDealt = static_cast<int32_t>(player->getBuff(BUFF_DAMAGEDEALT) * ((damageDealtPercent - 100) / 100.f));
+			player->setBuff(BUFF_DAMAGEDEALT, damageDealt);
+		}
+		if (healthReductionPercent != 0) {
+			needUpdate = true;
+			healthReduction = static_cast<int32_t>(-(player->getMaxHealth() * (healthReductionPercent / 100.)));
+			player->setVarStats(STAT_MAXHITPOINTS, healthReduction);
+		}
+	}
+
+
+	if (needUpdate && player) {
+		player->sendStats();
+		player->sendSkills();
+	}
+
+	return true;
+}
+
+void ConditionHex::addCondition(Creature* creature, const Condition* addCondition)
+{
+	if (ticks == -1 && addCondition->getTicks() > 0) {
+		return;
+	}
+
+	endCondition(creature);
+	setTicks(addCondition->getTicks());
+
+	const ConditionHex& conditionHex = static_cast<const ConditionHex&>(*addCondition);
+	healingReceivedPercent = conditionHex.healingReceivedPercent;
+	damageDealtPercent = conditionHex.damageDealtPercent;
+	healthReductionPercent = conditionHex.healthReductionPercent;
+	startCondition(creature);
+}
+
+void ConditionHex::endCondition(Creature* creature)
+{
+	Player* player = creature->getPlayer();
+	if (player) {
+		player->setBuff(BUFF_HEALINGRECEIVED, -healingReceived);
+		player->setBuff(BUFF_DAMAGEDEALT, -damageDealt);
+	}
+	bool needUpdate = false;
+	if (healthReduction != 0 && player) {
+		needUpdate = true;
+		player->setVarStats(STAT_MAXHITPOINTS, -healthReduction);
+	}
+	if (needUpdate && player) {
+		player->sendStats();
+		player->sendSkills();
+	}
+}
+
+bool ConditionHex::executeCondition(Creature* creature, int32_t interval)
+{
+	return Condition::executeCondition(creature, interval);
+}
+
+void ConditionHex::serialize(PropWriteStream& propWriteStream)
+{
+	Condition::serialize(propWriteStream);
+
+	propWriteStream.write<uint8_t>(CONDITIONATTR_HEALINGRECEIVED);
+	propWriteStream.write<int32_t>(healingReceived);
+
+	propWriteStream.write<uint8_t>(CONDITIONATTR_DAMAGEDEALT);
+	propWriteStream.write<int32_t>(damageDealt);
+}
+
+bool ConditionHex::unserializeProp(ConditionAttr_t attr, PropStream& propStream)
+{
+	if (attr == CONDITIONATTR_HEALINGRECEIVED) {
+		return propStream.read<int32_t>(healingReceived);
+	}
+	else if (attr == CONDITIONATTR_DAMAGEDEALT) {
+		return propStream.read<int32_t>(damageDealt);
+	}
+	return Condition::unserializeProp(attr, propStream);
+}
+
+uint32_t ConditionHex::getIcons() const
+{
+	uint32_t icons = Condition::getIcons();
+	if (damageDealt != 0 && healingReceived != 0 && healthReductionPercent != 0)
+		icons |= ICON_GREATERHEX;
+	else if (damageDealt != 0 && healingReceived != 0)
+		icons |= ICON_INTENSEHEX;
+	else if (damageDealt != 0)
+		icons |= ICON_LESSERHEX;
+	return icons;
+}
+
 void ConditionSpeed::setFormulaVars(float NewMina, float NewMinb, float NewMaxa, float NewMaxb)
 {
 	this->mina = NewMina;

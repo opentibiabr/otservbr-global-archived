@@ -3878,6 +3878,10 @@ void Player::onAddCombatCondition(ConditionType_t type)
 			sendTextMessage(MESSAGE_FAILURE, "You are bleeding.");
 			break;
 
+		case CONDITION_HEX:
+			sendTextMessage(MESSAGE_FAILURE, "You are hexed.");
+			break;
+
 		default:
 			break;
 	}

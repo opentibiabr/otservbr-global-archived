@@ -59,6 +59,8 @@ enum ConditionAttr_t {
 	CONDITIONATTR_ISBUFF,
 	CONDITIONATTR_SUBID,
   	CONDITIONATTR_MANASHIELD,
+	CONDITIONATTR_HEALINGRECEIVED,
+	CONDITIONATTR_DAMAGEDEALT,
 
 	//reserved for serialization
 	CONDITIONATTR_END = 254,
@@ -369,6 +371,37 @@ class ConditionSpeed final : public Condition
 		float minb = 0.0f;
 		float maxa = 0.0f;
 		float maxb = 0.0f;
+};
+
+class ConditionHex final : public Condition
+{
+public:
+	ConditionHex(ConditionId_t initId, ConditionType_t initType, int32_t iniTicks, bool initBuff = false, uint32_t initSubId = 0) :
+		Condition(initId, initType, iniTicks, initBuff, initSubId) {}
+
+	void addCondition(Creature* creature, const Condition* addCondition) override;
+	bool startCondition(Creature* creature) override;
+	bool executeCondition(Creature* creature, int32_t interval) override;
+	void endCondition(Creature* creature) override;
+
+	bool setParam(ConditionParam_t param, int32_t value) override;
+	uint32_t getIcons() const override;
+
+	ConditionHex* clone() const override {
+		return new ConditionHex(*this);
+	}
+
+	//serialization
+	void serialize(PropWriteStream& propWriteStream) override;
+	bool unserializeProp(ConditionAttr_t attr, PropStream& propStream) override;
+
+protected:
+	int32_t healingReceivedPercent = 0;
+	int32_t healingReceived = 0;
+	int32_t damageDealtPercent = 0;
+	int32_t damageDealt = 0;
+	int32_t healthReductionPercent = 0;
+	int32_t healthReduction = 0;
 };
 
 class ConditionOutfit final : public Condition
