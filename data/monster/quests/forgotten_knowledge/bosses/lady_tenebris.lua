@@ -112,7 +112,7 @@ monster.attacks = {
 	{name ="combat", interval = 6000, chance = 13, type = COMBAT_DEATHDAMAGE, minDamage = -1200, maxDamage = -1500, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 2000, chance = 13, type = COMBAT_DEATHDAMAGE, minDamage = -400, maxDamage = -600, radius = 4, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_SMALLCLOUDS, target = true},
 	{name ="tenebris summon", interval = 2000, chance = 14, target = false},
-	{name ="tenebris ultimate", interval = 2000, chance = 30, target = false}
+	{name ="tenebris ultimate", interval = 15000, chance = 30, target = false}
 }
 
 monster.defenses = {

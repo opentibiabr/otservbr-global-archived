@@ -34,6 +34,7 @@ function playerLogin.onLogin(player)
 			end
 		end
 		player:addItem(2050, 1, true, 1, CONST_SLOT_AMMO)
+		db.query('UPDATE `players` SET `istutorial` = 0 where `id`='..player:getGuid())
 	else
 		player:sendTextMessage(MESSAGE_STATUS, "Welcome to " .. SERVER_NAME .. "!")
 		player:sendTextMessage(MESSAGE_LOGIN, string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved())))

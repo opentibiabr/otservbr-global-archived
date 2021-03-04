@@ -4493,7 +4493,7 @@ void Game::playerSetLootContainer(uint32_t playerId, ObjectCategory_t category, 
 	}
 
 	Container* container = thing->getContainer();
-	if (!container) {
+	if (!container || (container->getID() == ITEM_GOLD_POUCH && category != OBJECTCATEGORY_GOLD)) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
@@ -6527,8 +6527,11 @@ LightInfo Game::getWorldLightInfo() const
 
 bool Game::gameIsDay()
 {
-	if (lightHour >= ((6 * 60) + 30) && lightHour <= ((17 * 60) + 30))
+	if (lightHour >= (6 * 60) && lightHour <= (18 * 60)) {
 		isDay = true;
+	} else {
+		isDay = false;
+	}
 
 	return isDay;
 }
