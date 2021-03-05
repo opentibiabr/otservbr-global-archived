@@ -114,11 +114,13 @@ bool Party::leaveParty(Player* player)
 	for (Player* member : memberList) {
 		member->sendCreatureSkull(player);
 		player->sendPlayerPartyIcons(member);
+		member->sendPartyCreatureUpdate(player);
 	}
 
 	leader->sendCreatureSkull(player);
 	player->sendCreatureSkull(player);
 	player->sendPlayerPartyIcons(leader);
+	leader->sendPartyCreatureUpdate(player);
 
 	player->sendTextMessage(MESSAGE_PARTY_MANAGEMENT, "You have left the party.");
 
