@@ -1002,6 +1002,11 @@ class Player final : public Creature, public Cylinder
 				client->sendCreatureSay(creature, type, text, pos);
 			}
 		}
+		void sendCreatureReload(const Creature* creature) {
+			if (client) {
+				client->reloadCreature(creature);
+			}
+		}
 		void sendPrivateMessage(const Player* speaker, SpeakClasses type, const std::string& text) {
 			if (client) {
 				client->sendPrivateMessage(speaker, type, text);
