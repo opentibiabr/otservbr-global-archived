@@ -1283,7 +1283,7 @@
 	<instant name="Source of Corruption Wave" words="#####461" direction="1" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/source of corruption wave.lua" />
 	<instant name="emberBeastArea" words="###462"  selftarget="1" exhaustion="2000" needlearn="1"  script="monster/emberBeastArea.lua" />
 	<instant name="emberBeastHur" words="###463" direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/emberBeastHur.lua" />
-	<instant name="aggresiveLavaWave" words="###464" direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/aggresiveLavaWave.lua" />
+	<instant name="aggressivelavawave" words="###464" direction="0" selftarget="0" exhaustion="2000" needlearn="1"  script="monster/aggresiveLavaWave.lua" />
 	<instant name="ravennousLavaLurkerWave" words="###465"  selftarget="1" exhaustion="2000" needlearn="1"  script="monster/ravennousLavaLurkerWave.lua" />
 	<instant name="ravennousLavaLurkerWave2" words="###466" direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/ravennousLavaLurkerWave2.lua" />
 	<instant name="arachnophobicawavedice" words="###467" direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/arachnophobica wavedice.lua" />
