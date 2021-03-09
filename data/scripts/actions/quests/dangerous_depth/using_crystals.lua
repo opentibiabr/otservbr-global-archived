@@ -196,17 +196,14 @@ local function sumonarFieryHearts()
 	end
 	if boss == true and contagemHearts == 0 then
 		for _, position in pairs(fieryHearts) do
-			Game.createMonster("Fiery Heart", position):registerEvent("fieryHearts")
+			fiery = Game.createMonster("Fiery Heart", position)
+			if fiery then
+				fiery:registerEvent("FieryHeartThink")
+			end
 		end
 		local oldBossHealth = bossId:getHealth()
-		local oldBossPosition = bossId:getPosition()
-		bossId:remove()
-		local newBoss = Game.createMonster("the duke of the depths immortal", oldBossPosition, false, true)
-		if newBoss then
-			newBoss:registerEvent("fieryHearts")
-			newBoss:registerEvent("healFireDamage")
-			newBoss:addHealth(-(newBoss:getHealth() - oldBossHealth))
-		end
+		bossId:setType("The Fire Empowered Duke")
+		bossId:addHealth(-(bossId:getHealth() - oldBossHealth))
 	end
 	if boss == true then
 		addEvent(sumonarFieryHearts, 40*1000)
@@ -386,7 +383,6 @@ local function startWarzoneV()
 	addEvent(function()
 		local monstro = Game.createMonster("The Count Of The Core", Position(33681, 32334, 15))
 			if monstro then
-				monstro:registerEvent("healFireDamage")
 				monstro:registerEvent("emberBeasts")
 			end
 		summonBeasts(5)
@@ -399,7 +395,7 @@ local function startWarzoneVI()
 	addEvent(function()
 		local monstro = Game.createMonster("The Duke Of The Depths", Position(33712, 32303, 15))
 			if monstro then
-				monstro:registerEvent("healFireDamage")
+				monstro:registerEvent("FieryHeartThink")
 			end
 			addEvent(sumonarFieryHearts, 30*1000)
 			addEvent(sumonarLavasVI, 15*1000, 5)
