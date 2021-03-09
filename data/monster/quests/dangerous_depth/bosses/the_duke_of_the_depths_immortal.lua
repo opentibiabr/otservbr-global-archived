@@ -1,7 +1,7 @@
-local mType = Game.createMonsterType("The Duke Of The Depths")
+local mType = Game.createMonsterType("The Fire Empowered Duke")
 local monster = {}
 
-monster.description = "The Duke Of The Depths"
+monster.description = "The Fire Empowered Duke"
 monster.experience = 40000
 monster.outfit = {
 	lookType = 1047,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 100000
-monster.maxHealth = 100000
+monster.health = 50000
+monster.maxHealth = 50000
 monster.race = "blood"
 monster.corpse = 32008
 monster.speed = 270
@@ -104,13 +104,13 @@ monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 100},
 	{type = COMBAT_ENERGYDAMAGE, percent = 100},
 	{type = COMBAT_EARTHDAMAGE, percent = 100},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_MANADRAIN, percent = 100},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
 	{type = COMBAT_HOLYDAMAGE , percent = 100},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 
 monster.immunities = {
@@ -118,6 +118,10 @@ monster.immunities = {
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
+}
+
+monster.heals = {
+	{type = COMBAT_FIREDAMAGE, percent = 100}
 }
 
 mType:register(monster)
