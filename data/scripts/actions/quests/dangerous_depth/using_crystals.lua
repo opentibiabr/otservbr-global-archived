@@ -152,7 +152,7 @@ local function sumonarLavasVI(i)
 	local spectator = Game.getSpectators(positionCenter, false, false, 20, 20, 20, 20)
 	for _, creature in pairs(spectator) do
 		if creature:isMonster() then
-			if creature:getName():lower() == "the duke of the depths" or creature:getName():lower() == "the duke of the depths immortal" then
+			if creature:getName():lower() == "the duke of the depths" or creature:getName():lower() == "the fire empowered duke" then
 				boss = true
 			end
 		end
