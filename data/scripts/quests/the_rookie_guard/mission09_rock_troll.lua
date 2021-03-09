@@ -70,7 +70,10 @@ function tunnelHole.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission09)
-	if missionState == -1 or missionState >= 7 then
+	if missionState == -1 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have no business down there.")
+		player:teleportTo(fromPosition, true)
+	elseif missionState >= 7 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The cave has collapsed. It's not safe to go down there anymore.")
 		player:teleportTo(fromPosition, true)
 	end

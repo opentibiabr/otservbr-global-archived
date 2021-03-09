@@ -359,6 +359,7 @@ docker/**/otserver
 # VSCode
 settings.json
 c_cpp_properties.json
+.history
 
 # CLion (JetBrains)
 .idea/
