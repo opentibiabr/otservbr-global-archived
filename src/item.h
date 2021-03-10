@@ -958,6 +958,9 @@ class Item : virtual public Thing
 		bool isRotatable() const {
 			return items[id].rotatable && items[id].rotateTo;
 		}
+		bool isPodium() const {
+			return items[id].isPodium;
+		}
 		bool isWrapable() const {
 			return items[id].wrapable && items[id].wrapableTo;
 		}

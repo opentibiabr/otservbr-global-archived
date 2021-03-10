@@ -10,7 +10,7 @@ dofile('data/modules/scripts/gamestore/init.lua')
 -- Config
 
 HomeBanners = {
-    images = { "home/banner_cunninghyaena.png", "home/banner_jousters.png" },
+    images = { "home/banner_runemaster.png", "home/banner_cunninghyaena.png", "home/banner_jousters.png" },
     delay = 10
 }
 
@@ -2261,6 +2261,15 @@ GameStore.Categories = {
           description = "{character}\n{info} colours can be changed using the Outfit dialog\n\n<i>The Jouster is all geared up for a tournament, ready to partake in festive activities involving friendly competition to prove their chivalry. However, being well-armoured, they are also a force to be reckoned with on the battlefield, especially with a trusty steed at their service.</i>",
           type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
           home = true,
+        },
+        {
+          icons = { "Outfit_Rune_Master_Male_Addon_3.png", "Outfit_Rune_Master_Female_Addon_3.png" },
+          name = "Full Rune Master Outfit",
+          price = 870,
+          sexId = {female = 1385, male = 1384},
+          addon = 3,
+          description = "{character}\n{info} colours can be changed using the Outfit dialog\n{info} includes basic outfit and 2 addons which can be selected individually\n\n<i>A Rune Master has dedicated their whole life to the study and mastery of runes. They are intrigued by the ancient symbols, shrouded in mystery, and how their magic works. Rune Masters have a deep understanding of the awesome power they are wielding and can make use of the full potential of runes.</i>",
+          type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
         },
       },
    rookgaard = true,

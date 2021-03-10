@@ -135,6 +135,8 @@ private:
 	void parseAttack(NetworkMessage &msg);
 	void parseFollow(NetworkMessage &msg);
 
+	void sendSessionEndInformation(SessionEndInformations information);
+
 	void sendItemInspection(uint16_t itemId, uint8_t itemCount, const Item *item, bool cyclopedia);
 	void parseInspectionObject(NetworkMessage &msg);
 
@@ -217,6 +219,7 @@ private:
 	void parseEditVip(NetworkMessage &msg);
 
 	void parseRotateItem(NetworkMessage &msg);
+	void parseConfigureShowOffSocket(NetworkMessage& msg);
 	void parseWrapableItem(NetworkMessage &msg);
 
 	//Channel tabs
@@ -327,6 +330,7 @@ private:
 	void sendTextWindow(uint32_t windowTextId, uint32_t itemId, const std::string &text);
 	void sendHouseWindow(uint32_t windowTextId, const std::string &text);
 	void sendOutfitWindow();
+	void sendPodiumWindow(const Item* podium, const Position& position, uint16_t spriteId, uint8_t stackpos);
 
 	void sendUpdatedVIPStatus(uint32_t guid, VipStatus_t newStatus);
 	void sendVIP(uint32_t guid, const std::string &name, const std::string &description, uint32_t icon, bool notify, VipStatus_t status);
