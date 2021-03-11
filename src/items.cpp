@@ -500,6 +500,8 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			it.wrapable = true;
 		} else if (tmpStrValue == "moveable" || tmpStrValue == "movable") {
 			it.moveable = valueAttribute.as_bool();
+		} else if (tmpStrValue == "ispodium") {
+			it.isPodium = valueAttribute.as_bool();
 		} else if (tmpStrValue == "blockprojectile") {
 			it.blockProjectile = valueAttribute.as_bool();
 		} else if (tmpStrValue == "allowpickupable" || tmpStrValue == "pickupable") {
