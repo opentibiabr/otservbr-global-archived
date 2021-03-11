@@ -149,7 +149,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	std::cout << "A server developed by " << STATUS_SERVER_DEVELOPERS
 																<< std::endl;
 	std::cout << "Visit our forum for updates, support, and resources: "
-		"https://otserv.com.br/ and https://forums.otserv.com.br" << std::endl;
+		"https://otserv.com.br/, https://forums.otserv.com.br and https://othispano.com" << std::endl;
 	std::cout << std::endl;
 
 	// check if config.lua or config.lua.dist exist
