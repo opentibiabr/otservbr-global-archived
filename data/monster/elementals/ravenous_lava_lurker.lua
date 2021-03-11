@@ -112,4 +112,8 @@ monster.immunities = {
 	{type = "bleed", condition = false}
 }
 
+monster.heals = {
+	{type = COMBAT_FIREDAMAGE, percent = 100},
+}
+
 mType:register(monster)
