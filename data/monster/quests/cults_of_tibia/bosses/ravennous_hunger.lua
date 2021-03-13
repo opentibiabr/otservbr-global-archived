@@ -1,7 +1,7 @@
-local mType = Game.createMonsterType("Ravennous Hunger")
+local mType = Game.createMonsterType("Ravenous Hunger")
 local monster = {}
 
-monster.description = "Ravennous Hunger"
+monster.description = "Ravenous Hunger"
 monster.experience = 0
 monster.outfit = {
 	lookType = 556,
