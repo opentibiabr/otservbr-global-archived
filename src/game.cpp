@@ -2387,7 +2387,7 @@ void Game::internalQuickLootCorpse(Player* player, Container* corpse)
 		if (worth != 0) {
 			missedAnyGold = missedAnyGold || !success;
 			if (success) {
-				player->sendLootStats(item, worth);
+				player->sendLootStats(item, baseCount);
 				totalLootedGold += worth;
 			} else {
 				// item is not completely moved
@@ -2397,7 +2397,7 @@ void Game::internalQuickLootCorpse(Player* player, Container* corpse)
 			missedAnyItem = missedAnyItem || !success;
 			if (success || item->getItemCount() != baseCount) {
 				totalLootedItems++;
-				player->sendLootStats(item, totalLootedItems);
+				player->sendLootStats(item, item->getItemCount());
 			}
 		}
 	}
