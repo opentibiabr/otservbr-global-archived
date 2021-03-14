@@ -3364,6 +3364,126 @@ void Game::playerRotateItem(uint32_t playerId, const Position& pos, uint8_t stac
 	}
 }
 
+void Game::playerConfigureShowOffSocket(uint32_t playerId, const Position& pos, uint8_t stackPos, const uint16_t spriteId)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player || pos.x == 0xFFFF) {
+		return;
+	}
+
+	Thing* thing = internalGetThing(player, pos, stackPos, 0, STACKPOS_TOPDOWN_ITEM);
+	if (!thing) {
+		return;
+	}
+
+	Item* item = thing->getItem();
+	if (!item || item->getClientID() != spriteId || !item->isPodium() || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	if (!Position::areInRange<1, 1, 0>(pos, player->getPosition())) {
+		std::forward_list<Direction> listDir;
+		if (player->getPathTo(pos, listDir, 0, 1, true, false)) {
+			g_dispatcher.addTask(createTask(std::bind(&Game::playerAutoWalk, this, player->getID(), listDir)));
+			SchedulerTask* task = createSchedulerTask(400, std::bind(
+									  &Game::playerBrowseField, this, playerId, pos
+								  ));
+			player->setNextWalkActionTask(task);
+
+		} else {
+			player->sendCancelMessage(RETURNVALUE_THEREISNOWAY);
+		}
+		return;
+	}
+
+	player->sendPodiumWindow(item, pos, spriteId, stackPos);
+}
+
+void Game::playerSetShowOffSocket(uint32_t playerId, Outfit_t& outfit, const Position& pos, uint8_t stackPos, const uint16_t spriteId, uint8_t podiumVisible, uint8_t direction)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player || pos.x == 0xFFFF) {
+		return;
+	}
+
+	Thing* thing = internalGetThing(player, pos, stackPos, 0, STACKPOS_TOPDOWN_ITEM);
+	if (!thing) {
+		return;
+	}
+
+	Item* item = thing->getItem();
+	if (!item || item->getClientID() != spriteId || !item->isPodium() || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	Tile* tile = dynamic_cast<Tile*>(item->getParent());
+	if (!tile) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	if (!Position::areInRange<1, 1, 0>(pos, player->getPosition())) {
+		std::forward_list<Direction> listDir;
+		if (player->getPathTo(pos, listDir, 0, 1, true, false)) {
+			g_dispatcher.addTask(createTask(std::bind(&Game::playerAutoWalk, this, player->getID(), listDir)));
+			SchedulerTask* task = createSchedulerTask(400, std::bind(
+									  &Game::playerBrowseField, this, playerId, pos
+								  ));
+			player->setNextWalkActionTask(task);
+		} else {
+			player->sendCancelMessage(RETURNVALUE_THEREISNOWAY);
+		}
+		return;
+	}
+
+	if (!player->canWear(outfit.lookType, outfit.lookAddons)) {
+		outfit.lookType = 0;
+		outfit.lookAddons = 0;
+	}
+
+	Mount* mount = mounts.getMountByClientID(outfit.lookMount);
+	if (!mount || !player->hasMount(mount)) {
+		outfit.lookMount = 0;
+	}
+
+	std::string key; // Too lazy to fix it :) let's just use temporary key variable
+	if (outfit.lookType != 0) {
+		key = "LookType"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookType));
+		key = "LookHead"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookHead));
+		key = "LookBody"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookBody));
+		key = "LookLegs"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookLegs));
+		key = "LookFeet"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookFeet));
+		key = "LookAddons"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookAddons));
+	} else {
+		item->removeCustomAttribute("LookType");
+	}
+
+	if (outfit.lookMount != 0) {
+		key = "LookMount"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookMount));
+		key = "LookMountHead"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookMountHead));
+		key = "LookMountBody"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookMountBody));
+		key = "LookMountLegs"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookMountLegs));
+		key = "LookMountFeet"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookMountFeet));
+	} else {
+		item->removeCustomAttribute("LookMount");
+	}
+
+	key = "PodiumVisible"; item->setCustomAttribute(key, static_cast<int64_t>(podiumVisible));
+	key = "LookDirection"; item->setCustomAttribute(key, static_cast<int64_t>(direction));
+
+	SpectatorHashSet spectators;
+	g_game.map.getSpectators(spectators, pos, true);
+
+	// send to client
+	for (Creature* spectator : spectators) {
+		if (Player* tmpPlayer = spectator->getPlayer()) {
+			tmpPlayer->sendUpdateTileItem(tile, pos, item);
+		}
+	}
+}
+
 void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t stackPos, const uint16_t spriteId)
 {
 	Player* player = getPlayerByID(playerId);

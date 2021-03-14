@@ -1404,6 +1404,11 @@ class Player final : public Creature, public Cylinder
 			}
 		}
 		void sendImbuementWindow(Item* item);
+		void sendPodiumWindow(const Item* podium, const Position& position, uint16_t spriteId, uint8_t stackpos) {
+			if (client) {
+				client->sendPodiumWindow(podium, position, spriteId, stackpos);
+			}
+		}
 		void sendCloseContainer(uint8_t cid) {
 			if (client) {
 				client->sendCloseContainer(cid);

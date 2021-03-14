@@ -52419,4 +52419,12 @@
 		<attribute key="duration" value="1" />
 		<attribute key="decayTo" value="40804" />
 	</item>
+	<item id="40808" article="a" name="podium of renown">
+		<attribute key="isPodium" value="true" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="40809" article="a" name="podium of renown">
+		<attribute key="isPodium" value="true" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
 </items>
