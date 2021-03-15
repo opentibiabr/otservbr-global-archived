@@ -178,4 +178,7 @@
 	<mount id="176" clientid="1379" name="Merry Mammoth" speed="20" premium="no" type="store" />
 	<mount id="177" clientid="1380" name="Holiday Mammoth" speed="20" premium="no" type="store" />
 	<mount id="178" clientid="1381" name="Festive Mammoth" speed="20" premium="no" type="store" />
+	<mount id="179" clientid="1389" name="Void Watcher" speed="20" premium="no" type="store" />
+	<mount id="180" clientid="1390" name="Rune Watcher" speed="20" premium="no" type="store" />
+	<mount id="181" clientid="1391" name="Rift Watcher" speed="20" premium="no" type="store" />
 </mounts>

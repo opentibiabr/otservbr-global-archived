@@ -160,6 +160,9 @@ FILELOADER_ERRORS Items::loadFromOtb(const std::string& file)
 		uint8_t lightLevel = 0;
 		uint8_t lightColor = 0;
 		uint8_t alwaysOnTopOrder = 0;
+		if (clientId == 35973 || clientId == 35974) {
+			bool isPodium = true;
+		}
 
 		uint8_t attrib;
 		while (stream.read<uint8_t>(attrib)) {
@@ -497,6 +500,8 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			it.wrapable = true;
 		} else if (tmpStrValue == "moveable" || tmpStrValue == "movable") {
 			it.moveable = valueAttribute.as_bool();
+		} else if (tmpStrValue == "ispodium") {
+			it.isPodium = valueAttribute.as_bool();
 		} else if (tmpStrValue == "blockprojectile") {
 			it.blockProjectile = valueAttribute.as_bool();
 		} else if (tmpStrValue == "allowpickupable" || tmpStrValue == "pickupable") {

@@ -821,7 +821,6 @@ struct CombatDamage
 	}
 };
 
-using StashContainerList = std::map<uint16_t, std::pair<bool, uint32_t>>;
 using StashItemList = std::map<uint16_t, uint32_t>;
 using MarketOfferList = std::list<MarketOffer>;
 using HistoryMarketOfferList = std::list<HistoryMarketOffer>;
@@ -997,6 +996,15 @@ enum Webhook_Colors_t : uint32_t {
 	WEBHOOK_COLOR_OFFLINE = 0xFF0000,
 	WEBHOOK_COLOR_WARNING = 0xFFFF00,
 	WEBHOOK_COLOR_RAID = 0x0000FF
+};
+
+enum SessionEndInformations : uint8_t {
+	// I'm guessing unknown types are ban/protocol error or something
+	// but since there aren't any difference from logout should we care?
+	SESSION_END_LOGOUT,
+	SESSION_END_UNK2,
+	SESSION_END_FORCECLOSE,
+	SESSION_END_UNK3,
 };
 
 /**
