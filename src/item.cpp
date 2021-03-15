@@ -382,6 +382,12 @@ Player* Item::getHoldingPlayer() const
 	return nullptr;
 }
 
+bool Item::isItemStorable() const
+{
+	auto isContainerAndHasSomethingInside = (getContainer() != NULL) && (getContainer()->getItemList().size() > 0);
+	return (isStowable() || isContainerAndHasSomethingInside);
+}
+
 void Item::setSubType(uint16_t n)
 {
 	const ItemType& it = items[id];

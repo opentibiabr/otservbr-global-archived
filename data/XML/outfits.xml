@@ -97,6 +97,7 @@
 	<outfit type="0" looktype="1339" name="Moth Cape" premium="no" unlocked="no" enabled="yes" from="store" />
 	<outfit type="0" looktype="1372" name="Rascoohan" premium="yes" unlocked="no" enabled="yes" from="quest" />
 	<outfit type="0" looktype="1383" name="Merry Garb" premium="no" unlocked="no" enabled="yes" from="store" />
+	<outfit type="0" looktype="1385" name="Rune Master" premium="no" unlocked="no" enabled="yes" from="store" />
 
 	<!-- Male outfits -->
 	<outfit type="1" looktype="128" name="Citizen" premium="no" unlocked="yes" enabled="yes" />
@@ -195,4 +196,5 @@
 	<outfit type="1" looktype="1338" name="Moth Cape" premium="no" unlocked="no" enabled="yes" from="store" />
 	<outfit type="1" looktype="1371" name="Rascoohan" premium="yes" unlocked="no" enabled="yes" from="quest" />
 	<outfit type="1" looktype="1382" name="Merry Garb" premium="no" unlocked="no" enabled="yes" from="store" />
+	<outfit type="1" looktype="1384" name="Rune Master" premium="no" unlocked="no" enabled="yes" from="store" />
 </outfits>

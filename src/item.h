@@ -958,6 +958,9 @@ class Item : virtual public Thing
 		bool isRotatable() const {
 			return items[id].rotatable && items[id].rotateTo;
 		}
+		bool isPodium() const {
+			return items[id].isPodium;
+		}
 		bool isWrapable() const {
 			return items[id].wrapable && items[id].wrapableTo;
 		}
@@ -1002,6 +1005,7 @@ class Item : virtual public Thing
 
 		void setDefaultSubtype();
 		uint16_t getSubType() const;
+		bool isItemStorable() const;
 		void setSubType(uint16_t n);
 
 		void setUniqueId(uint16_t n);
@@ -1089,5 +1093,6 @@ class Item : virtual public Thing
 
 using ItemList = std::list<Item*>;
 using ItemDeque = std::deque<Item*>;
+using StashContainerList = std::vector<std::pair<Item*, uint32_t>>;
 
 #endif

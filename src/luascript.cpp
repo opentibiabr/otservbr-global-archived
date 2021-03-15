@@ -9838,13 +9838,16 @@ int LuaScriptInterface::luaPlayerSetOfflineTrainingSkill(lua_State* L)
 
 int LuaScriptInterface::luaPlayerOpenStash(lua_State* L)
 {
-	// player:openStash()
+	// player:openStash(isNpc)
 	Player* player = getUserdata<Player>(L, 1);
-	if (!player) {
-		return 1;
+	bool isNpc = getBoolean(L, 2, false);
+	if (player) {
+		player->sendOpenStash(isNpc);
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
 	}
 
-	player->sendOpenStash();
 	return 1;
 }
 
@@ -10163,12 +10166,12 @@ int LuaScriptInterface::luaPlayerSetGroup(lua_State* L)
 
 int LuaScriptInterface::luaPlayerSetSpecialContainersAvailable(lua_State* L)
 {
-	// player:setSpecialContainersAvailable(supplyStashAvailable)
-	bool supplyStashAvailable = getBoolean(L, 2);
+	// player:setSpecialContainersAvailable(stashMenu, marketMenu)
+	bool supplyStashMenu = getBoolean(L, 2, false);
+	bool marketMenu = getBoolean(L, 3, false);
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
-		player->setSupplyStashAvailable(supplyStashAvailable);
-		player->sendSpecialContainersAvailable(supplyStashAvailable);
+		player->setSpecialMenuAvailable(supplyStashMenu, marketMenu);
 		pushBoolean(L, true);
 	} else {
 		lua_pushnil(L);
