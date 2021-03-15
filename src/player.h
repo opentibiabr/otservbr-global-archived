@@ -526,8 +526,20 @@ class Player final : public Creature, public Cylinder
 		bool isInMarket() const {
 			return inMarket;
 		}
-		void setSupplyStashAvailable(bool value) {
-			supplyStashAvailable = value;
+		void setSpecialMenuAvailable(bool supplyStashBool, bool marketMenuBool) {
+			// Menu option 'stow, stow container ...'
+			// Menu option 'show in market'
+			supplyStash = supplyStashBool;
+			marketMenu = marketMenuBool;
+			if (client) {
+				client->sendSpecialContainersAvailable();
+			}
+		}
+		bool isSupplyStashMenuAvailable() {
+			return supplyStash;
+		}
+		bool isMarketMenuAvailable() {
+			return marketMenu;
 		}
 		bool isExerciseTraining() {
 			return exerciseTraining;
@@ -630,7 +642,6 @@ class Player final : public Creature, public Cylinder
 		void addMessageBuffer();
 		void removeMessageBuffer();
 
-		bool removeItemClientId(uint16_t clientId, uint32_t count) const;
 		bool removeItemOfType(uint16_t itemId, uint32_t amount, int32_t subType, bool ignoreEquipped = false) const;
 
 		void addItemOnStash(uint16_t clientId, uint32_t amount) {
@@ -824,7 +835,7 @@ class Player final : public Creature, public Cylinder
 
 		//stash functions
 		bool addItemFromStash(uint16_t itemId, uint32_t itemCount);
-		void stowContainer(Item* item, uint32_t count);
+		void stowItem(Item* item, uint32_t count, bool allItems);
 
 		void changeHealth(int32_t healthChange, bool sendHealthChange = true) override;
 		void changeMana(int32_t manaChange) override;
@@ -1388,11 +1399,6 @@ class Player final : public Creature, public Cylinder
 				client->sendChannelsDialog();
 			}
 		}
-		void sendSpecialContainersAvailable(bool supplyStashAvailable) {
-			if (client) {
-				client->sendSpecialContainersAvailable(supplyStashAvailable);
-			}
-		}
 		void sendOpenPrivateChannel(const std::string& receiver) {
 			if (client) {
 				client->sendOpenPrivateChannel(receiver);
@@ -1550,10 +1556,14 @@ class Player final : public Creature, public Cylinder
 			lastPong = OTSYS_TIME();
 		}
 
-		void sendOpenStash() {
-			if (client && getLastDepotId() != -1) {
+		void sendOpenStash(bool isNpc = false) {
+			if (client && ((getLastDepotId() != -1) || isNpc)) {
         		client->sendOpenStash();
 			}
+		}
+		bool isStashExhausted() const;
+		void updateStashExhausted() {
+			lastStashInteraction = OTSYS_TIME();
 		}
 
 		void onThink(uint32_t interval) override;
@@ -1877,9 +1887,6 @@ class Player final : public Creature, public Cylinder
 
 		void updateInventoryWeight();
 
-		bool isItemStorable(Item* item);
-		ItemDeque getAllStorableItemsInContainer(Item* container);
-
 		void setNextWalkActionTask(SchedulerTask* task);
 		void setNextWalkTask(SchedulerTask* task);
 		void setNextActionTask(SchedulerTask* task, bool resetIdleTime = true);
@@ -1971,6 +1978,7 @@ class Player final : public Creature, public Cylinder
 		int64_t lastWalkthroughAttempt = 0;
 		int64_t lastToggleMount = 0;
 		int64_t lastMarketInteraction = 0;  //Custom: Anti bug do market
+		int64_t lastStashInteraction = 0;
 		int64_t lastPing;
 		int64_t lastPong;
 		int64_t nextAction = 0;
@@ -2117,7 +2125,8 @@ class Player final : public Creature, public Cylinder
 		bool logged = false;
 		bool scheduledSaleUpdate = false;
 		bool inEventMovePush = false;
-		bool supplyStashAvailable = false;
+		bool supplyStash = false; // Menu option 'stow, stow container ...'
+		bool marketMenu = false; // Menu option 'show in market'
 		bool exerciseTraining = false;
 
 		static uint32_t playerAutoID;

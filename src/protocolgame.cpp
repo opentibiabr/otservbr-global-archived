@@ -2466,6 +2466,7 @@ void ProtocolGame::parseMarketBrowse(NetworkMessage &msg)
 	}
 	else
 	{
+    player->sendMarketEnter(player->getLastDepotId());
 		addGameTask(&Game::playerBrowseMarket, player->getID(), browseId);
 	}
 }
@@ -6247,12 +6248,15 @@ void ProtocolGame::AddWorldLight(NetworkMessage &msg, LightInfo lightInfo)
 	msg.addByte(lightInfo.color);
 }
 
-void ProtocolGame::sendSpecialContainersAvailable(bool supplyStashAvailable)
+void ProtocolGame::sendSpecialContainersAvailable()
 {
+	if (!player)
+		return;
+
 	NetworkMessage msg;
 	msg.addByte(0x2A);
-	msg.addByte(supplyStashAvailable ? 0x01 : 0x00);
-	msg.addByte(0x00); // 0x00 if player can use 'show in market' option. TO DO
+	msg.addByte(player->isSupplyStashMenuAvailable() ? 0x01 : 0x00);
+	msg.addByte(player->isMarketMenuAvailable() ? 0x01 : 0x00);
 	writeToOutputBuffer(msg);
 }
 
@@ -6541,64 +6545,60 @@ void ProtocolGame::sendOpenStash()
 {
 	NetworkMessage msg;
 	msg.addByte(0x29);
-	AddPlayerStowedItems(msg);
-	writeToOutputBuffer(msg);
-}
-
-void ProtocolGame::AddPlayerStowedItems(NetworkMessage &msg)
-{
 	StashItemList list = player->getStashItems();
-
 	msg.add<uint16_t>(list.size());
-
-	for (auto item : list)
-	{
+	for (auto item : list) {
 		msg.add<uint16_t>(item.first);
 		msg.add<uint32_t>(item.second);
 	}
 	msg.add<uint16_t>(g_config.getNumber(ConfigManager::STASH_ITEMS) - getStashSize(list));
+	writeToOutputBuffer(msg);
 }
 
 void ProtocolGame::parseStashWithdraw(NetworkMessage &msg)
 {
+	if (player->isStashExhausted()) {
+		player->sendCancelMessage("You need to wait to do this again.");
+		return;
+	}
+
 	Supply_Stash_Actions_t action = static_cast<Supply_Stash_Actions_t>(msg.getByte());
-	switch (action)
-	{
-	case SUPPLY_STASH_ACTION_STOW_ITEM:
-	{
-		Position pos = msg.getPosition();
-		uint16_t spriteId = msg.get<uint16_t>();
-		uint8_t stackpos = msg.getByte();
-		uint32_t count = static_cast<uint32_t>(msg.getByte());
-		g_game.playerStowItem(player, pos, spriteId, stackpos, count);
-		break;
+	switch (action)	{
+		case SUPPLY_STASH_ACTION_STOW_ITEM: {
+			Position pos = msg.getPosition();
+			uint16_t spriteId = msg.get<uint16_t>();
+			uint8_t stackpos = msg.getByte();
+			uint32_t count = msg.getByte();
+			addGameTask(&Game::playerStowItem, player, pos, spriteId, stackpos, count, false);
+			break;
+		}
+		case SUPPLY_STASH_ACTION_STOW_CONTAINER: {
+			Position pos = msg.getPosition();
+			uint16_t spriteId = msg.get<uint16_t>();
+			uint8_t stackpos = msg.getByte();
+			addGameTask(&Game::playerStowItem, player, pos, spriteId, stackpos, 0, false);
+			break;
+		}
+		case SUPPLY_STASH_ACTION_STOW_STACK: {
+			Position pos = msg.getPosition();
+			uint16_t spriteId = msg.get<uint16_t>();
+			uint8_t stackpos = msg.getByte();
+			addGameTask(&Game::playerStowItem, player, pos, spriteId, stackpos, 0, true);
+			break;
+		}
+		case SUPPLY_STASH_ACTION_WITHDRAW: {
+			uint16_t spriteId = msg.get<uint16_t>();
+			uint32_t count = msg.get<uint32_t>();
+			uint8_t stackpos = msg.getByte();
+			addGameTask(&Game::playerStashWithdraw, player, spriteId, count, stackpos);
+			break;
+		}
+		default:
+			std::cout << "[ProtocolGame::parseStashWithdraw] Unknown 'supply stash' action switch: " << action << std::endl;
+			break;
 	}
-	case SUPPLY_STASH_ACTION_STOW_CONTAINER:
-	{
-		Position pos = msg.getPosition();
-		uint16_t spriteId = msg.get<uint16_t>();
-		uint8_t stackpos = msg.getByte();
-		g_game.playerStowContainer(player, pos, spriteId, stackpos);
-		break;
-	}
-	case SUPPLY_STASH_ACTION_STOW_STACK:
-	{
-		Position pos = msg.getPosition();
-		uint16_t spriteId = msg.get<uint16_t>();
-		uint8_t stackpos = msg.getByte();
-		g_game.playerStowAllItems(player, pos, spriteId, stackpos);
-		break;
-	}
-	case SUPPLY_STASH_ACTION_WITHDRAW:
-	{
-		uint16_t spriteId = msg.get<uint16_t>();
-		uint32_t count = msg.get<uint32_t>();
-		uint8_t stackpos = msg.getByte();
-		g_game.playerStashWithdraw(player, spriteId, count, stackpos);
-		sendOpenStash();
-		break;
-	}
-	}
+
+	player->updateStashExhausted();
 }
 
 void ProtocolGame::sendLockerItems(std::map<uint16_t, uint16_t> itemMap, uint16_t count)

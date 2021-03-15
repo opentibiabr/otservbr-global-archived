@@ -1556,7 +1556,7 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 	if (toCylinder->getContainer() != NULL &&
 		toCylinder->getItem()->getID() == ITEM_LOCKER1 &&
 		toPos.getZ() == ITEM_SUPPLY_STASH_INDEX) {
-		player->stowContainer(item, count);
+		player->stowItem(item, count, false);
 			return;
 	}
 
@@ -3710,7 +3710,7 @@ void Game::playerBrowseField(uint32_t playerId, const Position& pos)
 	}
 }
 
-void Game::playerStowItem(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos, uint32_t count)
+void Game::playerStowItem(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos, uint8_t count, bool allItems)
 {
 	if (!player->isPremium()) {
 		player->sendCancelMessage(RETURNVALUE_YOUNEEDPREMIUMACCOUNT);
@@ -3718,12 +3718,11 @@ void Game::playerStowItem(Player* player, const Position& pos, uint16_t spriteId
 	}
 
 	Thing* thing = internalGetThing(player, pos, stackpos, 0, STACKPOS_TOPDOWN_ITEM);
-	if (!thing || count == 0) {
+	if (!thing)
 		return;
-	}
 
 	Item* item = thing->getItem();
-	if (!item || (item->getClientID() != spriteId && static_cast<uint32_t>(item->getItemCount()) >= count)) {
+	if (!item || item->getClientID() != spriteId || item->getItemCount() < count) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
@@ -3732,37 +3731,7 @@ void Game::playerStowItem(Player* player, const Position& pos, uint16_t spriteId
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
-	player->stowContainer(item, count);
-}
-
-void Game::playerStowAllItems(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos)
-{
-	if (!player->isPremium()) {
-		player->sendCancelMessage(RETURNVALUE_YOUNEEDPREMIUMACCOUNT);
-		return;
-	}
-
-	Thing* thing = internalGetThing(player, pos, stackpos, 0, STACKPOS_TOPDOWN_ITEM);
-	if (!thing) {
-		return;
-	}
-
-	Item* item = thing->getItem();
-	if (!item || item->getClientID() != spriteId) {
-		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		return;
-	}
-
-	if (pos.x != 0xFFFF && !Position::areInRange<1, 1, 0>(pos, player->getPosition())) {
-		// moving towards stow items means we'll loose supply stash availability
-		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		return;
-	}
-
-	auto itemCID = Item::items.getItemIdByClientId(spriteId).id;
-	uint16_t allitems = player->getItemTypeCount(itemCID, -1);
-
-	player->stowContainer(item, static_cast<uint32_t>(allitems));
+	player->stowItem(item, count, allItems);
 }
 
 void Game::playerStashWithdraw(Player* player, uint16_t spriteId, uint32_t count, uint8_t)
@@ -3820,41 +3789,13 @@ void Game::playerStashWithdraw(Player* player, uint16_t spriteId, uint32_t count
 		ss << "Retrieved " << WithdrawCount << "x " << it.name << '.';
 	}
 
-	std::string stringResult = ss.str();
-	player->sendCancelMessage(stringResult);
+	player->sendTextMessage(MESSAGE_STATUS, ss.str());
 
 	if (player->withdrawItem(spriteId, WithdrawCount)) {
 		player->addItemFromStash(it.id, WithdrawCount);
 	} else {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 	}
-}
-
-void Game::playerStowContainer(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos)
-{
-	if (!player->isPremium()) {
-		player->sendCancelMessage(RETURNVALUE_YOUNEEDPREMIUMACCOUNT);
-		return;
-	}
-
-	Thing* thing = internalGetThing(player, pos, stackpos, 0, STACKPOS_TOPDOWN_ITEM);
-	if (!thing) {
-		return;
-	}
-
-	Item* item = thing->getItem();
-	if (!item || item->getClientID() != spriteId) {
-		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		return;
-	}
-
-	if (pos.x != 0xFFFF && !Position::areInRange<1, 1, 0>(pos, player->getPosition())) {
-		// moving towards stow items means we'll loose supply stash availability
-		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		return;
-	}
-
-	player->stowContainer(item, static_cast<uint32_t>(item->getItemCount()));
 }
 
 void Game::playerSeekInContainer(uint32_t playerId, uint8_t containerId, uint16_t index)

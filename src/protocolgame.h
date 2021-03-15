@@ -473,9 +473,8 @@ private:
 	void sendInventory();
 
 	void sendOpenStash();
-	void AddPlayerStowedItems(NetworkMessage &msg);
 	void parseStashWithdraw(NetworkMessage &msg);
-	void sendSpecialContainersAvailable(bool supplyStashAvailable);
+	void sendSpecialContainersAvailable();
 };
 
 #endif
