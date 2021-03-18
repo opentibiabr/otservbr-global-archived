@@ -372,7 +372,7 @@ local function startWarzoneIV()
 	addEvent(function()
 		local monstro = Game.createMonster("The Baron From Below", Position(33648, 32303, 15))
 			if monstro then
-				monstro:registerEvent("theBaronFromBelow")
+				monstro:registerEvent("TheBaronFromBelowThink")
 			end
 			addEvent(sumonarLavasIV, 15*1000, 5)
 			addEvent(lavaHoles, 15*1000, 1)
