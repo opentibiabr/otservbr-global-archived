@@ -11,6 +11,8 @@ combat:setArea(createCombatArea({
 }))
 
 local monsters = {
+	"the baron from below",
+	"the hungry baron from below",
 	"the duke of the depths",
 	"the fire empowered duke",
 	"fiery heart",
