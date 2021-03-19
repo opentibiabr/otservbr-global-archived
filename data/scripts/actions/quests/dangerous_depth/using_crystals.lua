@@ -383,7 +383,7 @@ local function startWarzoneV()
 	addEvent(function()
 		local monstro = Game.createMonster("The Count Of The Core", Position(33681, 32334, 15))
 			if monstro then
-				monstro:registerEvent("emberBeasts")
+				monstro:registerEvent("SnailSlimeThink")
 			end
 		summonBeasts(5)
 		addEvent(startMachines, 10*1000)
