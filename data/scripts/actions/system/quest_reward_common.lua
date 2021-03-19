@@ -5,18 +5,19 @@
 local AttributeTable = {
 	[6013] = {
 		text = [[
-Hardek *
-Bozo *
-Sam ****
-Oswald
-Partos ***
-Quentin *
-Tark ***
-Harsky ***
-Stutch *
-Ferumbras *
-Frodo **
-Noodles ****]]
+			Hardek *
+			Bozo *
+			Sam ****
+			Oswald
+			Partos ***
+			Quentin *
+			Tark ***
+			Harsky ***
+			Stutch *
+			Ferumbras *
+			Frodo **
+			Noodles ****
+		]]
 	}
 }
 
@@ -65,10 +66,10 @@ end
 
 local function playerAddContainerItem(params, item)
 	local player = params.player
-
+	local itemType = ItemType(params.itemid)
 	local reward = params.containerReward
+	
 	if params.action then
-		local itemType = ItemType(params.itemid)
 		if itemType:isKey() then
 			-- If is key inside container, uses the "keyAction" variable
 			keyItem = reward:addItem(params.itemid, params.count)
@@ -80,9 +81,11 @@ local function playerAddContainerItem(params, item)
 	if achievement then
 		player:addAchievement(achievement)
 	end
-
-	reward:addItem(params.itemid, params.count)
-	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(params.itemBagName) .. ".")
+	
+	if not itemType:isKey() then
+		reward:addItem(params.itemid, params.count)
+	end
+	
 	player:setStorageValue(params.storage, 1)
 	return true
 end
@@ -114,7 +117,8 @@ function questReward.onUse(player, item, fromPosition, itemEx, toPosition)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The ".. getItemName(setting.itemId) .. " is empty.")
 		return true
 	end
-
+	
+	local containerBag = false
 	local container = player:addItem(setting.container)
 	for i = 1, #setting.reward do
 		local itemid = setting.reward[i][1]
@@ -164,10 +168,16 @@ function questReward.onUse(player, item, fromPosition, itemEx, toPosition)
 
 			if not playerAddContainerItem(addContainerItemParams, item) then
 				return true
+			else
+				containerBag = true
 			end
 		end
 	end
-	return true
+	
+	if containerBag then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a bag.")
+	end
+return true
 end
 
 for uniqueRange = 5000, 9000 do
