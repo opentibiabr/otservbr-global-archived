@@ -160,8 +160,10 @@ FILELOADER_ERRORS Items::loadFromOtb(const std::string& file)
 		uint8_t lightLevel = 0;
 		uint8_t lightColor = 0;
 		uint8_t alwaysOnTopOrder = 0;
+    bool isPodium = false;
+
 		if (clientId == 35973 || clientId == 35974) {
-			bool isPodium = true;
+			  isPodium = true;
 		}
 
 		uint8_t attrib;
