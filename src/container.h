@@ -119,6 +119,7 @@ class Container : public Item, public Cylinder
 
 		bool hasParent() const;
 		void addItem(Item* item);
+		StashContainerList getStowableItems() const;
 		Item* getItemByIndex(size_t index) const;
 		bool isHoldingItem(const Item* item) const;
 

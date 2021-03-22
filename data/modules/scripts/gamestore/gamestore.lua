@@ -10,7 +10,7 @@ dofile('data/modules/scripts/gamestore/init.lua')
 -- Config
 
 HomeBanners = {
-    images = { "home/banner_cunninghyaena.png", "home/banner_jousters.png" },
+    images = { "home/banner_riftwatcher.png" , "home/banner_runemaster.png" , "home/banner_podiumofrenown.png" },
     delay = 10
 }
 
@@ -1878,7 +1878,6 @@ GameStore.Categories = {
           id = 171,
           description = "{character}\n{speedboost}\n\n<i>The Cunning Hyaena, Scruffy Hyaena and Voracious Hyaena are highly social animals and loyal companions to whomever is able to befriend them. Coming from sun-soaked places, they prefer a warm climate, but are able to cope in other environments as well.</i>",
           type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-          home = true,
         },
         {			
           icons = { "Cunning_Hyaena.png" },
@@ -1887,7 +1886,6 @@ GameStore.Categories = {
           id = 172,
           description = "{character}\n{speedboost}\n\n<i>The Cunning Hyaena, Scruffy Hyaena and Voracious Hyaena are highly social animals and loyal companions to whomever is able to befriend them. Coming from sun-soaked places, they prefer a warm climate, but are able to cope in other environments as well.</i>",
           type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-          home = true,
         },
         {			
           icons = { "Scruffy_Hyaena.png" },
@@ -1895,6 +1893,32 @@ GameStore.Categories = {
           price = 750,
           id = 173,
           description = "{character}\n{speedboost}\n\n<i>The Cunning Hyaena, Scruffy Hyaena and Voracious Hyaena are highly social animals and loyal companions to whomever is able to befriend them. Coming from sun-soaked places, they prefer a warm climate, but are able to cope in other environments as well.</i>",
+          type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
+        },
+        {
+          icons = { "Void_Watcher.png" },
+          name = "Void Watcher",
+          price = 870,
+          id = 179,
+          description = "{character}\n{speedboost}\n\n<i>If you are looking for a vigilant and faithful companion, look no further! Glide through every realm and stare into the darkest abyss on the back of a Void Watcher. They already know everything about you anyway for they have been watching you from the shadows!</i>",
+          type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
+          home = true,
+        },
+        {
+          icons = { "Rune_Watcher.png" },
+          name = "Rune Watcher",
+          price = 870,
+          id = 180,
+          description = "{character}\n{speedboost}\n\n<i>If you are looking for a vigilant and faithful companion, look no further! Glide through every realm and stare into the darkest abyss on the back of a Rune Watcher. They already know everything about you anyway for they have been watching you from the shadows!</i>",
+          type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
+          home = true,
+        },
+        {
+          icons = { "Rift_Watcher.png" },
+          name = "Rift Watcher",
+          price = 870,
+          id = 181,
+          description = "{character}\n{speedboost}\n\n<i>If you are looking for a vigilant and faithful companion, look no further! Glide through every realm and stare into the darkest abyss on the back of a Rift Watcher. They already know everything about you anyway for they have been watching you from the shadows!</i>",
           type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
           home = true,
         },
@@ -2259,6 +2283,15 @@ GameStore.Categories = {
           sexId = {female = 1332, male = 1331},
           addon = 3,
           description = "{character}\n{info} colours can be changed using the Outfit dialog\n\n<i>The Jouster is all geared up for a tournament, ready to partake in festive activities involving friendly competition to prove their chivalry. However, being well-armoured, they are also a force to be reckoned with on the battlefield, especially with a trusty steed at their service.</i>",
+          type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
+        },
+        {
+          icons = { "Outfit_Rune_Master_Male_Addon_3.png", "Outfit_Rune_Master_Female_Addon_3.png" },
+          name = "Full Rune Master Outfit",
+          price = 870,
+          sexId = {female = 1385, male = 1384},
+          addon = 3,
+          description = "{character}\n{info} colours can be changed using the Outfit dialog\n{info} includes basic outfit and 2 addons which can be selected individually\n\n<i>A Rune Master has dedicated their whole life to the study and mastery of runes. They are intrigued by the ancient symbols, shrouded in mystery, and how their magic works. Rune Masters have a deep understanding of the awesome power they are wielding and can make use of the full potential of runes.</i>",
           type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
           home = true,
         },

@@ -2815,6 +2815,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Monster", "isMonster", LuaScriptInterface::luaMonsterIsMonster);
 
 	registerMethod("Monster", "getType", LuaScriptInterface::luaMonsterGetType);
+	registerMethod("Monster", "setType", LuaScriptInterface::luaMonsterSetType);
 
 	registerMethod("Monster", "getSpawnPosition", LuaScriptInterface::luaMonsterGetSpawnPosition);
 	registerMethod("Monster", "isInSpawnRange", LuaScriptInterface::luaMonsterIsInSpawnRange);
@@ -9839,13 +9840,16 @@ int LuaScriptInterface::luaPlayerSetOfflineTrainingSkill(lua_State* L)
 
 int LuaScriptInterface::luaPlayerOpenStash(lua_State* L)
 {
-	// player:openStash()
+	// player:openStash(isNpc)
 	Player* player = getUserdata<Player>(L, 1);
-	if (!player) {
-		return 1;
+	bool isNpc = getBoolean(L, 2, false);
+	if (player) {
+		player->sendOpenStash(isNpc);
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
 	}
 
-	player->sendOpenStash();
 	return 1;
 }
 
@@ -10164,12 +10168,12 @@ int LuaScriptInterface::luaPlayerSetGroup(lua_State* L)
 
 int LuaScriptInterface::luaPlayerSetSpecialContainersAvailable(lua_State* L)
 {
-	// player:setSpecialContainersAvailable(supplyStashAvailable)
-	bool supplyStashAvailable = getBoolean(L, 2);
+	// player:setSpecialContainersAvailable(stashMenu, marketMenu)
+	bool supplyStashMenu = getBoolean(L, 2, false);
+	bool marketMenu = getBoolean(L, 3, false);
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
-		player->setSupplyStashAvailable(supplyStashAvailable);
-		player->sendSpecialContainersAvailable(supplyStashAvailable);
+		player->setSpecialMenuAvailable(supplyStashMenu, marketMenu);
 		pushBoolean(L, true);
 	} else {
 		lua_pushnil(L);
@@ -12319,6 +12323,56 @@ int LuaScriptInterface::luaMonsterGetType(lua_State* L)
 	if (monster) {
 		pushUserdata<MonsterType>(L, monster->mType);
 		setMetatable(L, -1, "MonsterType");
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterSetType(lua_State* L) {
+	// monster:setType(name or raceid)
+	Monster* monster = getUserdata<Monster>(L, 1);
+	if (monster) {
+		MonsterType* monsterType = nullptr;
+		if (isNumber(L, 2)) {
+			monsterType = g_monsters.getMonsterTypeByRaceId(getNumber<uint16_t>(L, 2));
+		} else {
+			monsterType = g_monsters.getMonsterType(getString(L, 2));
+		}
+		// Unregister creature events (current MonsterType)
+		for (const std::string& scriptName : monster->mType->info.scripts) {
+			if (!monster->unregisterCreatureEvent(scriptName)) {
+				std::cout << "[Warning - Monster::Monster] Unknown event name: " << scriptName << std::endl;
+			}
+		}
+		// Assign new MonsterType
+		monster->mType = monsterType;
+		monster->strDescription = asLowerCaseString(monsterType->nameDescription);
+		monster->defaultOutfit = monsterType->info.outfit;
+		monster->currentOutfit = monsterType->info.outfit;
+		monster->skull = monsterType->info.skull;
+		float multiplier = g_config.getFloat(ConfigManager::RATE_MONSTER_HEALTH);
+		monster->health = monsterType->info.health * multiplier;
+		monster->healthMax = monsterType->info.healthMax * multiplier;
+		monster->baseSpeed = monsterType->info.baseSpeed;
+		monster->internalLight = monsterType->info.light;
+		monster->hiddenHealth = monsterType->info.hiddenHealth;
+		monster->targetDistance = monsterType->info.targetDistance;
+		// Register creature events (new MonsterType)
+		for (const std::string& scriptName : monsterType->info.scripts) {
+			if (!monster->registerCreatureEvent(scriptName)) {
+				std::cout << "[Warning - Monster::Monster] Unknown event name: " << scriptName << std::endl;
+			}
+		}
+		// Reload creature on spectators
+		SpectatorHashSet spectators;
+		g_game.map.getSpectators(spectators, monster->getPosition(), true);
+		for (Creature* spectator : spectators) {
+			if (Player* tmpPlayer = spectator->getPlayer()) {
+				tmpPlayer->sendCreatureReload(monster);
+			}
+		}
+		pushBoolean(L, true);
 	} else {
 		lua_pushnil(L);
 	}
