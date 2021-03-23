@@ -198,7 +198,7 @@ function bossDeath.onDeath(creature, corpse, killer, mostDamageKiller, lastHitUn
 
 					con.player:sendTextMessage(MESSAGE_LOOT, lootMessage)
 				else
-					local lootMessage = {"The following items dropped by ".. creature:getName() .." are available in your reward chest: ".. reward:getContentDescription() ..""}
+					local lootMessage = {"The following items dropped by ".. creature:getName() .." are available in your reward chest: ".. reward:getRewardContentDescription() ..""}
 
 					con.player:sendTextMessage(MESSAGE_INFO_DESCR, table.concat(lootMessage))
 				end

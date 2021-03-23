@@ -30,7 +30,7 @@ local function pushValues(buffer, sep, ...)
 	end
 end
 
-function Item.getNameDescription(self)
+function Item.getRewardNameDescription(self)
 	local subType = self:getSubType()
 	local itemType = self:getType()
 
@@ -51,7 +51,7 @@ function Item.getNameDescription(self)
 	return table.concat(buffer)
 end
 
-function Container.getContentDescription(self, outputBuffer)
+function Container.getRewardContentDescription(self, outputBuffer)
 	local firstItem = true
 	local buffer = outputBuffer or {}
 	for i = 1, self:getSize() do
@@ -63,7 +63,7 @@ function Container.getContentDescription(self, outputBuffer)
 			table.insert(buffer, ", ")
 		end
 
-		table.insert(buffer, item:getNameDescription())
+		table.insert(buffer, item:getRewardNameDescription())
 	end
 
 	if firstItem then
