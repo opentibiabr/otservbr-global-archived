@@ -159,7 +159,7 @@ void ProtocolGame::AddItem(NetworkMessage &msg, const Item *item)
 			msg.addByte(0xFE); // random phase (0xFF for async)
 	}
 
-	if (version >= 1200) {
+	if (version >= 1264) {
 		if (it.isPodium) {
 			const ItemAttributes::CustomAttribute* podiumVisible = item->getCustomAttribute("PodiumVisible");
 			const ItemAttributes::CustomAttribute* lookType = item->getCustomAttribute("LookType");
