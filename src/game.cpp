@@ -1556,7 +1556,7 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 	if (toCylinder->getContainer() != NULL &&
 		toCylinder->getItem()->getID() == ITEM_LOCKER1 &&
 		toPos.getZ() == ITEM_SUPPLY_STASH_INDEX) {
-		player->stowContainer(item, count);
+		player->stowItem(item, count, false);
 			return;
 	}
 
@@ -3364,6 +3364,126 @@ void Game::playerRotateItem(uint32_t playerId, const Position& pos, uint8_t stac
 	}
 }
 
+void Game::playerConfigureShowOffSocket(uint32_t playerId, const Position& pos, uint8_t stackPos, const uint16_t spriteId)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player || pos.x == 0xFFFF) {
+		return;
+	}
+
+	Thing* thing = internalGetThing(player, pos, stackPos, 0, STACKPOS_TOPDOWN_ITEM);
+	if (!thing) {
+		return;
+	}
+
+	Item* item = thing->getItem();
+	if (!item || item->getClientID() != spriteId || !item->isPodium() || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	if (!Position::areInRange<1, 1, 0>(pos, player->getPosition())) {
+		std::forward_list<Direction> listDir;
+		if (player->getPathTo(pos, listDir, 0, 1, true, false)) {
+			g_dispatcher.addTask(createTask(std::bind(&Game::playerAutoWalk, this, player->getID(), listDir)));
+			SchedulerTask* task = createSchedulerTask(400, std::bind(
+									  &Game::playerBrowseField, this, playerId, pos
+								  ));
+			player->setNextWalkActionTask(task);
+
+		} else {
+			player->sendCancelMessage(RETURNVALUE_THEREISNOWAY);
+		}
+		return;
+	}
+
+	player->sendPodiumWindow(item, pos, spriteId, stackPos);
+}
+
+void Game::playerSetShowOffSocket(uint32_t playerId, Outfit_t& outfit, const Position& pos, uint8_t stackPos, const uint16_t spriteId, uint8_t podiumVisible, uint8_t direction)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player || pos.x == 0xFFFF) {
+		return;
+	}
+
+	Thing* thing = internalGetThing(player, pos, stackPos, 0, STACKPOS_TOPDOWN_ITEM);
+	if (!thing) {
+		return;
+	}
+
+	Item* item = thing->getItem();
+	if (!item || item->getClientID() != spriteId || !item->isPodium() || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	Tile* tile = dynamic_cast<Tile*>(item->getParent());
+	if (!tile) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	if (!Position::areInRange<1, 1, 0>(pos, player->getPosition())) {
+		std::forward_list<Direction> listDir;
+		if (player->getPathTo(pos, listDir, 0, 1, true, false)) {
+			g_dispatcher.addTask(createTask(std::bind(&Game::playerAutoWalk, this, player->getID(), listDir)));
+			SchedulerTask* task = createSchedulerTask(400, std::bind(
+									  &Game::playerBrowseField, this, playerId, pos
+								  ));
+			player->setNextWalkActionTask(task);
+		} else {
+			player->sendCancelMessage(RETURNVALUE_THEREISNOWAY);
+		}
+		return;
+	}
+
+	if (!player->canWear(outfit.lookType, outfit.lookAddons)) {
+		outfit.lookType = 0;
+		outfit.lookAddons = 0;
+	}
+
+	Mount* mount = mounts.getMountByClientID(outfit.lookMount);
+	if (!mount || !player->hasMount(mount)) {
+		outfit.lookMount = 0;
+	}
+
+	std::string key; // Too lazy to fix it :) let's just use temporary key variable
+	if (outfit.lookType != 0) {
+		key = "LookType"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookType));
+		key = "LookHead"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookHead));
+		key = "LookBody"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookBody));
+		key = "LookLegs"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookLegs));
+		key = "LookFeet"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookFeet));
+		key = "LookAddons"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookAddons));
+	} else {
+		item->removeCustomAttribute("LookType");
+	}
+
+	if (outfit.lookMount != 0) {
+		key = "LookMount"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookMount));
+		key = "LookMountHead"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookMountHead));
+		key = "LookMountBody"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookMountBody));
+		key = "LookMountLegs"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookMountLegs));
+		key = "LookMountFeet"; item->setCustomAttribute(key, static_cast<int64_t>(outfit.lookMountFeet));
+	} else {
+		item->removeCustomAttribute("LookMount");
+	}
+
+	key = "PodiumVisible"; item->setCustomAttribute(key, static_cast<int64_t>(podiumVisible));
+	key = "LookDirection"; item->setCustomAttribute(key, static_cast<int64_t>(direction));
+
+	SpectatorHashSet spectators;
+	g_game.map.getSpectators(spectators, pos, true);
+
+	// send to client
+	for (Creature* spectator : spectators) {
+		if (Player* tmpPlayer = spectator->getPlayer()) {
+			tmpPlayer->sendUpdateTileItem(tile, pos, item);
+		}
+	}
+}
+
 void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t stackPos, const uint16_t spriteId)
 {
 	Player* player = getPlayerByID(playerId);
@@ -3590,7 +3710,7 @@ void Game::playerBrowseField(uint32_t playerId, const Position& pos)
 	}
 }
 
-void Game::playerStowItem(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos, uint32_t count)
+void Game::playerStowItem(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos, uint8_t count, bool allItems)
 {
 	if (!player->isPremium()) {
 		player->sendCancelMessage(RETURNVALUE_YOUNEEDPREMIUMACCOUNT);
@@ -3598,12 +3718,11 @@ void Game::playerStowItem(Player* player, const Position& pos, uint16_t spriteId
 	}
 
 	Thing* thing = internalGetThing(player, pos, stackpos, 0, STACKPOS_TOPDOWN_ITEM);
-	if (!thing || count == 0) {
+	if (!thing)
 		return;
-	}
 
 	Item* item = thing->getItem();
-	if (!item || (item->getClientID() != spriteId && static_cast<uint32_t>(item->getItemCount()) >= count)) {
+	if (!item || item->getClientID() != spriteId || item->getItemCount() < count) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
@@ -3612,37 +3731,7 @@ void Game::playerStowItem(Player* player, const Position& pos, uint16_t spriteId
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
-	player->stowContainer(item, count);
-}
-
-void Game::playerStowAllItems(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos)
-{
-	if (!player->isPremium()) {
-		player->sendCancelMessage(RETURNVALUE_YOUNEEDPREMIUMACCOUNT);
-		return;
-	}
-
-	Thing* thing = internalGetThing(player, pos, stackpos, 0, STACKPOS_TOPDOWN_ITEM);
-	if (!thing) {
-		return;
-	}
-
-	Item* item = thing->getItem();
-	if (!item || item->getClientID() != spriteId) {
-		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		return;
-	}
-
-	if (pos.x != 0xFFFF && !Position::areInRange<1, 1, 0>(pos, player->getPosition())) {
-		// moving towards stow items means we'll loose supply stash availability
-		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		return;
-	}
-
-	auto itemCID = Item::items.getItemIdByClientId(spriteId).id;
-	uint16_t allitems = player->getItemTypeCount(itemCID, -1);
-
-	player->stowContainer(item, static_cast<uint32_t>(allitems));
+	player->stowItem(item, count, allItems);
 }
 
 void Game::playerStashWithdraw(Player* player, uint16_t spriteId, uint32_t count, uint8_t)
@@ -3700,41 +3789,13 @@ void Game::playerStashWithdraw(Player* player, uint16_t spriteId, uint32_t count
 		ss << "Retrieved " << WithdrawCount << "x " << it.name << '.';
 	}
 
-	std::string stringResult = ss.str();
-	player->sendCancelMessage(stringResult);
+	player->sendTextMessage(MESSAGE_STATUS, ss.str());
 
 	if (player->withdrawItem(spriteId, WithdrawCount)) {
 		player->addItemFromStash(it.id, WithdrawCount);
 	} else {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 	}
-}
-
-void Game::playerStowContainer(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos)
-{
-	if (!player->isPremium()) {
-		player->sendCancelMessage(RETURNVALUE_YOUNEEDPREMIUMACCOUNT);
-		return;
-	}
-
-	Thing* thing = internalGetThing(player, pos, stackpos, 0, STACKPOS_TOPDOWN_ITEM);
-	if (!thing) {
-		return;
-	}
-
-	Item* item = thing->getItem();
-	if (!item || item->getClientID() != spriteId) {
-		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		return;
-	}
-
-	if (pos.x != 0xFFFF && !Position::areInRange<1, 1, 0>(pos, player->getPosition())) {
-		// moving towards stow items means we'll loose supply stash availability
-		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		return;
-	}
-
-	player->stowContainer(item, static_cast<uint32_t>(item->getItemCount()));
 }
 
 void Game::playerSeekInContainer(uint32_t playerId, uint8_t containerId, uint16_t index)

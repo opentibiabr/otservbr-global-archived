@@ -390,10 +390,7 @@ class Game
 		void playerOpenChannel(uint32_t playerId, uint16_t channelId);
 		void playerCloseChannel(uint32_t playerId, uint16_t channelId);
 		void playerOpenPrivateChannel(uint32_t playerId, std::string& receiver);
-		void playerStowItem(Player* player, Item* item, uint32_t count);
-		void playerStowItem(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos, uint32_t count);
-		void playerStowContainer(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos);
-		void playerStowAllItems(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos);
+		void playerStowItem(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos, uint8_t count, bool allItems);
 		void playerStashWithdraw(Player* player, uint16_t spriteId, uint32_t count, uint8_t stackpos);
 		void playerCloseNpcChannel(uint32_t playerId);
 		void playerReceivePing(uint32_t playerId);
@@ -408,6 +405,8 @@ class Game
 		void playerMoveUpContainer(uint32_t playerId, uint8_t cid);
 		void playerUpdateContainer(uint32_t playerId, uint8_t cid);
 		void playerRotateItem(uint32_t playerId, const Position& pos, uint8_t stackPos, const uint16_t spriteId);
+		void playerConfigureShowOffSocket(uint32_t playerId, const Position& pos, uint8_t stackPos, const uint16_t spriteId);
+		void playerSetShowOffSocket(uint32_t playerId, Outfit_t& outfit, const Position& pos, uint8_t stackPos, const uint16_t spriteId, uint8_t podiumVisible, uint8_t direction);
 		void playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t stackPos, const uint16_t spriteId);
 		void playerWriteItem(uint32_t playerId, uint32_t windowTextId, const std::string& text);
 		void playerBrowseField(uint32_t playerId, const Position& pos);

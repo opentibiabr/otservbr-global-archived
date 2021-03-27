@@ -42,9 +42,9 @@ maxPacketsPerSecond = 25
 maxItem = 2000
 maxContainer = 100
 
---- Version
-clientVersion = 1261
-clientVersionStr = "12.61"
+-- Version
+clientVersion = 1264
+clientVersionStr = "12.64"
 
 -- Depot Limit
 freeDepotLimit = 2000
