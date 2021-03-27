@@ -5562,18 +5562,23 @@
 	</item>
 	<item id="2844" article="a" name="dead dragon">
 		<attribute key="containerSize" value="10" />
-		<attribute key="decayTo" value="3104" />
+		<attribute key="decayTo" value="2845" />
 		<attribute key="duration" value="900" />
 	</item>
 	<item id="2845" article="a" name="dead dragon">
 		<attribute key="containerSize" value="10" />
 		<attribute key="corpseType" value="blood" />
+		<attribute key="decayTo" value="2847" />
+		<attribute key="duration" value="600" />
 	</item>
 	<item id="2846" article="a" name="slain ghoul">
 		<attribute key="containerSize" value="10" />
 		<attribute key="corpseType" value="undead" />
 	</item>
-	<item id="2847" article="a" name="dead dragon" />
+	<item id="2847" article="a" name="dead dragon">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+	</item>
 	<item id="2848" article="a" name="dead spider">
 		<attribute key="weight" value="9000" />
 		<attribute key="containerSize" value="6" />
