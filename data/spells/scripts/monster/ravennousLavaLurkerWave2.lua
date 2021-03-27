@@ -10,26 +10,25 @@ combat:setArea(createCombatArea({
 {3},
 }))
 
-function spellCallback(param)
-	local tile = Tile(Position(param.pos))
+local monsters = {
+	"lost gnome",
+	"gnome pack crawler"
+}
+
+function onTargetTile(cid, pos)
+	local tile = Tile(pos)
 	if tile then
-		if tile:getTopCreature() and tile:getTopCreature():isMonster() then
-			if tile:getTopCreature():getName():lower() == "lost gnome" or tile:getTopCreature():getName():lower() == "gnome pack crawler" then
-				tile:getTopCreature():addHealth(-(math.random(0, 1000)))
+		local target = tile:getTopCreature()
+		if target and target:isMonster() then
+			if table.contains(monsters, target:getName():lower()) then
+				target:addHealth(-(math.random(0, 1000)))
 			end
 		end
 	end
+	return true
 end
 
-function onTargetTile(cid, pos)
-	local param = {}
-	param.cid = cid
-	param.pos = pos
-	param.count = 0
-	spellCallback(param)
-end
-
-setCombatCallback(combat, CALLBACK_PARAM_TARGETTILE, "onTargetTile")
+combat:setCallback(CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
 function onCastSpell(creature, var)
 	return combat:execute(creature, var)

@@ -120,6 +120,24 @@ void Container::addItem(Item* item)
 	item->setParent(this);
 }
 
+StashContainerList Container::getStowableItems() const
+{
+	StashContainerList toReturnList;
+	for (auto item : itemlist) {
+		if (item->getContainer() != NULL) {
+			auto subContainer = item->getContainer()->getStowableItems();
+			for (auto subContItem : subContainer) {
+				Item* containerItem = subContItem.first;
+				toReturnList.push_back(std::pair<Item*, uint32_t>(containerItem, static_cast<uint32_t>(containerItem->getItemCount())));
+			}
+		} else if (item->isItemStorable()) {
+			toReturnList.push_back(std::pair<Item*, uint32_t>(item, static_cast<uint32_t>(item->getItemCount())));
+		}
+	}
+
+	return toReturnList;
+}
+
 Attr_ReadValue Container::readAttr(AttrTypes_t attr, PropStream& propStream)
 {
 	if (attr == ATTR_CONTAINER_ITEMS) {
