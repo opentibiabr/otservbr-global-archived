@@ -49,10 +49,12 @@ jobs:
         mv otbr ../
 
     - name: Clean workspace
+      if: ${{ matrix.buildtype == 'Release' }}
       shell: bash
       run: find . -maxdepth 1 ! -name otbr ! -name data ! -name config.lua.dist ! -name key.pem ! -name LICENSE ! -name README.md ! -name schema.sql -exec rm -r {} \;
 
     - name: Prepare datapack contents
+      if: ${{ matrix.buildtype == 'Release' }}
       shell: bash
       run: |
         mv config.lua.dist config.lua
@@ -62,6 +64,7 @@ jobs:
         zip -r otservbr.zip otservbr-global
 
     - name: Upload binary
+      if: ${{ matrix.buildtype == 'Release' }}
       uses: actions/upload-artifact@v2
       with:
         name: ${{ matrix.os }}-otbr-amd64-${{ matrix.buildtype }}-${{ github.sha }}
