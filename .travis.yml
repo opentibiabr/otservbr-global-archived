@@ -63,3 +63,4 @@ before_script:
   - cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DUSE_LUAJIT=${LUAJIT} ..
 
 script: make -j`nproc`
+
