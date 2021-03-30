@@ -85,7 +85,8 @@ class Spawns
 	public:
 		static bool isInZone(const Position& centerPos, int32_t radius, const Position& pos);
 
-		bool loadFromXml(const std::string& filename);
+		bool loadFromXml(const std::string& filemonstername);
+		bool loadNpcsFromXML(const std::string& filenpcname);
 		void startup();
 		void clear();
 
@@ -100,7 +101,8 @@ class Spawns
 	private:
 		std::forward_list<Npc*> npcList;
 		std::forward_list<Spawn> spawnList;
-		std::string filename;
+		std::string filemonstername;
+		std::string filenpcname;
 		bool loaded = false;
 		bool started = false;
 

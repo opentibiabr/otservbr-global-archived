@@ -196,6 +196,16 @@ bool IOMap::parseMapDataAttributes(OTB::Loader& loader, const OTB::Node& mapNode
 				map.housefile += tmp;
 				break;
 
+			case OTBM_ATTR_EXT_NPC_FILE:
+				if (!propStream.readString(tmp)) {
+					setLastErrorString("Invalid npc tag.");
+					return false;
+				}
+
+				map.npcfile = fileName.substr(0, fileName.rfind('/') + 1);
+				map.npcfile += tmp;
+				break;
+
 			default:
 				setLastErrorString("Unknown header node.");
 				return false;

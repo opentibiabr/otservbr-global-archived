@@ -1,8 +1,6 @@
 local serverstartup = GlobalEvent("serverstartup")
 function serverstartup.onStartup()
 	print(">> Loading map attributes")
-	-- Npc table
-	loadLuaNpcs(NpcTable)
 	-- Sign table
 	loadLuaMapSign(SignTable)
 	print("> Loaded " .. (#SignTable) .. " signs in the map")

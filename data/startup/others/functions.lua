@@ -149,6 +149,8 @@ function loadLuaMapBookDocument(tablename)
 	end
 end
 
+--[[
+-- NOTE: THIS FUNCTION IS DESATIVATED, NPCS IS NOW BY XML (world/otservbr-npc.xml)
 function loadLuaNpcs(tablename)
 	for index, value in pairs(tablename) do
 		if value.name and value.position then
@@ -161,7 +163,7 @@ function loadLuaNpcs(tablename)
 	end
 	print(string.format("> Loaded ".. (#NpcTable) .." npcs and spawned %d monsters\n> \z
 	Loaded %d towns with %d houses in total", Game.getMonsterCount(), #Game.getTowns(), #Game.getHouses()))
-end
+end]]
 
 -- Function for load the map and spawm custom (config.lua line 92)
 -- Set mapCustomEnabled to false for disable the custom map

@@ -28,7 +28,7 @@
 
 extern Game g_game;
 
-bool Map::loadMap(const std::string& identifier, bool loadHouses, bool loadSpawns)
+bool Map::loadMap(const std::string& identifier, bool loadHouses, bool loadSpawns, bool loadNpcs)
 {
 	int64_t start = OTSYS_TIME();
 	IOMap loader;
@@ -51,6 +51,13 @@ bool Map::loadMap(const std::string& identifier, bool loadHouses, bool loadSpawn
 
 		IOMapSerialize::loadHouseInfo();
 		IOMapSerialize::loadHouseItems(this);
+	}
+
+	if (loadNpcs) {
+		if (!IOMap::loadNpcs(this)) {
+			std::cout << "[Warning - Map::loadMap] Failed to load npc data." << std::endl;
+		}
+		std::cout << "> Loaded npcs in: " << (OTSYS_TIME() - start) / (1000.) << " seconds" << std::endl;
 	}
 	return true;
 }

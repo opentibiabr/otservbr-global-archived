@@ -53,6 +53,7 @@ enum OTBM_AttrTypes_t {
 	OTBM_ATTR_SLEEPERGUID = 20,
 	OTBM_ATTR_SLEEPSTART = 21,
 	OTBM_ATTR_CHARGES = 22,
+	OTBM_ATTR_EXT_NPC_FILE = 23
 };
 
 enum OTBM_NodeTypes_t {
@@ -139,6 +140,21 @@ class IOMap
 			}
 
 			return map->houses.loadHousesXML(map->housefile);
+		}
+
+		/* Load the npcs
+		 * \param map pointer to the Map class
+		 * \returns Returns true if the spawn npcs were loaded successfully
+		 */
+		static bool loadNpcs(Map* map) {
+			if (map->npcfile.empty()) {
+				//OTBM file doesn't tell us about the npcfile,
+				//lets guess it is mapname-npc.xml.
+				map->npcfile = g_config.getString(ConfigManager::MAP_NAME);
+				map->npcfile += "-npc.xml";
+			}
+
+			return map->spawns.loadNpcsFromXML(map->npcfile);
 		}
 
 		const std::string& getLastErrorString() const {

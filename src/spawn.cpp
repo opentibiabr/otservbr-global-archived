@@ -33,22 +33,23 @@ extern Monsters g_monsters;
 extern Game g_game;
 extern Events* g_events;
 
-static constexpr int32_t MINSPAWN_INTERVAL = 1000;
+static constexpr int32_t MINSPAWN_INTERVAL = 1000; // 1 second
+static constexpr int32_t MAXSPAWN_INTERVAL = 86400000; // 1 day
 
-bool Spawns::loadFromXml(const std::string& fromFilename)
+bool Spawns::loadFromXml(const std::string& filemonstername)
 {
 	if (loaded) {
 		return true;
 	}
 
 	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file(fromFilename.c_str());
+	pugi::xml_parse_result result = doc.load_file(filemonstername.c_str());
 	if (!result) {
-		printXMLError("Error - Spawns::loadFromXml", fromFilename, result);
+		printXMLError("Error - Spawns::loadFromXml", filemonstername, result);
 		return false;
 	}
 
-	this->filename = fromFilename;
+	this->filemonstername = filemonstername;
 	loaded = true;
 
 	uint32_t eventschedule = g_game.getSpawnSchedule();
@@ -67,6 +68,11 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 			radius = pugi::cast<int32_t>(radiusAttribute.value());
 		} else {
 			radius = -1;
+		}
+
+		if (!spawnNode.first_child()) {
+			std::cout << "[Warning - Spawns::loadFromXml] Empty spawn at position: " << centerPos << " with radius: " << radius << '.' << std::endl;
+			continue;
 		}
 
 		spawnList.emplace_front(centerPos, radius);
@@ -93,7 +99,7 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 					centerPos.y + pugi::cast<uint16_t>(childNode.attribute("y").value()),
 					centerPos.z
 				);
-				
+
 				int32_t boostedrate;
 				
 				if (nameAttribute.value() == BoostedNameGet) {
@@ -101,14 +107,62 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 				} else {
 					boostedrate = 1;
 				}
-				
+
 				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 100000 / (g_config.getNumber(ConfigManager::RATE_SPAWN) * boostedrate * eventschedule);
-				if (interval > MINSPAWN_INTERVAL) {
-					spawn.addMonster(nameAttribute.as_string(), pos, dir, interval);
+				if (interval >= MINSPAWN_INTERVAL && interval <= MAXSPAWN_INTERVAL) {
+					spawn.addMonster(nameAttribute.as_string(), pos, dir, static_cast<uint32_t>(interval));
 				} else {
-					std::cout << "[Warning - Spawns::loadFromXml] " << nameAttribute.as_string() << ' ' << pos << " spawntime can not be less than " << MINSPAWN_INTERVAL / 1000 << " seconds." << std::endl;
+					if (interval <= MINSPAWN_INTERVAL) {
+						std::cout << "[Warning - Spawns::loadFromXml] " << nameAttribute.as_string() << ' ' << pos << " spawntime can not be less than " << MINSPAWN_INTERVAL / 1000 << " seconds." << std::endl;
+					} else {
+						std::cout << "[Warning - Spawns::loadFromXml] " << nameAttribute.as_string() << ' ' << pos << " spawntime can not be more than " << MAXSPAWN_INTERVAL / 1000 << " seconds." << std::endl;
+					}
 				}
-			} else if (strcasecmp(childNode.name(), "npc") == 0) {
+			}
+		}
+	}
+	return true;
+}
+
+bool Spawns::loadNpcsFromXML(const std::string& filenpcname)
+{
+	if (!loaded) {
+		std::cout << "Error - Spawns::loadNpcsFromXML - trying to load custom spawn xml before game startup. FileName: " << filenpcname << std::endl;
+		return false;
+	}
+
+	pugi::xml_document doc;
+	pugi::xml_parse_result result = doc.load_file(filenpcname.c_str());
+	if (!result) {
+		printXMLError("Error - Spawns::loadNpcsFromXML", filenpcname, result);
+		return false;
+	}
+
+	this->filenpcname = filenpcname;
+	loaded = true;
+
+	for (auto spawnNode : doc.child("npcs").children()) {
+		Position centerPos(
+			pugi::cast<uint16_t>(spawnNode.attribute("centerx").value()),
+			pugi::cast<uint16_t>(spawnNode.attribute("centery").value()),
+			pugi::cast<uint16_t>(spawnNode.attribute("centerz").value())
+		);
+
+		int32_t radius;
+		pugi::xml_attribute radiusAttribute = spawnNode.attribute("radius");
+		if (radiusAttribute) {
+			radius = pugi::cast<int32_t>(radiusAttribute.value());
+		} else {
+			radius = -1;
+		}
+
+		if (!spawnNode.first_child()) {
+			std::cout << "[Warning - Spawns::loadNpcsFromXML] Empty spawn at position: " << centerPos << " with radius: " << radius << '.' << std::endl;
+			continue;
+		}
+
+		for (auto childNode : spawnNode.children()) {
+			if (strcasecmp(childNode.name(), "npc") == 0) {
 				pugi::xml_attribute nameAttribute = childNode.attribute("name");
 				if (!nameAttribute) {
 					continue;
@@ -131,6 +185,10 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 				), radius);
 				npcList.push_front(npc);
 			}
+		}
+
+		for (Npc* npc : npcList) {
+			g_game.placeCreature(npc, npc->getMasterPos(), false, true);
 		}
 	}
 	return true;
@@ -272,7 +330,8 @@ void Spawns::clear()
 
 	loaded = false;
 	started = false;
-	filename.clear();
+	filemonstername.clear();
+	filenpcname.clear();
 }
 
 bool Spawns::isInZone(const Position& centerPos, int32_t radius, const Position& pos)

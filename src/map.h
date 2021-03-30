@@ -184,7 +184,7 @@ class Map
 		  * Load a map.
 		  * \returns true if the map was loaded successfully
 		  */
-		bool loadMap(const std::string& identifier, bool loadHouses, bool loadSpawns);
+		bool loadMap(const std::string& identifier, bool loadHouses, bool loadSpawns, bool loadNpcs);
 
 		/**
 		  * Save a map.
@@ -274,6 +274,7 @@ class Map
 
 		std::string spawnfile;
 		std::string housefile;
+		std::string npcfile;
 
 		uint32_t width = 0;
 		uint32_t height = 0;
