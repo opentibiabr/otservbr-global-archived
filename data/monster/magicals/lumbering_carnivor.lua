@@ -4,12 +4,12 @@ local monster = {}
 monster.description = "a Lumbering Carnivor"
 monster.experience = 1452
 monster.outfit = {
-	lookType = 1139,
-	lookHead = 79,
-	lookBody = 119,
-	lookLegs = 57,
+	lookType = 1133,
+	lookHead = 0,
+	lookBody = 39,
+	lookLegs = 86,
 	lookFeet = 85,
-	lookAddons = 1,
+	lookAddons = 0,
 	lookMount = 0
 }
 
