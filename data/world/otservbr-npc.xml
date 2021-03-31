@@ -69,8 +69,8 @@
 	<npc centerx="32397" centery="32825" centerz="2" radius="1">
 		<npc name="tristan" x="0" y="0" z="2" spawntime="60" />
 	</npc>
-	<npc centerx="31980" centery="32826" centerz="2" radius="1">
-		<npc name="klaus" x="1" y="0" z="2" spawntime="3407924" />
+	<npc centerx="31981" centery="32826" centerz="2" radius="1">
+		<npc name="klaus" x="0" y="0" z="2" spawntime="60" />
 	</npc>
 	<npc centerx="32790" centery="31237" centerz="3" radius="1">
 		<npc name="vincent" x="0" y="0" z="3" spawntime="60" />
@@ -924,11 +924,11 @@
 	<npc centerx="33890" centery="31018" centerz="7" radius="1">
 		<npc name="cold_percht_sleigh" x="0" y="1" z="7" spawntime="60" />
 	</npc>
-	<npc centerx="33892" centery="31021" centerz="7" radius="1">
-		<npc name="bright_percht_sleigh" x="-1" y="0" z="7" spawntime="6553600" />
+	<npc centerx="33891" centery="31021" centerz="7" radius="1">
+		<npc name="bright_percht_sleigh" x="-1" y="0" z="7" spawntime="60" />
 	</npc>
-	<npc centerx="33889" centery="31022" centerz="7" radius="1">
-		<npc name="dark_percht_sleigh" x="0" y="0" z="7" spawntime="7602280" />
+	<npc centerx="33888" centery="31023" centerz="7" radius="1">
+		<npc name="dark_percht_sleigh" x="1" y="-1" z="7" spawntime="60" />
 	</npc>
 	<npc centerx="32351" centery="31026" centerz="7" radius="1">
 		<npc name="hjaern" x="0" y="0" z="7" spawntime="60" />
@@ -1534,7 +1534,7 @@
 		<npc name="druid_yandur" x="0" y="0" z="7" spawntime="60" />
 	</npc>
 	<npc centerx="33031" centery="32010" centerz="7" radius="1">
-		<npc name="george_the_boyscout" x="0" y="0" z="7" spawntime="16777215" />
+		<npc name="george_the_boyscout" x="0" y="0" z="7" spawntime="60" />
 	</npc>
 	<npc centerx="32071" centery="32011" centerz="7" radius="1">
 		<npc name="tylius" x="0" y="0" z="7" spawntime="60" />
@@ -2376,8 +2376,8 @@
 	<npc centerx="32242" centery="32599" centerz="9" radius="1">
 		<npc name="gnomilly" x="0" y="0" z="9" spawntime="60" />
 	</npc>
-	<npc centerx="32255" centery="31101" centerz="10" radius="1">
-		<npc name="a_restless_soul" x="1" y="0" z="10" spawntime="60" />
+	<npc centerx="32256" centery="31101" centerz="10" radius="1">
+		<npc name="a_restless_soul" x="0" y="0" z="10" spawntime="60" />
 	</npc>
 	<npc centerx="33239" centery="31224" centerz="10" radius="1">
 		<npc name="a_sleeping_dragon" x="0" y="0" z="10" spawntime="60" />
@@ -2436,11 +2436,11 @@
 	<npc centerx="32804" centery="31758" centerz="10" radius="1">
 		<npc name="gnominus" x="0" y="0" z="10" spawntime="60" />
 	</npc>
-	<npc centerx="32769" centery="31771" centerz="10" radius="1">
-		<npc name="gnomenursey" x="0" y="0" z="10" spawntime="52" />
+	<npc centerx="32770" centery="31771" centerz="10" radius="1">
+		<npc name="gnomenursey" x="-1" y="0" z="10" spawntime="60" />
 	</npc>
 	<npc centerx="32767" centery="31772" centerz="10" radius="1">
-		<npc name="doctor_gnomedix" x="0" y="0" z="10" spawntime="48" />
+		<npc name="doctor_gnomedix" x="0" y="0" z="10" spawntime="60" />
 	</npc>
 	<npc centerx="32787" centery="31776" centerz="10" radius="1">
 		<npc name="gnomejam" x="0" y="0" z="10" spawntime="60" />
@@ -2679,7 +2679,7 @@
 	<npc centerx="32784" centery="32528" centerz="13" radius="1">
 		<npc name="ghost_of_a_priest" x="0" y="0" z="13" spawntime="60" />
 	</npc>
-	<npc centerx="33585" centery="32546" centerz="13" radius="1">
+	<npc centerx="33586" centery="32546" centerz="13" radius="1">
 		<npc name="emberwing" x="0" y="0" z="13" spawntime="60" />
 	</npc>
 	<npc centerx="32132" centery="32562" centerz="13" radius="1">
@@ -2833,7 +2833,7 @@
 		<npc name="gurbasch" x="0" y="0" z="15" spawntime="60" />
 	</npc>
 	<npc centerx="33609" centery="32053" centerz="15" radius="1">
-		<npc name="strange_pipe3" x="0" y="0" z="15" spawntime="16777215" />
+		<npc name="strange_pipe3" x="0" y="0" z="15" spawntime="60" />
 	</npc>
 	<npc centerx="32416" centery="32145" centerz="15" radius="1">
 		<npc name="markwin" x="0" y="0" z="15" spawntime="60" />
