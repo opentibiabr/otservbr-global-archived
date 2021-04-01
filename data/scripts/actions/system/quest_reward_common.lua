@@ -5,19 +5,18 @@
 local AttributeTable = {
 	[6013] = {
 		text = [[
-			Hardek *
-			Bozo *
-			Sam ****
-			Oswald
-			Partos ***
-			Quentin *
-			Tark ***
-			Harsky ***
-			Stutch *
-			Ferumbras *
-			Frodo **
-			Noodles ****
-		]]
+Hardek *
+Bozo *
+Sam ****
+Oswald
+Partos ***
+Quentin *
+Tark ***
+Harsky ***
+Stutch *
+Ferumbras *
+Frodo **
+Noodles ****]]
 	}
 }
 
