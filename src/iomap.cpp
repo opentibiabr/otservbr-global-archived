@@ -176,14 +176,14 @@ bool IOMap::parseMapDataAttributes(OTB::Loader& loader, const OTB::Node& mapNode
 				}
 				break;
 
-			case OTBM_ATTR_EXT_SPAWN_FILE:
+			case OTBM_ATTR_EXT_SPAWN_MONSTER_FILE:
 				if (!propStream.readString(tmp)) {
-					setLastErrorString("Invalid spawn tag.");
+					setLastErrorString("Invalid monster spawn tag. Make sure you are using the correct version of the map editor.");
 					return false;
 				}
 
-				map.spawnfile = fileName.substr(0, fileName.rfind('/') + 1);
-				map.spawnfile += tmp;
+				map.monsterfile = fileName.substr(0, fileName.rfind('/') + 1);
+				map.monsterfile += tmp;
 				break;
 
 			case OTBM_ATTR_EXT_HOUSE_FILE:
@@ -196,9 +196,9 @@ bool IOMap::parseMapDataAttributes(OTB::Loader& loader, const OTB::Node& mapNode
 				map.housefile += tmp;
 				break;
 
-			case OTBM_ATTR_EXT_NPC_FILE:
+			case OTBM_ATTR_EXT_SPAWN_NPC_FILE:
 				if (!propStream.readString(tmp)) {
-					setLastErrorString("Invalid npc tag.");
+					setLastErrorString("Invalid npc spawn tag. Make sure you are using the correct version of the map editor.");
 					return false;
 				}
 

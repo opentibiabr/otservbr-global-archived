@@ -41,7 +41,7 @@ enum OTBM_AttrTypes_t {
 	OTBM_ATTR_TELE_DEST = 8,
 	OTBM_ATTR_ITEM = 9,
 	OTBM_ATTR_DEPOT_ID = 10,
-	OTBM_ATTR_EXT_SPAWN_FILE = 11,
+	OTBM_ATTR_EXT_SPAWN_MONSTER_FILE = 11,
 	OTBM_ATTR_RUNE_CHARGES = 12,
 	OTBM_ATTR_EXT_HOUSE_FILE = 13,
 	OTBM_ATTR_HOUSEDOORID = 14,
@@ -53,7 +53,7 @@ enum OTBM_AttrTypes_t {
 	OTBM_ATTR_SLEEPERGUID = 20,
 	OTBM_ATTR_SLEEPSTART = 21,
 	OTBM_ATTR_CHARGES = 22,
-	OTBM_ATTR_EXT_NPC_FILE = 23
+	OTBM_ATTR_EXT_SPAWN_NPC_FILE = 23
 };
 
 enum OTBM_NodeTypes_t {
@@ -116,15 +116,15 @@ class IOMap
 		 * \param map pointer to the Map class
 		 * \returns Returns true if the spawns were loaded successfully
 		 */
-		static bool loadSpawns(Map* map) {
-			if (map->spawnfile.empty()) {
-				//OTBM file doesn't tell us about the spawnfile,
+		static bool loadMonsters(Map* map) {
+			if (map->monsterfile.empty()) {
+				//OTBM file doesn't tell us about the monsterfile,
 				//lets guess it is mapname-spawn.xml.
-				map->spawnfile = g_config.getString(ConfigManager::MAP_NAME);
-				map->spawnfile += "-spawn.xml";
+				map->monsterfile = g_config.getString(ConfigManager::MAP_NAME);
+				map->monsterfile += "-monster.xml";
 			}
 
-			return map->spawns.loadFromXml(map->spawnfile);
+			return map->spawns.loadFromXml(map->monsterfile);
 		}
 
 		/* Load the houses (not house tile-data)

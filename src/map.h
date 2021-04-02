@@ -184,7 +184,7 @@ class Map
 		  * Load a map.
 		  * \returns true if the map was loaded successfully
 		  */
-		bool loadMap(const std::string& identifier, bool loadHouses, bool loadSpawns, bool loadNpcs);
+		bool loadMap(const std::string& identifier, bool loadHouses, bool loadMonsters, bool loadNpcs);
 
 		/**
 		  * Save a map.
@@ -272,7 +272,7 @@ class Map
 
 		QTreeNode root;
 
-		std::string spawnfile;
+		std::string monsterfile;
 		std::string housefile;
 		std::string npcfile;
 
