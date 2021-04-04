@@ -48,7 +48,7 @@ We use the [issue tracker on GitHub](https://github.com/opentibiabr/OTServBR-Glo
 If you want to sponsor here, join on discord and send a message for one of our administrators.
 
 ### Partners
-[![Supported by OTServ Brasil](https://forums.otserv.com.br/uploads/monthly_2018_05/otbr.png.9f34d819278e170c73dd155a0ca1b501.png)](https://forums.otserv.com.br)
+[![Supported by OTServ Brasil](https://images-ext-1.discordapp.net/external/cK2sqnPtuhFDmiJdy3hVNsifX11SZ8oajTxPAmeThYY/https/raw.githubusercontent.com/otbr/otserv-brasil/main/otbr.png)](https://forums.otserv.com.br)
 
 [![Protected by ServerCore](https://mktsc.servercore.com.br/protectedbyservercore.png)](https://bit.ly/1q2q4de)
 
