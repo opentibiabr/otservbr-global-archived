@@ -31,11 +31,21 @@ jobs:
 
     - name: Install Dependencies
       run: >
-        sudo apt-get update && sudo apt-get install cmake build-essential ca-certificates
+        sudo apt-get update && sudo apt-get install ccache cmake build-essential
         libcurl4-openssl-dev libjsoncpp-dev libmysqlclient-dev libboost-system-dev
         libboost-iostreams-dev libboost-filesystem-dev libpugixml-dev
         libcrypto++-dev libspdlog-dev libluajit-5.1-dev libboost-date-time-dev
-        unrar zip
+        unrar zip ca-certificates
+
+    - name: CCache
+      id: ccache
+      uses: actions/cache@v2
+      with:
+        path: ~/.ccache
+        key: ${{ matrix.os }}-${{ matrix.buildtype }}-${{ hashFiles('**/src') }}
+        restore-keys: |
+          ${{ matrix.os }}-${{ matrix.buildtype }}-${{ hashFiles('**/src') }}
+          ${{ matrix.os }}-${{ matrix.buildtype }}-
 
     - name: Prepare build Environment
       run: |
