@@ -29,6 +29,6 @@ indent_size = 2
 indent_brace_style = K&R
 spaces_around_brackets = none
 
-[.travis.yml]
+[*.{yml,yaml}]
 indent_style = space
 indent_size = 2
