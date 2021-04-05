@@ -19,8 +19,6 @@
 
 #include "otpch.h"
 
-#include "scripts.h"
-
 #include "actions.h"
 #include "chat.h"
 #include "talkaction.h"

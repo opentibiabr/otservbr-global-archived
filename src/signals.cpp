@@ -163,7 +163,7 @@ void Signals::sighupHandler()
 	g_game.mounts.reload();
 	spdlog::info("Reloaded mounts");
 
-	g_events->load();
+	g_events->loadFromXml();
 	spdlog::info("Reloaded events");
 
 	g_chat->load();

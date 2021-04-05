@@ -685,19 +685,18 @@ ShootTypeNames shootTypeNames = {
 };
 
 CombatTypeNames combatTypeNames = {
-	
-	{COMBAT_DROWNDAMAGE, 		"drown"},
-	{COMBAT_DEATHDAMAGE, 		"death"},
-	{COMBAT_ENERGYDAMAGE, 		"energy"},
-	{COMBAT_EARTHDAMAGE, 		"earth"},
-	{COMBAT_FIREDAMAGE, 		"fire"},
-	{COMBAT_HEALING, 			"healing"},
-	{COMBAT_HOLYDAMAGE, 		"holy"},
-	{COMBAT_ICEDAMAGE, 			"ice"},
-	{COMBAT_UNDEFINEDDAMAGE, 	"undefined"},
-	{COMBAT_LIFEDRAIN, 			"lifedrain"},
-	{COMBAT_MANADRAIN, 			"manadrain"},
-	{COMBAT_PHYSICALDAMAGE, 	"physical"},
+	{COMBAT_DROWNDAMAGE,			"drown"			},
+	{COMBAT_DEATHDAMAGE,			"death"			},
+	{COMBAT_ENERGYDAMAGE,			"energy"		},
+	{COMBAT_EARTHDAMAGE,			"earth"			},
+	{COMBAT_FIREDAMAGE,				"fire"			},
+	{COMBAT_HEALING,					"healing"		},
+	{COMBAT_HOLYDAMAGE,				"holy"			},
+	{COMBAT_ICEDAMAGE,				"ice"				},
+	{COMBAT_UNDEFINEDDAMAGE,	"undefined"	},
+	{COMBAT_LIFEDRAIN,				"lifedrain"	},
+	{COMBAT_MANADRAIN,				"manadrain"	},
+	{COMBAT_PHYSICALDAMAGE, 	"physical"	},
 };
 
 AmmoTypeNames ammoTypeNames = {
@@ -1330,7 +1329,7 @@ int64_t OTSYS_TIME()
 	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
-SpellGroup_t stringToSpellGroup(std::string value)
+SpellGroup_t stringToSpellGroup(const std::string &value)
 {
 	std::string tmpStr = asLowerCaseString(value);
 	if (tmpStr == "attack" || tmpStr == "1") {
@@ -1399,8 +1398,8 @@ NameEval_t validateName(const std::string &name)
 }
 bool isCaskItem(uint16_t itemId)
 {
-	return (itemId >= ITEM_HEALTH_CASK_START && itemId <= ITEM_HEALTH_CASK_END) || 
-		(itemId >= ITEM_MANA_CASK_START && itemId <= ITEM_MANA_CASK_END) || 
+	return (itemId >= ITEM_HEALTH_CASK_START && itemId <= ITEM_HEALTH_CASK_END) ||
+		(itemId >= ITEM_MANA_CASK_START && itemId <= ITEM_MANA_CASK_END) ||
 		(itemId >= ITEM_SPIRIT_CASK_START && itemId <= ITEM_SPIRIT_CASK_END);
 }
 

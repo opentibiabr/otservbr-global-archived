@@ -1,59 +1,20 @@
 {
-		"name": "otbr",
-		"version-string": "1.0.0",
-		"dependencies": [
-			{
-				"name": "boost-asio",
-				"version>=": "1.75.0"
-			},
-			{
-				"name": "boost-lockfree",
-				"version>=": "1.75.0"
-			},
-			{
-				"name": "boost-variant",
-				"version>=": "1.75.0"
-			},
-			{
-				"name": "boost-filesystem",
-				"version>=": "1.75.0"
-			},
-			{
-				"name": "boost-iostreams",
-				"version>=": "1.75.0"
-			},
-			{
-				"name": "boost-system",
-				"version>=": "1.75.0"
-			},
-			{
-				"name": "boost-system",
-				"version>=": "1.75.0"
-			},
-			{
-				"name": "libmariadb",
-				"version>=": "3.1.10#5"
-			},
-			{
-				"name": "pugixml",
-				"version>=": "1.11.4"
-			},
-			{
-				"name": "spdlog",
-				"version>=": "1.8.5"
-			},
-			{
-				"name": "curl",
-				"version>=": "7.74.0#3"
-			},
-			{
-				"name": "jsoncpp",
-				"version>=": "1.9.4"
-			},
-			{
-				"name": "cryptopp",
-				"version>=": "8.2.0-2"
-			}
-		],
-		"builtin-baseline": "7d40a546b87572e81c2d37f9aae6d4cd99bb9aaa"
+	"name": "otbr",
+	"version-string": "1.0.0",
+	"builtin-baseline": "030cfaa24de9ea1bbf0a4d9c615ce7312ba77af1",
+	"dependencies": [
+		"boost-asio",
+		"boost-lockfree",
+		"boost-variant",
+		"boost-filesystem",
+		"boost-iostreams",
+		"boost-system",
+		"boost-system",
+		"libmariadb",
+		"pugixml",
+		"spdlog",
+		"curl",
+		"jsoncpp",
+		"cryptopp"
+	]
 }

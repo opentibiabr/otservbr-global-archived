@@ -79,6 +79,66 @@ void badAllocationHandler() {
 	exit(-1);
 }
 
+void initGlobalScopes() {
+  g_scripts = new Scripts();
+  g_modules = new Modules();
+  g_spells = new Spells();
+  g_events = new Events();
+}
+
+void modulesLoadHelper(bool loaded, std::string moduleName) {
+  spdlog::info("Loading {}", moduleName);
+  if (!loaded) {
+     spdlog::error("Cannot load: {}", moduleName);
+     startupErrorMessage();
+  }
+}
+
+void loadModules() {
+	modulesLoadHelper(g_config.load(),
+		"config.lua");
+	modulesLoadHelper((Item::items.loadFromOtb("data/items/items.otb") != ERROR_NONE),
+		"items.otb");
+	modulesLoadHelper(Item::items.loadFromXml(),
+		"items.xml");
+	modulesLoadHelper(Scripts::getInstance().loadScriptSystems(),
+		"script systems");
+
+	// Lua Env
+	modulesLoadHelper((g_luaEnvironment.loadFile("data/global.lua") == -1),
+		"data/global.lua");
+	modulesLoadHelper((g_luaEnvironment.loadFile("data/stages.lua") == -1),
+		"data/stages.lua");
+	modulesLoadHelper((g_luaEnvironment.loadFile("data/startup/startup.lua") == -1),
+		"data/startup/startup.lua");
+
+	// Scripts
+	modulesLoadHelper(g_scripts->loadScripts("scripts/lib", true, false),
+		"data/scripts/libs");
+	modulesLoadHelper(g_scripts->loadScripts("scripts", false, false),
+		"data/scripts");
+	modulesLoadHelper(g_scripts->loadScripts("monster", false, false),
+		"data/monster");
+
+	// XML
+	modulesLoadHelper(g_vocations.loadFromXml(),
+		"data/XML/vocations.xml");
+	modulesLoadHelper(g_game.loadScheduleEventFromXml(),
+		"data/XML/events.xml");
+	modulesLoadHelper(g_imbuements->loadFromXml(),
+		"data/XML/imbuements.xml");
+	modulesLoadHelper(g_modules->loadFromXml(),
+		"data/modules/modules.xml");
+	modulesLoadHelper(g_spells->loadFromXml(),
+		"data/spells/spells.xml");
+	modulesLoadHelper(g_events->loadFromXml(),
+		"data/events/events.xml");
+	modulesLoadHelper(Outfits::getInstance().loadFromXml(),
+		"data/XML/outfits.xml");
+	modulesLoadHelper(Familiars::getInstance().loadFromXml(),
+		"data/XML/familiars.xml");
+}
+
 #ifndef UNIT_TESTING
 int main(int argc, char* argv[]) {
 
@@ -170,13 +230,6 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		c_test.close();
 	}
 
-	spdlog::info("Loading config.lua ...");
-	// Read global config
-	if (!g_config.load()) {
-		spdlog::error("Unable to load config.lua!");
-		startupErrorMessage();
-	}
-
 	spdlog::info("Server protocol: {}",
 		g_config.getString(ConfigManager::CLIENT_VERSION_STR));
 
@@ -223,129 +276,9 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		spdlog::info("No tables were optimized");
 	}
 
-	// Load items.otb
-	spdlog::info("Loading items.otb ...");
-	if (Item::items.loadFromOtb("data/items/items.otb") != ERROR_NONE) {
-		startupErrorMessage();
-	}
-
-	// Load items.xml
-	spdlog::info("Loading items.xml ...");
-	if (!Item::items.loadFromXml()) {
-		startupErrorMessage();
-	}
-
-	spdlog::info("Loading script systems...");
-	if (!Scripts::getInstance().loadScriptSystems()) {
-		spdlog::error("Failed to load script systems");
-		startupErrorMessage();
-	}
-
-	// Lua libs
-	// Load global.lua (data/libs folder)
-	spdlog::info("Loading global.lua ..");
-	if (g_luaEnvironment.loadFile("data/global.lua") == -1) {
-		spdlog::error("Cannot load data/global.lua");
-		startupErrorMessage();
-	}
-
-	// Load stages.lua (data/stages.lua)
-	spdlog::info("Loading stages.lua ...");
-	if (g_luaEnvironment.loadFile("data/stages.lua") == -1) {
-		spdlog::error("Cannot load data/stages.lua");
-		startupErrorMessage();
-	}
-
-	// Load startup.lua (data/startup folder)
-	spdlog::info("Loading startup.lua ...");
-	if (g_luaEnvironment.loadFile("data/startup/startup.lua") == -1) {
-		spdlog::error("Cannot load data/startup/startup.lua");
-		startupErrorMessage();
-	}
-
-	// Load folder data/scripts/lib
-	spdlog::info("Loading scripts/lib ...");
-	g_scripts = new Scripts();
-	if (!g_scripts->loadScripts("scripts/lib", true, false)) {
-		spdlog::warn("Cannot load data/scripts/libs");
-		startupErrorMessage();
-	}
-
-	// XML scripts
-	// Load vocations
-	spdlog::info("Loading vocations.xml ...");
-	if (!g_vocations.loadFromXml()) {
-		spdlog::error("Can not load: data/XML/vocations.xml");
-		startupErrorMessage();
-	}
-
-	// Load schedule events
-	spdlog::info("Loading scheduler events.xml ...");
-	if (!g_game.loadScheduleEventFromXml()) {
-		spdlog::error("Can not load: data/XML/events.xml");
-		startupErrorMessage();
-	}
-
-	// Load outfits
-	spdlog::info("Loading outfits.xml ...");
-	if (!Outfits::getInstance().loadFromXml()) {
-		spdlog::error("Can not load: data/XML/outfits.xml");
-		startupErrorMessage();
-	}
-
-	// Load familiars
-	spdlog::info("Loading familiars.xml ...");
-	if (!Familiars::getInstance().loadFromXml()) {
-		spdlog::error("Can not load: data/XML/familiars.xml");
-		startupErrorMessage();
-	}
-
-	// Load imbuements
-	spdlog::info("Loading imbuements.xml ...");
-	g_imbuements = new Imbuements();
-	if (!g_imbuements->loadFromXml()) {
-		spdlog::warn("Cannot load: data/XML/imbuements.xml");
-		startupErrorMessage();
-	}
-
-	// Load modules
-	spdlog::info("Loading modules.xml ...");
-	g_modules = new Modules();
-	if (!g_modules->loadFromXml()) {
-		spdlog::warn("Cannot load: data/modules/modules.xml");
-		startupErrorMessage();
-	}
-
-	// Load spells
-	spdlog::info("Loading spells.xml ...");
-	g_spells = new Spells();
-	if (!g_spells->loadFromXml()) {
-		spdlog::warn("Cannot load: data/spells/spells.xml");
-		startupErrorMessage();
-	}
-
-	// Load events
-	spdlog::info("Loading events.xml ...");
-	g_events = new Events();
-	if (!g_events->load()) {
-		spdlog::warn("Cannot load: data/events/events.xml");
-		startupErrorMessage();
-	}
-
-	// Lua scripts
-	// Load folder data/scripts
-	spdlog::info("Loading data/scripts ...");
-	if (!g_scripts->loadScripts("scripts", false, false)) {
-		spdlog::error("Can not load: data/scripts");
-		startupErrorMessage();
-	}
-
-	// Load folder data/monsters
-	spdlog::info("Loading data/monsters ...");
-	if (!g_scripts->loadScripts("monster", false, false)) {
-		spdlog::error("Can not load: data/monster");
-		startupErrorMessage();
-	}
+	// Init and load modules
+	initGlobalScopes();
+	loadModules();
 
 	g_game.loadBoostedCreature();
 

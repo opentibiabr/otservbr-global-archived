@@ -1,4 +1,4 @@
-project(otserver)
+project(otbr)
 
 # *****************************************************************************
 # Cmake Features
@@ -68,16 +68,28 @@ endif()
 # *****************************************************************************
 # Packages / Libs
 # *****************************************************************************
-find_package(Boost REQUIRED COMPONENTS system filesystem iostreams date_time)
-find_package(cryptopp CONFIG REQUIRED)
-find_package(CURL CONFIG REQUIRED)
-find_package(GMP REQUIRED)
-find_package(jsoncpp CONFIG REQUIRED)
-find_package(LuaJIT REQUIRED)
-find_package(pugixml CONFIG REQUIRED)
-find_package(spdlog CONFIG REQUIRED)
-find_package(Threads REQUIRED)
-find_package(unofficial-libmariadb CONFIG REQUIRED)
+if (MSVC)
+	find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams date_time REQUIRED)
+	find_package(cryptopp CONFIG REQUIRED)
+	set(CRYPTOPP_LIBRARIES "cryptopp-static")
+	find_package(CURL REQUIRED)
+	find_package(jsoncpp REQUIRED)
+	find_package(LuaJIT REQUIRED)
+	find_package(MySQL REQUIRED)
+	find_package(PugiXML REQUIRED)
+	find_package(spdlog CONFIG REQUIRED)
+	find_package(Threads REQUIRED)
+else()
+	find_package(Boost REQUIRED COMPONENTS system filesystem iostreams date_time)
+	find_package(cryptopp CONFIG REQUIRED)
+	find_package(CURL CONFIG REQUIRED)
+	find_package(jsoncpp CONFIG REQUIRED)
+	find_package(LuaJIT REQUIRED)
+	find_package(pugixml CONFIG REQUIRED)
+	find_package(spdlog CONFIG REQUIRED)
+	find_package(Threads REQUIRED)
+	find_package(unofficial-libmariadb CONFIG REQUIRED)
+endif (MSVC)
 
 include(GNUInstallDirs)
 
@@ -172,32 +184,59 @@ target_sources(${PROJECT_NAME}
 		xtea.cpp
 )
 
+if (MSVC)
+
 target_include_directories(${PROJECT_NAME}
-	PUBLIC
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
-		$<INSTALL_INTERFACE:include>
+	PRIVATE
+		${MYSQL_INCLUDE_DIR}
 		${LUA_INCLUDE_DIR}
-)
+		${Boost_INCLUDE_DIRS}
+		${PUGIXML_INCLUDE_DIR}
+		${CRYPTOPP_INCLUDE_DIR}
+		${CURL_INCLUDE_DIRS}
+		$<TARGET_PROPERTY:jsoncpp_lib,INTERFACE_INCLUDE_DIRECTORIES>)
 
 target_link_libraries(${PROJECT_NAME}
 	PRIVATE
-		Boost::boost
-		Boost::date_time
-		Boost::filesystem
-		Boost::iostreams
-		Boost::system
-		cryptopp-static
-		CURL::libcurl
-		jsoncpp_static
-		libmariadb mariadbclient
-		pugixml::pugixml
-		spdlog::spdlog
-		Threads::Threads
+		${MYSQL_CLIENT_LIBS}
 		${LUA_LIBRARIES}
-		${GMP_LIBRARIES}
+		${Boost_LIBRARY_DIRS}
+		${Boost_LIBRARIES}
+		${PUGIXML_LIBRARIES}
+		${CRYPTOPP_LIBRARIES}
+		${CMAKE_THREAD_LIBS_INIT}
+		${CURL_LIBRARIES}
+		jsoncpp_lib
+		spdlog::spdlog
 )
 
-target_compile_options(${PROJECT_NAME} PUBLIC -fpermissive)
+else()
+
+	target_include_directories(${PROJECT_NAME}
+		PRIVATE
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+			$<INSTALL_INTERFACE:include>
+			${LUA_INCLUDE_DIR}
+	)
+
+	target_link_libraries(${PROJECT_NAME}
+		PRIVATE
+			Boost::boost
+			Boost::date_time
+			Boost::filesystem
+			Boost::iostreams
+			Boost::system
+			cryptopp-static
+			CURL::libcurl
+			jsoncpp_static
+			libmariadb mariadbclient
+			pugixml::pugixml
+			spdlog::spdlog
+			Threads::Threads
+			${LUA_LIBRARIES}
+	)
+
+endif (MSVC)
 
 # print all variables
 # get_cmake_property(_variableNames VARIABLES)
