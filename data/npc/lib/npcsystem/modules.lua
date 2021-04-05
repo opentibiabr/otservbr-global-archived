@@ -399,10 +399,12 @@ if Modules == nil then
 				if reply then
 					self:addKeyword(keywords, reply)
 				else
-					Spdlog.warn("[KeywordModule:parseKeywords] - " .. Npc():getName() .. "] NpcSystem: Parameter '" .. "keyword_reply" .. n .. "' missing. Skipping...")
+					Spdlog.warn(string.format("[KeywordModule:parseKeywords] - %s] NpcSystem: Parameter keyword_reply [%d] missing. Skipping...",
+						Npc():getName(), n))
 				end
 			else
-				Spdlog.warn("[KeywordModule:parseKeywords] - " .. Npc():getName() .. "] NpcSystem: No keywords found for keyword set #" .. n .. ". Skipping...")
+				Spdlog.warn(string.format("[KeywordModule:parseKeywords] - %s] NpcSystem: No keywords found for keyword set [%d]. Skipping...",
+					Npc():getName(), n))
 			end
 
 			n = n + 1
@@ -476,7 +478,8 @@ if Modules == nil then
 				elseif i == 6 then
 					premium = temp == "true"
 				else
-					Spdlog.warn("[TravelModule:parseDestinations] - " .. Npc():getName() .. "] NpcSystem: Unknown parameter found in travel destination parameter.", temp, destination)
+					Spdlog.warn(string.format("[TravelModule:parseDestinations] - %s] NpcSystem: Unknown parameter found in travel destination parameter. temp[%d], destination[%s]",
+						Npc():getName(), temp, destination)
 				end
 				i = i + 1
 			end
@@ -1115,7 +1118,7 @@ if Modules == nil then
 
 		if not isItemFluidContainer(itemid) then
 			subType = -1
-		elseif subType == 0 then 
+		elseif subType == 0 then
 			subType = -1
 		end
 

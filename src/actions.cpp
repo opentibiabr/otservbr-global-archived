@@ -93,15 +93,15 @@ bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node)
 
 		auto result = useItemMap.emplace(id, std::move(*action));
 		if (!result.second) {
-			spdlog::warn("[Actions::registerEvent] - Duplicate \
-								registered item with id: {}", id);
+			spdlog::warn("[Actions::registerEvent] - Duplicate registered item with "
+				"id: {}", id);
 		}
 		return result.second;
 	} else if ((attr = node.attribute("fromid"))) {
 		pugi::xml_attribute toIdAttribute = node.attribute("toid");
 		if (!toIdAttribute) {
-			spdlog::warn("[Actions::registerEvent] - Missing toid in "
-                        "fromid: {}", attr.as_string());
+			spdlog::warn("[Actions::registerEvent] - Missing toid in fromid: {}",
+				attr.as_string());
 			return false;
 		}
 

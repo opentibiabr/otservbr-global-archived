@@ -1,6 +1,6 @@
 /**
  * @file imbuements.cpp
- * 
+ *
  * Credits: Yamaken
  * Credits: Cjaker
  * Rewritten and adapted: LucasCPrazeres
@@ -17,7 +17,7 @@ Imbuement* Imbuements::getImbuement(uint16_t id)
 {
 	auto it = imbues.find(id);
 	if (it == imbues.end()) {
-		spdlog::warn("[Imbuements::getImbuement] - Imbuement {} not found", id);
+		spdlog::warn("Imbuement {} not found", id);
 		return nullptr;
 	}
 	return &it->second;
@@ -38,7 +38,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 		if (strcasecmp(baseNode.name(), "base") == 0) {
 			pugi::xml_attribute id = baseNode.attribute("id");
 			if (!id) {
-				spdlog::warn("[Imbuements::loadFromXml] - Missing id for base entry");
+				spdlog::warn("Missing id for base entry");
 				continue;
 			}
 			bases.emplace_back(
@@ -56,7 +56,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 		} else if (strcasecmp(baseNode.name(), "category") == 0) {
 			pugi::xml_attribute id = baseNode.attribute("id");
 			if (!id) {
-				spdlog::warn("[Imbuements::loadFromXml] - Missing id for category entry");
+				spdlog::warn("Missing id for category entry");
 				continue;
 			}
 			categories.emplace_back(
@@ -69,14 +69,14 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 			++runningid;
 			pugi::xml_attribute base = baseNode.attribute("base");
 			if (!base) {
-				spdlog::warn("[Imbuements::loadFromXml] - Missing imbuement base id");
+				spdlog::warn("Missing imbuement base id");
 				continue;
 			}
 
 			uint16_t baseid = pugi::cast<uint32_t>(base.value());
 			auto groupBase = getBaseByID(baseid);
 			if (groupBase == nullptr) {
-				spdlog::warn("[Imbuements::loadFromXml] - Group base '{}' not exist", baseid);
+				spdlog::warn("Group base '{}' not exist", baseid);
 				continue;
 			}
 
@@ -85,8 +85,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 				std::forward_as_tuple(runningid, baseid));
 
 			if (!res.second) {
-				spdlog::warn("[Imbuements::loadFromXml] - "
-                             "Duplicate imbuement of Base ID: '{}' ignored", baseid);
+				spdlog::warn("Duplicate imbuement of Base ID: '{}' ignored", baseid);
 				continue;
 			}
 
@@ -94,7 +93,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 
 			pugi::xml_attribute iconBase = baseNode.attribute("iconid");
 			if (!iconBase) {
-				spdlog::warn("[Imbuements::loadFromXml] - Missing 'iconid' for imbuement entry");
+				spdlog::warn("Missing 'iconid' for imbuement entry");
 				continue;
 			}
 			imb.icon = pugi::cast<uint16_t>(iconBase.value());
@@ -111,14 +110,14 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 
 			pugi::xml_attribute categorybase = baseNode.attribute("category");
 			if (!categorybase) {
-				spdlog::warn("[Imbuements::loadFromXml] - Missing imbuement category");
+				spdlog::warn("Missing imbuement category");
 				continue;
 			}
 
 			uint16_t category = pugi::cast<uint16_t>(categorybase.value());
 			auto category_p = getCategoryByID(category);
 			if (category_p == nullptr) {
-				spdlog::warn("[Imbuements::loadFromXml] - Category {} not exist", category);
+				spdlog::warn("Category {} not exist", category);
 				continue;
 			}
 
@@ -126,25 +125,21 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 
 			pugi::xml_attribute nameBase = baseNode.attribute("name");
 			if (!nameBase) {
-				spdlog::warn("[Imbuements::loadFromXml] - Missing imbuement name");
+				spdlog::warn("Missing imbuement name");
 				continue;
 			}
 			imb.name = nameBase.value();
 
 			for (auto childNode : baseNode.children()) {
 				if (!(attr = childNode.attribute("key"))) {
-					spdlog::warn("[Imbuements::loadFromXml] - "
-                                "Missing key attribute in imbuement id: {}",
-                                runningid);
+					spdlog::warn("Missing key attribute in imbuement id: {}", runningid);
 					continue;
 				}
 
 				std::string type = attr.as_string();
 				if (strcasecmp(type.c_str(), "item") == 0) {
 					if (!(attr = childNode.attribute("value"))) {
-						spdlog::warn("[Imbuements::loadFromXml] - "
-                                    "Missing item ID for imbuement name '{}'",
-                                    imb.name);
+						spdlog::warn("Missing item ID for imbuement name '{}'", imb.name);
 						continue;
 					}
 					uint16_t sourceId = pugi::cast<uint16_t>(attr.value());
@@ -159,9 +154,8 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 					});
 
 					if (it2 != imb.items.end()) {
-						spdlog::warn("[Imbuements::loadFromXml] - "
-                                    "Duplicate item: {}, imbument name: {} ignored",
-                                    childNode.attribute("value").value(), imb.name);
+						spdlog::warn("Duplicate item: {}, imbument name: {} ignored",
+													childNode.attribute("value").value(), imb.name);
 						continue;
 					}
 
@@ -177,9 +171,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 				} else if  (strcasecmp(type.c_str(), "effect") == 0) {
 					// Effects
 					if (!(attr = childNode.attribute("type"))) {
-						spdlog::warn("[Imbuements::loadFromXml] - "
-                                    "Missing effect type for imbuement name: {}",
-                                    imb.name);
+						spdlog::warn("Missing effect type for imbuement name: {}", imb.name);
 						continue;
 					}
 
@@ -187,7 +179,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 
 					if (strcasecmp(effecttype.c_str(), "skill") == 0) {
 						if (!(attr = childNode.attribute("value"))) {
-							spdlog::warn("[Imbuements::loadFromXml] Missing effect value for imbuement name ", imb.name);
+							spdlog::warn("Missing effect value for imbuement name {}", imb.name);
 							continue;
 						}
 
@@ -222,13 +214,14 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 							usenormalskill = 3;
 							skillId = SKILL_MANA_LEECH_AMOUNT;
 						} else {
-							spdlog::warn("[Imbuements::loadFromXml] Unknow skill name '", tmpStrValue, "' in imbuement name ", imb.name);
+							spdlog::warn("Unknow skill name {} in imbuement name {}",
+								tmpStrValue, imb.name);
 							continue;
 						}
 
-
 						if (!(attr = childNode.attribute("bonus"))) {
-							spdlog::warn("[Imbuements::loadFromXml] Missing skill bonus for imbuement name ", imb.name);
+							spdlog::warn("Missing skill bonus for imbuement name {}",
+								imb.name);
 							continue;
 						}
 						int32_t bonus = pugi::cast<int32_t>(attr.value());
@@ -247,18 +240,19 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 						}
 					} else if (strcasecmp(effecttype.c_str(), "damage") == 0) {
 						if (!(attr = childNode.attribute("combat"))) {
-							spdlog::warn("[Imbuements::loadFromXml] Missing combat for imbuement name ", imb.name);
+							spdlog::warn("Missing combat for imbuement name {}", imb.name);
 							continue;
 						}
 
 						CombatType_t combatType = getCombatType(attr.as_string());
 						if (combatType == COMBAT_NONE) {
-							spdlog::warn("[Imbuements::loadFromXml] Unknown combat type for element", attr.as_string());
+							spdlog::warn("Unknown combat type for element {}", attr.as_string());
 							continue;
 						}
 
 						if (!(attr = childNode.attribute("value"))) {
-							spdlog::warn("[Imbuements::loadFromXml] Missing damage reduction percentage for imbuement name ", imb.name);
+							spdlog::warn("Missing damage reduction percentage for imbuement name {}",
+								imb.name);
 							continue;
 						}
 
@@ -268,18 +262,19 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 						imb.elementDamage = std::min<int16_t>(100, percent);
 					} else if (strcasecmp(effecttype.c_str(), "reduction") == 0) {
 						if (!(attr = childNode.attribute("combat"))) {
-							spdlog::warn("[Imbuements::loadFromXml] Missing combat for imbuement name ", imb.name);
+							spdlog::warn("Missing combat for imbuement name {}", imb.name);
 							continue;
 						}
 
 						CombatType_t combatType = getCombatType(attr.as_string());
 						if (combatType == COMBAT_NONE) {
-							spdlog::warn("[Imbuements::loadFromXml] Unknown combat type for element", attr.as_string());
+							spdlog::warn("Unknown combat type for element {}", attr.as_string());
 							continue;
 						}
 
 						if (!(attr = childNode.attribute("value"))) {
-							spdlog::warn("[Imbuements::loadFromXml] Missing damage reduction percentage for imbuement name ", imb.name);
+							spdlog::warn("Missing damage reduction percentage for imbuement name {}",
+								imb.name);
 							continue;
 						}
 
@@ -288,14 +283,14 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 						imb.absorbPercent[combatTypeToIndex(combatType)] = percent;
 					} else if (strcasecmp(effecttype.c_str(), "speed") == 0) {
 						if (!(attr = childNode.attribute("value"))) {
-							spdlog::warn("[Imbuements::loadFromXml] Missing speed value for imbuement name ", imb.name);
+							spdlog::warn("Missing speed value for imbuement name {}", imb.name);
 							continue;
 						}
 
 						imb.speed = pugi::cast<uint32_t>(attr.value());
 					} else if (strcasecmp(effecttype.c_str(), "capacity") == 0) {
 						if (!(attr = childNode.attribute("value"))) {
-							spdlog::warn("[Imbuements::loadFromXml] Missing cap value for imbuement name ", imb.name);
+							spdlog::warn("Missing cap value for imbuement name {}", imb.name);
 							continue;
 						}
 

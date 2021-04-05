@@ -55,7 +55,7 @@ Monsters g_monsters;
 Vocations g_vocations;
 extern Scripts* g_scripts;
 extern Spells* g_spells;
-RSA g_RSA;
+RSA2 g_RSA;
 
 
 std::mutex g_loaderLock;
@@ -63,10 +63,10 @@ std::condition_variable g_loaderSignal;
 std::unique_lock<std::mutex> g_loaderUniqueLock(g_loaderLock);
 
 void startupErrorMessage() {
+	spdlog::error("The program will close after pressing the enter key...");
   g_loaderSignal.notify_all();
   getchar();
   exit(-1);
-  return;
 }
 
 void mainLoader(int argc, char* argv[], ServiceManager* servicer);
@@ -170,18 +170,15 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		c_test.close();
 	}
 
-	std::string result;
+	spdlog::info("Loading config.lua ...");
 	// Read global config
 	if (!g_config.load()) {
 		spdlog::error("Unable to load config.lua!");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading config.lua {}", result);
 
 	spdlog::info("Server protocol: {}",
-                g_config.getString(ConfigManager::CLIENT_VERSION_STR));
+		g_config.getString(ConfigManager::CLIENT_VERSION_STR));
 
 #ifdef _WIN32
 	const std::string& defaultPriority = g_config.getString(
@@ -201,26 +198,21 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		startupErrorMessage();
 	}
 
+	spdlog::info("Establishing database connection... ");
 	if (!Database::getInstance().connect()) {
 		spdlog::error("Failed to connect to database!");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Establishing database connection... {}", result);
-
 	spdlog::info("MySQL Version: {}", Database::getClientVersion());
 
 	// Run database manager
 
+	spdlog::info("Running database manager...");
 	if (!DatabaseManager::isDatabaseSetup()) {
-		spdlog::error("The database you have specified in config.lua is "
-                     "empty, please import the schema.sql to your database.");
+		spdlog::error("The database you have specified in config.lua is empty, "
+			"please import the schema.sql to your database.");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Running database manager...", result);
 
 	g_databaseTasks.start();
 
@@ -232,162 +224,128 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	}
 
 	// Load items.otb
+	spdlog::info("Loading items.otb ...");
 	if (Item::items.loadFromOtb("data/items/items.otb") != ERROR_NONE) {
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading items.otb {}", result);
 
-	spdlog::info("Loading script systems...");
 	// Load items.xml
+	spdlog::info("Loading items.xml ...");
 	if (!Item::items.loadFromXml()) {
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading items.xml {}", result);
 
+	spdlog::info("Loading script systems...");
 	if (!Scripts::getInstance().loadScriptSystems()) {
 		spdlog::error("Failed to load script systems");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
 
 	// Lua libs
 	// Load global.lua (data/libs folder)
+	spdlog::info("Loading global.lua ..");
 	if (g_luaEnvironment.loadFile("data/global.lua") == -1) {
 		spdlog::error("Cannot load data/global.lua");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading global.lua {}", result);
 
 	// Load stages.lua (data/stages.lua)
+	spdlog::info("Loading stages.lua ...");
 	if (g_luaEnvironment.loadFile("data/stages.lua") == -1) {
 		spdlog::error("Cannot load data/stages.lua");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading stages.lua {}", result);
 
 	// Load startup.lua (data/startup folder)
+	spdlog::info("Loading startup.lua ...");
 	if (g_luaEnvironment.loadFile("data/startup/startup.lua") == -1) {
 		spdlog::error("Cannot load data/startup/startup.lua");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading startup.lua {}", result);
 
 	// Load folder data/scripts/lib
+	spdlog::info("Loading scripts/lib ...");
 	g_scripts = new Scripts();
 	if (!g_scripts->loadScripts("scripts/lib", true, false)) {
 		spdlog::warn("Cannot load data/scripts/libs");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading scripts/lib {}", result);
 
 	// XML scripts
 	// Load vocations
+	spdlog::info("Loading vocations.xml ...");
 	if (!g_vocations.loadFromXml()) {
 		spdlog::error("Can not load: data/XML/vocations.xml");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading vocations.xml {}", result);
 
 	// Load schedule events
+	spdlog::info("Loading scheduler events.xml ...");
 	if (!g_game.loadScheduleEventFromXml()) {
 		spdlog::error("Can not load: data/XML/events.xml");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading scheduler events.xml {}", result);
 
 	// Load outfits
+	spdlog::info("Loading outfits.xml ...");
 	if (!Outfits::getInstance().loadFromXml()) {
 		spdlog::error("Can not load: data/XML/outfits.xml");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading outfits.xml {}", result);
 
 	// Load familiars
+	spdlog::info("Loading familiars.xml ...");
 	if (!Familiars::getInstance().loadFromXml()) {
 		spdlog::error("Can not load: data/XML/familiars.xml");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading familiars.xml {}", result);
 
 	// Load imbuements
+	spdlog::info("Loading imbuements.xml ...");
 	g_imbuements = new Imbuements();
 	if (!g_imbuements->loadFromXml()) {
 		spdlog::warn("Cannot load: data/XML/imbuements.xml");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading imbuements.xml {}", result);
 
 	// Load modules
+	spdlog::info("Loading modules.xml ...");
 	g_modules = new Modules();
 	if (!g_modules->loadFromXml()) {
 		spdlog::warn("Cannot load: data/modules/modules.xml");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading modules.xml {}", result);
 
 	// Load spells
+	spdlog::info("Loading spells.xml ...");
 	g_spells = new Spells();
 	if (!g_spells->loadFromXml()) {
 		spdlog::warn("Cannot load: data/spells/spells.xml");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading spells.xml {}", result);
 
 	// Load events
+	spdlog::info("Loading events.xml ...");
 	g_events = new Events();
 	if (!g_events->load()) {
 		spdlog::warn("Cannot load: data/events/events.xml");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading events.xml {}", result);
 
 	// Lua scripts
 	// Load folder data/scripts
+	spdlog::info("Loading data/scripts ...");
 	if (!g_scripts->loadScripts("scripts", false, false)) {
 		spdlog::error("Can not load: data/scripts");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading data/scripts {}", result);
 
 	// Load folder data/monsters
+	spdlog::info("Loading data/monsters ...");
 	if (!g_scripts->loadScripts("monster", false, false)) {
 		spdlog::error("Can not load: data/monster");
 		startupErrorMessage();
-	} else {
-		result = "[Success]";
 	}
-	spdlog::info("Loading data/monsters {}", result);
 
 	g_game.loadBoostedCreature();
 
@@ -400,12 +358,8 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	} else if (worldType == "pvp-enforced") {
 		g_game.setWorldType(WORLD_TYPE_PVP_ENFORCED);
 	} else {
-		std::string str;
-		str.reserve(64);
-		str.append("Unknown world type: ")
-           .append(g_config.getString(ConfigManager::WORLD_TYPE))
-           .append(", valid world types are: pvp, no-pvp and pvp-enforced");
-		spdlog::error(str);
+		spdlog::error("Unknown world type: {}, valid world types are: pvp, no-pvp "
+			"and pvp-enforced", g_config.getString(ConfigManager::WORLD_TYPE));
 		startupErrorMessage();
 	}
 

@@ -748,7 +748,8 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		//case 0xDF, 0xE0, 0xE1, 0xFB, 0xFC, 0xFD, 0xFE Premium Shop.
 
 		default:
-			// spdlog::info("Player: {} sent an unknown packet header: x0{}", player->getName(), static_cast<uint16_t>(recvbyte));
+			spdlog::debug("Player: {} sent an unknown packet header: x0{}",
+				player->getName(), static_cast<uint16_t>(recvbyte));
 			break;
 	}
 

@@ -100,13 +100,15 @@ function Player.canImbueItem(self, imbuement, item)
 		end
 	end
 	if imb_type == "" then
-		Spdlog.error("[Imbuement::canImbueItem] - Error on search imbuement '".. imbuement:getName() .. "'")
+		Spdlog.error(string.format("[Imbuement::canImbueItem] - Error on searching imbuement %s"),
+			imbuement:getName())
 		return false
 	end
 
 	local equip = equipitems[imb_type]
 	if not equip then
-		Spdlog.error("[Imbuement::canImbueItem] - Error on search weapons imbuement '" .. imbuement:getName() .. "'")
+		Spdlog.error(string.format("[Imbuement::canImbueItem] - Error on searching weapon imbuement %s",
+			imbuement:getName()))
 		return false
 	end
 

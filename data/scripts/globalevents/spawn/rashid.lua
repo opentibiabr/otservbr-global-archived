@@ -18,9 +18,10 @@ function rashid.onStartup()
 		local rashid = Game.createNpc("rashid", config.position)
 		rashid:setMasterPos(config.position)
 		rashid:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		Spdlog.info("Rashid arrived at ".. config.city .."")
+		Spdlog.info(string.format("Rashid arrived at %s", config.city))
 	else
-		Spdlog.warn("[rashid.onStartup] - Cannot create Rashid. Day: " .. os.date("%A") .. "")
+		Spdlog.warn(string.format("[rashid.onStartup] - Cannot create Rashid. Day: %s",
+			os.date("%A")))
 	end
 
 	return true

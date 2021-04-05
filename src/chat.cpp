@@ -193,8 +193,8 @@ bool ChatChannel::executeOnJoinEvent(const Player& player)
 	LuaScriptInterface* scriptInterface = g_chat->getScriptInterface();
 	if (!scriptInterface->reserveScriptEnv()) {
 		spdlog::error("[OnJoinChannelEvent::execute - Player {}, on channel {}] "
-                     "Call stack overflow. Too many lua script calls being nested",
-                     player.getName(),getName());
+									"Call stack overflow. Too many lua script calls being nested",
+									player.getName(), getName());
 		return false;
 	}
 

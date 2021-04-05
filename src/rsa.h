@@ -24,14 +24,14 @@
 
 #include <string>
 
-class RSA
+class RSA2
 {
 	public:
-		RSA() = default;
+		RSA2() = default;
 
 		// non-copyable
-		RSA(const RSA&) = delete;
-		RSA& operator=(const RSA&) = delete;
+		RSA2(const RSA2&) = delete;
+		RSA2& operator=(const RSA2&) = delete;
 
 		void loadPEM(const std::string& filename);
 		void decrypt(char* msg) const;

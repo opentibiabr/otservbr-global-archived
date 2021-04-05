@@ -148,9 +148,7 @@ void ScriptEnvironment::insertItem(uint32_t uid, Item* item)
 {
 	auto result = localMap.emplace(uid, item);
 	if (!result.second) {
-		spdlog::warn("[ScriptEnvironment::insertItem] - "
-                    "Thing uid already taken: {}",
-                    uid);
+		spdlog::error("Thing uid already taken: {}", uid);
 	}
 }
 
@@ -4831,9 +4829,8 @@ int LuaScriptInterface::luaTableCreate(lua_State* L)
 int LuaScriptInterface::luaSpdlogInfo(lua_State* L)
 {
 	// Spdlog.info(text)
-	const std::string& info = getString(L, 1);
 	if (isString(L, 1)) {
-		spdlog::info("{}", info);
+		spdlog::info(getString(L, 1));
 	} else {
 		lua_pushnil(L);
 	}
@@ -4843,9 +4840,8 @@ int LuaScriptInterface::luaSpdlogInfo(lua_State* L)
 int LuaScriptInterface::luaSpdlogWarn(lua_State* L)
 {
 	// Spdlog.warn(text)
-	const std::string& warn = getString(L, 1);
 	if (isString(L, 1)) {
-		spdlog::warn("{}", warn);
+		spdlog::warn(getString(L, 1));
 	} else {
 		lua_pushnil(L);
 	}
@@ -4855,9 +4851,8 @@ int LuaScriptInterface::luaSpdlogWarn(lua_State* L)
 int LuaScriptInterface::luaSpdlogError(lua_State* L)
 {
 	// Spdlog.error(text)
-	const std::string& error = getString(L, 1);
 	if (isString(L, 1)) {
-		spdlog::error("{}", error);
+		spdlog::error(getString(L, 1));
 	} else {
 		lua_pushnil(L);
 	}
@@ -4867,9 +4862,8 @@ int LuaScriptInterface::luaSpdlogError(lua_State* L)
 int LuaScriptInterface::luaSpdlogDebug(lua_State* L)
 {
 	// Spdlog.debug(text)
-	const std::string& debug = getString(L, 1);
 	if (isString(L, 1)) {
-		spdlog::debug("{}", debug);
+		spdlog::debug(getString(L, 1));
 	} else {
 		lua_pushnil(L);
 	}
@@ -15729,10 +15723,8 @@ int LuaScriptInterface::luaMonsterTypeAddAttack(lua_State* L)
 			if (g_monsters.deserializeSpell(spell, sb, monsterType->name)) {
 				monsterType->info.attackSpells.push_back(std::move(sb));
 			} else {
-				spdlog::warn("[LuaScriptInterface::luaMonsterTypeAddAttack] - Monster: {}",
-                            monsterType->name);
-				spdlog::warn("[LuaScriptInterface::luaMonsterTypeAddAttack] - Cant load spell: {}",
-                            spell->name);
+				spdlog::warn("Monster: {}, cant load spell: {}", monsterType->name,
+					spell->name);
 			}
 		} else {
 			lua_pushnil(L);
@@ -15785,10 +15777,8 @@ int LuaScriptInterface::luaMonsterTypeAddDefense(lua_State* L)
 			if (g_monsters.deserializeSpell(spell, sb, monsterType->name)) {
 				monsterType->info.defenseSpells.push_back(std::move(sb));
 			} else {
-				spdlog::warn("[LuaScriptInterface::luaMonsterTypeAddDefense] - Monster: {}",
-                            monsterType->name);
-				spdlog::warn("[LuaScriptInterface::luaMonsterTypeAddDefense] - Cant load spell: {}",
-                            spell->name);
+				spdlog::warn("Monster: {}, Cant load spell: {}", monsterType->name,
+					spell->name);
 			}
 		} else {
 			lua_pushnil(L);

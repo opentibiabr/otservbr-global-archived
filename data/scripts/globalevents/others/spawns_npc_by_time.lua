@@ -40,7 +40,8 @@ function spawnsByTime.onPeriodChange(period, light)
 	local time = getWorldTime()
 
 	if configManager.getBoolean(configKeys.ALL_CONSOLE_LOG) then
-		Spdlog.info("Starting " .. periods[period] .. "... Current light is " .. light .. " and it's ".. getFormattedWorldTime(time) .. " Tibian Time")
+		Spdlog.info(string.format("Starting %s Current light is %s and it's %s Tibian Time",
+			periods[period], light, getFormattedWorldTime(time)))
 	end
 	for index, value in pairs(spawns) do
 		if value.spawn == period then

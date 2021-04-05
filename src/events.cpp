@@ -469,10 +469,9 @@ bool Events::eventPartyOnDisband(Party* party)
 	}
 
 	if (!scriptInterface.reserveScriptEnv()) {
-		spdlog::error("[Events::eventPartyOnDisband - "
-                     "Party leader {}] "
-                     "Call stack overflow. Too many lua script calls being nested.",
-                     (party->getLeader())->getName());
+		spdlog::error("[Events::eventPartyOnDisband - Party leader {}] Call stack "
+									"overflow. Too many lua script calls being nested.",
+									party->getLeader()->getName());
 		return false;
 	}
 
@@ -496,10 +495,8 @@ void Events::eventPartyOnShareExperience(Party* party, uint64_t& exp)
 	}
 
 	if (!scriptInterface.reserveScriptEnv()) {
-		spdlog::error("[Events::eventPartyOnShareExperience - "
-                     "Party leader {}] "
-                     "Call stack overflow. Too many lua script calls being nested.",
-                     (party->getLeader())->getName());
+		spdlog::error("Party leader {}. Call stack overflow. Too many lua script calls being nested.",
+			party->getLeader()->getName());
 		return;
 	}
 

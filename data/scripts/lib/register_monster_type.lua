@@ -61,7 +61,7 @@ registerMonsterType.Bestiary = function(mtype, mask)
 		end
 		if mask.Bestiary.Locations then
 			mtype:BestiaryLocations(mask.Bestiary.Locations)
-		end		
+		end
 	end
 end
 registerMonsterType.skull = function(mtype, mask)
@@ -142,7 +142,8 @@ registerMonsterType.flags = function(mtype, mask)
 			mtype:isPet(mask.flags.pet)
 		end
 		if mask.flags.respawntype or mask.flags.respawnType then
-			Spdlog.warn("[registerMonsterType.flags] - Monster: ".. mtype:name() .. ". Deprecated flag 'respawnType', use instead table 'respawnType = { period = RespawnPeriod_t, underground = boolean}'")
+			Spdlog.warn(string.format("[registerMonsterType.flags] - Monster: %s. Deprecated flag 'respawnType', use instead table 'respawnType = { period = RespawnPeriod_t, underground = boolean}'",
+				mtype:name()))
 		end
 		if mask.flags.canPushCreatures ~= nil then
 			mtype:canPushCreatures(mask.flags.canPushCreatures)
@@ -465,7 +466,7 @@ function readSpell(incomingLua)
 					spell:setCombatType(incomingLua.type)
 				elseif incomingLua.name == "condition" then
 					spell:setConditionType(incomingLua.type)
-				else 
+				else
 					Spdlog.warn("[readSpell] - Monster ".. mtype:name() .. ": Loading spell ".. incomingLua.name .. ". Parameter type applies only for condition and combat.")
 				end
 			end

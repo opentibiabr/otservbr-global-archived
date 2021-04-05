@@ -128,8 +128,7 @@ bool GlobalEvents::registerLuaEvent(GlobalEvent* event)
 		}
 	}
 
-	spdlog::warn("[GlobalEvents::configureEvent] - "
-                "Duplicate registered globalevent with name: ", globalEvent->getName());
+	spdlog::warn("Duplicate registered globalevent with name: {}", globalEvent->getName());
 	return false;
 }
 

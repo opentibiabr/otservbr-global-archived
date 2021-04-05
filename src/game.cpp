@@ -226,7 +226,8 @@ bool Game::loadScheduleEventFromXml()
 
 		if ((attr = schedNode.attribute("script"))) {
 			if (!(g_scripts->loadEventSchedulerScripts(attr.as_string()))) {
-				spdlog::warn("[Game::loadScheduleEventFromXml] - Can not load the file '{}' on '/events/scripts/scheduler/'", attr.as_string());
+				spdlog::warn("Can not load the file '{}' on '/events/scripts/scheduler/'",
+					attr.as_string());
 				return false;
 			}
 		}
@@ -6782,7 +6783,7 @@ bool save = false;
 	time_t last_day;
 	account.GetPremiumRemaningDays(&rem_days);
 	account.GetPremiumLastDay(&last_day);
-    std::string name;
+	std::string name;
 	if (rem_days != 0) {
 		if (last_day == 0) {
 			account.SetPremiumLastDay(timeNow);
@@ -6792,7 +6793,9 @@ bool save = false;
 			if (days > 0) {
 				if (days >= rem_days) {
 					if(!account.SetPremiumRemaningDays(0) || !account.SetPremiumLastDay(0)) {
-						spdlog::warn("Failed to set account premium days, account name: {}", account.GetName(&name));
+						account.GetName(&name);
+						spdlog::error("Failed to set account premium days, account name: {}",
+							name);
 					}
 				} else {
 					account.SetPremiumRemaningDays((rem_days - days));
@@ -6811,9 +6814,9 @@ bool save = false;
   }
 
 	if (save && !account.SaveAccountDB()) {
-	account.GetName(&name);
-		std::cout << "> ERROR: Failed to save account: " << name << "!"
-                  << std::endl;
+		account.GetName(&name);
+		spdlog::error("Failed to save account: {}",
+			name);
 	}
 }
 

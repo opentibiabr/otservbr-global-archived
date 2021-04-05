@@ -50,8 +50,8 @@ bool DatabaseManager::optimizeTables()
 		}
 
 		spdlog::info("Optimizing table {}... {}", tableName, tableResult);
-
 	} while (result->next());
+
 	return true;
 }
 

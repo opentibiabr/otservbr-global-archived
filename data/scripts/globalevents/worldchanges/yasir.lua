@@ -60,7 +60,7 @@ function yasir.onStartup()
 	if yasirEnabled then
 		if math.random(100) <= yasirChance then
 			local randTown = config[math.random(#config)]
-			Spdlog.info("Yasir: ".. randTown.mapName .."")
+			Spdlog.info(string.format("[WorldChanges] Yasir: %s", randTown.mapName))
 			iterateArea(
 			function(position)
 				local tile = Tile(position)

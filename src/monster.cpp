@@ -307,9 +307,8 @@ void Monster::onCreatureSay(Creature* creature, SpeakClasses type, const std::st
 		// onCreatureSay(self, creature, type, message)
 		LuaScriptInterface* scriptInterface = mType->info.scriptInterface;
 		if (!scriptInterface->reserveScriptEnv()) {
-			spdlog::error("[Monster::onCreatureSay - Monster {} creature {}] "
-                         "Call stack overflow. Too many lua script calls being nested.",
-                         getName(), creature->getName());
+			spdlog::error("Monster {} creature {}] Call stack overflow. Too many lua "
+				"script calls being nested.", getName(), creature->getName());
 			return;
 		}
 
@@ -437,8 +436,6 @@ void Monster::onCreatureFound(Creature* creature, bool pushFront/* = false*/)
 
 void Monster::onCreatureEnter(Creature* creature)
 {
-	// spdlog::info("[Monster::onCreatureEnter] - {}", creature->getName());
-
 	if (getMaster() == creature) {
 		//Follow master again
 		isMasterInRange = true;
@@ -491,8 +488,6 @@ bool Monster::isOpponent(const Creature* creature) const
 
 void Monster::onCreatureLeave(Creature* creature)
 {
-	// spdlog::info("[Monster::onCreatureLeave] - {}", creature->getName());
-
 	if (getMaster() == creature) {
 		//Take random steps and only use defense abilities (e.g. heal) until its master comes back
 		isMasterInRange = false;
@@ -792,9 +787,8 @@ void Monster::onThink(uint32_t interval)
 		// onThink(self, interval)
 		LuaScriptInterface* scriptInterface = mType->info.scriptInterface;
 		if (!scriptInterface->reserveScriptEnv()) {
-			spdlog::error("[Monster::onThink - Monster {}] "
-                         "Call stack overflow. Too many lua script calls being nested.",
-                         getName());
+			spdlog::error("Monster {} Call stack overflow. Too many lua script calls "
+				"being nested.", getName());
 			return;
 		}
 

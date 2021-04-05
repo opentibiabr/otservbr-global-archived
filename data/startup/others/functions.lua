@@ -10,7 +10,8 @@ function loadLuaMapAction(tablename)
 				-- Checks that you have no items created
 				if tile:getItemCountById(value.itemId) == 0 then
 					Spdlog.warn("[loadLuaMapAction] - Wrong item id found")
-					Spdlog.warn("Action id: ".. index ..", item id: ".. value.itemId .."")
+					Spdlog.warn(string.format("Action id: %d, item id: %d",
+						index, value.itemId))
 				end
 				if tile:getItemCountById(value.itemId) == 1 then
 					item = tile:getItemById(value.itemId)
@@ -176,7 +177,7 @@ function preyTimeLeft(player, slot)
 		local playerId = player:getId()
 		local currentTime = os.time()
 		local timePassed = currentTime - nextPreyTime[playerId][slot]
-		
+
 		-- Setting new timeleft
 		if timePassed >= 59 then
 			timeLeft = timeLeft - 1
@@ -195,8 +196,8 @@ function preyTimeLeft(player, slot)
 			player:setAutomaticBonus(slot)
 			player:sendPreyData(slot)
 			return true
-		end	
-		
+		end
+
 		-- Expiring prey as there's no timeLeft
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
 		player:setPreyCurrentMonster(slot, "")

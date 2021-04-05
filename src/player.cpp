@@ -373,8 +373,8 @@ int32_t Player::getDefense() const
 	try {
 		getShieldAndWeapon(shield, weapon);
 	}
-	catch (const std::exception&) {
-		spdlog::warn("Got exception");
+	catch (const std::exception &e) {
+		spdlog::error("{} got exception {}", getName(), e.what());
 	}
 
 	if (weapon) {

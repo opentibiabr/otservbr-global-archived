@@ -353,9 +353,9 @@ bool CreatureEvent::executeOnPrepareDeath(Creature* creature, Creature* killer)
 {
 	//onPrepareDeath(creature, killer)
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[CreatureEvent::executeOnPrepareDeath - Creature {} killer {} event {}] "
-                     "Call stack overflow. Too many lua script calls being nested.",
-                     creature->getName(), killer->getName(), getName()); 
+		spdlog::error("[CreatureEvent::executeOnPrepareDeath - Creature {} killer {}"
+			" event {}] Call stack overflow. Too many lua script calls being nested.",
+			creature->getName(), killer->getName(), getName());
 		return false;
 	}
 
@@ -384,8 +384,8 @@ bool CreatureEvent::executeOnDeath(Creature* creature, Item* corpse, Creature* k
 	//onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
 	if (!scriptInterface->reserveScriptEnv()) {
 		spdlog::error("[CreatureEvent::executeOnDeath - Creature {} killer {} event {}] "
-                     "Call stack overflow. Too many lua script calls being nested.",
-                     creature->getName(), killer->getName(), getName()); 
+									"Call stack overflow. Too many lua script calls being nested.",
+									creature->getName(), killer->getName(), getName());
 		return false;
 	}
 
