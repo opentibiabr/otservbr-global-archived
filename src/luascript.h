@@ -1404,7 +1404,6 @@ class LuaScriptInterface
 		static int luaNpcTypeIsHealthHidden(lua_State* L);
 		static int luaNpcTypeIsBlockable(lua_State* L);
 
-		static int luaNpcTypeIsPet(lua_State* L);
 		static int luaNpcTypeIsRewardBoss(lua_State* L);
 		static int luaNpcTypeRespawnType(lua_State* L);
         static int luaNpcTypeCanSpawn(lua_State* L);

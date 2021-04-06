@@ -113,9 +113,6 @@ class Npc final : public Creature
 		bool isHostile() const {
 			return npcType->info.isHostile;
 		}
-		bool isPet() const {
-			return npcType->info.isPet;
-		}
 		bool canSee(const Position& pos) const override;
 		bool canSeeInvisibility() const override {
 			return isImmune(CONDITION_INVISIBLE);

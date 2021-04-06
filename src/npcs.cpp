@@ -846,8 +846,6 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 				npcType->info.isAttackable = attr.as_bool();
 			} else if (strcasecmp(attrName, "hostile") == 0) {
 				npcType->info.isHostile = attr.as_bool();
-			} else if (strcasecmp(attrName, "pet") == 0) {
-				npcType->info.isPet = attr.as_bool();
 			} else if (strcasecmp(attrName, "illusionable") == 0) {
 				npcType->info.isIllusionable = attr.as_bool();
 			} else if (strcasecmp(attrName, "convinceable") == 0) {
@@ -1425,16 +1423,6 @@ NpcType* Npcs::getNpcType(const std::string& name)
 		return loadNpc(it2->second, name);
 	}
 	return &it->second;
-}
-
-NpcType* Npcs::getNpcTypeByRaceId(uint16_t thisrace) {
-	std::map<uint16_t, std::string> raceid_list = g_game.getBestiaryList();
-	auto it = raceid_list.find(thisrace);
-	if (it == raceid_list.end()) {
-		return nullptr;
-	}
-	NpcType* mtype = g_npcs.getNpcType(it->second);
-	return (mtype ? mtype : nullptr);
 }
 
 void Npcs::addNpcType(const std::string& name, NpcType* npcType)

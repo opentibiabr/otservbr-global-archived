@@ -3103,8 +3103,6 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("NpcType", "isHealthHidden", LuaScriptInterface::luaNpcTypeIsHealthHidden);
 	registerMethod("NpcType", "isBlockable", LuaScriptInterface::luaNpcTypeIsBlockable);
 
-	registerMethod("NpcType", "isPet", LuaScriptInterface::luaNpcTypeIsPet);
-
 	registerMethod("NpcType", "canSpawn", LuaScriptInterface::luaNpcTypeCanSpawn);
 
 	registerMethod("NpcType", "canPushItems", LuaScriptInterface::luaNpcTypeCanPushItems);
@@ -15226,23 +15224,6 @@ int LuaScriptInterface::luaNpcTypeIsHostile(lua_State* L)
 			pushBoolean(L, npcType->info.isHostile);
 		} else {
 			npcType->info.isHostile = getBoolean(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeIsPet(lua_State* L)
-{
-	// get: npcType:isPet() set: npcType:isPet(bool)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			pushBoolean(L, npcType->info.isPet);
-		} else {
-			npcType->info.isPet = getBoolean(L, 2);
 			pushBoolean(L, true);
 		}
 	} else {

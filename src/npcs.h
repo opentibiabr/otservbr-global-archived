@@ -127,7 +127,6 @@ class NpcType
 		bool isHostile = true;
 		bool hiddenHealth = false;
 		bool isBlockable = false;
-		bool isPet = false;
 		bool isRewardBoss = false;
 		bool canWalkOnEnergy = true;
 		bool canWalkOnFire = true;
@@ -216,7 +215,6 @@ class Npcs
 		bool reload();
 
 		NpcType* getNpcType(const std::string& name);
-		NpcType* getNpcTypeByRaceId(uint16_t thisrace);
 		void addNpcType(const std::string& name, NpcType* mType);
 		bool deserializeSpell(NpcSpell* spell, spellBlockNpc_t& sb, const std::string& description = "");
 
