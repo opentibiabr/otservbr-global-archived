@@ -14,9 +14,11 @@ function rashidSpawnOnStartup.onStartup()
 	local today = os.date("*t").wday
 
 	if positionByDay[today] then
-		local rashid = Game.createNpc("rashid", positionByDay[today])
-		rashid:setMasterPos(positionByDay[today])
-		rashid:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		local rashid = Game.createNpc("Rashid", positionByDay[today])
+		if rashid then
+			rashid:setMasterPos(positionByDay[today])
+			rashid:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		end
 		print(">> Rashid arrived at " .. os.date("%A") .. "s destination.")
 	else
 		print("[!] -> Cannot create Rashid. Day: " .. os.date("%A") .. ".")

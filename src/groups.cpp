@@ -66,7 +66,8 @@ const std::unordered_map<std::string, PlayerFlags> ParsePlayerFlagMap = {
 };
 
 const std::unordered_map<std::string, PlayerCustomFlags> ParsePlayerCustomFlagMap = {
-  {"canmapclickteleport", PlayerCustomFlag_CanMapClickTeleport}
+  {"canmapclickteleport", PlayerCustomFlag_CanMapClickTeleport},
+  {"ignoredbynpcs", PlayerCustomFlag_IgnoredByNpcs}
 };
 
 bool Groups::load()

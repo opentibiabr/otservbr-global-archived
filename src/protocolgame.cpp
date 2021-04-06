@@ -684,7 +684,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0x98: parseOpenChannel(msg); break;
 		case 0x99: parseCloseChannel(msg); break;
 		case 0x9A: parseOpenPrivateChannel(msg); break;
-		case 0x9E: addGameTask(&Game::playerCloseNpcChannel, player->getID()); break;
+
 		case 0xA0: parseFightModes(msg); break;
 		case 0xA1: parseAttack(msg); break;
 		case 0xA2: parseFollow(msg); break;
@@ -3736,7 +3736,6 @@ void ProtocolGame::sendShop(Npc *npc, const ShopInfoList &itemList)
 	NetworkMessage msg;
 	msg.addByte(0x7A);
 	msg.addString(npc->getName());
-	msg.add<uint16_t>(npc->getCurrencyTrading());
 
 	msg.addString(std::string()); // ??
 
@@ -3817,20 +3816,7 @@ void ProtocolGame::sendSaleItemList(const std::vector<ShopInfo> &shop, const std
 	msg.addByte(0xEE);
 	msg.addByte(0x00);
 	msg.add<uint64_t>(player->getBankBalance());
-	uint16_t currency = player->getOnlyShopOwner() ? player->getOnlyShopOwner()->getCurrency() : ITEM_GOLD_COIN;
-  	msg.addByte(0xEE);
-  	if (currency == ITEM_GOLD_COIN) {
-		msg.addByte(0x01);
- 		msg.add<uint64_t>(playerMoney);
-  	} else {
-		msg.addByte(0x02);
-		uint64_t newCurrency = 0;
-		auto search = inventoryMap.find(currency);
-  		if (search != inventoryMap.end()) {
-    		newCurrency += static_cast<uint64_t>(search->second);
-  		}
-		msg.add<uint64_t>(newCurrency);
-  	}
+
 	msg.addByte(0x7B);
 	msg.add<uint64_t>(playerMoney);
 

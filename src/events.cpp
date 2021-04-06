@@ -147,6 +147,12 @@ bool Events::load()
 			} else {
 				std::cout << "[Warning - Events::load] Unknown monster method: " << methodName << std::endl;
 			}
+		} else if (className == "Npc") {
+			if (methodName == "onSpawn") {
+				info.monsterOnSpawn = event;
+			} else {
+				std::cout << "[Warning - Events::load] Unknown npc method: " << methodName << std::endl;
+			}
 		} else {
 			std::cout << "[Warning - Events::load] Unknown class: " << className << std::endl;
 		}
@@ -181,6 +187,44 @@ void Events::eventMonsterOnSpawn(Monster* monster, const Position& position)
 
 	LuaScriptInterface::pushUserdata<Monster>(L, monster);
 	LuaScriptInterface::setMetatable(L, -1, "Monster");
+	LuaScriptInterface::pushPosition(L, position);
+
+	if (scriptInterface.protectedCall(L, 2, 1) != 0) {
+		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::popString(L));
+	} else {
+		lua_pop(L, 1);
+	}
+
+	scriptInterface.resetScriptEnv();
+}
+
+// Npc
+void Events::eventNpcOnSpawn(Npc* npc, const Position& position)
+{
+	// Npc:onSpawn(position) or Npc.onSpawn(self, position)
+	if (info.npcOnSpawn == -1) {
+		return;
+	}
+
+	if (!scriptInterface.reserveScriptEnv()) {
+		std::cout << "[Error - Events::eventNpcOnSpawn"
+				<< " Position "
+				<< "x:" << position.getX() << " "
+				<< "y:" << position.getY() << " "
+				<< "z:" << position.getZ() << " "
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
+		return;
+	}
+
+	ScriptEnvironment* env = scriptInterface.getScriptEnv();
+	env->setScriptId(info.npcOnSpawn, &scriptInterface);
+
+	lua_State* L = scriptInterface.getLuaState();
+	scriptInterface.pushFunction(info.npcOnSpawn);
+
+	LuaScriptInterface::pushUserdata<Npc>(L, npc);
+	LuaScriptInterface::setMetatable(L, -1, "Npc");
 	LuaScriptInterface::pushPosition(L, position);
 
 	if (scriptInterface.protectedCall(L, 2, 1) != 0) {

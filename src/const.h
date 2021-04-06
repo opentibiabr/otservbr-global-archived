@@ -23,6 +23,9 @@
 static constexpr size_t NETWORKMESSAGE_PLAYERNAME_MAXLENGTH = 30;
 static constexpr int32_t NETWORKMESSAGE_MAXSIZE = 24590;
 
+const uint32_t MAX_LOOTCHANCE = 100000;
+const uint32_t MAX_STATICWALK = 100;
+
 enum MagicEffectClasses : uint8_t {
 	CONST_ME_NONE,
 
@@ -657,6 +660,7 @@ enum PlayerFlags : uint64_t {
 
 enum PlayerCustomFlags : uint64_t {
   PlayerCustomFlag_CanMapClickTeleport = 1 << 0,
+  PlayerCustomFlag_IgnoredByNpcs = 1 << 1
 };
 
 enum ReloadTypes_t : uint8_t  {

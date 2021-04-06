@@ -173,13 +173,6 @@ function loadCustomMap()
 		print(">> Loading custom map")
 		Game.loadMap(configManager.getString(configKeys.MAP_CUSTOM_FILE))
 		print("> Loaded " .. mapName .. " map")
-		-- It's load the spawn
-		-- 10 * 1000 = 10 seconds delay for load the spawn after loading the map
-		addEvent(
-		function()
-			Game.loadSpawnFile(configManager.getString(configKeys.MAP_CUSTOM_SPAWN))
-			print("> Loaded " .. mapName .. " spawn")
-		end, 10 * 1000)
 	end
 end
 

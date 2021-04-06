@@ -244,7 +244,7 @@ bool Game::loadScheduleEventFromXml()
 
 			if ((schedENode.attribute("spawnrate"))) {
 				uint32_t spawnrate = pugi::cast<uint32_t>(schedENode.attribute("spawnrate").value());
-				g_game.setSpawnSchedule(spawnrate);
+				g_game.setSpawnMonsterSchedule(spawnrate);
 				ss << ", spawn: "  << (spawnrate - 100) << "%";
 			}
 
@@ -277,7 +277,8 @@ void Game::setGameState(GameState_t newState)
 			groups.load();
 			g_chat->load();
 
-			map.spawns.startup();
+			map.spawnsMonster.startup();
+			map.spawnsNpc.startup();
 
 			raids.loadFromXml();
 			raids.startup();
@@ -656,11 +657,6 @@ bool Game::loadMainMap(const std::string& filename)
 void Game::loadMap(const std::string& path)
 {
 	map.loadMap(path, false, false, false);
-}
-
-bool Game::loadCustomSpawnFile(const std::string& fileName)
-{
-	return map.spawns.loadCustomSpawnXml(fileName);
 }
 
 Cylinder* Game::internalGetCylinder(Player* player, const Position& pos) const
@@ -1273,7 +1269,7 @@ void Game::playerMoveCreature(Player* player, Creature* movingCreature, const Po
 			}
 
 			Npc* movingNpc = movingCreature->getNpc();
-			if (movingNpc && !Spawns::isInZone(movingNpc->getMasterPos(), movingNpc->getMasterRadius(), toPos)) {
+			if (movingNpc && !SpawnsNpc::isInZone(movingNpc->getMasterPos(), movingNpc->getMasterRadius(), toPos)) {
 				player->sendCancelMessage(RETURNVALUE_NOTENOUGHROOM);
 				return;
 			}
@@ -2876,22 +2872,6 @@ void Game::playerOpenPrivateChannel(uint32_t playerId, std::string& receiver)
 	player->sendOpenPrivateChannel(receiver);
 }
 
-void Game::playerCloseNpcChannel(uint32_t playerId)
-{
-	Player* player = getPlayerByID(playerId);
-	if (!player) {
-		return;
-	}
-
-	SpectatorHashSet spectators;
-	map.getSpectators(spectators, player->getPosition());
-	for (Creature* spectator : spectators) {
-		if (Npc* npc = spectator->getNpc()) {
-			npc->onPlayerCloseChannel(player);
-		}
-	}
-}
-
 void Game::playerReceivePing(uint32_t playerId)
 {
 	Player* player = getPlayerByID(playerId);
@@ -4264,8 +4244,6 @@ void Game::playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t coun
 	if (!player->hasShopItemForSale(it.id, subType)) {
 		return;
 	}
-
-	merchant->onPlayerTrade(player, onBuy, it.id, subType, amount, ignoreCap, inBackpacks);
 }
 
 void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount, bool ignoreEquipped)
@@ -4297,8 +4275,6 @@ void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, u
 	} else {
 		subType = count;
 	}
-
-	merchant->onPlayerTrade(player, onSell, it.id, subType, amount, ignoreEquipped);
 }
 
 void Game::playerCloseShop(uint32_t playerId)
@@ -6606,7 +6582,8 @@ void Game::shutdown()
 	g_scheduler.shutdown();
 	g_databaseTasks.shutdown();
 	g_dispatcher.shutdown();
-	map.spawns.clear();
+	map.spawnsMonster.clear();
+	map.spawnsNpc.clear();
 	raids.clear();
 
 	cleanup();
@@ -8547,6 +8524,10 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_scripts->loadScripts("monster", false, true);
 			return true;
 		}
+		case RELOAD_TYPE_NPCS: {
+			g_scripts->loadScripts("npc", false, true);
+			return true;
+		}
 		case RELOAD_TYPE_CHAT: return g_chat->load();
 		case RELOAD_TYPE_CONFIG: return g_config.reload();
 		case RELOAD_TYPE_EVENTS: return g_events->load();
@@ -8554,11 +8535,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 		case RELOAD_TYPE_MODULES: return g_modules->reload();
 		case RELOAD_TYPE_MOUNTS: return mounts.reload();
 		case RELOAD_TYPE_IMBUEMENTS: return g_imbuements->reload();
-		case RELOAD_TYPE_NPCS: {
-			Npcs::reload();
-			return true;
-		}
-
 		case RELOAD_TYPE_RAIDS: return raids.reload() && raids.startup();
 
 		case RELOAD_TYPE_SPELLS: {
@@ -8590,7 +8566,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 			}
 
 			g_config.reload();
-			Npcs::reload();
 			raids.reload() && raids.startup();
 			Item::items.reload();
 			g_weapons->clear(true);

@@ -21,49 +21,7 @@
 #define FS_MONSTERS_H_776E8327BCE2450EB7C4A260785E6C0D
 
 #include "creature.h"
-
-
-const uint32_t MAX_LOOTCHANCE = 100000;
-const uint32_t MAX_STATICWALK = 100;
-
-struct LootBlock {
-	uint16_t id;
-	uint32_t countmax;
-	uint32_t countmin;
-	uint32_t chance;
-
-	//optional
-	int32_t subType;
-	int32_t actionId;
-	std::string text;
-	std::string name;
-	std::string article;
-	int32_t attack;
-	int32_t defense;
-	int32_t extraDefense;
-	int32_t armor;
-	int32_t shootRange;
-	int32_t hitChance;
-	bool unique;
-
-	std::vector<LootBlock> childLoot;
-	LootBlock() {
-		id = 0;
-		countmax = 1;
-		countmin = 1;
-		chance = 0;
-
-		subType = -1;
-		actionId = -1;
-		attack = -1;
-		defense = -1;
-		extraDefense = -1;
-		armor = -1;
-		shootRange = -1;
-		hitChance = -1;
-		unique = false;
-	}
-};
+#include "enums.h"
 
 class Loot {
 	public:
@@ -74,14 +32,6 @@ class Loot {
 		Loot& operator=(const Loot&) = delete;
 
 		LootBlock lootBlock;
-};
-
-struct summonBlock_t {
-	std::string name;
-	uint32_t chance;
-	uint32_t speed;
-	uint32_t max;
-	bool force = false;
 };
 
 class BaseSpell;
@@ -110,11 +60,6 @@ struct spellBlock_t {
 	int32_t maxCombatValue = 0;
 	bool combatSpell = false;
 	bool isMelee = false;
-};
-
-struct voiceBlock_t {
-	std::string text;
-	bool yellText;
 };
 
 class MonsterType

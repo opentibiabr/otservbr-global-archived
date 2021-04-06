@@ -46,6 +46,7 @@ Scheduler g_scheduler;
 Game g_game;
 ConfigManager g_config;
 Monsters g_monsters;
+Npcs g_npcs;
 Vocations g_vocations;
 extern Scripts* g_scripts;
 RSA g_RSA;
@@ -260,6 +261,12 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	std::cout << ">> Loading lua monsters" << std::endl;
 	if (!g_scripts->loadScripts("monster", false, false)) {
 		startupErrorMessage("Failed to load lua monsters");
+		return;
+	}
+
+	std::cout << ">> Loading lua npcs" << std::endl;
+	if (!g_scripts->loadScripts("npc", false, false)) {
+		startupErrorMessage("Failed to load lua npcs");
 		return;
 	}
 

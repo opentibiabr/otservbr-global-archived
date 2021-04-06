@@ -28,7 +28,8 @@
 #include "tile.h"
 #include "town.h"
 #include "house.h"
-#include "spawn.h"
+#include "spawn_monster.h"
+#include "spawn_npc.h"
 
 class Creature;
 class Player;
@@ -263,7 +264,8 @@ class Map
 			return QTreeNode::getLeafStatic<QTreeLeafNode*, QTreeNode*>(&root, x, y);
 		}
 
-		Spawns spawns;
+		SpawnsMonster spawnsMonster;
+		SpawnsNpc spawnsNpc;
 		Towns towns;
 		Houses houses;
 	private:

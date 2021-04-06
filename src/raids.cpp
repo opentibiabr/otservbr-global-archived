@@ -515,14 +515,14 @@ bool AreaSpawnEvent::configureRaidEvent(const pugi::xml_node& eventNode)
 			}
 		}
 
-		spawnList.emplace_back(name, minAmount, maxAmount);
+		spawnMonsterList.emplace_back(name, minAmount, maxAmount);
 	}
 	return true;
 }
 
 bool AreaSpawnEvent::executeEvent()
 {
-	for (const MonsterSpawn& spawn : spawnList) {
+	for (const MonsterSpawn& spawn : spawnMonsterList) {
 		uint32_t amount = uniform_random(spawn.minAmount, spawn.maxAmount);
 		for (uint32_t i = 0; i < amount; ++i) {
 			Monster* monster = Monster::createMonster(spawn.name);

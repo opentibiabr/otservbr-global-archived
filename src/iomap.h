@@ -25,7 +25,8 @@
 #include "item.h"
 #include "map.h"
 #include "house.h"
-#include "spawn.h"
+#include "spawn_monster.h"
+#include "spawn_npc.h"
 #include "configmanager.h"
 
 extern ConfigManager g_config;
@@ -119,12 +120,27 @@ class IOMap
 		static bool loadMonsters(Map* map) {
 			if (map->monsterfile.empty()) {
 				//OTBM file doesn't tell us about the monsterfile,
-				//lets guess it is mapname-spawn.xml.
+				//lets guess it is mapname-monster.xml.
 				map->monsterfile = g_config.getString(ConfigManager::MAP_NAME);
 				map->monsterfile += "-monster.xml";
 			}
 
-			return map->spawns.loadFromXml(map->monsterfile);
+			return map->spawnsMonster.loadFromXML(map->monsterfile);
+		}
+
+		/* Load the npcs
+		 * \param map pointer to the Map class
+		 * \returns Returns true if the spawn npcs were loaded successfully
+		 */
+		static bool loadNpcs(Map* map) {
+			if (map->npcfile.empty()) {
+				//OTBM file doesn't tell us about the npcfile,
+				//lets guess it is mapname-npc.xml.
+				map->npcfile = g_config.getString(ConfigManager::MAP_NAME);
+				map->npcfile += "-npc.xml";
+			}
+
+			return map->spawnsNpc.loadFromXml(map->npcfile);
 		}
 
 		/* Load the houses (not house tile-data)
@@ -140,21 +156,6 @@ class IOMap
 			}
 
 			return map->houses.loadHousesXML(map->housefile);
-		}
-
-		/* Load the npcs
-		 * \param map pointer to the Map class
-		 * \returns Returns true if the spawn npcs were loaded successfully
-		 */
-		static bool loadNpcs(Map* map) {
-			if (map->npcfile.empty()) {
-				//OTBM file doesn't tell us about the npcfile,
-				//lets guess it is mapname-npc.xml.
-				map->npcfile = g_config.getString(ConfigManager::MAP_NAME);
-				map->npcfile += "-npc.xml";
-			}
-
-			return map->spawns.loadNpcsFromXML(map->npcfile);
 		}
 
 		const std::string& getLastErrorString() const {

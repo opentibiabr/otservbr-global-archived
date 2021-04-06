@@ -205,7 +205,7 @@ class AreaSpawnEvent final : public RaidEvent
 		bool executeEvent() override;
 
 	private:
-		std::list<MonsterSpawn> spawnList;
+		std::list<MonsterSpawn> spawnMonsterList;
 		Position fromPos, toPos;
 };
 
