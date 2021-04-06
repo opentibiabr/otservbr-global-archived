@@ -1,8 +1,7 @@
-local npcType = Game.createNpcType("Harlow")
+local npcType = Game.createNpcType("Rapanaio (Isle of Evil)")
 local npc = {}
 
-npc.walkInterval = "0"
-npc.description = "Harlow"
+npc.description = "Rapanaio"
 
 npc.health = 100
 npc.maxHealth = npc.health
@@ -10,12 +9,11 @@ npc.walkInterval = 2000
 npc.walkRadius = 2
 
 npc.outfit = {
-    lookType = 151,
-    lookHead = 116,
-    lookBody = 77,
-    lookLegs = 94,
-    lookFeet = 97,
-    lookAddons = 0
+    lookType = 160,
+    lookHead = 0,
+    lookBody = 21,
+    lookLegs = 20,
+    lookFeet = 39
 }
 
 npc.flags = {

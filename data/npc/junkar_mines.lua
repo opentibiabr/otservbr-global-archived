@@ -1,4 +1,4 @@
-local npcType = Game.createNpcType("Junkar")
+local npcType = Game.createNpcType("Junkar (Mines)")
 local npc = {}
 
 npc.description = "Junkar"

@@ -1,12 +1,11 @@
 local npcType = Game.createNpcType("Golem Guardian")
 local npc = {}
 
-npc.walkInterval = "0"
 npc.description = "Golem Guardian"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
 
 npc.outfit = {

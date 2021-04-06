@@ -1,4 +1,4 @@
-local npcType = Game.createNpcType("Tarak")
+local npcType = Game.createNpcType("Tarak (Sunken)")
 local npc = {}
 
 npc.description = "Tarak"

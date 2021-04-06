@@ -1,16 +1,15 @@
-local npcType = Game.createNpcType("Demon Skeleton")
+local npcType = Game.createNpcType("Zurak (Arena)")
 local npc = {}
 
-npc.walkInterval = "0"
-npc.description = "Demon Skeleton"
+npc.description = "Zurak"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
 
 npc.outfit = {
-    lookType = 37
+    lookType = 114
 }
 
 npc.flags = {

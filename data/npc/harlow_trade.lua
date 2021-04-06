@@ -1,16 +1,20 @@
-local npcType = Game.createNpcType("Zurak")
+local npcType = Game.createNpcType("Harlow (Trade Island)")
 local npc = {}
 
-npc.walkInterval = "0"
-npc.description = "Zurak"
+npc.description = "Harlow"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
 
 npc.outfit = {
-    lookType = 114
+    lookType = 151,
+    lookHead = 116,
+    lookBody = 77,
+    lookLegs = 94,
+    lookFeet = 97,
+    lookAddons = 0
 }
 
 npc.flags = {

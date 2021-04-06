@@ -1,8 +1,7 @@
-local npcType = Game.createNpcType("Pythius The Rotten")
+local npcType = Game.createNpcType("Rapanaio (Boat)")
 local npc = {}
 
-npc.walkInterval = "0"
-npc.description = "Pythius The Rotten"
+npc.description = "Rapanaio"
 
 npc.health = 100
 npc.maxHealth = npc.health
@@ -10,7 +9,11 @@ npc.walkInterval = 2000
 npc.walkRadius = 2
 
 npc.outfit = {
-    lookType = 231
+    lookType = 160,
+    lookHead = 0,
+    lookBody = 21,
+    lookLegs = 20,
+    lookFeet = 39
 }
 
 npc.flags = {

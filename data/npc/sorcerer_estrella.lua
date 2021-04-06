@@ -1,12 +1,11 @@
 local npcType = Game.createNpcType("Sorcerer Estrella")
 local npc = {}
 
-npc.walkInterval = "20000"
 npc.description = "Sorcerer Estrella"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 20000
 npc.walkRadius = 2
 
 npc.outfit = {

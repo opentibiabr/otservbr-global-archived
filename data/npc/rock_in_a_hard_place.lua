@@ -1,12 +1,11 @@
 local npcType = Game.createNpcType("Rock In A Hard Place")
 local npc = {}
 
-npc.walkInterval = "0"
 npc.description = "Rock In A Hard Place"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
 
 npc.outfit = {

@@ -1,13 +1,11 @@
 local npcType = Game.createNpcType("Mazarius")
 local npc = {}
 
-npc.walkInterval = "1500"
-npc.speed = "100"
-npc.walkRadius = "2"
 npc.description = "Mazarius"
 
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 1500
+npc.speed = 100
 npc.walkRadius = 2
 
 npc.health = 100

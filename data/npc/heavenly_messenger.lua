@@ -1,12 +1,11 @@
-local npcType = Game.createNpcType("Hemor, the guard")
+local npcType = Game.createNpcType("Heavenly Messenger")
 local npc = {}
 
-npc.walkInterval = "0"
-npc.description = "Hemor, the guard"
+npc.description = "Heavenly Messenger"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
 
 npc.outfit = {

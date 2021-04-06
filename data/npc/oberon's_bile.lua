@@ -1,12 +1,11 @@
 local npcType = Game.createNpcType("Oberon's Bile")
 local npc = {}
 
-npc.walkInterval = "0"
 npc.description = "Oberon's Bile"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
 
 npc.outfit = {

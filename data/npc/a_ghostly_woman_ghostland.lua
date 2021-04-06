@@ -1,4 +1,4 @@
-local npcType = Game.createNpcType("A Ghostly Woman")
+local npcType = Game.createNpcType("A Ghostly Woman (Ghostland)")
 local npc = {}
 
 npc.description = "A Ghostly Woman"

@@ -1,12 +1,11 @@
-local npcType = Game.createNpcType("Messenger of Heaven")
+local npcType = Game.createNpcType("Lesser Messenger of Heaven")
 local npc = {}
 
-npc.walkInterval = "0"
-npc.description = "Messenger of Heaven"
+npc.description = "Lesser Messenger of Heaven"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
 
 npc.outfit = {

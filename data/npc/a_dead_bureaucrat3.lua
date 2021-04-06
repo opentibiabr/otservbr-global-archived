@@ -1,4 +1,4 @@
-local npcType = Game.createNpcType("A Dead Bureaucrat 3")
+local npcType = Game.createNpcType("A Dead Bureaucrat (3)")
 local npc = {}
 
 npc.description = "A Dead Bureaucrat"

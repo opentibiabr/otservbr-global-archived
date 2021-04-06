@@ -1,12 +1,11 @@
 local npcType = Game.createNpcType("The Librarian")
 local npc = {}
 
-npc.walkInterval = "0"
 npc.description = "The Librarian"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
 
 npc.outfit = {

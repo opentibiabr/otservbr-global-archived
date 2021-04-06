@@ -1,15 +1,15 @@
-local npcType = Game.createNpcType("Chrak")
+local npcType = Game.createNpcType("Demon Skeleton")
 local npc = {}
 
-npc.description = "Chrak"
+npc.description = "Demon Skeleton"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
 
 npc.outfit = {
-    lookType = 115
+    lookType = 37
 }
 
 npc.flags = {

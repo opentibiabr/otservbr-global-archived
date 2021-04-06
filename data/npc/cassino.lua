@@ -1,12 +1,12 @@
 local npcType = Game.createNpcType("Cassino")
 local npc = {}
 
-npc.speed = "0"
 npc.description = "Cassino"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
+npc.speed = 0
 npc.walkRadius = 2
 
 npc.outfit = {

@@ -1,12 +1,11 @@
 local npcType = Game.createNpcType("Lorbas")
 local npc = {}
 
-npc.walkInterval = "1000"
 npc.description = "Lorbas"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 1000
 npc.walkRadius = 2
 
 npc.outfit = {

@@ -1,7 +1,6 @@
 local npcType = Game.createNpcType("Oberon's Spite")
 local npc = {}
 
-npc.walkInterval = "0"
 npc.description = "Oberon's Spite"
 
 npc.health = 100

@@ -1,27 +1,15 @@
-local npcType = Game.createNpcType("Ferryman Kamil")
+local npcType = Game.createNpcType("Cobra")
 local npc = {}
 
-npc.description = "Ferryman Kamil"
+npc.description = "Cobra"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
 
 npc.outfit = {
-    lookType = 132,
-    lookHead = 0,
-    lookBody = 71,
-    lookLegs = 76,
-    lookFeet = 115,
-    lookAddons = 3
-}
-
-npc.voices = {
-    interval = 100,
-    chance = 0,
-    { text = "Leaving for Fibula Island soon!", yell = false },
-    { text = "Passage for newly weds only.", yell = false }
+    lookTypeex = 1471
 }
 
 npc.flags = {

@@ -1,4 +1,4 @@
-local npcType = Game.createNpcType("Captain Haba")
+local npcType = Game.createNpcType("Captain Haba (Open Sea)")
 local npc = {}
 
 npc.description = "Captain Haba"

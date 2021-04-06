@@ -1,4 +1,4 @@
-local npcType = Game.createNpcType("Captain Max")
+local npcType = Game.createNpcType("Captain Max (Calassa)")
 local npc = {}
 
 npc.description = "Captain Max"

@@ -1,4 +1,4 @@
-local npcType = Game.createNpcType("Jack Fate")
+local npcType = Game.createNpcType("Jack Fate (Goroma)")
 local npc = {}
 
 npc.description = "Jack Fate"

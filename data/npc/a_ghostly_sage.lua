@@ -1,12 +1,11 @@
 local npcType = Game.createNpcType("A Ghostly Sage")
 local npc = {}
 
-npc.walkInterval = "0"
 npc.description = "A Ghostly Sage"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
 
 npc.outfit = {

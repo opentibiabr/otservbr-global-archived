@@ -1,4 +1,4 @@
-local npcType = Game.createNpcType("Captain Waverider")
+local npcType = Game.createNpcType("Captain Waverider (Island)")
 local npc = {}
 
 npc.description = "Captain Waverider"

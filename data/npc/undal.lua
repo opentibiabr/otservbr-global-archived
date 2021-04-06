@@ -1,14 +1,12 @@
 local npcType = Game.createNpcType("Undal")
 local npc = {}
 
-npc.walkInterval = "0"
-npc.speed = "100"
-npc.walkRadius = "2"
 npc.description = "Undal"
 
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
+npc.speed = 0
 
 npc.health = 100
 npc.outfit = {

@@ -1,14 +1,12 @@
 local npcType = Game.createNpcType("Gelidrazah'S Thirst")
 local npc = {}
 
-npc.walkInterval = "100000"
-npc.speed = "0"
-npc.walkRadius = "0"
 npc.description = "Gelidrazah'S Thirst"
 
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
+npc.speed = 0
 
 npc.health = 100
 npc.outfit = {

@@ -1,4 +1,4 @@
-local npcType = Game.createNpcType("Buddel")
+local npcType = Game.createNpcType("Buddel (Raider Camp)")
 local npc = {}
 
 npc.description = "Buddel"

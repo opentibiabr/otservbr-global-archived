@@ -1,13 +1,12 @@
 local npcType = Game.createNpcType("A Fading Memory")
 local npc = {}
 
-npc.walkInterval = "0"
 npc.lookdir = "3"
 npc.description = "A Fading Memory"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
 
 npc.outfit = {

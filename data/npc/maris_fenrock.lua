@@ -1,4 +1,4 @@
-local npcType = Game.createNpcType("Maris")
+local npcType = Game.createNpcType("Maris (Fenrock)")
 local npc = {}
 
 npc.description = "Maris"

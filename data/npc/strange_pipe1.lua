@@ -1,12 +1,11 @@
-local npcType = Game.createNpcType("Strange Pipe")
+local npcType = Game.createNpcType("Strange Pipe (1)")
 local npc = {}
 
-npc.walkInterval = "0"
 npc.description = "Strange Pipe"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 0
 npc.walkRadius = 2
 
 npc.outfit = {

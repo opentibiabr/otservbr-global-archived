@@ -1,12 +1,11 @@
 local npcType = Game.createNpcType("Knight Hykrion")
 local npc = {}
 
-npc.walkInterval = "20000"
 npc.description = "Knight Hykrion"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 2000
+npc.walkInterval = 20000
 npc.walkRadius = 2
 
 npc.outfit = {
