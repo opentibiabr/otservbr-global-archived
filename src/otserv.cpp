@@ -99,6 +99,9 @@ void loadModules() {
 	modulesLoadHelper(g_config.load(),
 		"config.lua");
 
+	spdlog::info("Server protocol: {}",
+		g_config.getString(ConfigManager::CLIENT_VERSION_STR));
+
 	// set RSA key
 	try {
 		g_RSA.loadPEM("key.pem");
@@ -264,9 +267,6 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	// Init and load modules
 	initGlobalScopes();
 	loadModules();
-
-	spdlog::info("Server protocol: {}",
-		g_config.getString(ConfigManager::CLIENT_VERSION_STR));
 
 #ifdef _WIN32
 	const std::string& defaultPriority = g_config.getString(
