@@ -95,8 +95,10 @@ void modulesLoadHelper(bool loaded, std::string moduleName) {
 }
 
 void loadModules() {
-	modulesLoadHelper(g_config.load(),
-		"config.lua");
+	bool isLoaded;
+
+	isLoaded = g_config.load();
+	modulesLoadHelper(isLoaded,"config.lua");
 
 	// set RSA key
 	try {
@@ -130,43 +132,43 @@ void loadModules() {
 		spdlog::info("No tables were optimized");
 	}
 
-	modulesLoadHelper((Item::items.loadFromOtb("data/items/items.otb") != ERROR_NONE),
-		"items.otb");
-	modulesLoadHelper(Item::items.loadFromXml(),
-		"items.xml");
-	modulesLoadHelper(Scripts::getInstance().loadScriptSystems(),
-		"script systems");
+	isLoaded = (Item::items.loadFromOtb("data/items/items.otb") != ERROR_NONE);
+	modulesLoadHelper(isLoaded,"items.otb");
+	isLoaded = Item::items.loadFromXml();
+	modulesLoadHelper(isLoaded,"items.xml");
+	isLoaded = Scripts::getInstance().loadScriptSystems();
+	modulesLoadHelper(isLoaded,"script systems");
 
 	// Lua Env
-	modulesLoadHelper((g_luaEnvironment.loadFile("data/global.lua") == -1),
-		"data/global.lua");
-	modulesLoadHelper((g_luaEnvironment.loadFile("data/stages.lua") == -1),
-		"data/stages.lua");
-	modulesLoadHelper((g_luaEnvironment.loadFile("data/startup/startup.lua") == -1),
-		"data/startup/startup.lua");
+	isLoaded = (g_luaEnvironment.loadFile("data/global.lua") == -1);
+	modulesLoadHelper(isLoaded,"data/global.lua");
+	isLoaded = (g_luaEnvironment.loadFile("data/stages.lua") == -1);
+	modulesLoadHelper(isLoaded,"data/stages.lua");
+	isLoaded = (g_luaEnvironment.loadFile("data/startup/startup.lua") == -1);
+	modulesLoadHelper(isLoaded,"data/startup/startup.lua");
 
-	modulesLoadHelper(g_scripts->loadScripts("scripts/lib", true, false),
-		"data/scripts/libs");
-	modulesLoadHelper(g_vocations.loadFromXml(),
-		"data/XML/vocations.xml");
-	modulesLoadHelper(g_game.loadScheduleEventFromXml(),
-		"data/XML/events.xml");
-	modulesLoadHelper(Outfits::getInstance().loadFromXml(),
-		"data/XML/outfits.xml");
-	modulesLoadHelper(Familiars::getInstance().loadFromXml(),
-		"data/XML/familiars.xml");
-	modulesLoadHelper(g_imbuements->loadFromXml(),
-		"data/XML/imbuements.xml");
-	modulesLoadHelper(g_modules->loadFromXml(),
-		"data/modules/modules.xml");
-	modulesLoadHelper(g_spells->loadFromXml(),
-		"data/spells/spells.xml");
-	modulesLoadHelper(g_events->loadFromXml(),
-		"data/events/events.xml");
-	modulesLoadHelper(g_scripts->loadScripts("scripts", false, false),
-		"data/scripts");
-	modulesLoadHelper(g_scripts->loadScripts("monster", false, false),
-		"data/monster");
+	isLoaded = g_scripts->loadScripts("scripts/lib", true, false);
+	modulesLoadHelper(isLoaded,"data/scripts/libs");
+	isLoaded = g_vocations.loadFromXml();
+	modulesLoadHelper(isLoaded,"data/XML/vocations.xml");
+	isLoaded = g_game.loadScheduleEventFromXml();
+	modulesLoadHelper(isLoaded,"data/XML/events.xml");
+	isLoaded = Outfits::getInstance().loadFromXml();
+	modulesLoadHelper(isLoaded,"data/XML/outfits.xml");
+	isLoaded = Familiars::getInstance().loadFromXml();
+	modulesLoadHelper(isLoaded,"data/XML/familiars.xml");
+	isLoaded = g_imbuements->loadFromXml();
+	modulesLoadHelper(isLoaded,"data/XML/imbuements.xml");
+	isLoaded = g_modules->loadFromXml();
+	modulesLoadHelper(isLoaded,"data/modules/modules.xml");
+	isLoaded = g_spells->loadFromXml();
+	modulesLoadHelper(isLoaded,"data/spells/spells.xml");
+	isLoaded = g_events->loadFromXml();
+	modulesLoadHelper(isLoaded,"data/events/events.xml");
+	isLoaded = g_scripts->loadScripts("scripts", false, false);
+	modulesLoadHelper(isLoaded,"data/scripts");
+	isLoaded = g_scripts->loadScripts("monster", false, false);
+	modulesLoadHelper(isLoaded,"data/monster");
 
 	g_game.loadBoostedCreature();
 }
