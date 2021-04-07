@@ -92,7 +92,7 @@ void Game::loadBoostedCreature()
 	DBResult_ptr result = db.storeQuery(query.str());
 
 	if (!result) {
-		spdlog::warn("[Game::loadBoostedCreature] - "
+		SPDLOG_WARN("[Game::loadBoostedCreature] - "
                     "Failed to detect boosted creature database. (CODE 01)");
 		return;
 	}
@@ -140,13 +140,13 @@ void Game::loadBoostedCreature()
 		query << "`raceid` = '" << newrace << "'";
 
 		if (!db.executeQuery(query.str())) {
-			spdlog::warn("[Game::loadBoostedCreature] - "
+			SPDLOG_WARN("[Game::loadBoostedCreature] - "
                         "Failed to detect boosted creature database. (CODE 02)");
 			return;
 		}
 	}
 	setBoostedName(name);
-	spdlog::info("Boosted creature: {}", name);
+	SPDLOG_INFO("Boosted creature: {}", name);
 }
 
 void Game::start(ServiceManager* manager)
@@ -226,7 +226,7 @@ bool Game::loadScheduleEventFromXml()
 
 		if ((attr = schedNode.attribute("script"))) {
 			if (!(g_scripts->loadEventSchedulerScripts(attr.as_string()))) {
-				spdlog::warn("Can not load the file '{}' on '/events/scripts/scheduler/'",
+				SPDLOG_WARN("Can not load the file '{}' on '/events/scripts/scheduler/'",
 					attr.as_string());
 				return false;
 			}
@@ -257,7 +257,7 @@ bool Game::loadScheduleEventFromXml()
 				ss << ", skill: " << (skillrate - 100) << "%";
 			}
 		}
-		spdlog::info(ss.str());
+		SPDLOG_INFO(ss.str());
 	}
 	return true;
 }
@@ -601,7 +601,7 @@ void Game::saveGameState()
 		setGameState(GAME_STATE_MAINTAIN);
 	}
 
-	spdlog::info("Saving server...");
+	SPDLOG_INFO("Saving server...");
 
 	for (const auto& it : players) {
 		it.second->loginPosition = it.second->getPosition();
@@ -2744,7 +2744,7 @@ bool Game::playerBroadcastMessage(Player* player, const std::string& text) const
 		return false;
 	}
 
-	spdlog::info("{} broadcasted: {}", player->getName(), text);
+	SPDLOG_INFO("{} broadcasted: {}", player->getName(), text);
 
 	for (const auto& it : players) {
 		it.second->sendPrivateMessage(player, TALKTYPE_BROADCAST, text);
@@ -6439,7 +6439,7 @@ void Game::internalDecayItem(Item* item)
 	} else {
 		ReturnValue ret = internalRemoveItem(item);
 		if (ret != RETURNVALUE_NOERROR) {
-			spdlog::debug("Game::internalDecayItem] internalDecayItem failed, "
+			SPDLOG_DEBUG("Game::internalDecayItem] internalDecayItem failed, "
                          "error code: {}, item id: {}",
                          static_cast<uint32_t>(ret), item->getID());
 		}
@@ -6642,7 +6642,7 @@ void Game::shutdown()
 {
   webhook_send_message("Server is shutting down", "Shutting down...", WEBHOOK_COLOR_OFFLINE);
 
-	spdlog::info("Shutting down...");
+	SPDLOG_INFO("Shutting down...");
 
 	g_scheduler.shutdown();
 	g_databaseTasks.shutdown();
@@ -6658,7 +6658,7 @@ void Game::shutdown()
 
 	ConnectionManager::getInstance().closeAll();
 
-	spdlog::info("Done!");
+	SPDLOG_INFO("Done!");
 }
 
 void Game::cleanup()
@@ -6712,7 +6712,7 @@ void Game::addBestiaryList(uint16_t raceid, std::string name)
 
 void Game::broadcastMessage(const std::string& text, MessageClasses type) const
 {
-	spdlog::info("Broadcasted message: {}", text);
+	SPDLOG_INFO("Broadcasted message: {}", text);
 	for (const auto& it : players) {
 		it.second->sendTextMessage(type, text);
 	}
@@ -6794,7 +6794,7 @@ bool save = false;
 				if (days >= rem_days) {
 					if(!account.SetPremiumRemaningDays(0) || !account.SetPremiumLastDay(0)) {
 						account.GetName(&name);
-						spdlog::error("Failed to set account premium days, account name: {}",
+						SPDLOG_ERROR("Failed to set account premium days, account name: {}",
 							name);
 					}
 				} else {
@@ -6815,7 +6815,7 @@ bool save = false;
 
 	if (save && !account.SaveAccountDB()) {
 		account.GetName(&name);
-		spdlog::error("Failed to save account: {}",
+		SPDLOG_ERROR("Failed to save account: {}",
 			name);
 	}
 }
@@ -8569,7 +8569,7 @@ bool Game::addUniqueItem(uint16_t uniqueId, Item* item)
 {
 	auto result = uniqueItems.emplace(uniqueId, item);
 	if (!result.second) {
-		spdlog::warn("Duplicate unique id: {}", uniqueId);
+		SPDLOG_WARN("Duplicate unique id: {}", uniqueId);
 	}
 	return result.second;
 }
@@ -8605,7 +8605,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 
 		case RELOAD_TYPE_SPELLS: {
 			if (!g_spells->reload()) {
-				spdlog::warn("[Game::reload] - Failed to reload spells.");
+				SPDLOG_WARN("[Game::reload] - Failed to reload spells.");
 				std::terminate();
 			}
 			return true;
@@ -8627,7 +8627,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 
 		default: {
 			if (!g_spells->reload()) {
-				spdlog::warn("[Game::reload] - Failed to reload spells.");
+				SPDLOG_WARN("[Game::reload] - Failed to reload spells.");
 				std::terminate();
 			}
 

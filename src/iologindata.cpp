@@ -56,12 +56,12 @@ uint32_t IOLoginData::gameworldAuthentication(const std::string& email, const st
   query << "SELECT `id`, `password` FROM `accounts` WHERE `email` = " << db.escapeString(email);
   DBResult_ptr result = db.storeQuery(query.str());
   if (!result) {
-    spdlog::error("Account not found");
+    SPDLOG_ERROR("Account not found");
     return 0;
   }
 
   if (transformToSHA1(password) != result->getString("password")) {
-    spdlog::error("Wrong password {} != {}", transformToSHA1(password), result->getString("password"));
+    SPDLOG_ERROR("Wrong password {} != {}", transformToSHA1(password), result->getString("password"));
     return 0;
   }
 
@@ -71,12 +71,12 @@ uint32_t IOLoginData::gameworldAuthentication(const std::string& email, const st
   query << "SELECT `account_id`, `name`, `deletion` FROM `players` WHERE `name` = " << db.escapeString(characterName);
   result = db.storeQuery(query.str());
   if (!result) {
-    spdlog::error("Not able to find player: {}", characterName);
+    SPDLOG_ERROR("Not able to find player: {}", characterName);
     return 0;
   }
 
   if (result->getNumber<uint32_t>("account_id") != accountId || result->getNumber<uint64_t>("deletion") != 0) {
-    spdlog::error("Account mismatch or account has been marked as deleted");
+    SPDLOG_ERROR("Account mismatch or account has been marked as deleted");
     return 0;
   }
   characterName = result->getString("name");
@@ -138,7 +138,7 @@ bool IOLoginData::preloadPlayer(Player* player, const std::string& name)
   player->setGUID(result->getNumber<uint32_t>("id"));
   Group* group = g_game.groups.getGroup(result->getNumber<uint16_t>("group_id"));
   if (!group) {
-    spdlog::error("Player {} has group id {} whitch doesn't exist", player->name,
+    SPDLOG_ERROR("Player {} has group id {} whitch doesn't exist", player->name,
 			result->getNumber<uint16_t>("group_id"));
     return false;
   }
@@ -304,7 +304,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
   Group* group = g_game.groups.getGroup(result->getNumber<uint16_t>("group_id"));
   if (!group) {
-    spdlog::error("Player {} has group id {} whitch doesn't exist", player->name, result->getNumber<uint16_t>("group_id"));
+    SPDLOG_ERROR("Player {} has group id {} whitch doesn't exist", player->name, result->getNumber<uint16_t>("group_id"));
     return false;
   }
   player->setGroup(group);
@@ -356,7 +356,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   }
 
   if (!player->setVocation(result->getNumber<uint16_t>("vocation"))) {
-    spdlog::error("Player {} has vocation id {} whitch doesn't exist",
+    SPDLOG_ERROR("Player {} has vocation id {} whitch doesn't exist",
 			player->name, result->getNumber<uint16_t>("vocation"));
     return false;
   }
@@ -418,7 +418,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
   Town* town = g_game.map.towns.getTown(result->getNumber<uint32_t>("town_id"));
   if (!town) {
-    spdlog::error("Player {} has town id {} whitch doesn't exist", player->name,
+    SPDLOG_ERROR("Player {} has town id {} whitch doesn't exist", player->name,
 			result->getNumber<uint16_t>("town_id"));
     return false;
   }
@@ -878,7 +878,7 @@ bool IOLoginData::savePlayer(Player* player)
   query << "SELECT `save` FROM `players` WHERE `id` = " << player->getGUID();
   DBResult_ptr result = db.storeQuery(query.str());
   if (!result) {
-    spdlog::warn("[IOLoginData::savePlayer] - Error for select result query from player: {}", player->getName());
+    SPDLOG_WARN("[IOLoginData::savePlayer] - Error for select result query from player: {}", player->getName());
     return false;
   }
 
@@ -1102,7 +1102,7 @@ bool IOLoginData::savePlayer(Player* player)
   query << " WHERE `player_guid` = " << player->getGUID();
 
   if (!db.executeQuery(query.str())) {
-    spdlog::warn("[IOLoginData::savePlayer] - Error saving bestiary data from player: {}", player->getName());
+    SPDLOG_WARN("[IOLoginData::savePlayer] - Error saving bestiary data from player: {}", player->getName());
     return false;
   }
 
@@ -1123,7 +1123,7 @@ bool IOLoginData::savePlayer(Player* player)
   //item saving
   query << "DELETE FROM `player_items` WHERE `player_id` = " << player->getGUID();
   if (!db.executeQuery(query.str())) {
-    spdlog::warn("[IOLoginData::savePlayer] - Error delete query 'player_items' from player: {}", player->getName());
+    SPDLOG_WARN("[IOLoginData::savePlayer] - Error delete query 'player_items' from player: {}", player->getName());
     return false;
   }
 
@@ -1138,7 +1138,7 @@ bool IOLoginData::savePlayer(Player* player)
   }
 
   if (!saveItems(player, itemList, itemsQuery, propWriteStream)) {
-    spdlog::warn("[IOLoginData::savePlayer] - Failed for save items from player: {}", player->getName());
+    SPDLOG_WARN("[IOLoginData::savePlayer] - Failed for save items from player: {}", player->getName());
     return false;
   }
 
@@ -1217,7 +1217,7 @@ bool IOLoginData::savePlayer(Player* player)
   query.str(std::string());
   query << "DELETE FROM `prey_slots` WHERE `player_id` = " << player->getGUID();
   if (!db.executeQuery(query.str())) {
-    spdlog::warn("[IOLoginData::savePlayer] - Failed to delete table 'prey_slosts' from player: {}", player->getName());
+    SPDLOG_WARN("[IOLoginData::savePlayer] - Failed to delete table 'prey_slosts' from player: {}", player->getName());
     return false;
   }
 
@@ -1231,7 +1231,7 @@ bool IOLoginData::savePlayer(Player* player)
   }
 
   if (!preyDataQuery.execute()) {
-    spdlog::warn("[IOLoginData::savePlayer] - Failed for save prey from playerr: {}", player->getName());
+    SPDLOG_WARN("[IOLoginData::savePlayer] - Failed for save prey from playerr: {}", player->getName());
     return false;
   }
 
@@ -1344,7 +1344,7 @@ void IOLoginData::loadItems(ItemMap& itemMap, DBResult_ptr result)
     Item* item = Item::CreateItem(type, count);
     if (item) {
       if (!item->unserializeAttr(propStream)) {
-        spdlog::warn("[IOLoginData::loadItems] - Failed to serialize");
+        SPDLOG_WARN("[IOLoginData::loadItems] - Failed to serialize");
       }
 
       std::pair<Item*, uint32_t> pair(item, pid);

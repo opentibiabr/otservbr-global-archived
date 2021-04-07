@@ -105,7 +105,7 @@ bool ConfigManager::load()
 	luaL_openlibs(L);
 
 	if (luaL_dofile(L, configFileLua.c_str())) {
-		spdlog::error("[ConfigManager::load] - {}", lua_tostring(L, -1));
+		SPDLOG_ERROR("[ConfigManager::load] - {}", lua_tostring(L, -1));
 		lua_close(L);
 		return false;
 	}
@@ -118,7 +118,7 @@ bool ConfigManager::load()
 		string[IP] = getGlobalString(L, "ip", "127.0.0.1");
 		string[MAP_NAME] = getGlobalString(L, "mapName", "otservbr");
 		string[MAP_AUTHOR] = getGlobalString(L, "mapAuthor", "OTServBR");
-		
+
 		string[MAP_CUSTOM_NAME] = getGlobalString(L, "mapCustomName", "");
 		string[MAP_CUSTOM_FILE] = getGlobalString(L, "mapCustomFile", "");
 		string[MAP_CUSTOM_SPAWN] = getGlobalString(L, "mapCustomSpawn", "");
@@ -260,7 +260,7 @@ static std::string dummyStr;
 const std::string& ConfigManager::getString(string_config_t what) const
 {
 	if (what >= LAST_STRING_CONFIG) {
-		spdlog::warn("[ConfigManager::getString] - Accessing invalid index: {}", what);
+		SPDLOG_WARN("[ConfigManager::getString] - Accessing invalid index: {}", what);
 		return dummyStr;
 	}
 	return string[what];
@@ -269,7 +269,7 @@ const std::string& ConfigManager::getString(string_config_t what) const
 int32_t ConfigManager::getNumber(integer_config_t what) const
 {
 	if (what >= LAST_INTEGER_CONFIG) {
-		spdlog::warn("[ConfigManager::getNumber] - Accessing invalid index: {}", what);
+		SPDLOG_WARN("[ConfigManager::getNumber] - Accessing invalid index: {}", what);
 		return 0;
 	}
 	return integer[what];
@@ -278,7 +278,7 @@ int32_t ConfigManager::getNumber(integer_config_t what) const
 int16_t ConfigManager::getShortNumber(integer_config_t what) const
 {
 	if (what >= LAST_INTEGER_CONFIG) {
-		spdlog::warn("[ConfigManager::getShortNumber] - Accessing invalid index: {}", what);
+		SPDLOG_WARN("[ConfigManager::getShortNumber] - Accessing invalid index: {}", what);
 		return 0;
 	}
 	return integer[what];
@@ -287,7 +287,7 @@ int16_t ConfigManager::getShortNumber(integer_config_t what) const
 bool ConfigManager::getBoolean(boolean_config_t what) const
 {
 	if (what >= LAST_BOOLEAN_CONFIG) {
-		spdlog::warn("[ConfigManager::getBoolean] - Accessing invalid index: {}", what);
+		SPDLOG_WARN("[ConfigManager::getBoolean] - Accessing invalid index: {}", what);
 		return false;
 	}
 	return boolean[what];
@@ -296,7 +296,7 @@ bool ConfigManager::getBoolean(boolean_config_t what) const
 float ConfigManager::getFloat(floating_config_t what) const
 {
 	if (what >= LAST_FLOATING_CONFIG) {
-		spdlog::warn("[ConfigManager::getFLoat] - Accessing invalid index: {}", what);
+		SPDLOG_WARN("[ConfigManager::getFLoat] - Accessing invalid index: {}", what);
 		return 0;
 	}
 	return floating[what];

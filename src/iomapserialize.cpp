@@ -61,7 +61,7 @@ void IOMapSerialize::loadHouseItems(Map* map)
 			loadItem(propStream, tile);
 		}
 	} while (result->next());
-	spdlog::info("Loaded house items in {} seconds", (OTSYS_TIME() - start) / (1000.));
+	SPDLOG_INFO("Loaded house items in {} seconds", (OTSYS_TIME() - start) / (1000.));
 }
 
 bool IOMapSerialize::saveHouseItems()
@@ -108,7 +108,7 @@ bool IOMapSerialize::saveHouseItems()
 
 	//End the transaction
 	bool success = transaction.commit();
-	spdlog::info("Saved house items in {} seconds", (OTSYS_TIME() - start) / (1000.));
+	SPDLOG_INFO("Saved house items in {} seconds", (OTSYS_TIME() - start) / (1000.));
 	return success;
 }
 
@@ -116,7 +116,7 @@ bool IOMapSerialize::loadContainer(PropStream& propStream, Container* container)
 {
 	while (container->serializationCount > 0) {
 		if (!loadItem(propStream, container)) {
-			spdlog::warn("Deserialization error for container item: {}", container->getID());
+			SPDLOG_WARN("Deserialization error for container item: {}", container->getID());
 			return false;
 		}
 		container->serializationCount--;
@@ -124,7 +124,7 @@ bool IOMapSerialize::loadContainer(PropStream& propStream, Container* container)
 
 	uint8_t endAttr;
 	if (!propStream.read<uint8_t>(endAttr) || endAttr != 0) {
-		spdlog::warn("Deserialization error for container item: {}", container->getID());
+		SPDLOG_WARN("Deserialization error for container item: {}", container->getID());
 		return false;
 	}
 	return true;
@@ -157,7 +157,7 @@ bool IOMapSerialize::loadItem(PropStream& propStream, Cylinder* parent)
 				parent->internalAddThing(item);
 				item->startDecaying();
 			} else {
-				spdlog::warn("Deserialization error in {}", id);
+				SPDLOG_WARN("Deserialization error in {}", id);
 				delete item;
 				return false;
 			}
@@ -189,7 +189,7 @@ bool IOMapSerialize::loadItem(PropStream& propStream, Cylinder* parent)
 
 				g_game.transformItem(item, id);
 			} else {
-				spdlog::warn("Deserialization error in {}", id);
+				SPDLOG_WARN("Deserialization error in {}", id);
 			}
 		} else {
 			//The map changed since the last save, just read the attributes

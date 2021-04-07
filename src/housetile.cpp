@@ -92,7 +92,7 @@ ReturnValue HouseTile::queryAdd(int32_t index, const Thing& thing, uint32_t coun
 				}
 				if (house->isInvited(monster->getMaster()->getPlayer()) && (hasFlag(TILESTATE_BLOCKSOLID) || (hasBitSet(FLAG_PATHFINDING, flags) && hasFlag(TILESTATE_NOFIELDBLOCKPATH)))) {
 					return RETURNVALUE_NOTPOSSIBLE;
-				} 
+				}
 				else {
 					return RETURNVALUE_NOERROR;
 				}
@@ -116,7 +116,7 @@ Tile* HouseTile::queryDestination(int32_t& index, const Thing& thing, Item** des
 				const Position& entryPos = house->getEntryPosition();
 				Tile* destTile = g_game.map.getTile(entryPos);
 				if (!destTile) {
-					spdlog::error("[HouseTile::queryDestination] - "
+					SPDLOG_ERROR("[HouseTile::queryDestination] - "
                                  "Entry not correct for house name: {} "
                                  "with id: {} not found tile: {}",
                                  house->getName(), house->getId(), entryPos.toString());

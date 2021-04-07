@@ -33,21 +33,21 @@ bool Map::loadMap(const std::string& identifier, bool loadHouses, bool loadSpawn
 	int64_t start = OTSYS_TIME();
 	IOMap loader;
 	if (!loader.loadMap(this, identifier)) {
-		spdlog::error("[Map::loadMap] - {}", loader.getLastErrorString());
+		SPDLOG_ERROR("[Map::loadMap] - {}", loader.getLastErrorString());
 		return false;
 	}
 
 	if (loadSpawns) {
 		if (!IOMap::loadSpawns(this)) {
-			spdlog::warn("[Map::loadMap] - Failed to load spawn data");
+			SPDLOG_WARN("[Map::loadMap] - Failed to load spawn data");
 		}
-		spdlog::info("Loaded spawns in: {} seconds",
+		SPDLOG_INFO("Loaded spawns in: {} seconds",
                     (OTSYS_TIME() - start) / (1000.));
 	}
 
 	if (loadHouses) {
 		if (!IOMap::loadHouses(this)) {
-			spdlog::warn("[Map::loadMap] - Failed to load house data");
+			SPDLOG_WARN("[Map::loadMap] - Failed to load house data");
 		}
 
 		IOMapSerialize::loadHouseInfo();
@@ -101,7 +101,7 @@ Tile* Map::getTile(uint16_t x, uint16_t y, uint8_t z) const
 void Map::setTile(uint16_t x, uint16_t y, uint8_t z, Tile* newTile)
 {
 	if (z >= MAP_MAX_LAYERS) {
-		spdlog::error("Attempt to set tile on invalid coordinate: {}",
+		SPDLOG_ERROR("Attempt to set tile on invalid coordinate: {}",
                      Position(x, y, z).toString());
 		return;
 	}
@@ -1194,7 +1194,7 @@ uint32_t Map::clean() const
 		g_game.setGameState(GAME_STATE_NORMAL);
 	}
 
-	spdlog::info("CLEAN: Removed {} item{} from {} tile{} in {} seconds",
+	SPDLOG_INFO("CLEAN: Removed {} item{} from {} tile{} in {} seconds",
                 count, (count != 1 ? "s" : ""),
                 tiles, (tiles != 1 ? "s" : ""),
                 (OTSYS_TIME() - start) / (1000.));

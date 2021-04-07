@@ -115,7 +115,7 @@ void House::setOwner(uint32_t guid, bool updateDatabase/* = true*/, Player* play
 		if (!result) {
 			return;
 		}
-		
+
 		std::string name = result->getString("name");
 		if (!name.empty()) {
 			owner = guid;
@@ -157,7 +157,7 @@ AccessHouseLevel_t House::getHouseAccessLevel(const Player* player)
 			return HOUSE_OWNER;
 		}
 	}
-	
+
 	if (player->hasFlag(PlayerFlag_CanEditHouses)) {
 		return HOUSE_OWNER;
 	}
@@ -686,7 +686,7 @@ bool Houses::loadHousesXML(const std::string& filename)
 
 		House* house = getHouse(houseId);
 		if (!house) {
-			spdlog::error("[Houses::loadHousesXML] - Unknown house, id: {}",
+			SPDLOG_ERROR("[Houses::loadHousesXML] - Unknown house, id: {}",
                          houseId);
 			return false;
 		}
@@ -699,7 +699,7 @@ bool Houses::loadHousesXML(const std::string& filename)
 			pugi::cast<uint16_t>(houseNode.attribute("entryz").value())
 		);
 		if (entryPos.x == 0 && entryPos.y == 0 && entryPos.z == 0) {
-			spdlog::warn("[Houses::loadHousesXML] - Entry not set for house "
+			SPDLOG_WARN("[Houses::loadHousesXML] - Entry not set for house "
                         "name: {} with id: {}", house->getName(), houseId);
 		}
 		house->setEntryPos(entryPos);

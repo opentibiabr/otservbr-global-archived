@@ -40,19 +40,19 @@ bool Outfits::loadFromXml()
 		}
 
 		if (!(attr = outfitNode.attribute("type"))) {
-			spdlog::warn("[Outfits::loadFromXml] - Missing outfit type");
+			SPDLOG_WARN("[Outfits::loadFromXml] - Missing outfit type");
 			continue;
 		}
 
 		uint16_t type = pugi::cast<uint16_t>(attr.value());
 		if (type > PLAYERSEX_LAST) {
-			spdlog::warn("[Outfits::loadFromXml] - Invalid outfit type {}", type);
+			SPDLOG_WARN("[Outfits::loadFromXml] - Invalid outfit type {}", type);
 			continue;
 		}
 
 		pugi::xml_attribute lookTypeAttribute = outfitNode.attribute("looktype");
 		if (!lookTypeAttribute) {
-			spdlog::warn("[Outfits::loadFromXml] - Missing looktype on outfit");
+			SPDLOG_WARN("[Outfits::loadFromXml] - Missing looktype on outfit");
 			continue;
 		}
 

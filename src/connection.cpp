@@ -92,7 +92,7 @@ void Connection::closeSocket()
 			socket.shutdown(boost::asio::ip::tcp::socket::shutdown_both, error);
 			socket.close(error);
 		} catch (boost::system::system_error& e) {
-			spdlog::error("[Connection::closeSocket] - {}", e.what());
+			SPDLOG_ERROR("[Connection::closeSocket] - {}", e.what());
 		}
 	}
 }
@@ -133,7 +133,7 @@ void Connection::accept()
 				std::bind(&Connection::parseHeader, shared_from_this(), std::placeholders::_1));
 		}
 	} catch (boost::system::system_error& e) {
-		spdlog::error("[Connection::accept] - {}", e.what());
+		SPDLOG_ERROR("[Connection::accept] - {}", e.what());
 		close(FORCE_CLOSE);
 	}
 }
@@ -174,7 +174,7 @@ void Connection::parseHeader(const boost::system::error_code& error)
 					accept();
 					return;
 				} else {
-					spdlog::error("Connection::parseHeader] "
+					SPDLOG_ERROR("Connection::parseHeader] "
                                  "Invalid Client Login! Server Name mismatch!");
 					close(FORCE_CLOSE);
 					return;
@@ -190,7 +190,7 @@ void Connection::parseHeader(const boost::system::error_code& error)
 				accept();
 				return;
 			} else {
-				spdlog::error("Connection::parseHeader] "
+				SPDLOG_ERROR("Connection::parseHeader] "
                              "Invalid Client Login! Server Name mismatch!");
 				close(FORCE_CLOSE);
 				return;
@@ -223,7 +223,7 @@ void Connection::parseHeader(const boost::system::error_code& error)
 		boost::asio::async_read(socket, boost::asio::buffer(msg.getBodyBuffer(), size),
 		                        std::bind(&Connection::parsePacket, shared_from_this(), std::placeholders::_1));
 	} catch (boost::system::system_error& e) {
-		spdlog::error("[Connection::parseHeader] - {}", e.what());
+		SPDLOG_ERROR("[Connection::parseHeader] - {}", e.what());
 		close(FORCE_CLOSE);
 	}
 }
@@ -281,7 +281,7 @@ void Connection::parsePacket(const boost::system::error_code& error)
 		                        boost::asio::buffer(msg.getBuffer(), NetworkMessage::HEADER_LENGTH),
 		                        std::bind(&Connection::parseHeader, shared_from_this(), std::placeholders::_1));
 	} catch (boost::system::system_error& e) {
-		spdlog::error("[Connection::parsePacket] - {}", e.what());
+		SPDLOG_ERROR("[Connection::parsePacket] - {}", e.what());
 		close(FORCE_CLOSE);
 	}
 }
@@ -312,7 +312,7 @@ void Connection::internalSend(const OutputMessage_ptr& conMsg)
 		                         boost::asio::buffer(conMsg->getOutputBuffer(), conMsg->getLength()),
 		                         std::bind(&Connection::onWriteOperation, shared_from_this(), std::placeholders::_1));
 	} catch (boost::system::system_error& e) {
-		spdlog::error("[Connection::internalSend] - {}", e.what());
+		SPDLOG_ERROR("[Connection::internalSend] - {}", e.what());
 		close(FORCE_CLOSE);
 	}
 }

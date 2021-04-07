@@ -374,7 +374,7 @@ int32_t Player::getDefense() const
 		getShieldAndWeapon(shield, weapon);
 	}
 	catch (const std::exception &e) {
-		spdlog::error("{} got exception {}", getName(), e.what());
+		SPDLOG_ERROR("{} got exception {}", getName(), e.what());
 	}
 
 	if (weapon) {
@@ -693,7 +693,7 @@ void Player::addStorageValue(const uint32_t key, const int32_t value, const bool
 				value >> 16);
 			return;
 		} else {
-			spdlog::warn("Unknown reserved key: {} for player: {}", key, getName());
+			SPDLOG_WARN("Unknown reserved key: {} for player: {}", key, getName());
 			return;
 		}
 	}
@@ -1326,7 +1326,7 @@ void Player::onCreatureAppear(Creature* creature, bool isLogin)
 			bed->wakeUp(this);
 		}
 
-		spdlog::info("{} has logged in", name);
+		SPDLOG_INFO("{} has logged in", name);
 
 		if (guild) {
 			guild->addMember(this);
@@ -1451,7 +1451,7 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 
 		g_chat->removeUserFromAllChannels(*this);
 
-		spdlog::info("{} has logged out", getName());
+		SPDLOG_INFO("{} has logged out", getName());
 
 		if (guild) {
 			guild->removeMember(this);
@@ -1468,7 +1468,7 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 		}
 
 		if (!saved) {
-			spdlog::warn("Error while saving player: {}", getName());
+			SPDLOG_WARN("Error while saving player: {}", getName());
 		}
 	}
 }

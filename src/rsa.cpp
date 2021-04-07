@@ -39,7 +39,7 @@ void RSA2::decrypt(char* msg) const
 	}
 	catch (const CryptoPP::Exception &e)
 	{
-		spdlog::error("[RSA2::decrypt - Exception] - {}", e.GetWhat());
+		SPDLOG_ERROR("[RSA2::decrypt - Exception] - {}", e.GetWhat());
 		return;
 	}
 }
@@ -78,6 +78,6 @@ void RSA2::loadPEM(const std::string& filename)
 			throw std::runtime_error("RSA private key is not valid.");
 		}
 	} catch (const CryptoPP::Exception& e) {
-		spdlog::error("{}", e.what());
+		SPDLOG_ERROR("{}", e.what());
 	}
 }

@@ -127,7 +127,7 @@ template <typename ProtocolType>
 bool ServiceManager::add(uint16_t port)
 {
 	if (port == 0) {
-		spdlog::error("[ServiceManager::add] - "
+		SPDLOG_ERROR("[ServiceManager::add] - "
                      "No port provided for service {}, service disabled",
                      ProtocolType::protocol_name());
 		return false;
@@ -145,7 +145,7 @@ bool ServiceManager::add(uint16_t port)
 		service_port = foundServicePort->second;
 
 		if (service_port->is_single_socket() || ProtocolType::server_sends_first) {
-			spdlog::error("[ServiceManager::add] - "
+			SPDLOG_ERROR("[ServiceManager::add] - "
                          "{} and {} cannot use the same port {}",
                          ProtocolType::protocol_name(),
                          service_port->get_protocol_names(),

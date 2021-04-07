@@ -93,14 +93,14 @@ bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node)
 
 		auto result = useItemMap.emplace(id, std::move(*action));
 		if (!result.second) {
-			spdlog::warn("[Actions::registerEvent] - Duplicate registered item with "
+			SPDLOG_WARN("[Actions::registerEvent] - Duplicate registered item with "
 				"id: {}", id);
 		}
 		return result.second;
 	} else if ((attr = node.attribute("fromid"))) {
 		pugi::xml_attribute toIdAttribute = node.attribute("toid");
 		if (!toIdAttribute) {
-			spdlog::warn("[Actions::registerEvent] - Missing toid in fromid: {}",
+			SPDLOG_WARN("[Actions::registerEvent] - Missing toid in fromid: {}",
 				attr.as_string());
 			return false;
 		}
@@ -111,7 +111,7 @@ bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node)
 
 		auto result = useItemMap.emplace(iterId, *action);
 		if (!result.second) {
-			spdlog::warn("[Actions::registerEvent] - Duplicate "
+			SPDLOG_WARN("[Actions::registerEvent] - Duplicate "
                         "registered item with id: {} in fromid: {}, toid: {}", iterId, fromId, toId);
 		}
 
@@ -119,7 +119,7 @@ bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node)
 		while (++iterId <= toId) {
 			result = useItemMap.emplace(iterId, *action);
 			if (!result.second) {
-				spdlog::warn("[Actions::registerEvent] - Duplicate "
+				SPDLOG_WARN("[Actions::registerEvent] - Duplicate "
                             "registered item with id: {} in fromid: {}, toid: {}", iterId, fromId, toId);
 				continue;
 			}
@@ -131,14 +131,14 @@ bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node)
 
 		auto result = uniqueItemMap.emplace(uid, std::move(*action));
 		if (!result.second) {
-			spdlog::warn("[Actions::registerEvent] - Duplicate "
+			SPDLOG_WARN("[Actions::registerEvent] - Duplicate "
                         "registered item with uniqueid: {}", uid);
 		}
 		return result.second;
 	} else if ((attr = node.attribute("fromuid"))) {
 		pugi::xml_attribute toUidAttribute = node.attribute("touid");
 		if (!toUidAttribute) {
-			spdlog::warn("[Actions::registerEvent] - Missing touid in fromuid: {}",
+			SPDLOG_WARN("[Actions::registerEvent] - Missing touid in fromuid: {}",
                         attr.as_string());
 			return false;
 		}
@@ -149,7 +149,7 @@ bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node)
 
 		auto result = uniqueItemMap.emplace(iterUid, *action);
 		if (!result.second) {
-			spdlog::warn("[Actions::registerEvent] - Duplicate "
+			SPDLOG_WARN("[Actions::registerEvent] - Duplicate "
                         "registered item with unique id: {} in fromuid: {}, touid: {}",
                         iterUid, fromUid, toUid);
 		}
@@ -158,7 +158,7 @@ bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node)
 		while (++iterUid <= toUid) {
 			result = uniqueItemMap.emplace(iterUid, *action);
 			if (!result.second) {
-				spdlog::warn("[Actions::registerEvent] - Duplicate "
+				SPDLOG_WARN("[Actions::registerEvent] - Duplicate "
                             "registered item with unique id: {} in fromuid: {}, touid: {}",
                             iterUid, fromUid, toUid);
 				continue;
@@ -171,14 +171,14 @@ bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node)
 
 		auto result = actionItemMap.emplace(aid, std::move(*action));
 		if (!result.second) {
-			spdlog::warn("[Actions::registerEvent] - Duplicate "
+			SPDLOG_WARN("[Actions::registerEvent] - Duplicate "
                         "registered item with actionid: {}", aid);
 		}
 		return result.second;
 	} else if ((attr = node.attribute("fromaid"))) {
 		pugi::xml_attribute toAidAttribute = node.attribute("toaid");
 		if (!toAidAttribute) {
-			spdlog::warn("[Actions::registerEvent()] - Missing toaid in fromaid: {}",
+			SPDLOG_WARN("[Actions::registerEvent()] - Missing toaid in fromaid: {}",
                         attr.as_string());
 			return false;
 		}
@@ -189,7 +189,7 @@ bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node)
 
 		auto result = actionItemMap.emplace(iterAid, *action);
 		if (!result.second) {
-			spdlog::warn("[Actions::registerEvent] - Duplicate "
+			SPDLOG_WARN("[Actions::registerEvent] - Duplicate "
                         "registered item with action id: {} in fromaid: {}, toaid: {}",
                         iterAid, fromAid, toAid);
 		}
@@ -198,7 +198,7 @@ bool Actions::registerEvent(Event_ptr event, const pugi::xml_node& node)
 		while (++iterAid <= toAid) {
 			result = actionItemMap.emplace(iterAid, *action);
 			if (!result.second) {
-				spdlog::warn("[Actions::registerEvent] - Duplicate "
+				SPDLOG_WARN("[Actions::registerEvent] - Duplicate "
                             "registered item with action id: {} in fromaid: {}, toaid: {}",
                             iterAid, fromAid, toAid);
 				continue;
@@ -217,7 +217,7 @@ bool Actions::registerLuaEvent(Action* event)
 		if (action->getItemIdRange().size() == 1) {
 			auto result = useItemMap.emplace(action->getItemIdRange().at(0), std::move(*action));
 			if (!result.second) {
-				spdlog::warn("[Actions::registerLuaEvent] - Duplicate "
+				SPDLOG_WARN("[Actions::registerLuaEvent] - Duplicate "
                             "registered item with id: {}",
                             action->getItemIdRange().at(0));
 			}
@@ -227,7 +227,7 @@ bool Actions::registerLuaEvent(Action* event)
 			for (auto i = v.begin(); i != v.end(); i++) {
 				auto result = useItemMap.emplace(*i, std::move(*action));
 				if (!result.second) {
-					spdlog::warn("[Actions::registerLuaEvent] - Duplicate "
+					SPDLOG_WARN("[Actions::registerLuaEvent] - Duplicate "
                                 "registered item with id: {} in range from id: {}, to id: {}",
                                 *i, v.at(0), v.at(v.size() - 1));
 					continue;
@@ -239,7 +239,7 @@ bool Actions::registerLuaEvent(Action* event)
 		if (action->getUniqueIdRange().size() == 1) {
 			auto result = uniqueItemMap.emplace(action->getUniqueIdRange().at(0), std::move(*action));
 			if (!result.second) {
-				spdlog::warn("[Actions::registerLuaEvent] - Duplicate "
+				SPDLOG_WARN("[Actions::registerLuaEvent] - Duplicate "
                             "registered item with uid: {}",
                             action->getUniqueIdRange().at(0));
 			}
@@ -249,7 +249,7 @@ bool Actions::registerLuaEvent(Action* event)
 			for (auto i = v.begin(); i != v.end(); i++) {
 				auto result = uniqueItemMap.emplace(*i, std::move(*action));
 				if (!result.second) {
-					spdlog::warn("[Actions::registerLuaEvent] - Duplicate "
+					SPDLOG_WARN("[Actions::registerLuaEvent] - Duplicate "
                                 "registered item with uid: {} in range from uid: {}, to uid: {}",
                                 *i, v.at(0), v.at(v.size() - 1));
 					continue;
@@ -261,7 +261,7 @@ bool Actions::registerLuaEvent(Action* event)
 		if (action->getActionIdRange().size() == 1) {
 			auto result = actionItemMap.emplace(action->getActionIdRange().at(0), std::move(*action));
 			if (!result.second) {
-				spdlog::warn("[Actions::registerLuaEvent] - Duplicate "
+				SPDLOG_WARN("[Actions::registerLuaEvent] - Duplicate "
                             "registered item with aid: {}",
                             action->getActionIdRange().at(0));
 			}
@@ -271,7 +271,7 @@ bool Actions::registerLuaEvent(Action* event)
 			for (auto i = v.begin(); i != v.end(); i++) {
 				auto result = actionItemMap.emplace(*i, std::move(*action));
 				if (!result.second) {
-					spdlog::warn("[Actions::registerLuaEvent] Duplicate "
+					SPDLOG_WARN("[Actions::registerLuaEvent] Duplicate "
                                 "registered item with aid: {} in range from aid: {}, to aid: {}",
                                 *i, v.at(0), v.at(v.size() - 1));
 					continue;
@@ -280,7 +280,7 @@ bool Actions::registerLuaEvent(Action* event)
 			return true;
 		}
 	} else {
-		spdlog::warn("[Actions::registerLuaEvent] - "
+		SPDLOG_WARN("[Actions::registerLuaEvent] - "
                     "There is no id/aid/uid set for this event");
 		return false;
 	}
@@ -616,7 +616,7 @@ bool Action::executeUse(Player* player, Item* item, const Position& fromPosition
 {
 	//onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[Action::executeUse - Player {}, on item {}] "
+		SPDLOG_ERROR("[Action::executeUse - Player {}, on item {}] "
                     "Call stack overflow. Too many lua script calls being nested.",
                     player->getName(), item->getName());
 		return false;

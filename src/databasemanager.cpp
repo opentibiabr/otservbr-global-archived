@@ -49,7 +49,7 @@ bool DatabaseManager::optimizeTables()
 			tableResult = "[Failed]";
 		}
 
-		spdlog::info("Optimizing table {}... {}", tableName, tableResult);
+		SPDLOG_INFO("Optimizing table {}... {}", tableName, tableResult);
 	} while (result->next());
 
 	return true;
@@ -125,7 +125,7 @@ void DatabaseManager::updateDatabase()
 		lua_getglobal(L, "onUpdateDatabase");
 		if (lua_pcall(L, 0, 1, 0) != 0) {
 			LuaScriptInterface::resetScriptEnv();
-			spdlog::warn("[DatabaseManager::updateDatabase - Version: {}] {}",
+			SPDLOG_WARN("[DatabaseManager::updateDatabase - Version: {}] {}",
                          version, lua_tostring(L, -1));
 			break;
 		}
@@ -136,7 +136,7 @@ void DatabaseManager::updateDatabase()
 		}
 
 		version++;
-		spdlog::info("Database has been updated to version {}", version);
+		SPDLOG_INFO("Database has been updated to version {}", version);
 		registerDatabaseConfig("db_version", version);
 
 		LuaScriptInterface::resetScriptEnv();

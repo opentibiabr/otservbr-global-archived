@@ -303,14 +303,14 @@ void ProtocolGame::login(const std::string &name, uint32_t accountId, OperatingS
 		if (!IOLoginData::loadPlayerById(player, player->getGUID()))
 		{
 			disconnectClient("Your character could not be loaded.");
-			spdlog::warn("Player {} could not be loaded", player->getName());
+			SPDLOG_WARN("Player {} could not be loaded", player->getName());
 			return;
 		}
 
 		// New Prey
 		if (!IOLoginData::loadPlayerPreyData(player))
 		{
-			spdlog::warn("[ProtocolGame::login] - "
+			SPDLOG_WARN("[ProtocolGame::login] - "
                         "Prey data could not be loaded from player: {}",
                         player->getName());
 			return;
@@ -323,7 +323,7 @@ void ProtocolGame::login(const std::string &name, uint32_t accountId, OperatingS
 			if (!g_game.placeCreature(player, player->getTemplePosition(), false, true))
 			{
 				disconnectClient("Temple position is wrong. Please, contact the administrator.");
-				spdlog::warn("Player {} temple position is wrong", player->getName());
+				SPDLOG_WARN("Player {} temple position is wrong", player->getName());
 				return;
 			}
 		}
@@ -468,7 +468,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 
 	if (!Protocol::RSA_decrypt(msg))
 	{
-		spdlog::warn("[ProtocolGame::onRecvFirstMessage] - RSA Decrypt Failed");
+		SPDLOG_WARN("[ProtocolGame::onRecvFirstMessage] - RSA Decrypt Failed");
 		disconnect();
 		return;
 	}
@@ -748,13 +748,13 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		//case 0xDF, 0xE0, 0xE1, 0xFB, 0xFC, 0xFD, 0xFE Premium Shop.
 
 		default:
-			spdlog::debug("Player: {} sent an unknown packet header: x0{}",
+			SPDLOG_DEBUG("Player: {} sent an unknown packet header: x0{}",
 				player->getName(), static_cast<uint16_t>(recvbyte));
 			break;
 	}
 
 	if (msg.isOverrun()) {
-		spdlog::warn("[ProtocolGame::parsePacket] - Message is overrun");
+		SPDLOG_WARN("[ProtocolGame::parsePacket] - Message is overrun");
 		disconnect();
 	}
 }
@@ -1784,7 +1784,7 @@ void ProtocolGame::parseBestiarysendMonsterData(NetworkMessage &msg)
 
 	if (!mtype)
 	{
-		spdlog::warn("[ProtocolGame::parseBestiarysendMonsterData] - "
+		SPDLOG_WARN("[ProtocolGame::parseBestiarysendMonsterData] - "
                     "MonsterType was not found");
 		return;
 	}
@@ -2345,7 +2345,7 @@ void ProtocolGame::parseBestiarysendCreatures(NetworkMessage &msg)
 
 		if (race.size() == 0)
 		{
-			spdlog::warn("[ProtocolGame::parseBestiarysendCreature] - "
+			SPDLOG_WARN("[ProtocolGame::parseBestiarysendCreature] - "
                         "Race was not found: {}, search: {}", raceName, search);
 			return;
 		}
@@ -2505,7 +2505,7 @@ void ProtocolGame::parseStoreRequestOffers(NetworkMessage &message)
 	}
 	else
 	{
-		spdlog::warn("[ProtocolGame::parseStoreRequestOffers] - "
+		SPDLOG_WARN("[ProtocolGame::parseStoreRequestOffers] - "
                     "Requested category: {} doesn't exists", categoryName);
 	}
 }

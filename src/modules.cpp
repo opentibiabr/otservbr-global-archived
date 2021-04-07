@@ -63,7 +63,7 @@ bool Modules::registerEvent(Event_ptr event, const pugi::xml_node&)
 {
 	Module_ptr module {static_cast<Module*>(event.release())};
 	if (module->getEventType() == MODULE_TYPE_NONE) {
-		spdlog::error("Trying to register event without type!");
+		SPDLOG_ERROR("Trying to register event without type!");
 		return false;
 	}
 
@@ -117,7 +117,7 @@ bool Module::configureEvent(const pugi::xml_node& node)
 
 	pugi::xml_attribute typeAttribute = node.attribute("type");
 	if (!typeAttribute) {
-		spdlog::error("Missing type for module.");
+		SPDLOG_ERROR("Missing type for module.");
 		return false;
 	}
 
@@ -125,14 +125,14 @@ bool Module::configureEvent(const pugi::xml_node& node)
 	if (tmpStr == "recvbyte") {
 		pugi::xml_attribute byteAttribute = node.attribute("byte");
 		if (!byteAttribute) {
-			spdlog::error("Missing byte for module typed recvbyte.");
+			SPDLOG_ERROR("Missing byte for module typed recvbyte.");
 			return false;
 		}
 
 		recvbyte = static_cast<uint8_t>(byteAttribute.as_int());
 		type = MODULE_TYPE_RECVBYTE;
 	} else {
-		spdlog::error("Invalid type for module.");
+		SPDLOG_ERROR("Invalid type for module.");
 		return false;
 	}
 
@@ -175,7 +175,7 @@ void Module::executeOnRecvbyte(Player* player, NetworkMessage& msg)
 {
 	//onAdvance(player, skill, oldLevel, newLevel)
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("Call stack overflow. Too many lua script calls being nested {}",
+		SPDLOG_ERROR("Call stack overflow. Too many lua script calls being nested {}",
 			player->getName());
 		return;
 	}

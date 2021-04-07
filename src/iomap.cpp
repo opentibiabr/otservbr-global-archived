@@ -115,10 +115,10 @@ bool IOMap::loadMap(Map* map, const std::string& fileName)
 	}
 
 	if (root_header.minorVersionItems > Item::items.minorVersion) {
-		spdlog::warn("[IOMap::loadMap] This map needs an updated items.otb");
+		SPDLOG_WARN("[IOMap::loadMap] This map needs an updated items.otb");
 	}
 
-	spdlog::info("Map size: {}x{}", root_header.width, root_header.height);
+	SPDLOG_INFO("Map size: {}x{}", root_header.width, root_header.height);
 	map->width = root_header.width;
 	map->height = root_header.height;
 
@@ -151,7 +151,7 @@ bool IOMap::loadMap(Map* map, const std::string& fileName)
 		}
 	}
 
-	spdlog::info("Map loading time: {} seconds", (OTSYS_TIME() - start) / (1000.));
+	SPDLOG_INFO("Map loading time: {} seconds", (OTSYS_TIME() - start) / (1000.));
 	return true;
 }
 
@@ -315,7 +315,7 @@ bool IOMap::parseTileArea(OTB::Loader& loader, const OTB::Node& tileAreaNode, Ma
 				teleportMap.emplace(teleportPosition, destinationPosition);
 				auto it = teleportMap.find(destinationPosition);
 				if (it != teleportMap.end()) {
-					spdlog::warn("[IOMap::loadMap] - "
+					SPDLOG_WARN("[IOMap::loadMap] - "
                                 "Teleport in position: x {}, y {}, z {} "
                                 "is leading to another teleport", x, y, z);
 				}
@@ -324,7 +324,7 @@ bool IOMap::parseTileArea(OTB::Loader& loader, const OTB::Node& tileAreaNode, Ma
 						uint16_t fx = (it2.first >> 24) & 0xFFFF;
 						uint16_t fy = (it2.first >> 8) & 0xFFFF;
 						uint8_t fz = (it2.first) & 0xFF;
-						spdlog::warn("[IOMap::loadMap] - "
+						SPDLOG_WARN("[IOMap::loadMap] - "
                                     "Teleport in position: x {}, y {}, z {} "
                                     "is leading to another teleport",
                                     fx, fy, static_cast<uint16_t>(fz));
@@ -334,7 +334,7 @@ bool IOMap::parseTileArea(OTB::Loader& loader, const OTB::Node& tileAreaNode, Ma
 			}
 
 					if (isHouseTile && item->isMoveable()) {
-						spdlog::warn("[IOMap::loadMap] - "
+						SPDLOG_WARN("[IOMap::loadMap] - "
                                     "Moveable item with ID: {}, in house: {}, "
                                     "at position: x {}, y {}, z {}",
                                     item->getID(), house->getId(), x, y, z);
@@ -400,7 +400,7 @@ bool IOMap::parseTileArea(OTB::Loader& loader, const OTB::Node& tileAreaNode, Ma
 			}
 
 			if (isHouseTile && item->isMoveable()) {
-				spdlog::warn("[IOMap::loadMap] - "
+				SPDLOG_WARN("[IOMap::loadMap] - "
                                     "Moveable item with ID: {}, in house: {}, "
                                     "at position: x {}, y {}, z {}",
                                     item->getID(), house->getId(), x, y, z);

@@ -308,7 +308,7 @@ void MoveEvents::addEvent(MoveEvent moveEvent, int32_t id, MoveListMap& map)
 		std::list<MoveEvent>& moveEventList = it->second.moveEvent[moveEvent.getEventType()];
 		for (MoveEvent& existingMoveEvent : moveEventList) {
 			if (existingMoveEvent.getSlot() == moveEvent.getSlot()) {
-				spdlog::warn("[MoveEvents::addEvent] - "
+				SPDLOG_WARN("[MoveEvents::addEvent] - "
                             "Duplicate move event found: {}", id);
 			}
 		}
@@ -401,7 +401,7 @@ void MoveEvents::addEvent(MoveEvent moveEvent, const Position& pos, MovePosListM
 	} else {
 		std::list<MoveEvent>& moveEventList = it->second.moveEvent[moveEvent.getEventType()];
 		if (!moveEventList.empty()) {
-			spdlog::warn("[MoveEvents::addEvent] - "
+			SPDLOG_WARN("[MoveEvents::addEvent] - "
                         "Duplicate move event found: {}", pos.toString());
 		}
 
@@ -522,7 +522,7 @@ std::string MoveEvent::getScriptEventName() const
 		case MOVE_EVENT_ADD_ITEM: return "onAddItem";
 		case MOVE_EVENT_REMOVE_ITEM: return "onRemoveItem";
 		default:
-			spdlog::error("[MoveEvent::getScriptEventName] - Invalid event type");
+			SPDLOG_ERROR("[MoveEvent::getScriptEventName] - Invalid event type");
 			return std::string();
 	}
 }
@@ -531,7 +531,7 @@ bool MoveEvent::configureEvent(const pugi::xml_node& node)
 {
 	pugi::xml_attribute eventAttr = node.attribute("event");
 	if (!eventAttr) {
-		spdlog::error("[MoveEvent::configureMoveEvent] - Missing event");
+		SPDLOG_ERROR("[MoveEvent::configureMoveEvent] - Missing event");
 		return false;
 	}
 
@@ -549,7 +549,7 @@ bool MoveEvent::configureEvent(const pugi::xml_node& node)
 	} else if (tmpStr == "removeitem") {
 		eventType = MOVE_EVENT_REMOVE_ITEM;
 	} else {
-		spdlog::error("[MoveEvent::configureMoveEvent] - "
+		SPDLOG_ERROR("[MoveEvent::configureMoveEvent] - "
                      "No valid event name {}", eventAttr.as_string());
 		return false;
 	}
@@ -581,7 +581,7 @@ bool MoveEvent::configureEvent(const pugi::xml_node& node)
 			} else if (tmpStr == "ammo") {
 				slot = SLOTP_AMMO;
 			} else {
-				spdlog::warn("[MoveEvent::configureMoveEvent] - "
+				SPDLOG_WARN("[MoveEvent::configureMoveEvent] - "
                             "Unknown slot type: {}", slotAttribute.as_string());
 			}
 		}
@@ -912,7 +912,7 @@ bool MoveEvent::loadFunction(const pugi::xml_attribute& attr, bool isScripted)
 		equipFunction = DeEquipItem;
 	} else {
 		if (!isScripted) {
-			spdlog::warn("[MoveEvent::loadFunction] - "
+			SPDLOG_WARN("[MoveEvent::loadFunction] - "
                         "Function {} does not exist", functionName);
 			return false;
 		}
@@ -948,7 +948,7 @@ bool MoveEvent::executeStep(Creature* creature, Item* item, const Position& pos)
 	//onStepIn(creature, item, pos, fromPosition)
 	//onStepOut(creature, item, pos, fromPosition)
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[MoveEvent::executeStep - Creature {} item {}] "
+		SPDLOG_ERROR("[MoveEvent::executeStep - Creature {} item {}] "
                      "Call stack overflow. Too many lua script calls being nested.",
                      creature->getName(), item->getName());
 		return false;
@@ -988,7 +988,7 @@ bool MoveEvent::executeEquip(Player* player, Item* item, slots_t onSlot, bool is
 	//onEquip(player, item, slot, isCheck)
 	//onDeEquip(player, item, slot, isCheck)
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[MoveEvent::executeEquip - Player {} item {}] "
+		SPDLOG_ERROR("[MoveEvent::executeEquip - Player {} item {}] "
                      "Call stack overflow. Too many lua script calls being nested.",
                      player->getName(), item->getName());
 		return false;
@@ -1023,7 +1023,7 @@ bool MoveEvent::executeAddRemItem(Item* item, Item* fromTile, const Position& po
 	//onaddItem(moveitem, tileitem, pos)
 	//onRemoveItem(moveitem, tileitem, pos)
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[MoveEvent::executeAddRemItem - "
+		SPDLOG_ERROR("[MoveEvent::executeAddRemItem - "
                      "Item {} item on tile x: {} y: {} z: {}] "
                      "Call stack overflow. Too many lua script calls being nested.",
                      item->getName(),

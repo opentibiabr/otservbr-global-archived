@@ -93,7 +93,7 @@ bool TalkActions::registerLuaEvent(TalkAction* event)
 			talkActions.emplace(words[i], *talkAction);
 		}
 	}
-	
+
 	return true;
 }
 
@@ -143,7 +143,7 @@ bool TalkAction::configureEvent(const pugi::xml_node& node)
 {
 	pugi::xml_attribute wordsAttribute = node.attribute("words");
 	if (!wordsAttribute) {
-		spdlog::error("[TalkAction::configureEvent] "
+		SPDLOG_ERROR("[TalkAction::configureEvent] "
                      "Missing words for talkaction or spell");
 		return false;
 	}
@@ -168,7 +168,7 @@ bool TalkAction::executeSay(Player* player, const std::string& words, const std:
 {
 	//onSay(player, words, param, type)
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[TalkAction::executeSay - Player {} words {}] "
+		SPDLOG_ERROR("[TalkAction::executeSay - Player {} words {}] "
                      "Call stack overflow. Too many lua script calls being nested.",
                      player->getName(), getWords());
 		return false;

@@ -132,7 +132,7 @@ bool Weapons::registerEvent(Event_ptr event, const pugi::xml_node&)
 
 	auto result = weapons.emplace(weapon->getID(), weapon);
 	if (!result.second) {
-		spdlog::warn("[Weapons::registerEvent] - "
+		SPDLOG_WARN("[Weapons::registerEvent] - "
                     "Duplicate registered item with id: {}", weapon->getID());
 	}
 	return result.second;
@@ -165,7 +165,7 @@ bool Weapon::configureEvent(const pugi::xml_node& node)
 {
 	pugi::xml_attribute attr;
 	if (!(attr = node.attribute("id"))) {
-		spdlog::error("[Weapon::configureEvent] - Weapon without id");
+		SPDLOG_ERROR("[Weapon::configureEvent] - Weapon without id");
 		return false;
 	}
 	id = pugi::cast<uint16_t>(attr.value());
@@ -201,7 +201,7 @@ bool Weapon::configureEvent(const pugi::xml_node& node)
 	if ((attr = node.attribute("action"))) {
 		action = getWeaponAction(asLowerCaseString(attr.as_string()));
 		if (action == WEAPONACTION_NONE) {
-			spdlog::warn("[Weapon::configureEvent] - "
+			SPDLOG_WARN("[Weapon::configureEvent] - "
                         "Unknown action {}", attr.as_string());
 		}
 	}
@@ -542,7 +542,7 @@ bool Weapon::executeUseWeapon(Player* player, const LuaVariant& var) const
 {
 	//onUseWeapon(player, var)
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[Weapon::executeUseWeapon - Player {} weaponId {}]"
+		SPDLOG_ERROR("[Weapon::executeUseWeapon - Player {} weaponId {}]"
                      "Call stack overflow. Too many lua script calls being nested.",
                      player->getName(), getID());
 		return false;
@@ -1001,7 +1001,7 @@ bool WeaponWand::configureEvent(const pugi::xml_node& node)
 	} else if (tmpStrValue == "holy") {
 		params.combatType = COMBAT_HOLYDAMAGE;
 	} else {
-		spdlog::warn("[WeaponWand::configureEvent] - "
+		SPDLOG_WARN("[WeaponWand::configureEvent] - "
                     "Type {} does not exist", attr.as_string());
 	}
 	return true;

@@ -101,7 +101,7 @@ constexpr auto OTBI = OTB::Identifier{{'O','T', 'B', 'I'}};
 FILELOADER_ERRORS Items::loadFromOtb(const std::string& file)
 {
 	if (!fs::exists(file)) {
-		spdlog::error("[Items::loadFromOtb] - Failed to load {}, file doesn't exist", file);
+		SPDLOG_ERROR("[Items::loadFromOtb] - Failed to load {}, file doesn't exist", file);
 		return ERROR_NOT_OPEN;
 	}
 
@@ -146,13 +146,13 @@ FILELOADER_ERRORS Items::loadFromOtb(const std::string& file)
 	}
 
 	if (majorVersion == 0xFFFFFFFF) {
-		spdlog::warn("[Items::loadFromOtb] - items.otb using generic client version");
+		SPDLOG_WARN("[Items::loadFromOtb] - items.otb using generic client version");
 	} else if (majorVersion != 3) {
-		spdlog::error("[Items::loadFromOtb] - "
+		SPDLOG_ERROR("[Items::loadFromOtb] - "
                      "Old version detected, a newer version of items.otb is required");
 		return ERROR_INVALID_FORMAT;
 	} else if (minorVersion < CLIENT_VERSION_1140) {
-		spdlog::error("[Items::loadFromOtb] - "
+		SPDLOG_ERROR("[Items::loadFromOtb] - "
                      "A newer version of items.otb is required");
 		return ERROR_INVALID_FORMAT;
 	}
@@ -360,18 +360,18 @@ bool Items::loadFromXml()
 		pugi::xml_attribute fromIdAttribute = itemNode.attribute("fromid");
 		if (!fromIdAttribute) {
 			if (idAttribute) {
-				spdlog::warn("[Items::loadFromXml] - "
+				SPDLOG_WARN("[Items::loadFromXml] - "
                             "No item id: {} found",
                             idAttribute.value());
 			} else {
-				spdlog::warn("[Items::loadFromXml] - No item id found");
+				SPDLOG_WARN("[Items::loadFromXml] - No item id found");
 			}
 			continue;
 		}
 
 		pugi::xml_attribute toIdAttribute = itemNode.attribute("toid");
 		if (!toIdAttribute) {
-			spdlog::warn("[Items::loadFromXml] - "
+			SPDLOG_WARN("[Items::loadFromXml] - "
                         "tag fromid: {} without toid",
                         fromIdAttribute.value());
 			continue;
@@ -422,7 +422,7 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 	}
 
 	if (!it.name.empty()) {
-		spdlog::warn("[Items::parseItemNode] - Duplicate item with id: {}", id);
+		SPDLOG_WARN("[Items::parseItemNode] - Duplicate item with id: {}", id);
 		return;
 	}
 
@@ -492,7 +492,7 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			} else if (tmpStrValue == "potion") {
 				it.type = ITEM_TYPE_POTION;
 			} else {
-				spdlog::warn("[Items::parseItemNode] - Unknown type: {}",
+				SPDLOG_WARN("[Items::parseItemNode] - Unknown type: {}",
                             valueAttribute.as_string());
 			}
 		} else if (tmpStrValue == "description") {
@@ -545,7 +545,7 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			} else if (tmpStrValue == "eastalt") {
 				it.floorChange |= TILESTATE_FLOORCHANGE_EAST_ALT;
 			} else {
-				spdlog::warn("[Items::parseItemNode] - Unknown floorChange: {}",
+				SPDLOG_WARN("[Items::parseItemNode] - Unknown floorChange: {}",
                             valueAttribute.as_string());
 			}
 		} else if (tmpStrValue == "corpsetype") {
@@ -561,7 +561,7 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			} else if (tmpStrValue == "energy") {
 				it.corpseType = RACE_ENERGY;
 			} else {
-				spdlog::warn("[Items::parseItemNode] - Unknown corpseType: {}",
+				SPDLOG_WARN("[Items::parseItemNode] - Unknown corpseType: {}",
                             valueAttribute.as_string());
 			}
 		} else if (tmpStrValue == "containersize") {
@@ -607,7 +607,7 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			} else if (tmpStrValue == "mead") {
 				it.fluidSource = FLUID_MEAD;
 			} else {
-				spdlog::warn("[Items::parseItemNode] - Unknown fluidSource: {}",
+				SPDLOG_WARN("[Items::parseItemNode] - Unknown fluidSource: {}",
                             valueAttribute.as_string());
 			}
 		} else if (tmpStrValue == "readable") {
@@ -638,7 +638,7 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
       } else if (tmpStrValue == "quiver") {
 				it.weaponType = WEAPON_QUIVER;
 			} else {
-				spdlog::warn("[Items::parseItemNode] - Unknown weaponType: {}",
+				SPDLOG_WARN("[Items::parseItemNode] - Unknown weaponType: {}",
                             valueAttribute.as_string());
 			}
 		} else if (tmpStrValue == "slottype") {
@@ -668,13 +668,13 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			} else if (tmpStrValue == "hand") {
 				it.slotPosition |= SLOTP_HAND;
 			} else {
-				spdlog::warn("[Items::parseItemNode] - Unknown slotType: {}",
+				SPDLOG_WARN("[Items::parseItemNode] - Unknown slotType: {}",
                             valueAttribute.as_string());
 			}
 		} else if (tmpStrValue == "ammotype") {
 			it.ammoType = getAmmoType(asLowerCaseString(valueAttribute.as_string()));
 			if (it.ammoType == AMMO_NONE) {
-				spdlog::warn("[Items::parseItemNode] - Unknown ammoType: {}",
+				SPDLOG_WARN("[Items::parseItemNode] - Unknown ammoType: {}",
                             valueAttribute.as_string());
 			}
 		} else if (tmpStrValue == "shoottype") {
@@ -682,7 +682,7 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			if (shoot != CONST_ANI_NONE) {
 				it.shootType = shoot;
 			} else {
-				spdlog::warn("[Items::parseItemNode] - Unknown shootType: {}",
+				SPDLOG_WARN("[Items::parseItemNode] - Unknown shootType: {}",
                             valueAttribute.as_string());
 			}
 		} else if (tmpStrValue == "effect") {
@@ -690,7 +690,7 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			if (effect != CONST_ME_NONE) {
 				it.magicEffect = effect;
 			} else {
-				spdlog::warn("[Items::parseItemNode] - Unknown effect: {}",
+				SPDLOG_WARN("[Items::parseItemNode] - Unknown effect: {}",
                             valueAttribute.as_string());
 			}
 		} else if (tmpStrValue == "loottype") {
@@ -889,7 +889,7 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 				conditionDamage = new ConditionDamage(CONDITIONID_COMBAT, CONDITION_BLEEDING);
 				combatType = COMBAT_PHYSICALDAMAGE;
 			} else {
-				spdlog::warn("[Items::parseItemNode] Unknown field value: {}",
+				SPDLOG_WARN("[Items::parseItemNode] Unknown field value: {}",
                             valueAttribute.as_string());
 			}
 
@@ -1006,14 +1006,14 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 		} else if (tmpStrValue == "allowdistread") {
 			it.allowDistRead = booleanString(valueAttribute.as_string());
 		} else {
-			spdlog::warn("[Items::parseItemNode] - Unknown key value: {}",
+			SPDLOG_WARN("[Items::parseItemNode] - Unknown key value: {}",
                         keyAttribute.as_string());
 		}
 	}
 
 	//check bed items
 	if ((it.transformToFree != 0 || it.transformToOnUse[PLAYERSEX_FEMALE] != 0 || it.transformToOnUse[PLAYERSEX_MALE] != 0) && it.type != ITEM_TYPE_BED) {
-		spdlog::warn("[Items::parseItemNode] - Item {} is not set as a bed-type", it.id);
+		SPDLOG_WARN("[Items::parseItemNode] - Item {} is not set as a bed-type", it.id);
 	}
 }
 

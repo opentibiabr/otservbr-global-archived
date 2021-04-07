@@ -57,12 +57,12 @@ else()
 endif()
 
 # cmake -DDEBUG_LOG=ON ..
-if(DEBUG_LOG)
+if(CMAKE_BUILD_TYPE MATCHES Debug)
   target_compile_definitions(${PROJECT_NAME} PRIVATE -DDEBUG_LOG=ON )
   log_option_enabled("DEBUG LOG")
   else()
   log_option_disabled("DEBUG LOG")
-endif()
+endif(CMAKE_BUILD_TYPE MATCHES Debug)
 
 
 # *****************************************************************************

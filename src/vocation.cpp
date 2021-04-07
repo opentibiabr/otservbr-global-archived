@@ -36,7 +36,7 @@ bool Vocations::loadFromXml()
 	for (auto vocationNode : doc.child("vocations").children()) {
 		pugi::xml_attribute attr;
 		if (!(attr = vocationNode.attribute("id"))) {
-			spdlog::warn("[Vocations::loadFromXml] - Missing vocation id");
+			SPDLOG_WARN("[Vocations::loadFromXml] - Missing vocation id");
 			continue;
 		}
 
@@ -122,12 +122,12 @@ bool Vocations::loadFromXml()
 					if (skill_id <= SKILL_LAST) {
 						voc.skillMultipliers[skill_id] = pugi::cast<float>(childNode.attribute("multiplier").value());
 					} else {
-						spdlog::warn("[Vocations::loadFromXml] - "
+						SPDLOG_WARN("[Vocations::loadFromXml] - "
                                     "No valid skill id: {} for vocation: {}",
                                     skill_id, voc.id);
 					}
 				} else {
-					spdlog::warn("[Vocations::loadFromXml] - "
+					SPDLOG_WARN("[Vocations::loadFromXml] - "
                                 "Missing skill id for vocation: {}", voc.id);
 				}
 			} else if (strcasecmp(childNode.name(), "formula") == 0) {
@@ -160,7 +160,7 @@ Vocation* Vocations::getVocation(uint16_t id)
 {
 	auto it = vocationsMap.find(id);
 	if (it == vocationsMap.end()) {
-		spdlog::warn("[Vocations::getVocation] - "
+		SPDLOG_WARN("[Vocations::getVocation] - "
                     "Vocation {} not found", id);
 		return nullptr;
 	}

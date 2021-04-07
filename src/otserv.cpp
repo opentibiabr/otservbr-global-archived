@@ -63,7 +63,7 @@ std::condition_variable g_loaderSignal;
 std::unique_lock<std::mutex> g_loaderUniqueLock(g_loaderLock);
 
 void startupErrorMessage() {
-	spdlog::error("The program will close after pressing the enter key...");
+	SPDLOG_ERROR("The program will close after pressing the enter key...");
   g_loaderSignal.notify_all();
   getchar();
   exit(-1);
@@ -73,7 +73,7 @@ void mainLoader(int argc, char* argv[], ServiceManager* servicer);
 
 void badAllocationHandler() {
 	// Use functions that only use stack allocation
-	spdlog::error("Allocation failed, server out of memory, "
+	SPDLOG_ERROR("Allocation failed, server out of memory, "
                  "decrease the size of your map or compile in 64 bits mode");
 	getchar();
 	exit(-1);
@@ -88,9 +88,9 @@ void initGlobalScopes() {
 }
 
 void modulesLoadHelper(bool loaded, std::string moduleName) {
-  spdlog::info("Loading {}", moduleName);
+  SPDLOG_INFO("Loading {}", moduleName);
   if (!loaded) {
-     spdlog::error("Cannot load: {}", moduleName);
+     SPDLOG_ERROR("Cannot load: {}", moduleName);
      startupErrorMessage();
   }
 }
@@ -99,29 +99,29 @@ void loadModules() {
 	modulesLoadHelper(g_config.load(),
 		"config.lua");
 
-	spdlog::info("Server protocol: {}",
+	SPDLOG_INFO("Server protocol: {}",
 		g_config.getString(ConfigManager::CLIENT_VERSION_STR));
 
 	// set RSA key
 	try {
 		g_RSA.loadPEM("key.pem");
 	} catch(const std::exception& e) {
-		spdlog::error(e.what());
+		SPDLOG_ERROR(e.what());
 		startupErrorMessage();
 	}
 
 	// Database
-	spdlog::info("Establishing database connection... ");
+	SPDLOG_INFO("Establishing database connection... ");
 	if (!Database::getInstance().connect()) {
-		spdlog::error("Failed to connect to database!");
+		SPDLOG_ERROR("Failed to connect to database!");
 		startupErrorMessage();
 	}
-	spdlog::info("MySQL Version: {}", Database::getClientVersion());
+	SPDLOG_INFO("MySQL Version: {}", Database::getClientVersion());
 
 	// Run database manager
-	spdlog::info("Running database manager...");
+	SPDLOG_INFO("Running database manager...");
 	if (!DatabaseManager::isDatabaseSetup()) {
-		spdlog::error("The database you have specified in config.lua is empty, "
+		SPDLOG_ERROR("The database you have specified in config.lua is empty, "
 			"please import the schema.sql to your database.");
 		startupErrorMessage();
 	}
@@ -131,7 +131,7 @@ void loadModules() {
 
 	if (g_config.getBoolean(ConfigManager::OPTIMIZE_DATABASE)
 			&& !DatabaseManager::optimizeTables()) {
-		spdlog::info("No tables were optimized");
+		SPDLOG_INFO("No tables were optimized");
 	}
 
 	modulesLoadHelper((Item::items.loadFromOtb("data/items/items.otb") == ERROR_NONE),
@@ -177,9 +177,11 @@ void loadModules() {
 
 #ifndef UNIT_TESTING
 int main(int argc, char* argv[]) {
-	spdlog::set_pattern("[%Y-%d-%m %H:%M:%S.%e] [file %@] [func %!] [thread %t] [%l] %v ");
 #ifdef DEBUG_LOG
 	SPDLOG_DEBUG("[OTBR] SPDLOG LOG DEBUG ENABLED");
+	spdlog::set_pattern("[%Y-%d-%m %H:%M:%S.%e] [file %@] [func %!] [thread %t] [%^%l%$] %v ");
+#else
+	spdlog::set_pattern("[%Y-%d-%m %H:%M:%S.%e] [func %!] [%^%l%$] %v ");
 #endif
 
 	// Setup bad allocation handler
@@ -196,11 +198,11 @@ int main(int argc, char* argv[]) {
 	g_loaderSignal.wait(g_loaderUniqueLock);
 
 	if (serviceManager.is_running()) {
-		spdlog::info("{} {}", g_config.getString(ConfigManager::SERVER_NAME),
+		SPDLOG_INFO("{} {}", g_config.getString(ConfigManager::SERVER_NAME),
                     "server online!");
 		serviceManager.run();
 	} else {
-		spdlog::error("No services running. The server is NOT online!");
+		SPDLOG_ERROR("No services running. The server is NOT online!");
 		g_databaseTasks.shutdown();
 		g_dispatcher.shutdown();
 	}
@@ -221,16 +223,16 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	SetConsoleTitle(STATUS_SERVER_NAME);
 #endif
 #if defined(GIT_RETRIEVED_STATE) && GIT_RETRIEVED_STATE
-	spdlog::info("{} - Based on [{}] dated [{}]",
+	SPDLOG_INFO("{} - Based on [{}] dated [{}]",
                 STATUS_SERVER_NAME, STATUS_SERVER_VERSION, GIT_COMMIT_DATE_ISO8601);
 	#if GIT_IS_DIRTY
-	spdlog::warn("DIRTY - NOT OFFICIAL RELEASE");
+	SPDLOG_WARN("DIRTY - NOT OFFICIAL RELEASE");
 	#endif
 #else
-	spdlog::info("{} - Based on {}", STATUS_SERVER_NAME, STATUS_SERVER_VERSION);
+	SPDLOG_INFO("{} - Based on {}", STATUS_SERVER_NAME, STATUS_SERVER_VERSION);
 #endif
 
-	spdlog::info("Compiled with {}", BOOST_COMPILER);
+	SPDLOG_INFO("Compiled with {}", BOOST_COMPILER);
 
 	std::string platform;
 	#if defined(__amd64__) || defined(_M_X64)
@@ -243,14 +245,14 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		platform = "unknown";
 	#endif
 
-	spdlog::info("Compiled on {} {} for platform {}\n", __DATE__, __TIME__, platform);
+	SPDLOG_INFO("Compiled on {} {} for platform {}\n", __DATE__, __TIME__, platform);
 
 #if defined(LUAJIT_VERSION)
-	spdlog::info("Linked with {} for Lua support", LUAJIT_VERSION);
+	SPDLOG_INFO("Linked with {} for Lua support", LUAJIT_VERSION);
 #endif
 
-	spdlog::info("A server developed by: {}", STATUS_SERVER_DEVELOPERS);
-	spdlog::info("Visit our forum for updates, support, and resources: "
+	SPDLOG_INFO("A server developed by: {}", STATUS_SERVER_DEVELOPERS);
+	SPDLOG_INFO("Visit our forum for updates, support, and resources: "
 		"https://forums.otserv.com.br and https://othispano.com");
 
 	// check if config.lua or config.lua.dist exist
@@ -258,7 +260,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	if (!c_test.is_open()) {
 		std::ifstream config_lua_dist("./config.lua.dist");
 		if (config_lua_dist.is_open()) {
-			spdlog::info("Copying config.lua.dist to config.lua");
+			SPDLOG_INFO("Copying config.lua.dist to config.lua");
 			std::ofstream config_lua("config.lua");
 			config_lua << config_lua_dist.rdbuf();
 			config_lua.close();
@@ -291,20 +293,20 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	} else if (worldType == "pvp-enforced") {
 		g_game.setWorldType(WORLD_TYPE_PVP_ENFORCED);
 	} else {
-		spdlog::error("Unknown world type: {}, valid world types are: pvp, no-pvp "
+		SPDLOG_ERROR("Unknown world type: {}, valid world types are: pvp, no-pvp "
 			"and pvp-enforced", g_config.getString(ConfigManager::WORLD_TYPE));
 		startupErrorMessage();
 	}
 
-	spdlog::info("World type set as {}", asUpperCaseString(worldType));
+	SPDLOG_INFO("World type set as {}", asUpperCaseString(worldType));
 
-	spdlog::info("Loading map...");
+	SPDLOG_INFO("Loading map...");
 	if (!g_game.loadMainMap(g_config.getString(ConfigManager::MAP_NAME))) {
-		spdlog::error("Failed to load map");
+		SPDLOG_ERROR("Failed to load map");
 		startupErrorMessage();
 	}
 
-	spdlog::info("Initializing gamestate...");
+	SPDLOG_INFO("Initializing gamestate...");
 	g_game.setGameState(GAME_STATE_INIT);
 
 	// Game client protocols
@@ -337,11 +339,11 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	IOMarket::checkExpiredOffers();
 	IOMarket::getInstance().updateStatistics();
 
-	spdlog::info("Loaded all modules, server starting up...");
+	SPDLOG_INFO("Loaded all modules, server starting up...");
 
 #ifndef _WIN32
 	if (getuid() == 0 || geteuid() == 0) {
-		spdlog::warn("{} has been executed as root user, "
+		SPDLOG_WARN("{} has been executed as root user, "
                     "please consider running it as a normal user",
                     STATUS_SERVER_NAME);
 	}

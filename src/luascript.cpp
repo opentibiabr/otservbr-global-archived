@@ -148,7 +148,7 @@ void ScriptEnvironment::insertItem(uint32_t uid, Item* item)
 {
 	auto result = localMap.emplace(uid, item);
 	if (!result.second) {
-		spdlog::error("Thing uid already taken: {}", uid);
+		SPDLOG_ERROR("Thing uid already taken: {}", uid);
 	}
 }
 
@@ -485,7 +485,7 @@ void LuaScriptInterface::reportError(const char* function, const std::string& er
 		errorLog = ("{}", function);
 	}
 
-	spdlog::error("Lua script error: {}", errorLog);
+	SPDLOG_ERROR("Lua script error: {}", errorLog);
 
 
 	if (stack_trace && scriptInterface) {
@@ -4830,7 +4830,7 @@ int LuaScriptInterface::luaSpdlogInfo(lua_State* L)
 {
 	// Spdlog.info(text)
 	if (isString(L, 1)) {
-		spdlog::info(getString(L, 1));
+		SPDLOG_INFO(getString(L, 1));
 	} else {
 		lua_pushnil(L);
 	}
@@ -4841,7 +4841,7 @@ int LuaScriptInterface::luaSpdlogWarn(lua_State* L)
 {
 	// Spdlog.warn(text)
 	if (isString(L, 1)) {
-		spdlog::warn(getString(L, 1));
+		SPDLOG_WARN(getString(L, 1));
 	} else {
 		lua_pushnil(L);
 	}
@@ -4852,7 +4852,7 @@ int LuaScriptInterface::luaSpdlogError(lua_State* L)
 {
 	// Spdlog.error(text)
 	if (isString(L, 1)) {
-		spdlog::error(getString(L, 1));
+		SPDLOG_ERROR(getString(L, 1));
 	} else {
 		lua_pushnil(L);
 	}
@@ -4863,7 +4863,7 @@ int LuaScriptInterface::luaSpdlogDebug(lua_State* L)
 {
 	// Spdlog.debug(text)
 	if (isString(L, 1)) {
-		spdlog::debug(getString(L, 1));
+		SPDLOG_DEBUG(getString(L, 1));
 	} else {
 		lua_pushnil(L);
 	}
@@ -4991,7 +4991,7 @@ int LuaScriptInterface::luaGameLoadMap(lua_State* L)
 			g_game.loadMap(path);
 		} catch (const std::exception& e) {
 			// FIXME: Should only catch some exceptions
-			spdlog::error("[LuaScriptInterface::luaGameLoadMap] - Failed to load map: {}",
+			SPDLOG_ERROR("[LuaScriptInterface::luaGameLoadMap] - Failed to load map: {}",
                          e.what());
 		}
 	}));
@@ -15609,7 +15609,7 @@ int LuaScriptInterface::luaMonsterTypeCombatImmunities(lua_State* L)
 				monsterType->info.damageImmunities |= COMBAT_MANADRAIN;
 				pushBoolean(L, true);
 			} else {
-				spdlog::warn("[LuaScriptInterface::luaMonsterTypeCombatImmunities] - "
+				SPDLOG_WARN("[LuaScriptInterface::luaMonsterTypeCombatImmunities] - "
                             "Unknown immunity name {} for monster: {}",
                             immunity, monsterType->name);
 				lua_pushnil(L);
@@ -15670,7 +15670,7 @@ int LuaScriptInterface::luaMonsterTypeConditionImmunities(lua_State* L)
 				monsterType->info.conditionImmunities |= CONDITION_BLEEDING;
 				pushBoolean(L, true);
 			} else {
-				spdlog::warn("[LuaScriptInterface::luaMonsterTypeConditionImmunities] - "
+				SPDLOG_WARN("[LuaScriptInterface::luaMonsterTypeConditionImmunities] - "
                             "Unknown immunity name: {} for monster: {}",
                             immunity, monsterType->name);
 				lua_pushnil(L);
@@ -15723,7 +15723,7 @@ int LuaScriptInterface::luaMonsterTypeAddAttack(lua_State* L)
 			if (g_monsters.deserializeSpell(spell, sb, monsterType->name)) {
 				monsterType->info.attackSpells.push_back(std::move(sb));
 			} else {
-				spdlog::warn("Monster: {}, cant load spell: {}", monsterType->name,
+				SPDLOG_WARN("Monster: {}, cant load spell: {}", monsterType->name,
 					spell->name);
 			}
 		} else {
@@ -15777,7 +15777,7 @@ int LuaScriptInterface::luaMonsterTypeAddDefense(lua_State* L)
 			if (g_monsters.deserializeSpell(spell, sb, monsterType->name)) {
 				monsterType->info.defenseSpells.push_back(std::move(sb));
 			} else {
-				spdlog::warn("Monster: {}, Cant load spell: {}", monsterType->name,
+				SPDLOG_WARN("Monster: {}, Cant load spell: {}", monsterType->name,
 					spell->name);
 			}
 		} else {
@@ -16131,7 +16131,7 @@ int LuaScriptInterface::luaMonsterTypeRace(lua_State* L)
 			} else if (race == "energy") {
 				monsterType->info.race = RACE_ENERGY;
 			} else {
-				spdlog::warn("[LuaScriptInterface::luaMonsterTypeRace] - "
+				SPDLOG_WARN("[LuaScriptInterface::luaMonsterTypeRace] - "
                             "Unknown race type {}", race);
 				lua_pushnil(L);
 				return 1;
@@ -16510,7 +16510,7 @@ int LuaScriptInterface::luaLootSetId(lua_State* L)
 			loot->lootBlock.id = getNumber<uint16_t>(L, 2);
 			pushBoolean(L, true);
 		} else {
-			spdlog::warn("[LuaScriptInterface::luaLootSetId] - "
+			SPDLOG_WARN("[LuaScriptInterface::luaLootSetId] - "
                         "Unknown loot item loot, int value expected");
 			lua_pushnil(L);
 		}
@@ -16529,14 +16529,14 @@ int LuaScriptInterface::luaLootSetIdFromName(lua_State* L)
 		auto ids = Item::items.nameToItems.equal_range(asLowerCaseString(name));
 
 		if (ids.first == Item::items.nameToItems.cend()) {
-			spdlog::warn("[LuaScriptInterface::luaLootSetIdFromName] - "
+			SPDLOG_WARN("[LuaScriptInterface::luaLootSetIdFromName] - "
                         "Unknown loot item {}", name);
 			lua_pushnil(L);
 			return 1;
 		}
 
 		if (std::next(ids.first) != ids.second) {
-			spdlog::warn("[LuaScriptInterface::luaLootSetIdFromName] - "
+			SPDLOG_WARN("[LuaScriptInterface::luaLootSetIdFromName] - "
                         "Non-unique loot item {}", name);
 			lua_pushnil(L);
 			return 1;
@@ -16545,7 +16545,7 @@ int LuaScriptInterface::luaLootSetIdFromName(lua_State* L)
 		loot->lootBlock.id = ids.first->second;
 		pushBoolean(L, true);
 	} else {
-		spdlog::warn("[LuaScriptInterface::luaLootSetIdFromName] - "
+		SPDLOG_WARN("[LuaScriptInterface::luaLootSetIdFromName] - "
                     "Unknown loot item loot, string value expected");
 		lua_pushnil(L);
 	}
@@ -17306,7 +17306,7 @@ int LuaScriptInterface::luaSpellCreate(lua_State* L)
 	// Spell(words, name or id) to get an existing spell
 	// Spell(type) ex: Spell(SPELL_INSTANT) or Spell(SPELL_RUNE) to create a new spell
 	if (lua_gettop(L) == 1) {
-		spdlog::error("[LuaScriptInterface::luaSpellCreate] - "
+		SPDLOG_ERROR("[LuaScriptInterface::luaSpellCreate] - "
                      "There is no parameter set!");
 		lua_pushnil(L);
 		return 1;
@@ -17491,14 +17491,14 @@ int LuaScriptInterface::luaSpellGroup(lua_State* L)
 				if (group != SPELLGROUP_NONE) {
 					spell->setGroup(group);
 				} else {
-					spdlog::warn("[LuaScriptInterface::luaSpellGroup] - "
+					SPDLOG_WARN("[LuaScriptInterface::luaSpellGroup] - "
                                 "Unknown group: {}", getString(L, 2));
 					pushBoolean(L, false);
 					return 1;
 				}
 				pushBoolean(L, true);
 			} else {
-				spdlog::warn("[LuaScriptInterface::luaSpellGroup] - "
+				SPDLOG_WARN("[LuaScriptInterface::luaSpellGroup] - "
                             "Unknown group: {}", getString(L, 2));
 				pushBoolean(L, false);
 				return 1;
@@ -17515,7 +17515,7 @@ int LuaScriptInterface::luaSpellGroup(lua_State* L)
 				if (primaryGroup != SPELLGROUP_NONE) {
 					spell->setGroup(primaryGroup);
 				} else {
-					spdlog::warn("[LuaScriptInterface::luaSpellGroup] - "
+					SPDLOG_WARN("[LuaScriptInterface::luaSpellGroup] - "
                                 "Unknown primaryGroup: {}", getString(L, 2));
 					pushBoolean(L, false);
 					return 1;
@@ -17524,14 +17524,14 @@ int LuaScriptInterface::luaSpellGroup(lua_State* L)
 				if (secondaryGroup != SPELLGROUP_NONE) {
 					spell->setSecondaryGroup(secondaryGroup);
 				} else {
-					spdlog::warn("[LuaScriptInterface::luaSpellGroup] - "
+					SPDLOG_WARN("[LuaScriptInterface::luaSpellGroup] - "
                                 "Unknown secondaryGroup: {}", getString(L, 3));
 					pushBoolean(L, false);
 					return 1;
 				}
 				pushBoolean(L, true);
 			} else {
-				spdlog::warn("[LuaScriptInterface::luaSpellGroup] - "
+				SPDLOG_WARN("[LuaScriptInterface::luaSpellGroup] - "
                             "Unknown primaryGroup: {} or secondaryGroup: {}",
                             getString(L, 2), getString(L, 3));
 				pushBoolean(L, false);
@@ -18396,7 +18396,7 @@ int LuaScriptInterface::luaCreatureEventType(lua_State* L)
 		} else if (tmpStr == "extendedopcode") {
 			creature->setEventType(CREATURE_EVENT_EXTENDED_OPCODE);
 		} else {
-			spdlog::error("[LuaScriptInterface::luaCreatureEventType] - "
+			SPDLOG_ERROR("[LuaScriptInterface::luaCreatureEventType] - "
                          "Invalid type for creature event: {}", typeName);
 			pushBoolean(L, false);
 		}
@@ -18480,7 +18480,7 @@ int LuaScriptInterface::luaMoveEventType(lua_State* L)
 			moveevent->setEventType(MOVE_EVENT_REMOVE_ITEM);
 			moveevent->moveFunction = moveevent->RemoveItemField;
 		} else {
-			spdlog::error("[LuaScriptInterface::luaMoveEventType] - "
+			SPDLOG_ERROR("[LuaScriptInterface::luaMoveEventType] - "
                          "No valid event name: {}", typeName);
 			pushBoolean(L, false);
 		}
@@ -18561,7 +18561,7 @@ int LuaScriptInterface::luaMoveEventSlot(lua_State* L)
 		} else if (slotName == "ammo") {
 			moveevent->setSlot(SLOTP_AMMO);
 		} else {
-			spdlog::warn("[LuaScriptInterface::luaMoveEventSlot] - "
+			SPDLOG_WARN("[LuaScriptInterface::luaMoveEventSlot] - "
                         "Unknown slot type: {}", slotName);
 			pushBoolean(L, false);
 			return 1;
@@ -18772,7 +18772,7 @@ int LuaScriptInterface::luaGlobalEventType(lua_State* L)
 		} else if (tmpStr == "periodchange") {
 			global->setEventType(GLOBALEVENT_PERIODCHANGE);
 		} else {
-			spdlog::error("[LuaScriptInterface::luaGlobalEventType] - "
+			SPDLOG_ERROR("[LuaScriptInterface::luaGlobalEventType] - "
                          "Invalid type for global event: {}", typeName);
 			pushBoolean(L, false);
 		}
@@ -18825,7 +18825,7 @@ int LuaScriptInterface::luaGlobalEventTime(lua_State* L)
 
 		int32_t hour = params.front();
 		if (hour < 0 || hour > 23) {
-			spdlog::error("[LuaScriptInterface::luaGlobalEventTime] - "
+			SPDLOG_ERROR("[LuaScriptInterface::luaGlobalEventTime] - "
                          "Invalid hour {} for globalevent with name: {}",
                          timer, globalevent->getName());
 			pushBoolean(L, false);
@@ -18839,7 +18839,7 @@ int LuaScriptInterface::luaGlobalEventTime(lua_State* L)
 		if (params.size() > 1) {
 			min = params[1];
 			if (min < 0 || min > 59) {
-				spdlog::error("[LuaScriptInterface::luaGlobalEventTime] - "
+				SPDLOG_ERROR("[LuaScriptInterface::luaGlobalEventTime] - "
                              "Invalid minute: {} for globalevent with name: {}",
                              timer, globalevent->getName());
 				pushBoolean(L, false);
@@ -18849,7 +18849,7 @@ int LuaScriptInterface::luaGlobalEventTime(lua_State* L)
 			if (params.size() > 2) {
 				sec = params[2];
 				if (sec < 0 || sec > 59) {
-					spdlog::error("[LuaScriptInterface::luaGlobalEventTime] - "
+					SPDLOG_ERROR("[LuaScriptInterface::luaGlobalEventTime] - "
                              "Invalid minute: {} for globalevent with name: {}",
                              timer, globalevent->getName());
 					pushBoolean(L, false);
@@ -18965,7 +18965,7 @@ int LuaScriptInterface::luaWeaponAction(lua_State* L)
 		} else if (tmpStr == "move") {
 			weapon->action = WEAPONACTION_MOVE;
 		} else {
-			spdlog::error("[LuaScriptInterface::luaWeaponAction] - "
+			SPDLOG_ERROR("[LuaScriptInterface::luaWeaponAction] - "
                          "No valid action {}", typeName);
 			pushBoolean(L, false);
 		}
@@ -19184,7 +19184,7 @@ int LuaScriptInterface::luaWeaponElement(lua_State* L)
 			} else if (tmpStrValue == "holy") {
 				weapon->params.combatType = COMBAT_HOLYDAMAGE;
 			} else {
-				spdlog::warn("[LuaScriptInterface:luaWeaponElement] - "
+				SPDLOG_WARN("[LuaScriptInterface:luaWeaponElement] - "
                             "Type {} does not exist", element);
 			}
 		} else {
@@ -19451,7 +19451,7 @@ int LuaScriptInterface::luaWeaponAmmoType(lua_State* L)
 		} else if (type == "bolt"){
 			it.ammoType = AMMO_BOLT;
 		} else {
-			spdlog::warn("[LuaScriptInterface:luaWeaponAmmoType] - "
+			SPDLOG_WARN("[LuaScriptInterface:luaWeaponAmmoType] - "
                         "Type {} does not exist", type);
 			lua_pushnil(L);
 			return 1;
@@ -19518,7 +19518,7 @@ int LuaScriptInterface::luaWeaponExtraElement(lua_State* L)
 			} else if (tmpStrValue == "holy") {
 				it.abilities.get()->elementType = COMBAT_HOLYDAMAGE;
 			} else {
-				spdlog::warn("[LuaScriptInterface:luaWeaponExtraElement] - "
+				SPDLOG_WARN("[LuaScriptInterface:luaWeaponExtraElement] - "
                             "Type {} does not exist", element);
 			}
 		} else {
@@ -19931,7 +19931,7 @@ void LuaEnvironment::executeTimerEvent(uint32_t eventIndex)
 		env->setScriptId(timerEventDesc.scriptId, this);
 		callFunction(timerEventDesc.parameters.size());
 	} else {
-		spdlog::error("[LuaEnvironment::executeTimerEvent - Lua file {}] "
+		SPDLOG_ERROR("[LuaEnvironment::executeTimerEvent - Lua file {}] "
                      "Call stack overflow. Too many lua script calls being nested",
                      getLoadingFile());
 	}

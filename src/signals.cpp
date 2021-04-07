@@ -76,7 +76,7 @@ void Signals::asyncWait()
 {
 	set.async_wait([this] (ErrorCode err, int signal) {
 		if (err) {
-			spdlog::error("[Signals::asyncWait] - "
+			SPDLOG_ERROR("[Signals::asyncWait] - "
                          "Signal handling error: {}", err.message());
 			return;
 		}
@@ -121,59 +121,59 @@ void Signals::dispatchSignalHandler(int signal)
 void Signals::sigbreakHandler()
 {
 	//Dispatcher thread
-	spdlog::info("SIGBREAK received, shutting game server down...");
+	SPDLOG_INFO("SIGBREAK received, shutting game server down...");
 	g_game.setGameState(GAME_STATE_SHUTDOWN);
 }
 
 void Signals::sigtermHandler()
 {
 	//Dispatcher thread
-	spdlog::info("SIGTERM received, shutting game server down...");
+	SPDLOG_INFO("SIGTERM received, shutting game server down...");
 	g_game.setGameState(GAME_STATE_SHUTDOWN);
 }
 
 void Signals::sigusr1Handler()
 {
 	//Dispatcher thread
-	spdlog::info("SIGUSR1 received, saving the game state...");
+	SPDLOG_INFO("SIGUSR1 received, saving the game state...");
 	g_game.saveGameState();
 }
 
 void Signals::sighupHandler()
 {
 	//Dispatcher thread
-	spdlog::info("SIGHUP received, reloading config files...");
+	SPDLOG_INFO("SIGHUP received, reloading config files...");
 
 	g_config.reload();
-	spdlog::info("Reloaded config");
+	SPDLOG_INFO("Reloaded config");
 
 	Npcs::reload();
-	spdlog::info("Reloaded npcs");
+	SPDLOG_INFO("Reloaded npcs");
 
 	g_game.raids.reload();
 	g_game.raids.startup();
-	spdlog::info("Reloaded raids");
+	SPDLOG_INFO("Reloaded raids");
 
 	g_spells->reload();;
-	spdlog::info("Reloaded spells");
+	SPDLOG_INFO("Reloaded spells");
 
 	Item::items.reload();
-	spdlog::info("Reloaded items");
+	SPDLOG_INFO("Reloaded items");
 
 	g_game.mounts.reload();
-	spdlog::info("Reloaded mounts");
+	SPDLOG_INFO("Reloaded mounts");
 
 	g_events->loadFromXml();
-	spdlog::info("Reloaded events");
+	SPDLOG_INFO("Reloaded events");
 
 	g_chat->load();
-	spdlog::info("Reloaded chatchannels");
+	SPDLOG_INFO("Reloaded chatchannels");
 
 	g_luaEnvironment.loadFile("data/global.lua");
-	spdlog::info("Reloaded global.lua");
+	SPDLOG_INFO("Reloaded global.lua");
 
 	g_luaEnvironment.loadFile("data/stages.lua");
-	spdlog::info("Reloaded stages.lua");
+	SPDLOG_INFO("Reloaded stages.lua");
 
 	lua_gc(g_luaEnvironment.getLuaState(), LUA_GCCOLLECT, 0);
 }
@@ -181,6 +181,6 @@ void Signals::sighupHandler()
 void Signals::sigintHandler()
 {
 	//Dispatcher thread
-	spdlog::info("SIGINT received, shutting game server down...");
+	SPDLOG_INFO("SIGINT received, shutting game server down...");
 	g_game.setGameState(GAME_STATE_SHUTDOWN);
 }

@@ -38,7 +38,7 @@ bool Database::connect()
 	// connection handle initialization
 	handle = mysql_init(nullptr);
 	if (!handle) {
-		spdlog::error("Failed to initialize MySQL connection handle");
+		SPDLOG_ERROR("Failed to initialize MySQL connection handle");
 		return false;
 	}
 
@@ -48,7 +48,7 @@ bool Database::connect()
 
 	// connects to database
 	if (!mysql_real_connect(handle, g_config.getString(ConfigManager::MYSQL_HOST).c_str(), g_config.getString(ConfigManager::MYSQL_USER).c_str(), g_config.getString(ConfigManager::MYSQL_PASS).c_str(), g_config.getString(ConfigManager::MYSQL_DB).c_str(), g_config.getNumber(ConfigManager::SQL_PORT), g_config.getString(ConfigManager::MYSQL_SOCK).c_str(), 0)) {
-		spdlog::error("Message: {}", mysql_error(handle));
+		SPDLOG_ERROR("Message: {}", mysql_error(handle));
 		return false;
 	}
 
@@ -106,7 +106,7 @@ bool Database::rollback()
   }
 
 	if (mysql_rollback(handle) != 0) {
-		spdlog::error("Message: {}", mysql_error(handle));
+		SPDLOG_ERROR("Message: {}", mysql_error(handle));
 		databaseLock.unlock();
 		return false;
 	}
@@ -123,7 +123,7 @@ bool Database::commit()
   }
 
 	if (mysql_commit(handle) != 0) {
-		spdlog::error("Message: {}", mysql_error(handle));
+		SPDLOG_ERROR("Message: {}", mysql_error(handle));
 		databaseLock.unlock();
 		return false;
 	}
@@ -145,8 +145,8 @@ bool Database::executeQuery(const std::string& query)
 	databaseLock.lock();
 
 	while (mysql_real_query(handle, query.c_str(), query.length()) != 0) {
-		spdlog::error("Query: {}", query.substr(0, 256));
-		spdlog::error("Message: {}", mysql_error(handle));
+		SPDLOG_ERROR("Query: {}", query.substr(0, 256));
+		SPDLOG_ERROR("Message: {}", mysql_error(handle));
 		auto error = mysql_errno(handle);
 		if (error != CR_SERVER_LOST && error != CR_SERVER_GONE_ERROR && error != CR_CONN_HOST_ERROR && error != 1053/*ER_SERVER_SHUTDOWN*/ && error != CR_CONNECTION_ERROR) {
 			success = false;
@@ -176,8 +176,8 @@ DBResult_ptr Database::storeQuery(const std::string& query)
 
 	retry:
 	while (mysql_real_query(handle, query.c_str(), query.length()) != 0) {
-		spdlog::error("Query: {}", query);
-		spdlog::error("Message: {}", mysql_error(handle));
+		SPDLOG_ERROR("Query: {}", query);
+		SPDLOG_ERROR("Message: {}", mysql_error(handle));
 		auto error = mysql_errno(handle);
 		if (error != CR_SERVER_LOST && error != CR_SERVER_GONE_ERROR && error != CR_CONN_HOST_ERROR && error != 1053/*ER_SERVER_SHUTDOWN*/ && error != CR_CONNECTION_ERROR) {
 			break;
@@ -189,8 +189,8 @@ DBResult_ptr Database::storeQuery(const std::string& query)
 	// as it is described in MySQL manual: "it doesn't hurt" :P
 	MYSQL_RES* res = mysql_store_result(handle);
 	if (res == nullptr) {
-		spdlog::error("Query: {}", query);
-		spdlog::error("Message: {}", mysql_error(handle));
+		SPDLOG_ERROR("Query: {}", query);
+		SPDLOG_ERROR("Message: {}", mysql_error(handle));
 		auto error = mysql_errno(handle);
 		if (error != CR_SERVER_LOST && error != CR_SERVER_GONE_ERROR && error != CR_CONN_HOST_ERROR && error != 1053/*ER_SERVER_SHUTDOWN*/ && error != CR_CONNECTION_ERROR) {
 			databaseLock.unlock();
@@ -257,7 +257,7 @@ std::string DBResult::getString(const std::string& s) const
 {
 	auto it = listNames.find(s);
 	if (it == listNames.end()) {
-		spdlog::error("Column '{}' does not exist in result set", s);
+		SPDLOG_ERROR("Column '{}' does not exist in result set", s);
 		return std::string();
 	}
 
@@ -272,7 +272,7 @@ const char* DBResult::getStream(const std::string& s, unsigned long& size) const
 {
 	auto it = listNames.find(s);
 	if (it == listNames.end()) {
-		spdlog::error("Column '{}' doesn't exist in the result set", s);
+		SPDLOG_ERROR("Column '{}' doesn't exist in the result set", s);
 		size = 0;
 		return nullptr;
 	}

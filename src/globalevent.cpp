@@ -97,7 +97,7 @@ bool GlobalEvents::registerEvent(Event_ptr event, const pugi::xml_node&)
 		}
 	}
 
-	spdlog::warn("[GlobalEvents::configureEvent] - "
+	SPDLOG_WARN("[GlobalEvents::configureEvent] - "
                 "Duplicate registered globalevent with name: {}", globalEvent->getName());
 	return false;
 }
@@ -128,7 +128,7 @@ bool GlobalEvents::registerLuaEvent(GlobalEvent* event)
 		}
 	}
 
-	spdlog::warn("Duplicate registered globalevent with name: {}", globalEvent->getName());
+	SPDLOG_WARN("Duplicate registered globalevent with name: {}", globalEvent->getName());
 	return false;
 }
 
@@ -195,7 +195,7 @@ void GlobalEvents::think()
 		}
 
 		if (!globalEvent.executeEvent()) {
-			spdlog::error("[GlobalEvents::think] - "
+			SPDLOG_ERROR("[GlobalEvents::think] - "
                          "Failed to execute event: {}", globalEvent.getName());
 		}
 
@@ -250,7 +250,7 @@ bool GlobalEvent::configureEvent(const pugi::xml_node& node)
 {
 	pugi::xml_attribute nameAttribute = node.attribute("name");
 	if (!nameAttribute) {
-		spdlog::error("[GlobalEvent::configureEvent] - Missing name for a globalevent");
+		SPDLOG_ERROR("[GlobalEvent::configureEvent] - Missing name for a globalevent");
 		return false;
 	}
 
@@ -263,7 +263,7 @@ bool GlobalEvent::configureEvent(const pugi::xml_node& node)
 
 		int32_t hour = params.front();
 		if (hour < 0 || hour > 23) {
-			spdlog::error("[GlobalEvent::configureEvent] - "
+			SPDLOG_ERROR("[GlobalEvent::configureEvent] - "
                          "Invalid hour {} for globalevent with name: {}", attr.as_string(), name);
 			return false;
 		}
@@ -275,7 +275,7 @@ bool GlobalEvent::configureEvent(const pugi::xml_node& node)
 		if (params.size() > 1) {
 			min = params[1];
 			if (min < 0 || min > 59) {
-				spdlog::error("[GlobalEvent::configureEvent] - "
+				SPDLOG_ERROR("[GlobalEvent::configureEvent] - "
                              "Invalid minute {} for globalevent with name: {}",
                              attr.as_string(), name);
 				return false;
@@ -284,7 +284,7 @@ bool GlobalEvent::configureEvent(const pugi::xml_node& node)
 			if (params.size() > 2) {
 				sec = params[2];
 				if (sec < 0 || sec > 59) {
-					spdlog::error("[GlobalEvent::configureEvent] - "
+					SPDLOG_ERROR("[GlobalEvent::configureEvent] - "
                                  "Invalid second {} for globalevent with name: {}",
                                  attr.as_string(), name);
 					return false;
@@ -314,7 +314,7 @@ bool GlobalEvent::configureEvent(const pugi::xml_node& node)
 		} else if (strcasecmp(value, "record") == 0) {
 			eventType = GLOBALEVENT_RECORD;
 		} else {
-			spdlog::error("[GlobalEvent::configureEvent] - "
+			SPDLOG_ERROR("[GlobalEvent::configureEvent] - "
                          "No valid type {} for globalevent with name: {}",
                          attr.as_string(), name);
 			return false;
@@ -323,7 +323,7 @@ bool GlobalEvent::configureEvent(const pugi::xml_node& node)
 		interval = std::max<int32_t>(SCHEDULER_MINTICKS, pugi::cast<int32_t>(attr.value()));
 		nextExecution = OTSYS_TIME() + interval;
 	} else {
-		spdlog::error("[GlobalEvent::configureEvent] - "
+		SPDLOG_ERROR("[GlobalEvent::configureEvent] - "
                      "No interval for globalevent with name: {}", name);
 		return false;
 	}
@@ -345,7 +345,7 @@ std::string GlobalEvent::getScriptEventName() const
 bool GlobalEvent::executePeriodChange(LightState_t lightState, LightInfo lightInfo) {
 	//onPeriodChange(lightState, lightTime)
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[GlobalEvent::executePeriodChange - {}] "
+		SPDLOG_ERROR("[GlobalEvent::executePeriodChange - {}] "
                      "Call stack overflow. Too many lua script calls being nested.",
                      getName());
 		return false;
@@ -366,7 +366,7 @@ bool GlobalEvent::executeRecord(uint32_t current, uint32_t old)
 {
 	//onRecord(current, old)
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[GlobalEvent::executeRecord - {}] "
+		SPDLOG_ERROR("[GlobalEvent::executeRecord - {}] "
                      "Call stack overflow. Too many lua script calls being nested.",
                      getName());
 		return false;
@@ -386,7 +386,7 @@ bool GlobalEvent::executeRecord(uint32_t current, uint32_t old)
 bool GlobalEvent::executeEvent() const
 {
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[GlobalEvent::executeEvent - {}] "
+		SPDLOG_ERROR("[GlobalEvent::executeEvent - {}] "
                      "Call stack overflow. Too many lua script calls being nested.",
                      getName());
 		return false;

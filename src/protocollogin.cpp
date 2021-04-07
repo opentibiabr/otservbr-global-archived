@@ -131,7 +131,7 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 
 	OperatingSystem_t operatingSystem = static_cast<OperatingSystem_t>(msg.get<uint16_t>());
 
-	if (operatingSystem <= CLIENTOS_NEW_MAC) 
+	if (operatingSystem <= CLIENTOS_NEW_MAC)
 		enableCompact();
 
 	uint16_t version = msg.get<uint16_t>();
@@ -145,7 +145,7 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 	 */
 
 	if (!Protocol::RSA_decrypt(msg)) {
-		spdlog::warn("[ProtocolLogin::onRecvFirstMessage] - RSA Decrypt Failed");
+		SPDLOG_WARN("[ProtocolLogin::onRecvFirstMessage] - RSA Decrypt Failed");
 		disconnect();
 		return;
 	}

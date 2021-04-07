@@ -165,7 +165,7 @@ bool ChatChannel::executeCanJoinEvent(const Player& player)
 	//canJoin(player)
 	LuaScriptInterface* scriptInterface = g_chat->getScriptInterface();
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[CanJoinChannelEvent::execute - Player {}, on channel {}] "
+		SPDLOG_ERROR("[CanJoinChannelEvent::execute - Player {}, on channel {}] "
                      "Call stack overflow. Too many lua script calls being nested.",
                      player.getName(), getName());
 		return false;
@@ -192,7 +192,7 @@ bool ChatChannel::executeOnJoinEvent(const Player& player)
 	//onJoin(player)
 	LuaScriptInterface* scriptInterface = g_chat->getScriptInterface();
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[OnJoinChannelEvent::execute - Player {}, on channel {}] "
+		SPDLOG_ERROR("[OnJoinChannelEvent::execute - Player {}, on channel {}] "
 									"Call stack overflow. Too many lua script calls being nested",
 									player.getName(), getName());
 		return false;
@@ -219,7 +219,7 @@ bool ChatChannel::executeOnLeaveEvent(const Player& player)
 	//onLeave(player)
 	LuaScriptInterface* scriptInterface = g_chat->getScriptInterface();
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[OnLeaveChannelEvent::execute - Player {}, on channel {}] "
+		SPDLOG_ERROR("[OnLeaveChannelEvent::execute - Player {}, on channel {}] "
                      "Call stack overflow. Too many lua script calls being nested.",
                      player.getName(), getName());
 		return false;
@@ -246,7 +246,7 @@ bool ChatChannel::executeOnSpeakEvent(const Player& player, SpeakClasses& type, 
 	//onSpeak(player, type, message)
 	LuaScriptInterface* scriptInterface = g_chat->getScriptInterface();
 	if (!scriptInterface->reserveScriptEnv()) {
-		spdlog::error("[OnSpeakChannelEvent::execute - Player {}, type {}] "
+		SPDLOG_ERROR("[OnSpeakChannelEvent::execute - Player {}, type {}] "
                      "Call stack overflow. Too many lua script calls being nested.",
                      player.getName(), type);
 		return false;
@@ -321,7 +321,7 @@ bool Chat::load()
 					channel.onJoinEvent = scriptInterface.getEvent("onJoin");
 					channel.onLeaveEvent = scriptInterface.getEvent("onLeave");
 				} else {
-					spdlog::warn("[Chat::load] - Can not load script: {}",
+					SPDLOG_WARN("[Chat::load] - Can not load script: {}",
                                 scriptAttribute.as_string());
 				}
 			}
@@ -343,7 +343,7 @@ bool Chat::load()
 				channel.onJoinEvent = scriptInterface.getEvent("onJoin");
 				channel.onLeaveEvent = scriptInterface.getEvent("onLeave");
 			} else {
-				spdlog::warn("[Chat::load] Can not load script: {}",
+				SPDLOG_WARN("[Chat::load] Can not load script: {}",
                             scriptAttribute.as_string());
 			}
 		}
