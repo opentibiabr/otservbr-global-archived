@@ -26,6 +26,7 @@ bool Familiars::loadFromXml() {
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file("data/XML/familiars.xml");
 	if (!result) {
+		spdlog::error("Failed to load Familiars");
 		printXMLError("[Familiars::loadFromXml] - ", "data/XML/familiars.xml", result);
 		return false;
 	}
