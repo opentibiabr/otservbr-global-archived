@@ -60,7 +60,6 @@ Npc::Npc(NpcType* npcType) :
 	health = npcType->info.health*multiplier;
 	healthMax = npcType->info.healthMax*multiplier;
 	baseSpeed = npcType->info.baseSpeed;
-	walkInterval = npcType->info.walkInterval;
 	internalLight = npcType->info.light;
 	hiddenHealth = npcType->info.hiddenHealth;
 	targetDistance = npcType->info.targetDistance;
@@ -166,14 +165,10 @@ void Npc::onCreatureAppear(Creature* creature, bool isLogin)
 	}
 
 	if (creature == this) {
-		if (walkInterval > 0) {
-			addEventWalk();
-		}
 		//We just spawned lets look around to see who is there.
 		if (isSummon()) {
 			isMasterInRange = canSee(getMaster()->getPosition());
 		}
-
 		updateTargetList();
 		updateIdleStatus();
 	} else {
@@ -809,10 +804,6 @@ void Npc::onThink(uint32_t interval)
 {
 	Creature::onThink(interval);
 
-	if (!isIdle && getTimeSinceLastMove() >= walkInterval) {
-		addEventWalk();
-	}
-
 	if (npcType->info.thinkEvent != -1) {
 		// onThink(self, interval)
 		LuaScriptInterface* scriptInterface = npcType->info.scriptInterface;
@@ -1262,10 +1253,6 @@ bool Npc::getNextStep(Direction& nextDirection, uint32_t& flags)
 	if (isIdle || getHealth() <= 0) {
 		//we dont have anyone watching might aswell stop walking
 		eventWalk = 0;
-		return false;
-	}
-
-	if (getTimeSinceLastMove() < walkInterval) {
 		return false;
 	}
 

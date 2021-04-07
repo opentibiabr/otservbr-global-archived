@@ -222,7 +222,6 @@ class Npc final : public Creature
 		uint32_t targetChangeTicks = 0;
 		uint32_t defenseTicks = 0;
 		uint32_t yellTicks = 0;
-		uint32_t walkInterval = 1500;
 		int32_t minCombatValue = 0;
 		int32_t maxCombatValue = 0;
 		int32_t targetChangeCooldown = 0;
