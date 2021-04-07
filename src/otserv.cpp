@@ -84,7 +84,7 @@ void initGlobalScopes() {
   g_modules = new Modules();
   g_spells = new Spells();
   g_events = new Events();
-  g_imbuements = new Imbuement();
+  g_imbuements = new Imbuements();
 }
 
 void modulesLoadHelper(bool loaded, std::string moduleName) {
