@@ -97,6 +97,39 @@ void modulesLoadHelper(bool loaded, std::string moduleName) {
 void loadModules() {
 	modulesLoadHelper(g_config.load(),
 		"config.lua");
+
+	// set RSA key
+	try {
+		g_RSA.loadPEM("key.pem");
+	} catch(const std::exception& e) {
+		spdlog::error(e.what());
+		startupErrorMessage();
+	}
+
+	// Database
+	spdlog::info("Establishing database connection... ");
+	if (!Database::getInstance().connect()) {
+		spdlog::error("Failed to connect to database!");
+		startupErrorMessage();
+	}
+	spdlog::info("MySQL Version: {}", Database::getClientVersion());
+
+	// Run database manager
+	spdlog::info("Running database manager...");
+	if (!DatabaseManager::isDatabaseSetup()) {
+		spdlog::error("The database you have specified in config.lua is empty, "
+			"please import the schema.sql to your database.");
+		startupErrorMessage();
+	}
+
+	g_databaseTasks.start();
+	DatabaseManager::updateDatabase();
+
+	if (g_config.getBoolean(ConfigManager::OPTIMIZE_DATABASE)
+			&& !DatabaseManager::optimizeTables()) {
+		spdlog::info("No tables were optimized");
+	}
+
 	modulesLoadHelper((Item::items.loadFromOtb("data/items/items.otb") != ERROR_NONE),
 		"items.otb");
 	modulesLoadHelper(Item::items.loadFromXml(),
@@ -112,19 +145,16 @@ void loadModules() {
 	modulesLoadHelper((g_luaEnvironment.loadFile("data/startup/startup.lua") == -1),
 		"data/startup/startup.lua");
 
-	// Scripts
 	modulesLoadHelper(g_scripts->loadScripts("scripts/lib", true, false),
 		"data/scripts/libs");
-	modulesLoadHelper(g_scripts->loadScripts("scripts", false, false),
-		"data/scripts");
-	modulesLoadHelper(g_scripts->loadScripts("monster", false, false),
-		"data/monster");
-
-	// XML
 	modulesLoadHelper(g_vocations.loadFromXml(),
 		"data/XML/vocations.xml");
 	modulesLoadHelper(g_game.loadScheduleEventFromXml(),
 		"data/XML/events.xml");
+	modulesLoadHelper(Outfits::getInstance().loadFromXml(),
+		"data/XML/outfits.xml");
+	modulesLoadHelper(Familiars::getInstance().loadFromXml(),
+		"data/XML/familiars.xml");
 	modulesLoadHelper(g_imbuements->loadFromXml(),
 		"data/XML/imbuements.xml");
 	modulesLoadHelper(g_modules->loadFromXml(),
@@ -133,10 +163,12 @@ void loadModules() {
 		"data/spells/spells.xml");
 	modulesLoadHelper(g_events->loadFromXml(),
 		"data/events/events.xml");
-	modulesLoadHelper(Outfits::getInstance().loadFromXml(),
-		"data/XML/outfits.xml");
-	modulesLoadHelper(Familiars::getInstance().loadFromXml(),
-		"data/XML/familiars.xml");
+	modulesLoadHelper(g_scripts->loadScripts("scripts", false, false),
+		"data/scripts");
+	modulesLoadHelper(g_scripts->loadScripts("monster", false, false),
+		"data/monster");
+
+	g_game.loadBoostedCreature();
 }
 
 #ifndef UNIT_TESTING
@@ -207,13 +239,11 @@ void mainLoader(int, char*[], ServiceManager* services) {
 
 #if defined(LUAJIT_VERSION)
 	spdlog::info("Linked with {} for Lua support", LUAJIT_VERSION);
-#else
-	spdlog::info("Linked with {} for Lua support", LUA_RELEASE);
 #endif
 
 	spdlog::info("A server developed by: {}", STATUS_SERVER_DEVELOPERS);
 	spdlog::info("Visit our forum for updates, support, and resources: "
-		"https://otserv.com.br/, https://forums.otserv.com.br and https://othispano.com");
+		"https://forums.otserv.com.br and https://othispano.com");
 
 	// check if config.lua or config.lua.dist exist
 	std::ifstream c_test("./config.lua");
@@ -230,6 +260,10 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		c_test.close();
 	}
 
+	// Init and load modules
+	initGlobalScopes();
+	loadModules();
+
 	spdlog::info("Server protocol: {}",
 		g_config.getString(ConfigManager::CLIENT_VERSION_STR));
 
@@ -242,45 +276,6 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		SetPriorityClass(GetCurrentProcess(), ABOVE_NORMAL_PRIORITY_CLASS);
 	}
 #endif
-
-	// set RSA key
-	try {
-		g_RSA.loadPEM("key.pem");
-	} catch(const std::exception& e) {
-		spdlog::error(e.what());
-		startupErrorMessage();
-	}
-
-	spdlog::info("Establishing database connection... ");
-	if (!Database::getInstance().connect()) {
-		spdlog::error("Failed to connect to database!");
-		startupErrorMessage();
-	}
-	spdlog::info("MySQL Version: {}", Database::getClientVersion());
-
-	// Run database manager
-
-	spdlog::info("Running database manager...");
-	if (!DatabaseManager::isDatabaseSetup()) {
-		spdlog::error("The database you have specified in config.lua is empty, "
-			"please import the schema.sql to your database.");
-		startupErrorMessage();
-	}
-
-	g_databaseTasks.start();
-
-	DatabaseManager::updateDatabase();
-
-	if (g_config.getBoolean(ConfigManager::OPTIMIZE_DATABASE)
-			&& !DatabaseManager::optimizeTables()) {
-		spdlog::info("No tables were optimized");
-	}
-
-	// Init and load modules
-	initGlobalScopes();
-	loadModules();
-
-	g_game.loadBoostedCreature();
 
 	std::string worldType = asLowerCaseString(g_config.getString(
                             ConfigManager::WORLD_TYPE));
