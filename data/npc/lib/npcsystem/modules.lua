@@ -479,7 +479,7 @@ if Modules == nil then
 					premium = temp == "true"
 				else
 					Spdlog.warn(string.format("[TravelModule:parseDestinations] - %s] NpcSystem: Unknown parameter found in travel destination parameter. temp[%d], destination[%s]",
-						Npc():getName(), temp, destination)
+						Npc():getName(), temp, destination))
 				end
 				i = i + 1
 			end
