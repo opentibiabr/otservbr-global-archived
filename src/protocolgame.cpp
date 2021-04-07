@@ -753,10 +753,11 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 			break;
 	}
 
-	if (msg.isOverrun()) {
-		SPDLOG_WARN("[ProtocolGame::parsePacket] - Message is overrun");
-		disconnect();
-	}
+	// Send disconnect when opening the store
+	// if (msg.isOverrun()) {
+	// 	SPDLOG_WARN("[ProtocolGame::parsePacket] - Message is overrun");
+	// 	disconnect();
+	// }
 }
 
 void ProtocolGame::parseHotkeyEquip(NetworkMessage &msg)
