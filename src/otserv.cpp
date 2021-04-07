@@ -138,11 +138,11 @@ void loadModules() {
 		"script systems");
 
 	// Lua Env
-	modulesLoadHelper((g_luaEnvironment.loadFile("data/global.lua") == -1),
+	modulesLoadHelper((g_luaEnvironment.loadFile("data/global.lua")),
 		"data/global.lua");
-	modulesLoadHelper((g_luaEnvironment.loadFile("data/stages.lua") == -1),
+	modulesLoadHelper((g_luaEnvironment.loadFile("data/stages.lua")),
 		"data/stages.lua");
-	modulesLoadHelper((g_luaEnvironment.loadFile("data/startup/startup.lua") == -1),
+	modulesLoadHelper((g_luaEnvironment.loadFile("data/startup/startup.lua")),
 		"data/startup/startup.lua");
 
 	modulesLoadHelper(g_scripts->loadScripts("scripts/lib", true, false),
