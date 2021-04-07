@@ -177,6 +177,10 @@ void loadModules() {
 
 #ifndef UNIT_TESTING
 int main(int argc, char* argv[]) {
+	spdlog::set_pattern("[%Y-%d-%m %H:%M:%S.%e] [file %@] [func %!] [thread %t] [%l] %v ");
+#ifdef DEBUG_LOG
+	SPDLOG_DEBUG("[OTBR] SPDLOG LOG DEBUG ENABLED");
+#endif
 
 	// Setup bad allocation handler
 	std::set_new_handler(badAllocationHandler);
