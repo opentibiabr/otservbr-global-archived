@@ -44,6 +44,7 @@
 #include "modules.h"
 #include "imbuements.h"
 #include "account.hpp"
+#include "npcs.h"
 #include "webhook.h"
 
 
@@ -57,6 +58,7 @@ extern GlobalEvents* g_globalEvents;
 extern CreatureEvents* g_creatureEvents;
 extern Events* g_events;
 extern Monsters g_monsters;
+extern Npcs g_npcs;
 extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
 extern Scripts* g_scripts;
@@ -8018,7 +8020,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 							responseMessage = "Your new name cannot be a monster's name.";
 							player->sendStoreError(STORE_ERROR_PURCHASE, responseMessage);
 							return;
-						} else if (getNpcByName(newName)) {
+						} else if (g_npcs.getNpcType(newName)) {
 							responseMessage = "Your new name cannot be an NPC's name.";
 							player->sendStoreError(STORE_ERROR_PURCHASE, responseMessage);
 							return;
