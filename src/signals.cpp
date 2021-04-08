@@ -35,7 +35,6 @@
 #include "scheduler.h"
 #include "databasetasks.h"
 
-
 extern Scheduler g_scheduler;
 extern DatabaseTasks g_databaseTasks;
 extern Dispatcher g_dispatcher;
@@ -145,9 +144,6 @@ void Signals::sighupHandler()
 
 	g_config.reload();
 	std::cout << "Reloaded config." << std::endl;
-
-	Npcs::reload();
-	std::cout << "Reloaded npcs." << std::endl;
 
 	g_game.raids.reload();
 	g_game.raids.startup();

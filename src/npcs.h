@@ -17,30 +17,29 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_MONSTERS_H_776E8327BCE2450EB7C4A260785E6C0D
-#define FS_MONSTERS_H_776E8327BCE2450EB7C4A260785E6C0D
+#ifndef FS_NPCS_H_
+#define FS_NPCS_H_
 
 #include "creature.h"
-#include "enums.h"
 
-class Loot {
+class LootNpc {
 	public:
-		Loot() = default;
+		LootNpc() = default;
 
 		// non-copyable
-		Loot(const Loot&) = delete;
-		Loot& operator=(const Loot&) = delete;
+		LootNpc(const LootNpc&) = delete;
+		LootNpc& operator=(const LootNpc&) = delete;
 
 		LootBlock lootBlock;
 };
 
 class BaseSpell;
-struct spellBlock_t {
-	constexpr spellBlock_t() = default;
-	~spellBlock_t();
-	spellBlock_t(const spellBlock_t& other) = delete;
-	spellBlock_t& operator=(const spellBlock_t& other) = delete;
-	spellBlock_t(spellBlock_t&& other) :
+struct spellBlockNpc_t {
+	constexpr spellBlockNpc_t() = default;
+	~spellBlockNpc_t();
+	spellBlockNpc_t(const spellBlockNpc_t& other) = delete;
+	spellBlockNpc_t& operator=(const spellBlockNpc_t& other) = delete;
+	spellBlockNpc_t(spellBlockNpc_t&& other) :
 		spell(other.spell),
 		chance(other.chance),
 		speed(other.speed),
@@ -62,9 +61,9 @@ struct spellBlock_t {
 	bool isMelee = false;
 };
 
-class MonsterType
+class NpcType
 {
-	struct MonsterInfo {
+	struct NpcInfo {
 		LuaScriptInterface* scriptInterface;
 
 		std::map<CombatType_t, int32_t> elementMap;
@@ -75,8 +74,8 @@ class MonsterType
 
 		std::vector<LootBlock> lootItems;
 		std::vector<std::string> scripts;
-		std::vector<spellBlock_t> attackSpells;
-		std::vector<spellBlock_t> defenseSpells;
+		std::vector<spellBlockNpc_t> attackSpells;
+		std::vector<spellBlockNpc_t> defenseSpells;
 		std::vector<summonBlock_t> summons;
 
 		Skulls_t skull = SKULL_NONE;
@@ -98,18 +97,7 @@ class MonsterType
 		uint32_t conditionImmunities = 0;
 		uint32_t damageImmunities = 0;
 		uint32_t baseSpeed = 200;
-
-		// Bestiary
-		uint8_t bestiaryOccurrence = 0;
-		uint8_t bestiaryStars = 0;
-		uint16_t bestiaryToUnlock = 0;
-		uint16_t bestiaryFirstUnlock = 0;
-		uint16_t bestiarySecondUnlock = 0;
-		uint16_t bestiaryCharmsPoints = 0;
-		uint16_t raceid = 0;
-		std::string bestiaryLocations;
-		std::string bestiaryClass; // String (addString)
-		BestiaryType_t bestiaryRace = BESTY_RACE_NONE; // Number (addByte)
+		uint32_t walkInterval = 1500;
 
 		int32_t creatureAppearEvent = -1;
 		int32_t creatureDisappearEvent = -1;
@@ -127,6 +115,7 @@ class MonsterType
 		int32_t targetStrategiesLowerHPPercent = 0;
 		int32_t targetStrategiesMostDamagePercent = 0;
 		int32_t targetStrategiesRandom = 0;
+		int32_t walkRadius = 10;
 
 		bool canPushItems = false;
 		bool canPushCreatures = false;
@@ -138,41 +127,40 @@ class MonsterType
 		bool isHostile = true;
 		bool hiddenHealth = false;
 		bool isBlockable = false;
-		bool isPet = false;
 		bool isRewardBoss = false;
 		bool canWalkOnEnergy = true;
 		bool canWalkOnFire = true;
 		bool canWalkOnPoison = true;
 
-		MonstersEvent_t eventType = MONSTERS_EVENT_NONE;
+		NpcsEvent_t eventType = NPCS_EVENT_NONE;
 	};
 
 	public:
-		MonsterType() = default;
+		NpcType() = default;
 
 		// non-copyable
-		MonsterType(const MonsterType&) = delete;
-		MonsterType& operator=(const MonsterType&) = delete;
+		NpcType(const NpcType&) = delete;
+		NpcType& operator=(const NpcType&) = delete;
 
 		bool loadCallback(LuaScriptInterface* scriptInterface);
 
 		std::string name;
 		std::string nameDescription;
 
-		MonsterInfo info;
+		NpcInfo info;
 
-		void loadLoot(MonsterType* monsterType, LootBlock lootblock);
+		void loadLoot(NpcType* npcType, LootBlock lootblock);
 
 		bool canSpawn(const Position& pos);
 };
 
-class MonsterSpell
+class NpcSpell
 {
 	public:
-		MonsterSpell() = default;
+		NpcSpell() = default;
 
-		MonsterSpell(const MonsterSpell&) = delete;
-		MonsterSpell& operator=(const MonsterSpell&) = delete;
+		NpcSpell(const NpcSpell&) = delete;
+		NpcSpell& operator=(const NpcSpell&) = delete;
 
 		std::string name = "";
 		std::string scriptName = "";
@@ -203,7 +191,7 @@ class MonsterSpell
 		bool isMelee = false;
 
 		Outfit_t outfit = {};
-		std::string outfitMonster = "";
+		std::string outfitNpc = "";
 		uint16_t outfitItem = 0;
 
 		ShootType_t shoot = CONST_ANI_NONE;
@@ -212,13 +200,13 @@ class MonsterSpell
 		CombatType_t combatType = COMBAT_UNDEFINEDDAMAGE;
 };
 
-class Monsters
+class Npcs
 {
 	public:
-		Monsters() = default;
+		Npcs() = default;
 		// non-copyable
-		Monsters(const Monsters&) = delete;
-		Monsters& operator=(const Monsters&) = delete;
+		Npcs(const Npcs&) = delete;
+		Npcs& operator=(const Npcs&) = delete;
 
 		bool loadFromXml(bool reloading = false);
 		bool isLoaded() const {
@@ -226,25 +214,24 @@ class Monsters
 		}
 		bool reload();
 
-		MonsterType* getMonsterType(const std::string& name);
-		MonsterType* getMonsterTypeByRaceId(uint16_t thisrace);
-		void addMonsterType(const std::string& name, MonsterType* mType);
-		bool deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std::string& description = "");
+		NpcType* getNpcType(const std::string& name);
+		void addNpcType(const std::string& name, NpcType* mType);
+		bool deserializeSpell(NpcSpell* spell, spellBlockNpc_t& sb, const std::string& description = "");
 
 		std::unique_ptr<LuaScriptInterface> scriptInterface;
-		std::map<std::string, MonsterType> monsters;
+		std::map<std::string, NpcType> npcs;
 
 	private:
 		ConditionDamage* getDamageCondition(ConditionType_t conditionType,
 											int32_t maxDamage, int32_t minDamage, int32_t startDamage, uint32_t tickInterval);
-		bool deserializeSpell(const pugi::xml_node& node, spellBlock_t& sb, const std::string& description = "");
+		bool deserializeSpell(const pugi::xml_node& node, spellBlockNpc_t& sb, const std::string& description = "");
 
-		MonsterType* loadMonster(const std::string& file, const std::string& monsterName, bool reloading = false);
+		NpcType* loadNpc(const std::string& file, const std::string& npcName, bool reloading = false);
 
 		void loadLootContainer(const pugi::xml_node& node, LootBlock&);
 		bool loadLootItem(const pugi::xml_node& node, LootBlock&);
 
-		std::map<std::string, std::string> unloadedMonsters;
+		std::map<std::string, std::string> unloadedNpcs;
 
 		bool loaded = false;
 };

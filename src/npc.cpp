@@ -1,6 +1,8 @@
 /**
+ * @file npc.cpp
+ *
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,52 +22,60 @@
 #include "otpch.h"
 
 #include "npc.h"
+#include "npcs.h"
+#include "configmanager.h"
 #include "game.h"
-#include "pugicast.h"
+#include "spells.h"
+#include "events.h"
+#include "enums.h"
 
 extern Game g_game;
-extern LuaEnvironment g_luaEnvironment;
+extern Npcs g_npcs;
+extern Events* g_events;
+extern ConfigManager g_config;
 
-uint32_t Npc::npcAutoID = 0x80000000;
-NpcScriptInterface* Npc::scriptInterface = nullptr;
+int32_t Npc::despawnRange;
+int32_t Npc::despawnRadius;
 
-void Npcs::reload()
-{
-	const std::map<uint32_t, Npc*>& npcs = g_game.getNpcs();
-	for (const auto& it : npcs) {
-		it.second->closeAllShopWindows();
-	}
-
-	delete Npc::scriptInterface;
-	Npc::scriptInterface = nullptr;
-
-	for (const auto& it : npcs) {
-		it.second->reload();
-	}
-}
+uint32_t Npc::npcAutoID = 0x40000000;
 
 Npc* Npc::createNpc(const std::string& name)
 {
-	std::unique_ptr<Npc> npc(new Npc(name));
-	if (!npc->load()) {
+	NpcType* npcType = g_npcs.getNpcType(name);
+	if (!npcType) {
 		return nullptr;
 	}
-	return npc.release();
+	return new Npc(npcType);
 }
 
-Npc::Npc(const std::string& initName) :
+Npc::Npc(NpcType* npcType) :
 	Creature(),
-	filename("data/npc/" + initName + ".xml"),
-	npcEventHandler(nullptr),
-	masterRadius(-1),
-	loaded(false)
+	strDescription(asLowerCaseString(npcType->nameDescription)),
+	npcType(npcType)
 {
-	reset();
+	defaultOutfit = npcType->info.outfit;
+	currentOutfit = npcType->info.outfit;
+	skull = npcType->info.skull;
+	float multiplier = g_config.getFloat(ConfigManager::RATE_NPC_HEALTH);
+	health = npcType->info.health*multiplier;
+	healthMax = npcType->info.healthMax*multiplier;
+	baseSpeed = npcType->info.baseSpeed;
+	internalLight = npcType->info.light;
+	hiddenHealth = npcType->info.hiddenHealth;
+	targetDistance = npcType->info.targetDistance;
+
+	// register creature events
+	for (const std::string& scriptName : npcType->info.scripts) {
+		if (!registerCreatureEvent(scriptName)) {
+			std::cout << "[Warning - Npc::Npc] Unknown event name: " << scriptName << std::endl;
+		}
+	}
 }
 
 Npc::~Npc()
 {
-	reset();
+	clearTargetList();
+	clearFriendList();
 }
 
 void Npc::addList()
@@ -78,204 +88,91 @@ void Npc::removeList()
 	g_game.removeNpc(this);
 }
 
-bool Npc::load()
-{
-	if (loaded) {
-		return true;
-	}
-
-	reset();
-
-	if (!scriptInterface) {
-		scriptInterface = new NpcScriptInterface();
-		scriptInterface->loadNpcLib("data/npc/lib/npc.lua");
-	}
-
-	loaded = loadFromXml();
-	return loaded;
-}
-
-void Npc::reset()
-{
-	loaded = false;
-	walkTicks = 1500;
-	pushable = true;
-	floorChange = false;
-	attackable = false;
-	ignoreHeight = false;
-	focusCreature = 0;
-	speechBubble = SPEECHBUBBLE_NONE;
-
-	delete npcEventHandler;
-	npcEventHandler = nullptr;
-
-	parameters.clear();
-	shopPlayerSet.clear();
-}
-
-void Npc::reload()
-{
-	reset();
-	load();
-
-	// Simulate that the creature is placed on the map again.
-	if (npcEventHandler) {
-		npcEventHandler->onCreatureAppear(this);
-	}
-
-	if (walkTicks > 0) {
-		addEventWalk();
-	}
-}
-
-bool Npc::loadFromXml()
-{
-	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file(filename.c_str());
-	if (!result) {
-		printXMLError("Error - Npc::loadFromXml", filename, result);
-		return false;
-	}
-
-	pugi::xml_node npcNode = doc.child("npc");
-	if (!npcNode) {
-		std::cout << "[Error - Npc::loadFromXml] Missing npc tag in " << filename << std::endl;
-		return false;
-	}
-
-	name = npcNode.attribute("name").as_string();
-	attackable = npcNode.attribute("attackable").as_bool();
-	floorChange = npcNode.attribute("floorchange").as_bool();
-
-	pugi::xml_attribute coin;
-	if ((coin = npcNode.attribute("currency"))) {
-		const ItemType& it = Item::items[pugi::cast<uint16_t>(coin.value())];
-		currencyServerId = it.id;
-		currencyClientId = it.clientId;
-	} else {
-		const ItemType& it = Item::items[ITEM_GOLD_COIN];
-		currencyServerId = it.id;
-		currencyClientId = it.clientId;
-	}
-
-	pugi::xml_attribute attr;
-	if ((attr = npcNode.attribute("speed"))) {
-		baseSpeed = pugi::cast<uint32_t>(attr.value());
-	} else {
-		baseSpeed = 100;
-	}
-
-	if ((attr = npcNode.attribute("pushable"))) {
-		pushable = attr.as_bool();
-	}
-
-	if ((attr = npcNode.attribute("walkinterval"))) {
-		walkTicks = pugi::cast<uint32_t>(attr.value());
-	}
-
-	if ((attr = npcNode.attribute("walkradius"))) {
-		masterRadius = pugi::cast<int32_t>(attr.value());
-	} else {
-		masterRadius = 2;
-	}
-
-	if ((attr = npcNode.attribute("ignoreheight"))) {
-		ignoreHeight = attr.as_bool();
-	}
-
-	if ((attr = npcNode.attribute("speechbubble"))) {
-		speechBubble = pugi::cast<uint32_t>(attr.value());
-	}
-
-	if ((attr = npcNode.attribute("skull"))) {
-		setSkull(getSkullType(asLowerCaseString(attr.as_string())));
-	}
-
-	pugi::xml_node healthNode = npcNode.child("health");
-	if (healthNode) {
-		if ((attr = healthNode.attribute("now"))) {
-			health = pugi::cast<int32_t>(attr.value());
-		} else {
-			health = 100;
-		}
-
-		if ((attr = healthNode.attribute("max"))) {
-			healthMax = pugi::cast<int32_t>(attr.value());
-		} else {
-			healthMax = 100;
-		}
-	}
-
-	pugi::xml_node lookNode = npcNode.child("look");
-	if (lookNode) {
-		pugi::xml_attribute lookTypeAttribute = lookNode.attribute("type");
-		if (lookTypeAttribute) {
-			defaultOutfit.lookType = pugi::cast<uint16_t>(lookTypeAttribute.value());
-			defaultOutfit.lookHead = pugi::cast<uint16_t>(lookNode.attribute("head").value());
-			defaultOutfit.lookBody = pugi::cast<uint16_t>(lookNode.attribute("body").value());
-			defaultOutfit.lookLegs = pugi::cast<uint16_t>(lookNode.attribute("legs").value());
-			defaultOutfit.lookFeet = pugi::cast<uint16_t>(lookNode.attribute("feet").value());
-			defaultOutfit.lookAddons = pugi::cast<uint16_t>(lookNode.attribute("addons").value());
-		} else if ((attr = lookNode.attribute("typeex"))) {
-			defaultOutfit.lookTypeEx = pugi::cast<uint16_t>(attr.value());
-		}
-		defaultOutfit.lookMount = pugi::cast<uint16_t>(lookNode.attribute("mount").value());
-
-		currentOutfit = defaultOutfit;
-	}
-
-	for (auto parameterNode : npcNode.child("parameters").children()) {
-		parameters[parameterNode.attribute("key").as_string()] = parameterNode.attribute("value").as_string();
-	}
-
-	pugi::xml_attribute scriptFile = npcNode.attribute("script");
-	if (scriptFile) {
-		npcEventHandler = new NpcEventsHandler(scriptFile.as_string(), this);
-		if (!npcEventHandler->isLoaded()) {
-			delete npcEventHandler;
-			npcEventHandler = nullptr;
-			return false;
-		}
-	}
-	return true;
-}
-
 bool Npc::canSee(const Position& pos) const
 {
-	if (pos.z != getPosition().z) {
-		return false;
-	}
-	return Creature::canSee(getPosition(), pos, 3, 3);
+	return Creature::canSee(getPosition(), pos, 10, 10); //jlcvp FIX - range 10 Avoids killing npc without reaction
 }
 
-std::string Npc::getDescription(int32_t) const
+bool Npc::canWalkOnFieldType(CombatType_t combatType) const
 {
-	std::string descr;
-	descr.reserve(name.length() + 1);
-	descr.assign(name);
-	descr.push_back('.');
-	return descr;
+	switch (combatType) {
+		case COMBAT_ENERGYDAMAGE:
+			return npcType->info.canWalkOnEnergy;
+		case COMBAT_FIREDAMAGE:
+			return npcType->info.canWalkOnFire;
+		case COMBAT_EARTHDAMAGE:
+				return npcType->info.canWalkOnPoison;
+			default:
+		return true;
+	}
+}
+
+uint32_t Npc::getReflectValue(CombatType_t reflectType) const {
+	auto it = npcType->info.reflectMap.find(reflectType);
+	if (it != npcType->info.reflectMap.end()) {
+		return it->second;
+	}
+	return 0;
+}
+
+uint32_t Npc::getHealingCombatValue(CombatType_t healingType) const {
+	auto it = npcType->info.healingMap.find(healingType);
+	if (it != npcType->info.healingMap.end()) {
+		return it->second;
+	}
+	return 0;
+}
+
+void Npc::onAttackedCreatureDisappear(bool)
+{
+	attackTicks = 0;
+	extraMeleeAttack = true;
 }
 
 void Npc::onCreatureAppear(Creature* creature, bool isLogin)
 {
 	Creature::onCreatureAppear(creature, isLogin);
 
+	if (npcType->info.creatureAppearEvent != -1) {
+		// onCreatureAppear(self, creature)
+		LuaScriptInterface* scriptInterface = npcType->info.scriptInterface;
+		if (!scriptInterface->reserveScriptEnv()) {
+			std::cout << "[Error - Npc::onCreatureAppear"
+				<< " Npc "
+				<< getName()
+				<< " creature "
+				<< creature->getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
+			return;
+		}
+
+		ScriptEnvironment* env = scriptInterface->getScriptEnv();
+		env->setScriptId(npcType->info.creatureAppearEvent, scriptInterface);
+
+		lua_State* L = scriptInterface->getLuaState();
+		scriptInterface->pushFunction(npcType->info.creatureAppearEvent);
+
+		LuaScriptInterface::pushUserdata<Npc>(L, this);
+		LuaScriptInterface::setMetatable(L, -1, "Npc");
+
+		LuaScriptInterface::pushUserdata<Creature>(L, creature);
+		LuaScriptInterface::setCreatureMetatable(L, -1, creature);
+
+		if (scriptInterface->callFunction(2)) {
+			return;
+		}
+	}
+
 	if (creature == this) {
-		if (walkTicks > 0) {
-			addEventWalk();
+		//We just spawned lets look around to see who is there.
+		if (isSummon()) {
+			isMasterInRange = canSee(getMaster()->getPosition());
 		}
-
-		if (npcEventHandler) {
-			npcEventHandler->onCreatureAppear(creature);
-		}
-	} else if (Player* player = creature->getPlayer()) {
-		if (npcEventHandler) {
-			npcEventHandler->onCreatureAppear(creature);
-		}
-
-		spectators.insert(player);
+		updateTargetList();
 		updateIdleStatus();
+	} else {
+		onCreatureEnter(creature);
 	}
 }
 
@@ -283,148 +180,573 @@ void Npc::onRemoveCreature(Creature* creature, bool isLogout)
 {
 	Creature::onRemoveCreature(creature, isLogout);
 
-	if (creature == this) {
-		closeAllShopWindows();
-		if (npcEventHandler) {
-			npcEventHandler->onCreatureDisappear(creature);
-		}
-	} else {
-		if (npcEventHandler) {
-			npcEventHandler->onCreatureDisappear(creature);
+	if (npcType->info.creatureDisappearEvent != -1) {
+		// onCreatureDisappear(self, creature)
+		LuaScriptInterface* scriptInterface = npcType->info.scriptInterface;
+		if (!scriptInterface->reserveScriptEnv()) {
+			std::cout << "[Error - Npc::onCreatureDisappear"
+				<< " Npc "
+				<< getName()
+				<< " creature "
+				<< creature->getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
+			return;
 		}
 
-		if (Player* player = creature->getPlayer()) {
-			spectators.erase(player);
-			updateIdleStatus();
+		ScriptEnvironment* env = scriptInterface->getScriptEnv();
+		env->setScriptId(npcType->info.creatureDisappearEvent, scriptInterface);
+
+		lua_State* L = scriptInterface->getLuaState();
+		scriptInterface->pushFunction(npcType->info.creatureDisappearEvent);
+
+		LuaScriptInterface::pushUserdata<Npc>(L, this);
+		LuaScriptInterface::setMetatable(L, -1, "Npc");
+
+		LuaScriptInterface::pushUserdata<Creature>(L, creature);
+		LuaScriptInterface::setCreatureMetatable(L, -1, creature);
+
+		if (scriptInterface->callFunction(2)) {
+			return;
 		}
+	}
+
+	if (creature == this) {
+		if (spawnNpc) {
+			spawnNpc->startSpawnNpcCheck();
+		}
+
+		setIdle(true);
+	} else {
+		onCreatureLeave(creature);
 	}
 }
 
 void Npc::onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos,
-						 const Tile* oldTile, const Position& oldPos, bool teleport)
+							 const Tile* oldTile, const Position& oldPos, bool teleport)
 {
 	Creature::onCreatureMove(creature, newTile, newPos, oldTile, oldPos, teleport);
 
-	if (creature == this || creature->getPlayer()) {
-		if (npcEventHandler) {
-			npcEventHandler->onCreatureMove(creature, oldPos, newPos);
+	if (npcType->info.creatureMoveEvent != -1) {
+		// onCreatureMove(self, creature, oldPosition, newPosition)
+		LuaScriptInterface* scriptInterface = npcType->info.scriptInterface;
+		if (!scriptInterface->reserveScriptEnv()) {
+			std::cout << "[Error - Npc::onCreatureMove"
+				<< " Npc "
+				<< getName()
+				<< " creature "
+				<< creature->getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
+			return;
 		}
 
-		if (creature != this) {
-			Player* player = creature->getPlayer();
+		ScriptEnvironment* env = scriptInterface->getScriptEnv();
+		env->setScriptId(npcType->info.creatureMoveEvent, scriptInterface);
 
-			// if player is now in range, add to spectators list, otherwise erase
-			if (player->canSee(position)) {
-				spectators.insert(player);
-			} else {
-				spectators.erase(player);
+		lua_State* L = scriptInterface->getLuaState();
+		scriptInterface->pushFunction(npcType->info.creatureMoveEvent);
+
+		LuaScriptInterface::pushUserdata<Npc>(L, this);
+		LuaScriptInterface::setMetatable(L, -1, "Npc");
+
+		LuaScriptInterface::pushUserdata<Creature>(L, creature);
+		LuaScriptInterface::setCreatureMetatable(L, -1, creature);
+
+		LuaScriptInterface::pushPosition(L, oldPos);
+		LuaScriptInterface::pushPosition(L, newPos);
+
+		if (scriptInterface->callFunction(4)) {
+			return;
+		}
+	}
+
+	if (creature == this) {
+		if (isSummon()) {
+			isMasterInRange = canSee(getMaster()->getPosition());
+		}
+
+		updateTargetList();
+		updateIdleStatus();
+	} else {
+		bool canSeeNewPos = canSee(newPos);
+		bool canSeeOldPos = canSee(oldPos);
+
+		if (canSeeNewPos && !canSeeOldPos) {
+			onCreatureEnter(creature);
+		} else if (!canSeeNewPos && canSeeOldPos) {
+			onCreatureLeave(creature);
+		}
+
+		if (canSeeNewPos && isSummon() && getMaster() == creature) {
+			isMasterInRange = true; //Follow master again
+		}
+
+		updateIdleStatus();
+
+		if (!isSummon()) {
+			if (followCreature) {
+				const Position& followPosition = followCreature->getPosition();
+				const Position& pos = getPosition();
+
+				int32_t offset_x = Position::getDistanceX(followPosition, pos);
+				int32_t offset_y = Position::getDistanceY(followPosition, pos);
+				if ((offset_x > 1 || offset_y > 1) && npcType->info.changeTargetChance > 0) {
+					Direction dir = getDirectionTo(pos, followPosition);
+					const Position& checkPosition = getNextPosition(dir, pos);
+
+					Tile* nextTile = g_game.map.getTile(checkPosition);
+					if (nextTile) {
+						Creature* topCreature = nextTile->getTopCreature();
+						if (topCreature && followCreature != topCreature && isOpponent(topCreature)) {
+							selectTarget(topCreature);
+						}
+					}
+				}
+			} else if (isOpponent(creature)) {
+				//we have no target lets try pick this one
+				selectTarget(creature);
 			}
-
-			updateIdleStatus();
 		}
 	}
 }
 
 void Npc::onCreatureSay(Creature* creature, SpeakClasses type, const std::string& text)
 {
-	if (creature->getID() == id) {
-		return;
-	}
+	Creature::onCreatureSay(creature, type, text);
 
-	//only players for script events
-	Player* player = creature->getPlayer();
-	if (player) {
-		if (npcEventHandler) {
-			npcEventHandler->onCreatureSay(player, type, text);
+	if (npcType->info.creatureSayEvent != -1) {
+		// onCreatureSay(self, creature, type, message)
+		LuaScriptInterface* scriptInterface = npcType->info.scriptInterface;
+		if (!scriptInterface->reserveScriptEnv()) {
+			std::cout << "[Error - Npc::onCreatureSay"
+				<< " Npc "
+				<< getName()
+				<< " creature "
+				<< creature->getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
+			return;
+		}
+
+		ScriptEnvironment* env = scriptInterface->getScriptEnv();
+		env->setScriptId(npcType->info.creatureSayEvent, scriptInterface);
+
+		lua_State* L = scriptInterface->getLuaState();
+		scriptInterface->pushFunction(npcType->info.creatureSayEvent);
+
+		LuaScriptInterface::pushUserdata<Npc>(L, this);
+		LuaScriptInterface::setMetatable(L, -1, "Npc");
+
+		LuaScriptInterface::pushUserdata<Creature>(L, creature);
+		LuaScriptInterface::setCreatureMetatable(L, -1, creature);
+
+		lua_pushnumber(L, type);
+		LuaScriptInterface::pushString(L, text);
+
+		scriptInterface->callVoidFunction(4);
+	}
+}
+
+void Npc::addFriend(Creature* creature)
+{
+	assert(creature != this);
+	auto result = friendList.insert(creature);
+	if (result.second) {
+		creature->incrementReferenceCounter();
+	}
+}
+
+void Npc::removeFriend(Creature* creature)
+{
+	auto it = friendList.find(creature);
+	if (it != friendList.end()) {
+		creature->decrementReferenceCounter();
+		friendList.erase(it);
+	}
+}
+
+void Npc::addTarget(Creature* creature, bool pushFront/* = false*/)
+{
+	assert(creature != this);
+	if (std::find(targetList.begin(), targetList.end(), creature) == targetList.end()) {
+		creature->incrementReferenceCounter();
+		if (pushFront) {
+			targetList.push_front(creature);
+		} else {
+			targetList.push_back(creature);
 		}
 	}
 }
 
-void Npc::onPlayerCloseChannel(Player* player)
+void Npc::removeTarget(Creature* creature)
 {
-	if (npcEventHandler) {
-		npcEventHandler->onPlayerCloseChannel(player);
+	auto it = std::find(targetList.begin(), targetList.end(), creature);
+	if (it != targetList.end()) {
+		creature->decrementReferenceCounter();
+		targetList.erase(it);
 	}
 }
 
-void Npc::onThink(uint32_t interval)
+void Npc::updateTargetList()
 {
-	Creature::onThink(interval);
-
-	if (npcEventHandler) {
-		npcEventHandler->onThink();
+	auto friendIterator = friendList.begin();
+	while (friendIterator != friendList.end()) {
+		Creature* creature = *friendIterator;
+		if (creature->getHealth() <= 0 || !canSee(creature->getPosition())) {
+			creature->decrementReferenceCounter();
+			friendIterator = friendList.erase(friendIterator);
+		} else {
+			++friendIterator;
+		}
 	}
 
-	if (!isIdle && getTimeSinceLastMove() >= walkTicks) {
-		addEventWalk();
+	auto targetIterator = targetList.begin();
+	while (targetIterator != targetList.end()) {
+		Creature* creature = *targetIterator;
+		if (creature->getHealth() <= 0 || !canSee(creature->getPosition())) {
+			creature->decrementReferenceCounter();
+			targetIterator = targetList.erase(targetIterator);
+		} else {
+			++targetIterator;
+		}
+	}
+
+	SpectatorHashSet spectators;
+	g_game.map.getSpectators(spectators, position, true);
+	spectators.erase(this);
+	for (Creature* spectator : spectators) {
+		if (canSee(spectator->getPosition())) {
+			onCreatureFound(spectator);
+		}
 	}
 }
 
-void Npc::doSay(const std::string& text)
+void Npc::clearTargetList()
 {
-	g_game.internalCreatureSay(this, TALKTYPE_SAY, text, false);
+	for (Creature* creature : targetList) {
+		creature->decrementReferenceCounter();
+	}
+	targetList.clear();
 }
 
-void Npc::doSayToPlayer(Player* player, const std::string& text)
+void Npc::clearFriendList()
 {
-	if (player) {
-		player->sendCreatureSay(this, TALKTYPE_PRIVATE_NP, text);
-		player->onCreatureSay(this, TALKTYPE_PRIVATE_NP, text);
+	for (Creature* creature : friendList) {
+		creature->decrementReferenceCounter();
 	}
+	friendList.clear();
 }
 
-void Npc::onPlayerTrade(Player* player, int32_t callback, uint16_t itemId, uint8_t count,
-						uint8_t amount, bool ignore/* = false*/, bool inBackpacks/* = false*/)
+void Npc::onCreatureFound(Creature* creature, bool pushFront/* = false*/)
 {
-	if (!player) {
-		return;
-	} 
-	
-	g_dispatcher.addTask(createTask(std::bind(&Game::updatePlayerSaleItems, &g_game, player->getID())));
-	player->setScheduledSaleUpdate(true);
-	if (npcEventHandler) {
-		npcEventHandler->onPlayerTrade(player, callback, itemId, count, amount, ignore, inBackpacks);
+	if (isFriend(creature)) {
+		addFriend(creature);
 	}
+
+	if (isOpponent(creature)) {
+		addTarget(creature, pushFront);
+	}
+
+	updateIdleStatus();
 }
 
-void Npc::onPlayerEndTrade(Player* player, int32_t buyCallback, int32_t sellCallback)
+void Npc::onCreatureEnter(Creature* creature)
 {
-	lua_State* L = getScriptInterface()->getLuaState();
+	// std::cout << "onCreatureEnter - " << creature->getName() << std::endl;
 
-	if (buyCallback != -1) {
-		luaL_unref(L, LUA_REGISTRYINDEX, buyCallback);
+	if (getMaster() == creature) {
+		//Follow master again
+		isMasterInRange = true;
 	}
 
-	if (sellCallback != -1) {
-		luaL_unref(L, LUA_REGISTRYINDEX, sellCallback);
-	}
-
-	removeShopPlayer(player);
-
-	if (npcEventHandler) {
-		npcEventHandler->onPlayerEndTrade(player);
-	}
+	onCreatureFound(creature, true);
 }
 
-bool Npc::getNextStep(Direction& dir, uint32_t& flags)
+bool Npc::isFriend(const Creature* creature) const
 {
-	if (Creature::getNextStep(dir, flags)) {
+	if (isSummon() && getMaster()->getPlayer()) {
+		const Player* masterPlayer = getMaster()->getPlayer();
+		const Player* tmpPlayer = nullptr;
+
+		if (creature->getPlayer()) {
+			tmpPlayer = creature->getPlayer();
+		} else {
+			const Creature* creatureMaster = creature->getMaster();
+
+			if (creatureMaster && creatureMaster->getPlayer()) {
+				tmpPlayer = creatureMaster->getPlayer();
+			}
+		}
+
+		if (tmpPlayer && (tmpPlayer == getMaster() || masterPlayer->isPartner(tmpPlayer))) {
+			return true;
+		}
+	} else if (creature->getNpc() && !creature->isSummon()) {
 		return true;
 	}
 
-	if (walkTicks <= 0) {
+	return false;
+}
+
+bool Npc::isOpponent(const Creature* creature) const
+{
+	if (isSummon() && getMaster()->getPlayer()) {
+		if (creature != getMaster()) {
+			return true;
+		}
+	} else {
+		if ((creature->getPlayer()) ||
+				(creature->getMaster() && creature->getMaster()->getPlayer())) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+void Npc::onCreatureLeave(Creature* creature)
+{
+	// std::cout << "onCreatureLeave - " << creature->getName() << std::endl;
+
+	if (getMaster() == creature) {
+		//Take random steps and only use defense abilities (e.g. heal) until its master comes back
+		isMasterInRange = false;
+	}
+
+	//update friendList
+	if (isFriend(creature)) {
+		removeFriend(creature);
+	}
+
+	//update targetList
+	if (isOpponent(creature)) {
+		removeTarget(creature);
+		if (targetList.empty()) {
+			updateIdleStatus();
+		}
+	}
+}
+
+bool Npc::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAULT*/)
+{
+	if (searchType == TARGETSEARCH_DEFAULT) {
+		int32_t rnd = uniform_random(1, 100);
+
+		searchType = TARGETSEARCH_NEAREST;
+
+		int32_t sum = this->npcType->info.targetStrategiesNearestPercent;
+		if (rnd > sum) {
+			searchType = TARGETSEARCH_HP;
+			sum += this->npcType->info.targetStrategiesLowerHPPercent;
+
+			if (rnd > sum) {
+				searchType = TARGETSEARCH_DAMAGE;
+				sum += this->npcType->info.targetStrategiesMostDamagePercent;
+				if (rnd > sum) {
+					searchType = TARGETSEARCH_RANDOM;
+				}
+			}
+		}
+	}
+
+	std::list<Creature*> resultList;
+	const Position& myPos = getPosition();
+
+	for (Creature* creature : targetList) {
+		if (isTarget(creature)) {
+			if ((this->targetDistance == 1) || canUseAttack(myPos, creature)) {
+				resultList.push_back(creature);
+			}
+		}
+	}
+
+	if (resultList.empty()) {
 		return false;
 	}
 
-	if (focusCreature != 0) {
+	Creature* getTarget = nullptr;
+
+	switch (searchType) {
+		case TARGETSEARCH_NEAREST: {
+			getTarget = nullptr;
+			if (!resultList.empty()) {
+				auto it = resultList.begin();
+				getTarget = *it;
+
+				if (++it != resultList.end()) {
+					const Position& targetPosition = getTarget->getPosition();
+					int32_t minRange = std::max<int32_t>(Position::getDistanceX(myPos, targetPosition), Position::getDistanceY(myPos, targetPosition));
+					do {
+						const Position& pos = (*it)->getPosition();
+
+						int32_t distance = std::max<int32_t>(Position::getDistanceX(myPos, pos), Position::getDistanceY(myPos, pos));
+						if (distance < minRange) {
+							getTarget = *it;
+							minRange = distance;
+						}
+					} while (++it != resultList.end());
+				}
+			} else {
+				int32_t minRange = std::numeric_limits<int32_t>::max();
+				for (Creature* creature : targetList) {
+					if (!isTarget(creature)) {
+						continue;
+					}
+
+					const Position& pos = creature->getPosition();
+					int32_t distance = std::max<int32_t>(Position::getDistanceX(myPos, pos), Position::getDistanceY(myPos, pos));
+					if (distance < minRange) {
+						getTarget = creature;
+						minRange = distance;
+					}
+				}
+			}
+
+			if (getTarget && selectTarget(getTarget)) {
+				return true;
+			}
+			break;
+		}
+		case TARGETSEARCH_HP: {
+			getTarget = nullptr;
+			if (!resultList.empty()) {
+				auto it = resultList.begin();
+				getTarget = *it;
+				if (++it != resultList.end()) {
+					int32_t minHp = getTarget->getHealth();
+					do {
+						if ((*it)->getHealth() < minHp) {
+							getTarget = *it;
+
+							minHp = getTarget->getHealth();
+						}
+					} while (++it != resultList.end());
+				}
+			}
+			if (getTarget && selectTarget(getTarget)) {
+				return true;
+			}
+			break;
+		}
+		case TARGETSEARCH_DAMAGE: {
+			getTarget = nullptr;
+			if (!resultList.empty()) {
+				auto it = resultList.begin();
+				getTarget = *it;
+				if (++it != resultList.end()) {
+					int32_t mostDamage = 0;
+					do {
+						const auto& dmg = damageMap.find((*it)->getID());
+						if (dmg != damageMap.end()) {
+							if (dmg->second.total > mostDamage) {
+								mostDamage = dmg->second.total;
+								getTarget = *it;
+							}
+						}
+					} while (++it != resultList.end());
+				}
+			}
+			if (getTarget && selectTarget(getTarget)) {
+				return true;
+			}
+			break;
+		}
+		case TARGETSEARCH_RANDOM:
+		default: {
+			if (!resultList.empty()) {
+				auto it = resultList.begin();
+				std::advance(it, uniform_random(0, resultList.size() - 1));
+				return selectTarget(*it);
+			}
+			break;
+		}
+	}
+
+	//lets just pick the first target in the list
+	for (Creature* target : targetList) {
+		if (selectTarget(target)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+void Npc::onFollowCreatureComplete(const Creature* creature)
+{
+	if (creature) {
+		auto it = std::find(targetList.begin(), targetList.end(), creature);
+		if (it != targetList.end()) {
+			Creature* target = (*it);
+			targetList.erase(it);
+
+			if (hasFollowPath) {
+				targetList.push_front(target);
+			} else if (!isSummon()) {
+				targetList.push_back(target);
+			} else {
+				target->decrementReferenceCounter();
+			}
+		}
+	}
+}
+
+BlockType_t Npc::blockHit(Creature* attacker, CombatType_t combatType, int32_t& damage,
+							  bool checkDefense /* = false*/, bool checkArmor /* = false*/, bool /* field = false */)
+{
+	BlockType_t blockType = Creature::blockHit(attacker, combatType, damage, checkDefense, checkArmor);
+
+	if (damage != 0) {
+		int32_t elementMod = 0;
+		auto it = npcType->info.elementMap.find(combatType);
+		if (it != npcType->info.elementMap.end()) {
+			elementMod = it->second;
+		}
+
+		if (elementMod != 0) {
+			damage = static_cast<int32_t>(std::round(damage * ((100 - elementMod) / 100.)));
+			if (damage <= 0) {
+				damage = 0;
+				blockType = BLOCK_ARMOR;
+			}
+		}
+	}
+
+	return blockType;
+}
+
+
+bool Npc::isTarget(const Creature* creature) const
+{
+	if (creature->isRemoved() || !creature->isAttackable() ||
+			creature->getZone() == ZONE_PROTECTION || !canSeeCreature(creature)) {
 		return false;
 	}
 
-	if (getTimeSinceLastMove() < walkTicks) {
+	if (creature->getPosition().z != getPosition().z) {
+		return false;
+	}
+	return true;
+}
+
+bool Npc::selectTarget(Creature* creature)
+{
+	if (!isTarget(creature) || returnToMasterInterval > 0) {
 		return false;
 	}
 
-	return getRandomStep(dir);
+	auto it = std::find(targetList.begin(), targetList.end(), creature);
+	if (it == targetList.end()) {
+		//Target not found in our target list.
+		return false;
+	}
+
+	if (isHostile() || isSummon()) {
+		if (setAttackedCreature(creature) && !isSummon()) {
+			g_dispatcher.addTask(createTask(std::bind(&Game::checkCreatureAttack, &g_game, getID())));
+		}
+	}
+	return setFollowCreature(creature);
 }
 
 void Npc::setIdle(bool idle)
@@ -435,933 +757,1402 @@ void Npc::setIdle(bool idle)
 
 	isIdle = idle;
 
-	if (isIdle) {
+	if (!isIdle) {
+		g_game.addCreatureCheck(this);
+	} else {
 		onIdleStatus();
+		clearTargetList();
+		clearFriendList();
+		Game::removeCreatureCheck(this);
 	}
 }
 
 void Npc::updateIdleStatus()
 {
-	bool status = spectators.empty();
-	if (status != isIdle) {
-		setIdle(status);
+	bool idle = false;
+
+	if (conditions.empty()) {
+		if (!isSummon() && targetList.empty()) {
+			idle = true;
+		}
+	}
+
+	setIdle(idle);
+}
+
+void Npc::onAddCondition(ConditionType_t type)
+{
+	if (type == CONDITION_FIRE || type == CONDITION_ENERGY || type == CONDITION_POISON) {
+    ignoreFieldDamage = true;
+		updateMapCache();
+	}
+
+	updateIdleStatus();
+}
+
+void Npc::onEndCondition(ConditionType_t type)
+{
+	if (type == CONDITION_FIRE || type == CONDITION_ENERGY || type == CONDITION_POISON) {
+		ignoreFieldDamage = false;
+		updateMapCache();
+	}
+
+	updateIdleStatus();
+}
+
+void Npc::onThink(uint32_t interval)
+{
+	Creature::onThink(interval);
+
+	if (npcType->info.thinkEvent != -1) {
+		// onThink(self, interval)
+		LuaScriptInterface* scriptInterface = npcType->info.scriptInterface;
+		if (!scriptInterface->reserveScriptEnv()) {
+			std::cout << "[Error - Npc::onThink"
+				<< " Npc "
+				<< getName()
+				<< "] Call stack overflow. Too many lua script calls being nested."
+				<< std::endl;
+			return;
+		}
+
+		ScriptEnvironment* env = scriptInterface->getScriptEnv();
+		env->setScriptId(npcType->info.thinkEvent, scriptInterface);
+
+		lua_State* L = scriptInterface->getLuaState();
+		scriptInterface->pushFunction(npcType->info.thinkEvent);
+
+		LuaScriptInterface::pushUserdata<Npc>(L, this);
+		LuaScriptInterface::setMetatable(L, -1, "Npc");
+
+		lua_pushnumber(L, interval);
+
+		if (scriptInterface->callFunction(2)) {
+			return;
+		}
+	}
+
+	if (challengeMeleeDuration != 0) {
+		challengeMeleeDuration -= interval;
+		if (challengeMeleeDuration <= 0) {
+			challengeMeleeDuration = 0;
+			targetDistance = npcType->info.targetDistance;
+			g_game.updateCreatureIcon(this);
+		}
+	}
+
+	if (!npcType->canSpawn(position)) {
+		g_game.removeCreature(this);
+	}
+
+	if (!isInSpawnRange(position)) {
+		g_game.internalTeleport(this, masterPos);
+		setIdle(true);
+	} else {
+		updateIdleStatus();
+
+		if (!isIdle) {
+			addEventWalk();
+
+			if (isSummon()) {
+				if (!attackedCreature) {
+					if (getMaster() && getMaster()->getAttackedCreature()) {
+						//This happens if the npc is summoned during combat
+						selectTarget(getMaster()->getAttackedCreature());
+					} else if (getMaster() != followCreature) {
+						//Our master has not ordered us to attack anything, lets follow him around instead.
+						setFollowCreature(getMaster());
+					}
+				} else if (attackedCreature == this) {
+					setFollowCreature(nullptr);
+				} else if (followCreature != attackedCreature) {
+					//This happens just after a master orders an attack, so lets follow it aswell.
+					setFollowCreature(attackedCreature);
+				}
+			} else if (!targetList.empty()) {
+				if (!followCreature || !hasFollowPath) {
+					searchTarget(TARGETSEARCH_NEAREST);
+				} else if (isFleeing()) {
+					if (attackedCreature && !canUseAttack(getPosition(), attackedCreature)) {
+						searchTarget(TARGETSEARCH_DEFAULT);
+					}
+				}
+			}
+
+			onThinkTarget(interval);
+			onThinkYell(interval);
+			onThinkDefense(interval);
+		}
 	}
 }
 
-bool Npc::canWalkTo(const Position& fromPos, Direction dir) const
+void Npc::doAttacking(uint32_t interval)
 {
-	if (masterRadius == 0) {
-		return false;
+	if (!attackedCreature || (isSummon() && attackedCreature == this)) {
+		return;
 	}
 
-	Position toPos = getNextPosition(dir, fromPos);
-	if (!Spawns::isInZone(masterPos, masterRadius, toPos)) {
-		return false;
+	bool updateLook = true;
+	bool resetTicks = interval != 0;
+	attackTicks += interval;
+
+	const Position& myPos = getPosition();
+	const Position& targetPos = attackedCreature->getPosition();
+
+	for (const spellBlockNpc_t& spellBlock : npcType->info.attackSpells) {
+		bool inRange = false;
+
+		if (attackedCreature == nullptr) {
+			break;
+		}
+
+		if(spellBlock.isMelee && isFleeing()){
+			continue;
+		}
+
+		if (canUseSpell(myPos, targetPos, spellBlock, interval, inRange, resetTicks)) {
+			if (spellBlock.chance >= static_cast<uint32_t>(uniform_random(1, 100))) {
+				if (updateLook) {
+					updateLookDirection();
+					updateLook = false;
+				}
+
+				float multiplier;
+				if (maxCombatValue > 0) { //defense
+					multiplier = g_config.getFloat(ConfigManager::RATE_NPC_DEFENSE);
+				} else { //attack
+					multiplier = g_config.getFloat(ConfigManager::RATE_NPC_ATTACK);
+				}
+
+				minCombatValue = spellBlock.minCombatValue * multiplier;
+				maxCombatValue = spellBlock.maxCombatValue * multiplier;
+				spellBlock.spell->castSpell(this, attackedCreature);
+
+				if (spellBlock.isMelee) {
+					extraMeleeAttack = false;
+				}
+			}
+		}
+
+		if (!inRange && spellBlock.isMelee) {
+			//melee swing out of reach
+			extraMeleeAttack = true;
+		}
 	}
 
-	Tile* toTile = g_game.map.getTile(toPos);
-	if (!toTile || toTile->queryAdd(0, *this, 1, 0) != RETURNVALUE_NOERROR) {
-		return false;
+	if (updateLook) {
+		updateLookDirection();
 	}
 
-	if (!floorChange && (toTile->hasFlag(TILESTATE_FLOORCHANGE) || toTile->getTeleportItem())) {
+	if (resetTicks) {
+		attackTicks = 0;
+	}
+}
+
+bool Npc::canUseAttack(const Position& pos, const Creature* target) const
+{
+	if (isHostile()) {
+		const Position& targetPos = target->getPosition();
+		uint32_t distance = std::max<uint32_t>(Position::getDistanceX(pos, targetPos), Position::getDistanceY(pos, targetPos));
+		for (const spellBlockNpc_t& spellBlock : npcType->info.attackSpells) {
+			if (spellBlock.range != 0 && distance <= spellBlock.range) {
+				return g_game.isSightClear(pos, targetPos, true);
+			}
+		}
 		return false;
 	}
-
-	if (!ignoreHeight && toTile->hasHeight(1)) {
-		return false;
-	}
-
 	return true;
 }
 
-bool Npc::getRandomStep(Direction& dir) const
+bool Npc::canUseSpell(const Position& pos, const Position& targetPos,
+						  const spellBlockNpc_t& sb, uint32_t interval, bool& inRange, bool& resetTicks)
 {
+	inRange = true;
+
+	if (sb.isMelee && isFleeing()) {
+		return false;
+	}
+
+	if (extraMeleeAttack) {
+		lastMeleeAttack = OTSYS_TIME();
+	} else if (sb.isMelee && (OTSYS_TIME() - lastMeleeAttack) < 1500) {
+		return false;
+	}
+
+	if (!sb.isMelee || !extraMeleeAttack) {
+		if (sb.speed > attackTicks) {
+			resetTicks = false;
+			return false;
+		}
+
+		if (attackTicks % sb.speed >= interval) {
+			//already used this spell for this round
+			return false;
+		}
+	}
+
+	if (sb.range != 0 && std::max<uint32_t>(Position::getDistanceX(pos, targetPos), Position::getDistanceY(pos, targetPos)) > sb.range) {
+		inRange = false;
+		return false;
+	}
+	return true;
+}
+
+void Npc::onThinkTarget(uint32_t interval)
+{
+	if (!isSummon()) {
+		if (npcType->info.changeTargetSpeed != 0) {
+			bool canChangeTarget = true;
+
+			if (challengeFocusDuration > 0) {
+				challengeFocusDuration -= interval;
+
+				if (challengeFocusDuration <= 0) {
+					challengeFocusDuration = 0;
+				}
+			}
+
+			if (targetChangeCooldown > 0) {
+				targetChangeCooldown -= interval;
+
+				if (targetChangeCooldown <= 0) {
+					targetChangeCooldown = 0;
+					targetChangeTicks = npcType->info.changeTargetSpeed;
+				} else {
+					canChangeTarget = false;
+				}
+			}
+
+			if (canChangeTarget) {
+				targetChangeTicks += interval;
+
+				if (targetChangeTicks >= npcType->info.changeTargetSpeed) {
+					targetChangeTicks = 0;
+					targetChangeCooldown = npcType->info.changeTargetSpeed;
+
+					if (challengeFocusDuration > 0) {
+						challengeFocusDuration = 0;
+					}
+
+					if (npcType->info.changeTargetChance >= uniform_random(1, 100)) {
+						searchTarget(TARGETSEARCH_DEFAULT);
+					}
+				}
+			}
+		}
+	}
+}
+
+void Npc::onThinkDefense(uint32_t interval)
+{
+	bool resetTicks = true;
+	defenseTicks += interval;
+
+	for (const spellBlockNpc_t& spellBlock : npcType->info.defenseSpells) {
+		if (spellBlock.speed > defenseTicks) {
+			resetTicks = false;
+			continue;
+		}
+
+		if (defenseTicks % spellBlock.speed >= interval) {
+			//already used this spell for this round
+			continue;
+		}
+
+		if ((spellBlock.chance >= static_cast<uint32_t>(uniform_random(1, 100)))) {
+			minCombatValue = spellBlock.minCombatValue;
+			maxCombatValue = spellBlock.maxCombatValue;
+			spellBlock.spell->castSpell(this, this);
+		}
+	}
+
+	if (!isSummon() && summons.size() < npcType->info.maxSummons && hasFollowPath) {
+		for (const summonBlock_t& summonBlock : npcType->info.summons) {
+			if (summonBlock.speed > defenseTicks) {
+				resetTicks = false;
+				continue;
+			}
+
+			if (summons.size() >= npcType->info.maxSummons) {
+				continue;
+			}
+
+			if (defenseTicks % summonBlock.speed >= interval) {
+				//already used this spell for this round
+				continue;
+			}
+
+			uint32_t summonCount = 0;
+			for (Creature* summon : summons) {
+				if (summon->getName() == summonBlock.name) {
+					++summonCount;
+				}
+			}
+
+			if (summonCount >= summonBlock.max) {
+				continue;
+			}
+
+			if (summonBlock.chance < static_cast<uint32_t>(uniform_random(1, 100))) {
+				continue;
+			}
+
+			Npc* summon = Npc::createNpc(summonBlock.name);
+			if (summon) {
+				if (g_game.placeCreature(summon, getPosition(), false, summonBlock.force)) {
+					summon->setDropLoot(false);
+					summon->setSkillLoss(false);
+					summon->setMaster(this);
+					g_game.addMagicEffect(getPosition(), CONST_ME_MAGIC_BLUE);
+					g_game.addMagicEffect(summon->getPosition(), CONST_ME_TELEPORT);
+				} else {
+					delete summon;
+				}
+			}
+		}
+	}
+
+	if (resetTicks) {
+		defenseTicks = 0;
+	}
+}
+
+void Npc::onThinkYell(uint32_t interval)
+{
+	if (npcType->info.yellSpeedTicks == 0) {
+		return;
+	}
+
+	yellTicks += interval;
+	if (yellTicks >= npcType->info.yellSpeedTicks) {
+		yellTicks = 0;
+
+		if (!npcType->info.voiceVector.empty() && (npcType->info.yellChance >= static_cast<uint32_t>(uniform_random(1, 100)))) {
+			uint32_t index = uniform_random(0, npcType->info.voiceVector.size() - 1);
+			const voiceBlock_t& vb = npcType->info.voiceVector[index];
+
+			if (vb.yellText) {
+				g_game.internalCreatureSay(this, TALKTYPE_MONSTER_YELL, vb.text, false);
+			} else {
+				g_game.internalCreatureSay(this, TALKTYPE_MONSTER_YELL, vb.text, false);
+			}
+		}
+	}
+}
+
+void Npc::onCreatureWalk()
+{
+	Creature::onCreatureWalk();
+}
+
+bool Npc::pushItem(Item* item)
+{
+	const Position& centerPos = item->getPosition();
+
+	static std::vector<std::pair<int32_t, int32_t>> relList {
+		{-1, -1}, {0, -1}, {1, -1},
+		{-1,  0},          {1,  0},
+		{-1,  1}, {0,  1}, {1,  1}
+	};
+
+	std::shuffle(relList.begin(), relList.end(), getRandomGenerator());
+
+	for (const auto& it : relList) {
+		Position tryPos(centerPos.x + it.first, centerPos.y + it.second, centerPos.z);
+		Tile* tile = g_game.map.getTile(tryPos);
+		if (tile && g_game.canThrowObjectTo(centerPos, tryPos)) {
+			if (g_game.internalMoveItem(item->getParent(), tile, INDEX_WHEREEVER, item, item->getItemCount(), nullptr) == RETURNVALUE_NOERROR) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+void Npc::pushItems(Tile* tile)
+{
+	//We can not use iterators here since we can push the item to another tile
+	//which will invalidate the iterator.
+	//start from the end to minimize the amount of traffic
+	if (TileItemVector* items = tile->getItemList()) {
+		uint32_t moveCount = 0;
+		uint32_t removeCount = 0;
+
+		int32_t downItemSize = tile->getDownItemCount();
+		for (int32_t i = downItemSize; --i >= 0;) {
+			Item* item = items->at(i);
+			if (item && item->hasProperty(CONST_PROP_MOVEABLE) && (item->hasProperty(CONST_PROP_BLOCKPATH)
+					|| item->hasProperty(CONST_PROP_BLOCKSOLID)) && item->getActionId() != 100 /* non-moveable action*/) {
+				if (moveCount < 20 && Npc::pushItem(item)) {
+					++moveCount;
+				} else if (!item->isCorpse() && g_game.internalRemoveItem(item) == RETURNVALUE_NOERROR) {
+					++removeCount;
+				}
+			}
+		}
+
+		if (removeCount > 0) {
+			g_game.addMagicEffect(tile->getPosition(), CONST_ME_POFF);
+		}
+	}
+}
+
+bool Npc::pushCreature(Creature* creature)
+{
+	static std::vector<Direction> dirList {
+			DIRECTION_NORTH,
+		DIRECTION_WEST, DIRECTION_EAST,
+			DIRECTION_SOUTH
+	};
+	std::shuffle(dirList.begin(), dirList.end(), getRandomGenerator());
+
+	for (Direction dir : dirList) {
+		const Position& tryPos = Spells::getCasterPosition(creature, dir);
+		Tile* toTile = g_game.map.getTile(tryPos);
+		if (toTile && !toTile->hasFlag(TILESTATE_BLOCKPATH)) {
+			if (g_game.internalMoveCreature(creature, dir) == RETURNVALUE_NOERROR) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+void Npc::pushCreatures(Tile* tile)
+{
+	//We can not use iterators here since we can push a creature to another tile
+	//which will invalidate the iterator.
+	if (CreatureVector* creatures = tile->getCreatures()) {
+		uint32_t removeCount = 0;
+		Npc* lastPushedNpc = nullptr;
+
+		for (size_t i = 0; i < creatures->size();) {
+			Npc* npc = creatures->at(i)->getNpc();
+			if (npc && npc->isPushable()) {
+				if (npc != lastPushedNpc && Npc::pushCreature(npc)) {
+					lastPushedNpc = npc;
+					continue;
+				}
+
+				npc->changeHealth(-npc->getHealth());
+				npc->setDropLoot(true);
+				removeCount++;
+			}
+
+			++i;
+		}
+
+		if (removeCount > 0) {
+			g_game.addMagicEffect(tile->getPosition(), CONST_ME_BLOCKHIT);
+		}
+	}
+}
+
+bool Npc::getNextStep(Direction& nextDirection, uint32_t& flags)
+{
+	if (isIdle || getHealth() <= 0) {
+		//we dont have anyone watching might aswell stop walking
+		eventWalk = 0;
+		return false;
+	}
+
+	bool result = false;
+	if ((!followCreature || !hasFollowPath) && (!isSummon() || !isMasterInRange)) {
+		if (getTimeSinceLastMove() >= 1000) {
+			randomStepping = true;
+			//choose a random direction
+			result = getRandomStep(getPosition(), nextDirection);
+		}
+	} else if ((isSummon() && isMasterInRange) || followCreature) {
+		randomStepping = false;
+		result = Creature::getNextStep(nextDirection, flags);
+		if (result) {
+			flags |= FLAG_PATHFINDING;
+		} else {
+			if (ignoreFieldDamage) {
+				updateMapCache();
+			}
+			//target dancing
+			if (attackedCreature && attackedCreature == followCreature) {
+				if (isFleeing()) {
+					result = getDanceStep(getPosition(), nextDirection, false, false);
+				} else if (npcType->info.staticAttackChance < static_cast<uint32_t>(uniform_random(1, 100))) {
+					result = getDanceStep(getPosition(), nextDirection);
+				}
+			}
+		}
+	}
+
+	if (result && (canPushItems() || canPushCreatures())) {
+		const Position& pos = Spells::getCasterPosition(this, direction);
+		Tile* posTile = g_game.map.getTile(pos);
+		if (posTile) {
+			if (canPushItems()) {
+				Npc::pushItems(posTile);
+			}
+
+			if (canPushCreatures()) {
+				Npc::pushCreatures(posTile);
+			}
+		}
+	}
+
+	return result;
+}
+
+bool Npc::getRandomStep(const Position& creaturePos, Direction& moveDirection) const
+{
+	static std::vector<Direction> dirList{
+			DIRECTION_NORTH,
+		DIRECTION_WEST, DIRECTION_EAST,
+			DIRECTION_SOUTH
+	};
+	std::shuffle(dirList.begin(), dirList.end(), getRandomGenerator());
+
+	for (Direction dir : dirList) {
+		if (canWalkTo(creaturePos, dir)) {
+			moveDirection = dir;
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Npc::getDanceStep(const Position& creaturePos, Direction& moveDirection,
+						   bool keepAttack /*= true*/, bool keepDistance /*= true*/)
+{
+	bool canDoAttackNow = canUseAttack(creaturePos, attackedCreature);
+
+	assert(attackedCreature != nullptr);
+	const Position& centerPos = attackedCreature->getPosition();
+
+	int_fast32_t offset_x = Position::getOffsetX(creaturePos, centerPos);
+	int_fast32_t offset_y = Position::getOffsetY(creaturePos, centerPos);
+
+	int_fast32_t distance_x = std::abs(offset_x);
+	int_fast32_t distance_y = std::abs(offset_y);
+
+	uint32_t centerToDist = std::max<uint32_t>(distance_x, distance_y);
+
+	//npcs not at targetDistance shouldn't dancestep
+	if (centerToDist < (uint32_t) targetDistance) {
+		return false;
+	}
+
 	std::vector<Direction> dirList;
+
+	if (!keepDistance || offset_y >= 0) {
+		uint32_t tmpDist = std::max<uint32_t>(distance_x, std::abs((creaturePos.getY() - 1) - centerPos.getY()));
+		if (tmpDist == centerToDist && canWalkTo(creaturePos, DIRECTION_NORTH)) {
+			bool result = true;
+
+			if (keepAttack) {
+				result = (!canDoAttackNow || canUseAttack(Position(creaturePos.x, creaturePos.y - 1, creaturePos.z), attackedCreature));
+			}
+
+			if (result) {
+				dirList.push_back(DIRECTION_NORTH);
+			}
+		}
+	}
+
+	if (!keepDistance || offset_y <= 0) {
+		uint32_t tmpDist = std::max<uint32_t>(distance_x, std::abs((creaturePos.getY() + 1) - centerPos.getY()));
+		if (tmpDist == centerToDist && canWalkTo(creaturePos, DIRECTION_SOUTH)) {
+			bool result = true;
+
+			if (keepAttack) {
+				result = (!canDoAttackNow || canUseAttack(Position(creaturePos.x, creaturePos.y + 1, creaturePos.z), attackedCreature));
+			}
+
+			if (result) {
+				dirList.push_back(DIRECTION_SOUTH);
+			}
+		}
+	}
+
+	if (!keepDistance || offset_x <= 0) {
+		uint32_t tmpDist = std::max<uint32_t>(std::abs((creaturePos.getX() + 1) - centerPos.getX()), distance_y);
+		if (tmpDist == centerToDist && canWalkTo(creaturePos, DIRECTION_EAST)) {
+			bool result = true;
+
+			if (keepAttack) {
+				result = (!canDoAttackNow || canUseAttack(Position(creaturePos.x + 1, creaturePos.y, creaturePos.z), attackedCreature));
+			}
+
+			if (result) {
+				dirList.push_back(DIRECTION_EAST);
+			}
+		}
+	}
+
+	if (!keepDistance || offset_x >= 0) {
+		uint32_t tmpDist = std::max<uint32_t>(std::abs((creaturePos.getX() - 1) - centerPos.getX()), distance_y);
+		if (tmpDist == centerToDist && canWalkTo(creaturePos, DIRECTION_WEST)) {
+			bool result = true;
+
+			if (keepAttack) {
+				result = (!canDoAttackNow || canUseAttack(Position(creaturePos.x - 1, creaturePos.y, creaturePos.z), attackedCreature));
+			}
+
+			if (result) {
+				dirList.push_back(DIRECTION_WEST);
+			}
+		}
+	}
+
+	if (!dirList.empty()) {
+		std::shuffle(dirList.begin(), dirList.end(), getRandomGenerator());
+		moveDirection = dirList[uniform_random(0, dirList.size() - 1)];
+		return true;
+	}
+	return false;
+}
+
+bool Npc::getDistanceStep(const Position& targetPos, Direction& moveDirection, bool flee /* = false */)
+{
 	const Position& creaturePos = getPosition();
 
-	if (canWalkTo(creaturePos, DIRECTION_NORTH)) {
-		dirList.push_back(DIRECTION_NORTH);
+	int_fast32_t dx = Position::getDistanceX(creaturePos, targetPos);
+	int_fast32_t dy = Position::getDistanceY(creaturePos, targetPos);
+
+	int32_t distance = std::max<int32_t>(dx, dy);
+
+	if (!flee && (distance > targetDistance || !g_game.isSightClear(creaturePos, targetPos, true))) {
+		return false; // let the A* calculate it
+	} else if (!flee && distance == targetDistance) {
+		return true; // we don't really care here, since it's what we wanted to reach (a dancestep will take of dancing in that position)
 	}
 
-	if (canWalkTo(creaturePos, DIRECTION_SOUTH)) {
-		dirList.push_back(DIRECTION_SOUTH);
+	int_fast32_t offsetx = Position::getOffsetX(creaturePos, targetPos);
+	int_fast32_t offsety = Position::getOffsetY(creaturePos, targetPos);
+
+	if (dx <= 1 && dy <= 1) {
+		//seems like a target is near, it this case we need to slow down our movements (as a npc)
+		if (stepDuration < 2) {
+			stepDuration++;
+		}
+	} else if (stepDuration > 0) {
+		stepDuration--;
 	}
 
-	if (canWalkTo(creaturePos, DIRECTION_EAST)) {
-		dirList.push_back(DIRECTION_EAST);
+	if (offsetx == 0 && offsety == 0) {
+		return getRandomStep(creaturePos, moveDirection); // player is "on" the npc so let's get some random step and rest will be taken care later.
 	}
 
-	if (canWalkTo(creaturePos, DIRECTION_WEST)) {
-		dirList.push_back(DIRECTION_WEST);
+	if (dx == dy) {
+		//player is diagonal to the npc
+		if (offsetx >= 1 && offsety >= 1) {
+			// player is NW
+			//escape to SE, S or E [and some extra]
+			bool s = canWalkTo(creaturePos, DIRECTION_SOUTH);
+			bool e = canWalkTo(creaturePos, DIRECTION_EAST);
+
+			if (s && e) {
+				moveDirection = boolean_random() ? DIRECTION_SOUTH : DIRECTION_EAST;
+				return true;
+			} else if (s) {
+				moveDirection = DIRECTION_SOUTH;
+				return true;
+			} else if (e) {
+				moveDirection = DIRECTION_EAST;
+				return true;
+			} else if (canWalkTo(creaturePos, DIRECTION_SOUTHEAST)) {
+				moveDirection = DIRECTION_SOUTHEAST;
+				return true;
+			}
+
+			/* fleeing */
+			bool n = canWalkTo(creaturePos, DIRECTION_NORTH);
+			bool w = canWalkTo(creaturePos, DIRECTION_WEST);
+
+			if (flee) {
+				if (n && w) {
+					moveDirection = boolean_random() ? DIRECTION_NORTH : DIRECTION_WEST;
+					return true;
+				} else if (n) {
+					moveDirection = DIRECTION_NORTH;
+					return true;
+				} else if (w) {
+					moveDirection = DIRECTION_WEST;
+					return true;
+				}
+			}
+
+			/* end of fleeing */
+
+			if (w && canWalkTo(creaturePos, DIRECTION_SOUTHWEST)) {
+				moveDirection = DIRECTION_WEST;
+			} else if (n && canWalkTo(creaturePos, DIRECTION_NORTHEAST)) {
+				moveDirection = DIRECTION_NORTH;
+			}
+
+			return true;
+		} else if (offsetx <= -1 && offsety <= -1) {
+			//player is SE
+			//escape to NW , W or N [and some extra]
+			bool w = canWalkTo(creaturePos, DIRECTION_WEST);
+			bool n = canWalkTo(creaturePos, DIRECTION_NORTH);
+
+			if (w && n) {
+				moveDirection = boolean_random() ? DIRECTION_WEST : DIRECTION_NORTH;
+				return true;
+			} else if (w) {
+				moveDirection = DIRECTION_WEST;
+				return true;
+			} else if (n) {
+				moveDirection = DIRECTION_NORTH;
+				return true;
+			}
+
+			if (canWalkTo(creaturePos, DIRECTION_NORTHWEST)) {
+				moveDirection = DIRECTION_NORTHWEST;
+				return true;
+			}
+
+			/* fleeing */
+			bool s = canWalkTo(creaturePos, DIRECTION_SOUTH);
+			bool e = canWalkTo(creaturePos, DIRECTION_EAST);
+
+			if (flee) {
+				if (s && e) {
+					moveDirection = boolean_random() ? DIRECTION_SOUTH : DIRECTION_EAST;
+					return true;
+				} else if (s) {
+					moveDirection = DIRECTION_SOUTH;
+					return true;
+				} else if (e) {
+					moveDirection = DIRECTION_EAST;
+					return true;
+				}
+			}
+
+			/* end of fleeing */
+
+			if (s && canWalkTo(creaturePos, DIRECTION_SOUTHWEST)) {
+				moveDirection = DIRECTION_SOUTH;
+			} else if (e && canWalkTo(creaturePos, DIRECTION_NORTHEAST)) {
+				moveDirection = DIRECTION_EAST;
+			}
+
+			return true;
+		} else if (offsetx >= 1 && offsety <= -1) {
+			//player is SW
+			//escape to NE, N, E [and some extra]
+			bool n = canWalkTo(creaturePos, DIRECTION_NORTH);
+			bool e = canWalkTo(creaturePos, DIRECTION_EAST);
+			if (n && e) {
+				moveDirection = boolean_random() ? DIRECTION_NORTH : DIRECTION_EAST;
+				return true;
+			} else if (n) {
+				moveDirection = DIRECTION_NORTH;
+				return true;
+			} else if (e) {
+				moveDirection = DIRECTION_EAST;
+				return true;
+			}
+
+			if (canWalkTo(creaturePos, DIRECTION_NORTHEAST)) {
+				moveDirection = DIRECTION_NORTHEAST;
+				return true;
+			}
+
+			/* fleeing */
+			bool s = canWalkTo(creaturePos, DIRECTION_SOUTH);
+			bool w = canWalkTo(creaturePos, DIRECTION_WEST);
+
+			if (flee) {
+				if (s && w) {
+					moveDirection = boolean_random() ? DIRECTION_SOUTH : DIRECTION_WEST;
+					return true;
+				} else if (s) {
+					moveDirection = DIRECTION_SOUTH;
+					return true;
+				} else if (w) {
+					moveDirection = DIRECTION_WEST;
+					return true;
+				}
+			}
+
+			/* end of fleeing */
+
+			if (w && canWalkTo(creaturePos, DIRECTION_NORTHWEST)) {
+				moveDirection = DIRECTION_WEST;
+			} else if (s && canWalkTo(creaturePos, DIRECTION_SOUTHEAST)) {
+				moveDirection = DIRECTION_SOUTH;
+			}
+
+			return true;
+		} else if (offsetx <= -1 && offsety >= 1) {
+			// player is NE
+			//escape to SW, S, W [and some extra]
+			bool w = canWalkTo(creaturePos, DIRECTION_WEST);
+			bool s = canWalkTo(creaturePos, DIRECTION_SOUTH);
+			if (w && s) {
+				moveDirection = boolean_random() ? DIRECTION_WEST : DIRECTION_SOUTH;
+				return true;
+			} else if (w) {
+				moveDirection = DIRECTION_WEST;
+				return true;
+			} else if (s) {
+				moveDirection = DIRECTION_SOUTH;
+				return true;
+			} else if (canWalkTo(creaturePos, DIRECTION_SOUTHWEST)) {
+				moveDirection = DIRECTION_SOUTHWEST;
+				return true;
+			}
+
+			/* fleeing */
+			bool n = canWalkTo(creaturePos, DIRECTION_NORTH);
+			bool e = canWalkTo(creaturePos, DIRECTION_EAST);
+
+			if (flee) {
+				if (n && e) {
+					moveDirection = boolean_random() ? DIRECTION_NORTH : DIRECTION_EAST;
+					return true;
+				} else if (n) {
+					moveDirection = DIRECTION_NORTH;
+					return true;
+				} else if (e) {
+					moveDirection = DIRECTION_EAST;
+					return true;
+				}
+			}
+
+			/* end of fleeing */
+
+			if (e && canWalkTo(creaturePos, DIRECTION_SOUTHEAST)) {
+				moveDirection = DIRECTION_EAST;
+			} else if (n && canWalkTo(creaturePos, DIRECTION_NORTHWEST)) {
+				moveDirection = DIRECTION_NORTH;
+			}
+
+			return true;
+		}
 	}
 
-	if (dirList.empty()) {
-		return false;
+	//Now let's decide where the player is located to the npc (what direction) so we can decide where to escape.
+	if (dy > dx) {
+		Direction playerDir = offsety < 0 ? DIRECTION_SOUTH : DIRECTION_NORTH;
+		switch (playerDir) {
+			case DIRECTION_NORTH: {
+				// Player is to the NORTH, so obviously we need to check if we can go SOUTH, if not then let's choose WEST or EAST and again if we can't we need to decide about some diagonal movements.
+				if (canWalkTo(creaturePos, DIRECTION_SOUTH)) {
+					moveDirection = DIRECTION_SOUTH;
+					return true;
+				}
+
+				bool w = canWalkTo(creaturePos, DIRECTION_WEST);
+				bool e = canWalkTo(creaturePos, DIRECTION_EAST);
+				if (w && e && offsetx == 0) {
+					moveDirection = boolean_random() ? DIRECTION_WEST : DIRECTION_EAST;
+					return true;
+				} else if (w && offsetx <= 0) {
+					moveDirection = DIRECTION_WEST;
+					return true;
+				} else if (e && offsetx >= 0) {
+					moveDirection = DIRECTION_EAST;
+					return true;
+				}
+
+				/* fleeing */
+				if (flee) {
+					if (w && e) {
+						moveDirection = boolean_random() ? DIRECTION_WEST : DIRECTION_EAST;
+						return true;
+					} else if (w) {
+						moveDirection = DIRECTION_WEST;
+						return true;
+					} else if (e) {
+						moveDirection = DIRECTION_EAST;
+						return true;
+					}
+				}
+
+				/* end of fleeing */
+
+				bool sw = canWalkTo(creaturePos, DIRECTION_SOUTHWEST);
+				bool se = canWalkTo(creaturePos, DIRECTION_SOUTHEAST);
+				if (sw || se) {
+					// we can move both dirs
+					if (sw && se) {
+						moveDirection = boolean_random() ? DIRECTION_SOUTHWEST : DIRECTION_SOUTHEAST;
+					} else if (w) {
+						moveDirection = DIRECTION_WEST;
+					} else if (sw) {
+						moveDirection = DIRECTION_SOUTHWEST;
+					} else if (e) {
+						moveDirection = DIRECTION_EAST;
+					} else if (se) {
+						moveDirection = DIRECTION_SOUTHEAST;
+					}
+					return true;
+				}
+
+				/* fleeing */
+				if (flee && canWalkTo(creaturePos, DIRECTION_NORTH)) {
+					// towards player, yea
+					moveDirection = DIRECTION_NORTH;
+					return true;
+				}
+
+				/* end of fleeing */
+				break;
+			}
+
+			case DIRECTION_SOUTH: {
+				if (canWalkTo(creaturePos, DIRECTION_NORTH)) {
+					moveDirection = DIRECTION_NORTH;
+					return true;
+				}
+
+				bool w = canWalkTo(creaturePos, DIRECTION_WEST);
+				bool e = canWalkTo(creaturePos, DIRECTION_EAST);
+				if (w && e && offsetx == 0) {
+					moveDirection = boolean_random() ? DIRECTION_WEST : DIRECTION_EAST;
+					return true;
+				} else if (w && offsetx <= 0) {
+					moveDirection = DIRECTION_WEST;
+					return true;
+				} else if (e && offsetx >= 0) {
+					moveDirection = DIRECTION_EAST;
+					return true;
+				}
+
+				/* fleeing */
+				if (flee) {
+					if (w && e) {
+						moveDirection = boolean_random() ? DIRECTION_WEST : DIRECTION_EAST;
+						return true;
+					} else if (w) {
+						moveDirection = DIRECTION_WEST;
+						return true;
+					} else if (e) {
+						moveDirection = DIRECTION_EAST;
+						return true;
+					}
+				}
+
+				/* end of fleeing */
+
+				bool nw = canWalkTo(creaturePos, DIRECTION_NORTHWEST);
+				bool ne = canWalkTo(creaturePos, DIRECTION_NORTHEAST);
+				if (nw || ne) {
+					// we can move both dirs
+					if (nw && ne) {
+						moveDirection = boolean_random() ? DIRECTION_NORTHWEST : DIRECTION_NORTHEAST;
+					} else if (w) {
+						moveDirection = DIRECTION_WEST;
+					} else if (nw) {
+						moveDirection = DIRECTION_NORTHWEST;
+					} else if (e) {
+						moveDirection = DIRECTION_EAST;
+					} else if (ne) {
+						moveDirection = DIRECTION_NORTHEAST;
+					}
+					return true;
+				}
+
+				/* fleeing */
+				if (flee && canWalkTo(creaturePos, DIRECTION_SOUTH)) {
+					// towards player, yea
+					moveDirection = DIRECTION_SOUTH;
+					return true;
+				}
+
+				/* end of fleeing */
+				break;
+			}
+
+			default:
+				break;
+		}
+	} else {
+		Direction playerDir = offsetx < 0 ? DIRECTION_EAST : DIRECTION_WEST;
+		switch (playerDir) {
+			case DIRECTION_WEST: {
+				if (canWalkTo(creaturePos, DIRECTION_EAST)) {
+					moveDirection = DIRECTION_EAST;
+					return true;
+				}
+
+				bool n = canWalkTo(creaturePos, DIRECTION_NORTH);
+				bool s = canWalkTo(creaturePos, DIRECTION_SOUTH);
+				if (n && s && offsety == 0) {
+					moveDirection = boolean_random() ? DIRECTION_NORTH : DIRECTION_SOUTH;
+					return true;
+				} else if (n && offsety <= 0) {
+					moveDirection = DIRECTION_NORTH;
+					return true;
+				} else if (s && offsety >= 0) {
+					moveDirection = DIRECTION_SOUTH;
+					return true;
+				}
+
+				/* fleeing */
+				if (flee) {
+					if (n && s) {
+						moveDirection = boolean_random() ? DIRECTION_NORTH : DIRECTION_SOUTH;
+						return true;
+					} else if (n) {
+						moveDirection = DIRECTION_NORTH;
+						return true;
+					} else if (s) {
+						moveDirection = DIRECTION_SOUTH;
+						return true;
+					}
+				}
+
+				/* end of fleeing */
+
+				bool se = canWalkTo(creaturePos, DIRECTION_SOUTHEAST);
+				bool ne = canWalkTo(creaturePos, DIRECTION_NORTHEAST);
+				if (se || ne) {
+					if (se && ne) {
+						moveDirection = boolean_random() ? DIRECTION_SOUTHEAST : DIRECTION_NORTHEAST;
+					} else if (s) {
+						moveDirection = DIRECTION_SOUTH;
+					} else if (se) {
+						moveDirection = DIRECTION_SOUTHEAST;
+					} else if (n) {
+						moveDirection = DIRECTION_NORTH;
+					} else if (ne) {
+						moveDirection = DIRECTION_NORTHEAST;
+					}
+					return true;
+				}
+
+				/* fleeing */
+				if (flee && canWalkTo(creaturePos, DIRECTION_WEST)) {
+					// towards player, yea
+					moveDirection = DIRECTION_WEST;
+					return true;
+				}
+
+				/* end of fleeing */
+				break;
+			}
+
+			case DIRECTION_EAST: {
+				if (canWalkTo(creaturePos, DIRECTION_WEST)) {
+					moveDirection = DIRECTION_WEST;
+					return true;
+				}
+
+				bool n = canWalkTo(creaturePos, DIRECTION_NORTH);
+				bool s = canWalkTo(creaturePos, DIRECTION_SOUTH);
+				if (n && s && offsety == 0) {
+					moveDirection = boolean_random() ? DIRECTION_NORTH : DIRECTION_SOUTH;
+					return true;
+				} else if (n && offsety <= 0) {
+					moveDirection = DIRECTION_NORTH;
+					return true;
+				} else if (s && offsety >= 0) {
+					moveDirection = DIRECTION_SOUTH;
+					return true;
+				}
+
+				/* fleeing */
+				if (flee) {
+					if (n && s) {
+						moveDirection = boolean_random() ? DIRECTION_NORTH : DIRECTION_SOUTH;
+						return true;
+					} else if (n) {
+						moveDirection = DIRECTION_NORTH;
+						return true;
+					} else if (s) {
+						moveDirection = DIRECTION_SOUTH;
+						return true;
+					}
+				}
+
+				/* end of fleeing */
+
+				bool nw = canWalkTo(creaturePos, DIRECTION_NORTHWEST);
+				bool sw = canWalkTo(creaturePos, DIRECTION_SOUTHWEST);
+				if (nw || sw) {
+					if (nw && sw) {
+						moveDirection = boolean_random() ? DIRECTION_NORTHWEST : DIRECTION_SOUTHWEST;
+					} else if (n) {
+						moveDirection = DIRECTION_NORTH;
+					} else if (nw) {
+						moveDirection = DIRECTION_NORTHWEST;
+					} else if (s) {
+						moveDirection = DIRECTION_SOUTH;
+					} else if (sw) {
+						moveDirection = DIRECTION_SOUTHWEST;
+					}
+					return true;
+				}
+
+				/* fleeing */
+				if (flee && canWalkTo(creaturePos, DIRECTION_EAST)) {
+					// towards player, yea
+					moveDirection = DIRECTION_EAST;
+					return true;
+				}
+
+				/* end of fleeing */
+				break;
+			}
+
+			default:
+				break;
+		}
 	}
 
-	dir = dirList[uniform_random(0, dirList.size() - 1)];
 	return true;
 }
 
-void Npc::doMoveTo(const Position& target)
+bool Npc::canWalkTo(Position pos, Direction moveDirection) const
 {
-	std::forward_list<Direction> listDir;
-	if (getPathTo(target, listDir, 1, 1, true, true)) {
-		startAutoWalk(listDir);
-	}
-}
-
-void Npc::turnToCreature(Creature* creature)
-{
-	const Position& creaturePos = creature->getPosition();
-	const Position& myPos = getPosition();
-	const auto dx = Position::getOffsetX(myPos, creaturePos);
-	const auto dy = Position::getOffsetY(myPos, creaturePos);
-
-	float tan;
-	if (dx != 0) {
-		tan = static_cast<float>(dy) / dx;
-	} else {
-		tan = 10;
-	}
-
-	Direction dir;
-	if (std::abs(tan) < 1) {
-		if (dx > 0) {
-			dir = DIRECTION_WEST;
-		} else {
-			dir = DIRECTION_EAST;
+	pos = getNextPosition(moveDirection, pos);
+	if (isInSpawnRange(pos)) {
+		if (getWalkCache(pos) == 0) {
+			return false;
 		}
-	} else {
-		if (dy > 0) {
-			dir = DIRECTION_NORTH;
-		} else {
-			dir = DIRECTION_SOUTH;
+
+		Tile* tile = g_game.map.getTile(pos);
+		if (tile && tile->getTopVisibleCreature(this) == nullptr &&
+					tile->queryAdd(0, *this, 1, FLAG_PATHFINDING | FLAG_IGNOREFIELDDAMAGE) == RETURNVALUE_NOERROR) {
+			return true;
 		}
 	}
-	g_game.internalCreatureTurn(this, dir);
+	return false;
 }
 
-void Npc::setCreatureFocus(Creature* creature)
+void Npc::death(Creature*)
 {
-	if (creature) {
-		focusCreature = creature->getID();
-		turnToCreature(creature);
-	} else {
-		focusCreature = 0;
+	setAttackedCreature(nullptr);
+
+	for (Creature* summon : summons) {
+		summon->changeHealth(-summon->getHealth());
+		summon->removeMaster();
 	}
+	summons.clear();
+
+	clearTargetList();
+	clearFriendList();
+	onIdleStatus();
 }
 
-void Npc::addShopPlayer(Player* player)
+Item* Npc::getCorpse(Creature* lastHitCreature, Creature* mostDamageCreature)
 {
-	shopPlayerSet.insert(player);
-}
-
-void Npc::removeShopPlayer(Player* player)
-{
-	shopPlayerSet.erase(player);
-}
-
-void Npc::closeAllShopWindows()
-{
-	while (!shopPlayerSet.empty()) {
-		Player* player = *shopPlayerSet.begin();
-		if (!player->closeShopWindow()) {
-			removeShopPlayer(player);
+	Item* corpse = Creature::getCorpse(lastHitCreature, mostDamageCreature);
+	if (corpse) {
+		if (mostDamageCreature) {
+			if (mostDamageCreature->getPlayer()) {
+				corpse->setCorpseOwner(mostDamageCreature->getID());
+			} else {
+				const Creature* mostDamageCreatureMaster = mostDamageCreature->getMaster();
+				if (mostDamageCreatureMaster && mostDamageCreatureMaster->getPlayer()) {
+					corpse->setCorpseOwner(mostDamageCreatureMaster->getID());
+				}
+			}
 		}
 	}
+	return corpse;
 }
 
-NpcScriptInterface* Npc::getScriptInterface()
+bool Npc::isInSpawnRange(const Position& pos) const
 {
-	return scriptInterface;
-}
-
-NpcScriptInterface::NpcScriptInterface() :
-	LuaScriptInterface("Npc interface")
-{
-	libLoaded = false;
-	initState();
-}
-
-bool NpcScriptInterface::initState()
-{
-	luaState = g_luaEnvironment.getLuaState();
-	if (!luaState) {
-		return false;
-	}
-
-	registerFunctions();
-
-	lua_newtable(luaState);
-	eventTableRef = luaL_ref(luaState, LUA_REGISTRYINDEX);
-	runningEventId = EVENT_ID_USER;
-	return true;
-}
-
-bool NpcScriptInterface::closeState()
-{
-	libLoaded = false;
-	LuaScriptInterface::closeState();
-	return true;
-}
-
-bool NpcScriptInterface::loadNpcLib(const std::string& file)
-{
-	if (libLoaded) {
+	if (!spawnNpc) {
 		return true;
 	}
 
-	if (loadFile(file) == -1) {
-		std::cout << "[Warning - NpcScriptInterface::loadNpcLib] Can not load " << file << std::endl;
+	if (Npc::despawnRadius == 0) {
+		return true;
+	}
+
+	if (!SpawnsNpc::isInZone(masterPos, Npc::despawnRadius, pos)) {
 		return false;
 	}
 
-	libLoaded = true;
+	if (Npc::despawnRange == 0) {
+		return true;
+	}
+
+	if (Position::getDistanceZ(pos, masterPos) > Npc::despawnRange) {
+		return false;
+	}
+
 	return true;
 }
 
-void NpcScriptInterface::registerFunctions()
+bool Npc::getCombatValues(int32_t& min, int32_t& max)
 {
-	//npc exclusive functions
-	lua_register(luaState, "selfSay", NpcScriptInterface::luaActionSay);
-	lua_register(luaState, "selfMove", NpcScriptInterface::luaActionMove);
-	lua_register(luaState, "selfMoveTo", NpcScriptInterface::luaActionMoveTo);
-	lua_register(luaState, "selfTurn", NpcScriptInterface::luaActionTurn);
-	lua_register(luaState, "selfFollow", NpcScriptInterface::luaActionFollow);
-	lua_register(luaState, "getDistanceTo", NpcScriptInterface::luagetDistanceTo);
-	lua_register(luaState, "doNpcSetCreatureFocus", NpcScriptInterface::luaSetNpcFocus);
-	lua_register(luaState, "getNpcCid", NpcScriptInterface::luaGetNpcCid);
-	lua_register(luaState, "getNpcParameter", NpcScriptInterface::luaGetNpcParameter);
-	lua_register(luaState, "openShopWindow", NpcScriptInterface::luaOpenShopWindow);
-	lua_register(luaState, "closeShopWindow", NpcScriptInterface::luaCloseShopWindow);
-	lua_register(luaState, "doSellItem", NpcScriptInterface::luaDoSellItem);
+	if (minCombatValue == 0 && maxCombatValue == 0) {
+		return false;
+	}
 
-	// metatable
-	registerMethod("Npc", "getParameter", NpcScriptInterface::luaNpcGetParameter);
-	registerMethod("Npc", "setFocus", NpcScriptInterface::luaNpcSetFocus);
+	float multiplier;
+	if (maxCombatValue > 0) { //defense
+		multiplier = g_config.getFloat(ConfigManager::RATE_NPC_DEFENSE);
+	} else { //attack
+		multiplier = g_config.getFloat(ConfigManager::RATE_NPC_ATTACK);
+	}
 
-	registerMethod("Npc", "openShopWindow", NpcScriptInterface::luaNpcOpenShopWindow);
-	registerMethod("Npc", "closeShopWindow", NpcScriptInterface::luaNpcCloseShopWindow);
+	min = minCombatValue * multiplier;
+	max = maxCombatValue * multiplier;
+	return true;
 }
 
-int NpcScriptInterface::luaActionSay(lua_State* L)
+void Npc::updateLookDirection()
 {
-	//selfSay(words[, target])
-	Npc* npc = getScriptEnv()->getNpc();
-	if (!npc) {
-		return 0;
-	}
+	Direction newDir = getDirection();
 
-	const std::string& text = getString(L, 1);
-	if (lua_gettop(L) >= 2) {
-		Player* target = getPlayer(L, 2);
-		if (target) {
-			npc->doSayToPlayer(target, text);
-			return 0;
-		}
-	}
+	if (attackedCreature) {
+		const Position& pos = getPosition();
+		const Position& attackedCreaturePos = attackedCreature->getPosition();
+		int_fast32_t offsetx = Position::getOffsetX(attackedCreaturePos, pos);
+		int_fast32_t offsety = Position::getOffsetY(attackedCreaturePos, pos);
 
-	npc->doSay(text);
-	return 0;
-}
-
-int NpcScriptInterface::luaActionMove(lua_State* L)
-{
-	//selfMove(direction)
-	Npc* npc = getScriptEnv()->getNpc();
-	if (npc) {
-		g_game.internalMoveCreature(npc, getNumber<Direction>(L, 1));
-	}
-	return 0;
-}
-
-int NpcScriptInterface::luaActionMoveTo(lua_State* L)
-{
-	//selfMoveTo(x,y,z)
-	Npc* npc = getScriptEnv()->getNpc();
-	if (!npc) {
-		return 0;
-	}
-
-	npc->doMoveTo(Position(
-		getNumber<uint16_t>(L, 1),
-		getNumber<uint16_t>(L, 2),
-		getNumber<uint8_t>(L, 3)
-	));
-	return 0;
-}
-
-int NpcScriptInterface::luaActionTurn(lua_State* L)
-{
-	//selfTurn(direction)
-	Npc* npc = getScriptEnv()->getNpc();
-	if (npc) {
-		g_game.internalCreatureTurn(npc, getNumber<Direction>(L, 1));
-	}
-	return 0;
-}
-
-int NpcScriptInterface::luaActionFollow(lua_State* L)
-{
-	//selfFollow(player)
-	Npc* npc = getScriptEnv()->getNpc();
-	if (!npc) {
-		pushBoolean(L, false);
-		return 1;
-	}
-
-	pushBoolean(L, npc->setFollowCreature(getPlayer(L, 1)));
-	return 1;
-}
-
-int NpcScriptInterface::luagetDistanceTo(lua_State* L)
-{
-	//getDistanceTo(uid)
-	ScriptEnvironment* env = getScriptEnv();
-
-	Npc* npc = env->getNpc();
-	if (!npc) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_THING_NOT_FOUND));
-		lua_pushnil(L);
-		return 1;
-	}
-
-	uint32_t uid = getNumber<uint32_t>(L, -1);
-
-	Thing* thing = env->getThingByUID(uid);
-	if (!thing) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_THING_NOT_FOUND));
-		lua_pushnil(L);
-		return 1;
-	}
-
-	const Position& thingPos = thing->getPosition();
-	const Position& npcPos = npc->getPosition();
-	if (npcPos.z != thingPos.z) {
-		lua_pushnumber(L, -1);
-	} else {
-		int32_t dist = std::max<int32_t>(Position::getDistanceX(npcPos, thingPos), Position::getDistanceY(npcPos, thingPos));
-		lua_pushnumber(L, dist);
-	}
-	return 1;
-}
-
-int NpcScriptInterface::luaSetNpcFocus(lua_State* L)
-{
-	//doNpcSetCreatureFocus(cid)
-	Npc* npc = getScriptEnv()->getNpc();
-	if (npc) {
-		npc->setCreatureFocus(getCreature(L, -1));
-	}
-	return 0;
-}
-
-int NpcScriptInterface::luaGetNpcCid(lua_State* L)
-{
-	//getNpcCid()
-	Npc* npc = getScriptEnv()->getNpc();
-	if (npc) {
-		lua_pushnumber(L, npc->getID());
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int NpcScriptInterface::luaGetNpcParameter(lua_State* L)
-{
-	//getNpcParameter(paramKey)
-	Npc* npc = getScriptEnv()->getNpc();
-	if (!npc) {
-		lua_pushnil(L);
-		return 1;
-	}
-
-	std::string paramKey = getString(L, -1);
-
-	auto it = npc->parameters.find(paramKey);
-	if (it != npc->parameters.end()) {
-		LuaScriptInterface::pushString(L, it->second);
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int NpcScriptInterface::luaOpenShopWindow(lua_State* L)
-{
-	//openShopWindow(cid, items, onBuy callback, onSell callback)
-	int32_t sellCallback;
-	if (lua_isfunction(L, -1) == 0) {
-		sellCallback = -1;
-		lua_pop(L, 1); // skip it - use default value
-	} else {
-		sellCallback = popCallback(L);
-	}
-
-	int32_t buyCallback;
-	if (lua_isfunction(L, -1) == 0) {
-		buyCallback = -1;
-		lua_pop(L, 1); // skip it - use default value
-	} else {
-		buyCallback = popCallback(L);
-	}
-
-	if (lua_istable(L, -1) == 0) {
-		reportError(__FUNCTION__, "item list is not a table.");
-		pushBoolean(L, false);
-		return 1;
-	}
-
-	std::vector<ShopInfo> items;
-	lua_pushnil(L);
-	while (lua_next(L, -2) != 0) {
-		const auto tableIndex = lua_gettop(L);
-		ShopInfo item;
-
-		uint16_t itemId = static_cast<uint16_t>(getField<uint32_t>(L, tableIndex, "id"));
-		int32_t subType = getField<int32_t>(L, tableIndex, "subType");
-		if (subType == 0) {
-			subType = getField<int32_t>(L, tableIndex, "subtype");
-			lua_pop(L, 1);
-		}
-
-		uint32_t buyPrice = getField<uint32_t>(L, tableIndex, "buy");
-		uint32_t sellPrice = getField<uint32_t>(L, tableIndex, "sell");
-		std::string realName = getFieldString(L, tableIndex, "name");
-
-		items.emplace_back(itemId, subType, buyPrice, sellPrice, std::move(realName));
-		lua_pop(L, 6);
-	}
-	lua_pop(L, 1);
-
-	Player* player = getPlayer(L, -1);
-	if (!player) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
-		pushBoolean(L, false);
-		return 1;
-	}
-
-	//Close any eventual other shop window currently open.
-	player->closeShopWindow(false);
-
-	Npc* npc = getScriptEnv()->getNpc();
-	if (!npc) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_CREATURE_NOT_FOUND));
-		pushBoolean(L, false);
-		return 1;
-	}
-
-	npc->addShopPlayer(player);
-	player->setShopOwner(npc, buyCallback, sellCallback);
-	player->openShopWindow(npc, items);
-
-	pushBoolean(L, true);
-	return 1;
-}
-
-int NpcScriptInterface::luaCloseShopWindow(lua_State* L)
-{
-	//closeShopWindow(cid)
-	Npc* npc = getScriptEnv()->getNpc();
-	if (!npc) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_CREATURE_NOT_FOUND));
-		pushBoolean(L, false);
-		return 1;
-	}
-
-	Player* player = getPlayer(L, 1);
-	if (!player) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
-		pushBoolean(L, false);
-		return 1;
-	}
-
-	int32_t buyCallback;
-	int32_t sellCallback;
-
-	Npc* merchant = player->getShopOwner(buyCallback, sellCallback);
-
-	//Check if we actually have a shop window with this player.
-	if (merchant == npc) {
-		player->sendCloseShop();
-
-		if (buyCallback != -1) {
-			luaL_unref(L, LUA_REGISTRYINDEX, buyCallback);
-		}
-
-		if (sellCallback != -1) {
-			luaL_unref(L, LUA_REGISTRYINDEX, sellCallback);
-		}
-
-		player->setShopOwner(nullptr, -1, -1);
-		npc->removeShopPlayer(player);
-	}
-
-	pushBoolean(L, true);
-	return 1;
-}
-
-int NpcScriptInterface::luaDoSellItem(lua_State* L)
-{
-	//doSellItem(cid, itemid, amount, <optional> subtype, <optional> actionid, <optional: default: 1> canDropOnMap)
-	Player* player = getPlayer(L, 1);
-	if (!player) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
-		pushBoolean(L, false);
-		return 1;
-	}
-
-	uint32_t sellCount = 0;
-
-	uint32_t itemId = getNumber<uint32_t>(L, 2);
-	uint32_t amount = getNumber<uint32_t>(L, 3);
-	uint32_t subType;
-
-	int32_t n = getNumber<int32_t>(L, 4, -1);
-	if (n != -1) {
-		subType = n;
-	} else {
-		subType = 1;
-	}
-
-	uint32_t actionId = getNumber<uint32_t>(L, 5, 0);
-	bool canDropOnMap = getBoolean(L, 6, true);
-
-	const ItemType& it = Item::items[itemId];
-	if (it.stackable) {
-		while (amount > 0) {
-			int32_t stackCount = std::min<int32_t>(100, amount);
-			Item* item = Item::CreateItem(it.id, stackCount);
-			if (item && actionId != 0) {
-				item->setActionId(actionId);
+		int32_t dx = std::abs(offsetx);
+		int32_t dy = std::abs(offsety);
+		if (dx > dy) {
+			//look EAST/WEST
+			if (offsetx < 0) {
+				newDir = DIRECTION_WEST;
+			} else {
+				newDir = DIRECTION_EAST;
 			}
-
-			if (g_game.internalPlayerAddItem(player, item, canDropOnMap) != RETURNVALUE_NOERROR) {
-				delete item;
-				lua_pushnumber(L, sellCount);
-				return 1;
+		} else if (dx < dy) {
+			//look NORTH/SOUTH
+			if (offsety < 0) {
+				newDir = DIRECTION_NORTH;
+			} else {
+				newDir = DIRECTION_SOUTH;
 			}
-
-			amount -= stackCount;
-			sellCount += stackCount;
-		}
-	} else {
-		for (uint32_t i = 0; i < amount; ++i) {
-			Item* item = Item::CreateItem(it.id, subType);
-			if (item && actionId != 0) {
-				item->setActionId(actionId);
-			}
-
-			if (g_game.internalPlayerAddItem(player, item, canDropOnMap) != RETURNVALUE_NOERROR) {
-				delete item;
-				lua_pushnumber(L, sellCount);
-				return 1;
-			}
-
-			++sellCount;
-		}
-	}
-
-	lua_pushnumber(L, sellCount);
-	return 1;
-}
-
-int NpcScriptInterface::luaNpcGetParameter(lua_State* L)
-{
-	// npc:getParameter(key)
-	const std::string& key = getString(L, 2);
-	Npc* npc = getUserdata<Npc>(L, 1);
-	if (npc) {
-		auto it = npc->parameters.find(key);
-		if (it != npc->parameters.end()) {
-			pushString(L, it->second);
 		} else {
-			lua_pushnil(L);
+			Direction dir = getDirection();
+			if (offsetx < 0 && offsety < 0) {
+				if (dir == DIRECTION_SOUTH) {
+					newDir = DIRECTION_WEST;
+				} else if (dir == DIRECTION_EAST) {
+					newDir = DIRECTION_NORTH;
+				}
+			} else if (offsetx < 0 && offsety > 0) {
+				if (dir == DIRECTION_NORTH) {
+					newDir = DIRECTION_WEST;
+				} else if (dir == DIRECTION_EAST) {
+					newDir = DIRECTION_SOUTH;
+				}
+			} else if (offsetx > 0 && offsety < 0) {
+				if (dir == DIRECTION_SOUTH) {
+					newDir = DIRECTION_EAST;
+				} else if (dir == DIRECTION_WEST) {
+					newDir = DIRECTION_NORTH;
+				}
+			} else {
+				if (dir == DIRECTION_NORTH) {
+					newDir = DIRECTION_EAST;
+				} else if (dir == DIRECTION_WEST) {
+					newDir = DIRECTION_SOUTH;
+				}
+			}
 		}
+	}
+
+	g_game.internalCreatureTurn(this, newDir);
+}
+
+void Npc::dropLoot(Container* corpse, Creature*)
+{
+	if (corpse && lootDrop) {
+//monster		g_events->eventNpcOnDropLoot(this, corpse);
+	}
+}
+
+void Npc::setNormalCreatureLight()
+{
+	internalLight = npcType->info.light;
+}
+
+void Npc::drainHealth(Creature* attacker, int32_t damage)
+{
+	Creature::drainHealth(attacker, damage);
+
+	if (damage > 0 && randomStepping) {
+		ignoreFieldDamage = true;
+		updateMapCache();
+	}
+
+	if (isInvisible()) {
+		removeCondition(CONDITION_INVISIBLE);
+	}
+}
+
+void Npc::changeHealth(int32_t healthChange, bool sendHealthChange/* = true*/)
+{
+	//In case a player with ignore flag set attacks the npc
+	setIdle(false);
+	Creature::changeHealth(healthChange, sendHealthChange);
+}
+
+bool Npc::challengeCreature(Creature* creature)
+{
+	if (isSummon()) {
+		return false;
+	}
+
+	bool result = selectTarget(creature);
+	if (result) {
+		targetChangeCooldown = 8000;
+		challengeFocusDuration = targetChangeCooldown;
+		targetChangeTicks = 0;
+	}
+	return result;
+}
+
+bool Npc::changeTargetDistance(int32_t distance)
+{
+	if (isSummon()) {
+		return false;
+	}
+
+	if (npcType->info.isRewardBoss) {
+		return false;
+	}
+
+	bool shouldUpdate = npcType->info.targetDistance > distance ? true : false;
+	challengeMeleeDuration = 12000;
+	targetDistance = distance;
+
+	if (shouldUpdate) {
+		g_game.updateCreatureIcon(this);
+	}
+	return true;
+}
+
+void Npc::getPathSearchParams(const Creature* creature, FindPathParams& fpp) const
+{
+	Creature::getPathSearchParams(creature, fpp);
+
+	fpp.minTargetDist = 1;
+	fpp.maxTargetDist = targetDistance;
+
+	if (isSummon()) {
+		if (getMaster() == creature) {
+			int32_t distX = Position::getDistanceX(getPosition(), creature->getPosition());
+			int32_t distY = Position::getDistanceY(getPosition(), creature->getPosition());
+			fpp.absoluteDist = true;
+			fpp.preferDiagonal = !(distX >= 2 && distY == 0 || distY >= 2 && distX == 0);
+			fpp.maxTargetDist = 2;
+			fpp.fullPathSearch = true;
+		} else if (targetDistance <= 1) {
+			fpp.fullPathSearch = true;
+		} else {
+			fpp.fullPathSearch = !canUseAttack(getPosition(), creature);
+		}
+	} else if (isFleeing()) {
+		//Distance should be higher than the client view range (Map::maxClientViewportX/Map::maxClientViewportY)
+		fpp.maxTargetDist = Map::maxViewportX;
+		fpp.clearSight = false;
+		fpp.keepDistance = true;
+		fpp.fullPathSearch = false;
+	} else if (targetDistance <= 1) {
+		fpp.fullPathSearch = true;
 	} else {
-		lua_pushnil(L);
+		fpp.fullPathSearch = !canUseAttack(getPosition(), creature);
 	}
-	return 1;
-}
-
-int NpcScriptInterface::luaNpcSetFocus(lua_State* L)
-{
-	// npc:setFocus(creature)
-	Creature* creature = getCreature(L, 2);
-	Npc* npc = getUserdata<Npc>(L, 1);
-	if (npc) {
-		npc->setCreatureFocus(creature);
-		pushBoolean(L, true);
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int NpcScriptInterface::luaNpcOpenShopWindow(lua_State* L)
-{
-	// npc:openShopWindow(cid, items, buyCallback, sellCallback)
-	if (!isTable(L, 3)) {
-		reportErrorFunc("item list is not a table.");
-		pushBoolean(L, false);
-		return 1;
-	}
-
-	Player* player = getPlayer(L, 2);
-	if (!player) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
-		pushBoolean(L, false);
-		return 1;
-	}
-
-	Npc* npc = getUserdata<Npc>(L, 1);
-	if (!npc) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_CREATURE_NOT_FOUND));
-		pushBoolean(L, false);
-		return 1;
-	}
-
-	int32_t sellCallback = -1;
-	if (LuaScriptInterface::isFunction(L, 5)) {
-		sellCallback = luaL_ref(L, LUA_REGISTRYINDEX);
-	}
-
-	int32_t buyCallback = -1;
-	if (LuaScriptInterface::isFunction(L, 4)) {
-		buyCallback = luaL_ref(L, LUA_REGISTRYINDEX);
-	}
-
-	std::vector<ShopInfo> items;
-
-	lua_pushnil(L);
-	while (lua_next(L, 3) != 0) {
-		const auto tableIndex = lua_gettop(L);
-		ShopInfo item;
-
-		uint16_t itemId = static_cast<uint16_t>(getField<uint32_t>(L, tableIndex, "id"));
-		int32_t subType = getField<int32_t>(L, tableIndex, "subType");
-		if (subType == 0) {
-			subType = getField<int32_t>(L, tableIndex, "subtype");
-			lua_pop(L, 1);
-		}
-
-		uint32_t buyPrice = getField<uint32_t>(L, tableIndex, "buy");
-		uint32_t sellPrice = getField<uint32_t>(L, tableIndex, "sell");
-		std::string realName = getFieldString(L, tableIndex, "name");
-
-		items.emplace_back(itemId, subType, buyPrice, sellPrice, std::move(realName));
-		lua_pop(L, 6);
-	}
-	lua_pop(L, 1);
-
-	player->closeShopWindow(false);
-	npc->addShopPlayer(player);
-
-	player->setShopOwner(npc, buyCallback, sellCallback);
-	player->openShopWindow(npc, items);
-
-	pushBoolean(L, true);
-	return 1;
-}
-
-int NpcScriptInterface::luaNpcCloseShopWindow(lua_State* L)
-{
-	// npc:closeShopWindow(player)
-	Player* player = getPlayer(L, 2);
-	if (!player) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
-		pushBoolean(L, false);
-		return 1;
-	}
-
-	Npc* npc = getUserdata<Npc>(L, 1);
-	if (!npc) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_CREATURE_NOT_FOUND));
-		pushBoolean(L, false);
-		return 1;
-	}
-
-	int32_t buyCallback;
-	int32_t sellCallback;
-
-	Npc* merchant = player->getShopOwner(buyCallback, sellCallback);
-	if (merchant == npc) {
-		player->sendCloseShop();
-		if (buyCallback != -1) {
-			luaL_unref(L, LUA_REGISTRYINDEX, buyCallback);
-		}
-
-		if (sellCallback != -1) {
-			luaL_unref(L, LUA_REGISTRYINDEX, sellCallback);
-		}
-
-		player->setShopOwner(nullptr, -1, -1);
-		npc->removeShopPlayer(player);
-	}
-
-	pushBoolean(L, true);
-	return 1;
-}
-
-NpcEventsHandler::NpcEventsHandler(const std::string& file, Npc* npcEvent) :
-	npc(npcEvent), scriptInterface(npcEvent->getScriptInterface())
-{
-	loaded = scriptInterface->loadFile("data/npc/scripts/" + file, npc) == 0;
-	if (!loaded) {
-		std::cout << "[Warning - NpcScript::NpcScript] Can not load script: " << file << std::endl;
-		std::cout << scriptInterface->getLastLuaError() << std::endl;
-	} else {
-		creatureSayEvent = scriptInterface->getEvent("onCreatureSay");
-		creatureDisappearEvent = scriptInterface->getEvent("onCreatureDisappear");
-		creatureAppearEvent = scriptInterface->getEvent("onCreatureAppear");
-		creatureMoveEvent = scriptInterface->getEvent("onCreatureMove");
-		playerCloseChannelEvent = scriptInterface->getEvent("onPlayerCloseChannel");
-		playerEndTradeEvent = scriptInterface->getEvent("onPlayerEndTrade");
-		thinkEvent = scriptInterface->getEvent("onThink");
-	}
-}
-
-bool NpcEventsHandler::isLoaded() const
-{
-	return loaded;
-}
-
-void NpcEventsHandler::onCreatureAppear(Creature* creature)
-{
-	if (creatureAppearEvent == -1) {
-		return;
-	}
-
-	//onCreatureAppear(creature)
-	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onCreatureAppear"
-				<< " NPC "
-				<< npc->getName()
-				<< " creature "
-				<< creature->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
-		return;
-	}
-
-	ScriptEnvironment* env = scriptInterface->getScriptEnv();
-	env->setScriptId(creatureAppearEvent, scriptInterface);
-	env->setNpc(npc);
-
-	lua_State* L = scriptInterface->getLuaState();
-	scriptInterface->pushFunction(creatureAppearEvent);
-	LuaScriptInterface::pushUserdata<Creature>(L, creature);
-	LuaScriptInterface::setCreatureMetatable(L, -1, creature);
-	scriptInterface->callFunction(1);
-}
-
-void NpcEventsHandler::onCreatureDisappear(Creature* creature)
-{
-	if (creatureDisappearEvent == -1) {
-		return;
-	}
-
-	//onCreatureDisappear(creature)
-	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onCreatureDisappear"
-				<< " NPC "
-				<< npc->getName()
-				<< " creature "
-				<< creature->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
-		return;
-	}
-
-	ScriptEnvironment* env = scriptInterface->getScriptEnv();
-	env->setScriptId(creatureDisappearEvent, scriptInterface);
-	env->setNpc(npc);
-
-	lua_State* L = scriptInterface->getLuaState();
-	scriptInterface->pushFunction(creatureDisappearEvent);
-	LuaScriptInterface::pushUserdata<Creature>(L, creature);
-	LuaScriptInterface::setCreatureMetatable(L, -1, creature);
-	scriptInterface->callFunction(1);
-}
-
-void NpcEventsHandler::onCreatureMove(Creature* creature, const Position& oldPos, const Position& newPos)
-{
-	if (creatureMoveEvent == -1) {
-		return;
-	}
-
-	//onCreatureMove(creature, oldPos, newPos)
-	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onCreatureMove"
-				<< " NPC "
-				<< npc->getName()
-				<< " creature "
-				<< creature->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
-		return;
-	}
-
-	ScriptEnvironment* env = scriptInterface->getScriptEnv();
-	env->setScriptId(creatureMoveEvent, scriptInterface);
-	env->setNpc(npc);
-
-	lua_State* L = scriptInterface->getLuaState();
-	scriptInterface->pushFunction(creatureMoveEvent);
-	LuaScriptInterface::pushUserdata<Creature>(L, creature);
-	LuaScriptInterface::setCreatureMetatable(L, -1, creature);
-	LuaScriptInterface::pushPosition(L, oldPos);
-	LuaScriptInterface::pushPosition(L, newPos);
-	scriptInterface->callFunction(3);
-}
-
-void NpcEventsHandler::onCreatureSay(Creature* creature, SpeakClasses type, const std::string& text)
-{
-	if (creatureSayEvent == -1) {
-		return;
-	}
-
-	//onCreatureSay(creature, type, msg)
-	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onCreatureSay"
-				<< " NPC "
-				<< npc->getName()
-				<< " creature "
-				<< creature->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
-		return;
-	}
-
-	ScriptEnvironment* env = scriptInterface->getScriptEnv();
-	env->setScriptId(creatureSayEvent, scriptInterface);
-	env->setNpc(npc);
-
-	lua_State* L = scriptInterface->getLuaState();
-	scriptInterface->pushFunction(creatureSayEvent);
-	LuaScriptInterface::pushUserdata<Creature>(L, creature);
-	LuaScriptInterface::setCreatureMetatable(L, -1, creature);
-	lua_pushnumber(L, type);
-	LuaScriptInterface::pushString(L, text);
-	scriptInterface->callFunction(3);
-}
-
-void NpcEventsHandler::onPlayerTrade(Player* player, int32_t callback, uint16_t itemid,
-							  uint8_t count, uint8_t amount, bool ignore, bool inBackpacks)
-{
-	if (callback == -1) {
-		return;
-	}
-
-	//onBuy(player, itemid, count, amount, ignore, inbackpacks)
-	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onPlayerTrade"
-				<< " NPC "
-				<< npc->getName()
-				<< " player "
-				<< player->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
-		return;
-	}
-
-	ScriptEnvironment* env = scriptInterface->getScriptEnv();
-	env->setScriptId(-1, scriptInterface);
-	env->setNpc(npc);
-
-	lua_State* L = scriptInterface->getLuaState();
-	LuaScriptInterface::pushCallback(L, callback);
-	LuaScriptInterface::pushUserdata<Player>(L, player);
-	LuaScriptInterface::setMetatable(L, -1, "Player");
-	lua_pushnumber(L, itemid);
-	lua_pushnumber(L, count);
-	lua_pushnumber(L, amount);
-	LuaScriptInterface::pushBoolean(L, ignore);
-	LuaScriptInterface::pushBoolean(L, inBackpacks);
-	scriptInterface->callFunction(6);
-}
-
-void NpcEventsHandler::onPlayerCloseChannel(Player* player)
-{
-	if (playerCloseChannelEvent == -1) {
-		return;
-	}
-
-	//onPlayerCloseChannel(player)
-	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onPlayerCloseChannel"
-				<< " NPC "
-				<< npc->getName()
-				<< " player "
-				<< player->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
-		return;
-	}
-
-	ScriptEnvironment* env = scriptInterface->getScriptEnv();
-	env->setScriptId(playerCloseChannelEvent, scriptInterface);
-	env->setNpc(npc);
-
-	lua_State* L = scriptInterface->getLuaState();
-	scriptInterface->pushFunction(playerCloseChannelEvent);
-	LuaScriptInterface::pushUserdata<Player>(L, player);
-	LuaScriptInterface::setMetatable(L, -1, "Player");
-	scriptInterface->callFunction(1);
-}
-
-void NpcEventsHandler::onPlayerEndTrade(Player* player)
-{
-	if (playerEndTradeEvent == -1) {
-		return;
-	}
-
-	//onPlayerEndTrade(player)
-	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onPlayerEndTrade"
-				<< " NPC "
-				<< npc->getName()
-				<< " player "
-				<< player->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
-		return;
-	}
-
-	ScriptEnvironment* env = scriptInterface->getScriptEnv();
-	env->setScriptId(playerEndTradeEvent, scriptInterface);
-	env->setNpc(npc);
-
-	lua_State* L = scriptInterface->getLuaState();
-	scriptInterface->pushFunction(playerEndTradeEvent);
-	LuaScriptInterface::pushUserdata<Player>(L, player);
-	LuaScriptInterface::setMetatable(L, -1, "Player");
-	scriptInterface->callFunction(1);
-}
-
-void NpcEventsHandler::onThink()
-{
-	if (thinkEvent == -1) {
-		return;
-	}
-
-	//onThink()
-	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - NpcScript::onThink"
-				<< " NPC "
-				<< npc->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
-		return;
-	}
-
-	ScriptEnvironment* env = scriptInterface->getScriptEnv();
-	env->setScriptId(thinkEvent, scriptInterface);
-	env->setNpc(npc);
-
-	scriptInterface->pushFunction(thinkEvent);
-	scriptInterface->callFunction(0);
 }

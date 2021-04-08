@@ -212,7 +212,7 @@ class LuaScriptInterface
 		virtual bool initState();
 		bool reInitState();
 
-		int32_t loadFile(const std::string& file, Npc* npc = nullptr);
+		int32_t loadFile(const std::string& file);
 
 		const std::string& getFileById(int32_t scriptId);
 		int32_t getEvent(const std::string& eventName);
@@ -534,6 +534,9 @@ class LuaScriptInterface
 		static int luaTableCreate(lua_State* L);
 
 		// Game
+		static int luaGameCreateMonsterType(lua_State* L);
+		static int luaGameCreateNpcType(lua_State* L);
+		
 		static int luaGamegetEventSLoot(lua_State* L);
 		static int luaGamegetEventSSkill(lua_State* L);
 		static int luaGamegetEventSExp(lua_State* L);
@@ -545,7 +548,6 @@ class LuaScriptInterface
 
 		static int luaGameGetPlayers(lua_State* L);
 		static int luaGameLoadMap(lua_State* L);
-		static int luaGameLoadSpawnFile(lua_State* L);
 
 		static int luaGameGetMonsterCount(lua_State* L);
 		static int luaGameGetPlayerCount(lua_State* L);
@@ -572,7 +574,6 @@ class LuaScriptInterface
 
 		static int luaGameGetBestiaryCharm(lua_State* L);
 		static int luaGameCreateBestiaryCharm(lua_State* L);
-		static int luaGameCreateMonsterType(lua_State* L);
 
 		static int luaGameStartRaid(lua_State* L);
 
@@ -1186,6 +1187,7 @@ class LuaScriptInterface
 		static int luaNpcSetSpeechBubble(lua_State* L);
 		static int luaNpcSetName(lua_State* L);
 		static int luaNpcPlace(lua_State* L);
+		static int luaNpcSay(lua_State* L);
 		// Guild
 		static int luaGuildCreate(lua_State* L);
 
@@ -1390,6 +1392,96 @@ class LuaScriptInterface
 		static int luaParseBestiaryCharmEffect(lua_State* L);
 		static int luaParseBestiaryCharmPoints(lua_State* L);
 		static int luaBestiaryCharmCreate(lua_State* L);
+
+		// NpcType
+		static int luaNpcTypeCreate(lua_State* L);
+
+		static int luaNpcTypeIsAttackable(lua_State* L);
+		static int luaNpcTypeIsConvinceable(lua_State* L);
+		static int luaNpcTypeIsSummonable(lua_State* L);
+		static int luaNpcTypeIsIllusionable(lua_State* L);
+		static int luaNpcTypeIsHostile(lua_State* L);
+		static int luaNpcTypeIsPushable(lua_State* L);
+		static int luaNpcTypeIsHealthHidden(lua_State* L);
+		static int luaNpcTypeIsBlockable(lua_State* L);
+
+		static int luaNpcTypeIsRewardBoss(lua_State* L);
+		static int luaNpcTypeRespawnType(lua_State* L);
+        static int luaNpcTypeCanSpawn(lua_State* L);
+
+		static int luaNpcTypeCanPushItems(lua_State* L);
+		static int luaNpcTypeCanPushCreatures(lua_State* L);
+
+		static int luaNpcTypeName(lua_State* L);
+		static int luaNpcTypeNameDescription(lua_State* L);
+
+		static int luaNpcTypegetCorpseId(lua_State* L);
+
+		static int luaNpcTypeHealth(lua_State* L);
+		static int luaNpcTypeMaxHealth(lua_State* L);
+		static int luaNpcTypeRunHealth(lua_State* L);
+		static int luaNpcTypeExperience(lua_State* L);
+
+		static int luaNpcTypeCombatImmunities(lua_State* L);
+		static int luaNpcTypeConditionImmunities(lua_State* L);
+
+		static int luaNpcTypeGetAttackList(lua_State* L);
+		static int luaNpcTypeAddAttack(lua_State* L);
+
+		static int luaNpcTypeGetDefenseList(lua_State* L);
+		static int luaNpcTypeAddDefense(lua_State* L);
+
+		static int luaNpcTypeGetElementList(lua_State* L);
+		static int luaNpcTypeAddElement(lua_State* L);
+
+		static int luaNpcTypeAddReflect(lua_State* L);
+		static int luaNpcTypeAddHealing(lua_State* L);
+
+		static int luaNpcTypeGetVoices(lua_State* L);
+		static int luaNpcTypeAddVoice(lua_State* L);
+
+		static int luaNpcTypeGetLoot(lua_State* L);
+		static int luaNpcTypeAddLoot(lua_State* L);
+
+		static int luaNpcTypeGetCreatureEvents(lua_State* L);
+		static int luaNpcTypeRegisterEvent(lua_State* L);
+
+		static int luaNpcTypeEventOnCallback(lua_State* L);
+		static int luaNpcTypeEventType(lua_State* L);
+
+		static int luaNpcTypeGetSummonList(lua_State* L);
+		static int luaNpcTypeAddSummon(lua_State* L);
+
+		static int luaNpcTypeMaxSummons(lua_State* L);
+
+		static int luaNpcTypeArmor(lua_State* L);
+		static int luaNpcTypeDefense(lua_State* L);
+		static int luaNpcTypeOutfit(lua_State* L);
+		static int luaNpcTypeRace(lua_State* L);
+		static int luaNpcTypeCorpseId(lua_State* L);
+		static int luaNpcTypeBaseSpeed(lua_State* L);
+		static int luaNpcTypeWalkInterval(lua_State* L);
+		static int luaNpcTypeWalkRadius(lua_State* L);
+		static int luaNpcTypeLight(lua_State* L);
+
+		static int luaNpcTypeStaticAttackChance(lua_State* L);
+		static int luaNpcTypeTargetDistance(lua_State* L);
+		static int luaNpcTypeYellChance(lua_State* L);
+		static int luaNpcTypeYellSpeedTicks(lua_State* L);
+		static int luaNpcTypeChangeTargetChance(lua_State* L);
+		static int luaNpcTypeChangeTargetSpeed(lua_State* L);
+
+        static int luaNpcTypeCanWalkOnEnergy(lua_State* L);
+        static int luaNpcTypeCanWalkOnFire(lua_State* L);
+        static int luaNpcTypeCanWalkOnPoison(lua_State* L);
+
+        static int luaNpcTypeStrategiesTargetNearest(lua_State* L);
+        static int luaNpcTypeStrategiesTargetHealth(lua_State* L);
+        static int luaNpcTypeStrategiesTargetDamage(lua_State* L);
+        static int luaNpcTypeStrategiesTargetRandom(lua_State* L);
+
+		static int luaNpcTypeRespawnTypePeriod(lua_State* L);
+		static int luaNpcTypeRespawnTypeIsUnderground(lua_State* L);
 
 		// MonsterType
 		static int luaMonsterTypeCreate(lua_State* L);

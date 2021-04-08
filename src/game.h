@@ -97,7 +97,6 @@ class Game
 
 		bool loadMainMap(const std::string& filename);
 		void loadMap(const std::string& path);
-		bool loadCustomSpawnFile(const std::string& fileName);
 
 		/**
 		  * Get the map size - info purpose only
@@ -489,7 +488,7 @@ class Game
 			boostedCreature = name;
 		}
 
-		std::string getBoostedName() const {
+		std::string getBoostedMonsterName() const {
 			return boostedCreature;
 		}
 
@@ -629,11 +628,11 @@ class Game
 			lootSchedule = (lootSchedule * lootrate)/100;
 		}
 
-		uint32_t getSpawnSchedule() const {
-			return spawnSchedule;
+		uint32_t getSpawnMonsterSchedule() const {
+			return spawnMonsterSchedule;
 		}
-		void setSpawnSchedule(uint32_t spawnrate) {
-			spawnSchedule = (spawnSchedule * spawnrate)/100;
+		void setSpawnMonsterSchedule(uint32_t spawnrate) {
+			spawnMonsterSchedule = (spawnMonsterSchedule * spawnrate)/100;
 		}
 
 		uint16_t getSkillSchedule() const {
@@ -720,7 +719,7 @@ class Game
 		uint16_t expSchedule = 100;
 		uint16_t lootSchedule = 100;
 		uint16_t skillSchedule = 100;
-		uint32_t spawnSchedule = 100;
+		uint32_t spawnMonsterSchedule = 100;
 
 		LightState_t lightState = LIGHT_STATE_DAY;
 		LightState_t currentLightState = lightState;

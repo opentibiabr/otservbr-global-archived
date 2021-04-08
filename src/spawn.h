@@ -17,55 +17,55 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_SPAWN_H_1A86089E080846A9AE53ED12E7AE863B
-#define FS_SPAWN_H_1A86089E080846A9AE53ED12E7AE863B
+#ifndef FS_SPAWN_H_
+#define FS_SPAWN_H_
 
 #include "tile.h"
 #include "position.h"
 
-class Monster;
-class MonsterType;
-class Npc;
+class Thing;
+class Type;
 
 struct spawnBlock_t {
 	Position pos;
-	MonsterType* mType;
+	Type* type;
 	int64_t lastSpawn;
 	uint32_t interval;
 	Direction direction;
 };
 
+static constexpr int32_t MINSPAWN_INTERVAL = 1000; // 1 second
+static constexpr int32_t MAXSPAWN_INTERVAL = 86400000; // 1 day
+static constexpr int32_t NONBLOCKABLE_SPAWN_INTERVAL = 1400;
+
 class Spawn
 {
 	public:
-		Spawn(Position initPos, int32_t initRadius) : centerPos(std::move(initPos)), radius(initRadius) {}
-		~Spawn();
+		virtual ~Spawn();
 
 		// non-copyable
-		Spawn(const Spawn&) = delete;
-		Spawn& operator=(const Spawn&) = delete;
+		virtual Spawn(const Spawn&) = delete;
+		virtual Spawn& operator=(const Spawn&) = delete;
 
-		bool addMonster(const std::string& name, const Position& pos, Direction dir, uint32_t interval);
-		void removeMonster(Monster* monster);
+		virtual bool add(const std::string& name, const Position& pos, Direction dir, uint32_t interval);
+		virtual void remove(Thing* element);
 
 		uint32_t getInterval() const {
 			return interval;
 		}
-		void startup();
+		virtual void startup();
 
-		void startSpawnCheck();
-		void stopEvent();
+		virtual void startSpawnCheck();
+		virtual void stopEvent();
 
-		bool isInSpawnZone(const Position& pos);
-		void cleanup();
+		virtual bool isInSpawnZone(const Position& pos);
+		virtual void cleanup();
 
 	private:
-		//map of the spawned creatures
-		using SpawnedMap = std::multimap<uint32_t, Monster*>;
+		using SpawnedMap = std::multimap<uint32_t, Thing*>;
 		using spawned_pair = SpawnedMap::value_type;
 		SpawnedMap spawnedMap;
 
-		//map of creatures in the spawn
 		std::map<uint32_t, spawnBlock_t> spawnMap;
 
 		Position centerPos;
@@ -74,41 +74,36 @@ class Spawn
 		uint32_t interval = 60000;
 		uint32_t checkSpawnEvent = 0;
 
-		static bool findPlayer(const Position& pos);
-		bool spawnMonster(uint32_t spawnId, MonsterType* mType, const Position& pos, Direction dir, bool startup = false);
-		void checkSpawn();
-		void scheduleSpawn(uint32_t spawnId, spawnBlock_t& sb, uint16_t interval);
+		virtual static bool findPlayer(const Position& pos);
+		virtual bool spawn(uint32_t spawnId, Type* type, const Position& pos, Direction dir, bool startup = false);
+		virtual void checkSpawn();
+		virtual void scheduleSpawn(uint32_t spawnId, spawnBlock_t& sb, uint16_t interval);
 };
 
-class Spawns
+class SpawnList
 {
 	public:
-		static bool isInZone(const Position& centerPos, int32_t radius, const Position& pos);
+		virtual static bool isInZone(const Position& centerPos, int32_t radius, const Position& pos);
 
-		bool loadFromXml(const std::string& filemonstername);
-		bool loadNpcsFromXML(const std::string& filenpcname);
-		void startup();
-		void clear();
+		virtual bool loadFromXml(const std::string& filename);
+		virtual void startup();
+		virtual void clear();
 
 		bool isStarted() const {
 			return started;
+		}
+		bool isLoaded() const {
+			return loaded;
 		}
 		std::forward_list<Spawn>& getSpawnList() {
 			return spawnList;
 		}
 
-		bool loadCustomSpawnXml(const std::string& _filename);
 	private:
-		std::forward_list<Npc*> npcList;
 		std::forward_list<Spawn> spawnList;
-		std::string filemonstername;
-		std::string filenpcname;
+		std::string filename;
 		bool loaded = false;
 		bool started = false;
-
-		std::forward_list<Spawn> customSpawnList;
 };
-
-static constexpr int32_t NONBLOCKABLE_SPAWN_INTERVAL = 1400;
 
 #endif

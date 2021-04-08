@@ -494,7 +494,7 @@ void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Pos
 
 		if (!summons.empty()) {
 			//check if any of our summons is out of range (+/- 2 floors or 30 tiles away)
-			std::forward_list<Creature*> despawnList;
+			std::forward_list<Creature*> despawnMonsterList;
 			for (Creature* summon : summons) {
 				const Position& pos = summon->getPosition();
         if (Position::getDistanceZ(newPos, pos) > 0 || (std::max<int32_t>(Position::getDistanceX(newPos, pos), Position::getDistanceY(newPos, pos)) > 15)) {
@@ -502,7 +502,7 @@ void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Pos
         }
 			}
 
-			for (Creature* despawnCreature : despawnList) {
+			for (Creature* despawnCreature : despawnMonsterList) {
 				g_game.removeCreature(despawnCreature, true);
 			}
 		}

@@ -211,8 +211,8 @@ void Monster::onRemoveCreature(Creature* creature, bool isLogout)
 	}
 
 	if (creature == this) {
-		if (spawn) {
-			spawn->startSpawnCheck();
+		if (spawnMonster) {
+			spawnMonster->startSpawnMonsterCheck();
 		}
 
 		setIdle(true);
@@ -1955,7 +1955,7 @@ Item* Monster::getCorpse(Creature* lastHitCreature, Creature* mostDamageCreature
 
 bool Monster::isInSpawnRange(const Position& pos) const
 {
-	if (!spawn) {
+	if (!spawnMonster) {
 		return true;
 	}
 
@@ -1963,7 +1963,7 @@ bool Monster::isInSpawnRange(const Position& pos) const
 		return true;
 	}
 
-	if (!Spawns::isInZone(masterPos, Monster::despawnRadius, pos)) {
+	if (!SpawnsMonster::isInZone(masterPos, Monster::despawnRadius, pos)) {
 		return false;
 	}
 

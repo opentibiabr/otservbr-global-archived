@@ -22,6 +22,7 @@
 
 #include "tile.h"
 #include "monsters.h"
+#include "enums.h"
 
 class Creature;
 class Game;
@@ -29,14 +30,6 @@ class Spawn;
 
 using CreatureHashSet = std::unordered_set<Creature*>;
 using CreatureList = std::list<Creature*>;
-
-enum TargetSearchType_t {
-	TARGETSEARCH_DEFAULT,
-	TARGETSEARCH_NEAREST,
-	TARGETSEARCH_HP,
-	TARGETSEARCH_DAMAGE,
-	TARGETSEARCH_RANDOM
-};
 
 class Monster final : public Creature
 {
@@ -127,8 +120,8 @@ class Monster final : public Creature
 		RespawnType getRespawnType() const {
 			return mType->info.respawnType;
 		}
-		void setSpawn(Spawn* newSpawn) {
-			this->spawn = newSpawn;
+		void setSpawnMonster(SpawnMonster* newSpawnMonster) {
+			this->spawnMonster = newSpawnMonster;
 		}
 
 		uint32_t getReflectValue(CombatType_t combatType) const;
@@ -217,7 +210,7 @@ class Monster final : public Creature
 		std::string strDescription;
 
 		MonsterType* mType;
-		Spawn* spawn = nullptr;
+		SpawnMonster* spawnMonster = nullptr;
 
 		int64_t lastMeleeAttack = 0;
 

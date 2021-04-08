@@ -835,6 +835,15 @@ enum MonstersEvent_t : uint8_t {
 	MONSTERS_EVENT_SAY = 5,
 };
 
+enum NpcsEvent_t : uint8_t {
+	NPCS_EVENT_NONE = 0,
+	NPCS_EVENT_THINK = 1,
+	NPCS_EVENT_APPEAR = 2,
+	NPCS_EVENT_DISAPPEAR = 3,
+	NPCS_EVENT_MOVE = 4,
+	NPCS_EVENT_SAY = 5,
+};
+
 enum Supply_Stash_Actions_t : uint8_t {
 	SUPPLY_STASH_ACTION_STOW_ITEM = 0,
 	SUPPLY_STASH_ACTION_STOW_CONTAINER = 1,
@@ -975,6 +984,67 @@ struct HighscoreCharacter
 	uint32_t rank;
 	uint16_t level;
 	uint8_t vocation;
+};
+
+//Creatures
+enum TargetSearchType_t {
+	TARGETSEARCH_DEFAULT,
+	TARGETSEARCH_NEAREST,
+	TARGETSEARCH_HP,
+	TARGETSEARCH_DAMAGE,
+	TARGETSEARCH_RANDOM
+};
+
+struct summonBlock_t {
+	std::string name;
+	uint32_t chance;
+	uint32_t speed;
+	uint32_t max;
+	bool force = false;
+};
+
+struct voiceBlock_t {
+	std::string text;
+	bool yellText;
+};
+
+struct LootBlock {
+	uint16_t id;
+	uint32_t countmax;
+	uint32_t countmin;
+	uint32_t chance;
+
+	//optional
+	int32_t subType;
+	int32_t actionId;
+	std::string text;
+	std::string name;
+	std::string article;
+	int32_t attack;
+	int32_t defense;
+	int32_t extraDefense;
+	int32_t armor;
+	int32_t shootRange;
+	int32_t hitChance;
+	bool unique;
+
+	std::vector<LootBlock> childLoot;
+	LootBlock() {
+		id = 0;
+		countmax = 1;
+		countmin = 1;
+		chance = 0;
+
+		subType = -1;
+		actionId = -1;
+		attack = -1;
+		defense = -1;
+		extraDefense = -1;
+		armor = -1;
+		shootRange = -1;
+		hitChance = -1;
+		unique = false;
+	}
 };
 
 enum Cipbia_Elementals_t : uint8_t {

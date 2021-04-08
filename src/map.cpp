@@ -25,6 +25,7 @@
 #include "creature.h"
 #include "game.h"
 #include "monster.h"
+#include "npc.h"
 
 extern Game g_game;
 
@@ -39,7 +40,7 @@ bool Map::loadMap(const std::string& identifier, bool loadHouses, bool loadMonst
 
 	if (loadMonsters) {
 		if (!IOMap::loadMonsters(this)) {
-			std::cout << "[Warning - Map::loadMap] Failed to load spawn data." << std::endl;
+			std::cout << "[Warning - Map::loadMap] Failed to load monster spawn data." << std::endl;
 		}
 		std::cout << "> Loaded spawns in: " << (OTSYS_TIME() - start) / (1000.) << " seconds" << std::endl;
 	}
@@ -55,7 +56,7 @@ bool Map::loadMap(const std::string& identifier, bool loadHouses, bool loadMonst
 
 	if (loadNpcs) {
 		if (!IOMap::loadNpcs(this)) {
-			std::cout << "[Warning - Map::loadMap] Failed to load npc data." << std::endl;
+			std::cout << "[Warning - Map::loadMap] Failed to load npc spawn data." << std::endl;
 		}
 		std::cout << "> Loaded npcs in: " << (OTSYS_TIME() - start) / (1000.) << " seconds" << std::endl;
 	}
