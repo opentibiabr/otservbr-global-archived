@@ -1,7 +1,7 @@
 local config = {
 	bet = {
-		min = 10000, -- gold coins // 30k
-		max = 10000000000, 
+		min = 100000, -- gold coins // 30k
+		max = 1000000, 
 		win = 180, -- 170% high/low
 		winNum = 500, -- 300% numbers
 	},
