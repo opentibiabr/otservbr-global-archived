@@ -1,66 +1,46 @@
-dist: bionic
-language: cpp
+arch: amd64
 os: linux
-jobs:
-  include:
-    - dist: bionic
-      env:
-        - BUILD_TYPE=Debug LUAJIT=OFF
+dist: focal
+language: cpp
+env:
+  - VCPKG_TRIPLET=x64-linux
 
-    - dist: bionic
-      env:
-        - BUILD_TYPE=Debug LUAJIT=ON
-
-    - dist: bionic
-      env:
-        - BUILD_TYPE=Release LUAJIT=OFF
-
-    - dist: bionic
-      env:
-        - BUILD_TYPE=Release LUAJIT=ON
-
-    - dist: xenial
-      env:
-        - BUILD_TYPE=Debug LUAJIT=OFF
-
-    - dist: xenial
-      env:
-        - BUILD_TYPE=Debug LUAJIT=ON
-
-    - dist: xenial
-      env:
-        - BUILD_TYPE=Release LUAJIT=OFF
-
-    - dist: xenial
-      env:
-        - BUILD_TYPE=Release LUAJIT=ON
-
-
-
-compiler:
-  - gcc
-  # - clang
-
-
-cache: apt
 addons:
   apt:
     update: true
     packages:
-      - libboost-date-time-dev
-      - libboost-system-dev
-      - libboost-filesystem-dev
-      - libboost-iostreams-dev
-      - libcrypto++-dev
-      - liblua5.2-dev
-      - libluajit-5.1-dev
-      - libmysqlclient-dev
-      - libpugixml-dev
       - ccache
+      - build-essential
+      - cmake
+      - libluajit-5.1-dev
+      - tar
+      - curl
+      - zip
+      - unzip
+  sonarcloud:
+    organization: "sonarcloud"
+    token:
+      secure: $SONAR_TOKEN
 
-before_script:
+compiler:
+  - gcc
+
+install:
+  - |
+    cd /home/travis/build/opentibiabr
+    git clone https://github.com/microsoft/vcpkg
+    ./vcpkg/bootstrap-vcpkg.sh
+    ./vcpkg/vcpkg integrate install
+
+script:
+  - cd /home/travis/build/opentibiabr/otservbr-global
   - mkdir build && cd build
-  - cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DUSE_LUAJIT=${LUAJIT} ..
+  - cmake -DCMAKE_TOOLCHAIN_FILE=/home/travis/build/opentibiabr/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+  - make -j`nproc`
+  - sonar-scanner
 
-script: make -j`nproc`
-
+cache:
+  directories:
+    - '$HOME/.sonar/cache'
+    - '$HOME/.ccache/'
+     - '/home/travis/build/opentibiabr/vcpkg/installed'
