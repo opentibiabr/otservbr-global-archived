@@ -1,11 +1,17 @@
+---
 arch: amd64
 os: linux
 dist: focal
 language: cpp
+compiler: gcc
 env:
   - VCPKG_TRIPLET=x64-linux
 
 addons:
+  sonarcloud:
+    organization: "opentibiabr"
+    token:
+      secure: X+7KiitGRaVuYh8wjZQDJ3kmv2B+FNudXaRUbOwjK/a+0YK0z7FkVmXklg05MygF4QtjkTOdUqg/HSgSY492/jMkb2ZxOlI/utR+UUnKf77XiwBFcUG+bmdNAG8+U0MG5I70xKjauXdNrUFZu9Ds5TpD40m4UMmAr0pGtrXyP6T28WG7t/sNxzlmwSx0Z+2+ZKhEFdneAXVXX6zC6TXA5yPFvEdawPm8iqJ7fjq559Yqsn7l38Sd3BVoa9tbcwTMCvQwn6DivxLbkSKYs173y33bbGx48rikf9JHdFaSPVD7rNzpiuz7JCxJu6eBjh+FP9lxs4jJ0Kb8NEzxzotjGNSyxAW7+o0F8F869PL3fpTcWMlWTnrEVAn5pIXGaZ6+0yhoCSCwbHGKX42rUXndlROF1laCnE8ANOBFqxElVQpRNJVI2Xh34q32VdElGX9I73BmaTq8QZN9o4a895g3a2XeP4tCUxNbflh60uMHa6eOS5mOuuOc4l6ehYvwJw3aa3Pcz46RvcAWfp+5aslTDXnCZzDoBlTSx8tKkR7kNe+AnZj2yQi0j/mWOR97S9N2qfKDaEGnMtyq+EUEkOE6KPI8eqzrNYHbNX6SVbyfMer8nAem6b1p8PgaU+vgeixgtWaB+OgZSf592xrtkrKEeuA37dm+hwQJ2IzcZ7+p7RA=
   apt:
     update: true
     packages:
@@ -17,30 +23,27 @@ addons:
       - curl
       - zip
       - unzip
-  sonarcloud:
-    organization: "sonarcloud"
-    token:
-      secure: $SONAR_TOKEN
-
-compiler:
-  - gcc
 
 install:
-  - |
-    cd /home/travis/build/opentibiabr
-    git clone https://github.com/microsoft/vcpkg
-    ./vcpkg/bootstrap-vcpkg.sh
-    ./vcpkg/vcpkg integrate install
+  - cd /home/travis/build/opentibiabr
+  - git clone https://github.com/microsoft/vcpkg
+  - ./vcpkg/bootstrap-vcpkg.sh
+  - ./vcpkg/vcpkg integrate install
 
 script:
   - cd /home/travis/build/opentibiabr/otservbr-global
-  - mkdir build && cd build
-  - cmake -DCMAKE_TOOLCHAIN_FILE=/home/travis/build/opentibiabr/vcpkg/scripts/buildsystems/vcpkg.cmake ..
-  - make -j`nproc`
-  - sonar-scanner
+  - /home/travis/build/opentibiabr/vcpkg/vcpkg --feature-flags=binarycaching,manifests,versions install
+  - mkdir build
+  - cd build
+  - cmake -DASIO_DISABLE_NOEXCEPT=1 -DBOOST_ASIO_DISABLE_NOEXCEPT=1 -DCMAKE_TOOLCHAIN_FILE=/home/travis/build/opentibiabr/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+  - cd ..
+  - NUMBER_OF_PROCESSORS=$(nproc --all)
+  - build-wrapper-linux-x86-64 --out-dir bw-output cmake --build build/
+  - sonar-scanner -Dsonar.cfamily.cache.enabled=true -Dsonar.cfamily.cache.path=${TRAVIS_HOME}/.cfamily -Dsonar.cfamily.threads=${NUMBER_OF_PROCESSORS}
 
 cache:
   directories:
-    - '$HOME/.sonar/cache'
-    - '$HOME/.ccache/'
-     - '/home/travis/build/opentibiabr/vcpkg/installed'
+    - $HOME/.sonar/cache
+    - $HOME/.cache
+    - $HOME/.ccache
+    - $HOME/.cfamily

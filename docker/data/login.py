@@ -11,18 +11,19 @@ from flask import request
 import mysql.connector as mariadb
 from mysql.connector import Error
 import time
+import os
 
 app = Flask(__name__)
 
 def do_login(data):
 
     try:
-        connection = mariadb.connect(host='otdb',
-                                database='otserver',
-                                user='otserver',
-                                password='otserver')
+        connection = mariadb.connect(host=os.getenv('DB_IP', 'otdb'),
+                                database=os.getenv('DB_DATABASE', 'otserver'),
+                                user=os.getenv('DB_USER', 'otserver'),
+                                password=os.getenv('DB_PASSWORD', 'otserver'))
 
-        sql_select_Query = "SELECT id, premdays, lastday FROM accounts WHERE name = '" + data['accountname'] + "'"
+        sql_select_Query = "SELECT id, premdays, lastday FROM accounts WHERE name = '" + data['email'].replace('@','') + "'"
 
         print("Loading account information!")
         cursor = connection.cursor()
@@ -35,7 +36,7 @@ def do_login(data):
         account_lastday = row[2]
 
         session = {
-            'sessionkey': data['accountname'] + '\n' + data['password'],
+            'sessionkey': data['email'] + '\n' + data['password'],
             'lastlogintime': 0,
             'ispremium': True if account_premdays > 0 else False,
             'premiumuntil': 0 if account_premdays == 0 else int(time.time()) + (account_premdays * 86400),
@@ -58,7 +59,7 @@ def do_login(data):
         print(records)
 
         players = []
-        vocations = ['None', 'Sorcerer', 'Druid', 'Paladin', 'Knight']
+        vocations = ['None', 'Sorcerer', 'Druid', 'Paladin', 'Knight', 'Master Sorcerer', 'Elder Druid', 'Royal Paladin', 'Elite Knight', 'Sorcerer Dawnport', 'Druid Dawnport', 'Paladin Dawnport', 'Knight Dawnport']
         print("Loading account players information!")
         for (name, level, sex, vocation, looktype, lookhead, lookbody, looklegs, lookfeet, lookaddons, lastlogin) in records:
             player = {
@@ -76,7 +77,7 @@ def do_login(data):
                     'tutorial': False, # True will make the client crash as it will try to auto connect
                     'ishidden': False,
                     'istournamentparticipant': False,
-                    'remainingdailytournamentplaytime': 0            
+                    'remainingdailytournamentplaytime': 0
             }
             players.append(player)
         print(players)
@@ -85,26 +86,11 @@ def do_login(data):
             'worlds': [
                 {
                     'id': 0,
-                    'name': 'OTServBR-Global',
-                    'externaladdressprotected': '127.0.0.1',
-                    'externalportprotected': 7172,
-                    'externaladdressunprotected': '127.0.0.1',
-                    'externalportunprotected': 7172,
-                    'previewstate': 0,
-                    'location': 'BRA',
-                    'anticheatprotection': False,
-                    'pvptype': 'pvp',
-                    'istournamentworld': False,
-                    'restrictedstore': False,
-                    'currenttournamentphase': 2
-                },
-                {
-                    'id': 1,
-                    'name': 'OTServBR-Global',
-                    'externaladdressprotected': '127.0.0.1',
-                    'externalportprotected': 7172,
-                    'externaladdressunprotected': '127.0.0.1',
-                    'externalportunprotected': 7172,
+                    'name': os.getenv('SERVER_NAME', 'OTServBR-Global'),
+                    'externaladdressprotected': os.getenv('PROXY_IP', '127.0.0.1'),
+                    'externalportprotected': int(os.getenv('SERVER_GAME_PORT', 7172)),
+                    'externaladdressunprotected': os.getenv('PROXY_IP', '127.0.0.1'),
+                    'externalportunprotected': int(os.getenv('SERVER_GAME_PORT', 7172)),
                     'previewstate': 0,
                     'location': 'BRA',
                     'anticheatprotection': False,
@@ -116,47 +102,9 @@ def do_login(data):
             ],
             "characters": players
         }
-            
-        #     "characters": [
-        #         {
-        #             'worldid': 0,
-        #             'name': 'ADM',
-        #             'ismale': True,
-        #             'tutorial': False,
-        #             'level': 1,
-        #             'vocation': 'Cavaleiro',
-        #             'outfitid': 128,
-        #             'headcolor': 78,
-        #             'torsocolor': 106,
-        #             'legscolor': 116,
-        #             'detailcolor': 95,
-        #             'addonsflags': 0,
-        #             'ishidden': False,
-        #             'istournamentparticipant': False,
-        #             'remainingdailytournamentplaytime': 0
-        #         },
-        #         {
-        #             'worldid': 1,
-        #             'name': 'GOD2',
-        #             'ismale': True,
-        #             'tutorial': False,
-        #             'level': 1,
-        #             'vocation': 'Cavaleiro',
-        #             'outfitid': 128,
-        #             'headcolor': 78,
-        #             'torsocolor': 106,
-        #             'legscolor': 116,
-        #             'detailcolor': 95,
-        #             'addonsflags': 0,
-        #             'ishidden': False,
-        #             'istournamentparticipant': False,
-        #             'remainingdailytournamentplaytime': 0
-        #         }
-        #     ]
-        # }
 
         answer = {'session': session, 'playdata': playdata}
-
+        print(answer)
         return jsonify(answer)
 
     except Error as e:
@@ -168,39 +116,15 @@ def do_login(data):
             cursor.close()
         print("MySQL connection is closed")
 
-  
+
 def news(data):
-    # TODO: add news system
-    # case "news":
-    # $categorycounts = [
-    # 'CLIENT FEATURES' => 1,
-    # 'GAME CONTENTS' => 1,
-    # 'MAJOR UPDATES' => 1,
-    # 'SUPPORT' => 1,
-    # 'USEFUL INFO' => 1
-    # ];
-    # $gamenews = [
-    # [
-    # 'campaignid' => '0',
-    # 'category' => 'CLIENT FEATURES',
-    # 'headline' => '<p>Battle List</p>',
-    # 'id' => '1',
-    # 'index' => '3',
-    # 'message' => '<center><table style="height: 88px;" width="406"><tbody><tr><td style="width: 396px; vertical-align: top;"><center><p><img src="http://127.0.0.1/images/news/veadao.png" width="350" height="250"/> </p> <p>Veadão da mais alta qualidade criado com os melhores viados do mercado</p></center></td></tr></tbody></table></center>',
-    # 'publishdate' => time(),
-    # 'type' => 'REGULAR',
-    # ]];
-    
-    # $schedule['categorycounts'] = $categorycounts;
-    # $schedule['gamenews'] = $gamenews;
-    # echo json_encode($schedule);
 
     answer = []
 
     return jsonify(answer)
 
 
-@app.route('/login.php',  methods=['GET', 'POST'])
+@app.route('/login.php',  methods=['GET', 'POST', 'PUT'])
 def action():
 
     data = request.get_json()
@@ -228,7 +152,7 @@ def action():
                     'colorlight': '#64162b',
                     'colordark': '#7a1b34',
                     'name': 'First Event',
-                    'description': 'OTServBR-Global Event 1',
+                    'description': 'Canary Event 1',
                     'isseasonal': False
                 },
                 {
@@ -237,7 +161,7 @@ def action():
                     'colorlight': '#8B6D05',
                     'colordark': '#735D10',
                     'name': 'Second Event',
-                    'description': 'OTServBR-Global Event 2',
+                    'description': 'Canary Event 2',
                     'isseasonal': False
                 }
             ]
@@ -247,7 +171,7 @@ def action():
         return jsonify({
                 'boostedcreature': True,
                 'raceid': 39
-        })    
+        })
 
     if(data['type'] == 'login'):
         return do_login(data)
@@ -256,4 +180,4 @@ def action():
     if(data['type'] == 'news'):
         return news(data)
 
-app.run(debug=True, host='0.0.0.0', port=80)
+app.run(debug=True, host='0.0.0.0', port=8080)

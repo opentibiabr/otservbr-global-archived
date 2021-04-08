@@ -1,3 +1,4 @@
+---
 image: Visual Studio 2019
 
 shallow_clone: true
@@ -43,7 +44,8 @@ build:
   # MSBuild verbosity level
   # verbosity: detailed
 
-# scripts to run after build (working directory and environment changes are persisted from the previous steps)
+# scripts to run after build
+# (working directory and environment changes are persisted from the previous steps)
 after_build:
   - 7z a -tzip otservbr-global.zip -r .\vc14\*.exe -ir!.\vc14\*.dll
 

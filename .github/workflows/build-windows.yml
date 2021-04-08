@@ -83,11 +83,6 @@ jobs:
           Copy-Item -Path ${{ runner.workspace }}\otservbr-global\data\* -Destination ${{ runner.workspace }}\otservbr-global\otservbr-global\data -Recurse
           Compress-Archive -Path ${{ runner.workspace }}\otservbr-global\otservbr-global -DestinationPath ${{ runner.workspace }}\otservbr.zip
 
-      - name: dir
-        if: ${{ matrix.buildtype == 'Release' }}
-        run: find $RUNNER_WORKSPACE
-        shell: bash
-
       - name: Upload datapack
         if: ${{ matrix.buildtype == 'Release' }}
         uses: actions/upload-artifact@v2

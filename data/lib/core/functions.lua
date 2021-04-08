@@ -29,7 +29,8 @@ debug.sethook(function(event, line)
 	linecount = linecount + 1
 	if os.mtime() - start >= 1 then
 		if linecount >= 30000 then
-			Spdlog.warn("[debug.sethook] - Possible infinite loop in file ".. debug.getinfo(2).source .." near line ".. line .."")
+			Spdlog.warn(string.format("[debug.sethook] - Possible infinite loop in file [%s] near line [%d]",
+				debug.getinfo(2).source, line))
 			debug.sethook()
 		end
 		linecount = 0
@@ -916,4 +917,4 @@ function Player:doCheckBossRoom(bossName, fromPos, toPos)
 		end
 	end
 	return true
-end	
+end
