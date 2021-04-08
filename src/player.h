@@ -1238,6 +1238,46 @@ class Player final : public Creature, public Cylinder
 				client->sendCreatureHealth(creature);
 			}
 		}
+		void sendPartyCreatureUpdate(const Creature* creature) const {
+			if (client) {
+				client->sendPartyCreatureUpdate(creature);
+			}
+		}
+		void sendPartyCreatureShield(const Creature* creature) const {
+			if (client) {
+				client->sendPartyCreatureShield(creature);
+			}
+		}
+		void sendPartyCreatureSkull(const Creature* creature) const {
+			if (client) {
+				client->sendPartyCreatureSkull(creature);
+			}
+		}
+		void sendPartyCreatureHealth(const Creature* creature, uint8_t healthPercent) const {
+			if (client) {
+				client->sendPartyCreatureHealth(creature, healthPercent);
+			}
+		}
+		void sendPartyPlayerMana(const Player* player, uint8_t manaPercent) const {
+			if (client) {
+				client->sendPartyPlayerMana(player, manaPercent);
+			}
+		}
+		void sendPartyCreatureShowStatus(const Creature* creature, bool showStatus) const {
+			if (client) {
+				client->sendPartyCreatureShowStatus(creature, showStatus);
+			}
+		}
+		void sendPartyPlayerVocation(const Player* player) const {
+			if (client) {
+				client->sendPartyPlayerVocation(player);
+			}
+		}
+		void sendPlayerVocation(const Player* player) const {
+			if (client) {
+				client->sendPlayerVocation(player);
+			}
+		}
 		void sendDistanceShoot(const Position& from, const Position& to, unsigned char type) const {
 			if (client) {
 				client->sendDistanceShoot(from, to, type);

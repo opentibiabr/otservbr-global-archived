@@ -2147,6 +2147,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::MAP_AUTHOR)
 	registerEnumIn("configKeys", ConfigManager::STORE_IMAGES_URL)
 	registerEnumIn("configKeys", ConfigManager::CLIENT_VERSION_STR)
+	registerEnumIn("configKeys", ConfigManager::PARTY_LIST_MAX_DISTANCE)
 
 	registerEnumIn("configKeys", ConfigManager::SQL_PORT)
 	registerEnumIn("configKeys", ConfigManager::MAX_PLAYERS)
@@ -9580,6 +9581,7 @@ int LuaScriptInterface::luaPlayerSetMaxMana(lua_State* L)
 	if (player) {
 		player->manaMax = getNumber<int32_t>(L, 2);
 		player->mana = std::min<int32_t>(player->mana, player->manaMax);
+		g_game.addPlayerMana(player);
 		player->sendStats();
 		pushBoolean(L, true);
 	} else {
