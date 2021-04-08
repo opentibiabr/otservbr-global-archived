@@ -27,7 +27,7 @@ function mounts.onSay(player, words, param)
         return false
     end
 
-for i = 1, 181 do
+    for i = 1, 181 do
         target:addMount(i)
     end
 
