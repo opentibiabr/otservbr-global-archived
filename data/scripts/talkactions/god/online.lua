@@ -1,12 +1,7 @@
 local maxPlayersPerMessage = 10
 local playersOnline = TalkAction("!online")
 
-function playersOnline.onSay(player, words, param)
-	
-    if player:getAccountType() < ACCOUNT_TYPE_GOD  then
-        return false
-    end
-	
+function playersOnline.onSay(player, words, param)	
     local hasAccess = player:getGroup():getAccess()
     local players = Game.getPlayers()
     local onlineList = {}
