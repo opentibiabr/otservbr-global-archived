@@ -1,8 +1,9 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_RED)
+combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_UNDEFINEDDAMAGE)
 
 local condition = Condition(CONDITION_PARALYZE)
-condition:setParameter(CONDITION_PARAM_TICKS, 20000)
+condition:setParameter(CONDITION_PARAM_TICKS, 6000)
 condition:setFormula(-1, 45, -1, 45)
 combat:addCondition(condition)
 
@@ -30,5 +31,5 @@ rune:groupCooldown(2 * 1000)
 rune:mana(1400)
 rune:needTarget(true)
 rune:isBlocking(true) -- True = Solid / False = Creature
-rune:vocation("Druid", "Sorcerer", "Elder Druid", "Master Sorcerer", true, true)
+rune:vocation("Druid", "Elder Druid", true, true)
 rune:register()
