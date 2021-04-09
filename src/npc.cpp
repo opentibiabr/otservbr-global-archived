@@ -90,7 +90,10 @@ void Npc::removeList()
 
 bool Npc::canSee(const Position& pos) const
 {
-	return Creature::canSee(getPosition(), pos, 10, 10); //jlcvp FIX - range 10 Avoids killing npc without reaction
+	if (pos.z != getPosition().z) {
+		return false;
+	}
+	return Creature::canSee(getPosition(), pos, 3, 3);
 }
 
 bool Npc::canWalkOnFieldType(CombatType_t combatType) const

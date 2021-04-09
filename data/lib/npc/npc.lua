@@ -31,7 +31,7 @@ end
 -- npc:greetMessage(message, creature) = Automatic text
 -- npc:greetMessage(message, creature, text) = Define a text
 function Npc:greetMessage(message, creature, text)
-	if msgContains(message, "hi") and not self:getFocus(creature) then
+	if msgContains(message, "hi") and self:isInTalkRange(creature:getPosition()) and not self:getFocus() then
 		if text then
 			self:sendMessage(text)
 		else
@@ -45,12 +45,12 @@ end
 -- npc:farewellMessage(message, creature) = Automatic text
 -- npc:farewellMessage(message, creature, text) = Define a text
 function Npc:farewellMessage(message, creature, text)
-	if msgContains(message, "bye") and self:getFocus(creature) then
+	if msgContains(message, "bye") and self:isInTalkRange(creature:getPosition()) and self:getFocus() then
 		if text then
 			self:sendMessage(text)
 		else
 			self:sendMessage("Goodbye, ".. creature:getName() .."")
 		end
-		self:resetFocus(creature)
+		self:resetFocus()
 	end
 end

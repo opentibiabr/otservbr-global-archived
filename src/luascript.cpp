@@ -2876,6 +2876,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Npc", "isFocusedOnCreature", LuaScriptInterface::luaNpcIsFocusedOnCreature);
 	registerMethod("Npc", "setFocus", LuaScriptInterface::luaNpcSetFocus);
 	registerMethod("Npc", "resetFocus", LuaScriptInterface::luaNpcResetFocus);
+	registerMethod("Npc", "isInTalkRange", LuaScriptInterface::luaNpcIsInTalkRange);
 
 	// Guild
 	registerClass("Guild", "", LuaScriptInterface::luaGuildCreate);
@@ -13024,6 +13025,15 @@ int LuaScriptInterface::luaNpcResetFocus(lua_State* L)
     pushUserdata<Creature>(L, focusCreature);
     setCreatureMetatable(L, -1, focusCreature);
     return 1;
+}
+
+int LuaScriptInterface::luaNpcIsInTalkRange(lua_State* L)
+{
+	// npc:isInTalkRange()
+	Npc* npc = getUserdata<Npc>(L, 1);
+	const Position& position = getPosition(L, 2);
+	pushBoolean(L, npc && npc->canSee(position));
+	return 1;
 }
 
 // Guild

@@ -1192,6 +1192,7 @@ class LuaScriptInterface
 		static int luaNpcIsFocusedOnCreature(lua_State* L);
 		static int luaNpcSetFocus(lua_State* L);
 		static int luaNpcResetFocus(lua_State* L);
+		static int luaNpcIsInTalkRange(lua_State* L);
 		// Guild
 		static int luaGuildCreate(lua_State* L);
 
