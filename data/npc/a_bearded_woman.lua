@@ -18,10 +18,15 @@ npc.outfit = {
 }
 
 npc.voices = {
-	interval = 96,
-	chance = 0,
-	{ text = "GRRR", yell = false },
-	{ text = "My egg is in danger!", yell = false }
+	interval = 2000,
+	chance = 20,
+	{ text = 'I am a MAN! Get me out you drunken fools!' },
+	{ text = 'GET ME OUT OF HERE!' },
+	{ text = 'Get me out! It was all part of the plan, you fools!' },
+	{ text = 'If I ever get out of here, I\'ll kill you all! All of you!' },
+	{ text = 'I am NOT Princess Lumelia, you fools!' },
+	{ text = 'Get a locksmith and free me or you will regret it, you foolish pirates!' },
+	{ text = 'I am not a princess, I am an actor!' }
 }
 
 npc.flags = {

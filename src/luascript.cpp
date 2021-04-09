@@ -2871,6 +2871,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Npc", "setSpeechBubble", LuaScriptInterface::luaNpcSetSpeechBubble);
 	registerMethod("Npc", "setName", LuaScriptInterface::luaNpcSetName);
 	registerMethod("Npc", "place", LuaScriptInterface::luaNpcPlace);
+	registerMethod("Npc", "say", LuaScriptInterface::luaNpcSay);
 
 	// Guild
 	registerClass("Guild", "", LuaScriptInterface::luaGuildCreate);
@@ -5385,7 +5386,6 @@ int LuaScriptInterface::luaGameCreateMonster(lua_State* L)
 	return 1;
 }
 
-
 int LuaScriptInterface::luaGameGenerateNpc(lua_State* L)
 {
 	// Game.generateNpc(npcName)
@@ -5399,7 +5399,6 @@ int LuaScriptInterface::luaGameGenerateNpc(lua_State* L)
 	}
 	return 1;
 }
-
 
 int LuaScriptInterface::luaGameCreateNpc(lua_State* L)
 {
@@ -12894,6 +12893,49 @@ int LuaScriptInterface::luaNpcPlace(lua_State* L)
 		setMetatable(L, -1, "Npc");
 	} else {
 		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaNpcSay(lua_State* L)
+{
+	// npc:say(text[, type = TALKTYPE_PRIVATE_NP[, ghost = false[, target = nullptr[, position]]]])
+	int parameters = lua_gettop(L);
+
+	Position position;
+	if (parameters >= 6) {
+		position = getPosition(L, 6);
+		if (!position.x || !position.y) {
+			reportErrorFunc("Invalid position specified.");
+			pushBoolean(L, false);
+			return 1;
+		}
+	}
+
+	Creature* target = nullptr;
+	if (parameters >= 5) {
+		target = getCreature(L, 5);
+	}
+
+	bool ghost = getBoolean(L, 4, false);
+
+	SpeakClasses type = getNumber<SpeakClasses>(L, 3, TALKTYPE_PRIVATE_NP);
+	const std::string& text = getString(L, 2);
+	Npc* npc = getUserdata<Npc>(L, 1);
+	if (!npc) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	SpectatorHashSet spectators;
+	if (target) {
+		spectators.insert(target);
+	}
+
+	if (position.x != 0) {
+		pushBoolean(L, g_game.internalCreatureSay(npc, type, text, ghost, &spectators, &position));
+	} else {
+		pushBoolean(L, g_game.internalCreatureSay(npc, type, text, ghost, &spectators));
 	}
 	return 1;
 }

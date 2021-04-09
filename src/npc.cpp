@@ -1132,9 +1132,9 @@ void Npc::onThinkYell(uint32_t interval)
 			const voiceBlock_t& vb = npcType->info.voiceVector[index];
 
 			if (vb.yellText) {
-				g_game.internalCreatureSay(this, TALKTYPE_MONSTER_YELL, vb.text, false);
+				g_game.internalCreatureSay(this, TALKTYPE_YELL, vb.text, false);
 			} else {
-				g_game.internalCreatureSay(this, TALKTYPE_MONSTER_YELL, vb.text, false);
+				g_game.internalCreatureSay(this, TALKTYPE_SAY, vb.text, false);
 			}
 		}
 	}
