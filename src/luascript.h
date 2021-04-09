@@ -1188,6 +1188,10 @@ class LuaScriptInterface
 		static int luaNpcSetName(lua_State* L);
 		static int luaNpcPlace(lua_State* L);
 		static int luaNpcSay(lua_State* L);
+		static int luaNpcGetFocus(lua_State* L);
+		static int luaNpcIsFocusedOnCreature(lua_State* L);
+		static int luaNpcSetFocus(lua_State* L);
+		static int luaNpcResetFocus(lua_State* L);
 		// Guild
 		static int luaGuildCreate(lua_State* L);
 

@@ -2156,3 +2156,34 @@ void Npc::getPathSearchParams(const Creature* creature, FindPathParams& fpp) con
 		fpp.fullPathSearch = !canUseAttack(getPosition(), creature);
 	}
 }
+
+void Npc::turnToCreature(Creature* creature)
+{
+	const Position& creaturePos = creature->getPosition();
+	const Position& myPos = getPosition();
+	const auto dx = Position::getOffsetX(myPos, creaturePos);
+	const auto dy = Position::getOffsetY(myPos, creaturePos);
+
+	float tan;
+	if (dx != 0) {
+		tan = static_cast<float>(dy) / dx;
+	} else {
+		tan = 10;
+	}
+
+	Direction dir;
+	if (std::abs(tan) < 1) {
+		if (dx > 0) {
+			dir = DIRECTION_WEST;
+		} else {
+			dir = DIRECTION_EAST;
+		}
+	} else {
+		if (dy > 0) {
+			dir = DIRECTION_NORTH;
+		} else {
+			dir = DIRECTION_SOUTH;
+		}
+	}
+	g_game.internalCreatureTurn(this, dir);
+}

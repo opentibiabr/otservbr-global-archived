@@ -1,5 +1,3 @@
-local playerFocusNpc = {}
-
 -- Checks whether a message is being sent to npc
 -- msgContains(message, keyword)
 function msgContains(message, keyword)
@@ -9,28 +7,6 @@ function msgContains(message, keyword)
 	end
 
 	return message:find(keyword) and not message:find('(%w+)' .. keyword)
-end
-
--- Add the focus player from the npc (by creature id)
--- addFocus(creature)
-function addFocus(creature)
-	if not table.contains(playerFocusNpc, creature:getId()) then
-		table.insert(playerFocusNpc, creature:getId())
-		return true
-	end
-end
-
--- Remove the focus player from the npc (by creature id)
--- addFocus(creature)
-function removeFocus(creature)
-	if table.contains(playerFocusNpc, creature:getId()) then
-		for i = 1, #playerFocusNpc do
-			if playerFocusNpc[i] == creature:getId() then
-				table.remove(playerFocusNpc, i)
-				return true
-			end
-		end
-	end
 end
 
 -- Npc talk
@@ -55,12 +31,13 @@ end
 -- npc:greetMessage(message, creature) = Automatic text
 -- npc:greetMessage(message, creature, text) = Define a text
 function Npc:greetMessage(message, creature, text)
-	if msgContains(message, "hi") and addFocus(creature) then
+	if msgContains(message, "hi") and not self:getFocus(creature) then
 		if text then
 			self:sendMessage(text)
 		else
 			self:sendMessage("Hello, ".. creature:getName() ..", what you need?")
 		end
+		self:setFocus(creature)
 	end
 end
 
@@ -68,12 +45,12 @@ end
 -- npc:farewellMessage(message, creature) = Automatic text
 -- npc:farewellMessage(message, creature, text) = Define a text
 function Npc:farewellMessage(message, creature, text)
-	if msgContains(message, "bye") and removeFocus(creature) then
+	if msgContains(message, "bye") and self:getFocus(creature) then
 		if text then
 			self:sendMessage(text)
 		else
 			self:sendMessage("Goodbye, ".. creature:getName() .."")
 		end
-		return true
+		self:resetFocus(creature)
 	end
 end

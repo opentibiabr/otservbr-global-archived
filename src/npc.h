@@ -130,6 +130,22 @@ class Npc final : public Creature
 		uint32_t getReflectValue(CombatType_t combatType) const;
 		uint32_t getHealingCombatValue(CombatType_t healingType) const;
 
+		uint32_t getFocus() {
+            return focusCreature;
+        }
+
+        uint32_t setFocus(Creature* creature) {
+            if (creature) {
+              focusCreature = creature->getID();
+			  turnToCreature(creature);
+			}
+            return focusCreature;
+        }
+
+        uint32_t resetFocus() {
+            return focusCreature = 0;
+        }
+
 		bool canWalkOnFieldType(CombatType_t combatType) const;
 		void onAttackedCreatureDisappear(bool isLogout) override;
 
@@ -222,6 +238,7 @@ class Npc final : public Creature
 		uint32_t targetChangeTicks = 0;
 		uint32_t defenseTicks = 0;
 		uint32_t yellTicks = 0;
+		uint32_t focusCreature = 0;
 		int32_t minCombatValue = 0;
 		int32_t maxCombatValue = 0;
 		int32_t targetChangeCooldown = 0;
@@ -279,6 +296,11 @@ class Npc final : public Creature
 		static void pushItems(Tile* tile);
 		static bool pushCreature(Creature* creature);
 		static void pushCreatures(Tile* tile);
+
+		void turnToCreature(Creature* creature);
+		void getCreatureFocus(Creature* creature);
+		void setCreatureFocus(Creature* creature);
+		void resetCreatureFocus(Creature* creature);
 
 		void onThinkTarget(uint32_t interval);
 		void onThinkYell(uint32_t interval);
