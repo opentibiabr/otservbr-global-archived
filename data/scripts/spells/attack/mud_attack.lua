@@ -20,7 +20,7 @@ end
 spell:group("attack")
 spell:id(174)
 spell:name("Mud Attack")
-spell:words("exori amp tera")
+spell:words("exori infir tera")
 spell:level(1)
 spell:mana(6)
 spell:isAggressive(true)
