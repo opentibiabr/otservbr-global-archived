@@ -141,6 +141,7 @@ class ConfigManager
 			PUSH_DELAY,
 			PUSH_DISTANCE_DELAY,
 			STASH_ITEMS,
+			PARTY_LIST_MAX_DISTANCE,
 
 			LAST_INTEGER_CONFIG /* this must be the last one */
 		};

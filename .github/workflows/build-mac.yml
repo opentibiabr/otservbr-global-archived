@@ -73,14 +73,17 @@ jobs:
           cmakeBuildType: ${{ matrix.buildtype }}
 
       - name: dir
+        if: ${{ matrix.buildtype == 'Release' }}
         run: find $RUNNER_WORKSPACE
         shell: bash
 
       - name: Prepare datapack contents
+        if: ${{ matrix.buildtype == 'Release' }}
         run: find . -maxdepth 1 ! -name data ! -name config.lua.dist ! -name key.pem ! -name LICENSE ! -name README.md ! -name schema.sql -exec rm -r {} \;
         shell: bash
 
       - name: Upload datapack contents
+        if: ${{ matrix.buildtype == 'Release' }}
         uses: actions/upload-artifact@v2
         with:
           name: otbr-${{ matrix.name }}-${{ matrix.buildtype }}-${{ github.sha }}

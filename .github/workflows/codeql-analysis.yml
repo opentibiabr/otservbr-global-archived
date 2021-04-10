@@ -1,0 +1,59 @@
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ develop ]
+  schedule:
+    - cron: '17 22 * * 2'
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'cpp', 'python' ]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: ${{ matrix.language }}
+
+    - name: Install Dependencies
+      if: ${{ matrix.language == 'cpp' }}
+      run: >
+        sudo apt-get update && sudo apt-get install ccache cmake build-essential
+        libcurl4-openssl-dev libjsoncpp-dev libmysqlclient-dev libboost-system-dev
+        libboost-iostreams-dev libboost-filesystem-dev libpugixml-dev
+        libcrypto++-dev libspdlog-dev libluajit-5.1-dev libboost-date-time-dev
+        unrar zip ca-certificates
+
+    - name: CCache
+      if: ${{ matrix.language == 'cpp' }}
+      id: ccache
+      uses: actions/cache@v2
+      with:
+        path: ~/.ccache
+        key: codeql-${{ hashFiles('**/src') }}
+        restore-keys: |
+          codeql-${{ hashFiles('**/src') }}
+          codeql-
+
+    - name: Build
+      if: ${{ matrix.language == 'cpp' }}
+      run: |
+        mkdir build && cd build
+        cmake ..
+        make -j `nproc`
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1
