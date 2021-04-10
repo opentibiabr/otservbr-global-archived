@@ -66,10 +66,12 @@ jobs:
           cmakeBuildType: ${{ matrix.buildtype }}
 
       - name: dir
+        if: ${{ matrix.buildtype == 'Release' }}
         run: find $RUNNER_WORKSPACE
         shell: bash
 
       - name: Create datapack
+        if: ${{ matrix.buildtype == 'Release' }}
         shell: powershell
         run: |
           md ${{ runner.workspace }}\otservbr-global\otservbr-global
@@ -84,12 +86,13 @@ jobs:
           Compress-Archive -Path ${{ runner.workspace }}\otservbr-global\otservbr-global -DestinationPath ${{ runner.workspace }}\otservbr.zip
 
       - name: dir
+        if: ${{ matrix.buildtype == 'Release' }}
         run: find $RUNNER_WORKSPACE
         shell: bash
 
       - name: Upload datapack
+        if: ${{ matrix.buildtype == 'Release' }}
         uses: actions/upload-artifact@v2
         with:
           name: otbr-${{ matrix.os }}-${{ matrix.buildtype }}-${{ github.sha }}
           path: ${{ runner.workspace }}/otservbr.zip
-        if: contains( matrix.os, 'windows')

@@ -4,12 +4,12 @@ local monster = {}
 monster.description = "a Spiky Carnivor"
 monster.experience = 1650
 monster.outfit = {
-	lookType = 1133,
-	lookHead = 85,
-	lookBody = 39,
-	lookLegs = 86,
-	lookFeet = 85,
-	lookAddons = 0,
+	lookType = 1139,
+	lookHead = 79,
+	lookBody = 119,
+	lookLegs = 57,
+	lookFeet = 86,
+	lookAddons = 1,
 	lookMount = 0
 }
 
