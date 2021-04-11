@@ -1188,10 +1188,9 @@ class LuaScriptInterface
 		static int luaNpcSetName(lua_State* L);
 		static int luaNpcPlace(lua_State* L);
 		static int luaNpcSay(lua_State* L);
-		static int luaNpcGetFocus(lua_State* L);
-		static int luaNpcIsFocusedOnCreature(lua_State* L);
-		static int luaNpcSetFocus(lua_State* L);
-		static int luaNpcResetFocus(lua_State* L);
+		static int luaNpcAddPlayerInteraction(lua_State* L);
+		static int luaNpcRemovePlayerInteraction(lua_State* L);
+		static int luaNpcIsInteractingWithPlayer(lua_State* L);
 		static int luaNpcIsInTalkRange(lua_State* L);
 		// Guild
 		static int luaGuildCreate(lua_State* L);
@@ -1200,8 +1199,8 @@ class LuaScriptInterface
 		static int luaGuildGetName(lua_State* L);
 		static int luaGuildGetMembersOnline(lua_State* L);
 
-    static int luaGuildGetBankBalance(lua_State* L);
-    static int luaGuildSetBankBalance(lua_State* L);
+		static int luaGuildGetBankBalance(lua_State* L);
+		static int luaGuildSetBankBalance(lua_State* L);
 
 		static int luaGuildAddRank(lua_State* L);
 		static int luaGuildGetRankById(lua_State* L);

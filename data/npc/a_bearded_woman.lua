@@ -48,33 +48,35 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-	if creature:getPlayer() then
-		if npc:greetMessage(message, creature, "GET ME OUT OF HERE! NOW!") then
+	local player = creature:getPlayer()
+	if player then	
+		if npc:greet(message, player, "GET ME OUT OF HERE! NOW!") then
 			return true
-		elseif npc:farewellMessage(message, creature) then
+		elseif npc:unGreet(message, player) then
 			return true
 		end
 		
 		local messages = {
+			-- [keyword] = "message" or {{message1], {message2}}
 			["job"] = "I am a great and famous actor! Not a princess, at all. I was only PRETENDING to be a princess. But try explaining that to those stupid pirates.",
-			["actor"] = {"Stage acting was a waste of my immense talent. Not only am I a born leader, my talent is more profitable when it is used for conning people."},
-			["stage"] = {"Stage acting was a waste of my immense talent. Not only am I a born leader, my talent is more profitable when it is used for conning people."},
-			["kid"] = {"He was always a fool with a heart too soft to become a feared pirate"},
-			["princess"] = {"Me playing a princess was just part of a cunning plan we had"},
-			["cell"] = {"If you find some way to release me I might even let you live as reward! So you'd better do your best or I'll kill you!"},
-			["name"] = {"How dare you? I left to rot in this dirty cell and you have nothing better to do than chit chat?"},
-			["rot"] = {"YOU .. YOU .. You are as good as dead! I will get you! Do you hear me? I will have your head! On a platter!"},
+			["actor"] = "Stage acting was a waste of my immense talent. Not only am I a born leader, my talent is more profitable when it is used for conning people.",
+			["stage"] = "Stage acting was a waste of my immense talent. Not only am I a born leader, my talent is more profitable when it is used for conning people.",
+			["kid"] = "He was always a fool with a heart too soft to become a feared pirate",
+			["princess"] = "Me playing a princess was just part of a cunning plan we had",
+			["cell"] = "If you find some way to release me I might even let you live as reward! So you'd better do your best or I'll kill you!",
+			["name"] = "How dare you? I left to rot in this dirty cell and you have nothing better to do than chit chat?",
+			["rot"] = "YOU .. YOU .. You are as good as dead! I will get you! Do you hear me? I will have your head! On a platter!",
 			["pirate"] = {
 				"In a just world, I would be captain of a grand ship, ...",
 				"Those pirates out there would now be my minions, and we would brave the seas and become the terror of the coastal towns! ...",
-			"If only our plan had worked!"},
+				"If only our plan had worked!"},
 			["ship"] = {
 				"Captain Kid sold his ship to buy pointless things like those insanely expensive locks for the cell doors. ...",
 				"He said the canoes would do for a while. ...",
-			"I got the impression he was not overly sad to part with the ship because he was known to suffer a lot from seasickness."},
+				"I got the impression he was not overly sad to part with the ship because he was known to suffer a lot from seasickness."},
 			["captain"] = {
 				"I'd have been a much better captain then Kid was. I played several captains on stage and I was good! ...",
-			"Where Kid longed for the appreciation of his men, I would rule by fear and with an iron fist!"},
+				"Where Kid longed for the appreciation of his men, I would rule by fear and with an iron fist!"},
 			["plan"] = {
 				"It was all captain Kid's idea. You see, he hated his name and planned to become known by the name captain Kidnap. ...",
 				"All he needed was someone famous to kidnap. ...",
@@ -88,26 +90,28 @@ npcType.onSay = function(npc, creature, type, message)
 				"Things went bad when they decided to have a victory party. ...",
 				"As far as I could make out from the mumblings of the pirates, Kid lost the key to my cell while relieving himself in the underground river. ...",
 				"The fool decided to dive after it .. never to be seen again. ...",
-			"When I found out about Kid's demise I tried to convince the pirates it was a hoax, but they just won't believe me!"},
+				"When I found out about Kid's demise I tried to convince the pirates it was a hoax, but they just won't believe me!"},
 			["kidnap"] = {
 				"Ah kidnapping is so much fun. That is, if you're not on the receiving end. ...",
-			"It's easy money and you have a chance to frighten and torture someone who can't fight back!"},
+				"It's easy money and you have a chance to frighten and torture someone who can't fight back!"},
 			["scams"] = {
 				"The more stupid the people are, the easier it is to con them. ...",
 				"And the poorer they are the less means they have to get revenge. Har Har! ...",
-			"So I make sure I ruin those I scam. Then they have other things to worry about than getting revenge on me."},
+				"So I make sure I ruin those I scam. Then they have other things to worry about than getting revenge on me."},
 			["key"] = {
 				"The key was lost in the underground river and has probably washed into the seven seas by now! ...",
-			"If that stupid Kid hadn't been so obsessed with kidnapping he'd not have sold his ship to buy the most expensive and complicated locks for his cells!"},
+				"If that stupid Kid hadn't been so obsessed with kidnapping he'd not have sold his ship to buy the most expensive and complicated locks for his cells!"},
 			["plundering"] = {
 				"As long as we stick to undefended coastal towns we can make an easy fortune. Har Har! ...",
-			"As soon as I get out of here I'll finally become a pirate captain on my own. I don't need Captain Kid!"}
+				"As soon as I get out of here I'll finally become a pirate captain on my own. I don't need Captain Kid!"}
 		}
 		
-		for index, value in pairs(messages) do
-			if msgContains(message, index) then
-				npc:talk(value)
-				return true
+		if npc:isInteractingWithPlayer(player) then
+			for index, value in pairs(messages) do
+				if msgContains(message, index) then
+					npc:talk(player, value)
+					return true
+				end
 			end
 		end
 	end

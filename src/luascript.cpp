@@ -2872,10 +2872,9 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Npc", "setName", LuaScriptInterface::luaNpcSetName);
 	registerMethod("Npc", "place", LuaScriptInterface::luaNpcPlace);
 	registerMethod("Npc", "say", LuaScriptInterface::luaNpcSay);
-	registerMethod("Npc", "getFocus", LuaScriptInterface::luaNpcGetFocus);
-	registerMethod("Npc", "isFocusedOnCreature", LuaScriptInterface::luaNpcIsFocusedOnCreature);
-	registerMethod("Npc", "setFocus", LuaScriptInterface::luaNpcSetFocus);
-	registerMethod("Npc", "resetFocus", LuaScriptInterface::luaNpcResetFocus);
+	registerMethod("Npc", "addPlayerInteraction", LuaScriptInterface::luaNpcAddPlayerInteraction);
+	registerMethod("Npc", "removePlayerInteraction", LuaScriptInterface::luaNpcRemovePlayerInteraction);
+	registerMethod("Npc", "isInteractingWithPlayer", LuaScriptInterface::luaNpcIsInteractingWithPlayer);
 	registerMethod("Npc", "isInTalkRange", LuaScriptInterface::luaNpcIsInTalkRange);
 
 	// Guild
@@ -12945,85 +12944,50 @@ int LuaScriptInterface::luaNpcSay(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaNpcGetFocus(lua_State* L)
+int LuaScriptInterface::luaNpcAddPlayerInteraction(lua_State* L)
 {
-    // npc:getFocus()
+    // npc:addPlayerInteraction(creature)
     Npc* npc = getUserdata<Npc>(L, 1);
-
-    if (!npc) {
-        lua_pushnil(L);
-        return 1;
-    }
-
-    Creature* focusCreature = g_game.getCreatureByID(npc->getFocus());
-
-    if (!focusCreature) {
-        lua_pushnil(L);
-        return 1;
-    }
-
-    pushUserdata<Creature>(L, focusCreature);
-    setCreatureMetatable(L, -1, focusCreature);
-    return 1;
-}
-
-int LuaScriptInterface::luaNpcIsFocusedOnCreature(lua_State* L)
-{
-    // npc:isFocusedOnCreature(creature)
     Creature* creature = getCreature(L, 2);
-    Npc* npc = getUserdata<Npc>(L, 1);
-
-    if (!npc || !creature) {
-        pushBoolean(L, false);
-        return 1;
-    }
-
-    pushBoolean(L, npc->getFocus() == creature->getID());
-    return 1;
-}
-
-int LuaScriptInterface::luaNpcSetFocus(lua_State* L)
-{
-	// npc:setFocus()
-    Npc* npc = getUserdata<Npc>(L, 1);
-	Creature* creature = getCreature(L, 2);
 
     if (!npc || !creature) {
         lua_pushnil(L);
         return 1;
     }
 
-    Creature* focusCreature = g_game.getCreatureByID(npc->setFocus(creature));
-
-    if (!focusCreature) {
-        lua_pushnil(L);
-        return 1;
-    }
-
-    pushUserdata<Creature>(L, focusCreature);
-    setCreatureMetatable(L, -1, focusCreature);
+	npc->addPlayerInteraction(creature->getID());
+	pushBoolean(L, true);
     return 1;
 }
 
-int LuaScriptInterface::luaNpcResetFocus(lua_State* L)
+int LuaScriptInterface::luaNpcRemovePlayerInteraction(lua_State* L)
 {
-	// npc:getFocus()
+    // npc:removePlayerInteraction()
     Npc* npc = getUserdata<Npc>(L, 1);
+    Creature* creature = getCreature(L, 2);
 
-    if (!npc) {
+    if (!npc || !creature) {
         lua_pushnil(L);
         return 1;
     }
 
-    Creature* focusCreature = g_game.getCreatureByID(npc->resetFocus());
+    npc->removePlayerInteraction(creature->getID());
+    pushBoolean(L, true);
+    return 1;
+}
 
-    if (!focusCreature) {
+int LuaScriptInterface::luaNpcIsInteractingWithPlayer(lua_State* L)
+{
+    // npc:isInteractingWithPlayer(creature)
+    Npc* npc = getUserdata<Npc>(L, 1);
+    Creature* creature = getCreature(L, 2);
+
+    if (!npc || !creature ) {
         lua_pushnil(L);
         return 1;
     }
 
-    pushUserdata<Creature>(L, focusCreature);
-    setCreatureMetatable(L, -1, focusCreature);
+    pushBoolean(L, npc->isInteractingWithPlayer(creature->getID()));
     return 1;
 }
 

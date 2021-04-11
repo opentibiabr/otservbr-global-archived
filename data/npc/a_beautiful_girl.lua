@@ -36,12 +36,13 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-    if greetMessage(message, creature) then
-        npc:say("Hello, ".. creature:getName() ..", what you need?", TALKTYPE_PRIVATE_NP)
-    end
-
-    if farewellMessage(message, creature) then
-        npc:say("Goodbye, ".. creature:getName() .."", TALKTYPE_PRIVATE_NP)
+    local player = creature:getPlayer()
+	if player then	
+		if npc:greet(message, player, "GET ME OUT OF HERE! NOW!") then
+			return true
+		elseif npc:unGreet(message, player) then
+			return true
+		end
     end
 end
 

@@ -146,6 +146,18 @@ class Npc final : public Creature
             return focusCreature = 0;
         }
 
+		void addPlayerInteraction(uint32_t playerId) {
+			playerInteractions.push_back(playerId);
+		}
+
+		void removePlayerInteraction(uint32_t playerId) {
+			playerInteractions.erase(std::remove(playerInteractions.begin(), playerInteractions.end(), playerId), playerInteractions.end());
+		}
+
+		bool isInteractingWithPlayer(uint32_t playerId) {
+			return std::find(playerInteractions.begin(), playerInteractions.end(), playerId) != playerInteractions.end();
+		}
+
 		bool canWalkOnFieldType(CombatType_t combatType) const;
 		void onAttackedCreatureDisappear(bool isLogout) override;
 
@@ -227,6 +239,8 @@ class Npc final : public Creature
 		CreatureList targetList;
 
 		std::string strDescription;
+
+		std::vector<uint32_t> playerInteractions;
 
 		NpcType* npcType;
 		SpawnNpc* spawnNpc = nullptr;
