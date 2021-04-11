@@ -37,13 +37,13 @@ end
 
 npcType.onSay = function(npc, creature, type, message)
     local player = creature:getPlayer()
-    if player then	
+    if player then
         if npc:greet(message, player, "Hi! What is it, what d'ye {want}?") then
             return true
         elseif npc:unGreet(message, player) then
             return true
         end
-        
+
         if npc:isInteractingWithPlayer(player) then
             if msgContains(message, "want") then
                 if player:getStorageValue(Storage.DarkTrails.Mission01) == 1 then
@@ -64,7 +64,7 @@ npcType.onSay = function(npc, creature, type, message)
                     player:setStorageValue(Storage.DarkTrails.Mission01, 2) -- Mission 1 end
                     player:setStorageValue(Storage.DarkTrails.Mission02, 1) -- Mission 2 start
                     -- Remove topic of "want" message
-                    npc:removeTopicMessage(player, 1)
+                    npc:removeTopicMessage(player)
                 end
             end
         end

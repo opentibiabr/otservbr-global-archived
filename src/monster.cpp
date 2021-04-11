@@ -757,7 +757,7 @@ void Monster::setIdle(bool idle)
 	isIdle = idle;
 
 	if (!isIdle) {
-		g_game.addCreatureCheck(this);
+		Game::addCreatureCheck(this);
 	} else {
 		onIdleStatus();
 		clearTargetList();
@@ -1137,11 +1137,6 @@ void Monster::onThinkYell(uint32_t interval)
 			}
 		}
 	}
-}
-
-void Monster::onCreatureWalk()
-{
-	Creature::onCreatureWalk();
 }
 
 bool Monster::pushItem(Item* item)

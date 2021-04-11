@@ -13088,10 +13088,9 @@ int LuaScriptInterface::luaNpcAddTopicMessage(lua_State* L)
 
 int LuaScriptInterface::luaNpcRemoveTopicMessage(lua_State* L)
 {
-	//npc:getTopicMessage(creature, topicId)
+	//npc:getTopicMessage(creature)
 	Npc* npc = getUserdata<Npc>(L, 1);
 	Creature* creature = getCreature(L, 2);
-	uint32_t topicId = getNumber<uint32_t>(L, 3);
 
 	if (!npc) {
 		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
@@ -13105,13 +13104,7 @@ int LuaScriptInterface::luaNpcRemoveTopicMessage(lua_State* L)
 		return 1;
 	}
 
-	if (!topicId) {
-		reportErrorFunc("Topic id not found");
-		lua_pushnil(L);
-		return 1;
-	}
-
-	npc->removeTopic(creature->getID(), topicId);
+	npc->removeTopic(creature->getID());
 	pushBoolean(L, true);
 	return 1;
 }

@@ -28,9 +28,6 @@ class Creature;
 class Game;
 class SpawnNpc;
 
-using CreatureHashSet = std::unordered_set<Creature*>;
-using CreatureList = std::list<Creature*>;
-
 class Npc final : public Creature
 {
 	public:
@@ -75,18 +72,13 @@ class Npc final : public Creature
 			return CREATURETYPE_NPC;
 		}
 
-		int32_t getMasterRadius() const {
-			return masterRadius;
-		}
 		const Position& getMasterPos() const {
 			return masterPos;
 		}
-		void setMasterPos(Position pos, int32_t radius = 1) {
+		void setMasterPos(Position pos) {
 			masterPos = pos;
-			if (masterRadius == -1) {
-				masterRadius = radius;
-			}
 		}
+
 
 		RaceType_t getRace() const override {
 			return npcType->info.race;
@@ -99,26 +91,15 @@ class Npc final : public Creature
 		}
 
 		bool isPushable() const override {
-			return npcType->info.pushable && baseSpeed != 0;
+			return false;
 		}
 		bool isAttackable() const override {
-			return npcType->info.isAttackable;
+			return false;
 		}
-		bool canPushItems() const {
-			return npcType->info.canPushItems;
-		}
-		bool canPushCreatures() const {
-			return npcType->info.canPushCreatures;
-		}
-		bool isHostile() const {
-			return npcType->info.isHostile;
-		}
+
 		bool canSee(const Position& pos) const override;
 		bool canSeeInvisibility() const override {
-			return isImmune(CONDITION_INVISIBLE);
-		}
-		uint32_t getManaCost() const {
-			return npcType->info.manaCost;
+			return true;
 		}
 		RespawnType getRespawnType() const {
 			return npcType->info.respawnType;
@@ -127,198 +108,68 @@ class Npc final : public Creature
 			this->spawnNpc = newSpawn;
 		}
 
-		uint32_t getReflectValue(CombatType_t combatType) const;
-		uint32_t getHealingCombatValue(CombatType_t healingType) const;
-
 		void addPlayerInteraction(uint32_t playerId);
+		void updatePlayerInteractions(Player* player);
 		void removePlayerInteraction(uint32_t playerId) {
-			playerInteractions.erase(std::remove(playerInteractions.begin(), playerInteractions.end(), playerId), playerInteractions.end());
+		  if (playerInteractions.at(playerId)) {
+		    playerInteractions.erase(playerId);
+		  }
+
+		  if (playerInteractions.size() == 0) {
+			  setIdle(false);
+			}
 		}
+		void resetPlayerInteractions();
+
 		bool isInteractingWithPlayer(uint32_t playerId) {
-			return std::find(playerInteractions.begin(), playerInteractions.end(), playerId) != playerInteractions.end();
+			return !!playerInteractions.at(playerId);
 		}
 
-		void addTopic(uint32_t playerId, uint32_t topicId) {
-			topicMessage.push_back(playerId);
-			topicMessage.push_back(topicId);
+		void addTopic(uint32_t playerId, uint16_t topicId) {
+		  playerInteractions[playerId] = topicId;
 		}
-		void removeTopic(uint32_t playerId, uint32_t topicId) {
-			topicMessage.erase(std::remove(topicMessage.begin(), topicMessage.end(), playerId), topicMessage.end());
-			topicMessage.erase(std::remove(topicMessage.begin(), topicMessage.end(), topicId), topicMessage.end());
+		void removeTopic(uint32_t playerId) {
+		  playerInteractions[playerId] = 0;
 		}
-		bool getTopic(uint32_t playerId, uint32_t topicId) {
-			return std::find(topicMessage.begin(), topicMessage.end(), playerId) != topicMessage.end();
-			return std::find(topicMessage.begin(), topicMessage.end(), topicId) != topicMessage.end();
+		bool getTopic(uint32_t playerId, uint16_t topicId) {
+			return playerInteractions.at(playerId) == topicId;
 		}
-
-		bool canWalkOnFieldType(CombatType_t combatType) const;
 
 		void onCreatureAppear(Creature* creature, bool isLogin) override;
 		void onRemoveCreature(Creature* creature, bool isLogout) override;
 		void onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos, const Tile* oldTile, const Position& oldPos, bool teleport) override;
 		void onCreatureSay(Creature* creature, SpeakClasses type, const std::string& text) override;
 
-		void drainHealth(Creature* attacker, int32_t damage) override;
-		void changeHealth(int32_t healthChange, bool sendHealthChange = true) override;
-		void onCreatureWalk() override;
 		bool getNextStep(Direction& direction, uint32_t& flags) override;
-		void onFollowCreatureComplete(const Creature* creature) override;
 
 		void onThink(uint32_t interval) override;
 
-		bool challengeCreature(Creature* creature) override;
-
-		bool changeTargetDistance(int32_t distance);
-
-		CreatureIcon_t getIcon() const override {
-			if (challengeMeleeDuration > 0 && npcType->info.targetDistance > targetDistance)
-				return CREATUREICON_TURNEDMELEE;
-			else if (varBuffs[BUFF_DAMAGERECEIVED] > 100)
-				return CREATUREICON_HIGHERRECEIVEDDAMAGE;
-			else if (varBuffs[BUFF_DAMAGEDEALT] < 100)
-				return CREATUREICON_LOWERDEALTDAMAGE;
-			else
-				return CREATUREICON_NONE;
-		}
-
-		void setNormalCreatureLight() override;
-		bool getCombatValues(int32_t& min, int32_t& max) override;
-
-		void doAttacking(uint32_t interval) override;
-
-		bool searchTarget(TargetSearchType_t searchType = TARGETSEARCH_DEFAULT);
-		bool selectTarget(Creature* creature);
-
-		const CreatureList& getTargetList() const {
-			return targetList;
-		}
-		const CreatureHashSet& getFriendList() const {
-			return friendList;
-		}
-
-		bool isTarget(const Creature* creature) const;
-		bool isFleeing() const {
-			return !isSummon() && getHealth() <= npcType->info.runAwayHealth && challengeFocusDuration <= 0;
-		}
-
-		bool getDistanceStep(const Position& targetPos, Direction& direction, bool flee = false);
-		bool isTargetNearby() const {
-			return stepDuration >= 1;
-		}
-		bool isIgnoringFieldDamage() const {
-			return ignoreFieldDamage;
-		}
-		bool israndomStepping() const {
-			return randomStepping;
-		}
-		void setIgnoreFieldDamage(bool ignore) {
-			ignoreFieldDamage = ignore;
-		}
-		bool getIgnoreFieldDamage() const {
-			return ignoreFieldDamage;
-		}
-
-		void turnToCreature(Creature* creature);
-		void validateCurrentFocus();
-
-		BlockType_t blockHit(Creature* attacker, CombatType_t combatType, int32_t& damage,
-							 bool checkDefense = false, bool checkArmor = false, bool field = false) override;
+		void setNormalCreatureLight() override {
+      internalLight = npcType->info.light;
+    }
 
 		static uint32_t npcAutoID;
 
 	private:
-		CreatureHashSet friendList;
-		CreatureList targetList;
-
 		std::string strDescription;
 
-		std::vector<uint32_t> playerInteractions;
-		std::vector<uint32_t> topicMessage;
+		std::map<uint32_t, uint16_t> playerInteractions;
 
 		NpcType* npcType;
 		SpawnNpc* spawnNpc = nullptr;
 
-		uint32_t yellTicks = 0;
-		int32_t minCombatValue = 0;
-		int32_t maxCombatValue = 0;
-		int32_t targetChangeCooldown = 0;
-		int32_t challengeFocusDuration = 0;
 		int32_t stepDuration = 0;
-		int32_t targetDistance = 1;
-		int32_t challengeMeleeDuration = 0;
-		int32_t masterRadius;
 
 		Position masterPos;
 
-		bool isIdle = true;
-		bool randomStepping = false;
-		bool ignoreFieldDamage = false;
-
-		void onCreatureEnter(Creature* creature);
-		void onCreatureLeave(Creature* creature);
-		void onCreatureFound(Creature* creature, bool pushFront = false);
-
-		void updateLookDirection();
-
-		void addFriend(Creature* creature);
-		void removeFriend(Creature* creature);
-		void addTarget(Creature* creature, bool pushFront = false);
-		void removeTarget(Creature* creature);
-
-		void updateTargetList();
-		void clearTargetList();
-		void clearFriendList();
-
-		void death(Creature* lastHitCreature) override;
-		Item* getCorpse(Creature* lastHitCreature, Creature* mostDamageCreature) override;
+		bool isIdle = false;
 
 		void setIdle(bool idle);
-		void updateIdleStatus();
 		bool getIdleStatus() const {
 			return isIdle;
 		}
 
-		void onAddCondition(ConditionType_t type) override;
-		void onEndCondition(ConditionType_t type) override;
-
-		bool canUseAttack(const Position& pos, const Creature* target) const;
-		bool canUseSpell(const Position& pos, const Position& targetPos,
-						 const spellBlockNpc_t& sb, uint32_t interval, bool& inRange, bool& resetTicks);
-		bool getRandomStep(const Position& creaturePos, Direction& direction) const;
-		bool getDanceStep(const Position& creaturePos, Direction& direction,
-						  bool keepAttack = true, bool keepDistance = true);
 		bool isInSpawnRange(const Position& pos) const;
-		bool canWalkTo(Position pos, Direction direction) const;
-
-		static bool pushItem(Item* item);
-		static void pushItems(Tile* tile);
-		static bool pushCreature(Creature* creature);
-		static void pushCreatures(Tile* tile);
-
-		void onThinkTarget(uint32_t interval);
-		void onThinkYell(uint32_t interval);
-		void onThinkDefense(uint32_t interval);
-
-		bool isFriend(const Creature* creature) const;
-		bool isOpponent(const Creature* creature) const;
-
-		uint64_t getLostExperience() const override {
-			return skillLoss ? npcType->info.experience : 0;
-		}
-		uint16_t getLookCorpse() const override {
-			return npcType->info.lookcorpse;
-		}
-		void dropLoot(Container* corpse, Creature* lastHitCreature) override;
-		uint32_t getDamageImmunities() const override {
-			return npcType->info.damageImmunities;
-		}
-		uint32_t getConditionImmunities() const override {
-			return npcType->info.conditionImmunities;
-		}
-		void getPathSearchParams(const Creature* creature, FindPathParams& fpp) const override;
-		bool useCacheMap() const override {
-			return !randomStepping;
-		}
 
 		friend class LuaScriptInterface;
 		friend class Map;

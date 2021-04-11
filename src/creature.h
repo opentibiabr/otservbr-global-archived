@@ -328,7 +328,7 @@ class Creature : virtual public Thing
 		}
 		/**
 		 * hasBeenSummoned doesn't guarantee master still exists
-		 */ 
+		 */
 		bool hasBeenSummoned() const {
 			return summoned;
 		}
@@ -426,6 +426,8 @@ class Creature : virtual public Thing
 		void onAttacking(uint32_t interval);
 		virtual void onCreatureWalk();
 		virtual bool getNextStep(Direction& dir, uint32_t& flags);
+
+		virtual void turnToCreature(Creature* creature);
 
 		void onAddTileItem(const Tile* tile, const Position& pos);
 		virtual void onUpdateTileItem(const Tile* tile, const Position& pos, const Item* oldItem,
@@ -545,7 +547,7 @@ class Creature : virtual public Thing
 		 * We need to persist if this creature is summon or not because when we
 		 * increment the bestiary count, the master might be gone before we can
 		 * check if this summon has a master and mistakenly count it kill.
-		 * 
+		 *
 		 * @see BestiaryOnKill
 		 * @see Monster::death()
 		 */

@@ -1660,3 +1660,33 @@ bool Creature::getPathTo(const Position& targetPos, std::forward_list<Direction>
 	fpp.maxTargetDist = maxTargetDist;
 	return getPathTo(targetPos, dirList, fpp);
 }
+
+void Creature::turnToCreature(Creature* creature)
+{
+	const Position& creaturePos = creature->getPosition();
+	const auto dx = Position::getOffsetX(position, creaturePos);
+	const auto dy = Position::getOffsetY(position, creaturePos);
+
+	float tan;
+	if (dx != 0) {
+		tan = static_cast<float>(dy) / dx;
+	} else {
+		tan = 10;
+	}
+
+	Direction dir;
+	if (std::abs(tan) < 1) {
+		if (dx > 0) {
+			dir = DIRECTION_WEST;
+		} else {
+			dir = DIRECTION_EAST;
+		}
+	} else {
+		if (dy > 0) {
+			dir = DIRECTION_NORTH;
+		} else {
+			dir = DIRECTION_SOUTH;
+		}
+	}
+	g_game.internalCreatureTurn(this, dir);
+}
