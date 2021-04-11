@@ -66,32 +66,4 @@ monster.elements = {
 monster.immunities = {
 }
 
---[[
-mType.onThink = function(monster, interval)
-	print("I'm thinking")
-end
-
-mType.onAppear = function(monster, creature)
-	if monster:getId() == creature:getId() then
-		print(monster:getId(), creature:getId())
-	end
-end
-
-mType.onDisappear = function(monster, creature)
-	if monster:getId() == creature:getId() then
-		print(monster:getId(), creature:getId())
-	end
-end
-
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-	if monster:getId() == creature:getId() then
-		print(monster:getId(), creature:getId(), fromPosition, toPosition)
-	end
-end
-
-mType.onSay = function(monster, creature, type, message)
-	print(monster:getId(), creature:getId(), type, message)
-end
-]]
-
 mType:register(monster)

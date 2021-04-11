@@ -40,7 +40,7 @@
 #include "spells.h"
 #include "talkaction.h"
 #include "weapons.h"
-#include "script.h"
+#include "scripts.h"
 #include "modules.h"
 #include "imbuements.h"
 #include "account.hpp"
@@ -92,7 +92,8 @@ void Game::loadBoostedCreature()
 	DBResult_ptr result = db.storeQuery(query.str());
 
 	if (!result) {
-		std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database. (CODE 01)" << std::endl;
+		SPDLOG_WARN("[Game::loadBoostedCreature] - "
+                    "Failed to detect boosted creature database. (CODE 01)");
 		return;
 	}
 
@@ -139,12 +140,13 @@ void Game::loadBoostedCreature()
 		query << "`raceid` = '" << newrace << "'";
 
 		if (!db.executeQuery(query.str())) {
-			std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database. (CODE 02)" << std::endl;
+			SPDLOG_WARN("[Game::loadBoostedCreature] - "
+                        "Failed to detect boosted creature database. (CODE 02)");
 			return;
 		}
 	}
 	setBoostedName(name);
-	std::cout << ">> Boosted creature: " << name << std::endl;
+	SPDLOG_INFO("Boosted creature: {}", name);
 }
 
 void Game::start(ServiceManager* manager)
@@ -224,7 +226,8 @@ bool Game::loadScheduleEventFromXml()
 
 		if ((attr = schedNode.attribute("script"))) {
 			if (!(g_scripts->loadEventSchedulerScripts(attr.as_string()))) {
-				std::cout << "[Warning - Game::loadScheduleEventFromXml] Can not load the file '" << attr.as_string() << "' on '/events/scripts/scheduler/'." << std::endl;
+				SPDLOG_WARN("Can not load the file '{}' on '/events/scripts/scheduler/'",
+					attr.as_string());
 				return false;
 			}
 		}
@@ -254,7 +257,7 @@ bool Game::loadScheduleEventFromXml()
 				ss << ", skill: " << (skillrate - 100) << "%";
 			}
 		}
-		std::cout << ss.str() << "." << std::endl;
+		SPDLOG_INFO(ss.str());
 	}
 	return true;
 }
@@ -598,7 +601,7 @@ void Game::saveGameState()
 		setGameState(GAME_STATE_MAINTAIN);
 	}
 
-	std::cout << "Saving server..." << std::endl;
+	SPDLOG_INFO("Saving server...");
 
 	for (const auto& it : players) {
 		it.second->loginPosition = it.second->getPosition();
@@ -2741,7 +2744,7 @@ bool Game::playerBroadcastMessage(Player* player, const std::string& text) const
 		return false;
 	}
 
-	std::cout << "> " << player->getName() << " broadcasted: \"" << text << "\"." << std::endl;
+	SPDLOG_INFO("{} broadcasted: {}", player->getName(), text);
 
 	for (const auto& it : players) {
 		it.second->sendPrivateMessage(player, TALKTYPE_BROADCAST, text);
@@ -6436,7 +6439,9 @@ void Game::internalDecayItem(Item* item)
 	} else {
 		ReturnValue ret = internalRemoveItem(item);
 		if (ret != RETURNVALUE_NOERROR) {
-			std::cout << "[Debug - Game::internalDecayItem] internalDecayItem failed, error code: " << static_cast<uint32_t>(ret) << ", item id: " << item->getID() << std::endl;
+			SPDLOG_DEBUG("Game::internalDecayItem] internalDecayItem failed, "
+                         "error code: {}, item id: {}",
+                         static_cast<uint32_t>(ret), item->getID());
 		}
 	}
 }
@@ -6637,7 +6642,7 @@ void Game::shutdown()
 {
   webhook_send_message("Server is shutting down", "Shutting down...", WEBHOOK_COLOR_OFFLINE);
 
-	std::cout << "Shutting down..." << std::flush;
+	SPDLOG_INFO("Shutting down...");
 
 	g_scheduler.shutdown();
 	g_databaseTasks.shutdown();
@@ -6653,7 +6658,7 @@ void Game::shutdown()
 
 	ConnectionManager::getInstance().closeAll();
 
-	std::cout << " done!" << std::endl;
+	SPDLOG_INFO("Done!");
 }
 
 void Game::cleanup()
@@ -6707,7 +6712,7 @@ void Game::addBestiaryList(uint16_t raceid, std::string name)
 
 void Game::broadcastMessage(const std::string& text, MessageClasses type) const
 {
-	std::cout << "> Broadcasted message: \"" << text << "\"." << std::endl;
+	SPDLOG_INFO("Broadcasted message: {}", text);
 	for (const auto& it : players) {
 		it.second->sendTextMessage(type, text);
 	}
@@ -6772,15 +6777,15 @@ void Game::updateCreatureType(Creature* creature)
 
 void Game::updatePremium(account::Account& account)
 {
-  bool save = false;
-  time_t timeNow = time(nullptr);
-  uint32_t rem_days = 0;
-  time_t last_day;
-  account.GetPremiumRemaningDays(&rem_days);
-  account.GetPremiumLastDay(&last_day);
-  if (rem_days != 0)
-  {
-    if (last_day == 0) {
+bool save = false;
+	time_t timeNow = time(nullptr);
+	uint32_t rem_days = 0;
+	time_t last_day;
+	account.GetPremiumRemaningDays(&rem_days);
+	account.GetPremiumLastDay(&last_day);
+	std::string name;
+	if (rem_days != 0) {
+		if (last_day == 0) {
 			account.SetPremiumLastDay(timeNow);
 			save = true;
 		} else {
@@ -6788,8 +6793,10 @@ void Game::updatePremium(account::Account& account)
 			if (days > 0) {
 				if (days >= rem_days) {
 					if(!account.SetPremiumRemaningDays(0) || !account.SetPremiumLastDay(0)) {
-            std::cout << "Failed to set account premium days!" << std::endl;
-          }
+						account.GetName(&name);
+						SPDLOG_ERROR("Failed to set account premium days, account name: {}",
+							name);
+					}
 				} else {
 					account.SetPremiumRemaningDays((rem_days - days));
 					time_t remainder = (timeNow - last_day) % 86400;
@@ -6806,11 +6813,10 @@ void Game::updatePremium(account::Account& account)
 		save = true;
   }
 
-  if (save && !account.SaveAccountDB()) {
-    std::string name;
-    account.GetName(&name);
-		std::cout << "> ERROR: Failed to save account: " << name << "!"
-              << std::endl;
+	if (save && !account.SaveAccountDB()) {
+		account.GetName(&name);
+		SPDLOG_ERROR("Failed to save account: {}",
+			name);
 	}
 }
 
@@ -8563,7 +8569,7 @@ bool Game::addUniqueItem(uint16_t uniqueId, Item* item)
 {
 	auto result = uniqueItems.emplace(uniqueId, item);
 	if (!result.second) {
-		std::cout << "> Duplicate unique id: " << uniqueId << std::endl;
+		SPDLOG_WARN("Duplicate unique id: {}", uniqueId);
 	}
 	return result.second;
 }
@@ -8585,7 +8591,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 		}
 		case RELOAD_TYPE_CHAT: return g_chat->load();
 		case RELOAD_TYPE_CONFIG: return g_config.reload();
-		case RELOAD_TYPE_EVENTS: return g_events->load();
+		case RELOAD_TYPE_EVENTS: return g_events->loadFromXml();
 		case RELOAD_TYPE_ITEMS: return Item::items.reload();
 		case RELOAD_TYPE_MODULES: return g_modules->reload();
 		case RELOAD_TYPE_MOUNTS: return mounts.reload();
@@ -8599,7 +8605,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 
 		case RELOAD_TYPE_SPELLS: {
 			if (!g_spells->reload()) {
-				std::cout << "[Error - Game::reload] Failed to reload spells." << std::endl;
+				SPDLOG_WARN("[Game::reload] - Failed to reload spells.");
 				std::terminate();
 			}
 			return true;
@@ -8621,7 +8627,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 
 		default: {
 			if (!g_spells->reload()) {
-				std::cout << "[Error - Game::reload] Failed to reload spells." << std::endl;
+				SPDLOG_WARN("[Game::reload] - Failed to reload spells.");
 				std::terminate();
 			}
 
@@ -8632,7 +8638,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_weapons->clear(true);
 			g_weapons->loadDefaults();
 			mounts.reload();
-			g_events->load();
+			g_events->loadFromXml();
 			g_chat->load();
 			g_actions->clear(true);
 			g_creatureEvents->clear(true);

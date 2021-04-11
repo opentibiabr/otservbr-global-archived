@@ -20,6 +20,8 @@ jobs:
         language: [ 'cpp', 'python' ]
 
     steps:
+    - uses: lukka/get-cmake@latest
+
     - name: Checkout repository
       uses: actions/checkout@v2
 
@@ -31,29 +33,27 @@ jobs:
     - name: Install Dependencies
       if: ${{ matrix.language == 'cpp' }}
       run: >
-        sudo apt-get update && sudo apt-get install ccache cmake build-essential
-        libcurl4-openssl-dev libjsoncpp-dev libmysqlclient-dev libboost-system-dev
-        libboost-iostreams-dev libboost-filesystem-dev libpugixml-dev
-        libcrypto++-dev libspdlog-dev libluajit-5.1-dev libboost-date-time-dev
-        unrar zip ca-certificates
+        sudo apt-get update && sudo apt-get install ccache build-essential
+        libluajit-5.1-dev zip
 
-    - name: CCache
+    - name: Restore artifacts, or setup vcpkg (do not install any package)
       if: ${{ matrix.language == 'cpp' }}
-      id: ccache
-      uses: actions/cache@v2
+      uses: lukka/run-vcpkg@v7
       with:
-        path: ~/.ccache
-        key: codeql-${{ hashFiles('**/src') }}
-        restore-keys: |
-          codeql-${{ hashFiles('**/src') }}
-          codeql-
+        setupOnly: true
+        vcpkgDirectory: '${{ github.workspace }}/vcpkg'
+        appendedCacheKey: ${{ hashFiles( '**/vcpkg.json' ) }}
+        vcpkgTriplet: ${{ matrix.triplet }}
+        additionalCachedPaths: ${{ github.workspace }}/build/vcpkg_installed
+        vcpkgGitCommitId: 030cfaa24de9ea1bbf0a4d9c615ce7312ba77af1
 
-    - name: Build
+    - name: 'Run CMake with Ninja, install dependencies with vcpkg, build with CMake'
       if: ${{ matrix.language == 'cpp' }}
-      run: |
-        mkdir build && cd build
-        cmake ..
-        make -j `nproc`
+      uses: lukka/run-cmake@v3
+      with:
+        cmakeListsTxtPath: '${{ github.workspace }}/CMakeLists.txt'
+        useVcpkgToolchainFile: true
+        buildDirectory: ${{ github.workspace }}/build/
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1

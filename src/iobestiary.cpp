@@ -57,8 +57,8 @@ bool IOBestiary::parseCharmCombat(Charm* charm, Player* player, Creature* target
 			case CHARM_PARRY: {
 				charmDamage.primary.type = charm->dmgtype;
 				charmDamage.primary.value = -realDamage;
-				charmDamage.extension = true;		
-				charmDamage.exString = charm->logMsg;	
+				charmDamage.extension = true;
+				charmDamage.exString = charm->logMsg;
 
 				charmParams.impactEffect = charm->effect;
 				charmParams.combatType = charmDamage.primary.type;
@@ -113,7 +113,7 @@ Charm* IOBestiary::getBestiaryCharm(charmRune_t activeCharm, bool force /*= fals
 	return nullptr;
 }
 
-std::map<uint16_t, std::string> IOBestiary::findRaceByName(std::string race, bool Onlystring /*= true*/, BestiaryType_t raceNumber /*= BESTY_RACE_NONE*/) const
+std::map<uint16_t, std::string> IOBestiary::findRaceByName(const std::string &race, bool Onlystring /*= true*/, BestiaryType_t raceNumber /*= BESTY_RACE_NONE*/) const
 {
 	std::map<uint16_t, std::string> best_list = g_game.getBestiaryList();
 	std::map<uint16_t, std::string> race_list;
@@ -122,17 +122,17 @@ std::map<uint16_t, std::string> IOBestiary::findRaceByName(std::string race, boo
 		for (auto it : best_list) {
 			MonsterType* tmpType = g_monsters.getMonsterType(it.second);
 			if (tmpType && tmpType->info.bestiaryClass == race) {
-				race_list.insert({it.first, it.second});					
+				race_list.insert({it.first, it.second});
 			}
 		}
 	} else {
 		for (auto itn : best_list) {
 			MonsterType* tmpType = g_monsters.getMonsterType(itn.second);
 			if (tmpType && tmpType->info.bestiaryRace == raceNumber) {
-				race_list.insert({itn.first, itn.second});					
+				race_list.insert({itn.first, itn.second});
 			}
 		}
-	} 
+	}
 	return race_list;
 }
 
@@ -145,7 +145,7 @@ uint8_t IOBestiary::getKillStatus(MonsterType* mtype, uint32_t killAmount) const
 	} else if (killAmount < mtype->info.bestiaryToUnlock) {
 		return 3;
 	}
-	return 4;	
+	return 4;
 }
 
 void IOBestiary::resetCharmRuneCreature(Player* player, Charm* charm)
@@ -164,7 +164,7 @@ void IOBestiary::setCharmRuneCreature(Player* player, Charm* charm, uint16_t rac
 
 std::list<charmRune_t> IOBestiary::getCharmUsedRuneBitAll(Player* player)
 {
-	int32_t input = player->getUsedRunesBit();;	
+	int32_t input = player->getUsedRunesBit();;
 	int8_t i = 0;
 	std::list<charmRune_t> rtn;
 	while (input != 0) {
@@ -234,7 +234,7 @@ void IOBestiary::addBestiaryKill(Player* player, MonsterType* mtype, uint32_t am
 		player->sendBestiaryEntryChanged(raceid);
 	}
 
-	std::list<MonsterType*> trackerList = player->getBestiaryTrackerList();	
+	std::list<MonsterType*> trackerList = player->getBestiaryTrackerList();
 	for (MonsterType* mType : trackerList) {
 		if (raceid == mType->info.raceid) {
 			player->refreshBestiaryTracker(trackerList);
@@ -305,7 +305,7 @@ void IOBestiary::sendBuyCharmRune(Player* player, charmRune_t runeID, uint8_t ac
 				limitRunes = 100;
 			} else {
 				limitRunes = 6;
-			}			
+			}
 		} else {
 			limitRunes = 3;
 		}
@@ -367,9 +367,9 @@ std::map<uint8_t, int16_t> IOBestiary::getMonsterElements(MonsterType* mtype) co
 				break;
 			case COMBAT_HEALING:
 				defaultMap[7] -= static_cast<int16_t>(elementEntry.second);
-				break;		
+				break;
 			default:
-				break;		
+				break;
 		}
 	}
 	return defaultMap;
@@ -383,7 +383,7 @@ std::map<uint16_t, uint32_t> IOBestiary::getBestiaryKillCountByMonsterIDs(Player
 		uint32_t thisKilled = player->getBestiaryKillCount(raceid);
 		if (thisKilled > 0) {
 			raceMonsters[raceid] = thisKilled;
-		}		
+		}
 	}
 	return raceMonsters;
 }

@@ -35,7 +35,6 @@ function count_monsters.onSay(player, words, param)
 	writing_file:write('--- Total de Monstros no Servidor ---\n')
 
 	for monster, count in pairsByKeys(monsters) do
-		--print(monster, count)
 		writing_file:write(monster..' - '..count..'\n')
 	end
 
