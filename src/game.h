@@ -227,7 +227,7 @@ class Game
 		bool removeCreature(Creature* creature, bool isLogout = true);
 		void executeDeath(uint32_t creatureId);
 
-		static void addCreatureCheck(Creature* creature);
+		void addCreatureCheck(Creature* creature);
 		static void removeCreatureCheck(Creature* creature);
 
 		size_t getPlayersOnline() const {
@@ -529,6 +529,8 @@ class Game
 		//animation help functions
 		void addCreatureHealth(const Creature* target);
 		static void addCreatureHealth(const SpectatorHashSet& spectators, const Creature* target);
+		void addPlayerMana(const Player* target);
+		void addPlayerVocation(const Player* target);
 		void addMagicEffect(const Position& pos, uint8_t effect);
 		static void addMagicEffect(const SpectatorHashSet& spectators, const Position& pos, uint8_t effect);
 		void addDistanceEffect(const Position& fromPos, const Position& toPos, uint8_t effect);

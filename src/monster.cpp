@@ -757,7 +757,7 @@ void Monster::setIdle(bool idle)
 	isIdle = idle;
 
 	if (!isIdle) {
-		Game::addCreatureCheck(this);
+		g_game.addCreatureCheck(this);
 	} else {
 		onIdleStatus();
 		clearTargetList();
