@@ -268,7 +268,6 @@ std::string LuaScriptInterface::getErrorDesc(ErrorCode_t code)
 		case LUA_ERROR_VARIANT_NOT_FOUND: return "Variant not found";
 		case LUA_ERROR_VARIANT_UNKNOWN: return "Unknown variant type";
 		case LUA_ERROR_SPELL_NOT_FOUND: return "Spell not found";
-		case LUA_ERROR_POSITION_NOT_FOUND: return "Position not found";
 		default: return "Bad error code";
 	}
 }
@@ -12968,7 +12967,7 @@ int LuaScriptInterface::luaNpcTurnToCreature(lua_State* L)
 		return 1;
 	}
 
-	npc->turnToCreature(creature->getID())
+	npc->turnToCreature(creature);
 	pushBoolean(L, true);
     return 1;
 }
@@ -12992,7 +12991,6 @@ int LuaScriptInterface::luaNpcAddPlayerInteraction(lua_State* L)
 	}
 
 	npc->addPlayerInteraction(creature->getID());
-	npc->turnToCreature(creature->getID())
 	pushBoolean(L, true);
     return 1;
 }
@@ -13050,12 +13048,6 @@ int LuaScriptInterface::luaNpcIsInTalkRange(lua_State* L)
 
 	if (!npc) {
 		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
-		lua_pushnil(L);
-		return 1;
-	}
-
-	if (!position) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_POSITION_NOT_FOUND));
 		lua_pushnil(L);
 		return 1;
 	}

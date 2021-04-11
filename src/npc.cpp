@@ -807,7 +807,7 @@ void Npc::onThink(uint32_t interval)
 {
 	Creature::onThink(interval);
 
-	validateCurrentFocus()
+	validateCurrentFocus();
 
 	if (npcType->info.thinkEvent != -1) {
 		// onThink(self, interval)
@@ -2193,8 +2193,8 @@ void Npc::turnToCreature(Creature* creature)
 	g_game.internalCreatureTurn(this, dir);
 }
 
-void Npc::addPlayerInteractions(uint32_t playerId) {
-	Creature* creature =  g_game.getCreatureByID(playerId);
+void Npc::addPlayerInteraction(uint32_t playerId) {
+	Creature* creature = g_game.getCreatureByID(playerId);
 	if (creature) {
 		turnToCreature(creature);
 		playerInteractions.push_back(playerId);
@@ -2205,7 +2205,7 @@ void Npc::validateCurrentFocus() {
 	for ( auto &playerId : playerInteractions ) {
 		Creature* creature = g_game.getCreatureByID(playerId);
 
-		if (!creature || Creature::canSee(getPosition(), creature->getPosition(), 4, 4) {
+		if (!creature || !canSee(creature->getPosition())) {
 			removePlayerInteraction(playerId);
 		}
 	}
