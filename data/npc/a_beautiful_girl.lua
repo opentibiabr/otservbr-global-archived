@@ -38,7 +38,7 @@ end
 npcType.onSay = function(npc, creature, type, message)
     local player = creature:getPlayer()
 	if player then	
-		if npc:greet(message, player, "GET ME OUT OF HERE! NOW!") then
+		if npc:greet(message, player, "So you have come, ".. player:getName() ..". I hoped you would not...") then
 			return true
 		elseif npc:unGreet(message, player) then
 			return true

@@ -186,6 +186,7 @@ class ScriptEnvironment
 enum ErrorCode_t {
 	LUA_ERROR_PLAYER_NOT_FOUND,
 	LUA_ERROR_CREATURE_NOT_FOUND,
+	LUA_ERROR_NPC_NOT_FOUND,
 	LUA_ERROR_ITEM_NOT_FOUND,
 	LUA_ERROR_THING_NOT_FOUND,
 	LUA_ERROR_TILE_NOT_FOUND,
@@ -1192,6 +1193,10 @@ class LuaScriptInterface
 		static int luaNpcRemovePlayerInteraction(lua_State* L);
 		static int luaNpcIsInteractingWithPlayer(lua_State* L);
 		static int luaNpcIsInTalkRange(lua_State* L);
+		static int luaNpcAddTopicMessage(lua_State* L);
+		static int luaNpcRemoveTopicMessage(lua_State* L);
+		static int luaNpcGetTopicMessage(lua_State* L);
+
 		// Guild
 		static int luaGuildCreate(lua_State* L);
 

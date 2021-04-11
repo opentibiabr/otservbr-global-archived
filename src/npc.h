@@ -149,13 +149,24 @@ class Npc final : public Creature
 		void addPlayerInteraction(uint32_t playerId) {
 			playerInteractions.push_back(playerId);
 		}
-
 		void removePlayerInteraction(uint32_t playerId) {
 			playerInteractions.erase(std::remove(playerInteractions.begin(), playerInteractions.end(), playerId), playerInteractions.end());
 		}
-
 		bool isInteractingWithPlayer(uint32_t playerId) {
 			return std::find(playerInteractions.begin(), playerInteractions.end(), playerId) != playerInteractions.end();
+		}
+
+		void addTopic(uint32_t playerId, uint32_t topicId) {
+			topicMessage.push_back(playerId);
+			topicMessage.push_back(topicId);
+		}
+		void removeTopic(uint32_t playerId, uint32_t topicId) {
+			topicMessage.erase(std::remove(topicMessage.begin(), topicMessage.end(), playerId), topicMessage.end());
+			topicMessage.erase(std::remove(topicMessage.begin(), topicMessage.end(), topicId), topicMessage.end());
+		}
+		bool getTopic(uint32_t playerId, uint32_t topicId) {
+			return std::find(topicMessage.begin(), topicMessage.end(), playerId) != topicMessage.end();
+			return std::find(topicMessage.begin(), topicMessage.end(), topicId) != topicMessage.end();
 		}
 
 		bool canWalkOnFieldType(CombatType_t combatType) const;
@@ -241,6 +252,7 @@ class Npc final : public Creature
 		std::string strDescription;
 
 		std::vector<uint32_t> playerInteractions;
+		std::vector<uint32_t> topicMessage;
 
 		NpcType* npcType;
 		SpawnNpc* spawnNpc = nullptr;
