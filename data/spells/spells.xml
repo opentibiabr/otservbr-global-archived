@@ -811,15 +811,6 @@
 	<instant name="House Kick" words="alana sio" aggressive="0" playernameparam="1" params="1" script="house/kick.lua" />
 
 	<!-- Monster Spells -->
-	<instant name="urmahlulluring" words="###474" selftarget="1" exhaustion="2000" needlearn="1" script="monster/urmahlullu ring.lua"/>
-	<instant name="warden x" words="###476" selftarget="1" exhaustion="2000" needlearn="1" script="monster/warden x.lua"/>
-	<instant name="warden ring" words="###477" selftarget="1" exhaustion="2000" needlearn="1" script="monster/warden ring.lua"/>
-	<instant name="wave t" words="###478" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/wave t.lua"/>
-	<instant name="firering" words="###479" selftarget="1" exhaustion="2000" needlearn="1" script="monster/burning gladiator firering.lua"/>
-	<instant name="firex" words="###480" selftarget="1" exhaustion="2000" needlearn="1" script="monster/burning gladiator firex.lua"/>
-	<instant name="targetfirering" words="###481" aggressive="1" blockwalls="1" needtarget="1" exhaustion="2000" needlearn="1" script="monster/priestess firering.lua"/>
-	<instant name="explosion wave" words="###482" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/explosion wave.lua"/>
-	<instant name="urmahlulluring" words="###483" selftarget="1" exhaustion="2000" needlearn="1" script="monster/urmahlullu ring.lua"/>
 	<instant name="ghastly dragon curse" words="###1" aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/ghastly dragon curse.lua"/>
 	<instant name="djinn electrify" words="###2" aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/djinn electrify.lua"/>
 	<instant name="energy elemental electrify" words="###3" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/energy elemental electrify.lua"/>
@@ -1293,6 +1284,18 @@
 	<instant name="summon challenge" words="###471" blockwalls="1" needtarget="0" needlearn="1" script="monster/summonchallenge.lua"/>
 	<instant name="energized raging mage skill reducer" words="###472" blockwalls="1" needtarget="0" needlearn="1" script="monster/energized raging mage skill reducer.lua"/>
 	<instant name="werelion wave" words="###473" direction="1" exhaustion="2000" needlearn="1" script="monster/werelion_wave.lua"/>
-	<instant name="root" words="###475" blockwalls="1" needtarget="1" needlearn="1" script="monster/root_branchy_rotten.lua"/>
+	<instant name="urmahlulluring" words="###474" selftarget="1" exhaustion="2000" needlearn="1" script="monster/urmahlullu ring.lua"/>
+	<instant name="warden x" words="###475" selftarget="1" exhaustion="2000" needlearn="1" script="monster/warden x.lua"/>
+	<instant name="warden ring" words="###476" selftarget="1" exhaustion="2000" needlearn="1" script="monster/warden ring.lua"/>
+	<instant name="wave t" words="###477" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/wave t.lua"/>
+	<instant name="firering" words="###478" selftarget="1" exhaustion="2000" needlearn="1" script="monster/burning gladiator firering.lua"/>
+	<instant name="firex" words="###479" selftarget="1" exhaustion="2000" needlearn="1" script="monster/burning gladiator firex.lua"/>
+	<instant name="targetfirering" words="###480" aggressive="1" blockwalls="1" needtarget="1" exhaustion="2000" needlearn="1" script="monster/priestess firering.lua"/>
+	<instant name="explosion wave" words="###481" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/explosion wave.lua"/>
+	<instant name="urmahlulluring" words="###482" selftarget="1" exhaustion="2000" needlearn="1" script="monster/urmahlullu ring.lua"/>
+	<instant name="root" words="###483" blockwalls="1" needtarget="1" needlearn="1" script="monster/root_branchy_rotten.lua"/>
 	<instant name="spider queen wrap" words="###484" aggressive="1" needtarget="1" range="1" needlearn="1" script="monster/spider_queen_wrap.lua"/>
+	<instant name="singledeathchain" words="###485" aggressive="1" needtarget="1" needlearn="1" script="monster/single_death_chain.lua"/>
+	<instant name="singleicechain" words="###486" aggressive="1" needtarget="1" needlearn="1" script="monster/single_ice_chain.lua"/>
+	<instant name="singlecloudchain" words="###487" aggressive="1" needtarget="1" needlearn="1" script="monster/single_cloud_chain.lua"/>
 </spells>
