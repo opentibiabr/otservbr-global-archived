@@ -90,7 +90,10 @@ void Npc::removeList()
 
 bool Npc::canSee(const Position& pos) const
 {
-	return Creature::canSee(getPosition(), pos, 10, 10); //jlcvp FIX - range 10 Avoids killing npc without reaction
+	if (pos.z != getPosition().z) {
+		return false;
+	}
+	return Creature::canSee(getPosition(), pos, 3, 3);
 }
 
 bool Npc::canWalkOnFieldType(CombatType_t combatType) const
@@ -804,6 +807,8 @@ void Npc::onThink(uint32_t interval)
 {
 	Creature::onThink(interval);
 
+	validateCurrentFocus()
+
 	if (npcType->info.thinkEvent != -1) {
 		// onThink(self, interval)
 		LuaScriptInterface* scriptInterface = npcType->info.scriptInterface;
@@ -1132,9 +1137,9 @@ void Npc::onThinkYell(uint32_t interval)
 			const voiceBlock_t& vb = npcType->info.voiceVector[index];
 
 			if (vb.yellText) {
-				g_game.internalCreatureSay(this, TALKTYPE_MONSTER_YELL, vb.text, false);
+				g_game.internalCreatureSay(this, TALKTYPE_YELL, vb.text, false);
 			} else {
-				g_game.internalCreatureSay(this, TALKTYPE_MONSTER_YELL, vb.text, false);
+				g_game.internalCreatureSay(this, TALKTYPE_SAY, vb.text, false);
 			}
 		}
 	}
@@ -2154,5 +2159,54 @@ void Npc::getPathSearchParams(const Creature* creature, FindPathParams& fpp) con
 		fpp.fullPathSearch = true;
 	} else {
 		fpp.fullPathSearch = !canUseAttack(getPosition(), creature);
+	}
+}
+
+void Npc::turnToCreature(Creature* creature)
+{
+	const Position& creaturePos = creature->getPosition();
+	const Position& myPos = getPosition();
+	const auto dx = Position::getOffsetX(myPos, creaturePos);
+	const auto dy = Position::getOffsetY(myPos, creaturePos);
+
+	float tan;
+	if (dx != 0) {
+		tan = static_cast<float>(dy) / dx;
+	} else {
+		tan = 10;
+	}
+
+	Direction dir;
+	if (std::abs(tan) < 1) {
+		if (dx > 0) {
+			dir = DIRECTION_WEST;
+		} else {
+			dir = DIRECTION_EAST;
+		}
+	} else {
+		if (dy > 0) {
+			dir = DIRECTION_NORTH;
+		} else {
+			dir = DIRECTION_SOUTH;
+		}
+	}
+	g_game.internalCreatureTurn(this, dir);
+}
+
+void Npc::addPlayerInteractions(uint32_t playerId) {
+	Creature* creature =  g_game.getCreatureByID(playerId);
+	if (creature) {
+		turnToCreature(creature);
+		playerInteractions.push_back(playerId);
+	}
+}
+
+void Npc::validateCurrentFocus() {
+	for ( auto &playerId : playerInteractions ) {
+		Creature* creature = g_game.getCreatureByID(playerId);
+
+		if (!creature || Creature::canSee(getPosition(), creature->getPosition(), 4, 4) {
+			removePlayerInteraction(playerId);
+		}
 	}
 }

@@ -265,7 +265,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	}
 
 	std::cout << ">> Loading lua npcs" << std::endl;
-	if (!g_scripts->loadScripts("npc", false, false)) {
+	if (!g_scripts->loadScripts("npclua", false, false)) {
 		startupErrorMessage("Failed to load lua npcs");
 		return;
 	}

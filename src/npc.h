@@ -130,6 +130,27 @@ class Npc final : public Creature
 		uint32_t getReflectValue(CombatType_t combatType) const;
 		uint32_t getHealingCombatValue(CombatType_t healingType) const;
 
+		void addPlayerInteraction(uint32_t playerId);
+		void removePlayerInteraction(uint32_t playerId) {
+			playerInteractions.erase(std::remove(playerInteractions.begin(), playerInteractions.end(), playerId), playerInteractions.end());
+		}
+		bool isInteractingWithPlayer(uint32_t playerId) {
+			return std::find(playerInteractions.begin(), playerInteractions.end(), playerId) != playerInteractions.end();
+		}
+
+		void addTopic(uint32_t playerId, uint32_t topicId) {
+			topicMessage.push_back(playerId);
+			topicMessage.push_back(topicId);
+		}
+		void removeTopic(uint32_t playerId, uint32_t topicId) {
+			topicMessage.erase(std::remove(topicMessage.begin(), topicMessage.end(), playerId), topicMessage.end());
+			topicMessage.erase(std::remove(topicMessage.begin(), topicMessage.end(), topicId), topicMessage.end());
+		}
+		bool getTopic(uint32_t playerId, uint32_t topicId) {
+			return std::find(topicMessage.begin(), topicMessage.end(), playerId) != topicMessage.end();
+			return std::find(topicMessage.begin(), topicMessage.end(), topicId) != topicMessage.end();
+		}
+
 		bool canWalkOnFieldType(CombatType_t combatType) const;
 		void onAttackedCreatureDisappear(bool isLogout) override;
 
@@ -201,6 +222,9 @@ class Npc final : public Creature
 			return ignoreFieldDamage;
 		}
 
+		void turnToCreature(Creature* creature);
+		void validateCurrentFocus();
+
 		BlockType_t blockHit(Creature* attacker, CombatType_t combatType, int32_t& damage,
 							 bool checkDefense = false, bool checkArmor = false, bool field = false) override;
 
@@ -211,6 +235,9 @@ class Npc final : public Creature
 		CreatureList targetList;
 
 		std::string strDescription;
+
+		std::vector<uint32_t> playerInteractions;
+		std::vector<uint32_t> topicMessage;
 
 		NpcType* npcType;
 		SpawnNpc* spawnNpc = nullptr;

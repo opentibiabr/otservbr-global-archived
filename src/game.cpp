@@ -8527,7 +8527,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			return true;
 		}
 		case RELOAD_TYPE_NPCS: {
-			g_scripts->loadScripts("npc", false, true);
+			g_scripts->loadScripts("npclua", false, true);
 			return true;
 		}
 		case RELOAD_TYPE_CHAT: return g_chat->load();

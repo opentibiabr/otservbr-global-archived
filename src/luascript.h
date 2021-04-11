@@ -186,6 +186,7 @@ class ScriptEnvironment
 enum ErrorCode_t {
 	LUA_ERROR_PLAYER_NOT_FOUND,
 	LUA_ERROR_CREATURE_NOT_FOUND,
+	LUA_ERROR_NPC_NOT_FOUND,
 	LUA_ERROR_ITEM_NOT_FOUND,
 	LUA_ERROR_THING_NOT_FOUND,
 	LUA_ERROR_TILE_NOT_FOUND,
@@ -197,6 +198,7 @@ enum ErrorCode_t {
 	LUA_ERROR_VARIANT_NOT_FOUND,
 	LUA_ERROR_VARIANT_UNKNOWN,
 	LUA_ERROR_SPELL_NOT_FOUND,
+	LUA_ERROR_POSITION_NOT_FOUND
 };
 
 class LuaScriptInterface
@@ -1188,6 +1190,15 @@ class LuaScriptInterface
 		static int luaNpcSetName(lua_State* L);
 		static int luaNpcPlace(lua_State* L);
 		static int luaNpcSay(lua_State* L);
+		static int luaNpcTurnToCreature(lua_State* L);
+		static int luaNpcAddPlayerInteraction(lua_State* L);
+		static int luaNpcRemovePlayerInteraction(lua_State* L);
+		static int luaNpcIsInteractingWithPlayer(lua_State* L);
+		static int luaNpcIsInTalkRange(lua_State* L);
+		static int luaNpcAddTopicMessage(lua_State* L);
+		static int luaNpcRemoveTopicMessage(lua_State* L);
+		static int luaNpcGetTopicMessage(lua_State* L);
+
 		// Guild
 		static int luaGuildCreate(lua_State* L);
 
@@ -1195,8 +1206,8 @@ class LuaScriptInterface
 		static int luaGuildGetName(lua_State* L);
 		static int luaGuildGetMembersOnline(lua_State* L);
 
-    static int luaGuildGetBankBalance(lua_State* L);
-    static int luaGuildSetBankBalance(lua_State* L);
+		static int luaGuildGetBankBalance(lua_State* L);
+		static int luaGuildSetBankBalance(lua_State* L);
 
 		static int luaGuildAddRank(lua_State* L);
 		static int luaGuildGetRankById(lua_State* L);

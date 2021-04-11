@@ -15,3 +15,6 @@ dofile('data/lib/others/others.lua')
 
 -- Quests library
 dofile('data/lib/quests/quest.lua')
+
+-- Npcs library
+dofile('data/lib/npc/npc.lua')
