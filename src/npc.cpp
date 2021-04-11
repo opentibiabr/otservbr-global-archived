@@ -50,7 +50,7 @@ Npc* Npc::createNpc(const std::string& name)
 
 Npc::Npc(NpcType* npcType) :
 	Creature(),
-	strDescription(asLowerCaseString(npcType->nameDescription)),
+	strDescription(asUpperCaseString(npcType->nameDescription)),
 	npcType(npcType)
 {
 	defaultOutfit = npcType->info.outfit;
@@ -62,7 +62,6 @@ Npc::Npc(NpcType* npcType) :
 	baseSpeed = npcType->info.baseSpeed;
 	internalLight = npcType->info.light;
 	hiddenHealth = npcType->info.hiddenHealth;
-	targetDistance = npcType->info.targetDistance;
 
 	// register creature events
 	for (const std::string& scriptName : npcType->info.scripts) {
@@ -70,12 +69,6 @@ Npc::Npc(NpcType* npcType) :
 			std::cout << "[Warning - Npc::Npc] Unknown event name: " << scriptName << std::endl;
 		}
 	}
-}
-
-Npc::~Npc()
-{
-	clearTargetList();
-	clearFriendList();
 }
 
 void Npc::addList()
@@ -94,42 +87,6 @@ bool Npc::canSee(const Position& pos) const
 		return false;
 	}
 	return Creature::canSee(getPosition(), pos, 3, 3);
-}
-
-bool Npc::canWalkOnFieldType(CombatType_t combatType) const
-{
-	switch (combatType) {
-		case COMBAT_ENERGYDAMAGE:
-			return npcType->info.canWalkOnEnergy;
-		case COMBAT_FIREDAMAGE:
-			return npcType->info.canWalkOnFire;
-		case COMBAT_EARTHDAMAGE:
-				return npcType->info.canWalkOnPoison;
-			default:
-		return true;
-	}
-}
-
-uint32_t Npc::getReflectValue(CombatType_t reflectType) const {
-	auto it = npcType->info.reflectMap.find(reflectType);
-	if (it != npcType->info.reflectMap.end()) {
-		return it->second;
-	}
-	return 0;
-}
-
-uint32_t Npc::getHealingCombatValue(CombatType_t healingType) const {
-	auto it = npcType->info.healingMap.find(healingType);
-	if (it != npcType->info.healingMap.end()) {
-		return it->second;
-	}
-	return 0;
-}
-
-void Npc::onAttackedCreatureDisappear(bool)
-{
-	attackTicks = 0;
-	extraMeleeAttack = true;
 }
 
 void Npc::onCreatureAppear(Creature* creature, bool isLogin)
@@ -168,11 +125,6 @@ void Npc::onCreatureAppear(Creature* creature, bool isLogin)
 	}
 
 	if (creature == this) {
-		//We just spawned lets look around to see who is there.
-		if (isSummon()) {
-			isMasterInRange = canSee(getMaster()->getPosition());
-		}
-		updateTargetList();
 		updateIdleStatus();
 	} else {
 		onCreatureEnter(creature);
@@ -265,11 +217,7 @@ void Npc::onCreatureMove(Creature* creature, const Tile* newTile, const Position
 	}
 
 	if (creature == this) {
-		if (isSummon()) {
-			isMasterInRange = canSee(getMaster()->getPosition());
-		}
 
-		updateTargetList();
 		updateIdleStatus();
 	} else {
 		bool canSeeNewPos = canSee(newPos);
@@ -281,36 +229,7 @@ void Npc::onCreatureMove(Creature* creature, const Tile* newTile, const Position
 			onCreatureLeave(creature);
 		}
 
-		if (canSeeNewPos && isSummon() && getMaster() == creature) {
-			isMasterInRange = true; //Follow master again
-		}
-
 		updateIdleStatus();
-
-		if (!isSummon()) {
-			if (followCreature) {
-				const Position& followPosition = followCreature->getPosition();
-				const Position& pos = getPosition();
-
-				int32_t offset_x = Position::getDistanceX(followPosition, pos);
-				int32_t offset_y = Position::getDistanceY(followPosition, pos);
-				if ((offset_x > 1 || offset_y > 1) && npcType->info.changeTargetChance > 0) {
-					Direction dir = getDirectionTo(pos, followPosition);
-					const Position& checkPosition = getNextPosition(dir, pos);
-
-					Tile* nextTile = g_game.map.getTile(checkPosition);
-					if (nextTile) {
-						Creature* topCreature = nextTile->getTopCreature();
-						if (topCreature && followCreature != topCreature && isOpponent(topCreature)) {
-							selectTarget(topCreature);
-						}
-					}
-				}
-			} else if (isOpponent(creature)) {
-				//we have no target lets try pick this one
-				selectTarget(creature);
-			}
-		}
 	}
 }
 
@@ -351,405 +270,20 @@ void Npc::onCreatureSay(Creature* creature, SpeakClasses type, const std::string
 	}
 }
 
-void Npc::addFriend(Creature* creature)
-{
-	assert(creature != this);
-	auto result = friendList.insert(creature);
-	if (result.second) {
-		creature->incrementReferenceCounter();
-	}
-}
-
-void Npc::removeFriend(Creature* creature)
-{
-	auto it = friendList.find(creature);
-	if (it != friendList.end()) {
-		creature->decrementReferenceCounter();
-		friendList.erase(it);
-	}
-}
-
-void Npc::addTarget(Creature* creature, bool pushFront/* = false*/)
-{
-	assert(creature != this);
-	if (std::find(targetList.begin(), targetList.end(), creature) == targetList.end()) {
-		creature->incrementReferenceCounter();
-		if (pushFront) {
-			targetList.push_front(creature);
-		} else {
-			targetList.push_back(creature);
-		}
-	}
-}
-
-void Npc::removeTarget(Creature* creature)
-{
-	auto it = std::find(targetList.begin(), targetList.end(), creature);
-	if (it != targetList.end()) {
-		creature->decrementReferenceCounter();
-		targetList.erase(it);
-	}
-}
-
-void Npc::updateTargetList()
-{
-	auto friendIterator = friendList.begin();
-	while (friendIterator != friendList.end()) {
-		Creature* creature = *friendIterator;
-		if (creature->getHealth() <= 0 || !canSee(creature->getPosition())) {
-			creature->decrementReferenceCounter();
-			friendIterator = friendList.erase(friendIterator);
-		} else {
-			++friendIterator;
-		}
-	}
-
-	auto targetIterator = targetList.begin();
-	while (targetIterator != targetList.end()) {
-		Creature* creature = *targetIterator;
-		if (creature->getHealth() <= 0 || !canSee(creature->getPosition())) {
-			creature->decrementReferenceCounter();
-			targetIterator = targetList.erase(targetIterator);
-		} else {
-			++targetIterator;
-		}
-	}
-
-	SpectatorHashSet spectators;
-	g_game.map.getSpectators(spectators, position, true);
-	spectators.erase(this);
-	for (Creature* spectator : spectators) {
-		if (canSee(spectator->getPosition())) {
-			onCreatureFound(spectator);
-		}
-	}
-}
-
-void Npc::clearTargetList()
-{
-	for (Creature* creature : targetList) {
-		creature->decrementReferenceCounter();
-	}
-	targetList.clear();
-}
-
-void Npc::clearFriendList()
-{
-	for (Creature* creature : friendList) {
-		creature->decrementReferenceCounter();
-	}
-	friendList.clear();
-}
-
 void Npc::onCreatureFound(Creature* creature, bool pushFront/* = false*/)
 {
-	if (isFriend(creature)) {
-		addFriend(creature);
-	}
-
-	if (isOpponent(creature)) {
-		addTarget(creature, pushFront);
-	}
-
 	updateIdleStatus();
 }
 
 void Npc::onCreatureEnter(Creature* creature)
 {
 	// std::cout << "onCreatureEnter - " << creature->getName() << std::endl;
-
-	if (getMaster() == creature) {
-		//Follow master again
-		isMasterInRange = true;
-	}
-
 	onCreatureFound(creature, true);
-}
-
-bool Npc::isFriend(const Creature* creature) const
-{
-	if (isSummon() && getMaster()->getPlayer()) {
-		const Player* masterPlayer = getMaster()->getPlayer();
-		const Player* tmpPlayer = nullptr;
-
-		if (creature->getPlayer()) {
-			tmpPlayer = creature->getPlayer();
-		} else {
-			const Creature* creatureMaster = creature->getMaster();
-
-			if (creatureMaster && creatureMaster->getPlayer()) {
-				tmpPlayer = creatureMaster->getPlayer();
-			}
-		}
-
-		if (tmpPlayer && (tmpPlayer == getMaster() || masterPlayer->isPartner(tmpPlayer))) {
-			return true;
-		}
-	} else if (creature->getNpc() && !creature->isSummon()) {
-		return true;
-	}
-
-	return false;
-}
-
-bool Npc::isOpponent(const Creature* creature) const
-{
-	if (isSummon() && getMaster()->getPlayer()) {
-		if (creature != getMaster()) {
-			return true;
-		}
-	} else {
-		if ((creature->getPlayer()) ||
-				(creature->getMaster() && creature->getMaster()->getPlayer())) {
-			return true;
-		}
-	}
-
-	return false;
 }
 
 void Npc::onCreatureLeave(Creature* creature)
 {
 	// std::cout << "onCreatureLeave - " << creature->getName() << std::endl;
-
-	if (getMaster() == creature) {
-		//Take random steps and only use defense abilities (e.g. heal) until its master comes back
-		isMasterInRange = false;
-	}
-
-	//update friendList
-	if (isFriend(creature)) {
-		removeFriend(creature);
-	}
-
-	//update targetList
-	if (isOpponent(creature)) {
-		removeTarget(creature);
-		if (targetList.empty()) {
-			updateIdleStatus();
-		}
-	}
-}
-
-bool Npc::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAULT*/)
-{
-	if (searchType == TARGETSEARCH_DEFAULT) {
-		int32_t rnd = uniform_random(1, 100);
-
-		searchType = TARGETSEARCH_NEAREST;
-
-		int32_t sum = this->npcType->info.targetStrategiesNearestPercent;
-		if (rnd > sum) {
-			searchType = TARGETSEARCH_HP;
-			sum += this->npcType->info.targetStrategiesLowerHPPercent;
-
-			if (rnd > sum) {
-				searchType = TARGETSEARCH_DAMAGE;
-				sum += this->npcType->info.targetStrategiesMostDamagePercent;
-				if (rnd > sum) {
-					searchType = TARGETSEARCH_RANDOM;
-				}
-			}
-		}
-	}
-
-	std::list<Creature*> resultList;
-	const Position& myPos = getPosition();
-
-	for (Creature* creature : targetList) {
-		if (isTarget(creature)) {
-			if ((this->targetDistance == 1) || canUseAttack(myPos, creature)) {
-				resultList.push_back(creature);
-			}
-		}
-	}
-
-	if (resultList.empty()) {
-		return false;
-	}
-
-	Creature* getTarget = nullptr;
-
-	switch (searchType) {
-		case TARGETSEARCH_NEAREST: {
-			getTarget = nullptr;
-			if (!resultList.empty()) {
-				auto it = resultList.begin();
-				getTarget = *it;
-
-				if (++it != resultList.end()) {
-					const Position& targetPosition = getTarget->getPosition();
-					int32_t minRange = std::max<int32_t>(Position::getDistanceX(myPos, targetPosition), Position::getDistanceY(myPos, targetPosition));
-					do {
-						const Position& pos = (*it)->getPosition();
-
-						int32_t distance = std::max<int32_t>(Position::getDistanceX(myPos, pos), Position::getDistanceY(myPos, pos));
-						if (distance < minRange) {
-							getTarget = *it;
-							minRange = distance;
-						}
-					} while (++it != resultList.end());
-				}
-			} else {
-				int32_t minRange = std::numeric_limits<int32_t>::max();
-				for (Creature* creature : targetList) {
-					if (!isTarget(creature)) {
-						continue;
-					}
-
-					const Position& pos = creature->getPosition();
-					int32_t distance = std::max<int32_t>(Position::getDistanceX(myPos, pos), Position::getDistanceY(myPos, pos));
-					if (distance < minRange) {
-						getTarget = creature;
-						minRange = distance;
-					}
-				}
-			}
-
-			if (getTarget && selectTarget(getTarget)) {
-				return true;
-			}
-			break;
-		}
-		case TARGETSEARCH_HP: {
-			getTarget = nullptr;
-			if (!resultList.empty()) {
-				auto it = resultList.begin();
-				getTarget = *it;
-				if (++it != resultList.end()) {
-					int32_t minHp = getTarget->getHealth();
-					do {
-						if ((*it)->getHealth() < minHp) {
-							getTarget = *it;
-
-							minHp = getTarget->getHealth();
-						}
-					} while (++it != resultList.end());
-				}
-			}
-			if (getTarget && selectTarget(getTarget)) {
-				return true;
-			}
-			break;
-		}
-		case TARGETSEARCH_DAMAGE: {
-			getTarget = nullptr;
-			if (!resultList.empty()) {
-				auto it = resultList.begin();
-				getTarget = *it;
-				if (++it != resultList.end()) {
-					int32_t mostDamage = 0;
-					do {
-						const auto& dmg = damageMap.find((*it)->getID());
-						if (dmg != damageMap.end()) {
-							if (dmg->second.total > mostDamage) {
-								mostDamage = dmg->second.total;
-								getTarget = *it;
-							}
-						}
-					} while (++it != resultList.end());
-				}
-			}
-			if (getTarget && selectTarget(getTarget)) {
-				return true;
-			}
-			break;
-		}
-		case TARGETSEARCH_RANDOM:
-		default: {
-			if (!resultList.empty()) {
-				auto it = resultList.begin();
-				std::advance(it, uniform_random(0, resultList.size() - 1));
-				return selectTarget(*it);
-			}
-			break;
-		}
-	}
-
-	//lets just pick the first target in the list
-	for (Creature* target : targetList) {
-		if (selectTarget(target)) {
-			return true;
-		}
-	}
-	return false;
-}
-
-void Npc::onFollowCreatureComplete(const Creature* creature)
-{
-	if (creature) {
-		auto it = std::find(targetList.begin(), targetList.end(), creature);
-		if (it != targetList.end()) {
-			Creature* target = (*it);
-			targetList.erase(it);
-
-			if (hasFollowPath) {
-				targetList.push_front(target);
-			} else if (!isSummon()) {
-				targetList.push_back(target);
-			} else {
-				target->decrementReferenceCounter();
-			}
-		}
-	}
-}
-
-BlockType_t Npc::blockHit(Creature* attacker, CombatType_t combatType, int32_t& damage,
-							  bool checkDefense /* = false*/, bool checkArmor /* = false*/, bool /* field = false */)
-{
-	BlockType_t blockType = Creature::blockHit(attacker, combatType, damage, checkDefense, checkArmor);
-
-	if (damage != 0) {
-		int32_t elementMod = 0;
-		auto it = npcType->info.elementMap.find(combatType);
-		if (it != npcType->info.elementMap.end()) {
-			elementMod = it->second;
-		}
-
-		if (elementMod != 0) {
-			damage = static_cast<int32_t>(std::round(damage * ((100 - elementMod) / 100.)));
-			if (damage <= 0) {
-				damage = 0;
-				blockType = BLOCK_ARMOR;
-			}
-		}
-	}
-
-	return blockType;
-}
-
-
-bool Npc::isTarget(const Creature* creature) const
-{
-	if (creature->isRemoved() || !creature->isAttackable() ||
-			creature->getZone() == ZONE_PROTECTION || !canSeeCreature(creature)) {
-		return false;
-	}
-
-	if (creature->getPosition().z != getPosition().z) {
-		return false;
-	}
-	return true;
-}
-
-bool Npc::selectTarget(Creature* creature)
-{
-	if (!isTarget(creature) || returnToMasterInterval > 0) {
-		return false;
-	}
-
-	auto it = std::find(targetList.begin(), targetList.end(), creature);
-	if (it == targetList.end()) {
-		//Target not found in our target list.
-		return false;
-	}
-
-	if (isHostile() || isSummon()) {
-		if (setAttackedCreature(creature) && !isSummon()) {
-			g_dispatcher.addTask(createTask(std::bind(&Game::checkCreatureAttack, &g_game, getID())));
-		}
-	}
-	return setFollowCreature(creature);
 }
 
 void Npc::setIdle(bool idle)
@@ -764,8 +298,6 @@ void Npc::setIdle(bool idle)
 		g_game.addCreatureCheck(this);
 	} else {
 		onIdleStatus();
-		clearTargetList();
-		clearFriendList();
 		Game::removeCreatureCheck(this);
 	}
 }
@@ -773,41 +305,12 @@ void Npc::setIdle(bool idle)
 void Npc::updateIdleStatus()
 {
 	bool idle = false;
-
-	if (conditions.empty()) {
-		if (!isSummon() && targetList.empty()) {
-			idle = true;
-		}
-	}
-
 	setIdle(idle);
-}
-
-void Npc::onAddCondition(ConditionType_t type)
-{
-	if (type == CONDITION_FIRE || type == CONDITION_ENERGY || type == CONDITION_POISON) {
-    ignoreFieldDamage = true;
-		updateMapCache();
-	}
-
-	updateIdleStatus();
-}
-
-void Npc::onEndCondition(ConditionType_t type)
-{
-	if (type == CONDITION_FIRE || type == CONDITION_ENERGY || type == CONDITION_POISON) {
-		ignoreFieldDamage = false;
-		updateMapCache();
-	}
-
-	updateIdleStatus();
 }
 
 void Npc::onThink(uint32_t interval)
 {
 	Creature::onThink(interval);
-
-	validateCurrentFocus();
 
 	if (npcType->info.thinkEvent != -1) {
 		// onThink(self, interval)
@@ -837,15 +340,6 @@ void Npc::onThink(uint32_t interval)
 		}
 	}
 
-	if (challengeMeleeDuration != 0) {
-		challengeMeleeDuration -= interval;
-		if (challengeMeleeDuration <= 0) {
-			challengeMeleeDuration = 0;
-			targetDistance = npcType->info.targetDistance;
-			g_game.updateCreatureIcon(this);
-		}
-	}
-
 	if (!npcType->canSpawn(position)) {
 		g_game.removeCreature(this);
 	}
@@ -853,6 +347,8 @@ void Npc::onThink(uint32_t interval)
 	if (!isInSpawnRange(position)) {
 		g_game.internalTeleport(this, masterPos);
 		setIdle(true);
+		validateCurrentFocus();
+		std::cout << "Npc::onThink - (validateCurrentFocus())" << std::endl;
 	} else {
 		updateIdleStatus();
 
@@ -2202,10 +1698,14 @@ void Npc::addPlayerInteraction(uint32_t playerId) {
 }
 
 void Npc::validateCurrentFocus() {
+	std::cout << "[Npc::validateCurrentFocus()]" << std::endl;
 	for ( auto &playerId : playerInteractions ) {
+		std::cout << (playerId) << std::endl;
 		Creature* creature = g_game.getCreatureByID(playerId);
+		std::cout << (!creature ? "nao tem" : "tem") << std::endl;
 
 		if (!creature || !canSee(creature->getPosition())) {
+			std::cout << "[Npc::validateCurrentFocus()] - !canSee(creature->getPosition())" << std::endl;
 			removePlayerInteraction(playerId);
 		}
 	}

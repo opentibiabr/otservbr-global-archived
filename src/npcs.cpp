@@ -757,10 +757,7 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 	}
 
 	npcType->name = attr.as_string();
-	if ((attr = npcNode.attribute("nameDescription"))) {
-		npcType->nameDescription = attr.as_string();
-	} else {
-		npcType->nameDescription = npcType->name;
+	npcType->nameDescription = npcType->name;
 	}
 	if ((attr = npcNode.attribute("race"))) {
 		std::string tmpStrValue = asLowerCaseString(attr.as_string());

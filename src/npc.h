@@ -152,7 +152,6 @@ class Npc final : public Creature
 		}
 
 		bool canWalkOnFieldType(CombatType_t combatType) const;
-		void onAttackedCreatureDisappear(bool isLogout) override;
 
 		void onCreatureAppear(Creature* creature, bool isLogin) override;
 		void onRemoveCreature(Creature* creature, bool isLogout) override;
@@ -186,9 +185,6 @@ class Npc final : public Creature
 		bool getCombatValues(int32_t& min, int32_t& max) override;
 
 		void doAttacking(uint32_t interval) override;
-		bool hasExtraSwing() override {
-			return extraMeleeAttack;
-		}
 
 		bool searchTarget(TargetSearchType_t searchType = TARGETSEARCH_DEFAULT);
 		bool selectTarget(Creature* creature);
@@ -242,12 +238,6 @@ class Npc final : public Creature
 		NpcType* npcType;
 		SpawnNpc* spawnNpc = nullptr;
 
-		int64_t lastMeleeAttack = 0;
-
-		uint32_t attackTicks = 0;
-		uint32_t targetTicks = 0;
-		uint32_t targetChangeTicks = 0;
-		uint32_t defenseTicks = 0;
 		uint32_t yellTicks = 0;
 		int32_t minCombatValue = 0;
 		int32_t maxCombatValue = 0;
@@ -261,8 +251,6 @@ class Npc final : public Creature
 		Position masterPos;
 
 		bool isIdle = true;
-		bool extraMeleeAttack = false;
-		bool isMasterInRange = false;
 		bool randomStepping = false;
 		bool ignoreFieldDamage = false;
 
