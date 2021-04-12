@@ -184,7 +184,7 @@ int main(int argc, char* argv[]) {
 	SPDLOG_DEBUG("[OTBR] SPDLOG LOG DEBUG ENABLED");
 	spdlog::set_pattern("[%Y-%d-%m %H:%M:%S.%e] [file %@] [func %!] [thread %t] [%^%l%$] %v ");
 #else
-	spdlog::set_pattern("[%Y-%d-%m %H:%M:%S.%e] [func %!] [%^%l%$] %v ");
+	spdlog::set_pattern("[%Y-%d-%m %H:%M:%S.%e] [%^%l%$] %v ");
 #endif
 
 	// Setup bad allocation handler

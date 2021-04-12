@@ -2886,11 +2886,11 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Npc", "place", LuaScriptInterface::luaNpcPlace);
 	registerMethod("Npc", "say", LuaScriptInterface::luaNpcSay);
 	registerMethod("Npc", "turnToCreature", LuaScriptInterface::luaNpcTurnToCreature);
-	registerMethod("Npc", "setPlayerInteraction", LuaScriptInterface::luaNpcAddPlayerInteraction);
+	registerMethod("Npc", "setPlayerInteraction", LuaScriptInterface::luaNpcSetPlayerInteraction);
 	registerMethod("Npc", "removePlayerInteraction", LuaScriptInterface::luaNpcRemovePlayerInteraction);
 	registerMethod("Npc", "isInteractingWithPlayer", LuaScriptInterface::luaNpcIsInteractingWithPlayer);
 	registerMethod("Npc", "isInTalkRange", LuaScriptInterface::luaNpcIsInTalkRange);
-	registerMethod("Npc", "isPlayerInteractingOnTopic", LuaScriptInterface::luaNpcIsPlayerInteractingOnTopicMessage);
+	registerMethod("Npc", "isPlayerInteractingOnTopic", LuaScriptInterface::luaNpcIsPlayerInteractingOnTopic);
 
 	// Guild
 	registerClass("Guild", "", LuaScriptInterface::luaGuildCreate);
@@ -13092,7 +13092,7 @@ int LuaScriptInterface::luaNpcIsInteractingWithPlayer(lua_State* L)
     return 1;
 }
 
-int LuaScriptInterface::luaNpcIsPlayerInteractingOnTopicMessage(lua_State* L)
+int LuaScriptInterface::luaNpcIsPlayerInteractingOnTopic(lua_State* L)
 {
 	//npc:isPlayerInteractingOnTopic(creature, topicId)
 	Npc* npc = getUserdata<Npc>(L, 1);
