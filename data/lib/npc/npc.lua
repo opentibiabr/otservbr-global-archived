@@ -32,7 +32,7 @@ end
 -- npc:greetMessage(message, creature, text) = Define a text
 function Npc:greet(message, creature, text)
 	if msgContains(message, "hi") and self:isInTalkRange(creature:getPosition()) and not self:isInteractingWithPlayer(creature) then
-		self:addPlayerInteraction(creature:getId())
+		self:setPlayerInteraction(creature)
 		if text then
 			self:sendMessage(creature, text)
 		else
@@ -46,7 +46,7 @@ end
 -- npc:farewellMessage(message, creature, text) = Define a text
 function Npc:unGreet(message, creature, text)
 	if msgContains(message, "bye") and self:isInTalkRange(creature:getPosition()) and self:isInteractingWithPlayer(creature) then
-		self:removePlayerInteraction(creature:getId())
+		self:removePlayerInteraction(creature)
 		if text then
 			self:sendMessage(creature, text)
 		elseif message == false then

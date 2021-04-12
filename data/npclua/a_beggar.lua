@@ -49,11 +49,11 @@ npcType.onSay = function(npc, creature, type, message)
                 if player:getStorageValue(Storage.DarkTrails.Mission01) == 1 then
                     npc:talk(player, "The guys from the magistrate sent you here, didn't they?", cid)
                     -- Add topic of the "yes" message
-                    npc:addTopicMessage(player, 1)
+                    npc:setPlayerInteraction(player, 1)
                 end
             elseif msgContains(message, "yes")  then
                 -- Get topic of the "want" message
-                if npc:isTopicMessage(player, 1) then
+                if npc:isPlayerInteractingOnTopic(player, 1) then
                     npc:talk(player, {
                         "Thought so. You'll have to talk to the king though. The beggar king that is. The king does not grant an audience to just everyone. You know how those kings are, don't you? ... ",
                         "However, to get an audience with the king, you'll have to help his subjects a bit. ... ",
@@ -64,7 +64,7 @@ npcType.onSay = function(npc, creature, type, message)
                     player:setStorageValue(Storage.DarkTrails.Mission01, 2) -- Mission 1 end
                     player:setStorageValue(Storage.DarkTrails.Mission02, 1) -- Mission 2 start
                     -- Remove topic of "want" message
-                    npc:removeTopicMessage(player)
+                    npc:setPlayerInteraction(player)
                 end
             end
         end

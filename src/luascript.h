@@ -1196,13 +1196,11 @@ class LuaScriptInterface
 		static int luaNpcPlace(lua_State* L);
 		static int luaNpcSay(lua_State* L);
 		static int luaNpcTurnToCreature(lua_State* L);
-		static int luaNpcAddPlayerInteraction(lua_State* L);
+		static int luaNpcSetPlayerInteraction(lua_State* L);
 		static int luaNpcRemovePlayerInteraction(lua_State* L);
 		static int luaNpcIsInteractingWithPlayer(lua_State* L);
 		static int luaNpcIsInTalkRange(lua_State* L);
-		static int luaNpcAddTopicMessage(lua_State* L);
-		static int luaNpcRemoveTopicMessage(lua_State* L);
-		static int luaNpcIsTopicMessage(lua_State* L);
+		static int luaNpcIsPlayerInteractingOnTopic(lua_State* L);
 
 		// Guild
 		static int luaGuildCreate(lua_State* L);

@@ -2886,13 +2886,11 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Npc", "place", LuaScriptInterface::luaNpcPlace);
 	registerMethod("Npc", "say", LuaScriptInterface::luaNpcSay);
 	registerMethod("Npc", "turnToCreature", LuaScriptInterface::luaNpcTurnToCreature);
-	registerMethod("Npc", "addPlayerInteraction", LuaScriptInterface::luaNpcAddPlayerInteraction);
+	registerMethod("Npc", "setPlayerInteraction", LuaScriptInterface::luaNpcAddPlayerInteraction);
 	registerMethod("Npc", "removePlayerInteraction", LuaScriptInterface::luaNpcRemovePlayerInteraction);
 	registerMethod("Npc", "isInteractingWithPlayer", LuaScriptInterface::luaNpcIsInteractingWithPlayer);
 	registerMethod("Npc", "isInTalkRange", LuaScriptInterface::luaNpcIsInTalkRange);
-	registerMethod("Npc", "addTopicMessage", LuaScriptInterface::luaNpcAddTopicMessage);
-	registerMethod("Npc", "removeTopicMessage", LuaScriptInterface::luaNpcRemoveTopicMessage);
-	registerMethod("Npc", "isTopicMessage", LuaScriptInterface::luaNpcIsTopicMessage);
+	registerMethod("Npc", "isPlayerInteractingOnTopic", LuaScriptInterface::luaNpcIsPlayerInteractingOnTopicMessage);
 
 	// Guild
 	registerClass("Guild", "", LuaScriptInterface::luaGuildCreate);
@@ -13025,11 +13023,12 @@ int LuaScriptInterface::luaNpcTurnToCreature(lua_State* L)
     return 1;
 }
 
-int LuaScriptInterface::luaNpcAddPlayerInteraction(lua_State* L)
+int LuaScriptInterface::luaNpcSetPlayerInteraction(lua_State* L)
 {
-    // npc:addPlayerInteraction(creature)
+    // npc:setPlayerInteraction(creature, topic = 0)
     Npc* npc = getUserdata<Npc>(L, 1);
     Creature* creature = getCreature(L, 2);
+    uint16_t topicId = getNumber<uint16_t>(L, 3, 0);
 
     if (!npc) {
 		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
@@ -13043,7 +13042,7 @@ int LuaScriptInterface::luaNpcAddPlayerInteraction(lua_State* L)
 		return 1;
 	}
 
-	npc->addPlayerInteraction(creature->getID());
+	npc->setPlayerInteraction(creature->getID(), topicId);
 	pushBoolean(L, true);
     return 1;
 }
@@ -13093,6 +13092,35 @@ int LuaScriptInterface::luaNpcIsInteractingWithPlayer(lua_State* L)
     return 1;
 }
 
+int LuaScriptInterface::luaNpcIsPlayerInteractingOnTopicMessage(lua_State* L)
+{
+	//npc:isPlayerInteractingOnTopic(creature, topicId)
+	Npc* npc = getUserdata<Npc>(L, 1);
+	Creature* creature = getCreature(L, 2);
+	uint32_t topicId = getNumber<uint32_t>(L, 3);
+
+	if (!npc) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
+		lua_pushnil(L);
+		return 1;
+	}
+
+	if (!creature) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_CREATURE_NOT_FOUND));
+		lua_pushnil(L);
+		return 1;
+	}
+
+	if (!topicId) {
+		reportErrorFunc("Topic id not found");
+		lua_pushnil(L);
+		return 1;
+	}
+
+	pushBoolean(L, npc->isPlayerInteractingOnTopic(creature->getID(), topicId));
+	return 1;
+}
+
 int LuaScriptInterface::luaNpcIsInTalkRange(lua_State* L)
 {
 	// npc:isInTalkRange()
@@ -13106,88 +13134,6 @@ int LuaScriptInterface::luaNpcIsInTalkRange(lua_State* L)
 	}
 
 	pushBoolean(L, npc && npc->canSee(position));
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcAddTopicMessage(lua_State* L)
-{
-	//npc:addTopicMessage(creature, topicId)
-	Npc* npc = getUserdata<Npc>(L, 1);
-	Creature* creature = getCreature(L, 2);
-	uint32_t topicId = getNumber<uint32_t>(L, 3);
-
-	if (!npc) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
-		lua_pushnil(L);
-		return 1;
-	}
-
-	if (!creature) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_CREATURE_NOT_FOUND));
-		lua_pushnil(L);
-		return 1;
-	}
-
-	if (!topicId) {
-		reportErrorFunc("Topic id not found");
-		lua_pushnil(L);
-		return 1;
-	}
-
-	npc->addTopic(creature->getID(), topicId);
-	pushBoolean(L, true);
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcRemoveTopicMessage(lua_State* L)
-{
-	//npc:getTopicMessage(creature)
-	Npc* npc = getUserdata<Npc>(L, 1);
-	Creature* creature = getCreature(L, 2);
-
-	if (!npc) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
-		lua_pushnil(L);
-		return 1;
-	}
-
-	if (!creature) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_CREATURE_NOT_FOUND));
-		lua_pushnil(L);
-		return 1;
-	}
-
-	npc->removeTopic(creature->getID());
-	pushBoolean(L, true);
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcIsTopicMessage(lua_State* L)
-{
-	//npc:isTopicMessage(creature, topicId)
-	Npc* npc = getUserdata<Npc>(L, 1);
-	Creature* creature = getCreature(L, 2);
-	uint32_t topicId = getNumber<uint32_t>(L, 3);
-
-	if (!npc) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
-		lua_pushnil(L);
-		return 1;
-	}
-
-	if (!creature) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_CREATURE_NOT_FOUND));
-		lua_pushnil(L);
-		return 1;
-	}
-
-	if (!topicId) {
-		reportErrorFunc("Topic id not found");
-		lua_pushnil(L);
-		return 1;
-	}
-
-	pushBoolean(L, npc->isTopic(creature->getID(), topicId));
 	return 1;
 }
 

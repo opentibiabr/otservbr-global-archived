@@ -108,7 +108,7 @@ class Npc final : public Creature
 			this->spawnNpc = newSpawn;
 		}
 
-		void addPlayerInteraction(uint32_t playerId);
+		void setPlayerInteraction(uint32_t playerId, uint16_t topicId = 0);
 		void updatePlayerInteractions(Player* player);
 		void removePlayerInteraction(uint32_t playerId) {
 		  if (playerInteractions.find(playerId) != playerInteractions.end()) {
@@ -116,7 +116,7 @@ class Npc final : public Creature
 		  }
 
 		  if (playerInteractions.size() == 0) {
-			  setIdle(false);
+              setCanWalk(true);
 			}
 		}
 		void resetPlayerInteractions();
@@ -128,17 +128,11 @@ class Npc final : public Creature
 			return true;
 		}
 
-		void addTopic(uint32_t playerId, uint16_t topicId) {
-		  playerInteractions[playerId] = topicId;
-		}
-		void removeTopic(uint32_t playerId) {
-		  playerInteractions[playerId] = 0;
-		}
-		bool isTopic(uint32_t playerId, uint16_t topicId) {
-			auto it = playerInteractions.find(playerId);
-		  if (it == playerInteractions.end()) {
-		    return false;
-		  }
+		bool isPlayerInteractingOnTopic(uint32_t playerId, uint16_t topicId) {
+		    auto it = playerInteractions.find(playerId);
+		    if (it == playerInteractions.end()) {
+       		return false;
+        }
 			return it->second == topicId;
 		}
 
@@ -146,8 +140,6 @@ class Npc final : public Creature
 		void onRemoveCreature(Creature* creature, bool isLogout) override;
 		void onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos, const Tile* oldTile, const Position& oldPos, bool teleport) override;
 		void onCreatureSay(Creature* creature, SpeakClasses type, const std::string& text) override;
-
-		bool getNextStep(Direction& direction, uint32_t& flags) override;
 
 		void onThink(uint32_t interval) override;
 
@@ -171,12 +163,9 @@ class Npc final : public Creature
 
 		Position masterPos;
 
-		bool isIdle = false;
+		bool canWalk = false;
 
-		void setIdle(bool idle);
-		bool getIdleStatus() const {
-			return isIdle;
-		}
+		void setCanWalk(bool canWalk);
 
 		bool isInSpawnRange(const Position& pos) const;
 
