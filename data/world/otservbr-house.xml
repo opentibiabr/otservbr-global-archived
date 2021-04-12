@@ -358,7 +358,7 @@
 	<house name="Dream Street 4" houseid="3027" entryx="32898" entryy="32042" entryz="6" rent="400000" townid="9" size="64" />
 	<house name="Old Lighthouse" houseid="3028" entryx="32926" entryy="32037" entryz="6" rent="200000" townid="9" size="73" />
 	<house name="Market Street 1" houseid="3029" entryx="32932" entryy="32051" entryz="6" rent="600000" townid="9" size="133" />
-	<house name="Market Street 3" houseid="3030" entryx="32950" entryy="32052" entryz="6" rent="600000" townid="9" size="68" />
+	<house name="Market Street 3" houseid="3030" entryx="32950" entryy="32052" entryz="6" rent="600000" townid="9" size="69" />
 	<house name="Market Street 4 (Shop)" houseid="3031" entryx="32960" entryy="32052" entryz="6" rent="800000" townid="9" size="93" />
 	<house name="Market Street 5 (Shop)" houseid="3032" entryx="32964" entryy="32053" entryz="6" rent="800000" townid="9" size="118" />
 	<house name="Market Street 2" houseid="3033" entryx="32944" entryy="32053" entryz="6" rent="600000" townid="9" size="94" />
