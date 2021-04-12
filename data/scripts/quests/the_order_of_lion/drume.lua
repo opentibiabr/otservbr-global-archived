@@ -1,13 +1,13 @@
 local config = {
 	lionPosition = {
-		Position(32425, 32535, 7),
-		Position(32441, 32526, 7),
-		Position(32449, 32512, 7),
+		Position(32444, 32512, 7),
+		Position(32449, 32516, 7),
+		Position(32444, 32520, 7),
 	},
 	usurperPosition = {
-		Position(32423, 32527, 7),
-		Position(32445, 32526, 7),
-		Position(32445, 32510, 7)
+		Position(32450, 32520, 7),
+		Position(32444, 32516, 7),
+		Position(32448, 32512, 7)
 	},
 	firstPlayerPosition = Position(32457, 32508, 6),
     centerPosition = Position(32439, 32523, 7), -- Center Room  
@@ -15,7 +15,7 @@ local config = {
 	newPosition = Position(32453, 32510, 7),
 	rangeX = 22,
 	rangeY = 16,
-	time = 15, -- time in minutes to remove the player	
+	timeToKill = 5, -- time in minutes to remove the player	
 }	
 
 local function RoomIsOccupied(centerPosition, rangeX, rangeY)
@@ -27,13 +27,25 @@ local function RoomIsOccupied(centerPosition, rangeX, rangeY)
 	return false
 end
 
-local function clearRoom(playerId)
-	local player = Player(playerId)
-	if player and player:getPosition().z == config.centerPosition.z and math.abs(player:getPosition().x - config.centerPosition.x) <= config.rangeX and math.abs(player:getPosition().y - config.centerPosition.y) <= config.rangeY then
-		player:teleportTo(config.exitPosition)
-		Position(config.exitPosition):sendMagicEffect(CONST_ME_TELEPORT)
+
+local function clearRoomDrume(centerPosition, rangeX, rangeY, resetGlobalStorage)
+	local spectators,
+	spectator = Game.getSpectators(centerPosition, false, false, rangeX, rangeX, rangeY, rangeY)
+	for i = 1, #spectators do
+		spectator = spectators[i]
+		if spectator:isMonster() then
+			spectator:remove()
+		end
+		if spectator:isPlayer() then
+			spectator:teleportTo(config.exitPosition)
+			spectator:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your time is over.")
+		end
+	end
+	if Game.getStorageValue(resetGlobalStorage) == 1 then
+		Game.setStorageValue(resetGlobalStorage, -1)
 	end
 end
+
 local drumeAction = Action()
 function drumeAction.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getPosition() ~= config.firstPlayerPosition then return false end
@@ -92,6 +104,9 @@ function drumeAction.onUse(player, item, fromPosition, target, toPosition, isHot
 	for _, pi in pairs(players) do
 		pi:setStorageValue(Storage.TheOrderOfTheLion.Drume.Timer, os.time() + (20 * 60 * 60))
 		pi:teleportTo(config.newPosition)
+		addEvent(clearRoomDrume, config.timeToKill * 60 * 1000, config.centerPosition, config.rangeX, config.rangeY, resetGlobalStorage)
+		pi:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have " ..config.timeToKill.." minutes to defeat Drume.")
+		
 	end
 	config.newPosition:sendMagicEffect(CONST_ME_TELEPORT)
 	toPosition:sendMagicEffect(CONST_ME_POFF)
