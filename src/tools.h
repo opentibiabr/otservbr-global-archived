@@ -21,7 +21,7 @@
 #define FS_TOOLS_H_5F9A9742DA194628830AA1C64909AE43
 
 #include <random>
-
+#include <string>
 #include <regex>
 #include <boost/algorithm/string.hpp>
 #include "position.h"
@@ -111,7 +111,7 @@ std::string getObjectCategoryName(ObjectCategory_t category);
 
 int64_t OTSYS_TIME();
 
-SpellGroup_t stringToSpellGroup(std::string value);
+SpellGroup_t stringToSpellGroup(const std::string &value);
 
 static inline Cipbia_Elementals_t getCipbiaElement(CombatType_t combatType) {
 	switch (combatType) {

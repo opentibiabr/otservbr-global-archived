@@ -29,7 +29,7 @@
 
 static CryptoPP::AutoSeededRandomPool prng;
 
-void RSA::decrypt(char* msg) const
+void RSA2::decrypt(char* msg) const
 {
 	try
 	{
@@ -39,7 +39,7 @@ void RSA::decrypt(char* msg) const
 	}
 	catch (const CryptoPP::Exception &e)
 	{
-		std::cout << "[RSA::decrypt - Exception]" << e.GetWhat() << std::endl;
+		SPDLOG_ERROR("[RSA2::decrypt - Exception] - {}", e.GetWhat());
 		return;
 	}
 }
@@ -47,7 +47,7 @@ void RSA::decrypt(char* msg) const
 static const std::string header = "-----BEGIN RSA PRIVATE KEY-----";
 static const std::string footer = "-----END RSA PRIVATE KEY-----";
 
-void RSA::loadPEM(const std::string& filename)
+void RSA2::loadPEM(const std::string& filename)
 {
 	std::ifstream file{filename};
 
@@ -78,6 +78,6 @@ void RSA::loadPEM(const std::string& filename)
 			throw std::runtime_error("RSA private key is not valid.");
 		}
 	} catch (const CryptoPP::Exception& e) {
-		std::cout << e.what() << '\n';
+		SPDLOG_ERROR("{}", e.what());
 	}
 }

@@ -104,6 +104,7 @@ bool Player::setVocation(uint16_t vocId)
 		condition->setParam(CONDITION_PARAM_MANAGAIN, vocation->getManaGainAmount());
 		condition->setParam(CONDITION_PARAM_MANATICKS, vocation->getManaGainTicks() * 1000);
 	}
+	g_game.addPlayerVocation(this);
 	return true;
 }
 
@@ -372,8 +373,8 @@ int32_t Player::getDefense() const
 	try {
 		getShieldAndWeapon(shield, weapon);
 	}
-	catch (const std::exception&) {
-		std::cout << "Got exception" << std::endl;
+	catch (const std::exception &e) {
+		SPDLOG_ERROR("{} got exception {}", getName(), e.what());
 	}
 
 	if (weapon) {
@@ -555,6 +556,9 @@ void Player::setVarStats(stats_t stat, int32_t modifier)
 			if (getMana() > getMaxMana()) {
 				Creature::changeMana(getMaxMana() - getMana());
 			}
+			else {
+				g_game.addPlayerMana(this);
+			}
 			break;
 		}
 
@@ -689,7 +693,7 @@ void Player::addStorageValue(const uint32_t key, const int32_t value, const bool
 				value >> 16);
 			return;
 		} else {
-			std::cout << "Warning: unknown reserved key: " << key << " player: " << getName() << std::endl;
+			SPDLOG_WARN("Unknown reserved key: {} for player: {}", key, getName());
 			return;
 		}
 	}
@@ -1322,7 +1326,7 @@ void Player::onCreatureAppear(Creature* creature, bool isLogin)
 			bed->wakeUp(this);
 		}
 
-		std::cout << name << " has logged in." << std::endl;
+		SPDLOG_INFO("{} has logged in", name);
 
 		if (guild) {
 			guild->addMember(this);
@@ -1447,7 +1451,7 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 
 		g_chat->removeUserFromAllChannels(*this);
 
-		std::cout << getName() << " has logged out." << std::endl;
+		SPDLOG_INFO("{} has logged out", getName());
 
 		if (guild) {
 			guild->removeMember(this);
@@ -1464,7 +1468,7 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 		}
 
 		if (!saved) {
-			std::cout << "Error while saving player: " << getName() << std::endl;
+			SPDLOG_WARN("Error while saving player: {}", getName());
 		}
 	}
 }
@@ -1552,6 +1556,7 @@ void Player::onCreatureMove(Creature* creature, const Tile* newTile, const Posit
 
 	if (party) {
 		party->updateSharedExperience();
+		party->updatePlayerStatus(this, oldPos, newPos);
 	}
 
 	if (teleport || oldPos.z != newPos.z) {
@@ -1989,6 +1994,7 @@ void Player::addExperience(Creature* source, uint64_t exp, bool sendText/* = fal
 		setBaseSpeed(getBaseSpeed());
 		g_game.changeSpeed(this, 0);
 		g_game.addCreatureHealth(this);
+		g_game.addPlayerMana(this);
 
 		if (party) {
 			party->updateSharedExperience();
@@ -2074,6 +2080,7 @@ void Player::removeExperience(uint64_t exp, bool sendText/* = false*/)
 
 		g_game.changeSpeed(this, 0);
 		g_game.addCreatureHealth(this);
+		g_game.addPlayerMana(this);
 
 		if (party) {
 			party->updateSharedExperience();
@@ -2446,6 +2453,7 @@ void Player::death(Creature* lastHitCreature)
 		health = healthMax;
 		g_game.internalTeleport(this, getTemplePosition(), true);
 		g_game.addCreatureHealth(this);
+		g_game.addPlayerMana(this);
 		onThink(EVENT_CREATURE_THINK_INTERVAL);
 		onIdleStatus();
 		sendStats();
@@ -4126,7 +4134,7 @@ void Player::changeMana(int32_t manaChange)
 	if (!hasFlag(PlayerFlag_HasInfiniteMana)) {
 		Creature::changeMana(manaChange);
 	}
-
+	g_game.addPlayerMana(this);
 	sendStats();
 }
 
@@ -4671,8 +4679,8 @@ bool Player::isGuildMate(const Player* player) const
 
 void Player::sendPlayerPartyIcons(Player* player)
 {
-	sendCreatureShield(player);
-	sendCreatureSkull(player);
+	sendPartyCreatureShield(player);
+	sendPartyCreatureSkull(player);
 }
 
 bool Player::addPartyInvitation(Party* newParty)

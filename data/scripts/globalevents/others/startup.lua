@@ -1,9 +1,11 @@
 local serverstartup = GlobalEvent("serverstartup")
 function serverstartup.onStartup()
-	print(">> Loading map attributes")
+	Spdlog.info("Loading map attributes")
+	-- Npc table
+	loadLuaNpcs(NpcTable)
 	-- Sign table
 	loadLuaMapSign(SignTable)
-	print("> Loaded " .. (#SignTable) .. " signs in the map")
+	Spdlog.info("Loaded " .. (#SignTable) .. " signs in the map")
 	-- Book/Document table
 	loadLuaMapBookDocument(BookDocumentTable)
 
@@ -43,8 +45,8 @@ function serverstartup.onStartup()
 	-- Tile pick table
 	loadLuaMapAction(TilePickAction)
 
-	print("> Loaded all actions in the map")
-	print("> Loaded all uniques in the map")
+	Spdlog.info("Loaded all actions in the map")
+	Spdlog.info("Loaded all uniques in the map")
 
 	for i = 1, #startupGlobalStorages do
 		Game.setStorageValue(startupGlobalStorages[i], 0)

@@ -22,11 +22,11 @@ local function raids(monster)
         randX = math.random(config.position[1].x, config.position[2].x)
         randY = math.random(config.position[1].y, config.position[2].y)
         randZ = math.random(config.position[1].z, config.position[2].z)
-		
+
 		local pos = Position(randX, randY, randZ)
 		local tile = Tile(pos)
 		if not tile then return false end
-		
+
         if tile:isWalkable(true, false, false, false, true) then
 			Game.createMonster(monster, Position(randX, randY, randZ))
         else
@@ -78,13 +78,11 @@ function lowerRoshamuulChamber.onUse(cid, item, fromPosition, itemEx, toPosition
 		else
 			player:say("PRRRROOOOOAAAAAHHHH!!!", TALKTYPE_MONSTER_SAY)
 		end
-		
+
 		local raid = config.raid
 		for y, x in pairs(raid) do
 			local i = 1
 			while i <= #x  do
-				print(x[i])
-				print(x[i+1])
 				time = time + config.timeBetweenraid
 				for j = 1, x[i+1] do
 					Game.setStorageValue(config.storage,x[i+1])
@@ -93,7 +91,7 @@ function lowerRoshamuulChamber.onUse(cid, item, fromPosition, itemEx, toPosition
 				i = i + 2
 			end
 		end
-		
+
 		addEvent(Game.setStorageValue, config.globalEventTime, config.storage, 0)
 		if config.cleanraid then
 			addEvent(cleanRaid, config.globalEventTime)

@@ -9,7 +9,7 @@ also change in config.lua.dist
 
 ### Default Values (docker-compose.yml)
 - Ports: 7171, 7172, 80(web), 3306, 8080(login)
-- Database Server: otdb
+- Database Server: database
 - Database Name/User/Password: otserver
 
 ### - Commands

@@ -75,7 +75,8 @@ void Signals::asyncWait()
 {
 	set.async_wait([this] (ErrorCode err, int signal) {
 		if (err) {
-			std::cerr << "Signal handling error: "  << err.message() << std::endl;
+			SPDLOG_ERROR("[Signals::asyncWait] - "
+                         "Signal handling error: {}", err.message());
 			return;
 		}
 		dispatchSignalHandler(signal);
@@ -119,56 +120,56 @@ void Signals::dispatchSignalHandler(int signal)
 void Signals::sigbreakHandler()
 {
 	//Dispatcher thread
-	std::cout << "SIGBREAK received, shutting game server down..." << std::endl;
+	SPDLOG_INFO("SIGBREAK received, shutting game server down...");
 	g_game.setGameState(GAME_STATE_SHUTDOWN);
 }
 
 void Signals::sigtermHandler()
 {
 	//Dispatcher thread
-	std::cout << "SIGTERM received, shutting game server down..." << std::endl;
+	SPDLOG_INFO("SIGTERM received, shutting game server down...");
 	g_game.setGameState(GAME_STATE_SHUTDOWN);
 }
 
 void Signals::sigusr1Handler()
 {
 	//Dispatcher thread
-	std::cout << "SIGUSR1 received, saving the game state..." << std::endl;
+	SPDLOG_INFO("SIGUSR1 received, saving the game state...");
 	g_game.saveGameState();
 }
 
 void Signals::sighupHandler()
 {
 	//Dispatcher thread
-	std::cout << "SIGHUP received, reloading config files..." << std::endl;
+	SPDLOG_INFO("SIGHUP received, reloading config files...");
 
 	g_config.reload();
-	std::cout << "Reloaded config." << std::endl;
+	SPDLOG_INFO("Reloaded config");
 
 	g_game.raids.reload();
 	g_game.raids.startup();
-	std::cout << "Reloaded raids." << std::endl;
+	SPDLOG_INFO("Reloaded raids");
 
-	g_spells->reload();
-	std::cout << "Reloaded spells." << std::endl;
+	g_spells->reload();;
+	SPDLOG_INFO("Reloaded spells");
 
 	Item::items.reload();
-	std::cout << "Reloaded items." << std::endl;
+	SPDLOG_INFO("Reloaded items");
 
 	g_game.mounts.reload();
-	std::cout << "Reloaded mounts." << std::endl;
+	SPDLOG_INFO("Reloaded mounts");
 
-	g_events->load();
-	std::cout << "Reloaded events." << std::endl;
+	g_events->loadFromXml();
+	SPDLOG_INFO("Reloaded events");
 
 	g_chat->load();
-	std::cout << "Reloaded chatchannels." << std::endl;
+	SPDLOG_INFO("Reloaded chatchannels");
 
 	g_luaEnvironment.loadFile("data/global.lua");
-	std::cout << "Reloaded global.lua." << std::endl;
-	
+	SPDLOG_INFO("Reloaded global.lua");
+
 	g_luaEnvironment.loadFile("data/stages.lua");
-	std::cout << "Reloaded stages.lua." << std::endl;
+	SPDLOG_INFO("Reloaded stages.lua");
 
 	lua_gc(g_luaEnvironment.getLuaState(), LUA_GCCOLLECT, 0);
 }
@@ -176,6 +177,6 @@ void Signals::sighupHandler()
 void Signals::sigintHandler()
 {
 	//Dispatcher thread
-	std::cout << "SIGINT received, shutting game server down..." << std::endl;
+	SPDLOG_INFO("SIGINT received, shutting game server down...");
 	g_game.setGameState(GAME_STATE_SHUTDOWN);
 }

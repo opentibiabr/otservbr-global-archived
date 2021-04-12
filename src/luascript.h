@@ -534,6 +534,12 @@ class LuaScriptInterface
 		// table
 		static int luaTableCreate(lua_State* L);
 
+		// Spdlog
+		static int luaSpdlogInfo(lua_State* L);
+		static int luaSpdlogWarn(lua_State* L);
+		static int luaSpdlogError(lua_State* L);
+		static int luaSpdlogDebug(lua_State* L);
+
 		// Game
 		static int luaGameCreateMonsterType(lua_State* L);
 		static int luaGameCreateNpcType(lua_State* L);

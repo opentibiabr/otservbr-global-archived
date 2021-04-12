@@ -122,6 +122,11 @@ function bossDeath.onDeath(creature, corpse, killer, mostDamageKiller, lastHitUn
 	if not creature or creature:isPlayer() then
 		return true
 	end
+	
+	-- Deny summons
+    if creature:getMaster() then
+        return true
+    end
 
 	-- boss
 	local monsterType = creature:getType()

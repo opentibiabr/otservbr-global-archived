@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `blessings_history` (
 
 --]=====]
 
-Blessings.DebugPrint = function(content,pre,pos)
+Blessings.DebugPrint = function(content, pre, pos)
 	if not Blessings.Config.Debug then
 		return
 	end
@@ -61,11 +61,12 @@ Blessings.DebugPrint = function(content,pre,pos)
 		pos = " " .. pos
 	end
 	if type(content) == "boolean" then
-		print("[Blessings] START BOOL - "..pre)
-		print(content)
-		print("[Blessings] END BOOL - "..pos)
+		Spdlog.debug(string.format("[Blessings] START BOOL - %s", pre))
+		Spdlog.debug(content)
+		Spdlog.debug(string.format("[Blessings] END BOOL - %s", pos))
 	else
-		print("[Blessings] "..pre .. content..pos)
+		Spdlog.debug(string.format("[Blessings] pre:[%s], content[%s], pos[%s]",
+			pre, content, pos))
 	end
 end
 

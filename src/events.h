@@ -82,7 +82,7 @@ class Events
 	public:
 		Events();
 
-		bool load();
+		bool loadFromXml();
 
 		// Creature
 		bool eventCreatureOnChangeOutfit(Creature* creature, const Outfit_t& outfit);

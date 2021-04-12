@@ -34,20 +34,21 @@ bool Map::loadMap(const std::string& identifier, bool loadHouses, bool loadMonst
 	int64_t start = OTSYS_TIME();
 	IOMap loader;
 	if (!loader.loadMap(this, identifier)) {
-		std::cout << "[Fatal - Map::loadMap] " << loader.getLastErrorString() << std::endl;
+		SPDLOG_ERROR("[Map::loadMap] - {}", loader.getLastErrorString());
 		return false;
 	}
 
 	if (loadMonsters) {
 		if (!IOMap::loadMonsters(this)) {
-			std::cout << "[Warning - Map::loadMap] Failed to load monster spawn data." << std::endl;
+			SPDLOG_WARN("[Map::loadMap] - Failed to load spawn data");
 		}
-		std::cout << "> Loaded spawns in: " << (OTSYS_TIME() - start) / (1000.) << " seconds" << std::endl;
+		SPDLOG_INFO("Loaded spawns in: {} seconds",
+                    (OTSYS_TIME() - start) / (1000.));
 	}
 
 	if (loadHouses) {
 		if (!IOMap::loadHouses(this)) {
-			std::cout << "[Warning - Map::loadMap] Failed to load house data." << std::endl;
+			SPDLOG_WARN("[Map::loadMap] - Failed to load house data");
 		}
 
 		IOMapSerialize::loadHouseInfo();
@@ -108,7 +109,8 @@ Tile* Map::getTile(uint16_t x, uint16_t y, uint8_t z) const
 void Map::setTile(uint16_t x, uint16_t y, uint8_t z, Tile* newTile)
 {
 	if (z >= MAP_MAX_LAYERS) {
-		std::cout << "ERROR: Attempt to set tile on invalid coordinate " << Position(x, y, z) << "!" << std::endl;
+		SPDLOG_ERROR("Attempt to set tile on invalid coordinate: {}",
+                     Position(x, y, z).toString());
 		return;
 	}
 
@@ -1200,8 +1202,9 @@ uint32_t Map::clean() const
 		g_game.setGameState(GAME_STATE_NORMAL);
 	}
 
-	std::cout << "> CLEAN: Removed " << count << " item" << (count != 1 ? "s" : "")
-	          << " from " << tiles << " tile" << (tiles != 1 ? "s" : "") << " in "
-	          << (OTSYS_TIME() - start) / (1000.) << " seconds." << std::endl;
+	SPDLOG_INFO("CLEAN: Removed {} item{} from {} tile{} in {} seconds",
+                count, (count != 1 ? "s" : ""),
+                tiles, (tiles != 1 ? "s" : ""),
+                (OTSYS_TIME() - start) / (1000.));
 	return count;
 }
