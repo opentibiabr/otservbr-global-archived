@@ -110,15 +110,7 @@ class Npc final : public Creature
 
 		void setPlayerInteraction(uint32_t playerId, uint16_t topicId = 0);
 		void updatePlayerInteractions(Player* player);
-		void removePlayerInteraction(uint32_t playerId) {
-		  if (playerInteractions.find(playerId) != playerInteractions.end()) {
-		    playerInteractions.erase(playerId);
-		  }
-
-		  if (playerInteractions.size() == 0) {
-				g_game.addCreatureCheck(this);
-			}
-		}
+		void removePlayerInteraction(uint32_t playerId);
 		void resetPlayerInteractions();
 
 		bool isInteractingWithPlayer(uint32_t playerId) {

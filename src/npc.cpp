@@ -347,6 +347,16 @@ void Npc::updatePlayerInteractions(Player* player) {
 	}
 }
 
+void Npc::removePlayerInteraction(uint32_t playerId) {
+	if (playerInteractions.find(playerId) != playerInteractions.end()) {
+		playerInteractions.erase(playerId);
+	}
+
+	if (playerInteractions.size() == 0) {
+		g_game.addCreatureCheck(this);
+	}
+}
+
 void Npc::resetPlayerInteractions() {
 	playerInteractions.clear();
 	g_game.addCreatureCheck(this);
