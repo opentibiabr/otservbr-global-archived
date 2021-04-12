@@ -1,7 +1,7 @@
 local npcType = Game.createNpcType("A Bearded Woman")
 local npc = {}
 
-npc.description = "A Bearded Woman"
+npc.name = "A Bearded Woman"
 
 npc.health = 100
 npc.maxHealth = npc.health

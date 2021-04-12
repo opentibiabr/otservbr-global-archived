@@ -50,7 +50,7 @@ Npc* Npc::createNpc(const std::string& name)
 
 Npc::Npc(NpcType* npcType) :
 	Creature(),
-	strDescription(asUpperCaseString(npcType->nameDescription)),
+	strDescription(asLowerCaseString(npcType->nameDescription)),
 	npcType(npcType)
 {
 	defaultOutfit = npcType->info.outfit;
@@ -69,6 +69,9 @@ Npc::Npc(NpcType* npcType) :
 			std::cout << "[Warning - Npc::Npc] Unknown event name: " << scriptName << std::endl;
 		}
 	}
+}
+
+Npc::~Npc() {
 }
 
 void Npc::addList()
@@ -312,6 +315,31 @@ void Npc::onThink(uint32_t interval)
 	} else if (!isIdle) {
 		addEventWalk();
 	}
+
+	onThinkYell(interval);
+}
+
+void Npc::onThinkYell(uint32_t interval)
+{
+	if (npcType->info.yellSpeedTicks == 0) {
+		return;
+	}
+
+	yellTicks += interval;
+	if (yellTicks >= npcType->info.yellSpeedTicks) {
+		yellTicks = 0;
+
+		if (!npcType->info.voiceVector.empty() && (npcType->info.yellChance >= static_cast<uint32_t>(uniform_random(1, 100)))) {
+			uint32_t index = uniform_random(0, npcType->info.voiceVector.size() - 1);
+			const voiceBlock_t& vb = npcType->info.voiceVector[index];
+
+			if (vb.yellText) {
+				g_game.internalCreatureSay(this, TALKTYPE_YELL, vb.text, false);
+			} else {
+				g_game.internalCreatureSay(this, TALKTYPE_SAY, vb.text, false);
+			}
+		}
+	}
 }
 
 bool Npc::getNextStep(Direction& nextDirection, uint32_t& flags)
@@ -355,22 +383,22 @@ void Npc::addPlayerInteraction(uint32_t playerId) {
 	  return;
 	}
 
-  if (playerInteractions.size() == 0) {
-    setIdle(true);
-  }
+	if (playerInteractions.size() == 0) {
+		setIdle(true);
+	}
 
-  turnToCreature(creature);
+	turnToCreature(creature);
 
-  playerInteractions[playerId] = 0;
+  	playerInteractions[playerId] = 0;
 }
 
 void Npc::updatePlayerInteractions(Player* player) {
-		if (player && !canSee(player->getPosition())) {
-      removePlayerInteraction(player->getID());
-		}
+	if (player && !canSee(player->getPosition())) {
+		removePlayerInteraction(player->getID());
+	}
 }
 
 void Npc::resetPlayerInteractions() {
-		playerInteractions.clear();
-		setIdle(false);
+	playerInteractions.clear();
+	setIdle(false);
 }

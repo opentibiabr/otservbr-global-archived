@@ -6274,45 +6274,9 @@ void Game::addCreatureHealth(const Creature* target)
 
 void Game::addCreatureHealth(const SpectatorHashSet& spectators, const Creature* target)
 {
-	uint8_t healthPercent = std::ceil((static_cast<double>(target->getHealth()) / std::max<int32_t>(target->getMaxHealth(), 1)) * 100);
-	if (const Player* targetPlayer = target->getPlayer()) {
-		if (Party* party = targetPlayer->getParty()) {
-			party->updatePlayerHealth(targetPlayer, target, healthPercent);
-		}
-	} else if (const Creature* master = target->getMaster()) {
-		if (const Player* masterPlayer = master->getPlayer()) {
-			if (Party* party = masterPlayer->getParty()) {
-				party->updatePlayerHealth(masterPlayer, target, healthPercent);
-			}
-		}
-	}
 	for (Creature* spectator : spectators) {
 		if (Player* tmpPlayer = spectator->getPlayer()) {
 			tmpPlayer->sendCreatureHealth(target);
-		}
-	}
-}
-
-void Game::addPlayerMana(const Player* target)
-{
-	if (Party* party = target->getParty()) {
-		uint8_t manaPercent = std::ceil((static_cast<double>(target->getMana()) / std::max<int32_t>(target->getMaxMana(), 1)) * 100);
-		party->updatePlayerMana(target, manaPercent);
-	}
-}
-
-void Game::addPlayerVocation(const Player* target)
-{
-	if (Party* party = target->getParty()) {
-		party->updatePlayerVocation(target);
-	}
-
-	SpectatorHashSet spectators;
-	map.getSpectators(spectators, target->getPosition(), true, true);
-
-	for (Creature* spectator : spectators) {
-		if (Player* tmpPlayer = spectator->getPlayer()) {
-			tmpPlayer->sendPlayerVocation(target);
 		}
 	}
 }

@@ -122,7 +122,7 @@ class Npc final : public Creature
 		void resetPlayerInteractions();
 
 		bool isInteractingWithPlayer(uint32_t playerId) {
-			return !!playerInteractions.at(playerId);
+			return playerInteractions.at(playerId);
 		}
 
 		void addTopic(uint32_t playerId, uint16_t topicId) {
@@ -131,7 +131,7 @@ class Npc final : public Creature
 		void removeTopic(uint32_t playerId) {
 		  playerInteractions[playerId] = 0;
 		}
-		bool getTopic(uint32_t playerId, uint16_t topicId) {
+		bool isTopic(uint32_t playerId, uint16_t topicId) {
 			return playerInteractions.at(playerId) == topicId;
 		}
 
@@ -145,8 +145,8 @@ class Npc final : public Creature
 		void onThink(uint32_t interval) override;
 
 		void setNormalCreatureLight() override {
-      internalLight = npcType->info.light;
-    }
+			internalLight = npcType->info.light;
+		}
 
 		static uint32_t npcAutoID;
 
@@ -157,6 +157,8 @@ class Npc final : public Creature
 
 		NpcType* npcType;
 		SpawnNpc* spawnNpc = nullptr;
+
+		uint32_t yellTicks = 0;
 
 		int32_t stepDuration = 0;
 
@@ -170,6 +172,8 @@ class Npc final : public Creature
 		}
 
 		bool isInSpawnRange(const Position& pos) const;
+
+		void onThinkYell(uint32_t interval);
 
 		friend class LuaScriptInterface;
 		friend class Map;

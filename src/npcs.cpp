@@ -758,7 +758,7 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 
 	npcType->name = attr.as_string();
 	npcType->nameDescription = npcType->name;
-	}
+
 	if ((attr = npcNode.attribute("race"))) {
 		std::string tmpStrValue = asLowerCaseString(attr.as_string());
 		uint16_t tmpInt = pugi::cast<uint16_t>(attr.value());

@@ -2880,7 +2880,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Npc", "isInTalkRange", LuaScriptInterface::luaNpcIsInTalkRange);
 	registerMethod("Npc", "addTopicMessage", LuaScriptInterface::luaNpcAddTopicMessage);
 	registerMethod("Npc", "removeTopicMessage", LuaScriptInterface::luaNpcRemoveTopicMessage);
-	registerMethod("Npc", "getTopicMessage", LuaScriptInterface::luaNpcGetTopicMessage);
+	registerMethod("Npc", "isTopicMessage", LuaScriptInterface::luaNpcIsTopicMessage);
 
 	// Guild
 	registerClass("Guild", "", LuaScriptInterface::luaGuildCreate);
@@ -13109,9 +13109,9 @@ int LuaScriptInterface::luaNpcRemoveTopicMessage(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaNpcGetTopicMessage(lua_State* L)
+int LuaScriptInterface::luaNpcIsTopicMessage(lua_State* L)
 {
-	//npc:getTopicMessage(creature, topicId)
+	//npc:isTopicMessage(creature, topicId)
 	Npc* npc = getUserdata<Npc>(L, 1);
 	Creature* creature = getCreature(L, 2);
 	uint32_t topicId = getNumber<uint32_t>(L, 3);
@@ -13134,7 +13134,7 @@ int LuaScriptInterface::luaNpcGetTopicMessage(lua_State* L)
 		return 1;
 	}
 
-	pushBoolean(L, npc->getTopic(creature->getID(), topicId));
+	pushBoolean(L, npc->isTopic(creature->getID(), topicId));
 	return 1;
 }
 

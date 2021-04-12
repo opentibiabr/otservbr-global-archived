@@ -1196,7 +1196,7 @@ class LuaScriptInterface
 		static int luaNpcIsInTalkRange(lua_State* L);
 		static int luaNpcAddTopicMessage(lua_State* L);
 		static int luaNpcRemoveTopicMessage(lua_State* L);
-		static int luaNpcGetTopicMessage(lua_State* L);
+		static int luaNpcIsTopicMessage(lua_State* L);
 
 		// Guild
 		static int luaGuildCreate(lua_State* L);

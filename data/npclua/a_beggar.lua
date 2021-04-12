@@ -1,7 +1,7 @@
 local npcType = Game.createNpcType("A Beggar")
 local npc = {}
 
-npc.description = "A Beggar"
+npc.name = "A Beggar"
 
 npc.health = 100
 npc.maxHealth = npc.health
@@ -53,7 +53,7 @@ npcType.onSay = function(npc, creature, type, message)
                 end
             elseif msgContains(message, "yes")  then
                 -- Get topic of the "want" message
-                if npc:getTopicMessage(player, 1) then
+                if npc:isTopicMessage(player, 1) then
                     npc:talk(player, {
                         "Thought so. You'll have to talk to the king though. The beggar king that is. The king does not grant an audience to just everyone. You know how those kings are, don't you? ... ",
                         "However, to get an audience with the king, you'll have to help his subjects a bit. ... ",
