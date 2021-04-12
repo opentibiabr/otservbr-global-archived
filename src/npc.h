@@ -141,6 +141,11 @@ class Npc final : public Creature
 			internalLight = npcType->info.light;
 		}
 
+		void addCreatureCheck() {
+			g_game.addCreatureCheck(this);
+			addEventWalk();
+		}
+
 		static uint32_t npcAutoID;
 
 	private:

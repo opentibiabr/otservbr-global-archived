@@ -122,7 +122,7 @@ void Npc::onCreatureAppear(Creature* creature, bool isLogin)
 	}
 
 	if (creature == this) {
-		g_game.addCreatureCheck(this);
+		addCreatureCheck();
 	}
 }
 
@@ -353,13 +353,13 @@ void Npc::removePlayerInteraction(uint32_t playerId) {
 	}
 
 	if (playerInteractions.size() == 0) {
-		g_game.addCreatureCheck(this);
+		addCreatureCheck();
 	}
 }
 
 void Npc::resetPlayerInteractions() {
 	playerInteractions.clear();
-	g_game.addCreatureCheck(this);
+	addCreatureCheck();
 }
 
 bool Npc::getNextStep(Direction& nextDirection, uint32_t& flags)
