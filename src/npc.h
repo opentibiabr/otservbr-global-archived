@@ -116,7 +116,7 @@ class Npc final : public Creature
 		  }
 
 		  if (playerInteractions.size() == 0) {
-              setCanWalk(true);
+				g_game.addCreatureCheck(this);
 			}
 		}
 		void resetPlayerInteractions();
@@ -141,6 +141,8 @@ class Npc final : public Creature
 		void onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos, const Tile* oldTile, const Position& oldPos, bool teleport) override;
 		void onCreatureSay(Creature* creature, SpeakClasses type, const std::string& text) override;
 
+		bool getNextStep(Direction& direction, uint32_t& flags) override;
+
 		void onThink(uint32_t interval) override;
 
 		void setNormalCreatureLight() override {
@@ -162,10 +164,6 @@ class Npc final : public Creature
 		int32_t stepDuration = 0;
 
 		Position masterPos;
-
-		bool canWalk = false;
-
-		void setCanWalk(bool canWalk);
 
 		bool isInSpawnRange(const Position& pos) const;
 

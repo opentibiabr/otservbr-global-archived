@@ -120,6 +120,10 @@ void Npc::onCreatureAppear(Creature* creature, bool isLogin)
 			return;
 		}
 	}
+
+	if (creature == this) {
+		g_game.addCreatureCheck(this);
+	}
 }
 
 void Npc::onRemoveCreature(Creature* creature, bool isLogout)
@@ -156,7 +160,7 @@ void Npc::onRemoveCreature(Creature* creature, bool isLogout)
 			spawnNpc->startSpawnNpcCheck();
 		}
 
-        setCanWalk(true);
+		Game::removeCreatureCheck(this);
 	} else {
 		updatePlayerInteractions(creature->getPlayer());
 	}
@@ -234,21 +238,6 @@ void Npc::onCreatureSay(Creature* creature, SpeakClasses type, const std::string
 	}
 }
 
-void Npc::setCanWalk(bool canWalk)
-{
-	if (isRemoved()) {
-		return;
-	}
-
-	canWalk = canWalk;
-
-	if (canWalk) {
-		g_game.addCreatureCheck(this);
-	} else {
-		Game::removeCreatureCheck(this);
-	}
-}
-
 void Npc::onThink(uint32_t interval)
 {
 	Creature::onThink(interval);
@@ -284,8 +273,6 @@ void Npc::onThink(uint32_t interval)
 	if (!isInSpawnRange(position)) {
 		g_game.internalTeleport(this, masterPos);
 		resetPlayerInteractions();
-	} else if (canWalk) {
-		eventWalk = 0;
 	}
 
 	onThinkYell(interval);
@@ -346,12 +333,12 @@ void Npc::setPlayerInteraction(uint32_t playerId, uint16_t topicId /*= 0*/) {
 	}
 
 	if (playerInteractions.size() == 0) {
-        setCanWalk(false);
+		Game::removeCreatureCheck(this);
 	}
 
 	turnToCreature(creature);
 
-  	playerInteractions[playerId] = topicId;
+	playerInteractions[playerId] = topicId;
 }
 
 void Npc::updatePlayerInteractions(Player* player) {
@@ -362,5 +349,16 @@ void Npc::updatePlayerInteractions(Player* player) {
 
 void Npc::resetPlayerInteractions() {
 	playerInteractions.clear();
-    setCanWalk(true);
+	g_game.addCreatureCheck(this);
+}
+
+bool Npc::getNextStep(Direction& nextDirection, uint32_t& flags)
+{
+	// If talking, no walking
+	if (playerInteractions.size() > 0) {
+		eventWalk = 0;
+		return false;
+	}
+
+	return Creature::getNextStep(nextDirection, flags);
 }
