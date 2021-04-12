@@ -111,7 +111,7 @@ class Npc final : public Creature
 		void addPlayerInteraction(uint32_t playerId);
 		void updatePlayerInteractions(Player* player);
 		void removePlayerInteraction(uint32_t playerId) {
-		  if (playerInteractions.at(playerId)) {
+		  if (playerInteractions.find(playerId) != playerInteractions.end()) {
 		    playerInteractions.erase(playerId);
 		  }
 
@@ -122,7 +122,10 @@ class Npc final : public Creature
 		void resetPlayerInteractions();
 
 		bool isInteractingWithPlayer(uint32_t playerId) {
-			return playerInteractions.at(playerId);
+		  if (playerInteractions.find(playerId) == playerInteractions.end()) {
+		    return false;
+		  }
+			return true;
 		}
 
 		void addTopic(uint32_t playerId, uint16_t topicId) {
@@ -132,7 +135,11 @@ class Npc final : public Creature
 		  playerInteractions[playerId] = 0;
 		}
 		bool isTopic(uint32_t playerId, uint16_t topicId) {
-			return playerInteractions.at(playerId) == topicId;
+			auto it = playerInteractions.find(playerId);
+		  if (it == playerInteractions.end()) {
+		    return false;
+		  }
+			return it->second == topicId;
 		}
 
 		void onCreatureAppear(Creature* creature, bool isLogin) override;
