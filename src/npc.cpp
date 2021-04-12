@@ -242,7 +242,7 @@ void Npc::setCanWalk(bool canWalk)
 
 	canWalk = canWalk;
 
-	if (!canWalk) {
+	if (canWalk) {
 		g_game.addCreatureCheck(this);
 	} else {
 		Game::removeCreatureCheck(this);
@@ -284,8 +284,8 @@ void Npc::onThink(uint32_t interval)
 	if (!isInSpawnRange(position)) {
 		g_game.internalTeleport(this, masterPos);
 		resetPlayerInteractions();
-	} else if (!canWalk) {
-		addEventWalk();
+	} else if (canWalk) {
+		eventWalk = 0;
 	}
 
 	onThinkYell(interval);
