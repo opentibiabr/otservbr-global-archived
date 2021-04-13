@@ -41,6 +41,8 @@ ln -s /usr/share/phpmyadmin /var/www/html
 mysql -u root -e "CREATE DATABASE $DB_DATABASE;"
 mysql -u root -e "SHOW DATABASES;"
 mysql -u root -D $DB_DATABASE < schema.sql
+mysql -u root -D $DB_DATABASE < docker/data/01-test_account.sql
+mysql -u root -D $DB_DATABASE < docker/data/02-test_account_players.sql
 
 # Create user
 mysql -u root -e "CREATE USER '$DB_USER'@localhost IDENTIFIED BY '$DB_PASSWORD';"
