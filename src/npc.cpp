@@ -379,7 +379,7 @@ bool Npc::getRandomStep(Direction& moveDirection) const
 	return false;
 }
 
-bool Npc::getNextStep(Direction& nextDirection, uint32_t flags) {
+bool Npc::getNextStep(Direction& nextDirection, uint32_t& flags) {
 	// If talking, no walking
 	if (playerInteractions.size() > 0) {
 		eventWalk = 0;
