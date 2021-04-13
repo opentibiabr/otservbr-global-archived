@@ -3,13 +3,11 @@ version: "3.3"
 services:
   server:
     build:
-      context: ./
+      context: ../
       dockerfile: docker/server/Dockerfile
     ports:
-      - "7171:7171"
-      - "7172:7172"
-    volumes:
-      - ./:/otserver
+      - 7171:7171
+      - 7172:7172
     depends_on:
       - mysql
       - website
@@ -19,7 +17,7 @@ services:
 
   mysql:
     build:
-      context: ./
+      context: ../
       dockerfile: docker/mysql/Dockerfile
     restart: unless-stopped
     environment:
@@ -27,8 +25,6 @@ services:
       - MYSQL_USER=otserver
       - MYSQL_PASSWORD=otserver
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
-    ports:
-      - "3306:3306"
     volumes:
       - db-volume:/var/lib/mysql
 
@@ -39,7 +35,7 @@ services:
       - WEB_DOCUMENT_ROOT=/tmp/web/
       - WEB_DOCUMENT_INDEX=index.php
     ports:
-      - "80:80"
+      - 8080:80
     volumes:
       - ./docker/data/web:/tmp/web
       - ./:/tmp/otserver/
@@ -48,13 +44,13 @@ services:
 
   login:
     build:
-      context: ./
+      context: ../
       dockerfile: docker/login/Dockerfile
     restart: unless-stopped
     volumes:
       - ./docker/data/:/tmp/
     ports:
-      - "8080:80"
+      - 8081:80
     depends_on:
       - mysql
 
