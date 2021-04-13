@@ -133,6 +133,7 @@ class Npc final : public Creature
 		void onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos, const Tile* oldTile, const Position& oldPos, bool teleport) override;
 		void onCreatureSay(Creature* creature, SpeakClasses type, const std::string& text) override;
 
+		bool getRandomStep(Direction& direction) const;
 		bool getNextStep(Direction& direction, uint32_t& flags) override;
 
 		void onThink(uint32_t interval) override;
@@ -141,10 +142,7 @@ class Npc final : public Creature
 			internalLight = npcType->info.light;
 		}
 
-		void addCreatureCheck() {
-			g_game.addCreatureCheck(this);
-			addEventWalk();
-		}
+		void addCreatureCheck();
 
 		static uint32_t npcAutoID;
 

@@ -37,7 +37,7 @@ extern ConfigManager g_config;
 int32_t Npc::despawnRange;
 int32_t Npc::despawnRadius;
 
-uint32_t Npc::npcAutoID = 0x40000000;
+uint32_t Npc::npcAutoID = 0x80000000;
 
 Npc* Npc::createNpc(const std::string& name)
 {
@@ -201,7 +201,7 @@ void Npc::onCreatureMove(Creature* creature, const Tile* newTile, const Position
 
 
 	if (creature == this && !canSee(oldPos)) {
-	  resetPlayerInteractions();
+		resetPlayerInteractions();
 	} else if (!canSee(newPos) && canSee(oldPos)) {
 		updatePlayerInteractions(creature->getPlayer());
 	}
@@ -362,13 +362,35 @@ void Npc::resetPlayerInteractions() {
 	addCreatureCheck();
 }
 
-bool Npc::getNextStep(Direction& nextDirection, uint32_t& flags)
+bool Npc::getRandomStep(Direction& moveDirection) const
 {
+	static std::vector<Direction> dirList{
+		DIRECTION_NORTH,
+		DIRECTION_WEST,
+		DIRECTION_EAST,
+		DIRECTION_SOUTH
+	};
+	std::shuffle(dirList.begin(), dirList.end(), getRandomGenerator());
+
+	for (Direction dir : dirList) {
+		moveDirection = dir;
+		return true;
+	}
+	return false;
+}
+
+bool Npc::getNextStep(Direction& nextDirection, uint32_t flags) {
 	// If talking, no walking
 	if (playerInteractions.size() > 0) {
 		eventWalk = 0;
 		return false;
 	}
 
-	return Creature::getNextStep(nextDirection, flags);
+	getRandomStep(nextDirection);
+	return true;
+}
+
+void Npc::addCreatureCheck() {
+	g_game.addCreatureCheck(this);
+	addEventWalk();
 }
