@@ -24,6 +24,7 @@
 #include "npc.h"
 #include "npcs.h"
 #include "configmanager.h"
+#include "creaturecallback.h"
 #include "game.h"
 #include "spells.h"
 #include "events.h"
@@ -96,29 +97,14 @@ void Npc::onCreatureAppear(Creature* creature, bool isLogin)
 {
 	Creature::onCreatureAppear(creature, isLogin);
 
-	if (npcType->info.creatureAppearEvent != -1) {
-		// onCreatureAppear(self, creature)
-		LuaScriptInterface* scriptInterface = npcType->info.scriptInterface;
-		if (!scriptInterface->reserveScriptEnv()) {
-			SPDLOG_ERROR("Npc {} creature {} - Call stack overflow. Too many lua script calls being nested.", getName(), creature->getName());
-			return;
-		}
+	// onCreatureAppear(self, creature)
+	CreatureCallback callback = new CreatureCallback(npcType->info.scriptInterface, this);
+	if (callback.startScriptInterface(npcType->info.creatureAppearEvent)) {
+		callback.pushCreature(creature);
+	}
 
-		ScriptEnvironment* env = scriptInterface->getScriptEnv();
-		env->setScriptId(npcType->info.creatureAppearEvent, scriptInterface);
-
-		lua_State* L = scriptInterface->getLuaState();
-		scriptInterface->pushFunction(npcType->info.creatureAppearEvent);
-
-		LuaScriptInterface::pushUserdata<Npc>(L, this);
-		LuaScriptInterface::setMetatable(L, -1, "Npc");
-
-		LuaScriptInterface::pushUserdata<Creature>(L, creature);
-		LuaScriptInterface::setCreatureMetatable(L, -1, creature);
-
-		if (scriptInterface->callFunction(2)) {
-			return;
-		}
+	if (callback.persistLuaState()) {
+		return;
 	}
 
 	if (creature == this) {
@@ -130,40 +116,26 @@ void Npc::onRemoveCreature(Creature* creature, bool isLogout)
 {
 	Creature::onRemoveCreature(creature, isLogout);
 
-	if (npcType->info.creatureDisappearEvent != -1) {
-		// onCreatureDisappear(self, creature)
-		LuaScriptInterface* scriptInterface = npcType->info.scriptInterface;
-		if (!scriptInterface->reserveScriptEnv()) {
-			SPDLOG_ERROR("Npc {} creature {} - Call stack overflow. Too many lua script calls being nested.", getName(), creature->getName());
-			return;
-		}
-
-		ScriptEnvironment* env = scriptInterface->getScriptEnv();
-		env->setScriptId(npcType->info.creatureDisappearEvent, scriptInterface);
-
-		lua_State* L = scriptInterface->getLuaState();
-		scriptInterface->pushFunction(npcType->info.creatureDisappearEvent);
-
-		LuaScriptInterface::pushUserdata<Npc>(L, this);
-		LuaScriptInterface::setMetatable(L, -1, "Npc");
-
-		LuaScriptInterface::pushUserdata<Creature>(L, creature);
-		LuaScriptInterface::setCreatureMetatable(L, -1, creature);
-
-		if (scriptInterface->callFunction(2)) {
-			return;
-		}
+	// onCreatureDisappear(self, creature)
+	CreatureCallback callback = new CreatureCallback(npcType->info.scriptInterface, this);
+	if (callback.startScriptInterface(npcType->info.creatureDisappearEvent)) {
+		callback.pushCreature(creature);
 	}
 
-	if (creature == this) {
-		if (spawnNpc) {
-			spawnNpc->startSpawnNpcCheck();
-		}
+	if (callback.persistLuaState()) {
+		return;
+	}
 
-		Game::removeCreatureCheck(this);
-	} else {
+	if (creature != this) {
 		updatePlayerInteractions(creature->getPlayer());
+		return;
 	}
+
+	if (spawnNpc) {
+		spawnNpc->startSpawnNpcCheck();
+	}
+
+	Game::removeCreatureCheck(this);
 }
 
 void Npc::onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos,
@@ -171,38 +143,24 @@ void Npc::onCreatureMove(Creature* creature, const Tile* newTile, const Position
 {
 	Creature::onCreatureMove(creature, newTile, newPos, oldTile, oldPos, teleport);
 
-	if (npcType->info.creatureMoveEvent != -1) {
-		// onCreatureMove(self, creature, oldPosition, newPosition)
-		LuaScriptInterface* scriptInterface = npcType->info.scriptInterface;
-		if (!scriptInterface->reserveScriptEnv()) {
-			SPDLOG_ERROR("Npc {} creature {} - Call stack overflow. Too many lua script calls being nested.", getName(), creature->getName());
-			return;
-		}
-
-		ScriptEnvironment* env = scriptInterface->getScriptEnv();
-		env->setScriptId(npcType->info.creatureMoveEvent, scriptInterface);
-
-		lua_State* L = scriptInterface->getLuaState();
-		scriptInterface->pushFunction(npcType->info.creatureMoveEvent);
-
-		LuaScriptInterface::pushUserdata<Npc>(L, this);
-		LuaScriptInterface::setMetatable(L, -1, "Npc");
-
-		LuaScriptInterface::pushUserdata<Creature>(L, creature);
-		LuaScriptInterface::setCreatureMetatable(L, -1, creature);
-
-		LuaScriptInterface::pushPosition(L, oldPos);
-		LuaScriptInterface::pushPosition(L, newPos);
-
-		if (scriptInterface->callFunction(4)) {
-			return;
-		}
+	// onCreatureMove(self, creature, oldPosition, newPosition)
+	CreatureCallback callback = new CreatureCallback(npcType->info.scriptInterface, this);
+	if (callback.startScriptInterface(npcType->info.creatureMoveEvent)) {
+		callback.pushCreature(creature);
+		callback.pushPosition(oldPos);
+		callback.pushPosition(newPos);
 	}
 
+	if (callback.persistLuaState()) {
+		return;
+	}
 
 	if (creature == this && !canSee(oldPos)) {
 		resetPlayerInteractions();
-	} else if (!canSee(newPos) && canSee(oldPos)) {
+		return;
+	}
+
+	if (!canSee(newPos) && canSee(oldPos)) {
 		updatePlayerInteractions(creature->getPlayer());
 	}
 }
@@ -211,30 +169,16 @@ void Npc::onCreatureSay(Creature* creature, SpeakClasses type, const std::string
 {
 	Creature::onCreatureSay(creature, type, text);
 
-	if (npcType->info.creatureSayEvent != -1) {
-		// onCreatureSay(self, creature, type, message)
-		LuaScriptInterface* scriptInterface = npcType->info.scriptInterface;
-		if (!scriptInterface->reserveScriptEnv()) {
-			SPDLOG_ERROR("Npc {} creature {} - Call stack overflow. Too many lua script calls being nested.", getName(), creature->getName());
-			return;
-		}
+	// onCreatureSay(self, creature, type, message)
+	CreatureCallback callback = new CreatureCallback(npcType->info.scriptInterface, this);
+	if (callback.startScriptInterface(npcType->info.creatureSayEvent)) {
+		callback.pushCreature(creature);
+		callback.pushNumber(type);
+		callback.pushString(text);
+	}
 
-		ScriptEnvironment* env = scriptInterface->getScriptEnv();
-		env->setScriptId(npcType->info.creatureSayEvent, scriptInterface);
-
-		lua_State* L = scriptInterface->getLuaState();
-		scriptInterface->pushFunction(npcType->info.creatureSayEvent);
-
-		LuaScriptInterface::pushUserdata<Npc>(L, this);
-		LuaScriptInterface::setMetatable(L, -1, "Npc");
-
-		LuaScriptInterface::pushUserdata<Creature>(L, creature);
-		LuaScriptInterface::setCreatureMetatable(L, -1, creature);
-
-		lua_pushnumber(L, type);
-		LuaScriptInterface::pushString(L, text);
-
-		scriptInterface->callVoidFunction(4);
+	if (callback.persistLuaState()) {
+		return;
 	}
 }
 
@@ -242,28 +186,14 @@ void Npc::onThink(uint32_t interval)
 {
 	Creature::onThink(interval);
 
-	if (npcType->info.thinkEvent != -1) {
-		// onThink(self, interval)
-		LuaScriptInterface* scriptInterface = npcType->info.scriptInterface;
-		if (!scriptInterface->reserveScriptEnv()) {
-			SPDLOG_ERROR("Npc {} - Call stack overflow. Too many lua script calls being nested.", getName());
-			return;
-		}
+	// onThink(self, interval)
+	CreatureCallback callback = new CreatureCallback(npcType->info.scriptInterface, this);
+	if (callback.startScriptInterface(npcType->info.thinkEvent)) {
+		callback.pushNumber(interval);
+	}
 
-		ScriptEnvironment* env = scriptInterface->getScriptEnv();
-		env->setScriptId(npcType->info.thinkEvent, scriptInterface);
-
-		lua_State* L = scriptInterface->getLuaState();
-		scriptInterface->pushFunction(npcType->info.thinkEvent);
-
-		LuaScriptInterface::pushUserdata<Npc>(L, this);
-		LuaScriptInterface::setMetatable(L, -1, "Npc");
-
-		lua_pushnumber(L, interval);
-
-		if (scriptInterface->callFunction(2)) {
-			return;
-		}
+	if (callback.persistLuaState()) {
+		return;
 	}
 
 	if (!npcType->canSpawn(position)) {
