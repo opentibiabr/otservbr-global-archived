@@ -167,7 +167,8 @@ target_sources(${PROJECT_NAME}
 		scripts.cpp
 		server.cpp
 		signals.cpp
-		spawn.cpp
+		spawn_monster.cpp
+		spawn_npc.cpp
 		spells.cpp
 		talkaction.cpp
 		tasks.cpp
