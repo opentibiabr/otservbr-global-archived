@@ -14,6 +14,10 @@ WORKDIR /opt
 RUN git clone https://github.com/microsoft/vcpkg
 RUN ./vcpkg/bootstrap-vcpkg.sh
 
+WORKDIR /opt/vcpkg
+COPY vcpkg.json /opt/vcpkg/
+RUN /opt/vcpkg/vcpkg --feature-flags=binarycaching,manifests,versions install
+
 # Stage 2: create build
 FROM dependencies AS build
 

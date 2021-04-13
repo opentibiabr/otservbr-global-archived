@@ -77,3 +77,4 @@ sed -i '/mysqlUser = .*$/c\mysqlUser = "'"$DB_USER"'"' config.lua
 sed -i '/mysqlPass = .*$/c\mysqlPass = "'"$DB_PASSWORD"'"' config.lua
 sed -i '/mysqlDatabase = .*$/c\mysqlDatabase = "'"$DB_DATABASE"'"' config.lua
 sed -i '/onePlayerOnlinePerAccount = .*$/c\onePlayerOnlinePerAccount = false' config.lua
+sed -i '/serverSaveShutdown = .*$/c\serverSaveShutdown = false' config.lua
