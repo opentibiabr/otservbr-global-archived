@@ -21,6 +21,7 @@
 #define FS_POSITION_H_5B684192F7034FB8857C8280D2CC6C75
 
 #include <string>
+#include <tools.h>
 
 enum Direction : uint8_t {
 	DIRECTION_NORTH = 0,
@@ -71,6 +72,19 @@ struct Position
 	}
 	static int16_t getDistanceZ(const Position& p1, const Position& p2) {
 		return std::abs(Position::getOffsetZ(p1, p2));
+	}
+
+	static Direction getRandomDirection() const
+	{
+		static std::vector<Direction> dirList{
+						DIRECTION_NORTH,
+						DIRECTION_WEST,
+						DIRECTION_EAST,
+						DIRECTION_SOUTH
+		};
+		std::shuffle(dirList.begin(), dirList.end(), getRandomGenerator());
+
+		return dirList.first();
 	}
 
 	uint16_t x = 0;

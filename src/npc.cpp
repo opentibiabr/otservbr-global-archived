@@ -362,23 +362,6 @@ void Npc::resetPlayerInteractions() {
 	addCreatureCheck();
 }
 
-bool Npc::getRandomStep(Direction& moveDirection) const
-{
-	static std::vector<Direction> dirList{
-		DIRECTION_NORTH,
-		DIRECTION_WEST,
-		DIRECTION_EAST,
-		DIRECTION_SOUTH
-	};
-	std::shuffle(dirList.begin(), dirList.end(), getRandomGenerator());
-
-	for (Direction dir : dirList) {
-		moveDirection = dir;
-		return true;
-	}
-	return false;
-}
-
 bool Npc::getNextStep(Direction& nextDirection, uint32_t& flags) {
 	// If talking, no walking
 	if (playerInteractions.size() > 0) {
@@ -386,8 +369,13 @@ bool Npc::getNextStep(Direction& nextDirection, uint32_t& flags) {
 		return false;
 	}
 
-	getRandomStep(nextDirection);
-	return true;
+	if (!eventWalk) {
+		addCreatureCheck();
+	}
+
+	listWalkDir.push_front(Position::getRandomDirection());
+
+	return Creature::getNextStep(nextDirection, flags);
 }
 
 void Npc::addCreatureCheck() {
