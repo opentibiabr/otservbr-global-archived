@@ -17,33 +17,34 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_OTPCH_H_F00C737DA6CA4C8D90F57430C614367F
-#define FS_OTPCH_H_F00C737DA6CA4C8D90F57430C614367F
+#ifndef FS_STATUS_H_8B28B354D65B4C0483E37AD1CA316EB4
+#define FS_STATUS_H_8B28B354D65B4C0483E37AD1CA316EB4
 
-// Definitions should be global.
-#include "utils/definitions.h"
+#include "../message/networkmessage.h"
+#include "protocol.h"
 
-#include <algorithm>
-#include <chrono>
-#include <cstdint>
-#include <forward_list>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <list>
-#include <map>
-#include <memory>
-#include <mutex>
-#include <sstream>
-#include <string>
-#include <thread>
-#include <unordered_map>
-#include <vector>
+class ProtocolStatus final : public Protocol
+{
+	public:
+		// static protocol information
+		enum {server_sends_first = false};
+		enum {protocol_identifier = 0xFF};
+		enum {use_checksum = false};
+		static const char* protocol_name() {
+			return "status protocol";
+		}
 
-#include <boost/asio.hpp>
+		explicit ProtocolStatus(Connection_ptr conn) : Protocol(conn) {}
 
-#include <pugixml.hpp>
+		void onRecvFirstMessage(NetworkMessage& msg) override;
 
-#include "spdlog/spdlog.h"
+		void sendStatusString();
+		void sendInfo(uint16_t requestedInfo, const std::string& characterName);
+
+		static const uint64_t start;
+
+	private:
+		static std::map<uint32_t, int64_t> ipConnectMap;
+};
 
 #endif

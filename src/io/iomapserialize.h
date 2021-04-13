@@ -17,33 +17,26 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_OTPCH_H_F00C737DA6CA4C8D90F57430C614367F
-#define FS_OTPCH_H_F00C737DA6CA4C8D90F57430C614367F
+#ifndef FS_IOMAPSERIALIZE_H_7E903658F34E44F9BE03A713B55A3D6D
+#define FS_IOMAPSERIALIZE_H_7E903658F34E44F9BE03A713B55A3D6D
 
-// Definitions should be global.
-#include "utils/definitions.h"
+#include "../database/database.h"
+#include "../map/map.h"
 
-#include <algorithm>
-#include <chrono>
-#include <cstdint>
-#include <forward_list>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <list>
-#include <map>
-#include <memory>
-#include <mutex>
-#include <sstream>
-#include <string>
-#include <thread>
-#include <unordered_map>
-#include <vector>
+class IOMapSerialize
+{
+	public:
+		static void loadHouseItems(Map* map);
+		static bool saveHouseItems();
+		static bool loadHouseInfo();
+		static bool saveHouseInfo();
 
-#include <boost/asio.hpp>
+	private:
+		static void saveItem(PropWriteStream& stream, const Item* item);
+		static void saveTile(PropWriteStream& stream, const Tile* tile);
 
-#include <pugixml.hpp>
-
-#include "spdlog/spdlog.h"
+		static bool loadContainer(PropStream& propStream, Container* container);
+		static bool loadItem(PropStream& propStream, Cylinder* parent);
+};
 
 #endif
