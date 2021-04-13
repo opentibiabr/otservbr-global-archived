@@ -1,6 +1,6 @@
 /**
  * @file position.cpp
- * 
+ *
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -22,6 +22,20 @@
 #include "otpch.h"
 
 #include "position.h"
+#include "tools.h"
+
+Direction Position::getRandomDirection()
+{
+	static std::vector<Direction> dirList{
+					DIRECTION_NORTH,
+					DIRECTION_WEST,
+					DIRECTION_EAST,
+					DIRECTION_SOUTH
+	};
+	std::shuffle(dirList.begin(), dirList.end(), getRandomGenerator());
+
+	return dirList.front();
+}
 
 std::ostream& operator<<(std::ostream& os, const Position& pos)
 {
