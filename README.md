@@ -9,6 +9,8 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/opentibiabr/otservbr-global)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/a71728d523ac4b23a9c0b974ae4ec5df)](https://www.codacy.com/gh/opentibiabr/otservbr-global/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=opentibiabr/otservbr-global&amp;utm_campaign=Badge_Grade)
+[![CodeQL](https://github.com/opentibiabr/otservbr-global/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions/workflows/codeql-analysis.yml)
+[![Codacy Security Scan](https://github.com/opentibiabr/otservbr-global/actions/workflows/codacy-analysis.yml/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions/workflows/codacy-analysis.yml)
 
 ## Builds
 
