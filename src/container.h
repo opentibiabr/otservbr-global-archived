@@ -117,6 +117,7 @@ class Container : public Item, public Cylinder
 			return itemlist.rend();
 		}
 
+		bool countsToLootAnalyzerBalance();
 		bool hasParent() const;
 		void addItem(Item* item);
 		StashContainerList getStowableItems() const;
@@ -134,6 +135,7 @@ class Container : public Item, public Cylinder
 		bool hasPagination() const {
 			return pagination;
 		}
+
 
 		//cylinder implementations
 		virtual ReturnValue queryAdd(int32_t index, const Thing& thing, uint32_t count,
