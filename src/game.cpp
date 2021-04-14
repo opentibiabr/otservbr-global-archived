@@ -1594,7 +1594,7 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 		player->sendCancelMessage(ret);
 	} else {
 		if (toCylinder->getContainer() != nullptr && fromCylinder->getContainer() != nullptr
-			&& fromCylinder->getContainer()->isCorpse()
+			&& (fromCylinder->getContainer()->isCorpse() || fromCylinder->getContainer()->getID() == ITEM_REWARD_CONTAINER)
 			&& toCylinder->getContainer()->getTopParent() == player) {
 			player->sendLootStats(item, count);
 		}
