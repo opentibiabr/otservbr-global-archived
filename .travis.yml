@@ -7,6 +7,10 @@ compiler: gcc
 env:
   - VCPKG_TRIPLET=x64-linux
 
+git:
+  strategy: clone
+  depth: false
+
 addons:
   sonarcloud:
     organization: "opentibiabr"
@@ -32,15 +36,18 @@ install:
 
 script:
   - cd /home/travis/build/opentibiabr/otservbr-global
+  - export CXXFLAGS="$CXXFLAGS -DBOOST_ASIO_DISABLE_NOEXCEPT=1 "
   - /home/travis/build/opentibiabr/vcpkg/vcpkg --feature-flags=binarycaching,manifests,versions install
   - mkdir build
   - cd build
-  - cmake -DASIO_DISABLE_NOEXCEPT=1 -DBOOST_ASIO_DISABLE_NOEXCEPT=1 -DCMAKE_TOOLCHAIN_FILE=/home/travis/build/opentibiabr/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+  - cmake -DCMAKE_TOOLCHAIN_FILE=/home/travis/build/opentibiabr/vcpkg/scripts/buildsystems/vcpkg.cmake ..
   - cd ..
   - NUMBER_OF_PROCESSORS=$(nproc --all)
   - build-wrapper-linux-x86-64 --out-dir bw-output cmake --build build/
   - sonar-scanner -Dsonar.cfamily.cache.enabled=true -Dsonar.cfamily.cache.path=${TRAVIS_HOME}/.cfamily -Dsonar.cfamily.threads=${NUMBER_OF_PROCESSORS} || true
-  - curl --upload-file /home/travis/build/opentibiabr/otservbr-global/sonar-cfamily-reproducer.zip https://transfer.sh/sonar-cfamily-reproducer.zip
+
+  # - sonar-scanner -Dsonar.cfamily.cache.enabled=true -Dsonar.cfamily.cache.path=${TRAVIS_HOME}/.cfamily -Dsonar.cfamily.threads=${NUMBER_OF_PROCESSORS} || true
+  # - curl --upload-file /home/travis/build/opentibiabr/otservbr-global/sonar-cfamily-reproducer.zip https://transfer.sh/sonar-cfamily-reproducer.zip
 
 cache:
   directories:
