@@ -1592,16 +1592,15 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 	ReturnValue ret = internalMoveItem(fromCylinder, toCylinder, toIndex, item, count, nullptr, 0, player);
 	if (ret != RETURNVALUE_NOERROR) {
 		player->sendCancelMessage(ret);
-	} else {
-		if (toCylinder->getContainer() != nullptr && fromCylinder->getContainer() != nullptr
-			&& fromCylinder->getContainer()->isCorpse()
-			&& toCylinder->getContainer()->getTopParent() == player) {
-			player->sendLootStats(item, count);
-		}
-		player->cancelPush();
-
-		g_events->eventPlayerOnItemMoved(player, item, count, fromPos, toPos, fromCylinder, toCylinder);
+	}	else if (toCylinder->getContainer()
+		&& fromCylinder->getContainer()
+		&& fromCylinder->getContainer()->countsToLootAnalyzerBalance()
+		&& toCylinder->getContainer()->getTopParent() == player) {
+		player->sendLootStats(item, count);
 	}
+	player->cancelPush();
+
+	g_events->eventPlayerOnItemMoved(player, item, count, fromPos, toPos, fromCylinder, toCylinder);
 }
 
 ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder, int32_t index,

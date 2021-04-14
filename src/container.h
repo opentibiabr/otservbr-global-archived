@@ -117,6 +117,7 @@ class Container : public Item, public Cylinder
 			return itemlist.rend();
 		}
 
+		bool countsToLootAnalyzerBalance();
 		bool hasParent() const;
 		void addItem(Item* item);
 		StashContainerList getStowableItems() const;
