@@ -223,7 +223,7 @@
     <ClCompile Include="..\src\map\house\house.cpp" />
     <ClCompile Include="..\src\map\house\housetile.cpp" />
     <ClCompile Include="..\src\map\map.cpp" />
-    <ClCompile Include="..\src\otpch.cpp" />
+    <ClCompile Include="..\src\otpch.cpp" >
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -250,7 +250,6 @@
     <ResourceCompile Include="otservbr-global.rc" />
   </ItemGroup>
   <ItemGroup>
-
     <ClCompile Include="..\src\creatures\appearance\mounts\mounts.h" />
     <ClCompile Include="..\src\creatures\appearance\outfit\outfit.h" />
     <ClCompile Include="..\src\creatures\combat\combat.h" />
