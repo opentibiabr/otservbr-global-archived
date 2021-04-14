@@ -98,13 +98,13 @@ void Npc::onCreatureAppear(Creature* creature, bool isLogin)
 	Creature::onCreatureAppear(creature, isLogin);
 
 	// onCreatureAppear(self, creature)
-	CreatureCallback* callback = new CreatureCallback(npcType->info.scriptInterface, this);
-	if (callback->startScriptInterface(npcType->info.creatureAppearEvent)) {
-		callback->pushSpecificCreature(this);
-		callback->pushCreature(creature);
+	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
+	if (callback.startScriptInterface(npcType->info.creatureAppearEvent)) {
+		callback.pushSpecificCreature(this);
+		callback.pushCreature(creature);
 	}
 
-	if (callback->persistLuaState()) {
+	if (callback.persistLuaState()) {
 		return;
 	}
 
@@ -118,13 +118,13 @@ void Npc::onRemoveCreature(Creature* creature, bool isLogout)
 	Creature::onRemoveCreature(creature, isLogout);
 
 	// onCreatureDisappear(self, creature)
-	CreatureCallback* callback = new CreatureCallback(npcType->info.scriptInterface, this);
-	if (callback->startScriptInterface(npcType->info.creatureDisappearEvent)) {
-		callback->pushSpecificCreature(this);
-		callback->pushCreature(creature);
+	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
+	if (callback.startScriptInterface(npcType->info.creatureDisappearEvent)) {
+		callback.pushSpecificCreature(this);
+		callback.pushCreature(creature);
 	}
 
-	if (callback->persistLuaState()) {
+	if (callback.persistLuaState()) {
 		return;
 	}
 
@@ -146,15 +146,15 @@ void Npc::onCreatureMove(Creature* creature, const Tile* newTile, const Position
 	Creature::onCreatureMove(creature, newTile, newPos, oldTile, oldPos, teleport);
 
 	// onCreatureMove(self, creature, oldPosition, newPosition)
-	CreatureCallback* callback = new CreatureCallback(npcType->info.scriptInterface, this);
-	if (callback->startScriptInterface(npcType->info.creatureMoveEvent)) {
-		callback->pushSpecificCreature(this);
-		callback->pushCreature(creature);
-		callback->pushPosition(oldPos);
-		callback->pushPosition(newPos);
+	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
+	if (callback.startScriptInterface(npcType->info.creatureMoveEvent)) {
+		callback.pushSpecificCreature(this);
+		callback.pushCreature(creature);
+		callback.pushPosition(oldPos);
+		callback.pushPosition(newPos);
 	}
 
-	if (callback->persistLuaState()) {
+	if (callback.persistLuaState()) {
 		return;
 	}
 
@@ -173,15 +173,15 @@ void Npc::onCreatureSay(Creature* creature, SpeakClasses type, const std::string
 	Creature::onCreatureSay(creature, type, text);
 
 	// onCreatureSay(self, creature, type, message)
-	CreatureCallback* callback = new CreatureCallback(npcType->info.scriptInterface, this);
-	if (callback->startScriptInterface(npcType->info.creatureSayEvent)) {
-		callback->pushSpecificCreature(this);
-		callback->pushCreature(creature);
-		callback->pushNumber(type);
-		callback->pushString(text);
+	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
+	if (callback.startScriptInterface(npcType->info.creatureSayEvent)) {
+		callback.pushSpecificCreature(this);
+		callback.pushCreature(creature);
+		callback.pushNumber(type);
+		callback.pushString(text);
 	}
 
-	if (callback->persistLuaState()) {
+	if (callback.persistLuaState()) {
 		return;
 	}
 }
@@ -191,12 +191,12 @@ void Npc::onThink(uint32_t interval)
 	Creature::onThink(interval);
 
 	// onThink(self, interval)
-	CreatureCallback* callback = new CreatureCallback(npcType->info.scriptInterface, this);
-	if (callback->startScriptInterface(npcType->info.thinkEvent)) {
-		callback->pushNumber(interval);
+	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
+	if (callback.startScriptInterface(npcType->info.thinkEvent)) {
+		callback.pushNumber(interval);
 	}
 
-	if (callback->persistLuaState()) {
+	if (callback.persistLuaState()) {
 		return;
 	}
 
