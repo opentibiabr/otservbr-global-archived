@@ -36,14 +36,14 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-    local player = creature:getPlayer()
-	if player then	
-		if npc:greet(message, player, "So you have come, ".. player:getName() ..". I hoped you would not...") then
-			return true
-		elseif npc:unGreet(message, player) then
-			return true
-		end
-    end
+    local configs = {
+        -- [keyword] = {topic, previousTopic, message = "" or {}, storages = {storage = value}
+        ["hi"] = {
+            message = "So you have come, ".. player:getName() ..". I hoped you would not..."
+        }
+    }
+
+    return npc:processOnSay(message, creature:getPlayer(), configs)
 end
 
 npcType:register(npc)

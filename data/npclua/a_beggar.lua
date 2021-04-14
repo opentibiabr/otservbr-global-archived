@@ -23,6 +23,32 @@ npc.flags = {
     floorchange = false
 }
 
+local configs = {
+    -- [keyword] = {topic, previousTopic, message = "" or {}, storages = {storage = value}
+    ["hi"] = {
+        message = "Hi! What is it, what d'ye {want}?"
+    },
+    ["want"] = {
+       topic = 1,
+       message = "The guys from the magistrate sent you here, didn't they?"
+    },
+    ["yes"] = {
+        topic = 0,
+        previousTopic = 1,
+        message = {
+            "Thought so. You'll have to talk to the king though. The beggar king that is. The king does not grant an audience to just everyone. You know how those kings are, don't you? ... ",
+            "However, to get an audience with the king, you'll have to help his subjects a bit. ... ",
+            "His subjects that would be us, the poor, you know? ... ",
+            "So why don't you show your dedication to the poor? Go and help Chavis at the poor house. He's collecting food for people like us. ... ",
+            "If you brought enough of the stuff you'll see that the king will grant you entrance in his {palace}."
+        },
+        storages = {
+            [Storage.DarkTrails.Mission01] = 2,
+            [Storage.DarkTrails.Mission02] = 1,
+        },
+    }
+}
+
 npcType.onThink = function(npc, interval)
 end
 
@@ -36,39 +62,7 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-    local player = creature:getPlayer()
-    if player then
-        if npc:greet(message, player, "Hi! What is it, what d'ye {want}?") then
-            return true
-        elseif npc:unGreet(message, player) then
-            return true
-        end
-
-        if npc:isInteractingWithPlayer(player) then
-            if msgContains(message, "want") then
-                if player:getStorageValue(Storage.DarkTrails.Mission01) == 1 then
-                    npc:talk(player, "The guys from the magistrate sent you here, didn't they?", cid)
-                    -- Add topic of the "yes" message
-                    npc:setPlayerInteraction(player, 1)
-                end
-            elseif msgContains(message, "yes")  then
-                -- Get topic of the "want" message
-                if npc:isPlayerInteractingOnTopic(player, 1) then
-                    npc:talk(player, {
-                        "Thought so. You'll have to talk to the king though. The beggar king that is. The king does not grant an audience to just everyone. You know how those kings are, don't you? ... ",
-                        "However, to get an audience with the king, you'll have to help his subjects a bit. ... ",
-                        "His subjects that would be us, the poor, you know? ... ",
-                        "So why don't you show your dedication to the poor? Go and help Chavis at the poor house. He's collecting food for people like us. ... ",
-                        "If you brought enough of the stuff you'll see that the king will grant you entrance in his {palace}."
-                    })
-                    player:setStorageValue(Storage.DarkTrails.Mission01, 2) -- Mission 1 end
-                    player:setStorageValue(Storage.DarkTrails.Mission02, 1) -- Mission 2 start
-                    -- Remove topic of "want" message
-                    npc:setPlayerInteraction(player)
-                end
-            end
-        end
-    end
+    return npc:processOnSay(message, creature:getPlayer(), configs)
 end
 
 npcType:register(npc)
