@@ -26,7 +26,8 @@ npc.flags = {
 local configs = {
     -- [keyword] = {topic, previousTopic, message = "" or {}, storages = {storage = value}
     ["hi"] = {
-        message = "Hi! What is it, what d'ye {want}?"
+        message = "Hi! What is it, what d'ye {want}?",
+        greet = true
     },
     ["want"] = {
        topic = 1,

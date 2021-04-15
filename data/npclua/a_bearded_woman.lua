@@ -39,6 +39,7 @@ local configs = {
     -- [keyword] = {topic, previousTopic, message = "" or {}, storages = {storage = value}
     ["hi"] = {
         message = "GET ME OUT OF HERE! NOW!",
+        greet = true
     }
     ["job"] = {
         message = "I am a great and famous actor! Not a princess, at all. I was only PRETENDING to be a princess. But try explaining that to those stupid pirates.",

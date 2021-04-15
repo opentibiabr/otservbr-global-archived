@@ -39,7 +39,12 @@ npcType.onSay = function(npc, creature, type, message)
     local configs = {
         -- [keyword] = {topic, previousTopic, message = "" or {}, storages = {storage = value}
         ["hi"] = {
-            message = "So you have come, ".. player:getName() ..". I hoped you would not..."
+            message = "So you have come, ".. player:getName() ..". I hoped you would not...",
+            greet = true
+        },
+        ["bye"] = {
+            message = "Fuck off you asshole",
+            farewell = true
         }
     }
 
