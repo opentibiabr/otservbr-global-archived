@@ -195,6 +195,7 @@ bool Container::countsToLootAnalyzerBalance()
 
 	return false;
 }
+
 void Container::updateItemWeight(int32_t diff)
 {
 	totalWeight += diff;
