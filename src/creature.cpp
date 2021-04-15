@@ -607,7 +607,7 @@ void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Pos
 		}
 	}
 
-	if (creature == followCreature || (creature == this && followCreature)) {
+	if (followCreature && (creature == this || creature == followCreature)) {
 		if (hasFollowPath) {
 			isUpdatingPath = true;
 			g_dispatcher.addTask(createTask(std::bind(&Game::updateCreatureWalk, &g_game, getID())));

@@ -24,35 +24,29 @@ only_commits:
     - CMakeLists.txt
 
 install:
-  - cmd: vcpkg install boost-asio:x64-windows
-  - cmd: vcpkg install boost-filesystem:x64-windows
-  - cmd: vcpkg install boost-iostreams:x64-windows
-  - cmd: vcpkg install boost-lockfree:x64-windows
-  - cmd: vcpkg install boost-system:x64-windows
-  - cmd: vcpkg install boost-variant:x64-windows
-  - cmd: vcpkg install cryptopp:x64-windows
-  - cmd: vcpkg install curl:x64-windows
-  - cmd: vcpkg install jsoncpp:x64-windows
-  - cmd: vcpkg install libmariadb:x64-windows
-  - cmd: vcpkg install luajit:x64-windows
-  - cmd: vcpkg install mpir:x64-windows
-  - cmd: vcpkg install pugixml:x64-windows
-  - cmd: vcpkg install spdlog:x64-windows
+  - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+  - cd C:\Tools\vcpkg
+  - git pull
+  - .\bootstrap-vcpkg.bat
+  - .\vcpkg integrate install
+  - cd %APPVEYOR_BUILD_FOLDER%
 
-build:
-  parallel: true
-  # MSBuild verbosity level
-  # verbosity: detailed
+before_build:
+ - mkdir build
+ - cd build
+ - cmake -DCMAKE_TOOLCHAIN_FILE=C:/tools/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+ - cmake --build . --config Release
+#  - cmake ..
 
-# scripts to run after build
-# (working directory and environment changes are persisted from the previous steps)
-after_build:
-  - 7z a -tzip otservbr-global.zip -r .\vc14\*.exe -ir!.\vc14\*.dll
+# after_build:
+  # - 7z a -tzip otservbr-global.zip -r .\vc14\*.exe -ir!.\vc14\*.dll
+  # - vcpkg export boost-asio:x64-windows boost-lockfree:x64-windows boost-variant:x64-windows boost-filesystem:x64-windows boost-iostreams:x64-windows boost-system:x64-windows boost-system:x64-windows libmariadb:x64-windows pugixml:x64-windows spdlog:x64-windows curl:x64-windows jsoncpp:x64-windows cryptopp:x64-windows luajit:x64-windows --7zip
 
 cache:
   - c:\tools\vcpkg\installed\
 
 artifacts:
-  - path: vc14\**\otservbr-global*.exe
-  - path: vc14\**\*.dll
-  - path: otservbr-global.zip
+  - path: c:\**\vcpkg-export*.7z
+  # - path: vc14\**\otservbr-global*.exe
+  # - path: vc14\**\*.dll
+  # - path: otservbr-global.zip

@@ -1723,7 +1723,7 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 	//update item(s)
 	if (item->isStackable()) {
 		uint32_t n;
-		if (item->equals(toItem)) {
+		if (toItem && item->equals(toItem)) {
 			n = std::min<uint32_t>(100 - toItem->getItemCount(), m);
 			// Update same decay item count
 			if (item->getDuration() > 0) {
@@ -5652,6 +5652,12 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 			map.getSpectators(spectators, targetPos, false, true);
 			for (Creature* spectator : spectators) {
 				Player* tmpPlayer = spectator->getPlayer();
+
+				if(!tmpPlayer)
+				{
+					continue;
+				}
+
 				if (tmpPlayer == attackerPlayer && attackerPlayer != targetPlayer) {
 					ss.str({});
 					ss << "You heal " << target->getNameDescription() << " for " << damageString;
@@ -6153,6 +6159,12 @@ bool Game::combatChangeMana(Creature* attacker, Creature* target, CombatDamage& 
 			map.getSpectators(spectators, targetPos, false, true);
 			for (Creature* spectator : spectators) {
 				Player* tmpPlayer = spectator->getPlayer();
+
+				if(!tmpPlayer)
+				{
+					continue;
+				}
+
 				if (tmpPlayer == attackerPlayer && attackerPlayer != targetPlayer) {
 					message.type = MESSAGE_HEALED;
 					message.text = "You restored " + target->getNameDescription() + " for " + damageString;
@@ -6248,6 +6260,12 @@ bool Game::combatChangeMana(Creature* attacker, Creature* target, CombatDamage& 
 		map.getSpectators(spectators, targetPos, false, true);
 		for (Creature* spectator : spectators) {
 			Player* tmpPlayer = spectator->getPlayer();
+
+			if(!tmpPlayer)
+			{
+				continue;
+			}
+
 			if (tmpPlayer == attackerPlayer && attackerPlayer != targetPlayer) {
 				ss.str({});
 				ss << ucfirst(target->getNameDescription()) << " loses " << damageString << " mana due to your attack.";
@@ -8647,7 +8665,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_globalEvents->clear(true);
 			g_spells->clear(true);
 			g_scripts->loadScripts("scripts", false, true);
-			return true;
 		}
 	}
 	return true;
