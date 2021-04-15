@@ -18,6 +18,8 @@
  */
 
 #include "../../otpch.h"
+#pragma hdrstop
+#include "otpch.h"
 
 #include "events.h"
 #include "../../utils/tools.h"

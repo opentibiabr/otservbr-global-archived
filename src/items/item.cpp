@@ -18,6 +18,8 @@
  */
 
 #include "../otpch.h"
+#pragma hdrstop
+#include "otpch.h"
 
 #include "item.h"
 #include "containers/container.h"

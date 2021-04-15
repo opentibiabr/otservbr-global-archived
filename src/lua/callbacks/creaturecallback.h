@@ -21,7 +21,6 @@
 #ifndef FS_CREATURE_CALLBACK_H
 #define FS_CREATURE_CALLBACK_H
 
-#include "../../otpch.h"
 #include "../../creatures/creature.h"
 class Creature;
 

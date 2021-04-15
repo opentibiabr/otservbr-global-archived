@@ -19,6 +19,8 @@
 #include <string>
 
 #include "../../../otpch.h"
+#pragma hdrstop
+#include "otpch.h"
 
 #include "mounts.h"
 

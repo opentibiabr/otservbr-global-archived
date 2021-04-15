@@ -20,6 +20,8 @@
  */
 
 #include "../otpch.h"
+#pragma hdrstop
+#include "otpch.h"
 
 #include "gamestore.h"
 

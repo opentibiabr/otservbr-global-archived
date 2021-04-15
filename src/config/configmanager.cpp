@@ -18,6 +18,8 @@
  */
 
 #include "../otpch.h"
+#pragma hdrstop
+#include "otpch.h"
 
 #if __has_include("luajit/lua.hpp")
   #include <luajit/lua.hpp>

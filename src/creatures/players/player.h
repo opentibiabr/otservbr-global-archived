@@ -20,8 +20,6 @@
 #ifndef SRC_PLAYER_H_
 #define SRC_PLAYER_H_
 
-#include "../../otpch.h"
-
 #include "account/account.hpp"
 #include "../../items/containers/container.h"
 #include "../creature.h"

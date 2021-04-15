@@ -20,6 +20,8 @@
  */
 
 #include "../../otpch.h"
+#pragma hdrstop
+#include "otpch.h"
 
 #include "monster.h"
 #include "../../config/configmanager.h"

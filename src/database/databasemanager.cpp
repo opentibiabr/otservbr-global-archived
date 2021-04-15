@@ -18,6 +18,8 @@
  */
 
 #include "../otpch.h"
+#pragma hdrstop
+#include "otpch.h"
 
 #include "../config/configmanager.h"
 #include "databasemanager.h"

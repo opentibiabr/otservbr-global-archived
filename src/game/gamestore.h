@@ -22,7 +22,6 @@
 #ifndef OT_SRC_GAMESTORE_H_
 #define OT_SRC_GAMESTORE_H_
 
-#include "../otpch.h"
 #include "movement/position.h"
 
 enum Offer_t {

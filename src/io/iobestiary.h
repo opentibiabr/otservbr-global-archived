@@ -23,8 +23,6 @@
 #include <map>
 #include <string>
 
-#include "../otpch.h"
-
 #include "../utils/enums.h"
 #include "../creatures/monsters/monster.h"
 #include "../creatures/monsters/monsters.h"

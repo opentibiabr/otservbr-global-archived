@@ -18,6 +18,8 @@
  */
 
 #include "../../../otpch.h"
+#pragma hdrstop
+#include "otpch.h"
 
 #include "spawn_npc.h"
 #include "../../../game/game.h"

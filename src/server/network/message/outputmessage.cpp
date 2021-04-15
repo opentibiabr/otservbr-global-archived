@@ -18,6 +18,8 @@
  */
 
 #include "../../../otpch.h"
+#pragma hdrstop
+#include "otpch.h"
 
 #include "outputmessage.h"
 #include "../protocol/protocol.h"
