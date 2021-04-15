@@ -18,8 +18,6 @@
  */
 
 #include "../../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
 
 #include "../../creatures/players/player.h"
 #include "talkaction.h"

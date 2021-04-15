@@ -19,8 +19,6 @@
 #include <algorithm>
 
 #include "../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
 
 #include "creature.h"
 #include "../game/game.h"

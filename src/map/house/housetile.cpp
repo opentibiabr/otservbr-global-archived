@@ -18,9 +18,6 @@
  */
 
 #include "../../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
-#pragma hdrstop
 
 #include "../../items/tile.h"
 #include "../../creatures/monsters/monster.h"

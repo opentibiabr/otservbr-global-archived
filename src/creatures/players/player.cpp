@@ -17,10 +17,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-
 #include "../../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
 
 #include <bitset>
 

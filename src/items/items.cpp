@@ -18,8 +18,6 @@
  */
 
 #include "../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
 
 #include "items.h"
 #include "../creatures/combat/spells.h"

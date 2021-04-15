@@ -18,8 +18,6 @@
  */
 
 #include "../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
 
 #include "../database/database.h"
 #include "../creatures/players/grouping/guild.h"

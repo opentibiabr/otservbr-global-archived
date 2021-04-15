@@ -18,8 +18,6 @@
  */
 
 #include "../../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
 
 #include "npcs.h"
 #include "npc.h"

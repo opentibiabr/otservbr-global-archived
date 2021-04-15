@@ -18,8 +18,6 @@
  */
 
 #include "../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
 
 #include <boost/range/adaptor/reversed.hpp>
 #include "iologindata.h"

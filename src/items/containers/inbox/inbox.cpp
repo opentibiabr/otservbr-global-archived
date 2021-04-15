@@ -18,8 +18,6 @@
  */
 
 #include "../../../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
 
 #include "inbox.h"
 #include "../../../utils/tools.h"

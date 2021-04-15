@@ -18,8 +18,6 @@
  */
 
 #include "../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
 
 #include "iobestiary.h"
 #include "../utils/enums.h"

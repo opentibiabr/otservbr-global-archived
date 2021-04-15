@@ -18,8 +18,6 @@
  */
 
 #include "../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
 
 #include "../io/iomap.h"
 #include "../io/iomapserialize.h"

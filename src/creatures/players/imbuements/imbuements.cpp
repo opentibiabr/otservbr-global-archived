@@ -7,8 +7,6 @@
  */
 
 #include "../../../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
 #include "../../../lua/creature/events.h"
 #include "imbuements.h"
 #include "../../../utils/pugicast.h"

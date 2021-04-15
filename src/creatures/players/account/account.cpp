@@ -21,8 +21,6 @@
  */
 
 #include "../../../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
 
 #include "account.hpp"
 #include "../../../database/databasetasks.h"

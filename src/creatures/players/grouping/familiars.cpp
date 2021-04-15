@@ -18,8 +18,6 @@
  */
 
 #include "../../../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
 #include "familiars.h"
 #include "../../../utils/pugicast.h"
 #include "../../../utils/tools.h"

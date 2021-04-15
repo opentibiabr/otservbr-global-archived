@@ -18,8 +18,6 @@
  */
 
 #include "../otpch.h"
-#pragma hdrstop
-#include "otpch.h"
 
 #include "databasetasks.h"
 #include "../game/scheduling/tasks.h"
