@@ -87,16 +87,4 @@ function NpcConfig:getMessageFromConfig(player)
 end
 
 function NpcConfig:executeCallbacks(npc, player)
-    if not self:shouldAnswerPlayer(npc, player) then
-        return false
-    end
-
-    npc:talk(player, self:getMessageFromConfig(player))
-
-    for storage,value in pairs(self.storages or {}) do
-         player:setStorageValue(storage, value)
-    end
-
-    self:updatePlayerInteraction(npc, player)
-    return true
 end
