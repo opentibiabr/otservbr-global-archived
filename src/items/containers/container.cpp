@@ -183,6 +183,19 @@ bool Container::unserializeItemNode(OTB::Loader& loader, const OTB::Node& node, 
 	return true;
 }
 
+bool Container::countsToLootAnalyzerBalance()
+{
+	if (isCorpse()) {
+		return true;
+	}
+
+	if (getID() == ITEM_REWARD_CONTAINER) {
+		return true;
+	}
+
+	return false;
+}
+
 void Container::updateItemWeight(int32_t diff)
 {
 	totalWeight += diff;
