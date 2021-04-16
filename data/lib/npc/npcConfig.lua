@@ -4,7 +4,8 @@ NpcConfig = {
     previousTopic = nil,
     greet    = false,
     farewell = false,
-    storages = {},
+    storageChanges = {},
+    storageChecks = {},
     callbackFunctions = {},
 }
 
@@ -28,7 +29,7 @@ function NpcConfig:execute(npc, player)
 
     npc:talk(player, self:getMessageFromConfig(player))
 
-    for storage,value in pairs(self.storages or {}) do
+    for storage,value in pairs(self.storageChanges) do
          player:setStorageValue(storage, value)
     end
 
@@ -42,8 +43,13 @@ function NpcConfig:setTopic(topic, previousTopic)
     return self
 end
 
-function NpcConfig:addStorageValue(storage, value)
-    self.storages[storage] = value
+function NpcConfig:addStorageCheck(storage, value)
+    self.storageChecks[storage] = value
+    return self
+end
+
+function NpcConfig:addStorageChange(storage, value)
+    self.storageChanges[storage] = value
     return self
 end
 
@@ -59,6 +65,10 @@ function NpcConfig:shouldAnswerPlayer(npc, player)
 
     if self.greet then
         return not npc:isInteractingWithPlayer(player)
+    end
+
+    for storage,value in pairs(self.storageChecks) do
+         if player:getStorageValue(storage) ~= value then return false end
     end
 
     return npc:isInteractingWithPlayer(player)

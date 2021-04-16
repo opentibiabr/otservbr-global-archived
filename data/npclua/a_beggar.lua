@@ -43,7 +43,8 @@ npcType.onSay = function(npc, creature, type, message)
             ["hi"] = NpcConfig:new("Hi! What is it, what d'ye {want}?", true),
             ["want"] = NpcConfig
                 :new("The guys from the magistrate sent you here, didn't they?")
-                :setTopic(1),
+                :setTopic(1)
+                :addStorageCheck(Storage.DarkTrails.Mission01, 1),
             ["yes"] = NpcConfig
                 :new({
                     "Thought so. You'll have to talk to the king though. The beggar king that is. The king does not grant an audience to just everyone. You know how those kings are, don't you? ... ",
@@ -52,8 +53,8 @@ npcType.onSay = function(npc, creature, type, message)
                     "So why don't you show your dedication to the poor? Go and help Chavis at the poor house. He's collecting food for people like us. ... ",
                     "If you brought enough of the stuff you'll see that the king will grant you entrance in his {palace}."
                 }):setTopic(0, 1)
-                :addStorageValue(Storage.DarkTrails.Mission01, 2)
-                :addStorageValue(Storage.DarkTrails.Mission02, 1),
+                :addStorageChange(Storage.DarkTrails.Mission01, 2)
+                :addStorageChange(Storage.DarkTrails.Mission02, 1),
             ["bye"] = NpcConfig:new(nil, false, true),
         }
     )
