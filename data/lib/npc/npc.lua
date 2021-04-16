@@ -17,17 +17,17 @@ end
 function Npc:talk(creature, text)
 	if type(text) == "table" then
 		for i = 0, #text do
-			self.sendMessage(creature, text[i])
+			self:sendMessage(creature, text[i])
 		end
 	else
-		self.sendMessage(creature, text)
+		self:sendMessage(creature, text)
 	end
 end
 
 -- Npc send message to player
 -- npc:sendMessage(text)
 function Npc:sendMessage(creature, text)
-	return self.say(text, TALKTYPE_PRIVATE_NP, true, creature)
+	return self:say(text, TALKTYPE_PRIVATE_NP, true, creature)
 end
 
 function Npc:processOnSay(message, player, configs)
@@ -35,7 +35,7 @@ function Npc:processOnSay(message, player, configs)
         return false
     end
 
-    if not self.isInTalkRange(player:getPosition() then
+    if not self:isInTalkRange(player:getPosition() then
         return false
     end
 
