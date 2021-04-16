@@ -26,7 +26,7 @@ function NpcConfig:execute(npc, player)
         return false
     end
 
-    npc.talk(player, self:getMessageFromConfig(player))
+    npc:talk(player, self:getMessageFromConfig(player))
 
     for storage,value in pairs(self.storages or {}) do
          player:setStorageValue(storage, value)
@@ -53,15 +53,15 @@ function NpcConfig:addCallbackFunction(callback)
 end
 
 function NpcConfig:shouldAnswerPlayer(npc, player)
-    if self.previousTopic and not npc.isPlayerInteractingOnTopic(player, self.previousTopic) then
+    if self.previousTopic and not npc:isPlayerInteractingOnTopic(player, self.previousTopic) then
         return false
     end
 
     if self.greet then
-        return not npc.isInteractingWithPlayer(player)
+        return not npc:isInteractingWithPlayer(player)
     end
 
-    return npc.isInteractingWithPlayer(player)
+    return npc:isInteractingWithPlayer(player)
 end
 
 function NpcConfig:updatePlayerInteraction(npc, player)
@@ -91,7 +91,7 @@ function NpcConfig:executeCallbacks(npc, player)
         return false
     end
 
-    npc.talk(player, self:getMessageFromConfig(player))
+    npc:talk(player, self:getMessageFromConfig(player))
 
     for storage,value in pairs(self.storages or {}) do
          player:setStorageValue(storage, value)
