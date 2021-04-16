@@ -57,15 +57,11 @@ function NpcConfig:shouldAnswerPlayer(npc, player)
         return false
     end
 
-    return self.greet or npc.isInteractingWithPlayer(player)
-end
-
-function NpcConfig:shouldAnswerPlayer(npc, player)
-    if self.previousTopic and not npc.isPlayerInteractingOnTopic(player, self.previousTopic) then
-        return false
+    if self.greet then
+        return not npc.isInteractingWithPlayer(player)
     end
 
-    return self.greet or npc.isInteractingWithPlayer(player)
+    return npc.isInteractingWithPlayer(player)
 end
 
 function NpcConfig:updatePlayerInteraction(npc, player)
