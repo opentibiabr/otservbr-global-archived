@@ -35,7 +35,7 @@ function Npc:processOnSay(message, player, configs)
         return false
     end
 
-    if not self:isInTalkRange(player:getPosition() then
+    if not self:isInTalkRange(player:getPosition()) then
         return false
     end
 
