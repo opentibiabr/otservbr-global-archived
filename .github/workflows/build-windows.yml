@@ -84,6 +84,7 @@ jobs:
           Copy-Item ${{ runner.workspace }}\otservbr-global\data -Destination   ${{ runner.workspace }}\otservbr-global\otservbr-global\data
           Copy-Item -Path ${{ runner.workspace }}\otservbr-global\data\* -Destination ${{ runner.workspace }}\otservbr-global\otservbr-global\data -Recurse
           Compress-Archive -Path ${{ runner.workspace }}\otservbr-global\otservbr-global -DestinationPath ${{ runner.workspace }}\otservbr.zip
+          7z a -tzip otservbr-global.zip -r ${{ runner.workspace }}\otservbr-global\config.lua.dist ${{ runner.workspace }}\otservbr-global\key.pem ${{ runner.workspace }}\otservbr-global\LICENSE ${{ runner.workspace }}\otservbr-global\README.md ${{ runner.workspace }}\build\vcpkg_installed\x64-windows\bin\*.dll ${{ runner.workspace }}\otservbr-global\data
 
       - name: Upload datapack
         if: ${{ matrix.buildtype == 'Release' }}

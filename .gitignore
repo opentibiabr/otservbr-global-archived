@@ -93,6 +93,7 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+CMakeSettings.json
 
 # Chutzpah Test files
 _Chutzpah*

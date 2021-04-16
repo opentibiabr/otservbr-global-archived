@@ -4849,7 +4849,7 @@ void ProtocolGame::sendCreatureHealth(const Creature *creature)
 void ProtocolGame::sendPartyCreatureUpdate(const Creature* target)
 {
 	bool known;
-	uint32_t removedKnown;
+	uint32_t removedKnown = 0;
 	uint32_t cid = target->getID();
 	checkCreatureAsKnown(cid, known, removedKnown);
 

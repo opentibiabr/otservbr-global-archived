@@ -6,6 +6,9 @@ shallow_clone: true
 # set clone depth
 clone_depth: 1
 
+environment:
+  APPVEYOR_SAVE_CACHE_ON_ERROR: true
+
 platform:
   - x64
 
@@ -13,7 +16,7 @@ configuration:
   - Release
 
 matrix:
-  fast_finish: false
+  fast_finish: true
 
 only_commits:
   files:
@@ -30,26 +33,27 @@ install:
   - .\bootstrap-vcpkg.bat
   - .\vcpkg integrate install
   - cd %APPVEYOR_BUILD_FOLDER%
+  - pwd
 
 before_build:
- - mkdir build
- - cd build
- - cmake -DCMAKE_TOOLCHAIN_FILE=C:/tools/vcpkg/scripts/buildsystems/vcpkg.cmake ..
- - cmake --build . --config Release
-#  - cmake ..
+  - cmd: |-
+      if not exist build mkdir build
+      cd build
+      cmake -DCMAKE_TOOLCHAIN_FILE=C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+      cmake --build . --config Release
 
 build:
-  project: otbr.vcxproj
+  project: C:\projects\otservbr-global\build\otbr.sln
+  verbosity: minimal
+  parallel: true
 
-# after_build:
-  # - 7z a -tzip otservbr-global.zip -r .\vc14\*.exe -ir!.\vc14\*.dll
-  # - vcpkg export boost-asio:x64-windows boost-lockfree:x64-windows boost-variant:x64-windows boost-filesystem:x64-windows boost-iostreams:x64-windows boost-system:x64-windows boost-system:x64-windows libmariadb:x64-windows pugixml:x64-windows spdlog:x64-windows curl:x64-windows jsoncpp:x64-windows cryptopp:x64-windows luajit:x64-windows --7zip
+after_build:
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - 7z a -tzip otservbr-global.zip -r C:\projects\otservbr-global\build\bin\Release\otbr.exe C:\projects\otservbr-global\build\vcpkg_installed\x64-windows\bin\*.dll
 
 cache:
-  - c:\tools\vcpkg\installed\
+  - C:\projects\otservbr-global\build\vcpkg_installed\
+  - C:\Users\appveyor\AppData\Local\vcpkg\archives
 
 artifacts:
-  - path: c:\**\vcpkg-export*.7z
-  # - path: vc14\**\otservbr-global*.exe
-  # - path: vc14\**\*.dll
-  # - path: otservbr-global.zip
+  - path: otservbr-global.zip

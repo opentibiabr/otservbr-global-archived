@@ -463,7 +463,7 @@ enum WeaponAction_t : uint8_t {
 };
 
 enum WieldInfo_t {
-	WIELDINFO_NONE = 0 << 0,
+	WIELDINFO_NONE = 0,
 	WIELDINFO_LEVEL = 1 << 0,
 	WIELDINFO_MAGLV = 1 << 1,
 	WIELDINFO_VOCREQ = 1 << 2,
@@ -572,7 +572,7 @@ enum item_t : uint16_t {
 	ITEM_MARKET = 14405,
 	ITEM_STORE_INBOX = 26052,
 	ITEM_SUPPLY_STASH = 32450,
-	
+
 
 	ITEM_MALE_CORPSE = 3058,
 	ITEM_FEMALE_CORPSE = 3065,

@@ -849,7 +849,9 @@ void Combat::CombatFunc(Creature* caster, const Position& pos, const AreaCombat*
 void Combat::doCombatHealth(Creature* caster, Creature* target, CombatDamage& damage, const CombatParams& params)
 {
 	bool canCombat = !params.aggressive || (caster != target && Combat::canDoCombat(caster, target) == RETURNVALUE_NOERROR);
-	if (((caster && target && caster == target) || canCombat) && params.impactEffect != CONST_ME_NONE) {
+	if ( (caster && target)
+			&& (caster == target || canCombat)
+			&& (params.impactEffect != CONST_ME_NONE)) {
 		g_game.addMagicEffect(target->getPosition(), params.impactEffect);
 	}
 
@@ -905,7 +907,9 @@ void Combat::doCombatHealth(Creature* caster, const Position& position, const Ar
 void Combat::doCombatMana(Creature* caster, Creature* target, CombatDamage& damage, const CombatParams& params)
 {
 	bool canCombat = !params.aggressive || (caster != target && Combat::canDoCombat(caster, target) == RETURNVALUE_NOERROR);
-	if (((caster && target && caster == target) || canCombat) && params.impactEffect != CONST_ME_NONE) {
+	if ( (caster && target)
+			&& (caster == target || canCombat)
+			&& (params.impactEffect != CONST_ME_NONE)) {
 		g_game.addMagicEffect(target->getPosition(), params.impactEffect);
 	}
 
@@ -976,7 +980,9 @@ void Combat::doCombatDispel(Creature* caster, const Position& position, const Ar
 void Combat::doCombatDispel(Creature* caster, Creature* target, const CombatParams& params)
 {
 	bool canCombat = !params.aggressive || (caster != target && Combat::canDoCombat(caster, target) == RETURNVALUE_NOERROR);
-	if (( (caster && target && caster == target) || canCombat) && params.impactEffect != CONST_ME_NONE) {
+	if ( (caster && target)
+			&& (caster == target || canCombat)
+			&& (params.impactEffect != CONST_ME_NONE)) {
 		g_game.addMagicEffect(target->getPosition(), params.impactEffect);
 	}
 
