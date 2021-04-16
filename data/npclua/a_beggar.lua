@@ -53,7 +53,8 @@ npcType.onSay = function(npc, creature, type, message)
                     "If you brought enough of the stuff you'll see that the king will grant you entrance in his {palace}."
                 }):setTopic(0, 1)
                 :addStorageValue(Storage.DarkTrails.Mission01, 2)
-                :addStorageValue(Storage.DarkTrails.Mission02, 1)
+                :addStorageValue(Storage.DarkTrails.Mission02, 1),
+            ["bye"] = NpcConfig:new(nil, false, true),
         }
     )
 end

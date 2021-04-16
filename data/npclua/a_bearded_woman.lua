@@ -111,6 +111,7 @@ npcType.onSay = function(npc, creature, type, message)
              "As long as we stick to undefended coastal towns we can make an easy fortune. Har Har! ...",
              "As soon as I get out of here I'll finally become a pirate captain on my own. I don't need Captain Kid!"
             }),
+            ["bye"] = NpcConfig:new(nil, false, true),
     })
 end
 
