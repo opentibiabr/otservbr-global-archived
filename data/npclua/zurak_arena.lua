@@ -29,27 +29,28 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-    local tripInteraction = NpcInteraction:new("You want to go back?")
-                        :setTopic(1);
-    local hintInteraction = NpcInteraction:new("Me zzimple ferryman. I arrange {trip} to Zao.")
-                        :setTopic(0);
-
     return npc:processOnSay(
         message,
         creature:getPlayer(),
         {
-            ["hi"] = NpcInteraction:new(nil, messageTypes.MESSAGE_GREET),
-            ["trip"] = tripInteraction,
-            ["passage"] = tripInteraction,
-            ["back"] = tripInteraction,
-            ["yes"] = NpcInteraction:new("It'zz your doom you travel to.")
-                        :setTopic(0, 1)
-                        :setTeleportConfig(Position(33158, 31228, 7)),
-            ["no"] = NpcInteraction:new("Zzoftzzkinzz zzo full of fear.")
-                        :setTopic(0, 1),
-            ["job"] = hintInteraction,
-            ["hurry"] = hintInteraction,
-            ["bye"] = NpcInteraction:new(nil, messageTypes.MESSAGE_FAREWELL),
+            NpcInteraction:new({"trip", "passage", "back"}, "You want to go back?")
+                :setTopic(1)
+                :addSubInteraction(
+                    "yes",
+                    NpcInteraction:new("It'zz your doom you travel to.")
+                        :setTeleportConfig(Position(33158, 31228, 7))
+                ):addSubInteraction(
+                    "no",
+                    NpcInteraction:new("It'zz your doom you travel to.")
+                        :setTeleportConfig(Position(33158, 31228, 7))
+                ),
+            NpcInteraction:new({"yes"}, "It'zz your doom you travel to.")
+                :setTopic(0, 1)
+                :setTeleportConfig(Position(33158, 31228, 7)),
+            NpcInteraction:new({"no"}, "Zzoftzzkinzz zzo full of fear.")
+                :setTopic(0, 1),
+            NpcInteraction:new({"job", "hurry"}, "Me zzimple ferryman. I arrange {trip} to Zao.")
+                :setTopic(0),
         }
     )
 end

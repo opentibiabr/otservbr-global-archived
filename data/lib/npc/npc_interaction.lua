@@ -7,6 +7,7 @@ messageTypes = {
 
 -- Every interaction of an NPC can be structured like that
 NpcInteraction = {
+    keys = nil,
     message = nil,
     topic = nil,
     previousTopic = nil,
@@ -14,18 +15,21 @@ NpcInteraction = {
     storageChanges = nil,
     storageChecks = nil,
     teleport = nil,
+    subInteractions = nil,
     callbackFunctions = nil,
 }
 
 -- Creates a new NpcInteraction with message and type (defaults to MESSAGE_COMMON)
-function NpcInteraction:new(message, messageType)
+function NpcInteraction:new(keys, message, messageType)
     local obj = {}
 
+    obj.keys = keys
     obj.message = message
     obj.messageType = messageType or messageTypes.MESSAGE_COMMON
     obj.topic = 0
     obj.previousTopic = nil
     obj.teleport = nil
+    obj.subInteractions = {}
     obj.storageChanges = {}
     obj.storageChecks = {}
     obj.callbackFunctions = {}
@@ -41,13 +45,21 @@ function NpcInteraction:execute(npc, player)
         return false
     end
 
-    npc:talk(player, self:getMessageFromConfig(player))
+    npc:talk(player, self.message)
 
     self:performTeleport(player)
     self:updatePlayerStorages(player)
     self:updatePlayerInteraction(npc, player)
 
     return true
+end
+
+-- Check if key is valid
+function NpcInteraction:containsValidKeyword(message)
+    for _,keyword in pairs(self.keys) do
+        if msgContains(message, keyword) then return true end
+    end
+    return false
 end
 
 -- Define to what topic the player goes after a valid interaction (default 0)
@@ -73,12 +85,19 @@ end
 -- Add a teleport configuration to where the player will be send after a valid interaction
 -- Accepts custom departureEffect (defaults to CONST_ME_TELEPORT)
 -- Accepts custom destinationEffect (defaults to departureEffect or CONST_ME_TELEPORT)
-function NpcInteraction:setTeleportConfig(position, departureEffect, destinationEffect)
+function NpcInteraction:setTeleportConfig(position, cost, departureEffect, destinationEffect)
     self.teleport = {
         ["position"] = position,
+        ["cost"] = cost or nil,
         ["departureEffect"] = departureEffect or CONST_ME_TELEPORT,
         ["destinationEffect"] = departureEffect or departureEffect or CONST_ME_TELEPORT,
     }
+    return self
+end
+
+-- Add a sub interaction that can be executed
+function NpcInteraction:addSubInteraction(keyword, interaction)
+    self.subInteractions[keyword] = interaction
     return self
 end
 
@@ -100,19 +119,27 @@ function NpcInteraction:shouldAnswerPlayer(npc, player)
     return true
 end
 
-function NpcInteraction:getMessageFromConfig(player)
-    if self.message then
-        return self.message
+function NpcInteraction:newDefaultByType(player, messageType)
+    if messageType == messageTypes.MESSAGE_GREET then
+        return NpcInteraction:new(
+            {"hi", "hello"},
+            "Hello, ".. player:getName() ..", what you need?",
+            messageType
+        )
     end
 
-    if self.messageType == messageTypes.MESSAGE_GREET then
-        return "Hello, ".. player:getName() ..", what you need?"
-    end
-    if self.messageType == messageTypes.MESSAGE_FAREWELL then
-        return "Goodbye, ".. player:getName() .."."
+    if messageType == messageTypes.MESSAGE_FAREWELL then
+        return NpcInteraction:new(
+            {"bye", "farewell"},
+            "Goodbye, ".. player:getName() ..".",
+            messageType
+        )
     end
 
-    return "Err.. " .. player:getName() .. ", how can I help?!"
+    return NpcInteraction:new(
+        {},
+        "Sorry " .. player:getName() .. ", I didn't understand"
+    )
 end
 
 -- VALIDATIONS

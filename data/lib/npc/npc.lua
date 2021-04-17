@@ -39,11 +39,16 @@ function Npc:processOnSay(message, player, npcInteractions)
         return false
     end
 
-    for keyword, npcInteraction in pairs(npcInteractions) do
-        if msgContains(message, keyword) then
+    table.insert(npcInteractions, NpcInteraction:newDefaultByType(player, messageTypes.MESSAGE_GREET))
+    table.insert(npcInteractions, NpcInteraction:newDefaultByType(player, messageTypes.MESSAGE_FAREWELL))
+
+    for _, npcInteraction in pairs(npcInteractions) do
+        if npcInteraction:containsValidKeyword(message) then
             return npcInteraction:execute(self, player)
         end
     end
+
+    self:talk(player, NpcInteraction:newDefaultByType(player).message)
 
     return true
 end
