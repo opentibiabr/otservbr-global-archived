@@ -40,12 +40,12 @@ npcType.onSay = function(npc, creature, type, message)
         message,
         creature:getPlayer(),
         {
-            ["hi"] = NpcConfig:new("Hi! What is it, what d'ye {want}?", messageTypes.MESSAGE_GREET),
-            ["want"] = NpcConfig
+            ["hi"] = NpcInteraction:new("Hi! What is it, what d'ye {want}?", messageTypes.MESSAGE_GREET),
+            ["want"] = NpcInteraction
                 :new("The guys from the magistrate sent you here, didn't they?")
                 :setTopic(1)
                 :addStorageCheck(Storage.DarkTrails.Mission01, 1),
-            ["yes"] = NpcConfig
+            ["yes"] = NpcInteraction
                 :new({
                     "Thought so. You'll have to talk to the king though. The beggar king that is. The king does not grant an audience to just everyone. You know how those kings are, don't you? ... ",
                     "However, to get an audience with the king, you'll have to help his subjects a bit. ... ",
@@ -55,7 +55,7 @@ npcType.onSay = function(npc, creature, type, message)
                 }):setTopic(0, 1)
                 :addStorageChange(Storage.DarkTrails.Mission01, 2)
                 :addStorageChange(Storage.DarkTrails.Mission02, 1),
-            ["bye"] = NpcConfig:new(nil, messageTypes.MESSAGE_FAREWELL),
+            ["bye"] = NpcInteraction:new(nil, messageTypes.MESSAGE_FAREWELL),
         }
     )
 end

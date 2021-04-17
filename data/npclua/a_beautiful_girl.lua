@@ -40,8 +40,8 @@ npcType.onSay = function(npc, creature, type, message)
         message,
         creature:getPlayer(),
         {
-            ["hi"] = NpcConfig:new("So you have come, ".. player:getName() ..". I hoped you would not...", messageTypes.MESSAGE_GREET),
-            ["bye"] = NpcConfig:new(nil, messageTypes.MESSAGE_FAREWELL),
+            ["hi"] = NpcInteraction:new("So you have come, ".. player:getName() ..". I hoped you would not...", messageTypes.MESSAGE_GREET),
+            ["bye"] = NpcInteraction:new(nil, messageTypes.MESSAGE_FAREWELL),
         }
     )
 end

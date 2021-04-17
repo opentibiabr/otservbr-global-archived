@@ -29,27 +29,27 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-    local tripConfig = NpcConfig:new("You want to go back?")
+    local tripInteraction = NpcInteraction:new("You want to go back?")
                         :setTopic(1);
-    local hintConfig = NpcConfig:new("Me zzimple ferryman. I arrange {trip} to Zao.")
+    local hintInteraction = NpcInteraction:new("Me zzimple ferryman. I arrange {trip} to Zao.")
                         :setTopic(0);
 
     return npc:processOnSay(
         message,
         creature:getPlayer(),
         {
-            ["hi"] = NpcConfig:new(nil, messageTypes.MESSAGE_GREET),
-            ["trip"] = tripConfig,
-            ["passage"] = tripConfig,
-            ["back"] = tripConfig,
-            ["yes"] = NpcConfig:new("It'zz your doom you travel to.")
+            ["hi"] = NpcInteraction:new(nil, messageTypes.MESSAGE_GREET),
+            ["trip"] = tripInteraction,
+            ["passage"] = tripInteraction,
+            ["back"] = tripInteraction,
+            ["yes"] = NpcInteraction:new("It'zz your doom you travel to.")
                         :setTopic(0, 1)
                         :setTeleportConfig(Position(33158, 31228, 7)),
-            ["no"] = NpcConfig:new("Zzoftzzkinzz zzo full of fear.")
+            ["no"] = NpcInteraction:new("Zzoftzzkinzz zzo full of fear.")
                         :setTopic(0, 1),
-            ["job"] = hintConfig,
-            ["hurry"] = hintConfig,
-            ["bye"] = NpcConfig:new(nil, messageTypes.MESSAGE_FAREWELL),
+            ["job"] = hintInteraction,
+            ["hurry"] = hintInteraction,
+            ["bye"] = NpcInteraction:new(nil, messageTypes.MESSAGE_FAREWELL),
         }
     )
 end

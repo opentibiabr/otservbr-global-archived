@@ -1,5 +1,5 @@
--- add npc config lib
-dofile('data/lib/npc/npcConfig.lua')
+-- add npc interaction lib
+dofile('data/lib/npc/npcInteraction.lua')
 
 -- Checks whether a message is being sent to npc
 -- msgContains(message, keyword)
@@ -30,7 +30,7 @@ function Npc:sendMessage(creature, text)
 	return self:say(text, TALKTYPE_PRIVATE_NP, true, creature)
 end
 
-function Npc:processOnSay(message, player, configs)
+function Npc:processOnSay(message, player, npcInteractions)
     if not player then
         return false
     end
@@ -39,9 +39,9 @@ function Npc:processOnSay(message, player, configs)
         return false
     end
 
-    for keyword, config in pairs(configs) do
+    for keyword, npcInteraction in pairs(npcInteractions) do
         if msgContains(message, keyword) then
-            return config:execute(self, player)
+            return npcInteraction:execute(self, player)
         end
     end
 
