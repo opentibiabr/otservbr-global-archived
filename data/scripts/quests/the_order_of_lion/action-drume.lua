@@ -15,7 +15,7 @@ local config = {
 	newPosition = Position(32453, 32510, 7),
 	rangeX = 22,
 	rangeY = 16,
-	timeToKill = 5, -- time in minutes to remove the player	
+	timeToKill = 15, -- time in minutes to remove the player	
 }	
 
 local function RoomIsOccupied(centerPosition, rangeX, rangeY)
