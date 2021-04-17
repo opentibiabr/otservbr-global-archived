@@ -33,3 +33,8 @@ spaces_around_brackets = none
 [*.{yml,yaml,json}]
 indent_style = space
 indent_size = 2
+
+# CMake
+[CMakeLists.txt]
+indent_style = space
+indent_size = 2

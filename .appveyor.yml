@@ -6,8 +6,8 @@ shallow_clone: true
 # set clone depth
 clone_depth: 1
 
-environment:
-  APPVEYOR_SAVE_CACHE_ON_ERROR: true
+# environment:
+#   APPVEYOR_SAVE_CACHE_ON_ERROR: true
 
 platform:
   - x64
@@ -33,13 +33,12 @@ install:
   - .\bootstrap-vcpkg.bat
   - .\vcpkg integrate install
   - cd %APPVEYOR_BUILD_FOLDER%
-  - pwd
 
 before_build:
   - cmd: |-
       if not exist build mkdir build
       cd build
-      cmake -DCMAKE_TOOLCHAIN_FILE=C:/Tools/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+      cmake -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake ..
       cmake --build . --config Release
 
 build:
@@ -48,12 +47,12 @@ build:
   parallel: true
 
 after_build:
-  - cd %APPVEYOR_BUILD_FOLDER%
-  - 7z a -tzip otservbr-global.zip -r C:\projects\otservbr-global\build\bin\Release\otbr.exe C:\projects\otservbr-global\build\vcpkg_installed\x64-windows\bin\*.dll
+  - cd %APPVEYOR_BUILD_FOLDER%\build\bin
+  - 7z a -tzip otservbr-global.zip Release\
 
 cache:
   - C:\projects\otservbr-global\build\vcpkg_installed\
   - C:\Users\appveyor\AppData\Local\vcpkg\archives
 
 artifacts:
-  - path: otservbr-global.zip
+  - path: \build\bin\otservbr-global.zip
