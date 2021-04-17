@@ -11,10 +11,10 @@ NpcInteraction = {
     topic = nil,
     previousTopic = nil,
     messageType = nil,
-    storageChanges = {},
-    storageChecks = {},
-    teleport = {},
-    callbackFunctions = {},
+    storageChanges = nil,
+    storageChecks = nil,
+    teleport = nil,
+    callbackFunctions = nil,
 }
 
 -- Creates a new NpcInteraction with message and type (defaults to MESSAGE_COMMON)
@@ -22,12 +22,12 @@ function NpcInteraction:new(message, messageType)
     local obj = {}
 
     obj.message = message
+    obj.messageType = messageType or messageTypes.MESSAGE_COMMON
     obj.topic = 0
     obj.previousTopic = nil
-    obj.messageType = messageType or messageTypes.MESSAGE_COMMON
+    obj.teleport = nil
     obj.storageChanges = {}
     obj.storageChecks = {}
-    obj.teleport = nil
     obj.callbackFunctions = {}
 
     setmetatable(obj, self)
@@ -94,7 +94,7 @@ function NpcInteraction:shouldAnswerPlayer(npc, player)
         return false
     end
 
-    if not self:hasValidPlayerInteraction(player) then return false end
+    if not self:hasValidPlayerInteraction(npc, player) then return false end
     if not self:hasPlayerValidStorages(player) then return false  end
 
     return true
@@ -118,10 +118,11 @@ end
 -- VALIDATIONS
 -- Check if player can interact with the NpcInteraction
 -- Greet only happens if no interaction is set, all other messages need an ongoing interaction
-function NpcInteraction:hasValidPlayerInteraction(player)
+function NpcInteraction:hasValidPlayerInteraction(npc, player)
     if self.messageType == messageTypes.MESSAGE_GREET then
         return not npc:isInteractingWithPlayer(player)
     end
+
     return npc:isInteractingWithPlayer(player)
 end
 
