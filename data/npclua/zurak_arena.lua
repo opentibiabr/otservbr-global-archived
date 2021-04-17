@@ -1,4 +1,4 @@
-local npcType = Game.createNpcType("A Beautiful Girl")
+local npcType = Game.createNpcType("Zurak Arena")
 local npc = {}
 
 npc.description = "Zurak"
