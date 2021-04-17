@@ -1,8 +1,8 @@
 -- Available message types
 messageTypes = {
-    MESSAGE_COMMON = 1
+    MESSAGE_COMMON = 1,
     MESSAGE_GREET = 2,
-    MESSAGE_FAREWELL = 3,
+    MESSAGE_FAREWELL = 3
 }
 
 -- Every interaction of an NPC can be structured like that
@@ -107,6 +107,7 @@ function NpcInteraction:getMessageFromConfig(player)
 
     if self.messageType == messageTypes.MESSAGE_GREET then
         return "Hello, ".. player:getName() ..", what you need?"
+    end
     if self.messageType == messageTypes.MESSAGE_FAREWELL then
         return "Goodbye, ".. player:getName() .."."
     end

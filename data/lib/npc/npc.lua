@@ -1,5 +1,5 @@
 -- add npc interaction lib
-dofile('data/lib/npc/npcInteraction.lua')
+dofile('data/lib/npc/npc_interaction.lua')
 
 -- Checks whether a message is being sent to npc
 -- msgContains(message, keyword)
