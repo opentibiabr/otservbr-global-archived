@@ -1734,12 +1734,13 @@ Storage = {
 		Time4 = 52354,
 	},
 	TheOrderOfTheLion = {
-		-- Reserved storage 52360 (others are global)
+		-- Reserved storage 52360-52395 (TheRookieGuard)
+		-- Reserved storage 52396-52410 (TheOrderOfTheLion)
 		Drume = {
-			Commander = 52392, -- Global
-			TotalLionCommanders = 52393, -- Global
-			TotalUsurperCommanders = 52394, -- Global
-			Timer = 52392,
+			Commander = 52396, -- Global
+			TotalLionCommanders = 52397, -- Global
+			TotalUsurperCommanders = 52398, -- Global
+			Timer = 52399
 		},
 	},
 	-- News quest development
