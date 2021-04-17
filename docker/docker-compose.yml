@@ -25,6 +25,8 @@ services:
       - MYSQL_USER=otserver
       - MYSQL_PASSWORD=otserver
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    ports:
+      - 3306:3306
     volumes:
       - db-volume:/var/lib/mysql
 
