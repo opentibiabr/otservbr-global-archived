@@ -193,7 +193,7 @@ end
 -- Executes configured teleport
 function NpcInteraction:performTeleport(npc, player)
     if self.teleport then
-        if self.teleport.cost and not self:chargePlayer(npc, player, self.teleport.cost) then return end
+        if self.teleport.cost and not npc:chargePlayer(player, self.teleport.cost) then return end
 
         destination = self.teleport.position
 
@@ -208,13 +208,4 @@ end
 
 -- Executes configured callbacks
 function NpcInteraction:executeCallbacks(npc, player)
-end
-
-function NpcInteraction:chargePlayer(npc, player, cost)
-    npc:talk(player, "You do not have enough money!")
-    if not player:removeMoneyNpc(cost) then
-        npc:talk(player, "You do not have enough money!")
-        return false
-    end
-    return true
 end

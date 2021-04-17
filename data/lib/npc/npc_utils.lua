@@ -63,3 +63,11 @@ function Player:removeMoneyNpc(amount)
 
 	return false
 end
+
+function Npc:chargePlayer(player, cost, message)
+    if not player:removeMoneyNpc(cost) then
+        self:talk(player, message or "You do not have enough money!")
+        return false
+    end
+    return true
+end
