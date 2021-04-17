@@ -209,3 +209,18 @@ end
 -- Executes configured callbacks
 function NpcInteraction:executeCallbacks(npc, player)
 end
+
+-- Executes configured callbacks
+function NpcInteraction:createTravelInteraction(placeName, cost, position, topic, message, messageAccept, messageDecline)
+    message = message or "Do you want to travel to " .. placeName .. " for " .. cost .. " gold coins?"
+    return NpcInteraction:new({placeName}, message)
+        :setTopic(topic)
+        :addSubInteraction(
+            NpcInteraction:new({"yes"}, messageAccept or "It was a pleasure doing business with you.")
+                :setTeleportConfig(position, cost)
+                :setTopic(0, topic)
+        ):addSubInteraction(
+            NpcInteraction:new({"no"}, messageDecline or "Then not.")
+                :setTopic(0, topic)
+        )
+end
