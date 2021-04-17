@@ -18,7 +18,7 @@ app = Flask(__name__)
 def do_login(data):
 
     try:
-        connection = mariadb.connect(host=os.getenv('DB_IP', 'otdb'),
+        connection = mariadb.connect(host=os.getenv('DB_IP', 'mysql'),
                                 database=os.getenv('DB_DATABASE', 'otserver'),
                                 user=os.getenv('DB_USER', 'otserver'),
                                 password=os.getenv('DB_PASSWORD', 'otserver'))

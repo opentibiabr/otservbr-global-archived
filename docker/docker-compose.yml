@@ -52,7 +52,7 @@ services:
     volumes:
       - ./docker/data/:/tmp/
     ports:
-      - 8081:80
+      - 80:8080
     depends_on:
       - mysql
 
