@@ -56,7 +56,7 @@ npcType.onSay = function(npc, creature, type, message)
         message,
         creature:getPlayer(),
         {
-            ["hi"] = NpcConfig:new("GET ME OUT OF HERE! NOW!", true),
+            ["hi"] = NpcConfig:new("GET ME OUT OF HERE! NOW!", messageTypes.MESSAGE_GREET),
             ["job"] = NpcConfig:new("I am a great and famous actor! Not a princess, at all. I was only PRETENDING to be a princess. But try explaining that to those stupid pirates."),
             ["actor"] = NpcConfig:new("Stage acting was a waste of my immense talent. Not only am I a born leader, my talent is more profitable when it is used for conning people."),
             ["stage"] = NpcConfig:new("Stage acting was a waste of my immense talent. Not only am I a born leader, my talent is more profitable when it is used for conning people."),
@@ -111,7 +111,7 @@ npcType.onSay = function(npc, creature, type, message)
              "As long as we stick to undefended coastal towns we can make an easy fortune. Har Har! ...",
              "As soon as I get out of here I'll finally become a pirate captain on my own. I don't need Captain Kid!"
             }),
-            ["bye"] = NpcConfig:new(nil, false, true),
+            ["bye"] = NpcConfig:new(nil, messageTypes.MESSAGE_FAREWELL),
     })
 end
 

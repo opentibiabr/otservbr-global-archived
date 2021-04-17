@@ -40,7 +40,7 @@ npcType.onSay = function(npc, creature, type, message)
         message,
         creature:getPlayer(),
         {
-            ["hi"] = NpcConfig:new("Hi! What is it, what d'ye {want}?", true),
+            ["hi"] = NpcConfig:new("Hi! What is it, what d'ye {want}?", messageTypes.MESSAGE_GREET),
             ["want"] = NpcConfig
                 :new("The guys from the magistrate sent you here, didn't they?")
                 :setTopic(1)
@@ -55,7 +55,7 @@ npcType.onSay = function(npc, creature, type, message)
                 }):setTopic(0, 1)
                 :addStorageChange(Storage.DarkTrails.Mission01, 2)
                 :addStorageChange(Storage.DarkTrails.Mission02, 1),
-            ["bye"] = NpcConfig:new(nil, false, true),
+            ["bye"] = NpcConfig:new(nil, messageTypes.MESSAGE_FAREWELL),
         }
     )
 end

@@ -1,25 +1,31 @@
+messageTypes = {
+    MESSAGE_COMMON = 1
+    MESSAGE_GREET = 2,
+    MESSAGE_FAREWELL = 3,
+}
+
 NpcConfig = {
     message = nil,
-    topic = 0,
+    topic = nil,
     previousTopic = nil,
-    greet    = false,
-    farewell = false,
+    messageType = nil,
     storageChanges = {},
     storageChecks = {},
+    teleport = {},
     callbackFunctions = {},
 }
 
--- Creates a new NpcHandler with an empty callbackFunction stack.
-function NpcConfig:new(message, greet, farewell)
+-- Creates a new NpcConfig with message and type (defaults to MESSAGE_COMMON)
+function NpcConfig:new(message, messageType)
     local obj = {}
 
     obj.message = message
     obj.topic = 0
     obj.previousTopic = nil
-    obj.greet = greet or false
-    obj.farewell = farewell or false
+    obj.messageType = messageType or messageTypes.MESSAGE_COMMON
     obj.storageChanges = {}
     obj.storageChecks = {}
+    obj.teleport = nil
     obj.callbackFunctions = {}
 
     setmetatable(obj, self)
@@ -34,11 +40,10 @@ function NpcConfig:execute(npc, player)
 
     npc:talk(player, self:getMessageFromConfig(player))
 
-    for storage,value in pairs(self.storageChanges) do
-         player:setStorageValue(storage, value)
-    end
-
+    self:performTeleport(player)
+    self:updatePlayerStorages(player)
     self:updatePlayerInteraction(npc, player)
+
     return true
 end
 
@@ -58,6 +63,15 @@ function NpcConfig:addStorageChange(storage, value)
     return self
 end
 
+function NpcConfig:setTeleportConfig(position, departureEffect, destinationEffect)
+    self.teleport = {
+        ["position"] = position,
+        ["departureEffect"] = departureEffect or CONST_ME_TELEPORT,
+        ["destinationEffect"] = departureEffect or departureEffect or CONST_ME_TELEPORT,
+    }
+    return self
+end
+
 function NpcConfig:addCallbackFunction(callback)
     self.callbackFunctions[#self.callbackFunctions + 1] = callback
     return self
@@ -68,22 +82,49 @@ function NpcConfig:shouldAnswerPlayer(npc, player)
         return false
     end
 
-    if self.greet then
-        return not npc:isInteractingWithPlayer(player)
-    end
+    if not self:hasValidPlayerInteraction(player) then return false end
+    if not self:hasPlayerValidStorages(player) then return false  end
 
+    return true
+end
+
+function NpcConfig:hasPlayerValidStorages(player)
     for storage,value in pairs(self.storageChecks) do
         if player:getStorageValue(storage) ~= value then return false end
     end
+    return true
+end
 
+function NpcConfig:updatePlayerStorages(player)
+    for storage,value in pairs(self.storageChanges) do
+        player:setStorageValue(storage, value)
+    end
+end
+
+function NpcConfig:hasValidPlayerInteraction(player)
+    if self.messageType == messageTypes.MESSAGE_GREET then
+        return not npc:isInteractingWithPlayer(player)
+    end
     return npc:isInteractingWithPlayer(player)
 end
 
+function NpcConfig:performTeleport(player)
+    if self.teleport then
+        destination = self.teleport.position
+
+        player:getPosition():sendMagicEffect(self.teleport.departureEffect)
+        player:teleportTo(destination)
+        destination:sendMagicEffect(self.teleport.destinationEffect)
+    end
+end
+
 function NpcConfig:updatePlayerInteraction(npc, player)
-    if self.farewell then
+    if self.messageType == messageTypes.MESSAGE_FAREWELL then
         npc:removePlayerInteraction(player)
-    else
-        npc:setPlayerInteraction(player, self.topic or 0)
+    elseif self.messageType == messageTypes.MESSAGE_GREET then
+        npc:setPlayerInteraction(player, 0)
+    elseif self.topic then
+        npc:setPlayerInteraction(player, self.topic)
     end
 end
 
@@ -92,13 +133,13 @@ function NpcConfig:getMessageFromConfig(player)
         return self.message
     end
 
-    if self.greet then
+    if self.messageType == messageTypes.MESSAGE_GREET then
         return "Hello, ".. player:getName() ..", what you need?"
-    elseif self.farewell then
+    if self.messageType == messageTypes.MESSAGE_FAREWELL then
         return "Goodbye, ".. player:getName() .."."
     end
 
-    return "Err.. " .. player:getName() .. ", what did you say?"
+    return "Err.. " .. player:getName() .. ", how can I help?!"
 end
 
 function NpcConfig:executeCallbacks(npc, player)
