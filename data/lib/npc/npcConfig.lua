@@ -14,8 +14,13 @@ function NpcConfig:new(message, greet, farewell)
     local obj = {}
 
     obj.message = message
+    obj.topic = 0
+    obj.previousTopic = nil
     obj.greet = greet or false
     obj.farewell = farewell or false
+    obj.storageChanges = {}
+    obj.storageChecks = {}
+    obj.callbackFunctions = {}
 
     setmetatable(obj, self)
     self.__index = self
@@ -68,7 +73,7 @@ function NpcConfig:shouldAnswerPlayer(npc, player)
     end
 
     for storage,value in pairs(self.storageChecks) do
-         if player:getStorageValue(storage) ~= value then return false end
+        if player:getStorageValue(storage) ~= value then return false end
     end
 
     return npc:isInteractingWithPlayer(player)
