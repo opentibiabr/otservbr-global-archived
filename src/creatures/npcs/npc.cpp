@@ -51,7 +51,7 @@ Npc* Npc::createNpc(const std::string& name)
 
 Npc::Npc(NpcType* npcType) :
 	Creature(),
-	strDescription(asLowerCaseString(npcType->nameDescription)),
+	strDescription(npcType->nameDescription),
 	npcType(npcType)
 {
 	defaultOutfit = npcType->info.outfit;
