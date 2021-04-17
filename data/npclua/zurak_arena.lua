@@ -1,7 +1,7 @@
-local npcType = Game.createNpcType("Zurak (Arena)")
+local npcType = Game.createNpcType("Zurak")
 local npc = {}
 
-npc.description = "Zurak"
+npc.description = "Zurak (Arena)"
 
 npc.health = 100
 npc.maxHealth = npc.health
@@ -36,19 +36,13 @@ npcType.onSay = function(npc, creature, type, message)
             NpcInteraction:new({"trip", "passage", "back"}, "You want to go back?")
                 :setTopic(1)
                 :addSubInteraction(
-                    "yes",
-                    NpcInteraction:new("It'zz your doom you travel to.")
+                    NpcInteraction:new({"yes"}, "It'zz your doom you travel to.")
                         :setTeleportConfig(Position(33158, 31228, 7))
+                        :setTopic(0, 1)
                 ):addSubInteraction(
-                    "no",
-                    NpcInteraction:new("It'zz your doom you travel to.")
-                        :setTeleportConfig(Position(33158, 31228, 7))
+                    NpcInteraction:new({"no"}, "Zzoftzzkinzz zzo full of fear.")
+                        :setTopic(0, 1)
                 ),
-            NpcInteraction:new({"yes"}, "It'zz your doom you travel to.")
-                :setTopic(0, 1)
-                :setTeleportConfig(Position(33158, 31228, 7)),
-            NpcInteraction:new({"no"}, "Zzoftzzkinzz zzo full of fear.")
-                :setTopic(0, 1),
             NpcInteraction:new({"job", "hurry"}, "Me zzimple ferryman. I arrange {trip} to Zao.")
                 :setTopic(0),
         }

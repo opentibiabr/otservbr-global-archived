@@ -1,4 +1,5 @@
 -- add npc interaction lib
+dofile('data/lib/npc/npc_utils.lua')
 dofile('data/lib/npc/npc_interaction.lua')
 
 -- Checks whether a message is being sent to npc
@@ -43,12 +44,13 @@ function Npc:processOnSay(message, player, npcInteractions)
     table.insert(npcInteractions, NpcInteraction:newDefaultByType(player, messageTypes.MESSAGE_FAREWELL))
 
     for _, npcInteraction in pairs(npcInteractions) do
-        if npcInteraction:containsValidKeyword(message) then
-            return npcInteraction:execute(self, player)
-        end
+        local validInteraction = npcInteraction:getValidInteraction(self, player, message)
+        if validInteraction then return validInteraction:execute(self, player) end
     end
 
-    self:talk(player, NpcInteraction:newDefaultByType(player).message)
+    if self:isInteractingWithPlayer(player) then
+        self:talk(player, NpcInteraction:newDefaultByType(player).message)
+    end
 
     return true
 end

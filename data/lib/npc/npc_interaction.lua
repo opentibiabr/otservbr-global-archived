@@ -23,7 +23,7 @@ NpcInteraction = {
 function NpcInteraction:new(keys, message, messageType)
     local obj = {}
 
-    obj.keys = keys
+    obj.keys = keys or {}
     obj.message = message
     obj.messageType = messageType or messageTypes.MESSAGE_COMMON
     obj.topic = 0
@@ -47,7 +47,7 @@ function NpcInteraction:execute(npc, player)
 
     npc:talk(player, self.message)
 
-    self:performTeleport(player)
+    self:performTeleport(npc, player)
     self:updatePlayerStorages(player)
     self:updatePlayerInteraction(npc, player)
 
@@ -55,10 +55,18 @@ function NpcInteraction:execute(npc, player)
 end
 
 -- Check if key is valid
-function NpcInteraction:containsValidKeyword(message)
+function NpcInteraction:getValidInteraction(npc, player, message)
     for _,keyword in pairs(self.keys) do
-        if msgContains(message, keyword) then return true end
+        if msgContains(message, keyword) then return self end
     end
+
+    for _,subInteraction in pairs(self.subInteractions) do
+        local validSubInteraction = subInteraction:getValidInteraction(npc, player, message)
+        if validSubInteraction and self.topic and npc:isPlayerInteractingOnTopic(player, self.topic) then
+            return validSubInteraction
+        end
+    end
+
     return false
 end
 
@@ -96,8 +104,9 @@ function NpcInteraction:setTeleportConfig(position, cost, departureEffect, desti
 end
 
 -- Add a sub interaction that can be executed
-function NpcInteraction:addSubInteraction(keyword, interaction)
-    self.subInteractions[keyword] = interaction
+function NpcInteraction:addSubInteraction(interaction)
+    if not interaction then return self end
+    self.subInteractions[#self.subInteractions + 1] = interaction
     return self
 end
 
@@ -182,16 +191,30 @@ function NpcInteraction:updatePlayerStorages(player)
 end
 
 -- Executes configured teleport
-function NpcInteraction:performTeleport(player)
+function NpcInteraction:performTeleport(npc, player)
     if self.teleport then
+        if self.teleport.cost and not self:chargePlayer(npc, player, self.teleport.cost) then return end
+
         destination = self.teleport.position
 
         player:getPosition():sendMagicEffect(self.teleport.departureEffect)
         player:teleportTo(destination)
         destination:sendMagicEffect(self.teleport.destinationEffect)
+
+        -- resets iteraction, needs to be addEvent to go in the end of the callstack
+        addEvent(function() npc:removePlayerInteraction(player) end, 0)
     end
 end
 
 -- Executes configured callbacks
 function NpcInteraction:executeCallbacks(npc, player)
+end
+
+function NpcInteraction:chargePlayer(npc, player, cost)
+    npc:talk(player, "You do not have enough money!")
+    if not player:removeMoneyNpc(cost) then
+        npc:talk(player, "You do not have enough money!")
+        return false
+    end
+    return true
 end
