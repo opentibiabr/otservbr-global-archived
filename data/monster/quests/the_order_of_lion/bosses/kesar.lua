@@ -5,11 +5,11 @@ monster.description = "Kesar"
 monster.experience = 0
 monster.outfit = {
 	lookType = 1317,
-	lookHead = 0,
-	lookBody = 78,
-	lookLegs = 38,
-	lookFeet = 38,
-	lookAddons = 3,
+	lookHead = 21,
+	lookBody = 21,
+	lookLegs = 21,
+	lookFeet = 21,
+	lookAddons = 2,
 	lookMount = 0
 }
 

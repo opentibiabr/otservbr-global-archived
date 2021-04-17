@@ -9,14 +9,14 @@ monster.outfit = {
 	lookBody = 78,
 	lookLegs = 57,
 	lookFeet = 57,
-	lookAddons = 3,
+	lookAddons = 2,
 	lookMount = 0
 }
 
 monster.health = 35000
 monster.maxHealth = 35000
 monster.race = "blood"
-monster.corpse = 33364
+monster.corpse = 38808
 monster.speed = 260
 monster.summonCost = 0
 monster.maxSummons = 3
@@ -54,7 +54,7 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = true,
+	canWalkOnEnergy = false,
 	canWalkOnFire = true,
 	canWalkOnPoison = true,
 	pet = false

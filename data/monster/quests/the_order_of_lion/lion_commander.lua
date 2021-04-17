@@ -5,10 +5,10 @@ monster.description = "a lion commander"
 monster.experience = 0
 monster.outfit = {
 	lookType = 1317,
-	lookHead = 0,
+	lookHead = 24,
 	lookBody = 78,
-	lookLegs = 57,
-	lookFeet = 57,
+	lookLegs = 24,
+	lookFeet = 78,
 	lookAddons = 3,
 	lookMount = 0
 }
