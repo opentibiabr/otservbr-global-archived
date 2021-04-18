@@ -227,63 +227,20 @@ function NpcInteraction:executeCallbacks(npc, player)
     end
 end
 
--- Every interaction of an NPC can be structured like that
-NpcTravelConfig = {
-    location = nil,
-    cost = nil,
-    position = nil,
-    topic = nil,
-    message = nil,
-    messageAccept = nil,
-    messageDecline = nil,
-}
-
--- Creates a new NpcInteraction with message and type (defaults to INTERACTION_COMMON)
-function NpcTravelConfig:new(location, cost, position, topic, message, messageAccept, messageDecline)
-    local obj = {}
-
-    obj.location = location
-    obj.cost = cost or 0
-    obj.position = position
-    obj.topic = topic
-    obj.message = message or nil
-    obj.messageAccept = messageAccept or nil
-    obj.messageDecline = messageDecline or nil
-
-    setmetatable(obj, self)
-    self.__index = self
-    return obj
-end
-
 -- Executes configured callbacks
-function NpcInteraction:createTravelInteraction(travelConfig)
-    local message = travelConfig.message or "Do you want to travel to " .. travelConfig.location .. " for " .. travelConfig.cost .. " gold coins?"
-    local acceptedMessage = travelConfig.messageAccept or "It was a pleasure doing business with you."
-    local declinedMessage = travelConfig.messageDecline or "Then not."
+function NpcInteraction:createTravelInteraction(params)
+    local cost = params.cost or 0
+    params.message = params.message or "Do you want to travel to " .. params.keywords[1] .. " for " .. cost .. " gold coins?"
 
-    return NpcInteraction:newConfirmationNeededInteraction(
-        {travelConfig.location},
-        travelConfig.topic,
-        message,
-        acceptedMessage,
-        declinedMessage
-    ):setTeleportConfig(travelConfig.position, travelConfig.cost)
+    return NpcInteraction:newConfirmationNeededInteraction(params):setTeleportConfig(params.position, cost)
 end
 
-function NpcInteraction:newConfirmationNeededInteraction(keys, topic, message, acceptedMessage, declinedMessage)
-    local interaction = NpcInteraction:new(keys, message, interactionTypes.INTERACTION_CONFIRMATION_NEEDED)
-                            :setTopic(topic)
-
-    interaction:addSubInteraction(
-        NpcInteraction:new({"yes"}, acceptedMessage)
-            :setTopic(0, topic)
-            :addCallbackFunction(function(npc, player) interaction:executeActions(npc, player) end)
-    )
-
-    interaction:addSubInteraction(
-        NpcInteraction:new({"no"}, declinedMessage)
-            :setTopic(0, topic)
-    )
-
+function NpcInteraction:newConfirmationNeededInteraction(params)
+    params.acceptedMessage = params.acceptedMessage or "It was a pleasure doing business with you."
+    params.declinedMessage = params.declinedMessage or "Then not."
+    local interaction = NpcInteraction:new(params.keywords, params.message, interactionTypes.INTERACTION_CONFIRMATION_NEEDED)
     return interaction
+        :setTopic(params.topic)
+        :addSubInteraction(NpcInteraction:new({"yes"}, params.acceptedMessage):setTopic(0, params.topic):addCallbackFunction(function(npc, player) interaction:executeActions(npc, player) end))
+        :addSubInteraction(NpcInteraction:new({"no"}, params.declinedMessage):setTopic(0, params.topic))
 end

@@ -33,18 +33,15 @@ npcType.onSay = function(npc, creature, type, message)
         message,
         creature:getPlayer(),
         {
-            NpcInteraction:new({"trip", "passage", "back"}, "You want to go back?")
-                :setTopic(1)
-                :addSubInteraction(
-                    NpcInteraction:new({"yes"}, "It'zz your doom you travel to.")
-                        :setTeleportConfig(Position(33158, 31228, 7))
-                        :setTopic(0, 1)
-                ):addSubInteraction(
-                    NpcInteraction:new({"no"}, "Zzoftzzkinzz zzo full of fear.")
-                        :setTopic(0, 1)
-                ),
-            NpcInteraction:new({"job", "hurry"}, "Me zzimple ferryman. I arrange {trip} to Zao.")
-                :setTopic(0),
+            NpcInteraction:createTravelInteraction({
+                ["keywords"] = {"trip", "passage", "back"},
+                ["position"] = Position(33158, 31228, 7),
+                ["topic"] = 1,
+                ["message"] = "You want to go back?",
+                ["acceptedMessage"] = "It'zz your doom you travel to.",
+                ["declinedMessage"] = "Zzoftzzkinzz zzo full of fear."
+            }),
+            NpcInteraction:new({"job", "hurry"}, "Me zzimple ferryman. I arrange {trip} to Zao."),
         }
     )
 end
