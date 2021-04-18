@@ -115,10 +115,10 @@ bool IOMap::loadMap(Map* map, const std::string& fileName)
 	}
 
 	if (root_header.minorVersionItems > Item::items.minorVersion) {
-		std::cout << "[Warning - IOMap::loadMap] This map needs an updated items.otb." << std::endl;
+		SPDLOG_WARN("[IOMap::loadMap] This map needs an updated items.otb");
 	}
 
-	std::cout << "> Map size: " << root_header.width << "x" << root_header.height << std::endl;
+	SPDLOG_INFO("Map size: {}x{}", root_header.width, root_header.height);
 	map->width = root_header.width;
 	map->height = root_header.height;
 
@@ -151,7 +151,7 @@ bool IOMap::loadMap(Map* map, const std::string& fileName)
 		}
 	}
 
-	std::cout << "> Map loading time: " << (OTSYS_TIME() - start) / (1000.) << " seconds" << std::endl;
+	SPDLOG_INFO("Map loading time: {} seconds", (OTSYS_TIME() - start) / (1000.));
 	return true;
 }
 
@@ -315,21 +315,29 @@ bool IOMap::parseTileArea(OTB::Loader& loader, const OTB::Node& tileAreaNode, Ma
 				teleportMap.emplace(teleportPosition, destinationPosition);
 				auto it = teleportMap.find(destinationPosition);
 				if (it != teleportMap.end()) {
-					std::cout << "[Warning - IOMap::loadMap] Teleport in position [x:" << x << ", y : " << y << ", z : " << z << "] is leading to another teleport." << std::endl;
+					SPDLOG_WARN("[IOMap::loadMap] - "
+                                "Teleport in position: x {}, y {}, z {} "
+                                "is leading to another teleport", x, y, z);
 				}
 				for (auto const& it2 : teleportMap) {
 					if (it2.second == teleportPosition) {
 						uint16_t fx = (it2.first >> 24) & 0xFFFF;
 						uint16_t fy = (it2.first >> 8) & 0xFFFF;
 						uint8_t fz = (it2.first) & 0xFF;
-						std::cout << "[Warning - IOMap::loadMap] Teleport in position [x:" << fx << ", y : " << fy << ", z : " << static_cast<uint16_t>(fz) << "] is leading to another teleport." << std::endl;
+						SPDLOG_WARN("[IOMap::loadMap] - "
+                                    "Teleport in position: x {}, y {}, z {} "
+                                    "is leading to another teleport",
+                                    fx, fy, static_cast<uint16_t>(fz));
 					}
 				}
 
 			}
 
 					if (isHouseTile && item->isMoveable()) {
-						std::cout << "[Warning - IOMap::loadMap] Moveable item with ID: " << item->getID() << ", in house: " << house->getId() << ", at position [x: " << x << ", y: " << y << ", z: " << z << "]." << std::endl;
+						SPDLOG_WARN("[IOMap::loadMap] - "
+                                    "Moveable item with ID: {}, in house: {}, "
+                                    "at position: x {}, y {}, z {}",
+                                    item->getID(), house->getId(), x, y, z);
 						delete item;
 					} else {
 						if (item->getItemCount() <= 0) {
@@ -392,7 +400,10 @@ bool IOMap::parseTileArea(OTB::Loader& loader, const OTB::Node& tileAreaNode, Ma
 			}
 
 			if (isHouseTile && item->isMoveable()) {
-				std::cout << "[Warning - IOMap::loadMap] Moveable item with ID: " << item->getID() << ", in house: " << house->getId() << ", at position [x: " << x << ", y: " << y << ", z: " << z << "]." << std::endl;
+				SPDLOG_WARN("[IOMap::loadMap] - "
+                                    "Moveable item with ID: {}, in house: {}, "
+                                    "at position: x {}, y {}, z {}",
+                                    item->getID(), house->getId(), x, y, z);
 				delete item;
 			} else {
 				if (item->getItemCount() <= 0) {

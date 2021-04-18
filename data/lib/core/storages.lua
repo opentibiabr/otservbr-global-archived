@@ -1296,7 +1296,7 @@ Storage = {
 			LastMissionState = 51529
 		},
 	TheCursedCrystal = {
-		Oneeyedjoe = 51530, 
+		Oneeyedjoe = 51530,
 		MedusaOil = 51531,
 		Questline = 51532
 		}
@@ -2421,8 +2421,9 @@ table.sort(extraction) -- Sort the table
 if #extraction > 1 then
 	for i = 1, #extraction - 1 do
 		if extraction[i] == extraction[i+1] then
-			print(">> Duplicate storage value found: ".. extraction[i])
-			print(string.format("> Processed in %.4f(s)", os.clock() - benchmark))
+			Spdlog.warn(string.format("Duplicate storage value found: %d",
+				extraction[i]))
+			Spdlog.warn(string.format("Processed in %.4f(s)", os.clock() - benchmark))
 		end
 	end
 end

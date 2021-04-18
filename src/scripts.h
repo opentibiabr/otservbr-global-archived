@@ -29,8 +29,19 @@ class Scripts
 		Scripts();
 		~Scripts();
 
+		// non-copyable
+		Scripts(const Scripts&) = delete;
+		Scripts& operator=(const Scripts&) = delete;
+
+		static Scripts& getInstance() {
+			static Scripts instance;
+			return instance;
+		}
+
+
 		bool loadEventSchedulerScripts(const std::string& fileName);
 		bool loadScripts(std::string folderName, bool isLib, bool reload);
+		bool loadScriptSystems();
 		LuaScriptInterface& getScriptInterface() {
 			return scriptInterface;
 		}

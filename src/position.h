@@ -20,6 +20,8 @@
 #ifndef FS_POSITION_H_5B684192F7034FB8857C8280D2CC6C75
 #define FS_POSITION_H_5B684192F7034FB8857C8280D2CC6C75
 
+#include <string>
+
 enum Direction : uint8_t {
 	DIRECTION_NORTH = 0,
 	DIRECTION_EAST = 1,
@@ -121,6 +123,17 @@ struct Position
 
 	Position operator-(const Position& p1) const {
 		return Position(x - p1.x, y - p1.y, z - p1.z);
+	}
+
+	std::string toString() const {
+		std::string str;
+		return str.append("( ")
+                  .append(std::to_string(getX()))
+                  .append(" / ")
+                  .append(std::to_string(getY()))
+                  .append(" / ")
+                  .append(std::to_string(getZ()))
+                  .append(" )");
 	}
 
 	int_fast32_t getX() const { return x; }

@@ -1,6 +1,6 @@
 /**
  * @file modules.cpp
- * 
+ *
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -30,7 +30,7 @@ Modules::Modules() :
 	scriptInterface.initState();
 }
 
-void Modules::clear(bool) 
+void Modules::clear(bool)
 {
 	//clear recvbyte list
 	for (auto& it : recvbyteList) {
@@ -63,12 +63,12 @@ bool Modules::registerEvent(Event_ptr event, const pugi::xml_node&)
 {
 	Module_ptr module {static_cast<Module*>(event.release())};
 	if (module->getEventType() == MODULE_TYPE_NONE) {
-		std::cout << "Error: [Modules::registerEvent] Trying to register event without type!" << std::endl;
+		SPDLOG_ERROR("Trying to register event without type!");
 		return false;
 	}
 
 	Module* oldModule = getEventByRecvbyte(module->getRecvbyte(), false);
-	if (oldModule) {	
+	if (oldModule) {
 		if (!oldModule->isLoaded() && oldModule->getEventType() == module->getEventType()) {
 			oldModule->copyEvent(module.get());
 		}
@@ -106,7 +106,7 @@ void Modules::executeOnRecvbyte(Player* player, NetworkMessage& msg, uint8_t byt
 		}
 	}
 }
-/////////////////////////////////////
+
 
 Module::Module(LuaScriptInterface* interface) :
 	Event(interface), type(MODULE_TYPE_NONE), loaded(false) {}
@@ -117,7 +117,7 @@ bool Module::configureEvent(const pugi::xml_node& node)
 
 	pugi::xml_attribute typeAttribute = node.attribute("type");
 	if (!typeAttribute) {
-		std::cout << "[Error - Modules::configureEvent] Missing type for module." << std::endl;
+		SPDLOG_ERROR("Missing type for module.");
 		return false;
 	}
 
@@ -125,14 +125,14 @@ bool Module::configureEvent(const pugi::xml_node& node)
 	if (tmpStr == "recvbyte") {
 		pugi::xml_attribute byteAttribute = node.attribute("byte");
 		if (!byteAttribute) {
-			std::cout << "[Error - Modules::configureEvent] Missing byte for module typed recvbyte." << std::endl;
+			SPDLOG_ERROR("Missing byte for module typed recvbyte.");
 			return false;
 		}
 
 		recvbyte = static_cast<uint8_t>(byteAttribute.as_int());
 		type = MODULE_TYPE_RECVBYTE;
 	} else {
-		std::cout << "[Error - Modules::configureEvent] Invalid type for module." << std::endl;
+		SPDLOG_ERROR("Invalid type for module.");
 		return false;
 	}
 
@@ -175,10 +175,8 @@ void Module::executeOnRecvbyte(Player* player, NetworkMessage& msg)
 {
 	//onAdvance(player, skill, oldLevel, newLevel)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - CreatureEvent::executeAdvance"
-				<< " Player "
-				<< player->getName()
-				<< "] Call stack overflow. Too many lua script calls being nested." << std::endl;
+		SPDLOG_ERROR("Call stack overflow. Too many lua script calls being nested {}",
+			player->getName());
 		return;
 	}
 
@@ -190,7 +188,7 @@ void Module::executeOnRecvbyte(Player* player, NetworkMessage& msg)
 	scriptInterface->pushFunction(scriptId);
 	LuaScriptInterface::pushUserdata<Player>(L, player);
 	LuaScriptInterface::setMetatable(L, -1, "Player");
-	
+
 	LuaScriptInterface::pushUserdata<NetworkMessage>(L, &msg);
 	LuaScriptInterface::setWeakMetatable(L, -1, "NetworkMessage");
 

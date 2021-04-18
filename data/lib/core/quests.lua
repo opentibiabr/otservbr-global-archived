@@ -6186,7 +6186,8 @@ function Player.updateStorage(self, key, value, oldValue, currentFrameTime)
 end
 
 local function sendPrint(questId, index)
-	print(string.format("> Quest id: %d, mission: %d", questId, index))
+	Spdlog.warn(string.format("[sendPrint] - Quest id:[%d] mission:[%d]",
+		questId, index))
 end
 
 for questId = 1, #Quests do
@@ -6195,23 +6196,23 @@ for questId = 1, #Quests do
 		for index, value in ipairs(quest.missions) do
 			if index then
 				if not value.name then
-					print(">> Wrong mission name found")
+					Spdlog.warn("Quest.load: Wrong mission name found")
 					sendPrint(questId, index)
 				end
 				if not value.storageId then
-					print(">> Wrong mission storage found")
+					Spdlog.warn("Quest.load: Wrong mission storage found")
 					sendPrint(questId, index)
 				end
 				if not value.missionId then
-					print(">> Wrong mission id found")
+					Spdlog.warn("Quest.load: Wrong mission id found")
 					sendPrint(questId, index)
 				end
 				if not value.startValue then
-					print(">> Wrong mission start value found")
+					Spdlog.warn("Quest.load: Wrong mission start value found")
 					sendPrint(questId, index)
 				end
 				if not value.endValue then
-					print(">> Wrong mission end value found")
+					Spdlog.warn("Quest.load: Wrong mission end value found")
 					sendPrint(questId, index)
 				end
 			end

@@ -1,0 +1,20 @@
+{
+	"name": "otbr",
+	"version-string": "1.0.0",
+	"builtin-baseline": "030cfaa24de9ea1bbf0a4d9c615ce7312ba77af1",
+	"dependencies": [
+		"boost-asio",
+		"boost-lockfree",
+		"boost-variant",
+		"boost-filesystem",
+		"boost-iostreams",
+		"boost-system",
+		"boost-system",
+		"libmariadb",
+		"pugixml",
+		"spdlog",
+		"curl",
+		"jsoncpp",
+		"cryptopp"
+	]
+}

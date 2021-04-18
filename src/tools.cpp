@@ -26,7 +26,7 @@ extern ConfigManager g_config;
 
 void printXMLError(const std::string& where, const std::string& fileName, const pugi::xml_parse_result& result)
 {
-	std::cout << '[' << where << "] Failed to load " << fileName << ": " << result.description() << std::endl;
+	SPDLOG_ERROR("[{}] Failed to load {}: {}", where, fileName, result.description());
 
 	FILE* file = fopen(fileName.c_str(), "rb");
 	if (!file) {
@@ -61,16 +61,16 @@ void printXMLError(const std::string& where, const std::string& fileName, const 
 	} while (bytes == 32768);
 	fclose(file);
 
-	std::cout << "Line " << currentLine << ':' << std::endl;
-	std::cout << line << std::endl;
+	SPDLOG_ERROR("Line {}:", currentLine);
+	SPDLOG_ERROR("{}", line);
 	for (size_t i = 0; i < lineOffsetPosition; i++) {
 		if (line[i] == '\t') {
-			std::cout << '\t';
+			SPDLOG_ERROR("\t");
 		} else {
-			std::cout << ' ';
+			SPDLOG_ERROR(" ");
 		}
 	}
-	std::cout << '^' << std::endl;
+	SPDLOG_ERROR("^");
 }
 
 static uint32_t circularShift(int bits, uint32_t value)
@@ -685,19 +685,18 @@ ShootTypeNames shootTypeNames = {
 };
 
 CombatTypeNames combatTypeNames = {
-	
-	{COMBAT_DROWNDAMAGE, 		"drown"},
-	{COMBAT_DEATHDAMAGE, 		"death"},
-	{COMBAT_ENERGYDAMAGE, 		"energy"},
-	{COMBAT_EARTHDAMAGE, 		"earth"},
-	{COMBAT_FIREDAMAGE, 		"fire"},
-	{COMBAT_HEALING, 			"healing"},
-	{COMBAT_HOLYDAMAGE, 		"holy"},
-	{COMBAT_ICEDAMAGE, 			"ice"},
-	{COMBAT_UNDEFINEDDAMAGE, 	"undefined"},
-	{COMBAT_LIFEDRAIN, 			"lifedrain"},
-	{COMBAT_MANADRAIN, 			"manadrain"},
-	{COMBAT_PHYSICALDAMAGE, 	"physical"},
+	{COMBAT_DROWNDAMAGE,			"drown"			},
+	{COMBAT_DEATHDAMAGE,			"death"			},
+	{COMBAT_ENERGYDAMAGE,			"energy"		},
+	{COMBAT_EARTHDAMAGE,			"earth"			},
+	{COMBAT_FIREDAMAGE,				"fire"			},
+	{COMBAT_HEALING,					"healing"		},
+	{COMBAT_HOLYDAMAGE,				"holy"			},
+	{COMBAT_ICEDAMAGE,				"ice"				},
+	{COMBAT_UNDEFINEDDAMAGE,	"undefined"	},
+	{COMBAT_LIFEDRAIN,				"lifedrain"	},
+	{COMBAT_MANADRAIN,				"manadrain"	},
+	{COMBAT_PHYSICALDAMAGE, 	"physical"	},
 };
 
 AmmoTypeNames ammoTypeNames = {
@@ -1330,7 +1329,7 @@ int64_t OTSYS_TIME()
 	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
-SpellGroup_t stringToSpellGroup(std::string value)
+SpellGroup_t stringToSpellGroup(const std::string &value)
 {
 	std::string tmpStr = asLowerCaseString(value);
 	if (tmpStr == "attack" || tmpStr == "1") {
@@ -1399,8 +1398,8 @@ NameEval_t validateName(const std::string &name)
 }
 bool isCaskItem(uint16_t itemId)
 {
-	return (itemId >= ITEM_HEALTH_CASK_START && itemId <= ITEM_HEALTH_CASK_END) || 
-		(itemId >= ITEM_MANA_CASK_START && itemId <= ITEM_MANA_CASK_END) || 
+	return (itemId >= ITEM_HEALTH_CASK_START && itemId <= ITEM_HEALTH_CASK_END) ||
+		(itemId >= ITEM_MANA_CASK_START && itemId <= ITEM_MANA_CASK_END) ||
 		(itemId >= ITEM_SPIRIT_CASK_START && itemId <= ITEM_SPIRIT_CASK_END);
 }
 
