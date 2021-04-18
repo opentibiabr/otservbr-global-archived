@@ -208,7 +208,7 @@ class Game
 		  * \param extendedPos If true, the creature will in first-hand be placed 2 tiles away
 		  * \param forced If true, placing the creature will not fail because of obstacles (creatures/items)
 		  */
-		bool internalPlaceCreature(Creature* creature, const Position& pos, bool extendedPos = false, bool forced = false);
+		bool internalPlaceCreature(Creature* creature, const Position& pos, bool extendedPos = false, bool forced = false, bool creatureCheck = false);
 
 		/**
 		  * Place Creature on the map.

@@ -107,10 +107,6 @@ void Npc::onCreatureAppear(Creature* creature, bool isLogin)
 	if (callback.persistLuaState()) {
 		return;
 	}
-
-	if (creature == this) {
-		addCreatureCheck();
-	}
 }
 
 void Npc::onRemoveCreature(Creature* creature, bool isLogout)
@@ -210,6 +206,7 @@ void Npc::onThink(uint32_t interval)
 	}
 
 	onThinkYell(interval);
+	onThinkWalk(interval);
 }
 
 void Npc::onThinkYell(uint32_t interval)
@@ -233,6 +230,35 @@ void Npc::onThinkYell(uint32_t interval)
 			}
 		}
 	}
+}
+
+void Npc::onThinkWalk(uint32_t interval)
+{
+	if (npcType->info.walkInterval == 0 || baseSpeed == 0) {
+		return;
+	}
+
+	// If talking, no walking
+	if (playerInteractions.size() > 0) {
+		walkTicks = 0;
+		eventWalk = 0;
+		return;
+	}
+
+	walkTicks += interval;
+	if (walkTicks < npcType->info.walkInterval) {
+		return;
+	}
+
+	listWalkDir.push_front(Position::getRandomDirection());
+	addEventWalk();
+
+	walkTicks = 0;
+}
+
+void Npc::onPlacedCreature()
+{
+	addEventWalk();
 }
 
 bool Npc::isInSpawnRange(const Position& pos) const
@@ -266,10 +292,6 @@ void Npc::setPlayerInteraction(uint32_t playerId, uint16_t topicId /*= 0*/) {
 	  return;
 	}
 
-	if (playerInteractions.size() == 0) {
-		Game::removeCreatureCheck(this);
-	}
-
 	turnToCreature(creature);
 
 	playerInteractions[playerId] = topicId;
@@ -285,34 +307,12 @@ void Npc::removePlayerInteraction(uint32_t playerId) {
 	if (playerInteractions.find(playerId) != playerInteractions.end()) {
 		playerInteractions.erase(playerId);
 	}
-
-	if (playerInteractions.size() == 0) {
-		addCreatureCheck();
-	}
 }
 
 void Npc::resetPlayerInteractions() {
 	playerInteractions.clear();
-	addCreatureCheck();
 }
 
 bool Npc::getNextStep(Direction& nextDirection, uint32_t& flags) {
-	// If talking, no walking
-	if (playerInteractions.size() > 0) {
-		eventWalk = 0;
-		return false;
-	}
-
-	if (!eventWalk) {
-		addCreatureCheck();
-	}
-
-	listWalkDir.push_front(Position::getRandomDirection());
-
 	return Creature::getNextStep(nextDirection, flags);
-}
-
-void Npc::addCreatureCheck() {
-	g_game.addCreatureCheck(this);
-	addEventWalk();
 }

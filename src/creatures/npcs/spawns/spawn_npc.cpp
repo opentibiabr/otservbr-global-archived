@@ -185,7 +185,7 @@ bool SpawnNpc::spawnNpc(uint32_t spawnId, NpcType* npcType, const Position& pos,
 	std::unique_ptr<Npc> npc_ptr(new Npc(npcType));
 	if (startup) {
 		//No need to send out events to the surrounding since there is no one out there to listen!
-		if (!g_game.internalPlaceCreature(npc_ptr.get(), pos, true)) {
+		if (!g_game.internalPlaceCreature(npc_ptr.get(), pos, true, false, true)) {
 			return false;
 		}
 	} else {
@@ -199,7 +199,6 @@ bool SpawnNpc::spawnNpc(uint32_t spawnId, NpcType* npcType, const Position& pos,
 	npc->setSpawnNpc(this);
 	npc->setMasterPos(pos);
 	npc->incrementReferenceCounter();
-	npc->addCreatureCheck();
 
 	spawnedNpcMap.insert(spawned_pair(spawnId, npc));
 	spawnNpcMap[spawnId].lastSpawnNpc = OTSYS_TIME();

@@ -990,7 +990,7 @@ Player* Game::getPlayerByAccount(uint32_t acc)
 	return nullptr;
 }
 
-bool Game::internalPlaceCreature(Creature* creature, const Position& pos, bool extendedPos /*=false*/, bool forced /*= false*/)
+bool Game::internalPlaceCreature(Creature* creature, const Position& pos, bool extendedPos /*=false*/, bool forced /*= false*/, bool creatureCheck /*= false*/)
 {
 	if (creature->getParent() != nullptr) {
 		return false;
@@ -1003,12 +1003,18 @@ bool Game::internalPlaceCreature(Creature* creature, const Position& pos, bool e
 	creature->incrementReferenceCounter();
 	creature->setID();
 	creature->addList();
+
+	if (creatureCheck) {
+		addCreatureCheck(creature);
+		creature->onPlacedCreature();
+	}
+
 	return true;
 }
 
 bool Game::placeCreature(Creature* creature, const Position& pos, bool extendedPos /*=false*/, bool forced /*= false*/)
 {
-	if (!internalPlaceCreature(creature, pos, extendedPos, forced)) {
+	if (!internalPlaceCreature(creature, pos, extendedPos, forced, true)) {
 		return false;
 	}
 
@@ -1026,8 +1032,6 @@ bool Game::placeCreature(Creature* creature, const Position& pos, bool extendedP
 
 	creature->getParent()->postAddNotification(creature, nullptr, 0);
 
-	addCreatureCheck(creature);
-	creature->onPlacedCreature();
 	return true;
 }
 

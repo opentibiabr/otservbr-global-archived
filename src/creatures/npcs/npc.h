@@ -132,16 +132,14 @@ class Npc final : public Creature
 		void onRemoveCreature(Creature* creature, bool isLogout) override;
 		void onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos, const Tile* oldTile, const Position& oldPos, bool teleport) override;
 		void onCreatureSay(Creature* creature, SpeakClasses type, const std::string& text) override;
+		void onThink(uint32_t interval) override;
+		void onPlacedCreature() override;
 
 		bool getNextStep(Direction& direction, uint32_t& flags) override;
-
-		void onThink(uint32_t interval) override;
 
 		void setNormalCreatureLight() override {
 			internalLight = npcType->info.light;
 		}
-
-		void addCreatureCheck();
 
 		static uint32_t npcAutoID;
 
@@ -154,14 +152,14 @@ class Npc final : public Creature
 		SpawnNpc* spawnNpc = nullptr;
 
 		uint32_t yellTicks = 0;
-
-		int32_t stepDuration = 0;
+		uint32_t walkTicks = 0;
 
 		Position masterPos;
 
 		bool isInSpawnRange(const Position& pos) const;
 
 		void onThinkYell(uint32_t interval);
+		void onThinkWalk(uint32_t interval);
 
 		friend class LuaScriptInterface;
 		friend class Map;
