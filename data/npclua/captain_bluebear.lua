@@ -5,7 +5,7 @@ npc.description = "Captain Bluebear"
 
 npc.health = 100
 npc.maxHealth = npc.health
-npc.walkInterval = 0
+npc.walkInterval = 2000
 npc.walkRadius = 0
 
 npc.outfit = {
@@ -15,6 +15,12 @@ npc.outfit = {
     lookLegs = 125,
     lookFeet = 50,
     lookAddons = 0
+}
+
+npc.voices = {
+    interval = 2000,
+    chance = 20,
+    { text = 'Passages to Carlin, Ab\'Dendriel, Edron, Venore, Port Hope, Liberty Bay, Yalahar, Roshamuul, Krailos, Oramond and Svargrond.' }
 }
 
 npc.flags = {
@@ -34,12 +40,11 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-    local player = creature:getPlayer()
     return npc:processOnSay(
         message,
-        player,
+        creature,
         {
-            NpcInteraction:new({"hi", "hello"}, "Welcome on board, ".. player:getName() .." Where can I {sail} you today?", interactionTypes.INTERACTION_GREET),
+            NpcInteraction:new({"hi", "hello"}, "Welcome on board, ".. creature:getName() .." Where can I {sail} you today?", interactionTypes.INTERACTION_GREET),
             NpcInteraction:new({"name"}, "My name is Captain Bluebear from the Royal Tibia Line."),
             NpcInteraction:new({"job", "captain"}, "I am the captain of this sailing-ship."),
             NpcInteraction:new({"ship", "line", "company", "tibia"}, "The Royal Tibia Line connects all seaside towns of Tibia."),
@@ -50,6 +55,12 @@ npcType.onSay = function(npc, creature, type, message)
             NpcInteraction:new({"darashia", "darama"}, "I\'m not sailing there. This route is afflicted by a ghostship! However I\'ve heard that Captain Fearless from Venore sails there."),
             NpcInteraction:new({"ghost"}, "Many people who sailed to Darashia never returned because they were attacked by a ghostship! I\'ll never sail there!"),
             NpcInteraction:new({"thais"}, "This is Thais. Where do you want to go?"),
+            NpcInteraction:createTravelInteraction({
+                ["keywords"] = {"carlin"},
+                ["cost"] = 110,
+                ["position"] = Position(32387, 31820, 6),
+                ["topic"] = 1
+            }),
             NpcInteraction:createTravelInteraction({
                 ["keywords"] = {"ab'dendriel"},
                 ["cost"] = 130,

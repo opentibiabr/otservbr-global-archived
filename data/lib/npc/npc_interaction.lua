@@ -205,7 +205,6 @@ end
 
 -- Executes configured teleport
 function NpcInteraction:performTeleport(npc, player)
-    Spdlog.warn("a")
     if self.teleport then
         if self.teleport.cost and not npc:chargePlayer(player, self.teleport.cost) then return end
 
