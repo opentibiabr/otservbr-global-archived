@@ -199,6 +199,7 @@ bool SpawnNpc::spawnNpc(uint32_t spawnId, NpcType* npcType, const Position& pos,
 	npc->setSpawnNpc(this);
 	npc->setMasterPos(pos);
 	npc->incrementReferenceCounter();
+	npc->addCreatureCheck();
 
 	spawnedNpcMap.insert(spawned_pair(spawnId, npc));
 	spawnNpcMap[spawnId].lastSpawnNpc = OTSYS_TIME();
