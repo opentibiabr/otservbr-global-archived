@@ -40,8 +40,8 @@ function Npc:processOnSay(message, player, npcInteractions)
         return false
     end
 
-    table.insert(npcInteractions, NpcInteraction:newDefaultByType(player, messageTypes.MESSAGE_GREET))
-    table.insert(npcInteractions, NpcInteraction:newDefaultByType(player, messageTypes.MESSAGE_FAREWELL))
+    table.insert(npcInteractions, NpcInteraction:newDefaultByType(player, interactionTypes.INTERACTION_GREET))
+    table.insert(npcInteractions, NpcInteraction:newDefaultByType(player, interactionTypes.INTERACTION_FAREWELL))
 
     for _, npcInteraction in pairs(npcInteractions) do
         local validInteraction = npcInteraction:getValidInteraction(self, player, message)

@@ -1,38 +1,41 @@
+-- if NpcInteraction ~= nil then return end
+
 -- Available message types
-messageTypes = {
-    MESSAGE_COMMON = 1,
-    MESSAGE_GREET = 2,
-    MESSAGE_FAREWELL = 3
+interactionTypes = {
+    INTERACTION_COMMON = 1,
+    INTERACTION_GREET = 2,
+    INTERACTION_FAREWELL = 3,
+    INTERACTION_CONFIRMATION_NEEDED = 4,
 }
 
 -- Every interaction of an NPC can be structured like that
 NpcInteraction = {
     keys = nil,
+    type = nil,
     message = nil,
     topic = nil,
     previousTopic = nil,
-    messageType = nil,
-    storageChanges = nil,
-    storageChecks = nil,
     teleport = nil,
     subInteractions = nil,
-    callbackFunctions = nil,
+    storageChanges = nil,
+    storageChecks = nil,
+    callbacks = nil,
 }
 
--- Creates a new NpcInteraction with message and type (defaults to MESSAGE_COMMON)
-function NpcInteraction:new(keys, message, messageType)
+-- Creates a new NpcInteraction with message and type (defaults to INTERACTION_COMMON)
+function NpcInteraction:new(keys, message, type)
     local obj = {}
 
     obj.keys = keys or {}
+    obj.type = type or interactionTypes.INTERACTION_COMMON
     obj.message = message
-    obj.messageType = messageType or messageTypes.MESSAGE_COMMON
     obj.topic = 0
     obj.previousTopic = nil
     obj.teleport = nil
     obj.subInteractions = {}
     obj.storageChanges = {}
     obj.storageChecks = {}
-    obj.callbackFunctions = {}
+    obj.callbacks = {}
 
     setmetatable(obj, self)
     self.__index = self
@@ -47,11 +50,20 @@ function NpcInteraction:execute(npc, player)
 
     npc:talk(player, self.message)
 
-    self:performTeleport(npc, player)
-    self:updatePlayerStorages(player)
+    if self.type ~= interactionTypes.INTERACTION_CONFIRMATION_NEEDED then
+        self:executeActions(npc, player)
+    end
+
     self:updatePlayerInteraction(npc, player)
 
     return true
+end
+
+-- Executes actions without validation
+function NpcInteraction:executeActions(npc, player)
+    self:executeCallbacks(npc, player)
+    self:performTeleport(npc, player)
+    self:updatePlayerStorages(player)
 end
 
 -- Check if key is valid
@@ -107,12 +119,13 @@ end
 function NpcInteraction:addSubInteraction(interaction)
     if not interaction then return self end
     self.subInteractions[#self.subInteractions + 1] = interaction
+
     return self
 end
 
 -- Add a custom function to be executed in the end of a valid interaction
 function NpcInteraction:addCallbackFunction(callback)
-    self.callbackFunctions[#self.callbackFunctions + 1] = callback
+    self.callbacks[#self.callbacks + 1] = callback
     return self
 end
 
@@ -128,20 +141,20 @@ function NpcInteraction:shouldAnswerPlayer(npc, player)
     return true
 end
 
-function NpcInteraction:newDefaultByType(player, messageType)
-    if messageType == messageTypes.MESSAGE_GREET then
+function NpcInteraction:newDefaultByType(player, type)
+    if type == interactionTypes.INTERACTION_GREET then
         return NpcInteraction:new(
             {"hi", "hello"},
             "Hello, ".. player:getName() ..", what you need?",
-            messageType
+            type
         )
     end
 
-    if messageType == messageTypes.MESSAGE_FAREWELL then
+    if type == interactionTypes.INTERACTION_FAREWELL then
         return NpcInteraction:new(
             {"bye", "farewell"},
             "Goodbye, ".. player:getName() ..".",
-            messageType
+            type
         )
     end
 
@@ -155,7 +168,7 @@ end
 -- Check if player can interact with the NpcInteraction
 -- Greet only happens if no interaction is set, all other messages need an ongoing interaction
 function NpcInteraction:hasValidPlayerInteraction(npc, player)
-    if self.messageType == messageTypes.MESSAGE_GREET then
+    if self.type == interactionTypes.INTERACTION_GREET then
         return not npc:isInteractingWithPlayer(player)
     end
 
@@ -174,9 +187,9 @@ end
 -- Set player interaction in the configured topic
 -- Greet sets to 0 (begin) and Farewell removes interaction
 function NpcInteraction:updatePlayerInteraction(npc, player)
-    if self.messageType == messageTypes.MESSAGE_FAREWELL then
+    if self.type == interactionTypes.INTERACTION_FAREWELL then
         npc:removePlayerInteraction(player)
-    elseif self.messageType == messageTypes.MESSAGE_GREET then
+    elseif self.type == interactionTypes.INTERACTION_GREET then
         npc:setPlayerInteraction(player, 0)
     elseif self.topic then
         npc:setPlayerInteraction(player, self.topic)
@@ -192,6 +205,7 @@ end
 
 -- Executes configured teleport
 function NpcInteraction:performTeleport(npc, player)
+    Spdlog.warn("a")
     if self.teleport then
         if self.teleport.cost and not npc:chargePlayer(player, self.teleport.cost) then return end
 
@@ -208,19 +222,68 @@ end
 
 -- Executes configured callbacks
 function NpcInteraction:executeCallbacks(npc, player)
+    for _,callback in pairs(self.callbacks) do
+        callback(npc, player)
+    end
+end
+
+-- Every interaction of an NPC can be structured like that
+NpcTravelConfig = {
+    location = nil,
+    cost = nil,
+    position = nil,
+    topic = nil,
+    message = nil,
+    messageAccept = nil,
+    messageDecline = nil,
+}
+
+-- Creates a new NpcInteraction with message and type (defaults to INTERACTION_COMMON)
+function NpcTravelConfig:new(location, cost, position, topic, message, messageAccept, messageDecline)
+    local obj = {}
+
+    obj.location = location
+    obj.cost = cost or 0
+    obj.position = position
+    obj.topic = topic
+    obj.message = message or nil
+    obj.messageAccept = messageAccept or nil
+    obj.messageDecline = messageDecline or nil
+
+    setmetatable(obj, self)
+    self.__index = self
+    return obj
 end
 
 -- Executes configured callbacks
-function NpcInteraction:createTravelInteraction(placeName, cost, position, topic, message, messageAccept, messageDecline)
-    message = message or "Do you want to travel to " .. placeName .. " for " .. cost .. " gold coins?"
-    return NpcInteraction:new({placeName}, message)
-        :setTopic(topic)
-        :addSubInteraction(
-            NpcInteraction:new({"yes"}, messageAccept or "It was a pleasure doing business with you.")
-                :setTeleportConfig(position, cost)
-                :setTopic(0, topic)
-        ):addSubInteraction(
-            NpcInteraction:new({"no"}, messageDecline or "Then not.")
-                :setTopic(0, topic)
-        )
+function NpcInteraction:createTravelInteraction(travelConfig)
+    local message = travelConfig.message or "Do you want to travel to " .. travelConfig.location .. " for " .. travelConfig.cost .. " gold coins?"
+    local acceptedMessage = travelConfig.messageAccept or "It was a pleasure doing business with you."
+    local declinedMessage = travelConfig.messageDecline or "Then not."
+
+    return NpcInteraction:newConfirmationNeededInteraction(
+        {travelConfig.location},
+        travelConfig.topic,
+        message,
+        acceptedMessage,
+        declinedMessage
+    ):setTeleportConfig(travelConfig.position, travelConfig.cost)
+end
+
+function NpcInteraction:newConfirmationNeededInteraction(keys, topic, message, acceptedMessage, declinedMessage)
+    local interaction = NpcInteraction:new(keys, message, interactionTypes.INTERACTION_CONFIRMATION_NEEDED)
+                            :setTopic(topic)
+
+    interaction:addSubInteraction(
+        NpcInteraction:new({"yes"}, acceptedMessage)
+            :setTopic(0, topic)
+            :addCallbackFunction(function(npc, player) interaction:executeActions(npc, player) end)
+    )
+
+    interaction:addSubInteraction(
+        NpcInteraction:new({"no"}, declinedMessage)
+            :setTopic(0, topic)
+    )
+
+    return interaction
 end

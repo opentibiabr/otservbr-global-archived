@@ -40,7 +40,7 @@ npcType.onSay = function(npc, creature, type, message)
     return npc:processOnSay(
         message,
         player,
-        { NpcInteraction:new({"hi"}, "So you have come, ".. player:getName() ..". I hoped you would not...", messageTypes.MESSAGE_GREET) }
+        { NpcInteraction:new({"hi"}, "So you have come, ".. player:getName() ..". I hoped you would not...", interactionTypes.INTERACTION_GREET) }
     )
 end
 

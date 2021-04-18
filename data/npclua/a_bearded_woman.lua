@@ -52,7 +52,7 @@ npcType.onSay = function(npc, creature, type, message)
         message,
         creature:getPlayer(),
         {
-            NpcInteraction:new({"hi"}, "GET ME OUT OF HERE! NOW!", messageTypes.MESSAGE_GREET),
+            NpcInteraction:new({"hi"}, "GET ME OUT OF HERE! NOW!", interactionTypes.INTERACTION_GREET),
             NpcInteraction:new({"job"}, "I am a great and famous actor! Not a princess, at all. I was only PRETENDING to be a princess. But try explaining that to those stupid pirates."),
             NpcInteraction:new({"actor", "stage"}, "Stage acting was a waste of my immense talent. Not only am I a born leader, my talent is more profitable when it is used for conning people."),
             NpcInteraction:new({"kid"}, "He was always a fool with a heart too soft to become a feared pirate"),

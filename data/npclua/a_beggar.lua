@@ -40,7 +40,7 @@ npcType.onSay = function(npc, creature, type, message)
         message,
         creature:getPlayer(),
         {
-            NpcInteraction:new({"hi"}, "Hi! What is it, what d'ye {want}?", messageTypes.MESSAGE_GREET),
+            NpcInteraction:new({"hi"}, "Hi! What is it, what d'ye {want}?", interactionTypes.INTERACTION_GREET),
             NpcInteraction
                 :new({"want"}, "The guys from the magistrate sent you here, didn't they?")
                 :setTopic(1)
