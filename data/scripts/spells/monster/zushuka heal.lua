@@ -4,7 +4,9 @@ condition:setParameter(CONDITION_PARAM_TICKS, 15 * 60 * 1000)
 condition:setParameter(CONDITION_PARAM_HEALTHGAIN, 0.01)
 condition:setParameter(CONDITION_PARAM_HEALTHTICKS, 15 * 60 * 1000)
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	if creature:getHealth() < creature:getMaxHealth() * 0.2 and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
 		creature:addCondition(condition)
 		creature:addHealth(math.random(7500, 7515))
@@ -13,3 +15,11 @@ function onCastSpell(creature, var)
 	end
 return true
 end
+
+spell:name("zushuka heal")
+spell:words("###342")
+spell:needTarget(true)
+spell:needLearn(true)
+spell:isAggressive(false)
+spell:blockWalls(true)
+spell:register()

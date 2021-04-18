@@ -8,6 +8,16 @@ condition:setParameter(CONDITION_PARAM_DELAYED, 1)
 condition:addDamage(30, 8000, -8)
 combat:addCondition(condition)
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("zushuka freeze")
+spell:words("###234")
+spell:needTarget(true)
+spell:needLearn(true)
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:register()

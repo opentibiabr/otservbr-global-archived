@@ -37,6 +37,16 @@ end
 
 combat:setCallback(CALLBACK_PARAM_TARGETCREATURE, "onTargetCreature")
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("zavarash heal")
+spell:words("###393")
+spell:needTarget(false)
+spell:needLearn(true)
+spell:isAggressive(false)
+spell:blockWalls(true)
+spell:register()

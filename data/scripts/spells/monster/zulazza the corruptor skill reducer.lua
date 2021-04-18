@@ -14,6 +14,16 @@ for i = 40, 50 do
 	combat[i]:addCondition(condition)
 end
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	return combat[math.random(40, 50)]:execute(creature, var)
 end
+
+spell:name("zushuka the corruptor skill reducer")
+spell:words("###232")
+spell:needTarget(true)
+spell:needLearn(true)
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:register()

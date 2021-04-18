@@ -24,7 +24,7 @@ function spell.onCastSpell(creature, var)
 end
 
 spell:name("zamulosh invisible")
-spell:words("###162")
+spell:words("###414")
 spell:needTarget(false)
 spell:needLearn(true)
 spell:isAggressive(true)

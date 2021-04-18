@@ -7,6 +7,16 @@
 	condition:setFormula(-0.05, 0, -0.1, 0)
 	combat:addCondition(condition)
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")	
+
+function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("zavarash2 paralyze")
+spell:words("###229")
+spell:needTarget(true)
+spell:needLearn(true)
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:register()

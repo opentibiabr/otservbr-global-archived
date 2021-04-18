@@ -7,8 +7,8 @@ function spell.onCastSpell(creature, var)
 	return
 end
 
-spell:name("zamulosh teleport")
-spell:words("###163")
+spell:name("zamulosh tp")
+spell:words("###415")
 spell:needTarget(false)
 spell:needLearn(true)
 spell:isAggressive(true)

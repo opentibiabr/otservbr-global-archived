@@ -9,7 +9,18 @@
 	local area = createCombatArea(AREA_SQUARE1X1)
 	combat:setArea(area)
 	combat:addCondition(condition)
+     
+	local spell = Spell("instant")
 
-function onCastSpell(creature, var)
+
+function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("zushuka paralyze")
+spell:words("###233")
+spell:needTarget(true)
+spell:needLearn(true)
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:register()
