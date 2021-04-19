@@ -1417,7 +1417,6 @@ class LuaScriptInterface
 		static int luaNpcTypeIsHostile(lua_State* L);
 		static int luaNpcTypeIsPushable(lua_State* L);
 		static int luaNpcTypeIsHealthHidden(lua_State* L);
-		static int luaNpcTypeIsBlockable(lua_State* L);
 
 		static int luaNpcTypeIsRewardBoss(lua_State* L);
 		static int luaNpcTypeRespawnType(lua_State* L);
@@ -1436,26 +1435,14 @@ class LuaScriptInterface
 		static int luaNpcTypeRunHealth(lua_State* L);
 		static int luaNpcTypeExperience(lua_State* L);
 
-		static int luaNpcTypeCombatImmunities(lua_State* L);
-		static int luaNpcTypeConditionImmunities(lua_State* L);
-
 		static int luaNpcTypeGetAttackList(lua_State* L);
 		static int luaNpcTypeAddAttack(lua_State* L);
 
 		static int luaNpcTypeGetDefenseList(lua_State* L);
 		static int luaNpcTypeAddDefense(lua_State* L);
 
-		static int luaNpcTypeGetElementList(lua_State* L);
-		static int luaNpcTypeAddElement(lua_State* L);
-
-		static int luaNpcTypeAddReflect(lua_State* L);
-		static int luaNpcTypeAddHealing(lua_State* L);
-
 		static int luaNpcTypeGetVoices(lua_State* L);
 		static int luaNpcTypeAddVoice(lua_State* L);
-
-		static int luaNpcTypeGetLoot(lua_State* L);
-		static int luaNpcTypeAddLoot(lua_State* L);
 
 		static int luaNpcTypeGetCreatureEvents(lua_State* L);
 		static int luaNpcTypeRegisterEvent(lua_State* L);
@@ -1463,15 +1450,9 @@ class LuaScriptInterface
 		static int luaNpcTypeEventOnCallback(lua_State* L);
 		static int luaNpcTypeEventType(lua_State* L);
 
-		static int luaNpcTypeGetSummonList(lua_State* L);
-		static int luaNpcTypeAddSummon(lua_State* L);
-
-		static int luaNpcTypeMaxSummons(lua_State* L);
-
 		static int luaNpcTypeArmor(lua_State* L);
 		static int luaNpcTypeDefense(lua_State* L);
 		static int luaNpcTypeOutfit(lua_State* L);
-		static int luaNpcTypeRace(lua_State* L);
 		static int luaNpcTypeCorpseId(lua_State* L);
 		static int luaNpcTypeBaseSpeed(lua_State* L);
 		static int luaNpcTypeWalkInterval(lua_State* L);

@@ -6715,7 +6715,7 @@ void ProtocolGame::parseStashWithdraw(NetworkMessage &msg)
 			break;
 		}
 		default:
-			std::cout << "[ProtocolGame::parseStashWithdraw] Unknown 'supply stash' action switch: " << action << std::endl;
+			SPDLOG_ERROR("Unknown 'supply stash' action switch: {}", action);
 			break;
 	}
 

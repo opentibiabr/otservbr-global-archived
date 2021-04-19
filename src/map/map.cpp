@@ -31,7 +31,6 @@ extern Game g_game;
 
 bool Map::loadMap(const std::string& identifier, bool loadHouses, bool loadMonsters, bool loadNpcs)
 {
-	int64_t start = OTSYS_TIME();
 	IOMap loader;
 	if (!loader.loadMap(this, identifier)) {
 		SPDLOG_ERROR("[Map::loadMap] - {}", loader.getLastErrorString());
@@ -40,15 +39,13 @@ bool Map::loadMap(const std::string& identifier, bool loadHouses, bool loadMonst
 
 	if (loadMonsters) {
 		if (!IOMap::loadMonsters(this)) {
-			SPDLOG_WARN("[Map::loadMap] - Failed to load spawn data");
+			SPDLOG_WARN("Failed to load spawn data");
 		}
-		SPDLOG_INFO("Loaded spawns in: {} seconds",
-                    (OTSYS_TIME() - start) / (1000.));
 	}
 
 	if (loadHouses) {
 		if (!IOMap::loadHouses(this)) {
-			SPDLOG_WARN("[Map::loadMap] - Failed to load house data");
+			SPDLOG_WARN("Failed to load house data");
 		}
 
 		IOMapSerialize::loadHouseInfo();
@@ -57,9 +54,8 @@ bool Map::loadMap(const std::string& identifier, bool loadHouses, bool loadMonst
 
 	if (loadNpcs) {
 		if (!IOMap::loadNpcs(this)) {
-			std::cout << "[Warning - Map::loadMap] Failed to load npc spawn data." << std::endl;
+			SPDLOG_WARN("Failed to load npc spawn data");
 		}
-		std::cout << "> Loaded npcs in: " << (OTSYS_TIME() - start) / (1000.) << " seconds" << std::endl;
 	}
 	return true;
 }

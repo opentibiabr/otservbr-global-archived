@@ -118,7 +118,7 @@ bool Scripts::loadEventSchedulerScripts(const std::string& fileName)
 
 	const auto dir = fs::current_path() / "data" / "events" / "scripts" / "scheduler";
 	if(!fs::exists(dir) || !fs::is_directory(dir)) {
-		std::cout << "[Warning - Scripts::loadEventSchedulerScripts] Can not load folder 'scheduler' on '/data/events/scripts'." << std::endl;
+		SPDLOG_WARN("Can not load folder 'scheduler' on '/data/events/scripts'");
 		return false;
 	}
 
@@ -127,8 +127,8 @@ bool Scripts::loadEventSchedulerScripts(const std::string& fileName)
 		if(fs::is_regular_file(*it) && it->path().extension() == ".lua") {
 			if (it->path().filename().string() == fileName) {
 				if(scriptInterface.loadFile(it->path().string()) == -1) {
-					std::cout << "> " << it->path().string() << " [error]" << std::endl;
-					std::cout << "^ " << scriptInterface.getLastLuaError() << std::endl;
+					SPDLOG_ERROR(it->path().string());
+					SPDLOG_ERROR(scriptInterface.getLastLuaError());
 					continue;
 				}
 				return true;
@@ -144,7 +144,7 @@ bool Scripts::loadScripts(std::string folderName, bool isLib, bool reload)
 
 	const auto dir = fs::current_path() / "data" / folderName;
 	if(!fs::exists(dir) || !fs::is_directory(dir)) {
-		std::cout << "[Warning - Scripts::loadScripts] Can not load folder '" << folderName << "'." << std::endl;
+		SPDLOG_ERROR("Can not load folder {}", folderName);
 		return false;
 	}
 
@@ -160,7 +160,7 @@ bool Scripts::loadScripts(std::string folderName, bool isLib, bool reload)
 			size_t found = it->path().filename().string().find(disable);
 			if (found != std::string::npos) {
 				if (g_config.getBoolean(ConfigManager::SCRIPTS_CONSOLE_LOGS)) {
-					std::cout << "> " << it->path().filename().string() << " [disabled]" << std::endl;
+					SPDLOG_INFO("{} [disabled]", it->path().filename().string());
 				}
 				continue;
 			}
@@ -175,23 +175,23 @@ bool Scripts::loadScripts(std::string folderName, bool isLib, bool reload)
 			if (redir.empty() || redir != it->parent_path().string()) {
 				auto p = it->relative_path();
 				if (g_config.getBoolean(ConfigManager::SCRIPTS_CONSOLE_LOGS)) {
-					std::cout << ">> [" << p.parent_path().filename() << "]" << std::endl;
+					SPDLOG_INFO("[{}]", p.parent_path().filename().string());
 				}
 				redir = it->parent_path().string();
 			}
 		}
 
 		if(scriptInterface.loadFile(scriptFile) == -1) {
-			std::cout << "> " << it->filename().string() << " [error]" << std::endl;
-			std::cout << "^ " << scriptInterface.getLastLuaError() << std::endl;
+			SPDLOG_ERROR(it->filename().string());
+			SPDLOG_ERROR(scriptInterface.getLastLuaError());
 			continue;
 		}
 
 		if (g_config.getBoolean(ConfigManager::SCRIPTS_CONSOLE_LOGS)) {
 			if (!reload) {
-				std::cout << "> " << it->filename().string() << " [loaded]" << std::endl;
+				SPDLOG_INFO("{} [loaded]", it->filename().string());
 			} else {
-				std::cout << "> " << it->filename().string() << " [reloaded]" << std::endl;
+				SPDLOG_INFO("{} [reloaded]", it->filename().string());
 			}
 		}
 	}

@@ -68,7 +68,7 @@ bool SpawnsNpc::loadFromXml(const std::string& filenpcname)
 		}
 
 		if (!spawnNode.first_child()) {
-			std::cout << "[Warning - SpawnsNpc::loadFromXml] Empty spawn at position: " << centerPos << " with radius: " << radius << '.' << std::endl;
+			SPDLOG_WARN("Empty spawn at position: {} with radius: {}", centerPos.toString(), radius);
 			continue;
 		}
 
@@ -101,9 +101,9 @@ bool SpawnsNpc::loadFromXml(const std::string& filenpcname)
 					spawnNpc.addNpc(nameAttribute.as_string(), pos, dir, static_cast<uint32_t>(interval));
 				} else {
 					if (interval <= MINSPAWN_INTERVAL) {
-						std::cout << "[Warning - SpawnsNpc::loadFromXml] " << nameAttribute.as_string() << ' ' << pos << " spawntime can not be less than " << MINSPAWN_INTERVAL / 1000 << " seconds." << std::endl;
+						SPDLOG_WARN("{} {} spawntime can not be less than {} seconds", nameAttribute.as_string(), pos.toString(), MINSPAWN_INTERVAL / 1000);
 					} else {
-						std::cout << "[Warning - SpawnsNpc::loadFromXml] " << nameAttribute.as_string() << ' ' << pos << " spawntime can not be more than " << MAXSPAWN_INTERVAL / 1000 << " seconds." << std::endl;
+						SPDLOG_WARN("{} {} spawntime can not be more than {} seconds", nameAttribute.as_string(), pos.toString(), MAXSPAWN_INTERVAL / 1000);
 					}
 				}
 			}
@@ -234,16 +234,12 @@ void SpawnNpc::checkSpawnNpc()
 		}
 
 		if (OTSYS_TIME() >= sb.lastSpawnNpc + sb.interval) {
-			if (sb.npcType->info.isBlockable && findPlayer(sb.pos)) {
+			if (findPlayer(sb.pos)) {
 				sb.lastSpawnNpc = OTSYS_TIME();
 				continue;
 			}
 
-			if (sb.npcType->info.isBlockable) {
-				spawnNpc(spawnId, sb.npcType, sb.pos, sb.direction);
-			} else {
-				scheduleSpawnNpc(spawnId, sb, 3 * NONBLOCKABLE_SPAWN_NPC_INTERVAL);
-			}
+			scheduleSpawnNpc(spawnId, sb, 3 * NONBLOCKABLE_SPAWN_NPC_INTERVAL);
 		}
 	}
 
@@ -282,7 +278,7 @@ bool SpawnNpc::addNpc(const std::string& name, const Position& pos, Direction di
 {
 	NpcType* npcType = g_npcs.getNpcType(name);
 	if (!npcType) {
-		std::cout << "[SpawnNpc::addNpc] Can not find " << name << std::endl;
+		SPDLOG_ERROR("Can not find {}", name);
 		return false;
 	}
 

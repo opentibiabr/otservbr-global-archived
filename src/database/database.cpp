@@ -64,8 +64,7 @@ bool Database::connect(const char *host, const char *user, const char *password,
 	// connection handle initialization
 	handle = mysql_init(nullptr);
 	if (!handle) {
-		std::cout << std::endl << "Failed to initialize MySQL connection handle."
-              << std::endl;
+		SPDLOG_ERROR("Failed to initialize MySQL connection handle.");
 		return false;
 	}
 
@@ -76,8 +75,7 @@ bool Database::connect(const char *host, const char *user, const char *password,
 	// connects to database
 	if (!mysql_real_connect(handle, host, user, password, database, port, sock,
                           0)) {
-		std::cout << std::endl << "MySQL Error Message: " << mysql_error(handle)
-              << std::endl;
+		SPDLOG_ERROR("MySQL Error Message: {}", mysql_error(handle));
 		return false;
 	}
 
@@ -100,10 +98,10 @@ bool Database::beginTransaction()
 
 bool Database::rollback()
 {
-  if (!handle) {
-    std::cout << std::endl << "Database not initialized!" << std::endl;
-    return false;
-  }
+	if (!handle) {
+		SPDLOG_ERROR("Database not initialized!");
+		return false;
+	}
 
 	if (mysql_rollback(handle) != 0) {
 		SPDLOG_ERROR("Message: {}", mysql_error(handle));
@@ -118,7 +116,7 @@ bool Database::rollback()
 bool Database::commit()
 {
   if (!handle) {
-    std::cout << std::endl << "Database not initialized!" << std::endl;
+    SPDLOG_ERROR("Database not initialized!");
     return false;
   }
 
@@ -135,7 +133,7 @@ bool Database::commit()
 bool Database::executeQuery(const std::string& query)
 {
   if (!handle) {
-    std::cout << std::endl << "Database not initialized!" << std::endl;
+    SPDLOG_ERROR("Database not initialized!");
     return false;
   }
 
@@ -168,7 +166,7 @@ bool Database::executeQuery(const std::string& query)
 DBResult_ptr Database::storeQuery(const std::string& query)
 {
   if (!handle) {
-    std::cout << std::endl << "Database not initialized!" << std::endl;
+    SPDLOG_ERROR("Database not initialized!");
     return nullptr;
   }
 
@@ -299,7 +297,7 @@ bool DBResult::hasNext() const
 bool DBResult::next()
 {
   if (!handle) {
-    std::cout << std::endl << "Database not initialized!" << std::endl;
+    SPDLOG_ERROR("Database not initialized!");
     return false;
   }
 	row = mysql_fetch_row(handle);

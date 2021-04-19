@@ -151,7 +151,7 @@ bool Events::loadFromXml()
 			if (methodName == "onSpawn") {
 				info.monsterOnSpawn = event;
 			} else {
-				std::cout << "[Warning - Events::load] Unknown npc method: " << methodName << std::endl;
+				SPDLOG_WARN("[Events::load] - Unknown npc method: {}", methodName);
 			}
 		} else {
 			SPDLOG_WARN("[Events::load] - Unknown class: {}", className);
@@ -204,13 +204,10 @@ void Events::eventNpcOnSpawn(Npc* npc, const Position& position)
 	}
 
 	if (!scriptInterface.reserveScriptEnv()) {
-		std::cout << "[Error - Events::eventNpcOnSpawn"
-				<< " Position "
-				<< "x:" << position.getX() << " "
-				<< "y:" << position.getY() << " "
-				<< "z:" << position.getZ() << " "
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
+		SPDLOG_ERROR("[Events::eventMonsterOnSpawn - "
+                     "Position x: {} y: {} z: {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     position.getX(), position.getY(), position.getZ());
 		return;
 	}
 

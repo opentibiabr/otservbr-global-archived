@@ -22,17 +22,6 @@
 
 #include "../creature.h"
 
-class LootNpc {
-	public:
-		LootNpc() = default;
-
-		// non-copyable
-		LootNpc(const LootNpc&) = delete;
-		LootNpc& operator=(const LootNpc&) = delete;
-
-		LootBlock lootBlock;
-};
-
 class BaseSpell;
 struct spellBlockNpc_t {
 	constexpr spellBlockNpc_t() = default;
@@ -66,21 +55,17 @@ class NpcType
 	struct NpcInfo {
 		LuaScriptInterface* scriptInterface;
 
-		std::map<CombatType_t, int32_t> elementMap;
 		std::map<CombatType_t, int32_t> reflectMap;
 		std::map<CombatType_t, int32_t> healingMap;
 
 		std::vector<voiceBlock_t> voiceVector;
 
-		std::vector<LootBlock> lootItems;
 		std::vector<std::string> scripts;
 		std::vector<spellBlockNpc_t> attackSpells;
 		std::vector<spellBlockNpc_t> defenseSpells;
-		std::vector<summonBlock_t> summons;
 
 		Skulls_t skull = SKULL_NONE;
 		Outfit_t outfit = {};
-		RaceType_t race = RACE_BLOOD;
 		RespawnType respawnType = {};
 
 		LightInfo light = {};
@@ -92,10 +77,7 @@ class NpcType
 		uint32_t yellChance = 0;
 		uint32_t yellSpeedTicks = 0;
 		uint32_t staticAttackChance = 95;
-		uint32_t maxSummons = 0;
 		uint32_t changeTargetSpeed = 0;
-		uint32_t conditionImmunities = 0;
-		uint32_t damageImmunities = 0;
 		uint32_t baseSpeed = 200;
 		uint32_t walkInterval = 1500;
 
@@ -111,10 +93,6 @@ class NpcType
 		int32_t changeTargetChance = 0;
 		int32_t defense = 0;
 		int32_t armor = 0;
-		int32_t targetStrategiesNearestPercent = 0;
-		int32_t targetStrategiesLowerHPPercent = 0;
-		int32_t targetStrategiesMostDamagePercent = 0;
-		int32_t targetStrategiesRandom = 0;
 		int32_t walkRadius = 10;
 
 		bool canPushItems = false;
@@ -126,7 +104,7 @@ class NpcType
 		bool isAttackable = true;
 		bool isHostile = true;
 		bool hiddenHealth = false;
-		bool isBlockable = false;
+		bool floorChange = false;
 		bool isRewardBoss = false;
 		bool canWalkOnEnergy = true;
 		bool canWalkOnFire = true;
@@ -148,8 +126,6 @@ class NpcType
 		std::string nameDescription;
 
 		NpcInfo info;
-
-		void loadLoot(NpcType* npcType, LootBlock lootblock);
 
 		bool canSpawn(const Position& pos);
 };
@@ -227,9 +203,6 @@ class Npcs
 		bool deserializeSpell(const pugi::xml_node& node, spellBlockNpc_t& sb, const std::string& description = "");
 
 		NpcType* loadNpc(const std::string& file, const std::string& npcName, bool reloading = false);
-
-		void loadLootContainer(const pugi::xml_node& node, LootBlock&);
-		bool loadLootItem(const pugi::xml_node& node, LootBlock&);
 
 		std::map<std::string, std::string> unloadedNpcs;
 

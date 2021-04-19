@@ -194,7 +194,7 @@ class DBResult
 				}
 				catch (boost::bad_lexical_cast &e) {
 					// invalid! discard value.
-					std::cout << "[Error - DBResult::getNumber] Column '" << s << "' has an invalid value set: " << e.what() << std::endl;
+					SPDLOG_ERROR("Column '{}' has an invalid value set: {}", s, e.what());
 					data = 0;
 				}
 			}

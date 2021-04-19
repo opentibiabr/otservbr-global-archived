@@ -493,9 +493,9 @@ void LuaScriptInterface::reportError(const char* function, const std::string& er
 
 
 	if (stack_trace && scriptInterface) {
-		std::cout << scriptInterface->getStackTrace(error_desc) << std::endl;
+		SPDLOG_ERROR(scriptInterface->getStackTrace(error_desc));
 	} else {
-		std::cout << error_desc << std::endl;
+		SPDLOG_ERROR(error_desc);
 	}
 }
 
@@ -3121,7 +3121,6 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("NpcType", "isHostile", LuaScriptInterface::luaNpcTypeIsHostile);
 	registerMethod("NpcType", "isPushable", LuaScriptInterface::luaNpcTypeIsPushable);
 	registerMethod("NpcType", "isHealthHidden", LuaScriptInterface::luaNpcTypeIsHealthHidden);
-	registerMethod("NpcType", "isBlockable", LuaScriptInterface::luaNpcTypeIsBlockable);
 
 	registerMethod("NpcType", "canSpawn", LuaScriptInterface::luaNpcTypeCanSpawn);
 
@@ -3139,26 +3138,14 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("NpcType", "runHealth", LuaScriptInterface::luaNpcTypeRunHealth);
 	registerMethod("NpcType", "experience", LuaScriptInterface::luaNpcTypeExperience);
 
-	registerMethod("NpcType", "combatImmunities", LuaScriptInterface::luaNpcTypeCombatImmunities);
-	registerMethod("NpcType", "conditionImmunities", LuaScriptInterface::luaNpcTypeConditionImmunities);
-
 	registerMethod("NpcType", "getAttackList", LuaScriptInterface::luaNpcTypeGetAttackList);
 	registerMethod("NpcType", "addAttack", LuaScriptInterface::luaNpcTypeAddAttack);
 
 	registerMethod("NpcType", "getDefenseList", LuaScriptInterface::luaNpcTypeGetDefenseList);
 	registerMethod("NpcType", "addDefense", LuaScriptInterface::luaNpcTypeAddDefense);
 
-	registerMethod("NpcType", "getElementList", LuaScriptInterface::luaNpcTypeGetElementList);
-	registerMethod("NpcType", "addElement", LuaScriptInterface::luaNpcTypeAddElement);
-
-	registerMethod("NpcType", "addReflect", LuaScriptInterface::luaNpcTypeAddReflect);
-	registerMethod("NpcType", "addHealing", LuaScriptInterface::luaNpcTypeAddHealing);
-
 	registerMethod("NpcType", "getVoices", LuaScriptInterface::luaNpcTypeGetVoices);
 	registerMethod("NpcType", "addVoice", LuaScriptInterface::luaNpcTypeAddVoice);
-
-	registerMethod("NpcType", "getLoot", LuaScriptInterface::luaNpcTypeGetLoot);
-	registerMethod("NpcType", "addLoot", LuaScriptInterface::luaNpcTypeAddLoot);
 
 	registerMethod("NpcType", "getCreatureEvents", LuaScriptInterface::luaNpcTypeGetCreatureEvents);
 	registerMethod("NpcType", "registerEvent", LuaScriptInterface::luaNpcTypeRegisterEvent);
@@ -3170,15 +3157,9 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("NpcType", "onMove", LuaScriptInterface::luaNpcTypeEventOnCallback);
 	registerMethod("NpcType", "onSay", LuaScriptInterface::luaNpcTypeEventOnCallback);
 
-	registerMethod("NpcType", "getSummonList", LuaScriptInterface::luaNpcTypeGetSummonList);
-	registerMethod("NpcType", "addSummon", LuaScriptInterface::luaNpcTypeAddSummon);
-
-	registerMethod("NpcType", "maxSummons", LuaScriptInterface::luaNpcTypeMaxSummons);
-
 	registerMethod("NpcType", "armor", LuaScriptInterface::luaNpcTypeArmor);
 	registerMethod("NpcType", "defense", LuaScriptInterface::luaNpcTypeDefense);
 	registerMethod("NpcType", "outfit", LuaScriptInterface::luaNpcTypeOutfit);
-	registerMethod("NpcType", "race", LuaScriptInterface::luaNpcTypeRace);
 	registerMethod("NpcType", "corpseId", LuaScriptInterface::luaNpcTypeCorpseId);
 	registerMethod("NpcType", "baseSpeed", LuaScriptInterface::luaNpcTypeBaseSpeed);
 	registerMethod("NpcType", "walkInterval", LuaScriptInterface::luaNpcTypeWalkInterval);
@@ -5037,7 +5018,6 @@ int LuaScriptInterface::luaGameCreateNpcType(lua_State* L)
 
 	NpcType* npcType = g_npcs.getNpcType(getString(L, 1));
 	if (npcType) {
-		npcType->info.lootItems.clear();
 		npcType->info.attackSpells.clear();
 		npcType->info.defenseSpells.clear();
 		pushUserdata<NpcType>(L, npcType);
@@ -12507,7 +12487,7 @@ int LuaScriptInterface::luaMonsterSetType(lua_State* L) {
 		// Unregister creature events (current MonsterType)
 		for (const std::string& scriptName : monster->mType->info.scripts) {
 			if (!monster->unregisterCreatureEvent(scriptName)) {
-				std::cout << "[Warning - Monster::Monster] Unknown event name: " << scriptName << std::endl;
+				SPDLOG_WARN("[Warning - LuaScriptInterface::luaMonsterSetType] Unknown event name: {}", scriptName);
 			}
 		}
 		// Assign new MonsterType
@@ -12526,7 +12506,7 @@ int LuaScriptInterface::luaMonsterSetType(lua_State* L) {
 		// Register creature events (new MonsterType)
 		for (const std::string& scriptName : monsterType->info.scripts) {
 			if (!monster->registerCreatureEvent(scriptName)) {
-				std::cout << "[Warning - Monster::Monster] Unknown event name: " << scriptName << std::endl;
+				SPDLOG_WARN("[Warning - LuaScriptInterface::luaMonsterSetType] Unknown event name: {}", scriptName);
 			}
 		}
 		// Reload creature on spectators
@@ -15505,23 +15485,6 @@ int LuaScriptInterface::luaNpcTypeIsHealthHidden(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaNpcTypeIsBlockable(lua_State* L)
-{
-	// get: npcType:isBlockable() set: npcType:isBlockable(bool)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			pushBoolean(L, npcType->info.isBlockable);
-		} else {
-			npcType->info.isBlockable = getBoolean(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
 int LuaScriptInterface::luaNpcTypeCanSpawn(lua_State* L)
 {
 	// monsterType:canSpawn(pos)
@@ -15684,115 +15647,6 @@ int LuaScriptInterface::luaNpcTypeExperience(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaNpcTypeCombatImmunities(lua_State* L)
-{
-	// get: npcType:combatImmunities() set: npcType:combatImmunities(immunity)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.damageImmunities);
-		} else {
-			std::string immunity = getString(L, 2);
-			if (immunity == "physical") {
-				npcType->info.damageImmunities |= COMBAT_PHYSICALDAMAGE;
-				pushBoolean(L, true);
-			} else if (immunity == "energy") {
-				npcType->info.damageImmunities |= COMBAT_ENERGYDAMAGE;
-				pushBoolean(L, true);
-			} else if (immunity == "fire") {
-				npcType->info.damageImmunities |= COMBAT_FIREDAMAGE;
-				pushBoolean(L, true);
-			} else if (immunity == "poison" || immunity == "earth") {
-				npcType->info.damageImmunities |= COMBAT_EARTHDAMAGE;
-				pushBoolean(L, true);
-			} else if (immunity == "drown") {
-				npcType->info.damageImmunities |= COMBAT_DROWNDAMAGE;
-				pushBoolean(L, true);
-			} else if (immunity == "ice") {
-				npcType->info.damageImmunities |= COMBAT_ICEDAMAGE;
-				pushBoolean(L, true);
-			} else if (immunity == "holy") {
-				npcType->info.damageImmunities |= COMBAT_HOLYDAMAGE;
-				pushBoolean(L, true);
-			} else if (immunity == "death") {
-				npcType->info.damageImmunities |= COMBAT_DEATHDAMAGE;
-				pushBoolean(L, true);
-			} else if (immunity == "lifedrain") {
-				npcType->info.damageImmunities |= COMBAT_LIFEDRAIN;
-				pushBoolean(L, true);
-			} else if (immunity == "manadrain") {
-				npcType->info.damageImmunities |= COMBAT_MANADRAIN;
-				pushBoolean(L, true);
-			} else {
-				std::cout << "[Warning - Npcs::loadNpc] Unknown immunity name " << immunity << " for npc: " << npcType->name << std::endl;
-				lua_pushnil(L);
-			}
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeConditionImmunities(lua_State* L)
-{
-	// get: npcType:conditionImmunities() set: npcType:conditionImmunities(immunity)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.conditionImmunities);
-		} else {
-			std::string immunity = getString(L, 2);
-			if (immunity == "physical") {
-				npcType->info.conditionImmunities |= CONDITION_BLEEDING;
-				pushBoolean(L, true);
-			} else if (immunity == "energy") {
-				npcType->info.conditionImmunities |= CONDITION_ENERGY;
-				pushBoolean(L, true);
-			} else if (immunity == "fire") {
-				npcType->info.conditionImmunities |= CONDITION_FIRE;
-				pushBoolean(L, true);
-			} else if (immunity == "poison" || immunity == "earth") {
-				npcType->info.conditionImmunities |= CONDITION_POISON;
-				pushBoolean(L, true);
-			} else if (immunity == "drown") {
-				npcType->info.conditionImmunities |= CONDITION_DROWN;
-				pushBoolean(L, true);
-			} else if (immunity == "ice") {
-				npcType->info.conditionImmunities |= CONDITION_FREEZING;
-				pushBoolean(L, true);
-			} else if (immunity == "holy") {
-				npcType->info.conditionImmunities |= CONDITION_DAZZLED;
-				pushBoolean(L, true);
-			} else if (immunity == "death") {
-				npcType->info.conditionImmunities |= CONDITION_CURSED;
-				pushBoolean(L, true);
-			} else if (immunity == "paralyze") {
-				npcType->info.conditionImmunities |= CONDITION_PARALYZE;
-				pushBoolean(L, true);
-			} else if (immunity == "outfit") {
-				npcType->info.conditionImmunities |= CONDITION_OUTFIT;
-				pushBoolean(L, true);
-			} else if (immunity == "drunk") {
-				npcType->info.conditionImmunities |= CONDITION_DRUNK;
-				pushBoolean(L, true);
-			} else if (immunity == "invisible" || immunity == "invisibility") {
-				npcType->info.conditionImmunities |= CONDITION_INVISIBLE;
-				pushBoolean(L, true);
-			} else if (immunity == "bleed") {
-				npcType->info.conditionImmunities |= CONDITION_BLEEDING;
-				pushBoolean(L, true);
-			} else {
-				std::cout << "[Warning - Npcs::loadNpc] Unknown immunity name " << immunity << " for npc: " << npcType->name << std::endl;
-				lua_pushnil(L);
-			}
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
 int LuaScriptInterface::luaNpcTypeGetAttackList(lua_State* L)
 {
 	// npcType:getAttackList()
@@ -15834,8 +15688,8 @@ int LuaScriptInterface::luaNpcTypeAddAttack(lua_State* L)
 			if (g_npcs.deserializeSpell(spell, sb, npcType->name)) {
 				npcType->info.attackSpells.push_back(std::move(sb));
 			} else {
-				std::cout << npcType->name << std::endl;
-				std::cout << "[Warning - Npcs::loadNpc] Cant load spell. " << spell->name << std::endl;
+				SPDLOG_WARN(npcType->name);
+				SPDLOG_WARN("[Warning - LuaScriptInterface::luaNpcTypeAddAttack] Cant load spell. {}", spell->name);
 			}
 		} else {
 			lua_pushnil(L);
@@ -15888,73 +15742,14 @@ int LuaScriptInterface::luaNpcTypeAddDefense(lua_State* L)
 			if (g_npcs.deserializeSpell(spell, sb, npcType->name)) {
 				npcType->info.defenseSpells.push_back(std::move(sb));
 			} else {
-				std::cout << npcType->name << std::endl;
-				std::cout << "[Warning - Npcs::loadNpc] Cant load spell. " << spell->name << std::endl;
+				SPDLOG_WARN(npcType->name);
+				SPDLOG_WARN("[Warning - LuaScriptInterface::luaNpcTypeAddAttack] Cant load spell. {}", spell->name);
 			}
 		} else {
 			lua_pushnil(L);
 		}
 	} else {
 		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeAddElement(lua_State* L)
-{
-	// npcType:addElement(type, percent)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		CombatType_t element = getNumber<CombatType_t>(L, 2);
-		npcType->info.elementMap[element] = getNumber<int32_t>(L, 3);
-		pushBoolean(L, true);
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeAddReflect(lua_State* L)
-{
-	// npcType:addReflect(type, percent)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		CombatType_t element = getNumber<CombatType_t>(L, 2);
-		npcType->info.reflectMap[element] = getNumber<int32_t>(L, 3);
-		pushBoolean(L, true);
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeAddHealing(lua_State* L)
-{
-	// npcType:addHealing(type, percent)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		CombatType_t element = getNumber<CombatType_t>(L, 2);
-		npcType->info.healingMap[element] = getNumber<int32_t>(L, 3);
-		pushBoolean(L, true);
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeGetElementList(lua_State* L)
-{
-	// npcType:getElementList()
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (!npcType) {
-		lua_pushnil(L);
-		return 1;
-	}
-
-	lua_createtable(L, npcType->info.elementMap.size(), 0);
-	for (const auto& elementEntry : npcType->info.elementMap) {
-		lua_pushnumber(L, elementEntry.second);
-		lua_rawseti(L, -2, elementEntry.first);
 	}
 	return 1;
 }
@@ -15993,37 +15788,6 @@ int LuaScriptInterface::luaNpcTypeGetVoices(lua_State* L)
 		setField(L, "text", voiceBlock.text);
 		setField(L, "yellText", voiceBlock.yellText);
 		lua_rawseti(L, -2, ++index);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeGetLoot(lua_State* L)
-{
-	// npcType:getLoot()
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (!npcType) {
-		lua_pushnil(L);
-		return 1;
-	}
-
-	pushLoot(L, npcType->info.lootItems);
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeAddLoot(lua_State* L)
-{
-	// npcType:addLoot(loot)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		Loot* loot = getUserdata<Loot>(L, 2);
-		if (loot) {
-			npcType->loadLoot(npcType, loot->lootBlock);
-			pushBoolean(L, true);
-		} else {
-			lua_pushnil(L);
-		}
-	} else {
-		lua_pushnil(L);
 	}
 	return 1;
 }
@@ -16092,61 +15856,6 @@ int LuaScriptInterface::luaNpcTypeEventType(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaNpcTypeGetSummonList(lua_State* L)
-{
-	// npcType:getSummonList()
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (!npcType) {
-		lua_pushnil(L);
-		return 1;
-	}
-
-	int index = 0;
-	lua_createtable(L, npcType->info.summons.size(), 0);
-	for (const auto& summonBlock : npcType->info.summons) {
-		lua_createtable(L, 0, 3);
-		setField(L, "name", summonBlock.name);
-		setField(L, "speed", summonBlock.speed);
-		setField(L, "chance", summonBlock.chance);
-		lua_rawseti(L, -2, ++index);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeAddSummon(lua_State* L)
-{
-	// npcType:addSummon(name, interval, chance)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		summonBlock_t summon;
-		summon.name = getString(L, 2);
-		summon.speed = getNumber<int32_t>(L, 3);
-		summon.chance = getNumber<int32_t>(L, 4);
-		npcType->info.summons.push_back(summon);
-		pushBoolean(L, true);
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeMaxSummons(lua_State* L)
-{
-	// get: npcType:maxSummons() set: npcType:maxSummons(ammount)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.maxSummons);
-		} else {
-			npcType->info.maxSummons = getNumber<uint32_t>(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
 int LuaScriptInterface::luaNpcTypeArmor(lua_State* L)
 {
 	// get: npcType:armor() set: npcType:armor(armor)
@@ -16190,38 +15899,6 @@ int LuaScriptInterface::luaNpcTypeOutfit(lua_State* L)
 			pushOutfit(L, npcType->info.outfit);
 		} else {
 			npcType->info.outfit = getOutfit(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeRace(lua_State* L)
-{
-	// get: npcType:race() set: npcType:race(race)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	std::string race = getString(L, 2);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.race);
-		} else {
-			if (race == "venom") {
-				npcType->info.race = RACE_VENOM;
-			} else if (race == "blood") {
-				npcType->info.race = RACE_BLOOD;
-			} else if (race == "undead") {
-				npcType->info.race = RACE_UNDEAD;
-			} else if (race == "fire") {
-				npcType->info.race = RACE_FIRE;
-			} else if (race == "energy") {
-				npcType->info.race = RACE_ENERGY;
-			} else {
-				std::cout << "[Warning - Npcs::loadNpc] Unknown race type " << race << "." << std::endl;
-				lua_pushnil(L);
-				return 1;
-			}
 			pushBoolean(L, true);
 		}
 	} else {

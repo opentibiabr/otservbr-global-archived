@@ -43,21 +43,6 @@ spellBlockNpc_t::~spellBlockNpc_t()
 	}
 }
 
-void NpcType::loadLoot(NpcType* npcType, LootBlock lootBlock)
-{
-	if (lootBlock.childLoot.empty()) {
-		bool isContainer = Item::items[lootBlock.id].isContainer();
-		if (isContainer) {
-			for (LootBlock child : lootBlock.childLoot) {
-				lootBlock.childLoot.push_back(child);
-			}
-		}
-		npcType->info.lootItems.push_back(lootBlock);
-	} else {
-		npcType->info.lootItems.push_back(lootBlock);
-	}
-}
-
 bool Npcs::loadFromXml(bool reloading /*= false*/)
 {
 	unloadedNpcs = {};
@@ -472,7 +457,8 @@ bool Npcs::deserializeSpell(const pugi::xml_node& node, spellBlockNpc_t& sb, con
 		} else if (tmpName == "effect") {
 			//
 		} else {
-			std::cout << "[Error - Npcs::deserializeSpell] - " << description << " - Unknown spell name: " << name << std::endl;
+			SPDLOG_ERROR("[Npcs::deserializeSpell] - {} unknown spell name: {}",
+                         description, name);
 			delete combat;
 			return false;
 		}
@@ -489,7 +475,9 @@ bool Npcs::deserializeSpell(const pugi::xml_node& node, spellBlockNpc_t& sb, con
 						if (shoot != CONST_ANI_NONE) {
 							combat->setParam(COMBAT_PARAM_DISTANCEEFFECT, shoot);
 						} else {
-							std::cout << "[Warning - Npcs::deserializeSpell] " << description << " - Unknown shootEffect: " << attr.as_string() << std::endl;
+							SPDLOG_WARN("[Npcs::deserializeSpell] - "
+                                        "{} unknown shootEffect: {}",
+                                        description, attr.as_string());
 						}
 					}
 				} else if (strcasecmp(value, "areaeffect") == 0) {
@@ -498,11 +486,15 @@ bool Npcs::deserializeSpell(const pugi::xml_node& node, spellBlockNpc_t& sb, con
 						if (effect != CONST_ME_NONE) {
 							combat->setParam(COMBAT_PARAM_EFFECT, effect);
 						} else {
-							std::cout << "[Warning - Npcs::deserializeSpell] " << description << " - Unknown areaEffect: " << attr.as_string() << std::endl;
+							SPDLOG_WARN("[Npcs::deserializeSpell] - "
+                                        "{} unknown areaEffect: {}",
+                                        description, attr.as_string());
 						}
 					}
 				} else {
-					std::cout << "[Warning - Npcs::deserializeSpells] Effect type \"" << attr.as_string() << "\" does not exist." << std::endl;
+					SPDLOG_WARN("[Npcs::deserializeSpells] - "
+                                "Effect type {} does not exist",
+                                attr.as_string());
 				}
 			}
 		}
@@ -541,7 +533,8 @@ bool Npcs::deserializeSpell(NpcSpell* spell, spellBlockNpc_t& sb, const std::str
 	if (spell->isScripted) {
 		std::unique_ptr<CombatSpell> combatSpellPtr(new CombatSpell(nullptr, spell->needTarget, spell->needDirection));
 		if (!combatSpellPtr->loadScript("data/" + g_spells->getScriptBaseName() + "/scripts/" + spell->scriptName)) {
-			std::cout << "cannot find file" << std::endl;
+			SPDLOG_ERROR("[Npcs::deserializeSpell] - Cannot find file: {}",
+                         spell->scriptName);
 			return false;
 		}
 
@@ -637,7 +630,9 @@ bool Npcs::deserializeSpell(NpcSpell* spell, spellBlockNpc_t& sb, const std::str
 				outfit.lookTypeEx = spell->outfitItem;
 				condition->setOutfit(outfit);
 			} else {
-				std::cout << "[Error - Npcs::deserializeSpell] Missing outfit npc or item in outfit spell for: " << description << std::endl;
+				SPDLOG_ERROR("[Npcs::deserializeSpell] - "
+                             "Missing outfit npc or item in outfit spell for: {}",
+                            description);
 				return false;
 			}
 
@@ -670,14 +665,18 @@ bool Npcs::deserializeSpell(NpcSpell* spell, spellBlockNpc_t& sb, const std::str
 			combat->setParam(COMBAT_PARAM_CREATEITEM, ITEM_ENERGYFIELD_PVP);
 		} else if (tmpName == "condition") {
 			if (spell->conditionType == CONDITION_NONE) {
-				std::cout << "[Error - Npcs::deserializeSpell] - " << description << " - Condition is not set for: " << spell->name << std::endl;
+				SPDLOG_ERROR("[Npcs::deserializeSpell] - "
+                             "{} condition is not set for: {}",
+                             description, spell->name);
 			}
 		} else if (tmpName == "strength") {
 			//
 		} else if (tmpName == "effect") {
 			//
 		} else {
-			std::cout << "[Error - Npcs::deserializeSpell] - " << description << " - Unknown spell name: " << spell->name << std::endl;
+			SPDLOG_ERROR("[Npcs::deserializeSpell] - "
+                         "{} unknown spell name: {}",
+                         description, spell->name);
 		}
 
 		if (spell->shoot != CONST_ANI_NONE) {
@@ -735,13 +734,14 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 
 	pugi::xml_node npcNode = doc.child("npc");
 	if (!npcNode) {
-		std::cout << "[Error - Npcs::loadNpc] Missing npc node in: " << file << std::endl;
+		SPDLOG_ERROR("[Npcs::loadNpc] - Missing npc node in: {}",
+                     file);
 		return nullptr;
 	}
 
 	pugi::xml_attribute attr;
 	if (!(attr = npcNode.attribute("name"))) {
-		std::cout << "[Error - Npcs::loadNpc] Missing name in: " << file << std::endl;
+		SPDLOG_ERROR("[Npcs::loadNpc] - Missing name in: {}", file);
 		return nullptr;
 	}
 
@@ -759,23 +759,6 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 	npcType->name = attr.as_string();
 	npcType->nameDescription = npcType->name;
 
-	if ((attr = npcNode.attribute("race"))) {
-		std::string tmpStrValue = asLowerCaseString(attr.as_string());
-		uint16_t tmpInt = pugi::cast<uint16_t>(attr.value());
-		if (tmpStrValue == "venom" || tmpInt == 1) {
-			npcType->info.race = RACE_VENOM;
-		} else if (tmpStrValue == "blood" || tmpInt == 2) {
-			npcType->info.race = RACE_BLOOD;
-		} else if (tmpStrValue == "undead" || tmpInt == 3) {
-			npcType->info.race = RACE_UNDEAD;
-		} else if (tmpStrValue == "fire" || tmpInt == 4) {
-			npcType->info.race = RACE_FIRE;
-		} else if (tmpStrValue == "energy" || tmpInt == 5) {
-			npcType->info.race = RACE_ENERGY;
-		} else {
-			std::cout << "[Warning - Npcs::loadNpc] Unknown race type " << attr.as_string() << ". " << file << std::endl;
-		}
-	}
 	if ((attr = npcNode.attribute("experience"))) {
 		npcType->info.experience = pugi::cast<uint64_t>(attr.value());
 	}
@@ -811,8 +794,8 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 			npcType->info.creatureSayEvent = scriptInterface->getEvent("onCreatureSay");
 			npcType->info.thinkEvent = scriptInterface->getEvent("onThink");
 		} else {
-			std::cout << "[Warning - Npcs::loadNpc] Can not load script: " << script << std::endl;
-			std::cout << scriptInterface->getLastLuaError() << std::endl;
+			SPDLOG_WARN("[Npcs::loadNpc] - Can not load script: {}", script);
+			SPDLOG_WARN("{}", scriptInterface->getLastLuaError());
 		}
 	}
 
@@ -821,13 +804,13 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 		if ((attr = node.attribute("now"))) {
 			npcType->info.health = pugi::cast<int32_t>(attr.value());
 		} else {
-			std::cout << "[Error - Npcs::loadNpc] Missing health now. " << file << std::endl;
+			SPDLOG_ERROR("[Npcs::loadNpc] - Missing health now. {}", file);
 		}
 
 		if ((attr = node.attribute("max"))) {
 			npcType->info.healthMax = pugi::cast<int32_t>(attr.value());
 		} else {
-			std::cout << "[Error - Npcs::loadNpc] Missing health max. " << file << std::endl;
+			SPDLOG_ERROR("[Npcs::loadNpc] Missing health max. {}", file);
 		}
 	}
 
@@ -837,8 +820,8 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 			const char* attrName = attr.name();
 			if (strcasecmp(attrName, "summonable") == 0) {
 				npcType->info.isSummonable = attr.as_bool();
-			} else if (strcasecmp(attrName, "rewardboss") == 0) {
-				npcType->info.isRewardBoss = attr.as_bool();
+			} else if (strcasecmp(attrName, "floorchange") == 0) {
+				npcType->info.floorChange = attr.as_bool();
 			} else if (strcasecmp(attrName, "attackable") == 0) {
 				npcType->info.isAttackable = attr.as_bool();
 			} else if (strcasecmp(attrName, "hostile") == 0) {
@@ -856,7 +839,8 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 			} else if (strcasecmp(attrName, "staticattack") == 0) {
 				uint32_t staticAttack = pugi::cast<uint32_t>(attr.value());
 				if (staticAttack > 100) {
-					std::cout << "[Warning - Npcs::loadNpc] staticattack greater than 100. " << file << std::endl;
+					SPDLOG_WARN("[Npcs::loadNpc] - "
+                                "Staticattack greater than 100. {}", file);
 					staticAttack = 100;
 				}
 
@@ -871,8 +855,6 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 				npcType->info.runAwayHealth = pugi::cast<int32_t>(attr.value());
 			} else if (strcasecmp(attrName, "hidehealth") == 0) {
 				npcType->info.hiddenHealth = attr.as_bool();
-			} else if (strcasecmp(attrName, "isblockable") == 0) {
-				npcType->info.isBlockable = attr.as_bool();
 			} else if (strcasecmp(attrName, "canwalkonenergy") == 0) {
 				npcType->info.canWalkOnEnergy = attr.as_bool();
 			} else if (strcasecmp(attrName, "canwalkonfire") == 0) {
@@ -895,7 +877,8 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 					npcType->info.respawnType.underground = true;
 				}
 			} else {
-				std::cout << "[Warning - Npcs::loadNpc] Unknown flag attribute: " << attrName << ". " << file << std::endl;
+				SPDLOG_WARN("[Npcs::loadNpc] - "
+                            "Unknown flag attribute: {}. {}", attrName, file);
 			}
 		}
 
@@ -910,39 +893,15 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 		if ((attr = node.attribute("speed")) || (attr = node.attribute("interval"))) {
 			npcType->info.changeTargetSpeed = pugi::cast<uint32_t>(attr.value());
 		} else {
-			std::cout << "[Warning - Npcs::loadNpc] Missing targetchange speed. " << file << std::endl;
+			SPDLOG_WARN("[Npcs::loadNpc] - "
+                        "Missing targetchange speed. {}", file);
 		}
 
 		if ((attr = node.attribute("chance"))) {
 			npcType->info.changeTargetChance = pugi::cast<int32_t>(attr.value());
 		} else {
-			std::cout << "[Warning - Npcs::loadNpc] Missing targetchange chance. " << file << std::endl;
-		}
-	}
-
-	if ((node = npcNode.child("targetstrategies"))) {
-		if ((attr = node.attribute("nearest"))) {
-			npcType->info.targetStrategiesNearestPercent = pugi::cast<int32_t>(attr.value());
-		} else {
-			std::cout << "[Warning - Npcs::loadNpc] Missing targetStrategiesNearestPercent. " << file << std::endl;
-		}
-
-		if ((attr = node.attribute("health"))) {
-			npcType->info.targetStrategiesLowerHPPercent = pugi::cast<int32_t>(attr.value());
-		} else {
-			std::cout << "[Warning - Npcs::loadNpc] Missing targetStrategiesLowerHPPercent. " << file << std::endl;
-		}
-
-		if ((attr = node.attribute("damage"))) {
-			npcType->info.targetStrategiesMostDamagePercent = pugi::cast<int32_t>(attr.value());
-		} else {
-			std::cout << "[Warning - Npcs::loadNpc] Missing targetStrategiesMostDamagePercent. " << file << std::endl;
-		}
-
-		if ((attr = node.attribute("random"))) {
-			npcType->info.targetStrategiesRandom = pugi::cast<int32_t>(attr.value());
-		} else {
-			std::cout << "[Warning - Npcs::loadNpc] Missing targetStrategiesRandom. " << file << std::endl;
+			SPDLOG_WARN("[Npcs::loadNpc] - "
+                        "Missing targetchange chance. {}", file);
 		}
 	}
 
@@ -972,7 +931,8 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 		} else if ((attr = node.attribute("typeex"))) {
 			npcType->info.outfit.lookTypeEx = pugi::cast<uint16_t>(attr.value());
 		} else {
-			std::cout << "[Warning - Npcs::loadNpc] Missing look type/typeex. " << file << std::endl;
+			SPDLOG_WARN("[Npcs::loadNpc] - "
+                        "Missing look type/typeex. {}", file);
 		}
 
 		if ((attr = node.attribute("mount"))) {
@@ -990,7 +950,8 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 			if (deserializeSpell(attackNode, sb, npcName)) {
 				npcType->info.attackSpells.emplace_back(std::move(sb));
 			} else {
-				std::cout << "[Warning - Npcs::loadNpc] Cant load spell. " << file << std::endl;
+				SPDLOG_WARN("[Npcs::loadNpc] - "
+                            "Cant load spell. {}", file);
 			}
 		}
 	}
@@ -1009,127 +970,8 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 			if (deserializeSpell(defenseNode, sb, npcName)) {
 				npcType->info.defenseSpells.emplace_back(std::move(sb));
 			} else {
-				std::cout << "[Warning - Npcs::loadNpc] Cant load spell. " << file << std::endl;
-			}
-		}
-	}
-
-	if ((node = npcNode.child("immunities"))) {
-		for (auto immunityNode : node.children()) {
-			if ((attr = immunityNode.attribute("name"))) {
-				std::string tmpStrValue = asLowerCaseString(attr.as_string());
-				if (tmpStrValue == "physical") {
-					npcType->info.damageImmunities |= COMBAT_PHYSICALDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_BLEEDING;
-				} else if (tmpStrValue == "energy") {
-					npcType->info.damageImmunities |= COMBAT_ENERGYDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_ENERGY;
-				} else if (tmpStrValue == "fire") {
-					npcType->info.damageImmunities |= COMBAT_FIREDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_FIRE;
-				} else if (tmpStrValue == "poison" ||
-							tmpStrValue == "earth") {
-					npcType->info.damageImmunities |= COMBAT_EARTHDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_POISON;
-				} else if (tmpStrValue == "drown") {
-					npcType->info.damageImmunities |= COMBAT_DROWNDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_DROWN;
-				} else if (tmpStrValue == "ice") {
-					npcType->info.damageImmunities |= COMBAT_ICEDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_FREEZING;
-				} else if (tmpStrValue == "holy") {
-					npcType->info.damageImmunities |= COMBAT_HOLYDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_DAZZLED;
-				} else if (tmpStrValue == "death") {
-					npcType->info.damageImmunities |= COMBAT_DEATHDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_CURSED;
-				} else if (tmpStrValue == "lifedrain") {
-					npcType->info.damageImmunities |= COMBAT_LIFEDRAIN;
-				} else if (tmpStrValue == "manadrain") {
-					npcType->info.damageImmunities |= COMBAT_MANADRAIN;
-				} else if (tmpStrValue == "paralyze") {
-					npcType->info.conditionImmunities |= CONDITION_PARALYZE;
-				} else if (tmpStrValue == "outfit") {
-					npcType->info.conditionImmunities |= CONDITION_OUTFIT;
-				} else if (tmpStrValue == "drunk") {
-					npcType->info.conditionImmunities |= CONDITION_DRUNK;
-				} else if (tmpStrValue == "invisible" || tmpStrValue == "invisibility") {
-					npcType->info.conditionImmunities |= CONDITION_INVISIBLE;
-				} else if (tmpStrValue == "bleed") {
-					npcType->info.conditionImmunities |= CONDITION_BLEEDING;
-				} else {
-					std::cout << "[Warning - Npcs::loadNpc] Unknown immunity name " << attr.as_string() << ". " << file << std::endl;
-				}
-			} else if ((attr = immunityNode.attribute("physical"))) {
-				if (attr.as_bool()) {
-					npcType->info.damageImmunities |= COMBAT_PHYSICALDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_BLEEDING;
-				}
-			} else if ((attr = immunityNode.attribute("energy"))) {
-				if (attr.as_bool()) {
-					npcType->info.damageImmunities |= COMBAT_ENERGYDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_ENERGY;
-				}
-			} else if ((attr = immunityNode.attribute("fire"))) {
-				if (attr.as_bool()) {
-					npcType->info.damageImmunities |= COMBAT_FIREDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_FIRE;
-				}
-			} else if ((attr = immunityNode.attribute("poison")) || (attr = immunityNode.attribute("earth"))) {
-				if (attr.as_bool()) {
-					npcType->info.damageImmunities |= COMBAT_EARTHDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_POISON;
-				}
-			} else if ((attr = immunityNode.attribute("drown"))) {
-				if (attr.as_bool()) {
-					npcType->info.damageImmunities |= COMBAT_DROWNDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_DROWN;
-				}
-			} else if ((attr = immunityNode.attribute("ice"))) {
-				if (attr.as_bool()) {
-					npcType->info.damageImmunities |= COMBAT_ICEDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_FREEZING;
-				}
-			} else if ((attr = immunityNode.attribute("holy"))) {
-				if (attr.as_bool()) {
-					npcType->info.damageImmunities |= COMBAT_HOLYDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_DAZZLED;
-				}
-			} else if ((attr = immunityNode.attribute("death"))) {
-				if (attr.as_bool()) {
-					npcType->info.damageImmunities |= COMBAT_DEATHDAMAGE;
-					npcType->info.conditionImmunities |= CONDITION_CURSED;
-				}
-			} else if ((attr = immunityNode.attribute("lifedrain"))) {
-				if (attr.as_bool()) {
-					npcType->info.damageImmunities |= COMBAT_LIFEDRAIN;
-				}
-			} else if ((attr = immunityNode.attribute("manadrain"))) {
-				if (attr.as_bool()) {
-					npcType->info.damageImmunities |= COMBAT_MANADRAIN;
-				}
-			} else if ((attr = immunityNode.attribute("paralyze"))) {
-				if (attr.as_bool()) {
-					npcType->info.conditionImmunities |= CONDITION_PARALYZE;
-				}
-			} else if ((attr = immunityNode.attribute("outfit"))) {
-				if (attr.as_bool()) {
-					npcType->info.conditionImmunities |= CONDITION_OUTFIT;
-				}
-			} else if ((attr = immunityNode.attribute("bleed"))) {
-				if (attr.as_bool()) {
-					npcType->info.conditionImmunities |= CONDITION_BLEEDING;
-				}
-			} else if ((attr = immunityNode.attribute("drunk"))) {
-				if (attr.as_bool()) {
-					npcType->info.conditionImmunities |= CONDITION_DRUNK;
-				}
-			} else if ((attr = immunityNode.attribute("invisible")) || (attr = immunityNode.attribute("invisibility"))) {
-				if (attr.as_bool()) {
-					npcType->info.conditionImmunities |= CONDITION_INVISIBLE;
-				}
-			} else {
-				std::cout << "[Warning - Npcs::loadNpc] Unknown immunity. " << file << std::endl;
+				SPDLOG_WARN("[Npcs::loadNpc] - "
+                            "Cant load spell. {}", file);
 			}
 		}
 	}
@@ -1138,13 +980,15 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 		if ((attr = node.attribute("speed")) || (attr = node.attribute("interval"))) {
 			npcType->info.yellSpeedTicks = pugi::cast<uint32_t>(attr.value());
 		} else {
-			std::cout << "[Warning - Npcs::loadNpc] Missing voices speed. " << file << std::endl;
+			SPDLOG_WARN("[Npcs::loadNpc] - "
+                        "Missing voices speed. {}", file);
 		}
 
 		if ((attr = node.attribute("chance"))) {
 			npcType->info.yellChance = pugi::cast<uint32_t>(attr.value());
 		} else {
-			std::cout << "[Warning - Npcs::loadNpc] Missing voices chance. " << file << std::endl;
+			SPDLOG_WARN("[Npcs::loadNpc] - "
+                        "Missing voices chance. {}", file);
 		}
 
 		for (auto voiceNode : node.children()) {
@@ -1152,7 +996,8 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 			if ((attr = voiceNode.attribute("sentence"))) {
 				vb.text = attr.as_string();
 			} else {
-				std::cout << "[Warning - Npcs::loadNpc] Missing voice sentence. " << file << std::endl;
+				SPDLOG_WARN("[Npcs::loadNpc] - "
+                            "Missing voice sentence. {}", file);
 			}
 
 			if ((attr = voiceNode.attribute("yell"))) {
@@ -1164,100 +1009,17 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 		}
 	}
 
-	if ((node = npcNode.child("loot"))) {
-		for (auto lootNode : node.children()) {
-			LootBlock lootBlock;
-			if (loadLootItem(lootNode, lootBlock)) {
-				npcType->info.lootItems.emplace_back(std::move(lootBlock));
-			} else {
-				std::cout << "[Warning - Npcs::loadNpc] Cant load loot. " << file << std::endl;
-			}
-		}
-	}
-
-	if ((node = npcNode.child("elements"))) {
-		for (auto elementNode : node.children()) {
-			if ((attr = elementNode.attribute("physicalPercent"))) {
-				npcType->info.elementMap[COMBAT_PHYSICALDAMAGE] = pugi::cast<int32_t>(attr.value());
-			} else if ((attr = elementNode.attribute("icePercent"))) {
-				npcType->info.elementMap[COMBAT_ICEDAMAGE] = pugi::cast<int32_t>(attr.value());
-			} else if ((attr = elementNode.attribute("poisonPercent")) || (attr = elementNode.attribute("earthPercent"))) {
-				npcType->info.elementMap[COMBAT_EARTHDAMAGE] = pugi::cast<int32_t>(attr.value());
-			} else if ((attr = elementNode.attribute("firePercent"))) {
-				npcType->info.elementMap[COMBAT_FIREDAMAGE] = pugi::cast<int32_t>(attr.value());
-			} else if ((attr = elementNode.attribute("energyPercent"))) {
-				npcType->info.elementMap[COMBAT_ENERGYDAMAGE] = pugi::cast<int32_t>(attr.value());
-			} else if ((attr = elementNode.attribute("holyPercent"))) {
-				npcType->info.elementMap[COMBAT_HOLYDAMAGE] = pugi::cast<int32_t>(attr.value());
-			} else if ((attr = elementNode.attribute("deathPercent"))) {
-				npcType->info.elementMap[COMBAT_DEATHDAMAGE] = pugi::cast<int32_t>(attr.value());
-			} else if ((attr = elementNode.attribute("drownPercent"))) {
-				npcType->info.elementMap[COMBAT_DROWNDAMAGE] = pugi::cast<int32_t>(attr.value());
-			} else if ((attr = elementNode.attribute("lifedrainPercent"))) {
-				npcType->info.elementMap[COMBAT_LIFEDRAIN] = pugi::cast<int32_t>(attr.value());
-			} else if ((attr = elementNode.attribute("manadrainPercent"))) {
-				npcType->info.elementMap[COMBAT_MANADRAIN] = pugi::cast<int32_t>(attr.value());
-			} else {
-				std::cout << "[Warning - Npcs::loadNpc] Unknown element percent. " << file << std::endl;
-			}
-		}
-	}
-
-	if ((node = npcNode.child("summons"))) {
-		if ((attr = node.attribute("maxSummons"))) {
-			npcType->info.maxSummons = std::min<uint32_t>(pugi::cast<uint32_t>(attr.value()), 100);
-		} else {
-			std::cout << "[Warning - Npcs::loadNpc] Missing summons maxSummons. " << file << std::endl;
-		}
-
-		for (auto summonNode : node.children()) {
-			int32_t chance = 100;
-			int32_t speed = 1000;
-			int32_t max = npcType->info.maxSummons;
-			bool force = false;
-
-			if ((attr = summonNode.attribute("speed")) || (attr = summonNode.attribute("interval"))) {
-				speed = std::max<int32_t>(1, pugi::cast<int32_t>(attr.value()));
-			}
-
-			if ((attr = summonNode.attribute("chance"))) {
-				chance = pugi::cast<int32_t>(attr.value());
-			}
-
-			if ((attr = summonNode.attribute("max"))) {
-				max = pugi::cast<uint32_t>(attr.value());
-			}
-
-			if ((attr = summonNode.attribute("force"))) {
-				force = attr.as_bool();
-			}
-
-			if ((attr = summonNode.attribute("name"))) {
-				summonBlock_t sb;
-				sb.name = attr.as_string();
-				sb.speed = speed;
-				sb.chance = chance;
-				sb.max = max;
-				sb.force = force;
-				npcType->info.summons.emplace_back(sb);
-			} else {
-				std::cout << "[Warning - Npcs::loadNpc] Missing summon name. " << file << std::endl;
-			}
-		}
-	}
-
 	if ((node = npcNode.child("script"))) {
 		for (auto eventNode : node.children()) {
 			if ((attr = eventNode.attribute("name"))) {
 				npcType->info.scripts.emplace_back(attr.as_string());
 			} else {
-				std::cout << "[Warning - Npcs::loadNpc] Missing name for script event. " << file << std::endl;
+				SPDLOG_WARN("[Npcs::loadNpc] - "
+                            "Missing name for script event. {}", file);
 			}
 		}
 	}
 
-	npcType->info.summons.shrink_to_fit();
-	npcType->info.lootItems.shrink_to_fit();
 	npcType->info.attackSpells.shrink_to_fit();
 	npcType->info.defenseSpells.shrink_to_fit();
 	npcType->info.voiceVector.shrink_to_fit();
@@ -1269,7 +1031,7 @@ bool NpcType::loadCallback(LuaScriptInterface* scriptInterface)
 {
 	int32_t id = scriptInterface->getEvent();
 	if (id == -1) {
-		std::cout << "[Warning - NpcType::loadCallback] Event not found. " << std::endl;
+		SPDLOG_WARN("[NpcType::loadCallback] - Event not found");
 		return false;
 	}
 
@@ -1286,124 +1048,6 @@ bool NpcType::loadCallback(LuaScriptInterface* scriptInterface)
 		info.creatureSayEvent = id;
 	}
 	return true;
-}
-
-bool Npcs::loadLootItem(const pugi::xml_node& node, LootBlock& lootBlock)
-{
-	pugi::xml_attribute attr;
-	if ((attr = node.attribute("id"))) {
-		lootBlock.id = pugi::cast<int32_t>(attr.value());
-	} else if ((attr = node.attribute("name"))) {
-		auto name = attr.as_string();
-		auto ids = Item::items.nameToItems.equal_range(asLowerCaseString(name));
-
-		if (ids.first == Item::items.nameToItems.cend()) {
-			std::cout << "[Warning - Npcs::loadNpc] Unknown loot item \"" << name << "\". " << std::endl;
-			return false;
-		}
-
-		uint32_t id = ids.first->second;
-
-		if (std::next(ids.first) != ids.second) {
-			std::cout << "[Warning - Npcs::loadNpc] Non-unique loot item \"" << name << "\". " << std::endl;
-			return false;
-		}
-
-		lootBlock.id = id;
-	}
-
-	if (lootBlock.id == 0) {
-		return false;
-	}
-
-	//optional
-	if ((attr = node.attribute("subtype"))) {
-		lootBlock.subType = pugi::cast<int32_t>(attr.value());
-	} else {
-		uint32_t charges = Item::items[lootBlock.id].charges;
-		if (charges != 0) {
-			lootBlock.subType = charges;
-		}
-	}
-
-	if ((attr = node.attribute("chance")) || (attr = node.attribute("chance1"))) {
-		lootBlock.chance = std::min<int32_t>(MAX_LOOTCHANCE, pugi::cast<int32_t>(attr.value()));
-	} else {
-		lootBlock.chance = MAX_LOOTCHANCE;
-	}
-
-	//optional
-	if ((attr = node.attribute("countmin"))) {
-		lootBlock.countmin = std::max<int32_t>(1, pugi::cast<int32_t>(attr.value()));
-	} else {
-		lootBlock.countmin = 1;
-	}
-
-	//optional
-	if ((attr = node.attribute("countmax"))) {
-		lootBlock.countmax = std::max<int32_t>(1, pugi::cast<int32_t>(attr.value()));
-	} else {
-		lootBlock.countmax = 1;
-	}
-
-	if (Item::items[lootBlock.id].isContainer()) {
-		loadLootContainer(node, lootBlock);
-	}
-
-	if ((attr = node.attribute("actionId"))) {
-		lootBlock.actionId = pugi::cast<int32_t>(attr.value());
-	}
-
-	if ((attr = node.attribute("text"))) {
-		lootBlock.text = attr.as_string();
-	}
-
-	if ((attr = node.attribute("nameItem"))) {
-		lootBlock.name = attr.as_string();
-	}
-
-	if ((attr = node.attribute("article"))) {
-		lootBlock.article = attr.as_string();
-	}
-
-	if ((attr = node.attribute("attack"))) {
-		lootBlock.attack = pugi::cast<int32_t>(attr.value());
-	}
-
-	if ((attr = node.attribute("defense"))) {
-		lootBlock.defense = pugi::cast<int32_t>(attr.value());
-	}
-
-	if ((attr = node.attribute("extradefense"))) {
-		lootBlock.extraDefense = pugi::cast<int32_t>(attr.value());
-	}
-
-	if ((attr = node.attribute("armor"))) {
-		lootBlock.armor = pugi::cast<int32_t>(attr.value());
-	}
-
-	if ((attr = node.attribute("shootrange"))) {
-		lootBlock.shootRange = pugi::cast<int32_t>(attr.value());
-	}
-
-	if ((attr = node.attribute("hitchance"))) {
-		lootBlock.hitChance = pugi::cast<int32_t>(attr.value());
-	}
-
-	if ((attr = node.attribute("unique"))) {
-		lootBlock.unique = attr.as_bool();
-	}
-	return true;
-}
-
-void Npcs::loadLootContainer(const pugi::xml_node& node, LootBlock& lBlock)
-{
-	for (auto subNode : node.children()) {
-		LootBlock lootBlock;
-		if (loadLootItem(subNode, lootBlock)) {
-			lBlock.childLoot.emplace_back(std::move(lootBlock));
-		}
-	}
 }
 
 NpcType* Npcs::getNpcType(const std::string& name)

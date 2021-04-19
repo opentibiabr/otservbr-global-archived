@@ -79,10 +79,6 @@ class Npc final : public Creature
 			masterPos = pos;
 		}
 
-
-		RaceType_t getRace() const override {
-			return npcType->info.race;
-		}
 		int32_t getArmor() const override {
 			return npcType->info.armor;
 		}
