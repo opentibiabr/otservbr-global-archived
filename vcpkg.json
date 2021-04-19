@@ -12,7 +12,10 @@
 		"pugixml",
 		"spdlog",
 		"curl",
-		"luajit",
+		{
+			"name": "luajit",
+			"platform": "!(linux)"
+		},
 		"jsoncpp",
 		"cryptopp"
 	]
