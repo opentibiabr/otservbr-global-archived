@@ -23,7 +23,11 @@ function travelDiscount(player, discounts)
 	return discountPrice
 end
 
-function Player:removeMoneyNpc(amount)
+function Player:getTotalMoney()
+	return self:getMoney() + self:getBankBalance()
+end
+
+function Player:removeMoneyIncludingBalance(amount)
 	if type(amount) == 'string' then
 		amount = tonumber(amount)
 	end
@@ -65,7 +69,7 @@ function Player:removeMoneyNpc(amount)
 end
 
 function Npc:chargePlayer(player, cost, message)
-    if not player:removeMoneyNpc(cost) then
+    if not player:removeMoneyIncludingBalance(cost) then
         self:talk(player, message or "You do not have enough money!")
         return false
     end
