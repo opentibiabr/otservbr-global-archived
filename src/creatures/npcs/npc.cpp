@@ -133,8 +133,6 @@ void Npc::onRemoveCreature(Creature* creature, bool isLogout)
 	if (spawnNpc) {
 		spawnNpc->startSpawnNpcCheck();
 	}
-
-	Game::removeCreatureCheck(this);
 }
 
 void Npc::onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos,
