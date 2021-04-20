@@ -35,11 +35,10 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-    local player = creature:getPlayer()
     return npc:processOnSay(
         message,
-        player,
-        { NpcInteraction:new({"hi"}, "So you have come, ".. player:getName() ..". I hoped you would not...", interactionTypes.INTERACTION_GREET) }
+        creature:getPlayer(),
+        { NpcInteraction:new({"hi"}, "So you have come, ".. creature:getPlayer() ..". I hoped you would not...", interactionTypes.INTERACTION_GREET) }
     )
 end
 
