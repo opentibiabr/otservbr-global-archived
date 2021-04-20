@@ -1,6 +1,6 @@
 require "player_processor_interface";
-PlayerValidator = PlayerProcessorInterface:new()
 
+PlayerValidator = PlayerProcessorInterface:new()
 function PlayerValidator:new(player)
    obj = PlayerProcessorInterface:new(player)
 
@@ -44,7 +44,7 @@ function PlayerValidator:validateStorages()
    end
 end
 
-function PlayerValidator:validateCallbacks()
+function PlayerValidator:runValidationCallbacks()
    for _, callback in pairs(self.callbacks) do
       if not self.valid then return end
       self.valid = callback(self.player)
