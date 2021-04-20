@@ -1,23 +1,17 @@
 --NpcInteraction = {}
 --NpcTopic = {}
 --NpcMessages = {}
-PlayerProcessorInterface = {
-    player = Player()
-}
+PlayerProcessorInterface = {}
 
 function PlayerProcessorInterface:new(player)
     obj = {
-        player = Player(player),
+        player = player,
         moneyAmount = 0,
         storages = {},
         items = {},
         position = nil,
         callbacks = {},
     }
-
-    if not self.player or not self.player:isPlayer() then
-        error("PlayerProcessorInterface needs a valid player to instantiate")
-    end
 
     setmetatable(obj, self)
     self.__index = self
@@ -26,20 +20,25 @@ end
 
 function PlayerProcessorInterface:addStorage(key, value)
     self.storages[key] = value
+    return self
 end
 
 function PlayerProcessorInterface:addAmount(amount)
-    self.money = self.money + amount
+    self.moneyAmount = self.moneyAmount + amount
+    return self
 end
 
 function PlayerProcessorInterface:addItem(itemId, count)
     self.items[itemId] = count
+    return self
 end
 
 function PlayerProcessorInterface:addPosition(position)
     self.position = position
+    return self
 end
 
 function PlayerProcessorInterface:addCallback(callback)
     self.callbacks[#self.callbacks + 1] = callback
+    return self
 end
