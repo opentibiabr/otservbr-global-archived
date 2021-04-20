@@ -18,7 +18,6 @@ npc.outfit = {
 }
 
 npc.flags = {
-    attackable = false,
     hostile = false,
     floorchange = false
 }

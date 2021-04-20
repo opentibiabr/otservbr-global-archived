@@ -79,6 +79,24 @@ class Npc final : public Creature
 			masterPos = pos;
 		}
 
+		void onPlayerEndTrade(Player* player, int32_t buyCallback, int32_t sellCallback);
+		void onPlayerCloseChannel(Player* player);
+
+		uint8_t getSpeechBubble() const override {
+			return npcType->info.speechBubble;
+		}
+		void setSpeechBubble(const uint8_t bubble) {
+			npcType->info.speechBubble = bubble;
+		}
+
+		uint16_t getCurrencyTrading() const {
+			return npcType->info.currencyClientId;
+		}
+
+		uint16_t getCurrency() const {
+			return npcType->info.currencyServerId;
+		}
+
 		int32_t getArmor() const override {
 			return npcType->info.armor;
 		}
@@ -131,6 +149,7 @@ class Npc final : public Creature
 		void onThink(uint32_t interval) override;
 		void onPlacedCreature() override;
 
+		bool canWalkTo(const Position& fromPos, Direction dir) const;
 		bool getNextStep(Direction& direction, uint32_t& flags) override;
 
 		void setNormalCreatureLight() override {
@@ -140,22 +159,36 @@ class Npc final : public Creature
 		static uint32_t npcAutoID;
 
 	private:
+		void addShopPlayer(Player* player);
+		void removeShopPlayer(Player* player);
+		void closeAllShopWindows();
+		void onThinkYell(uint32_t interval);
+		void onThinkWalk(uint32_t interval);
+
+		bool isInSpawnRange(const Position& pos) const;
+
 		std::string strDescription;
 
 		std::map<uint32_t, uint16_t> playerInteractions;
 
+		std::set<Player*> shopPlayerSet;
+
 		NpcType* npcType;
 		SpawnNpc* spawnNpc = nullptr;
+
+		int32_t masterRadius;
+
+		uint8_t speechBubble;
+
+		uint16_t currencyServerId;
+		uint16_t currencyClientId;
 
 		uint32_t yellTicks = 0;
 		uint32_t walkTicks = 0;
 
+		bool ignoreHeight;
+
 		Position masterPos;
-
-		bool isInSpawnRange(const Position& pos) const;
-
-		void onThinkYell(uint32_t interval);
-		void onThinkWalk(uint32_t interval);
 
 		friend class LuaScriptInterface;
 		friend class Map;

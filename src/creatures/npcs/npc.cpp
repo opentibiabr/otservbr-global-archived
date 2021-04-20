@@ -63,6 +63,7 @@ Npc::Npc(NpcType* npcType) :
 	baseSpeed = npcType->info.baseSpeed;
 	internalLight = npcType->info.light;
 	hiddenHealth = npcType->info.hiddenHealth;
+	floorChange = npcType->info.floorChange;
 
 	// register creature events
 	for (const std::string& scriptName : npcType->info.scripts) {
@@ -250,8 +251,11 @@ void Npc::onThinkWalk(uint32_t interval)
 		return;
 	}
 
-	listWalkDir.push_front(Position::getRandomDirection());
-	addEventWalk();
+	Direction dir = Position::getRandomDirection();
+	if (canWalkTo(getPosition(), dir)) {
+		listWalkDir.push_front(dir);
+		addEventWalk();
+	}
 
 	walkTicks = 0;
 }
@@ -313,6 +317,64 @@ void Npc::resetPlayerInteractions() {
 	playerInteractions.clear();
 }
 
+bool Npc::canWalkTo(const Position& fromPos, Direction dir) const
+{
+	if (masterRadius == 0) {
+		return false;
+	}
+
+	Position toPos = getNextPosition(dir, fromPos);
+	if (!SpawnsNpc::isInZone(masterPos, masterRadius, toPos)) {
+		return false;
+	}
+
+	Tile* toTile = g_game.map.getTile(toPos);
+	if (!toTile || toTile->queryAdd(0, *this, 1, 0) != RETURNVALUE_NOERROR) {
+		return false;
+	}
+
+	if (!floorChange && (toTile->hasFlag(TILESTATE_FLOORCHANGE) || toTile->getTeleportItem())) {
+		return false;
+	}
+
+	if (!ignoreHeight && toTile->hasHeight(1)) {
+		return false;
+	}
+
+	return true;
+}
+
 bool Npc::getNextStep(Direction& nextDirection, uint32_t& flags) {
 	return Creature::getNextStep(nextDirection, flags);
+}
+
+void Npc::addShopPlayer(Player* player)
+{
+	shopPlayerSet.insert(player);
+}
+
+void Npc::removeShopPlayer(Player* player)
+{
+	shopPlayerSet.erase(player);
+}
+
+void Npc::closeAllShopWindows()
+{
+	while (!shopPlayerSet.empty()) {
+		Player* player = *shopPlayerSet.begin();
+		if (!player->closeShopWindow()) {
+			removeShopPlayer(player);
+		}
+	}
+}
+
+void Npc::onPlayerEndTrade(Player* player, int32_t buyCallback, int32_t sellCallback)
+{
+	removeShopPlayer(player);
+	onPlayerEndTrade(player, buyCallback, sellCallback);
+}
+
+void Npc::onPlayerCloseChannel(Player* player)
+{
+	onPlayerCloseChannel(player);
 }

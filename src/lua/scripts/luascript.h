@@ -1201,6 +1201,8 @@ class LuaScriptInterface
 		static int luaNpcIsInteractingWithPlayer(lua_State* L);
 		static int luaNpcIsInTalkRange(lua_State* L);
 		static int luaNpcIsPlayerInteractingOnTopic(lua_State* L);
+		static int luaNpcOpenShopWindow(lua_State* L);
+		static int luaNpcCloseShopWindow(lua_State* L);
 
 		// Guild
 		static int luaGuildCreate(lua_State* L);
@@ -1417,6 +1419,7 @@ class LuaScriptInterface
 		static int luaNpcTypeIsHostile(lua_State* L);
 		static int luaNpcTypeIsPushable(lua_State* L);
 		static int luaNpcTypeIsHealthHidden(lua_State* L);
+		static int luaNpcTypeFloorChange(lua_State* L);
 
 		static int luaNpcTypeIsRewardBoss(lua_State* L);
 		static int luaNpcTypeRespawnType(lua_State* L);

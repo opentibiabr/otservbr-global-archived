@@ -33,6 +33,11 @@ registerNpcType.skull = function(npcType, mask)
 		npcType:skull(mask.skull)
 	end
 end
+registerNpcType.speechBubble = function(npcType, mask)
+	if mask.speechBubble then
+		npcType:setSpeechBubble(mask.speechBubble)
+	end
+end
 registerNpcType.outfit = function(npcType, mask)
 	if mask.outfit then
 		npcType:outfit(mask.outfit)
@@ -46,11 +51,6 @@ end
 registerNpcType.health = function(npcType, mask)
 	if mask.health then
 		npcType:health(mask.health)
-	end
-end
-registerNpcType.maxSummons = function(npcType, mask)
-	if mask.maxSummons then
-		npcType:maxSummons(mask.maxSummons)
 	end
 end
 registerNpcType.race = function(npcType, mask)
@@ -80,53 +80,11 @@ registerNpcType.corpse = function(npcType, mask)
 end
 registerNpcType.flags = function(npcType, mask)
 	if mask.flags then
-		if mask.flags.attackable ~= nil then
-			npcType:isAttackable(mask.flags.attackable)
-		end
-		if mask.flags.convinceable ~= nil then
-			npcType:isConvinceable(mask.flags.convinceable)
-		end
-		if mask.flags.summonable ~= nil then
-			npcType:isSummonable(mask.flags.summonable)
-		end
-		if mask.flags.illusionable ~= nil then
-			npcType:isIllusionable(mask.flags.illusionable)
-		end
 		if mask.flags.hostile ~= nil then
 			npcType:isHostile(mask.flags.hostile)
 		end
-		if mask.flags.healthHidden ~= nil then
-			npcType:isHealthHidden(mask.flags.healthHidden)
-		end
-		if mask.flags.pushable ~= nil then
-			npcType:isPushable(mask.flags.pushable)
-		end
-		if mask.flags.canPushItems ~= nil then
-			npcType:canPushItems(mask.flags.canPushItems)
-		end
-		if mask.flags.canPushCreatures ~= nil then
-			npcType:canPushCreatures(mask.flags.canPushCreatures)
-		end
-		if mask.flags.targetDistance then
-			npcType:targetDistance(math.max(1, mask.flags.targetDistance))
-		end
-		if mask.flags.runHealth then
-			npcType:runHealth(mask.flags.runHealth)
-		end
-		if mask.flags.staticAttackChance then
-			npcType:staticAttackChance(mask.flags.staticAttackChance)
-		end
-		if mask.flags.canWalkOnEnergy ~= nil then
-			npcType:canWalkOnEnergy(mask.flags.canWalkOnEnergy)
-		end
-		if mask.flags.canWalkOnFire ~= nil then
-			npcType:canWalkOnFire(mask.flags.canWalkOnFire)
-		end
-		if mask.flags.canWalkOnPoison ~= nil then
-			npcType:canWalkOnPoison(mask.flags.canWalkOnPoison)
-		end
-		if mask.flags.isBlockable ~= nil then
-			npcType:isBlockable(mask.flags.isBlockable)
+		if mask.flags.floorchange ~= nil then
+			npcType:floorChange(mask.flags.floorchange)
 		end
 	end
 end
@@ -147,22 +105,6 @@ registerNpcType.changeTarget = function(npcType, mask)
 		end
 		if mask.changeTarget.interval then
 			npcType:changeTargetSpeed(mask.changeTarget.interval)
-		end
-	end
-end
-registerNpcType.strategiesTarget = function(npcType, mask)
-	if mask.strategiesTarget then
-		if mask.strategiesTarget.nearest then
-			npcType:strategiesTargetNearest(mask.strategiesTarget.nearest)
-		end
-		if mask.strategiesTarget.health then
-			npcType:strategiesTargetHealth(mask.strategiesTarget.health)
-		end
-		if mask.strategiesTarget.damage then
-			npcType:strategiesTargetDamage(mask.strategiesTarget.damage)
-		end
-		if mask.strategiesTarget.random then
-			npcType:strategiesTargetRandom(mask.strategiesTarget.random)
 		end
 	end
 end
@@ -192,188 +134,10 @@ registerNpcType.voices = function(npcType, mask)
 		end
 	end
 end
-registerNpcType.summons = function(npcType, mask)
-	if type(mask.summons) == "table" then
-		for k, v in pairs(mask.summons) do
-			npcType:addSummon(v.name, v.interval, v.chance)
-		end
-	end
-end
 registerNpcType.events = function(npcType, mask)
 	if type(mask.events) == "table" then
 		for k, v in pairs(mask.events) do
 			npcType:registerEvent(v)
-		end
-	end
-end
-registerNpcType.loot = function(npcType, mask)
-	if type(mask.loot) == "table" then
-		local lootError = false
-		for _, loot in pairs(mask.loot) do
-			local parent = Loot()
-			if loot.name then
-				if not parent:setIdFromName(loot.name) then
-					lootError = true
-				end
-			else
-				if not isInteger(loot.id) or loot.id < 1 then
-					lootError = true
-				end
-				parent:setId(loot.id)
-			end
-			if loot.subType or loot.charges then
-				parent:setSubType(loot.subType or loot.charges)
-			else
-    			local lType = ItemType(loot.name and loot.name or loot.id)
-				if lType and lType:getCharges() > 1 then
-        			parent:setSubType(lType:getCharges())
-				end
-			end
-			if loot.chance then
-				parent:setChance(loot.chance)
-			end
-			if loot.minCount then
-				parent:setMinCount(loot.minCount)
-			end
-			if loot.maxCount then
-				parent:setMaxCount(loot.maxCount)
-			end
-			if loot.aid or loot.actionId then
-				parent:setActionId(loot.aid or loot.actionId)
-			end
-			if loot.text or loot.description then
-				parent:setText(loot.text or loot.description)
-			end
-			if loot.name then
-				parent:setNameItem(loot.name)
-			end
-			if loot.article then
-				parent:setArticle(loot.article)
-			end
-			if loot.attack then
-				parent:setAttack(loot.attack)
-			end
-			if loot.defense then
-				parent:setDefense(loot.defense)
-			end
-			if loot.extraDefense or loot.extraDef then
-				parent:setExtraDefense(loot.extraDefense or loot.extraDef)
-			end
-			if loot.armor then
-				parent:setArmor(loot.armor)
-			end
-			if loot.shootRange or loot.range then
-				parent:setShootRange(loot.shootRange or loot.range)
-			end
-			if loot.unique then
-				parent:setUnique(loot.unique)
-			end
-			if loot.child then
-				for _, children in pairs(loot.child) do
-					local child = Loot()
-					if children.name then
-						if not child:setIdFromName(children.name) then
-							lootError = true
-						end
-					else
-						if not isInteger(children.id) or children.id < 1 then
-							lootError = true
-						end
-						child:setId(children.id)
-					end
-					if children.subType or children.charges then
-						child:setSubType(children.subType or children.charges)
-					else
-    					local cType = ItemType(children.name and children.name or children.id)
-						if cType and cType:getCharges() > 1 then
-        					child:setSubType(cType:getCharges())
-						end
-					end
-					if children.chance then
-						child:setChance(children.chance)
-					end
-					if children.minCount then
-						child:setMinCount(children.minCount)
-					end
-					if children.maxCount then
-						child:setMaxCount(children.maxCount)
-					end
-					if children.aid or children.actionId then
-						child:setActionId(children.aid or children.actionId)
-					end
-					if children.text or children.description then
-						child:setText(children.text or children.description)
-					end
-					if loot.name then
-						child:setNameItem(loot.name)
-					end
-					if children.article then
-						child:setArticle(children.article)
-					end
-					if children.attack then
-						child:setAttack(children.attack)
-					end
-					if children.defense then
-						child:setDefense(children.defense)
-					end
-					if children.extraDefense or children.extraDef then
-						child:setExtraDefense(children.extraDefense or children.extraDef)
-					end
-					if children.armor then
-						child:setArmor(children.armor)
-					end
-					if children.shootRange or children.range then
-						child:setShootRange(children.shootRange or children.range)
-					end
-					if children.unique then
-						child:setUnique(children.unique)
-					end
-					parent:addChildLoot(child)
-				end
-			end
-			npcType:addLoot(parent)
-		end
-		if lootError then
-			print("[Warning - end] Monster: \"".. npcType:name() .. "\" loot could not correctly be load.")
-		end
-	end
-end
-registerNpcType.elements = function(npcType, mask)
-	if type(mask.elements) == "table" then
-		for _, element in pairs(mask.elements) do
-			if element.type and element.percent then
-				npcType:addElement(element.type, element.percent)
-			end
-		end
-	end
-end
-registerNpcType.reflects = function(npcType, mask)
-	if type(mask.reflects) == "table" then
-		for _, reflect in pairs(mask.reflects) do
-			if reflect.type and reflect.percent then
-				npcType:addReflect(reflect.type, reflect.percent)
-			end
-		end
-	end
-end
-registerNpcType.heals = function(npcType, mask)
-	if type(mask.heals) == "table" then
-		for _, heal in pairs(mask.heals) do
-			if heal.type and heal.percent then
-				npcType:addHealing(heal.type, heal.percent)
-			end
-		end
-	end
-end
-registerNpcType.immunities = function(npcType, mask)
-	if type(mask.immunities) == "table" then
-		for _, immunity in pairs(mask.immunities) do
-			if immunity.type and immunity.combat then
-				npcType:combatImmunities(immunity.type)
-			end
-			if immunity.type and immunity.condition then
-				npcType:conditionImmunities(immunity.type)
-			end
 		end
 	end
 end

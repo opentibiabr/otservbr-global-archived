@@ -44,6 +44,7 @@
 #include "../lua/modules/modules.h"
 #include "../creatures/players/imbuements/imbuements.h"
 #include "../creatures/players/account/account.hpp"
+#include "../creatures/npcs/npc.h"
 #include "../creatures/npcs/npcs.h"
 #include "../server/network/webhook/webhook.h"
 
@@ -2878,6 +2879,22 @@ void Game::playerOpenPrivateChannel(uint32_t playerId, std::string& receiver)
 	}
 
 	player->sendOpenPrivateChannel(receiver);
+}
+
+void Game::playerCloseNpcChannel(uint32_t playerId)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return;
+	}
+
+	SpectatorHashSet spectators;
+	map.getSpectators(spectators, player->getPosition());
+	for (Creature* spectator : spectators) {
+		if (Npc* npc = spectator->getNpc()) {
+			npc->onPlayerCloseChannel(player);
+		}
+	}
 }
 
 void Game::playerReceivePing(uint32_t playerId)

@@ -2891,6 +2891,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Npc", "isInteractingWithPlayer", LuaScriptInterface::luaNpcIsInteractingWithPlayer);
 	registerMethod("Npc", "isInTalkRange", LuaScriptInterface::luaNpcIsInTalkRange);
 	registerMethod("Npc", "isPlayerInteractingOnTopic", LuaScriptInterface::luaNpcIsPlayerInteractingOnTopic);
+	registerMethod("Npc", "openShopWindow", LuaScriptInterface::luaNpcOpenShopWindow);
+	registerMethod("Npc", "closeShopWindow", LuaScriptInterface::luaNpcCloseShopWindow);
 
 	// Guild
 	registerClass("Guild", "", LuaScriptInterface::luaGuildCreate);
@@ -3121,6 +3123,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("NpcType", "isHostile", LuaScriptInterface::luaNpcTypeIsHostile);
 	registerMethod("NpcType", "isPushable", LuaScriptInterface::luaNpcTypeIsPushable);
 	registerMethod("NpcType", "isHealthHidden", LuaScriptInterface::luaNpcTypeIsHealthHidden);
+	registerMethod("NpcType", "floorChange", LuaScriptInterface::luaNpcTypeFloorChange);
 
 	registerMethod("NpcType", "canSpawn", LuaScriptInterface::luaNpcTypeCanSpawn);
 
@@ -13117,6 +13120,110 @@ int LuaScriptInterface::luaNpcIsInTalkRange(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaNpcOpenShopWindow(lua_State* L)
+{
+	// npc:openShopWindow(cid, items, buyCallback, sellCallback)
+	if (!isTable(L, 3)) {
+		reportErrorFunc("item list is not a table.");
+		pushBoolean(L, false);
+		return 1;
+	}
+
+	Player* player = getPlayer(L, 2);
+	if (!player) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
+		pushBoolean(L, false);
+		return 1;
+	}
+
+	Npc* npc = getUserdata<Npc>(L, 1);
+	if (!npc) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
+		pushBoolean(L, false);
+		return 1;
+	}
+
+	int32_t sellCallback = -1;
+	if (LuaScriptInterface::isFunction(L, 5)) {
+		sellCallback = luaL_ref(L, LUA_REGISTRYINDEX);
+	}
+
+	int32_t buyCallback = -1;
+	if (LuaScriptInterface::isFunction(L, 4)) {
+		buyCallback = luaL_ref(L, LUA_REGISTRYINDEX);
+	}
+
+	std::vector<ShopInfo> items;
+
+	lua_pushnil(L);
+	while (lua_next(L, 3) != 0) {
+		const auto tableIndex = lua_gettop(L);
+		ShopInfo item;
+
+		uint16_t itemId = static_cast<uint16_t>(getField<uint32_t>(L, tableIndex, "id"));
+		int32_t subType = getField<int32_t>(L, tableIndex, "subType");
+		if (subType == 0) {
+			subType = getField<int32_t>(L, tableIndex, "subtype");
+			lua_pop(L, 1);
+		}
+
+		uint32_t buyPrice = getField<uint32_t>(L, tableIndex, "buy");
+		uint32_t sellPrice = getField<uint32_t>(L, tableIndex, "sell");
+		std::string realName = getFieldString(L, tableIndex, "name");
+
+		items.emplace_back(itemId, subType, buyPrice, sellPrice, std::move(realName));
+		lua_pop(L, 6);
+	}
+	lua_pop(L, 1);
+
+	player->closeShopWindow(false);
+	npc->addShopPlayer(player);
+
+	player->setShopOwner(npc, buyCallback, sellCallback);
+	player->openShopWindow(npc, items);
+
+	pushBoolean(L, true);
+	return 1;
+}
+
+int LuaScriptInterface::luaNpcCloseShopWindow(lua_State* L)
+{
+	Player* player = getPlayer(L, 2);
+	if (!player) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
+		pushBoolean(L, false);
+		return 1;
+	}
+
+	Npc* npc = getUserdata<Npc>(L, 1);
+	if (!npc) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_CREATURE_NOT_FOUND));
+		pushBoolean(L, false);
+		return 1;
+	}
+
+	int32_t buyCallback;
+	int32_t sellCallback;
+
+	Npc* merchant = player->getShopOwner(buyCallback, sellCallback);
+	if (merchant == npc) {
+		player->sendCloseShop();
+		if (buyCallback != -1) {
+			luaL_unref(L, LUA_REGISTRYINDEX, buyCallback);
+		}
+
+		if (sellCallback != -1) {
+			luaL_unref(L, LUA_REGISTRYINDEX, sellCallback);
+		}
+
+		player->setShopOwner(nullptr, -1, -1);
+		npc->removeShopPlayer(player);
+	}
+
+	pushBoolean(L, true);
+	return 1;
+}
+
 // Guild
 int LuaScriptInterface::luaGuildCreate(lua_State* L)
 {
@@ -15477,6 +15584,23 @@ int LuaScriptInterface::luaNpcTypeIsHealthHidden(lua_State* L)
 			pushBoolean(L, npcType->info.hiddenHealth);
 		} else {
 			npcType->info.hiddenHealth = getBoolean(L, 2);
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaNpcTypeFloorChange(lua_State* L)
+{
+	// get: npcType:floorChange() set: npcType:floorChange(bool)
+	NpcType* npcType = getUserdata<NpcType>(L, 1);
+	if (npcType) {
+		if (lua_gettop(L) == 1) {
+			pushBoolean(L, npcType->info.floorChange);
+		} else {
+			npcType->info.floorChange = getBoolean(L, 2);
 			pushBoolean(L, true);
 		}
 	} else {

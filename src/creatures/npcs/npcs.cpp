@@ -759,6 +759,21 @@ NpcType* Npcs::loadNpc(const std::string& file, const std::string& npcName, bool
 	npcType->name = attr.as_string();
 	npcType->nameDescription = npcType->name;
 
+	pugi::xml_attribute coin;
+	if ((coin = npcNode.attribute("currency"))) {
+		const ItemType& it = Item::items[pugi::cast<uint16_t>(coin.value())];
+		npcType->info.currencyServerId = it.id;
+		npcType->info.currencyClientId = it.clientId;
+	} else {
+		const ItemType& it = Item::items[ITEM_GOLD_COIN];
+		npcType->info.currencyServerId = it.id;
+		npcType->info.currencyClientId = it.clientId;
+	}
+
+	if ((attr = npcNode.attribute("speechbubble"))) {
+		npcType->info.speechBubble = pugi::cast<uint32_t>(attr.value());
+	}
+
 	if ((attr = npcNode.attribute("experience"))) {
 		npcType->info.experience = pugi::cast<uint64_t>(attr.value());
 	}

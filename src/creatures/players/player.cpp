@@ -1497,6 +1497,7 @@ bool Player::closeShopWindow(bool sendCloseShopWindow /*= true*/)
 	}
 
 	setShopOwner(nullptr, -1, -1);
+	npc->onPlayerEndTrade(this, onBuy, onSell);
 
 	if (sendCloseShopWindow) {
 		sendCloseShop();

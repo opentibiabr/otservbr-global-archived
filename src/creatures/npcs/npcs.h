@@ -69,6 +69,11 @@ class NpcType
 		RespawnType respawnType = {};
 
 		LightInfo light = {};
+
+		uint8_t speechBubble;
+
+		uint16_t currencyServerId;
+		uint16_t currencyClientId;
 		uint16_t lookcorpse = 0;
 
 		uint64_t experience = 0;
@@ -105,7 +110,6 @@ class NpcType
 		bool isHostile = true;
 		bool hiddenHealth = false;
 		bool floorChange = false;
-		bool isRewardBoss = false;
 		bool canWalkOnEnergy = true;
 		bool canWalkOnFire = true;
 		bool canWalkOnPoison = true;
