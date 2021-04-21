@@ -1,6 +1,6 @@
 /**
  * @file modules.h
- * 
+ *
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -81,7 +81,7 @@ class Modules final : public BaseEvents
 		// non-copyable
 		Modules(const Modules&) = delete;
 		Modules& operator=(const Modules&) = delete;
-	
+
 		void executeOnRecvbyte(Player* player, NetworkMessage& msg, uint8_t byte) const;
 		Module* getEventByRecvbyte(uint8_t recvbyte, bool force);
 

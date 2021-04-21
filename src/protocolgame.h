@@ -135,6 +135,8 @@ private:
 	void parseAttack(NetworkMessage &msg);
 	void parseFollow(NetworkMessage &msg);
 
+	void sendSessionEndInformation(SessionEndInformations information);
+
 	void sendItemInspection(uint16_t itemId, uint8_t itemCount, const Item *item, bool cyclopedia);
 	void parseInspectionObject(NetworkMessage &msg);
 
@@ -217,6 +219,7 @@ private:
 	void parseEditVip(NetworkMessage &msg);
 
 	void parseRotateItem(NetworkMessage &msg);
+	void parseConfigureShowOffSocket(NetworkMessage& msg);
 	void parseWrapableItem(NetworkMessage &msg);
 
 	//Channel tabs
@@ -256,6 +259,14 @@ private:
 	void sendRestingStatus(uint8_t protection);
 	void sendCreatureHealth(const Creature *creature);
 	void sendCreatureHelpers(uint32_t creatureId, uint16_t helpers);
+	void sendPartyCreatureUpdate(const Creature* target);
+	void sendPartyCreatureShield(const Creature* target);
+	void sendPartyCreatureSkull(const Creature* target);
+	void sendPartyCreatureHealth(const Creature* target, uint8_t healthPercent);
+	void sendPartyPlayerMana(const Player* target, uint8_t manaPercent);
+	void sendPartyCreatureShowStatus(const Creature* target, bool showStatus);
+	void sendPartyPlayerVocation(const Player* target);
+	void sendPlayerVocation(const Player* target);
 	void sendSkills();
 	void sendPing();
 	void sendPingBack();
@@ -328,6 +339,7 @@ private:
 	void sendTextWindow(uint32_t windowTextId, uint32_t itemId, const std::string &text);
 	void sendHouseWindow(uint32_t windowTextId, const std::string &text);
 	void sendOutfitWindow();
+	void sendPodiumWindow(const Item* podium, const Position& position, uint16_t spriteId, uint8_t stackpos);
 
 	void sendUpdatedVIPStatus(uint32_t guid, VipStatus_t newStatus);
 	void sendVIP(uint32_t guid, const std::string &name, const std::string &description, uint32_t icon, bool notify, VipStatus_t status);
@@ -470,9 +482,8 @@ private:
 	void sendInventory();
 
 	void sendOpenStash();
-	void AddPlayerStowedItems(NetworkMessage &msg);
 	void parseStashWithdraw(NetworkMessage &msg);
-	void sendSpecialContainersAvailable(bool supplyStashAvailable);
+	void sendSpecialContainersAvailable();
 };
 
 #endif

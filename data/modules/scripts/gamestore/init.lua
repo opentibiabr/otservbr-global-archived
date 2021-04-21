@@ -413,7 +413,7 @@ function parseBuyStoreOffer(playerId, msg)
 
 	if not pcallError.code then -- unhandled error
 		-- log some debugging info
-		print(string.format("Gamestore: Purchase failed due to an unhandled script error. \n\tStacktrace: %s\n", pcallError))
+		Spdlog.warn("[parseBuyStoreOffer] - Purchase failed due to an unhandled script error. Stacktrace: ".. pcallError)
 	end
 
 		return queueSendStoreAlertToUser(alertMessage, 500, playerId)
@@ -689,23 +689,21 @@ function sendShowStoreOffers(playerId, category, redirectId)
 	local count = 0
 	for k, offer in ipairs(category.offers) do
 		local name = offer.name or "Something Special"
-		if not offer.client or table.contains(offer.client, math.floor(player:getClient().version / 100)) then
-			if not offers[name] then
-				offers[name] = {}
-				count = count + 1
-				offers[name].offers = {}
-				offers[name].state = offer.state
-				offers[name].id = offer.id
-				offers[name].type = offer.type
-				offers[name].icons = offer.icons
-				offers[name].basePrice = offer.basePrice
-				offers[name].description = offer.description
-				if offer.sexId then
-					offers[name].sexId = offer.sexId
-				end
-				if offer.itemtype then
-					offers[name].itemtype = offer.itemtype
-				end
+		if not offers[name] then
+			offers[name] = {}
+			count = count + 1
+			offers[name].offers = {}
+			offers[name].state = offer.state
+			offers[name].id = offer.id
+			offers[name].type = offer.type
+			offers[name].icons = offer.icons
+			offers[name].basePrice = offer.basePrice
+			offers[name].description = offer.description
+			if offer.sexId then
+				offers[name].sexId = offer.sexId
+			end
+			if offer.itemtype then
+				offers[name].itemtype = offer.itemtype
 			end
 		end
 		table.insert(offers[name].offers, offer)
@@ -1360,6 +1358,7 @@ function GameStore.processCharmsPurchase(player)
 end
 
 function GameStore.processPremiumPurchase(player, offerId)
+	db.query("UPDATE `accounts` SET `lastday` = ".. os.time() .." WHERE `id` = " .. player:getAccountId())
 	player:addPremiumDays(offerId - 3000)
 end
 

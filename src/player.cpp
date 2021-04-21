@@ -104,6 +104,7 @@ bool Player::setVocation(uint16_t vocId)
 		condition->setParam(CONDITION_PARAM_MANAGAIN, vocation->getManaGainAmount());
 		condition->setParam(CONDITION_PARAM_MANATICKS, vocation->getManaGainTicks() * 1000);
 	}
+	g_game.addPlayerVocation(this);
 	return true;
 }
 
@@ -372,8 +373,8 @@ int32_t Player::getDefense() const
 	try {
 		getShieldAndWeapon(shield, weapon);
 	}
-	catch (const std::exception&) {
-		std::cout << "Got exception" << std::endl;
+	catch (const std::exception &e) {
+		SPDLOG_ERROR("{} got exception {}", getName(), e.what());
 	}
 
 	if (weapon) {
@@ -559,6 +560,9 @@ void Player::setVarStats(stats_t stat, int32_t modifier)
 			if (getMana() > getMaxMana()) {
 				Creature::changeMana(getMaxMana() - getMana());
 			}
+			else {
+				g_game.addPlayerMana(this);
+			}
 			break;
 		}
 
@@ -693,7 +697,7 @@ void Player::addStorageValue(const uint32_t key, const int32_t value, const bool
 				value >> 16);
 			return;
 		} else {
-			std::cout << "Warning: unknown reserved key: " << key << " player: " << getName() << std::endl;
+			SPDLOG_WARN("Unknown reserved key: {} for player: {}", key, getName());
 			return;
 		}
 	}
@@ -1326,7 +1330,7 @@ void Player::onCreatureAppear(Creature* creature, bool isLogin)
 			bed->wakeUp(this);
 		}
 
-		std::cout << name << " has logged in." << " | Client: " << getProtocolVersion()/100. << std::endl;
+		SPDLOG_INFO("{} has logged in", name);
 
 		if (guild) {
 			guild->addMember(this);
@@ -1451,7 +1455,7 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 
 		g_chat->removeUserFromAllChannels(*this);
 
-		std::cout << getName() << " has logged out." << " | Client: " << getProtocolVersion()/100. << std::endl;
+		SPDLOG_INFO("{} has logged out", getName());
 
 		if (guild) {
 			guild->removeMember(this);
@@ -1468,7 +1472,7 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 		}
 
 		if (!saved) {
-			std::cout << "Error while saving player: " << getName() << std::endl;
+			SPDLOG_WARN("Error while saving player: {}", getName());
 		}
 	}
 }
@@ -1557,6 +1561,7 @@ void Player::onCreatureMove(Creature* creature, const Tile* newTile, const Posit
 
 	if (party) {
 		party->updateSharedExperience();
+		party->updatePlayerStatus(this, oldPos, newPos);
 	}
 
 	if (teleport || oldPos.z != newPos.z) {
@@ -1994,6 +1999,7 @@ void Player::addExperience(Creature* source, uint64_t exp, bool sendText/* = fal
 		setBaseSpeed(getBaseSpeed());
 		g_game.changeSpeed(this, 0);
 		g_game.addCreatureHealth(this);
+		g_game.addPlayerMana(this);
 
 		if (party) {
 			party->updateSharedExperience();
@@ -2079,6 +2085,7 @@ void Player::removeExperience(uint64_t exp, bool sendText/* = false*/)
 
 		g_game.changeSpeed(this, 0);
 		g_game.addCreatureHealth(this);
+		g_game.addPlayerMana(this);
 
 		if (party) {
 			party->updateSharedExperience();
@@ -2451,6 +2458,7 @@ void Player::death(Creature* lastHitCreature)
 		health = healthMax;
 		g_game.internalTeleport(this, getTemplePosition(), true);
 		g_game.addCreatureHealth(this);
+		g_game.addPlayerMana(this);
 		onThink(EVENT_CREATURE_THINK_INTERVAL);
 		onIdleStatus();
 		sendStats();
@@ -3243,65 +3251,48 @@ uint32_t Player::getItemTypeCount(uint16_t itemId, int32_t subType /*= -1*/) con
 	return count;
 }
 
+bool Player::isStashExhausted() const {
+	uint32_t exhaust_time = 1500;
+	return (OTSYS_TIME() - lastStashInteraction < exhaust_time);
+}
+
 void Player::stashContainer(StashContainerList itemDict)
 {
 	StashItemList stashItemDict; // ClientID - Count
-	for (auto item : itemDict) {
-		stashItemDict[item.first] = item.second.second;
+	for (auto it_dict : itemDict) {
+		stashItemDict[(it_dict.first)->getClientID()] = it_dict.second;
 	}
 
-	for (auto item : stashItems) {
-		if(!stashItemDict[item.first]) {
-			stashItemDict[item.first] = item.second;
+	for (auto it : stashItems) {
+		if(!stashItemDict[it.first]) {
+			stashItemDict[it.first] = it.second;
 		} else {
-			stashItemDict[item.first] += item.second;
+			stashItemDict[it.first] += it.second;
 		}
 	}
 
 	if (getStashSize(stashItemDict) > g_config.getNumber(ConfigManager::STASH_ITEMS)) {
-		sendCancelMessage("You don't have capacity in the Supply Stash to store this item.");
+		sendCancelMessage("You don't have capacity in the Supply Stash to stow all this item.");
 		return;
 	}
 
 	uint32_t totalStowed = 0;
 	std::ostringstream retString;
-	for (auto stashTable : itemDict) {
-		if (removeItemClientId(stashTable.first, stashTable.second.second)) {
-			addItemOnStash(stashTable.first, stashTable.second.second);
-			totalStowed += stashTable.second.second;
+	for (auto stashIterator : itemDict) {
+		uint16_t iteratorCID = (stashIterator.first)->getClientID();
+		if (g_game.internalRemoveItem(stashIterator.first, stashIterator.second) == RETURNVALUE_NOERROR) {
+			addItemOnStash(iteratorCID, stashIterator.second);
+			totalStowed += stashIterator.second;
 		}
 	}
 
 	if (totalStowed == 0) {
-		sendCancelMessage("You need to pick up the item first.");
+		sendCancelMessage("Sorry, not possible.");
 		return;
 	}
 
 	retString << "Stowed " << totalStowed << " object" << (totalStowed > 1 ? "s." : ".");
-	sendCancelMessage(retString.str());
-}
-
-bool Player::removeItemClientId(uint16_t clientId, uint32_t count) const
-{
-	Item* tmpItem = getItemByClientId(clientId);
-	if (!tmpItem || count == 0 || getItemTypeCount(tmpItem->getID()) < count) {
-		return false;
-	}
-
-	uint32_t amount = count;
-	while (tmpItem && amount > 0) {
-		if (tmpItem->getItemCount() >= amount) {
-			return (g_game.internalRemoveItem(tmpItem, amount) == RETURNVALUE_NOERROR);
-		} else {
-			uint16_t itemCount = tmpItem->getItemCount();
-			if (g_game.internalRemoveItem(tmpItem, itemCount) == RETURNVALUE_NOERROR) {
-				amount -= itemCount;
-			}
-		}
-		tmpItem = getItemByClientId(clientId);
-	}
-
-	return false;
+	sendTextMessage(MESSAGE_STATUS, retString.str());
 }
 
 bool Player::removeItemOfType(uint16_t itemId, uint32_t amount, int32_t subType, bool ignoreEquipped/* = false*/) const
@@ -4161,7 +4152,7 @@ void Player::changeMana(int32_t manaChange)
 	if (!hasFlag(PlayerFlag_HasInfiniteMana)) {
 		Creature::changeMana(manaChange);
 	}
-
+	g_game.addPlayerMana(this);
 	sendStats();
 }
 
@@ -4706,8 +4697,8 @@ bool Player::isGuildMate(const Player* player) const
 
 void Player::sendPlayerPartyIcons(Player* player)
 {
-	sendCreatureShield(player);
-	sendCreatureSkull(player);
+	sendPartyCreatureShield(player);
+	sendPartyCreatureSkull(player);
 }
 
 bool Player::addPartyInvitation(Party* newParty)
@@ -5379,65 +5370,49 @@ bool Player::addItemFromStash(uint16_t itemId, uint32_t itemCount) {
 			g_game.internalPlayerAddItem(this, newItem, true);
 		}
 	}
+
+	sendOpenStash();
 	return true;
 }
 
-void Player::stowContainer(Item* item, uint32_t count) {
-	if (!item || !isItemStorable(item)) {
+void Player::stowItem(Item* item, uint32_t count, bool allItems) {
+	if (!item || !item->isItemStorable()) {
 		sendCancelMessage("This item cannot be stowed here.");
 		return;
 	}
 
-	ItemDeque itemList = ItemDeque();
 	StashContainerList itemDict;
-	const ItemType& itemType = Item::items[item->getID()];
+	if (allItems) {
+		for (int32_t i = CONST_SLOT_FIRST; i <= CONST_SLOT_LAST; i++) {
+			Item* inventoryItem = inventory[i];
+			if (!inventoryItem) {
+				continue;
+			}
 
-	if (itemType.isContainer()) {
-		itemList = getAllStorableItemsInContainer(item);
-	} else {
-		itemList.push_back(item);
-	}
+			if (inventoryItem->getClientID() == item->getClientID()) {
+				itemDict.push_back(std::pair<Item*, uint32_t>(inventoryItem, inventoryItem->getItemCount()));
+			}
 
-	for (Item* i : itemList) {
-		auto sameItemCountSum = itemType.isContainer() ? i->getItemCount() : count;
-		if (itemDict.count(i->getClientID()) == 1) {
-			sameItemCountSum += itemDict[i->getClientID()].second;
+			if (Container* container = inventoryItem->getContainer()) {
+				for (auto stowable_it : container->getStowableItems()) {
+					if ((stowable_it.first)->getClientID() == item->getClientID()) {
+						itemDict.push_back(stowable_it);
+					}
+				}
+			}
 		}
-		itemDict[i->getClientID()] = std::pair<bool, uint32_t>(false, sameItemCountSum);
+	} else if (item->getContainer()) {
+		itemDict = item->getContainer()->getStowableItems();
+	} else {
+		itemDict.push_back(std::pair<Item*, uint32_t>(item, count));
 	}
 
-	if (itemList.size() == 0) {
-		sendCancelMessage("There is nothing to stash in this container");
+	if (itemDict.size() == 0) {
+		sendCancelMessage("There is no stowable items on this container.");
 		return;
 	}
 
 	stashContainer(itemDict);
-}
-
-
-bool Player::isItemStorable(Item* item) {
-	auto isContainerAndHasSomethingInside = item->getContainer() != NULL && item->getContainer()->getItemList().size() > 0;
-	return (item->isStowable() || isContainerAndHasSomethingInside);
-}
-
-ItemDeque Player::getAllStorableItemsInContainer(Item* container) {
-
-	auto allITems = container->getContainer()->getItemList();
-	ItemDeque toReturnList = ItemDeque();
-
-	for (auto item : allITems) {
-		if (item->getContainer() != NULL) {
-			auto subContainer = getAllStorableItemsInContainer(item);
-			for (auto subContItem : subContainer) {
-				toReturnList.push_back(subContItem);
-			}
-		}
-		else if (isItemStorable(item)) {
-			toReturnList.push_back(item);
-		}
-	}
-
-	return toReturnList;
 }
 
 /*******************************************************************************

@@ -533,6 +533,12 @@ class LuaScriptInterface
 		// table
 		static int luaTableCreate(lua_State* L);
 
+		// Spdlog
+		static int luaSpdlogInfo(lua_State* L);
+		static int luaSpdlogWarn(lua_State* L);
+		static int luaSpdlogError(lua_State* L);
+		static int luaSpdlogDebug(lua_State* L);
+
 		// Game
 		static int luaGamegetEventSLoot(lua_State* L);
 		static int luaGamegetEventSSkill(lua_State* L);
@@ -1144,6 +1150,7 @@ class LuaScriptInterface
 		static int luaMonsterIsMonster(lua_State* L);
 
 		static int luaMonsterGetType(lua_State* L);
+		static int luaMonsterSetType(lua_State* L);
 
 		static int luaMonsterGetSpawnPosition(lua_State* L);
 		static int luaMonsterIsInSpawnRange(lua_State* L);

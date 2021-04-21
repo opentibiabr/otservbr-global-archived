@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 25000
-monster.maxHealth = 25000
+monster.health = 35000
+monster.maxHealth = 35000
 monster.race = "blood"
 monster.corpse = 0
 monster.speed = 235
@@ -62,7 +62,10 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "I'll take your place when you are gone.", yell = false}
+	{text = "Delusional!", yell = false},
+	{text = "I'll be your worst nightmare", yell = true},
+	{text = "The mirrors can't contain the night.", yell = true},
+	{text = "What a lovely reflection.", yell = true}
 }
 
 monster.loot = {
@@ -102,4 +105,31 @@ monster.immunities = {
 	{type = "bleed", condition = false}
 }
 
+monster.events = {
+	"MirrorImageTransform"
+}
+
 mType:register(monster)
+
+local mirrorImageTransform = CreatureEvent("MirrorImageTransform")
+
+function mirrorImageTransform.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType)
+	if attacker:isPlayer() then
+		local newForm = nil
+		if attacker:isSorcerer() then
+			newForm = "Sorcerer's Apparition"
+		elseif attacker:isDruid() then
+			newForm = "Druid's Apparition"
+		elseif attacker:isPaladin() then
+			newForm = "Paladin's Apparition"
+		elseif attacker:isKnight() then
+			newForm = "Knight's Apparition"
+		end
+		if newForm then
+			creature:setType(newForm)
+		end
+	end
+	return primaryDamage, primaryType, secondaryDamage, secondaryType
+end
+
+mirrorImageTransform:register()

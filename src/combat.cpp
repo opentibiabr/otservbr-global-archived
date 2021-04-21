@@ -640,7 +640,7 @@ void Combat::combatTileEffects(const SpectatorHashSet& spectators, Creature* cas
 						itemId = ITEM_MAGICWALL_SAFE;
 					} else if (itemId == ITEM_WILDGROWTH) {
 						itemId = ITEM_WILDGROWTH_SAFE;
-					}	
+					}
 				} else if (itemId == ITEM_FIREFIELD_PVP_FULL || itemId == ITEM_POISONFIELD_PVP || itemId == ITEM_ENERGYFIELD_PVP || itemId == ITEM_MAGICWALL || itemId == ITEM_WILDGROWTH) {
 					casterPlayer->addInFightTicks();
 				}
@@ -802,7 +802,7 @@ void Combat::CombatFunc(Creature* caster, const Position& pos, const AreaCombat*
     if(data) {
         tmpDamage.origin = data->origin;
         tmpDamage.primary.type = data->primary.type;
-        tmpDamage.primary.value = data->primary.value;        
+        tmpDamage.primary.value = data->primary.value;
         tmpDamage.secondary.type = data->secondary.type;
         tmpDamage.secondary.value = data->secondary.value;
         tmpDamage.critical = data->critical;
@@ -1021,13 +1021,9 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 {
 	//onGetPlayerMinMaxValues(...)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - ValueCallback::getMinMaxValues"
-				<< " Player "
-				<< player->getName()
-				<< " Formula "
-				<< type
-				<< "] Call stack overflow. Too many lua script calls being nested."
-				<< std::endl;
+		SPDLOG_ERROR("[ValueCallback::getMinMaxValues - Player {} formula {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     player->getName(), type);
 		return;
 	}
 
@@ -1086,7 +1082,7 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 				else {
 					shouldCalculateSecondaryDamage = false;
 				}
-		
+
 				if (useCharges) {
 					uint16_t charges = tool->getCharges();
 					if (charges != 0) {
@@ -1103,7 +1099,7 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 		}
 
 		default: {
-			std::cout << "ValueCallback::getMinMaxValues - unknown callback type" << std::endl;
+			SPDLOG_WARN("[ValueCallback::getMinMaxValues] - Unknown callback type");
 			scriptInterface->resetScriptEnv();
 			return;
 		}
@@ -1132,7 +1128,7 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 			damage.secondary.type = COMBAT_NONE;
 			damage.secondary.value = 0;
 		}
-		
+
 		lua_pop(L, 2);
 	}
 
@@ -1149,17 +1145,12 @@ void TileCallback::onTileCombat(Creature* creature, Tile* tile) const
 {
 	//onTileCombat(creature, pos)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - TileCallback::onTileCombat"
-				<< " Creature " 
-				<< creature->getName() 
-				<< " type "
-				<< type
-				<< " on tile " 
-				<< "x:" << (tile->getPosition()).getX() << " "
-				<< "y:" << (tile->getPosition()).getY() << " "
-				<< "z:" << (tile->getPosition()).getZ() << " "
-				<< "] Call stack overflow. Too many lua script calls being nested." 
-				<< std::endl;
+		SPDLOG_ERROR("[TileCallback::onTileCombat - Creature {} type {} on tile x: {} y: {} z: {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     creature->getName(), type,
+                     (tile->getPosition()).getX(),
+                     (tile->getPosition()).getY(),
+                     (tile->getPosition()).getZ());
 		return;
 	}
 
@@ -1189,10 +1180,9 @@ void TargetCallback::onTargetCombat(Creature* creature, Creature* target) const
 {
 	//onTargetCombat(creature, target)
 	if (!scriptInterface->reserveScriptEnv()) {
-		std::cout << "[Error - TargetCallback::onTargetCombat"
-				<< " Creature " 
-				<< creature->getName() 
-				<< "] Call stack overflow. Too many lua script calls being nested." << std::endl;
+		SPDLOG_ERROR("[TargetCallback::onTargetCombat - Creature {}] "
+                     "Call stack overflow. Too many lua script calls being nested.",
+                     creature->getName());
 		return;
 	}
 

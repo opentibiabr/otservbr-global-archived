@@ -122,6 +122,11 @@ function bossDeath.onDeath(creature, corpse, killer, mostDamageKiller, lastHitUn
 	if not creature or creature:isPlayer() then
 		return true
 	end
+	
+	-- Deny summons
+    if creature:getMaster() then
+        return true
+    end
 
 	-- boss
 	local monsterType = creature:getType()
@@ -190,13 +195,22 @@ function bossDeath.onDeath(creature, corpse, killer, mostDamageKiller, lastHitUn
 				end
 			end
 
+			local client = con.player:getClient()
+
 			if con.player and con.score ~= 0 then
-				local lootMessage = ("The following items dropped by %s are available in your reward chest: %s"):format(creature:getName(), reward:getContentDescription())
+				if client.version > 1200 then
+					local lootMessage = ("The following items dropped by %s are available in your reward chest: %s"):format(creature:getName(), reward:getContentDescription())
+
+					con.player:sendTextMessage(MESSAGE_LOOT, lootMessage)
+				else
+					local lootMessage = {"The following items dropped by ".. creature:getName() .." are available in your reward chest: ".. reward:getRewardContentDescription() ..""}
+
+					con.player:sendTextMessage(MESSAGE_INFO_DESCR, table.concat(lootMessage))
+				end
 
 				if stamina > 840 then
 					reward:getContentDescription(lootMessage)
 				end
-				con.player:sendTextMessage(MESSAGE_LOOT, lootMessage)
 			elseif con.score ~= 0 then
 				insertRewardItems(con.guid, timestamp, playerLoot)
 			end
