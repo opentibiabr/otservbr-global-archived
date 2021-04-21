@@ -75,7 +75,7 @@ void ProtocolGame::AddItem(NetworkMessage &msg, uint16_t id, uint8_t count)
 		msg.addByte(0x00);
 	}
 
-	if (version <= 1099) {
+	if (version <= 1199) {
 		if (it.isAnimation)
 			msg.addByte(0xFE); // random phase (0xFF for async)
 	}
@@ -154,7 +154,7 @@ void ProtocolGame::AddItem(NetworkMessage &msg, const Item *item)
       		msg.addByte(0x00);
 	}
 
-	if (version <= 1099) {
+	if (version <= 1199) {
 		if (it.isAnimation)
 			msg.addByte(0xFE); // random phase (0xFF for async)
 	}
