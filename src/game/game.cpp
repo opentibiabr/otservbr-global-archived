@@ -4247,7 +4247,7 @@ void Game::playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t coun
 		return;
 	}
 
-	Npc* merchant = player->getShopOwner();
+	const Npc* merchant = player->getShopOwner();
 	if (!merchant) {
 		return;
 	}
@@ -4280,7 +4280,7 @@ void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, u
 		return;
 	}
 
-	Npc* merchant = player->getShopOwner();
+	const Npc* merchant = player->getShopOwner();
 	if (!merchant) {
 		return;
 	}
@@ -4315,7 +4315,7 @@ void Game::playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count)
 		return;
 	}
 
-	Npc* merchant = player->getShopOwner();
+	const Npc* merchant = player->getShopOwner();
 	if (!merchant) {
 		return;
 	}

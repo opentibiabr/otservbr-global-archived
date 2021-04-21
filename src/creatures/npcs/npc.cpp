@@ -56,13 +56,11 @@ Npc::Npc(NpcType* npcType) :
 {
 	defaultOutfit = npcType->info.outfit;
 	currentOutfit = npcType->info.outfit;
-	skull = npcType->info.skull;
 	float multiplier = g_config.getFloat(ConfigManager::RATE_NPC_HEALTH);
 	health = npcType->info.health*multiplier;
 	healthMax = npcType->info.healthMax*multiplier;
 	baseSpeed = npcType->info.baseSpeed;
 	internalLight = npcType->info.light;
-	hiddenHealth = npcType->info.hiddenHealth;
 	floorChange = npcType->info.floorChange;
 
 	// register creature events
@@ -353,7 +351,9 @@ void Npc::addShopPlayer(Player* player)
 
 void Npc::removeShopPlayer(Player* player)
 {
-	shopPlayerSet.erase(player);
+	if (player) {
+		shopPlayerSet.erase(player);
+	}
 }
 
 void Npc::closeAllShopWindows()
@@ -364,9 +364,9 @@ void Npc::closeAllShopWindows()
 	shopPlayerSet.clear();
 }
 
-void Npc::onPlayerEndTrade(Player* player, int32_t shop)
+void Npc::onPlayerEndTrade(Player* player)
 {
-	shop && player && removeShopPlayer(player);
+		removeShopPlayer(player);
 }
 
 void Npc::onPlayerCloseChannel(Player* player)

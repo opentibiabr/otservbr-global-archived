@@ -13142,7 +13142,7 @@ int LuaScriptInterface::luaNpcCloseShopWindow(lua_State* L)
 		return 1;
 	}
 
-	Npc* merchant = player->getShopOwner();
+	const Npc* merchant = player->getShopOwner();
 	if (merchant == npc) {
 		player->sendCloseShop();
 		// TODO IMPLEMENT CALLBACK PROPERLY.

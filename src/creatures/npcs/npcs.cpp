@@ -80,15 +80,14 @@ NpcType* Npcs::getNpcType(const std::string& name, bool create /* = false*/)
 	auto it = npcs.find(key);
 
 	if (it != npcs.end()) {
-		return &it->second;
+		return it->second;
 	}
 
 	if (!create) {
 		return nullptr;
 	}
 
-	NpcType *newNpcType = new NpcType(name);
-	newNpcType->nameDescription = "a " + name;
-	npcs[key] = newNpcType
+	npcs[key] = new NpcType(name);
 
+	return npcs[key];
 }

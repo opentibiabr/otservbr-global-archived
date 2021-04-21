@@ -31,7 +31,7 @@
 #include "../../game/gamestore.h"
 #include "grouping/groups.h"
 #include "grouping/guild.h"
-#include "../players/imbuements/imbuements.h"
+#include "imbuements/imbuements.h"
 #include "../../items/containers/inbox/inbox.h"
 #include "../../io/ioguild.h"
 #include "../appearance/mounts/mounts.h"
@@ -42,12 +42,12 @@
 #include "../../items/containers/rewards/rewardchest.h"
 #include "../../map/town.h"
 #include "vocations/vocation.h"
+#include "../npcs/npc.h"
 
 class House;
 class NetworkMessage;
 class Weapon;
 class ProtocolGame;
-class Npc;
 class Party;
 class SchedulerTask;
 class Bed;
@@ -1358,8 +1358,8 @@ class Player final : public Creature, public Cylinder
 			}
 		}
     void sendSaleItemList(const std::map<uint32_t, uint32_t>& inventoryMap) const {
-      if (client && getShopOwner()) {
-        client->sendSaleItemList(getShopOwner()->getShopItems(), inventoryMap);
+      if (client && shopOwner) {
+        client->sendSaleItemList(shopOwner->getShopItems(), inventoryMap);
       }
     }
 		void sendCloseShop() const {

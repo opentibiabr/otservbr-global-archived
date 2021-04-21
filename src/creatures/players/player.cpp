@@ -1479,7 +1479,7 @@ void Player::openShopWindow(Npc* npc)
 	closeShopWindow(true);
 	setShopOwner(npc);
 
-	npc->addShopPlayer(player);
+	npc->addShopPlayer(this);
 
 	std::map<uint32_t, uint32_t> tempInventoryMap;
 	getAllItemTypeCountAndSubtype(tempInventoryMap);
@@ -1490,13 +1490,12 @@ void Player::openShopWindow(Npc* npc)
 
 bool Player::closeShopWindow(bool sendCloseShopWindow /*= true*/)
 {
-	Npc* npc = getShopOwner();
-	if (!npc) {
+	if (!shopOwner) {
 		return false;
 	}
 
 	setShopOwner(nullptr);
-	npc->onPlayerEndTrade(this, shop);
+	shopOwner->onPlayerEndTrade(this);
 
 	if (sendCloseShopWindow) {
 		sendCloseShop();
@@ -3590,11 +3589,11 @@ bool Player::updateSaleShopList(const Item* item)
 bool Player::hasShopItemForSale(uint32_t itemId, uint8_t subType) const
 {
 	const ItemType& itemType = Item::items[itemId];
-	if (!getShopOwner()) {
+	if (shopOwner) {
 		return false;
 	}
 
-	auto shopItemList = getShopOwner()->getShopItems();
+	auto shopItemList = shopOwner->getShopItems();
 	return std::any_of(shopItemList.begin(), shopItemList.end(), [&](const ShopInfo& shopInfo) {
 		return shopInfo.itemId == itemId && shopInfo.buyPrice != 0 && (!itemType.isFluidContainer() || shopInfo.subType == subType);
 	});

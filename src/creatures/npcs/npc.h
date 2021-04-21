@@ -20,8 +20,8 @@
 #ifndef FS_NPC_H_9F5EEFE64314418CA7DA41D1B9409DD0
 #define FS_NPC_H_9F5EEFE64314418CA7DA41D1B9409DD0
 
-#include "../../items/tile.h"
 #include "npcs.h"
+#include "../../items/tile.h"
 #include "../../utils/enums.h"
 
 class Creature;
@@ -79,7 +79,7 @@ class Npc final : public Creature
 			masterPos = pos;
 		}
 
-		void onPlayerEndTrade(Player* player, int32_t shop);
+		void onPlayerEndTrade(Player* player);
 		void onPlayerCloseChannel(Player* player);
 
 		uint8_t getSpeechBubble() const override {
@@ -154,11 +154,12 @@ class Npc final : public Creature
 			internalLight = npcType->info.light;
 		}
 
+		void addShopPlayer(Player* player);
+		void removeShopPlayer(Player* player);
+
 		static uint32_t npcAutoID;
 
 	private:
-		void addShopPlayer(Player* player);
-		void removeShopPlayer(Player* player);
 		void closeAllShopWindows();
 		void onThinkYell(uint32_t interval);
 		void onThinkWalk(uint32_t interval);

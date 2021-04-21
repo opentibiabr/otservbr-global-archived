@@ -66,9 +66,8 @@ class NpcType
 	};
 
 	public:
-		NpcType(std::string name) : name(name) {
-			nameDescription = "a " + name;
-		};
+		NpcType() = default;
+		NpcType(std::string name) : name(name), nameDescription(name) {};
 
 		// non-copyable
 		NpcType(const NpcType&) = delete;
@@ -97,7 +96,7 @@ class Npcs
 		NpcType* getNpcType(const std::string& name, bool create = false);
 
 		std::unique_ptr<LuaScriptInterface> scriptInterface;
-		std::map<std::string, NpcType> npcs;
+		std::map<std::string, NpcType*> npcs;
 };
 
 #endif
