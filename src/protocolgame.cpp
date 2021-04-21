@@ -323,13 +323,16 @@ void ProtocolGame::login(const std::string &name, uint32_t accountId, OperatingS
 		if (!IOLoginData::loadPlayerById(player, player->getGUID()))
 		{
 			disconnectClient("Your character could not be loaded.");
+			SPDLOG_WARN("Player {} could not be loaded", player->getName());
 			return;
 		}
 
 		// New Prey
 		if (!IOLoginData::loadPlayerPreyData(player))
 		{
-			std::cout << "Prey data could not be loaded" << std::endl;
+			SPDLOG_WARN("[ProtocolGame::login] - "
+                        "Prey data could not be loaded from player: {}",
+                        player->getName());
 			return;
 		};
 
@@ -339,7 +342,8 @@ void ProtocolGame::login(const std::string &name, uint32_t accountId, OperatingS
 		{
 			if (!g_game.placeCreature(player, player->getTemplePosition(), false, true))
 			{
-				disconnectClient("Temple position is wrong. Contact the administrator.");
+				disconnectClient("Temple position is wrong. Please, contact the administrator.");
+				SPDLOG_WARN("Player {} temple position is wrong", player->getName());
 				return;
 			}
 		}
@@ -487,7 +491,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 
 	if (!Protocol::RSA_decrypt(msg))
 	{
-		std::cout << "[ProtocolGame::onRecvFirstMessage] RSA Decrypt Failed" << std::endl;
+		SPDLOG_WARN("[ProtocolGame::onRecvFirstMessage] - RSA Decrypt Failed");
 		disconnect();
 		return;
 	}
@@ -650,7 +654,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		}
 	}
 
-	//TODO: JLCVP - Refactor this terrible validation
+	// Modules system
 	if(recvbyte != 0xD3){
 		g_dispatcher.addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player, msg, recvbyte)));
 	}
@@ -771,14 +775,16 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		//case 0xDF, 0xE0, 0xE1, 0xFB, 0xFC, 0xFD, 0xFE Premium Shop.
 
 		default:
-			// std::cout << "Player: " << player->getName() << " sent an unknown packet header: 0x" << std::hex << static_cast<uint16_t>(recvbyte) << std::dec << "!" << std::endl;
+			SPDLOG_DEBUG("Player: {} sent an unknown packet header: x0{}",
+				player->getName(), static_cast<uint16_t>(recvbyte));
 			break;
 	}
-	/* temporary solution to disconnections while opening store
-		if (msg.isOverrun()) {
-			disconnect();
-		}
-	*/
+
+	// Send disconnect when opening the store
+	// if (msg.isOverrun()) {
+	// 	SPDLOG_WARN("[ProtocolGame::parsePacket] - Message is overrun");
+	// 	disconnect();
+	// }
 }
 
 void ProtocolGame::parseHotkeyEquip(NetworkMessage &msg)
@@ -1824,7 +1830,8 @@ void ProtocolGame::parseBestiarysendMonsterData(NetworkMessage &msg)
 
 	if (!mtype)
 	{
-		std::cout << "> [Bestiary]: monstertype was not found" << std::endl;
+		SPDLOG_WARN("[ProtocolGame::parseBestiarysendMonsterData] - "
+                    "MonsterType was not found");
 		return;
 	}
 
@@ -2384,7 +2391,8 @@ void ProtocolGame::parseBestiarysendCreatures(NetworkMessage &msg)
 
 		if (race.size() == 0)
 		{
-			std::cout << "> [Bestiary]: race was not found: " << raceName << " | search " << search << std::endl;
+			SPDLOG_WARN("[ProtocolGame::parseBestiarysendCreature] - "
+                        "Race was not found: {}, search: {}", raceName, search);
 			return;
 		}
 		text = raceName;
@@ -2543,7 +2551,8 @@ void ProtocolGame::parseStoreRequestOffers(NetworkMessage &message)
 	}
 	else
 	{
-		std::cout << "[Warning - ProtocolGame::parseStoreRequestOffers] requested category: \"" << categoryName << "\" doesn't exists" << std::endl;
+		SPDLOG_WARN("[ProtocolGame::parseStoreRequestOffers] - "
+                    "Requested category: {} doesn't exists", categoryName);
 	}
 }
 

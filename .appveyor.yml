@@ -1,3 +1,4 @@
+---
 image: Visual Studio 2019
 
 shallow_clone: true
@@ -23,26 +24,28 @@ only_commits:
     - CMakeLists.txt
 
 install:
-  - cmd : vcpkg install boost-asio:x64-windows
-  - cmd : vcpkg install boost-filesystem:x64-windows
-  - cmd : vcpkg install boost-iostreams:x64-windows
-  - cmd : vcpkg install boost-lockfree:x64-windows
-  - cmd : vcpkg install boost-system:x64-windows
-  - cmd : vcpkg install boost-variant:x64-windows
-  - cmd : vcpkg install cryptopp:x64-windows
-  - cmd : vcpkg install curl:x64-windows
-  - cmd : vcpkg install jsoncpp:x64-windows
-  - cmd : vcpkg install libmariadb:x64-windows
-  - cmd : vcpkg install luajit:x64-windows
-  - cmd : vcpkg install mpir:x64-windows
-  - cmd : vcpkg install pugixml:x64-windows
+  - cmd: vcpkg install boost-asio:x64-windows
+  - cmd: vcpkg install boost-filesystem:x64-windows
+  - cmd: vcpkg install boost-iostreams:x64-windows
+  - cmd: vcpkg install boost-lockfree:x64-windows
+  - cmd: vcpkg install boost-system:x64-windows
+  - cmd: vcpkg install boost-variant:x64-windows
+  - cmd: vcpkg install cryptopp:x64-windows
+  - cmd: vcpkg install curl:x64-windows
+  - cmd: vcpkg install jsoncpp:x64-windows
+  - cmd: vcpkg install libmariadb:x64-windows
+  - cmd: vcpkg install luajit:x64-windows
+  - cmd: vcpkg install mpir:x64-windows
+  - cmd: vcpkg install pugixml:x64-windows
+  - cmd: vcpkg install spdlog:x64-windows
 
 build:
   parallel: true
   # MSBuild verbosity level
   # verbosity: detailed
 
-# scripts to run after build (working directory and environment changes are persisted from the previous steps)
+# scripts to run after build
+# (working directory and environment changes are persisted from the previous steps)
 after_build:
   - 7z a -tzip otservbr-global.zip -r .\vc14\*.exe -ir!.\vc14\*.dll
 

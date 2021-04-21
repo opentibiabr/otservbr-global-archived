@@ -40,8 +40,8 @@ function spawnsByTime.onPeriodChange(period, light)
 	local time = getWorldTime()
 
 	if configManager.getBoolean(configKeys.ALL_CONSOLE_LOG) then
-		print(">> Starting " .. periods[period] .. "... Current light is " .. light .. " and it's "
-																	.. getFormattedWorldTime(time) .. " Tibian Time.")
+		Spdlog.info(string.format("Starting %s Current light is %s and it's %s Tibian Time",
+			periods[period], light, getFormattedWorldTime(time)))
 	end
 	for index, value in pairs(spawns) do
 		if value.spawn == period then
@@ -49,7 +49,7 @@ function spawnsByTime.onPeriodChange(period, light)
 			local spawn = Game.createNpc(value.id, value.position)
 			if spawn then
 				if configManager.getBoolean(configKeys.ALL_CONSOLE_LOG) then
-					print("> NPC " .. value.name .. " added!")
+					Spdlog.info("NPC " .. value.name .. " added")
 				end
 				spawn:setMasterPos(value.position)
 				spawn:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -59,7 +59,7 @@ function spawnsByTime.onPeriodChange(period, light)
 			local target = Npc(value.name)
 			if target then
 				if configManager.getBoolean(configKeys.ALL_CONSOLE_LOG) then
-					print("> NPC " .. value.name .. " removed!")
+					Spdlog.info("NPC " .. value.name .. " removed")
 				end
 				target:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 				target:remove()

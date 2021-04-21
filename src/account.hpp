@@ -82,7 +82,7 @@ class Account {
    *
    * @param name Set Account Name to be used by LoadAccountDB
    */
-  explicit Account(std::string name);
+  explicit Account(const std::string &name);
 
   /***************************************************************************
    * Interfaces

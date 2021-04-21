@@ -380,3 +380,6 @@ sftp-config.json
 # Binaries
 otbr
 otbr.old
+
+# VCPKG
+vcpkg_installed

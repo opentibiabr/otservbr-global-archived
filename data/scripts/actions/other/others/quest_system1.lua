@@ -85,7 +85,7 @@ function questSystem1.onUse(player, item, fromPosition, target, toPosition, isHo
 		for i = 1, size do
 			local tmp = items[i]
 			if reward:addItemEx(tmp) ~= RETURNVALUE_NOERROR then
-				print('[Warning] QuestSystem:', 'Could not add quest reward to container')
+				Spdlog.warn("[questSystem1.onUse] - Could not add quest reward to container")
 			end
 		end
 		local ret = ItemType(reward.itemid)

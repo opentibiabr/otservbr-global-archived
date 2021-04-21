@@ -20,6 +20,9 @@
 #ifndef SRC_BESTIARY_H_LL0TBRNCOPYlMVlLL
 #define SRC_BESTIARY_H_LL0TBRNCOPYlMVlLL
 
+#include <map>
+#include <string>
+
 #include "otpch.h"
 
 #include "enums.h"
@@ -83,7 +86,7 @@ class IOBestiary
 
 		std::map<uint16_t, uint32_t> getBestiaryKillCountByMonsterIDs(Player* player, std::map<uint16_t, std::string> mtype_list) const;
 		std::map<uint8_t, int16_t> getMonsterElements(MonsterType* mtype) const;
-		std::map<uint16_t, std::string> findRaceByName(std::string race, bool Onlystring = true, BestiaryType_t raceNumber = BESTY_RACE_NONE) const;
+		std::map<uint16_t, std::string> findRaceByName(const std::string &race, bool Onlystring = true, BestiaryType_t raceNumber = BESTY_RACE_NONE) const;
 
 };
 
