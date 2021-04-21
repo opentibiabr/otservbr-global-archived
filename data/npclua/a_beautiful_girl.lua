@@ -22,6 +22,11 @@ npc.flags = {
     floorchange = false
 }
 
+npc.shop = {
+    {id = 2376, buy = 60, sell = 30},
+    {id = 2789, buy = 60, sell = 30},
+}
+
 npcType.onThink = function(npc, interval)
 end
 
@@ -41,13 +46,7 @@ npcType.onSay = function(npc, creature, type, message)
         { NpcInteraction:new({"hi"}, "So you have come, ".. creature:getPlayer() ..". I hoped you would not...", interactionTypes.INTERACTION_GREET) }
     )]]
     if msgContains(message, "trade") then
-        npc:openShopWindow(
-            creature, 
-            {
-                {id = 2376, buy = 60, sell = 30},
-                {id = 2789, buy = 60, sell = 30},
-            }
-        )
+        npc:openShopWindow(creature)
     end
     if msgContains(message, "bye") then
         npc:closeShopWindow(creature)
