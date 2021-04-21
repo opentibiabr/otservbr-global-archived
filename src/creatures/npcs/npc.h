@@ -79,7 +79,6 @@ class Npc final : public Creature
 			masterPos = pos;
 		}
 
-		void onPlayerEndTrade(Player* player);
 		void onPlayerCloseChannel(Player* player);
 
 		uint8_t getSpeechBubble() const override {
@@ -90,7 +89,7 @@ class Npc final : public Creature
 		}
 
 		uint16_t getCurrencyTrading() const {
-			return npcType->info.currencyClientId;
+			return Item::items[npcType->info.currencyServerId].clientId;
 		}
 
 		uint16_t getCurrency() const {
@@ -176,9 +175,6 @@ class Npc final : public Creature
 		SpawnNpc* spawnNpc = nullptr;
 
 		uint8_t speechBubble;
-
-		uint16_t currencyServerId;
-		uint16_t currencyClientId;
 
 		uint32_t yellTicks = 0;
 		uint32_t walkTicks = 0;

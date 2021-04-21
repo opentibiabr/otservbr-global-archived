@@ -13136,16 +13136,12 @@ int LuaScriptInterface::luaNpcCloseShopWindow(lua_State* L)
 		return 1;
 	}
 
-	const Npc* merchant = player->getShopOwner();
-	if (merchant == npc) {
-		player->sendCloseShop();
+	if (player->getShopOwner() == npc) {
+		player->closeShopWindow(true);
 		// TODO IMPLEMENT CALLBACK PROPERLY.
 		//		if (shopCallback != -1) {
 		//			luaL_unref(L, LUA_REGISTRYINDEX, shopCallback);
 		//		}
-
-		player->setShopOwner(nullptr);
-		npc->removeShopPlayer(player);
 	}
 
 	pushBoolean(L, true);

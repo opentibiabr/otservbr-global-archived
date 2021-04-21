@@ -131,6 +131,7 @@ void Npc::onRemoveCreature(Creature* creature, bool isLogout)
 	if (spawnNpc) {
 		spawnNpc->startSpawnNpcCheck();
 	}
+	closeAllShopWindows();
 }
 
 void Npc::onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos,
@@ -153,11 +154,14 @@ void Npc::onCreatureMove(Creature* creature, const Tile* newTile, const Position
 
 	if (creature == this && !canSee(oldPos)) {
 		resetPlayerInteractions();
+		closeAllShopWindows();
 		return;
 	}
 
 	if (!canSee(newPos) && canSee(oldPos)) {
-		updatePlayerInteractions(creature->getPlayer());
+		Player *player = creature->getPlayer();
+		updatePlayerInteractions(player);
+		player->closeShopWindow(true);
 	}
 }
 
@@ -200,6 +204,7 @@ void Npc::onThink(uint32_t interval)
 	if (!isInSpawnRange(position)) {
 		g_game.internalTeleport(this, masterPos);
 		resetPlayerInteractions();
+		closeAllShopWindows();
 	}
 
 	onThinkYell(interval);
@@ -359,14 +364,11 @@ void Npc::removeShopPlayer(Player* player)
 void Npc::closeAllShopWindows()
 {
 	for (auto shopPlayer : shopPlayerSet) {
-		shopPlayer->closeShopWindow();
+		if (shopPlayer) {
+			shopPlayer->closeShopWindow();
+		}
 	}
 	shopPlayerSet.clear();
-}
-
-void Npc::onPlayerEndTrade(Player* player)
-{
-		removeShopPlayer(player);
 }
 
 void Npc::onPlayerCloseChannel(Player* player)

@@ -1494,7 +1494,7 @@ bool Player::closeShopWindow(bool sendCloseShopWindow /*= true*/)
 		return false;
 	}
 
-	shopOwner->onPlayerEndTrade(this);
+	shopOwner->removeShopPlayer(this);
 	setShopOwner(nullptr);
 
 	if (sendCloseShopWindow) {

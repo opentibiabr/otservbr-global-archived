@@ -778,10 +778,6 @@ class Player final : public Creature, public Cylinder
 			return shopOwner;
 		}
 
-		Npc* getOnlyShopOwner() {
-			return shopOwner;
-		}
-
 		//V.I.P. functions
 		void notifyStatusChange(Player* player, VipStatus_t status, bool message = true);
 		bool removeVIP(uint32_t vipGuid);
