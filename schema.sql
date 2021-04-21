@@ -304,6 +304,7 @@ CREATE TABLE IF NOT EXISTS `global_storage` (
 
 CREATE TABLE IF NOT EXISTS `guilds` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`level` int(11) NOT NULL DEFAULT '1',
 	`name` varchar(255) NOT NULL,
 	`ownerid` int(11) NOT NULL,
 	`creationdata` int(11) NOT NULL,
