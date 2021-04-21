@@ -28,7 +28,8 @@ function addOutfit.onSay(player, words, param)
 		target:sendTextMessage(MESSAGE_ADMINISTRADOR, "".. player:getName() .." has been added a new outfit for you.")
 		player:sendTextMessage(MESSAGE_ADMINISTRADOR, "You have sucessfull added looktype ".. lookType .. " to the player ".. target:getName() ..".")
 		if printConsole then
-			print("[Info - TalkAction /addOutfit] Player: '".. player:getName() .."' has been added looktype: '".. lookType .. "' to the player: '".. target:getName() .."'")
+			Spdlog.info(string.format("[addOutfit.onSay] - Player: %s has been added looktype: %s to the player: %s",
+				player:getName(), lookType, target:getName()))
 		end
 		return true
 	else

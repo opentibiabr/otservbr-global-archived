@@ -1,5 +1,5 @@
 function onUpdateDatabase()
-    print("> Updating database to version 2 (hireling)")
+    Spdlog.info("Updating database to version 2 (hireling)")
 
     db.query([[
 		CREATE TABLE IF NOT EXISTS `player_hirelings` (

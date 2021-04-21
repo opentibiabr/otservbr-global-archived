@@ -75,7 +75,7 @@ void ProtocolGame::AddItem(NetworkMessage &msg, uint16_t id, uint8_t count)
 		msg.addByte(0x00);
 	}
 
-	if (version <= 1099) {
+	if (version <= 1199) {
 		if (it.isAnimation)
 			msg.addByte(0xFE); // random phase (0xFF for async)
 	}
@@ -154,7 +154,7 @@ void ProtocolGame::AddItem(NetworkMessage &msg, const Item *item)
       		msg.addByte(0x00);
 	}
 
-	if (version <= 1099) {
+	if (version <= 1199) {
 		if (it.isAnimation)
 			msg.addByte(0xFE); // random phase (0xFF for async)
 	}
@@ -323,13 +323,16 @@ void ProtocolGame::login(const std::string &name, uint32_t accountId, OperatingS
 		if (!IOLoginData::loadPlayerById(player, player->getGUID()))
 		{
 			disconnectClient("Your character could not be loaded.");
+			SPDLOG_WARN("Player {} could not be loaded", player->getName());
 			return;
 		}
 
 		// New Prey
 		if (!IOLoginData::loadPlayerPreyData(player))
 		{
-			std::cout << "Prey data could not be loaded" << std::endl;
+			SPDLOG_WARN("[ProtocolGame::login] - "
+                        "Prey data could not be loaded from player: {}",
+                        player->getName());
 			return;
 		};
 
@@ -339,7 +342,8 @@ void ProtocolGame::login(const std::string &name, uint32_t accountId, OperatingS
 		{
 			if (!g_game.placeCreature(player, player->getTemplePosition(), false, true))
 			{
-				disconnectClient("Temple position is wrong. Contact the administrator.");
+				disconnectClient("Temple position is wrong. Please, contact the administrator.");
+				SPDLOG_WARN("Player {} temple position is wrong", player->getName());
 				return;
 			}
 		}
@@ -487,7 +491,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 
 	if (!Protocol::RSA_decrypt(msg))
 	{
-		std::cout << "[ProtocolGame::onRecvFirstMessage] RSA Decrypt Failed" << std::endl;
+		SPDLOG_WARN("[ProtocolGame::onRecvFirstMessage] - RSA Decrypt Failed");
 		disconnect();
 		return;
 	}
@@ -650,7 +654,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		}
 	}
 
-	//TODO: JLCVP - Refactor this terrible validation
+	// Modules system
 	if(recvbyte != 0xD3){
 		g_dispatcher.addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player, msg, recvbyte)));
 	}
@@ -771,14 +775,16 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		//case 0xDF, 0xE0, 0xE1, 0xFB, 0xFC, 0xFD, 0xFE Premium Shop.
 
 		default:
-			// std::cout << "Player: " << player->getName() << " sent an unknown packet header: 0x" << std::hex << static_cast<uint16_t>(recvbyte) << std::dec << "!" << std::endl;
+			SPDLOG_DEBUG("Player: {} sent an unknown packet header: x0{}",
+				player->getName(), static_cast<uint16_t>(recvbyte));
 			break;
 	}
-	/* temporary solution to disconnections while opening store
-		if (msg.isOverrun()) {
-			disconnect();
-		}
-	*/
+
+	// Send disconnect when opening the store
+	// if (msg.isOverrun()) {
+	// 	SPDLOG_WARN("[ProtocolGame::parsePacket] - Message is overrun");
+	// 	disconnect();
+	// }
 }
 
 void ProtocolGame::parseHotkeyEquip(NetworkMessage &msg)
@@ -951,11 +957,17 @@ void ProtocolGame::checkCreatureAsKnown(uint32_t id, bool &known, uint32_t &remo
 	if (knownCreatureSet.size() > 1300)
 	{
 		// Look for a creature to remove
-		for (auto it = knownCreatureSet.begin(), end = knownCreatureSet.end(); it != end; ++it)
-		{
-			Creature *creature = g_game.getCreatureByID(*it);
-			if (!canSee(creature))
-			{
+		for (auto it = knownCreatureSet.begin(), end = knownCreatureSet.end(); it != end; ++it) {
+			// We need to protect party players from removing
+			Creature* creature = g_game.getCreatureByID(*it);
+			Player* checkPlayer;
+			if (creature && (checkPlayer = creature->getPlayer()) != nullptr) {
+				if (player->getParty() != checkPlayer->getParty() && !canSee(creature)) {
+					removedKnown = *it;
+					knownCreatureSet.erase(it);
+					return;
+				}
+			} else if (!canSee(creature)) {
 				removedKnown = *it;
 				knownCreatureSet.erase(it);
 				return;
@@ -1818,7 +1830,8 @@ void ProtocolGame::parseBestiarysendMonsterData(NetworkMessage &msg)
 
 	if (!mtype)
 	{
-		std::cout << "> [Bestiary]: monstertype was not found" << std::endl;
+		SPDLOG_WARN("[ProtocolGame::parseBestiarysendMonsterData] - "
+                    "MonsterType was not found");
 		return;
 	}
 
@@ -2378,7 +2391,8 @@ void ProtocolGame::parseBestiarysendCreatures(NetworkMessage &msg)
 
 		if (race.size() == 0)
 		{
-			std::cout << "> [Bestiary]: race was not found: " << raceName << " | search " << search << std::endl;
+			SPDLOG_WARN("[ProtocolGame::parseBestiarysendCreature] - "
+                        "Race was not found: {}, search: {}", raceName, search);
 			return;
 		}
 		text = raceName;
@@ -2537,7 +2551,8 @@ void ProtocolGame::parseStoreRequestOffers(NetworkMessage &message)
 	}
 	else
 	{
-		std::cout << "[Warning - ProtocolGame::parseStoreRequestOffers] requested category: \"" << categoryName << "\" doesn't exists" << std::endl;
+		SPDLOG_WARN("[ProtocolGame::parseStoreRequestOffers] - "
+                    "Requested category: {} doesn't exists", categoryName);
 	}
 }
 
@@ -4949,6 +4964,126 @@ void ProtocolGame::sendCreatureHelpers(uint32_t creatureId, uint16_t helpers)
 	msg.addByte(0x94);
 	msg.add<uint32_t>(creatureId);
 	msg.add<uint16_t>(helpers);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendPartyCreatureUpdate(const Creature* target)
+{
+	bool known;
+	uint32_t removedKnown;
+	uint32_t cid = target->getID();
+	checkCreatureAsKnown(cid, known, removedKnown);
+
+	NetworkMessage msg;
+	msg.addByte(0x8B);
+	msg.add<uint32_t>(cid);
+	msg.addByte(0);  // creature update
+	AddCreature(msg, target, known, removedKnown);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendPartyCreatureShield(const Creature* target)
+{
+	uint32_t cid = target->getID();
+	if (knownCreatureSet.find(cid) == knownCreatureSet.end()) {
+		sendPartyCreatureUpdate(target);
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0x91);
+	msg.add<uint32_t>(cid);
+	msg.addByte(player->getPartyShield(target->getPlayer()));
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendPartyCreatureSkull(const Creature* target)
+{
+	if (g_game.getWorldType() != WORLD_TYPE_PVP) {
+		return;
+	}
+
+	uint32_t cid = target->getID();
+	if (knownCreatureSet.find(cid) == knownCreatureSet.end()) {
+		sendPartyCreatureUpdate(target);
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0x90);
+	msg.add<uint32_t>(cid);
+	msg.addByte(player->getSkullClient(target));
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendPartyCreatureHealth(const Creature* target, uint8_t healthPercent)
+{
+	uint32_t cid = target->getID();
+	if (knownCreatureSet.find(cid) == knownCreatureSet.end()) {
+		sendPartyCreatureUpdate(target);
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0x8C);
+	msg.add<uint32_t>(cid);
+	msg.addByte(healthPercent);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendPartyPlayerMana(const Player* target, uint8_t manaPercent)
+{
+	uint32_t cid = target->getID();
+	if (knownCreatureSet.find(cid) == knownCreatureSet.end()) {
+		sendPartyCreatureUpdate(target);
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0x8B);
+	msg.add<uint32_t>(cid);
+	msg.addByte(11);  // mana percent
+	msg.addByte(manaPercent);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendPartyCreatureShowStatus(const Creature* target, bool showStatus)
+{
+	uint32_t cid = target->getID();
+	if (knownCreatureSet.find(cid) == knownCreatureSet.end()) {
+		sendPartyCreatureUpdate(target);
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0x8B);
+	msg.add<uint32_t>(cid);
+	msg.addByte(12);  // show status
+	msg.addByte((showStatus ? 0x01 : 0x00));
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendPartyPlayerVocation(const Player* target)
+{
+	uint32_t cid = target->getID();
+	if (knownCreatureSet.find(cid) == knownCreatureSet.end()) {
+		sendPartyCreatureUpdate(target);
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0x8B);
+	msg.add<uint32_t>(cid);
+	msg.addByte(13);  // vocation
+	msg.addByte(target->getVocation()->getClientId());
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendPlayerVocation(const Player* target)
+{
+	NetworkMessage msg;
+	msg.addByte(0x8B);
+	msg.add<uint32_t>(target->getID());
+	msg.addByte(13);  // vocation
+	msg.addByte(target->getVocation()->getClientId());
 	writeToOutputBuffer(msg);
 }
 

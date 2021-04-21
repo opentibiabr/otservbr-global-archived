@@ -19,9 +19,31 @@
 
 #include "otpch.h"
 
-#include "script.h"
+#include "actions.h"
+#include "chat.h"
+#include "talkaction.h"
+#include "spells.h"
+#include "movement.h"
+#include "weapons.h"
+#include "globalevent.h"
+#include "events.h"
+#include "scripts.h"
+#include "modules.h"
+#include "imbuements.h"
 #include <boost/filesystem.hpp>
-#include "configmanager.h"
+
+Actions* g_actions = nullptr;
+CreatureEvents* g_creatureEvents = nullptr;
+Chat* g_chat = nullptr;
+Events* g_events = nullptr;
+GlobalEvents* g_globalEvents = nullptr;
+Spells* g_spells = nullptr;
+TalkActions* g_talkActions = nullptr;
+MoveEvents* g_moveEvents = nullptr;
+Weapons* g_weapons = nullptr;
+Scripts* g_scripts = nullptr;
+Modules* g_modules = nullptr;
+Imbuements* g_imbuements = nullptr;
 
 extern LuaEnvironment g_luaEnvironment;
 extern ConfigManager g_config;
@@ -35,6 +57,59 @@ Scripts::Scripts() :
 Scripts::~Scripts()
 {
 	scriptInterface.reInitState();
+
+	delete g_events;
+	delete g_weapons;
+	delete g_spells;
+	delete g_actions;
+	delete g_talkActions;
+	delete g_moveEvents;
+	delete g_chat;
+	delete g_creatureEvents;
+	delete g_globalEvents;
+	delete g_scripts;
+	delete g_imbuements;
+}
+
+bool Scripts::loadScriptSystems()
+{
+	g_chat = new Chat();
+
+	// XML loads disabled start
+	g_weapons = new Weapons();
+	if (!g_weapons) {
+		return false;
+	}
+
+	g_weapons->loadDefaults();
+
+	g_actions = new Actions();
+	if (!g_actions) {
+		return false;
+	}
+
+	g_talkActions = new TalkActions();
+	if (!g_talkActions) {
+		return false;
+	}
+
+	g_moveEvents = new MoveEvents();
+	if (!g_moveEvents) {
+		return false;
+	}
+
+	g_creatureEvents = new CreatureEvents();
+	if (!g_creatureEvents) {
+		return false;
+	}
+
+	g_globalEvents = new GlobalEvents();
+	if (!g_globalEvents) {
+		return false;
+	}
+	// XML loads disabled end
+
+	return true;
 }
 
 bool Scripts::loadEventSchedulerScripts(const std::string& fileName)

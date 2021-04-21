@@ -170,7 +170,7 @@ class DBResult
 		{
 			auto it = listNames.find(s);
 			if (it == listNames.end()) {
-				std::cout << "[Error - DBResult::getNumber] Column '" << s << "' doesn't exist in the result set" << std::endl;
+				SPDLOG_ERROR("[DBResult::getNumber] - Column '{}' doesn't exist in the result set", s);
 				return static_cast<T>(0);
 			}
 
@@ -204,7 +204,7 @@ class DBResult
 		std::string getString(const std::string& s) const;
 		const char* getStream(const std::string& s, unsigned long& size) const;
 
-    size_t countResults() const;  
+    size_t countResults() const;
 		bool hasNext() const;
 		bool next();
 

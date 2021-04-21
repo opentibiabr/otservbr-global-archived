@@ -8,17 +8,18 @@ local spawns = {
 	[7] = {position = Position(32785,32290,15), monster = 'The Handmaiden'}
 }
 
-local bossesPoi = GlobalEvent("bosses poi")
-function bossesPoi.onThink(interval, lastExecution)
+local pitsOfInfernoBosses = GlobalEvent("PitsOfInfernoBosses")
+function pitsOfInfernoBosses.onThink(interval, lastExecution)
 	local spawn = spawns[math.random(#spawns)]
 	local monster = Game.createMonster(spawn.monster, spawn.position, true, true)
 
 	if not monster then
-		print('>> Failed to spawn '..rand.bossName..'.')
+		Spdlog.error(string.format("[PitsOfInfernoBosses] - Failed to spawn %s",
+			rand.bossName))
 		return true
 	end
 	return true
 end
 
-bossesPoi:interval(46800000)
-bossesPoi:register()
+pitsOfInfernoBosses:interval(46800000)
+pitsOfInfernoBosses:register()

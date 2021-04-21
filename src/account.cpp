@@ -52,9 +52,8 @@ Account::Account(uint32_t id) {
   db_tasks_ = &g_databaseTasks;
 }
 
-Account::Account(std::string name) {
+Account::Account(const std::string &name) : name_(name) {
   id_ = 0;
-  name_ = name;
   password_.clear();
   premium_remaining_days_ = 0;
   premium_last_day_ = 0;
