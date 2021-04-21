@@ -97,16 +97,14 @@ class Npc final : public Creature
 			return npcType->info.currencyServerId;
 		}
 
-		int32_t getArmor() const override {
-			return npcType->info.armor;
-		}
-		int32_t getDefense() const override {
-			return npcType->info.defense;
+		std::vector<ShopInfo> getShopItems() {
+			return npcType->info.shopItems;
 		}
 
 		bool isPushable() const override {
-			return false;
+			return npcType->info.pushable;
 		}
+
 		bool isAttackable() const override {
 			return false;
 		}

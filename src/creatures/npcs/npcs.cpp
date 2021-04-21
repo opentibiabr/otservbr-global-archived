@@ -70,6 +70,7 @@ bool NpcType::loadCallback(LuaScriptInterface* scriptInterface)
 	} else if (info.eventType == NPCS_EVENT_SAY) {
 		info.creatureSayEvent = id;
 	}
+
 	return true;
 }
 

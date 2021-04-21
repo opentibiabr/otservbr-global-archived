@@ -27,11 +27,6 @@ class NpcType
 	struct NpcInfo {
 		LuaScriptInterface* scriptInterface;
 
-		std::vector<voiceBlock_t> voiceVector;
-		std::vector<ShopInfo> shopItems;
-
-		std::vector<std::string> scripts;
-
 		Outfit_t outfit = {};
 		RespawnType respawnType = {};
 
@@ -60,8 +55,12 @@ class NpcType
 
 		bool canPushItems = false;
 		bool canPushCreatures = false;
-		bool pushable = true;
+		bool pushable = false;
 		bool floorChange = false;
+
+		std::vector<voiceBlock_t> voiceVector;
+		std::vector<std::string> scripts;
+		std::vector<ShopInfo> shopItems;
 
 		NpcsEvent_t eventType = NPCS_EVENT_NONE;
 	};
@@ -78,6 +77,10 @@ class NpcType
 		std::string name;
 		std::string nameDescription;
 		NpcInfo info;
+
+		void addShopItem(ShopInfo &item) {
+			info.shopItems.push_back(item);
+		}
 
 		bool loadCallback(LuaScriptInterface* scriptInterface);
 		bool canSpawn(const Position& pos);

@@ -3746,7 +3746,7 @@ void ProtocolGame::sendLootStats(Item *item, uint8_t count)
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendShop(Npc *npc, const ShopInfoList &itemList)
+void ProtocolGame::sendShop(Npc *npc)
 {
 	NetworkMessage msg;
 	msg.addByte(0x7A);
@@ -3755,6 +3755,7 @@ void ProtocolGame::sendShop(Npc *npc, const ShopInfoList &itemList)
 
 	msg.addString(std::string()); // ??
 
+	const ShopInfoList itemList = npc->getShopItems();
 	uint16_t itemsToSend = std::min<size_t>(itemList.size(), std::numeric_limits<uint16_t>::max());
 	msg.add<uint16_t>(itemsToSend);
 

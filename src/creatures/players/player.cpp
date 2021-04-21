@@ -1474,9 +1474,13 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 	}
 }
 
-void Player::openShopWindow(Npc* npc, const std::vector<ShopInfo>& shop)
+void Player::openShopWindow(Npc* npc)
 {
-	shopItemList = std::move(shop);
+	closeShopWindow(true);
+	setShopOwner(npc);
+
+	npc->addShopPlayer(player);
+
 	std::map<uint32_t, uint32_t> tempInventoryMap;
 	getAllItemTypeCountAndSubtype(tempInventoryMap);
 
@@ -1486,12 +1490,8 @@ void Player::openShopWindow(Npc* npc, const std::vector<ShopInfo>& shop)
 
 bool Player::closeShopWindow(bool sendCloseShopWindow /*= true*/)
 {
-	//unreference shop callback
-	int32_t shop;
-
-	Npc* npc = getShopOwner(shop);
+	Npc* npc = getShopOwner();
 	if (!npc) {
-		shopItemList.clear();
 		return false;
 	}
 
@@ -1502,7 +1502,6 @@ bool Player::closeShopWindow(bool sendCloseShopWindow /*= true*/)
 		sendCloseShop();
 	}
 
-	shopItemList.clear();
 	return true;
 }
 
@@ -3591,6 +3590,11 @@ bool Player::updateSaleShopList(const Item* item)
 bool Player::hasShopItemForSale(uint32_t itemId, uint8_t subType) const
 {
 	const ItemType& itemType = Item::items[itemId];
+	if (!getShopOwner()) {
+		return false;
+	}
+
+	auto shopItemList = getShopOwner()->getShopItems();
 	return std::any_of(shopItemList.begin(), shopItemList.end(), [&](const ShopInfo& shopInfo) {
 		return shopInfo.itemId == itemId && shopInfo.buyPrice != 0 && (!itemType.isFluidContainer() || shopInfo.subType == subType);
 	});

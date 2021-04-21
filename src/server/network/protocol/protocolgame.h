@@ -315,7 +315,7 @@ private:
 	void sendCreatureSkull(const Creature *creature);
 	void sendCreatureType(const Creature *creature, uint8_t creatureType);
 
-	void sendShop(Npc *npc, const ShopInfoList &itemList);
+	void sendShop(Npc *npc);
 	void sendCloseShop();
 	void sendClientCheck();
 	void sendGameNews();

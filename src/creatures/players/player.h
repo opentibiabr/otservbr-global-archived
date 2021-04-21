@@ -774,13 +774,7 @@ class Player final : public Creature, public Cylinder
 			shopOwner = owner;
 		}
 
-		Npc* getShopOwner(int32_t& shop) {
-			shop = shopCallback;
-			return shopOwner;
-		}
-
-		const Npc* getShopOwner(int32_t& shop) const {
-			shop = shopCallback;
+		const Npc* getShopOwner() const {
 			return shopOwner;
 		}
 
@@ -808,7 +802,7 @@ class Player final : public Creature, public Cylinder
 		void onWalkComplete() override;
 
 		void stopWalk();
-		void openShopWindow(Npc* npc, const std::vector<ShopInfo>& shop);
+		void openShopWindow(Npc* npc);
 		bool closeShopWindow(bool sendCloseShopWindow = true);
 		bool updateSaleShopList(const Item* item);
 		bool hasShopItemForSale(uint32_t itemId, uint8_t subType) const;
@@ -1360,12 +1354,12 @@ class Player final : public Creature, public Cylinder
 		}
 		void sendShop(Npc* npc) const {
 			if (client) {
-				client->sendShop(npc, shopItemList);
+				client->sendShop(npc);
 			}
 		}
     void sendSaleItemList(const std::map<uint32_t, uint32_t>& inventoryMap) const {
-      if (client) {
-        client->sendSaleItemList(shopItemList, inventoryMap);
+      if (client && getShopOwner()) {
+        client->sendSaleItemList(getShopOwner()->getShopItems(), inventoryMap);
       }
     }
 		void sendCloseShop() const {
@@ -1983,8 +1977,6 @@ class Player final : public Creature, public Cylinder
 		std::vector<FamiliarEntry> familiars;
 
 		GuildWarVector guildWarVector;
-
-		std::vector<ShopInfo> shopItemList;
 
 		std::forward_list<Party*> invitePartyList;
 		std::forward_list<uint32_t> modalWindows;
