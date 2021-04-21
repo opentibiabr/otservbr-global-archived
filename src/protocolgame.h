@@ -259,6 +259,14 @@ private:
 	void sendRestingStatus(uint8_t protection);
 	void sendCreatureHealth(const Creature *creature);
 	void sendCreatureHelpers(uint32_t creatureId, uint16_t helpers);
+	void sendPartyCreatureUpdate(const Creature* target);
+	void sendPartyCreatureShield(const Creature* target);
+	void sendPartyCreatureSkull(const Creature* target);
+	void sendPartyCreatureHealth(const Creature* target, uint8_t healthPercent);
+	void sendPartyPlayerMana(const Player* target, uint8_t manaPercent);
+	void sendPartyCreatureShowStatus(const Creature* target, bool showStatus);
+	void sendPartyPlayerVocation(const Player* target);
+	void sendPlayerVocation(const Player* target);
 	void sendSkills();
 	void sendPing();
 	void sendPingBack();
