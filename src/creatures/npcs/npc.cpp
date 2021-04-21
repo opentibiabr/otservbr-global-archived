@@ -315,12 +315,12 @@ void Npc::resetPlayerInteractions() {
 
 bool Npc::canWalkTo(const Position& fromPos, Direction dir) const
 {
-	if (masterRadius == 0) {
+	if (npcType->info.walkRadius == 0) {
 		return false;
 	}
 
 	Position toPos = getNextPosition(dir, fromPos);
-	if (!SpawnsNpc::isInZone(masterPos, masterRadius, toPos)) {
+	if (!SpawnsNpc::isInZone(masterPos, npcType->info.walkRadius, toPos)) {
 		return false;
 	}
 

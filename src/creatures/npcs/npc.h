@@ -175,8 +175,6 @@ class Npc final : public Creature
 		NpcType* npcType;
 		SpawnNpc* spawnNpc = nullptr;
 
-		int32_t masterRadius;
-
 		uint8_t speechBubble;
 
 		uint16_t currencyServerId;
