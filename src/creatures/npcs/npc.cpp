@@ -158,8 +158,8 @@ void Npc::onCreatureMove(Creature* creature, const Tile* newTile, const Position
 		return;
 	}
 
-	if (!canSee(newPos) && canSee(oldPos)) {
-		Player *player = creature->getPlayer();
+	Player *player = creature->getPlayer();
+	if (player && !canSee(newPos) && canSee(oldPos)) {
 		updatePlayerInteractions(player);
 		player->closeShopWindow(true);
 	}
