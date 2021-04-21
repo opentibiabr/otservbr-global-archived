@@ -770,21 +770,17 @@ class Player final : public Creature, public Cylinder
 		}
 
 		//shop functions
-		void setShopOwner(Npc* owner, int32_t onBuy, int32_t onSell) {
+		void setShopOwner(Npc* owner) {
 			shopOwner = owner;
-			purchaseCallback = onBuy;
-			saleCallback = onSell;
 		}
 
-		Npc* getShopOwner(int32_t& onBuy, int32_t& onSell) {
-			onBuy = purchaseCallback;
-			onSell = saleCallback;
+		Npc* getShopOwner(int32_t& shop) {
+			shop = shopCallback;
 			return shopOwner;
 		}
 
-		const Npc* getShopOwner(int32_t& onBuy, int32_t& onSell) const {
-			onBuy = purchaseCallback;
-			onSell = saleCallback;
+		const Npc* getShopOwner(int32_t& shop) const {
+			shop = shopCallback;
 			return shopOwner;
 		}
 
@@ -2071,8 +2067,7 @@ class Player final : public Creature, public Cylinder
 		uint32_t manaMax = 0;
 		int32_t varSkills[SKILL_LAST + 1] = {};
 		int32_t varStats[STAT_LAST + 1] = {};
-		int32_t purchaseCallback = -1;
-		int32_t saleCallback = -1;
+		int32_t shopCallback = -1;
 		int32_t MessageBufferCount = 0;
 		uint32_t premiumDays = 0;
 		int32_t bloodHitCount = 0;

@@ -4247,9 +4247,9 @@ void Game::playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t coun
 		return;
 	}
 
-	int32_t onBuy, onSell;
+	int32_t shop;
 
-	Npc* merchant = player->getShopOwner(onBuy, onSell);
+	Npc* merchant = player->getShopOwner(shop);
 	if (!merchant) {
 		return;
 	}
@@ -4282,9 +4282,9 @@ void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, u
 		return;
 	}
 
-	int32_t onBuy, onSell;
+	int32_t shop;
 
-	Npc* merchant = player->getShopOwner(onBuy, onSell);
+	Npc* merchant = player->getShopOwner(shop);
 	if (!merchant) {
 		return;
 	}
@@ -4319,9 +4319,9 @@ void Game::playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count)
 		return;
 	}
 
-	int32_t onBuy, onSell;
+	int32_t shop;
 
-	Npc* merchant = player->getShopOwner(onBuy, onSell);
+	Npc* merchant = player->getShopOwner(shop);
 	if (!merchant) {
 		return;
 	}
@@ -8432,8 +8432,8 @@ void Game::updatePlayerSaleItems(uint32_t playerId)
 		return;
 	}
 
-  std::map<uint32_t, uint32_t> tempInventoryMap;
-  player->getAllItemTypeCountAndSubtype(tempInventoryMap);
+	std::map<uint32_t, uint32_t> tempInventoryMap;
+	player->getAllItemTypeCountAndSubtype(tempInventoryMap);
 
 	player->sendSaleItemList(tempInventoryMap);
 	player->setScheduledSaleUpdate(false);

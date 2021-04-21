@@ -6615,7 +6615,7 @@ void ProtocolGame::AddShopItem(NetworkMessage &msg, const ShopInfo &item)
 		msg.addByte(0x00);
 	}
 
-	msg.addString(item.realName);
+	msg.addString(item.name);
 	msg.add<uint32_t>(it.weight);
 	msg.add<uint32_t>(item.buyPrice == 4294967295 ? 0 : item.buyPrice);
 	msg.add<uint32_t>(item.sellPrice == 4294967295 ? 0 : item.sellPrice);

@@ -1477,27 +1477,26 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 void Player::openShopWindow(Npc* npc, const std::vector<ShopInfo>& shop)
 {
 	shopItemList = std::move(shop);
-  std::map<uint32_t, uint32_t> tempInventoryMap;
-  getAllItemTypeCountAndSubtype(tempInventoryMap);
+	std::map<uint32_t, uint32_t> tempInventoryMap;
+	getAllItemTypeCountAndSubtype(tempInventoryMap);
 
-  sendShop(npc);
-  sendSaleItemList(tempInventoryMap);
+	sendShop(npc);
+	sendSaleItemList(tempInventoryMap);
 }
 
 bool Player::closeShopWindow(bool sendCloseShopWindow /*= true*/)
 {
-	//unreference callbacks
-	int32_t onBuy;
-	int32_t onSell;
+	//unreference shop callback
+	int32_t shop;
 
-	Npc* npc = getShopOwner(onBuy, onSell);
+	Npc* npc = getShopOwner(shop);
 	if (!npc) {
 		shopItemList.clear();
 		return false;
 	}
 
-	setShopOwner(nullptr, -1, -1);
-	npc->onPlayerEndTrade(this, onBuy, onSell);
+	setShopOwner(nullptr);
+	npc->onPlayerEndTrade(this, shop);
 
 	if (sendCloseShopWindow) {
 		sendCloseShop();

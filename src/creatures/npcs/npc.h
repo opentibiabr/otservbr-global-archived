@@ -79,7 +79,7 @@ class Npc final : public Creature
 			masterPos = pos;
 		}
 
-		void onPlayerEndTrade(Player* player, int32_t buyCallback, int32_t sellCallback);
+		void onPlayerEndTrade(Player* player, int32_t shop);
 		void onPlayerCloseChannel(Player* player);
 
 		uint8_t getSpeechBubble() const override {
@@ -135,10 +135,10 @@ class Npc final : public Creature
 		}
 
 		bool isPlayerInteractingOnTopic(uint32_t playerId, uint16_t topicId) {
-		    auto it = playerInteractions.find(playerId);
-		    if (it == playerInteractions.end()) {
-       		return false;
-        }
+			auto it = playerInteractions.find(playerId);
+			if (it == playerInteractions.end()) {
+				return false;
+			}
 			return it->second == topicId;
 		}
 
@@ -157,6 +157,7 @@ class Npc final : public Creature
 		}
 
 		static uint32_t npcAutoID;
+		std::vector<ShopInfo> shopItems;
 
 	private:
 		void addShopPlayer(Player* player);

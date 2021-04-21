@@ -35,11 +35,23 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-    return npc:processOnSay(
+    --[[npc:processOnSay(
         message,
         creature:getPlayer(),
         { NpcInteraction:new({"hi"}, "So you have come, ".. creature:getPlayer() ..". I hoped you would not...", interactionTypes.INTERACTION_GREET) }
-    )
+    )]]
+    if msgContains(message, "trade") then
+        npc:openShopWindow(
+            creature, 
+            {
+                {id = 2376, buy = 60, sell = 30},
+                {id = 2789, buy = 60, sell = 30},
+            }
+        )
+    end
+    if msgContains(message, "bye") then
+        npc:closeShopWindow(creature)
+    end
 end
 
 npcType:register(npc)

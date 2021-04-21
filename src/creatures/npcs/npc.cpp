@@ -366,13 +366,16 @@ void Npc::closeAllShopWindows()
 	}
 }
 
-void Npc::onPlayerEndTrade(Player* player, int32_t buyCallback, int32_t sellCallback)
+void Npc::onPlayerEndTrade(Player* player, int32_t shop)
 {
+	if (!shop || player) {
+		return;
+	}
+
 	removeShopPlayer(player);
-	onPlayerEndTrade(player, buyCallback, sellCallback);
 }
 
 void Npc::onPlayerCloseChannel(Player* player)
 {
-	onPlayerCloseChannel(player);
+	player->closeShopWindow(true);
 }

@@ -710,10 +710,10 @@ struct RespawnType {
 
 struct ShopInfo {
 	uint16_t itemId;
+	std::string name;
 	int32_t subType;
 	uint32_t buyPrice;
 	uint32_t sellPrice;
-	std::string realName;
 
 	ShopInfo() {
 		itemId = 0;
@@ -722,8 +722,8 @@ struct ShopInfo {
 		sellPrice = 0;
 	}
 
-	ShopInfo(uint16_t newItemId, int32_t newSubType = 0, uint32_t newBuyPrice = 0, uint32_t newSellPrice = 0, std::string newRealName = "")
-		: itemId(newItemId), subType(newSubType), buyPrice(newBuyPrice), sellPrice(newSellPrice), realName(std::move(newRealName)) {}
+	ShopInfo(uint16_t newItemId, int32_t newSubType = 0, uint32_t newBuyPrice = 0, uint32_t newSellPrice = 0, std::string newName = "")
+		: itemId(newItemId), subType(newSubType), buyPrice(newBuyPrice), sellPrice(newSellPrice), name(std::move(newName)) {}
 };
 
 struct MarketOffer {
