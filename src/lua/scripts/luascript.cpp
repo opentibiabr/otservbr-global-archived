@@ -13089,7 +13089,7 @@ int LuaScriptInterface::luaNpcTypeAddShopItem(lua_State* L)
 	shopItem.buyPrice = static_cast<uint16_t>(getField<uint32_t>(L, table, "buy"));
 	shopItem.sellPrice = static_cast<uint16_t>(getField<uint32_t>(L, table, "sell"));
 
-	shopItem.name = Item::items[shopItem.itemId].name;
+	shopItem.name = Item::items.getItemIdByClientId(shopItem.itemId).name;
 
 	npcType->addShopItem(shopItem);
 

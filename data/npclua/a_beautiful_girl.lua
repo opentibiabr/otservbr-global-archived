@@ -23,8 +23,8 @@ npc.flags = {
 }
 
 npc.shop = {
-    {id = 2376, buy = 60, sell = 30},
-    {id = 2789, buy = 60, sell = 30},
+    {id = 3725, buy = 60, sell = 30},
+    {id = 3264, buy = 60, sell = 30},
 }
 
 npcType.onThink = function(npc, interval)
