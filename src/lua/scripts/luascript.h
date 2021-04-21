@@ -1448,6 +1448,8 @@ class LuaScriptInterface
 		static int luaNpcTypeRespawnTypePeriod(lua_State* L);
 		static int luaNpcTypeRespawnTypeIsUnderground(lua_State* L);
 
+		static int luaNpcTypeAddShopItem(lua_State* L);
+
 		// MonsterType
 		static int luaMonsterTypeCreate(lua_State* L);
 

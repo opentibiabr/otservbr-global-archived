@@ -13089,12 +13089,6 @@ int LuaScriptInterface::luaNpcTypeAddShopItem(lua_State* L)
 	shopItem.buyPrice = static_cast<uint16_t>(getField<uint32_t>(L, table, "buy"));
 	shopItem.sellPrice = static_cast<uint16_t>(getField<uint32_t>(L, table, "sell"));
 
-	if (!Item::items[shopItem.itemId]) {
-		reportErrorFunc("Invalid item id.");
-		pushBoolean(L, false);
-		return 1;
-	}
-
 	shopItem.name = Item::items[shopItem.itemId].name;
 
 	npcType->addShopItem(shopItem);
