@@ -157,7 +157,6 @@ class Npc final : public Creature
 		}
 
 		static uint32_t npcAutoID;
-		std::vector<ShopInfo> shopItems;
 
 	private:
 		void addShopPlayer(Player* player);

@@ -358,21 +358,15 @@ void Npc::removeShopPlayer(Player* player)
 
 void Npc::closeAllShopWindows()
 {
-	while (!shopPlayerSet.empty()) {
-		Player* player = *shopPlayerSet.begin();
-		if (!player->closeShopWindow()) {
-			removeShopPlayer(player);
-		}
+	for (auto shopPlayer : shopPlayerSet) {
+		shopPlayer->closeShopWindow();
 	}
+	shopPlayerSet.clear();
 }
 
 void Npc::onPlayerEndTrade(Player* player, int32_t shop)
 {
-	if (!shop || player) {
-		return;
-	}
-
-	removeShopPlayer(player);
+	shop && player && removeShopPlayer(player);
 }
 
 void Npc::onPlayerCloseChannel(Player* player)

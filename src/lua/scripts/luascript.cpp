@@ -3116,13 +3116,7 @@ void LuaScriptInterface::registerFunctions()
 	registerClass("NpcType", "", LuaScriptInterface::luaNpcTypeCreate);
 	registerMetaMethod("NpcType", "__eq", LuaScriptInterface::luaUserdataCompare);
 
-	registerMethod("NpcType", "isAttackable", LuaScriptInterface::luaNpcTypeIsAttackable);
-	registerMethod("NpcType", "isConvinceable", LuaScriptInterface::luaNpcTypeIsConvinceable);
-	registerMethod("NpcType", "isSummonable", LuaScriptInterface::luaNpcTypeIsSummonable);
-	registerMethod("NpcType", "isIllusionable", LuaScriptInterface::luaNpcTypeIsIllusionable);
-	registerMethod("NpcType", "isHostile", LuaScriptInterface::luaNpcTypeIsHostile);
 	registerMethod("NpcType", "isPushable", LuaScriptInterface::luaNpcTypeIsPushable);
-	registerMethod("NpcType", "isHealthHidden", LuaScriptInterface::luaNpcTypeIsHealthHidden);
 	registerMethod("NpcType", "floorChange", LuaScriptInterface::luaNpcTypeFloorChange);
 
 	registerMethod("NpcType", "canSpawn", LuaScriptInterface::luaNpcTypeCanSpawn);
@@ -3134,18 +3128,8 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("NpcType", "nameDescription", LuaScriptInterface::luaNpcTypeNameDescription);
 
-	registerMethod("NpcType", "getCorpseId", LuaScriptInterface::luaNpcTypegetCorpseId);
-
 	registerMethod("NpcType", "health", LuaScriptInterface::luaNpcTypeHealth);
 	registerMethod("NpcType", "maxHealth", LuaScriptInterface::luaNpcTypeMaxHealth);
-	registerMethod("NpcType", "runHealth", LuaScriptInterface::luaNpcTypeRunHealth);
-	registerMethod("NpcType", "experience", LuaScriptInterface::luaNpcTypeExperience);
-
-	registerMethod("NpcType", "getAttackList", LuaScriptInterface::luaNpcTypeGetAttackList);
-	registerMethod("NpcType", "addAttack", LuaScriptInterface::luaNpcTypeAddAttack);
-
-	registerMethod("NpcType", "getDefenseList", LuaScriptInterface::luaNpcTypeGetDefenseList);
-	registerMethod("NpcType", "addDefense", LuaScriptInterface::luaNpcTypeAddDefense);
 
 	registerMethod("NpcType", "getVoices", LuaScriptInterface::luaNpcTypeGetVoices);
 	registerMethod("NpcType", "addVoice", LuaScriptInterface::luaNpcTypeAddVoice);
@@ -3160,40 +3144,19 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("NpcType", "onMove", LuaScriptInterface::luaNpcTypeEventOnCallback);
 	registerMethod("NpcType", "onSay", LuaScriptInterface::luaNpcTypeEventOnCallback);
 
-	registerMethod("NpcType", "armor", LuaScriptInterface::luaNpcTypeArmor);
-	registerMethod("NpcType", "defense", LuaScriptInterface::luaNpcTypeDefense);
 	registerMethod("NpcType", "outfit", LuaScriptInterface::luaNpcTypeOutfit);
-	registerMethod("NpcType", "corpseId", LuaScriptInterface::luaNpcTypeCorpseId);
 	registerMethod("NpcType", "baseSpeed", LuaScriptInterface::luaNpcTypeBaseSpeed);
 	registerMethod("NpcType", "walkInterval", LuaScriptInterface::luaNpcTypeWalkInterval);
 	registerMethod("NpcType", "walkRadius", LuaScriptInterface::luaNpcTypeWalkRadius);
 	registerMethod("NpcType", "light", LuaScriptInterface::luaNpcTypeLight);
 
-	registerMethod("NpcType", "staticAttackChance", LuaScriptInterface::luaNpcTypeStaticAttackChance);
-	registerMethod("NpcType", "targetDistance", LuaScriptInterface::luaNpcTypeTargetDistance);
 	registerMethod("NpcType", "yellChance", LuaScriptInterface::luaNpcTypeYellChance);
 	registerMethod("NpcType", "yellSpeedTicks", LuaScriptInterface::luaNpcTypeYellSpeedTicks);
-	registerMethod("NpcType", "changeTargetChance", LuaScriptInterface::luaNpcTypeChangeTargetChance);
-	registerMethod("NpcType", "changeTargetSpeed", LuaScriptInterface::luaNpcTypeChangeTargetSpeed);
-
-    registerMethod("NpcType", "canWalkOnEnergy",
-                  LuaScriptInterface::luaNpcTypeCanWalkOnEnergy);
-    registerMethod("NpcType", "canWalkOnFire",
-                  LuaScriptInterface::luaNpcTypeCanWalkOnFire);
-    registerMethod("NpcType", "canWalkOnPoison",
-                  LuaScriptInterface::luaNpcTypeCanWalkOnPoison);
-
-    registerMethod("NpcType", "strategiesTargetNearest",
-                  LuaScriptInterface::luaNpcTypeStrategiesTargetNearest);
-    registerMethod("NpcType", "strategiesTargetHealth",
-                  LuaScriptInterface::luaNpcTypeStrategiesTargetHealth);
-    registerMethod("NpcType", "strategiesTargetDamage",
-                  LuaScriptInterface::luaNpcTypeStrategiesTargetDamage);
-    registerMethod("NpcType", "strategiesTargetRandom",
-                  LuaScriptInterface::luaNpcTypeStrategiesTargetRandom);
 
 	registerMethod("NpcType", "respawnTypePeriod", LuaScriptInterface::luaNpcTypeRespawnTypePeriod);
 	registerMethod("NpcType", "respawnTypeIsUnderground", LuaScriptInterface::luaNpcTypeRespawnTypeIsUnderground);
+
+	registerMethod("NpcType", "addShopItem", LuaScriptInterface::luaNpcTypeAddShopItem);
 
 	// MonsterType
 	registerClass("MonsterType", "", LuaScriptInterface::luaMonsterTypeCreate);
@@ -5019,24 +4982,8 @@ int LuaScriptInterface::luaGameCreateNpcType(lua_State* L)
 		return 1;
 	}
 
-	NpcType* npcType = g_npcs.getNpcType(getString(L, 1));
-	if (npcType) {
-		npcType->info.attackSpells.clear();
-		npcType->info.defenseSpells.clear();
-		pushUserdata<NpcType>(L, npcType);
-		setMetatable(L, -1, "NpcType");
-	} else if (isString(L, 1)) {
-		npcType = new NpcType();
-		std::string name = getString(L, 1);
-		g_npcs.addNpcType(name, npcType);
-		npcType = g_npcs.getNpcType(getString(L, 1));
-		npcType->name = name;
-		npcType->nameDescription = "a " + name;
-		pushUserdata<NpcType>(L, npcType);
-		setMetatable(L, -1, "NpcType");
-	} else {
-		lua_pushnil(L);
-	}
+	luaNpcTypeCreate(L);
+
 	return 1;
 }
 
@@ -13120,6 +13067,11 @@ int LuaScriptInterface::luaNpcIsInTalkRange(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaNpcTypeAddShopItem(lua_State* L)
+{
+	return 1;
+}
+
 int LuaScriptInterface::luaNpcOpenShopWindow(lua_State* L)
 {
 	// npc:openShopWindow(player, itemsTable)
@@ -15444,102 +15396,10 @@ int LuaScriptInterface::luaBestiaryCharmCreate(lua_State* L)
 int LuaScriptInterface::luaNpcTypeCreate(lua_State* L)
 {
 	// NpcType(name)
-	NpcType* npcType = nullptr;
-	if (isString(L, 2)) {
-		npcType = g_npcs.getNpcType(getString(L, 2));
-	}
+	NpcType* npcType = g_npcs.getNpcType(getString(L, 1), true);
+	pushUserdata<NpcType>(L, npcType);
+	setMetatable(L, -1, "NpcType");
 
-	if (npcType) {
-		pushUserdata<NpcType>(L, npcType);
-		setMetatable(L, -1, "NpcType");
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeIsAttackable(lua_State* L)
-{
-	// get: npcType:isAttackable() set: npcType:isAttackable(bool)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			pushBoolean(L, npcType->info.isAttackable);
-		} else {
-			npcType->info.isAttackable = getBoolean(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeIsConvinceable(lua_State* L)
-{
-	// get: npcType:isConvinceable() set: npcType:isConvinceable(bool)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			pushBoolean(L, npcType->info.isConvinceable);
-		} else {
-			npcType->info.isConvinceable = getBoolean(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeIsSummonable(lua_State* L)
-{
-	// get: npcType:isSummonable() set: npcType:isSummonable(bool)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			pushBoolean(L, npcType->info.isSummonable);
-		} else {
-			npcType->info.isSummonable = getBoolean(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeIsIllusionable(lua_State* L)
-{
-	// get: npcType:isIllusionable() set: npcType:isIllusionable(bool)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			pushBoolean(L, npcType->info.isIllusionable);
-		} else {
-			npcType->info.isIllusionable = getBoolean(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeIsHostile(lua_State* L)
-{
-	// get: npcType:isHostile() set: npcType:isHostile(bool)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			pushBoolean(L, npcType->info.isHostile);
-		} else {
-			npcType->info.isHostile = getBoolean(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
 	return 1;
 }
 
@@ -15552,23 +15412,6 @@ int LuaScriptInterface::luaNpcTypeIsPushable(lua_State* L)
 			pushBoolean(L, npcType->info.pushable);
 		} else {
 			npcType->info.pushable = getBoolean(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeIsHealthHidden(lua_State* L)
-{
-	// get: npcType:isHealthHidden() set: npcType:isHealthHidden(bool)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			pushBoolean(L, npcType->info.hiddenHealth);
-		} else {
-			npcType->info.hiddenHealth = getBoolean(L, 2);
 			pushBoolean(L, true);
 		}
 	} else {
@@ -15676,18 +15519,6 @@ int LuaScriptInterface::luaNpcTypeNameDescription(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaNpcTypegetCorpseId(lua_State* L)
-{
-	// npcType:getCorpseId()
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		lua_pushnumber(L, npcType->info.lookcorpse);
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
 int LuaScriptInterface::luaNpcTypeHealth(lua_State* L)
 {
 	// get: npcType:health() set: npcType:health(health)
@@ -15715,147 +15546,6 @@ int LuaScriptInterface::luaNpcTypeMaxHealth(lua_State* L)
 		} else {
 			npcType->info.healthMax = getNumber<int32_t>(L, 2);
 			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeRunHealth(lua_State* L)
-{
-	// get: npcType:runHealth() set: npcType:runHealth(health)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.runAwayHealth);
-		} else {
-			npcType->info.runAwayHealth = getNumber<int32_t>(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeExperience(lua_State* L)
-{
-	// get: npcType:experience() set: npcType:experience(exp)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.experience);
-		} else {
-			npcType->info.experience = getNumber<uint64_t>(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeGetAttackList(lua_State* L)
-{
-	// npcType:getAttackList()
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (!npcType) {
-		lua_pushnil(L);
-		return 1;
-	}
-
-	lua_createtable(L, npcType->info.attackSpells.size(), 0);
-
-	int index = 0;
-	for (const auto& spellBlock : npcType->info.attackSpells) {
-		lua_createtable(L, 0, 8);
-
-		setField(L, "chance", spellBlock.chance);
-		setField(L, "isCombatSpell", spellBlock.combatSpell ? 1 : 0);
-		setField(L, "isMelee", spellBlock.isMelee ? 1 : 0);
-		setField(L, "minCombatValue", spellBlock.minCombatValue);
-		setField(L, "maxCombatValue", spellBlock.maxCombatValue);
-		setField(L, "range", spellBlock.range);
-		setField(L, "speed", spellBlock.speed);
-		pushUserdata<CombatSpell>(L, static_cast<CombatSpell*>(spellBlock.spell));
-		lua_setfield(L, -2, "spell");
-
-		lua_rawseti(L, -2, ++index);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeAddAttack(lua_State* L)
-{
-	// npcType:addAttack(npcspell)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		NpcSpell* spell = getUserdata<NpcSpell>(L, 2);
-		if (spell) {
-			spellBlockNpc_t sb;
-			if (g_npcs.deserializeSpell(spell, sb, npcType->name)) {
-				npcType->info.attackSpells.push_back(std::move(sb));
-			} else {
-				SPDLOG_WARN(npcType->name);
-				SPDLOG_WARN("[Warning - LuaScriptInterface::luaNpcTypeAddAttack] Cant load spell. {}", spell->name);
-			}
-		} else {
-			lua_pushnil(L);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeGetDefenseList(lua_State* L)
-{
-	// npcType:getDefenseList()
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (!npcType) {
-		lua_pushnil(L);
-		return 1;
-	}
-
-	lua_createtable(L, npcType->info.defenseSpells.size(), 0);
-
-
-	int index = 0;
-	for (const auto& spellBlock : npcType->info.defenseSpells) {
-		lua_createtable(L, 0, 8);
-
-		setField(L, "chance", spellBlock.chance);
-		setField(L, "isCombatSpell", spellBlock.combatSpell ? 1 : 0);
-		setField(L, "isMelee", spellBlock.isMelee ? 1 : 0);
-		setField(L, "minCombatValue", spellBlock.minCombatValue);
-		setField(L, "maxCombatValue", spellBlock.maxCombatValue);
-		setField(L, "range", spellBlock.range);
-		setField(L, "speed", spellBlock.speed);
-		pushUserdata<CombatSpell>(L, static_cast<CombatSpell*>(spellBlock.spell));
-		lua_setfield(L, -2, "spell");
-
-		lua_rawseti(L, -2, ++index);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeAddDefense(lua_State* L)
-{
-	// npcType:addDefense(npcspell)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		NpcSpell* spell = getUserdata<NpcSpell>(L, 2);
-		if (spell) {
-			spellBlockNpc_t sb;
-			if (g_npcs.deserializeSpell(spell, sb, npcType->name)) {
-				npcType->info.defenseSpells.push_back(std::move(sb));
-			} else {
-				SPDLOG_WARN(npcType->name);
-				SPDLOG_WARN("[Warning - LuaScriptInterface::luaNpcTypeAddAttack] Cant load spell. {}", spell->name);
-			}
-		} else {
-			lua_pushnil(L);
 		}
 	} else {
 		lua_pushnil(L);
@@ -15965,40 +15655,6 @@ int LuaScriptInterface::luaNpcTypeEventType(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaNpcTypeArmor(lua_State* L)
-{
-	// get: npcType:armor() set: npcType:armor(armor)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.armor);
-		} else {
-			npcType->info.armor = getNumber<int32_t>(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeDefense(lua_State* L)
-{
-	// get: npcType:defense() set: npcType:defense(defense)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.defense);
-		} else {
-			npcType->info.defense = getNumber<int32_t>(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
 int LuaScriptInterface::luaNpcTypeOutfit(lua_State* L)
 {
 	// get: npcType:outfit() set: npcType:outfit(outfit)
@@ -16009,23 +15665,6 @@ int LuaScriptInterface::luaNpcTypeOutfit(lua_State* L)
 		} else {
 			npcType->info.outfit = getOutfit(L, 2);
 			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeCorpseId(lua_State* L)
-{
-	// get: npcType:corpseId() set: npcType:corpseId(id)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.lookcorpse);
-		} else {
-			npcType->info.lookcorpse = getNumber<uint16_t>(L, 2);
-			lua_pushboolean(L, true);
 		}
 	} else {
 		lua_pushnil(L);
@@ -16105,40 +15744,6 @@ int LuaScriptInterface::luaNpcTypeLight(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaNpcTypeStaticAttackChance(lua_State* L)
-{
-	// get: npcType:staticAttackChance() set: npcType:staticAttackChance(chance)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.staticAttackChance);
-		} else {
-			npcType->info.staticAttackChance = getNumber<uint32_t>(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeTargetDistance(lua_State* L)
-{
-	// get: npcType:targetDistance() set: npcType:targetDistance(distance)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.targetDistance);
-		} else {
-			npcType->info.targetDistance = getNumber<int32_t>(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
 int LuaScriptInterface::luaNpcTypeYellChance(lua_State* L)
 {
 	// get: npcType:yellChance() set: npcType:yellChance(chance)
@@ -16170,156 +15775,6 @@ int LuaScriptInterface::luaNpcTypeYellSpeedTicks(lua_State* L)
 			lua_pushnumber(L, npcType->info.yellSpeedTicks);
 		} else {
 			npcType->info.yellSpeedTicks = getNumber<uint32_t>(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeChangeTargetChance(lua_State* L)
-{
-	// npcType:getChangeTargetChance()
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.changeTargetChance);
-		} else {
-			npcType->info.changeTargetChance = getNumber<int32_t>(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeChangeTargetSpeed(lua_State* L)
-{
-	// get: npcType:changeTargetSpeed() set: npcType:changeTargetSpeed(speed)
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.changeTargetSpeed);
-		} else {
-			npcType->info.changeTargetSpeed = getNumber<uint32_t>(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeCanWalkOnEnergy(lua_State* L) {
-    // get: npcType:canWalkOnEnergy() set: npcType:canWalkOnEnergy(bool)
-    NpcType* npcType = getUserdata<NpcType>(L, 1);
-    if (npcType) {
-        if (lua_gettop(L) == 1) {
-            pushBoolean(L, npcType->info.canWalkOnEnergy);
-        } else {
-            npcType->info.canWalkOnEnergy = getBoolean(L, 2, true);
-            pushBoolean(L, true);
-        }
-    } else {
-        lua_pushnil(L);
-    }
-    return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeCanWalkOnFire(lua_State* L) {
-    // get: npcType:canWalkOnFire() set: npcType:canWalkOnFire(bool)
-    NpcType* npcType = getUserdata<NpcType>(L, 1);
-    if (npcType) {
-        if (lua_gettop(L) == 1) {
-            pushBoolean(L, npcType->info.canWalkOnFire);
-        } else {
-            npcType->info.canWalkOnFire = getBoolean(L, 2, true);
-            pushBoolean(L, true);
-        }
-    } else {
-        lua_pushnil(L);
-    }
-    return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeCanWalkOnPoison(lua_State* L) {
-    // get: npcType:canWalkOnPoison() set: npcType:canWalkOnPoison(bool)
-    NpcType* npcType = getUserdata<NpcType>(L, 1);
-    if (npcType) {
-        if (lua_gettop(L) == 1) {
-            pushBoolean(L, npcType->info.canWalkOnPoison);
-        } else {
-            npcType->info.canWalkOnPoison = getBoolean(L, 2, true);
-            pushBoolean(L, true);
-        }
-    } else {
-        lua_pushnil(L);
-    }
-    return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeStrategiesTargetNearest(lua_State* L)
-{
-	// npcType:strategiesTargetNearest()
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.changeTargetChance);
-		} else {
-			npcType->info.changeTargetChance = getNumber<int32_t>(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeStrategiesTargetHealth(lua_State* L)
-{
-	// npcType:strategiesTargetHealth()
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.changeTargetChance);
-		} else {
-			npcType->info.changeTargetChance = getNumber<int32_t>(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeStrategiesTargetDamage(lua_State* L)
-{
-	// npcType:strategiesTargetDamage()
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.changeTargetChance);
-		} else {
-			npcType->info.changeTargetChance = getNumber<int32_t>(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaNpcTypeStrategiesTargetRandom(lua_State* L)
-{
-	// npcType:strategiesTargetRandom()
-	NpcType* npcType = getUserdata<NpcType>(L, 1);
-	if (npcType) {
-		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, npcType->info.changeTargetChance);
-		} else {
-			npcType->info.changeTargetChance = getNumber<int32_t>(L, 2);
 			pushBoolean(L, true);
 		}
 	} else {
