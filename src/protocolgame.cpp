@@ -142,7 +142,7 @@ void ProtocolGame::AddItem(NetworkMessage &msg, const Item *item)
 		}
 
 		// Quiver ammo count
-    	if (item->getWeaponType() == WEAPON_QUIVER && player->getThing(CONST_SLOT_RIGHT) == item) {
+    	if (container && item->getWeaponType() == WEAPON_QUIVER && player->getThing(CONST_SLOT_RIGHT) == item) {
       		uint16_t ammoTotal = 0;
       		for (Item* listItem : container->getItemList()) {
         		ammoTotal += listItem->getItemCount();
@@ -3082,7 +3082,7 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats()
 		}
 		else
 		{
-			for (size_t i = 0; i < COMBAT_COUNT; ++i)
+			for (uint16_t i = 0; i < COMBAT_COUNT; ++i)
 			{
 				absorbs[i] += it.abilities->absorbPercent[i];
 			}
@@ -4970,7 +4970,7 @@ void ProtocolGame::sendCreatureHelpers(uint32_t creatureId, uint16_t helpers)
 void ProtocolGame::sendPartyCreatureUpdate(const Creature* target)
 {
 	bool known;
-	uint32_t removedKnown;
+	uint32_t removedKnown = 0;
 	uint32_t cid = target->getID();
 	checkCreatureAsKnown(cid, known, removedKnown);
 

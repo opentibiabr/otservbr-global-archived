@@ -30,7 +30,11 @@ option(DEBUG_LOG "Enable Debug Log" OFF)
 # *****************************************************************************
 # Client
 # *****************************************************************************
-add_executable(${PROJECT_NAME} "")
+if (MSVC)
+  add_executable(${PROJECT_NAME} "" ../cmake/otservbr-global.rc)
+else()
+  add_executable(${PROJECT_NAME} "")
+endif()
 
 
 # *****************************************************************************

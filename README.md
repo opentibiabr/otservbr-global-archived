@@ -16,7 +16,6 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/github/opentibiabr/otservbr-global?branch=develop&passingText=develop%20-%20OK&svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global/build/artifacts "Download nightly builds for Windows")
 
-[![Build on MacOS](https://github.com/opentibiabr/otservbr-global/workflows/Build%20on%20MacOS/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22Build+on+MacOS%22)
 [![Build on Ubuntu](https://github.com/opentibiabr/otservbr-global/workflows/Build%20on%20Ubuntu/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22Build+on+Ubuntu%22)
 [![Build on Windows](https://github.com/opentibiabr/otservbr-global/workflows/Build%20on%20Windows/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22Build+on+Windows%22)
 
@@ -30,7 +29,7 @@ You are subject to our code of conduct, read at [this link](https://github.com/o
 
 * **WARNING: YOU NEED TO UNZIP THE MAP BEFORE START THE SERVER.**
 * [Compiling on Windows](https://forums.otserv.com.br/index.php?/forums/topic/169235-windowsvc2019-compilando-sources-otservbr-global/), alternatively if you are ****not** going to change anything on the source** you can download the latest compiled version for windows from [nightly builds for Windows](https://ci.appveyor.com/project/opentibiabr/otservbr-global/build/artifacts).
-* Wiki: Compiling ([Debian](https://github.com/opentibiabr/otservbr-global/wiki/Compiling-on-Debian-GNU-Linux), [Ubuntu](https://github.com/opentibiabr/otservbr-global/wiki/Compiling-on-Ubuntu), [Windows](https://github.com/opentibiabr/otservbr-global/wiki/Compiling-on-Windows-(vcpkg)))
+* Wiki: Compiling ([Ubuntu/Debian](https://github.com/opentibiabr/otservbr-global/wiki/Compiling-on-Ubuntu-or-Debian-GNU-Linux), [Windows](https://github.com/opentibiabr/otservbr-global/wiki/Compiling-on-Windows-(vcpkg)))
 
 ### Issues
 
