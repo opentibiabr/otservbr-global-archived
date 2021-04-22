@@ -188,7 +188,12 @@ HIRELING_GOODS  =  {
 		{name = "spectral bolt", id = 40737, buy = 70},
 		{name = "tarsal arrow", id = 15648, buy = 6},
 		{name = "throwing star", id = 2399, buy = 42},
-		{name = "vortex bolt", id = 15649, buy = 6}
+		{name = "vortex bolt", id = 15649, buy = 6},
+		{name = "diamond arrow", id = 29057, buy = 100},
+		{name = "spectral bolt", id = 29058, buy = 100},
+		{name = "quiver", id = 40397, buy = 400},
+		{name = "blue quiver", id = 40683, buy = 400},
+		{name = "red quiver", id = 40684, buy = 400}
 	},
 	WANDS  =  {
 		{name = "exercise rod", id = 32388, buy = 262500, subType = 500},
