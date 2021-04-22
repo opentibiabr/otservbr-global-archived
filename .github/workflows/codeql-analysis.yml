@@ -1,3 +1,5 @@
+---
+
 name: "CodeQL"
 
 on:
@@ -45,7 +47,7 @@ jobs:
         appendedCacheKey: ${{ hashFiles( '**/vcpkg.json' ) }}
         vcpkgTriplet: ${{ matrix.triplet }}
         additionalCachedPaths: ${{ github.workspace }}/build/vcpkg_installed
-        vcpkgGitCommitId: 030cfaa24de9ea1bbf0a4d9c615ce7312ba77af1
+        vcpkgGitCommitId: ${{ secrets.VCPKG_ID }}
 
     - name: 'Run CMake with Ninja, install dependencies with vcpkg, build with CMake'
       if: ${{ matrix.language == 'cpp' }}

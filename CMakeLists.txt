@@ -18,6 +18,7 @@ if(DEFINED ENV{VCPKG_DEFAULT_TRIPLET} AND NOT DEFINED VCPKG_TARGET_TRIPLET)
 endif()
 
 set(VCPKG_FEATURE_FLAGS "versions")
+set(VCPKG_BUILD_TYPE "release")
 
 # *****************************************************************************
 # Project otbr
