@@ -25,6 +25,8 @@ services:
       - MYSQL_USER=otserver
       - MYSQL_PASSWORD=otserver
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    ports:
+      - 3306:3306
     volumes:
       - db-volume:/var/lib/mysql
 
@@ -50,7 +52,7 @@ services:
     volumes:
       - ./docker/data/:/tmp/
     ports:
-      - 8081:80
+      - 80:8080
     depends_on:
       - mysql
 
