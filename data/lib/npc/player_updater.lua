@@ -44,7 +44,6 @@ end
 
 PlayerUpdater.runUpdateCallbacks = function (configs, player)
     for _, callback in pairs(configs.callbacks) do
-        print(player)
         callback(player)
     end
 end

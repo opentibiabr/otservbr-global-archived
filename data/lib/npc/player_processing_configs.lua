@@ -1,6 +1,3 @@
---NpcInteraction = {}
---NpcTopic = {}
---NpcMessages = {}
 PlayerProcessingConfigs = {}
 
 function PlayerProcessingConfigs:new()
