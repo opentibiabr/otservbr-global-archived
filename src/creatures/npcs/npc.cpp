@@ -216,7 +216,7 @@ void Npc::onPlayerBuyItem(Player* player, uint16_t itemid,
 {
 	// onPlayerBuyItem(self, player, itemid, count, amount, ignore, inBackpacks)
 	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
-	if (callback.startScriptInterface(npcType->info.buyEvent)) {
+	if (callback.startScriptInterface(npcType->info.playerBuyEvent)) {
 		callback.pushSpecificCreature(this);
 		callback.pushCreature(player);
 		callback.pushNumber(itemid);
@@ -236,7 +236,7 @@ void Npc::onPlayerSellItem(Player* player, uint16_t itemid,
 {
 	// onPlayerSellItem(self, player, itemid, count, amount, ignore)
 	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
-	if (callback.startScriptInterface(npcType->info.sellEvent)) {
+	if (callback.startScriptInterface(npcType->info.playerSellEvent)) {
 		callback.pushSpecificCreature(this);
 		callback.pushCreature(player);
 		callback.pushNumber(itemid);
@@ -250,12 +250,16 @@ void Npc::onPlayerSellItem(Player* player, uint16_t itemid,
 	}
 }
 
-void Npc::onPlayerCheckItem(uint32_t interval)
+void Npc::onPlayerCheckItem(Player* player, uint16_t itemid,
+                          uint8_t count)
 {
-	// onPlayerCheckItem(self, interval)
+	// onPlayerCheckItem(self, player, itemid, count)
 	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
-	if (callback.startScriptInterface(npcType->info.lookEvent)) {
-		callback.pushNumber(interval);
+	if (callback.startScriptInterface(npcType->info.playerLookEvent)) {
+		callback.pushSpecificCreature(this);
+		callback.pushCreature(player);
+		callback.pushNumber(itemid);
+		callback.pushNumber(count);
 	}
 
 	if (callback.persistLuaState()) {

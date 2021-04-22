@@ -148,7 +148,8 @@ class Npc final : public Creature
                             uint8_t amount, bool ignore, bool inBackpacks);
 		void onPlayerSellItem(Player* player, uint16_t itemid, uint8_t count,
                             uint8_t amount, bool ignore);
-		void onPlayerCheckItem(uint32_t interval);
+		void onPlayerCheckItem(Player* player, uint16_t itemid,
+                          uint8_t count);
 		void onPlacedCreature() override;
 
 		bool canWalkTo(const Position& fromPos, Direction dir) const;

@@ -41,14 +41,14 @@ class NpcType
 		uint32_t baseSpeed = 200;
 		uint32_t walkInterval = 1500;
 
-		int32_t thinkEvent = -1;
 		int32_t creatureAppearEvent = -1;
 		int32_t creatureDisappearEvent = -1;
 		int32_t creatureMoveEvent = -1;
 		int32_t creatureSayEvent = -1;
-		int32_t buyEvent = -1;
-		int32_t sellEvent = -1;
-		int32_t lookEvent = -1;
+		int32_t thinkEvent = -1;
+		int32_t playerBuyEvent = -1;
+		int32_t playerSellEvent = -1;
+		int32_t playerLookEvent = -1;
 
 		int32_t health = 100;
 		int32_t healthMax = 100;

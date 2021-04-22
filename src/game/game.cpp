@@ -4235,7 +4235,7 @@ void Game::internalCloseTrade(Player* player)
 	}
 }
 
-void Game::playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount,
+void Game::playerBuyItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount,
 							  bool ignoreCap/* = false*/, bool inBackpacks/* = false*/)
 {
 	if (amount == 0 || amount > 100) {
@@ -4268,7 +4268,7 @@ void Game::playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t coun
 		return;
 	}
 
-	merchant->onPlayerBuyItem(player, it.id, subType, amount, ignoreCap, inBackpacks);
+	merchant->onPlayerBuyItem(player, it.clientId, subType, amount, ignoreCap, inBackpacks);
 }
 
 void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount, bool ignoreEquipped)
@@ -4299,7 +4299,7 @@ void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, u
 		subType = count;
 	}
 
-	merchant->onPlayerSellItem(player, it.id, subType, amount, ignoreEquipped);
+	merchant->onPlayerSellItem(player, it.clientId, subType, amount, ignoreEquipped);
 }
 
 void Game::playerCloseShop(uint32_t playerId)
@@ -4319,7 +4319,7 @@ void Game::playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count)
 		return;
 	}
 
-	const Npc* merchant = player->getShopOwner();
+	Npc* merchant = player->getShopOwner();
 	if (!merchant) {
 		return;
 	}
@@ -4347,6 +4347,7 @@ void Game::playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count)
 	std::ostringstream ss;
 	ss << "You see " << Item::getDescription(it, 1, nullptr, subType);
 	player->sendTextMessage(MESSAGE_LOOK, ss.str());
+	merchant->onPlayerCheckItem(player, it.clientId, subType);
 }
 
 void Game::playerLookAt(uint32_t playerId, const Position& pos, uint8_t stackPos)

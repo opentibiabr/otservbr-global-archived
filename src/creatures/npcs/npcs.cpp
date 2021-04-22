@@ -76,13 +76,13 @@ bool NpcType::loadCallback(LuaScriptInterface* scriptInterface)
 			info.creatureSayEvent = id;
 			break;
 		case NPCS_EVENT_PLAYER_BUY:
-			info.buyEvent = id;
+			info.playerBuyEvent = id;
 			break;
 		case NPCS_EVENT_PLAYER_SELL:
-			info.sellEvent = id;
+			info.playerSellEvent = id;
 			break;
 		case NPCS_EVENT_PLAYER_CHECK_ITEM:
-			info.lookEvent = id;
+			info.playerLookEvent = id;
 			break;
 		default:
 			break;
