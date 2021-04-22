@@ -121,10 +121,10 @@ npcType.onSay = function(npc, creature, type, message)
     end
 end
 
-npcType.onPlayerBuyItem = function(npc, interval)
+npcType.onPlayerBuyItem = function(npc, player, itemid, count, amount, ignore, inBackpacks)
 end
 
-npcType.onPlayerSellItem = function(npc, interval)
+npcType.onPlayerSellItem = function(npc, player, itemid, count, amount, ignore)
 end
 
 npcType.onPlayerCheckItem = function(npc, interval)

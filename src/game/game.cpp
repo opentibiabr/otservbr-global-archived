@@ -4247,7 +4247,7 @@ void Game::playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t coun
 		return;
 	}
 
-	const Npc* merchant = player->getShopOwner();
+	Npc* merchant = player->getShopOwner();
 	if (!merchant) {
 		return;
 	}
@@ -4267,6 +4267,8 @@ void Game::playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t coun
 	if (!player->hasShopItemForSale(it.clientId, subType)) {
 		return;
 	}
+
+	merchant->onPlayerBuyItem(player, it.id, subType, amount, ignoreCap, inBackpacks);
 }
 
 void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount, bool ignoreEquipped)
@@ -4280,7 +4282,7 @@ void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, u
 		return;
 	}
 
-	const Npc* merchant = player->getShopOwner();
+	Npc* merchant = player->getShopOwner();
 	if (!merchant) {
 		return;
 	}
@@ -4296,6 +4298,8 @@ void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, u
 	} else {
 		subType = count;
 	}
+
+	merchant->onPlayerSellItem(player, it.id, subType, amount, ignoreEquipped);
 }
 
 void Game::playerCloseShop(uint32_t playerId)

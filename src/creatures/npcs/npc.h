@@ -144,8 +144,10 @@ class Npc final : public Creature
 		void onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos, const Tile* oldTile, const Position& oldPos, bool teleport) override;
 		void onCreatureSay(Creature* creature, SpeakClasses type, const std::string& text) override;
 		void onThink(uint32_t interval) override;
-		void onPlayerBuyItem(uint32_t interval);
-		void onPlayerSellItem(uint32_t interval);
+		void onPlayerBuyItem(Player* player, uint16_t itemid, uint8_t count,
+                            uint8_t amount, bool ignore, bool inBackpacks);
+		void onPlayerSellItem(Player* player, uint16_t itemid, uint8_t count,
+                            uint8_t amount, bool ignore);
 		void onPlayerCheckItem(uint32_t interval);
 		void onPlacedCreature() override;
 

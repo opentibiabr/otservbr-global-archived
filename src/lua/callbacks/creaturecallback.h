@@ -61,6 +61,11 @@ class CreatureCallback
 			LuaScriptInterface::pushString(L, str);
 		}
 
+		void pushBoolean(const bool str) {
+			params++;
+			LuaScriptInterface::pushBoolean(L, str);
+		}
+
 	protected:
 		static std::string getCreatureClass(Creature *creature);
 

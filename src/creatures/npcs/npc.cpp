@@ -211,12 +211,19 @@ void Npc::onThink(uint32_t interval)
 	onThinkWalk(interval);
 }
 
-void Npc::onPlayerBuyItem(uint32_t interval)
+void Npc::onPlayerBuyItem(Player* player, uint16_t itemid,
+                          uint8_t count, uint8_t amount, bool ignore, bool inBackpacks)
 {
-	// onPlayerBuyItem(self, interval)
+	// onPlayerBuyItem(self, player, itemid, count, amount, ignore, inBackpacks)
 	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
 	if (callback.startScriptInterface(npcType->info.buyEvent)) {
-		callback.pushNumber(interval);
+		callback.pushSpecificCreature(this);
+		callback.pushCreature(player);
+		callback.pushNumber(itemid);
+		callback.pushNumber(count);
+		callback.pushNumber(amount);
+		callback.pushBoolean(ignore);
+		callback.pushBoolean(inBackpacks);
 	}
 
 	if (callback.persistLuaState()) {
@@ -224,20 +231,22 @@ void Npc::onPlayerBuyItem(uint32_t interval)
 	}
 }
 
-void Npc::onPlayerSellItem(uint32_t interval)
+void Npc::onPlayerSellItem(Player* player, uint16_t itemid,
+                          uint8_t count, uint8_t amount, bool ignore)
 {
-	// onPlayerSellItem(self, interval)
+	// onPlayerSellItem(self, player, itemid, count, amount, ignore)
 	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
 	if (callback.startScriptInterface(npcType->info.sellEvent)) {
-		callback.pushNumber(interval);
+		callback.pushSpecificCreature(this);
+		callback.pushCreature(player);
+		callback.pushNumber(itemid);
+		callback.pushNumber(count);
+		callback.pushNumber(amount);
+		callback.pushBoolean(ignore);
 	}
 
 	if (callback.persistLuaState()) {
 		return;
-	}
-
-	if (!npcType->canSpawn(position)) {
-		g_game.removeCreature(this);
 	}
 }
 
