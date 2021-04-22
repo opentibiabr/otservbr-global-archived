@@ -842,6 +842,9 @@ enum NpcsEvent_t : uint8_t {
 	NPCS_EVENT_DISAPPEAR = 3,
 	NPCS_EVENT_MOVE = 4,
 	NPCS_EVENT_SAY = 5,
+	NPCS_EVENT_BUY = 6,
+	NPCS_EVENT_SELL = 7,
+	NPCS_EVENT_LOOK = 8
 };
 
 enum Supply_Stash_Actions_t : uint8_t {

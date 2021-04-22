@@ -2083,6 +2083,9 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(NPCS_EVENT_DISAPPEAR)
 	registerEnum(NPCS_EVENT_MOVE)
 	registerEnum(NPCS_EVENT_SAY)
+	registerEnum(NPCS_EVENT_BUY)
+	registerEnum(NPCS_EVENT_SELL)
+	registerEnum(NPCS_EVENT_LOOK)
 
 	registerEnum(LIGHT_STATE_DAY);
 	registerEnum(LIGHT_STATE_NIGHT);
@@ -3143,6 +3146,9 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("NpcType", "onDisappear", LuaScriptInterface::luaNpcTypeEventOnCallback);
 	registerMethod("NpcType", "onMove", LuaScriptInterface::luaNpcTypeEventOnCallback);
 	registerMethod("NpcType", "onSay", LuaScriptInterface::luaNpcTypeEventOnCallback);
+	registerMethod("NpcType", "onPlayerBuyItem", LuaScriptInterface::luaNpcTypeEventOnCallback);
+	registerMethod("NpcType", "onPlayerSellItem", LuaScriptInterface::luaNpcTypeEventOnCallback);
+	registerMethod("NpcType", "onPlayerCheckItem", LuaScriptInterface::luaNpcTypeEventOnCallback);
 
 	registerMethod("NpcType", "outfit", LuaScriptInterface::luaNpcTypeOutfit);
 	registerMethod("NpcType", "baseSpeed", LuaScriptInterface::luaNpcTypeBaseSpeed);
@@ -13085,7 +13091,7 @@ int LuaScriptInterface::luaNpcTypeAddShopItem(lua_State* L)
 	const auto table = lua_gettop(L);
 	ShopInfo shopItem;
 
-	shopItem.itemId = static_cast<uint16_t>(getField<uint32_t>(L, table, "id"));
+	shopItem.itemId = static_cast<uint16_t>(getField<uint32_t>(L, table, "clientId"));
 	shopItem.buyPrice = static_cast<uint16_t>(getField<uint32_t>(L, table, "buy"));
 	shopItem.sellPrice = static_cast<uint16_t>(getField<uint32_t>(L, table, "sell"));
 
@@ -15616,6 +15622,9 @@ int LuaScriptInterface::luaNpcTypeEventOnCallback(lua_State* L)
 	// npcType:onDisappear(callback)
 	// npcType:onMove(callback)
 	// npcType:onSay(callback)
+	// npcType:onPlayerBuyItem(callback)
+	// npcType:onPlayerSellItem(callback)
+	// npcType:onPlayerCheckItem(callback)
 	NpcType* npcType = getUserdata<NpcType>(L, 1);
 	if (npcType) {
 		if (npcType->loadCallback(&g_scripts->getScriptInterface())) {

@@ -310,6 +310,18 @@ do
 			self:eventType(NPCS_EVENT_SAY)
 			self:onSay(value)
 			return
+		elseif key == "onPlayerBuyItem" then
+			self:eventType(NPCS_EVENT_BUY)
+			self:onPlayerBuyItem(value)
+			return
+		elseif key == "onPlayerSellItem" then
+			self:eventType(NPCS_EVENT_SELL)
+			self:onPlayerSellItem(value)
+			return
+		elseif key == "onPlayerCheckItem" then
+			self:eventType(NPCS_EVENT_LOOK)
+			self:onPlayerCheckItem(value)
+			return
 		end
 		rawset(self, key, value)
 	end

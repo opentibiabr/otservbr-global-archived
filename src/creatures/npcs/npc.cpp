@@ -211,6 +211,49 @@ void Npc::onThink(uint32_t interval)
 	onThinkWalk(interval);
 }
 
+void Npc::onPlayerBuyItem(uint32_t interval)
+{
+	// onPlayerBuyItem(self, interval)
+	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
+	if (callback.startScriptInterface(npcType->info.buyEvent)) {
+		callback.pushNumber(interval);
+	}
+
+	if (callback.persistLuaState()) {
+		return;
+	}
+}
+
+void Npc::onPlayerSellItem(uint32_t interval)
+{
+	// onPlayerSellItem(self, interval)
+	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
+	if (callback.startScriptInterface(npcType->info.sellEvent)) {
+		callback.pushNumber(interval);
+	}
+
+	if (callback.persistLuaState()) {
+		return;
+	}
+
+	if (!npcType->canSpawn(position)) {
+		g_game.removeCreature(this);
+	}
+}
+
+void Npc::onPlayerCheckItem(uint32_t interval)
+{
+	// onPlayerCheckItem(self, interval)
+	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
+	if (callback.startScriptInterface(npcType->info.lookEvent)) {
+		callback.pushNumber(interval);
+	}
+
+	if (callback.persistLuaState()) {
+		return;
+	}
+}
+
 void Npc::onThinkYell(uint32_t interval)
 {
 	if (npcType->info.yellSpeedTicks == 0) {
