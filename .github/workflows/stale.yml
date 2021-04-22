@@ -1,3 +1,5 @@
+---
+
 name: 'Stale issues and PRs'
 on:
   schedule:
