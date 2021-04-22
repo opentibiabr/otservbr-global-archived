@@ -6,11 +6,13 @@ TestWithFailures = {}
 dofile('mock/fake_player.lua')
 
 -- Load testable files
-dofile('../../data/lib/npc/player_processor_interface.lua')
 dofile('../../data/lib/npc/player_validator.lua')
+dofile('../../data/lib/npc/player_updater.lua')
+dofile('../../data/lib/npc/player_processing_configs.lua')
 
 -- Load test files
-dofile('test_player_processor_interface.lua')
 dofile('test_player_validator.lua')
+dofile('test_player_updater.lua')
+dofile('test_player_processing_configs.lua')
 
 os.exit( lu.LuaUnit.run() )
