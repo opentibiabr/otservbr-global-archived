@@ -1,18 +1,18 @@
 local npcType = Game.createNpcType("Zurak")
-local npc = {}
+local npcConfig = {}
 
-npc.description = "Zurak (Arena)"
+npcConfig.description = "Zurak (Arena)"
 
-npc.health = 100
-npc.maxHealth = npc.health
-npc.walkInterval = 0
-npc.walkRadius = 0
+npcConfig.health = 100
+npcConfig.maxHealth = npcConfig.health
+npcConfig.walkInterval = 0
+npcConfig.walkRadius = 0
 
-npc.outfit = {
+npcConfig.outfit = {
     lookType = 114
 }
 
-npc.flags = {
+npcConfig.flags = {
     floorchange = false
 }
 
@@ -46,4 +46,4 @@ npcType.onSay = function(npc, creature, type, message)
     )
 end
 
-npcType:register(npc)
+npcType:register(npcConfig)

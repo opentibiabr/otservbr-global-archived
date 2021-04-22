@@ -1,14 +1,14 @@
 local npcType = Game.createNpcType("Black Bert")
-local npc = {}
+local npcConfig = {} 
 
-npc.description = "Black Bert"
+npcConfig.description = "Black Bert"
 
-npc.health = 100
-npc.maxHealth = npc.health
-npc.walkInterval = 2000
-npc.walkRadius = 2
+npcConfig.health = 100
+npcConfig.maxHealth = npcConfig.health
+npcConfig.walkInterval = 2000
+npcConfig.walkRadius = 2
 
-npc.outfit = {
+npcConfig.outfit = {
     lookType = 151,
     lookHead = 0,
     lookBody = 38,
@@ -17,11 +17,11 @@ npc.outfit = {
     lookAddons = 0
 }
 
-npc.flags = {
+npcConfig.flags = {
     floorchange = false
 }
 
-npc.shop = {
+npcConfig.shop = {
     {clientId = 123, buy = 16000, count = 1},
     {clientId = 130, buy = 100, count = 1},
     {clientId = 135, buy = 5000, count = 1},
@@ -130,4 +130,4 @@ end
 npcType.onPlayerCheckItem = function(npc, interval)
 end
 
-npcType:register(npc)
+npcType:register(npcConfig)

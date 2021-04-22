@@ -1,14 +1,14 @@
 local npcType = Game.createNpcType("Captain Bluebear")
-local npc = {}
+local npcConfig = {} 
 
-npc.description = "Captain Bluebear"
+npcConfig.description = "Captain Bluebear"
 
-npc.health = 100
-npc.maxHealth = npc.health
-npc.walkInterval = 2000
-npc.walkRadius = 0
+npcConfig.health = 100
+npcConfig.maxHealth = npcConfig.health
+npcConfig.walkInterval = 2000
+npcConfig.walkRadius = 0
 
-npc.outfit = {
+npcConfig.outfit = {
     lookType = 129,
     lookHead = 19,
     lookBody = 69,
@@ -17,13 +17,13 @@ npc.outfit = {
     lookAddons = 0
 }
 
-npc.voices = {
+npcConfig.voices = {
     interval = 2000,
     chance = 20,
     { text = 'Passages to Carlin, Ab\'Dendriel, Edron, Venore, Port Hope, Liberty Bay, Yalahar, Roshamuul, Krailos, Oramond and Svargrond.' }
 }
 
-npc.flags = {
+npcConfig.flags = {
     floorchange = false
 }
 
@@ -126,4 +126,4 @@ npcType.onSay = function(npc, creature, type, message)
     )
 end
 
-npcType:register(npc)
+npcType:register(npcConfig)

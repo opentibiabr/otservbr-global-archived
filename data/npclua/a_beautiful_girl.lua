@@ -1,14 +1,14 @@
 local npcType = Game.createNpcType("A Beautiful Girl")
-local npc = {}
+local npcConfig = {} 
 
-npc.description = "A Beautiful Girl"
+npcConfig.description = "A Beautiful Girl"
 
-npc.health = 100
-npc.maxHealth = npc.health
-npc.walkInterval = 2000
-npc.walkRadius = 2
+npcConfig.health = 100
+npcConfig.maxHealth = npcConfig.health
+npcConfig.walkInterval = 2000
+npcConfig.walkRadius = 2
 
-npc.outfit = {
+npcConfig.outfit = {
     lookType = 140,
     lookHead = 77,
     lookBody = 81,
@@ -17,7 +17,7 @@ npc.outfit = {
     lookAddons = 0
 }
 
-npc.flags = {
+npcConfig.flags = {
     hostile = false,
     floorchange = false
 }
@@ -42,4 +42,4 @@ npcType.onSay = function(npc, creature, type, message)
     )
 end
 
-npcType:register(npc)
+npcType:register(npcConfig)

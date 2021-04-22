@@ -2083,9 +2083,9 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(NPCS_EVENT_DISAPPEAR)
 	registerEnum(NPCS_EVENT_MOVE)
 	registerEnum(NPCS_EVENT_SAY)
-	registerEnum(NPCS_EVENT_BUY)
-	registerEnum(NPCS_EVENT_SELL)
-	registerEnum(NPCS_EVENT_LOOK)
+	registerEnum(NPCS_EVENT_PLAYER_BUY)
+	registerEnum(NPCS_EVENT_PLAYER_SELL)
+	registerEnum(NPCS_EVENT_PLAYER_CHECK_ITEM)
 
 	registerEnum(LIGHT_STATE_DAY);
 	registerEnum(LIGHT_STATE_NIGHT);

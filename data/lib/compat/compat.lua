@@ -311,15 +311,15 @@ do
 			self:onSay(value)
 			return
 		elseif key == "onPlayerBuyItem" then
-			self:eventType(NPCS_EVENT_BUY)
+			self:eventType(NPCS_EVENT_PLAYER_BUY)
 			self:onPlayerBuyItem(value)
 			return
 		elseif key == "onPlayerSellItem" then
-			self:eventType(NPCS_EVENT_SELL)
+			self:eventType(NPCS_EVENT_PLAYER_SELL)
 			self:onPlayerSellItem(value)
 			return
 		elseif key == "onPlayerCheckItem" then
-			self:eventType(NPCS_EVENT_LOOK)
+			self:eventType(NPCS_EVENT_PLAYER_CHECK_ITEM)
 			self:onPlayerCheckItem(value)
 			return
 		end
