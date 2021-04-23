@@ -3875,7 +3875,7 @@ void ProtocolGame::sendSaleItemList(const ShopInfoMap &shop, const std::map<uint
 		it = inventoryMap.find(index);
 		if (it != inventoryMap.end())
 		{
-			msg.addItemId(shopInfo.itemClientId);
+			msg.addItemId(itemId);
 			msg.addByte(std::min<uint32_t>(it->second, std::numeric_limits<uint8_t>::max()));
 			if (++itemsToSend >= 0xFF)
 			{

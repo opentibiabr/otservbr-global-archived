@@ -113,24 +113,23 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-    Spdlog.warn("c")
     if msgContains(message, "trade") then
         npc:openShopWindow(creature)
         npc:setPlayerInteraction(creature, 0)
-        Spdlog.warn("a")
     end
     if msgContains(message, "bye") then
         npc:closeShopWindow(creature)
         npc:removePlayerInteraction(creature)
-        Spdlog.warn("b")
     end
 end
 
-npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks)
+npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
     npc:doSellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+    npc:talk(player, string.format("You've bought %i %s for %i", amount, name, totalCost))
 end
 
-npcType.onPlayerSellItem = function(npc, player, itemId, subType, amount, ignore)
+npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+    npc:talk(player, string.format("You've sold %i %s for %i", amount, name, totalCost))
 end
 
 npcType.onPlayerCheckItem = function(npc, player, itemId)

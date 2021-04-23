@@ -3607,7 +3607,11 @@ bool Player::hasShopItemForSale(uint32_t itemId, uint8_t subType) const
 		return false;
 	}
 
-	return !Item::items.getItemIdByClientId(itemId).isFluidContainer() || shopInfo.subType == subType;
+	if (!Item::items[itemId].isFluidContainer()) {
+		return true;
+	}
+
+	return shopInfo.subType == subType;
 }
 
 void Player::internalAddThing(Thing* thing)

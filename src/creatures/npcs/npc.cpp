@@ -217,13 +217,14 @@ void Npc::onPlayerBuyItem(Player* player, uint16_t serverId,
 {
 	const ItemType& itemType = Item::items[serverId];
 
-	if (getShopItems().find(itemType.id) == getShopItems().end()) {
+	if (getShopItems().find(serverId) == getShopItems().end()) {
 		return;
 	}
 
-	ShopInfo shopInfo = getShopItems()[itemType.id];
+	ShopInfo shopInfo = getShopItems()[serverId];
+	int64_t totalCost = shopInfo.buyPrice * amount;
 	if (getCurrency() == ITEM_GOLD_COIN) {
-		if (!g_game.removeMoney(player, shopInfo.buyPrice * amount, 0, true)) {
+		if (!g_game.removeMoney(player, totalCost, 0, true)) {
 			return;
 		}
 	} else if(!player->removeItemOfType(getCurrency(), shopInfo.buyPrice, subType, false)) {
@@ -238,8 +239,9 @@ void Npc::onPlayerBuyItem(Player* player, uint16_t serverId,
 		callback.pushNumber(serverId);
 		callback.pushNumber(subType);
 		callback.pushNumber(amount);
-		callback.pushBoolean(ignore);
 		callback.pushBoolean(inBackpacks);
+		callback.pushString(itemType.name);
+		callback.pushNumber(totalCost);
 	}
 
 	if (callback.persistLuaState()) {
@@ -251,15 +253,31 @@ void Npc::onPlayerSellItem(Player* player, uint16_t serverId,
                           uint8_t subType, uint8_t amount, bool ignore)
 {
 	const ItemType& itemType = Item::items[serverId];
+
+	if (getShopItems().find(serverId) == getShopItems().end()) {
+		return;
+	}
+
+	ShopInfo shopInfo = getShopItems()[serverId];
+	int64_t totalCost = shopInfo.sellPrice * amount;
+
+	if(!player->removeItemOfType(serverId, shopInfo.sellPrice, subType, false)) {
+		SPDLOG_WARN("onPlayerSellItem {} {} {}", totalCost, serverId, subType);
+		return;
+	}
+
+	SPDLOG_WARN("onPlayerSellItem 3 {}", totalCost);
+	g_game.addMoney(player, totalCost, 0);
+
 	// onPlayerSellItem(self, player, itemId, subType, amount, ignore)
 	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
 	if (callback.startScriptInterface(npcType->info.playerSellEvent)) {
 		callback.pushSpecificCreature(this);
 		callback.pushCreature(player);
-		callback.pushNumber(serverId);
-		callback.pushNumber(subType);
 		callback.pushNumber(amount);
-		callback.pushBoolean(ignore);
+		callback.pushString(itemType.name);
+		callback.pushNumber(totalCost);
+		callback.pushNumber(itemType.clientId);
 	}
 
 	if (callback.persistLuaState()) {
