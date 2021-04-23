@@ -22,7 +22,7 @@ npcConfig.flags = {
 }
 
 npcConfig.shop = {
-    {clientId = 123, buy = 16000, count = 1},
+    {clientId = 123, buy = 16000, sell = 16000, count = 1},
     {clientId = 130, buy = 100, count = 1},
     {clientId = 135, buy = 5000, count = 1},
     {clientId = 138, buy = 600, count = 1},
@@ -113,16 +113,21 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
+    Spdlog.warn("c")
     if msgContains(message, "trade") then
         npc:openShopWindow(creature)
+        npc:setPlayerInteraction(creature, 0)
+        Spdlog.warn("a")
     end
     if msgContains(message, "bye") then
         npc:closeShopWindow(creature)
+        npc:removePlayerInteraction(creature)
+        Spdlog.warn("b")
     end
 end
 
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks)
-    doNpcSellItem(player, itemId, amount, subType, true, inBackpacks, backpack)
+    npc:doSellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
 end
 
 npcType.onPlayerSellItem = function(npc, player, itemId, subType, amount, ignore)

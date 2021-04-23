@@ -131,7 +131,8 @@ void Npc::onRemoveCreature(Creature* creature, bool isLogout)
 	if (spawnNpc) {
 		spawnNpc->startSpawnNpcCheck();
 	}
-	closeAllShopWindows();
+
+	shopPlayerSet.clear();
 }
 
 void Npc::onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos,
@@ -221,10 +222,12 @@ void Npc::onPlayerBuyItem(Player* player, uint16_t serverId,
 	}
 
 	ShopInfo shopInfo = getShopItems()[itemType.id];
-	if (getCurrency() == ITEM_GOLD_COIN && !g_game.removeMoney(player, shopInfo.buyPrice * amount, 0, true)) {
+	if (getCurrency() == ITEM_GOLD_COIN) {
+		if (!g_game.removeMoney(player, shopInfo.buyPrice * amount, 0, true)) {
 			return;
+		}
 	} else if(!player->removeItemOfType(getCurrency(), shopInfo.buyPrice, subType, false)) {
-			return;
+		return;
 	}
 
 	// onPlayerBuyItem(self, player, itemId, subType, amount, ignore, inBackpacks)

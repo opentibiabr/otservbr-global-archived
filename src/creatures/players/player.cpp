@@ -1472,6 +1472,11 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 			SPDLOG_WARN("Error while saving player: {}", getName());
 		}
 	}
+
+	if (creature == shopOwner) {
+		setShopOwner(nullptr);
+		sendCloseShop();
+	}
 }
 
 void Player::openShopWindow(Npc* npc)
