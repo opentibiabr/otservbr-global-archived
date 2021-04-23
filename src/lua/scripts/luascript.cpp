@@ -13095,6 +13095,7 @@ int LuaScriptInterface::luaNpcTypeAddShopItem(lua_State* L)
 	shopItem.itemClientId = static_cast<uint16_t>(getField<uint32_t>(L, table, "clientId"));
 	shopItem.buyPrice = static_cast<uint16_t>(getField<uint32_t>(L, table, "buy"));
 	shopItem.sellPrice = static_cast<uint16_t>(getField<uint32_t>(L, table, "sell"));
+	shopItem.subType = static_cast<uint16_t>(getField<uint32_t>(L, table, "count"));
 
 	const ItemType &it = Item::items.getItemIdByClientId(shopItem.itemClientId);
 

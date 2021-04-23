@@ -1422,9 +1422,10 @@ void ProtocolGame::parsePlayerPurchase(NetworkMessage &msg)
 void ProtocolGame::parsePlayerSale(NetworkMessage &msg)
 {
 	uint16_t id = msg.get<uint16_t>();
-	uint8_t count = msg.getByte();
+	uint8_t count = std::max(msg.getByte(), (uint8_t) 1);
 	uint8_t amount = msg.getByte();
 	bool ignoreEquipped = msg.getByte() != 0;
+
 	addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerSellItem, player->getID(), id, count, amount, ignoreEquipped);
 }
 
@@ -6611,15 +6612,14 @@ void ProtocolGame::AddShopItem(NetworkMessage &msg, const ShopInfo &item, uint16
 	const ItemType &it = Item::items[itemId];
 	msg.add<uint16_t>(item.itemClientId);
 
+	uint8_t count = std::min(item.subType, 100);
+
 	if (it.isSplash() || it.isFluidContainer())
 	{
-		msg.addByte(serverFluidToClient(item.subType));
-	}
-	else
-	{
-		msg.addByte(0x00);
+		count = serverFluidToClient(count);
 	}
 
+	msg.addByte(count);
 	msg.addString(item.name);
 	msg.add<uint32_t>(it.weight);
 	msg.add<uint32_t>(item.buyPrice == 4294967295 ? 0 : item.buyPrice);
