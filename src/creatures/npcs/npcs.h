@@ -62,7 +62,7 @@ class NpcType
 
 		std::vector<voiceBlock_t> voiceVector;
 		std::vector<std::string> scripts;
-		std::vector<ShopInfo> shopItems;
+		ShopInfoMap shopItems;
 
 		NpcsEvent_t eventType = NPCS_EVENT_NONE;
 	};
@@ -79,8 +79,8 @@ class NpcType
 		std::string nameDescription;
 		NpcInfo info;
 
-		void addShopItem(ShopInfo &item) {
-			info.shopItems.push_back(item);
+		void addShopItem(uint16_t serverId, ShopInfo &item) {
+			info.shopItems[serverId] = item;
 		}
 
 		bool loadCallback(LuaScriptInterface* scriptInterface);

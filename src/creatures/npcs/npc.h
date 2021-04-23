@@ -96,7 +96,7 @@ class Npc final : public Creature
 			return npcType->info.currencyServerId;
 		}
 
-		std::vector<ShopInfo> getShopItems() {
+		ShopInfoMap getShopItems() {
 			return npcType->info.shopItems;
 		}
 

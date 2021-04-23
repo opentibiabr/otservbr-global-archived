@@ -3755,14 +3755,16 @@ void ProtocolGame::sendShop(Npc *npc)
 
 	msg.addString(std::string()); // ??
 
-	const ShopInfoList itemList = npc->getShopItems();
-	uint16_t itemsToSend = std::min<size_t>(itemList.size(), std::numeric_limits<uint16_t>::max());
+	const ShopInfoMap itemMap = npc->getShopItems();
+	uint16_t itemsToSend = std::min<size_t>(itemMap.size(), std::numeric_limits<uint16_t>::max());
 	msg.add<uint16_t>(itemsToSend);
 
 	uint16_t i = 0;
-	for (auto it = itemList.begin(); i < itemsToSend; ++it, ++i)
+	for (auto& it : itemMap)
 	{
-		AddShopItem(msg, *it);
+		if (++i > itemsToSend) break;
+
+		AddShopItem(msg, it.second, it.first);
 	}
 
 	writeToOutputBuffer(msg);
@@ -3809,7 +3811,7 @@ void ProtocolGame::sendResourceBalance(Resource_t resourceType, uint64_t value)
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendSaleItemList(const std::vector<ShopInfo> &shop, const std::map<uint32_t, uint32_t> &inventoryMap)
+void ProtocolGame::sendSaleItemList(const ShopInfoMap &shop, const std::map<uint32_t, uint32_t> &inventoryMap)
 {
 	//Since we already have full inventory map we shouldn't call getMoney here - it is simply wasting cpu power
 	uint64_t playerMoney = 0;
@@ -3855,15 +3857,17 @@ void ProtocolGame::sendSaleItemList(const std::vector<ShopInfo> &shop, const std
 	auto msgPosition = msg.getBufferPosition();
 	msg.skipBytes(1);
 
-	for (const ShopInfo &shopInfo : shop)
+	for (auto& shopInfoPair : shop)
 	{
+		const uint16_t itemId = shopInfoPair.first;
+		const ShopInfo &shopInfo = shopInfoPair.second;
 		if (shopInfo.sellPrice == 0)
 		{
 			continue;
 		}
 
-		uint32_t index = static_cast<uint32_t>(shopInfo.itemId);
-		if (Item::items[shopInfo.itemId].isFluidContainer())
+		uint32_t index = static_cast<uint32_t>(itemId);
+		if (Item::items[itemId].isFluidContainer())
 		{
 			index |= (static_cast<uint32_t>(shopInfo.subType) << 16);
 		}
@@ -3871,7 +3875,7 @@ void ProtocolGame::sendSaleItemList(const std::vector<ShopInfo> &shop, const std
 		it = inventoryMap.find(index);
 		if (it != inventoryMap.end())
 		{
-			msg.addItemId(shopInfo.itemId);
+			msg.addItemId(shopInfo.itemClientId);
 			msg.addByte(std::min<uint32_t>(it->second, std::numeric_limits<uint8_t>::max()));
 			if (++itemsToSend >= 0xFF)
 			{
@@ -6602,10 +6606,10 @@ void ProtocolGame::MoveDownCreature(NetworkMessage &msg, const Creature *creatur
 	GetMapDescription(oldPos.x - 8, oldPos.y + 7, newPos.z, 18, 1, msg);
 }
 
-void ProtocolGame::AddShopItem(NetworkMessage &msg, const ShopInfo &item)
+void ProtocolGame::AddShopItem(NetworkMessage &msg, const ShopInfo &item, uint16_t itemId)
 {
-	const ItemType &it = Item::items.getItemIdByClientId(item.itemId);
-	msg.add<uint16_t>(item.itemId);
+	const ItemType &it = Item::items[itemId];
+	msg.add<uint16_t>(item.itemClientId);
 
 	if (it.isSplash() || it.isFluidContainer())
 	{

@@ -4264,11 +4264,11 @@ void Game::playerBuyItem(uint32_t playerId, uint16_t spriteId, uint8_t count, ui
 		subType = count;
 	}
 
-	if (!player->hasShopItemForSale(it.clientId, subType)) {
+	if (!player->hasShopItemForSale(it.id, subType)) {
 		return;
 	}
 
-	merchant->onPlayerBuyItem(player, it.clientId, subType, amount, ignoreCap, inBackpacks);
+	merchant->onPlayerBuyItem(player, it.id, subType, amount, ignoreCap, inBackpacks);
 }
 
 void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount, bool ignoreEquipped)
@@ -4299,7 +4299,7 @@ void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, u
 		subType = count;
 	}
 
-	merchant->onPlayerSellItem(player, it.clientId, subType, amount, ignoreEquipped);
+	merchant->onPlayerSellItem(player, it.id, subType, amount, ignoreEquipped);
 }
 
 void Game::playerCloseShop(uint32_t playerId)
@@ -4336,7 +4336,7 @@ void Game::playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count)
 		subType = count;
 	}
 
-	if (!player->hasShopItemForSale(it.clientId, subType)) {
+	if (!player->hasShopItemForSale(it.id, subType)) {
 		return;
 	}
 
@@ -4347,7 +4347,7 @@ void Game::playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count)
 	std::ostringstream ss;
 	ss << "You see " << Item::getDescription(it, 1, nullptr, subType);
 	player->sendTextMessage(MESSAGE_LOOK, ss.str());
-	merchant->onPlayerCheckItem(player, it.clientId, subType);
+	merchant->onPlayerCheckItem(player, it.id, subType);
 }
 
 void Game::playerLookAt(uint32_t playerId, const Position& pos, uint8_t stackPos)

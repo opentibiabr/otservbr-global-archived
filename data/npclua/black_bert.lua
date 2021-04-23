@@ -121,13 +121,14 @@ npcType.onSay = function(npc, creature, type, message)
     end
 end
 
-npcType.onPlayerBuyItem = function(npc, player, itemid, count, amount, ignore, inBackpacks)
+npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks)
+    doNpcSellItem(player, itemId, amount, subType, true, inBackpacks, backpack)
 end
 
-npcType.onPlayerSellItem = function(npc, player, itemid, count, amount, ignore)
+npcType.onPlayerSellItem = function(npc, player, itemId, subType, amount, ignore)
 end
 
-npcType.onPlayerCheckItem = function(npc, interval)
+npcType.onPlayerCheckItem = function(npc, player, itemId)
 end
 
 npcType:register(npcConfig)

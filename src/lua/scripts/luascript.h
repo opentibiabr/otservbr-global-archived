@@ -1203,6 +1203,7 @@ class LuaScriptInterface
 		static int luaNpcIsPlayerInteractingOnTopic(lua_State* L);
 		static int luaNpcOpenShopWindow(lua_State* L);
 		static int luaNpcCloseShopWindow(lua_State* L);
+		static int luaNpcGetShopItem(lua_State* L);
 
 		// Guild
 		static int luaGuildCreate(lua_State* L);
