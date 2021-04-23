@@ -1,14 +1,14 @@
 local npcType = Game.createNpcType("A Beautiful Girl")
-local npc = {}
+local npcConfig = {} 
 
-npc.description = "A Beautiful Girl"
+npcConfig.description = "A Beautiful Girl"
 
-npc.health = 100
-npc.maxHealth = npc.health
-npc.walkInterval = 2000
-npc.walkRadius = 2
+npcConfig.health = 100
+npcConfig.maxHealth = npcConfig.health
+npcConfig.walkInterval = 2000
+npcConfig.walkRadius = 2
 
-npc.outfit = {
+npcConfig.outfit = {
     lookType = 140,
     lookHead = 77,
     lookBody = 81,
@@ -17,14 +17,9 @@ npc.outfit = {
     lookAddons = 0
 }
 
-npc.flags = {
+npcConfig.flags = {
     hostile = false,
     floorchange = false
-}
-
-npc.shop = {
-    {id = 3725, buy = 60, sell = 30},
-    {id = 3264, buy = 60, sell = 30},
 }
 
 npcType.onThink = function(npc, interval)
@@ -40,17 +35,11 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-    --[[npc:processOnSay(
+    return npc:processOnSay(
         message,
-        creature:getPlayer(),
-        { NpcInteraction:new({"hi"}, "So you have come, ".. creature:getPlayer() ..". I hoped you would not...", interactionTypes.INTERACTION_GREET) }
-    )]]
-    if msgContains(message, "trade") then
-        npc:openShopWindow(creature)
-    end
-    if msgContains(message, "bye") then
-        npc:closeShopWindow(creature)
-    end
+        creature,
+        { NpcInteraction:new({"hi"}, "So you have come, ".. creature:getName() ..". I hoped you would not...", interactionTypes.INTERACTION_GREET) }
+    )
 end
 
-npcType:register(npc)
+npcType:register(npcConfig)

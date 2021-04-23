@@ -2083,6 +2083,9 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(NPCS_EVENT_DISAPPEAR)
 	registerEnum(NPCS_EVENT_MOVE)
 	registerEnum(NPCS_EVENT_SAY)
+	registerEnum(NPCS_EVENT_PLAYER_BUY)
+	registerEnum(NPCS_EVENT_PLAYER_SELL)
+	registerEnum(NPCS_EVENT_PLAYER_CHECK_ITEM)
 
 	registerEnum(LIGHT_STATE_DAY);
 	registerEnum(LIGHT_STATE_NIGHT);
@@ -2893,6 +2896,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Npc", "isPlayerInteractingOnTopic", LuaScriptInterface::luaNpcIsPlayerInteractingOnTopic);
 	registerMethod("Npc", "openShopWindow", LuaScriptInterface::luaNpcOpenShopWindow);
 	registerMethod("Npc", "closeShopWindow", LuaScriptInterface::luaNpcCloseShopWindow);
+	registerMethod("Npc", "getShopItem", LuaScriptInterface::luaNpcGetShopItem);
 
 	// Guild
 	registerClass("Guild", "", LuaScriptInterface::luaGuildCreate);
@@ -3143,6 +3147,9 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("NpcType", "onDisappear", LuaScriptInterface::luaNpcTypeEventOnCallback);
 	registerMethod("NpcType", "onMove", LuaScriptInterface::luaNpcTypeEventOnCallback);
 	registerMethod("NpcType", "onSay", LuaScriptInterface::luaNpcTypeEventOnCallback);
+	registerMethod("NpcType", "onPlayerBuyItem", LuaScriptInterface::luaNpcTypeEventOnCallback);
+	registerMethod("NpcType", "onPlayerSellItem", LuaScriptInterface::luaNpcTypeEventOnCallback);
+	registerMethod("NpcType", "onPlayerCheckItem", LuaScriptInterface::luaNpcTypeEventOnCallback);
 
 	registerMethod("NpcType", "outfit", LuaScriptInterface::luaNpcTypeOutfit);
 	registerMethod("NpcType", "baseSpeed", LuaScriptInterface::luaNpcTypeBaseSpeed);
@@ -13085,13 +13092,16 @@ int LuaScriptInterface::luaNpcTypeAddShopItem(lua_State* L)
 	const auto table = lua_gettop(L);
 	ShopInfo shopItem;
 
-	shopItem.itemId = static_cast<uint16_t>(getField<uint32_t>(L, table, "id"));
+	shopItem.itemClientId = static_cast<uint16_t>(getField<uint32_t>(L, table, "clientId"));
 	shopItem.buyPrice = static_cast<uint16_t>(getField<uint32_t>(L, table, "buy"));
 	shopItem.sellPrice = static_cast<uint16_t>(getField<uint32_t>(L, table, "sell"));
+	shopItem.subType = static_cast<uint16_t>(getField<uint32_t>(L, table, "count"));
 
-	shopItem.name = Item::items.getItemIdByClientId(shopItem.itemId).name;
+	const ItemType &it = Item::items.getItemIdByClientId(shopItem.itemClientId);
 
-	npcType->addShopItem(shopItem);
+	shopItem.name = it.name;
+
+	npcType->addShopItem(it.id, shopItem);
 
 	return 1;
 }
@@ -13143,6 +13153,36 @@ int LuaScriptInterface::luaNpcCloseShopWindow(lua_State* L)
 		//			luaL_unref(L, LUA_REGISTRYINDEX, shopCallback);
 		//		}
 	}
+
+	pushBoolean(L, true);
+	return 1;
+}
+
+int LuaScriptInterface::luaNpcGetShopItem(lua_State* L)
+{
+	//npc:getShopItem(clientId)
+	Npc* npc = getUserdata<Npc>(L, 1);
+	if (!npc) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_CREATURE_NOT_FOUND));
+		pushBoolean(L, false);
+		return 1;
+	}
+
+	ShopInfoMap shopItems = npc->getShopItems();
+	const ItemType &itemType = Item::items.getItemIdByClientId(getNumber<uint16_t>(L, 2));
+
+	if (shopItems.find(itemType.id) == shopItems.end()) {
+		reportErrorFunc("No shop item found for clientId");
+		pushBoolean(L, false);
+		return 1;
+	}
+
+	ShopInfo shopInfo = shopItems[itemType.id];
+	setField(L, "clientId", shopInfo.itemClientId);
+	setField(L, "name", shopInfo.name);
+	setField(L, "subType", shopInfo.subType);
+	setField(L, "buyPrice", shopInfo.buyPrice);
+	setField(L, "sellPrice", shopInfo.sellPrice);
 
 	pushBoolean(L, true);
 	return 1;
@@ -15616,6 +15656,9 @@ int LuaScriptInterface::luaNpcTypeEventOnCallback(lua_State* L)
 	// npcType:onDisappear(callback)
 	// npcType:onMove(callback)
 	// npcType:onSay(callback)
+	// npcType:onPlayerBuyItem(callback)
+	// npcType:onPlayerSellItem(callback)
+	// npcType:onPlayerCheckItem(callback)
 	NpcType* npcType = getUserdata<NpcType>(L, 1);
 	if (npcType) {
 		if (npcType->loadCallback(&g_scripts->getScriptInterface())) {

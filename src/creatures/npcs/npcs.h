@@ -46,6 +46,9 @@ class NpcType
 		int32_t creatureMoveEvent = -1;
 		int32_t creatureSayEvent = -1;
 		int32_t thinkEvent = -1;
+		int32_t playerBuyEvent = -1;
+		int32_t playerSellEvent = -1;
+		int32_t playerLookEvent = -1;
 
 		int32_t health = 100;
 		int32_t healthMax = 100;
@@ -59,7 +62,7 @@ class NpcType
 
 		std::vector<voiceBlock_t> voiceVector;
 		std::vector<std::string> scripts;
-		std::vector<ShopInfo> shopItems;
+		ShopInfoMap shopItems;
 
 		NpcsEvent_t eventType = NPCS_EVENT_NONE;
 	};
@@ -76,8 +79,8 @@ class NpcType
 		std::string nameDescription;
 		NpcInfo info;
 
-		void addShopItem(ShopInfo &item) {
-			info.shopItems.push_back(item);
+		void addShopItem(uint16_t serverId, ShopInfo &item) {
+			info.shopItems[serverId] = item;
 		}
 
 		bool loadCallback(LuaScriptInterface* scriptInterface);

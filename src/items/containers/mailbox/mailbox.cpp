@@ -109,7 +109,7 @@ bool Mailbox::sendItem(Item* item) const
 		date = item->getDate();
 		text = item->getText();
 	}
-	if (player) {
+	if (player && item) {
 		if (g_game.internalMoveItem(item->getParent(), player->getInbox(), INDEX_WHEREEVER,
 		                            item, item->getItemCount(), nullptr, FLAG_NOLIMIT) == RETURNVALUE_NOERROR) {
 			Item* newItem = g_game.transformItem(item, item->getID() + 1);
@@ -127,7 +127,7 @@ bool Mailbox::sendItem(Item* item) const
 			return false;
 		}
 
-		if (g_game.internalMoveItem(item->getParent(), tmpPlayer.getInbox(), INDEX_WHEREEVER,
+		if (item && g_game.internalMoveItem(item->getParent(), tmpPlayer.getInbox(), INDEX_WHEREEVER,
 		                            item, item->getItemCount(), nullptr, FLAG_NOLIMIT) == RETURNVALUE_NOERROR) {
 			Item* newItem = g_game.transformItem(item, item->getID() + 1);
 			if (newItem && newItem->getID() == ITEM_LETTER_STAMPED && writer != "") {

@@ -1725,7 +1725,7 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 	//update item(s)
 	if (item->isStackable()) {
 		uint32_t n;
-		if (item->equals(toItem)) {
+		if (toItem && item->equals(toItem)) {
 			n = std::min<uint32_t>(100 - toItem->getItemCount(), m);
 			// Update same decay item count
 			if (item->getDuration() > 0) {
@@ -4235,7 +4235,7 @@ void Game::internalCloseTrade(Player* player)
 	}
 }
 
-void Game::playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount,
+void Game::playerBuyItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount,
 							  bool ignoreCap/* = false*/, bool inBackpacks/* = false*/)
 {
 	if (amount == 0 || amount > 100) {
@@ -4247,7 +4247,7 @@ void Game::playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t coun
 		return;
 	}
 
-	const Npc* merchant = player->getShopOwner();
+	Npc* merchant = player->getShopOwner();
 	if (!merchant) {
 		return;
 	}
@@ -4264,9 +4264,11 @@ void Game::playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t coun
 		subType = count;
 	}
 
-	if (!player->hasShopItemForSale(it.clientId, subType)) {
+	if (!player->hasShopItemForSale(it.id, subType)) {
 		return;
 	}
+
+	merchant->onPlayerBuyItem(player, it.id, subType, amount, ignoreCap, inBackpacks);
 }
 
 void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount, bool ignoreEquipped)
@@ -4280,7 +4282,7 @@ void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, u
 		return;
 	}
 
-	const Npc* merchant = player->getShopOwner();
+	Npc* merchant = player->getShopOwner();
 	if (!merchant) {
 		return;
 	}
@@ -4296,6 +4298,8 @@ void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, u
 	} else {
 		subType = count;
 	}
+
+	merchant->onPlayerSellItem(player, it.id, subType, amount, ignoreEquipped);
 }
 
 void Game::playerCloseShop(uint32_t playerId)
@@ -4315,7 +4319,7 @@ void Game::playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count)
 		return;
 	}
 
-	const Npc* merchant = player->getShopOwner();
+	Npc* merchant = player->getShopOwner();
 	if (!merchant) {
 		return;
 	}
@@ -4332,7 +4336,7 @@ void Game::playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count)
 		subType = count;
 	}
 
-	if (!player->hasShopItemForSale(it.clientId, subType)) {
+	if (!player->hasShopItemForSale(it.id, subType)) {
 		return;
 	}
 
@@ -4343,6 +4347,7 @@ void Game::playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count)
 	std::ostringstream ss;
 	ss << "You see " << Item::getDescription(it, 1, nullptr, subType);
 	player->sendTextMessage(MESSAGE_LOOK, ss.str());
+	merchant->onPlayerCheckItem(player, it.id, subType);
 }
 
 void Game::playerLookAt(uint32_t playerId, const Position& pos, uint8_t stackPos)
@@ -5644,6 +5649,12 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 			map.getSpectators(spectators, targetPos, false, true);
 			for (Creature* spectator : spectators) {
 				Player* tmpPlayer = spectator->getPlayer();
+
+				if(!tmpPlayer)
+				{
+					continue;
+				}
+
 				if (tmpPlayer == attackerPlayer && attackerPlayer != targetPlayer) {
 					ss.str({});
 					ss << "You heal " << target->getNameDescription() << " for " << damageString;
@@ -6145,6 +6156,12 @@ bool Game::combatChangeMana(Creature* attacker, Creature* target, CombatDamage& 
 			map.getSpectators(spectators, targetPos, false, true);
 			for (Creature* spectator : spectators) {
 				Player* tmpPlayer = spectator->getPlayer();
+
+				if(!tmpPlayer)
+				{
+					continue;
+				}
+
 				if (tmpPlayer == attackerPlayer && attackerPlayer != targetPlayer) {
 					message.type = MESSAGE_HEALED;
 					message.text = "You restored " + target->getNameDescription() + " for " + damageString;
@@ -6240,6 +6257,12 @@ bool Game::combatChangeMana(Creature* attacker, Creature* target, CombatDamage& 
 		map.getSpectators(spectators, targetPos, false, true);
 		for (Creature* spectator : spectators) {
 			Player* tmpPlayer = spectator->getPlayer();
+
+			if(!tmpPlayer)
+			{
+				continue;
+			}
+
 			if (tmpPlayer == attackerPlayer && attackerPlayer != targetPlayer) {
 				ss.str({});
 				ss << ucfirst(target->getNameDescription()) << " loses " << damageString << " mana due to your attack.";
@@ -8639,7 +8662,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_globalEvents->clear(true);
 			g_spells->clear(true);
 			g_scripts->loadScripts("scripts", false, true);
-			return true;
 		}
 	}
 	return true;

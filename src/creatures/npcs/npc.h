@@ -96,7 +96,7 @@ class Npc final : public Creature
 			return npcType->info.currencyServerId;
 		}
 
-		std::vector<ShopInfo> getShopItems() {
+		ShopInfoMap getShopItems() {
 			return npcType->info.shopItems;
 		}
 
@@ -144,6 +144,12 @@ class Npc final : public Creature
 		void onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos, const Tile* oldTile, const Position& oldPos, bool teleport) override;
 		void onCreatureSay(Creature* creature, SpeakClasses type, const std::string& text) override;
 		void onThink(uint32_t interval) override;
+		void onPlayerBuyItem(Player* player, uint16_t itemid, uint8_t count,
+                            uint8_t amount, bool ignore, bool inBackpacks);
+		void onPlayerSellItem(Player* player, uint16_t itemid, uint8_t count,
+                            uint8_t amount, bool ignore);
+		void onPlayerCheckItem(Player* player, uint16_t itemid,
+                          uint8_t count);
 		void onPlacedCreature() override;
 
 		bool canWalkTo(const Position& fromPos, Direction dir) const;

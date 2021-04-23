@@ -774,7 +774,7 @@ class Player final : public Creature, public Cylinder
 			shopOwner = owner;
 		}
 
-		const Npc* getShopOwner() const {
+		Npc* getShopOwner() const {
 			return shopOwner;
 		}
 

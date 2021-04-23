@@ -130,7 +130,7 @@ void ProtocolGame::AddItem(NetworkMessage &msg, const Item *item)
 		}
 
 		// Quiver ammo count
-    	if (item->getWeaponType() == WEAPON_QUIVER && player->getThing(CONST_SLOT_RIGHT) == item) {
+    	if (container && item->getWeaponType() == WEAPON_QUIVER && player->getThing(CONST_SLOT_RIGHT) == item) {
       		uint16_t ammoTotal = 0;
       		for (Item* listItem : container->getItemList()) {
         		ammoTotal += listItem->getItemCount();
@@ -1416,15 +1416,16 @@ void ProtocolGame::parsePlayerPurchase(NetworkMessage &msg)
 	uint8_t amount = msg.getByte();
 	bool ignoreCap = msg.getByte() != 0;
 	bool inBackpacks = msg.getByte() != 0;
-	addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerPurchaseItem, player->getID(), id, count, amount, ignoreCap, inBackpacks);
+	addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerBuyItem, player->getID(), id, count, amount, ignoreCap, inBackpacks);
 }
 
 void ProtocolGame::parsePlayerSale(NetworkMessage &msg)
 {
 	uint16_t id = msg.get<uint16_t>();
-	uint8_t count = msg.getByte();
+	uint8_t count = std::max(msg.getByte(), (uint8_t) 1);
 	uint8_t amount = msg.getByte();
 	bool ignoreEquipped = msg.getByte() != 0;
+
 	addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerSellItem, player->getID(), id, count, amount, ignoreEquipped);
 }
 
@@ -3034,7 +3035,7 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats()
 		}
 		else
 		{
-			for (size_t i = 0; i < COMBAT_COUNT; ++i)
+			for (uint16_t i = 0; i < COMBAT_COUNT; ++i)
 			{
 				absorbs[i] += it.abilities->absorbPercent[i];
 			}
@@ -3755,14 +3756,16 @@ void ProtocolGame::sendShop(Npc *npc)
 
 	msg.addString(std::string()); // ??
 
-	const ShopInfoList itemList = npc->getShopItems();
-	uint16_t itemsToSend = std::min<size_t>(itemList.size(), std::numeric_limits<uint16_t>::max());
+	const ShopInfoMap itemMap = npc->getShopItems();
+	uint16_t itemsToSend = std::min<size_t>(itemMap.size(), std::numeric_limits<uint16_t>::max());
 	msg.add<uint16_t>(itemsToSend);
 
 	uint16_t i = 0;
-	for (auto it = itemList.begin(); i < itemsToSend; ++it, ++i)
+	for (auto& it : itemMap)
 	{
-		AddShopItem(msg, *it);
+		if (++i > itemsToSend) break;
+
+		AddShopItem(msg, it.second, it.first);
 	}
 
 	writeToOutputBuffer(msg);
@@ -3809,7 +3812,7 @@ void ProtocolGame::sendResourceBalance(Resource_t resourceType, uint64_t value)
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendSaleItemList(const std::vector<ShopInfo> &shop, const std::map<uint32_t, uint32_t> &inventoryMap)
+void ProtocolGame::sendSaleItemList(const ShopInfoMap &shop, const std::map<uint32_t, uint32_t> &inventoryMap)
 {
 	//Since we already have full inventory map we shouldn't call getMoney here - it is simply wasting cpu power
 	uint64_t playerMoney = 0;
@@ -3855,15 +3858,17 @@ void ProtocolGame::sendSaleItemList(const std::vector<ShopInfo> &shop, const std
 	auto msgPosition = msg.getBufferPosition();
 	msg.skipBytes(1);
 
-	for (const ShopInfo &shopInfo : shop)
+	for (auto& shopInfoPair : shop)
 	{
+		const uint16_t itemId = shopInfoPair.first;
+		const ShopInfo &shopInfo = shopInfoPair.second;
 		if (shopInfo.sellPrice == 0)
 		{
 			continue;
 		}
 
-		uint32_t index = static_cast<uint32_t>(shopInfo.itemId);
-		if (Item::items[shopInfo.itemId].isFluidContainer())
+		uint32_t index = static_cast<uint32_t>(itemId);
+		if (Item::items[itemId].isFluidContainer())
 		{
 			index |= (static_cast<uint32_t>(shopInfo.subType) << 16);
 		}
@@ -3871,7 +3876,7 @@ void ProtocolGame::sendSaleItemList(const std::vector<ShopInfo> &shop, const std
 		it = inventoryMap.find(index);
 		if (it != inventoryMap.end())
 		{
-			msg.addItemId(shopInfo.itemId);
+			msg.addItemId(itemId);
 			msg.addByte(std::min<uint32_t>(it->second, std::numeric_limits<uint8_t>::max()));
 			if (++itemsToSend >= 0xFF)
 			{
@@ -4851,7 +4856,7 @@ void ProtocolGame::sendCreatureHealth(const Creature *creature)
 void ProtocolGame::sendPartyCreatureUpdate(const Creature* target)
 {
 	bool known;
-	uint32_t removedKnown;
+	uint32_t removedKnown = 0;
 	uint32_t cid = target->getID();
 	checkCreatureAsKnown(cid, known, removedKnown);
 
@@ -6602,20 +6607,19 @@ void ProtocolGame::MoveDownCreature(NetworkMessage &msg, const Creature *creatur
 	GetMapDescription(oldPos.x - 8, oldPos.y + 7, newPos.z, 18, 1, msg);
 }
 
-void ProtocolGame::AddShopItem(NetworkMessage &msg, const ShopInfo &item)
+void ProtocolGame::AddShopItem(NetworkMessage &msg, const ShopInfo &item, uint16_t itemId)
 {
-	const ItemType &it = Item::items.getItemIdByClientId(item.itemId);
-	msg.add<uint16_t>(item.itemId);
+	const ItemType &it = Item::items[itemId];
+	msg.add<uint16_t>(item.itemClientId);
+
+	uint8_t count = std::min(item.subType, 100);
 
 	if (it.isSplash() || it.isFluidContainer())
 	{
-		msg.addByte(serverFluidToClient(item.subType));
-	}
-	else
-	{
-		msg.addByte(0x00);
+		count = serverFluidToClient(count);
 	}
 
+	msg.addByte(count);
 	msg.addString(item.name);
 	msg.add<uint32_t>(it.weight);
 	msg.add<uint32_t>(item.buyPrice == 4294967295 ? 0 : item.buyPrice);

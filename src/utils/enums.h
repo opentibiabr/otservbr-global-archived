@@ -709,21 +709,21 @@ struct RespawnType {
 };
 
 struct ShopInfo {
-	uint16_t itemId;
+	uint16_t itemClientId;
 	std::string name;
 	int32_t subType;
 	uint32_t buyPrice;
 	uint32_t sellPrice;
 
 	ShopInfo() {
-		itemId = 0;
+		itemClientId = 0;
 		subType = 1;
 		buyPrice = 0;
 		sellPrice = 0;
 	}
 
 	ShopInfo(uint16_t newItemId, int32_t newSubType = 0, uint32_t newBuyPrice = 0, uint32_t newSellPrice = 0, std::string newName = "")
-		: itemId(newItemId), subType(newSubType), buyPrice(newBuyPrice), sellPrice(newSellPrice), name(std::move(newName)) {}
+		: itemClientId(newItemId), subType(newSubType), buyPrice(newBuyPrice), sellPrice(newSellPrice), name(std::move(newName)) {}
 };
 
 struct MarketOffer {
@@ -824,7 +824,7 @@ struct CombatDamage
 using StashItemList = std::map<uint16_t, uint32_t>;
 using MarketOfferList = std::list<MarketOffer>;
 using HistoryMarketOfferList = std::list<HistoryMarketOffer>;
-using ShopInfoList = std::vector<ShopInfo>;
+using ShopInfoMap = std::unordered_map<uint16_t, ShopInfo>;
 
 enum MonstersEvent_t : uint8_t {
 	MONSTERS_EVENT_NONE = 0,
@@ -842,6 +842,9 @@ enum NpcsEvent_t : uint8_t {
 	NPCS_EVENT_DISAPPEAR = 3,
 	NPCS_EVENT_MOVE = 4,
 	NPCS_EVENT_SAY = 5,
+	NPCS_EVENT_PLAYER_BUY = 6,
+	NPCS_EVENT_PLAYER_SELL = 7,
+	NPCS_EVENT_PLAYER_CHECK_ITEM = 8
 };
 
 enum Supply_Stash_Actions_t : uint8_t {

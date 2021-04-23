@@ -1472,6 +1472,11 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 			SPDLOG_WARN("Error while saving player: {}", getName());
 		}
 	}
+
+	if (creature == shopOwner) {
+		setShopOwner(nullptr);
+		sendCloseShop();
+	}
 }
 
 void Player::openShopWindow(Npc* npc)
@@ -3588,15 +3593,25 @@ bool Player::updateSaleShopList(const Item* item)
 
 bool Player::hasShopItemForSale(uint32_t itemId, uint8_t subType) const
 {
-	const ItemType& itemType = Item::items[itemId];
-	if (shopOwner) {
+	if (!shopOwner) {
 		return false;
 	}
 
-	auto shopItemList = shopOwner->getShopItems();
-	return std::any_of(shopItemList.begin(), shopItemList.end(), [&](const ShopInfo& shopInfo) {
-		return shopInfo.itemId == itemId && shopInfo.buyPrice != 0 && (!itemType.isFluidContainer() || shopInfo.subType == subType);
-	});
+	ShopInfoMap shopItemMap = shopOwner->getShopItems();
+	if (shopItemMap.find(itemId) == shopItemMap.end()) {
+		return false;
+	}
+
+	const ShopInfo& shopInfo = shopItemMap[itemId];
+	if (shopInfo.buyPrice == 0) {
+		return false;
+	}
+
+	if (!Item::items[itemId].isFluidContainer()) {
+		return true;
+	}
+
+	return shopInfo.subType == subType;
 }
 
 void Player::internalAddThing(Thing* thing)

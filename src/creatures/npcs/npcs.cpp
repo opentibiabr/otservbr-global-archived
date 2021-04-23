@@ -59,16 +59,33 @@ bool NpcType::loadCallback(LuaScriptInterface* scriptInterface)
 	}
 
 	info.scriptInterface = scriptInterface;
-	if (info.eventType == NPCS_EVENT_THINK) {
-		info.thinkEvent = id;
-	} else if (info.eventType == NPCS_EVENT_APPEAR) {
-		info.creatureAppearEvent = id;
-	} else if (info.eventType == NPCS_EVENT_DISAPPEAR) {
-		info.creatureDisappearEvent = id;
-	} else if (info.eventType == NPCS_EVENT_MOVE) {
-		info.creatureMoveEvent = id;
-	} else if (info.eventType == NPCS_EVENT_SAY) {
-		info.creatureSayEvent = id;
+	switch (info.eventType) {
+		case NPCS_EVENT_THINK:
+			info.thinkEvent = id;
+			break;
+		case NPCS_EVENT_APPEAR:
+			info.creatureAppearEvent = id;
+			break;
+		case NPCS_EVENT_DISAPPEAR:
+			info.creatureDisappearEvent = id;
+			break;
+		case NPCS_EVENT_MOVE:
+			info.creatureMoveEvent = id;
+			break;
+		case NPCS_EVENT_SAY:
+			info.creatureSayEvent = id;
+			break;
+		case NPCS_EVENT_PLAYER_BUY:
+			info.playerBuyEvent = id;
+			break;
+		case NPCS_EVENT_PLAYER_SELL:
+			info.playerSellEvent = id;
+			break;
+		case NPCS_EVENT_PLAYER_CHECK_ITEM:
+			info.playerLookEvent = id;
+			break;
+		default:
+			break;
 	}
 
 	return true;

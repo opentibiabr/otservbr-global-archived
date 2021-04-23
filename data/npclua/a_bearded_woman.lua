@@ -1,14 +1,14 @@
 local npcType = Game.createNpcType("A Bearded Woman")
-local npc = {}
+local npcConfig = {} 
 
-npc.description = "A Bearded Woman"
+npcConfig.description = "A Bearded Woman"
 
-npc.health = 100
-npc.maxHealth = npc.health
-npc.walkInterval = 2000
-npc.walkRadius = 2
+npcConfig.health = 100
+npcConfig.maxHealth = npcConfig.health
+npcConfig.walkInterval = 2000
+npcConfig.walkRadius = 2
 
-npc.outfit = {
+npcConfig.outfit = {
 	lookType = 140,
 	lookHead = 60,
 	lookBody = 22,
@@ -17,7 +17,7 @@ npc.outfit = {
 	lookAddons = 1
 }
 
-npc.voices = {
+npcConfig.voices = {
 	interval = 2000,
 	chance = 20,
 	{ text = 'I am a MAN! Get me out you drunken fools!' },
@@ -29,7 +29,7 @@ npc.voices = {
 	{ text = 'I am not a princess, I am an actor!' }
 }
 
-npc.flags = {
+npcConfig.flags = {
 	hostile = false,
 	floorchange = false
 }
@@ -124,4 +124,4 @@ npcType.onSay = function(npc, creature, type, message)
     })
 end
 
-npcType:register(npc)
+npcType:register(npcConfig)
