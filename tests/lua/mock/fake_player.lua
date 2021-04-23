@@ -29,3 +29,27 @@ end
 function FakePlayer:getStorageValue(storage)
     return self.storageValue[storage]
 end
+
+function FakePlayer:removeMoneyIncludingBalance(money)
+    self.totalMoney = (self.totalMoney or 0) - money
+end
+
+function FakePlayer:addMoney(money)
+    self.totalMoney = (self.totalMoney or 0) + money
+end
+
+function FakePlayer:teleportTo(pos)
+    self.position = pos
+end
+
+function FakePlayer:addItem(itemId, count)
+    self.itemCount[itemId] = (self.itemCount[itemId] or 0) + count
+end
+
+function FakePlayer:removeItem(itemId, count)
+    self.itemCount[itemId] = (self.itemCount[itemId] or 0) - count
+end
+
+function FakePlayer:setStorageValue(storage, value)
+    self.storageValue[storage] = value
+end

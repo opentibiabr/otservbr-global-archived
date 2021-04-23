@@ -1,52 +1,53 @@
-require "player_processor_interface";
+PlayerValidator = {}
+setmetatable(PlayerValidator, {
+  __call =
+  function(self, configs, player)
+     if not player or not player:isPlayer() then
+        error("PlayerValidator needs a valid player to run")
+     end
 
-PlayerValidator = PlayerProcessorInterface:new()
-function PlayerValidator:new(player)
-   obj = PlayerProcessorInterface:new(player)
+     for _,parse in pairs(self) do
+        if not parse(configs, player) then
+           return false
+        end
+     end
+     return true
+  end
+})
 
-   obj.valid = true
-
-   setmetatable(obj, self)
-   self.__index = self
-   return obj
+PlayerValidator.validateMoney = function (configs, player)
+   if not configs.moneyAmount then return true end
+   return player:getTotalMoney() >= configs.moneyAmount
 end
 
-function PlayerValidator:execute()
-   self:validateMoney()
-   self:validatePosition()
-   self:validateItems()
-   self:validateStorages()
-
-   return self.valid
+PlayerValidator.validatePosition = function (configs, player)
+   if not configs.position then return true end
+   return player:getPosition() == configs.position
 end
 
-function PlayerValidator:validateMoney()
-   if not self.valid then return end
-   self.valid = self.player:getTotalMoney() >= self.moneyAmount
-end
-
-function PlayerValidator:validatePosition()
-   if not self.valid then return end
-   self.valid = self.player:getPosition() == self.position
-end
-
-function PlayerValidator:validateItems()
-   for itemId, count in pairs(self.items) do
-      if not self.valid then return end
-      self.valid = self.player:getItemCount(itemId) >= count
+PlayerValidator.validateItems = function (configs, player)
+   for itemId, count in pairs(configs.items) do
+      if player:getItemCount(itemId) < count then
+         return false
+      end
    end
+   return true
 end
 
-function PlayerValidator:validateStorages()
-   for storage, value in pairs(self.storages) do
-      if not self.valid then return end
-      self.valid = self.player:getStorageValue(storage) == value
+PlayerValidator.validateStorages = function (configs, player)
+   for storage, value in pairs(configs.storages) do
+      if player:getStorageValue(storage) ~= value then
+         return false
+      end
    end
+   return true
 end
 
-function PlayerValidator:runValidationCallbacks()
-   for _, callback in pairs(self.callbacks) do
-      if not self.valid then return end
-      self.valid = callback(self.player)
+PlayerValidator.validateCallbacks = function (configs, player)
+   for _, callback in pairs(configs.callbacks) do
+      if not callback(player) then
+         return false
+      end
    end
+   return true
 end

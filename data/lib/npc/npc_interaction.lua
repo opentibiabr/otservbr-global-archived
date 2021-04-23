@@ -14,12 +14,14 @@ NpcInteraction = {
     type = nil,
     message = nil,
     topic = nil,
+    failureMessage = nil,
     previousTopic = nil,
     teleport = nil,
     subInteractions = nil,
     storageChanges = nil,
     storageChecks = nil,
     callbacks = nil,
+    validations = nil,
 }
 
 -- Creates a new NpcInteraction with message and type (defaults to INTERACTION_COMMON)
@@ -30,12 +32,14 @@ function NpcInteraction:new(keys, message, type)
     obj.type = type or interactionTypes.INTERACTION_COMMON
     obj.message = message
     obj.topic = 0
+    obj.failureMessage = nil
     obj.previousTopic = nil
     obj.teleport = nil
     obj.subInteractions = {}
     obj.storageChanges = {}
     obj.storageChecks = {}
     obj.callbacks = {}
+    obj.validations = {}
 
     setmetatable(obj, self)
     self.__index = self
@@ -45,6 +49,7 @@ end
 -- Executes a configuration, running all validations and actions configured
 function NpcInteraction:execute(npc, player)
     if not self:shouldAnswerPlayer(npc, player) then
+        if self.failureMessage then npc:talk(player, self.failureMessage) end
         return false
     end
 
@@ -90,6 +95,12 @@ function NpcInteraction:setTopic(topic, previousTopic)
     return self
 end
 
+-- Define a failure message for when the validation doesn't work
+function NpcInteraction:setFailureMessage(message)
+    self.failureMessage = message
+    return self
+end
+
 -- Add storage values <key, value> to be checked (only interacts if all are correct)
 function NpcInteraction:addStorageCheck(storage, value)
     self.storageChecks[storage] = value
@@ -129,6 +140,13 @@ function NpcInteraction:addCallbackFunction(callback)
     return self
 end
 
+-- Add a custom function to be executed in the end of a valid interaction
+function NpcInteraction:addValidationFunction(validation)
+    if not validation then return self end
+    self.validations[#self.validations + 1] = validation
+    return self
+end
+
 -- Perform all the validations to proceed with the current interaction
 function NpcInteraction:shouldAnswerPlayer(npc, player)
     if self.previousTopic and not npc:isPlayerInteractingOnTopic(player, self.previousTopic) then
@@ -137,31 +155,9 @@ function NpcInteraction:shouldAnswerPlayer(npc, player)
 
     if not self:hasValidPlayerInteraction(npc, player) then return false end
     if not self:hasPlayerValidStorages(player) then return false  end
+    if not self:performCustomValidations(npc, player) then return false end
 
     return true
-end
-
-function NpcInteraction:newDefaultByType(player, type)
-    if type == interactionTypes.INTERACTION_GREET then
-        return NpcInteraction:new(
-            {"hi", "hello"},
-            "Hello, ".. player:getName() ..", what you need?",
-            type
-        )
-    end
-
-    if type == interactionTypes.INTERACTION_FAREWELL then
-        return NpcInteraction:new(
-            {"bye", "farewell"},
-            "Goodbye, ".. player:getName() ..".",
-            type
-        )
-    end
-
-    return NpcInteraction:new(
-        {},
-        "Sorry " .. player:getName() .. ", I didn't understand"
-    )
 end
 
 -- VALIDATIONS
@@ -179,6 +175,14 @@ end
 function NpcInteraction:hasPlayerValidStorages(player)
     for storage,value in pairs(self.storageChecks) do
         if player:getStorageValue(storage) ~= value then return false end
+    end
+    return true
+end
+
+-- Perform custom validation functions
+function NpcInteraction:performCustomValidations(npc, player)
+    for _,validation in pairs(self.validations) do
+        if not validation(npc, player) then return false end
     end
     return true
 end
@@ -230,6 +234,7 @@ end
 function NpcInteraction:createTravelInteraction(params)
     local cost = params.cost or 0
     params.message = params.message or "Do you want to travel to " .. params.keywords[1] .. " for " .. cost .. " gold coins?"
+    params.failureMessage = params.failureMessage or "I'm sorry but I don't sail there."
 
     return NpcInteraction:newConfirmationNeededInteraction(params):setTeleportConfig(params.position, cost)
 end
@@ -237,9 +242,42 @@ end
 function NpcInteraction:newConfirmationNeededInteraction(params)
     params.acceptedMessage = params.acceptedMessage or "It was a pleasure doing business with you."
     params.declinedMessage = params.declinedMessage or "Then not."
+    params.failureMessage = params.failureMessage or "I'm sorry but I can't do that."
+
     local interaction = NpcInteraction:new(params.keywords, params.message, interactionTypes.INTERACTION_CONFIRMATION_NEEDED)
     return interaction
         :setTopic(params.topic)
-        :addSubInteraction(NpcInteraction:new({"yes"}, params.acceptedMessage):setTopic(0, params.topic):addCallbackFunction(function(npc, player) interaction:executeActions(npc, player) end))
-        :addSubInteraction(NpcInteraction:new({"no"}, params.declinedMessage):setTopic(0, params.topic))
+        :setFailureMessage(params.failureMessage)
+        :addValidationFunction(params.validation)
+        :addSubInteraction(
+            NpcInteraction:new({"yes"}, params.acceptedMessage)
+                :setTopic(0, params.topic)
+                :addCallbackFunction(function(npc, player) interaction:executeActions(npc, player) end)
+        ):addSubInteraction(
+            NpcInteraction:new({"no"}, params.declinedMessage)
+                :setTopic(0, params.topic)
+        )
+end
+
+function NpcInteraction:newDefaultByType(player, type)
+    if type == interactionTypes.INTERACTION_GREET then
+        return NpcInteraction:new(
+                {"hi", "hello"},
+                "Hello, ".. player:getName() ..", what you need?",
+                type
+        )
+    end
+
+    if type == interactionTypes.INTERACTION_FAREWELL then
+        return NpcInteraction:new(
+                {"bye", "farewell"},
+                "Goodbye, ".. player:getName() ..".",
+                type
+        )
+    end
+
+    return NpcInteraction:new(
+            {},
+            "Sorry " .. player:getName() .. ", I didn't understand"
+    )
 end
