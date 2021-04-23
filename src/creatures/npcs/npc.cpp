@@ -259,14 +259,12 @@ void Npc::onPlayerSellItem(Player* player, uint16_t serverId,
 	}
 
 	ShopInfo shopInfo = getShopItems()[serverId];
-	int64_t totalCost = shopInfo.sellPrice * amount;
 
-	if(!player->removeItemOfType(serverId, shopInfo.sellPrice, subType, false)) {
-		SPDLOG_WARN("onPlayerSellItem {} {} {}", totalCost, serverId, subType);
+	if(!player->removeItemOfType(serverId, amount, subType, false)) {
 		return;
 	}
 
-	SPDLOG_WARN("onPlayerSellItem 3 {}", totalCost);
+	int64_t totalCost = shopInfo.sellPrice * amount;
 	g_game.addMoney(player, totalCost, 0);
 
 	// onPlayerSellItem(self, player, itemId, subType, amount, ignore)
