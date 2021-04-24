@@ -296,3 +296,54 @@ function test_NpcInteraction_IsValidProcessor()
             function () NpcInteraction:isValidProcessor({}) end
     )
 end
+
+function test_NpcInteraction_ExecuteWithNoKeywordDoesNotUpdateTopic()
+    local player = FakePlayer:new({topic = 0})
+    local npc = {}
+    function npc:isPlayerInteractingOnTopic(player, topic)
+        return player.topic == topic
+    end
+
+    function npc:updatePlayerInteraction(player, topic)
+        player.topic = topic
+    end
+
+    lu.assertEquals(player.topic, 0)
+    NpcInteraction:new({"valid"}, {}, {current = 2, previous = 0}):execute("invalid", player, npc)
+
+    lu.assertEquals(player.topic, 0)
+end
+
+function test_NpcInteraction_ExecuteWithInvalidTopicDoesNotUpdateTopic()
+    local player = FakePlayer:new({topic = 0})
+    local npc = {}
+    function npc:isPlayerInteractingOnTopic(player, topic)
+        return player.topic == topic
+    end
+
+    function npc:updatePlayerInteraction(player, topic)
+        player.topic = topic
+    end
+
+    lu.assertEquals(player.topic, 0)
+    NpcInteraction:new({"valid"}, {}, {current = 2, previous = 1}):execute("valid", player, npc)
+
+    lu.assertEquals(player.topic, 0)
+end
+
+function test_NpcInteraction_ValidExecuteUpdatesTopic()
+    local player = FakePlayer:new({topic = 0})
+    local npc = {}
+    function npc:isPlayerInteractingOnTopic(player, topic)
+        return player.topic == topic
+    end
+
+    function npc:updatePlayerInteraction(player, topic)
+        player.topic = topic
+    end
+
+    lu.assertEquals(player.topic, 0)
+    NpcInteraction:new({"valid"}, {}, {current = 2, previous = 0}):execute("valid", player, npc)
+
+    lu.assertEquals(player.topic, 2)
+end

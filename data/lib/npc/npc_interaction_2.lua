@@ -65,6 +65,11 @@ function NpcInteraction:execute(message, player, npc)
 
     if canExecute and self:hasMessageValidKeyword(message) then
         self:runOnInitPlayerProcessors(player)
+        npc:updatePlayerInteraction(player, self.topic.current)
+
+        if self.parent then
+            self.parent:runOnCompletePlayerProcessors(player)
+        end
 
         if #self.children == 0 then
             self:runOnCompletePlayerProcessors(player)
@@ -74,12 +79,6 @@ function NpcInteraction:execute(message, player, npc)
     for _, child in pairs(self.children) do
         child:execute(message, player)
     end
-
-    if self.parent then
-        self.parent:runOnCompletePlayerProcessors(player)
-    end
-
-    npc:updatePlayerInteraction(player, npc)
 end
 
 function NpcInteraction:hasMessageValidKeyword(message)
