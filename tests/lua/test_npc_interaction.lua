@@ -212,7 +212,7 @@ function test_NpcInteraction_UpdatePlayerInteraction()
     lu.assertIsNil(player.topic)
 end
 
-function test_NpcInteraction_RunOnInitPlayerProcessor()
+function test_NpcInteraction_RunOnInitPlayerProcessors()
     local player = FakePlayer:new()
     local interaction = NpcInteraction:new()
     local call = 0
@@ -226,14 +226,38 @@ function test_NpcInteraction_RunOnInitPlayerProcessor()
 
     validationProcessor.validate = function()
         call = call + 1
+        return true
     end
 
     interaction:addInitUpdateProcessor(updateProcessor)
     interaction:addInitValidationProcessor(validationProcessor)
 
-    interaction:runOnInitPlayerProcessors(player)
-
+    lu.assertIsTrue(interaction:runOnInitPlayerProcessors(player))
     lu.assertEquals(call, 2)
+end
+
+function test_NpcInteraction_RunOnInitPlayerProcessorsReturnFalseForFailedValidations()
+    local player = FakePlayer:new()
+    local interaction = NpcInteraction:new()
+    local call = 0
+
+    local updateProcessor = PlayerProcessingConfigs:new()
+    local validationProcessor = PlayerProcessingConfigs:new()
+
+    updateProcessor.update = function()
+        call = call + 1
+    end
+
+    validationProcessor.validate = function()
+        call = call + 1
+        return false
+    end
+
+    interaction:addInitUpdateProcessor(updateProcessor)
+    interaction:addInitValidationProcessor(validationProcessor)
+
+    lu.assertIsFalse(interaction:runOnInitPlayerProcessors(player))
+    lu.assertEquals(call, 1)
 end
 
 function test_NpcInteraction_RunOnCompletePlayerProcessors()
@@ -250,14 +274,38 @@ function test_NpcInteraction_RunOnCompletePlayerProcessors()
 
     validationProcessor.validate = function()
         call = call + 1
+        return true
     end
 
     interaction:addCompletionUpdateProcessor(updateProcessor)
     interaction:addCompletionValidationProcessor(validationProcessor)
 
-    interaction:runOnCompletePlayerProcessors(player)
-
+    lu.assertIsTrue(interaction:runOnCompletePlayerProcessors(player))
     lu.assertEquals(call, 2)
+end
+
+function test_NpcInteraction_RunOnCompletePlayerProcessorsReturnFalseForFailedValidations()
+    local player = FakePlayer:new()
+    local interaction = NpcInteraction:new()
+    local call = 0
+
+    local updateProcessor = PlayerProcessingConfigs:new()
+    local validationProcessor = PlayerProcessingConfigs:new()
+
+    updateProcessor.update = function()
+        call = call + 1
+    end
+
+    validationProcessor.validate = function()
+        call = call + 1
+        return false
+    end
+
+    interaction:addCompletionUpdateProcessor(updateProcessor)
+    interaction:addCompletionValidationProcessor(validationProcessor)
+
+    lu.assertIsFalse(interaction:runOnCompletePlayerProcessors(player))
+    lu.assertEquals(call, 1)
 end
 
 function test_NpcInteraction_GetValidNpcInteractionForMessage()
@@ -345,5 +393,161 @@ function test_NpcInteraction_ValidExecuteUpdatesTopic()
     lu.assertEquals(player.topic, 0)
     NpcInteraction:new({"valid"}, {}, {current = 2, previous = 0}):execute("valid", player, npc)
 
+    lu.assertEquals(player.topic, 2)
+end
+
+function test_NpcInteraction_ValidExecuteRunProcessors()
+    local player = FakePlayer:new({topic = 0})
+    local npc = {}
+    local call = 0
+
+    function npc:isPlayerInteractingOnTopic(player, topic)
+        call = call + 1
+        return player.topic == topic
+    end
+
+    function npc:updatePlayerInteraction(player, topic)
+        call = call + 1
+        player.topic = topic
+    end
+
+    local interaction = NpcInteraction:new({"valid"}, {}, {current = 2, previous = 0})
+
+    interaction.runOnCompletePlayerProcessors = function()
+        call = call + 1
+    end
+
+    interaction.runOnInitPlayerProcessors = function()
+        call = call + 1
+        return true
+    end
+
+    lu.assertEquals(call, 0)
+    lu.assertEquals(player.topic, 0)
+    interaction:execute("valid", player, npc)
+
+    lu.assertEquals(call, 4)
+    lu.assertEquals(player.topic, 2)
+end
+
+function test_NpcInteraction_ValidExecuteWithFailedValidationDoesntTriggerUpdates()
+    local player = FakePlayer:new({topic = 0})
+    local npc = {}
+    local call = 0
+
+    function npc:isPlayerInteractingOnTopic(player, topic)
+        call = call + 1
+        return player.topic == topic
+    end
+
+    function npc:updatePlayerInteraction(player, topic)
+        call = call + 1
+        player.topic = topic
+    end
+
+    local interaction = NpcInteraction:new({"valid"}, {}, {current = 2, previous = 0})
+
+    interaction.runOnCompletePlayerProcessors = function()
+        call = call + 1
+    end
+
+    interaction.runOnInitPlayerProcessors = function()
+        call = call + 1
+        return false
+    end
+
+    lu.assertEquals(call, 0)
+    lu.assertEquals(player.topic, 0)
+    interaction:execute("valid", player, npc)
+
+    lu.assertEquals(call, 2)
+    lu.assertEquals(player.topic, 0)
+end
+
+function test_NpcInteraction_ValidExecuteWithChildRunOnlyInitProcessors()
+    local player = FakePlayer:new({topic = 0})
+    local npc = {}
+    local call = 0
+
+    function npc:isPlayerInteractingOnTopic(player, topic)
+        return player.topic == topic
+    end
+
+    function npc:updatePlayerInteraction(player, topic)
+        player.topic = topic
+    end
+
+    local interaction = NpcInteraction:new({"valid"}, {}, {current = 2, previous = 0})
+
+    interaction.runOnCompletePlayerProcessors = function()
+        call = call + 1
+    end
+
+    interaction.runOnInitPlayerProcessors = function()
+        call = call + 1
+        return true
+    end
+
+    local child = NpcInteraction:new()
+    local callChild = 0
+    function child:execute()
+        callChild = callChild + 1
+    end
+    interaction:addSubInteraction(child)
+
+    lu.assertEquals(call, 0)
+    lu.assertEquals(callChild, 0)
+    lu.assertEquals(player.topic, 0)
+    interaction:execute("valid", player, npc)
+
+    lu.assertEquals(call, 1)
+    lu.assertEquals(callChild, 1)
+    lu.assertEquals(player.topic, 2)
+end
+
+function test_NpcInteraction_ValidChildExecuteRunsParentCompleteProcessor()
+    local player = FakePlayer:new({topic = 0})
+    local npc = {}
+    local call = 0
+
+    function npc:isPlayerInteractingOnTopic(player, topic)
+        return player.topic == topic
+    end
+
+    function npc:updatePlayerInteraction(player, topic)
+        player.topic = topic
+    end
+
+    local interaction = NpcInteraction:new({"valid"}, {}, {current = 2, previous = 0})
+
+    interaction.runOnCompletePlayerProcessors = function()
+        call = call + 1
+    end
+
+    interaction.runOnInitPlayerProcessors = function()
+        call = call + 1
+        return true
+    end
+
+    local parent = NpcInteraction:new()
+    parent:addSubInteraction(interaction)
+
+    local callParent = 0
+    parent.runOnCompletePlayerProcessors = function()
+        callParent = callParent + 1
+    end
+
+    parent.runOnInitPlayerProcessors = function()
+        callParent = callParent + 1
+        return true
+    end
+
+    lu.assertEquals(call, 0)
+    lu.assertEquals(callParent, 0)
+    lu.assertEquals(player.topic, 0)
+    interaction:execute("valid", player, npc)
+
+    lu.assertEquals(call, 2)
+    lu.assertEquals(callParent, 1)
     lu.assertEquals(player.topic, 2)
 end

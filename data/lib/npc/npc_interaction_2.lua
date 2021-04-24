@@ -64,7 +64,9 @@ function NpcInteraction:execute(message, player, npc)
     local canExecute = not self.topic.previous or npc:isPlayerInteractingOnTopic(player, self.topic.previous)
 
     if canExecute and self:hasMessageValidKeyword(message) then
-        self:runOnInitPlayerProcessors(player)
+        -- If initial processor validations failed, skip all the rest
+        if not self:runOnInitPlayerProcessors(player) then return end
+
         npc:updatePlayerInteraction(player, self.topic.current)
 
         if self.parent then
@@ -100,22 +102,26 @@ end
 
 function NpcInteraction:runOnInitPlayerProcessors(player)
     for _, processor in pairs(self.onInitPlayerProcessors.validators) do
-        processor:validate(player)
+        if not processor:validate(player) then return false end
     end
 
     for _, processor in pairs(self.onInitPlayerProcessors.updaters) do
         processor:update(player)
     end
+
+    return true
 end
 
 function NpcInteraction:runOnCompletePlayerProcessors(player)
     for _, processor in pairs(self.onCompletePlayerProcessors.validators) do
-        processor:validate(player)
+        if not processor:validate(player) then return false end
     end
 
     for _, processor in pairs(self.onCompletePlayerProcessors.updaters) do
         processor:update(player)
     end
+
+    return true
 end
 
 function NpcInteraction:getValidNpcInteractionForMessage(message, npc, player)
