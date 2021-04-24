@@ -35,8 +35,8 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 local interactions = {
-    NpcInteraction:createBaseGreetInteraction("So you have come, %s. I hoped you would not..."),
-    NpcInteraction:createBaseFarewellInteraction(),
+    NpcInteraction:createGreetInteraction("So you have come, %s. I hoped you would not..."),
+    NpcInteraction:createFarewellInteraction(),
 }
 
 npcType.onSay = function(npc, creature, type, message)

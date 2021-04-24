@@ -2,6 +2,11 @@ NpcInteraction = {}
 NpcMessages = {}
 NpcTopic = {}
 
+interactionRelationType = {
+    RELATION_CONFIRMATION = 1,
+    RELATION_CANCELLATION = 2,
+}
+
 function NpcTopic:new(obj)
     obj = obj or {}
     obj = {
@@ -17,10 +22,10 @@ end
 function NpcMessages:new(obj)
     obj = obj or {}
     obj = {
-        replyMessage = obj.replyMessage or "",
-        confirmedMessage = obj.confirmedMessage or "Thank you, %s. It was a pleasure doing business with you.",
-        declinedMessage = obj.declinedMessage or "Then not.",
-        deniedMessage = obj.deniedMessage or "I'm sorry %s, I can't do that.",
+        reply = obj.reply or "",
+        confirmation = obj.confirmation or "",
+        cancellation = obj.cancellation or "",
+        cannotExecute = obj.cannotExecute or "",
     }
 
     setmetatable(obj, self)
@@ -65,15 +70,15 @@ function NpcInteraction:execute(message, player, npc)
             return false
         end
 
-        npc:talk(player, self.messages.replyMessage)
+        npc:talk(player, self.messages.reply)
         self:updatePlayerInteraction(player, npc)
 
-        if self.parent and not self.parent:runOnCompletePlayerProcessors(player, npc) then
-            npc:talk(player, self.parent.messages.deniedMessage)
+        if self.parent and self.parent.relationType == interactionRelationType.RELATION_CONFIRMATION then
+            self.parent.interaction:runOnCompletePlayerProcessors(player, npc)
         end
 
-        if #self.children == 0 and not self:runOnCompletePlayerProcessors(player, npc) then
-            npc:talk(player, self.messages.deniedMessage)
+        if #self.children == 0 then
+            self:runOnCompletePlayerProcessors(player, npc)
         end
 
         return true
@@ -129,7 +134,10 @@ end
 
 function NpcInteraction:runOnCompletePlayerProcessors(player, npc)
     for _, processor in pairs(self.onCompletePlayerProcessors.validators) do
-        if not processor:validate(player, npc) then return false end
+        if not processor:validate(player, npc) then
+            if npc then npc:talk(player, self.messages.cannotExecute) end
+            return false
+        end
     end
 
     for _, processor in pairs(self.onCompletePlayerProcessors.updaters) do
@@ -154,9 +162,9 @@ function NpcInteraction:getValidNpcInteractionForMessage(message, npc, player)
     return nil
 end
 
-function NpcInteraction:addSubInteraction(subInteraction)
+function NpcInteraction:addSubInteraction(subInteraction, relationType)
     if not self:isValidSubInteraction(subInteraction) then return self end
-    subInteraction.parent = self
+    subInteraction.parent = { interaction = self, relationType = relationType or interactionRelationType.RELATION_CONFIRMATION }
     self.children[#self.children + 1] = subInteraction
 
     return self
@@ -205,18 +213,18 @@ function NpcInteraction:isValidProcessor(procesor)
     return true
 end
 
-function NpcInteraction:createBaseGreetInteraction(message, keywords)
+function NpcInteraction:createGreetInteraction(message, keywords)
     return NpcInteraction:new(
             keywords or {"hi", "hello"},
-            {replyMessage = message or "Hello, %s, what you need?"},
+            {reply = message or "Hello, %s, what you need?"},
             {previous = -1}
     )
 end
 
-function NpcInteraction:createBaseFarewellInteraction(message, keywords)
+function NpcInteraction:createFarewellInteraction(message, keywords)
     return NpcInteraction:new(
             keywords or {"bye", "farewell"},
-            {replyMessage = message or "Goodbye, %s."},
+            {reply = message or "Goodbye, %s."},
             {current = -1}
     )
 end
@@ -224,7 +232,7 @@ end
 function NpcInteraction:createBasicReplyInteraction(keywords, message, topic)
     return NpcInteraction:new(
             keywords,
-            {replyMessage = message},
+            {reply = message},
             topic
     )
 end

@@ -24,10 +24,10 @@ function test_NpcInteraction_ConstructorParameters()
     local keywords = {"hi", "hello"}
 
     local messages = {
-        replyMessage = "Fuck you man!",
-        confirmedMessage = "Hmm, you were wise in confirm!",
-        declinedMessage = "You Bastard..",
-        deniedMessage = "You're joking, ehn?",
+        reply = "Fuck you man!",
+        confirmation = "Hmm, you were wise in confirm!",
+        cancellation = "You Bastard..",
+        cannotExecute = "You're joking, ehn?",
     }
 
     local topic = {
@@ -57,10 +57,10 @@ function test_NpcInteraction_AddSubInteraction()
     lu.assertEquals(interaction.children[1].keywords, {"sub_interaction_1"})
     lu.assertEquals(interaction.children[2].keywords, {"sub_interaction_2"})
 
-    lu.assertEquals(subInteraction2.parent.keywords, subInteraction1.parent.keywords)
+    lu.assertEquals(subInteraction2.parent.interaction.keywords, subInteraction1.parent.interaction.keywords)
 
-    lu.assertEquals(subInteraction1.parent.keywords, {"parent"})
-    lu.assertIsTrue(getmetatable(subInteraction1.parent) == NpcInteraction)
+    lu.assertEquals(subInteraction1.parent.interaction.keywords, {"parent"})
+    lu.assertIsTrue(getmetatable(subInteraction1.parent.interaction) == NpcInteraction)
 end
 
 function test_NpcInteraction_AddEmptySubInteractionFails()

@@ -241,7 +241,7 @@ end
 
 function NpcInteraction:newConfirmationNeededInteraction(params)
     params.acceptedMessage = params.acceptedMessage or "It was a pleasure doing business with you."
-    params.declinedMessage = params.declinedMessage or "Then not."
+    params.cancellation = params.cancellation or "Then not."
     params.failureMessage = params.failureMessage or "I'm sorry but I can't do that."
 
     local interaction = NpcInteraction:new(params.keywords, params.message, interactionTypes.INTERACTION_CONFIRMATION_NEEDED)
@@ -254,7 +254,7 @@ function NpcInteraction:newConfirmationNeededInteraction(params)
                 :setTopic(0, params.topic)
                 :addCallbackFunction(function(npc, player) interaction:executeActions(npc, player) end)
         ):addSubInteraction(
-            NpcInteraction:new({"no"}, params.declinedMessage)
+            NpcInteraction:new({"no"}, params.cancellation)
                 :setTopic(0, params.topic)
         )
 end

@@ -47,7 +47,7 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 local interactions = {
-    NpcInteraction:createBaseGreetInteraction("GET ME OUT OF HERE! NOW!"),
+    NpcInteraction:createGreetInteraction("GET ME OUT OF HERE! NOW!"),
     NpcInteraction:createBasicReplyInteraction({"job"}, "I am a great and famous actor! Not a princess, at all. I was only PRETENDING to be a princess. But try explaining that to those stupid pirates."),
     NpcInteraction:createBasicReplyInteraction({"actor", "stage"}, "Stage acting was a waste of my immense talent. Not only am I a born leader, my talent is more profitable when it is used for conning people."),
     NpcInteraction:createBasicReplyInteraction({"kid"}, "He was always a fool with a heart too soft to become a feared pirate"),
@@ -117,7 +117,7 @@ local interactions = {
                 "As long as we stick to undefended coastal towns we can make an easy fortune. Har Har! ...",
                 "As soon as I get out of here I'll finally become a pirate captain on my own. I don't need Captain Kid!"
             }),
-    NpcInteraction:createBaseFarewellInteraction(),
+    NpcInteraction:createFarewellInteraction(),
 }
 
 npcType.onSay = function(npc, creature, type, message)

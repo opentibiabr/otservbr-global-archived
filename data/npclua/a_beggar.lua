@@ -35,12 +35,12 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 local interactions = {
-    NpcInteraction:createBaseGreetInteraction("Hi %s! What is it, what d'ye {want}?")
+    NpcInteraction:createGreetInteraction("Hi %s! What is it, what d'ye {want}?")
         :addInitValidationProcessor(
             PlayerProcessingConfigs:new()
                :addStorage(Storage.DarkTrails.Mission01, 1)
         ),
-    NpcInteraction:createBaseGreetInteraction()
+    NpcInteraction:createGreetInteraction()
         :addInitValidationProcessor(
             PlayerProcessingConfigs:new()
                :addStorage(Storage.DarkTrails.Mission01, 2)
@@ -69,7 +69,7 @@ local interactions = {
         PlayerProcessingConfigs:new()
            :addStorage(Storage.DarkTrails.Mission01, 1)
     ),
-    NpcInteraction:createBaseFarewellInteraction(),
+    NpcInteraction:createFarewellInteraction(),
 }
 
 npcType.onSay = function(npc, creature, type, message)

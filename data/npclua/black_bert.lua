@@ -125,11 +125,11 @@ npcType.onPlayerCheckItem = function(npc, player, itemId)
 end
 
 local interactions = {
-    NpcInteraction:createBaseGreetInteraction("Hi there, %s! You look like you are eager to {trade}!"),
+    NpcInteraction:createGreetInteraction("Hi there, %s! You look like you are eager to {trade}!"),
     NpcInteraction:new(
             {"trade"},
             {
-                deniedMessage = "I don't know you and I don't have any dealings with people whom I don't trust."
+                cannotExecute = "I don't know you and I don't have any dealings with people whom I don't trust."
             }
     ):addCompletionValidationProcessor(
         PlayerProcessingConfigs:new()
@@ -139,7 +139,7 @@ local interactions = {
     PlayerProcessingConfigs:new()
        :addCallback(function (player, npc) npc:openShopWindow(player, 0) end)
     ),
-    NpcInteraction:createBaseFarewellInteraction()
+    NpcInteraction:createFarewellInteraction()
         :addCompletionUpdateProcessor(
         PlayerProcessingConfigs:new()
            :addCallback(function (player, npc) npc:closeShopWindow(player, 0) end)

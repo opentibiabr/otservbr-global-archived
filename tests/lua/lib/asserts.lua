@@ -1,10 +1,10 @@
 lu = require('luaunit')
 
 function lu.assertMessages(actual, expected)
-    lu.assertEquals(actual.replyMessage, expected.replyMessage)
-    lu.assertEquals(actual.confirmedMessage, expected.confirmedMessage)
-    lu.assertEquals(actual.declinedMessage, expected.declinedMessage)
-    lu.assertEquals(actual.deniedMessage, expected.deniedMessage)
+    lu.assertEquals(actual.reply, expected.reply)
+    lu.assertEquals(actual.confirmation, expected.confirmation)
+    lu.assertEquals(actual.cancellation, expected.cancellation)
+    lu.assertEquals(actual.cannotExecute, expected.cannotExecute)
 end
 
 function lu.assertTopic(actual, expected)
