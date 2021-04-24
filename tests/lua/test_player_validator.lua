@@ -1,26 +1,26 @@
 lu = require('luaunit')
 
-function testValidatorConstructWithNilPlayerThrows()
+function test_PlayerValidator_InvalidNilConstructorThrows()
     lu.assertErrorMsgContains(
         'PlayerValidator needs a valid player to run',
         function () PlayerValidator(self, nil) end
     )
 end
 
-function testValidatorConstructWithInvalidPlayerThrows()
+function test_PlayerValidator_InvalidNonPlayerConstructorThrows()
     lu.assertErrorMsgContains(
         'attempt to call method \'isPlayer\' (a nil value)',
         function () PlayerValidator(self, {}) end
     )
 end
 
-function testEmptyValidatorReturnTrue()
+function test_PlayerUpdater_EmptyValidatorReturnsTrue()
     lu.assertIsTrue(
         PlayerValidator(PlayerProcessingConfigs:new(), FakePlayer:new())
     )
 end
 
-function testValidateMoney()
+function test_PlayerUpdater_ValidateMoney()
     local player = FakePlayer:new({totalMoney = 12})
     local processor = PlayerProcessingConfigs:new()
 
@@ -42,7 +42,7 @@ function testValidateMoney()
     lu.assertIsTrue(PlayerValidator(processor, player))
 end
 
-function testValidatePosition()
+function test_PlayerUpdater_ValidatePosition()
     local player = FakePlayer:new({position = 123})
     local processor = PlayerProcessingConfigs:new():addPosition(123)
 
@@ -52,7 +52,7 @@ function testValidatePosition()
     lu.assertIsFalse(PlayerValidator(processor, player))
 end
 
-function testValidateItems()
+function test_PlayerUpdater_ValidateItems()
     local player = FakePlayer:new({itemCount = { [2173] = 1, [1732] = 9, [1515] = 0}})
     local processor = PlayerProcessingConfigs:new()
                          :addItem(2173, 1)
@@ -79,7 +79,7 @@ function testValidateItems()
     lu.assertIsTrue(PlayerValidator(processor, player))
 end
 
-function testValidateStorages()
+function test_PlayerUpdater_ValidateStorages()
     local player = FakePlayer:new({storageValue = { [2173] = 1, [1732] = 9, [1515] = 0}})
     local processor = PlayerProcessingConfigs:new()
                          :addStorage(2173, 1)
@@ -138,7 +138,7 @@ function testValidateStorages()
     lu.assertIsFalse(PlayerValidator(processor, player))
 end
 
-function testValidateCallbacks()
+function test_PlayerUpdater_ValidateCallbacks()
     local player = FakePlayer:new({storageValue = { [2173] = 1, [1732] = 9, [1515] = 0}})
     local processor = PlayerProcessingConfigs:new()
                         :addCallback(function () return true end)

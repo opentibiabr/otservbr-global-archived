@@ -1,27 +1,27 @@
 lu = require('luaunit')
 
-function testUpdaterConstructWithNilPlayerThrows()
+function test_PlayerUpdater_InvalidNilConstructorThrows()
     lu.assertErrorMsgContains(
         'PlayerUpdater needs a valid player to run',
         function () PlayerUpdater(self, nil) end
     )
 end
 
-function testUpdaterConstructWithInvalidPlayerThrows()
+function test_PlayerUpdater_InvalidNonPlayerConstructorThrows()
     lu.assertErrorMsgContains(
         'attempt to call method \'isPlayer\' (a nil value)',
         function () PlayerUpdater(self, {}) end
     )
 end
 
-function testEmptyUpdaterDoesNothing()
+function test_PlayerUpdater_EmptyUpdater()
     local player = FakePlayer:new()
     local mutatedPlayer = player
     PlayerUpdater(PlayerProcessingConfigs:new(), mutatedPlayer)
     lu.assertEquals(player, mutatedPlayer)
 end
 
-function testUpdateMoney()
+function test_PlayerUpdater_UpdateMoney()
     local player = FakePlayer:new()
 
     PlayerUpdater(
@@ -49,7 +49,7 @@ function testUpdateMoney()
     lu.assertEquals(player.totalMoney, 190)
 end
 
-function testUpdatePosition()
+function test_PlayerUpdater_UpdatePosition()
     local player = FakePlayer:new()
 
     PlayerUpdater(
@@ -71,7 +71,7 @@ function testUpdatePosition()
     lu.assertEquals(player.position, 256)
 end
 
-function testUpdateItems()
+function test_PlayerUpdater_UpdateItems()
     local player = FakePlayer:new()
 
     PlayerUpdater(
@@ -108,7 +108,7 @@ function testUpdateItems()
     lu.assertEquals(player.itemCount[2173], -3)
 end
 
-function testUpdateStorages()
+function test_PlayerUpdater_UpdateStorages()
     local player = FakePlayer:new()
 
     PlayerUpdater(
@@ -138,7 +138,7 @@ function testUpdateStorages()
     lu.assertEquals(player.storageValue[2173], 5)
 end
 
-function testUpdateCallbacks()
+function test_PlayerUpdater_UpdateCallbacks()
     local player = FakePlayer:new()
 
     PlayerUpdater(

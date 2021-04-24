@@ -1,15 +1,16 @@
 lu = require('luaunit')
 
-function testNewPlayerProcessingConfigs()
+function test_PlayerProcessingConfigs_EmptyConstructor()
     local processor = PlayerProcessingConfigs:new()
     lu.assertIsNil(processor.position)
     lu.assertEquals(processor.moneyAmount, nil)
     lu.assertEquals(processor.storages, {})
     lu.assertEquals(processor.items, {})
     lu.assertEquals(processor.callbacks, {})
+    lu.assertIsTrue(getmetatable(processor) == PlayerProcessingConfigs)
 end
 
-function testAddStorage()
+function test_PlayerProcessingConfigs_AddStorage()
     local processor = PlayerProcessingConfigs:new({}):addStorage(5055, 2)
     lu.assertEquals(processor.storages[5055], 2)
 
@@ -20,7 +21,7 @@ function testAddStorage()
     lu.assertEquals(processor.storages[5055], 1)
 end
 
-function testAddAmount()
+function test_PlayerProcessingConfigs_AddAmount()
     local processor = PlayerProcessingConfigs:new({}):addAmount(123)
     lu.assertEquals(processor.moneyAmount, 123)
 
@@ -34,7 +35,7 @@ function testAddAmount()
     lu.assertEquals(processor.moneyAmount, 0)
 end
 
-function testAddItem()
+function test_PlayerProcessingConfigs_AddItem()
     local processor = PlayerProcessingConfigs:new({}):addItem(2172, 11)
     lu.assertEquals(processor.items[2172], 11)
 
@@ -45,7 +46,7 @@ function testAddItem()
     lu.assertEquals(processor.items[2132], 2)
 end
 
-function testAddPosition()
+function test_PlayerProcessingConfigs_AddPosition()
     local processor = PlayerProcessingConfigs:new({}):addPosition({x = 1, y = 2, z = 3})
     lu.assertEquals(processor.position, {x = 1, y = 2, z = 3})
 
@@ -53,7 +54,7 @@ function testAddPosition()
     lu.assertEquals(processor.position, {x = 3, y = 2, z = 3})
 end
 
-function testAddCallback()
+function test_PlayerProcessingConfigs_AddCallback()
     local cb = function () return "test" end
     local processor = PlayerProcessingConfigs:new({}):addCallback(cb)
     lu.assertEquals(processor.callbacks[1], cb)
@@ -66,7 +67,7 @@ function testAddCallback()
     lu.assertEquals(processor.callbacks[2](), "test_2")
 end
 
-function testProcessingValidation()
+function test_PlayerProcessingConfigs_ProcessingValidation()
     local processor = PlayerProcessingConfigs:new()
                          :addAmount(10)
                          :addPosition(123)
