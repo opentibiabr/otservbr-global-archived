@@ -181,7 +181,6 @@ end
 function NpcInteraction:isValidProcessor(procesor)
     if getmetatable(procesor) ~= PlayerProcessingConfigs then
         error("Invalid argument: processor needs to be of type PlayerProcessingConfigs")
-        return false
     end
     return true
 end

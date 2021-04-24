@@ -280,3 +280,19 @@ function test_NpcInteraction_GetValidNpcInteractionForMessage()
     lu.assertEquals(interaction:getValidNpcInteractionForMessage("has another", npc, player), nil)
     lu.assertEquals(interaction:getValidNpcInteractionForMessage("has empty", npc, player), nil)
 end
+
+function test_NpcInteraction_IsValidSubInteraction()
+    lu.assertIsTrue(NpcInteraction:isValidSubInteraction(NpcInteraction:new()))
+    lu.assertErrorMsgContains(
+            'Invalid argument: subInteraction needs to be of type NpcInteraction',
+            function () NpcInteraction:isValidSubInteraction({}) end
+    )
+end
+
+function test_NpcInteraction_IsValidProcessor()
+    lu.assertIsTrue(NpcInteraction:isValidProcessor(PlayerProcessingConfigs:new()))
+    lu.assertErrorMsgContains(
+            'Invalid argument: processor needs to be of type PlayerProcessingConfigs',
+            function () NpcInteraction:isValidProcessor({}) end
+    )
+end
