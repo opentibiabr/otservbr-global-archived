@@ -13031,10 +13031,10 @@ int LuaScriptInterface::luaNpcIsInteractingWithPlayer(lua_State* L)
 
 int LuaScriptInterface::luaNpcIsPlayerInteractingOnTopic(lua_State* L)
 {
-	//npc:isPlayerInteractingOnTopic(creature, topicId)
+	//npc:isPlayerInteractingOnTopic(creature, topicId = 0)
 	Npc* npc = getUserdata<Npc>(L, 1);
 	Creature* creature = getCreature(L, 2);
-	uint32_t topicId = getNumber<uint32_t>(L, 3);
+	uint32_t topicId = getNumber<uint32_t>(L, 3, 0);
 
 	if (!npc) {
 		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
@@ -13044,12 +13044,6 @@ int LuaScriptInterface::luaNpcIsPlayerInteractingOnTopic(lua_State* L)
 
 	if (!creature) {
 		reportErrorFunc(getErrorDesc(LUA_ERROR_CREATURE_NOT_FOUND));
-		lua_pushnil(L);
-		return 1;
-	}
-
-	if (!topicId) {
-		reportErrorFunc("Topic id not found");
 		lua_pushnil(L);
 		return 1;
 	}
