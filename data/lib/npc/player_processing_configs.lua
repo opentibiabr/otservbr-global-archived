@@ -14,12 +14,12 @@ function PlayerProcessingConfigs:new()
     return obj
 end
 
-function PlayerProcessingConfigs:validate(player)
-    return PlayerValidator(self, player)
+function PlayerProcessingConfigs:validate(player, actor)
+    return PlayerValidator(self, player, actor)
 end
 
-function PlayerProcessingConfigs:update(player)
-    return PlayerUpdater(self, player)
+function PlayerProcessingConfigs:update(player, actor)
+    return PlayerUpdater(self, player, actor)
 end
 
 function PlayerProcessingConfigs:addStorage(key, value)

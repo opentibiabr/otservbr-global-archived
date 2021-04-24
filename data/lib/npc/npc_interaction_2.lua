@@ -61,18 +61,18 @@ end
 function NpcInteraction:execute(message, player, npc)
     if self:checkPlayerInteraction(player, npc) and self:hasMessageValidKeyword(message) then
         -- If initial processor validations failed, skip all the rest
-        if not self:runOnInitPlayerProcessors(player) then
+        if not self:runOnInitPlayerProcessors(player, npc) then
             return false
         end
 
         npc:talk(player, self.messages.replyMessage)
         self:updatePlayerInteraction(player, npc)
 
-        if self.parent and not self.parent:runOnCompletePlayerProcessors(player) then
+        if self.parent and not self.parent:runOnCompletePlayerProcessors(player, npc) then
             npc:talk(player, self.parent.messages.deniedMessage)
         end
 
-        if #self.children == 0 and not self:runOnCompletePlayerProcessors(player) then
+        if #self.children == 0 and not self:runOnCompletePlayerProcessors(player, npc) then
             npc:talk(player, self.messages.deniedMessage)
         end
 
@@ -115,25 +115,25 @@ function NpcInteraction:updatePlayerInteraction(player, npc)
     end
 end
 
-function NpcInteraction:runOnInitPlayerProcessors(player)
+function NpcInteraction:runOnInitPlayerProcessors(player, npc)
     for _, processor in pairs(self.onInitPlayerProcessors.validators) do
-        if not processor:validate(player) then return false end
+        if not processor:validate(player, npc) then return false end
     end
 
     for _, processor in pairs(self.onInitPlayerProcessors.updaters) do
-        processor:update(player)
+        processor:update(player, npc)
     end
 
     return true
 end
 
-function NpcInteraction:runOnCompletePlayerProcessors(player)
+function NpcInteraction:runOnCompletePlayerProcessors(player, npc)
     for _, processor in pairs(self.onCompletePlayerProcessors.validators) do
-        if not processor:validate(player) then return false end
+        if not processor:validate(player, npc) then return false end
     end
 
     for _, processor in pairs(self.onCompletePlayerProcessors.updaters) do
-        processor:update(player)
+        processor:update(player, npc)
     end
 
     return true
@@ -205,17 +205,17 @@ function NpcInteraction:isValidProcessor(procesor)
     return true
 end
 
-function NpcInteraction:createBaseGreetInteraction(message)
+function NpcInteraction:createBaseGreetInteraction(message, keywords)
     return NpcInteraction:new(
-            {"hi", "hello"},
+            keywords or {"hi", "hello"},
             {replyMessage = message or "Hello, %s, what you need?"},
             {previous = -1}
     )
 end
 
-function NpcInteraction:createBaseFarewellInteraction(message)
+function NpcInteraction:createBaseFarewellInteraction(message, keywords)
     return NpcInteraction:new(
-            {"bye", "farewell"},
+            keywords or {"bye", "farewell"},
             {replyMessage = message or "Goodbye, %s."},
             {current = -1}
     )

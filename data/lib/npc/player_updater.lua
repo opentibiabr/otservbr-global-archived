@@ -1,13 +1,13 @@
 PlayerUpdater = {}
 setmetatable(PlayerUpdater, {
     __call =
-    function(self, configs, player)
+    function(self, configs, player, actor)
         if not player or not player:isPlayer() then
             error("PlayerUpdater needs a valid player to run")
         end
 
         for i,parse in pairs(self) do
-            parse(configs, player)
+            parse(configs, player, actor)
         end
     end
 })
@@ -42,8 +42,8 @@ PlayerUpdater.updateStorages = function (configs, player)
     end
 end
 
-PlayerUpdater.runUpdateCallbacks = function (configs, player)
+PlayerUpdater.runUpdateCallbacks = function (configs, player, actor)
     for _, callback in pairs(configs.callbacks) do
-        callback(player)
+        callback(player, actor)
     end
 end

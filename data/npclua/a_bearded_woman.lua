@@ -121,11 +121,7 @@ local interactions = {
 }
 
 npcType.onSay = function(npc, creature, type, message)
-    return npc:processOnSay(
-        message,
-        creature:getPlayer(),
-        interactions
-    )
+    return npc:processOnSay(message, creature, interactions)
 end
 
 npcType:register(npcConfig)
