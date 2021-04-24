@@ -2,11 +2,10 @@ lu = require('luaunit')
 
 function test_NpcMessages_EmptyConstructor()
     local expectedMessages = {
-        greetMessage = "",
-        farewellMessage = "",
-        confirmedMessage = "",
-        declinedMessage = "",
-        deniedMessage = "",
+        replyMessage = "",
+        confirmedMessage = "Thank you, %s. It was a pleasure doing business with you.",
+        declinedMessage = "Then not.",
+        deniedMessage = "I'm sorry %s, I can't do that.",
     }
 
     local messages = NpcMessages:new()
@@ -17,10 +16,9 @@ end
 
 function test_NpcMessages_ConstructorWithParameters()
     local expectedMessages = {
-        greetMessage = "Hello moto!",
-        farewellMessage = "Bye, bastard!",
+        replyMessage = "Fuck you man!",
         confirmedMessage = "Hmm, you were wise in confirm!",
-        declinedMessage = "Fuck you.",
+        declinedMessage = "You Bastard..",
         deniedMessage = "You're joking, ehn?",
     }
 

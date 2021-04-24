@@ -24,10 +24,9 @@ function test_NpcInteraction_ConstructorParameters()
     local keywords = {"hi", "hello"}
 
     local messages = {
-        greetMessage = "Hello moto!",
-        farewellMessage = "Bye, bastard!",
+        replyMessage = "Fuck you man!",
         confirmedMessage = "Hmm, you were wise in confirm!",
-        declinedMessage = "Fuck you.",
+        declinedMessage = "You Bastard..",
         deniedMessage = "You're joking, ehn?",
     }
 
@@ -189,13 +188,7 @@ end
 
 function test_NpcInteraction_UpdatePlayerInteraction()
     local player = FakePlayer:new()
-    local npc = {}
-    function npc:removePlayerInteraction(player)
-        player.topic = nil
-    end
-    function npc:setPlayerInteraction(player, topic)
-        player.topic = topic
-    end
+    local npc = FakeNpc:new()
 
     lu.assertIsNil(player.topic)
 
@@ -309,11 +302,8 @@ function test_NpcInteraction_RunOnCompletePlayerProcessorsReturnFalseForFailedVa
 end
 
 function test_NpcInteraction_GetValidNpcInteractionForMessage()
-    local player = FakePlayer:new()
-    local npc = {}
-    function npc:isPlayerInteractingOnTopic(player, topic)
-        return topic == 1
-    end
+    local player = FakePlayer:new({topic = 1})
+    local npc = FakeNpc:new()
 
     local interaction = NpcInteraction:new({"parent"}, {}, {current = 1})
     local subInteraction = NpcInteraction:new({"child"}, {}, {current = 2, previous = 1})
@@ -347,14 +337,7 @@ end
 
 function test_NpcInteraction_ExecuteWithNoKeywordDoesNotUpdateTopic()
     local player = FakePlayer:new({topic = 0})
-    local npc = {}
-    function npc:isPlayerInteractingOnTopic(player, topic)
-        return player.topic == topic
-    end
-
-    function npc:updatePlayerInteraction(player, topic)
-        player.topic = topic
-    end
+    local npc = FakeNpc:new()
 
     lu.assertEquals(player.topic, 0)
     NpcInteraction:new({"valid"}, {}, {current = 2, previous = 0}):execute("invalid", player, npc)
@@ -364,14 +347,7 @@ end
 
 function test_NpcInteraction_ExecuteWithInvalidTopicDoesNotUpdateTopic()
     local player = FakePlayer:new({topic = 0})
-    local npc = {}
-    function npc:isPlayerInteractingOnTopic(player, topic)
-        return player.topic == topic
-    end
-
-    function npc:updatePlayerInteraction(player, topic)
-        player.topic = topic
-    end
+    local npc = FakeNpc:new()
 
     lu.assertEquals(player.topic, 0)
     NpcInteraction:new({"valid"}, {}, {current = 2, previous = 1}):execute("valid", player, npc)
@@ -381,14 +357,7 @@ end
 
 function test_NpcInteraction_ValidExecuteUpdatesTopic()
     local player = FakePlayer:new({topic = 0})
-    local npc = {}
-    function npc:isPlayerInteractingOnTopic(player, topic)
-        return player.topic == topic
-    end
-
-    function npc:updatePlayerInteraction(player, topic)
-        player.topic = topic
-    end
+    local npc = FakeNpc:new()
 
     lu.assertEquals(player.topic, 0)
     NpcInteraction:new({"valid"}, {}, {current = 2, previous = 0}):execute("valid", player, npc)
@@ -398,17 +367,17 @@ end
 
 function test_NpcInteraction_ValidExecuteRunProcessors()
     local player = FakePlayer:new({topic = 0})
-    local npc = {}
+    local npc = FakeNpc:new()
     local call = 0
 
     function npc:isPlayerInteractingOnTopic(player, topic)
         call = call + 1
-        return player.topic == topic
+        return FakeNpc:isPlayerInteractingOnTopic(player, topic)
     end
 
-    function npc:updatePlayerInteraction(player, topic)
+    function npc:setPlayerInteraction(player, topic)
         call = call + 1
-        player.topic = topic
+        FakeNpc:setPlayerInteraction(player, topic)
     end
 
     local interaction = NpcInteraction:new({"valid"}, {}, {current = 2, previous = 0})
@@ -431,21 +400,21 @@ function test_NpcInteraction_ValidExecuteRunProcessors()
 end
 
 function test_NpcInteraction_ValidExecuteWithFailedValidationDoesntTriggerUpdates()
-    local player = FakePlayer:new({topic = 0})
-    local npc = {}
+    local player = FakePlayer:new({topic = 1})
+    local npc = FakeNpc:new()
     local call = 0
 
     function npc:isPlayerInteractingOnTopic(player, topic)
         call = call + 1
-        return player.topic == topic
+        return FakeNpc:isPlayerInteractingOnTopic(player, topic)
     end
 
-    function npc:updatePlayerInteraction(player, topic)
+    function npc:setPlayerInteraction(player, topic)
         call = call + 1
-        player.topic = topic
+        FakeNpc:setPlayerInteraction(player, topic)
     end
 
-    local interaction = NpcInteraction:new({"valid"}, {}, {current = 2, previous = 0})
+    local interaction = NpcInteraction:new({"valid"}, {}, {current = 2, previous = 10})
 
     interaction.runOnCompletePlayerProcessors = function()
         call = call + 1
@@ -457,25 +426,17 @@ function test_NpcInteraction_ValidExecuteWithFailedValidationDoesntTriggerUpdate
     end
 
     lu.assertEquals(call, 0)
-    lu.assertEquals(player.topic, 0)
+    lu.assertEquals(player.topic, 1)
     interaction:execute("valid", player, npc)
 
-    lu.assertEquals(call, 2)
-    lu.assertEquals(player.topic, 0)
+    lu.assertEquals(call, 1)
+    lu.assertEquals(player.topic, 1)
 end
 
 function test_NpcInteraction_ValidExecuteWithChildRunOnlyInitProcessors()
     local player = FakePlayer:new({topic = 0})
-    local npc = {}
+    local npc = FakeNpc:new()
     local call = 0
-
-    function npc:isPlayerInteractingOnTopic(player, topic)
-        return player.topic == topic
-    end
-
-    function npc:updatePlayerInteraction(player, topic)
-        player.topic = topic
-    end
 
     local interaction = NpcInteraction:new({"valid"}, {}, {current = 2, previous = 0})
 
@@ -501,22 +462,14 @@ function test_NpcInteraction_ValidExecuteWithChildRunOnlyInitProcessors()
     interaction:execute("valid", player, npc)
 
     lu.assertEquals(call, 1)
-    lu.assertEquals(callChild, 1)
+    lu.assertEquals(callChild, 0)
     lu.assertEquals(player.topic, 2)
 end
 
 function test_NpcInteraction_ValidChildExecuteRunsParentCompleteProcessor()
     local player = FakePlayer:new({topic = 0})
-    local npc = {}
+    local npc = FakeNpc:new()
     local call = 0
-
-    function npc:isPlayerInteractingOnTopic(player, topic)
-        return player.topic == topic
-    end
-
-    function npc:updatePlayerInteraction(player, topic)
-        player.topic = topic
-    end
 
     local interaction = NpcInteraction:new({"valid"}, {}, {current = 2, previous = 0})
 

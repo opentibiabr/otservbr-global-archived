@@ -7,6 +7,7 @@ dofile('lib/asserts.lua')
 dofile('lib/utils.lua')
 
 -- Load mock files
+dofile('mock/fake_npc.lua')
 dofile('mock/fake_player.lua')
 
 -- Load testable files

@@ -17,12 +17,10 @@ end
 function NpcMessages:new(obj)
     obj = obj or {}
     obj = {
-        -- TODO: to insert default messages
-        greetMessage = obj.greetMessage or "",
-        farewellMessage = obj.farewellMessage or "",
-        confirmedMessage = obj.confirmedMessage or "",
-        declinedMessage = obj.declinedMessage or "",
-        deniedMessage = obj.deniedMessage or "",
+        replyMessage = obj.replyMessage or "",
+        confirmedMessage = obj.confirmedMessage or "Thank you, %s. It was a pleasure doing business with you.",
+        declinedMessage = obj.declinedMessage or "Then not.",
+        deniedMessage = obj.deniedMessage or "I'm sorry %s, I can't do that.",
     }
 
     setmetatable(obj, self)
@@ -61,26 +59,31 @@ function NpcInteraction:new(keywords, messages, topic)
 end
 
 function NpcInteraction:execute(message, player, npc)
-    local canExecute = not self.topic.previous or npc:isPlayerInteractingOnTopic(player, self.topic.previous)
-
-    if canExecute and self:hasMessageValidKeyword(message) then
+    if self:checkPlayerInteraction(player, npc) and self:hasMessageValidKeyword(message) then
         -- If initial processor validations failed, skip all the rest
-        if not self:runOnInitPlayerProcessors(player) then return end
-
-        npc:updatePlayerInteraction(player, self.topic.current)
-
-        if self.parent then
-            self.parent:runOnCompletePlayerProcessors(player)
+        if not self:runOnInitPlayerProcessors(player) then
+            return false
         end
 
-        if #self.children == 0 then
-            self:runOnCompletePlayerProcessors(player)
+        npc:talk(player, self.messages.replyMessage)
+        self:updatePlayerInteraction(player, npc)
+
+        if self.parent and not self.parent:runOnCompletePlayerProcessors(player) then
+            npc:talk(player, self.parent.messages.deniedMessage)
         end
+
+        if #self.children == 0 and not self:runOnCompletePlayerProcessors(player) then
+            npc:talk(player, self.messages.deniedMessage)
+        end
+
+        return true
     end
 
     for _, child in pairs(self.children) do
-        child:execute(message, player)
+        child:execute(message, player, npc)
     end
+
+    return false
 end
 
 function NpcInteraction:hasMessageValidKeyword(message)
@@ -90,6 +93,18 @@ function NpcInteraction:hasMessageValidKeyword(message)
         end
     end
     return false
+end
+
+function NpcInteraction:checkPlayerInteraction(player, npc)
+    if not self.topic.previous then
+        return npc:isInteractingWithPlayer(player)
+    end
+
+    if self.topic.previous == -1 then
+        return not npc:isInteractingWithPlayer(player)
+    end
+
+    return npc:isPlayerInteractingOnTopic(player, self.topic.previous)
 end
 
 function NpcInteraction:updatePlayerInteraction(player, npc)
@@ -188,4 +203,28 @@ function NpcInteraction:isValidProcessor(procesor)
         error("Invalid argument: processor needs to be of type PlayerProcessingConfigs")
     end
     return true
+end
+
+function NpcInteraction:createBaseGreetInteraction(message)
+    return NpcInteraction:new(
+            {"hi", "hello"},
+            {replyMessage = message or "Hello, %s, what you need?"},
+            {previous = -1}
+    )
+end
+
+function NpcInteraction:createBaseFarewellInteraction(message)
+    return NpcInteraction:new(
+            {"bye", "farewell"},
+            {replyMessage = message or "Goodbye, %s."},
+            {current = -1}
+    )
+end
+
+function NpcInteraction:createBasicReplyInteraction(keywords, message, topic)
+    return NpcInteraction:new(
+            keywords,
+            {replyMessage = message},
+            topic
+    )
 end

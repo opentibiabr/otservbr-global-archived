@@ -1,5 +1,5 @@
 local npcType = Game.createNpcType("A Beautiful Girl")
-local npcConfig = {} 
+local npcConfig = {}
 
 npcConfig.description = "A Beautiful Girl"
 
@@ -34,11 +34,16 @@ end
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
+local interactions = {
+    NpcInteraction:createBaseGreetInteraction("So you have come, %s. I hoped you would not..."),
+    NpcInteraction:createBaseFarewellInteraction(),
+}
+
 npcType.onSay = function(npc, creature, type, message)
     return npc:processOnSay(
         message,
         creature,
-        { NpcInteraction:new({"hi"}, "So you have come, ".. creature:getName() ..". I hoped you would not...", interactionTypes.INTERACTION_GREET) }
+        interactions
     )
 end
 

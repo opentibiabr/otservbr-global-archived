@@ -1,6 +1,9 @@
 -- add npc interaction lib
 dofile('data/lib/npc/npc_utils.lua')
-dofile('data/lib/npc/npc_interaction.lua')
+dofile('data/lib/npc/player_processing_configs.lua')
+dofile('data/lib/npc/player_updater.lua')
+dofile('data/lib/npc/player_validator.lua')
+dofile('data/lib/npc/npc_interaction_2.lua')
 
 -- Checks whether a message is being sent to npc
 -- msgContains(message, keyword)
@@ -11,6 +14,16 @@ function msgContains(message, keyword)
 	end
 
 	return message:find(keyword) and not message:find('(%w+)' .. keyword)
+end
+
+function Npc:decoratedTalkToCreature(creature, text)
+    if type(text) == "table" then
+        for i = 0, #text do
+            self:sendMessage(creature, text[i])
+        end
+    else
+        self:sendMessage(creature, text)
+    end
 end
 
 -- Npc talk
@@ -28,7 +41,7 @@ end
 -- Npc send message to player
 -- npc:sendMessage(text)
 function Npc:sendMessage(creature, text)
-	return self:say(text, TALKTYPE_PRIVATE_NP, true, creature)
+	return self:say(string.format(text or "", creature:getName()), TALKTYPE_PRIVATE_NP, true, creature)
 end
 
 function Npc:processOnSay(message, player, npcInteractions)
@@ -40,19 +53,11 @@ function Npc:processOnSay(message, player, npcInteractions)
         return false
     end
 
-    table.insert(npcInteractions, NpcInteraction:newDefaultByType(player, interactionTypes.INTERACTION_GREET))
-    table.insert(npcInteractions, NpcInteraction:newDefaultByType(player, interactionTypes.INTERACTION_FAREWELL))
-
     for _, npcInteraction in pairs(npcInteractions) do
-        local validInteraction = npcInteraction:getValidInteraction(self, player, message)
-        if validInteraction then return validInteraction:execute(self, player) end
+        if npcInteraction:execute(message, player, self) then return true end
     end
 
-    if self:isInteractingWithPlayer(player) then
-        self:talk(player, NpcInteraction:newDefaultByType(player).message)
-    end
-
-    return true
+    return false
 end
 
 function Npc:doSellItem(cid, itemId, amount, subType, ignoreCap, inBackpacks, backpack)

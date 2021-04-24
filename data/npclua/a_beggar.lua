@@ -34,30 +34,49 @@ end
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
-npcType.onSay = function(npc, creature, type, message)
-    return npc:processOnSay(
-        message,
-        creature:getPlayer(),
-        {
-            NpcInteraction:new({"hi"}, "Hi! What is it, what d'ye {want}?", interactionTypes.INTERACTION_GREET),
-            NpcInteraction
-                :new({"want"}, "The guys from the magistrate sent you here, didn't they?")
-                :setTopic(1)
-                :addStorageCheck(Storage.DarkTrails.Mission01, 1),
-            NpcInteraction
-                :new(
-                    {"yes"},
-                    {
+local interactions = {
+    NpcInteraction:createBaseGreetInteraction("Hi %s! What is it, what d'ye {want}?")
+        :addInitValidationProcessor(
+            PlayerProcessingConfigs:new()
+               :addStorage(Storage.DarkTrails.Mission01, 1)
+        ),
+    NpcInteraction:createBaseGreetInteraction()
+        :addInitValidationProcessor(
+            PlayerProcessingConfigs:new()
+               :addStorage(Storage.DarkTrails.Mission01, 2)
+        ),
+    NpcInteraction:createBasicReplyInteraction(
+            {"want"},
+            {"The guys from the magistrate sent you here, didn't they?"},
+            {current = 1, previous = 0}
+    ):addSubInteraction(
+            NpcInteraction:createBasicReplyInteraction(
+                {"yes"},
+                {
                         "Thought so. You'll have to talk to the king though. The beggar king that is. The king does not grant an audience to just everyone. You know how those kings are, don't you? ... ",
                         "However, to get an audience with the king, you'll have to help his subjects a bit. ... ",
                         "His subjects that would be us, the poor, you know? ... ",
                         "So why don't you show your dedication to the poor? Go and help Chavis at the poor house. He's collecting food for people like us. ... ",
                         "If you brought enough of the stuff you'll see that the king will grant you entrance in his {palace}."
-                    }
-                ):setTopic(0, 1)
-                :addStorageChange(Storage.DarkTrails.Mission01, 2)
-                :addStorageChange(Storage.DarkTrails.Mission02, 1),
-        }
+                    },
+                    {current = 0, previous = 1}
+            ):addCompletionUpdateProcessor(
+                    PlayerProcessingConfigs:new()
+                        :addStorage(Storage.DarkTrails.Mission01, 2)
+                        :addStorage(Storage.DarkTrails.Mission02, 1)
+            )
+    ):addInitValidationProcessor(
+        PlayerProcessingConfigs:new()
+           :addStorage(Storage.DarkTrails.Mission01, 1)
+    ),
+    NpcInteraction:createBaseFarewellInteraction(),
+}
+
+npcType.onSay = function(npc, creature, type, message)
+    return npc:processOnSay(
+        message,
+        creature:getPlayer(),
+        interactions
     )
 end
 

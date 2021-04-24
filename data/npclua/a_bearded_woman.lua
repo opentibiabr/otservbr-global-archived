@@ -1,5 +1,5 @@
 local npcType = Game.createNpcType("A Bearded Woman")
-local npcConfig = {} 
+local npcConfig = {}
 
 npcConfig.description = "A Bearded Woman"
 
@@ -46,82 +46,86 @@ end
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
+local interactions = {
+    NpcInteraction:createBaseGreetInteraction("GET ME OUT OF HERE! NOW!"),
+    NpcInteraction:createBasicReplyInteraction({"job"}, "I am a great and famous actor! Not a princess, at all. I was only PRETENDING to be a princess. But try explaining that to those stupid pirates."),
+    NpcInteraction:createBasicReplyInteraction({"actor", "stage"}, "Stage acting was a waste of my immense talent. Not only am I a born leader, my talent is more profitable when it is used for conning people."),
+    NpcInteraction:createBasicReplyInteraction({"kid"}, "He was always a fool with a heart too soft to become a feared pirate"),
+    NpcInteraction:createBasicReplyInteraction({"princess"}, "Me playing a princess was just part of a cunning plan we had"),
+    NpcInteraction:createBasicReplyInteraction({"cell"}, "If you find some way to release me I might even let you live as reward! So you'd better do your best or I'll kill you!"),
+    NpcInteraction:createBasicReplyInteraction({"name"}, "How dare you? I left to rot in this dirty cell and you have nothing better to do than chit chat?"),
+    NpcInteraction:createBasicReplyInteraction({"rot"}, "YOU .. YOU .. You are as good as dead! I will get you! Do you hear me? I will have your head! On a platter!"),
+    NpcInteraction:createBasicReplyInteraction(
+            {"pirate"},
+            {
+                "In a just world, I would be captain of a grand ship, ...",
+                "Those pirates out there would now be my minions, and we would brave the seas and become the terror of the coastal towns! ...",
+                "If only our plan had worked!"
+            }),
+    NpcInteraction:createBasicReplyInteraction(
+            {"ship"},
+            {
+                "Captain Kid sold his ship to buy pointless things like those insanely expensive locks for the cell doors. ...",
+                "He said the canoes would do for a while. ...",
+                "I got the impression he was not overly sad to part with the ship because he was known to suffer a lot from seasickness."
+            }),
+    NpcInteraction:createBasicReplyInteraction(
+            {"captain"},
+            {
+                "I'd have been a much better captain then Kid was. I played several captains on stage and I was good! ...",
+                "Where Kid longed for the appreciation of his men, I would rule by fear and with an iron fist!"
+            }),
+    NpcInteraction:createBasicReplyInteraction(
+            {"plan"},
+            {
+                "It was all captain Kid's idea. You see, he hated his name and planned to become known by the name captain Kidnap. ...",
+                "All he needed was someone famous to kidnap. ...",
+                "Given his men's dismal lack of talent and intelligence that would have been quite a feat. ...",
+                "We knew each other from a few scams we did together in the past, so he contacted me. ...",
+                "I was to impersonate the famous Princess Lumelia. You know, the one everyone was looking for. ...",
+                "That would show his men and the other pirates what a great kidnapper he was. ...",
+                "He promised me that I would become his second in command and lead a wonderful life of plundering, robbing and pillaging. ...",
+                "So I agreed to impersonate the Princess for a while and it worked fine at first. ...",
+                "He returned with me dressed as the Princess from a raid on his own and was instantaneously the hero of the day for his men. ...",
+                "Things went bad when they decided to have a victory party. ...",
+                "As far as I could make out from the mumblings of the pirates, Kid lost the key to my cell while relieving himself in the underground river. ...",
+                "The fool decided to dive after it .. never to be seen again. ...",
+                "When I found out about Kid's demise I tried to convince the pirates it was a hoax, but they just won't believe me!"
+            }),
+    NpcInteraction:createBasicReplyInteraction(
+            {"kidnap"},
+            {
+                "Ah kidnapping is so much fun. That is, if you're not on the receiving end. ...",
+                "It's easy money and you have a chance to frighten and torture someone who can't fight back!"
+            }),
+    NpcInteraction:createBasicReplyInteraction(
+            {"scams"},
+            {
+                "The more stupid the people are, the easier it is to con them. ...",
+                "And the poorer they are the less means they have to get revenge. Har Har! ...",
+                "So I make sure I ruin those I scam. Then they have other things to worry about than getting revenge on me."
+            }),
+    NpcInteraction:createBasicReplyInteraction(
+            {"key"},
+            {
+                "The key was lost in the underground river and has probably washed into the seven seas by now! ...",
+                "If that stupid Kid hadn't been so obsessed with kidnapping he'd not have sold his ship to buy the most expensive and complicated locks for his cells!"
+            }),
+    NpcInteraction:createBasicReplyInteraction(
+            {"plundering"},
+            {
+                "As long as we stick to undefended coastal towns we can make an easy fortune. Har Har! ...",
+                "As soon as I get out of here I'll finally become a pirate captain on my own. I don't need Captain Kid!"
+            }),
+    NpcInteraction:createBaseFarewellInteraction(),
+}
+
 npcType.onSay = function(npc, creature, type, message)
     return npc:processOnSay(
         message,
         creature:getPlayer(),
-        {
-            NpcInteraction:new({"hi"}, "GET ME OUT OF HERE! NOW!", interactionTypes.INTERACTION_GREET),
-            NpcInteraction:new({"job"}, "I am a great and famous actor! Not a princess, at all. I was only PRETENDING to be a princess. But try explaining that to those stupid pirates."),
-            NpcInteraction:new({"actor", "stage"}, "Stage acting was a waste of my immense talent. Not only am I a born leader, my talent is more profitable when it is used for conning people."),
-            NpcInteraction:new({"kid"}, "He was always a fool with a heart too soft to become a feared pirate"),
-            NpcInteraction:new({"princess"}, "Me playing a princess was just part of a cunning plan we had"),
-            NpcInteraction:new({"cell"}, "If you find some way to release me I might even let you live as reward! So you'd better do your best or I'll kill you!"),
-            NpcInteraction:new({"name"}, "How dare you? I left to rot in this dirty cell and you have nothing better to do than chit chat?"),
-            NpcInteraction:new({"rot"}, "YOU .. YOU .. You are as good as dead! I will get you! Do you hear me? I will have your head! On a platter!"),
-            NpcInteraction:new(
-                {"pirate"},
-                {
-                 "In a just world, I would be captain of a grand ship, ...",
-                 "Those pirates out there would now be my minions, and we would brave the seas and become the terror of the coastal towns! ...",
-                 "If only our plan had worked!"
-                }),
-            NpcInteraction:new(
-                {"ship"},
-                {
-                 "Captain Kid sold his ship to buy pointless things like those insanely expensive locks for the cell doors. ...",
-                 "He said the canoes would do for a while. ...",
-                 "I got the impression he was not overly sad to part with the ship because he was known to suffer a lot from seasickness."
-                }),
-            ["captain"] = NpcInteraction:new(
-                {"captain"},
-                {
-                 "I'd have been a much better captain then Kid was. I played several captains on stage and I was good! ...",
-                 "Where Kid longed for the appreciation of his men, I would rule by fear and with an iron fist!"
-                }),
-            NpcInteraction:new(
-                {"plan"},
-                {
-                    "It was all captain Kid's idea. You see, he hated his name and planned to become known by the name captain Kidnap. ...",
-                    "All he needed was someone famous to kidnap. ...",
-                    "Given his men's dismal lack of talent and intelligence that would have been quite a feat. ...",
-                    "We knew each other from a few scams we did together in the past, so he contacted me. ...",
-                    "I was to impersonate the famous Princess Lumelia. You know, the one everyone was looking for. ...",
-                    "That would show his men and the other pirates what a great kidnapper he was. ...",
-                    "He promised me that I would become his second in command and lead a wonderful life of plundering, robbing and pillaging. ...",
-                    "So I agreed to impersonate the Princess for a while and it worked fine at first. ...",
-                    "He returned with me dressed as the Princess from a raid on his own and was instantaneously the hero of the day for his men. ...",
-                    "Things went bad when they decided to have a victory party. ...",
-                    "As far as I could make out from the mumblings of the pirates, Kid lost the key to my cell while relieving himself in the underground river. ...",
-                    "The fool decided to dive after it .. never to be seen again. ...",
-                    "When I found out about Kid's demise I tried to convince the pirates it was a hoax, but they just won't believe me!"
-                }),
-            NpcInteraction:new(
-                {"kidnap"},
-                {
-                    "Ah kidnapping is so much fun. That is, if you're not on the receiving end. ...",
-                    "It's easy money and you have a chance to frighten and torture someone who can't fight back!"
-                }),
-            NpcInteraction:new(
-                {"scams"},
-                {
-                    "The more stupid the people are, the easier it is to con them. ...",
-                    "And the poorer they are the less means they have to get revenge. Har Har! ...",
-                    "So I make sure I ruin those I scam. Then they have other things to worry about than getting revenge on me."
-                }),
-            NpcInteraction:new(
-                {"key"},
-                {
-                    "The key was lost in the underground river and has probably washed into the seven seas by now! ...",
-                    "If that stupid Kid hadn't been so obsessed with kidnapping he'd not have sold his ship to buy the most expensive and complicated locks for his cells!"
-                }),
-            NpcInteraction:new(
-                {"plundering"},
-                {
-                    "As long as we stick to undefended coastal towns we can make an easy fortune. Har Har! ...",
-                    "As soon as I get out of here I'll finally become a pirate captain on my own. I don't need Captain Kid!"
-                }),
-    })
+        interactions
+    )
 end
 
 npcType:register(npcConfig)
