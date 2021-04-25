@@ -1,5 +1,3 @@
-lu = require('luaunit')
-
 function lu.assertMessages(actual, expected)
     lu.assertEquals(actual.reply, expected.reply)
     lu.assertEquals(actual.confirmation, expected.confirmation)

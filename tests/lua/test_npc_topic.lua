@@ -1,5 +1,3 @@
-lu = require('luaunit')
-
 function test_NpcTopic_EmptyConstructor()
     local expectedTopic = {
         current = 0,

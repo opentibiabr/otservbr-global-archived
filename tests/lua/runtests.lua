@@ -1,27 +1,26 @@
-lu = require('luaunit')
-
+--dofile('tests/lua/luainit.lua')
+lu = require('tests.lua.luaunit')
 TestWithFailures = {}
 
 -- Load lib files
-dofile('lib/asserts.lua')
-dofile('lib/utils.lua')
+dofile('tests/lua/lib/asserts.lua')
+dofile('tests/lua/lib/utils.lua')
 
 -- Load mock files
-dofile('mock/fake_npc.lua')
-dofile('mock/fake_player.lua')
+dofile('tests/lua/mock/fake_npc.lua')
+dofile('tests/lua/mock/fake_player.lua')
 
 -- Load testable files
-dofile('../../data/lib/npc/npc_interaction.lua')
-dofile('../../data/lib/npc/player_validator.lua')
-dofile('../../data/lib/npc/player_updater.lua')
-dofile('../../data/lib/npc/player_processing_configs.lua')
+dofile('data/lib/npc/npc_interaction/load.lua')
+
+dofile('data/lib/player_processor/load.lua')
 
 -- Load test files
-dofile('test_npc_interaction.lua')
-dofile('test_npc_messages.lua')
-dofile('test_npc_topic.lua')
-dofile('test_player_processing_configs.lua')
-dofile('test_player_updater.lua')
-dofile('test_player_validator.lua')
+dofile('tests/lua/test_npc_interaction.lua')
+dofile('tests/lua/test_npc_messages.lua')
+dofile('tests/lua/test_npc_topic.lua')
+dofile('tests/lua/test_player_processing_configs.lua')
+dofile('tests/lua/test_player_updater.lua')
+dofile('tests/lua/test_player_validator.lua')
 
 os.exit( lu.LuaUnit.run() )

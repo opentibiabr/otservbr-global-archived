@@ -1,5 +1,3 @@
-lu = require('luaunit')
-
 function test_NpcInteraction_EmptyConstructor()
     local interaction = NpcInteraction:new()
     lu.assertEquals(interaction.parent, nil)

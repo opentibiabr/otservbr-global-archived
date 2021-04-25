@@ -30,17 +30,16 @@ end
 
 local interactions = {
     NpcInteraction:createGreetInteraction(),
-    NpcInteraction:createReplyInteraction(
+    NpcInteraction:createChildInteraction(
             {"trip", "passage", "back"},
-            "You want to go back?",
-            {current = 1, previous = 0}
-    ):addSubInteraction(
-        NpcInteraction:createReplyInteraction( {"yes"}, "It'zz your doom you travel to.", {current = 0, previous = 1})
-    ):addSubInteraction(
-        NpcInteraction:createReplyInteraction( {"no"},"Zzoftzzkinzz zzo full of fear.", {current = 0, previous = 1}),
-        InteractionRelationType.RELATION_CANCELLATION
+            {
+                reply = "You want to go back?",
+                confirmation = "It'zz your doom you travel to.",
+                cancellation = "Zzoftzzkinzz zzo full of fear."
+            },
+            1
     ):addCompletionUpdateProcessor(
-        PlayerProcessingConfigs:new():addPosition(Position(33158, 31228, 7))
+            PlayerProcessingConfigs:new():addPosition(Position(33158, 31228, 7))
     ),
     NpcInteraction:createReplyInteraction({"job", "hurry"}, "Me zzimple ferryman. I arrange {trip} to Zao."),
     NpcInteraction:createFarewellInteraction(),

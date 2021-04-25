@@ -1,9 +1,6 @@
 -- add npc interaction lib
-dofile('data/lib/npc/player_processing_configs.lua')
 dofile('data/lib/npc/npc_utils.lua')
-dofile('data/lib/npc/player_updater.lua')
-dofile('data/lib/npc/player_validator.lua')
-dofile('data/lib/npc/npc_interaction.lua')
+dofile('data/lib/npc/npc_interaction/load.lua')
 
 -- Checks whether a message is being sent to npc
 -- msgContains(message, keyword)

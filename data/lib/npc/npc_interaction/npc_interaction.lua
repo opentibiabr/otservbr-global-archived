@@ -1,41 +1,9 @@
 NpcInteraction = {}
-NpcMessages = {}
-NpcTopic = {}
 
 InteractionRelationType = {
     RELATION_CONFIRMATION = 1,
     RELATION_CANCELLATION = 2,
 }
-
-function NpcTopic:new(obj)
-    if getmetatable(obj) == NpcTopic then return obj end
-
-    obj = obj or {}
-    obj = {
-        current = obj.current or 0,
-        previous = obj.previous or nil,
-    }
-
-    setmetatable(obj, self)
-    self.__index = self
-    return obj
-end
-
-function NpcMessages:new(obj)
-    if getmetatable(obj) == NpcMessages then return obj end
-
-    obj = obj or {}
-    obj = {
-        reply = obj.reply or "",
-        confirmation = obj.confirmation or "",
-        cancellation = obj.cancellation or "",
-        cannotExecute = obj.cannotExecute or "",
-    }
-
-    setmetatable(obj, self)
-    self.__index = self
-    return obj
-end
 
 function NpcInteraction:new(keywords, messages, topic)
     obj = {
@@ -80,7 +48,7 @@ function NpcInteraction:execute(message, player, npc)
         if self.parent and self.parent.relationType == InteractionRelationType.RELATION_CONFIRMATION then
             self.parent.interaction:runOnCompletePlayerProcessors(player, npc)
         elseif self.parent then
-            npc:talk(player, self.parent.interaction.messages.cannotExecute)
+            npc:talk(player, self.parent.interaction.messages.cancellation)
         end
 
         if #self.children == 0 then
@@ -219,52 +187,4 @@ function NpcInteraction:isValidProcessor(procesor)
         error("Invalid argument: processor needs to be of type PlayerProcessingConfigs")
     end
     return true
-end
-
-function NpcInteraction:createGreetInteraction(message, keywords)
-    return NpcInteraction:new(
-        keywords or {"hi", "hello"},
-        {reply = message or "Hello, %s, what you need?"},
-        {previous = -1}
-    )
-end
-
-function NpcInteraction:createFarewellInteraction(message, keywords)
-    return NpcInteraction:new(
-        keywords or {"bye", "farewell"},
-        {reply = message or "Goodbye, %s."},
-        {current = -1}
-    )
-end
-
-function NpcInteraction:createReplyInteraction(keywords, message, topic)
-    return NpcInteraction:new(
-        keywords,
-        {reply = message},
-        topic
-    )
-end
-
-function NpcInteraction:createTravelInteraction(player, town, cost, position, messages, discount, travelTopic)
-    cost = player:calculateTravelPrice(cost, discount)
-
-    return NpcInteraction:new(
-        {town},
-            {
-                reply = buildTravelMessage(messages.reply, town, cost),
-                confirmation = messages.confirmation,
-                cancellation = messages.cancellation,
-                cannotExecute = messages.cannotExecute,
-            },
-        {current = travelTopic, previous = 0}
-    ):addSubInteraction(
-        NpcInteraction:createReplyInteraction( {"yes"}, nil, {current = 0, previous = travelTopic})
-    ):addSubInteraction(
-        NpcInteraction:createReplyInteraction( {"no"},nil, {current = 0, previous = travelTopic}),
-        InteractionRelationType.RELATION_CANCELLATION
-    ):addCompletionUpdateProcessor(
-        PlayerProcessingConfigs:new()
-           :addPosition(position)
-           :removeAmount(cost)
-    )
 end

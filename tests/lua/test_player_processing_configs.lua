@@ -1,5 +1,3 @@
-lu = require('luaunit')
-
 function test_PlayerProcessingConfigs_EmptyConstructor()
     local processor = PlayerProcessingConfigs:new()
     lu.assertIsNil(processor.position)

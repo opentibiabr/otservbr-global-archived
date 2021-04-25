@@ -1,5 +1,3 @@
-lu = require('luaunit')
-
 function msgContains(message, keyword)
     local message, keyword = message:lower(), keyword:lower()
     if message == keyword then

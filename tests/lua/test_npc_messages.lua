@@ -1,5 +1,3 @@
-lu = require('luaunit')
-
 function test_NpcMessages_EmptyConstructor()
     local expectedMessages = {
         reply = "",

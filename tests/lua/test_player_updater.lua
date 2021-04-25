@@ -1,5 +1,3 @@
-lu = require('luaunit')
-
 function test_PlayerUpdater_InvalidNilConstructorThrows()
     lu.assertErrorMsgContains(
         'PlayerUpdater needs a valid player to run',
