@@ -98,6 +98,7 @@ class Npcs
 		NpcType* getNpcType(const std::string& name, bool create = false);
 		void reset() {
 			npcs.clear();
+			scriptInterface.reset();
 		};
 
 		std::unique_ptr<LuaScriptInterface> scriptInterface;
