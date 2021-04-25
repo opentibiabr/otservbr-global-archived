@@ -33,6 +33,7 @@ local familiarStorage = Storage.PetSummon
 local familiarLogin = CreatureEvent("FamiliarLogin")
 
 function familiarLogin.onLogin(player)
+	if not player then return false end
 	local vocation = familiar[player:getVocation():getClientId()]
 	local familiarName
 	local petTimeLeft = player:getStorageValue(familiarStorage) - player:getLastLogout()
@@ -56,6 +57,8 @@ function familiarLogin.onLogin(player)
 	if familiarName then
 		position = player:getPosition()
 		local familiarMonster = Game.createMonster(familiarName, position, true, false)
+		if not familiarMonster then return false end
+
 		player:addSummon(familiarMonster)
 		familiarMonster:setOutfit({lookType = player:getFamiliarLooktype()})
 		--familiarMonster:reload()
