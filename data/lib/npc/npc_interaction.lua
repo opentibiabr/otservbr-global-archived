@@ -80,7 +80,7 @@ function NpcInteraction:execute(message, player, npc)
         if self.parent and self.parent.relationType == InteractionRelationType.RELATION_CONFIRMATION then
             self.parent.interaction:runOnCompletePlayerProcessors(player, npc)
         elseif self.parent then
-            npc:talk(player, self.parent.messages.cannotExecute)
+            npc:talk(player, self.parent.interaction.messages.cannotExecute)
         end
 
         if #self.children == 0 then
@@ -247,10 +247,15 @@ end
 
 function NpcInteraction:createTravelInteraction(player, town, cost, position, messages, discount, travelTopic)
     cost = player:calculateTravelPrice(cost, discount)
-    messages.reply = buildTravelMessage(messages.reply, town, cost)
+
     return NpcInteraction:new(
         {town},
-            messages,
+            {
+                reply = buildTravelMessage(messages.reply, town, cost),
+                confirmation = messages.confirmation,
+                cancellation = messages.cancellation,
+                cannotExecute = messages.cannotExecute,
+            },
         {current = travelTopic, previous = 0}
     ):addSubInteraction(
         NpcInteraction:createReplyInteraction( {"yes"}, nil, {current = 0, previous = travelTopic})
@@ -260,6 +265,6 @@ function NpcInteraction:createTravelInteraction(player, town, cost, position, me
     ):addCompletionUpdateProcessor(
         PlayerProcessingConfigs:new()
            :addPosition(position)
-           :addAmount(function(player) return -player:calculateTravelPrice(cost, discount) end)
+           :removeAmount(cost)
     )
 end

@@ -45,20 +45,23 @@ local interactions = {
             PlayerProcessingConfigs:new()
                :addStorage(Storage.DarkTrails.Mission01, 2)
         ),
-    NpcInteraction:createReplyInteraction(
+    NpcInteraction:new(
             {"want"},
-            {"The guys from the magistrate sent you here, didn't they?"},
+            {
+                reply = "The guys from the magistrate sent you here, didn't they?",
+                confirmation = {
+                    "Thought so. You'll have to talk to the king though. The beggar king that is. The king does not grant an audience to just everyone. You know how those kings are, don't you? ... ",
+                    "However, to get an audience with the king, you'll have to help his subjects a bit. ... ",
+                    "His subjects that would be us, the poor, you know? ... ",
+                    "So why don't you show your dedication to the poor? Go and help Chavis at the poor house. He's collecting food for people like us. ... ",
+                    "If you brought enough of the stuff you'll see that the king will grant you entrance in his {palace}."
+                },
+            },
             {current = 1, previous = 0}
     ):addSubInteraction(
             NpcInteraction:createReplyInteraction(
                 {"yes"},
-                {
-                        "Thought so. You'll have to talk to the king though. The beggar king that is. The king does not grant an audience to just everyone. You know how those kings are, don't you? ... ",
-                        "However, to get an audience with the king, you'll have to help his subjects a bit. ... ",
-                        "His subjects that would be us, the poor, you know? ... ",
-                        "So why don't you show your dedication to the poor? Go and help Chavis at the poor house. He's collecting food for people like us. ... ",
-                        "If you brought enough of the stuff you'll see that the king will grant you entrance in his {palace}."
-                    },
+                nil,
                     {current = 0, previous = 1}
             ):addCompletionUpdateProcessor(
                     PlayerProcessingConfigs:new()

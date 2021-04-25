@@ -39,11 +39,11 @@ end
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
-local messages = NpcMessages:new({
+local messages = {
     reply = "Do you seek a passage to %s for %s?",
     confirmation = "Set the sails!",
     cannotExecute = "I'm sorry but I don't sail there."
-})
+}
 
 local interactions = {
     NpcInteraction:createGreetInteraction("Welcome on board %s, Where can I {sail} you today?"),
@@ -92,7 +92,6 @@ local travelInteractions = function (player)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-    if not creature:getPlayer() then return end
     return npc:processOnSay(message, creature, concatArrays(interactions, travelInteractions(creature)))
 end
 
