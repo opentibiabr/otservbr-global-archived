@@ -1,23 +1,33 @@
 -- Utils functions for NPC System
 local travelDiscounts = {
-	['postman'] = {price = 10, storage = Storage.Postman.Rank, value = 3},
-	['new frontier'] = {price = 50, storage = Storage.TheNewFrontier.Mission03, value = 1}
+	['postman'] = {price = 10, validation = PlayerProcessingConfigs:new():addStorage(Storage.Postman.Rank, 3)},
+	['new frontier'] = {price = 50, validation = PlayerProcessingConfigs:new():addStorage(Storage.TheNewFrontier.Mission03, 1)},
 }
 
-function travelDiscount(player, discounts)
+function buildTravelMessage(baseMessage, place, cost)
+	baseMessage = baseMessage or "Do you want to travel to %s for %s gold coins?"
+	return string.format(baseMessage, place, cost)
+end
+
+function Player:calculateTravelPrice(basePrice, discount)
+	return basePrice + self:getTravelDiscount(discount)
+end
+
+function getDiscount(player, discount)
+	if not discount or not discount.validation:validate(player) then
+		return 0
+	end
+	return discount.price
+end
+
+function Player:getTravelDiscount(discounts)
 	local discountPrice, discount = 0
 	if type(discounts) == 'string' then
-		discount = travelDiscounts[discounts]
-		if discount and player:getStorageValue(discount.storage) >= discount.value then
-			return discount.price
-		end
-	else
-		for i = 1, #discounts do
-			discount = travelDiscounts[discounts[i]]
-			if discount and player:getStorageValue(discount.storage) >= discount.value then
-				discountPrice = discountPrice + discount.price
-			end
-		end
+		return getDiscount(self, travelDiscounts[discounts])
+	end
+
+	for i = 1, #discounts do
+		discountPrice = discountPrice + getDiscount(self, travelDiscounts[discounts[i]])
 	end
 
 	return discountPrice

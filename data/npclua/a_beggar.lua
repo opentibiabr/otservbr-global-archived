@@ -45,12 +45,12 @@ local interactions = {
             PlayerProcessingConfigs:new()
                :addStorage(Storage.DarkTrails.Mission01, 2)
         ),
-    NpcInteraction:createBasicReplyInteraction(
+    NpcInteraction:createReplyInteraction(
             {"want"},
             {"The guys from the magistrate sent you here, didn't they?"},
             {current = 1, previous = 0}
     ):addSubInteraction(
-            NpcInteraction:createBasicReplyInteraction(
+            NpcInteraction:createReplyInteraction(
                 {"yes"},
                 {
                         "Thought so. You'll have to talk to the king though. The beggar king that is. The king does not grant an audience to just everyone. You know how those kings are, don't you? ... ",

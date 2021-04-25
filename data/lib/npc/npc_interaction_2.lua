@@ -215,24 +215,45 @@ end
 
 function NpcInteraction:createGreetInteraction(message, keywords)
     return NpcInteraction:new(
-            keywords or {"hi", "hello"},
-            {reply = message or "Hello, %s, what you need?"},
-            {previous = -1}
+        keywords or {"hi", "hello"},
+        {reply = message or "Hello, %s, what you need?"},
+        {previous = -1}
     )
 end
 
 function NpcInteraction:createFarewellInteraction(message, keywords)
     return NpcInteraction:new(
-            keywords or {"bye", "farewell"},
-            {reply = message or "Goodbye, %s."},
-            {current = -1}
+        keywords or {"bye", "farewell"},
+        {reply = message or "Goodbye, %s."},
+        {current = -1}
     )
 end
 
-function NpcInteraction:createBasicReplyInteraction(keywords, message, topic)
+function NpcInteraction:createReplyInteraction(keywords, message, topic)
     return NpcInteraction:new(
-            keywords,
-            {reply = message},
-            topic
+        keywords,
+        {reply = message},
+        topic
+    )
+end
+
+function NpcInteraction:createTravelInteraction(town, cost, position, discount, travelTopic)
+    return NpcInteraction:createReplyInteraction(
+        {town},
+        buildTravelMessage("Do you seek a passage to %s for %s?", town, cost),
+        {current = travelTopic, previous = 0}
+    ):addSubInteraction(
+        NpcInteraction:createReplyInteraction( {"yes"}, "Set the sails!", {current = 0, previous = travelTopic})
+    ):addSubInteraction(
+        NpcInteraction:createReplyInteraction( {"no"},"We would like to serve you some time.", {current = 0, previous = travelTopic}),
+        interactionRelationType.RELATION_CANCELLATION
+    ):addCompletionUpdateProcessor(
+        PlayerProcessingConfigs:new()
+           :addPosition(position)
+           :addCallback(
+            function(player)
+                PlayerProcessingConfigs:new():addAmount(-player:calculateTravelPrice(cost, discount)):update(player)
+                    end
+                )
     )
 end

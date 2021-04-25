@@ -48,34 +48,34 @@ end
 
 local interactions = {
     NpcInteraction:createGreetInteraction("GET ME OUT OF HERE! NOW!"),
-    NpcInteraction:createBasicReplyInteraction({"job"}, "I am a great and famous actor! Not a princess, at all. I was only PRETENDING to be a princess. But try explaining that to those stupid pirates."),
-    NpcInteraction:createBasicReplyInteraction({"actor", "stage"}, "Stage acting was a waste of my immense talent. Not only am I a born leader, my talent is more profitable when it is used for conning people."),
-    NpcInteraction:createBasicReplyInteraction({"kid"}, "He was always a fool with a heart too soft to become a feared pirate"),
-    NpcInteraction:createBasicReplyInteraction({"princess"}, "Me playing a princess was just part of a cunning plan we had"),
-    NpcInteraction:createBasicReplyInteraction({"cell"}, "If you find some way to release me I might even let you live as reward! So you'd better do your best or I'll kill you!"),
-    NpcInteraction:createBasicReplyInteraction({"name"}, "How dare you? I left to rot in this dirty cell and you have nothing better to do than chit chat?"),
-    NpcInteraction:createBasicReplyInteraction({"rot"}, "YOU .. YOU .. You are as good as dead! I will get you! Do you hear me? I will have your head! On a platter!"),
-    NpcInteraction:createBasicReplyInteraction(
+    NpcInteraction:createReplyInteraction({"job"}, "I am a great and famous actor! Not a princess, at all. I was only PRETENDING to be a princess. But try explaining that to those stupid pirates."),
+    NpcInteraction:createReplyInteraction({"actor", "stage"}, "Stage acting was a waste of my immense talent. Not only am I a born leader, my talent is more profitable when it is used for conning people."),
+    NpcInteraction:createReplyInteraction({"kid"}, "He was always a fool with a heart too soft to become a feared pirate"),
+    NpcInteraction:createReplyInteraction({"princess"}, "Me playing a princess was just part of a cunning plan we had"),
+    NpcInteraction:createReplyInteraction({"cell"}, "If you find some way to release me I might even let you live as reward! So you'd better do your best or I'll kill you!"),
+    NpcInteraction:createReplyInteraction({"name"}, "How dare you? I left to rot in this dirty cell and you have nothing better to do than chit chat?"),
+    NpcInteraction:createReplyInteraction({"rot"}, "YOU .. YOU .. You are as good as dead! I will get you! Do you hear me? I will have your head! On a platter!"),
+    NpcInteraction:createReplyInteraction(
             {"pirate"},
             {
                 "In a just world, I would be captain of a grand ship, ...",
                 "Those pirates out there would now be my minions, and we would brave the seas and become the terror of the coastal towns! ...",
                 "If only our plan had worked!"
             }),
-    NpcInteraction:createBasicReplyInteraction(
+    NpcInteraction:createReplyInteraction(
             {"ship"},
             {
                 "Captain Kid sold his ship to buy pointless things like those insanely expensive locks for the cell doors. ...",
                 "He said the canoes would do for a while. ...",
                 "I got the impression he was not overly sad to part with the ship because he was known to suffer a lot from seasickness."
             }),
-    NpcInteraction:createBasicReplyInteraction(
+    NpcInteraction:createReplyInteraction(
             {"captain"},
             {
                 "I'd have been a much better captain then Kid was. I played several captains on stage and I was good! ...",
                 "Where Kid longed for the appreciation of his men, I would rule by fear and with an iron fist!"
             }),
-    NpcInteraction:createBasicReplyInteraction(
+    NpcInteraction:createReplyInteraction(
             {"plan"},
             {
                 "It was all captain Kid's idea. You see, he hated his name and planned to become known by the name captain Kidnap. ...",
@@ -92,26 +92,26 @@ local interactions = {
                 "The fool decided to dive after it .. never to be seen again. ...",
                 "When I found out about Kid's demise I tried to convince the pirates it was a hoax, but they just won't believe me!"
             }),
-    NpcInteraction:createBasicReplyInteraction(
+    NpcInteraction:createReplyInteraction(
             {"kidnap"},
             {
                 "Ah kidnapping is so much fun. That is, if you're not on the receiving end. ...",
                 "It's easy money and you have a chance to frighten and torture someone who can't fight back!"
             }),
-    NpcInteraction:createBasicReplyInteraction(
+    NpcInteraction:createReplyInteraction(
             {"scams"},
             {
                 "The more stupid the people are, the easier it is to con them. ...",
                 "And the poorer they are the less means they have to get revenge. Har Har! ...",
                 "So I make sure I ruin those I scam. Then they have other things to worry about than getting revenge on me."
             }),
-    NpcInteraction:createBasicReplyInteraction(
+    NpcInteraction:createReplyInteraction(
             {"key"},
             {
                 "The key was lost in the underground river and has probably washed into the seven seas by now! ...",
                 "If that stupid Kid hadn't been so obsessed with kidnapping he'd not have sold his ship to buy the most expensive and complicated locks for his cells!"
             }),
-    NpcInteraction:createBasicReplyInteraction(
+    NpcInteraction:createReplyInteraction(
             {"plundering"},
             {
                 "As long as we stick to undefended coastal towns we can make an easy fortune. Har Har! ...",

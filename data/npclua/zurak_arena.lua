@@ -30,19 +30,19 @@ end
 
 local interactions = {
     NpcInteraction:createGreetInteraction(),
-    NpcInteraction:createBasicReplyInteraction(
+    NpcInteraction:createReplyInteraction(
             {"trip", "passage", "back"},
             "You want to go back?",
             {current = 1, previous = 0}
     ):addSubInteraction(
-        NpcInteraction:createBasicReplyInteraction( {"yes"}, "It'zz your doom you travel to.", {current = 0, previous = 1})
+        NpcInteraction:createReplyInteraction( {"yes"}, "It'zz your doom you travel to.", {current = 0, previous = 1})
     ):addSubInteraction(
-        NpcInteraction:createBasicReplyInteraction( {"no"},"Zzoftzzkinzz zzo full of fear.", {current = 0, previous = 1}),
+        NpcInteraction:createReplyInteraction( {"no"},"Zzoftzzkinzz zzo full of fear.", {current = 0, previous = 1}),
         interactionRelationType.RELATION_CANCELLATION
     ):addCompletionUpdateProcessor(
         PlayerProcessingConfigs:new():addPosition(Position(33158, 31228, 7))
     ),
-    NpcInteraction:createBasicReplyInteraction({"job", "hurry"}, "Me zzimple ferryman. I arrange {trip} to Zao."),
+    NpcInteraction:createReplyInteraction({"job", "hurry"}, "Me zzimple ferryman. I arrange {trip} to Zao."),
     NpcInteraction:createFarewellInteraction(),
 }
 
