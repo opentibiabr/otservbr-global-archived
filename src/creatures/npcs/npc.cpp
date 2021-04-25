@@ -219,6 +219,10 @@ void Npc::onThink(uint32_t interval)
 void Npc::onPlayerBuyItem(Player* player, uint16_t serverId,
                           uint8_t subType, uint8_t amount, bool ignore, bool inBackpacks)
 {
+	if (!player) {
+		return;
+	}
+
 	const ItemType& itemType = Item::items[serverId];
 
 	if (getShopItems().find(serverId) == getShopItems().end()) {
@@ -256,6 +260,10 @@ void Npc::onPlayerBuyItem(Player* player, uint16_t serverId,
 void Npc::onPlayerSellItem(Player* player, uint16_t serverId,
                           uint8_t subType, uint8_t amount, bool ignore)
 {
+	if (!player) {
+		return;
+	}
+
 	const ItemType& itemType = Item::items[serverId];
 
 	if (getShopItems().find(serverId) == getShopItems().end()) {
@@ -290,6 +298,10 @@ void Npc::onPlayerSellItem(Player* player, uint16_t serverId,
 void Npc::onPlayerCheckItem(Player* player, uint16_t serverId,
                           uint8_t subType)
 {
+	if (!player) {
+		return;
+	}
+
 	const ItemType& itemType = Item::items[serverId];
 	// onPlayerCheckItem(self, player, clientId, subType)
 	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
