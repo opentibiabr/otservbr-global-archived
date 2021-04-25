@@ -9,7 +9,7 @@ function test_PlayerProcessingConfigs_EmptyConstructor()
 end
 
 function test_PlayerProcessingConfigs_AddStorage()
-    local processor = PlayerProcessingConfigs:new({}):addStorage(5055, 3)
+    local processor = PlayerProcessingConfigs:new({}):addStorage(5055, 2)
     lu.assertEquals(processor.storages[5055], {type = ConfigsTypes.CONFIG_EQ, value = 2})
 
     processor:addStorage(5054, 23, ConfigsTypes.CONFIG_NEQ)

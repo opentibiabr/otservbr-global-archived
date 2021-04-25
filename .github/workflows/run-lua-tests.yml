@@ -1,6 +1,6 @@
 ---
 
-name: Run lua tests
+name: Run Lua Tests
 on: [pull_request]
 jobs:
   lua-tests:
