@@ -31,13 +31,13 @@ function test_PlayerUpdater_UpdateMoney()
     lu.assertEquals(player.totalMoney, 10)
 
     PlayerUpdater(
-        PlayerProcessingConfigs:new():addAmount(-10),
+        PlayerProcessingConfigs:new():removeAmount(10),
         player
     )
     lu.assertEquals(player.totalMoney, 0)
 
     PlayerUpdater(
-        PlayerProcessingConfigs:new():addAmount(-10),
+            PlayerProcessingConfigs:new():removeAmount(10),
         player
     )
     lu.assertEquals(player.totalMoney, -10)

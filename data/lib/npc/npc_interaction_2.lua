@@ -2,7 +2,7 @@ NpcInteraction = {}
 NpcMessages = {}
 NpcTopic = {}
 
-interactionRelationType = {
+InteractionRelationType = {
     RELATION_CONFIRMATION = 1,
     RELATION_CANCELLATION = 2,
 }
@@ -73,7 +73,7 @@ function NpcInteraction:execute(message, player, npc)
         npc:talk(player, self.messages.reply)
         self:updatePlayerInteraction(player, npc)
 
-        if self.parent and self.parent.relationType == interactionRelationType.RELATION_CONFIRMATION then
+        if self.parent and self.parent.relationType == InteractionRelationType.RELATION_CONFIRMATION then
             self.parent.interaction:runOnCompletePlayerProcessors(player, npc)
         end
 
@@ -164,7 +164,7 @@ end
 
 function NpcInteraction:addSubInteraction(subInteraction, relationType)
     if not self:isValidSubInteraction(subInteraction) then return self end
-    subInteraction.parent = { interaction = self, relationType = relationType or interactionRelationType.RELATION_CONFIRMATION }
+    subInteraction.parent = { interaction = self, relationType = relationType or InteractionRelationType.RELATION_CONFIRMATION }
     self.children[#self.children + 1] = subInteraction
 
     return self
@@ -246,13 +246,13 @@ function NpcInteraction:createTravelInteraction(town, cost, position, discount, 
         NpcInteraction:createReplyInteraction( {"yes"}, "Set the sails!", {current = 0, previous = travelTopic})
     ):addSubInteraction(
         NpcInteraction:createReplyInteraction( {"no"},"We would like to serve you some time.", {current = 0, previous = travelTopic}),
-        interactionRelationType.RELATION_CANCELLATION
+        InteractionRelationType.RELATION_CANCELLATION
     ):addCompletionUpdateProcessor(
         PlayerProcessingConfigs:new()
            :addPosition(position)
            :addCallback(
             function(player)
-                PlayerProcessingConfigs:new():addAmount(-player:calculateTravelPrice(cost, discount)):update(player)
+                PlayerProcessingConfigs:new():removeAmount(player:calculateTravelPrice(cost, discount)):update(player)
                     end
                 )
     )

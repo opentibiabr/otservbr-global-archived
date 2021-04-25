@@ -38,7 +38,7 @@ local interactions = {
         NpcInteraction:createReplyInteraction( {"yes"}, "It'zz your doom you travel to.", {current = 0, previous = 1})
     ):addSubInteraction(
         NpcInteraction:createReplyInteraction( {"no"},"Zzoftzzkinzz zzo full of fear.", {current = 0, previous = 1}),
-        interactionRelationType.RELATION_CANCELLATION
+        InteractionRelationType.RELATION_CANCELLATION
     ):addCompletionUpdateProcessor(
         PlayerProcessingConfigs:new():addPosition(Position(33158, 31228, 7))
     ),

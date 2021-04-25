@@ -83,8 +83,8 @@ function test_NpcInteraction_AddInitValidationProcessor()
     interaction:addInitValidationProcessor(PlayerProcessingConfigs:new():addAmount(0))
 
     lu.assertEquals(#interaction.onInitPlayerProcessors.validators, 2)
-    lu.assertEquals(interaction.onInitPlayerProcessors.validators[1].moneyAmount, 25123)
-    lu.assertEquals(interaction.onInitPlayerProcessors.validators[2].moneyAmount, 0)
+    lu.assertEquals(interaction.onInitPlayerProcessors.validators[1].moneyAmount.value, 25123)
+    lu.assertEquals(interaction.onInitPlayerProcessors.validators[2].moneyAmount.value, 0)
 end
 
 function test_NpcInteraction_AddInitValidationProcessorWithEmptyProcessorThrows()
@@ -107,8 +107,8 @@ function test_NpcInteraction_AddInitUpdateProcessor()
     interaction:addInitUpdateProcessor(PlayerProcessingConfigs:new():addAmount(0))
 
     lu.assertEquals(#interaction.onInitPlayerProcessors.updaters, 2)
-    lu.assertEquals(interaction.onInitPlayerProcessors.updaters[1].moneyAmount, 25120)
-    lu.assertEquals(interaction.onInitPlayerProcessors.updaters[2].moneyAmount, 0)
+    lu.assertEquals(interaction.onInitPlayerProcessors.updaters[1].moneyAmount.value, 25120)
+    lu.assertEquals(interaction.onInitPlayerProcessors.updaters[2].moneyAmount.value, 0)
 end
 
 function test_NpcInteraction_AddInitUpdateProcessorWithEmptyProcessorThrows()
@@ -131,8 +131,8 @@ function test_NpcInteraction_AddCompletionValidationProcessor()
     interaction:addCompletionValidationProcessor(PlayerProcessingConfigs:new():addAmount(0))
 
     lu.assertEquals(#interaction.onCompletePlayerProcessors.validators, 2)
-    lu.assertEquals(interaction.onCompletePlayerProcessors.validators[1].moneyAmount, 25121)
-    lu.assertEquals(interaction.onCompletePlayerProcessors.validators[2].moneyAmount, 0)
+    lu.assertEquals(interaction.onCompletePlayerProcessors.validators[1].moneyAmount.value, 25121)
+    lu.assertEquals(interaction.onCompletePlayerProcessors.validators[2].moneyAmount.value, 0)
 end
 
 function test_NpcInteraction_AddCompletionValidationProcessorWithInvalidProcessorThrows()
@@ -155,8 +155,8 @@ function test_NpcInteraction_AddCompletionUpdateProcessor()
     interaction:addCompletionUpdateProcessor(PlayerProcessingConfigs:new():addAmount(0))
 
     lu.assertEquals(#interaction.onCompletePlayerProcessors.updaters, 2)
-    lu.assertEquals(interaction.onCompletePlayerProcessors.updaters[1].moneyAmount, 25122)
-    lu.assertEquals(interaction.onCompletePlayerProcessors.updaters[2].moneyAmount, 0)
+    lu.assertEquals(interaction.onCompletePlayerProcessors.updaters[1].moneyAmount.value, 25122)
+    lu.assertEquals(interaction.onCompletePlayerProcessors.updaters[2].moneyAmount.value, 0)
 end
 
 function test_NpcInteraction_AddCompletionUpdateProcessorWithEmptyProcessorThrows()

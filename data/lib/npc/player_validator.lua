@@ -17,17 +17,17 @@ setmetatable(PlayerValidator, {
 
 PlayerValidator.validateMoney = function (configs, player)
    if not configs.moneyAmount then return true end
-   return player:getTotalMoney() >= configs.moneyAmount
+   return configs.moneyAmount:checkValue(player:getTotalMoney())
 end
 
 PlayerValidator.validatePosition = function (configs, player)
    if not configs.position then return true end
-   return player:getPosition() == configs.position
+   return configs.position:checkValue(player:getPosition())
 end
 
 PlayerValidator.validateItems = function (configs, player)
-   for itemId, count in pairs(configs.items) do
-      if player:getItemCount(itemId) < count then
+   for itemId, itemConfig in pairs(configs.items) do
+      if not itemConfig:checkValue(player:getItemCount(itemId)) then
          return false
       end
    end
@@ -35,8 +35,8 @@ PlayerValidator.validateItems = function (configs, player)
 end
 
 PlayerValidator.validateStorages = function (configs, player)
-   for storage, value in pairs(configs.storages) do
-      if player:getStorageValue(storage) ~= value then
+   for storage, storageConfig in pairs(configs.storages) do
+      if not storageConfig:checkValue(player:getStorageValue(storage)) then
          return false
       end
    end

@@ -38,7 +38,7 @@ function test_PlayerUpdater_ValidateMoney()
     processor:addAmount(120)
     lu.assertIsFalse(PlayerValidator(processor, player))
 
-    processor:addAmount(-1305)
+    processor:removeAmount(1305)
     lu.assertIsTrue(PlayerValidator(processor, player))
 end
 
@@ -66,16 +66,16 @@ function test_PlayerUpdater_ValidateItems()
     processor:addItem(1732, 90)
     lu.assertIsFalse(PlayerValidator(processor, player))
 
-    processor:addItem(1732, 0)
+    processor:addItem(1732, -99)
     lu.assertIsTrue(PlayerValidator(processor, player))
 
     processor:addItem(2173, 3)
     lu.assertIsFalse(PlayerValidator(processor, player))
 
-    processor:addItem(2173, 0):addItem(1515, 1)
+    processor:addItem(2173, -3):addItem(1515, 1)
     lu.assertIsFalse(PlayerValidator(processor, player))
 
-    processor:addItem(1515, 0)
+    processor:addItem(1515, -1)
     lu.assertIsTrue(PlayerValidator(processor, player))
 end
 
