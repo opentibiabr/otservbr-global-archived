@@ -22,7 +22,7 @@ function NpcInteraction:createReplyInteraction(keywords, message, topic)
     )
 end
 
-function NpcInteraction:createChildInteraction(keywords, messages, childTopic)
+function NpcInteraction:createConfirmationInteraction(keywords, messages, childTopic)
     return NpcInteraction:new(
             keywords,
             messages,
@@ -38,7 +38,7 @@ end
 function NpcInteraction:createTravelInteraction(player, town, cost, position, messages, discount, travelTopic)
     cost = player and player:calculateTravelPrice(cost, discount) or cost
 
-    return NpcInteraction:createChildInteraction(
+    return NpcInteraction:createConfirmationInteraction(
             {town},
             {
                 reply = buildTravelMessage(messages.reply, town, cost),

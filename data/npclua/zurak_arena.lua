@@ -30,7 +30,7 @@ end
 
 local interactions = {
     NpcInteraction:createGreetInteraction(),
-    NpcInteraction:createChildInteraction(
+    NpcInteraction:createConfirmationInteraction(
             {"trip", "passage", "back"},
             {
                 reply = "You want to go back?",

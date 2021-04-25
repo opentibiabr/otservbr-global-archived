@@ -64,16 +64,16 @@ local interactions = {
 local travelInteractions = function (player)
     return {
         NpcInteraction:createTravelInteraction(player, "carlin", 110, Position(32387, 31820, 6), travelMessages, 'postman', 1)
-                      :addCompletionUpdateProcessor(
+            :addCompletionUpdateProcessor(
                 PlayerProcessingConfigs:new()
-                                       :addCallback(
+                   :addCallback(
                         function(player)
                             if player:getStorageValue(Storage.Postman.Mission01) == 1 then
                                 player:setStorageValue(Storage.Postman.Mission01, 2)
                             end
                         end
                 )
-        ),
+            ),
         NpcInteraction:createTravelInteraction(player, "ab'dendriel", 130, Position(32734, 31668, 6), travelMessages, 'postman', 2),
         NpcInteraction:createTravelInteraction(player, "edron", 160, Position(33175, 31764, 6), travelMessages, 'postman', 3),
         NpcInteraction:createTravelInteraction(player, "venore", 170, Position(32954, 32022, 6), travelMessages, 'postman', 4),
@@ -82,10 +82,10 @@ local travelInteractions = function (player)
         NpcInteraction:createTravelInteraction(player, "svargrond", 180, Position(32341, 31108, 6), travelMessages, 'postman', 7),
         NpcInteraction:createTravelInteraction(player, "liberty bay", 180, Position(32285, 32892, 6), travelMessages, 'postman', 8),
         NpcInteraction:createTravelInteraction(player, "yalahar", 200, Position(32816, 31272, 6), travelMessages, 'postman', 9)
-                      :addCompletionValidationProcessor(
+            :addCompletionValidationProcessor(
                 PlayerProcessingConfigs:new()
-                                       :addStorage(Storage.SearoutesAroundYalahar.Thais, 1, ConfigsTypes.CONFIG_NEQ)
-                                       :addStorage(Storage.SearoutesAroundYalahar.TownsCounter, 4, ConfigsTypes.CONFIG_LTE)
+                   :addStorage(Storage.SearoutesAroundYalahar.Thais, 1, ConfigsTypes.CONFIG_NEQ)
+                   :addStorage(Storage.SearoutesAroundYalahar.TownsCounter, 4, ConfigsTypes.CONFIG_LTE)
         ),
         NpcInteraction:createTravelInteraction(player, "oramond", 150, Position(33479, 31985, 7), travelMessages, 'postman', 10),
         NpcInteraction:createTravelInteraction(player, "krailos", 230, Position(33492, 31712, 6), travelMessages, 'postman', 11),
