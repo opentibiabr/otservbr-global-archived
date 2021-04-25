@@ -2885,6 +2885,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Npc", "getCurrency", LuaScriptInterface::luaNpcGetCurrency);
 	registerMethod("Npc", "getSpeechBubble", LuaScriptInterface::luaNpcGetSpeechBubble);
 	registerMethod("Npc", "setSpeechBubble", LuaScriptInterface::luaNpcSetSpeechBubble);
+	registerMethod("Npc", "getName", LuaScriptInterface::luaNpcGetName);
 	registerMethod("Npc", "setName", LuaScriptInterface::luaNpcSetName);
 	registerMethod("Npc", "place", LuaScriptInterface::luaNpcPlace);
 	registerMethod("Npc", "say", LuaScriptInterface::luaNpcSay);
@@ -12816,7 +12817,8 @@ int LuaScriptInterface::luaNpcSetMasterPos(lua_State* L)
 	// npc:setMasterPos(pos)
 	Npc* npc = getUserdata<Npc>(L, 1);
 	if (!npc) {
-		lua_pushnil(L);
+		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
+		pushBoolean(L, false);
 		return 1;
 	}
 
@@ -12830,11 +12832,12 @@ int LuaScriptInterface::luaNpcGetCurrency(lua_State* L)
 {
 	// npc:getCurrency()
 	Npc* npc = getUserdata<Npc>(L, 1);
-	if (npc) {
-//npc		lua_pushnumber(L, npc->getCurrency());
-	} else {
+	if (!npc) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
 		lua_pushnil(L);
 	}
+
+	lua_pushnumber(L, npc->getCurrency());
 	return 1;
 }
 
@@ -12842,11 +12845,12 @@ int LuaScriptInterface::luaNpcGetSpeechBubble(lua_State* L)
 {
 	// npc:getSpeechBubble()
 	Npc* npc = getUserdata<Npc>(L, 1);
-	if (npc) {
-		lua_pushnumber(L, npc->getSpeechBubble());
-	} else {
+	if (!npc) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
 		lua_pushnil(L);
 	}
+
+	lua_pushnumber(L, npc->getSpeechBubble());
 	return 1;
 }
 
@@ -12854,30 +12858,49 @@ int LuaScriptInterface::luaNpcSetSpeechBubble(lua_State* L)
 {
 	// npc:setSpeechBubble(speechBubble)
 	Npc* npc = getUserdata<Npc>(L, 1);
-	if (npc) {
-//npc		npc->setSpeechBubble(getNumber<uint8_t>(L, 2));
+	if (!npc) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
+		lua_pushnil(L);
 	}
-	return 0;
+
+	npc->setSpeechBubble(getNumber<uint8_t>(L, 2));
+	return 1;
+}
+
+int LuaScriptInterface::luaNpcGetName(lua_State* L)
+{
+	// npc:getName()
+	Npc* npc = getUserdata<Npc>(L, 1);
+	if (!npc) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
+		lua_pushnil(L);
+		return 1;
+	}
+
+	pushString(L, npc->getName());
+	return 1;
 }
 
 int LuaScriptInterface::luaNpcSetName(lua_State* L)
 {
 	// npc:setName(name)
 	Npc* npc = getUserdata<Npc>(L, 1);
-//	const std::string& name = getString(L, 2);
-	if (npc) {
-//npc		npc->setName(name);
-		pushBoolean(L, true);
-	} else {
+	std::string& name = getString(L, 2);
+	if (!npc) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
 		lua_pushnil(L);
 	}
+
+	npc->setName(name);
 	return 1;
 }
+
 int LuaScriptInterface::luaNpcPlace(lua_State* L)
 {
 	// npc:place(position[, extended = false[, force = true]])
 	Npc* npc = getUserdata<Npc>(L, 1);
 	if (!npc) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
 		lua_pushnil(L);
 		return 1;
 	}

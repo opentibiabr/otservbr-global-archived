@@ -1192,6 +1192,7 @@ class LuaScriptInterface
 		static int luaNpcGetCurrency(lua_State* L);
 		static int luaNpcGetSpeechBubble(lua_State* L);
 		static int luaNpcSetSpeechBubble(lua_State* L);
+		static int luaNpcGetName(lua_State* L);
 		static int luaNpcSetName(lua_State* L);
 		static int luaNpcPlace(lua_State* L);
 		static int luaNpcSay(lua_State* L);
