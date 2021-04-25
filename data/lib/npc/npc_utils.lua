@@ -4,6 +4,12 @@ local travelDiscounts = {
 	['new frontier'] = {price = 50, storage = Storage.TheNewFrontier.Mission03, value = 1}
 }
 
+function concatArrays(a, b)
+	local result = {unpack(a)}
+	table.move(b, 1, #b, #result + 1, result)
+	return result
+end
+
 function buildTravelMessage(baseMessage, place, cost)
 	baseMessage = baseMessage or "Do you want to travel to %s for %s gold coins?"
 	return string.format(baseMessage, place, cost)

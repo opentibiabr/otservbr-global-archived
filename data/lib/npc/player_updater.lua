@@ -15,7 +15,7 @@ setmetatable(PlayerUpdater, {
 PlayerUpdater.updateMoney = function (configs, player)
     if not configs.moneyAmount then return end
 
-    local amount = configs.moneyAmount.value
+    local amount = configs.moneyAmount:getValue(player)
     if amount < 0 then
         player:removeMoneyIncludingBalance(math.abs(amount))
     elseif amount > 0 then
@@ -25,22 +25,22 @@ end
 
 PlayerUpdater.updatePosition = function (configs, player)
     if not configs.position then return end
-    player:teleportTo(configs.position.value)
+    player:teleportTo(configs.position:getValue(player))
 end
 
 PlayerUpdater.updateItems = function (configs, player)
     for itemId, itemConfig in pairs(configs.items) do
         if itemConfig.value < 0 then
-            player:removeItem(itemId, math.abs(itemConfig.value))
+            player:removeItem(itemId, math.abs(itemConfig:getValue(player)))
         elseif itemConfig.value > 0 then
-            player:addItem(itemId, itemConfig.value)
+            player:addItem(itemId, itemConfig:getValue(player))
         end
     end
 end
 
 PlayerUpdater.updateStorages = function (configs, player)
     for storage, storageConfig in pairs(configs.storages) do
-        player:setStorageValue(storage, storageConfig.value)
+        player:setStorageValue(storage, storageConfig:getValue(player))
     end
 end
 

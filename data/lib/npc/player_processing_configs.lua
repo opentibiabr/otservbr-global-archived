@@ -19,8 +19,12 @@ function PlayerConfig:new(value, type)
     return obj
 end
 
+function PlayerConfig:getValue(player)
+    return type(self.value) == "function" and self.value(player) or self.value
+end
+
 function PlayerConfig:checkValue(value, player)
-    local currentValue = type(self.value) == "function" and value(player) or self.value
+    local currentValue = self:getValue(player)
 
     if type(currentValue) == "number" then
         if self.type == ConfigsTypes.CONFIG_GTE then
@@ -93,8 +97,11 @@ function PlayerProcessingConfigs:addStorage(key, value, configType)
 end
 
 function PlayerProcessingConfigs:addAmount(amount, configType)
-    self.moneyAmount = self.moneyAmount or PlayerConfig:new(0, configType or ConfigsTypes.CONFIG_GTE)
-    self.moneyAmount:appendValue(amount)
+    if not self.moneyAmount then
+        self.moneyAmount = PlayerConfig:new(amount, configType or ConfigsTypes.CONFIG_GTE)
+    else
+        self.moneyAmount:appendValue(amount)
+    end
     return self
 end
 
@@ -104,8 +111,11 @@ function PlayerProcessingConfigs:removeAmount(amount, configType)
 end
 
 function PlayerProcessingConfigs:addItem(itemId, count, configType)
-    self.items[itemId] = self.items[itemId] or PlayerConfig:new(0, configType or ConfigsTypes.CONFIG_GTE)
-    self.items[itemId]:appendValue(count)
+    if not self.items[itemId] then
+        self.items[itemId] = PlayerConfig:new(count, configType or ConfigsTypes.CONFIG_GTE)
+    else
+        self.items[itemId]:appendValue(count)
+    end
     return self
 end
 

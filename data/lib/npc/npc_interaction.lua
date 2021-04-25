@@ -1,283 +1,265 @@
--- if NpcInteraction ~= nil then return end
+NpcInteraction = {}
+NpcMessages = {}
+NpcTopic = {}
 
--- Available message types
-interactionTypes = {
-    INTERACTION_COMMON = 1,
-    INTERACTION_GREET = 2,
-    INTERACTION_FAREWELL = 3,
-    INTERACTION_CONFIRMATION_NEEDED = 4,
+InteractionRelationType = {
+    RELATION_CONFIRMATION = 1,
+    RELATION_CANCELLATION = 2,
 }
 
--- Every interaction of an NPC can be structured like that
-NpcInteraction = {
-    keys = nil,
-    type = nil,
-    message = nil,
-    topic = nil,
-    failureMessage = nil,
-    previousTopic = nil,
-    teleport = nil,
-    subInteractions = nil,
-    storageChanges = nil,
-    storageChecks = nil,
-    callbacks = nil,
-    validations = nil,
-}
+function NpcTopic:new(obj)
+    if getmetatable(obj) == NpcTopic then return obj end
 
--- Creates a new NpcInteraction with message and type (defaults to INTERACTION_COMMON)
-function NpcInteraction:new(keys, message, type)
-    local obj = {}
-
-    obj.keys = keys or {}
-    obj.type = type or interactionTypes.INTERACTION_COMMON
-    obj.message = message
-    obj.topic = 0
-    obj.failureMessage = nil
-    obj.previousTopic = nil
-    obj.teleport = nil
-    obj.subInteractions = {}
-    obj.storageChanges = {}
-    obj.storageChecks = {}
-    obj.callbacks = {}
-    obj.validations = {}
+    obj = obj or {}
+    obj = {
+        current = obj.current or 0,
+        previous = obj.previous or nil,
+    }
 
     setmetatable(obj, self)
     self.__index = self
     return obj
 end
 
--- Executes a configuration, running all validations and actions configured
-function NpcInteraction:execute(npc, player)
-    if not self:shouldAnswerPlayer(npc, player) then
-        if self.failureMessage then npc:talk(player, self.failureMessage) end
-        return false
-    end
+function NpcMessages:new(obj)
+    if getmetatable(obj) == NpcMessages then return obj end
 
-    npc:talk(player, self.message)
+    obj = obj or {}
+    obj = {
+        reply = obj.reply or "",
+        confirmation = obj.confirmation or "",
+        cancellation = obj.cancellation or "",
+        cannotExecute = obj.cannotExecute or "",
+    }
 
-    if self.type ~= interactionTypes.INTERACTION_CONFIRMATION_NEEDED then
-        self:executeActions(npc, player)
-    end
-
-    self:updatePlayerInteraction(npc, player)
-
-    return true
+    setmetatable(obj, self)
+    self.__index = self
+    return obj
 end
 
--- Executes actions without validation
-function NpcInteraction:executeActions(npc, player)
-    self:executeCallbacks(npc, player)
-    self:performTeleport(npc, player)
-    self:updatePlayerStorages(player)
-end
+function NpcInteraction:new(keywords, messages, topic)
+    obj = {
+        keywords = keywords or {},
+        messages = NpcMessages:new(messages or {}),
+        topic = NpcTopic:new(topic or {}),
+        parent = nil,
+        children = {},
+        onInitPlayerProcessors = {
+            validators = {},
+            updaters = {},
+        },
+        onCompletePlayerProcessors = {
+            validators = {},
+            updaters = {},
+        },
+    }
 
--- Check if key is valid
-function NpcInteraction:getValidInteraction(npc, player, message)
-    for _,keyword in pairs(self.keys) do
-        if msgContains(message, keyword) then return self end
+    if getmetatable(obj.messages) ~= NpcMessages then
+        error("Invalid argument: messages needs to be of type NpcMessages")
     end
 
-    for _,subInteraction in pairs(self.subInteractions) do
-        local validSubInteraction = subInteraction:getValidInteraction(npc, player, message)
-        if validSubInteraction and self.topic and npc:isPlayerInteractingOnTopic(player, self.topic) then
-            return validSubInteraction
+    if getmetatable(obj.topic) ~= NpcTopic then
+        error("Invalid argument: topic needs to be of type NpcTopic")
+    end
+
+    setmetatable(obj, self)
+    self.__index = self
+    return obj
+end
+
+function NpcInteraction:execute(message, player, npc)
+    if self:checkPlayerInteraction(player, npc) and self:hasMessageValidKeyword(message) then
+        -- If initial processor validations failed, skip all the rest
+        if not self:runOnInitPlayerProcessors(player, npc) then
+            return false
         end
+
+        npc:talk(player, self.messages.reply)
+        self:updatePlayerInteraction(player, npc)
+
+        if self.parent and self.parent.relationType == InteractionRelationType.RELATION_CONFIRMATION then
+            self.parent.interaction:runOnCompletePlayerProcessors(player, npc)
+        elseif self.parent then
+            npc:talk(player, self.parent.messages.cannotExecute)
+        end
+
+        if #self.children == 0 then
+            self:runOnCompletePlayerProcessors(player, npc)
+        end
+
+        return true
+    end
+
+    for _, child in pairs(self.children) do
+        child:execute(message, player, npc)
     end
 
     return false
 end
 
--- Define to what topic the player goes after a valid interaction (default 0)
--- and what previousTopic should the player be at to process the message (default nil)
-function NpcInteraction:setTopic(topic, previousTopic)
-    self.topic = topic or 0
-    self.previousTopic = previousTopic or nil
-    return self
+function NpcInteraction:hasMessageValidKeyword(message)
+    for _, keyword in pairs(self.keywords) do
+        if msgContains(message, keyword) then
+            return true
+        end
+    end
+    return false
 end
 
--- Define a failure message for when the validation doesn't work
-function NpcInteraction:setFailureMessage(message)
-    self.failureMessage = message
-    return self
-end
-
--- Add storage values <key, value> to be checked (only interacts if all are correct)
-function NpcInteraction:addStorageCheck(storage, value)
-    self.storageChecks[storage] = value
-    return self
-end
-
--- Add storage values <key, value> to be set after a valid interaction
-function NpcInteraction:addStorageChange(storage, value)
-    self.storageChanges[storage] = value
-    return self
-end
-
--- Add a teleport configuration to where the player will be send after a valid interaction
--- Accepts custom departureEffect (defaults to CONST_ME_TELEPORT)
--- Accepts custom destinationEffect (defaults to departureEffect or CONST_ME_TELEPORT)
-function NpcInteraction:setTeleportConfig(position, cost, departureEffect, destinationEffect)
-    self.teleport = {
-        ["position"] = position,
-        ["cost"] = cost or nil,
-        ["departureEffect"] = departureEffect or CONST_ME_TELEPORT,
-        ["destinationEffect"] = departureEffect or departureEffect or CONST_ME_TELEPORT,
-    }
-    return self
-end
-
--- Add a sub interaction that can be executed
-function NpcInteraction:addSubInteraction(interaction)
-    if not interaction then return self end
-    self.subInteractions[#self.subInteractions + 1] = interaction
-
-    return self
-end
-
--- Add a custom function to be executed in the end of a valid interaction
-function NpcInteraction:addCallbackFunction(callback)
-    self.callbacks[#self.callbacks + 1] = callback
-    return self
-end
-
--- Add a custom function to be executed in the end of a valid interaction
-function NpcInteraction:addValidationFunction(validation)
-    if not validation then return self end
-    self.validations[#self.validations + 1] = validation
-    return self
-end
-
--- Perform all the validations to proceed with the current interaction
-function NpcInteraction:shouldAnswerPlayer(npc, player)
-    if self.previousTopic and not npc:isPlayerInteractingOnTopic(player, self.previousTopic) then
-        return false
+function NpcInteraction:checkPlayerInteraction(player, npc)
+    if not self.topic.previous then
+        return npc:isInteractingWithPlayer(player)
     end
 
-    if not self:hasValidPlayerInteraction(npc, player) then return false end
-    if not self:hasPlayerValidStorages(player) then return false  end
-    if not self:performCustomValidations(npc, player) then return false end
-
-    return true
-end
-
--- VALIDATIONS
--- Check if player can interact with the NpcInteraction
--- Greet only happens if no interaction is set, all other messages need an ongoing interaction
-function NpcInteraction:hasValidPlayerInteraction(npc, player)
-    if self.type == interactionTypes.INTERACTION_GREET then
+    if self.topic.previous == -1 then
         return not npc:isInteractingWithPlayer(player)
     end
 
-    return npc:isInteractingWithPlayer(player)
+    return npc:isPlayerInteractingOnTopic(player, self.topic.previous)
 end
 
--- Perform all configured storage checks
-function NpcInteraction:hasPlayerValidStorages(player)
-    for storage,value in pairs(self.storageChecks) do
-        if player:getStorageValue(storage) ~= value then return false end
-    end
-    return true
-end
-
--- Perform custom validation functions
-function NpcInteraction:performCustomValidations(npc, player)
-    for _,validation in pairs(self.validations) do
-        if not validation(npc, player) then return false end
-    end
-    return true
-end
-
--- EXECUTIONS
--- Set player interaction in the configured topic
--- Greet sets to 0 (begin) and Farewell removes interaction
-function NpcInteraction:updatePlayerInteraction(npc, player)
-    if self.type == interactionTypes.INTERACTION_FAREWELL then
+function NpcInteraction:updatePlayerInteraction(player, npc)
+    if self.topic.current == -1 then
         npc:removePlayerInteraction(player)
-    elseif self.type == interactionTypes.INTERACTION_GREET then
-        npc:setPlayerInteraction(player, 0)
-    elseif self.topic then
-        npc:setPlayerInteraction(player, self.topic)
+    else
+        npc:setPlayerInteraction(player, self.topic.current)
     end
 end
 
--- Executes all configured storage updates
-function NpcInteraction:updatePlayerStorages(player)
-    for storage,value in pairs(self.storageChanges) do
-        player:setStorageValue(storage, value)
-    end
-end
-
--- Executes configured teleport
-function NpcInteraction:performTeleport(npc, player)
-    if self.teleport then
-        if self.teleport.cost and not npc:chargePlayer(player, self.teleport.cost) then return end
-
-        destination = self.teleport.position
-
-        player:getPosition():sendMagicEffect(self.teleport.departureEffect)
-        player:teleportTo(destination)
-        destination:sendMagicEffect(self.teleport.destinationEffect)
-
-        -- resets iteraction, needs to be addEvent to go in the end of the callstack
-        addEvent(function() npc:removePlayerInteraction(player) end, 0)
-    end
-end
-
--- Executes configured callbacks
-function NpcInteraction:executeCallbacks(npc, player)
-    for _,callback in pairs(self.callbacks) do
-        callback(npc, player)
-    end
-end
-
--- Executes configured callbacks
-function NpcInteraction:createTravelInteraction(params)
-    local cost = params.cost or 0
-    params.message = params.message or "Do you want to travel to " .. params.keywords[1] .. " for " .. cost .. " gold coins?"
-    params.failureMessage = params.failureMessage or "I'm sorry but I don't sail there."
-
-    return NpcInteraction:newConfirmationNeededInteraction(params):setTeleportConfig(params.position, cost)
-end
-
-function NpcInteraction:newConfirmationNeededInteraction(params)
-    params.acceptedMessage = params.acceptedMessage or "It was a pleasure doing business with you."
-    params.cancellation = params.cancellation or "Then not."
-    params.failureMessage = params.failureMessage or "I'm sorry but I can't do that."
-
-    local interaction = NpcInteraction:new(params.keywords, params.message, interactionTypes.INTERACTION_CONFIRMATION_NEEDED)
-    return interaction
-        :setTopic(params.topic)
-        :setFailureMessage(params.failureMessage)
-        :addValidationFunction(params.validation)
-        :addSubInteraction(
-            NpcInteraction:new({"yes"}, params.acceptedMessage)
-                :setTopic(0, params.topic)
-                :addCallbackFunction(function(npc, player) interaction:executeActions(npc, player) end)
-        ):addSubInteraction(
-            NpcInteraction:new({"no"}, params.cancellation)
-                :setTopic(0, params.topic)
-        )
-end
-
-function NpcInteraction:newDefaultByType(player, type)
-    if type == interactionTypes.INTERACTION_GREET then
-        return NpcInteraction:new(
-                {"hi", "hello"},
-                "Hello, ".. player:getName() ..", what you need?",
-                type
-        )
+function NpcInteraction:runOnInitPlayerProcessors(player, npc)
+    for _, processor in pairs(self.onInitPlayerProcessors.validators) do
+        if not processor:validate(player, npc) then return false end
     end
 
-    if type == interactionTypes.INTERACTION_FAREWELL then
-        return NpcInteraction:new(
-                {"bye", "farewell"},
-                "Goodbye, ".. player:getName() ..".",
-                type
-        )
+    for _, processor in pairs(self.onInitPlayerProcessors.updaters) do
+        processor:update(player, npc)
     end
 
+    return true
+end
+
+function NpcInteraction:runOnCompletePlayerProcessors(player, npc)
+    for _, processor in pairs(self.onCompletePlayerProcessors.validators) do
+        if not processor:validate(player, npc) then
+            if npc then npc:talk(player, self.messages.cannotExecute) end
+            return false
+        end
+    end
+
+    for _, processor in pairs(self.onCompletePlayerProcessors.updaters) do
+        processor:update(player, npc)
+    end
+
+    if npc then npc:talk(player, self.messages.confirmation) end
+
+    return true
+end
+
+function NpcInteraction:getValidNpcInteractionForMessage(message, npc, player)
+    for _, keyword in pairs(self.keywords) do
+        if msgContains(message, keyword) then return self end
+    end
+
+    for _, subInteraction in pairs(self.children) do
+        local child = subInteraction:getValidNpcInteractionForMessage(message, npc, player)
+        if child and child.topic.previous and npc:isPlayerInteractingOnTopic(player, child.topic.previous) then
+            return child
+        end
+    end
+
+    return nil
+end
+
+function NpcInteraction:addSubInteraction(subInteraction, relationType)
+    if not self:isValidSubInteraction(subInteraction) then return self end
+    subInteraction.parent = { interaction = self, relationType = relationType or InteractionRelationType.RELATION_CONFIRMATION }
+    self.children[#self.children + 1] = subInteraction
+
+    return self
+end
+
+function NpcInteraction:addInitValidationProcessor(validator)
+    if not self:isValidProcessor(validator) then return self end
+    self.onInitPlayerProcessors.validators[#self.onInitPlayerProcessors.validators + 1] = validator
+
+    return self
+end
+
+function NpcInteraction:addInitUpdateProcessor(updater)
+    if not self:isValidProcessor(updater) then return self end
+    self.onInitPlayerProcessors.updaters[#self.onInitPlayerProcessors.updaters + 1] = updater
+
+    return self
+end
+
+function NpcInteraction:addCompletionValidationProcessor(validator)
+    if not self:isValidProcessor(validator) then return self end
+    self.onCompletePlayerProcessors.validators[#self.onCompletePlayerProcessors.validators + 1] = validator
+
+    return self
+end
+
+function NpcInteraction:addCompletionUpdateProcessor(updater)
+    if not self:isValidProcessor(updater) then return self end
+    self.onCompletePlayerProcessors.updaters[#self.onCompletePlayerProcessors.updaters + 1] = updater
+
+    return self
+end
+
+function NpcInteraction:isValidSubInteraction(interaction)
+    if getmetatable(interaction) ~= NpcInteraction then
+        error("Invalid argument: subInteraction needs to be of type NpcInteraction")
+        return false
+    end
+    return true
+end
+
+function NpcInteraction:isValidProcessor(procesor)
+    if getmetatable(procesor) ~= PlayerProcessingConfigs then
+        error("Invalid argument: processor needs to be of type PlayerProcessingConfigs")
+    end
+    return true
+end
+
+function NpcInteraction:createGreetInteraction(message, keywords)
     return NpcInteraction:new(
-            {},
-            "Sorry " .. player:getName() .. ", I didn't understand"
+        keywords or {"hi", "hello"},
+        {reply = message or "Hello, %s, what you need?"},
+        {previous = -1}
+    )
+end
+
+function NpcInteraction:createFarewellInteraction(message, keywords)
+    return NpcInteraction:new(
+        keywords or {"bye", "farewell"},
+        {reply = message or "Goodbye, %s."},
+        {current = -1}
+    )
+end
+
+function NpcInteraction:createReplyInteraction(keywords, message, topic)
+    return NpcInteraction:new(
+        keywords,
+        {reply = message},
+        topic
+    )
+end
+
+function NpcInteraction:createTravelInteraction(player, town, cost, position, messages, discount, travelTopic)
+    cost = player:calculateTravelPrice(cost, discount)
+    messages.reply = buildTravelMessage(messages.reply, town, cost)
+    return NpcInteraction:new(
+        {town},
+            messages,
+        {current = travelTopic, previous = 0}
+    ):addSubInteraction(
+        NpcInteraction:createReplyInteraction( {"yes"}, nil, {current = 0, previous = travelTopic})
+    ):addSubInteraction(
+        NpcInteraction:createReplyInteraction( {"no"},nil, {current = 0, previous = travelTopic}),
+        InteractionRelationType.RELATION_CANCELLATION
+    ):addCompletionUpdateProcessor(
+        PlayerProcessingConfigs:new()
+           :addPosition(position)
+           :addAmount(function(player) return -player:calculateTravelPrice(cost, discount) end)
     )
 end

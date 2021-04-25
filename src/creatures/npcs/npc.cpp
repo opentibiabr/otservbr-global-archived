@@ -170,6 +170,10 @@ void Npc::onCreatureSay(Creature* creature, SpeakClasses type, const std::string
 {
 	Creature::onCreatureSay(creature, type, text);
 
+	if (!creature->getPlayer()) {
+		return;
+	}
+
 	// onCreatureSay(self, creature, type, message)
 	CreatureCallback callback = CreatureCallback(npcType->info.scriptInterface, this);
 	if (callback.startScriptInterface(npcType->info.creatureSayEvent)) {

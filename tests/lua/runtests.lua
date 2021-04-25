@@ -11,7 +11,7 @@ dofile('mock/fake_npc.lua')
 dofile('mock/fake_player.lua')
 
 -- Load testable files
-dofile('../../data/lib/npc/npc_interaction_2.lua')
+dofile('../../data/lib/npc/npc_interaction.lua')
 dofile('../../data/lib/npc/player_validator.lua')
 dofile('../../data/lib/npc/player_updater.lua')
 dofile('../../data/lib/npc/player_processing_configs.lua')
