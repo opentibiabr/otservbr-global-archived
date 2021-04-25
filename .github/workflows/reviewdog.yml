@@ -12,9 +12,6 @@ jobs:
     - name: Setup Lua
       run: sudo apt-get install -y lua5.1 liblua5.1-0-dev
 
-    - name: Lua Tests
-      run: lua ${{ github.workspace }}/tests/lua/runtests.lua -v
-
     - name: Setup Luacheck
       run: sudo apt-get install -y lua-check
 
@@ -26,6 +23,9 @@ jobs:
 
     - name: Check out code.
       uses: actions/checkout@v1
+
+    - name: Lua Tests
+      run: lua ${{ github.workspace }}/tests/lua/runtests.lua -v
 
     - name: Setup reviewdog
       run: |
