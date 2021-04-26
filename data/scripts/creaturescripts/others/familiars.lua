@@ -57,20 +57,20 @@ function familiarLogin.onLogin(player)
 	if familiarName then
 		position = player:getPosition()
 		local familiarMonster = Game.createMonster(familiarName, position, true, false)
-		if not familiarMonster then return false end
-
-		player:addSummon(familiarMonster)
-		familiarMonster:setOutfit({lookType = player:getFamiliarLooktype()})
-		--familiarMonster:reload()
-		local deltaSpeed = math.max(player:getSpeed() - familiarMonster:getSpeed(), 0)
-		familiarMonster:changeSpeed(deltaSpeed)
-		player:setStorageValue(familiarStorage, os.time() + petTimeLeft)
-		familiarMonster:registerEvent("FamiliarDeath")
-		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
-		addEvent(removePet, petTimeLeft*1000, familiarMonster:getId(), player:getId())
-		for sendMessage = 1, #timer do
-			if player:getStorageValue(timer[sendMessage].storage) == -1 and petTimeLeft >= timer[sendMessage].countdown then
-				player:setStorageValue(timer[sendMessage].storage, addEvent(sendMessageFunction, (petTimeLeft-timer[sendMessage].countdown)*1000, player:getId(), timer[sendMessage].message))
+		if familiarMonster then
+			player:addSummon(familiarMonster)
+			familiarMonster:setOutfit({lookType = player:getFamiliarLooktype()})
+			--familiarMonster:reload()
+			local deltaSpeed = math.max(player:getSpeed() - familiarMonster:getSpeed(), 0)
+			familiarMonster:changeSpeed(deltaSpeed)
+			player:setStorageValue(familiarStorage, os.time() + petTimeLeft)
+			familiarMonster:registerEvent("FamiliarDeath")
+			position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
+			addEvent(removePet, petTimeLeft*1000, familiarMonster:getId(), player:getId())
+			for sendMessage = 1, #timer do
+				if player:getStorageValue(timer[sendMessage].storage) == -1 and petTimeLeft >= timer[sendMessage].countdown then
+					player:setStorageValue(timer[sendMessage].storage, addEvent(sendMessageFunction, (petTimeLeft-timer[sendMessage].countdown)*1000, player:getId(), timer[sendMessage].message))
+				end
 			end
 		end
 	end
