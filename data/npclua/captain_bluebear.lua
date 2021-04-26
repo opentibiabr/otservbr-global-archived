@@ -50,6 +50,7 @@ local replyInteractions = {
 }
 
 local destinations = {
+    -- TODO: Create TravelConfig class
     { town = "carlin", baseCost = 110, position = Position(32387, 31820, 6), discounts = 'postman',
         completionUpdaters = {
             PlayerProcessingConfigs:new()

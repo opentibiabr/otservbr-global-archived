@@ -53,7 +53,7 @@ function NpcInteraction:createTravelInteraction(player, travelConfigs, baseMessa
                                            :removeAmount(cost)
                                            :addStorage(Storage.NpcExhaust, 3 + os.time())
                                            :addCallback(
-                                            function()
+                                            function(player)
                                                    player:getPosition():sendMagicEffect(travelConfigs.effect or CONST_ME_TELEPORT)
                                                    addEvent(function () travelConfigs.position:sendMagicEffect(travelConfigs.effect or CONST_ME_TELEPORT) end, 100)
                                                end
@@ -62,7 +62,7 @@ function NpcInteraction:createTravelInteraction(player, travelConfigs, baseMessa
     -- this is some quest weirdness, probably can be encapsulated somewhere else later
     travelUpdaters[#travelUpdaters + 1] = PlayerProcessingConfigs:new()
                                              :addCallback(
-                                            function()
+                                            function(player)
                                                     if travelConfigs.town == "kazordoon" and player:getStorageValue(Storage.WhatAFoolish.PieBoxTimer) > os.time() then
                                                         player:setStorageValue(Storage.WhatAFoolish.PieBoxTimer, 1)
                                                     end
