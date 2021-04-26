@@ -12885,7 +12885,7 @@ int LuaScriptInterface::luaNpcSetName(lua_State* L)
 {
 	// npc:setName(name)
 	Npc* npc = getUserdata<Npc>(L, 1);
-	std::string& name = getString(L, 2);
+	const std::string& name = getString(L, 2);
 	if (!npc) {
 		reportErrorFunc(getErrorDesc(LUA_ERROR_NPC_NOT_FOUND));
 		lua_pushnil(L);
