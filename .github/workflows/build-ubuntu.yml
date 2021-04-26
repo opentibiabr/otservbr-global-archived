@@ -2,22 +2,7 @@
 
 name: Build on Ubuntu
 
-on:
-  push:
-    branches:
-      - master
-      - develop
-      - v*
-
-    tags:
-      - v*
-
-  pull_request:
-    paths:
-      - cmake/**
-      - src/**
-      - CMakeLists.txt
-      - .github/**
+on: [push, pull_request]
 
 jobs:
   job:
@@ -71,14 +56,14 @@ jobs:
           cmakeBuildType: ${{ matrix.buildtype }}
 
       - name: Clean workspace
-        if: ${{ matrix.buildtype == 'Release' }}
+        if: ${{ matrix.buildtype == 'Release' && github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/test' }}
         shell: bash
         run: |
           mv ${{ github.workspace }}/build/bin/otbr ${{ github.workspace }}/otbr
           find . -maxdepth 1 ! -name otbr ! -name data ! -name config.lua.dist ! -name key.pem ! -name LICENSE ! -name README.md ! -name schema.sql -exec rm -r {} \;
 
       - name: Prepare datapack contents
-        if: ${{ matrix.buildtype == 'Release' }}
+        if: ${{ matrix.buildtype == 'Release' && github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/test' }}
         shell: bash
         run: |
           mv config.lua.dist config.lua
@@ -88,7 +73,7 @@ jobs:
           zip -r otservbr.zip otservbr-global
 
       - name: Upload binary
-        if: ${{ matrix.buildtype == 'Release' }}
+        if: ${{ matrix.buildtype == 'Release' && github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/test' }}
         uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.os }}-otbr-amd64-${{ matrix.buildtype }}-${{ github.sha }}
