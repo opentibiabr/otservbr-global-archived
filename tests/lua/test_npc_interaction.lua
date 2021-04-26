@@ -50,6 +50,8 @@ function test_NpcInteraction_AddSubInteraction()
 
     interaction:addSubInteraction(subInteraction1)
     interaction:addSubInteraction(subInteraction2)
+    interaction:addSubInteraction()
+    interaction:addSubInteraction({})
 
     lu.assertEquals(#interaction.children, 2)
     lu.assertEquals(interaction.children[1].keywords, {"sub_interaction_1"})
@@ -61,114 +63,53 @@ function test_NpcInteraction_AddSubInteraction()
     lu.assertIsTrue(getmetatable(subInteraction1.parent.interaction) == NpcInteraction)
 end
 
-function test_NpcInteraction_AddEmptySubInteractionFails()
-    lu.assertErrorMsgContains(
-            'Invalid argument: subInteraction needs to be of type NpcInteraction',
-            function () NpcInteraction:new():addSubInteraction() end
-    )
-end
-
-function test_NpcInteraction_AddInvalidSubInteractionFails()
-    lu.assertErrorMsgContains(
-            'Invalid argument: subInteraction needs to be of type NpcInteraction',
-            function () NpcInteraction:new():addSubInteraction({}) end
-    )
-end
-
 function test_NpcInteraction_AddInitValidationProcessor()
     local interaction = NpcInteraction:new()
     interaction:addInitValidationProcessor(PlayerProcessingConfigs:new():addAmount(25123))
     interaction:addInitValidationProcessor(PlayerProcessingConfigs:new():addAmount(0))
+    interaction:addInitValidationProcessor()
+    interaction:addInitValidationProcessor({})
 
     lu.assertEquals(#interaction.onInitPlayerProcessors.validators, 2)
     lu.assertEquals(interaction.onInitPlayerProcessors.validators[1].moneyAmount.value, 25123)
     lu.assertEquals(interaction.onInitPlayerProcessors.validators[2].moneyAmount.value, 0)
-end
 
-function test_NpcInteraction_AddInitValidationProcessorWithEmptyProcessorThrows()
-    lu.assertErrorMsgContains(
-            'Invalid argument: processor needs to be of type PlayerProcessingConfigs',
-            function () NpcInteraction:new():addInitValidationProcessor() end
-    )
-end
-
-function test_NpcInteraction_AddInitValidationProcessorWithInvalidProcessorThrows()
-    lu.assertErrorMsgContains(
-            'Invalid argument: processor needs to be of type PlayerProcessingConfigs',
-            function () NpcInteraction:new():addInitValidationProcessor({}) end
-    )
 end
 
 function test_NpcInteraction_AddInitUpdateProcessor()
     local interaction = NpcInteraction:new()
     interaction:addInitUpdateProcessor(PlayerProcessingConfigs:new():addAmount(25120))
     interaction:addInitUpdateProcessor(PlayerProcessingConfigs:new():addAmount(0))
+    interaction:addInitUpdateProcessor()
+    interaction:addInitUpdateProcessor({})
 
     lu.assertEquals(#interaction.onInitPlayerProcessors.updaters, 2)
     lu.assertEquals(interaction.onInitPlayerProcessors.updaters[1].moneyAmount.value, 25120)
     lu.assertEquals(interaction.onInitPlayerProcessors.updaters[2].moneyAmount.value, 0)
 end
 
-function test_NpcInteraction_AddInitUpdateProcessorWithEmptyProcessorThrows()
-    lu.assertErrorMsgContains(
-            'Invalid argument: processor needs to be of type PlayerProcessingConfigs',
-            function () NpcInteraction:new():addInitUpdateProcessor() end
-    )
-end
-
-function test_NpcInteraction_AddInitUpdateProcessorWithInvalidProcessorThrows()
-    lu.assertErrorMsgContains(
-            'Invalid argument: processor needs to be of type PlayerProcessingConfigs',
-            function () NpcInteraction:new():addInitUpdateProcessor({}) end
-    )
-end
-
 function test_NpcInteraction_AddCompletionValidationProcessor()
     local interaction = NpcInteraction:new()
     interaction:addCompletionValidationProcessor(PlayerProcessingConfigs:new():addAmount(25121))
     interaction:addCompletionValidationProcessor(PlayerProcessingConfigs:new():addAmount(0))
+    interaction:addCompletionValidationProcessor()
+    interaction:addCompletionValidationProcessor({})
 
     lu.assertEquals(#interaction.onCompletePlayerProcessors.validators, 2)
     lu.assertEquals(interaction.onCompletePlayerProcessors.validators[1].moneyAmount.value, 25121)
     lu.assertEquals(interaction.onCompletePlayerProcessors.validators[2].moneyAmount.value, 0)
 end
 
-function test_NpcInteraction_AddCompletionValidationProcessorWithInvalidProcessorThrows()
-    lu.assertErrorMsgContains(
-            'Invalid argument: processor needs to be of type PlayerProcessingConfigs',
-            function () NpcInteraction:new():addCompletionValidationProcessor({}) end
-    )
-end
-
-function test_NpcInteraction_AddCompletionValidationProcessorWithEmptyProcessorThrows()
-    lu.assertErrorMsgContains(
-            'Invalid argument: processor needs to be of type PlayerProcessingConfigs',
-            function () NpcInteraction:new():addCompletionValidationProcessor() end
-    )
-end
-
 function test_NpcInteraction_AddCompletionUpdateProcessor()
     local interaction = NpcInteraction:new()
     interaction:addCompletionUpdateProcessor(PlayerProcessingConfigs:new():addAmount(25122))
     interaction:addCompletionUpdateProcessor(PlayerProcessingConfigs:new():addAmount(0))
+    interaction:addCompletionUpdateProcessor()
+    interaction:addCompletionUpdateProcessor({})
 
     lu.assertEquals(#interaction.onCompletePlayerProcessors.updaters, 2)
     lu.assertEquals(interaction.onCompletePlayerProcessors.updaters[1].moneyAmount.value, 25122)
     lu.assertEquals(interaction.onCompletePlayerProcessors.updaters[2].moneyAmount.value, 0)
-end
-
-function test_NpcInteraction_AddCompletionUpdateProcessorWithEmptyProcessorThrows()
-    lu.assertErrorMsgContains(
-            'Invalid argument: processor needs to be of type PlayerProcessingConfigs',
-            function () NpcInteraction:new():addCompletionUpdateProcessor() end
-    )
-end
-
-function test_NpcInteraction_AddCompletionUpdateProcessorWithInvalidProcessorThrows()
-    lu.assertErrorMsgContains(
-            'Invalid argument: processor needs to be of type PlayerProcessingConfigs',
-            function () NpcInteraction:new():addCompletionUpdateProcessor({}) end
-    )
 end
 
 function test_NpcInteraction_HasMessageValidKeyword()
@@ -319,18 +260,14 @@ end
 
 function test_NpcInteraction_IsValidSubInteraction()
     lu.assertIsTrue(NpcInteraction:isValidSubInteraction(NpcInteraction:new()))
-    lu.assertErrorMsgContains(
-            'Invalid argument: subInteraction needs to be of type NpcInteraction',
-            function () NpcInteraction:isValidSubInteraction({}) end
-    )
+    lu.assertIsFalse(NpcInteraction:isValidSubInteraction())
+    lu.assertIsFalse(NpcInteraction:isValidSubInteraction({}))
 end
 
 function test_NpcInteraction_IsValidProcessor()
     lu.assertIsTrue(NpcInteraction:isValidProcessor(PlayerProcessingConfigs:new()))
-    lu.assertErrorMsgContains(
-            'Invalid argument: processor needs to be of type PlayerProcessingConfigs',
-            function () NpcInteraction:isValidProcessor({}) end
-    )
+    lu.assertIsFalse(NpcInteraction:isValidProcessor())
+    lu.assertIsFalse(NpcInteraction:isValidProcessor({}))
 end
 
 function test_NpcInteraction_ExecuteWithNoKeywordDoesNotUpdateTopic()

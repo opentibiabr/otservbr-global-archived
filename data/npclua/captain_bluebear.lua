@@ -27,18 +27,6 @@ npcConfig.flags = {
     floorchange = false
 }
 
-npcType.onThink = function(npc, interval)
-end
-
-npcType.onAppear = function(npc, creature)
-end
-
-npcType.onDisappear = function(npc, creature)
-end
-
-npcType.onMove = function(npc, creature, fromPosition, toPosition)
-end
-
 local travelMessages = {
     reply = "Do you seek a passage to %s for %s?",
     confirmation = "Set the sails!",
@@ -46,7 +34,7 @@ local travelMessages = {
     cannotExecute = "I'm sorry but I don't sail there."
 }
 
-local interactions = {
+local replyInteractions = {
     NpcInteraction:createGreetInteraction("Welcome on board %s, Where can I {sail} you today?"),
     NpcInteraction:createReplyInteraction({"name"}, "My name is Captain Bluebear from the Royal Tibia Line."),
     NpcInteraction:createReplyInteraction({"job", "captain"}, "I am the captain of this sailing-ship."),
@@ -61,39 +49,74 @@ local interactions = {
     NpcInteraction:createFarewellInteraction("Good bye %s. Recommend us if you were satisfied with our service."),
 }
 
-local travelInteractions = function (player)
-    return {
-        NpcInteraction:createTravelInteraction(player, "carlin", 110, Position(32387, 31820, 6), travelMessages, 'postman', 1)
-            :addCompletionUpdateProcessor(
-                PlayerProcessingConfigs:new()
-                   :addCallback(
-                        function(player)
-                            if player:getStorageValue(Storage.Postman.Mission01) == 1 then
-                                player:setStorageValue(Storage.Postman.Mission01, 2)
-                            end
-                        end
+local destinations = {
+    { town = "carlin", baseCost = 110, position = Position(32387, 31820, 6), discounts = 'postman',
+        completionUpdaters = {
+            PlayerProcessingConfigs:new()
+                :addCallback(
+                  function(player)
+                      --[[
+                            we can simplify this by adding "validations" attribute
+                            to the player processing that will make the processor only execute
+                            if they run successfully. This is useful since we use this kind of
+                            conditional updates everywhere.
+
+                            e.g.
+                            completionUpdaters = {
+                                PlayerProcessingConfigs:new():addValidation(
+                                    PlayerProcessingConfigs:new():addStorage(Storage.Postman.Mission01, 1)
+                                ):addStorage(Storage.Postman.Mission01, 2)
+                            }
+                      ]]--
+                      if player:getStorageValue(Storage.Postman.Mission01) == 1 then
+                          player:setStorageValue(Storage.Postman.Mission01, 2)
+                      end
+                end
                 )
-            ),
-        NpcInteraction:createTravelInteraction(player, "ab'dendriel", 130, Position(32734, 31668, 6), travelMessages, 'postman', 2),
-        NpcInteraction:createTravelInteraction(player, "edron", 160, Position(33175, 31764, 6), travelMessages, 'postman', 3),
-        NpcInteraction:createTravelInteraction(player, "venore", 170, Position(32954, 32022, 6), travelMessages, 'postman', 4),
-        NpcInteraction:createTravelInteraction(player, "port hope", 160, Position(32527, 32784, 6), travelMessages, 'postman', 5),
-        NpcInteraction:createTravelInteraction(player, "roshamuul", 210, Position(33494, 32567, 7), travelMessages, 'postman', 6),
-        NpcInteraction:createTravelInteraction(player, "svargrond", 180, Position(32341, 31108, 6), travelMessages, 'postman', 7),
-        NpcInteraction:createTravelInteraction(player, "liberty bay", 180, Position(32285, 32892, 6), travelMessages, 'postman', 8),
-        NpcInteraction:createTravelInteraction(player, "yalahar", 200, Position(32816, 31272, 6), travelMessages, 'postman', 9)
-            :addCompletionValidationProcessor(
-                PlayerProcessingConfigs:new()
-                   :addStorage(Storage.SearoutesAroundYalahar.Thais, 1, ConfigsTypes.CONFIG_NEQ)
-                   :addStorage(Storage.SearoutesAroundYalahar.TownsCounter, 4, ConfigsTypes.CONFIG_LTE)
-        ),
-        NpcInteraction:createTravelInteraction(player, "oramond", 150, Position(33479, 31985, 7), travelMessages, 'postman', 10),
-        NpcInteraction:createTravelInteraction(player, "krailos", 230, Position(33492, 31712, 6), travelMessages, 'postman', 11),
-    }
+    }},
+    { town = "ab'dendriel", baseCost = 130, position = Position(32734, 31668, 6), discounts = 'postman' },
+    { town = "edron", baseCost = 160, position = Position(33175, 31764, 6), discounts = 'postman' },
+    { town = "venore", baseCost = 170, position = Position(32954, 32022, 6), discounts = 'postman' },
+    { town = "port hope", baseCost = 160, position = Position(32527, 32784, 6), discounts = 'postman' },
+    { town = "roshamuul", baseCost = 210, position = Position(33494, 32567, 7), discounts = 'postman' },
+    { town = "svargrond", baseCost = 180, position = Position(32341, 31108, 6), discounts = 'postman' },
+    { town = "liberty bay", baseCost = 180, position = Position(32285, 32892, 6), discounts = 'postman' },
+    { town = "oramond", baseCost = 150, position = Position(33479, 31985, 7), discounts = 'postman' },
+    { town = "krailos", baseCost = 230, position = Position(33492, 31712, 6), discounts = 'postman' },
+    { town = "yalahar", baseCost = 200, position = Position(32816, 31272, 6), discounts = 'postman',
+        completionValidations = {
+            PlayerProcessingConfigs:new()
+                :addStorage(Storage.SearoutesAroundYalahar.Thais, 1, ConfigsTypes.CONFIG_NEQ)
+                :addStorage(Storage.SearoutesAroundYalahar.TownsCounter, 4, ConfigsTypes.CONFIG_LTE)
+        }
+    },
+}
+
+local getTravelInteractions = function (player, destinations, baseMessages)
+    local travelInteractions = {}
+
+    for index, travelConfigs in pairs(destinations) do
+        travelInteractions[#travelInteractions + 1] = NpcInteraction:createTravelInteraction(player, travelConfigs, baseMessages, index)
+    end
+
+    return travelInteractions
+end
+
+npcType.onThink = function(npc, interval)
+end
+
+npcType.onAppear = function(npc, creature)
+end
+
+npcType.onDisappear = function(npc, creature)
+end
+
+npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-    return npc:processOnSay(message, creature, concatArrays(interactions, travelInteractions(creature)))
+    local npcInteractions = table.concat(replyInteractions, getTravelInteractions(creature, destinations, travelMessages))
+    return npc:processOnSay(message, creature, npcInteractions)
 end
 
 npcType:register(npcConfig)

@@ -35,17 +35,49 @@ function NpcInteraction:createConfirmationInteraction(keywords, messages, childT
     )
 end
 
-function NpcInteraction:createTravelInteraction(player, town, cost, position, messages, discount, travelTopic)
-    cost = player and player:calculateTravelPrice(cost, discount) or cost
+function NpcInteraction:createTravelInteraction(player, travelConfigs, baseMessages, travelTopic)
+    local cost = player and player:calculateTravelPrice(travelConfigs.baseCost, travelConfigs.discounts or {}) or travelConfigs.baseCost
+
+    -- its nice to keep validators separated, we can later on add failure message per validator when it fails
+    local travelValidators = travelConfigs.completionValidations or {}
+    travelValidators[#travelValidators + 1] = PlayerProcessingConfigs:new():addAmount(cost)
+    travelValidators[#travelValidators + 1] = PlayerProcessingConfigs:new():addStorage(Storage.NpcExhaust, os.time(), ConfigsTypes.CONFIG_LTE)
+    --:addPremium(travelConfig.premium or true)
+    --:addLevel(travelConfig.level)
+    --:addProtectionZone(true)
+    --:addProtectionZone(true)
+
+    local travelUpdaters = travelConfigs.completionUpdaters or {}
+    travelUpdaters[#travelUpdaters + 1] = PlayerProcessingConfigs:new()
+                                           :addPosition(travelConfigs.position)
+                                           :removeAmount(cost)
+                                           :addStorage(Storage.NpcExhaust, 3 + os.time())
+                                           :addCallback(
+                                            function()
+                                                   player:getPosition():sendMagicEffect(travelConfigs.effect or CONST_ME_TELEPORT)
+                                                   addEvent(function () travelConfigs.position:sendMagicEffect(travelConfigs.effect or CONST_ME_TELEPORT) end, 100)
+                                               end
+                                           )
+
+    -- this is some quest weirdness, probably can be encapsulated somewhere else later
+    travelUpdaters[#travelUpdaters + 1] = PlayerProcessingConfigs:new()
+                                             :addCallback(
+                                            function()
+                                                    if travelConfigs.town == "kazordoon" and player:getStorageValue(Storage.WhatAFoolish.PieBoxTimer) > os.time() then
+                                                        player:setStorageValue(Storage.WhatAFoolish.PieBoxTimer, 1)
+                                                    end
+                                                end
+                                            )
 
     return NpcInteraction:createConfirmationInteraction(
-            {town},
+            {travelConfigs.town},
             {
-                reply = buildTravelMessage(messages.reply, town, cost),
-                confirmation = messages.confirmation,
-                cancellation = messages.cancellation,
-                cannotExecute = messages.cannotExecute,
+                reply = buildTravelMessage(baseMessages.reply, travelConfigs.town, cost),
+                confirmation = baseMessages.confirmation,
+                cancellation = baseMessages.cancellation,
+                cannotExecute = baseMessages.cannotExecute,
             },
             travelTopic
-    ):addCompletionUpdateProcessor(PlayerProcessingConfigs:new():addPosition(position):removeAmount(cost))
+    ):addCompletionValidationProcessors(travelValidators)
+    :addCompletionUpdateProcessors(travelUpdaters)
 end

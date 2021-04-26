@@ -104,6 +104,12 @@ function table.unserialize(str)
 	return loadstring("return " .. str)()
 end
 
+function table.concat(tableA, tableB)
+	local result = {unpack(tableA)}
+	table.move(tableB, 1, #tableB, #result + 1, result)
+	return result
+end
+
 function pairsByKeys(t, f)
 	local a = {}
 	for n in pairs(t) do table.insert(a, n) end
@@ -116,4 +122,10 @@ function pairsByKeys(t, f)
 		end
 	end
 	return iter
+end
+
+function Set(list)
+	local set = {}
+	for _, l in ipairs(list) do set[l] = true end
+	return set
 end

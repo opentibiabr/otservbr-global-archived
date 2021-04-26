@@ -153,9 +153,29 @@ function NpcInteraction:addInitValidationProcessor(validator)
     return self
 end
 
+function NpcInteraction:addInitValidationProcessors(validators)
+    if not validators then return self end
+
+    for _, validator in pairs(validators) do
+        self:addInitValidationProcessor(validator)
+    end
+
+    return self
+end
+
 function NpcInteraction:addInitUpdateProcessor(updater)
     if not self:isValidProcessor(updater) then return self end
     self.onInitPlayerProcessors.updaters[#self.onInitPlayerProcessors.updaters + 1] = updater
+
+    return self
+end
+
+function NpcInteraction:addInitUpdateProcessors(updaters)
+    if not updaters then return self end
+
+    for _, updater in pairs(updaters) do
+        self:addInitUpdateProcessor(updater)
+    end
 
     return self
 end
@@ -167,6 +187,16 @@ function NpcInteraction:addCompletionValidationProcessor(validator)
     return self
 end
 
+function NpcInteraction:addCompletionValidationProcessors(validators)
+    if not validators then return self end
+
+    for _, validator in pairs(validators) do
+        self:addCompletionValidationProcessor(validator)
+    end
+
+    return self
+end
+
 function NpcInteraction:addCompletionUpdateProcessor(updater)
     if not self:isValidProcessor(updater) then return self end
     self.onCompletePlayerProcessors.updaters[#self.onCompletePlayerProcessors.updaters + 1] = updater
@@ -174,9 +204,18 @@ function NpcInteraction:addCompletionUpdateProcessor(updater)
     return self
 end
 
+function NpcInteraction:addCompletionUpdateProcessors(updaters)
+    if not updaters then return self end
+
+    for _, updater in pairs(updaters) do
+        self:addCompletionUpdateProcessor(updater)
+    end
+
+    return self
+end
+
 function NpcInteraction:isValidSubInteraction(interaction)
     if getmetatable(interaction) ~= NpcInteraction then
-        error("Invalid argument: subInteraction needs to be of type NpcInteraction")
         return false
     end
     return true
@@ -184,7 +223,7 @@ end
 
 function NpcInteraction:isValidProcessor(procesor)
     if getmetatable(procesor) ~= PlayerProcessingConfigs then
-        error("Invalid argument: processor needs to be of type PlayerProcessingConfigs")
+        return false
     end
     return true
 end
