@@ -192,7 +192,6 @@ foreach (_sourceFile ${OTBR_SOURCES})
 	get_filename_component(_dir ${_sourceFile} PATH)
 	if (NOT ${CMAKE_SOURCE_DIR}/src/${_dir} IN_LIST OTBR_INCLUDE_DIRS)
 		list (APPEND OTBR_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/src/${_dir})
-		message(  ${CMAKE_SOURCE_DIR}/src/${_dir} )
 	endif()
 endforeach()
 
