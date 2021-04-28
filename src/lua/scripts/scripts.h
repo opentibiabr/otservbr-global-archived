@@ -17,33 +17,36 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_OTPCH_H_F00C737DA6CA4C8D90F57430C614367F
-#define FS_OTPCH_H_F00C737DA6CA4C8D90F57430C614367F
+#ifndef FS_SCRIPTS_H
+#define FS_SCRIPTS_H
 
-// Definitions should be global.
-#include "utils/definitions.h"
+#include "luascript.h"
+#include "../../utils/enums.h"
 
-#include <algorithm>
-#include <chrono>
-#include <cstdint>
-#include <forward_list>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <list>
-#include <map>
-#include <memory>
-#include <mutex>
-#include <sstream>
-#include <string>
-#include <thread>
-#include <unordered_map>
-#include <vector>
+class Scripts
+{
+	public:
+		Scripts();
+		~Scripts();
 
-#include <boost/asio.hpp>
+		// non-copyable
+		Scripts(const Scripts&) = delete;
+		Scripts& operator=(const Scripts&) = delete;
 
-#include <pugixml.hpp>
+		static Scripts& getInstance() {
+			static Scripts instance;
+			return instance;
+		}
 
-#include "spdlog/spdlog.h"
+
+		bool loadEventSchedulerScripts(const std::string& fileName);
+		bool loadScripts(std::string folderName, bool isLib, bool reload);
+		bool loadScriptSystems();
+		LuaScriptInterface& getScriptInterface() {
+			return scriptInterface;
+		}
+	private:
+		LuaScriptInterface scriptInterface;
+};
 
 #endif

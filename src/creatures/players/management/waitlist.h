@@ -17,33 +17,26 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_OTPCH_H_F00C737DA6CA4C8D90F57430C614367F
-#define FS_OTPCH_H_F00C737DA6CA4C8D90F57430C614367F
+#ifndef FS_WAITLIST_H_7E4299E552E44F10BC4F4E50BF3D7241
+#define FS_WAITLIST_H_7E4299E552E44F10BC4F4E50BF3D7241
 
-// Definitions should be global.
-#include "utils/definitions.h"
+#include "../player.h"
 
-#include <algorithm>
-#include <chrono>
-#include <cstdint>
-#include <forward_list>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <list>
-#include <map>
-#include <memory>
-#include <mutex>
-#include <sstream>
-#include <string>
-#include <thread>
-#include <unordered_map>
-#include <vector>
+struct WaitListInfo;
 
-#include <boost/asio.hpp>
+class WaitingList
+{
+	public:
+		static WaitingList& getInstance();
 
-#include <pugixml.hpp>
+		bool clientLogin(const Player* player);
+		std::size_t getClientSlot(const Player* player);
+		static std::size_t getTime(std::size_t slot);
 
-#include "spdlog/spdlog.h"
+	private:
+		WaitingList();
+
+		std::unique_ptr<WaitListInfo> info;
+};
 
 #endif

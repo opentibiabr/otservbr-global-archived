@@ -17,33 +17,53 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_OTPCH_H_F00C737DA6CA4C8D90F57430C614367F
-#define FS_OTPCH_H_F00C737DA6CA4C8D90F57430C614367F
+#include "../otpch.h"
 
-// Definitions should be global.
-#include "utils/definitions.h"
+#include "cylinder.h"
 
-#include <algorithm>
-#include <chrono>
-#include <cstdint>
-#include <forward_list>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <list>
-#include <map>
-#include <memory>
-#include <mutex>
-#include <sstream>
-#include <string>
-#include <thread>
-#include <unordered_map>
-#include <vector>
+VirtualCylinder* VirtualCylinder::virtualCylinder = new VirtualCylinder;
 
-#include <boost/asio.hpp>
+int32_t Cylinder::getThingIndex(const Thing*) const
+{
+	return -1;
+}
 
-#include <pugixml.hpp>
+size_t Cylinder::getFirstIndex() const
+{
+	return 0;
+}
 
-#include "spdlog/spdlog.h"
+size_t Cylinder::getLastIndex() const
+{
+	return 0;
+}
 
-#endif
+uint32_t Cylinder::getItemTypeCount(uint16_t, int32_t) const
+{
+	return 0;
+}
+
+std::map<uint32_t, uint32_t>& Cylinder::getAllItemTypeCount(std::map<uint32_t, uint32_t>& countMap) const
+{
+	return countMap;
+}
+
+Thing* Cylinder::getThing(size_t) const
+{
+	return nullptr;
+}
+
+void Cylinder::internalAddThing(Thing*)
+{
+	//
+}
+
+void Cylinder::internalAddThing(uint32_t, Thing*)
+{
+	//
+}
+
+void Cylinder::startDecaying()
+{
+	//
+}

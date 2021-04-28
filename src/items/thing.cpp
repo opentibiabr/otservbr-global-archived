@@ -17,33 +17,26 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_OTPCH_H_F00C737DA6CA4C8D90F57430C614367F
-#define FS_OTPCH_H_F00C737DA6CA4C8D90F57430C614367F
+#include "../otpch.h"
 
-// Definitions should be global.
-#include "utils/definitions.h"
+#include "thing.h"
+#include "tile.h"
 
-#include <algorithm>
-#include <chrono>
-#include <cstdint>
-#include <forward_list>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <list>
-#include <map>
-#include <memory>
-#include <mutex>
-#include <sstream>
-#include <string>
-#include <thread>
-#include <unordered_map>
-#include <vector>
+const Position& Thing::getPosition() const
+{
+	const Tile* tile = getTile();
+	if (!tile) {
+		return Tile::nullptr_tile.getPosition();
+	}
+	return tile->getPosition();
+}
 
-#include <boost/asio.hpp>
+Tile* Thing::getTile()
+{
+	return dynamic_cast<Tile*>(this);
+}
 
-#include <pugixml.hpp>
-
-#include "spdlog/spdlog.h"
-
-#endif
+const Tile* Thing::getTile() const
+{
+	return dynamic_cast<const Tile*>(this);
+}
