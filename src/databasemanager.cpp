@@ -109,6 +109,9 @@ void DatabaseManager::updateDatabase()
 	//result table
 	luaL_register(L, "result", LuaScriptInterface::luaResultTable);
 
+	//spdlog table
+	luaL_register(L, "Spdlog", LuaScriptInterface::luaSpdlogTable);
+
 	int32_t version = getDatabaseVersion();
 	do {
 		std::ostringstream ss;
