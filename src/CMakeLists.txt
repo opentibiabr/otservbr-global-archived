@@ -98,59 +98,144 @@ endif (MSVC)
 include(GNUInstallDirs)
 
 # *****************************************************************************
-# otserver configuration
+# Generate include dirs
 # *****************************************************************************
-file (GLOB_RECURSE OTBR_SOURCES "*.cpp")
-file (GLOB_RECURSE OTBR_HEADERS "*.h" "*.hpp")
+set(OTBR_SOURCES
+		config/configmanager.cpp
+		creatures/appearance/mounts/mounts.cpp
+		creatures/appearance/outfit/outfit.cpp
+		creatures/combat/combat.cpp
+		creatures/combat/condition.cpp
+		creatures/combat/spells.cpp
+		creatures/creature.cpp
+		creatures/interactions/chat.cpp
+		creatures/monsters/monster.cpp
+		creatures/monsters/monsters.cpp
+		creatures/npc/npc.cpp
+		creatures/players/account/account.cpp
+		creatures/players/grouping/familiars.cpp
+		creatures/players/grouping/groups.cpp
+		creatures/players/grouping/guild.cpp
+		creatures/players/grouping/party.cpp
+		creatures/players/imbuements/imbuements.cpp
+		creatures/players/management/ban.cpp
+		creatures/players/management/waitlist.cpp
+		creatures/players/player.cpp
+		creatures/players/vocations/vocation.cpp
+		creatures/spawn/spawn.cpp
+		database/database.cpp
+		database/databasemanager.cpp
+		database/databasetasks.cpp
+		game/game.cpp
+		game/gamestore.cpp
+		game/movement/position.cpp
+		game/movement/teleport.cpp
+		game/scheduling/scheduler.cpp
+		game/scheduling/tasks.cpp
+		io/fileloader.cpp
+		io/iobestiary.cpp
+		io/ioguild.cpp
+		io/iologindata.cpp
+		io/iomap.cpp
+		io/iomapserialize.cpp
+		io/iomarket.cpp
+		items/bed.cpp
+		items/containers/container.cpp
+		items/containers/depot/depotchest.cpp
+		items/containers/depot/depotlocker.cpp
+		items/containers/inbox/inbox.cpp
+		items/containers/mailbox/mailbox.cpp
+		items/containers/rewards/reward.cpp
+		items/containers/rewards/rewardchest.cpp
+		items/cylinder.cpp
+		items/item.cpp
+		items/items.cpp
+		items/thing.cpp
+		items/tile.cpp
+		items/trashholder.cpp
+		items/weapons/weapons.cpp
+		lua/callbacks/creaturecallback.cpp
+		lua/creature/actions.cpp
+		lua/creature/creatureevent.cpp
+		lua/creature/events.cpp
+		lua/creature/movement.cpp
+		lua/creature/raids.cpp
+		lua/creature/talkaction.cpp
+		lua/global/baseevents.cpp
+		lua/global/globalevent.cpp
+		lua/modules/modules.cpp
+		lua/scripts/luascript.cpp
+		lua/scripts/scripts.cpp
+		map/house/house.cpp
+		map/house/housetile.cpp
+		map/map.cpp
+		otpch.cpp
+		otserv.cpp
+		security/rsa.cpp
+		security/xtea.cpp
+		server/network/connection/connection.cpp
+		server/network/message/networkmessage.cpp
+		server/network/message/outputmessage.cpp
+		server/network/protocol/protocol.cpp
+		server/network/protocol/protocolgame.cpp
+		server/network/protocol/protocollogin.cpp
+		server/network/protocol/protocolstatus.cpp
+		server/network/webhook/webhook.cpp
+		server/server.cpp
+		server/signals.cpp
+		utils/tools.cpp
+		utils/wildcardtree.cpp
+)
 
 set (OTBR_INCLUDE_DIRS "")
-foreach (_headerFile ${OTBR_HEADERS})
-	get_filename_component(_dir ${_headerFile} PATH)
-	list (APPEND OTBR_INCLUDE_DIRS ${_dir})
+foreach (_sourceFile ${OTBR_SOURCES})
+	get_filename_component(_dir ${_sourceFile} PATH)
+	if (NOT ${CMAKE_SOURCE_DIR}/src/${_dir} IN_LIST OTBR_INCLUDE_DIRS)
+		list (APPEND OTBR_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/src/${_dir})
+		message(  ${CMAKE_SOURCE_DIR}/src/${_dir} )
+	endif()
 endforeach()
-list (REMOVE_DUPLICATES OTBR_INCLUDE_DIRS)
 
+# *****************************************************************************
+# otserver configuration
+# *****************************************************************************
 target_sources(${PROJECT_NAME} PRIVATE ${OTBR_SOURCES})
 
 if (MSVC)
-
-target_include_directories(${PROJECT_NAME}
-	PRIVATE
-		${MYSQL_INCLUDE_DIR}
-		${LUA_INCLUDE_DIR}
-		${Boost_INCLUDE_DIRS}
-		${PUGIXML_INCLUDE_DIR}
-		${CRYPTOPP_INCLUDE_DIR}
-		${CURL_INCLUDE_DIRS}
-		${OTBR_INCLUDE_DIRS}
-		$<TARGET_PROPERTY:jsoncpp_lib,INTERFACE_INCLUDE_DIRECTORIES>)
-
-target_link_libraries(${PROJECT_NAME}
-	PRIVATE
-		${MYSQL_CLIENT_LIBS}
-		${LUA_LIBRARIES}
-		${Boost_LIBRARY_DIRS}
-		${Boost_LIBRARIES}
-		${PUGIXML_LIBRARIES}
-		${CRYPTOPP_LIBRARIES}
-		${CMAKE_THREAD_LIBS_INIT}
-		${CURL_LIBRARIES}
-		jsoncpp_lib
-		spdlog::spdlog
-)
-
-else()
-
 	target_include_directories(${PROJECT_NAME}
-		PRIVATE
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
-			$<INSTALL_INTERFACE:include>
-			${LUA_INCLUDE_DIR}
+			PRIVATE
 			${OTBR_INCLUDE_DIRS}
-	)
+			${MYSQL_INCLUDE_DIR}
+			${LUA_INCLUDE_DIR}
+			${Boost_INCLUDE_DIRS}
+			${PUGIXML_INCLUDE_DIR}
+			${CRYPTOPP_INCLUDE_DIR}
+			${CURL_INCLUDE_DIRS}
+			$<TARGET_PROPERTY:jsoncpp_lib,INTERFACE_INCLUDE_DIRECTORIES>)
 
 	target_link_libraries(${PROJECT_NAME}
-		PRIVATE
+			PRIVATE
+			${MYSQL_CLIENT_LIBS}
+			${LUA_LIBRARIES}
+			${Boost_LIBRARY_DIRS}
+			${Boost_LIBRARIES}
+			${PUGIXML_LIBRARIES}
+			${CRYPTOPP_LIBRARIES}
+			${CMAKE_THREAD_LIBS_INIT}
+			${CURL_LIBRARIES}
+			jsoncpp_lib
+			spdlog::spdlog
+			)
+
+else()
+	target_include_directories(${PROJECT_NAME}
+			PRIVATE
+			${OTBR_INCLUDE_DIRS}
+			${LUA_INCLUDE_DIR}
+			)
+
+	target_link_libraries(${PROJECT_NAME}
+			PRIVATE
 			Boost::boost
 			Boost::date_time
 			Boost::filesystem
@@ -164,7 +249,7 @@ else()
 			spdlog::spdlog
 			Threads::Threads
 			${LUA_LIBRARIES}
-	)
+			)
 
 endif (MSVC)
 
