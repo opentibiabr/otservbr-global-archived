@@ -1104,6 +1104,8 @@ void LuaScriptInterface::registerFunctions()
 	//result table
 	luaL_register(luaState, "result", LuaScriptInterface::luaResultTable);
 
+	luaL_register(luaState, "Spdlog", LuaScriptInterface::luaSpdlogTable);
+
 	/* New functions */
 	//registerClass(className, baseClass, newFunction)
 	//registerTable(tableName)
@@ -4766,6 +4768,14 @@ int LuaScriptInterface::luaResultFree(lua_State* L)
 	pushBoolean(L, ScriptEnvironment::removeResult(getNumber<uint32_t>(L, -1)));
 	return 1;
 }
+
+const luaL_Reg LuaScriptInterface::luaSpdlogTable[] = {
+	{"info", LuaScriptInterface::luaSpdlogInfo},
+	{"warn", LuaScriptInterface::luaSpdlogWarn},
+	{"error", LuaScriptInterface::luaSpdlogError},
+	{"debug", LuaScriptInterface::luaSpdlogDebug},
+	{nullptr, nullptr}
+};
 
 // Userdata
 int LuaScriptInterface::luaUserdataCompare(lua_State* L)
