@@ -20,8 +20,8 @@
 #ifndef FS_ITEMS_H_4E2221634ABA45FE85BA50F710669B3C
 #define FS_ITEMS_H_4E2221634ABA45FE85BA50F710669B3C
 
-#include "../utils/const.h"
-#include "../utils/enums.h"
+#include "const.h"
+#include "enums.h"
 #include "itemloader.h"
 #include "../game/movement/position.h"
 

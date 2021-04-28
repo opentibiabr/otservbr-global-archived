@@ -23,7 +23,7 @@
 #include <list>
 
 #include "../../io/fileloader.h"
-#include "../../utils/enums.h"
+#include "enums.h"
 
 class Creature;
 class Player;

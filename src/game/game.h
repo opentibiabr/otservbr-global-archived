@@ -32,7 +32,7 @@
 #include "../creatures/players/player.h"
 #include "../lua/creature/raids.h"
 #include "../creatures/npc/npc.h"
-#include "../utils/wildcardtree.h"
+#include "wildcardtree.h"
 #include "gamestore.h"
 #include "../io/iobestiary.h"
 

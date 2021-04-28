@@ -17,16 +17,16 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "../../otpch.h"
+#include "otpch.h"
 
 #include "spawn.h"
-#include "../../game/game.h"
-#include "../monsters/monster.h"
-#include "../../config/configmanager.h"
-#include "../../game/scheduling/scheduler.h"
+#include "game.h"
+#include "monster.h"
+#include "configmanager.h"
+#include "scheduler.h"
 
-#include "../../utils/pugicast.h"
-#include "../../lua/creature/events.h"
+#include "pugicast.h"
+#include "events.h"
 
 extern ConfigManager g_config;
 extern Monsters g_monsters;

@@ -22,7 +22,7 @@
 
 #include "../scripts/luascript.h"
 #include "../global/baseevents.h"
-#include "../../utils/const.h"
+#include "const.h"
 
 class TalkAction;
 using TalkAction_ptr = std::unique_ptr<TalkAction>;

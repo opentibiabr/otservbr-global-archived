@@ -17,13 +17,13 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "../../otpch.h"
+#include "otpch.h"
 
 #include "combat.h"
-#include "../../config/configmanager.h"
-#include "../../game/game.h"
-#include "../monsters/monster.h"
-#include "../../utils/pugicast.h"
+#include "configmanager.h"
+#include "game.h"
+#include "monster.h"
+#include "pugicast.h"
 #include "spells.h"
 
 extern Game g_game;

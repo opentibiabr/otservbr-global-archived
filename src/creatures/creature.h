@@ -23,9 +23,9 @@
 #include "../map/map.h"
 #include "../game/movement/position.h"
 #include "combat/condition.h"
-#include "../utils/const.h"
+#include "const.h"
 #include "../items/tile.h"
-#include "../utils/enums.h"
+#include "enums.h"
 #include "../lua/creature/creatureevent.h"
 
 using ConditionList = std::list<Condition*>;

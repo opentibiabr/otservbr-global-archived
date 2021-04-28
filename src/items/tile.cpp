@@ -17,23 +17,23 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "../otpch.h"
+#include "otpch.h"
 
 #include <boost/range/adaptor/reversed.hpp>
 
 #include "tile.h"
 
-#include "../creatures/creature.h"
-#include "../creatures/combat/combat.h"
-#include "../game/game.h"
-#include "../config/configmanager.h"
-#include "containers/mailbox/mailbox.h"
-#include "../creatures/monsters/monster.h"
-#include "../lua/creature/movement.h"
-#include "../game/movement/teleport.h"
+#include "creature.h"
+#include "combat.h"
+#include "game.h"
+#include "configmanager.h"
+#include "mailbox.h"
+#include "monster.h"
+#include "movement.h"
+#include "teleport.h"
 #include "trashholder.h"
-#include "../map/house/housetile.h"
-#include "../io/iomap.h"
+#include "housetile.h"
+#include "iomap.h"
 
 extern Game g_game;
 extern ConfigManager g_config;

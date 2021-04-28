@@ -17,12 +17,12 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "../../../otpch.h"
+#include "otpch.h"
 
 #include "networkmessage.h"
 
-#include "../../../items/containers/container.h"
-#include "../../../creatures/creature.h"
+#include "container.h"
+#include "creature.h"
 
 int32_t NetworkMessage::decodeHeader()
 {

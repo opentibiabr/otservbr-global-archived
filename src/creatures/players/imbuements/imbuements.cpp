@@ -6,10 +6,10 @@
  * Rewritten and adapted: LucasCPrazeres
  */
 
-#include "../../../otpch.h"
-#include "../../../lua/creature/events.h"
+#include "otpch.h"
+#include "events.h"
 #include "imbuements.h"
-#include "../../../utils/pugicast.h"
+#include "pugicast.h"
 
 extern Events* g_events;
 

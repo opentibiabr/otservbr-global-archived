@@ -18,13 +18,13 @@
  */
 #include <algorithm>
 
-#include "../otpch.h"
+#include "otpch.h"
 
 #include "creature.h"
-#include "../game/game.h"
-#include "monsters/monster.h"
-#include "../config/configmanager.h"
-#include "../game/scheduling/scheduler.h"
+#include "game.h"
+#include "monster.h"
+#include "configmanager.h"
+#include "scheduler.h"
 
 double Creature::speedA = 857.36;
 double Creature::speedB = 261.29;

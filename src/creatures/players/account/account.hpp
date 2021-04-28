@@ -12,7 +12,7 @@
 
 #include "../../../database/database.h"
 #include "../../../database/databasetasks.h"
-#include "../../../utils/definitions.h"
+#include "definitions.h"
 
 namespace account {
 

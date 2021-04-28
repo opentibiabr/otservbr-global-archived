@@ -17,25 +17,25 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "../../otpch.h"
+#include "otpch.h"
 
 #include <bitset>
 
 #include "player.h"
-#include "../../items/bed.h"
-#include "../interactions/chat.h"
-#include "../combat/combat.h"
-#include "../../config/configmanager.h"
-#include "../../lua/creature/creatureevent.h"
-#include "../../lua/creature/events.h"
-#include "../../game/game.h"
-#include "../../io/iologindata.h"
-#include "../monsters/monster.h"
-#include "../monsters/monsters.h"
-#include "../../lua/creature/movement.h"
-#include "../../game/scheduling/scheduler.h"
-#include "../../items/weapons/weapons.h"
-#include "../../io/iobestiary.h"
+#include "bed.h"
+#include "chat.h"
+#include "combat.h"
+#include "configmanager.h"
+#include "creatureevent.h"
+#include "events.h"
+#include "game.h"
+#include "iologindata.h"
+#include "monster.h"
+#include "monsters.h"
+#include "movement.h"
+#include "scheduler.h"
+#include "weapons.h"
+#include "iobestiary.h"
 
 extern ConfigManager g_config;
 extern Game g_game;

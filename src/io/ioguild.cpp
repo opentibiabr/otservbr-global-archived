@@ -17,10 +17,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "../otpch.h"
+#include "otpch.h"
 
-#include "../database/database.h"
-#include "../creatures/players/grouping/guild.h"
+#include "database.h"
+#include "guild.h"
 #include "ioguild.h"
 
 Guild* IOGuild::loadGuild(uint32_t guildId)

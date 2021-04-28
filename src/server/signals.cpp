@@ -17,23 +17,23 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "../otpch.h"
+#include "otpch.h"
 #include <csignal>
 
 #include "signals.h"
-#include "../game/scheduling/tasks.h"
-#include "../game/game.h"
-#include "../lua/creature/actions.h"
-#include "../config/configmanager.h"
-#include "../creatures/combat/spells.h"
-#include "../lua/creature/talkaction.h"
-#include "../lua/creature/raids.h"
-#include "../creatures/appearance/mounts/mounts.h"
-#include "../lua/global/globalevent.h"
-#include "../creatures/monsters/monster.h"
-#include "../lua/creature/events.h"
-#include "../game/scheduling/scheduler.h"
-#include "../database/databasetasks.h"
+#include "tasks.h"
+#include "game.h"
+#include "actions.h"
+#include "configmanager.h"
+#include "spells.h"
+#include "talkaction.h"
+#include "raids.h"
+#include "mounts.h"
+#include "globalevent.h"
+#include "monster.h"
+#include "events.h"
+#include "scheduler.h"
+#include "databasetasks.h"
 
 extern Scheduler g_scheduler;
 extern DatabaseTasks g_databaseTasks;

@@ -22,7 +22,7 @@
 
 #include "networkmessage.h"
 #include "../connection/connection.h"
-#include "../../../utils/tools.h"
+#include "tools.h"
 
 class Protocol;
 

@@ -24,7 +24,7 @@
 
 #include "cylinder.h"
 #include "item.h"
-#include "../utils/tools.h"
+#include "tools.h"
 
 class Creature;
 class Teleport;

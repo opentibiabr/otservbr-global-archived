@@ -21,7 +21,7 @@
 #define FS_GLOBALEVENT_H_B3FB9B848EA3474B9AFC326873947E3C
 #include "baseevents.h"
 
-#include "../../utils/const.h"
+#include "const.h"
 
 enum GlobalEvent_t {
 	GLOBALEVENT_NONE,

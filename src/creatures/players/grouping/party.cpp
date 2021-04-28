@@ -17,12 +17,12 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "../../../otpch.h"
+#include "otpch.h"
 
 #include "party.h"
-#include "../../../game/game.h"
-#include "../../../config/configmanager.h"
-#include "../../../lua/creature/events.h"
+#include "game.h"
+#include "configmanager.h"
+#include "events.h"
 
 extern Game g_game;
 extern ConfigManager g_config;

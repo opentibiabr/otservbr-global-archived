@@ -21,7 +21,7 @@
 #define FS_ACTIONS_H_87F60C5F587E4B84948F304A6451E6E6
 
 #include "../global/baseevents.h"
-#include "../../utils/enums.h"
+#include "enums.h"
 #include "../scripts/luascript.h"
 
 class Action;

@@ -24,7 +24,7 @@
 #include "../items/item.h"
 #include "../io/fileloader.h"
 
-#include "../utils/tools.h"
+#include "tools.h"
 #include "../items/tile.h"
 #include "town.h"
 #include "house/house.h"

@@ -37,7 +37,7 @@
 #endif
 
 #include "../../database/database.h"
-#include "../../utils/enums.h"
+#include "enums.h"
 #include "../../game/movement/position.h"
 #include <boost/lexical_cast.hpp>
 

@@ -21,7 +21,7 @@
 #define FS_MONSTERS_H_776E8327BCE2450EB7C4A260785E6C0D
 
 #include "../creature.h"
-#include "../../utils/enums.h"
+#include "enums.h"
 
 const uint32_t MAX_LOOTCHANCE = 100000;
 const uint32_t MAX_STATICWALK = 100;

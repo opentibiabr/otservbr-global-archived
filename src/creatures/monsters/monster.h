@@ -22,7 +22,7 @@
 
 #include "../../items/tile.h"
 #include "monsters.h"
-#include "../../utils/enums.h"
+#include "enums.h"
 
 class Creature;
 class Game;

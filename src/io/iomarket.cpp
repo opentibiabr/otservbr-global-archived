@@ -17,15 +17,15 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "../otpch.h"
+#include "otpch.h"
 
 #include "iomarket.h"
 
-#include "../config/configmanager.h"
-#include "../database/databasetasks.h"
+#include "configmanager.h"
+#include "databasetasks.h"
 #include "iologindata.h"
-#include "../game/game.h"
-#include "../game/scheduling/scheduler.h"
+#include "game.h"
+#include "scheduler.h"
 
 extern ConfigManager g_config;
 extern Game g_game;

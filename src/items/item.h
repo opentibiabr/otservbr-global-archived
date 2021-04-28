@@ -27,7 +27,7 @@
 #include "thing.h"
 #include "items.h"
 #include "../lua/scripts/luascript.h"
-#include "../utils/tools.h"
+#include "tools.h"
 #include <typeinfo>
 
 #include <boost/variant.hpp>

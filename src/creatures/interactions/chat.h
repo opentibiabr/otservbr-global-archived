@@ -20,7 +20,7 @@
 #ifndef FS_CHAT_H_F1574642D0384ABFAB52B7ED906E5628
 #define FS_CHAT_H_F1574642D0384ABFAB52B7ED906E5628
 
-#include "../../utils/const.h"
+#include "const.h"
 #include "../../lua/scripts/luascript.h"
 
 class Party;

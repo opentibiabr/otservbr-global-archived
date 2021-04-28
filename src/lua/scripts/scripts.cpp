@@ -17,19 +17,19 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "../../otpch.h"
+#include "otpch.h"
 
-#include "../creature/actions.h"
-#include "../../creatures/interactions/chat.h"
-#include "../creature/talkaction.h"
-#include "../../creatures/combat/spells.h"
-#include "../creature/movement.h"
-#include "../../items/weapons/weapons.h"
-#include "../global/globalevent.h"
-#include "../creature/events.h"
+#include "actions.h"
+#include "chat.h"
+#include "talkaction.h"
+#include "spells.h"
+#include "movement.h"
+#include "weapons.h"
+#include "globalevent.h"
+#include "events.h"
 #include "scripts.h"
-#include "../modules/modules.h"
-#include "../../creatures/players/imbuements/imbuements.h"
+#include "modules.h"
+#include "imbuements.h"
 #include <boost/filesystem.hpp>
 
 Actions* g_actions = nullptr;

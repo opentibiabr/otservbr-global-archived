@@ -24,7 +24,7 @@
 #include <unordered_set>
 #include <queue>
 
-#include "../../utils/thread_holder_base.h"
+#include "thread_holder_base.h"
 
 static constexpr int32_t SCHEDULER_MINTICKS = 50;
 

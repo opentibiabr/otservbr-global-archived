@@ -10,8 +10,8 @@
 #define OT_SRC_IMBUEMENTS_H_
 
 #include "../player.h"
-#include "../../../utils/enums.h"
-#include "../../../utils/tools.h"
+#include "enums.h"
+#include "tools.h"
 
 class Player;
 class Item;
