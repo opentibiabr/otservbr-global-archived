@@ -19,9 +19,9 @@
 
 #include "otpch.h"
 
-#include "container.h"
-#include "iomap.h"
-#include "game.h"
+#include "items/containers/container.h"
+#include "io/iomap.h"
+#include "game/game.h"
 
 extern Game g_game;
 

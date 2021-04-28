@@ -19,14 +19,14 @@
 
 #include "otpch.h"
 
-#include "actions.h"
-#include "bed.h"
-#include "configmanager.h"
-#include "container.h"
-#include "game.h"
-#include "pugicast.h"
-#include "spells.h"
-#include "rewardchest.h"
+#include "lua/creature/actions.h"
+#include "items/bed.h"
+#include "config/configmanager.h"
+#include "items/containers/container.h"
+#include "game/game.h"
+#include "utils/pugicast.h"
+#include "creatures/combat/spells.h"
+#include "items/containers/rewards/rewardchest.h"
 
 extern Game g_game;
 extern Spells* g_spells;

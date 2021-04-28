@@ -19,9 +19,9 @@
 
 #include "otpch.h"
 
-#include "iomapserialize.h"
-#include "game.h"
-#include "bed.h"
+#include "io/iomapserialize.h"
+#include "game/game.h"
+#include "items/bed.h"
 
 extern Game g_game;
 

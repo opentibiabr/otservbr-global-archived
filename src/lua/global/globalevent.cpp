@@ -19,11 +19,11 @@
 
 #include "otpch.h"
 
-#include "configmanager.h"
-#include "globalevent.h"
-#include "tools.h"
-#include "scheduler.h"
-#include "pugicast.h"
+#include "config/configmanager.h"
+#include "lua/global/globalevent.h"
+#include "utils/tools.h"
+#include "game/scheduling/scheduler.h"
+#include "utils/pugicast.h"
 
 extern ConfigManager g_config;
 

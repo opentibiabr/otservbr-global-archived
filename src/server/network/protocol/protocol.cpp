@@ -19,10 +19,10 @@
 
 #include "otpch.h"
 
-#include "protocol.h"
-#include "outputmessage.h"
-#include "rsa.h"
-#include "xtea.h"
+#include "server/network/protocol/protocol.h"
+#include "server/network/message/outputmessage.h"
+#include "security/rsa.h"
+#include "security/xtea.h"
 
 extern RSA2 g_RSA;
 

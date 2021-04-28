@@ -21,7 +21,7 @@
 
 #include <stack>
 
-#include "wildcardtree.h"
+#include "utils/wildcardtree.h"
 
 WildcardTreeNode* WildcardTreeNode::getChild(char ch)
 {

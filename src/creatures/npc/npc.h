@@ -20,8 +20,8 @@
 #ifndef FS_NPC_H_B090D0CB549D4435AFA03647195D156F
 #define FS_NPC_H_B090D0CB549D4435AFA03647195D156F
 
-#include "../creature.h"
-#include "../../lua/scripts/luascript.h"
+#include "creatures/creature.h"
+#include "lua/scripts/luascript.h"
 
 #include <set>
 

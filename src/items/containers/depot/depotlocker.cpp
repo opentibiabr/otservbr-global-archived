@@ -21,7 +21,7 @@
 
 #include "otpch.h"
 
-#include "depotlocker.h"
+#include "items/containers/depot/depotlocker.h"
 
 DepotLocker::DepotLocker(uint16_t type) :
 	Container(type, 4), depotId(0) {}

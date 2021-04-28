@@ -21,8 +21,8 @@
 
 #include "otpch.h"
 
-#include "modules.h"
-#include "player.h"
+#include "lua/modules/modules.h"
+#include "creatures/players/player.h"
 
 Modules::Modules() :
 	scriptInterface("Modules Interface")

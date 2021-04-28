@@ -19,8 +19,8 @@
 
 #include "otpch.h"
 
-#include "tools.h"
-#include "configmanager.h"
+#include "utils/tools.h"
+#include "config/configmanager.h"
 
 extern ConfigManager g_config;
 

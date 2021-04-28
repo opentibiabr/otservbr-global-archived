@@ -19,9 +19,9 @@
 
 #include "otpch.h"
 
-#include "npc.h"
-#include "game.h"
-#include "pugicast.h"
+#include "creatures/npc/npc.h"
+#include "game/game.h"
+#include "utils/pugicast.h"
 
 extern Game g_game;
 extern LuaEnvironment g_luaEnvironment;

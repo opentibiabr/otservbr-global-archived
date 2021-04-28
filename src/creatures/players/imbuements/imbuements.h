@@ -9,9 +9,9 @@
 #ifndef OT_SRC_IMBUEMENTS_H_
 #define OT_SRC_IMBUEMENTS_H_
 
-#include "../player.h"
-#include "enums.h"
-#include "tools.h"
+#include "creatures/players/player.h"
+#include "utils/enums.h"
+#include "utils/tools.h"
 
 class Player;
 class Item;

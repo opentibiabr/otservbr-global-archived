@@ -19,13 +19,13 @@
 
 #include "otpch.h"
 
-#include "iomarket.h"
+#include "io/iomarket.h"
 
-#include "configmanager.h"
-#include "databasetasks.h"
-#include "iologindata.h"
-#include "game.h"
-#include "scheduler.h"
+#include "config/configmanager.h"
+#include "database/databasetasks.h"
+#include "io/iologindata.h"
+#include "game/game.h"
+#include "game/scheduling/scheduler.h"
 
 extern ConfigManager g_config;
 extern Game g_game;

@@ -25,8 +25,8 @@
   #include <lua.hpp>
 #endif
 
-#include "configmanager.h"
-#include "game.h"
+#include "config/configmanager.h"
+#include "game/game.h"
 
 #if LUA_VERSION_NUM >= 502
 #undef lua_strlen

@@ -22,7 +22,7 @@
 #include "otpch.h"
 
 #include <iostream>
-#include "reward.h"
+#include "items/containers/rewards/reward.h"
 
 
 Reward::Reward() :

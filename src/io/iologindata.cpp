@@ -20,11 +20,11 @@
 #include "otpch.h"
 
 #include <boost/range/adaptor/reversed.hpp>
-#include "iologindata.h"
-#include "configmanager.h"
-#include "game.h"
-#include "scheduler.h"
-#include "monster.h"
+#include "io/iologindata.h"
+#include "config/configmanager.h"
+#include "game/game.h"
+#include "game/scheduling/scheduler.h"
+#include "creatures/monsters/monster.h"
 
 #include <limits>
 

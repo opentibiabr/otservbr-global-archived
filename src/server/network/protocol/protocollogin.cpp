@@ -19,16 +19,16 @@
 
 #include "otpch.h"
 
-#include "protocollogin.h"
+#include "server/network/protocol/protocollogin.h"
 
-#include "outputmessage.h"
-#include "rsa.h"
-#include "tasks.h"
-#include "account.hpp"
-#include "configmanager.h"
-#include "iologindata.h"
-#include "ban.h"
-#include "game.h"
+#include "server/network/message/outputmessage.h"
+#include "security/rsa.h"
+#include "game/scheduling/tasks.h"
+#include "creatures/players/account/account.hpp"
+#include "config/configmanager.h"
+#include "io/iologindata.h"
+#include "creatures/players/management/ban.h"
+#include "game/game.h"
 
 #include <algorithm>
 #include <limits>

@@ -19,10 +19,10 @@
 
 #include "otpch.h"
 
-#include "groups.h"
+#include "creatures/players/grouping/groups.h"
 
-#include "pugicast.h"
-#include "tools.h"
+#include "utils/pugicast.h"
+#include "utils/tools.h"
 
 const std::unordered_map<std::string, PlayerFlags> ParsePlayerFlagMap = {
 	{"cannotusecombat", PlayerFlag_CannotUseCombat},

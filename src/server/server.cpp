@@ -19,11 +19,11 @@
 
 #include "otpch.h"
 
-#include "outputmessage.h"
-#include "server.h"
-#include "scheduler.h"
-#include "configmanager.h"
-#include "ban.h"
+#include "server/network/message/outputmessage.h"
+#include "server/server.h"
+#include "game/scheduling/scheduler.h"
+#include "config/configmanager.h"
+#include "creatures/players/management/ban.h"
 
 extern ConfigManager g_config;
 Ban g_bans;

@@ -19,10 +19,10 @@
 
 #include "otpch.h"
 
-#include "vocation.h"
+#include "creatures/players/vocations/vocation.h"
 
-#include "pugicast.h"
-#include "tools.h"
+#include "utils/pugicast.h"
+#include "utils/tools.h"
 
 bool Vocations::loadFromXml()
 {

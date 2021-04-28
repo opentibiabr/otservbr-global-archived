@@ -19,12 +19,12 @@
 
 #include "otpch.h"
 
-#include "combat.h"
-#include "configmanager.h"
-#include "game.h"
-#include "monster.h"
-#include "pugicast.h"
-#include "spells.h"
+#include "creatures/combat/combat.h"
+#include "config/configmanager.h"
+#include "game/game.h"
+#include "creatures/monsters/monster.h"
+#include "utils/pugicast.h"
+#include "creatures/combat/spells.h"
 
 extern Game g_game;
 extern Spells* g_spells;

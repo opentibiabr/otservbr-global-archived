@@ -19,7 +19,7 @@
 
 #include "otpch.h"
 
-#include "xtea.h"
+#include "security/xtea.h"
 
 #include <array>
 #include <assert.h>

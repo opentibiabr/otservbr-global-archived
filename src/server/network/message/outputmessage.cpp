@@ -20,9 +20,9 @@
 #include "otpch.h"
 
 #include "outputmessage.h"
-#include "protocol.h"
-#include "lockfree.h"
-#include "scheduler.h"
+#include "server/network/protocol/protocol.h"
+#include "utils/lockfree.h"
+#include "game/scheduling/scheduler.h"
 
 extern Scheduler g_scheduler;
 

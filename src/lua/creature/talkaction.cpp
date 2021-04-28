@@ -19,9 +19,9 @@
 
 #include "otpch.h"
 
-#include "player.h"
-#include "talkaction.h"
-#include "pugicast.h"
+#include "creatures/players/player.h"
+#include "lua/creature/talkaction.h"
+#include "utils/pugicast.h"
 
 TalkActions::TalkActions()
 	: scriptInterface("TalkAction Interface")

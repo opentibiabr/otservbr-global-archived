@@ -97,10 +97,12 @@ endif (MSVC)
 
 include(GNUInstallDirs)
 
+
 # *****************************************************************************
-# Generate include dirs
+# otserver configuration
 # *****************************************************************************
-set(OTBR_SOURCES
+target_sources(${PROJECT_NAME}
+	PRIVATE
 		config/configmanager.cpp
 		creatures/appearance/mounts/mounts.cpp
 		creatures/appearance/outfit/outfit.cpp
@@ -187,54 +189,43 @@ set(OTBR_SOURCES
 		utils/wildcardtree.cpp
 )
 
-set (OTBR_INCLUDE_DIRS "")
-foreach (_sourceFile ${OTBR_SOURCES})
-	get_filename_component(_dir ${_sourceFile} PATH)
-	if (NOT ${CMAKE_SOURCE_DIR}/src/${_dir} IN_LIST OTBR_INCLUDE_DIRS)
-		list (APPEND OTBR_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/src/${_dir})
-	endif()
-endforeach()
-
-# *****************************************************************************
-# otserver configuration
-# *****************************************************************************
-target_sources(${PROJECT_NAME} PRIVATE ${OTBR_SOURCES})
-
 if (MSVC)
-	target_include_directories(${PROJECT_NAME}
-			PRIVATE
-			${OTBR_INCLUDE_DIRS}
-			${MYSQL_INCLUDE_DIR}
-			${LUA_INCLUDE_DIR}
-			${Boost_INCLUDE_DIRS}
-			${PUGIXML_INCLUDE_DIR}
-			${CRYPTOPP_INCLUDE_DIR}
-			${CURL_INCLUDE_DIRS}
-			$<TARGET_PROPERTY:jsoncpp_lib,INTERFACE_INCLUDE_DIRECTORIES>)
 
-	target_link_libraries(${PROJECT_NAME}
-			PRIVATE
-			${MYSQL_CLIENT_LIBS}
-			${LUA_LIBRARIES}
-			${Boost_LIBRARY_DIRS}
-			${Boost_LIBRARIES}
-			${PUGIXML_LIBRARIES}
-			${CRYPTOPP_LIBRARIES}
-			${CMAKE_THREAD_LIBS_INIT}
-			${CURL_LIBRARIES}
-			jsoncpp_lib
-			spdlog::spdlog
-			)
+target_include_directories(${PROJECT_NAME}
+	PRIVATE
+		${CMAKE_SOURCE_DIR}/src
+		${MYSQL_INCLUDE_DIR}
+		${LUA_INCLUDE_DIR}
+		${Boost_INCLUDE_DIRS}
+		${PUGIXML_INCLUDE_DIR}
+		${CRYPTOPP_INCLUDE_DIR}
+		${CURL_INCLUDE_DIRS}
+		$<TARGET_PROPERTY:jsoncpp_lib,INTERFACE_INCLUDE_DIRECTORIES>)
+
+target_link_libraries(${PROJECT_NAME}
+	PRIVATE
+		${MYSQL_CLIENT_LIBS}
+		${LUA_LIBRARIES}
+		${Boost_LIBRARY_DIRS}
+		${Boost_LIBRARIES}
+		${PUGIXML_LIBRARIES}
+		${CRYPTOPP_LIBRARIES}
+		${CMAKE_THREAD_LIBS_INIT}
+		${CURL_LIBRARIES}
+		jsoncpp_lib
+		spdlog::spdlog
+)
 
 else()
+
 	target_include_directories(${PROJECT_NAME}
-			PRIVATE
-			${OTBR_INCLUDE_DIRS}
+		PRIVATE
+			${CMAKE_SOURCE_DIR}/src
 			${LUA_INCLUDE_DIR}
-			)
+	)
 
 	target_link_libraries(${PROJECT_NAME}
-			PRIVATE
+		PRIVATE
 			Boost::boost
 			Boost::date_time
 			Boost::filesystem
@@ -248,7 +239,7 @@ else()
 			spdlog::spdlog
 			Threads::Threads
 			${LUA_LIBRARIES}
-			)
+	)
 
 endif (MSVC)
 

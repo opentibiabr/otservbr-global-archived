@@ -19,10 +19,10 @@
 
 #include "otpch.h"
 
-#include "networkmessage.h"
+#include "server/network/message/networkmessage.h"
 
-#include "container.h"
-#include "creature.h"
+#include "items/containers/container.h"
+#include "creatures/creature.h"
 
 int32_t NetworkMessage::decodeHeader()
 {

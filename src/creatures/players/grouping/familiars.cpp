@@ -18,9 +18,9 @@
  */
 
 #include "otpch.h"
-#include "familiars.h"
-#include "pugicast.h"
-#include "tools.h"
+#include "creatures/players/grouping/familiars.h"
+#include "utils/pugicast.h"
+#include "utils/tools.h"
 
 bool Familiars::loadFromXml() {
 	pugi::xml_document doc;

@@ -19,8 +19,8 @@
 
 #include "otpch.h"
 
-#include "configmanager.h"
-#include "database.h"
+#include "config/configmanager.h"
+#include "database/database.h"
 
 #include <mysql/errmsg.h>
 

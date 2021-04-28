@@ -19,8 +19,8 @@
 
 #include "otpch.h"
 
-#include "condition.h"
-#include "game.h"
+#include "creatures/combat/condition.h"
+#include "game/game.h"
 
 extern Game g_game;
 extern Monsters g_monsters;

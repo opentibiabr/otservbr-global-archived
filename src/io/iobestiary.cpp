@@ -19,12 +19,12 @@
 
 #include "otpch.h"
 
-#include "iobestiary.h"
-#include "enums.h"
-#include "monster.h"
-#include "monsters.h"
-#include "game.h"
-#include "player.h"
+#include "io/iobestiary.h"
+#include "utils/enums.h"
+#include "creatures/monsters/monster.h"
+#include "creatures/monsters/monsters.h"
+#include "game/game.h"
+#include "creatures/players/player.h"
 
 extern Game g_game;
 extern Monsters g_monsters;

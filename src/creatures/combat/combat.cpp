@@ -19,15 +19,15 @@
 
 #include "otpch.h"
 
-#include "combat.h"
+#include "creatures/combat/combat.h"
 
-#include "game.h"
-#include "weapons.h"
-#include "configmanager.h"
-#include "events.h"
-#include "monster.h"
-#include "iobestiary.h"
-#include "monsters.h"
+#include "game/game.h"
+#include "items/weapons/weapons.h"
+#include "config/configmanager.h"
+#include "lua/creature/events.h"
+#include "creatures/monsters/monster.h"
+#include "io/iobestiary.h"
+#include "creatures/monsters/monsters.h"
 
 extern Game g_game;
 extern Weapons* g_weapons;

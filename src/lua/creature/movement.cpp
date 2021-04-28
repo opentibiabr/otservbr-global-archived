@@ -19,13 +19,13 @@
 
 #include "otpch.h"
 
-#include "game.h"
-#include "events.h"
+#include "game/game.h"
+#include "lua/creature/events.h"
 
-#include "pugicast.h"
+#include "utils/pugicast.h"
 
-#include "movement.h"
-#include "imbuements.h"
+#include "lua/creature/movement.h"
+#include "creatures/players/imbuements/imbuements.h"
 
 extern Game g_game;
 extern Vocations g_vocations;

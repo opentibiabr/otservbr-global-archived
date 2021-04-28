@@ -20,10 +20,10 @@
 
 #include "otpch.h"
 
-#include "mounts.h"
+#include "creatures/appearance/mounts/mounts.h"
 
-#include "pugicast.h"
-#include "tools.h"
+#include "utils/pugicast.h"
+#include "utils/tools.h"
 
 bool Mounts::reload()
 {

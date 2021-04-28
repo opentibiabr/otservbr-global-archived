@@ -22,8 +22,8 @@
 
 #include "otpch.h"
 
-#include "account.hpp"
-#include "databasetasks.h"
+#include "creatures/players/account/account.hpp"
+#include "database/databasetasks.h"
 
 #include <algorithm>
 #include <limits>

@@ -19,19 +19,19 @@
 
 #include "otpch.h"
 
-#include "item.h"
-#include "container.h"
-#include "teleport.h"
-#include "trashholder.h"
-#include "mailbox.h"
-#include "house.h"
-#include "game.h"
-#include "bed.h"
-#include "rewardchest.h"
-#include "imbuements.h"
+#include "items/item.h"
+#include "items/containers/container.h"
+#include "game/movement/teleport.h"
+#include "items/trashholder.h"
+#include "items/containers/mailbox/mailbox.h"
+#include "map/house/house.h"
+#include "game/game.h"
+#include "items/bed.h"
+#include "containers/rewards/rewardchest.h"
+#include "creatures/players/imbuements/imbuements.h"
 
-#include "actions.h"
-#include "spells.h"
+#include "lua/creature/actions.h"
+#include "creatures/combat/spells.h"
 
 extern Game g_game;
 extern Spells* g_spells;

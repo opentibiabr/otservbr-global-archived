@@ -19,13 +19,13 @@
 
 #include "otpch.h"
 
-#include "pugicast.h"
+#include "utils/pugicast.h"
 
-#include "house.h"
-#include "iologindata.h"
-#include "game.h"
-#include "configmanager.h"
-#include "bed.h"
+#include "map/house/house.h"
+#include "io/iologindata.h"
+#include "game/game.h"
+#include "config/configmanager.h"
+#include "items/bed.h"
 
 extern ConfigManager g_config;
 extern Game g_game;

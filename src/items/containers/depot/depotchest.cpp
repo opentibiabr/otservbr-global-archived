@@ -21,8 +21,8 @@
 
 #include "otpch.h"
 
-#include "depotchest.h"
-#include "tools.h"
+#include "items/containers/depot/depotchest.h"
+#include "utils/tools.h"
 
 DepotChest::DepotChest(uint16_t type) :
 	Container(type)

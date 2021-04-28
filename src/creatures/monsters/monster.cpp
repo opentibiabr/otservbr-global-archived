@@ -21,11 +21,11 @@
 
 #include "otpch.h"
 
-#include "configmanager.h"
-#include "game.h"
-#include "spells.h"
-#include "events.h"
-#include "creaturecallback.h"
+#include "config/configmanager.h"
+#include "game/game.h"
+#include "creatures/combat/spells.h"
+#include "lua/creature/events.h"
+#include "lua/callbacks/creaturecallback.h"
 
 extern Game g_game;
 extern Monsters g_monsters;

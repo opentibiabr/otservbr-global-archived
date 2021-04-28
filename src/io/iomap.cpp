@@ -19,10 +19,10 @@
 
 #include "otpch.h"
 
-#include "iomap.h"
+#include "io/iomap.h"
 
-#include "bed.h"
-#include "teleport.h"
+#include "items/bed.h"
+#include "game/movement/teleport.h"
 
 /*
 	OTBM_ROOTV1

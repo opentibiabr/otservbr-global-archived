@@ -19,10 +19,10 @@
 
 #include "otpch.h"
 
-#include "baseevents.h"
+#include "lua/global/baseevents.h"
 
-#include "pugicast.h"
-#include "tools.h"
+#include "utils/pugicast.h"
+#include "utils/tools.h"
 
 extern LuaEnvironment g_luaEnvironment;
 

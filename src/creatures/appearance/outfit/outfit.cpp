@@ -19,10 +19,10 @@
 
 #include "otpch.h"
 
-#include "outfit.h"
+#include "creatures/appearance/outfit/outfit.h"
 
-#include "pugicast.h"
-#include "tools.h"
+#include "utils/pugicast.h"
+#include "utils/tools.h"
 
 bool Outfits::loadFromXml()
 {

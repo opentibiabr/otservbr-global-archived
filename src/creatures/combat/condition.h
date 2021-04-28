@@ -22,8 +22,8 @@
 
 #include <list>
 
-#include "../../io/fileloader.h"
-#include "enums.h"
+#include "io/fileloader.h"
+#include "utils/enums.h"
 
 class Creature;
 class Player;

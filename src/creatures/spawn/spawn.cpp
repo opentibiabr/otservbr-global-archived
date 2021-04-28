@@ -19,14 +19,14 @@
 
 #include "otpch.h"
 
-#include "spawn.h"
-#include "game.h"
-#include "monster.h"
-#include "configmanager.h"
-#include "scheduler.h"
+#include "creatures/spawn/spawn.h"
+#include "game/game.h"
+#include "creatures/monsters/monster.h"
+#include "config/configmanager.h"
+#include "game/scheduling/scheduler.h"
 
-#include "pugicast.h"
-#include "events.h"
+#include "utils/pugicast.h"
+#include "lua/creature/events.h"
 
 extern ConfigManager g_config;
 extern Monsters g_monsters;

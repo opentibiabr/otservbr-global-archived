@@ -19,9 +19,9 @@
 
 #include "otpch.h"
 
-#include "creatureevent.h"
-#include "tools.h"
-#include "player.h"
+#include "lua/creature/creatureevent.h"
+#include "utils/tools.h"
+#include "creatures/players/player.h"
 
 CreatureEvents::CreatureEvents() :
 	scriptInterface("CreatureScript Interface")

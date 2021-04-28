@@ -19,7 +19,7 @@
 
 #include "otpch.h"
 
-#include "rsa.h"
+#include "security/rsa.h"
 
 #include <cryptopp/base64.h>
 #include <cryptopp/osrng.h>

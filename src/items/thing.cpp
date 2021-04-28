@@ -19,8 +19,8 @@
 
 #include "otpch.h"
 
-#include "thing.h"
-#include "tile.h"
+#include "items/thing.h"
+#include "items/tile.h"
 
 const Position& Thing::getPosition() const
 {

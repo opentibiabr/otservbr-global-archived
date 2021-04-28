@@ -19,8 +19,8 @@
 
 #include "otpch.h"
 
-#include "teleport.h"
-#include "game.h"
+#include "game/movement/teleport.h"
+#include "game/game.h"
 
 extern Game g_game;
 

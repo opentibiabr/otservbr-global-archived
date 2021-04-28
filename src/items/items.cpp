@@ -19,11 +19,11 @@
 
 #include "otpch.h"
 
-#include "items.h"
-#include "spells.h"
-#include "weapons.h"
+#include "items/items.h"
+#include "creatures/combat/spells.h"
+#include "items/weapons/weapons.h"
 
-#include "pugicast.h"
+#include "utils/pugicast.h"
 
 #ifdef __cpp_lib_filesystem
 #include <filesystem>

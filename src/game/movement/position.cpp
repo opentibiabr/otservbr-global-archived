@@ -21,8 +21,8 @@
 
 #include "otpch.h"
 
-#include "position.h"
-#include "tools.h"
+#include "game/movement/position.h"
+#include "utils/tools.h"
 
 Direction Position::getRandomDirection()
 {

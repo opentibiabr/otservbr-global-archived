@@ -19,10 +19,10 @@
 
 #include "otpch.h"
 
-#include "ban.h"
-#include "database.h"
-#include "databasetasks.h"
-#include "tools.h"
+#include "creatures/players/management/ban.h"
+#include "database/database.h"
+#include "database/databasetasks.h"
+#include "utils/tools.h"
 
 bool Ban::acceptConnection(uint32_t clientIP)
 {

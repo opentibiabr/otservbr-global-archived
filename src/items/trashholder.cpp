@@ -19,8 +19,8 @@
 
 #include "otpch.h"
 
-#include "trashholder.h"
-#include "game.h"
+#include "items/trashholder.h"
+#include "game/game.h"
 
 extern Game g_game;
 

@@ -21,11 +21,11 @@
 
 #include "otpch.h"
 
-#include "gamestore.h"
+#include "game/gamestore.h"
 
-#include "pugicast.h"
-#include "tools.h"
-#include "database.h"
+#include "utils/pugicast.h"
+#include "utils/tools.h"
+#include "database/database.h"
 
 #include <boost/algorithm/string.hpp>
 

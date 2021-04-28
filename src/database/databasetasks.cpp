@@ -19,8 +19,8 @@
 
 #include "otpch.h"
 
-#include "databasetasks.h"
-#include "tasks.h"
+#include "database/databasetasks.h"
+#include "game/scheduling/tasks.h"
 
 extern Dispatcher g_dispatcher;
 

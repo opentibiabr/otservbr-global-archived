@@ -19,9 +19,9 @@
 
 #include "otpch.h"
 
-#include "database.h"
-#include "guild.h"
-#include "ioguild.h"
+#include "database/database.h"
+#include "creatures/players/grouping/guild.h"
+#include "io/ioguild.h"
 
 Guild* IOGuild::loadGuild(uint32_t guildId)
 {

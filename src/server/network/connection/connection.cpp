@@ -19,13 +19,13 @@
 
 #include "otpch.h"
 
-#include "configmanager.h"
-#include "connection.h"
-#include "outputmessage.h"
-#include "protocol.h"
-#include "protocolgame.h"
-#include "scheduler.h"
-#include "server.h"
+#include "config/configmanager.h"
+#include "server/network/connection/connection.h"
+#include "server/network/message/outputmessage.h"
+#include "server/network/protocol/protocol.h"
+#include "server/network/protocol/protocolgame.h"
+#include "game/scheduling/scheduler.h"
+#include "server/server.h"
 
 extern ConfigManager g_config;
 

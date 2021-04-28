@@ -19,10 +19,10 @@
 
 #include "otpch.h"
 
-#include "events.h"
-#include "tools.h"
-#include "item.h"
-#include "player.h"
+#include "lua/creature/events.h"
+#include "utils/tools.h"
+#include "items/item.h"
+#include "creatures/players/player.h"
 
 #include <set>
 

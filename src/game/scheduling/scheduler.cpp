@@ -19,7 +19,7 @@
 
 #include "otpch.h"
 
-#include "scheduler.h"
+#include "game/scheduling/scheduler.h"
 
 void Scheduler::threadMain()
 {

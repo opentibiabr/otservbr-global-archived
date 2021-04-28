@@ -19,9 +19,9 @@
 
 #include "otpch.h"
 
-#include "guild.h"
+#include "creatures/players/grouping/guild.h"
 
-#include "game.h"
+#include "game/game.h"
 
 extern Game g_game;
 
