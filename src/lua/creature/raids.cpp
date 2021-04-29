@@ -545,6 +545,8 @@ bool AreaSpawnEvent::configureRaidEvent(const pugi::xml_node& eventNode)
 				return false;
 			}
 		}
+
+		spawnList.emplace_back(name, minAmount, maxAmount);
 	}
 	return true;
 }
