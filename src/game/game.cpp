@@ -4268,7 +4268,7 @@ void Game::playerBuyItem(uint32_t playerId, uint16_t spriteId, uint8_t count, ui
 		return;
 	}
 
-	merchant->onPlayerTrade(player, it.id, subType, amount, ignoreCap, inBackpacks);
+	merchant->onPlayerTrade(player, onBuy, it.id, subType, amount, ignoreCap, inBackpacks);
 }
 
 void Game::playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount, bool ignoreEquipped)
