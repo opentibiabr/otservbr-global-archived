@@ -103,95 +103,97 @@ include(GNUInstallDirs)
 # *****************************************************************************
 target_sources(${PROJECT_NAME}
 	PRIVATE
-		account.cpp
-		actions.cpp
-		ban.cpp
-		baseevents.cpp
-		bed.cpp
-		chat.cpp
-		combat.cpp
-		condition.cpp
-		configmanager.cpp
-		connection.cpp
-		container.cpp
-		creature.cpp
-		creatureevent.cpp
-		cylinder.cpp
-		database.cpp
-		databasemanager.cpp
-		databasetasks.cpp
-		depotchest.cpp
-		depotlocker.cpp
-		events.cpp
-		familiars.cpp
-		fileloader.cpp
-		game.cpp
-		gamestore.cpp
-		globalevent.cpp
-		groups.cpp
-		guild.cpp
-		house.cpp
-		housetile.cpp
-		imbuements.cpp
-		inbox.cpp
-		iobestiary.cpp
-		ioguild.cpp
-		iologindata.cpp
-		iomap.cpp
-		iomapserialize.cpp
-		iomarket.cpp
-		item.cpp
-		items.cpp
-		luascript.cpp
-		mailbox.cpp
-		map.cpp
-		modules.cpp
-		monster.cpp
-		monsters.cpp
-		mounts.cpp
-		movement.cpp
-		networkmessage.cpp
-		npc.cpp
+		config/configmanager.cpp
+		creatures/appearance/mounts/mounts.cpp
+		creatures/appearance/outfit/outfit.cpp
+		creatures/combat/combat.cpp
+		creatures/combat/condition.cpp
+		creatures/combat/spells.cpp
+		creatures/creature.cpp
+		creatures/interactions/chat.cpp
+		creatures/monsters/monster.cpp
+		creatures/monsters/monsters.cpp
+		creatures/npc/npc.cpp
+		creatures/players/account/account.cpp
+		creatures/players/grouping/familiars.cpp
+		creatures/players/grouping/groups.cpp
+		creatures/players/grouping/guild.cpp
+		creatures/players/grouping/party.cpp
+		creatures/players/imbuements/imbuements.cpp
+		creatures/players/management/ban.cpp
+		creatures/players/management/waitlist.cpp
+		creatures/players/player.cpp
+		creatures/players/vocations/vocation.cpp
+		creatures/spawn/spawn.cpp
+		database/database.cpp
+		database/databasemanager.cpp
+		database/databasetasks.cpp
+		game/game.cpp
+		game/gamestore.cpp
+		game/movement/position.cpp
+		game/movement/teleport.cpp
+		game/scheduling/scheduler.cpp
+		game/scheduling/tasks.cpp
+		io/fileloader.cpp
+		io/iobestiary.cpp
+		io/ioguild.cpp
+		io/iologindata.cpp
+		io/iomap.cpp
+		io/iomapserialize.cpp
+		io/iomarket.cpp
+		items/bed.cpp
+		items/containers/container.cpp
+		items/containers/depot/depotchest.cpp
+		items/containers/depot/depotlocker.cpp
+		items/containers/inbox/inbox.cpp
+		items/containers/mailbox/mailbox.cpp
+		items/containers/rewards/reward.cpp
+		items/containers/rewards/rewardchest.cpp
+		items/cylinder.cpp
+		items/item.cpp
+		items/items.cpp
+		items/thing.cpp
+		items/tile.cpp
+		items/trashholder.cpp
+		items/weapons/weapons.cpp
+		lua/callbacks/creaturecallback.cpp
+		lua/creature/actions.cpp
+		lua/creature/creatureevent.cpp
+		lua/creature/events.cpp
+		lua/creature/movement.cpp
+		lua/creature/raids.cpp
+		lua/creature/talkaction.cpp
+		lua/global/baseevents.cpp
+		lua/global/globalevent.cpp
+		lua/modules/modules.cpp
+		lua/scripts/luascript.cpp
+		lua/scripts/scripts.cpp
+		map/house/house.cpp
+		map/house/housetile.cpp
+		map/map.cpp
 		otpch.cpp
 		otserv.cpp
-		outfit.cpp
-		outputmessage.cpp
-		party.cpp
-		player.cpp
-		position.cpp
-		protocol.cpp
-		protocolgame.cpp
-		protocollogin.cpp
-		protocolstatus.cpp
-		raids.cpp
-		rewardchest.cpp
-		reward.cpp
-		rsa.cpp
-		scheduler.cpp
-		scripts.cpp
-		server.cpp
-		signals.cpp
-		spawn.cpp
-		spells.cpp
-		talkaction.cpp
-		tasks.cpp
-		teleport.cpp
-		thing.cpp
-		tile.cpp
-		tools.cpp
-		trashholder.cpp
-		vocation.cpp
-		waitlist.cpp
-		weapons.cpp
-		webhook.cpp
-		wildcardtree.cpp
-		xtea.cpp
+		security/rsa.cpp
+		security/xtea.cpp
+		server/network/connection/connection.cpp
+		server/network/message/networkmessage.cpp
+		server/network/message/outputmessage.cpp
+		server/network/protocol/protocol.cpp
+		server/network/protocol/protocolgame.cpp
+		server/network/protocol/protocollogin.cpp
+		server/network/protocol/protocolstatus.cpp
+		server/network/webhook/webhook.cpp
+		server/server.cpp
+		server/signals.cpp
+		utils/tools.cpp
+		utils/wildcardtree.cpp
 )
 
 if (MSVC)
 
 target_include_directories(${PROJECT_NAME}
 	PRIVATE
+		${CMAKE_SOURCE_DIR}/src
 		${MYSQL_INCLUDE_DIR}
 		${LUA_INCLUDE_DIR}
 		${Boost_INCLUDE_DIRS}
@@ -218,8 +220,7 @@ else()
 
 	target_include_directories(${PROJECT_NAME}
 		PRIVATE
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
-			$<INSTALL_INTERFACE:include>
+			${CMAKE_SOURCE_DIR}/src
 			${LUA_INCLUDE_DIR}
 	)
 
