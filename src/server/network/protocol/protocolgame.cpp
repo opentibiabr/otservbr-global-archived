@@ -6599,9 +6599,7 @@ void ProtocolGame::MoveDownCreature(NetworkMessage &msg, const Creature *creatur
 void ProtocolGame::AddShopItem(NetworkMessage &msg, const ShopInfo &item)
 {
 	const ItemType &it = Item::items[item.itemId];
-	msg.add<uint16_t>(item.itemId);
-
-	uint8_t count = std::min(item.subType, 100);
+	msg.add<uint16_t>(it.clientId);
 
 	if (it.isSplash() || it.isFluidContainer())
 	{
