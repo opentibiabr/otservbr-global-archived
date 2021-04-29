@@ -26,7 +26,9 @@ bool CreatureCallback::startScriptInterface(int32_t scriptId) {
 
     if (!scriptInterface->reserveScriptEnv()) {
         SPDLOG_ERROR(
-					"[CreatureCallback::startScriptInterface] - {} {} Call stack overflow. Too many lua script calls being nested.",
+					"[CreatureCallback::startScriptInterface]"
+						" - {} {} Call stack overflow. "
+						"Too many lua script calls being nested.",
 					getCreatureClass(targetCreature),
 					targetCreature->getName()
         );
