@@ -1187,6 +1187,9 @@ void ProtocolGame::parseSetOutfit(NetworkMessage &msg)
 				g_game.playerSetShowOffSocket(player->getID(), newOutfit, pos, stackpos, spriteId, podiumVisible, direction);
 			}
 		}
+		if (version <= 1200) {
+				g_game.playerChangeOutfit(player->getID(), newOutfit);
+		}
 	}
 }
 
@@ -2516,18 +2519,16 @@ void ProtocolGame::parseMarketBrowse(NetworkMessage &msg)
 {
 	uint16_t browseId = msg.get<uint16_t>();
 
-	if (browseId == MARKETREQUEST_OWN_OFFERS)
-	{
+	if (browseId == MARKETREQUEST_OWN_OFFERS) {
 		addGameTask(&Game::playerBrowseMarketOwnOffers, player->getID());
 	}
-	else if (browseId == MARKETREQUEST_OWN_HISTORY)
-	{
+	else if (browseId == MARKETREQUEST_OWN_HISTORY) {
 		addGameTask(&Game::playerBrowseMarketOwnHistory, player->getID());
-	}
-	else
-	{
-    player->sendMarketEnter(player->getLastDepotId());
+	} else {
 		addGameTask(&Game::playerBrowseMarket, player->getID(), browseId);
+	}
+	if (version >= 1200){
+		 player->sendMarketEnter(player->getLastDepotId());
 	}
 }
 
