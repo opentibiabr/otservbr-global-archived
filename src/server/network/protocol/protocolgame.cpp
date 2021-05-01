@@ -4966,7 +4966,7 @@ void ProtocolGame::sendCreatureHelpers(uint32_t creatureId, uint16_t helpers)
 
 void ProtocolGame::sendPartyCreatureUpdate(const Creature* target)
 {	
-	if (version >= 1200) {
+	if (version <= 1200) {
 		return;
 	}
 
@@ -4985,7 +4985,7 @@ void ProtocolGame::sendPartyCreatureUpdate(const Creature* target)
 
 void ProtocolGame::sendPartyCreatureShield(const Creature* target)
 {	
-	if (version >= 1200) {
+	if (version <= 1200) {
 		return;
 	}
 
@@ -5004,7 +5004,7 @@ void ProtocolGame::sendPartyCreatureShield(const Creature* target)
 
 void ProtocolGame::sendPartyCreatureSkull(const Creature* target)
 {	
-	if (version >= 1200) {
+	if (version <= 1200) {
 		return;
 	}
 
@@ -5027,7 +5027,7 @@ void ProtocolGame::sendPartyCreatureSkull(const Creature* target)
 
 void ProtocolGame::sendPartyCreatureHealth(const Creature* target, uint8_t healthPercent)
 {	
-	if (version >= 1200) {
+	if (version <= 1200) {
 		return;
 	}
 
@@ -5046,7 +5046,7 @@ void ProtocolGame::sendPartyCreatureHealth(const Creature* target, uint8_t healt
 
 void ProtocolGame::sendPartyPlayerMana(const Player* target, uint8_t manaPercent)
 {	
-	if (version >= 1200) {
+	if (version <= 1200) {
 		return;
 	}
 
@@ -5065,7 +5065,7 @@ void ProtocolGame::sendPartyPlayerMana(const Player* target, uint8_t manaPercent
 
 void ProtocolGame::sendPartyCreatureShowStatus(const Creature* target, bool showStatus)
 {	
-	if (version >= 1200) {
+	if (version <= 1200) {
 		return;
 	}
 
@@ -5084,7 +5084,7 @@ void ProtocolGame::sendPartyCreatureShowStatus(const Creature* target, bool show
 
 void ProtocolGame::sendPartyPlayerVocation(const Player* target)
 {	
-	if (version >= 1200) {
+	if (version <= 1200) {
 		return;
 	}
 
@@ -5104,7 +5104,7 @@ void ProtocolGame::sendPartyPlayerVocation(const Player* target)
 
 void ProtocolGame::sendPlayerVocation(const Player* target)
 {	
-	if (version >= 1200) {
+	if (version <= 1200) {
 		return;
 	}
 
