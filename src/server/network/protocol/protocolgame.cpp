@@ -4965,7 +4965,11 @@ void ProtocolGame::sendCreatureHelpers(uint32_t creatureId, uint16_t helpers)
 }
 
 void ProtocolGame::sendPartyCreatureUpdate(const Creature* target)
-{
+{	
+	if (version >= 1200) {
+		return;
+	}
+
 	bool known;
 	uint32_t removedKnown = 0;
 	uint32_t cid = target->getID();
@@ -4980,7 +4984,11 @@ void ProtocolGame::sendPartyCreatureUpdate(const Creature* target)
 }
 
 void ProtocolGame::sendPartyCreatureShield(const Creature* target)
-{
+{	
+	if (version >= 1200) {
+		return;
+	}
+
 	uint32_t cid = target->getID();
 	if (knownCreatureSet.find(cid) == knownCreatureSet.end()) {
 		sendPartyCreatureUpdate(target);
@@ -4995,7 +5003,11 @@ void ProtocolGame::sendPartyCreatureShield(const Creature* target)
 }
 
 void ProtocolGame::sendPartyCreatureSkull(const Creature* target)
-{
+{	
+	if (version >= 1200) {
+		return;
+	}
+
 	if (g_game.getWorldType() != WORLD_TYPE_PVP) {
 		return;
 	}
@@ -5014,7 +5026,11 @@ void ProtocolGame::sendPartyCreatureSkull(const Creature* target)
 }
 
 void ProtocolGame::sendPartyCreatureHealth(const Creature* target, uint8_t healthPercent)
-{
+{	
+	if (version >= 1200) {
+		return;
+	}
+
 	uint32_t cid = target->getID();
 	if (knownCreatureSet.find(cid) == knownCreatureSet.end()) {
 		sendPartyCreatureUpdate(target);
@@ -5029,7 +5045,11 @@ void ProtocolGame::sendPartyCreatureHealth(const Creature* target, uint8_t healt
 }
 
 void ProtocolGame::sendPartyPlayerMana(const Player* target, uint8_t manaPercent)
-{
+{	
+	if (version >= 1200) {
+		return;
+	}
+
 	uint32_t cid = target->getID();
 	if (knownCreatureSet.find(cid) == knownCreatureSet.end()) {
 		sendPartyCreatureUpdate(target);
@@ -5044,7 +5064,11 @@ void ProtocolGame::sendPartyPlayerMana(const Player* target, uint8_t manaPercent
 }
 
 void ProtocolGame::sendPartyCreatureShowStatus(const Creature* target, bool showStatus)
-{
+{	
+	if (version >= 1200) {
+		return;
+	}
+
 	uint32_t cid = target->getID();
 	if (knownCreatureSet.find(cid) == knownCreatureSet.end()) {
 		sendPartyCreatureUpdate(target);
@@ -5059,7 +5083,11 @@ void ProtocolGame::sendPartyCreatureShowStatus(const Creature* target, bool show
 }
 
 void ProtocolGame::sendPartyPlayerVocation(const Player* target)
-{
+{	
+	if (version >= 1200) {
+		return;
+	}
+
 	uint32_t cid = target->getID();
 	if (knownCreatureSet.find(cid) == knownCreatureSet.end()) {
 		sendPartyCreatureUpdate(target);
@@ -5075,7 +5103,11 @@ void ProtocolGame::sendPartyPlayerVocation(const Player* target)
 }
 
 void ProtocolGame::sendPlayerVocation(const Player* target)
-{
+{	
+	if (version >= 1200) {
+		return;
+	}
+
 	NetworkMessage msg;
 	msg.addByte(0x8B);
 	msg.add<uint32_t>(target->getID());
