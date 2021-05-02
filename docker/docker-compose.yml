@@ -1,26 +1,24 @@
 version: "3.3"
 
 services:
-  otserver:
-    container_name: otserver
+  server:
     build:
       context: ../
-      dockerfile: ./docker/Dockerfile.server
+      dockerfile: docker/server/Dockerfile
     ports:
-      - "7171:7171"
-      - "7172:7172"
-    volumes:
-      - ../:/otserver
+      - 7171:7171
+      - 7172:7172
     depends_on:
-      - otdb
-      - otweb
-      - otlogin
+      - mysql
+      - website
+      - login
+    links:
+      - mysql
 
-  otdb:
-    container_name: otdb
-    build: 
+  mysql:
+    build:
       context: ../
-      dockerfile: ./docker/Dockerfile.database
+      dockerfile: docker/mysql/Dockerfile
     restart: unless-stopped
     environment:
       - MYSQL_DATABASE=otserver
@@ -28,37 +26,35 @@ services:
       - MYSQL_PASSWORD=otserver
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
     ports:
-      - "3306:3306"
+      - 3306:3306
     volumes:
       - db-volume:/var/lib/mysql
-  
-  otweb:
-    container_name: otwebsite
+
+  website:
     image: webdevops/php-nginx:alpine-php7
     restart: unless-stopped
     environment:
       - WEB_DOCUMENT_ROOT=/tmp/web/
       - WEB_DOCUMENT_INDEX=index.php
     ports:
-      - "80:80"
+      - 8080:80
     volumes:
-      - ./data/web:/tmp/web
-      - ../:/tmp/otserver/
+      - ./docker/data/web:/tmp/web
+      - ./:/tmp/otserver/
     depends_on:
-      - otdb
+      - mysql
 
-  otlogin:
-    container_name: otwebsite_login
-    build: 
-      context: ./
-      dockerfile: ./Dockerfile.login
+  login:
+    build:
+      context: ../
+      dockerfile: docker/login/Dockerfile
     restart: unless-stopped
     volumes:
-      - ./data/:/tmp/
+      - ./docker/data/:/tmp/
     ports:
-      - "8080:80"
+      - 80:8080
     depends_on:
-      - otdb
+      - mysql
 
 volumes:
   db-volume:

@@ -1,5 +1,5 @@
 function onUpdateDatabase()
-  print("> Updating database to version 9 (Bestiary cpp)")
+  Spdlog.info("Updating database to version 9 (Bestiary cpp)")
   db.query([[CREATE TABLE IF NOT EXISTS `player_charms` (
 `player_guid` INT(250) NOT NULL , 
 `charm_points` VARCHAR(250) NULL , 
