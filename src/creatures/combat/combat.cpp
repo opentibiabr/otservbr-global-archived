@@ -341,7 +341,7 @@ ReturnValue Combat::canDoCombat(Creature* attacker, Creature* target)
 					return RETURNVALUE_YOUMAYNOTATTACKTHISPLAYER;
 				}
 			}
-		} else if (target->getMonster()) {
+		} else if (target && target->getMonster()) {
 
 			if (attacker->getFaction() != FACTION_DEFAULT && attacker->getFaction() != FACTION_PLAYER && !attacker->getMonster()->isEnemyFaction(target->getFaction())) {
 				return RETURNVALUE_YOUMAYNOTATTACKTHISCREATURE;
