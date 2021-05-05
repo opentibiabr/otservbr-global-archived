@@ -31,16 +31,6 @@ class Spawn;
 using CreatureHashSet = std::unordered_set<Creature*>;
 using CreatureList = std::list<Creature*>;
 
-enum TargetSearchType_t {
-	TARGETSEARCH_DEFAULT,
-	TARGETSEARCH_NEAREST,
-	TARGETSEARCH_HP,
-	TARGETSEARCH_DAMAGE,
-	TARGETSEARCH_RANDOM,
-	TARGETSEARCH_PREFERPLAYER,
-	TARGETSEARCH_PREFERMASTER,
-};
-
 class Monster final : public Creature
 {
 	public:
