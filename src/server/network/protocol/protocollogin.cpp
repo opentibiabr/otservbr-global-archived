@@ -50,18 +50,26 @@ void ProtocolLogin::disconnectClient(const std::string& message, uint16_t versio
 
 void ProtocolLogin::getCharacterList(const std::string& email, const std::string& password, uint16_t version)
 {
+	// Load Account Information
+	int result = 0;
+	account::Account account;
+	result = account.LoadAccountDB(email);
+	if (result) {
+		SPDLOG_ERROR("Loaded account email");
+		return;
+	}
+
 	// Check Login Password
 	if (!IOLoginData::authenticateAccountPassword(email, password)) {
 		disconnectClient("Email or password is not correct", version);
 		return;
 	}
 
-	auto output = OutputMessagePool::getOutputMessage();
 
-	account::Account account;
 	// Update premium days
 	Game::updatePremium(account);
 
+	auto output = OutputMessagePool::getOutputMessage();
 	const std::string& motd = g_config.getString(ConfigManager::MOTD);
 	if (!motd.empty()) {
 		// Add MOTD
@@ -105,10 +113,10 @@ void ProtocolLogin::getCharacterList(const std::string& email, const std::string
 		output->addByte(1);
 		output->add<uint32_t>(0);
 	} else {
-    uint32_t days;
-    account.GetPremiumRemaningDays(&days);
-    output->addByte(0);
-    output->add<uint32_t>(time(nullptr) + (days * 86400));
+	uint32_t days;
+	account.GetPremiumRemaningDays(&days);
+	output->addByte(0);
+	output->add<uint32_t>(time(nullptr) + (days * 86400));
   }
 
 	send(output);

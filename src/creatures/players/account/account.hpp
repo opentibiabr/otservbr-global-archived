@@ -19,7 +19,7 @@ namespace account {
 enum Errors : uint8_t {
   ERROR_NO = 0,
   ERROR_DB,
-  ERROR_INVALID_ACC_NAME,
+  ERROR_INVALID_ACCOUNT_EMAIL,
   ERROR_INVALID_ACC_PASSWORD,
   ERROR_INVALID_ACC_TYPE,
   ERROR_INVALID_ID,
@@ -215,7 +215,7 @@ class Account {
   DatabaseTasks *db_tasks_;
 
   uint32_t id_;
-  std::string name_;
+  std::string email_;
   std::string password_;
   uint32_t premium_remaining_days_;
   time_t premium_last_day_;

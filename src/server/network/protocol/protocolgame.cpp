@@ -498,7 +498,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 		msg.getString();
 	}
 
-	std::string email = sessionKey.substr(1, pos);
+	std::string email = sessionKey.substr(0, pos);
 	if (email.empty())
 	{
 		disconnectClient("You must enter your account name.");

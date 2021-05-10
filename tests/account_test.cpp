@@ -126,7 +126,7 @@ TEST_CASE("Set Name - Empty", "[UnitTest]") {
   error_t result;
   std::string new_name;
   result = account.SetName(new_name);
-  REQUIRE(result == account::ERROR_INVALID_ACC_NAME);
+  REQUIRE(result == account::ERROR_INVALID_ACCOUNT_EMAIL);
 }
 
 TEST_CASE("Get Name - Nullptr", "[UnitTest]") {
