@@ -50,17 +50,11 @@ void ProtocolLogin::disconnectClient(const std::string& message, uint16_t versio
 
 void ProtocolLogin::getCharacterList(const std::string& email, const std::string& password, uint16_t version)
 {
-	// Load Account Information
-	int result = 0;
 	account::Account account;
-	result = account.LoadAccountDB(email);
-
-	// Check Login Password
-	if (!IOLoginData::authenticateAccountPassword(email, password)) {
+	if (!IOLoginData::authenticateAccountPassword(email, password, &account)) {
 		disconnectClient("Email or password is not correct", version);
 		return;
 	}
-
 
 	// Update premium days
 	Game::updatePremium(account);
