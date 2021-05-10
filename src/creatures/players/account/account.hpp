@@ -28,7 +28,8 @@ enum Errors : uint8_t {
   ERROR_NOT_INITIALIZED,
   ERROR_NULLPTR,
   ERROR_VALUE_NOT_ENOUGH_COINS,
-  ERROR_VALUE_OVERFLOW
+  ERROR_VALUE_OVERFLOW,
+	ERROR_PLAYER_NOT_FOUND
 };
 
 enum AccountType : uint8_t {
@@ -204,12 +205,14 @@ class Account {
   error_t SetAccountType(AccountType  account_type);
   error_t GetAccountType(AccountType *account_type);
 
-  error_t GetAccountPlayers(std::vector<Player> *players);
+  error_t GetAccountPlayer(Player *player, std::string& characterName);
+	error_t GetAccountPlayers(std::vector<Player> *players);
 
  private:
   error_t SetID(uint32_t id);
   error_t LoadAccountDB(std::ostringstream &query);
   error_t LoadAccountPlayersDB(std::vector<Player> *players);
+	error_t LoadAccountPlayerDB(Player *player, std::string& characterName);
 
   Database *db_;
   DatabaseTasks *db_tasks_;

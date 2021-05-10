@@ -217,13 +217,29 @@ error_t Account::LoadAccountDB(std::ostringstream &query) {
 
   this->SetID(result->getNumber<uint32_t>("id"));
   this->SetEmail(result->getString("email"));
-  this->SetAccountType(static_cast<AccountType>(
-                                          result->getNumber<int32_t>("type")));
+  this->SetAccountType(static_cast<AccountType>(result->getNumber<int32_t>("type")));
   this->SetPassword(result->getString("password"));
   this->SetPremiumRemaningDays(result->getNumber<uint16_t>("premdays"));
   this->SetPremiumLastDay(result->getNumber<time_t>("lastday"));
 
   return ERROR_NO;
+}
+
+error_t Account::LoadAccountPlayerDB(Player *player, std::string& characterName) {
+	if (id_ == 0) {
+		return ERROR_NOT_INITIALIZED;
+	}
+
+	std::ostringstream query;
+	query << "SELECT `name`, `deletion` FROM `players` WHERE `account_id` = "
+				<< id_ << " AND `name` = " << db_->escapeString(characterName) << " ORDER BY `name` ASC";
+
+	DBResult_ptr result = db_->storeQuery(query.str());
+	if (!result || result->getNumber<uint64_t>("deletion") != 0) {
+		return ERROR_PLAYER_NOT_FOUND;
+	}
+
+	return ERROR_NO;
 }
 
 error_t Account::LoadAccountPlayersDB(std::vector<Player> *players) {
@@ -374,6 +390,14 @@ error_t Account::GetAccountType(AccountType *account_type) {
 
   *account_type = account_type_;
   return ERROR_NO;
+}
+
+error_t Account::GetAccountPlayer(Player *player, std::string& characterName) {
+	if (player == nullptr) {
+		return ERROR_NULLPTR;
+	}
+
+	return this->LoadAccountPlayerDB(player, characterName);
 }
 
 error_t Account::GetAccountPlayers(std::vector<Player> *players) {

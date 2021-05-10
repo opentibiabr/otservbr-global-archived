@@ -55,23 +55,13 @@ bool IOLoginData::gameWorldAuthentication(const std::string& email, const std::s
 		return false;
 	}
 
-	Database& db = Database::getInstance();
-	std::ostringstream query;
-
-	query.str(std::string());
-  query << "SELECT `account_id`, `name`, `deletion` FROM `players` WHERE `name` = " << db.escapeString(characterName);
-
-	DBResult_ptr result = db.storeQuery(query.str());
-	if (!result) {
-		SPDLOG_ERROR("Not able to find player: {}", characterName);
+	Player player;
+  if (account::ERROR_NO != account.LoadAccountPlayerDB(&player, characterName)) {
+    SPDLOG_ERROR("Player not found or deleted for account.");
 		return false;
 	}
 
 	account.GetID(accountId);
-	if (result->getNumber<uint32_t>("account_id") != *accountId || result->getNumber<uint64_t>("deletion") != 0) {
-		SPDLOG_ERROR("Account mismatch or has been marked as deleted");
-		return false;
-	}
 
 	return true;
 }
