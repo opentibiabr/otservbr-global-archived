@@ -239,6 +239,9 @@ error_t Account::LoadAccountPlayerDB(Player *player, std::string& characterName)
 		return ERROR_PLAYER_NOT_FOUND;
 	}
 
+	player.name = result->getString("name");
+	player.deletion = result->getNumber<uint64_t>("deletion");
+
 	return ERROR_NO;
 }
 
