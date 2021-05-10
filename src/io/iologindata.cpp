@@ -56,8 +56,8 @@ bool IOLoginData::gameWorldAuthentication(const std::string& email, const std::s
 	}
 
 	account::Player player;
-  if (account::ERROR_NO != account.GetAccountPlayer(&player, characterName)) {
-    SPDLOG_ERROR("Player not found or deleted for account.");
+	if (account::ERROR_NO != account.GetAccountPlayer(&player, characterName)) {
+		SPDLOG_ERROR("Player not found or deleted for account.");
 		return false;
 	}
 
