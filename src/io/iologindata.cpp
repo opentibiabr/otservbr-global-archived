@@ -47,6 +47,7 @@ uint32_t IOLoginData::authenticateAccountPassword(const std::string& email, cons
         SPDLOG_ERROR("Wrong password {} != {}", transformToSHA1(password), result->getString("password"));
         return 0;
     }
+    return 1;
 }
 
 uint32_t IOLoginData::gameworldAuthentication(const std::string& email, const std::string& password, std::string& characterName)
