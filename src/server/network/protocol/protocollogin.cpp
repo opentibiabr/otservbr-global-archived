@@ -48,23 +48,17 @@ void ProtocolLogin::disconnectClient(const std::string& message, uint16_t versio
 	disconnect();
 }
 
-void ProtocolLogin::getCharacterList(const std::string& accountName, const std::string& password, uint16_t version)
+void ProtocolLogin::getCharacterList(const std::string& email, const std::string& password, uint16_t version)
 {
-	// Load Account Information
-  int result = 0;
-  account::Account account;
-  result = account.LoadAccountDB(accountName);
-  if (result) {
-    return;
-  }
-
-  // Check Login Password
-	if (!IOLoginData::LoginServerAuthentication(accountName, password)) {
-		disconnectClient("Account name or password is not correct.", version);
+	// Check Login Password
+	if (!IOLoginData::authenticateAccountPassword(email, password)) {
+		disconnectClient("Email or password is not correct", version);
 		return;
 	}
 
 	auto output = OutputMessagePool::getOutputMessage();
+
+	account::Account account;
 	// Update premium days
 	Game::updatePremium(account);
 
@@ -80,14 +74,14 @@ void ProtocolLogin::getCharacterList(const std::string& accountName, const std::
 
 	// Add session key
 	output->addByte(0x28);
-	output->addString(accountName + "\n" + password);
+	output->addString(email + "\n" + password);
 
 	// Add char list
-  std::vector<account::Player> players;
-  account.GetAccountPlayers(&players);
-  output->addByte(0x64);
+	std::vector<account::Player> players;
+	account.GetAccountPlayers(&players);
+	output->addByte(0x64);
 
-  output->addByte(1);  // number of worlds
+	output->addByte(1);  // number of worlds
 
 	output->addByte(0);  // world id
 	output->addString(g_config.getString(ConfigManager::SERVER_NAME));

@@ -498,8 +498,8 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 		msg.getString();
 	}
 
-	std::string accountName = sessionKey.substr(0, pos);
-	if (accountName.empty())
+	std::string email = sessionKey.substr(1, pos);
+	if (email.empty())
 	{
 		disconnectClient("You must enter your account name.");
 		return;
@@ -551,7 +551,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 		return;
 	}
 
-	uint32_t accountId = IOLoginData::gameworldAuthentication(accountName, password, characterName);
+	uint32_t accountId = IOLoginData::gameworldAuthentication(email, password, characterName);
 	if (accountId == 0)
 	{
 		disconnectClient("Account name or password is not correct.");
