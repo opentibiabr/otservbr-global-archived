@@ -33,13 +33,13 @@ extern Game g_game;
 extern Monsters g_monsters;
 
 bool IOLoginData::authenticateAccountPassword(const std::string& email, const std::string& password, account::Account *account) {
-	if (account::ERROR_NO != account.LoadAccountDB(email)) {
+	if (account::ERROR_NO != account->LoadAccountDB(email)) {
 		SPDLOG_ERROR("Email {} doesn't match any account.", email);
 		return false;
 	}
 
 	std::string accountPassword;
-	account.GetPassword(&accountPassword);
+	account->GetPassword(&accountPassword);
 	if (transformToSHA1(password) != accountPassword) {
 			SPDLOG_ERROR("Wrong password {} != {}", transformToSHA1(password), accountPassword);
 			return false;
@@ -50,7 +50,8 @@ bool IOLoginData::authenticateAccountPassword(const std::string& email, const st
 
 bool IOLoginData::gameWorldAuthentication(const std::string& email, const std::string& password, std::string& characterName, uint32_t *accountId)
 {
-	if (!IOLoginData::authenticateAccountPassword(email, password, account)) {
+	account::Account account;
+	if (!IOLoginData::authenticateAccountPassword(email, password, &account)) {
 		return false;
 	}
 
@@ -60,15 +61,14 @@ bool IOLoginData::gameWorldAuthentication(const std::string& email, const std::s
 	query.str(std::string());
   query << "SELECT `account_id`, `name`, `deletion` FROM `players` WHERE `name` = " << db.escapeString(characterName);
 
-  result = db.storeQuery(query.str());
+	DBResult_ptr result = db.storeQuery(query.str());
   if (!result) {
     SPDLOG_ERROR("Not able to find player: {}", characterName);
 		return false;
   }
 
-	uint32_t accountId;
-	account.GetID(&accountId);
-  if (result->getNumber<uint32_t>("account_id") != accountId || result->getNumber<uint64_t>("deletion") != 0) {
+	account.GetID(accountId);
+  if (result->getNumber<uint32_t>("account_id") != *accountId || result->getNumber<uint64_t>("deletion") != 0) {
     SPDLOG_ERROR("Account mismatch or account has been marked as deleted");
 		return false;
   }
