@@ -41,7 +41,7 @@ bool IOLoginData::authenticateAccountPassword(const std::string& email, const st
 	std::string accountPassword;
 	account->GetPassword(&accountPassword);
 	if (transformToSHA1(password) != accountPassword) {
-			SPDLOG_ERROR("Wrong password {} != {}", transformToSHA1(password), accountPassword);
+			SPDLOG_ERROR("Password '{}' doesn't match any account", transformToSHA1(password));
 			return false;
 	}
 
@@ -62,16 +62,16 @@ bool IOLoginData::gameWorldAuthentication(const std::string& email, const std::s
   query << "SELECT `account_id`, `name`, `deletion` FROM `players` WHERE `name` = " << db.escapeString(characterName);
 
 	DBResult_ptr result = db.storeQuery(query.str());
-  if (!result) {
-    SPDLOG_ERROR("Not able to find player: {}", characterName);
+	if (!result) {
+		SPDLOG_ERROR("Not able to find player: {}", characterName);
 		return false;
-  }
+	}
 
 	account.GetID(accountId);
-  if (result->getNumber<uint32_t>("account_id") != *accountId || result->getNumber<uint64_t>("deletion") != 0) {
-    SPDLOG_ERROR("Account mismatch or account has been marked as deleted");
+	if (result->getNumber<uint32_t>("account_id") != *accountId || result->getNumber<uint64_t>("deletion") != 0) {
+		SPDLOG_ERROR("Account mismatch or has been marked as deleted");
 		return false;
-  }
+	}
 
 	return true;
 }

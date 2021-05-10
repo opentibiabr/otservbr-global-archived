@@ -177,9 +177,9 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 		return;
 	}
 
-	std::string accountName = msg.getString();
-	if (accountName.empty()) {
-		disconnectClient("Invalid account name.", version);
+	std::string email = msg.getString();
+	if (email.empty()) {
+		disconnectClient("Invalid email.", version);
 		return;
 	}
 
@@ -190,5 +190,5 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 	}
 
 	auto thisPtr = std::static_pointer_cast<ProtocolLogin>(shared_from_this());
-	g_dispatcher.addTask(createTask(std::bind(&ProtocolLogin::getCharacterList, thisPtr, accountName, password, version)));
+	g_dispatcher.addTask(createTask(std::bind(&ProtocolLogin::getCharacterList, thisPtr, email, password, version)));
 }

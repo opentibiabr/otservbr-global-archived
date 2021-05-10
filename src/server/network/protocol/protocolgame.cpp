@@ -487,7 +487,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 	size_t pos = sessionKey.find('\n');
 	if (pos == std::string::npos)
 	{
-		disconnectClient("You must enter your account name.");
+		disconnectClient("You must enter your email.");
 		return;
 	}
 
@@ -501,7 +501,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 	std::string email = sessionKey.substr(0, pos);
 	if (email.empty())
 	{
-		disconnectClient("You must enter your account name.");
+		disconnectClient("You must enter your email.");
 		return;
 	}
 
