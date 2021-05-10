@@ -54,10 +54,6 @@ void ProtocolLogin::getCharacterList(const std::string& email, const std::string
 	int result = 0;
 	account::Account account;
 	result = account.LoadAccountDB(email);
-	if (result) {
-		SPDLOG_ERROR("Loaded account email");
-		return;
-	}
 
 	// Check Login Password
 	if (!IOLoginData::authenticateAccountPassword(email, password)) {

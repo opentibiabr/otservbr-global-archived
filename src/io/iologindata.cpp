@@ -38,8 +38,9 @@ uint32_t IOLoginData::authenticateAccountPassword(const std::string& email, cons
     std::ostringstream query;
     query << "SELECT `id`, `password` FROM `accounts` WHERE `email` = " << db.escapeString(email);
     DBResult_ptr result = db.storeQuery(query.str());
+    uint32_t accountId = result->getNumber<uint32_t>("id");
     if (!result) {
-        SPDLOG_ERROR("Wrong email");
+        SPDLOG_ERROR("Wrong email for account id: {}", accountId);
         return 0;
     }
 
@@ -47,7 +48,8 @@ uint32_t IOLoginData::authenticateAccountPassword(const std::string& email, cons
         SPDLOG_ERROR("Wrong password {} != {}", transformToSHA1(password), result->getString("password"));
         return 0;
     }
-    return 1;
+
+    return accountId;
 }
 
 uint32_t IOLoginData::gameworldAuthentication(const std::string& email, const std::string& password, std::string& characterName)

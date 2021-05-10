@@ -554,7 +554,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 	uint32_t accountId = IOLoginData::gameworldAuthentication(email, password, characterName);
 	if (accountId == 0)
 	{
-		disconnectClient("Account name or password is not correct.");
+		disconnectClient("Email or password is not correct.");
 		return;
 	}
 

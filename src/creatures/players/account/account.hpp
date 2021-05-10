@@ -189,8 +189,8 @@ class Account {
 
   error_t GetID(uint32_t *id);
 
-  error_t SetName(std::string  name);
-  error_t GetName(std::string *name);
+  error_t SetEmail(std::string  name);
+  error_t GetEmail(std::string *name);
 
   error_t SetPassword(std::string  password);
   error_t GetPassword(std::string *password);

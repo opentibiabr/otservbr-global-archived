@@ -216,7 +216,7 @@ error_t Account::LoadAccountDB(std::ostringstream &query) {
   }
 
   this->SetID(result->getNumber<uint32_t>("id"));
-  this->SetName(result->getString("email"));
+  this->SetEmail(result->getString("email"));
   this->SetAccountType(static_cast<AccountType>(
                                           result->getNumber<int32_t>("type")));
   this->SetPassword(result->getString("password"));
@@ -294,7 +294,7 @@ error_t Account::GetID(uint32_t *id) {
   return ERROR_NO;
 }
 
-error_t Account::SetName(std::string email) {
+error_t Account::SetEmail(std::string email) {
   if (email.empty()) {
     return ERROR_INVALID_ACCOUNT_EMAIL;
   }
@@ -302,7 +302,7 @@ error_t Account::SetName(std::string email) {
   return ERROR_NO;
 }
 
-error_t Account::GetName(std::string *email) {
+error_t Account::GetEmail(std::string *email) {
   if (email == nullptr) {
     return ERROR_NULLPTR;
   }
