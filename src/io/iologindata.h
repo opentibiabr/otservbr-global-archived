@@ -30,12 +30,12 @@ class IOLoginData
 {
 	public:
 		static bool authenticateAccountPassword(const std::string& email,
-                                                    const std::string& password,
-																										account::Account *account);
-		static bool gameWorldAuthentication(const std::string& accountName,
                                                 const std::string& password,
-                                                std::string& characterName,
-																								uint32_t *accountId);
+                                                account::Account *account);
+		static bool gameWorldAuthentication(const std::string& accountName,
+                                            const std::string& password,
+                                            std::string& characterName,
+                                            uint32_t *accountId);
 		static account::AccountType getAccountType(uint32_t accountId);
 		static void setAccountType(uint32_t accountId, account::AccountType accountType);
 		static void updateOnlineStatus(uint32_t guid, bool login);
