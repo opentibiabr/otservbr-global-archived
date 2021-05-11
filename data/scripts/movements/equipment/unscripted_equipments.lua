@@ -11214,13 +11214,11 @@ if not equipmentsTable then
 			itemid = 6132,
 			type = "equip",
 			slot = "feet",
-			level = 180
 		}, -- pair of soft boots
 		{
 			itemid = 6132,
 			type = "deequip",
 			slot = "feet",
-			level = 180
 		}, -- pair of soft boots
 		{
 			itemid = 6131,
