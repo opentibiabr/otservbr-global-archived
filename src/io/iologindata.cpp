@@ -748,7 +748,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
       player->addVIPInternal(result->getNumber<uint32_t>("player_id"));
     } while (result->next());
   }
-
+  loadPlayerPreyData(player);
   player->updateBaseSpeed();
   player->updateInventoryWeight();
   player->updateItemsLight(true);
