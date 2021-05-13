@@ -21,6 +21,9 @@ monster.speed = 260
 monster.summonCost = 0
 monster.maxSummons = 0
 
+monster.faction = FACTION_LION
+monster.enemyFactions = {FACTION_LIONUSURPERS}
+
 monster.changeTarget = {
 	interval = 4000,
 	chance = 10
@@ -48,7 +51,7 @@ monster.flags = {
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
 	canWalkOnPoison = true,
-	pet = true
+	pet = false
 }
 
 monster.light = {

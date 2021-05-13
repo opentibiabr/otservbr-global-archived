@@ -1166,6 +1166,12 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(DIRECTION_NORTHWEST)
 	registerEnum(DIRECTION_NORTHEAST)
 
+	registerEnum(FACTION_DEFAULT)
+	registerEnum(FACTION_PLAYER)
+	registerEnum(FACTION_LION)
+	registerEnum(FACTION_LIONUSURPERS)
+	registerEnum(FACTION_LAST)
+
 	registerEnum(COMBAT_NONE)
 	registerEnum(COMBAT_PHYSICALDAMAGE)
 	registerEnum(COMBAT_ENERGYDAMAGE)
@@ -3125,6 +3131,11 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("MonsterType", "maxHealth", LuaScriptInterface::luaMonsterTypeMaxHealth);
 	registerMethod("MonsterType", "runHealth", LuaScriptInterface::luaMonsterTypeRunHealth);
 	registerMethod("MonsterType", "experience", LuaScriptInterface::luaMonsterTypeExperience);
+
+	registerMethod("MonsterType", "faction", LuaScriptInterface::luaMonsterTypeFaction);
+	registerMethod("MonsterType", "enemyFactions", LuaScriptInterface::luaMonsterTypeEnemyFactions);
+	registerMethod("MonsterType", "targetPreferPlayer", LuaScriptInterface::luaMonsterTypeTargetPreferPlayer);
+	registerMethod("MonsterType", "targetPreferMaster", LuaScriptInterface::luaMonsterTypeTargetPreferMaster);
 
 	registerMethod("MonsterType", "raceId", LuaScriptInterface::luaMonsterTypeRaceid);
 	registerMethod("MonsterType", "Bestiaryclass", LuaScriptInterface::luaMonsterTypeBestiaryclass);
@@ -15426,6 +15437,89 @@ int LuaScriptInterface::luaMonsterTypeExperience(lua_State* L)
 			pushBoolean(L, true);
 		}
 	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeFaction(lua_State* L)
+{
+	// get: monsterType:faction() set: monsterType:faction(faction)
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_pushnumber(L, monsterType->info.faction);
+		}
+		else {
+			monsterType->info.faction = getNumber<Faction_t>(L, 2);
+			pushBoolean(L, true);
+		}
+	}
+	else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeEnemyFactions(lua_State* L)
+{
+	// get: monsterType:enemyFactions() set: monsterType:enemyFactions(enemyFaction)
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_createtable(L, monsterType->info.enemyFactions.size(), 0);
+			int index = 0;
+
+			for (auto faction : monsterType->info.enemyFactions) {
+				lua_pushnumber(L, faction);
+				lua_rawseti(L, -2, ++index);
+			}
+		}
+		else {
+			Faction_t faction = getNumber<Faction_t>(L, 2);
+			monsterType->info.enemyFactions.emplace(faction);
+			pushBoolean(L, true);
+		}
+	}
+	else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeTargetPreferPlayer(lua_State* L)
+{
+	// get: monsterType:targetPreferPlayer() set: monsterType:targetPreferPlayer(bool)
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_pushboolean(L, monsterType->info.targetPreferPlayer);
+		}
+		else {
+			monsterType->info.targetPreferPlayer = getBoolean(L, 2);
+			pushBoolean(L, true);
+		}
+	}
+	else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeTargetPreferMaster(lua_State* L)
+{
+	// get: monsterType:targetPreferMaster() set: monsterType:targetPreferMaster(bool)
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_pushnumber(L, monsterType->info.faction);
+		}
+		else {
+			monsterType->info.targetPreferMaster = getBoolean(L, 2);
+			pushBoolean(L, true);
+		}
+	}
+	else {
 		lua_pushnil(L);
 	}
 	return 1;
