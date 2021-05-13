@@ -759,6 +759,7 @@ void Monster::onThink(uint32_t interval)
 	// onThink(self, interval)
 	CreatureCallback callback = CreatureCallback(mType->info.scriptInterface, this);
 	if (callback.startScriptInterface(mType->info.thinkEvent)) {
+		callback.pushSpecificCreature(this);
 		callback.pushNumber(interval);
 	}
 
