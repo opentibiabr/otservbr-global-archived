@@ -1,7 +1,7 @@
-local mType = Game.createMonsterType("Lion warlock")
+local mType = Game.createMonsterType("Ancient Lion warlock")
 local monster = {}
 
-monster.description = "a lion warlock"
+monster.description = "an ancient lion warlock"
 monster.experience = 0
 monster.outfit = {
 	lookType = 1316,

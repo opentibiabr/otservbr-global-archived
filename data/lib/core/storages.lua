@@ -1708,6 +1708,7 @@ Storage = {
 		HyenaSign = 52299,
 		Time = 52300
 	},
+	
 	GraveDanger = {
 		-- Reserved storage from 52310 - 52339
 		Questline = 52310,
@@ -1731,6 +1732,16 @@ Storage = {
 		Time2 = 52352,
 		Time3 = 52353,
 		Time4 = 52354,
+	},
+	TheOrderOfTheLion = {
+		-- Reserved storage 52360-52395 (TheRookieGuard)
+		-- Reserved storage 52396-52410 (TheOrderOfTheLion)
+		Drume = {
+			Commander = 52396, -- Global
+			TotalLionCommanders = 52397, -- Global
+			TotalUsurperCommanders = 52398, -- Global
+			Timer = 52399
+		},
 	},
 	-- News quest development
 	-- New storages

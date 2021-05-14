@@ -50681,70 +50681,70 @@
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>		
-	<item id="38805" article="a" name="dead lion knight">
+	<item id="38805" article="a" name="dead drume">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38806" article="a" name="dead lion knight">
+	<item id="38806" article="a" name="dead drume">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38805" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38807" article="a" name="dead lion knight">
+	<item id="38807" article="a" name="dead drume">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38806" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38808" article="a" name="dead lion knight">
+	<item id="38808" article="a" name="dead drume">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38807" />
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>	
-	<item id="38809" article="a" name="dead lion knight">
+	<item id="38809" article="a" name="dead usurper knight">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38810" article="a" name="dead lion knight">
+	<item id="38810" article="a" name="dead usurper knight">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38809" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38811" article="a" name="dead lion knight">
+	<item id="38811" article="a" name="dead usurper knight">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38810" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38812" article="a" name="dead lion knight">
+	<item id="38812" article="a" name="dead usurper knight">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38811" />
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>	
-	<item id="38813" article="a" name="dead lion archer">
+	<item id="38813" article="a" name="dead usurper archer">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38814" article="a" name="dead lion archer">
+	<item id="38814" article="a" name="dead usurper archer">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38813" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38815" article="a" name="dead lion archer">
+	<item id="38815" article="a" name="dead usurper archer">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38814" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38816" article="a" name="dead lion archer">
+	<item id="38816" article="a" name="dead usurper archer">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="38815" />
 		<attribute key="duration" value="10" />
@@ -51457,24 +51457,24 @@
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="39016" article="a" name="dead corpse">
+	<item id="39016" article="a" name="dead usurper warlock">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="39017" article="a" name="dead corpse">
+	<item id="39017" article="a" name="dead usurper warlock">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="39016" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="39018" article="a" name="dead corpse">
+	<item id="39018" article="a" name="dead usurper warlock">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="39017" />
 		<attribute key="duration" value="900" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="39019" article="a" name="dead corpse">
+	<item id="39019" article="a" name="dead usurper warlock">
 		<attribute key="containerSize" value="48" />
 		<attribute key="decayTo" value="39018" />
 		<attribute key="duration" value="10" />
