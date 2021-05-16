@@ -640,10 +640,13 @@ function Player.sendPreyData(self, slot)
 	end
 
 	-- Next free reroll
-	msg:addU32(self:getMinutesUntilFreeReroll(slot))
-
-	-- Automatic Reroll/Lock Prey
-	msg:addByte(tickState)
+	if self:getClient().version >= 1200 then
+		msg:addU32(self:getMinutesUntilFreeReroll(slot))
+		-- Automatic Reroll/Lock Prey
+		msg:addByte(tickState)
+	else
+		msg:addU16(self:getMinutesUntilFreeReroll(slot)/60)
+	end
 
 	-- send prey message
 	msg:sendToPlayer(self)
@@ -658,7 +661,6 @@ function Player.sendPreyData(self, slot)
 
 	-- Send reroll price
 	self:sendPreyRerollPrice()
-
 end
 
 function Player:sendPreyRerollPrice()
@@ -666,15 +668,17 @@ function Player:sendPreyRerollPrice()
 	
 	msg:addByte(Prey.S_Packets.PreyRerollPrice)
 	msg:addU32(self:getRerollPrice())
-	msg:addByte(Prey.Config.BonusRerollPrice) -- wildcards
-	msg:addByte(Prey.Config.SelectWithWildCardPrice) -- select directly
+	if self:getClient().version >= 1200 then
+		msg:addByte(Prey.Config.BonusRerollPrice) -- wildcards
+		msg:addByte(Prey.Config.SelectWithWildCardPrice) -- select directly
 
-	-- Feature unavailable
-	msg:addU32(0)
-	msg:addU32(0)
-	msg:addByte(0)
-	msg:addByte(0)
-
+		-- Feature unavailable
+		msg:addU32(0)
+		msg:addU32(0)
+		msg:addByte(0)
+		msg:addByte(0)
+	end
+	
 	msg:sendToPlayer(self)
 end
 

@@ -19,6 +19,19 @@
 
 #include "otpch.h"
 
+<<<<<<< HEAD:src/scripts.cpp
+#include "actions.h"
+#include "chat.h"
+#include "talkaction.h"
+#include "spells.h"
+#include "movement.h"
+#include "weapons.h"
+#include "globalevent.h"
+#include "events.h"
+#include "scripts.h"
+#include "modules.h"
+#include "imbuements.h"
+=======
 #include "lua/creature/actions.h"
 #include "creatures/interactions/chat.h"
 #include "lua/creature/talkaction.h"
@@ -30,6 +43,7 @@
 #include "lua/scripts/scripts.h"
 #include "lua/modules/modules.h"
 #include "creatures/players/imbuements/imbuements.h"
+>>>>>>> develop:src/lua/scripts/scripts.cpp
 #include <boost/filesystem.hpp>
 
 Actions* g_actions = nullptr;
