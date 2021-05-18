@@ -1,5 +1,5 @@
-function canJoin()
-	return true
+function canJoin(player)
+	return player:getClient().version < 1200
 end
 
 function onSpeak()
