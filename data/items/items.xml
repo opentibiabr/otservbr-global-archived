@@ -9218,11 +9218,11 @@
 		<attribute key="description" value="This strange creature has the tendency to set certain things on fire." />
 		<attribute key="weight" value="3050" />
 	</item>
+	<item fromid="5469" toid="5470" article="a" name="distilling machine" />
 	<item id="5471" article="a" name="sugar cane">
 		<attribute key="decayTo" value="5466" />
 		<attribute key="duration" value="10" />
 	</item>
-	<item fromid="5469" toid="5470" article="a" name="distilling machine" />
 	<item fromid="5472" toid="5473" article="a" name="ball on chains" />
 	<item fromid="5474" toid="5475" article="an" name="iron maiden" />
 	<item fromid="5476" toid="5477" article="a" name="pillory" />
