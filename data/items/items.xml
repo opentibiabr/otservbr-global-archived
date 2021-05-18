@@ -9196,7 +9196,7 @@
 		<attribute key="loottype" value="boots" />
 		<attribute key="imbuingSlots" value="1" />
 	</item>
-	 <item id="5463" article="a" name="sugar cane">
+	<item id="5463" article="a" name="sugar cane">
 		<attribute key="description" value="It has just been harvested." />
 		<attribute key="decayTo" value="5471" />
 		<attribute key="duration" value="10"/>
@@ -9207,12 +9207,12 @@
 		<attribute key="duration" value="8"/>
 	</item>
 		<item id="5465" article="a" name="burning sugar cane">
-		 <attribute key="decayTo" value="5464" />
+		<attribute key="decayTo" value="5464" />
 		<attribute key="duration" value="5"/>
 	</item>
 	<item id="5466" article="a" name="sugar cane" />
 	<item id="5467" article="a" name="bunch of sugar cane">
-	<attribute key="weight" value="2250" />
+		<attribute key="weight" value="2250" />
 	</item>
 	<item id="5468" article="a" name="fire bug">
 		<attribute key="description" value="This strange creature has the tendency to set certain things on fire." />
