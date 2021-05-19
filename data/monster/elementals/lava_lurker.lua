@@ -23,13 +23,13 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 0,
-	Locations = "Gnome Deep Hub"
+	Locations = "Deep Hub Magma Dungeon, Lava Pump Dungeon (Dwarfs), Lava Pump Dungeon (Gnomes), Lava Pump Dungeon (Scouts)."
 	}
 
 monster.health = 5900
 monster.maxHealth = 5900
 monster.race = "fire"
-monster.corpse = 0
+monster.corpse = 31997
 monster.speed = 58
 monster.manaCost = 0
 monster.maxSummons = 0
