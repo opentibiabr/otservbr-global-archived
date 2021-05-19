@@ -41270,6 +41270,36 @@
 		<attribute key="type" value="carpet" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
+   	<item id="29361" article="a" name="dead misguided">
+		<attribute key="corpsetype" value="blood"/>
+		<attribute key="containersize" value="20"/>
+		<attribute key="decayto" value="29362"/>
+		<attribute key="duration" value="10"/>
+		<attribute key="fluidSource" value="blood"/>
+	</item>
+	<item id="29362" article="a" name="dead misguided">
+		<attribute key="corpsetype" value="blood"/>
+		<attribute key="decayto" value="29363"/>
+		<attribute key="duration" value="5"/>
+		<attribute key="fluidSource" value="blood"/>
+	</item>
+	<item id="29363" article="a" name="dead misguided">
+		<attribute key="corpsetype" value="blood"/>
+		<attribute key="decayto" value="29364"/>
+		<attribute key="duration" value="4"/>
+		<attribute key="fluidSource" value="blood"/>
+	</item>
+	<item id="29364" article="a" name="dead misguided">
+		<attribute key="corpsetype" value="blood"/>
+		<attribute key="decayto" value="29365"/>
+		<attribute key="duration" value="3"/>
+		<attribute key="fluidSource" value="blood"/>
+	</item>
+	<item id="29365" article="a" name="blood">
+		<attribute key="corpsetype" value="blood"/>
+		<attribute key="duration" value="1"/>
+		<attribute key="fluidSource" value="blood"/>
+	</item>
 	<item id="29368" article="a" name="dead boss">
 		<attribute key="decayTo" value="29369" />
 		<attribute key="duration" value="600" />
@@ -45246,6 +45276,56 @@
 	</item>
 	<item fromid="34756" toid="34757" article="a" name="golden sun"/>
 	<item fromid="34758" toid="34759" name="snowflakes"/>
+	<item id="34760" article="a" name="dead crazed winter vanguard">
+		<attribute key="corpsetype" value="blood"/>
+		<attribute key="decayto" value="0"/>
+		<attribute key="duration" value="60"/>
+	</item>
+	<item id="34761" article="a" name="dead crazed winter vanguard">
+		<attribute key="corpsetype" value="blood"/>
+		<attribute key="containersize" value="10"/>
+		<attribute key="decayto" value="34712"/>
+		<attribute key="duration" value="300"/>
+	</item>
+	<item id="34762" article="a" name="dead crazed winter vanguard">
+		<attribute key="corpsetype" value="blood"/>
+		<attribute key="containersize" value="20"/>
+		<attribute key="decayto" value="34713"/>
+		<attribute key="duration" value="300"/>
+		<attribute key="fluidSource" value="blood"/>
+	</item>
+	<item id="34763" article="a" name="dead crazed winter vanguard">
+		<attribute key="corpsetype" value="blood"/>
+		<attribute key="containersize" value="20"/>
+		<attribute key="decayto" value="34714"/>
+		<attribute key="duration" value="10"/>
+		<attribute key="fluidSource" value="blood"/>
+	</item>
+	<item id="34764" article="a" name="dead crazed winter rearguard">
+		<attribute key="corpsetype" value="blood"/>
+		<attribute key="decayto" value="0"/>
+		<attribute key="duration" value="60"/>
+	</item>
+	<item id="34765" article="a" name="dead crazed winter rearguard">
+		<attribute key="corpsetype" value="blood"/>
+		<attribute key="containersize" value="10"/>
+		<attribute key="decayto" value="34716"/>
+		<attribute key="duration" value="300"/>
+	</item>
+	<item id="34766" article="a" name="dead crazed winter rearguard">
+		<attribute key="corpsetype" value="blood"/>
+		<attribute key="containersize" value="20"/>
+		<attribute key="decayto" value="34717"/>
+		<attribute key="duration" value="300"/>
+		<attribute key="fluidSource" value="blood"/>
+	</item>
+	<item id="34767" article="a" name="dead crazed winter rearguard">
+		<attribute key="corpsetype" value="blood"/>
+		<attribute key="containersize" value="20"/>
+		<attribute key="decayto" value="34718"/>
+		<attribute key="duration" value="10"/>
+		<attribute key="fluidSource" value="blood"/>
+	</item>
 	<item id="34769" article="an" name="ancient oil lamp"/>
 	<item id="34770" article="a" name="dream talisman">
 		<attribute key="weight" value="1200" />
