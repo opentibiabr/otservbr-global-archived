@@ -9199,14 +9199,16 @@
 	<item id="5463" article="a" name="sugar cane">
 		<attribute key="description" value="It has just been harvested." />
 		<attribute key="decayTo" value="5471" />
-		<attribute key="duration" value="240" />
+		<attribute key="duration" value="10"/>
 	</item>
 	<item id="5464" article="a" name="sugar cane">
 		<attribute key="description" value="It can be harvested." />
+		<attribute key="decayTo" value="5463" />
+		<attribute key="duration" value="8"/>
 	</item>
-	<item id="5465" article="a" name="burning sugar cane">
+		<item id="5465" article="a" name="burning sugar cane">
 		<attribute key="decayTo" value="5464" />
-		<attribute key="duration" value="10" />
+		<attribute key="duration" value="5"/>
 	</item>
 	<item id="5466" article="a" name="sugar cane" />
 	<item id="5467" article="a" name="bunch of sugar cane">
@@ -9219,7 +9221,7 @@
 	<item fromid="5469" toid="5470" article="a" name="distilling machine" />
 	<item id="5471" article="a" name="sugar cane">
 		<attribute key="decayTo" value="5466" />
-		<attribute key="duration" value="240" />
+		<attribute key="duration" value="10" />
 	</item>
 	<item fromid="5472" toid="5473" article="a" name="ball on chains" />
 	<item fromid="5474" toid="5475" article="an" name="iron maiden" />
