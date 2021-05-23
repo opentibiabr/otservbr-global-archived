@@ -24,5 +24,5 @@ else
 		echo "Saving old build"
 		mv ./otbr ./otbr.old
 	fi
-	cp ./build/otbr ./otbr
+	cp ./build/bin/otbr ./otbr
 fi
