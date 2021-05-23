@@ -7,10 +7,10 @@ then
 	echo "Clean build directory"
 	rm -rf *
 	echo "Configuring"
-	cmake ..
+	cmake -DCMAKE_TOOLCHAIN_FILE=../../vcpkg/scripts/buildsystems/vcpkg.cmake ..
 else
 	mkdir "build" && cd build
-	cmake ..
+	cmake -DCMAKE_TOOLCHAIN_FILE=../../vcpkg/scripts/buildsystems/vcpkg.cmake ..
 fi
 
 make -j$(nproc) || exit 1
