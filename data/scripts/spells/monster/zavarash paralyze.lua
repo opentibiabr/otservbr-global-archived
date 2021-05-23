@@ -9,7 +9,7 @@
 
 local spell = Spell("instant")
 
-function onCastSpell(creature, var)
+function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 

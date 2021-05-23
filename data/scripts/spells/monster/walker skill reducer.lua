@@ -68,6 +68,8 @@ for i = 45, 60 do
 
 end
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	return combat[math.random(45, 60)]:execute(creature, var)
 end

@@ -1,4 +1,6 @@
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	addEvent(function(cid)
 		local creature = Creature(cid)
 		if not creature then

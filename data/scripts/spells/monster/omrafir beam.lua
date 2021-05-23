@@ -100,7 +100,9 @@ combat4:setArea(area4)
 
 --------------------------------------------------------------
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	if not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
 		creature:say("OMRAFIR INHALES DEEPLY!", TALKTYPE_ORANGE_2)
 		creature:addCondition(condition)

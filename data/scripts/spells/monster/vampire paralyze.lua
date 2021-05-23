@@ -6,6 +6,8 @@
 	condition:setFormula(-0.45, 0, -0.8, 0)
 	combat:addCondition(condition)
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end

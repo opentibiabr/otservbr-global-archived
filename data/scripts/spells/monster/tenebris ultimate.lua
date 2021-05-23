@@ -77,7 +77,9 @@ local function delayedCastSpell(cid, var)
 	return
 end
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	local specs, spec = Game.getSpectators(Position(32912, 31599, 14), false, false, 12, 12, 12, 12)
 	for i = 1, #specs do
 		spec = specs[i]

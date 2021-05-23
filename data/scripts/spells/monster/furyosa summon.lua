@@ -22,10 +22,6 @@ function spell.onCastSpell(creature, var)
 	end
 	return combat:execute(creature, var)
 end
-<instant name="" words="" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/furyosa summon.lua"/>
-
-    return combat:execute(creature, var)
-end
 
 spell:name("furyosa summon")
 spell:words("###141")

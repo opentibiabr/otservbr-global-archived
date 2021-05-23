@@ -11,7 +11,9 @@ local function removeDelay()
 	hungerSummonDelay = false
 end
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 
 	if hungerSummonDelay == false then
 		if hungerSummon < 3 then

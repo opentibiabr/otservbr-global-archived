@@ -5,7 +5,9 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_NONE)
 local area = createCombatArea(AREA_CIRCLE2X2)
 combat:setArea(area)
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 
 	if rageSummon < 3 then
 		Game.createMonster("Frenzy", {x=creature:getPosition().x+math.random(-1, 1), y=creature:getPosition().y+math.random(-1, 1), z=creature:getPosition().z}, false, true)

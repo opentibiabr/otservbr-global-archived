@@ -159,7 +159,6 @@
 	<instant name="prince drazzak paladin" words="###322" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/prince drazzak paladin.lua"/>
 	<instant name="prince drazzak sorcerer" words="###323" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/prince drazzak sorcerer.lua"/>
 	<instant name="prince drazzak summon" words="###324" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/prince drazzak summon.lua"/>
-	<instant name="gaz'haragoth death" words="###325" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/gaz'haragoth death.lua"/>
 	<instant name="shlorg paralyze" words="###326" aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/shlorg paralyze.lua"/>
 	<instant name="slime puddle paralyze" words="###327" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/slime puddle paralyze.lua"/>
 	<instant name="the dreadorian drown" words="###328" aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/the dreadorian drown.lua"/>

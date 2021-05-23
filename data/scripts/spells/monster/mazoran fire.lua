@@ -949,7 +949,9 @@ local function lavaGrounds (cid)
 	end
 	addEvent(revertLava, 5 * 1000)
 end
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	creature:say('THE GROUND BEGINS TO HEAT UP RAPIDLY!', TALKTYPE_MONSTER_YELL)
 	addEvent(lavaGrounds, 3 * 1000, creature:getId())
 	return

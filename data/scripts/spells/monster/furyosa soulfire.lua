@@ -26,8 +26,6 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
     return combat:execute(creature, var)
 end
-<instant name="" words="" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/furyosa soulfire.lua"/>
-
 
 spell:name("furyosa soulfire")
 spell:words("###119")

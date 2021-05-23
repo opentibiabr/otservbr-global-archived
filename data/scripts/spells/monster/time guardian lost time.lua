@@ -1,4 +1,6 @@
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	local pos = creature:getPosition()
 	if pos.z ~= 15 then
 		return true

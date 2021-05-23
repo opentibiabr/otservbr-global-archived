@@ -22,7 +22,17 @@ arr = {
 local area = createCombatArea(arr)
 combat:setArea(area)
 
-function onCastSpell(creature, var)
+lacal spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 creature:say("Chill out!", TALKTYPE_ORANGE_1)
 	return combat:execute(creature, var)
 end
+
+spell:name("gaz'haragoth iceball")
+spell:words("###123")
+spell:needTarget(false)
+spell:needLearn(true)
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:register()

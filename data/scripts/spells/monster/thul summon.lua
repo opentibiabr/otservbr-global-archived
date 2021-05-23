@@ -4,7 +4,9 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_LOSEENERGY)
 
 local maxsummons = 2
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	if #summoncount < 2 then
 		mid = Game.createMonster("Massive Water Elemental", creature:getPosition())

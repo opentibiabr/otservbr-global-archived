@@ -52,7 +52,9 @@ local function delayedCastSpell(cid, var)
 	return combat:execute(creature, positionToVariant(creature:getPosition()))
 end
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 local value = Game.getStorageValue(storage)
 	if(os.time()-value >= 4) then
 		creature:say("All KNIGHTS must DIE!", TALKTYPE_ORANGE_1)

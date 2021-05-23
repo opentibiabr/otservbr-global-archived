@@ -6,6 +6,16 @@
 	condition:setFormula(-0.8, 0, -0.9, 0)
 	combat:addCondition(condition)
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("ghastly dragon paralyze")
+spell:words("###113")
+spell:needTarget(true)
+spell:needLearn(true)
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:register()

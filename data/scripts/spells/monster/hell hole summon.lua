@@ -4,7 +4,9 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MORTAREA)
 
 local maxsummons = 4
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	if #summoncount < 4 then
 		mid = Game.createMonster("Deathspawn", creature:getPosition())

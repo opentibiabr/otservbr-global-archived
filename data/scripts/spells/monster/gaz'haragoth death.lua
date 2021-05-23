@@ -72,8 +72,18 @@ local function delayedCastSpell(cid, var)
 	return combat:execute(creature, positionToVariant(creature:getPosition()))
 end
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	creature:say("Gaz'haragoth begins to channel DEATH AND DOOM into the area! RUN!", TALKTYPE_ORANGE_2)
 	addEvent(delayedCastSpell, 5000, creature:getId(), var)
 	return true
 end
+
+spell:name("gaz'haragoth death")
+spell:words("###325")
+spell:needTarget(false)
+spell:needLearn(true)
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:register()

@@ -1,4 +1,6 @@
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 local t, spectator = Game.getSpectators(Position(33528, 32335, 12), false, false, 20, 20, 20, 20)
     local check = 0
     if #t ~= nil then

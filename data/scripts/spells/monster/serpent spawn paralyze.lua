@@ -12,6 +12,8 @@ combat:addCondition(condition)
 	combat:addCondition(condition)
 
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end

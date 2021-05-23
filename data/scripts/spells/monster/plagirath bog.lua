@@ -51,7 +51,9 @@ condition:setParameter(CONDITION_PARAM_TICKS, 10000)
 condition:setOutfit({lookType = 299})
 combat:addCondition(condition)
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	local target = creature:getTarget()
 	addEvent(spellDamage, 10 * 1000, creature:getId(), target:getId(), var)
 	return combat:execute(creature, var)

@@ -34,8 +34,6 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat[math.random(40, 50)]:execute(creature, var)
 end
-<instant name="" words="" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/furyosa skill reducer.lua"/>
-
     return combat:execute(creature, var)
 end
 

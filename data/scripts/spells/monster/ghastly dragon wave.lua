@@ -14,6 +14,16 @@ local area = createCombatArea(arr)
 	combat:setArea(area)
 
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("ghastly dragon wave")
+spell:words("###114")
+spell:needTarget(false)
+spell:needLearn(true)
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:register()

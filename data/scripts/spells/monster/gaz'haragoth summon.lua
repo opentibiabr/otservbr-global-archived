@@ -1,4 +1,6 @@
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 local t, spectator = Game.getSpectators(creature:getPosition(), false, false, 5, 5, 5, 5)
     local check = 0
     if #t ~= nil then
@@ -25,3 +27,11 @@ local t, spectator = Game.getSpectators(creature:getPosition(), false, false, 5,
 	end
 return true
 end
+
+spell:name("gaz'haragoth summon")
+spell:words("###125")
+spell:needTarget(false)
+spell:needLearn(true)
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:register()

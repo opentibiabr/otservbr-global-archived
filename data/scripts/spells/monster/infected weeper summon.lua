@@ -7,7 +7,9 @@ combat:setArea(area)
 
 local maxsummons = 1
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	if #summoncount < 1 then
 		for i = 1, maxsummons - #summoncount do

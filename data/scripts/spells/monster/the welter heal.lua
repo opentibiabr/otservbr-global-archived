@@ -1,7 +1,9 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_NONE)
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	local spectators, spectator = Game.getSpectators(creature:getPosition(), false, false, 10, 10, 10, 10)
 	for i = 1, #spectators do
 		spectator = spectators[i]

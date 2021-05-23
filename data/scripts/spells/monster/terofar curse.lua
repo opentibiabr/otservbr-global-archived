@@ -24,7 +24,9 @@ for i = 0.935, 0.935 do
 	combat[i]:addCondition(condition)
 end
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	if not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
 		creature:addCondition(condition2)
 		creature:say("Terofar cast a greater death curse on you!", TALKTYPE_ORANGE_1)

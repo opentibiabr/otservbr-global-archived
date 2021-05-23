@@ -31,7 +31,9 @@ local function functionBack(position, oldpos)
 	guardian:teleportTo(oldpos)
 end
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	local index = math.random(1, 2)
 	local monsterPos = creature:getPosition()
 	if monsterPos.z ~= 14 then

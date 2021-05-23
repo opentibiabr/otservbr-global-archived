@@ -1,4 +1,6 @@
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	local maxsummons = 4
 	if #summoncount < 4 then

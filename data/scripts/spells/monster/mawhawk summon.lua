@@ -7,7 +7,9 @@ combat:setArea(area)
 
 local maxsummons = 4
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 creature:say("Watch my maws!", TALKTYPE_ORANGE_1)
 	local summoncount = creature:getSummons()
 	if #summoncount < 4 then

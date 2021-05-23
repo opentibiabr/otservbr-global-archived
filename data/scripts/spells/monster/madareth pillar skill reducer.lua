@@ -19,6 +19,8 @@ for i = 5, 10 do
 	combat[i]:addCondition(condition2)
 end
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	return combat[math.random(5, 10)]:execute(creature, var)
 end

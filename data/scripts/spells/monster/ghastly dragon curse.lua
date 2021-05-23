@@ -28,6 +28,16 @@ for i = 40, 170 do
 	end
 end
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	return combat[math.random(#combat)]:execute(creature, var)
 end
+
+spell:name("ghastly dragon curse")
+spell:words("###1")
+spell:needTarget(true)
+spell:needLearn(true)
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:register()

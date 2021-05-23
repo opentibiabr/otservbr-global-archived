@@ -7,7 +7,9 @@ combat:setArea(area)
 
 local maxsummons = 4
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	creature:say("Out of the dark I call you, fiend in the night!", TALKTYPE_ORANGE_1)
 	local summoncount = creature:getSummons()
 	if #summoncount < 4 then

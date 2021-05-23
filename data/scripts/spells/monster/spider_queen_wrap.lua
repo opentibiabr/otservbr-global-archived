@@ -18,7 +18,9 @@ local function moveToSpiderNest(uid)
 	end
 end
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	local target = creature:getTarget()
 	if target and target:isPlayer() then
 		if combat:execute(creature, var) then

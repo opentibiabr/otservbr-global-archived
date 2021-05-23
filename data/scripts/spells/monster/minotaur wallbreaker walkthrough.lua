@@ -12,7 +12,9 @@ local function changeSpeeds(cid, var)
 	creature:changeSpeed(creature:getBaseSpeed())
 end
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
     local nextPosition = creature:getPosition()
 	local speed = creature:getSpeed()
 	local tile = Tile(nextPosition.x - 1, nextPosition.y, nextPosition.z)

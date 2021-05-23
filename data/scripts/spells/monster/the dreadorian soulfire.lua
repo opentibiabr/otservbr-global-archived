@@ -8,6 +8,8 @@ condition:setParameter(CONDITION_PARAM_DELAYED, 1)
 condition:addDamage(20, 9000, -10)
 combat:addCondition(condition)
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end

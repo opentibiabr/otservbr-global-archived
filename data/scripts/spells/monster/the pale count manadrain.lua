@@ -21,7 +21,9 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_SOUND_RED)
 local area = createCombatArea(arr)
 combat:setArea(area)
 
-function onCastSpell(creature, var)
+local spell = Spell("instant")
+
+function spell.onCastSpell(creature, var)
 	creature:say("Feel the hungry kiss of death!", TALKTYPE_ORANGE_1)
 	return combat:execute(creature, var)
 end
