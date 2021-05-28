@@ -16,10 +16,10 @@ TEST_CASE("Default Constructor", "[UnitTest]") {
     CHECK(id == 0);
   }
 
-	SECTION("@DefaultEmail") {
-    std::string email;
-    normal.GetEmail(&email);
-    CHECK(email.empty() == true);
+	SECTION("Default Name") {
+    std::string name;
+    normal.GetName(&name);
+    CHECK(name.empty() == true);
   }
 
 	SECTION("Default Password") {
@@ -48,11 +48,11 @@ TEST_CASE("Constructor ID", "[UnitTest]") {
   CHECK(id == 14);
 }
 
-TEST_CASE("Constructor Email", "[UnitTest]") {
-	account::Account with_email("@test");
-  std::string email;
-  with_email.GetEmail(&email);
-  CHECK(email == "@test");
+TEST_CASE("Constructor Name", "[UnitTest]") {
+	account::Account with_name("Test");
+  std::string name;
+  with_name.GetName(&name);
+  CHECK(name == "Test");
 }
 
 TEST_CASE("Set Database Interface", "[UnitTest]") {
@@ -109,32 +109,37 @@ TEST_CASE("Get ID - Nullptr", "[UnitTest]") {
   REQUIRE(result == account::ERROR_NULLPTR);
 }
 
-TEST_CASE("Set/Get Email", "[UnitTest]") {
+TEST_CASE("Set/Get Name", "[UnitTest]") {
 	account::Account account;
   error_t result;
-  result = account.SetEmail("@RickMaru");
+  result = account.SetName("Rick Maru");
   REQUIRE(result == account::ERROR_NO);
 
-  std::string new_email;
-  result = account.GetEmail(&new_email);
+  std::string new_name;
+  result = account.GetName(&new_name);
   REQUIRE(result == account::ERROR_NO);
-  REQUIRE(new_email == "@RickMaru");
+  REQUIRE(new_name == "Rick Maru");
 }
 
-TEST_CASE("Set Email - Empty", "[UnitTest]") {
+TEST_CASE("Set Name - Empty", "[UnitTest]") {
 	account::Account account;
   error_t result;
-  std::string new_email;
-  result = account.SetEmail(new_email);
-  REQUIRE(result == account::ERROR_INVALID_ACCOUNT_EMAIL);
+  std::string new_name;
+  result = account.SetName(new_name);
+  REQUIRE(result == account::ERROR_INVALID_ACC_NAME);
 }
 
-TEST_CASE("Get Email - Nullptr", "[UnitTest]") {
+TEST_CASE("Get Name - Nullptr", "[UnitTest]") {
 	account::Account account;
   error_t result;
-  result = account.GetEmail(nullptr);
+  result = account.GetName(nullptr);
   REQUIRE(result == account::ERROR_NULLPTR);
 }
+
+
+
+
+
 
 TEST_CASE("Set/Get Password", "[UnitTest]") {
 	account::Account account;
@@ -506,10 +511,10 @@ TEST_CASE("Load Account Using ID From Constructor", "[IntegrationTest]") {
   CHECK(result == account::ERROR_NO);
   CHECK(id == 1);
 
-  std::string email;
-  result = account.GetEmail(&email);
+  std::string name;
+  result = account.GetName(&name);
   CHECK(result == account::ERROR_NO);
-  CHECK(email == "@GOD");
+  CHECK(name == "GOD");
 
   std::string password;
   result = account.GetPassword(&password);
@@ -532,8 +537,8 @@ TEST_CASE("Load Account Using ID From Constructor", "[IntegrationTest]") {
   CHECK(account_type == account::ACCOUNT_TYPE_GOD);
 }
 
-TEST_CASE("Load Account Using Email From Constructor", "[IntegrationTest]") {
-	account::Account account("@GOD");
+TEST_CASE("Load Account Using Name From Constructor", "[IntegrationTest]") {
+	account::Account account("GOD");
   std::string db_ip("127.0.0.1");
   std::string db_user("otserver");
   std::string db_password("otserver");
@@ -558,10 +563,10 @@ TEST_CASE("Load Account Using Email From Constructor", "[IntegrationTest]") {
   CHECK(result == account::ERROR_NO);
   CHECK(id == 1);
 
-  std::string email;
-  result = account.GetEmail(&email);
+  std::string name;
+  result = account.GetName(&name);
   CHECK(result == account::ERROR_NO);
-  CHECK(email == "@GOD");
+  CHECK(name == "GOD");
 
   std::string password;
   result = account.GetPassword(&password);
@@ -610,10 +615,10 @@ TEST_CASE("Load Account Using ID", "[IntegrationTest]") {
   CHECK(result == account::ERROR_NO);
   CHECK(id == 1);
 
-  std::string email;
-  result = account.GetEmail(&email);
+  std::string name;
+  result = account.GetName(&name);
   CHECK(result == account::ERROR_NO);
-  CHECK(email == "@GOD");
+  CHECK(name == "GOD");
 
   std::string password;
   result = account.GetPassword(&password);
@@ -636,7 +641,7 @@ TEST_CASE("Load Account Using ID", "[IntegrationTest]") {
   CHECK(account_type == account::ACCOUNT_TYPE_GOD);
 }
 
-TEST_CASE("Load Account Using Email", "[IntegrationTest]") {
+TEST_CASE("Load Account Using Name", "[IntegrationTest]") {
 	account::Account account;
   std::string db_ip("127.0.0.1");
   std::string db_user("otserver");
@@ -654,7 +659,7 @@ TEST_CASE("Load Account Using Email", "[IntegrationTest]") {
   }
 
   error_t result;
-  result = account.LoadAccountDB("@GOD");
+  result = account.LoadAccountDB("GOD");
   REQUIRE(result == account::ERROR_NO);
 
   uint32_t id;
@@ -662,10 +667,10 @@ TEST_CASE("Load Account Using Email", "[IntegrationTest]") {
   CHECK(result == account::ERROR_NO);
   CHECK(id == 1);
 
-  std::string email;
-  result = account.GetEmail(&email);
+  std::string name;
+  result = account.GetName(&name);
   CHECK(result == account::ERROR_NO);
-  CHECK(email == "@GOD");
+  CHECK(name == "GOD");
 
   std::string password;
   result = account.GetPassword(&password);
@@ -718,10 +723,10 @@ TEST_CASE("Save Account", "[IntegrationTest]") {
   CHECK(result == account::ERROR_NO);
   CHECK(id == 1);
 
-  std::string email;
-  result = account.GetEmail(&email);
+  std::string name;
+  result = account.GetName(&name);
   CHECK(result == account::ERROR_NO);
-  CHECK(email == "@GOD");
+  CHECK(name == "GOD");
 
   std::string password;
   result = account.GetPassword(&password);
@@ -745,8 +750,8 @@ TEST_CASE("Save Account", "[IntegrationTest]") {
 
 
   // Change Account
-  std::string new_email("@NewEmail");
-  result = account.SetEmail(new_email);
+  std::string new_name("New Name");
+  result = account.SetName(new_name);
   CHECK(result == account::ERROR_NO);
 
   std::string new_password("123456789");
@@ -779,9 +784,9 @@ TEST_CASE("Save Account", "[IntegrationTest]") {
   CHECK(result == account::ERROR_NO);
   CHECK(id == 1);
 
-  result = changed_account.GetEmail(&email);
+  result = changed_account.GetName(&name);
   CHECK(result == account::ERROR_NO);
-  CHECK(email == new_email);
+  CHECK(name == new_name);
 
   result = changed_account.GetPassword(&password);
   CHECK(result == account::ERROR_NO);

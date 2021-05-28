@@ -2160,6 +2160,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::DEFAULT_PRIORITY)
 	registerEnumIn("configKeys", ConfigManager::MAP_AUTHOR)
 	registerEnumIn("configKeys", ConfigManager::STORE_IMAGES_URL)
+	registerEnumIn("configKeys", ConfigManager::ALLOW_CLIENT_OLD)
 	registerEnumIn("configKeys", ConfigManager::CLIENT_VERSION_STR)
 	registerEnumIn("configKeys", ConfigManager::PARTY_LIST_MAX_DISTANCE)
 
@@ -7911,10 +7912,11 @@ int LuaScriptInterface::luaContainerGetItemCountById(lua_State* L)
 
 int LuaScriptInterface::luaContainerGetContentDescription(lua_State* L)
 {
-	// container:getContentDescription()
+	// container:getContentDescription(bool oldClient = false)
 	Container* container = getUserdata<Container>(L, 1);
 	if (container) {
-		pushString(L, container->getContentDescription());
+		bool oldClient = getBoolean(L, 2, false);
+		pushString(L, container->getContentDescription(oldClient));
 	} else {
 		lua_pushnil(L);
 	}
