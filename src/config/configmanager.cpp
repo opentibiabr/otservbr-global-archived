@@ -177,6 +177,7 @@ bool ConfigManager::load()
 	boolean[STOREMODULES] = getGlobalBoolean(L, "gamestoreByModules", true);
 	boolean[ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS] = getGlobalBoolean(L, "onlyInvitedCanMoveHouseItems", true);
 	boolean[ONLY_PREMIUM_ACCOUNT] = getGlobalBoolean(L, "onlyPremiumAccount", false);
+	boolean[ALLOW_CLIENT_OLD] = getGlobalBoolean(L, "allowClientOld", false);
 
 	boolean[WEATHER_RAIN] = getGlobalBoolean(L, "weatherRain", false);
 	boolean[WEATHER_THUNDER] = getGlobalBoolean(L, "thunderEffect", false);
