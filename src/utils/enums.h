@@ -1070,10 +1070,10 @@ enum Webhook_Colors_t : uint32_t {
 enum SessionEndInformations : uint8_t {
 	// I'm guessing unknown types are ban/protocol error or something
 	// but since there aren't any difference from logout should we care?
-	SESSION_END_LOGOUT,
+	SESSION_END_LOGOUT, // work only with standard logout
 	SESSION_END_UNK2,
 	SESSION_END_FORCECLOSE,
-	SESSION_END_UNK3,
+	SESSION_END_LOGOUT2, // work with standard logout and offline training logout
 };
 
 /**
