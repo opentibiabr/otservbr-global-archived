@@ -23,7 +23,6 @@ end
 local maxsummons = 1
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 local summoncount = creature:getSummons()
 	if #summoncount < 1 then
@@ -38,3 +37,11 @@ local summoncount = creature:getSummons()
 	addEvent(delayedCastSpell, 10000, creature:getId(), var)
 	return true
 end
+
+spell:name("the welter summon")
+spell:words("###337")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

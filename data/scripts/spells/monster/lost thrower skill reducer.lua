@@ -14,7 +14,14 @@ for i = 20, 60 do
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(20, 60)]:execute(creature, var)
 end
+
+spell:name("lost thrower skill reducer")
+spell:words("###256")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

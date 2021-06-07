@@ -9,7 +9,14 @@ condition:addDamage(30, 8000, -8)
 combat:addCondition(condition)
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("ironblight freeze")
+spell:words("###263")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

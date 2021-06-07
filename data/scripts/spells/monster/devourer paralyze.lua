@@ -13,15 +13,14 @@ local area = createCombatArea(AREA_SQUARE1X1)
 
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 
 spell:name("devourer paralyze")
-spell:words("###56")
-spell:needTarget(false)
-spell:needLearn(true)
+spell:words("###366")
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

@@ -19,7 +19,14 @@ for i = 2.32, 2.32 do
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(2.32, 2.32)]:execute(creature, var)
 end
+
+spell:name("metal gargoyle curse")
+spell:words("###370")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

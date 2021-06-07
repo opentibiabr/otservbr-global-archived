@@ -52,9 +52,15 @@ condition:setOutfit({lookType = 299})
 combat:addCondition(condition)
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	local target = creature:getTarget()
 	addEvent(spellDamage, 10 * 1000, creature:getId(), target:getId(), var)
 	return combat:execute(creature, var)
 end
+spell:name("plagirath bog")
+spell:words("###443")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

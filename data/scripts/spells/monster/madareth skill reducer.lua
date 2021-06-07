@@ -27,7 +27,15 @@ for i = 20, 40 do
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(20, 40)]:execute(creature, var)
 end
+
+spell:name("madareth skill reducer")
+spell:words("###185")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:needDirection(true)
+spell:register()

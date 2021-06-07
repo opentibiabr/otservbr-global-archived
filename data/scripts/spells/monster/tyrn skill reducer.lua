@@ -32,15 +32,14 @@ for i = 40, 55 do
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(40, 55)]:execute(creature, var)
 end
 
 spell:name("tyrn skill reducer")
-spell:words("###167")
-spell:needTarget(false)
-spell:needLearn(true)
+spell:words("###344")
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

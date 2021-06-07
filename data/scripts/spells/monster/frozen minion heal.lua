@@ -20,17 +20,14 @@ end
 combat:setCallback(CALLBACK_PARAM_TARGETCREATURE, "onTargetCreature")
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
-    return combat:execute(creature, var)
+	return combat:execute(creature, var)
 end
-
 
 spell:name("frozen minion heal")
 spell:words("###435")
-spell:needTarget()
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:selfTarget(true)
 spell:register()

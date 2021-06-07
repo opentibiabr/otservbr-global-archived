@@ -1,5 +1,4 @@
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	if creature:getCondition(CONDITION_POISON) or creature:getCondition(CONDITION_BLEEDING) then
 		local pos = creature:getPosition()
@@ -11,3 +10,10 @@ function spell.onCastSpell(creature, var)
 	end
     return true
 end
+
+spell:name("soulcatcher summon")
+spell:words("###431")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

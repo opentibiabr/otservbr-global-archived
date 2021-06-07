@@ -21,7 +21,15 @@ combat:addCondition(condition)
 
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("shock head paralyze")
+spell:words("###359")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:needDirection(true)
+spell:register()

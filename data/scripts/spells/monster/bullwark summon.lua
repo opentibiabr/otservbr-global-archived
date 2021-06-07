@@ -8,7 +8,6 @@ combat:setArea(area)
 local maxsummons = 4
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	if #summoncount < 4 then
@@ -23,11 +22,10 @@ function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 
-
 spell:name("bullwark summon")
 spell:words("###380")
-spell:needTarget(false)
-spell:needLearn(true)
-spell:isAggressive(false)
+spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

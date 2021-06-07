@@ -1,5 +1,4 @@
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	local maxsummons = 4
@@ -14,3 +13,10 @@ function spell.onCastSpell(creature, var)
 	end
 	return
 end
+
+spell:name("plagirath summon")
+spell:words("###411")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

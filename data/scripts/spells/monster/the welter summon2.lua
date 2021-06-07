@@ -1,5 +1,4 @@
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 local t, spectator = Game.getSpectators(creature:getPosition(), false, false, 50, 50, 50, 50)
     local check = 0
@@ -18,3 +17,11 @@ local t, spectator = Game.getSpectators(creature:getPosition(), false, false, 50
 	end
 return true
 end
+
+spell:name("the welter summon2")
+spell:words("###338")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

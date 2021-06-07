@@ -15,7 +15,14 @@ end
 combat:setCallback(CALLBACK_PARAM_SKILLVALUE, "onGetFormulaValues")
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("Ice Crystal Bomb")
+spell:words("###470")
+spell:needLearn(true)
+spell:needDirection(true)
+spell:exhaustion("2000")
+spell:selfTarget(true)
+spell:register()

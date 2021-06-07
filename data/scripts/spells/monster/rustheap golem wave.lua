@@ -14,7 +14,15 @@ local area = createCombatArea(arr)
 
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("rustheap golem wave")
+spell:words("###369")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:needDirection(true)
+spell:register()

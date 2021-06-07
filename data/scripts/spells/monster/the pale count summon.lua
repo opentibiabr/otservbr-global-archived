@@ -8,7 +8,6 @@ combat:setArea(area)
 local maxsummons = 4
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	creature:say("Out of the dark I call you, fiend in the night!", TALKTYPE_ORANGE_1)
 	local summoncount = creature:getSummons()
@@ -23,3 +22,11 @@ function spell.onCastSpell(creature, var)
 	end
 	return combat:execute(creature, var)
 end
+
+spell:name("the pale count summon")
+spell:words("###334")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

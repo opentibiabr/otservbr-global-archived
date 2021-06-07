@@ -19,7 +19,6 @@ local function moveToSpiderNest(uid)
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	local target = creature:getTarget()
 	if target and target:isPlayer() then
@@ -33,3 +32,11 @@ function spell.onCastSpell(creature, var)
 	end
 	return false
 end
+
+spell:name("spider queen wrap")
+spell:words("###484")
+spell:isAggressive(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:selfTarget("1")
+spell:register()

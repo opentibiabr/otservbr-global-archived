@@ -16,7 +16,14 @@ for i = 80, 95 do
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(80, 95)]:execute(creature, var)
 end
+
+spell:name("mephiles skill reducer")
+spell:words("###275")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

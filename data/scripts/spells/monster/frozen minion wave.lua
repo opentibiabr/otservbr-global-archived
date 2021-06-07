@@ -31,16 +31,14 @@ end
 combat:setCallback(CALLBACK_PARAM_TARGETCREATURE, "onTargetCreature")
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 
 spell:name("frozen minion wave")
-spell:words("###102")
-spell:needTarget(false)
-spell:needLearn(true)
+spell:words("###437")
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:needDirection(true)
 spell:register()

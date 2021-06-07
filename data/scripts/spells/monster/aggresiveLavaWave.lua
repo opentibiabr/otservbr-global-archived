@@ -32,17 +32,14 @@ end
 setCombatCallback(combat, CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
-    return combat:execute(creature, var)
+	return combat:execute(creature, var)
 end
 
 spell:name("aggresiveLavaWave")
 spell:words("###464")
-spell:needDirection=(true)
-spell:needTarget(true)
 spell:needLearn(true)
-spell:isAggressive(false)
-spell:blockWalls(false)
+spell:needDirection(true)
+spell:exhaustion("2000")
+spell:selfTarget(true)
 spell:register()
-<instant name="" words="" direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/aggresiveLavaWave.lua" />

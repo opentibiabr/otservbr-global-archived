@@ -17,7 +17,14 @@ local area = createCombatArea(arr)
 combat:setArea(area)
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("lloyd wave3")
+spell:words("###434")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:selfTarget(true)
+spell:register()

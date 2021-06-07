@@ -8,7 +8,6 @@ combat:setArea(area)
 local maxsummons = 1
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	if #summoncount < 1 then
@@ -20,3 +19,11 @@ function spell.onCastSpell(creature, var)
 	end
 	return combat:execute(creature, var)
 end
+
+spell:name("salamander trainer summon")
+spell:words("##374")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

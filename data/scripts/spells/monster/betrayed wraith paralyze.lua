@@ -7,17 +7,15 @@
 	condition:setFormula(-0.85, 0, -0.95, 0)
 	combat:addCondition(condition)
 
-	local spell = Spell("instant")
-
-	function spell.onCastSpell(creature, var)
-		return combat:execute(creature, var)
-	end
-
+local spell = Spell("instant")
+function spell.onCastSpell(creature, var)
+	return combat:execute(creature, var)
+end
 
 spell:name("betrayed wraith paralyze")
 spell:words("###296")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

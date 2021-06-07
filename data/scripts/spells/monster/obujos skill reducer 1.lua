@@ -12,7 +12,14 @@ for i = 35, 50 do
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(35, 50)]:execute(creature, var)
 end
+
+spell:name("obujos skill reducer 1")
+spell:words("###197")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

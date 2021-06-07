@@ -14,18 +14,16 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ENERGYAREA)
 local area = createCombatArea(arr)
 	setCombatArea(combat, area)
 
-<instant name="" words="" direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/arachnophobica waveenergy.lua" />
 
 local spell = Spell("instant")
-
-function spell.onCastSpell(creature, var)
-    return doCombat(cid, combat, var)
+function spell.onCastSpell(cid, var)
+	return doCombat(cid, combat, var)
 end
 
 spell:name("arachnophobicawaveenergy")
 spell:words("###468")
-spell:needDirection(true)
-spell:selfTarget(true)
-spell:exhaustion(2000)
 spell:needLearn(true)
+spell:needDirection(true)
+spell:exhaustion("2000")
+spell:selfTarget(true)
 spell:register()

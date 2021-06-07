@@ -1,5 +1,4 @@
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 local health, hp, cpos = math.random(7500, 9000), (creature:getHealth()/creature:getMaxHealth())*100, creature:getPosition()
 
@@ -16,3 +15,11 @@ local health, hp, cpos = math.random(7500, 9000), (creature:getHealth()/creature
 		end
 	end
 end
+
+spell:name("omrafir healing 2")
+spell:words("###346")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

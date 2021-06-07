@@ -21,7 +21,14 @@ for i = 1, 1.1 do
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(1, 1.1)]:execute(creature, var)
 end
+
+spell:name("ushuriel curse")
+spell:words("###224")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

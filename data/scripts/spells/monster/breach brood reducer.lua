@@ -12,17 +12,16 @@ combat:setArea(area)
 combat:addCondition(condition)
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 
 spell:name("breach brood reducer")
-spell:words("###70")
-spell:needTarget(true)
-spell:needLearn(true)
+spell:words("###446")
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:needDirection(true)
-spell:range(5)
+spell:selfTarget("5")
 spell:register()

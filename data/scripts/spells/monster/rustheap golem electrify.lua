@@ -12,7 +12,14 @@ local area = createCombatArea(AREA_SQUARE1X1)
 combat:setArea(area)
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("rustheap golem electrify")
+spell:words("###368")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

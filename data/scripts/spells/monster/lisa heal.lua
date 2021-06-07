@@ -5,7 +5,6 @@ condition:setParameter(CONDITION_PARAM_HEALTHGAIN, 0.01)
 condition:setParameter(CONDITION_PARAM_HEALTHTICKS, 6 * 1000)
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	if creature:getHealth() < creature:getMaxHealth() * 0.07 and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
 		creature:say("Lisa takes a final breath before she's healing up!", TALKTYPE_ORANGE_1)
@@ -21,9 +20,9 @@ function spell.onCastSpell(creature, var)
 end
 
 spell:name("lisa heal")
-spell:words("###59")
-spell:needTarget(false)
-spell:needLearn(true)
-spell:isAggressive(false)
+spell:words("###386")
+spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

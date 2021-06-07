@@ -28,17 +28,15 @@ arr = {
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(130, 150)]:execute(creature, var)
 end
 
-
 spell:name("Cults of Tibia Armor Buff")
 spell:words("#####456")
-spell:needDirection(true)
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:needDirection(true)
 spell:register()

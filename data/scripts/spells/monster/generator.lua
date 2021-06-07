@@ -4,9 +4,7 @@ local generator = {
 	[3] = {pos = Position(33708, 32051, 15)},
 	[4] = {pos = Position(33714, 32051, 15)}
 }
-
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	local rand = math.random(1, 4)
 	local generators = generator[rand]
@@ -17,7 +15,7 @@ end
 
 spell:name("generator")
 spell:words("###427")
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

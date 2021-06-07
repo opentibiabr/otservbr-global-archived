@@ -22,7 +22,15 @@ combat[i]:addCondition(condition)
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(25, 45)]:execute(creature, var)
 end
+
+spell:name("orewalker skill reducer 1")
+spell:words("###260")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:needDirection(true)
+spell:register()

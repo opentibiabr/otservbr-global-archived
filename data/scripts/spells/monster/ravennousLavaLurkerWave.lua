@@ -3,9 +3,11 @@ combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_FIREDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HITBYFIRE)
 
 combat:setArea(createCombatArea({
-{1, 1, 1},
-{1, 3, 1},
-{1, 1, 1},
+{0, 1, 1, 1, 0},
+{1, 1, 1, 1, 1},
+{1, 1, 3, 1, 1},
+{1, 1, 1, 1, 1},
+{0, 1, 1, 1, 0},
 }))
 
 local monsters = {
@@ -29,7 +31,13 @@ end
 combat:setCallback(CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("ravennousLavaLurkerWave")
+spell:words("###465")
+spell:needLearn(true)
+spell:exhaustion("2000")
+spell:selfTarget(true)
+spell:register()

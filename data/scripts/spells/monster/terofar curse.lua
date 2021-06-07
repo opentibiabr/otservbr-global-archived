@@ -25,7 +25,6 @@ for i = 0.935, 0.935 do
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	if not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
 		creature:addCondition(condition2)
@@ -35,3 +34,11 @@ function spell.onCastSpell(creature, var)
 	end
 return combat[math.random(0.935, 0.935)]:execute(creature, var)
 end
+
+spell:name("terofar curse")
+spell:words("###213")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()
