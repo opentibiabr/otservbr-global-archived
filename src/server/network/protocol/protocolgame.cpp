@@ -3000,43 +3000,76 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats()
 	alignas(16) int16_t absorbs[COMBAT_COUNT] = {};
 	for (int32_t slot = CONST_SLOT_FIRST; slot <= CONST_SLOT_LAST; ++slot)
 	{
-		if (!player->isItemAbilityEnabled(static_cast<slots_t>(slot)))
-		{
-			continue;
-		}
+		Item* item = player->getInventoryItem(static_cast<slots_t>(slot));
 
-		Item *item = player->getInventoryItem(static_cast<slots_t>(slot));
 		if (!item)
 		{
 			continue;
 		}
 
-		const ItemType &it = Item::items[item->getID()];
+		const ItemType& it = Item::items[item->getID()];
+
+		bool skipItemAbility = false;
+
 		if (!it.abilities)
 		{
-			continue;
+			skipItemAbility = true;
 		}
 
 		if (COMBAT_COUNT == 12)
 		{
-			absorbs[0] += it.abilities->absorbPercent[0];
-			absorbs[1] += it.abilities->absorbPercent[1];
-			absorbs[2] += it.abilities->absorbPercent[2];
-			absorbs[3] += it.abilities->absorbPercent[3];
-			absorbs[4] += it.abilities->absorbPercent[4];
-			absorbs[5] += it.abilities->absorbPercent[5];
-			absorbs[6] += it.abilities->absorbPercent[6];
-			absorbs[7] += it.abilities->absorbPercent[7];
-			absorbs[8] += it.abilities->absorbPercent[8];
-			absorbs[9] += it.abilities->absorbPercent[9];
-			absorbs[10] += it.abilities->absorbPercent[10];
-			absorbs[11] += it.abilities->absorbPercent[11];
+			if (!skipItemAbility)
+			{
+				absorbs[0] += it.abilities->absorbPercent[0];
+				absorbs[1] += it.abilities->absorbPercent[1];
+				absorbs[2] += it.abilities->absorbPercent[2];
+				absorbs[3] += it.abilities->absorbPercent[3];
+				absorbs[4] += it.abilities->absorbPercent[4];
+				absorbs[5] += it.abilities->absorbPercent[5];
+				absorbs[6] += it.abilities->absorbPercent[6];
+				absorbs[7] += it.abilities->absorbPercent[7];
+				absorbs[8] += it.abilities->absorbPercent[8];
+				absorbs[9] += it.abilities->absorbPercent[9];
+				absorbs[10] += it.abilities->absorbPercent[10];
+				absorbs[11] += it.abilities->absorbPercent[11];
+			}
+			for (uint16_t i = 0; i < COMBAT_COUNT; ++i)
+			{
+				uint8_t slots = it.imbuingSlots;
+				if(slots)
+				{
+					for (uint8_t imbuSlot = 0; imbuSlot < slots; imbuSlot++) {
+						uint32_t info = item->getImbuement(imbuSlot);
+						if (info >> 8) {
+							Imbuement* ib = g_imbuements->getImbuement(info & 0xFF);
+							absorbs[i] += ib->absorbPercent[i];
+						}
+					}
+				}
+			}
 		}
 		else
 		{
 			for (uint16_t i = 0; i < COMBAT_COUNT; ++i)
 			{
-				absorbs[i] += it.abilities->absorbPercent[i];
+				if (!skipItemAbility)
+				{
+					absorbs[i] += it.abilities->absorbPercent[i];
+				}
+				for (uint16_t i = 0; i < COMBAT_COUNT; ++i)
+				{
+					uint8_t slots = it.imbuingSlots;
+					if (slots)
+					{
+						for (uint8_t imbuSlot = 0; imbuSlot < slots; imbuSlot++) {
+							uint32_t info = item->getImbuement(imbuSlot);
+							if (info >> 8) {
+								Imbuement* ib = g_imbuements->getImbuement(info & 0xFF);
+								absorbs[i] += ib->absorbPercent[i];
+							}
+						}
+					}
+				}
 			}
 		}
 	}
