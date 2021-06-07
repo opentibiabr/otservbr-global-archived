@@ -29,7 +29,6 @@ function threatenedLever.onUse(player, item, fromPosition, target, toPosition, i
 		end
 		
 		local team, participant = {}
-
 		for i = 1, #config.playerPositions do
 			participant = Tile(config.playerPositions[i]):getTopCreature()
 			
@@ -49,7 +48,6 @@ function threatenedLever.onUse(player, item, fromPosition, target, toPosition, i
 						"You or a member in your team have to wait ".. config.timeToFightAgain .."  hours to face Faceless Bane again!")
 					return true
 				end
-
 				team[#team + 1] = participant
 			end
 		end
@@ -62,7 +60,6 @@ function threatenedLever.onUse(player, item, fromPosition, target, toPosition, i
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "There's someone fighting with Faceless Bane.")
 				return true
 			end
-
 			spec:remove()
 		end
 
