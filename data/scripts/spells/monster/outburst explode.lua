@@ -61,7 +61,6 @@ function removeOutburst(cid)
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	local from = creature:getId()
 
@@ -71,15 +70,15 @@ function spell.onCastSpell(creature, var)
 	addEvent(removeOutburst, 1000, creature.uid)
 
 	local monster = Game.createMonster("Outburst", {x = 32234, y = 31284, z = 14}, false, true)
-	monster:addHealth(-monster:getHealth() + outburstHealth, false)
+	monster:addHealth(-monster:getHealth() + outburstHealth, COMBAT_PHYSICALDAMAGE)
 	transferBossPoints(from, monster:getId())
 	return true
 end
 
 spell:name("outburst explode")
-spell:words("###72")
-spell:needTarget(false)
-spell:needLearn(true)
+spell:words("###449")
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

@@ -19,16 +19,14 @@ for i = 1.12, 1.12 do
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(1.12, 1.12)]:execute(creature, var)
 end
 
-
 spell:name("death priest shargon curse")
 spell:words("###376")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

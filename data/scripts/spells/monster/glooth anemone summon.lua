@@ -8,7 +8,6 @@ combat:setArea(area)
 local maxsummons = 1
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	if #summoncount < 1 then
@@ -24,9 +23,9 @@ function spell.onCastSpell(creature, var)
 end
 
 spell:name("glooth anemone summon")
-spell:words("###58")
-spell:needTarget(false)
-spell:needLearn(true)
+spell:words("##372")
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

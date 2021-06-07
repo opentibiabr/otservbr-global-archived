@@ -8,7 +8,6 @@ combat:setArea(area)
 local maxsummons = 10
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	if #summoncount < 10 then
@@ -22,3 +21,11 @@ function spell.onCastSpell(creature, var)
 	end
 	return combat:execute(creature, var)
 end
+
+spell:name("the abomination summon")
+spell:words("###217")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

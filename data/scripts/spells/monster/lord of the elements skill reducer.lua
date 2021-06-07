@@ -32,7 +32,14 @@ for i = 65, 85 do
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(65, 85)]:execute(creature, var)
 end
+
+spell:name("lord of the elements skill reducer")
+spell:words("###183")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

@@ -17,7 +17,6 @@ local function invisible(fromPosition, toPosition)
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	invisible(Position(33634, 32749, 11), Position(33654, 32765, 11))
 	return
@@ -25,8 +24,7 @@ end
 
 spell:name("zamulosh invisible")
 spell:words("###414")
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

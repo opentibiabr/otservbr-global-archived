@@ -22,18 +22,15 @@ local area = createCombatArea(arr)
 combat:setArea(area)
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
-    return combat:execute(creature, var)
+	return combat:execute(creature, var)
 end
-<instant name="" words="" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/elder wyrm electrify.lua"/>
-
 
 spell:name("elder wyrm electrify")
 spell:words("###309")
-spell:needDirection(true)
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:needDirection(true)
 spell:register()

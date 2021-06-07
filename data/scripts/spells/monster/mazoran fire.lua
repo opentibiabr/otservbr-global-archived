@@ -950,9 +950,15 @@ local function lavaGrounds (cid)
 	addEvent(revertLava, 5 * 1000)
 end
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	creature:say('THE GROUND BEGINS TO HEAT UP RAPIDLY!', TALKTYPE_MONSTER_YELL)
 	addEvent(lavaGrounds, 3 * 1000, creature:getId())
 	return
 end
+
+spell:name("mazoran fire")
+spell:words("###425")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

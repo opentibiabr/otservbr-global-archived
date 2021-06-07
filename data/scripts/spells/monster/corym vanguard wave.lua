@@ -15,16 +15,15 @@ local area = createCombatArea(arr)
 
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
-    return combat:execute(creature, var)
+	return combat:execute(creature, var)
 end
 
 spell:name("corym vanguard wave")
 spell:words("###237")
-spell:needTarget(true)
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:needDirection(true)
 spell:register()

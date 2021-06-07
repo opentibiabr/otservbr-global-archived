@@ -12,7 +12,6 @@ local function removeDelay()
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 
 	if destructionSummonDelay == false then
@@ -28,11 +27,10 @@ function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 
-
 spell:name("destruction summon")
 spell:words("###418")
-spell:needTarget(false)
-spell:needLearn(true)
-spell:isAggressive(false)
+spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

@@ -20,16 +20,15 @@ local area = createCombatArea(arr)
 
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 
 spell:name("white pale paralyze")
-spell:words("###53")
-spell:needTarget(false)
-spell:needLearn(true)
+spell:words("###350")
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:needDirection(true)
 spell:register()

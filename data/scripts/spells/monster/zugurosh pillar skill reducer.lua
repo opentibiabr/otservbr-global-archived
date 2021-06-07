@@ -12,16 +12,14 @@ for i = 1, 20 do
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(1, 20)]:execute(creature, var)
 end
 
 spell:name("zugurosh pillar skill reducer")
 spell:words("###303")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()
-

@@ -32,7 +32,6 @@ local function functionBack(position, oldpos)
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	local index = math.random(1, 2)
 	local monsterPos = creature:getPosition()
@@ -50,3 +49,10 @@ function spell.onCastSpell(creature, var)
 	addEvent(functionBack, 30 * 1000, position, monsterPos)
 	return true
 end
+
+spell:name("time guardiann")
+spell:words("###441")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

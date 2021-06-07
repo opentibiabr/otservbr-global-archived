@@ -13,7 +13,15 @@ combat:setArea(area)
 combat:addCondition(condition)
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("pixie skill reducer")
+spell:words("###469")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:exhaustion("2000")
+spell:register()

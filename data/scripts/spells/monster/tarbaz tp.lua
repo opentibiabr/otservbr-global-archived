@@ -13,17 +13,18 @@ local function teleport(fromPosition, toPosition)
 	end
 end
 
-local spell = Spell("instant")
 
+
+
+local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	teleport(Position(33449, 32834, 11), Position(33470, 32854, 11))
 	return true
 end
 
-spell:name("tarbaz teleport")
-spell:words("###157")
-spell:needTarget(false)
-spell:needLearn(true)
+spell:name("tarbaz tp")
+spell:words("###408")
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

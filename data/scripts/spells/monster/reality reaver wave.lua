@@ -6,7 +6,15 @@ local area = createCombatArea(AREA_SQUAREWAVE7)
 combat:setArea(area)
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("reality reaver wave")
+spell:words("###444")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:needDirection(true)
+spell:register()

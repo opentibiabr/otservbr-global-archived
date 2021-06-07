@@ -1,5 +1,4 @@
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	local pos = creature:getPosition()
 	if pos.z ~= 13 then
@@ -15,9 +14,8 @@ function spell.onCastSpell(creature, var)
 end
 
 spell:name("ragiaz transform")
-spell:words("###156")
-spell:needTarget(false)
-spell:needLearn(true)
+spell:words("###410")
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

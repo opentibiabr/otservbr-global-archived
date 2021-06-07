@@ -11,16 +11,16 @@ combat:addCondition(condition)
 	combat:setArea(area)
 	combat:addCondition(condition)
 
-local spell = Spell("instant")
 
+local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 
 spell:name("zulazza the corruptor paralyze")
 spell:words("###231")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

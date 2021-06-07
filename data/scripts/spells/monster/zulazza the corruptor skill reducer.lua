@@ -15,15 +15,14 @@ for i = 40, 50 do
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(40, 50)]:execute(creature, var)
 end
 
-spell:name("zushuka the corruptor skill reducer")
+spell:name("zulazza the corruptor skill reducer")
 spell:words("###232")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

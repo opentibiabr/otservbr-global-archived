@@ -1,26 +1,30 @@
-local combat = Combat()
-combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HITAREA)
-combat:setArea(createCombatArea(AREA_SQUARE1X1))
+local combat = {}
 
-local parameters = {
-	{key = CONDITION_PARAM_TICKS, value = 4 * 1000},
-	{key = CONDITION_PARAM_SKILL_SHIELDPERCENT, value = 85},
-	{key = CONDITION_PARAM_SKILL_MELEEPERCENT, value = 85}
-}
+for i = 20, 40 do
+	combat[i] = Combat()
+	combat[i]:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HITAREA)
+
+	local condition = Condition(CONDITION_ATTRIBUTES)
+	condition:setParameter(CONDITION_PARAM_TICKS, 15000)
+	condition:setParameter(CONDITION_PARAM_SKILL_MELEEPERCENT, i)
+	condition:setParameter(CONDITION_PARAM_SKILL_FISTPERCENT, i)
+	condition:setParameter(CONDITION_PARAM_SKILL_DISTANCEPERCENT, i)
+	condition:setParameter(CONDITION_PARAM_SKILL_SHIELDPERCENT, i)
+
+	local area = createCombatArea(AREA_SQUARE1X1)
+	combat[i]:setArea(area)
+	combat[i]:addCondition(condition)
+end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
-	for _, target in ipairs(combat:getTargets(creature, var)) do
-		target:addAttributeCondition(parameters)
-	end
-	return true
+	return combat[math.random(20, 40)]:execute(creature, var)
 end
 
 spell:name("ice golem skill reducer")
-spell:words("###41")
-spell:needTarget(false)
-spell:needLearn(true)
+spell:words("###207")
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

@@ -1,7 +1,6 @@
 local maxsummons = 2
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 local summoncount = creature:getSummons()
 	if #summoncount < 2 then
@@ -14,11 +13,10 @@ local summoncount = creature:getSummons()
 	return true
 end
 
-
 spell:name("death priest shargon summon")
 spell:words("###378")
-spell:needTarget(false)
-spell:needLearn(true)
-spell:isAggressive(false)
+spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

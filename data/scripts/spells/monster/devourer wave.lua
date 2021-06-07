@@ -15,16 +15,15 @@ local area = createCombatArea(arr)
 combat:setArea(area)
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 
 spell:name("devourer wave")
-spell:words("###55")
-spell:needTarget(false)
-spell:needLearn(true)
+spell:words("###365")
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:needDirection(true)
 spell:register()

@@ -11,7 +11,13 @@ local area = createCombatArea(arr)
 combat:setArea(area)
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("warden x")
+spell:words("###475")
+spell:needLearn(true)
+spell:exhaustion("2000")
+spell:selfTarget(true)
+spell:register()

@@ -11,17 +11,13 @@ local area = createCombatArea(arr)
 combat:setArea(area)
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
-    return combat:execute(creature, var)
+	return combat:execute(creature, var)
 end
 
-spell:name("burning gladiator firex")
-spell:words("###480")
-spell:needTarget(false)
+spell:name("firex")
+spell:words("###479")
 spell:needLearn(true)
-spell:isAggressive(false)
-spell:blockWalls(true)
+spell:exhaustion("2000")
 spell:selfTarget(true)
-spell:exhaustion(2000)
 spell:register()

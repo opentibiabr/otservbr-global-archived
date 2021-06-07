@@ -78,7 +78,6 @@ local function delayedCastSpell(cid, var)
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	local specs, spec = Game.getSpectators(Position(32912, 31599, 14), false, false, 12, 12, 12, 12)
 	for i = 1, #specs do
@@ -94,3 +93,10 @@ function spell.onCastSpell(creature, var)
 	addEvent(delayedCastSpell, 4000, creature:getId(), var)
 	return true
 end
+
+spell:name("tenebris ultimate")
+spell:words("###430")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

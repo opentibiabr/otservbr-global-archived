@@ -14,16 +14,16 @@ setCombatParam(combat, COMBAT_PARAM_EFFECT, CONST_ME_CRAPS)
 local area = createCombatArea(arr)
 	setCombatArea(combat, area)
 
-local spell = Spell("instant")
 
-function spell.onCastSpell(creature, var)
+local spell = Spell("instant")
+function spell.onCastSpell(cid, var)
 	return doCombat(cid, combat, var)
 end
 
 spell:name("arachnophobicawavedice")
 spell:words("###467")
-spell:needDirection(true)
-spell:selfTarget(true)
-spell:exhaustion(2000)
 spell:needLearn(true)
+spell:needDirection(true)
+spell:exhaustion("2000")
+spell:selfTarget(true)
 spell:register()

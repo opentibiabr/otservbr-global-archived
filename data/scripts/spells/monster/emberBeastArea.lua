@@ -30,19 +30,13 @@ end
 setCombatCallback(combat, CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
-    return combat:execute(creature, var)
+	return combat:execute(creature, var)
 end
-<instant name="" words=""  selftarget="1" exhaustion="2000" needlearn="1"  script="monster/emberBeastArea.lua" />
-
 
 spell:name("emberBeastArea")
 spell:words("###462")
-spell:selfTarget(true)
-spell:exhaustion(2000)
-spell:needTarget(false)
 spell:needLearn(true)
-spell:isAggressive(false)
-spell:blockWalls(true)
+spell:exhaustion("2000")
+spell:selfTarget(true)
 spell:register()

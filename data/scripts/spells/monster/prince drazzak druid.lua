@@ -69,7 +69,6 @@ local function delayedCastSpell(cid, var)
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	local value = Game.getStorageValue(storage)
 	if(os.time()-value >= 4) then
@@ -79,3 +78,11 @@ function spell.onCastSpell(creature, var)
 	end
 	return true
 end
+
+spell:name("prince drazzak druid")
+spell:words("###321")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

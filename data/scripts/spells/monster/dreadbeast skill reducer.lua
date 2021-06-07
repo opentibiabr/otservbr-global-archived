@@ -13,19 +13,14 @@ for i = 70, 80 do
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(70, 80)]:execute(creature, var)
-end
-<instant name="" words="" aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/dreadbeast skill reducer.lua"/>
-
-    return combat:execute(creature, var)
 end
 
 spell:name("dreadbeast skill reducer")
 spell:words("###297")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

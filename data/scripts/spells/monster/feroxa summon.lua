@@ -28,7 +28,6 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_TELEPORT)
 local maxsummons = 10
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 creature:say("RISE MY SERVANTS! RISE!!", TALKTYPE_MONSTER_SAY)
 
@@ -46,11 +45,9 @@ creature:say("RISE MY SERVANTS! RISE!!", TALKTYPE_MONSTER_SAY)
 	return combat:execute(creature, var)
 end
 
-
 spell:name("feroxa summon")
 spell:words("###422")
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

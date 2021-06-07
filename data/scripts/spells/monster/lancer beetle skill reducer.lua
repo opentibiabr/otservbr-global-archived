@@ -12,7 +12,14 @@ for i = 10, 30 do
 end
 
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	return combat[math.random(10, 30)]:execute(creature, var)
 end
+
+spell:name("lancer beetle skill reducer")
+spell:words("###218")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

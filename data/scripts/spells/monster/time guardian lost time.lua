@@ -1,5 +1,4 @@
 local spell = Spell("instant")
-
 function spell.onCastSpell(creature, var)
 	local pos = creature:getPosition()
 	if pos.z ~= 15 then
@@ -12,3 +11,11 @@ function spell.onCastSpell(creature, var)
 	end
 	return true
 end
+
+spell:name("time guardian lost time")
+spell:words("###439")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:needDirection(true)
+spell:register()
