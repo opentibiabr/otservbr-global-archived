@@ -81,7 +81,7 @@ function threatenedLever.onUse(player, item, fromPosition, target, toPosition, i
 							if spec:isPlayer() then
 								spec:teleportTo(config.specPos)
 								spec:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-								spec:say('Time out! You were teleported out by strange forces.', TALKTYPE_MONSTER_SAY)
+								spec:say("Time out! You were teleported out by strange forces.", TALKTYPE_MONSTER_SAY)
 							end
 						end
 				end, config.timeToDefeatBoss * 60 * 1000)
