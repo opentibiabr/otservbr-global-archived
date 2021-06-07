@@ -16,7 +16,7 @@ local config = {
 	},
 	teleportPosition = Position(33617, 32567, 13),
 	bossPosition = Position(33617, 32561, 13),
-	specPos = Position(33618, 32520, 15)
+	specPos = Position(33618, 32523, 15)
 }
 
 local threatenedLever = Action()
