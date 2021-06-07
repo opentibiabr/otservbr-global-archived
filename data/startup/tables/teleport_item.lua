@@ -69,5 +69,12 @@ TeleportItemUnique = {
 		itemPos = {x = 33918, y = 31471, z = 7},
 		destination = {x = 33916, y = 31466, z = 8},
 		effect = CONST_ME_TELEPORT
+	},
+	-- Faceless Bane entrance
+	[15004] = {
+		itemId = 34592,
+		itemPos = {x = 33619, y = 32518, z = 15},
+		destination = {x = 33640, y = 32561, z = 13},
+		effect = CONST_ME_TELEPORT
 	}
 }

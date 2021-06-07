@@ -44830,6 +44830,9 @@
 	<item id="34588" article="an" name="acid resistant fishing rod">
 		<attribute key="weight" value="850" />
 	</item>
+	<item id="34592" article="a" name="book about spells">
+		<attribute key="description" value="This book contains descriptions of spells and what they do. Some of it does not sound very likely at all." />
+	</item>
 	<item id="34606" article="a" name="tree"/>
 	<item id="34607" article="a" name="sun fruit bush"/>
 	<item id="34608" article="a" name="sun fruit bush"/>
