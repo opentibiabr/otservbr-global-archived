@@ -27,25 +27,23 @@ function threatenedLever.onUse(player, item, fromPosition, target, toPosition, i
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You can\'t start the battle.")
 			return true
 		end
-		
+
 		local team, participant = {}
 		for i = 1, #config.playerPositions do
 			participant = Tile(config.playerPositions[i]):getTopCreature()
-			
+
 			-- Check there is a participant player
 			if participant and participant:isPlayer() then
 				-- Check participant level
 				if participant:getLevel() < config.requiredLevel then
-					player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
-						"All the players need to be level ".. config.requiredLevel .." or higher.")
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "All the players need to be level ".. config.requiredLevel .." or higher.")
 					return true
 				end
 
 				-- Check participant boss timer
 				if config.daily and participant:getStorageValue(Storage.ThreatenedDreams.FacelessBaneTime) > os.time() then
 					player:getPosition():sendMagicEffect(CONST_ME_POFF)
-					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 
-						"You or a member in your team have to wait ".. config.timeToFightAgain .."  hours to face Faceless Bane again!")
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You or a member in your team have to wait ".. config.timeToFightAgain .."  hours to face Faceless Bane again!")
 					return true
 				end
 				team[#team + 1] = participant
@@ -71,8 +69,7 @@ function threatenedLever.onUse(player, item, fromPosition, target, toPosition, i
 		for i = 1, #team do
 			team[i]:getPosition():sendMagicEffect(CONST_ME_POFF)
 			team[i]:teleportTo(config.teleportPosition)
-			team[i]:sendTextMessage(MESSAGE_EVENT_ADVANCE, 
-					"You have ".. config.timeToDefeatBoss .." minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.")
+			team[i]:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have ".. config.timeToDefeatBoss .." minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.")
 			-- Assign boss timer
 			team[i]:setStorageValue(Storage.ThreatenedDreams.FacelessBaneTime, os.time() + config.timeToFightAgain * 60 * 60) -- 20 hours
 			item:transform(config.leverId)
