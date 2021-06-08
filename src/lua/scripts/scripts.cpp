@@ -76,19 +76,17 @@ bool Scripts::loadScriptSystems()
 	g_chat = new Chat();
 
 	// XML loads disabled start
-	g_spells = new Weapons();
-	if (!g_spells) {
-		return false;
-	}
-
-	g_spells->loadDefaults();
-
 	g_weapons = new Weapons();
 	if (!g_weapons) {
 		return false;
 	}
 
 	g_weapons->loadDefaults();
+
+        g_spells = new Spells();
+	if (!g_spells) {
+		return false;
+	}
 
 	g_actions = new Actions();
 	if (!g_actions) {
