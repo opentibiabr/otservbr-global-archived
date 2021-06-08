@@ -32,9 +32,6 @@ local reloadTypes = {
 
 	["scripts"] = RELOAD_TYPE_SCRIPTS,
 
-	["spell"] = RELOAD_TYPE_SPELLS,
-	["spells"] =  RELOAD_TYPE_SPELLS,
-
 	["stage"] = RELOAD_TYPE_STAGES,
 	["stages"] = RELOAD_TYPE_STAGES,
 

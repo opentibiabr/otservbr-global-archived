@@ -25,7 +25,6 @@
 #include "game/game.h"
 #include "lua/creature/actions.h"
 #include "config/configmanager.h"
-#include "creatures/combat/spells.h"
 #include "lua/creature/talkaction.h"
 #include "lua/creature/raids.h"
 #include "creatures/appearance/mounts/mounts.h"
@@ -43,7 +42,6 @@ extern ConfigManager g_config;
 extern Actions* g_actions;
 extern Monsters g_monsters;
 extern TalkActions* g_talkActions;
-extern Spells* g_spells;
 extern Game g_game;
 extern CreatureEvents* g_creatureEvents;
 extern GlobalEvents* g_globalEvents;
@@ -152,9 +150,6 @@ void Signals::sighupHandler()
 	g_game.raids.reload();
 	g_game.raids.startup();
 	SPDLOG_INFO("Reloaded raids");
-
-	g_spells->reload();;
-	SPDLOG_INFO("Reloaded spells");
 
 	Item::items.reload();
 	SPDLOG_INFO("Reloaded items");
