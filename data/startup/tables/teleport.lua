@@ -318,5 +318,19 @@ TeleportUnique = {
 		itemPos = {x = 32610, y = 32979, z = 9},
 		destination = {x = 32608, y = 32978, z = 8},
 		effect = CONST_ME_TELEPORT
+	},
+	-- Faceless Bane room exit teleport
+	[39007] = {
+		itemId = 1397,
+		itemPos = {x = 33617, y = 32569, z = 13},
+		destination = {x = 33618, y = 32523, z = 15},
+		effect = CONST_ME_TELEPORT
+	},
+	-- Faceless Bane lever room exit teleport
+	[39008] = {
+		itemId = 1397,
+		itemPos = {x = 33640, y = 32559, z = 13},
+		destination = {x = 33618, y = 32523, z = 15},
+		effect = CONST_ME_TELEPORT
 	}
 }

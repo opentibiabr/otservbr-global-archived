@@ -435,7 +435,7 @@ void ProtocolGame::logout(bool displayEffect, bool forced)
 		}
 	}
 
-	sendSessionEndInformation(forced ? SESSION_END_FORCECLOSE : SESSION_END_LOGOUT);
+	sendSessionEndInformation(SESSION_END_LOGOUT2);
 
 	g_game.removeCreature(player);
 }
