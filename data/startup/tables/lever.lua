@@ -148,5 +148,10 @@ LeverUnique = {
 	[30028] = {
 		itemId = 1945,
 		itemPos = {x = 32478, y = 31904, z = 3}
+	},
+	-- Path: data\scripts\actions\quests\grave_danger\duke_krule.lua
+	[30029] = {
+		itemId = 9825,
+		itemPos = {x = 33454, y = 31493, z = 13}
 	}
 }

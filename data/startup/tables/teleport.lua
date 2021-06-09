@@ -332,5 +332,19 @@ TeleportUnique = {
 		itemPos = {x = 33640, y = 32559, z = 13},
 		destination = {x = 33618, y = 32523, z = 15},
 		effect = CONST_ME_TELEPORT
+	},
+	-- Duke Krule room exit teleport
+	[39009] = {
+		itemId = 1387,
+		itemPos = {x = 33456, y = 31464, z = 13},
+		destination = {x = 32347, y = 32167, z = 12},
+		effect = CONST_ME_TELEPORT
+	},
+	-- Duke Krule lever room exit teleport
+	[39010] = {
+		itemId = 1387,
+		itemPos = {x = 33457, y = 31501, z = 13},
+		destination = {x = 32347, y = 32167, z = 12},
+		effect = CONST_ME_TELEPORT
 	}
 }

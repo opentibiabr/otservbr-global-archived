@@ -1715,7 +1715,8 @@ Storage = {
 		CobraBastion = {
 			Questline = 52311,
 			ScarlettTimer = 52312
-		}
+		},
+		DukeKruleTime = 52313
 	},
 	RottinWoodAndMaried = {
 		-- Reserved storage from 52340 - 52349
