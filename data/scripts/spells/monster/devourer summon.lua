@@ -6,6 +6,7 @@ local area = createCombatArea(AREA_CIRCLE2X2)
 combat:setArea(area)
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 
 	local creatures = {"Greed", "Frenzy", "Disruption"}
@@ -21,8 +22,6 @@ end
 
 spell:name("devourer summon")
 spell:words("###416")
-spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

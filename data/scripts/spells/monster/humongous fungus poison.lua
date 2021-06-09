@@ -33,3 +33,11 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat[math.random(25, 30)]:execute(creature, var)
 end
+
+spell:name("humongous fungus poison")
+spell:words("###68")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:needDirection(true)
+spell:register()

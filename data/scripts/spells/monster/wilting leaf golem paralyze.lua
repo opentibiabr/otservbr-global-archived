@@ -17,3 +17,10 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("wilting leaf golem paralyze")
+spell:words("###74")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

@@ -1,4 +1,5 @@
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	if #summoncount < 8 then

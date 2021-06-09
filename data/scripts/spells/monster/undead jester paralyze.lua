@@ -24,6 +24,7 @@ local area = createCombatArea(arr)
 
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
@@ -32,7 +33,6 @@ spell:name("undead jester paralyze")
 spell:words("###347")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:needDirection(true)
 spell:register()

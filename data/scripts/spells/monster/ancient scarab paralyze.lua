@@ -10,14 +10,13 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-    return combat:execute(creature, var)
+	return combat:execute(creature, var)
 end
 
 spell:name("ancient scarab paralyze")
 spell:words("###118")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()
-

@@ -31,6 +31,7 @@ end
 combat:setCallback(CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
@@ -39,5 +40,4 @@ spell:name("ravennousLavaLurkerWave")
 spell:words("###465")
 spell:needLearn(true)
 spell:exhaustion("2000")
-spell:selfTarget(true)
 spell:register()

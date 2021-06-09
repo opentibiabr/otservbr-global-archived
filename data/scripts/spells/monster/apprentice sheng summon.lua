@@ -5,25 +5,26 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_RED)
 local area = createCombatArea(AREA_CIRCLE2X2)
 combat:setArea(area)
 
+local maxsummons = 2
+
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-
-	local creatures = {"Hyaena"}
-	local monster = creatures[math.random(#creatures)]
-
-	if apShengSummon < 2 then
-		Game.createMonster(monster, {x=creature:getPosition().x+math.random(-1, 1), y=creature:getPosition().y+math.random(-1, 1), z=creature:getPosition().z}, false, true)
-		apShengSummon = apShengSummon + 1
+	local summoncount = creature:getSummons()
+	if #summoncount < 2 then
+		for i = 1, maxsummons - #summoncount do
+			local mid = Game.createMonster("Hyaena", creature:getPosition())
+    			if not mid then
+					return
+				end
+			mid:setMaster(creature)
+		end
 	end
-
 	return combat:execute(creature, var)
 end
 
 spell:name("apprentice sheng summon")
 spell:words("###127")
-spell:needTarget(false)
-spell:needLearn(true)
-spell:isAggressive(false)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

@@ -1,4 +1,5 @@
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	if creature:getCondition(CONDITION_POISON) or creature:getCondition(CONDITION_BLEEDING) then
 		local pos = creature:getPosition()

@@ -11,14 +11,13 @@ combat:addCondition(condition)
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-    return combat:execute(creature, var)
+	return combat:execute(creature, var)
 end
-
 
 spell:name("deathstrike freeze")
 spell:words("###101")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

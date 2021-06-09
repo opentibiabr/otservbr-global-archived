@@ -8,6 +8,7 @@ combat:setArea(area)
 local maxsummons = 4
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 creature:say("Watch my maws!", TALKTYPE_ORANGE_1)
 	local summoncount = creature:getSummons()
@@ -25,8 +26,6 @@ end
 
 spell:name("mawhawk summon")
 spell:words("###360")
-spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

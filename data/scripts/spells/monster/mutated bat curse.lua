@@ -40,10 +40,9 @@ function spell.onCastSpell(creature, var)
 end
 
 spell:name("mutated bat curse")
-spell:words("###158")
-spell:needTarget(false)
-spell:needLearn(true)
+spell:words("###24")
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:needDirection(true)
 spell:register()

@@ -17,11 +17,10 @@ function spell.onCastSpell(creature, var)
 	return combat[math.random(10, 35)]:execute(creature, var)
 end
 
-
 spell:name("dharalion skill reducer")
 spell:words("###105")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

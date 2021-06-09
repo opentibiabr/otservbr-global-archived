@@ -7,6 +7,7 @@ combat:setArea(area)
 local maxsummons = 4
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	if #summoncount < 4 then
@@ -23,8 +24,6 @@ end
 
 spell:name("lisa summon")
 spell:words("###389")
-spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

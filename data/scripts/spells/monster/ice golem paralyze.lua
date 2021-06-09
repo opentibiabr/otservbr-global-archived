@@ -29,10 +29,9 @@ function spell.onCastSpell(creature, var)
 end
 
 spell:name("ice golem paralyze")
-spell:words("###100")
-spell:needTarget(false)
-spell:needLearn(true)
+spell:words("###162")
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:needDirection(true)
 spell:register()

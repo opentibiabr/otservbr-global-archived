@@ -1,6 +1,8 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_DISPEL, CONDITION_INVISIBLE)
-combat:setArea(createCombatArea(AREA_CIRCLE3X3))
+
+local area = createCombatArea(AREA_CIRCLE3X3)
+combat:setArea(area)
 
 local spell = Spell("instant")
 
@@ -10,8 +12,7 @@ end
 
 spell:name("djinn cancel invisibility")
 spell:words("###47")
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

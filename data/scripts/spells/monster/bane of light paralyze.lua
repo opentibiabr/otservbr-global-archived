@@ -26,6 +26,7 @@
 	combat:setArea(area)
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
@@ -34,6 +35,5 @@ spell:name("bane of light paralyze")
 spell:words("###354")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

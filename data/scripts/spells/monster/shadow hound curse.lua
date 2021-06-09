@@ -27,6 +27,7 @@ for i = 1, 1 do
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat[math.random(1, 1)]:execute(creature, var)
 end
@@ -35,7 +36,6 @@ spell:name("shadow hound curse")
 spell:words("###245")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:needDirection(true)
 spell:register()

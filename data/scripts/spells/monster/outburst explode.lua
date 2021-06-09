@@ -61,6 +61,7 @@ function removeOutburst(cid)
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	local from = creature:getId()
 
@@ -79,6 +80,5 @@ spell:name("outburst explode")
 spell:words("###449")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

@@ -16,6 +16,7 @@ for i = 45, 60 do
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat[math.random(45, 60)]:execute(creature, var)
 end
@@ -24,6 +25,5 @@ spell:name("fury skill reducer 2")
 spell:words("###169")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

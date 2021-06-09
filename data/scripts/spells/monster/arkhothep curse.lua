@@ -39,13 +39,12 @@ end
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-    return combat[math.random(2, 5)]:execute(creature, var)
+	return combat[math.random(2, 5)]:execute(creature, var)
 end
 
 spell:name("arkhothep curse")
 spell:words("###91")
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

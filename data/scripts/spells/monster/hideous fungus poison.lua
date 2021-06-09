@@ -24,3 +24,10 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat[math.random(25, 30)]:execute(creature, var)
 end
+
+spell:name("hideous fungus poison")
+spell:words("###71")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

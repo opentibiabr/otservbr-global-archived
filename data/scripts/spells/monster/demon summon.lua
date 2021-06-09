@@ -5,6 +5,7 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_FIREATTACK)
 local maxsummons = 1
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	if #summoncount < 1 then
@@ -19,8 +20,6 @@ end
 
 spell:name("demon summon")
 spell:words("###240")
-spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

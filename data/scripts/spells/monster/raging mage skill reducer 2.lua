@@ -36,3 +36,10 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat[math.random(35, 55)]:execute(creature, var)
 end
+
+spell:name("raging mage skill reducer 2")
+spell:words("###111")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

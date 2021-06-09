@@ -25,11 +25,10 @@ function spell.onCastSpell(creature, var)
 	return combat[math.random(2, 2)]:execute(creature, var)
 end
 
-
 spell:name("essence of darkness curse")
 spell:words("###77")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

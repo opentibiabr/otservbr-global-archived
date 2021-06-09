@@ -28,6 +28,7 @@ combat[i]:addCondition(condition)
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat[math.random(1, 10)]:execute(creature, var)
 end
@@ -36,7 +37,6 @@ spell:name("terofar skill reducer 1")
 spell:words("###214")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:needDirection(true)
 spell:register()

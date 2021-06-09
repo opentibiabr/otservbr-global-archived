@@ -20,6 +20,7 @@ end
 combat:setCallback(CALLBACK_PARAM_TARGETCREATURE, "onTargetCreature")
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end

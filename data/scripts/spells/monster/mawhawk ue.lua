@@ -78,6 +78,7 @@ local function delayedCastSpell(cid, var)
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	if creature:getHealth() < creature:getMaxHealth() * 0.1 and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
 		creature:addCondition(condition)
@@ -93,6 +94,5 @@ spell:name("mawhawk ue")
 spell:words("###361")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

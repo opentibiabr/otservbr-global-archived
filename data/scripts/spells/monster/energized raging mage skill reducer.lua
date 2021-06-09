@@ -10,6 +10,7 @@ condition:setParameter(CONDITION_PARAM_SKILL_DISTANCEPERCENT, 50)
 combat:addCondition(condition)
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
@@ -17,6 +18,5 @@ end
 spell:name("energized raging mage skill reducer")
 spell:words("###472")
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

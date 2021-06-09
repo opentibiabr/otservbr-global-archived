@@ -22,8 +22,8 @@ end
 
 spell:name("ghastly dragon wave")
 spell:words("###114")
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
+spell:needDirection(true)
 spell:register()

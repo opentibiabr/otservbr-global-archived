@@ -1,4 +1,5 @@
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	addEvent(function(cid)
 		local creature = Creature(cid)
@@ -17,6 +18,5 @@ spell:name("glooth-generator summon")
 spell:words("###402")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

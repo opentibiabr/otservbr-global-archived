@@ -18,3 +18,10 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat[math.random(10, 45)]:execute(creature, var)
 end
+
+spell:name("gnomevil skill reducer 1")
+spell:words("###147")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

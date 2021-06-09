@@ -35,9 +35,9 @@ function spell.onCastSpell(creature, var)
 end
 
 spell:name("ghastly dragon curse")
-spell:words("###1")
-spell:needTarget(true)
-spell:needLearn(true)
+spell:words("###115")
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

@@ -2,6 +2,7 @@ local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_NONE)
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	local spectators, spectator = Game.getSpectators(creature:getPosition(), false, false, 25, 25, 25, 25)
 	for i = 1, #spectators do
@@ -17,8 +18,6 @@ end
 
 spell:name("the ravager heal")
 spell:words("###398")
-spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

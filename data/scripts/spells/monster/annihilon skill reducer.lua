@@ -1,4 +1,3 @@
-
 local combat = {}
 
 for i = 40, 55 do
@@ -18,13 +17,13 @@ end
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-    return combat:execute(creature, var)
+	return combat[math.random(40, 55)]:execute(creature, var)
 end
 
-spell:name("abyssador skill reducer 1")
-spell:words("###84")
+spell:name("annihilon skill reducer")
+spell:words("###88")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(false)
+spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

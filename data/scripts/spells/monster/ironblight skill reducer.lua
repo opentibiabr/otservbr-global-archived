@@ -14,6 +14,7 @@ for i = 30, 70 do
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat[math.random(30, 70)]:execute(creature, var)
 end
@@ -22,6 +23,5 @@ spell:name("ironblight skill reducer")
 spell:words("###262")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

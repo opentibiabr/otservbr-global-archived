@@ -9,6 +9,7 @@ condition:addDamage(20, 9000, -10)
 combat:addCondition(condition)
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end

@@ -11,6 +11,7 @@ local area = createCombatArea(AREA_CIRCLE3X3)
 combat:setArea(area)
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
@@ -19,6 +20,5 @@ spell:name("ushuriel electrify")
 spell:words("###225")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

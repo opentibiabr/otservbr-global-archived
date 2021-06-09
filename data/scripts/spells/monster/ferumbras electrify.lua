@@ -29,14 +29,12 @@ combat:setArea(area)
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-    return combat:execute(creature, var)
+	return combat:execute(creature, var)
 end
-
 
 spell:name("ferumbras electrify")
 spell:words("###116")
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

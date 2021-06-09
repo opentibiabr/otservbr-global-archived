@@ -12,6 +12,7 @@ local function removeDelay()
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 
 	if hungerSummonDelay == false then
@@ -29,8 +30,6 @@ end
 
 spell:name("hunger summon")
 spell:words("###420")
-spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

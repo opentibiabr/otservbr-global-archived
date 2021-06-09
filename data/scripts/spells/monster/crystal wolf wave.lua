@@ -13,6 +13,7 @@ local area = createCombatArea(arr)
 
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
@@ -21,7 +22,6 @@ spell:name("crystal wolf wave")
 spell:words("###236")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:needDirection(true)
 spell:register()

@@ -15,3 +15,10 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("svoren the mad paralyze")
+spell:words("###59")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

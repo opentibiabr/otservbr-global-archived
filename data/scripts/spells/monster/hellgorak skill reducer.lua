@@ -34,3 +34,10 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat[math.random(20, 40)]:execute(creature, var)
 end
+
+spell:name("hellgorak skill reducer")
+spell:words("###158")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

@@ -25,8 +25,8 @@ end
 
 spell:name("furyosa manadrain")
 spell:words("###121")
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
+spell:needDirection(true)
 spell:register()

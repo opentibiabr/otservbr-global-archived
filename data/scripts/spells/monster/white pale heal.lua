@@ -5,6 +5,7 @@ condition:setParameter(CONDITION_PARAM_HEALTHGAIN, 0.01)
 condition:setParameter(CONDITION_PARAM_HEALTHTICKS, 15 * 60 * 1000)
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	if creature:getHealth() < creature:getMaxHealth() * 0.2 and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
 		creature:addCondition(condition)
@@ -17,8 +18,6 @@ end
 
 spell:name("white pale heal")
 spell:words("###352")
-spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

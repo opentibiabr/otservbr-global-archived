@@ -22,3 +22,9 @@ function spell.onCastSpell(creature, var)
 	end
 	return combat:execute(creature, var)
 end
+
+spell:name("grand mother foulscale summon")
+spell:words("###154")
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

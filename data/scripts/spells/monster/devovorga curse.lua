@@ -42,11 +42,9 @@ function spell.onCastSpell(creature, var)
 	return combat[math.random(2, 5)]:execute(creature, var)
 end
 
-
 spell:name("devovorga curse")
 spell:words("###104")
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

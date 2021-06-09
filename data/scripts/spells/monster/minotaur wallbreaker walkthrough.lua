@@ -13,6 +13,7 @@ local function changeSpeeds(cid, var)
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
     local nextPosition = creature:getPosition()
 	local speed = creature:getSpeed()
@@ -37,7 +38,5 @@ end
 spell:name("minotaur wallbreaker walkthrough")
 spell:words("###403")
 spell:isAggressive(true)
-spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

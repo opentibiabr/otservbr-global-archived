@@ -3,6 +3,7 @@ combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ICEDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_BLUE_ENERGY_SPARK)
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	local target = Creature(var.number)
 	if not target then return false end

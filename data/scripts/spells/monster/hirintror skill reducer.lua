@@ -21,3 +21,10 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat[math.random(20, 40)]:execute(creature, var)
 end
+
+spell:name("hirintror skill reducer")
+spell:words("###163")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

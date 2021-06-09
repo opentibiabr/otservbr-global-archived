@@ -17,11 +17,10 @@ function spell.onCastSpell(creature, var)
 	return combat[math.random(30, 60)]:execute(creature, var)
 end
 
-
 spell:name("dreadwing skill reducer")
 spell:words("###109")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

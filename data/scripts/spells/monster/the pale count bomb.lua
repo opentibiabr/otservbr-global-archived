@@ -23,6 +23,7 @@ local area = createCombatArea(arr)
 combat:setArea(area)
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	creature:say("Feel the hungry kiss of death!", TALKTYPE_ORANGE_1)
 	return combat:execute(creature, var)

@@ -22,3 +22,9 @@ function spell.onCastSpell(creature, var)
 	end
 	return combat:execute(creature, var)
 end
+
+spell:name("werewolf summon")
+spell:words("###160")
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

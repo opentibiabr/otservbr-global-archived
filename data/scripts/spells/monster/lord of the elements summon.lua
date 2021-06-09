@@ -8,6 +8,7 @@ combat:setArea(area)
 local maxsummons = 2
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	if #summoncount < 2 then
@@ -45,8 +46,6 @@ end
 
 spell:name("lord of the elements summon")
 spell:words("###180")
-spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

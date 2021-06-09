@@ -17,6 +17,7 @@ for i = 20, 40 do
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat[math.random(20, 40)]:execute(creature, var)
 end
@@ -25,6 +26,5 @@ spell:name("ice golem skill reducer")
 spell:words("###207")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

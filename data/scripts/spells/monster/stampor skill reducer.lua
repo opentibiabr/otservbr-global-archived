@@ -1,30 +1,31 @@
-local combat = Combat()
-combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_SMALLPLANTS)
-combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_SMALLEARTH)
-combat:setArea(createCombatArea(AREA_BEAM1))
+local combat = {}
 
-local parameters = {
-	{key = CONDITION_PARAM_TICKS, value = 4 * 1000},
-	{key = CONDITION_PARAM_SKILL_SHIELDPERCENT, value = nil},
-	{key = CONDITION_PARAM_SKILL_MELEEPERCENT, value = nil}
-}
+for i = 60, 85 do
+	combat[i] = Combat()
+	combat[i]:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_SMALLPLANTS)
+	combat[i]:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_POISON)
+
+	local condition = Condition(CONDITION_ATTRIBUTES)
+	condition:setParameter(CONDITION_PARAM_TICKS, 25000)
+	condition:setParameter(CONDITION_PARAM_SKILL_DISTANCEPERCENT, i)
+	condition:setParameter(CONDITION_PARAM_SKILL_MELEEPERCENT, i)
+	condition:setParameter(CONDITION_PARAM_SKILL_FISTPERCENT, i)
+
+	local area = createCombatArea(AREA_BEAM1)
+	combat[i]:setArea(area)
+	combat[i]:addCondition(condition)
+end
 
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-	parameters[2].value = math.random(60, 85)
-	parameters[3].value = parameters[2].value
-
-	for _, target in ipairs(combat:getTargets(creature, var)) do
-		target:addAttributeCondition(parameters)
-	end
-	return true
+	return combat[math.random(60, 85)]:execute(creature, var)
 end
 
 spell:name("stampor skill reducer")
 spell:words("###32")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

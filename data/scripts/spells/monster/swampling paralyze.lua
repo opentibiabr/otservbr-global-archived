@@ -20,3 +20,11 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("swampling paralyze")
+spell:words("###76")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:needDirection(true)
+spell:register()

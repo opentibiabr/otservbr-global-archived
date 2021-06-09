@@ -43,14 +43,13 @@ local function createVortex()
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	createVortex()
 end
 
 spell:name("charge vortex")
 spell:words("###451")
-spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

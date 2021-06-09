@@ -8,6 +8,7 @@ combat:setArea(area)
 local maxsummons = 5
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	if #summoncount < 5 then
@@ -26,8 +27,6 @@ end
 
 spell:name("jewelry chest summon")
 spell:words("###316")
-spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

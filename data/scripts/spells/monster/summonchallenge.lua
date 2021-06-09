@@ -9,6 +9,7 @@ end
 combat:setCallback(CALLBACK_PARAM_TARGETCREATURE, "onTargetCreature")
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, variant)
 	return combat:execute(creature, variant)
 end
@@ -16,6 +17,5 @@ end
 spell:name("summon challenge")
 spell:words("###471")
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

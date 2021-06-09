@@ -25,6 +25,7 @@ for i = 0.935, 0.935 do
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	if not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
 		creature:addCondition(condition2)

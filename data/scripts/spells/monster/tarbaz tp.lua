@@ -17,6 +17,7 @@ end
 
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	teleport(Position(33449, 32834, 11), Position(33470, 32854, 11))
 	return true

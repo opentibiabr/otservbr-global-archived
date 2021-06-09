@@ -69,6 +69,7 @@ local function delayedCastSpell(cid, var)
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 local value = Game.getStorageValue(storage)
 	if(os.time()-value >= 4) then
@@ -83,6 +84,5 @@ spell:name("prince drazzak sorcerer")
 spell:words("###323")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

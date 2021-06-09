@@ -5,6 +5,7 @@ local generator = {
 	[4] = {pos = Position(33714, 32051, 15)}
 }
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	local rand = math.random(1, 4)
 	local generators = generator[rand]

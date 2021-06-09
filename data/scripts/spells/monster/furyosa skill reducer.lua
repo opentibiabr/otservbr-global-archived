@@ -34,13 +34,10 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat[math.random(40, 50)]:execute(creature, var)
 end
-    return combat:execute(creature, var)
-end
 
 spell:name("furyosa skill reducer")
 spell:words("###120")
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

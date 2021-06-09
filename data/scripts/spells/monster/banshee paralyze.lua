@@ -6,18 +6,16 @@
 	condition:setFormula(-0.65, 0, -0.9, 0)
 	combat:addCondition(condition)
 
-	local spell = Spell("instant")
+local spell = Spell("instant")
 
-	function spell.onCastSpell(creature, var)
-		return combat:execute(creature, var)
-	end
-	
-
+function spell.onCastSpell(creature, var)
+	return combat:execute(creature, var)
+end
 
 spell:name("banshee paralyze")
 spell:words("###81")
-spell:needTarget(ture)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

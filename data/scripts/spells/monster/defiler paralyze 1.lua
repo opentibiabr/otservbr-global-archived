@@ -33,11 +33,9 @@ function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 
-
 spell:name("defiler paralyze 1")
 spell:words("###64")
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

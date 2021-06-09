@@ -8,6 +8,7 @@ combat:setArea(area)
 local maxsummons = 3
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	if #summoncount < 3 then
@@ -24,8 +25,6 @@ end
 
 spell:name("lersatio summon")
 spell:words("###177")
-spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

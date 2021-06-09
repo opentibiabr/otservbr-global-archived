@@ -32,6 +32,7 @@ local function functionBack(position, oldpos)
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	local index = math.random(1, 2)
 	local monsterPos = creature:getPosition()

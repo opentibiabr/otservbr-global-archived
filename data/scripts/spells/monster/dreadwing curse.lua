@@ -35,12 +35,10 @@ function spell.onCastSpell(creature, var)
 	return combat[math.random(1, 1)]:execute(creature, var)
 end
 
-
 spell:name("dreadwing curse")
 spell:words("###108")
-spell:needDirection(true)
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
+spell:needDirection(true)
 spell:register()

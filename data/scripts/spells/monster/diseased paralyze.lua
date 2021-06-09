@@ -7,18 +7,16 @@
 	condition:setFormula(-0.40, 0, -0.50, 0)
 	combat:addCondition(condition)
 
-	local spell = Spell("instant")
+local spell = Spell("instant")
 
-	function spell.onCastSpell(creature, var)
-		return combat:execute(creature, var)
-	end
-	<instant name="" words="" aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/diseased paralyze.lua"/>
-
+function spell.onCastSpell(creature, var)
+	return combat:execute(creature, var)
+end
 
 spell:name("diseased paralyze")
 spell:words("###107")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

@@ -1,15 +1,13 @@
 local combat = {}
 
-for i = 20, 55 do
+for i = 50, 90 do
 	combat[i] = Combat()
 	combat[i]:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_RED)
 
 	local condition = Condition(CONDITION_ATTRIBUTES)
 	condition:setParameter(CONDITION_PARAM_TICKS, 15000)
-	condition:setParameter(CONDITION_PARAM_SKILL_DISTANCEPERCENT, i)
 	condition:setParameter(CONDITION_PARAM_SKILL_MELEEPERCENT, i)
-	condition:setParameter(CONDITION_PARAM_SKILL_SHIELDEPERCENT, i)
-
+	condition:setParameter(CONDITION_PARAM_SKILL_FISTPERCENT, i)
 
 	local area = createCombatArea(AREA_CIRCLE1X1)
 	combat[i]:setArea(area)
@@ -19,13 +17,12 @@ end
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-    return combat:execute(creature, var)
+	return combat[math.random(50, 90)]:execute(creature, var)
 end
 
 spell:name("abyssador skill reducer 2")
 spell:words("###85")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(false)
 spell:needLearn(true)
 spell:register()

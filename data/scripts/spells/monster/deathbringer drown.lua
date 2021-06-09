@@ -24,15 +24,13 @@ combat:addCondition(condition)
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-    return combat:execute(creature, var)
+	return combat:execute(creature, var)
 end
-
 
 spell:name("deathbringer drown")
 spell:words("###54")
-spell:needDirection(true)
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
+spell:needDirection(true)
 spell:register()

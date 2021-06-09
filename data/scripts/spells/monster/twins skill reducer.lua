@@ -32,3 +32,11 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat[math.random(10, 25)]:execute(creature, var)
 end
+
+spell:name("twins skill reducer")
+spell:words("###151")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:needDirection(true)
+spell:register()

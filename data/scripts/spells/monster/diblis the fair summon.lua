@@ -23,11 +23,8 @@ function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 
-
 spell:name("diblis the fair summon")
 spell:words("###137")
-spell:needTarget(false)
-spell:needLearn(true)
-spell:isAggressive(false)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

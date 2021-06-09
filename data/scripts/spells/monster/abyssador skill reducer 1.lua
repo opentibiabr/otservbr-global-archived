@@ -16,13 +16,12 @@ end
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-    return combat:execute(creature, var)
+	return combat[math.random(20, 55)]:execute(creature, var)
 end
 
 spell:name("abyssador skill reducer 1")
 spell:words("###84")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(false)
 spell:needLearn(true)
 spell:register()

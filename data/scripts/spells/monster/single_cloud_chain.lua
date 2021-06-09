@@ -3,6 +3,7 @@ combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ENERGYDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_STORM)
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	local target = Creature(var.number)
 	if not target then return false end

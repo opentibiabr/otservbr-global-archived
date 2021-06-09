@@ -1,33 +1,30 @@
-local combat = Combat()
-combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_SNOWBALL)
-combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_POFF)
+local combat = {}
 
-local parameters = {
-	{key = CONDITION_PARAM_TICKS, value = 5 * 1000},
-	{key = CONDITION_PARAM_SKILL_FIST, value = nil},
-	{key = CONDITION_PARAM_SKILL_CLUB, value = nil},
-	{key = CONDITION_PARAM_SKILL_SWORD, value = nil},
-	{key = CONDITION_PARAM_SKILL_AXE, value = nil},
-	{key = CONDITION_PARAM_SKILL_DISTANCE, value = nil},
-	{key = CONDITION_PARAM_SKILL_SHIELD, value = nil}
-}
+for i = 90, 99 do
+	combat[i] = Combat()
+	combat[i]:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HITAREA)
+	combat[i]:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_SNOWBALL)
+
+	local condition = Condition(CONDITION_ATTRIBUTES)
+	condition:setParameter(CONDITION_PARAM_TICKS, 8000)
+	condition:setParameter(CONDITION_PARAM_SKILL_DISTANCEPERCENT, i)
+	condition:setParameter(CONDITION_PARAM_SKILL_SHIELDPERCENT, i)
+	condition:setParameter(CONDITION_PARAM_SKILL_MELEEPERCENT, i)
+	condition:setParameter(CONDITION_PARAM_SKILL_FISTPERCENT, i)
+
+	combat[i]:addCondition(condition)
+end
 
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, var)
-	local index = math.random(2, #parameters)
-	parameters[index].value = -math.random(1, 6)
-
-	for _, target in ipairs(combat:getTargets(creature, var)) do
-		target:addAttributeCondition({parameters[1], parameters[index]})
-	end
-	return true
+	return combat[math.random(90, 99)]:execute(creature, var)
 end
 
 spell:name("barbarian brutetamer skill reducer")
 spell:words("###38")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

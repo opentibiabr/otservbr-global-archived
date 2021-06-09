@@ -14,6 +14,7 @@ for i = 30, 40 do
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat[math.random(30, 40)]:execute(creature, var)
 end
@@ -22,6 +23,5 @@ spell:name("orshabaal skill reducer")
 spell:words("###200")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

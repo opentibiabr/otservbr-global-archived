@@ -23,11 +23,8 @@ function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 
-
 spell:name("azerus summon 2")
 spell:words("###132")
-spell:needTarget(false)
-spell:needLearn(true)
-spell:isAggressive(false)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

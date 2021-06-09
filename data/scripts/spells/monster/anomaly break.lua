@@ -22,6 +22,7 @@ local function anomalyBreak(pos)
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	local pos = creature:getPosition()
 	anomalyBreak(pos)
@@ -29,8 +30,6 @@ end
 
 spell:name("anomaly break")
 spell:words("###452")
-spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

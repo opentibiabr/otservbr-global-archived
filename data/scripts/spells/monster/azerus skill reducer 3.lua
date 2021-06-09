@@ -17,12 +17,10 @@ function spell.onCastSpell(creature, var)
 	return combat[math.random(45, 55)]:execute(creature, var)
 end
 
-
-
 spell:name("azerus skill reducer 3")
 spell:words("###94")
-spell:needTarget(true)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
 spell:register()

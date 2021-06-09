@@ -16,6 +16,7 @@ for i = 10, 25 do
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat[math.random(10, 25)]:execute(creature, var)
 end
@@ -24,7 +25,6 @@ spell:name("lethal lissy skill reducer")
 spell:words("###178")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:needDirection(true)
 spell:register()

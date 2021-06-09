@@ -21,3 +21,10 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat[math.random(45, 55)]:execute(creature, var)
 end
+
+spell:name("gnorre chyllson skill reducer")
+spell:words("###57")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

@@ -32,11 +32,9 @@ function spell.onCastSpell(creature, var)
 	return false
 end
 
-
 spell:name("furyosa deathball")
 spell:words("###122")
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

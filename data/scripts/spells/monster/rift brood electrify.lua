@@ -12,6 +12,7 @@ local area = createCombatArea(AREA_SQUARE1X1)
 combat:setArea(area)
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end

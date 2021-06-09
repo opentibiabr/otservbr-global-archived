@@ -29,3 +29,10 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("stone devourer paralyze")
+spell:words("###72")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needLearn(true)
+spell:register()

@@ -20,6 +20,7 @@ for i = 2, 2 do
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat[math.random(2, 2)]:execute(creature, var)
 end

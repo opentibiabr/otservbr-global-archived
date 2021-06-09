@@ -79,6 +79,7 @@ local function delayedCastSpell(cid, var)
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
     addEvent(delayedCastSpell, 7000, creature:getId(), var)
     return true

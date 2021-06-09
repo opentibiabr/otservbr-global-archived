@@ -30,6 +30,7 @@ end
 setCombatCallback(combat, CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end

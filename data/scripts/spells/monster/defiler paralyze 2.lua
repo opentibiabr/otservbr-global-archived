@@ -12,17 +12,15 @@ local area = createCombatArea(AREA_SQUARE1X1)
 	combat:addCondition(condition)
 
 
-	local spell = Spell("instant")
+local spell = Spell("instant")
 
-	function spell.onCastSpell(creature, var)
-		return combat:execute(creature, var)
-	end
-
+function spell.onCastSpell(creature, var)
+	return combat:execute(creature, var)
+end
 
 spell:name("defiler paralyze 2")
 spell:words("###65")
-spell:needTarget(false)
-spell:needLearn(true)
 spell:isAggressive(true)
 spell:blockWalls(true)
+spell:needLearn(true)
 spell:register()

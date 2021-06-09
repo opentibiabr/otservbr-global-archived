@@ -16,6 +16,7 @@ local area = createCombatArea(arr)
 
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(cid, var)
 	return doCombat(cid, combat, var)
 end

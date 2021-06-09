@@ -9,14 +9,13 @@ condition:addDamage(3, 10000, -25)
 combat:addCondition(condition)
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 
 spell:name("renegade knight")
 spell:words("##404")
-spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

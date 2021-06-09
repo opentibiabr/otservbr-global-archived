@@ -30,10 +30,7 @@ end
 
 spell:name("Heal Monster 9x9")
 spell:words("#####459")
-spell:group("healing")
-spell:needDirection(true)
-spell:isAggressive(false)
-spell:isBlockingWalls(true)
-spell:needTarget(false)
+spell:blockWalls(true)
 spell:needLearn(true)
+spell:needDirection(true)
 spell:register()

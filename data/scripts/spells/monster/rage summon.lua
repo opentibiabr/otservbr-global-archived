@@ -6,6 +6,7 @@ local area = createCombatArea(AREA_CIRCLE2X2)
 combat:setArea(area)
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 
 	if rageSummon < 3 then
@@ -18,8 +19,6 @@ end
 
 spell:name("rage summon")
 spell:words("###419")
-spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()

@@ -12,3 +12,11 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
+
+spell:name("spirit of earth paralyze")
+spell:words("###53")
+spell:isAggressive(true)
+spell:blockWalls(true)
+spell:needTarget(true)
+spell:needLearn(true)
+spell:register()

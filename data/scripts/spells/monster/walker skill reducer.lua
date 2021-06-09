@@ -69,6 +69,7 @@ for i = 45, 60 do
 end
 
 local spell = Spell("instant")
+
 function spell.onCastSpell(creature, var)
 	return combat[math.random(45, 60)]:execute(creature, var)
 end
@@ -77,6 +78,5 @@ spell:name("walker skill reducer")
 spell:words("##371")
 spell:isAggressive(true)
 spell:blockWalls(true)
-spell:needTarget(true)
 spell:needLearn(true)
 spell:register()
