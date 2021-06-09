@@ -21,6 +21,6 @@ end
 spell:name("firering")
 spell:words("###478")
 spell:needLearn(true)
-spell:exhaustion("2000")
+spell:cooldown("2000")
 spell:selfTarget(true)
 spell:register()

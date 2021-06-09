@@ -39,5 +39,5 @@ end
 spell:name("ravennousLavaLurkerWave")
 spell:words("###465")
 spell:needLearn(true)
-spell:exhaustion("2000")
+spell:cooldown("2000")
 spell:register()

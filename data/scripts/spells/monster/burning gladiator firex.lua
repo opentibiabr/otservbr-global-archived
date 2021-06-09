@@ -19,6 +19,6 @@ end
 spell:name("firex")
 spell:words("###479")
 spell:needLearn(true)
-spell:exhaustion("2000")
+spell:cooldown("2000")
 spell:selfTarget(true)
 spell:register()
