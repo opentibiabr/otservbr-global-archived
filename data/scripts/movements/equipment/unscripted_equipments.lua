@@ -1364,16 +1364,6 @@ if not equipmentsTable then
 			level = 180
 		}, -- pendulet
 		{
-			itemid = 34067,
-			type = "equip",
-			slot = "necklace",
-			level = 180,
-			vocation = {
-				{"Paladin", true},
-				{"Royal Paladin"}
-			}
-		}, -- enchanted pendulet
-		{
 			itemid = 34982,
 			type = "deequip",
 			slot = "necklace",
@@ -1467,10 +1457,20 @@ if not equipmentsTable then
 		}, -- pendulet
 		{
 			itemid = 34067,
+			type = "equip",
+			slot = "necklace",
+			level = 180,
+			vocation = {
+				{"Paladin", true},
+				{"Royal Paladin"}
+			}
+		}, -- enchanted pendulet
+		{
+			itemid = 34067,
 			type = "deequip",
 			slot = "necklace",
 			level = 180
-		}, -- pendulet
+		}, -- enchanted pendulet
 		{
 			itemid = 34066,
 			type = "equip",
