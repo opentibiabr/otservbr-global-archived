@@ -1359,12 +1359,6 @@ if not equipmentsTable then
 		}, -- yetislippers
 		{
 			itemid = 34983,
-			type = "deequip",
-			slot = "necklace",
-			level = 180
-		}, -- enchanted pendulet
-		{
-			itemid = 34983,
 			type = "equip",
 			slot = "necklace",
 			level = 180,
@@ -1372,6 +1366,12 @@ if not equipmentsTable then
 				{"Paladin", true},
 				{"Royal Paladin"}
 			}
+		}, -- enchanted pendulet
+		{
+			itemid = 34983,
+			type = "deequip",
+			slot = "necklace",
+			level = 180
 		}, -- enchanted pendulet
 		{
 			itemid = 34982,
