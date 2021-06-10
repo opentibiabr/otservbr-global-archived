@@ -1,5 +1,6 @@
 local config = {
 	bossName = "Faceless Bane",
+	storage = Storage.ThreatenedDreams.FacelessBaneTime,
 	requiredLevel = 250,
 	leverId = 10030,
 	timeToFightAgain = 20, -- In hour
@@ -29,8 +30,8 @@ function threatenedLever.onUse(player, item, fromPosition, target, toPosition, i
 		end
 
 		local team, participant = {}
-		for i = 1, #config.playerPositions do
-			participant = Tile(config.playerPositions[i]):getTopCreature()
+		for participantPos = 1, #config.playerPositions do
+			participant = Tile(config.playerPositions[participantPos]):getTopCreature()
 
 			-- Check there is a participant player
 			if participant and participant:isPlayer() then
@@ -41,7 +42,7 @@ function threatenedLever.onUse(player, item, fromPosition, target, toPosition, i
 				end
 
 				-- Check participant boss timer
-				if config.daily and participant:getStorageValue(Storage.ThreatenedDreams.FacelessBaneTime) > os.time() then
+				if config.daily and participant:getStorageValue(config.storage) > os.time() then
 					player:getPosition():sendMagicEffect(CONST_ME_POFF)
 					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You or a member in your team have to wait ".. config.timeToFightAgain .."  hours to face Faceless Bane again!")
 					return true
@@ -51,9 +52,9 @@ function threatenedLever.onUse(player, item, fromPosition, target, toPosition, i
 		end
 
 		-- Check if a team currently inside the boss room
-		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
-		for i = 1, #specs do
-			spec = specs[i]
+		local specs, _ = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
+		for specPlayers = 1, #specs do
+			spec = specs[specPlayers]
 			if spec:isPlayer() then
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "There's someone fighting with Faceless Bane.")
 				return true
@@ -66,18 +67,18 @@ function threatenedLever.onUse(player, item, fromPosition, target, toPosition, i
 		Game.createMonster(config.bossName, config.bossPosition)
 
 		-- Teleport team participants
-		for i = 1, #team do
-			team[i]:getPosition():sendMagicEffect(CONST_ME_POFF)
-			team[i]:teleportTo(config.teleportPosition)
-			team[i]:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have ".. config.timeToDefeatBoss .." minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.")
+		for teamPlayers = 1, #team do
+			team[teamPlayers]:getPosition():sendMagicEffect(CONST_ME_POFF)
+			team[teamPlayers]:teleportTo(config.teleportPosition)
+			team[teamPlayers]:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have ".. config.timeToDefeatBoss .." minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.")
 			-- Assign boss timer
-			team[i]:setStorageValue(Storage.ThreatenedDreams.FacelessBaneTime, os.time() + config.timeToFightAgain * 60 * 60) -- 20 hours
+			team[teamPlayers]:setStorageValue(config.storage, os.time() + config.timeToFightAgain * 60 * 60) -- 20 hours
 			item:transform(config.leverId)
 			
 				addEvent(function()
-					local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
-						for i = 1, #specs do
-							spec = specs[i]
+					local spectators, _ = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
+						for spectatorsPos = 1, #spectators do
+							spec = spectators[spectatorsPos]
 							if spec:isPlayer() then
 								spec:teleportTo(config.specPos)
 								spec:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
