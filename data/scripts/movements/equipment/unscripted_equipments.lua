@@ -1362,12 +1362,6 @@ if not equipmentsTable then
 			type = "deequip",
 			slot = "necklace",
 			level = 180
-		}, -- pendulet
-		{
-			itemid = 34982,
-			type = "deequip",
-			slot = "necklace",
-			level = 180
 		}, -- enchanted pendulet
 		{
 			itemid = 34983,
@@ -1378,13 +1372,39 @@ if not equipmentsTable then
 				{"Paladin", true},
 				{"Royal Paladin"}
 			}
-		}, -- sleep shawl
+		}, -- enchanted pendulet
+		{
+			itemid = 34982,
+			type = "equip",
+			slot = "necklace",
+			level = 180,
+			vocation = {
+				{"Paladin", true},
+				{"Royal Paladin"}
+			}
+		}, -- enchanted pendulet
+		{
+			itemid = 34982,
+			type = "deequip",
+			slot = "necklace",
+			level = 180
+		}, -- enchanted pendulet
+		{
+			itemid = 34981,
+			type = "equip",
+			slot = "necklace",
+			level = 180,
+			vocation = {
+				{"Paladin", true},
+				{"Royal Paladin"}
+			}
+		}, -- enchanted sleep shawl
 		{
 			itemid = 34981,
 			type = "deequip",
 			slot = "necklace",
 			level = 180
-		}, -- sleep shawl
+		}, -- enchanted sleep shawl
 		{
 			itemid = 34980,
 			type = "equip",
@@ -1446,7 +1466,7 @@ if not equipmentsTable then
 			level = 180
 		}, -- ectoplasmic shield
 		{
-			itemid = 34068,
+			itemid = 34067,
 			type = "equip",
 			slot = "necklace",
 			level = 180,
@@ -1457,20 +1477,10 @@ if not equipmentsTable then
 		}, -- pendulet
 		{
 			itemid = 34067,
-			type = "equip",
-			slot = "necklace",
-			level = 180,
-			vocation = {
-				{"Paladin", true},
-				{"Royal Paladin"}
-			}
-		}, -- enchanted pendulet
-		{
-			itemid = 34067,
 			type = "deequip",
 			slot = "necklace",
 			level = 180
-		}, -- enchanted pendulet
+		}, -- pendulet
 		{
 			itemid = 34066,
 			type = "equip",
