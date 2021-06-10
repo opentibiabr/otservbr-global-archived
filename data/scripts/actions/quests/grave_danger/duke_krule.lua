@@ -76,9 +76,9 @@ function dukekruleLever.onUse(player, item, fromPosition, target, toPosition, is
 			item:transform(config.leverId)
 
 				addEvent(function()
-					local specs, _ = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
-						for spectatorsPos = 1, #specs do
-							spec = specs[spectatorsPos]
+					local spectators, _ = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
+						for spectatorsPos = 1, #spectators do
+							spec = spectators[spectatorsPos]
 							if spec:isPlayer() then
 								spec:teleportTo(config.specPos)
 								spec:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
