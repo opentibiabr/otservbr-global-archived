@@ -676,6 +676,16 @@ if not equipmentsTable then
 			}
 		}, -- lion ring
 		{
+			itemid = 38851,
+			type = "equip",
+			slot = "ammo"
+		}, -- Lit Torch (Sparkling)
+		{
+			itemid = 38851,
+			type = "deequip",
+			slot = "ammo"
+		}, -- Lit Torch (Sparkling)
+		{
 			itemid = 37540,
 			type = "equip",
 			slot = "armor"
@@ -1356,13 +1366,13 @@ if not equipmentsTable then
 				{"Paladin", true},
 				{"Royal Paladin"}
 			}
-		}, -- pendulet
+		}, -- enchanted pendulet
 		{
 			itemid = 34983,
 			type = "deequip",
 			slot = "necklace",
 			level = 180
-		}, -- pendulet
+		}, -- enchanted pendulet
 		{
 			itemid = 34982,
 			type = "equip",
@@ -1388,13 +1398,13 @@ if not equipmentsTable then
 				{"Paladin", true},
 				{"Royal Paladin"}
 			}
-		}, -- sleep shawl
+		}, -- enchanted sleep shawl
 		{
 			itemid = 34981,
 			type = "deequip",
 			slot = "necklace",
 			level = 180
-		}, -- sleep shawl
+		}, -- enchanted sleep shawl
 		{
 			itemid = 34980,
 			type = "equip",
@@ -1681,6 +1691,16 @@ if not equipmentsTable then
 			type = "deequip",
 			slot = "backpack"
 		}, -- book backpack
+		{
+			itemid = 33276,
+			type = "equip",
+			slot = "ammo"
+		}, -- Bone Fiddle
+		{
+			itemid = 33276,
+			type = "deequip",
+			slot = "ammo"
+		}, -- Bone Fiddle
 		{
 			itemid = 33267,
 			type = "equip",
@@ -2849,6 +2869,36 @@ if not equipmentsTable then
 			type = "deequip",
 			slot = "shield"
 		}, -- mathmaster shield (souvenir)
+		{
+			itemid = 29213,
+			type = "equip",
+			slot = "ammo"
+		}, -- Sun Catcher
+		{
+			itemid = 29213,
+			type = "deequip",
+			slot = "ammo"
+		}, -- Sun Catcher
+		{
+			itemid = 29212,
+			type = "equip",
+			slot = "ammo"
+		}, -- starlight vial
+		{
+			itemid = 29212,
+			type = "deequip",
+			slot = "ammo"
+		}, -- starlight vial
+		{
+			itemid = 29211,
+			type = "equip",
+			slot = "ammo"
+		}, -- moon mirror
+		{
+			itemid = 29211,
+			type = "deequip",
+			slot = "ammo"
+		}, -- moon mirror
 		{
 			itemid = 29210,
 			type = "equip",
