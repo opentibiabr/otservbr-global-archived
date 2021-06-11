@@ -27,5 +27,5 @@ rune:cooldown(2 * 1000)
 rune:groupCooldown(2 * 1000)
 rune:needTarget(true)
 rune:isBlocking(true) -- True = Solid / False = Creature
-rune:vocation("Sorcerer", "Druid", "Paladin", "Knight", true, true, true, true)
+rune:vocation("Sorcerer;true", "Druid;true", "Paladin;true", "Knight;true")
 rune:register()
