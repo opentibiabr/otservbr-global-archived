@@ -16,3 +16,13 @@ combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 function onCastSpell(creature, var, isHotkey)
 	return combat:execute(creature, var)
 end
+
+function onCastSpell(creature, var, isHotkey)
+    if Monster(var:getNumber(1073762188)) then
+		creature:sendCancelMessage("Sorry, not possible.")
+	creature:getPosition():sendMagicEffect(CONST_ME_POFF)
+	return false
+	else
+		return combat:execute(creature, var)
+	end
+end
