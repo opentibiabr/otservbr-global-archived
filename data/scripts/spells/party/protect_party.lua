@@ -71,7 +71,7 @@ end
 spell:name("Protect Party")
 spell:words("utamo mas sio")
 spell:group("support")
-spell:vocation("paladin;true", "royal paladin")
+spell:vocation("paladin;true", "royal paladin;true")
 spell:id(127)
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)

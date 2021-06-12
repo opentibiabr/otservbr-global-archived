@@ -7,7 +7,7 @@ end
 spell:name("Conjure Explosive Arrow")
 spell:words("exevo con flam")
 spell:group("support")
-spell:vocation("paladin;true", "royal paladin")
+spell:vocation("paladin;true", "royal paladin;true")
 spell:id(49)
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)

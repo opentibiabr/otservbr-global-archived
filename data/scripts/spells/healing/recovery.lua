@@ -18,7 +18,7 @@ end
 spell:name("Recovery")
 spell:words("utura")
 spell:group("healing")
-spell:vocation("knight;true", "elite knight", "paladin;true", "royal paladin")
+spell:vocation("knight;true", "elite knight;true", "paladin;true", "royal paladin;true")
 spell:id(159)
 spell:cooldown(1 * 60 * 1000)
 spell:groupCooldown(1 * 1000)

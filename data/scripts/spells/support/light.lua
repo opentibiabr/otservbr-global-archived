@@ -17,7 +17,7 @@ end
 spell:name("Light")
 spell:words("utevo lux")
 spell:group("support")
-spell:vocation("druid;true", "elder druid", "knight;true", "elite knight", "paladin;true", "royal paladin", "sorcerer;true", "master sorcerer")
+spell:vocation("druid;true", "elder druid;true", "knight;true", "elite knight;true", "paladin;true", "royal paladin;true", "sorcerer;true", "master sorcerer;true")
 spell:id(10)
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)

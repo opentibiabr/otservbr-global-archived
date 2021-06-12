@@ -21,7 +21,7 @@ end
 spell:name("Divine Healing")
 spell:words("exura san")
 spell:group("healing")
-spell:vocation("paladin;true", "royal paladin")
+spell:vocation("paladin;true", "royal paladin;true")
 spell:id(125)
 spell:cooldown(1 * 1000)
 spell:groupCooldown(1 * 1000)

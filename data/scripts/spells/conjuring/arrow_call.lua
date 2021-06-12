@@ -7,7 +7,7 @@ end
 spell:name("Arrow Call")
 spell:words("exevo infir con")
 spell:group("support")
-spell:vocation("paladin;true", "royal paladin")
+spell:vocation("paladin;true", "royal paladin;true")
 spell:id(176)
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)

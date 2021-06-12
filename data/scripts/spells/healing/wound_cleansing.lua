@@ -21,7 +21,7 @@ end
 spell:name("Wound Cleansing")
 spell:words("exura ico")
 spell:group("healing")
-spell:vocation("knight;true", "elite knight")
+spell:vocation("knight;true", "elite knight;true")
 spell:id(123)
 spell:cooldown(1 * 1000)
 spell:groupCooldown(1 * 1000)
