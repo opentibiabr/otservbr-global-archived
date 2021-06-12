@@ -22,7 +22,7 @@ end
 spell:name("Heal Friend")
 spell:words("exura sio")
 spell:group("healing")
-spell:vocation("druid", "elder druid")
+spell:vocation("druid;true", "elder druid")
 spell:id(84)
 spell:cooldown(1 * 1000)
 spell:groupCooldown(1 * 1000)

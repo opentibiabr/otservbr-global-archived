@@ -7,7 +7,7 @@ end
 spell:name("Conjure Poisoned Arrow")
 spell:words("exevo con pox")
 spell:group("support")
-spell:vocation("paladin", "royal paladin")
+spell:vocation("paladin;true", "royal paladin")
 spell:id(48)
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)

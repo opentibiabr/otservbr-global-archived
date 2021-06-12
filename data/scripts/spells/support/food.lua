@@ -23,7 +23,7 @@ end
 spell:name("Food")
 spell:words("exevo pan")
 spell:group("support")
-spell:vocation("druid", "elder druid")
+spell:vocation("druid;true", "elder druid")
 spell:id(42)
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)

@@ -17,7 +17,7 @@ end
 spell:name("Ultimate Light")
 spell:words("utevo vis lux")
 spell:group("support")
-spell:vocation("druid", "elder druid", "sorcerer", "master sorcerer")
+spell:vocation("druid;true", "elder druid", "sorcerer:true", "master sorcerer")
 spell:id(75)
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)

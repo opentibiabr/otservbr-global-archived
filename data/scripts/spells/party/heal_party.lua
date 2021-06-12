@@ -72,7 +72,7 @@ end
 spell:name("Heal Party")
 spell:words("utura mas sio")
 spell:group("support")
-spell:vocation("druid", "elder druid")
+spell:vocation("druid;true", "elder druid")
 spell:id(128)
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)

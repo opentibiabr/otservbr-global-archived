@@ -7,7 +7,7 @@ end
 spell:name("Disintegrate Rune")
 spell:words("adito tera")
 spell:group("support")
-spell:vocation("druid", "elder druid", "paladin", "royal paladin", "sorcerer", "master sorcerer")
+spell:vocation("druid;true", "elder druid", "paladin;true", "royal paladin", "sorcerer;true", "master sorcerer")
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)
 spell:level(21)

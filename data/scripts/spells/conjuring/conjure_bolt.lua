@@ -7,7 +7,7 @@ end
 spell:name("Conjure Bolt")
 spell:words("exevo con mort")
 spell:group("support")
-spell:vocation("paladin", "royal paladin")
+spell:vocation("paladin;true", "royal paladin")
 spell:id(79)
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)

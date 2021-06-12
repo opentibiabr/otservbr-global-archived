@@ -71,7 +71,7 @@ end
 spell:name("Enchant Party")
 spell:words("utori mas sio")
 spell:group("support")
-spell:vocation("sorcerer", "master sorcerer")
+spell:vocation("sorcerer;true", "master sorcerer")
 spell:id(129)
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)

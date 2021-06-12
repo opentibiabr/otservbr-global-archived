@@ -72,7 +72,7 @@ end
 spell:name("Train Party")
 spell:words("utito mas sio")
 spell:group("support")
-spell:vocation("knight", "elite knight")
+spell:vocation("knight;true", "elite knight")
 spell:id(126)
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)

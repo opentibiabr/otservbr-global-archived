@@ -12,7 +12,7 @@ end
 spell:name("Cure Poison")
 spell:words("exana pox")
 spell:group("healing")
-spell:vocation("druid", "elder druid", "knight", "elite knight", "paladin", "royal paladin", "sorcerer", "master sorcerer")
+spell:vocation("druid;true", "elder druid", "knight;true", "elite knight", "paladin;true", "royal paladin", "sorcerer;true", "master sorcerer")
 spell:id(29)
 spell:cooldown(6 * 1000)
 spell:groupCooldown(1 * 1000)

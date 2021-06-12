@@ -7,7 +7,7 @@ end
 spell:name("Ultimate Healing Rune")
 spell:words("adura vita")
 spell:group("support")
-spell:vocation("druid", "elder druid")
+spell:vocation("druid;true", "elder druid")
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)
 spell:level(24)

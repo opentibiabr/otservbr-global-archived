@@ -17,7 +17,7 @@ end
 spell:name("Challenge")
 spell:words("exeta res")
 spell:group("support")
-spell:vocation("elite knight")
+spell:vocation("elite knight;true")
 spell:id(93)
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)
