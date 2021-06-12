@@ -7,7 +7,7 @@ end
 spell:name("Animate Dead Rune")
 spell:words("adana mort")
 spell:group("support")
-spell:vocation("druid;true", "elder druid", "sorcerer:true", "master sorcerer")
+spell:vocation("druid;true", "elder druid", "sorcerer;true", "master sorcerer")
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)
 spell:level(27)

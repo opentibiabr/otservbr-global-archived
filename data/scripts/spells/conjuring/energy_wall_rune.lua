@@ -7,7 +7,7 @@ end
 spell:name("Energy Wall Rune")
 spell:words("adevo mas grav vis")
 spell:group("support")
-spell:vocation("druid;true", "elder druid", "sorcerer:true", "master sorcerer")
+spell:vocation("druid;true", "elder druid", "sorcerer;true", "master sorcerer")
 spell:cooldown(2 * 1000)
 spell:groupCooldown(2 * 1000)
 spell:level(41)
