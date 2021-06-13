@@ -153,6 +153,11 @@ void loadModules() {
 		"data/scripts/libs");
 	modulesLoadHelper(g_vocations.loadFromXml(),
 		"data/XML/vocations.xml");
+	if(g_config.getBoolean(ConfigManager::EVENTS_UPDATE))
+	{
+		modulesLoadHelper(g_game.updateEventXml(),
+			"event.xml update");
+	}
 	modulesLoadHelper(g_game.loadScheduleEventFromXml(),
 		"data/XML/events.xml");
 	modulesLoadHelper(Outfits::getInstance().loadFromXml(),

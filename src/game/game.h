@@ -123,6 +123,8 @@ class Game
 		void removeTeamFinderListed(uint32_t leaderGuid) {
 			teamFinderMap.erase(leaderGuid);
 		}
+
+		bool updateEventXml();
 		// Event schedule xml load
 		bool loadScheduleEventFromXml();
 

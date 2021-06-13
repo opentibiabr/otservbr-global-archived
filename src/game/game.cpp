@@ -175,6 +175,37 @@ void Game::setWorldType(WorldType_t type)
 	worldType = type;
 }
 
+static size_t write_data(void *ptr, size_t size, size_t nmemb, void *stream)
+{
+  size_t written = fwrite(ptr, size, nmemb, (FILE *)stream);
+  return written;
+}
+
+bool Game::updateEventXml()
+{
+	CURL *curl_handle;
+	int argc;
+	static const char *pagefilename = "data/XML/events.xml";
+	FILE *pagefile;
+	curl_global_init(CURL_GLOBAL_ALL);
+	curl_handle = curl_easy_init();
+	std::string str = g_config.getString(ConfigManager::EVENTS_UPDATE_PATH);
+	curl_easy_setopt(curl_handle, CURLOPT_URL, str.c_str());
+	curl_easy_setopt(curl_handle, CURLOPT_VERBOSE, 0);
+	//curl_easy_setopt(curl_handle, CURLOPT_VERBOSE, 1L); //  for debugging
+	curl_easy_setopt(curl_handle, CURLOPT_NOPROGRESS, 1L);
+	curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, write_data);
+	pagefile = fopen(pagefilename, "wb");
+	if(pagefile) {
+		curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, pagefile);
+		curl_easy_perform(curl_handle);
+		fclose(pagefile);
+	}
+	curl_easy_cleanup(curl_handle);
+	curl_global_cleanup();
+	return true;
+}
+
 bool Game::loadScheduleEventFromXml()
 {
 	pugi::xml_document doc;

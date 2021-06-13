@@ -63,6 +63,11 @@ thunderEffect = false
 freeQuests = false
 allConsoleLog = false
 
+-- Update events.xml from website
+-- No support cloudflare redirects and https
+eventsUpdate = false
+eventsUpdatePath = "http://127.0.0.1/events.xml"
+
 -- Deaths
 -- NOTE: Leave deathLosePercent as -1 if you want to use the default
 -- death penalty formula. For the old formula, set it to 10. For

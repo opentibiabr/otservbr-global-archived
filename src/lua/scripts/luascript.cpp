@@ -2131,6 +2131,8 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::WEATHER_THUNDER)
 	registerEnumIn("configKeys", ConfigManager::FREE_QUESTS)
 	registerEnumIn("configKeys", ConfigManager::ALL_CONSOLE_LOG)
+	registerEnumIn("configKeys", ConfigManager::EVENTS_UPDATE)
+	registerEnumIn("configKeys", ConfigManager::EVENTS_UPDATE_PATH)
 
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_NOTIFY_MESSAGE)
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_NOTIFY_DURATION)

@@ -195,7 +195,10 @@ bool ConfigManager::load()
 	string[MOTD] = getGlobalString(L, "motd", "");
 	string[WORLD_TYPE] = getGlobalString(L, "worldType", "pvp");
 	string[STORE_IMAGES_URL] = getGlobalString(L, "coinImagesURL", "");
-  string[DISCORD_WEBHOOK_URL] = getGlobalString(L, "discordWebhookURL", "");
+	string[DISCORD_WEBHOOK_URL] = getGlobalString(L, "discordWebhookURL", "");
+
+	boolean[EVENTS_UPDATE] = getGlobalBoolean(L, "eventsUpdate", false);
+	string[EVENTS_UPDATE_PATH] = getGlobalString(L, "eventsUpdatePath", "http://127.0.0.1/events.xml");
 
 	integer[MAX_PLAYERS] = getGlobalNumber(L, "maxPlayers");
 	integer[PZ_LOCKED] = getGlobalNumber(L, "pzLocked", 60000);
