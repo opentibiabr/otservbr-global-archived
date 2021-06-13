@@ -16,12 +16,18 @@ combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 local rune = Spell("rune")
 
 function rune.onCastSpell(creature, var, isHotkey)
-	return combat:execute(creature, var)
+    if Monster(var:getNumber(1073762188)) then
+		creature:sendCancelMessage("Sorry, not possible.")
+	creature:getPosition():sendMagicEffect(CONST_ME_POFF)
+	return false
+	else
+		return combat:execute(creature, var)
+	end
 end
 
 rune:group("healing")
 rune:id(4)
-rune:name("Intense Healing Run")
+rune:name("Intense Healing Rune")
 rune:runeId(2265)
 rune:allowFarUse(true)
 rune:charges(1)
