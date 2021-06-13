@@ -16,13 +16,7 @@ combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 local rune = Spell("rune")
 
 function rune.onCastSpell(creature, var, isHotkey)
-    if Monster(var:getNumber(1073762188)) then
-		creature:sendCancelMessage("Sorry, not possible.")
-	creature:getPosition():sendMagicEffect(CONST_ME_POFF)
-	return false
-	else
-		return combat:execute(creature, var)
-	end
+	return combat:execute(creature, var)
 end
 
 rune:group("healing")
