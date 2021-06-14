@@ -3056,17 +3056,14 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats()
 				{
 					absorbs[i] += it.abilities->absorbPercent[i];
 				}
-				for (uint16_t i = 0; i < COMBAT_COUNT; ++i)
+				uint8_t slots = it.imbuingSlots;
+				if (slots)
 				{
-					uint8_t slots = it.imbuingSlots;
-					if (slots)
-					{
-						for (uint8_t imbuSlot = 0; imbuSlot < slots; imbuSlot++) {
-							uint32_t info = item->getImbuement(imbuSlot);
-							if (info >> 8) {
-								Imbuement* ib = g_imbuements->getImbuement(info & 0xFF);
-								absorbs[i] += ib->absorbPercent[i];
-							}
+					for (uint8_t imbuSlot = 0; imbuSlot < slots; imbuSlot++) {
+						uint32_t info = item->getImbuement(imbuSlot);
+						if (info >> 8) {
+							Imbuement* ib = g_imbuements->getImbuement(info & 0xFF);
+							absorbs[i] += ib->absorbPercent[i];
 						}
 					}
 				}
