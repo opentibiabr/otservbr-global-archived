@@ -3056,7 +3056,7 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats()
 				{
 					absorbs[i] += it.abilities->absorbPercent[i];
 				}
-				for (uint16_t imbuSlot = 0; imbuSlot < COMBAT_COUNT; ++imbuSlot)
+				for (uint16_t i = 0; i < COMBAT_COUNT; ++i)
 				{
 					uint8_t slots = it.imbuingSlots;
 					if (slots)
