@@ -196,17 +196,18 @@ function clearBossRoom(playerId, bossId, centerPosition, rangeX, rangeY, exitPos
 	end
 end
 
-function clearRoom(centerPosition, rangeX, rangeY, resetGlobalStorage)
+function clearRoom(centerPosition, rangeX, rangeY, exitPosition)
 	local spectators,
 	spectator = Game.getSpectators(centerPosition, false, false, rangeX, rangeX, rangeY, rangeY)
 	for i = 1, #spectators do
 		spectator = spectators[i]
-		if spectator:isMonster() then
+		if spectator:isPlayer() then
+			spectator:teleportTo(exitPosition)
+			exitPosition:sendMagicEffect(CONST_ME_TELEPORT)
+			spectator:say("Time out! You were teleported out by strange forces.", TALKTYPE_MONSTER_SAY)
+		elseif spectator:isMonster() then
 			spectator:remove()
 		end
-	end
-	if Game.getStorageValue(resetGlobalStorage) == 1 then
-		Game.setStorageValue(resetGlobalStorage, -1)
 	end
 end
 
