@@ -124,7 +124,27 @@ function Position:compare(position)
 	return self.x == position.x and self.y == position.y and self.z == position.z
 end
 
-function Position.hasPlayer(centerPosition, rangeX, rangeY)
+function Position:checkLeverPlayers(player, leverPosition, playersPositions, message)
+	if self == Position(leverPosition) then
+		for i = 1, #playersPositions do
+			local creature = Tile(playersPositions[i].fromPos):getTopCreature()
+			if not creature then
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message)
+				return true
+			end
+		end
+	end
+end
+
+function Position:checkRoomPlayers(rangeX, rangeY)
+	local spectators = Game.getSpectators(self, false, true, rangeX, rangeX, rangeY, rangeY)
+	if #spectators ~= 0 then
+		return true
+	end
+	return false
+end
+
+function Position.hasPlayerInArea(centerPosition, rangeX, rangeY)
 	local spectators = Game.getSpectators(centerPosition, false, true, rangeX, rangeX, rangeY, rangeY)
 	if #spectators ~= 0 then
 		return true
