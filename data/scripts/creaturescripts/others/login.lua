@@ -40,9 +40,6 @@ function playerLogin.onLogin(player)
 		player:sendTextMessage(MESSAGE_LOGIN, string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved())))
 	end
 
-	local playerId = player:getId()
-
-	-- End kick other players from account
 	if isPremium(player) then
 		player:setStorageValue(Storage.PremiumAccount, 1)
 	end
@@ -117,6 +114,7 @@ function playerLogin.onLogin(player)
 	end
 	-- End recruiter system
 
+	local playerId = player:getId()
 	DailyReward.init(playerId)
 
 	player:loadSpecialStorage()
