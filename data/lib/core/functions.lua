@@ -196,6 +196,34 @@ function clearBossRoom(playerId, bossId, centerPosition, rangeX, rangeY, exitPos
 	end
 end
 
+function removeAllItemsFromRoom(centerPosition, rangeX, rangeY, resetGlobalStorage)
+	local topLeftCorner = Position(centerPosition.x - rangeX, centerPosition.y - rangeY, centerPosition.z)
+	local rigtBottomCorner = Position(centerPosition.x + rangeX, centerPosition.y + rangeY, centerPosition.z)
+	for x = topLeftCorner.x, rigtBottomCorner.x do
+		for y = topLeftCorner.y, rigtBottomCorner.y do
+			local tile = Tile(Position(x, y, centerPosition.z))
+			removeMovableAndFieldItems(tile)
+		end
+	end
+end
+
+function  removeMovableAndFieldItems(tile)
+	if tile then
+		local items = tile:getItems()
+		if items then
+			for i = 1, #items do
+				local itemType = ItemType(items[i]:getId())
+				if itemType and itemType:getId() then
+					if itemType:isMovable() or itemType:isMagicField() then
+						items[i]:remove()
+					end
+				end
+			end
+		end
+	end
+end
+
+
 function clearRoom(centerPosition, rangeX, rangeY, resetGlobalStorage)
 	local spectators,
 	spectator = Game.getSpectators(centerPosition, false, false, rangeX, rangeX, rangeY, rangeY)

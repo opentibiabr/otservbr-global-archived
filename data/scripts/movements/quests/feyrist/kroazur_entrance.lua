@@ -37,6 +37,7 @@ function kroazurEntrance.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 	clearRoom(teleport.bossPos, teleport.range, teleport.range, fromPosition)
+	removeAllItemsFromRoom(teleport.bossPos, teleport.range, teleport.range )
 	local monster = Game.createMonster(teleport.bossName, teleport.bossPos, true, true)
 	if not monster then
 		return true
