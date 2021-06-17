@@ -10,7 +10,6 @@ announcementChannels = {
 
 -- Example of notification (After you do the config):
 -- Webhook.specialSend("Server save", message, WEBHOOK_COLOR_WARNING, announcementChannels["serverAnnouncements"]) -- This is going to send a message into your server announcements channel
--- https://media.discordapp.net/attachments/855194130565431356/855194198814752838/unknown.png (Example of how should be the setup)
 
 --[[ 
 	Dev Comment: This lib can be used to add special webhook channels 
