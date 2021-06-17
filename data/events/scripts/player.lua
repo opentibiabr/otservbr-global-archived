@@ -482,14 +482,18 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 	end
 
 	-- Players cannot throw items on teleports
-	if blockTeleportTrashing and toPosition.x ~= CONTAINER_POSITION then
-		local thing = Tile(toPosition):getItemByType(ITEM_TYPE_TELEPORT)
-		if thing then
-			self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+function Player:onMoveItem(item, count, fromPosition, toPosition)
+	local tile = toPosition:getTile()
+	if tile then
+		local thing = tile:getItemByType(ITEM_TYPE_TELEPORT)
+		if thing ~= nil then
+			self:sendCancelMessage("Sorry, not possible.")
 			self:getPosition():sendMagicEffect(CONST_ME_POFF)
 			return false
 		end
 	end
+	return true
+end
 
 	if tile and tile:getItemById(370) then -- Trapdoor
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
