@@ -16,3 +16,4 @@ announcementChannels = {
 	where you are going to send your messages. Webhook.specialSend was designed
 	to be used with countless posibilities.	
 ]]
+
