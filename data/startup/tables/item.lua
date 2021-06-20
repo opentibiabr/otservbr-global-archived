@@ -540,5 +540,20 @@ ItemUnique = {
 	[40081] = {
 		itemId = 12665,
 		itemPos = {x = 31978, y = 32184, z = 10}
+	},
+	-- The Sharttered Isles Quest
+	-- Path: data\scripts\movements\quests\the_sharttered_isles\energy_barrier.lua
+	-- Energy Barrier
+	[40082] = {
+		itemId = 6117,
+		itemPos = {x = 32091, y = 32575, z = 8}
+	},
+	[40083] = {
+		itemId = 6117,
+		itemPos = {x = 32091, y = 32576, z = 8}
+	},
+	[40084] = {
+		itemId = 6117,
+		itemPos = {x = 32091, y = 32577, z = 8}
 	}
 }
