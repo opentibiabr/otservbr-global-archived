@@ -1111,7 +1111,7 @@ void Player::inImbuing(Item* item)
 	}
 }
 
-size_t Player::getDeffFromImbuements(CombatType_t type, slots_t slot)
+int16_t Player::getDeffFromImbuements(CombatType_t type, slots_t slot)
 {
 	int16_t imbuDeffStats = 0;
 
