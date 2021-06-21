@@ -1111,6 +1111,36 @@ void Player::inImbuing(Item* item)
 	}
 }
 
+size_t Player::getDeffFromImbuements(CombatType_t type, slots_t slot)
+{
+	int16_t imbuDeffStats = 0;
+
+	Item* item = getInventoryItem(static_cast<slots_t>(slot));
+
+	if (!item)
+	{
+		imbuDeffStats;
+	}
+
+	const ItemType& it = Item::items[item->getID()];
+	uint8_t slots = it.imbuingSlots;
+
+	if (slots)
+	{
+		for (uint8_t imbuSlot = 0; imbuSlot < slots; imbuSlot++)
+		{
+			uint32_t info = item->getImbuement(imbuSlot);
+
+			if (info >> 8) {
+				Imbuement* ib = g_imbuements->getImbuement(info & 0xFF);
+				imbuDeffStats += ib->absorbPercent[combatTypeToIndex(type)];
+			}
+		}
+	}
+	return imbuDeffStats;
+}
+
+
 void Player::setWriteItem(Item* item, uint16_t maxWriteLength /*= 0*/)
 {
 	windowTextId++;

@@ -3033,19 +3033,20 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats()
 				absorbs[10] += it.abilities->absorbPercent[10];
 				absorbs[11] += it.abilities->absorbPercent[11];
 			}
-			for (uint16_t i = 0; i < COMBAT_COUNT; ++i)
+			else
 			{
-				uint8_t slots = it.imbuingSlots;
-				if(slots)
-				{
-					for (uint8_t imbuSlot = 0; imbuSlot < slots; imbuSlot++) {
-						uint32_t info = item->getImbuement(imbuSlot);
-						if (info >> 8) {
-							Imbuement* ib = g_imbuements->getImbuement(info & 0xFF);
-							absorbs[i] += ib->absorbPercent[i];
-						}
-					}
-				}
+				absorbs[0] += player->getDeffFromImbuements(indexToCombatType(0), static_cast<slots_t>(slot));
+				absorbs[1] += player->getDeffFromImbuements(indexToCombatType(1), static_cast<slots_t>(slot));
+				absorbs[2] += player->getDeffFromImbuements(indexToCombatType(2), static_cast<slots_t>(slot));
+				absorbs[3] += player->getDeffFromImbuements(indexToCombatType(3), static_cast<slots_t>(slot));
+				absorbs[4] += player->getDeffFromImbuements(indexToCombatType(4), static_cast<slots_t>(slot));
+				absorbs[5] += player->getDeffFromImbuements(indexToCombatType(5), static_cast<slots_t>(slot));
+				absorbs[6] += player->getDeffFromImbuements(indexToCombatType(6), static_cast<slots_t>(slot));
+				absorbs[7] += player->getDeffFromImbuements(indexToCombatType(7), static_cast<slots_t>(slot));
+				absorbs[8] += player->getDeffFromImbuements(indexToCombatType(8), static_cast<slots_t>(slot));
+				absorbs[9] += player->getDeffFromImbuements(indexToCombatType(9), static_cast<slots_t>(slot));
+				absorbs[10] += player->getDeffFromImbuements(indexToCombatType(10), static_cast<slots_t>(slot));
+				absorbs[11] += player->getDeffFromImbuements(indexToCombatType(11), static_cast<slots_t>(slot));
 			}
 		}
 		else
@@ -3056,17 +3057,7 @@ void ProtocolGame::sendCyclopediaCharacterCombatStats()
 				{
 					absorbs[i] += it.abilities->absorbPercent[i];
 				}
-				uint8_t slots = it.imbuingSlots;
-				if (slots)
-				{
-					for (uint8_t imbuSlot = 0; imbuSlot < slots; imbuSlot++) {
-						uint32_t info = item->getImbuement(imbuSlot);
-						if (info >> 8) {
-							Imbuement* ib = g_imbuements->getImbuement(info & 0xFF);
-							absorbs[i] += ib->absorbPercent[i];
-						}
-					}
-				}
+				absorbs[i] += player->getDeffFromImbuements(indexToCombatType(i), static_cast<slots_t>(slot));
 			}
 		}
 	}

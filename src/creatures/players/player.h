@@ -469,6 +469,8 @@ class Player final : public Creature, public Cylinder
 		}
 		void inImbuing(Item* item);
 
+		size_t Player::getDeffFromImbuements(CombatType_t type, slots_t slot);
+
 		void addBlessing(uint8_t index, uint8_t count) {
 			if (blessings[index - 1] == 255) {
 				return;
