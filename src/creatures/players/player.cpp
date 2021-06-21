@@ -1119,7 +1119,7 @@ size_t Player::getDeffFromImbuements(CombatType_t type, slots_t slot)
 
 	if (!item)
 	{
-		imbuDeffStats;
+		return imbuDeffStats;
 	}
 
 	const ItemType& it = Item::items[item->getID()];
