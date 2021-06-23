@@ -83,7 +83,7 @@ bool Scripts::loadScriptSystems()
 
 	g_weapons->loadDefaults();
 
-  g_spells = new Spells();
+	g_spells = new Spells();
 	if (!g_spells) {
 		return false;
 	}
