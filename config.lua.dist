@@ -58,10 +58,14 @@ gamestoreByModules = true
 onlyPremiumAccount = false
 
 -- Customs
+-- NOTE: saveIntervalTime in hours
 weatherRain = false
 thunderEffect = false
 freeQuests = false
 allConsoleLog = false
+saveInterval = false
+saveIntervalCleanMapa = false
+saveIntervalTime = 1 * 60
 
 -- Deaths
 -- NOTE: Leave deathLosePercent as -1 if you want to use the default

@@ -61,6 +61,8 @@ class ConfigManager
 			ONLY_PREMIUM_ACCOUNT,
 			MAP_CUSTOM_ENABLED,
 			ALL_CONSOLE_LOG,
+			SAVE_INTEVAL,
+			SAVE_INTERVAL_CLEAN_MAP,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
@@ -89,7 +91,7 @@ class ConfigManager
 			MAP_CUSTOM_FILE,
 			MAP_CUSTOM_SPAWN,
 			MAP_CUSTOM_AUTHOR,
-      DISCORD_WEBHOOK_URL,
+      		DISCORD_WEBHOOK_URL,
 
 			LAST_STRING_CONFIG /* this must be the last one */
 		};
@@ -142,7 +144,8 @@ class ConfigManager
 			PUSH_DISTANCE_DELAY,
 			STASH_ITEMS,
 			PARTY_LIST_MAX_DISTANCE,
-
+			SAVE_INTERVAL_TIME,
+			
 			LAST_INTEGER_CONFIG /* this must be the last one */
 		};
 
