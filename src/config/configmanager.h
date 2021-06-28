@@ -61,7 +61,7 @@ class ConfigManager
 			ONLY_PREMIUM_ACCOUNT,
 			MAP_CUSTOM_ENABLED,
 			ALL_CONSOLE_LOG,
-			SAVE_INTEVAL,
+			SAVE_INTERVAL,
 			SAVE_INTERVAL_CLEAN_MAP,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */

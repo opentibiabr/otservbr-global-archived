@@ -58,11 +58,11 @@ gamestoreByModules = true
 onlyPremiumAccount = false
 
 -- Customs
--- NOTE: saveIntervalTime in hours
 weatherRain = false
 thunderEffect = false
 freeQuests = false
 allConsoleLog = false
+-- NOTE: saveIntervalTime in hours
 saveInterval = false
 saveIntervalCleanMapa = false
 saveIntervalTime = 1 * 60
