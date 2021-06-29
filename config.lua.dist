@@ -64,7 +64,7 @@ freeQuests = false
 allConsoleLog = false
 -- NOTE: saveIntervalTime in hours
 saveInterval = false
-saveIntervalCleanMapa = false
+saveIntervalCleanMap = false
 saveIntervalTime = 1 * 60
 
 -- Deaths
