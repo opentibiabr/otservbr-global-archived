@@ -11,15 +11,30 @@ local function chain(player)
 	local creatures = Game.getSpectators(player:getPosition(), false, false, 9, 9, 6, 6)
 	local totalChain = 0
 	local monsters = {}
+	local meleeMonsters = {}
 	for _, creature in pairs(creatures) do
 		if creature:isMonster() then
 			if creature:getType():isRewardBoss() then
 				return -1
 			elseif creature:getMaster() == nil and creature:getType():getTargetDistance() > 1 then
 				table.insert(monsters, creature)
+			elseif creature:getMaster() == nil then
+				table.insert(meleeMonsters, creature)
 			end
 		end
 	end
+ 
+	local counter = 1
+	local tempSize = #monsters
+	if tempSize < 5 and #meleeMonsters > 0 then
+		for i = tempSize, 5 do
+			if meleeMonsters[counter] ~= nil then
+				table.insert(monsters, meleeMonsters[counter])
+				counter = counter + 1
+			end
+		end
+	end
+ 
 	local lastChain = player
 	local lastChainPosition = player:getPosition()
 	local closestMonster, closestMonsterIndex, closestMonsterPosition
@@ -59,9 +74,9 @@ local function chain(player)
 	end
 	return totalChain
 end
-
+ 
 local spell = Spell("instant")
-
+ 
 function spell.onCastSpell(creature, variant)
 	local total = chain(creature)
 	if total > 0 then
@@ -71,12 +86,12 @@ function spell.onCastSpell(creature, variant)
 		creature:getPosition():sendMagicEffect(CONST_ME_POFF)
 		return false
 	else
-		creature:sendCancelMessage("There are no ranged monsters.")
+		creature:sendCancelMessage("There are no monsters.")
 		creature:getPosition():sendMagicEffect(CONST_ME_POFF)
 		return false
 	end
 end
-
+ 
 spell:group("support")
 spell:id(237)
 spell:name("Chivalrous Challenge")
