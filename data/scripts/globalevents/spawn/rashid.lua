@@ -44,7 +44,7 @@ function rashidSpawnOnTime.onTime(interval)
 
 	if rashidTarget then
 		Spdlog.info("Rashid is traveling to " .. os.date("%A") .. "s location.")
-		local message = ("Rashid is traveling to " .. os.date("%A") .. "s location.") -- Declaring the message to send to webhook.
+		local message = ("Rashid is traveling to " .. os.date("%A") .. "s location.")
 		rashidTarget:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		rashidTarget:teleportTo(positionByDay[today])
 		rashidTarget:setMasterPos(positionByDay[today])
