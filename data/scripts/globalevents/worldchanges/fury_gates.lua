@@ -128,7 +128,7 @@ function furygates.onStartup(interval)
 
 	Spdlog.info(string.format("Fury Gate will be active in %s today",
 		gates[gateId].city))
-	local message = (string.format("Fury Gate will be active in %s today", 
+	local message = (string.format("Fury Gate will be active in %s today",
 		gates[gateId].city))	-- Declaring the message to send to webhook.
 	addEvent(Furywebhook, 60000, message)	-- Event with 1 minute delay to send webhook message after server starts.
 
