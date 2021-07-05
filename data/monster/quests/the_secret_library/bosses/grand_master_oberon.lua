@@ -1,3 +1,4 @@
+--[[ author vtrolinux(nox) ]]--
 local asking = {
 	[1] = {msg = "You appear like a worm among men!"},
 	[2] = {msg = "The world will suffer for its iddle laziness!"},
@@ -27,38 +28,41 @@ local config = {
 		asking = 1,
 		life = 2,
 		exhaust = 3,
+		statusImortal = false,
 	},
 	monster = {
 		"Falcon Knight",
 		"Falcon Paladin"
 	},
-	amount_life = 3
+	amount_life = 3,
 }
 
 local function heal(monster)
-	local storage = monster:getStorageValue(config.storage.life)
-	monster:setStorageValue(config.storage.life, storage + 1)
 	monster:addHealth(monster:getMaxHealth())
-
+end
+local function summonFalcon(monster)
+	if monster:getStorageValue(config.storage.life) % 2 ~= 0 then
+		Game.createMonster(config.monster[1], monster:getPosition(), true, true)
+	else
+		Game.createMonster(config.monster[2], monster:getPosition(), true, true)
+	end
 end
 
 local function sendAsking(monster)
 	monster:registerEvent('OberonImmunity')
-	local random = math.random(#asking)
-	monster:say(asking[random].msg, TALKTYPE_MONSTER_SAY)
-	monster:setStorageValue(config.storage.asking, random)
+	monster:setStorageValue(config.storage.statusImortal, true)	
+	if monster:getStorageValue(config.storage.life) > 1 then
+		local random = math.random(#asking)	
+		monster:say(asking[random].msg, TALKTYPE_MONSTER_SAY)
+		monster:setStorageValue(config.storage.asking, random)
+	else
+		monster:say(asking[1].msg, TALKTYPE_MONSTER_SAY)
+	end
 	heal(monster)
-	Game.createMonster(config.monster[math.random(#config.monster)], monster:getPosition(), true, true)
+	summonFalcon(monster)
 end
 
 local immunity = CreatureEvent("OberonImmunity")
-
-function immunity.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
-	if creature:isMonster() then
-		creature:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
-	end
-	return true
-end
 
 immunity:register()
 
@@ -158,16 +162,16 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = -5},
-	{type = COMBAT_EARTHDAMAGE, percent = 5},
-	{type = COMBAT_FIREDAMAGE, percent = -5},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = -25},
-	{type = COMBAT_DEATHDAMAGE , percent = 100}
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 50}
 }
 
 monster.immunities = {
@@ -176,46 +180,58 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
+local controleTempo = 0
 
 mType.onThink = function(monster, interval)
+	if monster:getStorageValue(config.storage.statusImortal) == true then					
+		controleTempo = controleTempo + interval
+		if controleTempo >= 10000 then
+			monster:say(asking[monster:getStorageValue(config.storage.asking)].msg, TALKTYPE_MONSTER_SAY)
+			controleTempo = 0
+		end
+	end
 	if monster:getStorageValue(config.storage.life) <= config.amount_life then
 		local percentageHealth = (monster:getHealth()*100)/monster:getMaxHealth()
 		if percentageHealth <= 20 then
 			sendAsking(monster)
+			controleTempo = 0
 		end
 	end
 end
 
-mType.onAppear = function(monster, creature)
+mType.onSay = function(monster, creature, type, message)
+	if (type ~= 36) and (type ~= 52) then
+		if monster:getStorageValue(config.storage.statusImortal) == true then
+		local storage = monster:getStorageValue(config.storage.life)	
+			if message:lower() == responses[monster:getStorageValue(config.storage.asking)].msg:lower()	then
+				monster:unregisterEvent('OberonImmunity')					
+				monster:say('GRRRAAANNGH!', TALKTYPE_MONSTER_SAY)
+				monster:setStorageValue(config.storage.statusImortal, false)
+				monster:setStorageValue(config.storage.life, storage + 1)
+			elseif message:lower() ~= responses[monster:getStorageValue(config.storage.asking)].msg:lower() then
+				monster:unregisterEvent('OberonImmunity')					
+				monster:say('HAHAHAHA!', TALKTYPE_MONSTER_SAY)
+				monster:setStorageValue(config.storage.statusImortal, false)
+				monster:setStorageValue(config.storage.life, storage)
+			end
+		end
+	end
+end
+
+mType.onAppear = function(monster, creature)	
 	if monster:getId() == creature:getId() then
 		monster:setStorageValue(config.storage.asking, 1)
 		monster:setStorageValue(config.storage.life, 1)
 	end
-	if monster:getType():isRewardBoss() then
+	if  monster:getType():isRewardBoss() then
 		monster:setReward(true)
 	end
 end
 
-mType.onDisappear = function(monster, creature)
+mType.onDisappear = function(monster, creature)	
 end
 
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-	local exhaust = config.storage.exhaust
-	if creature:isPlayer() and monster:getStorageValue(exhaust) <= os.time() then
-		message = message:lower()
-		monster:setStorageValue(exhaust, os.time() + 1)
-		for i, v in pairs(responses) do
-			if message == v.msg:lower() then
-				local asking_storage = monster:getStorageValue(config.storage.asking)
-				if asking[i].msg:lower() == asking[asking_storage].msg:lower() then
-					monster:unregisterEvent('OberonImmunity')
-				end
-			end
-		end
-	end
+mType.onMove = function(monster, creature, fromPosition, toPosition)	
 end
 
 mType:register(monster)
