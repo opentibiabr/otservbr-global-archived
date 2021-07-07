@@ -1224,9 +1224,7 @@ bool Monster::getNextStep(Direction& nextDirection, uint32_t& flags)
 		if (posTile) {
 			if (canPushItems()) {
 				Monster::pushItems(posTile);
-			}
-
-			else if (canPushCreatures()) {
+			} else if (canPushCreatures()) {
 				Monster::pushCreatures(posTile);
 			}
 		}
