@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Pirat Mate")
 local monster = {}
 
-monster.description = "a Pirat Mate"
+monster.description = "a pirat mate"
 monster.experience = 2400
 monster.outfit = {
 	lookType = 1346,
@@ -22,10 +22,8 @@ monster.Bestiary = {
 	SecondUnlock = 500,
 	CharmsPoints = 25,
 	Stars = 3,
-	Occurrence = 0,
-	Locations = "Venore Corym Cave, Tiquanda Corym Cave, Corym Black Market, \z
-		Carlin Corym Cave/Dwarf Mines Diggers Depths Mine, Upper Spike."
-	}
+	Occurrence = 0
+}
 
 monster.health = 3200
 monster.maxHealth = 3200
@@ -89,7 +87,6 @@ monster.loot = {
 	{name = "Ice Rapier", chance = 3000},
 	{name = "Green Crystal Shard", chance = 2000},
 	{name = "Small Treasure Chest", chance = 2000}
-	
 }
 
 monster.attacks = {

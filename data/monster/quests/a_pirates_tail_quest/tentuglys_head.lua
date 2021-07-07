@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Tentuglys Head")
 local monster = {}
 
-monster.description = "a Tentuglys Head"
+monster.description = "a tentuglys head"
 monster.experience = 40000
 monster.outfit = {
 	lookTypeEx = 39940
@@ -9,7 +9,7 @@ monster.outfit = {
 
 monster.health = 0 --?
 monster.maxHealth = 0 --?
-monster.race = "aquatics"
+monster.race = "blood"
 monster.corpse = 0
 monster.speed = 0
 monster.manaCost = 0
@@ -56,7 +56,7 @@ monster.light = {
 monster.loot = {
 	{name = "Crystal Coin", chance = 68480, maxCount =2},
 	{name = "Ultimate Health Potion", chance = 59780, maxCount =20},
-    {name = "Ultimate Mana Potion", chance = 59780, maxCount =20},
+	{name = "Ultimate Mana Potion", chance = 59780, maxCount =20},
     {name = "Platinum Coin", chance = 23910, maxCount =10},
     {name = "Ultimate Spirit Potion", chance = 23910, maxCount =10},
     {name = "Mastermind Potion", chance = 19570, maxCount =5},
@@ -74,7 +74,6 @@ monster.loot = {
 	{name = "Golden Cheese Wedge", chance = 2170},
 	{name = "Tentacle of Tentugly", chance = 2170},
 	{name = "Plushie of Tentugly", chance = 1090}
-	
 }
 
 monster.attacks = {

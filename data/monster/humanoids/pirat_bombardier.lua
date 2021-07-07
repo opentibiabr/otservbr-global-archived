@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Pirat Bombardier")
 local monster = {}
 
-monster.description = "a Pirat Bombardier"
+monster.description = "a pirat bombardier"
 monster.experience = 1700
 monster.outfit = {
 	lookType = 1346,
@@ -23,7 +23,7 @@ monster.Bestiary = {
 	CharmsPoints = 35,
 	Stars = 3,
 	Occurrence = 0,
-	}
+}
 
 monster.health = 2300
 monster.maxHealth = 2300
@@ -78,7 +78,7 @@ monster.loot = {
 	{name = "Pirat's Tail", chance = 4000},
 	{name = "Magma Boots", chance = 3000},
 	{name = "Mouldy Powder", chance = 4000},
-	{name = "Ring of Blue Plasma", chance = 2000},
+	{id = 26185, chance = 2000},
 	{name = "Lightning Boots", chance = 1000},
 	{name = "Wood Cape", chance = 1000}
 }

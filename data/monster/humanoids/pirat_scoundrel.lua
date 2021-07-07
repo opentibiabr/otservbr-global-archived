@@ -22,9 +22,8 @@ monster.Bestiary = {
 	SecondUnlock = 500,
 	CharmsPoints = 25,
 	Stars = 3,
-	Occurrence = 0,
-	Locations = "Pirate Mine, The Wreckoning."
-	}
+	Occurrence = 0
+}
 
 monster.health = 2200
 monster.maxHealth = 2200
