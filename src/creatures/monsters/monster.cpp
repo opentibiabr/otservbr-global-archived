@@ -1222,11 +1222,11 @@ bool Monster::getNextStep(Direction& nextDirection, uint32_t& flags)
 		const Position& pos = getNextPosition(nextDirection, getPosition());
 		Tile* posTile = g_game.map.getTile(pos);
 		if (posTile) {
-			if (canPushItems()) {
+			else if (canPushItems()) {
 				Monster::pushItems(posTile);
 			}
 
-			if (canPushCreatures()) {
+			else if (canPushCreatures()) {
 				Monster::pushCreatures(posTile);
 			}
 		}
