@@ -23,6 +23,7 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0
+	Locations = "Darashia, Krailos Steppe, Liberty Bay, Port Hope, Thais, The Wreckoning."
 }
 
 monster.health = 3200
