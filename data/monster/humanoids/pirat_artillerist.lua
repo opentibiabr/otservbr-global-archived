@@ -22,8 +22,9 @@ monster.Bestiary = {
 	SecondUnlock = 500,
 	CharmsPoints = 35,
 	Stars = 3,
-	Occurrence = 0
-}
+	Occurrence = 0,
+	Locations = "The Wreckoning"
+	}
 
 monster.health = 2700
 monster.maxHealth = 2700
