@@ -23,7 +23,7 @@ monster.Bestiary = {
 	CharmsPoints = 25,
 	Stars = 3,
 	Occurrence = 0,
-	Locations = "Rascacoon"
+	Locations = "The Wreckoning"
 	}
 
 monster.health = 20000
