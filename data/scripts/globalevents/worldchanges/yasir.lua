@@ -45,6 +45,10 @@ local config = {
 	}
 }
 
+local function yasirwebhook(message) -- New local function that runs on delay to send webhook message.
+	Webhook.send("[Yasir] ", message, WEBHOOK_COLOR_ONLINE) --Sends webhook message
+end
+
 local yasirEnabled = true
 local yasirChance = 33
 
@@ -61,6 +65,7 @@ function yasir.onStartup()
 		if math.random(100) <= yasirChance then
 			local randTown = config[math.random(#config)]
 			Spdlog.info(string.format("[WorldChanges] Yasir: %s", randTown.mapName))
+			local message = string.format("Yasir is in %s today.", randTown.mapName) -- Declaring the message to send to webhook.
 			iterateArea(
 			function(position)
 				local tile = Tile(position)
@@ -94,9 +99,12 @@ function yasir.onStartup()
 
 			Game.loadMap('data/world/yasir/' .. randTown.mapName .. '.otbm')
 			addEvent(spawnYasir, 5000, randTown.yasirPosition)
+			addEvent(yasirwebhook, 60000, message) -- Event with 1 minute delay to send webhook message after server starts.
 			setGlobalStorageValue(GlobalStorage.Yasir, 1)
 		else
 			Spdlog.info("Yasir: not this time")
+			local message = "Yasir: not spawned today" -- Declaring the message to send to webhook.
+			addEvent(yasirwebhook, 60000, message) -- Event with 1 minute delay to send webhook message after server starts.
 			setGlobalStorageValue(GlobalStorage.Yasir, 0)
 		end
 	end
