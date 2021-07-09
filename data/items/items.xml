@@ -44687,6 +44687,7 @@
 		<attribute key="defense" value="33" />
 		<attribute key="skillClub" value="2" />
 		<attribute key="imbuingSlots" value="2" />
+		<attribute key="slotType" value="two-handed" />
 	</item>
 	<item id="34058" article="a" name="shoulder plate">
 		<attribute key="weight" value="3500" />
@@ -51415,6 +51416,7 @@
 		<attribute key="absorbPercentPhysical" value="7" />
 		<attribute key="absorbPercentEarth" value="10" />
 		<attribute key="weaponType" value="shield"/>
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="38990" article="a" name="lion longsword">
 		<attribute key="weight" value="7500" />
