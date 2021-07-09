@@ -8,6 +8,10 @@ local positionByDay = {
 	[7] = {position = Position(33166, 31810, 6), city = "Edron"}  -- Saturday
 }
 
+local function rashidwebhook(message) -- New local function that runs on delay to send webhook message.
+	Webhook.send("[Rashid] ", message, WEBHOOK_COLOR_ONLINE) --Sends webhook message
+end
+
 local rashid = GlobalEvent("rashid")
 function rashid.onStartup()
 
@@ -19,6 +23,8 @@ function rashid.onStartup()
 		rashid:setMasterPos(config.position)
 		rashid:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		Spdlog.info(string.format("Rashid arrived at %s", config.city))
+		local message = string.format("Rashid arrived at %s today.", config.city) -- Declaring the message to send to webhook.
+		addEvent(rashidwebhook, 60000, message) -- Event with 1 minute delay to send webhook message after server starts.
 	else
 		Spdlog.warn(string.format("[rashid.onStartup] - Cannot create Rashid. Day: %s",
 			os.date("%A")))
@@ -38,10 +44,12 @@ function rashidSpawnOnTime.onTime(interval)
 
 	if rashidTarget then
 		Spdlog.info("Rashid is traveling to " .. os.date("%A") .. "s location.")
+		local message = ("Rashid is traveling to " .. os.date("%A") .. "s location.")
 		rashidTarget:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		rashidTarget:teleportTo(positionByDay[today])
 		rashidTarget:setMasterPos(positionByDay[today])
 		rashidTarget:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		addEvent(rashidwebhook, 60000, message) -- Event with 1 minute delay to send webhook message after server starts.
 	end
 
 	return true
