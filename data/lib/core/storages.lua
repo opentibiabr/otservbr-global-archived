@@ -410,6 +410,7 @@ Storage = {
 		-- Reserved storage from 50270 - 50349
 		Start = 50270,
 		TroubledMission01 = 50271,
+		PoacherChest = 50306,
 		TroubledMission02 = 50272,
 		TroubledMission03 = 50273,
 		FairyMission01 = 50274,
