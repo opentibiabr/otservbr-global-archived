@@ -1,10 +1,10 @@
-local mType = Game.createMonsterType("Tunnel Tyrant")
+local mType = Game.createMonsterType("Tremendous Tyrant")
 local monster = {}
 
-monster.description = "You see a cave chimera"
-monster.experience = 6800
+monster.description = "You see a tremendous tyrant."
+monster.experience = 6100
 monster.outfit = {
-	lookType = 1406,
+	lookType = 1396,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -22,14 +22,14 @@ monster.Bestiary = {
 	SecondUnlock = 1000,
 	CharmsPoints = 50,
 	Stars = 4,
-	Occurrence = 1,
+	Occurrence = 0,
 	Locations = "Dwelling of the Forgotten."
 }
 
-monster.health = 8000
-monster.maxHealth = 8000
+monster.health = 11500
+monster.maxHealth = 11500
 monster.race = "blood"
-monster.corpse = 41620 -- adddecay>items.xml 41620,41619,41618,41617
+monster.corpse = 41536 --adddecay>items.xml 41536,41535,41534,41533
 monster.speed = 115
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -73,36 +73,51 @@ monster.light = {
 }
 
 monster.loot = {
-	{name = "Platinum Coin", chance = 100000, maxCount = 0}, --?
-	{name = "Gold Ingots", chance = 0}, --?
-	{name = "Great Spirit Potions", chance = 0}, --?
-	{name = "Ultimate Health Potions", chance = 0}, --?
+	{name = "Platinum Coin ", chance = 0},
+	{name = "Red Gem", chance = 0}, ---??? all
+	{name = "Gold Ingot ", chance = 0},
+	{name = "Blue Crystal Shard ", chance = 0},
+	{name = "Lightning Legs ", chance = 0},
+	{name = "Hailstorm Rod", chance = 0},
+	{name = "Knight Axe ", chance = 0},
+	{name = "Spellbook of Warding ", chance = 0},
+	{name = "Tremendous Tyrant Head ", chance = 0},
+	{name = "Violet Crystal Shard ", chance = 0},
+	{name = "Glacier Robe ", chance = 0},
+	{name = "Wand of Cosmic Energy ", chance = 0},
+    {name = "Dragonbone Staff ", chance = 0},
+	{name = "Wand of Starstorm ", chance = 0},
+	{name = "Tremendous Tyrant Shell", chance = 0},
+	{name = "Green Crystal Shard ", chance = 0},
+	{name = "Yellow Gem  ", chance = 0},
+	{name = "Elven Amulet  ", chance = 0},
+    {name = "Ice Rapier  ", chance = 0},
+	{name = "Focus Cape", chance = 0},
+	{name = "Warrior's Shield ", chance = 0}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600},
-	{name ="ice strike", interval = 2000, chance = 17, minDamage = -750, maxDamage = -850, range = 5, target = true},
-    {name ="combat", interval = 2000, chance = 8, type = COMBAT_PHYSICALDAMAGE, minDamage = -560, maxDamage = -650, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
-	--holy burst arrow ??
+
+    --?
 
 }
 
 monster.defenses = {
 	defense = 5,
-	armor = 60
+	armor = 71
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 100},
+	{type = COMBAT_ENERGYDAMAGE, percent = 99},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = -101},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_ICEDAMAGE, percent = 99},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -101}
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
 }
 
 monster.immunities = {

@@ -1,10 +1,10 @@
-local mType = Game.createMonsterType("Eyeless Devourer")
+local mType = Game.createMonsterType("Streaked Devourer")
 local monster = {}
 
-monster.description = "You see an eyeless devourer"
-monster.experience = 6000
+monster.description = "You see a streaked devourer."
+monster.experience = 6300
 monster.outfit = {
-	lookType = 1399,
+	lookType = 1398,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -23,14 +23,14 @@ monster.Bestiary = {
 	CharmsPoints = 50,
 	Stars = 4,
 	Occurrence = 1,
-	Locations = "Antrum of the Fallen."
+	Locations = "Grotto of the Lost."
 }
 
-monster.health = 10000
-monster.maxHealth = 10000
+monster.health = 7000
+monster.maxHealth = 7000
 monster.race = "blood"
-monster.corpse = 41548 --adddecay>items.xml 41548,41547,41546,41545
-monster.speed = 165
+monster.corpse = 41544 --adddecay>items.xml 41544,41543,41542,41541
+monster.speed = 125
 monster.manaCost = 0
 monster.maxSummons = 0
 
@@ -73,42 +73,32 @@ monster.light = {
 }
 
 monster.loot = {
-	{name = "Platinum Coin", chance = 100000},
-	{name = "Ultimate Health Potion", chance = 2500},
-	{name = "Eyeless Devourer Maw", chance = 2000},
-	{name = "Green Gem", chance = 1000},
-	{name = "Violet Crystal Shard", chance = 1000},
-	{name = "Blue Crystal Shard", chance = 5000},
-	{name = "Eyeless Devourer Legs", chance = 5000},
-	{name = "Eyeless Devourer Tongue", chance = 5000},
-	{name = "Glacier Amulet", chance = 5000},
-	{name = "Mercenary Sword", chance = 5000},
-	{name = "Noble Axe", chance = 5000},
-	{name = "Ornate Crossbow", chance = 5000},
-	{name = "Sacred Tree Amulet", chance = 5000}
+	{name = "Platinum Coin", maxCount = 24, chance = 100000},
+	{name = "Gold Ingot", chance = 33330},
+	{name = "Streaked Devourer Legs", chance = 16670},
+	{name = "Streaked Devourer Maw", chance = 16670}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -500, maxDamage = -700, radius = 3, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 25, minDamage = -500, maxDamage = -560, length = 7, spread = 3, effect = CONST_ME_HITBYPOISON, target = false},
-	{name ="combat", interval = 2000, chance = 14, type = COMBAT_ENERGYDAMAGE, minDamage = -700, maxDamage = -800, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
+    {name ="big death wave", interval = 2000, chance = 20, minDamage = -730, maxDamage = -770, target = false},
+	--Fire Burst Arrow (580-620), Fire Berserk (800-900) ??
 }
 
 monster.defenses = {
 	defense = 5,
-	armor = 63
+	armor = 62
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = -101},
 	{type = COMBAT_ENERGYDAMAGE, percent = 99},
 	{type = COMBAT_EARTHDAMAGE, percent = 99},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 99},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = -101},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
 	{type = COMBAT_DEATHDAMAGE , percent = 0}
 }
