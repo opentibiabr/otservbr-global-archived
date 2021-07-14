@@ -761,7 +761,7 @@ void ProtocolGame::parsePacketFromDispatcher(NetworkMessage msg, uint8_t recvbyt
 
 		default:
 			SPDLOG_DEBUG("Player: {} sent an unknown packet header: x0{}",
-					 player->getName(), static_cast<uint16_t>(recvbyte));
+				player->getName(), static_cast<uint16_t>(recvbyte));
 			break;
 	}
 
