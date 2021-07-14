@@ -628,7 +628,20 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 
 	// Modules system
 	if(recvbyte != 0xD3){
-		g_dispatcher.addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player, msg, recvbyte)));
+		g_dispatcher.addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player->getID(), msg, recvbyte)));
+	}
+
+	g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::parsePacketFromDispatcher, getThis(), msg, recvbyte)));
+}
+
+void ProtocolGame::parsePacketFromDispatcher(NetworkMessage msg, uint8_t recvbyte)
+{
+	if (!acceptPackets || g_game.getGameState() == GAME_STATE_SHUTDOWN) {
+		return;
+	}
+
+	if (!player || player->isRemoved() || player->getHealth() <= 0) {
+		return;
 	}
 
 	switch (recvbyte) {
@@ -709,7 +722,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xCC: parseSeekInContainer(msg); break;
 		case 0xCD: parseInspectionObject(msg); break;
 		case 0xD2: addGameTask(&Game::playerRequestOutfit, player->getID()); break;
-		//g_dispatcher.addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player, msg, recvbyte)));
+			//g_dispatcher.addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player, msg, recvbyte)));
 		case 0xD3: g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::parseSetOutfit, this, msg))); break;
 		case 0xD4: parseToggleMount(msg); break;
 		case 0xD5: parseApplyImbuement(msg); break;
@@ -730,7 +743,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xEF: if (!g_config.getBoolean(ConfigManager::STOREMODULES)) { parseCoinTransfer(msg); } break; /* premium coins transfer */
 		case 0xF0: addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerShowQuestLog, player->getID()); break;
 		case 0xF1: parseQuestLine(msg); break;
-		// case 0xF2: parseRuleViolationReport(msg); break;
+			// case 0xF2: parseRuleViolationReport(msg); break;
 		case 0xF3: /* get object info */ break;
 		case 0xF4: parseMarketLeave(); break;
 		case 0xF5: parseMarketBrowse(msg); break;
@@ -744,11 +757,11 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 //		case 0xFD: parseStoreOpenTransactionHistory(msg); break;
 //		case 0xFE: parseStoreRequestTransactionHistory(msg); break;
 
-		//case 0xDF, 0xE0, 0xE1, 0xFB, 0xFC, 0xFD, 0xFE Premium Shop.
+			//case 0xDF, 0xE0, 0xE1, 0xFB, 0xFC, 0xFD, 0xFE Premium Shop.
 
 		default:
 			SPDLOG_DEBUG("Player: {} sent an unknown packet header: x0{}",
-				player->getName(), static_cast<uint16_t>(recvbyte));
+						 player->getName(), static_cast<uint16_t>(recvbyte));
 			break;
 	}
 
