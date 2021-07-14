@@ -410,7 +410,6 @@ Storage = {
 		-- Reserved storage from 50270 - 50349
 		Start = 50270,
 		TroubledMission01 = 50271,
-		PoacherChest = 50306,
 		TroubledMission02 = 50272,
 		TroubledMission03 = 50273,
 		FairyMission01 = 50274,
@@ -431,7 +430,8 @@ Storage = {
 		TatteredSwanFeathers02 = 50302,
 		TatteredSwanFeathers03 = 50303,
 		TatteredSwanFeathers04 = 50304,
-		TatteredSwanFeathers05 = 50305
+		TatteredSwanFeathers05 = 50305,
+		PoacherChest = 50306
 	},
 	FirstDragon = {
 		-- Reserved storage from 50350 - 50379
