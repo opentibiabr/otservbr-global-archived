@@ -1,41 +1,41 @@
-local mType = Game.createMonsterType("Tunnel Tyrant")
+local mType = Game.createMonsterType("Cave Devourer")
 local monster = {}
 
-monster.description = "You see a cave chimera"
-monster.experience = 6800
+monster.description = "a cave devourer"
+monster.experience = 0 --???
 monster.outfit = {
-	lookType = 1406,
+	lookType = 1399,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
 	lookFeet = 0,
-	lookAddons = 3,
+	lookAddons = 0,
 	lookMount = 0
 }
 
-monster.raceId = 1545
+monster.raceId = 1544
 monster.Bestiary = {
 	class = "Vermin",
 	race = BESTY_RACE_VERMIN,
-	toKill = 2500,
-	FirstUnlock = 100,
-	SecondUnlock = 1000,
-	CharmsPoints = 50,
-	Stars = 4,
-	Occurrence = 1,
-	Locations = "Dwelling of the Forgotten."
+	toKill = 0,
+	FirstUnlock = 0,
+	SecondUnlock = 0,      --??? all /corret location
+	CharmsPoints = 0,
+	Stars = 0,
+	Occurrence = 0,
+	Locations = "Antrum of the Fallen"
 }
 
-monster.health = 8000
-monster.maxHealth = 8000
+monster.health = 0
+monster.maxHealth = 0      --??? all /corret corpse
 monster.race = "blood"
-monster.corpse = 41620 -- adddecay>items.xml 41620,41619,41618,41617
-monster.speed = 115
+monster.corpse = 41548 --adddecay>items.xml 41548,41547,41546,41545
+monster.speed = 0
 monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
-	interval = 10000,
+	interval = 5000,
 	chance = 10
 }
 
@@ -61,8 +61,8 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = true,
-	canWalkOnFire = true,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
 	canWalkOnPoison = true,
 	pet = false
 }
@@ -73,35 +73,29 @@ monster.light = {
 }
 
 monster.loot = {
-	{name = "Platinum Coin", chance = 100000, maxCount = 0}, --?
-	{name = "Gold Ingots", chance = 0}, --?
-	{name = "Great Spirit Potions", chance = 0}, --?
-	{name = "Ultimate Health Potions", chance = 0}, --?
+	---???
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600},
-	{name ="ice strike", interval = 2000, chance = 17, minDamage = -750, maxDamage = -850, range = 5, target = true},
-    {name ="combat", interval = 2000, chance = 8, type = COMBAT_PHYSICALDAMAGE, minDamage = -560, maxDamage = -650, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
-	--holy burst arrow ??
+	---???
 }
 
 monster.defenses = {
 	defense = 5,
-	armor = 60
+	armor = 10
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 100},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = -101},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -101}
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
 }
 
 monster.immunities = {
