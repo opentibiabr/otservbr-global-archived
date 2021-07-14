@@ -25,7 +25,6 @@
 #include "creatures/players/player.h"
 #include "game/game.h"
 
-extern Game g_game;
 Modules::Modules() :
 	scriptInterface("Modules Interface")
 {
