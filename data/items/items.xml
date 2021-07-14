@@ -52164,12 +52164,96 @@
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
+	<item id="40216" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40217" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40216" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40218" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40217" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40219" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40218" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40220" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40221" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40220" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40222" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40221" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40223" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40222" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
 	<item id="40314" article="a" name="bag of smuggled goods">
 		<attribute key="weight" value="800" />
 	</item>
 	<item id="40330" article="a" name="lace-trimmed handkerchief">
 		<attribute key="description" value="It is embroidered with the letter E." />
 		<attribute key="weight" value="50" />
+	</item>
+	<item id="40438" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40437" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40438" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40436" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40437" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40435" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40436" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
 	</item>
 	<item id="40343" article="a" name="cheesy key">
 		<attribute key="weight" value="250" />
@@ -52307,6 +52391,34 @@
 	<item id="40530" article="a" name="scrubbing brush" plural="scrubbing brushes">
 		<attribute key="loottype" value="valuable" />
 		<attribute key="weight" value="350" />
+	</item>
+		<item id="40678" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40679" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40678" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40680" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40679" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="40681" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="40680" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
 	</item>
 	<item id="40683" article="a" name="blue quiver">
 		<attribute key="weight" value="1700" />
