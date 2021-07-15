@@ -1,7 +1,6 @@
---[[ author vtrolinux(nox) ]]--
 local asking = {
 	[1] = {msg = "You appear like a worm among men!"},
-	[2] = {msg = "The world will suffer for its iddle laziness!"},
+	[2] = {msg = "The world will suffer for its idle laziness!"},
 	[3] = {msg = "People fall at my feet when they see me coming!"},
 	[4] = {msg = "This will be the end of mortal man!"},
 	[5] = {msg = "I will remove you from this plane of existence!"},
@@ -180,21 +179,21 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
-local controleTempo = 0
+local timeControl = 0
 
 mType.onThink = function(monster, interval)
 	if monster:getStorageValue(config.storage.statusImortal) == true then					
-		controleTempo = controleTempo + interval
-		if controleTempo >= 10000 then
+		timeControl = timeControl + interval
+		if timeControl >= 10000 then
 			monster:say(asking[monster:getStorageValue(config.storage.asking)].msg, TALKTYPE_MONSTER_SAY)
-			controleTempo = 0
+			timeControl = 0
 		end
 	end
 	if monster:getStorageValue(config.storage.life) <= config.amount_life then
 		local percentageHealth = (monster:getHealth()*100)/monster:getMaxHealth()
 		if percentageHealth <= 20 then
 			sendAsking(monster)
-			controleTempo = 0
+			timeControl = 0
 		end
 	end
 end
