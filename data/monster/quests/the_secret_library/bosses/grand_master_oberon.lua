@@ -62,6 +62,12 @@ local function sendAsking(monster)
 end
 
 local immunity = CreatureEvent("OberonImmunity")
+function immunity.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+	if creature:isMonster() then
+		creature:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
+	end
+	return true
+end
 
 immunity:register()
 
@@ -115,7 +121,8 @@ monster.flags = {
 	canWalkOnEnergy = true,
 	canWalkOnFire = true,
 	canWalkOnPoison = true,
-	pet = false
+	pet = false,
+	rewardBoss = true
 }
 
 monster.light = {
@@ -221,9 +228,6 @@ mType.onAppear = function(monster, creature)
 	if monster:getId() == creature:getId() then
 		monster:setStorageValue(config.storage.asking, 1)
 		monster:setStorageValue(config.storage.life, 1)
-	end
-	if  monster:getType():isRewardBoss() then
-		monster:setReward(true)
 	end
 end
 
