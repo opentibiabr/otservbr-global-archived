@@ -220,6 +220,9 @@ mType.onSay = function(monster, creature, type, message)
 				monster:setStorageValue(config.storage.life, storage)
 			end
 		end
+			if monster:getStorageValue(config.storage.life) == 4 then
+            monster:setReward(true)
+      end
 	end
 end
 
