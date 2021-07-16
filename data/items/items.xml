@@ -52392,7 +52392,7 @@
 		<attribute key="loottype" value="valuable" />
 		<attribute key="weight" value="350" />
 	</item>
-		<item id="40678" article="a" name="dead corpse">
+	<item id="40678" article="a" name="dead corpse">
 		<attribute key="containerSize" value="30" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
@@ -52637,52 +52637,52 @@
 	<item id="41509" name="Eldritch Claymore">
 		<attribute key="weaponType" value="sword" />
 		<attribute key="loottype" value="sword" />
-        <attribute key="weight" value="8500" />
+		<attribute key="weight" value="8500" />
 	</item>
 	<item id="41510" name="Gilded Eldritch Claymore">
 		<attribute key="weaponType" value="sword" />
 		<attribute key="loottype" value="sword" />
-        <attribute key="weight" value="8600" />
+		<attribute key="weight" value="8600" />
 	</item>
 	<item id="41511" name="Eldritch Warmace">
 		<attribute key="weight" value="8200" />
  		<attribute key="loottype" value="club" />
-        <attribute key="weaponType" value="club" />
+		<attribute key="weaponType" value="club" />
 	</item>
 	<item id="41512" name="Gilded Eldritch Warmace">
 		<attribute key="weight" value="8300" />
  		<attribute key="loottype" value="club" />
-        <attribute key="weaponType" value="club" />
+		<attribute key="weaponType" value="club" />
 	</item>
 	<item id="41513" name="Eldritch Greataxe">
 		<attribute key="weight" value="6500" />
 		<attribute key="weaponType" value="axe" />
 		<attribute key="loottype" value="axe" />
-        <attribute key="slotType" value="two-handed" />
+		<attribute key="slotType" value="two-handed" />
 	</item>
 	<item id="41514" name="Gilded Eldritch Greataxe">
 		<attribute key="weight" value="6600" />
 		<attribute key="weaponType" value="axe" />
 		<attribute key="loottype" value="axe" />
-        <attribute key="slotType" value="two-handed" />
+		<attribute key="slotType" value="two-handed" />
 	</item>
 	<item id="41515" name="Eldritch Cuirass">
 		<attribute key="slotType" value="body" />
 		<attribute key="loottype" value="armor" />
-        <attribute key="weight" value="11000" />
+		<attribute key="weight" value="11000" />
 	</item>
 	<item id="41516" name="Eldritch Bow">
 		<attribute key="weaponType" value="distance" />
 		<attribute key="loottype" value="distance" />
 		<attribute key="slotType" value="two-handed" />
-        <attribute key="weight" value="5800" />
+		<attribute key="weight" value="5800" />
 		<attribute key="ammoType" value="arrow" />
 	</item>
 	<item id="41517" name="Gilded Eldritch Bow">
 		<attribute key="weaponType" value="distance" />
 		<attribute key="loottype" value="distance" />
 		<attribute key="slotType" value="two-handed" />
-        <attribute key="weight" value="5900" />
+		<attribute key="weight" value="5900" />
 		<attribute key="ammoType" value="arrow" />
 	</item>
 	<item id="41518" name="Eldritch Quiver">
@@ -52694,7 +52694,7 @@
 	<item id="41519" name="Eldritch Breeches">
 		<attribute key="slotType" value="legs" />
 		<attribute key="loottype" value="legs" />
-        <attribute key="weight" value="6900" />
+		<attribute key="weight" value="6900" />
 	</item>
 	<item id="41520" name="Eldritch Wand">
 		<attribute key="weight" value="3600" />
@@ -52707,12 +52707,12 @@
 	<item id="41522" name="Eldritch Cowl">
 		<attribute key="slotType" value="head" />
 		<attribute key="loottype" value="helmet" />
-        <attribute key="weight" value="2600" />
+		<attribute key="weight" value="2600" />
 	</item>
 	<item id="41523" name="Eldritch Hood">
 		<attribute key="slotType" value="head" />
 		<attribute key="loottype" value="helmet" />
-        <attribute key="weight" value="2700" />
+		<attribute key="weight" value="2700" />
 	</item>
 	<item id="41524" name="Eldritch Folio">
 		<attribute key="weight" value="2800" />
