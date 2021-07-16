@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 10000
 monster.maxHealth = 10000
 monster.race = "blood"
-monster.corpse = 41548 --adddecay>items.xml 41548,41547,41546,41545
+monster.corpse = 41548
 monster.speed = 165
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -92,7 +92,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = -500, maxDamage = -700, radius = 3, effect = CONST_ME_ENERGYHIT, target = false},
 	{name ="condition", type = CONDITION_POISON, interval = 2000, chance = 25, minDamage = -500, maxDamage = -560, length = 7, spread = 3, effect = CONST_ME_HITBYPOISON, target = false},
-	{name ="combat", interval = 2000, chance = 14, type = COMBAT_ENERGYDAMAGE, minDamage = -700, maxDamage = -800, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
+	{name ="combat", interval = 2000, chance = 14, type = COMBAT_ENERGYDAMAGE, minDamage = -700, maxDamage = -800, range = 7, shootEffect = CONST_ANI_ENERGY, target = false}
 }
 
 monster.defenses = {

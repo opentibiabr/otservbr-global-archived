@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 9000
 monster.maxHealth = 9000
 monster.race = "blood"
-monster.corpse = 41540 --adddecay>items.xml 41540,41539,41538,41537
+monster.corpse = 41540
 monster.speed = 120
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -87,14 +87,14 @@ monster.loot = {
 	{name = "Brown Crystal Splinter", chance = 0},
 	{name = "Cyan Crystal Fragment", chance = 0},
 	{name = "Varnished Diremaw Brainpan", chance = 0},
-    {name = "Varnished Diremaw Legs", chance = 0}
+	{name = "Varnished Diremaw Legs", chance = 0}
 }
 
 monster.attacks = {
-    {name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
 	{name ="combat", interval = 4000, chance = 12, type = COMBAT_ICEDAMAGE, minDamage = -0, maxDamage = -700, radius = 4, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true},
-    {name ="combat", interval = 6000, chance = 22, type = COMBAT_HOLYDAMAGE, minDamage = -0, maxDamage = -730, range = 7, radius = 4, effect = CONST_ME_HOLYAREA, target = true},
-    {name ="ice strike", interval = 2000, chance = 17, minDamage = -0, maxDamage = -800, range = 5, target = true},
+	{name ="combat", interval = 6000, chance = 22, type = COMBAT_HOLYDAMAGE, minDamage = -0, maxDamage = -730, range = 7, radius = 4, effect = CONST_ME_HOLYAREA, target = true},
+	{name ="ice strike", interval = 2000, chance = 17, minDamage = -0, maxDamage = -800, range = 5, target = true}
 }
 
 monster.defenses = {

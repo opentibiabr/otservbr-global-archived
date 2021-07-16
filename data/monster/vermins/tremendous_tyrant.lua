@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 11500
 monster.maxHealth = 11500
 monster.race = "blood"
-monster.corpse = 41536 --adddecay>items.xml 41536,41535,41534,41533
+monster.corpse = 41536
 monster.speed = 115
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -85,13 +85,13 @@ monster.loot = {
 	{name = "Violet Crystal Shard ", chance = 0},
 	{name = "Glacier Robe ", chance = 0},
 	{name = "Wand of Cosmic Energy ", chance = 0},
-    {name = "Dragonbone Staff ", chance = 0},
+	{name = "Dragonbone Staff ", chance = 0},
 	{name = "Wand of Starstorm ", chance = 0},
 	{name = "Tremendous Tyrant Shell", chance = 0},
 	{name = "Green Crystal Shard ", chance = 0},
 	{name = "Yellow Gem  ", chance = 0},
 	{name = "Elven Amulet  ", chance = 0},
-    {name = "Ice Rapier  ", chance = 0},
+	{name = "Ice Rapier  ", chance = 0},
 	{name = "Focus Cape", chance = 0},
 	{name = "Warrior's Shield ", chance = 0}
 }

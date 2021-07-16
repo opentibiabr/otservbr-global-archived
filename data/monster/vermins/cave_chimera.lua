@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 8000
 monster.maxHealth = 8000
 monster.race = "blood"
-monster.corpse = 41620 -- adddecay>items.xml 41620,41619,41618,41617
+monster.corpse = 41620
 monster.speed = 115
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -82,7 +82,7 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -600},
 	{name ="ice strike", interval = 2000, chance = 17, minDamage = -750, maxDamage = -850, range = 5, target = true},
-    {name ="combat", interval = 2000, chance = 8, type = COMBAT_PHYSICALDAMAGE, minDamage = -560, maxDamage = -650, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false},
+	{name ="combat", interval = 2000, chance = 8, type = COMBAT_PHYSICALDAMAGE, minDamage = -560, maxDamage = -650, radius = 3, effect = CONST_ME_GROUNDSHAKER, target = false}
 	--holy burst arrow ??
 }
 

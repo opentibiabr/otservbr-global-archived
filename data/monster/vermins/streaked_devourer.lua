@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 7000
 monster.maxHealth = 7000
 monster.race = "blood"
-monster.corpse = 41544 --adddecay>items.xml 41544,41543,41542,41541
+monster.corpse = 41544
 monster.speed = 125
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -81,7 +81,7 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550},
-    {name ="big death wave", interval = 2000, chance = 20, minDamage = -730, maxDamage = -770, target = false},
+	{name ="big death wave", interval = 2000, chance = 20, minDamage = -730, maxDamage = -770, target = false}
 	--Fire Burst Arrow (580-620), Fire Berserk (800-900) ??
 }
 
