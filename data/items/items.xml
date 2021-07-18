@@ -52519,4 +52519,996 @@
 		<attribute key="isPodium" value="true" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
+	<item fromid="40828" toid="40847" name="sarcophagus (kazordoon)" />
+	<item fromid="40866" toid="40867" name="column (kazordoon)" />
+	<item id="40936" article="a" name="sleeping carnisylvan (amarelo)" />
+	<item id="40946" article="a" name="sleeping carnisylvan (rosa)" />
+	<item id="40947" article="a" name="sleeping carnisylvan (cinza)" />
+	<item id="40948" article="a" name="sleeping carnisylvan (vermelho)" />
+	<item fromid="41295" toid="41302" name="eldritch ramp" />
+	<item id="41395" article="a" name="chisel">
+		<attribute key="weight" value="850" />
+	</item>
+	<item id="41396" article="a" name="brush">
+		<attribute key="weight" value="850" />
+	</item>
+	<item id="41438" article="a" name="old parchment (Kilmaresh)">
+		<attribute key="weight" value="250" />
+	</item>
+	<item id="41451" article="a" name="glowing gnomish stonesmasher">
+		<attribute key="weight" value="6450" />
+	</item>
+	<item id="41452" article="a" name="gnomish stonesmasher">
+		<attribute key="weight" value="6450" />
+	</item>
+	<item id="41453" article="a" name="sacramental wine">
+		<attribute key="weight" value="180" />
+	</item>
+	<item id="41457" article="a" name="gnomish lava fishing rod">
+		<attribute key="weight" value="850" />
+	</item>
+	<item id="41469" article="a" name="sticky elemental goo">
+		<attribute key="weight" value="010" />
+	</item>
+	<item id="41508" name="eldritch shield">
+		<attribute key="weight" value="6900" />
+		<attribute key="weaponType" value="shield" />
+		<attribute key="loottype" value="shield" />
+	</item>
+	<item id="41509" name="eldritch claymore">
+		<attribute key="weaponType" value="sword" />
+		<attribute key="loottype" value="sword" />
+		<attribute key="weight" value="8500" />
+	</item>
+	<item id="41510" name="gilded eldritch claymore">
+		<attribute key="weaponType" value="sword" />
+		<attribute key="loottype" value="sword" />
+		<attribute key="weight" value="8600" />
+	</item>
+	<item id="41511" name="eldritch warmace">
+		<attribute key="weight" value="8200" />
+		<attribute key="loottype" value="club" />
+		<attribute key="weaponType" value="club" />
+	</item>
+	<item id="41512" name="gilded eldritch warmace">
+		<attribute key="weight" value="8300" />
+		<attribute key="loottype" value="club" />
+		<attribute key="weaponType" value="club" />
+	</item>
+	<item id="41513" name="eldritch greataxe">
+		<attribute key="weight" value="6500" />
+		<attribute key="weaponType" value="axe" />
+		<attribute key="loottype" value="axe" />
+		<attribute key="slotType" value="two-handed" />
+	</item>
+	<item id="41514" name="gilded eldritch greataxe">
+		<attribute key="weight" value="6600" />
+		<attribute key="weaponType" value="axe" />
+		<attribute key="loottype" value="axe" />
+		<attribute key="slotType" value="two-handed" />
+	</item>
+	<item id="41515" name="eldritch cuirass">
+		<attribute key="slotType" value="body" />
+		<attribute key="loottype" value="armor" />
+		<attribute key="weight" value="11000" />
+	</item>
+	<item id="41516" name="eldritch bow">
+		<attribute key="weaponType" value="distance" />
+		<attribute key="loottype" value="distance" />
+		<attribute key="slotType" value="two-handed" />
+		<attribute key="weight" value="5800" />
+		<attribute key="ammoType" value="arrow" />
+	</item>
+	<item id="41517" name="gilded eldritch bow">
+		<attribute key="weaponType" value="distance" />
+		<attribute key="loottype" value="distance" />
+		<attribute key="slotType" value="two-handed" />
+		<attribute key="weight" value="5900" />
+		<attribute key="ammoType" value="arrow" />
+	</item>
+	<item id="41518" name="eldritch Quiver">
+		<attribute key="weight" value="200" />
+		<attribute key="containerSize" value="8" />
+		<attribute key="weaponType" value="quiver" />
+		<attribute key="slotType" value="right-hand" />
+	</item>
+	<item id="41519" name="eldritch breeches">
+		<attribute key="slotType" value="legs" />
+		<attribute key="loottype" value="legs" />
+		<attribute key="weight" value="6900" />
+	</item>
+	<item id="41520" name="eldritch wand">
+		<attribute key="weight" value="3600" />
+		<attribute key="weaponType" value="wand" />
+	</item>
+	<item id="41521" name="gilded eldritch wand">
+		<attribute key="weight" value="3600" />
+		<attribute key="weaponType" value="wand" />
+	</item>
+	<item id="41522" name="eldritch cowl">
+		<attribute key="slotType" value="head" />
+		<attribute key="loottype" value="helmet" />
+		<attribute key="weight" value="2600" />
+	</item>
+	<item id="41523" name="eldritch hood">
+		<attribute key="slotType" value="head" />
+		<attribute key="loottype" value="helmet" />
+		<attribute key="weight" value="2700" />
+	</item>
+	<item id="41524" name="eldritch folio">
+		<attribute key="weight" value="2800" />
+		<attribute key="weaponType" value="shield" />
+		<attribute key="loottype" value="shield" />
+	</item>
+	<item id="41525" name="eldritch tome">
+		<attribute key="weight" value="2600" />
+		<attribute key="weaponType" value="shield" />
+		<attribute key="loottype" value="shield" />
+	</item>
+	<item id="41526" name="eldritch rod">
+		<attribute key="weight" value="3500" />
+		<attribute key="weaponType" value="wand" />
+	</item>
+	<item id="41527" name="gilded eldritch rod">
+		<attribute key="weight" value="3600" />
+		<attribute key="weaponType" value="wand" />
+	</item>
+	<item id="41528" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41529" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41528" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41530" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41529" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41531" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41530" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41533" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41534" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41533" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41535" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41534" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41536" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41535" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41537" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41538" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41537" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41539" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41538" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41540" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41539" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41541" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41542" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41541" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41543" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41542" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41544" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41543" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41545" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41546" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41545" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41547" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41546" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41548" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41547" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41550" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41551" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41550" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41552" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41551" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41553" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41552" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item fromid="41555" toid="41557" name="gnomish sanitizer" />
+	<item id="41558" article="a" name="red gem (kilmaresh)">
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41559" article="a" name="eye shaped frame">
+		<attribute key="weight" value="500" />
+	</item>
+	<item id="41560" name="the eye of suon">
+		<attribute key="weight" value="600" />
+		<attribute key="slotType" value="necklace" />
+		<attribute key="loottype" value="amulet" />
+	</item>
+	<item id="41564" article="a" name="pieces of eldritch wax">
+		<attribute key="weight" value="150" />
+	</item>
+	<item id="41567" article="a" name="gnome pick">
+		<attribute key="weight" value="4500" />
+	</item>
+	<item id="41568" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41569" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41568" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41570" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41569" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41571" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41570" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41574" article="a" name="firewood" />
+	<item id="41600" article="a" name="brachiodemon trophy" />
+	<item id="41601" article="a" name="many faces trophy" />
+	<item fromid="41602" toid="41608" name="falcon pet" />
+	<item id="41613" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41614" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41613" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41615" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41614" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41616" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41615" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41617" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41618" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41617" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41619" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41618" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41620" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41619" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41621" article="a" name="lavaworm spike roots">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41622" article="a" name="lavaworm spikes">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41623" article="a" name="lavaworm Jaws">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41624" article="a" name="streaked devourer eyes">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41625" article="a" name="streaked devourer maw">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41626" article="a" name="streaked devourer legs">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41627" article="a" name="eyeless devourer maw">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41628" article="a" name="eyeless devourer legs">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41629" article="a" name="eyeless devourer tongue">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41630" article="a" name="blemished spawn head">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41631" article="a" name="blemished spawn abdomen">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41632" article="a" name="blemished spawn tail">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41633" article="a" name="Varnished diremaw brainpan">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41634" article="a" name="Varnished diremaw legs">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41635" article="a" name="tremendous tyrant head">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41636" article="a" name="tremendous tyrant shell">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41637" article="a" name="lavafungus head">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41638" article="a" name="lavafungus ring">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41639" article="a" name="cave chimera head">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41640" article="a" name="cave chimera leg">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41641" article="a" name="afflicted strider head">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41642" article="a" name="afflicted strider worms">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41643" article="a" name="abomination's tail">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41644" article="a" name="abomination's eye">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41645" article="a" name="abomination's tongue">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41646" article="a" name="brainstealer's tissue">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41647" article="a" name="brainstealer's brain">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41648" article="a" name="brainstealer's brainwave">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41649" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41650" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41649" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41651" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41650" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41652" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41651" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41653" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41654" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41653" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41655" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41654" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41656" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41655" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41657" article="a" name="carnisylvan finger">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41658" article="a" name="carnisylvan bark">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41659" article="a" name="human teeth">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41660" article="a" name="old royal diary">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41661" article="a" name="curl of hair">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41662" article="a" name="artefact box">
+		<attribute key="weight" value="500" />
+	</item>
+	<item id="41663" article="a" name="megasylvan sapling">
+		<attribute key="weight" value="500" />
+	</item>
+	<item id="41664" article="a" name="Violet tulip">
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41665" article="a" name="galthen's satchel">
+		<attribute key="weight" value="1000" />
+		<attribute key="containerSize" value="32" />
+		<attribute key="slotType" value="backpack" />
+	</item>
+	<item fromid="41666" toid="41671" name="glass floor" />
+	<item id="41672" article="a" name="bashmu fang">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41673" article="a" name="bashmu tongue">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41674" article="a" name="scorpion charm">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="41675" article="a" name="bashmu feather">
+		<attribute key="loottype" value="valuable" />
+		<attribute key="weight" value="100" />
+	</item>
+	<item fromid="41676" toid="41678" name="glass floor" />
+	<item id="41679" article="a" name="empty surprise cube">
+		<attribute key="weight" value="0" />
+	</item>
+	<item id="41684" article="a" name="arena badge (replica)">
+		<attribute key="weight" value="0" />
+	</item>
+	<item id="41686" article="a" name="eldritch crystal">
+		<attribute key="weight" value="175" />
+	</item>
+	<item id="41687" article="a" name="eldritch casket">
+		<attribute key="weight" value="1300" />
+	</item>
+	<item id="41688" article="a" name="plushie of lavaworm">
+		<attribute key="weight" value="500" />
+	</item>
+	<item id="41691" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41692" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41691" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41693" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41692" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41694" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41693" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41695" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41696" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41695" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41697" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41696" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41698" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41697" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item fromid="41703" toid="41705" name="blackboard (tibiadrome)" />
+	<item fromid="41706" toid="41707" name="pit demon statue (a)" />
+	<item fromid="41708" toid="41709" name="pit demon statue (b)" />
+	<item fromid="41710" toid="41711" name="pit demon statue (a)" />
+	<item fromid="41712" toid="41713" name="pit demon statue (b)" />
+	<item id="41726" article="a" name="Golden hand mirror">
+		<attribute key="weight" value="650" />
+	</item>
+	<item id="41727" article="a" name="blackened hand mirror">
+		<attribute key="weight" value="650" />
+	</item>
+	<item id="41729" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41730" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41729" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41731" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41730" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41732" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41731" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41733" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41734" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41733" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41735" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41734" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41736" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41735" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41738" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41739" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41738" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41740" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41739" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41741" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41740" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41742" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41743" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41742" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41744" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41743" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41745" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41744" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41746" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41747" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41746" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41748" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41747" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41749" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41748" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41750" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41751" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41750" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41752" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41751" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41753" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41752" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41754" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41755" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41754" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41756" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41755" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41757" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41756" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41758" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41759" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41758" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41760" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41759" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41761" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41760" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41762" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41763" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41762" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41764" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41763" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item id="41765" article="a" name="dead corpse">
+		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="41764" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+		<attribute key="fluidSource" value="blood" />
+	</item>
+	<item fromid="41766" toid="41768" name="sun mosaic" />
+	<item id="41769" article="an" name="plushie of a murmillion" />
+	<item id="41770" article="an" name="plushie of a scissorion" />
+	<item id="41771" article="an" name="plushie of a hoodinion" />
+	<item id="41772" article="an" name="plushie of a Mearidion" />
+	<item id="41773" article="an" name="plushie of a domestikion" />
+	<item id="41774" article="a" name="ancient Notes from the knight galthen" />
+	<item id="41789" article="a" name="fiery horseshoe">
+		<attribute key="weight" value="120" />
+	</item>
+	<item id="41790" article="a" name="cloth fragment (plant)" />
+	<item id="41792" article="a" name="cloth fragment (almanac)" />
+	<item id="41794" article="a" name="cloth fragment (book)" />
+	<item id="41796" article="a" name="cloth fragment (cube)" />
+	<item id="41798" article="a" name="cloth fragment (ring)" />
+	<item id="41800" article="a" name="cloth fragment (cobra)" />
+	<item fromid="41809" toid="41811" name="megasylvan plant" />
+	<item id="41812" article="a" name="pot with sylvan earth" />
+	<item id="41822" article="a" name="girtablilu warrior carapace">
+		<attribute key="weight" value="250" />
+	</item>
+	<item id="41823" article="a" name="old girtablilu carapace">
+		<attribute key="weight" value="250" />
+	</item>
+	<item id="41853" article="a" name="tagralt inlaid scabbard">
+		<attribute key="weight" value="2500" />
+	</item>
+	<item id="41854" article="a" name="eye embroidered veil">
+		<attribute key="weight" value="2500" />
+	</item>
 </items>
