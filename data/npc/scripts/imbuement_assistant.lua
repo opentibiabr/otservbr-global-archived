@@ -20,7 +20,7 @@ npcHandler:addModule(VoiceModule:new(voices))
 
 -- Basic
 
-keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "Currently I have been working selling items for Imbuiment."})
+keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "Currently I have been working selling items for imbuement."})
 
 npcHandler:setMessage(MESSAGE_GREET, "Welcome to Imbuement's shop!")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye and come again.")
