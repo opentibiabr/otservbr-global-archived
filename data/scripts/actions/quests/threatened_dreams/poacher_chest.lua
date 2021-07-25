@@ -1,5 +1,5 @@
 local chests = {
-	[50306] = {itemid = 28596, count = 1}
+	[14036] = {itemid = 28596, count = 1}
 }
 
 local poacherChest = Action()
@@ -28,5 +28,5 @@ function poacherChest.onUse(player, item, fromPosition, target, toPosition, isHo
 	return true
 end
 
-poacherChest:uid(50306)
+poacherChest:uid(14036)
 poacherChest:register()
