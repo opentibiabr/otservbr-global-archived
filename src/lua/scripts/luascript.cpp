@@ -2137,7 +2137,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_CLEAN_MAP)
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_CLOSE)
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_SHUTDOWN)
-
+	registerEnumIn("configKeys", ConfigManager::STAMINA_ONLINE)
 	registerEnumIn("configKeys", ConfigManager::MAP_NAME)
 	registerEnumIn("configKeys", ConfigManager::MAP_CUSTOM_NAME)
 	registerEnumIn("configKeys", ConfigManager::MAP_CUSTOM_FILE)

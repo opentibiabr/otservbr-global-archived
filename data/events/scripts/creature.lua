@@ -69,6 +69,7 @@ local staminaBonus = {
 
 local function addStamina(name)
 	local player = Player(name)
+	if configManager.getBoolean(configKeys.STAMINA_ONLINE) then
 	if not player then
 		staminaBonus.events[name] = nil
 	else
@@ -80,6 +81,7 @@ local function addStamina(name)
 			staminaBonus.events[name] = addEvent(addStamina, staminaBonus.period, name)
 		end
 	end
+	return not configManager.getBoolean(configKeys.STAMINA_ONLINE)
 end
 
 picIf = {}

@@ -61,7 +61,7 @@ class ConfigManager
 			ONLY_PREMIUM_ACCOUNT,
 			MAP_CUSTOM_ENABLED,
 			ALL_CONSOLE_LOG,
-
+			STAMINA_ONLINE
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
 
