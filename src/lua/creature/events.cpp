@@ -106,6 +106,8 @@ bool Events::loadFromXml()
 				info.playerOnMoveItem = event;
 			} else if (methodName == "onItemMoved") {
 				info.playerOnItemMoved = event;
+			} else if (methodName == "onChangeZone") {
+				info.playerOnChangeZone = event;
 			} else if (methodName == "onMoveCreature") {
 				info.playerOnMoveCreature = event;
 			} else if (methodName == "onReportRuleViolation") {
@@ -793,6 +795,34 @@ void Events::eventPlayerOnItemMoved(Player* player, Item* item, uint16_t count, 
 
 	scriptInterface.callVoidFunction(7);
 }
+
+void Events::eventPlayerOnChangeZone(Player* player, ZoneType_t zone)
+ {
+		// Player:onChangeZone(zone)
+		if (info.playerOnChangeZone == -1) {
+		return;
+		
+	}
+
+		if (!scriptInterface.reserveScriptEnv()) {
+		std::cout << "[Error - Events::eventPlayerOnChangeZone] Call stack overflow" << std::endl;
+		return;
+		
+	}
+	
+		ScriptEnvironment * env = scriptInterface.getScriptEnv();
+	env->setScriptId(info.playerOnChangeZone, &scriptInterface);
+	
+		lua_State * L = scriptInterface.getLuaState();
+	scriptInterface.pushFunction(info.playerOnChangeZone);
+	
+		LuaScriptInterface::pushUserdata<Player>(L, player);
+	LuaScriptInterface::setMetatable(L, -1, "Player");
+	
+		lua_pushnumber(L, zone);
+	
+		scriptInterface.callVoidFunction(2);
+	}
 
 bool Events::eventPlayerOnMoveCreature(Player* player, Creature* creature, const Position& fromPosition, const Position& toPosition)
 {

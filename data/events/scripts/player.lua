@@ -507,6 +507,33 @@ end
 function Player:onItemMoved(item, count, fromPosition, toPosition, fromCylinder, toCylinder)
 end
 
+function Player:onChangeZone(zone)
+    if not self:isPremium() then
+        return false
+    end
+
+    local event = staminaRegen[self:getId()]
+
+    if zone == ZONE_PROTECTION then
+        if self:getStamina() < 2520 then
+            if not event then
+                local delay = 2
+                if self:getStamina() > 2400 and self:getStamina() <= 2520 then
+                    delay = 8
+                end
+
+                staminaRegen[self:getId()] = addEvent(addStamina, delay * 60 * 1000, self:getId(), 1, delay * 60 * 1000)   
+            end
+        end
+    else
+        if event then
+            self:sendTextMessage(MESSAGE_STATUS_SMALL, "You are no longer refilling stamina, since you left a regeneration zone.")
+            stopEvent(event)
+            staminaRegen[self:getId()] = nil
+        end
+    end
+end
+
 function Player:onMoveCreature(creature, fromPosition, toPosition)
 	if creature:isPlayer() and creature:getStorageValue(Storage.isTraining) == 1 and self:getGroup():hasFlag(PlayerFlag_CanPushAllCreatures) == false then
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)

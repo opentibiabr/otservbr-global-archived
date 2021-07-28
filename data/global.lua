@@ -158,3 +158,32 @@ end
 if not playerDelayPotion then
 	playerDelayPotion = {}
 end
+
+function addStamina(id, amountStamina, delay)
+    local event = staminaRegen[id]
+
+    local player = Player(id)
+    if not player then
+        stopEvent(event)
+        staminaRegen[id] = nil
+        return false
+    end
+
+    local actualStamina = player:getStamina()
+
+    if actualStamina > 2400 and actualStamina < 2520 then
+        delay = 12 * 60 * 1000 -- Stamina verde 12 mins
+    elseif actualStamina == 2520 then
+        player:sendTextMessage(MESSAGE_STATUS_SMALL, "You are no longer refilling stamina, because your stamina is already full.")
+        stopEvent(event)
+        staminaRegen[id] = nil
+        return false
+    end   
+   
+    player:editStamina(actualStamina + 1)
+    player:sendTextMessage(MESSAGE_STATUS_SMALL, "One minute of stamina has been refilled.")
+
+    stopEvent(event)
+    staminaRegen[id] = addEvent(addStamina, delay, id, amountStamina, delay)
+    return true
+end
