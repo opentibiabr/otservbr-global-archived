@@ -80,6 +80,7 @@ local function addStamina(name)
 			player:setStamina(player:getStamina() + staminaBonus.bonus)
 			staminaBonus.events[name] = addEvent(addStamina, staminaBonus.period, name)
 		end
+            end
 	end
 	return not configManager.getBoolean(configKeys.STAMINA_ONLINE)
 end
