@@ -59,6 +59,29 @@ local function removeCombatProtection(cid)
 	end, time * 1000, cid)
 end
 
+-- Increase Stamina when Attacking Trainer
+local staminaBonus = {
+	target = 'Training Monk',
+	period = 120000, -- time on miliseconds
+	bonus = 1, -- gain stamina
+	events = {}
+}
+
+local function addStamina(name)
+	local player = Player(name)
+	if not player then
+		staminaBonus.events[name] = nil
+	else
+		local target = player:getTarget()
+		if not target or target:getName() ~= staminaBonus.target then
+			staminaBonus.events[name] = nil
+		else
+			player:setStamina(player:getStamina() + staminaBonus.bonus)
+			staminaBonus.events[name] = addEvent(addStamina, staminaBonus.period, name)
+		end
+	end
+end
+
 picIf = {}
 function Creature:onTargetCombat(target)
 	if not self then
@@ -116,6 +139,15 @@ function Creature:onTargetCombat(target)
 		if self:isPlayer() and target:isPlayer() then
 			if self:hasSecureMode() then
 				return RETURNVALUE_YOUMAYNOTATTACKTHISPLAYER
+			end
+		end
+	end
+
+	if self:isPlayer() then
+		if target and target:getName() == staminaBonus.target then
+			local name = self:getName()
+			if not staminaBonus.events[name] then
+				staminaBonus.events[name] = addEvent(addStamina, staminaBonus.period, name)
 			end
 		end
 	end
