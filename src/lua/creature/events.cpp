@@ -807,8 +807,8 @@ void Events::eventPlayerOnChangeZone(Player* player, ZoneType_t zone)
 		SPDLOG_ERROR("[Events::eventPlayerOnChangeZone - "
                 "Player {}] "
                 "Call stack overflow. Too many lua script calls being nested.",
-		player->getName());
-	return;
+				player->getName());
+		return;
 	}
 	
 	ScriptEnvironment * env = scriptInterface.getScriptEnv();

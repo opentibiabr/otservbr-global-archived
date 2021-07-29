@@ -176,16 +176,14 @@ bool ConfigManager::load()
 	boolean[SERVER_SAVE_SHUTDOWN] = getGlobalBoolean(L, "serverSaveShutdown", true);
 	boolean[STOREMODULES] = getGlobalBoolean(L, "gamestoreByModules", true);
 	boolean[ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS] = getGlobalBoolean(L, "onlyInvitedCanMoveHouseItems", true);
-	boolean[STAMINA_TRAINER] = getGlobalBoolean(L, "staminaTrainer", false);
-	boolean[STAMINA_PZ] = getGlobalBoolean(L, "staminaPz", false);
+	boolean[ONLY_PREMIUM_ACCOUNT] = getGlobalBoolean(L, "onlyPremiumAccount", false);
+
 	boolean[WEATHER_RAIN] = getGlobalBoolean(L, "weatherRain", false);
 	boolean[WEATHER_THUNDER] = getGlobalBoolean(L, "thunderEffect", false);
-
 	boolean[ALL_CONSOLE_LOG] = getGlobalBoolean(L, "allConsoleLog", false);
-
 	boolean[FREE_QUESTS] = getGlobalBoolean(L, "freeQuests", false);
-
-	boolean[ONLY_PREMIUM_ACCOUNT] = getGlobalBoolean(L, "onlyPremiumAccount", false);
+	boolean[STAMINA_TRAINER] = getGlobalBoolean(L, "staminaTrainer", false);
+	boolean[STAMINA_PZ] = getGlobalBoolean(L, "staminaPz", false);
 
 	string[DEFAULT_PRIORITY] = getGlobalString(L, "defaultPriority", "high");
 	string[SERVER_NAME] = getGlobalString(L, "serverName", "");
