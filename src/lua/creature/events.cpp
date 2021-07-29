@@ -798,30 +798,30 @@ void Events::eventPlayerOnItemMoved(Player* player, Item* item, uint16_t count, 
 
 void Events::eventPlayerOnChangeZone(Player* player, ZoneType_t zone)
  {
-		// Player:onChangeZone(zone)
-		if (info.playerOnChangeZone == -1) {
-		return;
-		
+	// Player:onChangeZone(zone)
+	if (info.playerOnChangeZone == -1) {
+		return;	
 	}
 
-		if (!scriptInterface.reserveScriptEnv()) {
-		std::cout << "[Error - Events::eventPlayerOnChangeZone] Call stack overflow" << std::endl;
-		return;
-		
+	if (!scriptInterface.reserveScriptEnv()) {
+		SPDLOG_ERROR("[Events::eventPlayerOnChangeZone - "
+                "Player {}] "
+                "Call stack overflow. Too many lua script calls being nested.",
+		player->getName());
+	return;
 	}
 	
-		ScriptEnvironment * env = scriptInterface.getScriptEnv();
+	ScriptEnvironment * env = scriptInterface.getScriptEnv();
 	env->setScriptId(info.playerOnChangeZone, &scriptInterface);
 	
-		lua_State * L = scriptInterface.getLuaState();
+	lua_State * L = scriptInterface.getLuaState();
 	scriptInterface.pushFunction(info.playerOnChangeZone);
 	
-		LuaScriptInterface::pushUserdata<Player>(L, player);
+	LuaScriptInterface::pushUserdata<Player>(L, player);
 	LuaScriptInterface::setMetatable(L, -1, "Player");
 	
-		lua_pushnumber(L, zone);
-	
-		scriptInterface.callVoidFunction(2);
+	lua_pushnumber(L, zone);
+	scriptInterface.callVoidFunction(2);
 	}
 
 bool Events::eventPlayerOnMoveCreature(Player* player, Creature* creature, const Position& fromPosition, const Position& toPosition)
