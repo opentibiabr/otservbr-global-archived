@@ -66,6 +66,8 @@ class ConfigManager
 			STAMINA_TRAINER,
 			STAMINA_PZ,
 
+			SORT_LOOT_BY_CHANCE,
+
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
 
