@@ -523,7 +523,7 @@ function Player:onChangeZone(zone)
 								      delay = configManager.getNumber(configKeys.STAMINA_GREEN_DELAY)
 							    end
 
-						      staminaRegen[self:getId()] = addEvent(addStamina, delay * 1000, self:getId(), 1, delay * 1000)   
+						      staminaRegen[self:getId()] = addEvent(addStamina, delay * 60 * 1000, self:getId(), 1, delay * 60 * 1000)   
 					    end
 				  end
 			else

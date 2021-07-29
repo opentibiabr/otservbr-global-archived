@@ -174,8 +174,8 @@ function addStamina(id, amountStamina, delay)
 
     local actualStamina = player:getStamina()
 
-    if actualStamina > 2000 and actualStamina < 2520 then
-        delay = 1 * 1000 -- Stamina verde 12 mins
+    if actualStamina > 2400 and actualStamina < 2520 then
+        delay = configManager.getNumber(configKeys.STAMINA_GREEN_DELAY) * 60 * 1000 -- Stamina verde 12 mins
     elseif actualStamina == 2520 then
         player:sendTextMessage(MESSAGE_STATUS_SMALL, "You are no longer refilling stamina, because your stamina is already full.")
         stopEvent(event)
@@ -183,7 +183,7 @@ function addStamina(id, amountStamina, delay)
         return false
     end   
    
-    player:setStamina(player:getStamina() + 5)
+    player:setStamina(player:getStamina() + configManager.getNumber(configKeys.STAMINA_PZ_GAIN))
     player:sendTextMessage(MESSAGE_STATUS_SMALL, "One minute of stamina has been refilled.")
 
     stopEvent(event)

@@ -62,8 +62,8 @@ end
 -- Increase Stamina when Attacking Trainer
 local staminaBonus = {
 	target = 'Training Monk',
-	period = 120000, -- time on miliseconds
-	bonus = 1, -- gain stamina
+	period = configManager.getNumber(configKeys.STAMINA_TRAINER_DELAY), -- time on miliseconds
+	bonus = configManager.getNumber(configKeys.STAMINA_TRAINER_GAIN), -- gain stamina
 	events = {}
 }
 
@@ -80,7 +80,7 @@ local function addStamina(name)
 			player:setStamina(player:getStamina() + staminaBonus.bonus)
 			staminaBonus.events[name] = addEvent(addStamina, staminaBonus.period, name)
 		end
-            end
+   end
 	end
 	return not configManager.getBoolean(configKeys.STAMINA_TRAINER)
 end
