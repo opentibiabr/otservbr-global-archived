@@ -55,6 +55,9 @@ damageImpact = {}
 -- New prey => preyTimeLeft
 nextPreyTime = {}
 
+-- Stamina Regen
+staminaRegen = {}
+
 startupGlobalStorages = {
 	GlobalStorage.TheAncientTombs.AshmunrahSwitchesGlobalStorage,
 	GlobalStorage.TheAncientTombs.DiprathSwitchesGlobalStorage,
@@ -171,8 +174,8 @@ function addStamina(id, amountStamina, delay)
 
     local actualStamina = player:getStamina()
 
-    if actualStamina > 2400 and actualStamina < 2520 then
-        delay = 12 * 60 * 1000 -- Stamina verde 12 mins
+    if actualStamina > 2000 and actualStamina < 2520 then
+        delay = 1 * 1000 -- Stamina verde 12 mins
     elseif actualStamina == 2520 then
         player:sendTextMessage(MESSAGE_STATUS_SMALL, "You are no longer refilling stamina, because your stamina is already full.")
         stopEvent(event)
@@ -180,7 +183,7 @@ function addStamina(id, amountStamina, delay)
         return false
     end   
    
-    player:editStamina(actualStamina + 1)
+    player:setStamina(player:getStamina() + 5)
     player:sendTextMessage(MESSAGE_STATUS_SMALL, "One minute of stamina has been refilled.")
 
     stopEvent(event)
