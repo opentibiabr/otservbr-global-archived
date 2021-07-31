@@ -163,13 +163,13 @@ if not playerDelayPotion then
 end
 
 function addStamina(id, amountStamina, delay)
-	local event = staminaRegen[id]
+  local event = staminaRegen[id]
 
   local player = Player(id)
-    if not player then
-		stopEvent(event)
-      	staminaRegen[id] = nil
-      return false
+     if not player then
+      stopEvent(event)
+      	   staminaRegen[id] = nil
+       return false
     end
 
   local actualStamina = player:getStamina()
