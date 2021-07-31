@@ -509,8 +509,8 @@ end
 
 function Player:onChangeZone(zone)
 	if not self:isPremium() then
-		return false
-    end
+	  return false
+  end
 
 	local event = staminaRegen[self:getId()]
 
