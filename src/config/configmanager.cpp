@@ -176,12 +176,14 @@ bool ConfigManager::load()
 	boolean[SERVER_SAVE_SHUTDOWN] = getGlobalBoolean(L, "serverSaveShutdown", true);
 	boolean[STOREMODULES] = getGlobalBoolean(L, "gamestoreByModules", true);
 	boolean[ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS] = getGlobalBoolean(L, "onlyInvitedCanMoveHouseItems", true);
-	boolean[ONLY_PREMIUM_ACCOUNT] = getGlobalBoolean(L, "onlyPremiumAccount", false);
+  boolean[ONLY_PREMIUM_ACCOUNT] = getGlobalBoolean(L, "onlyPremiumAccount", false);
 
 	boolean[WEATHER_RAIN] = getGlobalBoolean(L, "weatherRain", false);
 	boolean[WEATHER_THUNDER] = getGlobalBoolean(L, "thunderEffect", false);
 	boolean[ALL_CONSOLE_LOG] = getGlobalBoolean(L, "allConsoleLog", false);
 	boolean[FREE_QUESTS] = getGlobalBoolean(L, "freeQuests", false);
+  boolean[SAVE_INTERVAL] = getGlobalBoolean(L, "saveInterval", false);
+	boolean[SAVE_INTERVAL_CLEAN_MAP] = getGlobalBoolean(L, "saveIntervalCleanMap", false);
 	boolean[STAMINA_TRAINER] = getGlobalBoolean(L, "staminaTrainer", false);
 	boolean[STAMINA_PZ] = getGlobalBoolean(L, "staminaPz", false);
 
@@ -230,11 +232,14 @@ bool ConfigManager::load()
 	integer[BLACK_SKULL_DURATION] = getGlobalNumber(L, "blackSkullDuration", 45);
 	integer[ORANGE_SKULL_DURATION] = getGlobalNumber(L, "orangeSkullDuration", 7);
 	integer[SERVER_SAVE_NOTIFY_DURATION] = getGlobalNumber(L, "serverSaveNotifyDuration", 5);
+  
+  integer[SAVE_INTERVAL_TIME] = getGlobalNumber(L, "saveIntervalTime", 1);
 	integer[STAMINA_ORANGE_DELAY] = getGlobalNumber(L, "staminaOrangeDelay", 1);
 	integer[STAMINA_GREEN_DELAY] = getGlobalNumber(L, "staminaGreenDelay", 5);
 	integer[STAMINA_PZ_GAIN] = getGlobalNumber(L, "staminaPzGain", 1);
 	integer[STAMINA_TRAINER_DELAY] = getGlobalNumber(L, "staminaTrainerDelay", 5);
 	integer[STAMINA_TRAINER_GAIN] = getGlobalNumber(L, "staminaTrainerGain", 1);
+
 	integer[PARTY_LIST_MAX_DISTANCE] = getGlobalNumber(L, "partyListMaxDistance", 0);
 
 	integer[PUSH_DELAY] = getGlobalNumber(L, "pushDelay", 1000);

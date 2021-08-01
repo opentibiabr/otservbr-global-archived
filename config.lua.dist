@@ -62,6 +62,10 @@ weatherRain = false
 thunderEffect = false
 freeQuests = false
 allConsoleLog = false
+-- NOTE: saveIntervalTime in hours
+saveInterval = false
+saveIntervalCleanMap = false
+saveIntervalTime = 1
 -- Stamina in Trainers
 staminaTrainer = false
 staminaTrainerDelay = 5

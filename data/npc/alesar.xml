@@ -5,13 +5,13 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			ancient shield, 2535, 5000;
+			ancient shield, 2532, 5000;
 			dark armor, 2489, 1500;
 			dark helmet, 2490, 1000;
 			ice rapier, 2396, 5000;
 			serpent sword, 2409, 6000;"/>
 		<parameter key="shop_sellable" value="
-			ancient shield, 2535, 900;
+			ancient shield, 2532, 900;
 			black shield, 2529, 800;
 			bonebreaker, 7428, 10000;
 			dark armor, 2489, 400;

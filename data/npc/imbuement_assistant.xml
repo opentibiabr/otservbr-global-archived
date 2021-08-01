@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Imbuement Assistant" walkinterval="2000" floorchange="0" script="imbuement_assistant.lua">
+	<health now="100" max="100"/>
+	<look type="141" head="41" body="72" legs="39" feet="96" addons="3" mount="688" />
+	<parameters>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_buyable" value="
+			battle stone, 12403, 100;
+			blazing bone, 18425, 100;
+			bloody pincers, 10550, 100;
+			brimstone fangs, 12658, 100;
+			brimstone shell, 12659, 100;
+			broken shamanic staff, 12408, 100;
+			compass, 11219, 100;
+			crawler head plating, 15482, 100;
+			crystallized anger, 26163, 100;
+			cultish mask, 10555, 100;
+			cultish robe, 10556, 100;
+			cyclops toe, 10574, 100;
+			damselfly wing, 19738, 100;
+			deepling warts, 15425, 100;
+			demon horn, 5954, 100;
+			demonic skeletal hand, 10564, 100;
+			draken sulphur, 12614, 100;
+			elven hoof, 21311, 100;
+			elven scouting glass, 12420, 100;
+			elvish talisman, 10552, 100;
+			energy vein, 26164, 100;
+			fairy wings, 28999, 100;
+			fiery heart, 10553, 100;
+			flask of embalming fluid, 12422, 100;
+			frazzle skin, 22533, 100;
+			frosty heart, 10578, 100;
+			gloom wolf fur, 24663, 100;
+			goosebump leather, 22539, 100;
+			green dragon leather, 5877, 100;
+			green dragon scale, 5920, 100;
+			hellspawn tail, 11221, 100;
+			lion's mane, 10608, 100;
+			little bowl of myrrh, 29007, 100;
+			metal spike, 11215, 100;
+			mooh'tah shell, 23573, 100;
+			moohtant horn, 23571, 100;
+			mystical hourglass, 10577, 100;
+			ogre nose ring, 24845, 100;
+			orc tooth, 11113, 100;
+			peacock feather fan, 24631, 100;
+			petrified scream, 11337, 100;
+			piece of dead brain, 10580, 100;
+			piece of scarab shell, 10558, 100;
+			piece of swampling wood, 20103, 100;
+			pile of grave earth, 12440, 100;
+			poisonous slime, 10557, 100;
+			polar bear paw, 10567, 100;
+			protective charm, 12400, 100;
+			quill, 33314, 100;
+			rope belt, 12448, 100;
+			rorc feather, 21310, 100;
+			sabretooth, 11228, 100;
+			seacrest hair, 24170, 100;
+			silencer claws, 22534, 100;
+			slime heart, 23565, 100;
+			snake skin, 10611, 100;
+			some grimeleech wings, 25386, 100;
+			strand of medusa hair, 11226, 100;
+			swamp grass, 10603, 100;
+			thick fur, 11224, 100;
+			vampire teeth, 10602, 100;
+			vexclaw talon, 25384, 100;
+			war crystal, 10571, 100;
+			warmaster's wristguards, 11322, 100;
+			waspoid wing, 15484, 100;
+			wereboar hooves, 24709, 100;
+			winter wolf fur, 11212, 100;
+			wyrm scale, 10582, 100;			
+			wyvern talisman, 10561, 100;"/>
+	</parameters>
+</npc>
