@@ -9,7 +9,7 @@ local function roomIsOccupied(centerPosition,
 	return false
 end
 
-function clearBossRoom(playerId, bossId,
+local function clearBossRoom(playerId, bossId,
 		centerPosition,
 		rangeX, rangeY, exitPosition)
 	local spectators, spectator = Game.getSpectators(centerPosition, false, false,

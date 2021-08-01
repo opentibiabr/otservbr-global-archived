@@ -430,7 +430,8 @@ Storage = {
 		TatteredSwanFeathers02 = 50302,
 		TatteredSwanFeathers03 = 50303,
 		TatteredSwanFeathers04 = 50304,
-		TatteredSwanFeathers05 = 50305
+		TatteredSwanFeathers05 = 50305,
+		PoacherChest = 50306
 	},
 	FirstDragon = {
 		-- Reserved storage from 50350 - 50379

@@ -2137,6 +2137,9 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_CLEAN_MAP)
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_CLOSE)
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_SHUTDOWN)
+	registerEnumIn("configKeys", ConfigManager::SAVE_INTERVAL)
+	registerEnumIn("configKeys", ConfigManager::SAVE_INTERVAL_CLEAN_MAP)
+	registerEnumIn("configKeys", ConfigManager::SAVE_INTERVAL_TIME)
 
 	registerEnumIn("configKeys", ConfigManager::MAP_NAME)
 	registerEnumIn("configKeys", ConfigManager::MAP_CUSTOM_NAME)
@@ -3470,6 +3473,7 @@ void LuaScriptInterface::registerFunctions()
 	// Webhook
 	registerTable("Webhook");
 	registerMethod("Webhook", "send", LuaScriptInterface::webhookSend);
+	registerMethod("Webhook", "specialSend", LuaScriptInterface::webhookSpecialSend);
 }
 
 #undef registerEnum
@@ -19891,6 +19895,20 @@ int LuaScriptInterface::webhookSend(lua_State* L)
 	uint32_t color = getNumber<uint32_t>(L, 3, 0);
 
 	webhook_send_message(title, message, color);
+	lua_pushnil(L);
+
+	return 1;
+}
+
+int LuaScriptInterface::webhookSpecialSend(lua_State* L)
+{
+	// Webhook.specialSend(title, message, color, url)
+	std::string title = getString(L, 1);
+	std::string message = getString(L, 2);
+	uint32_t color = getNumber<uint32_t>(L, 3, 0);
+	std::string url = getString(L, 4);
+
+	webhook_send_specialmessage(title, message, color, url);
 	lua_pushnil(L);
 
 	return 1;

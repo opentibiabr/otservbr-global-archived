@@ -29,9 +29,9 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
+	local itemId = items[player:getVocation():getClientId()]
 	if msgcontains(msg, 'first rod') or msgcontains(msg, 'first wand') then
 		if player:isMage() then
-			local itemId = items[player:getVocation():getClientId()]
 			if player:getStorageValue(Storage.firstMageWeapon) == -1 then
 				npcHandler:say('So you ask me for a {' .. ItemType(itemId):getName() .. '} to begin your adventure?', cid)
 				npcHandler.topic[cid] = 1
