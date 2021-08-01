@@ -167,9 +167,9 @@ function addStamina(id, amountStamina, delay)
 
   local player = Player(id)
      if not player then
-      stopEvent(event)
-      	   staminaRegen[id] = nil
-       return false
+     stopEvent(event)
+     staminaRegen[id] = nil
+     return false
     end
 
   local actualStamina = player:getStamina()
@@ -180,8 +180,8 @@ function addStamina(id, amountStamina, delay)
 	    player:sendTextMessage(MESSAGE_STATUS_SMALL, "You are no longer refilling stamina, because your stamina is already full.")
 		stopEvent(event)
 		staminaRegen[id] = nil
-	return false
-end   
+		return false
+	end   
    
 	player:setStamina(player:getStamina() + configManager.getNumber(configKeys.STAMINA_PZ_GAIN))
 	player:sendTextMessage(MESSAGE_STATUS_SMALL, "One minute of stamina has been refilled.")
