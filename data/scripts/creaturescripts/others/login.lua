@@ -191,20 +191,22 @@ function playerLogin.onLogin(player)
 		player:setStorageValue(Storage.combatProtectionStorage, 1)
 		onMovementRemoveProtection(playerId, player:getPosition(), 10)
 	end
-	-- Set Client XP Gain Rate
-	local baseExp = 100
+
+	-- Set Client XP Gain Rate --
+	local rateExp = 1
 	if Game.getStorageValue(GlobalStorage.XpDisplayMode) > 0 then
-		baseExp = getRateFromTable(experienceStages, player:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
+		rateExp = getRateFromTable(experienceStages, player:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
+
+		if SCHEDULE_EXP_RATE ~= 100 then
+			rateExp = (rateExp * SCHEDULE_EXP_RATE)/100
+		end
 	end
 
 	local staminaMinutes = player:getStamina()
-	local doubleExp = false --Can change to true if you have double exp on the server
 	local staminaBonus = (staminaMinutes > 2340) and 150 or ((staminaMinutes < 840) and 50 or 100)
-	if doubleExp then
-		baseExp = baseExp * 2
-	end
+
 	player:setStaminaXpBoost(staminaBonus)
-	player:setBaseXpGain(baseExp)
+	player:setBaseXpGain(rateExp * 100)
 
 	if player:getStorageValue(Storage.isTraining) == 1 then --Reset exercise weapon storage
 		player:setStorageValue(Storage.isTraining,0)

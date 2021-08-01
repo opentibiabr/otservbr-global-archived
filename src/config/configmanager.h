@@ -61,6 +61,7 @@ class ConfigManager
 			ONLY_PREMIUM_ACCOUNT,
 			MAP_CUSTOM_ENABLED,
 			ALL_CONSOLE_LOG,
+			RATE_USE_STAGES,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
@@ -100,7 +101,7 @@ class ConfigManager
 			PZ_LOCKED,
 			DEFAULT_DESPAWNRANGE,
 			DEFAULT_DESPAWNRADIUS,
-			RATE_EXPERIENCE,
+			RATE_EXP,
 			RATE_SKILL,
 			RATE_LOOT,
 			RATE_MAGIC,
