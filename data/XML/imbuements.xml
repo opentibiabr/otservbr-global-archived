@@ -99,20 +99,17 @@
 	<imbuement name="Reap" base="1" subgroup=" (Death)" category="0" iconid="4">
 		<attribute key="description" value="Converts 10% of the physical damage to death damage." />
 		<attribute key="effect" type="damage" combat="death" value="10" />
-
 		<attribute key="item" value="12440" count="25" />
 	</imbuement>
 	<imbuement name="Reap" base="2" subgroup=" (Death)" category="0" iconid="4">
 		<attribute key="description" value="Converts 25% of the physical damage to death damage." />
 		<attribute key="effect" type="damage" combat="death" value="25" />
-
 		<attribute key="item" value="12440" count="25" />
 		<attribute key="item" value="10564" count="20" />
 	</imbuement>
 	<imbuement name="Reap" base="3" subgroup=" (Death)" category="0" iconid="4">
 		<attribute key="description" value="Converts 50% of the physical damage to death damage." />
 		<attribute key="effect" type="damage" combat="death" value="50" />
-
 		<attribute key="item" value="12440" count="25" />
 		<attribute key="item" value="10564" count="20" />
 		<attribute key="item" value="11337" count="5" />
@@ -174,7 +171,6 @@
 		<attribute key="item" value="11228" count="25" />
 		<attribute key="item" value="25384" count="5" />
 	</imbuement>
-
 	<!-- Protections Imbuements -->
 	<imbuement name="Lich Shroud" base="1" category="4" iconid="25">
 		<attribute key="description" value="Reduces death damage by 2%." />
