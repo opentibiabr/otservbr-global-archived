@@ -1001,7 +1001,7 @@ ChestUnique = {
 	},
 	-- Others uniques
 	-- Threatened Dreams Quest
-	[34123] = {
+	[14036] = {
 		itemId = 13903,
 		itemPos = {x = 32787, y = 31975, z = 11}
 	}
