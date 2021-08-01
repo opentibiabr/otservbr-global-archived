@@ -46,4 +46,7 @@
 	<spawn centerx="32354" centery="32226" centerz="7" radius="1">
 		<npc name="cassino" x="0" y="0" z="7" spawntime="60" />
 	</spawn>
+	<spawn centerx="998" centery="1024" centerz="7" radius="1">
+		<npc name="imbuement_assistant" x="0" y="0" z="6" spawntime="60" />
+	</spawn>
 </spawns>
