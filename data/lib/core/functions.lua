@@ -20,9 +20,7 @@ function getFormattedWorldTime()
 end
 
 function getLootRandom()
-	local den = configManager.getNumber(configKeys.RATE_LOOT) * SCHEDULE_LOOT_RATE
-	if (den < 1) then den = 1 end
-	return math.random(0, MAX_LOOTCHANCE) * 100 / den)
+	return math.random(0, MAX_LOOTCHANCE) * 100 / math.max(1, (configManager.getNumber(configKeys.RATE_LOOT) * SCHEDULE_LOOT_RATE))
 end
 
 local start = os.time()

@@ -714,17 +714,16 @@ function Player:onGainExperience(source, exp, rawExp)
 	if configManager.getBoolean(configKeys.STAMINA_SYSTEM) then
 		useStamina(self)
 		local staminaMinutes = self:getStamina()
+
 		if staminaMinutes > 2340 and self:isPremium() then
 			staminaBoost = 1.5
-			self:setStaminaXpBoost(150)
 		elseif staminaMinutes <= 840 then
 			staminaBoost = 0.5 --TODO destroy loot of people with 840- stamina
-			self:setStaminaXpBoost(50)
-		else
-			self:setStaminaXpBoost(100)
 		end
+
+		self:setStaminaXpBoost(staminaBoost * 100)
 	end
-			
+
 	-- Boosted creature
 	if source:getName():lower() == (Game.getBoostedCreature()):lower() then
 		exp = exp * 2
@@ -733,10 +732,6 @@ function Player:onGainExperience(source, exp, rawExp)
 	-- Event scheduler
 	if SCHEDULE_EXP_RATE ~= 100 then
 		expStage = (expStage * SCHEDULE_EXP_RATE)/100
-	end
-
-	if Game.getStorageValue(GlobalStorage.XpDisplayMode) > 0 then
-		self:setBaseXpGain(expStage * 100)
 	end
 
 	return (exp / 100 * ((expStage * 100 + storeXpBoostAmount + preyBonus) * staminaBoost))
