@@ -3325,6 +3325,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Spell", "isBlocking", LuaScriptInterface::luaSpellBlocking);
 	registerMethod("Spell", "isAggressive", LuaScriptInterface::luaSpellAggressive);
 	registerMethod("Spell", "vocation", LuaScriptInterface::luaSpellVocation);
+        registerMethod("Spell", "setPzLocked", LuaScriptInterface::luaSpellSetPzLocked);
 
 	// only for InstantSpell
 	registerMethod("Spell", "words", LuaScriptInterface::luaSpellWords);
@@ -18004,8 +18005,8 @@ int LuaScriptInterface::luaSpellSetPzLocked(lua_State* L)
 	// spell:setPzLocked(bool)
 	Spell* spell = getUserdata<Spell>(L, 1);
 	if (spell) {
-		pushBoolean(L, spell->setPzLocked(getBoolean(L, 2));
-		}
+		spell->setPzLocked(getBoolean(L, 2));
+		setBoolean(L, true);
 	} else {
 		lua_pushnil(L);
 	}
