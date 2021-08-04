@@ -17999,6 +17999,19 @@ int LuaScriptInterface::luaSpellVocation(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaSpellSetPzLocked(lua_State* L)
+{
+	// spell:setPzLocked(bool)
+	Spell* spell = getUserdata<Spell>(L, 1);
+	if (spell) {
+		pushBoolean(L, spell->setPzLocked(getBoolean(L, 2));
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 // only for InstantSpells
 int LuaScriptInterface::luaSpellWords(lua_State* L)
 {

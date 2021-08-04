@@ -293,6 +293,12 @@ class Spell : public BaseSpell
 		void setAggressive(bool a) {
 			aggressive = a;
 		}
+		bool getPzLocked() const {
+			return pzLocked;
+		}
+		void setPzLocked(bool locked) {
+			pzLocked = locked;
+		}
 
 		SpellType_t spellType = SPELL_UNDEFINED;
 
