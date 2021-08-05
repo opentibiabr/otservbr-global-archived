@@ -1,7 +1,7 @@
 name: Report a problem/bug
 description: Any issues that you have found while using the server
 title: "[Bug]: "
-labels: [bug]
+labels: ["Type: Bug"]
 body:
   - type: markdown
     attributes:
@@ -14,7 +14,6 @@ body:
       label: What happened?
       description: Describe the problem/bug!
       placeholder: Tell us what you see!
-      value: "A bug happened!"
     validations:
       required: true
 
@@ -23,11 +22,7 @@ body:
     attributes:
       label: How to Reproduce?
       description: Steps to reproduce the problem, position on the map, etc
-      placeholder: Tell us exactly how to reproduce and the position on the map!
-      value: |
-        1 - go to position 134,543,7
-        2 - Try to open the door
-        3 - Door doesn't open!
+      placeholder: Tell us exactly how to reproduce and the position(134,543,7) on the map, do not use names as not all of us play tibia anymore!
     validations:
       required: true
 
