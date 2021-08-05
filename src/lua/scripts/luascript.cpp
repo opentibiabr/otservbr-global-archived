@@ -2764,8 +2764,6 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "save", LuaScriptInterface::luaPlayerSave);
 	registerMethod("Player", "popupFYI", LuaScriptInterface::luaPlayerPopupFYI);
 
-	registerMethod("Player", "isPzLocked", LuaScriptInterface::luaPlayerIsPzLocked);
-
 	registerMethod("Player", "getClient", LuaScriptInterface::luaPlayerGetClient);
 
 	// New prey
@@ -3320,6 +3318,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Spell", "needTarget", LuaScriptInterface::luaSpellNeedTarget);
 	registerMethod("Spell", "needWeapon", LuaScriptInterface::luaSpellNeedWeapon);
 	registerMethod("Spell", "needLearn", LuaScriptInterface::luaSpellNeedLearn);
+	registerMethod("Spell", "allowOnSelf", LuaScriptInterface::luaSpellAllowOnSelf);
+	registerMethod("Spell", "setPzLocked", LuaScriptInterface::luaSpellPzLocked);
 	registerMethod("Spell", "isSelfTarget", LuaScriptInterface::luaSpellSelfTarget);
 	registerMethod("Spell", "isBlocking", LuaScriptInterface::luaSpellBlocking);
 	registerMethod("Spell", "isAggressive", LuaScriptInterface::luaSpellAggressive);
@@ -11857,13 +11857,17 @@ int LuaScriptInterface::luaPlayerSetPreyTick(lua_State* L)
 }
 
 /**/
-
-int LuaScriptInterface::luaPlayerIsPzLocked(lua_State* L)
+int LuaScriptInterface::luaSpellPzLocked(lua_State* L)
 {
-	// player:isPzLocked()
-	Player* player = getUserdata<Player>(L, 1);
-	if (player) {
-		pushBoolean(L, player->isPzLocked());
+	// spell:isPzLocked(bool)
+	Spell* spell = getUserdata<Spell>(L, 1);
+	if (spell) {
+		if (lua_gettop(L) == 1) {
+			pushBoolean(L, spell->getLockedPZ());
+		} else {
+			spell->setLockedPZ(getBoolean(L, 2));
+			pushBoolean(L, true);
+		}
 	} else {
 		lua_pushnil(L);
 	}
@@ -17948,6 +17952,23 @@ int LuaScriptInterface::luaSpellAggressive(lua_State* L)
 			pushBoolean(L, spell->getAggressive());
 		} else {
 			spell->setAggressive(getBoolean(L, 2));
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaSpellAllowOnSelf(lua_State* L)
+{
+	// spell:allowOnSelf(bool)
+	Spell* spell = getUserdata<Spell>(L, 1);
+	if (spell) {
+		if (lua_gettop(L) == 1) {
+			pushBoolean(L, spell->getAllowOnSelf());
+		} else {
+			spell->setAllowOnSelf(getBoolean(L, 2));
 			pushBoolean(L, true);
 		}
 	} else {

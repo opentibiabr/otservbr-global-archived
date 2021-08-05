@@ -4,9 +4,9 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_BLUE)
 combat:setParameter(COMBAT_PARAM_DISPEL, CONDITION_PARALYZE)
 combat:setParameter(COMBAT_PARAM_AGGRESSIVE, false)
 
-function onGetFormulaValues(player, level, maglevel)
-	local min = (level / 5) + (maglevel * 18.5)
-	local max = (level / 5) + (maglevel * 25)
+function onGetFormulaValues(_player, level, magicLevel) -- already compared to the official tibia | compared date: 05/07/19(m/d/y)
+	local min = (level * 0.2 + magicLevel * 7.22) + 44
+	local max = (level * 0.2 + magicLevel * 12.79) + 79
 	return min, max
 end
 
@@ -23,8 +23,8 @@ spell:words("exura san")
 spell:group("healing")
 spell:vocation("paladin;true", "royal paladin;true")
 spell:id(125)
-spell:cooldown(1 * 1000)
-spell:groupCooldown(1 * 1000)
+spell:cooldown(1000)
+spell:groupCooldown(1000)
 spell:level(35)
 spell:mana(160)
 spell:isSelfTarget(true)

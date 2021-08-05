@@ -1,15 +1,9 @@
 function onTargetCreature(creature, target)
-	local player = creature:getPlayer()
 	local min = 0
 	local max = 1000
-	local master = target:getMaster()
 
-	if target:isPlayer() then
-		return true
-	end
-	if master then
-		return true
-	end
+	if target:isPlayer() then return true end
+	if target:getMaster() then return true end
 
 	doTargetCombatHealth(0, target, COMBAT_HEALING, min, max, CONST_ME_NONE)
 	return true
