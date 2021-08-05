@@ -162,31 +162,32 @@ if not playerDelayPotion then
 	playerDelayPotion = {}
 end
 
+-- Increase Stamina when Attacking Trainer
 function addStamina(id, amountStamina, delay)
-  local event = staminaRegen[id]
+    local event = staminaRegen[id]
 
-  local player = Player(id)
-     if not player then
-     stopEvent(event)
-     staminaRegen[id] = nil
-     return false
+    local player = Player(id)
+    if not player then
+        stopEvent(event)
+        staminaRegen[id] = nil
+        return false
     end
 
-  local actualStamina = player:getStamina()
+    local actualStamina = player:getStamina()
 
-  if actualStamina > 2400 and actualStamina < 2520 then
-		delay = configManager.getNumber(configKeys.STAMINA_GREEN_DELAY) * 60 * 1000 -- Stamina Green 12 min.
-		elseif actualStamina == 2520 then
-	    player:sendTextMessage(MESSAGE_STATUS_SMALL, "You are no longer refilling stamina, because your stamina is already full.")
-		stopEvent(event)
-		staminaRegen[id] = nil
-		return false
-	end   
-   
-	player:setStamina(player:getStamina() + configManager.getNumber(configKeys.STAMINA_PZ_GAIN))
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, "One minute of stamina has been refilled.")
+    if actualStamina > 2400 and actualStamina < 2520 then
+        delay = configManager.getNumber(configKeys.STAMINA_GREEN_DELAY) * 60 * 1000 -- Stamina Green 12 min.
+    elseif actualStamina == 2520 then
+        player:sendTextMessage(MESSAGE_STATUS_SMALL, "You are no longer refilling stamina, because your stamina is already full.")
+        stopEvent(event)
+        staminaRegen[id] = nil
+        return false
+    end
 
-	stopEvent(event)
-	staminaRegen[id] = addEvent(addStamina, delay, id, amountStamina, delay)
-  return true
+    player:setStamina(player:getStamina() + configManager.getNumber(configKeys.STAMINA_PZ_GAIN))
+    player:sendTextMessage(MESSAGE_STATUS_SMALL, "One minute of stamina has been refilled.")
+
+    stopEvent(event)
+    staminaRegen[id] = addEvent(addStamina, delay, id, amountStamina, delay)
+    return true
 end

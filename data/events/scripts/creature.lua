@@ -59,30 +59,29 @@ local function removeCombatProtection(cid)
 	end, time * 1000, cid)
 end
 
--- Increase Stamina when Attacking Trainer
 local staminaBonus = {
-	target = 'Training Monk',
-	period = configManager.getNumber(configKeys.STAMINA_TRAINER_DELAY) * 60 * 1000, -- time on miliseconds
-	bonus = configManager.getNumber(configKeys.STAMINA_TRAINER_GAIN), -- gain stamina
-	events = {}
+    target = "Training Monk",
+    period = configManager.getNumber(configKeys.STAMINA_TRAINER_DELAY) * 60 * 1000, -- time on miliseconds
+    bonus = configManager.getNumber(configKeys.STAMINA_TRAINER_GAIN), -- gain stamina
+    events = {}
 }
 
 local function addStamina(name)
-	local player = Player(name)
-	if configManager.getBoolean(configKeys.STAMINA_TRAINER) then
-	if not player then
-		staminaBonus.events[name] = nil
-	else
-		local target = player:getTarget()
-		if not target or target:getName() ~= staminaBonus.target then
-			staminaBonus.events[name] = nil
-		else
-			player:setStamina(player:getStamina() + staminaBonus.bonus)
-			staminaBonus.events[name] = addEvent(addStamina, staminaBonus.period, name)
-		end
-   end
-	end
-	return not configManager.getBoolean(configKeys.STAMINA_TRAINER)
+    local player = Player(name)
+    if configManager.getBoolean(configKeys.STAMINA_TRAINER) then
+        if not player then
+            staminaBonus.events[name] = nil
+        else
+            local target = player:getTarget()
+            if not target or target:getName() ~= staminaBonus.target then
+                staminaBonus.events[name] = nil
+            else
+                player:setStamina(player:getStamina() + staminaBonus.bonus)
+                staminaBonus.events[name] = addEvent(addStamina, staminaBonus.period, name)
+            end
+        end
+    end
+    return not configManager.getBoolean(configKeys.STAMINA_TRAINER)
 end
 
 picIf = {}
