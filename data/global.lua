@@ -15,11 +15,11 @@ GLOBAL_CHARM_SCAVENGE = 0
 
 --WEATHER
 weatherConfig = {
-	  groundEffect = CONST_ME_LOSEENERGY,
+	groundEffect = CONST_ME_LOSEENERGY,
 	fallEffect = CONST_ANI_SMALLICE,
-	  thunderEffect = configManager.getBoolean(configKeys.WEATHER_THUNDER),
-	  minDMG = 1,
-	  maxDMG = 5
+	thunderEffect = configManager.getBoolean(configKeys.WEATHER_THUNDER),
+	minDMG = 1,
+	maxDMG = 5
 }
 
 -- Event Schedule
@@ -127,7 +127,7 @@ end
 string.splitTrimmed = function(str, sep)
 	local res = {}
 	for v in str:gmatch("([^" .. sep .. "]+)") do
-    res[#res + 1] = v:trim()
+		res[#res + 1] = v:trim()
 	end
 	return res
 end
