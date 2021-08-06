@@ -170,8 +170,8 @@ staminaBonus = {
   events = {}
 }
 
+-- Creature:onTargetCombat
 function addStamina(name, ...)
-	-- Creature:onTargetCombat
 	if name then
 		local player = Player(name)
 		if configManager.getBoolean(configKeys.STAMINA_TRAINER) then
@@ -190,8 +190,8 @@ function addStamina(name, ...)
 		return not configManager.getBoolean(configKeys.STAMINA_TRAINER)
 	end
 
-	-- Player:onChangeZone
-	local id, amountStamina, delay = ...
+-- Player:onChangeZone
+local id, amountStamina, delay = ...
 
 	if id and amountStamina and delay then
 		local event = staminaRegen[id]
