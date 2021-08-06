@@ -507,35 +507,6 @@ end
 function Player:onItemMoved(item, count, fromPosition, toPosition, fromCylinder, toCylinder)
 end
 
-function Player:onChangeZone(zone)
-    if not self:isPremium() then
-        return false
-    end
-
-    local event = staminaRegen[self:getId()]
-
-    if configManager.getBoolean(configKeys.STAMINA_PZ) then
-        if zone == ZONE_PROTECTION then
-            if self:getStamina() < 2520 then
-                if not event then
-                    local delay = configManager.getNumber(configKeys.STAMINA_ORANGE_DELAY)
-                    if self:getStamina() > 2400 and self:getStamina() <= 2520 then
-                        delay = configManager.getNumber(configKeys.STAMINA_GREEN_DELAY)
-                    end
-                    staminaRegen[self:getId()] = addEvent(addStamina, delay * 60 * 1000, self:getId(), 1, delay * 60 * 1000)
-                end
-            end
-        else
-            if event then
-                self:sendTextMessage(MESSAGE_STATUS_SMALL, "You are no longer refilling stamina, since you left a regeneration zone.")
-                stopEvent(event)
-                staminaRegen[self:getId()] = nil
-            end
-        end
-        return not configManager.getBoolean(configKeys.STAMINA_PZ)
-    end
-end
-
 function Player:onMoveCreature(creature, fromPosition, toPosition)
 	if creature:isPlayer() and creature:getStorageValue(Storage.isTraining) == 1 and self:getGroup():hasFlag(PlayerFlag_CanPushAllCreatures) == false then
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
@@ -1008,4 +979,33 @@ function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDama
 	end
 
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
+end
+
+function Player:onChangeZone(zone)
+	if self:isPremium() then
+		local event = staminaRegen[self:getId()]
+
+		if configManager.getBoolean(configKeys.STAMINA_PZ) then
+			if zone == ZONE_PROTECTION then
+				if self:getStamina() < 2520 then
+					if not event then
+						local delay = configManager.getNumber(configKeys.STAMINA_ORANGE_DELAY)
+						if self:getStamina() > 2400 and self:getStamina() <= 2520 then
+							delay = configManager.getNumber(configKeys.STAMINA_GREEN_DELAY)
+						end
+	
+						staminaRegen[self:getId()] = addEvent(addStamina, delay * 60 * 1000, nil, self:getId(), 1, delay * 60 * 1000)
+					end
+				end
+			else
+				if event then
+					self:sendTextMessage(MESSAGE_STATUS_SMALL, "You are no longer refilling stamina, since you left a regeneration zone.")
+					stopEvent(event)
+					staminaRegen[self:getId()] = nil
+				end
+			end
+			return not configManager.getBoolean(configKeys.STAMINA_PZ)
+		end
+	end
+	return false
 end

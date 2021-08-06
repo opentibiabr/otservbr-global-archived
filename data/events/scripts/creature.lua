@@ -5,9 +5,9 @@ function Creature:onChangeOutfit(outfit)
 		if familiarLookType ~= 0 then
 			for _, summon in pairs(self:getSummons()) do
 				if summon:getType():isPet() then
-						if summon:getOutfit().lookType ~= familiarLookType then
-							summon:setOutfit({lookType = familiarLookType})
-						end
+					  if summon:getOutfit().lookType ~= familiarLookType then
+						  summon:setOutfit({lookType = familiarLookType})
+					end
 					break
 				end
 			end
@@ -57,31 +57,6 @@ local function removeCombatProtection(cid)
 		player:setStorageValue(Storage.combatProtectionStorage, 0)
 		player:remove()
 	end, time * 1000, cid)
-end
-
-local staminaBonus = {
-    target = "Training Monk",
-    period = configManager.getNumber(configKeys.STAMINA_TRAINER_DELAY) * 60 * 1000, -- time on miliseconds
-    bonus = configManager.getNumber(configKeys.STAMINA_TRAINER_GAIN), -- gain stamina
-    events = {}
-}
-
-local function addStamina(name)
-    local player = Player(name)
-    if configManager.getBoolean(configKeys.STAMINA_TRAINER) then
-        if not player then
-            staminaBonus.events[name] = nil
-        else
-            local target = player:getTarget()
-            if not target or target:getName() ~= staminaBonus.target then
-                staminaBonus.events[name] = nil
-            else
-                player:setStamina(player:getStamina() + staminaBonus.bonus)
-                staminaBonus.events[name] = addEvent(addStamina, staminaBonus.period, name)
-            end
-        end
-    end
-    return not configManager.getBoolean(configKeys.STAMINA_TRAINER)
 end
 
 picIf = {}
@@ -157,7 +132,7 @@ function Creature:onTargetCombat(target)
 end
 
 function Creature:onDrainHealth(attacker, typePrimary, damagePrimary,
-				typeSecondary, damageSecondary, colorPrimary, colorSecondary)
+    typeSecondary, damageSecondary, colorPrimary, colorSecondary)
 	if (not self) then
 		return typePrimary, damagePrimary, typeSecondary, damageSecondary, colorPrimary, colorSecondary
 	end
