@@ -15,11 +15,11 @@ GLOBAL_CHARM_SCAVENGE = 0
 
 --WEATHER
 weatherConfig = {
-	groundEffect = CONST_ME_LOSEENERGY,
+    groundEffect = CONST_ME_LOSEENERGY,
 	fallEffect = CONST_ANI_SMALLICE,
-	thunderEffect = configManager.getBoolean(configKeys.WEATHER_THUNDER),
-	minDMG = 1,
-	maxDMG = 5
+    thunderEffect = configManager.getBoolean(configKeys.WEATHER_THUNDER),
+    minDMG = 1,
+    maxDMG = 5
 }
 
 -- Event Schedule
