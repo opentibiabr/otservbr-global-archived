@@ -731,7 +731,7 @@ function Player:onGainExperience(source, exp, rawExp)
 
 	-- Event scheduler
 	if SCHEDULE_EXP_RATE ~= 100 then
-		expStage = (expStage * SCHEDULE_EXP_RATE)/100
+		expStage = math.max(0, (expStage * SCHEDULE_EXP_RATE)/100)
 	end
 
 	return (exp / 100 * ((expStage * 100 + storeXpBoostAmount + preyBonus) * staminaBoost))
@@ -764,7 +764,7 @@ function Player:onGainSkillTries(skill, tries)
 
 	-- Event scheduler skill rate
 	if SCHEDULE_SKILL_RATE ~= 100 then
-		skillOrMagicRate = (skillOrMagicRate * SCHEDULE_SKILL_RATE)/100
+		skillOrMagicRate = math.max(0, (skillOrMagicRate * SCHEDULE_SKILL_RATE)/100)
 	end
 
 	return tries / 100 * (skillOrMagicRate * 100)

@@ -135,6 +135,11 @@ function serverstartup.onStartup()
 		if skillRate ~= 100 then
 			SCHEDULE_SKILL_RATE = skillRate
 		end
+
+		local spawnRate = Game.getEventSSpawnRate()
+		if spawnRate ~= 100 then
+			SCHEDULE_SPAWN_RATE = spawnRate
+		end
 	end
 
 	-- Client XP Display Mode

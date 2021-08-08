@@ -2230,6 +2230,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Game", "getEventSLoot", LuaScriptInterface::luaGamegetEventSLoot);
 	registerMethod("Game", "getEventSSkill", LuaScriptInterface::luaGamegetEventSSkill);
 	registerMethod("Game", "getEventSExp", LuaScriptInterface::luaGamegetEventSExp);
+	registerMethod("Game", "getEventSSpawnRate", LuaScriptInterface::luaGamegetEventSSpawnRate);
 
 	registerMethod("Game", "getSpectators", LuaScriptInterface::luaGameGetSpectators);
 
@@ -4950,6 +4951,13 @@ int LuaScriptInterface::luaGamegetEventSExp(lua_State* L)
 {
 	// Game.getEventSExp()
 	lua_pushnumber(L, g_game.getExpSchedule());
+	return 1;
+}
+
+int LuaScriptInterface::luaGamegetEventSSpawnRate(lua_State* L)
+{
+	// Game.getEventSSpawnRate()
+	lua_pushnumber(L, g_game.getSpawnSchedule());
 	return 1;
 }
 

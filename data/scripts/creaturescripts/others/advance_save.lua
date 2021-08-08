@@ -12,7 +12,7 @@ function advanceSave.onAdvance(player, skill, oldLevel, newLevel)
 
 		-- Event scheduler
 		if SCHEDULE_EXP_RATE ~= 100 then
-			baseRate = (baseRate * SCHEDULE_EXP_RATE)/100
+			baseRate = math.max(0, (baseRate * SCHEDULE_EXP_RATE)/100)
 		end
 
 		player:setBaseXpGain(baseRate * 100)

@@ -122,6 +122,16 @@ function playerLogin.onLogin(player)
 	if player:getGroup():getId() >= GROUP_TYPE_GAMEMASTER then
 		player:setGhostMode(true)
 	end
+
+	if SCHEDULE_SPAWN_RATE ~= 100 then
+		if SCHEDULE_SPAWN_RATE > 100 then
+			player:sendTextMessage(MESSAGE_BOOSTED_CREATURE, "Spawn Rate Event! Monsters respawn at a faster rate \
+			Happy Hunting!")
+		else
+			player:sendTextMessage(MESSAGE_BOOSTED_CREATURE, "Spawn Rate Decreased! Monsters respawn at a slower rate.")
+		end
+	end
+
 	-- Boosted creature
 	player:sendTextMessage(MESSAGE_BOOSTED_CREATURE, "Today's boosted creature: " .. Game.getBoostedCreature() .. " \
 	Boosted creatures yield more experience points, carry more loot than usual and respawn at a faster rate.")
@@ -198,7 +208,7 @@ function playerLogin.onLogin(player)
 		rateExp = getRateFromTable(experienceStages, player:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
 
 		if SCHEDULE_EXP_RATE ~= 100 then
-			rateExp = (rateExp * SCHEDULE_EXP_RATE)/100
+			rateExp = math.max(0, (rateExp * SCHEDULE_EXP_RATE)/100)
 		end
 	end
 
