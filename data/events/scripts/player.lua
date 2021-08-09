@@ -829,12 +829,12 @@ end
 
 function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
 	for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
-    	local slotItem = self:getSlotItem(slot)
-   		if slotItem and slotItem == item then
-			self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You can't imbue a equipped item.")
-			self:closeImbuementWindow()
-            return true
-   		end
+			local slotItem = self:getSlotItem(slot)
+			if slotItem and slotItem == item then
+				self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You can't imbue a equipped item.")
+				self:closeImbuementWindow()
+				return true
+			end
 	end
 
 	for _, pid in pairs(imbuement:getItems()) do
@@ -983,7 +983,7 @@ end
 
 function Player:onChangeZone(zone)
 	if self:isPremium() then
-		local event = staminaRegen[self:getId()]
+		local event = staminaBonus.events[self:getId()]
 
 		if configManager.getBoolean(configKeys.STAMINA_PZ) then
 			if zone == ZONE_PROTECTION then
@@ -993,15 +993,19 @@ function Player:onChangeZone(zone)
 						if self:getStamina() > 2400 and self:getStamina() <= 2520 then
 							delay = configManager.getNumber(configKeys.STAMINA_GREEN_DELAY)
 						end
-	
-						staminaRegen[self:getId()] = addEvent(addStamina, delay * 60 * 1000, nil, self:getId(), 1, delay * 60 * 1000)
+
+						self:sendTextMessage(MESSAGE_STATUS_SMALL,
+																string.format("In protection zone. \
+																Every %i minutes, gain %i stamina.",
+																delay, configManager.getNumber(configKeys.STAMINA_PZ_GAIN)))
+						staminaBonus.events[self:getId()] = addEvent(addStamina, delay * 60 * 1000, nil, self:getId(), delay * 60 * 1000)
 					end
 				end
 			else
 				if event then
 					self:sendTextMessage(MESSAGE_STATUS_SMALL, "You are no longer refilling stamina, since you left a regeneration zone.")
 					stopEvent(event)
-					staminaRegen[self:getId()] = nil
+					staminaBonus.events[self:getId()] = nil
 				end
 			end
 			return not configManager.getBoolean(configKeys.STAMINA_PZ)

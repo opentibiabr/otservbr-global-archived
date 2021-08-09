@@ -15,11 +15,11 @@ GLOBAL_CHARM_SCAVENGE = 0
 
 --WEATHER
 weatherConfig = {
-    groundEffect = CONST_ME_LOSEENERGY,
+	groundEffect = CONST_ME_LOSEENERGY,
 	fallEffect = CONST_ANI_SMALLICE,
-    thunderEffect = configManager.getBoolean(configKeys.WEATHER_THUNDER),
-    minDMG = 1,
-    maxDMG = 5
+	thunderEffect = configManager.getBoolean(configKeys.WEATHER_THUNDER),
+	minDMG = 1,
+	maxDMG = 5
 }
 
 -- Event Schedule
@@ -54,9 +54,6 @@ damageImpact = {}
 
 -- New prey => preyTimeLeft
 nextPreyTime = {}
-
--- Stamina Regen Online
-staminaRegen = {}
 
 startupGlobalStorages = {
 	GlobalStorage.TheAncientTombs.AshmunrahSwitchesGlobalStorage,
@@ -167,11 +164,11 @@ staminaBonus = {
 	target = 'Training Machine',
 	period = configManager.getNumber(configKeys.STAMINA_TRAINER_DELAY) * 60 * 1000, -- time on miliseconds
 	bonus = configManager.getNumber(configKeys.STAMINA_TRAINER_GAIN), -- gain stamina
-  events = {}
+	events = {}
 }
 
--- Creature:onTargetCombat
 function addStamina(name, ...)
+	-- Creature:onTargetCombat
 	if name then
 		local player = Player(name)
 		if configManager.getBoolean(configKeys.STAMINA_TRAINER) then
@@ -183,6 +180,9 @@ function addStamina(name, ...)
 					staminaBonus.events[name] = nil
 				else
 					player:setStamina(player:getStamina() + staminaBonus.bonus)
+					player:sendTextMessage(MESSAGE_STATUS_SMALL,
+																string.format("%i of stamina has been refilled.",
+																configManager.getNumber(configKeys.STAMINA_TRAINER_GAIN)))
 					staminaBonus.events[name] = addEvent(addStamina, staminaBonus.period, name)
 				end
 			end
@@ -190,16 +190,16 @@ function addStamina(name, ...)
 		return not configManager.getBoolean(configKeys.STAMINA_TRAINER)
 	end
 
--- Player:onChangeZone
-local id, amountStamina, delay = ...
+	-- Player:onChangeZone
+	local id, delay = ...
 
-	if id and amountStamina and delay then
-		local event = staminaRegen[id]
+	if id and delay then
+		if not staminaBonus.events[id] then return false end
+		stopEvent(staminaBonus.events[id])
 
 		local player = Player(id)
 		if not player then
-			stopEvent(event)
-			staminaRegen[id] = nil
+			staminaBonus.events[id] = nil
 			return false
 		end
 
@@ -209,16 +209,15 @@ local id, amountStamina, delay = ...
 			delay = configManager.getNumber(configKeys.STAMINA_GREEN_DELAY) * 60 * 1000 -- Stamina Green 12 min.
 		elseif actualStamina == 2520 then
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You are no longer refilling stamina, because your stamina is already full.")
-			stopEvent(event)
-			staminaRegen[id] = nil
+			staminaBonus.events[id] = nil
 			return false
 		end
 
 		player:setStamina(player:getStamina() + configManager.getNumber(configKeys.STAMINA_PZ_GAIN))
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, "One minute of stamina has been refilled.")
-
-		stopEvent(event)
-		staminaRegen[id] = addEvent(addStamina, delay, nil, id, amountStamina, delay)
+		player:sendTextMessage(MESSAGE_STATUS_SMALL,
+																string.format("%i of stamina has been refilled.",
+																configManager.getNumber(configKeys.STAMINA_PZ_GAIN)))
+		staminaBonus.events[id] = addEvent(addStamina, delay, nil, id, delay)
 		return true
 	end
 	return false
