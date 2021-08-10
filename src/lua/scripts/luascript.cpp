@@ -2764,6 +2764,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "save", LuaScriptInterface::luaPlayerSave);
 	registerMethod("Player", "popupFYI", LuaScriptInterface::luaPlayerPopupFYI);
 
+	registerMethod("Player", "isPzLocked", LuaScriptInterface::luaPlayerIsPzLocked);
+
 	registerMethod("Player", "getClient", LuaScriptInterface::luaPlayerGetClient);
 
 	// New prey
@@ -11857,17 +11859,13 @@ int LuaScriptInterface::luaPlayerSetPreyTick(lua_State* L)
 }
 
 /**/
-int LuaScriptInterface::luaSpellPzLocked(lua_State* L)
+
+int LuaScriptInterface::luaPlayerIsPzLocked(lua_State* L)
 {
-	// spell:isPzLocked(bool)
-	Spell* spell = getUserdata<Spell>(L, 1);
-	if (spell) {
-		if (lua_gettop(L) == 1) {
-			pushBoolean(L, spell->getLockedPZ());
-		} else {
-			spell->setLockedPZ(getBoolean(L, 2));
-			pushBoolean(L, true);
-		}
+	// player:isPzLocked()
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		pushBoolean(L, player->isPzLocked());
 	} else {
 		lua_pushnil(L);
 	}
@@ -17969,6 +17967,23 @@ int LuaScriptInterface::luaSpellAllowOnSelf(lua_State* L)
 			pushBoolean(L, spell->getAllowOnSelf());
 		} else {
 			spell->setAllowOnSelf(getBoolean(L, 2));
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaSpellPzLocked(lua_State* L)
+{
+	// spell:isPzLocked(bool)
+	Spell* spell = getUserdata<Spell>(L, 1);
+	if (spell) {
+		if (lua_gettop(L) == 1) {
+			pushBoolean(L, spell->getLockedPZ());
+		} else {
+			spell->setLockedPZ(getBoolean(L, 2));
 			pushBoolean(L, true);
 		}
 	} else {

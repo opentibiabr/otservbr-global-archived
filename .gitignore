@@ -11,9 +11,6 @@
 *.userosscache
 *.sln.docstates
 
-# VSCode Extensions
-*.lua-format
-
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
