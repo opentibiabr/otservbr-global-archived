@@ -76,7 +76,7 @@ local function startTraining(playerId, startPosition, itemid, tilePosition, bonu
                                 if exercise:getAttribute(ITEM_ATTRIBUTE_CHARGES) == 0 then
                                     removeExerciseWeapon(player, exercise)
                                 else
-                                    local training = addEvent(startTraining, voc:getAttackSpeed(), playerId,startPosition,itemid,tilePosition,bonusDummy,dummyId)
+                                    local training = addEvent(startTraining, voc:getBaseAttackSpeed() / configManager.getFloat(configKeys.RATE_EXERCISE_TRAINING_SPEED), playerId,startPosition,itemid,tilePosition,bonusDummy,dummyId)
                                     player:setStorageValue(Storage.isTraining,1)
                                     player:setTraining(true)
                                 end
