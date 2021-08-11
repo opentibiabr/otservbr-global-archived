@@ -186,9 +186,8 @@ bool ConfigManager::load()
 
 	boolean[FREE_QUESTS] = getGlobalBoolean(L, "freeQuests", false);
 
-	boolean[RATE_USE_STAGES] = getGlobalBoolean(L, "rateUseStages", true);
-
 	boolean[ONLY_PREMIUM_ACCOUNT] = getGlobalBoolean(L, "onlyPremiumAccount", false);
+	boolean[RATE_USE_STAGES] = getGlobalBoolean(L, "rateUseStages", true);
 
 	string[DEFAULT_PRIORITY] = getGlobalString(L, "defaultPriority", "high");
 	string[SERVER_NAME] = getGlobalString(L, "serverName", "");

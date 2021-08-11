@@ -53,14 +53,14 @@ local function startTraining(playerId, startPosition, itemid, tilePosition, bonu
                                 local voc = player:getVocation()
 
                                 if skills[itemid].id == SKILL_MAGLEVEL then
-                                    local magicRate = getRateFromTable(magicLevelStages, player:getMagicLevel(), configManager.getNumber(configKeys.RATE_MAGIC))
+                                    local magicRate = getRateFromTable(magicLevelStages, player:getBaseMagicLevel(), configManager.getNumber(configKeys.RATE_MAGIC))
                                     if not bonusDummy then
                                         player:addManaSpent(math.ceil(500 * magicRate))
                                     else
                                         player:addManaSpent(math.ceil(500 * magicRate) * 1.1) -- 10%
                                     end
                                 else
-                                    local skillRate = getRateFromTable(skillsStages, player:getEffectiveSkillLevel(skills[itemid].id), configManager.getNumber(configKeys.RATE_SKILL))
+                                    local skillRate = getRateFromTable(skillsStages, player:getSkillLevel(skills[itemid].id), configManager.getNumber(configKeys.RATE_SKILL))
                                     if not bonusDummy then
                                         player:addSkillTries(skills[itemid].id, 7 * skillRate)
                                     else

@@ -746,25 +746,25 @@ function Player:onGainSkillTries(skill, tries)
 	if isSkillGrowthLimited(self, skill) then
 		return 0
 	end
+
 	if APPLY_SKILL_MULTIPLIER == false then
 		return tries
 	end
 
 	local STAGES_DEFAULT = skillsStages or nil
-	local SKILL_DEFAULT = self:getEffectiveSkillLevel(skill)
+	local SKILL_DEFAULT = self:getSkillLevel(skill)
 	local RATE_DEFAULT = configManager.getNumber(configKeys.RATE_SKILL)
 
 	if(skill == SKILL_MAGLEVEL) then -- Magic Level
 		STAGES_DEFAULT = magicLevelStages or nil
-		SKILL_DEFAULT = self:getMagicLevel()
+		SKILL_DEFAULT = self:getBaseMagicLevel()
 		RATE_DEFAULT = configManager.getNumber(configKeys.RATE_MAGIC)
 	end
 
 	skillOrMagicRate = getRateFromTable(STAGES_DEFAULT, SKILL_DEFAULT, RATE_DEFAULT)
 
-	-- Event scheduler skill rate
 	if SCHEDULE_SKILL_RATE ~= 100 then
-		skillOrMagicRate = math.max(0, (skillOrMagicRate * SCHEDULE_SKILL_RATE)/100)
+		skillOrMagicRate = math.max(0, (skillOrMagicRate * SCHEDULE_SKILL_RATE) / 100)
 	end
 
 	return tries / 100 * (skillOrMagicRate * 100)
