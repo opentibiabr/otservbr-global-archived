@@ -154,7 +154,7 @@ serverSaveShutdown = true
 -- Rates
 -- NOTE: rateExp, rateSkill and rateMagic is used when 'rateUseStages = false' - or a fallback only
 -- To configure rates see file data/stages.lua
-rateUseStages = true
+rateUseStages = false
 rateExp = 1
 rateLoot = 1
 rateSpawn = 1

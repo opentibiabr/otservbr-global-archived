@@ -763,11 +763,11 @@ function Player:onGainSkillTries(skill, tries)
 
 	skillOrMagicRate = getRateFromTable(STAGES_DEFAULT, SKILL_DEFAULT, RATE_DEFAULT)
 
-	if(skill == SKILL_MAGLEVEL) then -- Magic getLevel
-		return tries * getRateFromTable(magicLevelStages, self:getBaseMagicLevel(), magicRate)
+	if SCHEDULE_SKILL_RATE ~= 100 then
+		skillOrMagicRate = math.max(0, (skillOrMagicRate * SCHEDULE_SKILL_RATE) / 100)
 	end
 
-	return tries * getRateFromTable(skillsStages, self:getSkillLevel(skill), skillRate)
+	return tries / 100 * (skillOrMagicRate * 100)
 end
 
 function Player:onRemoveCount(item)
