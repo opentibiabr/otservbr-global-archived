@@ -222,3 +222,6 @@ function addStamina(name, ...)
 	end
 	return false
 end
+
+-- Exercise Training
+onExerciseTraining = {}

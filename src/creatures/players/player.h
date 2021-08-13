@@ -2153,9 +2153,9 @@ class Player final : public Creature, public Cylinder
 		BlockType_t lastAttackBlockType = BLOCK_NONE;
 		tradestate_t tradeState = TRADE_NONE;
 		fightMode_t fightMode = FIGHTMODE_ATTACK;
-		account::AccountType accountType =
-		account::AccountType::ACCOUNT_TYPE_NORMAL;
+		account::AccountType accountType = account::AccountType::ACCOUNT_TYPE_NORMAL;
 		QuickLootFilter_t quickLootFilter;
+		VipStatus_t statusVipList = VIPSTATUS_ONLINE;
 
 		bool chaseMode = false;
 		bool secureMode = true;
