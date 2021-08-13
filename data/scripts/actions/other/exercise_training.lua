@@ -166,23 +166,26 @@ function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, 
 			return true
 		end
 
-		local playersOnDummy = 0
 		local targePos = target:getPosition()
-		for _, playerTraining in pairs(onExerciseTraining) do
-			if playerTraining.dummyPos == targePos then
-				playersOnDummy = playersOnDummy + 1
-			end
 
-			if playersOnDummy == maxAllowedOnADummy then
-				player:sendTextMessage(MESSAGE_FAILURE, "That exercise dummy is busy.")
-				return true
+		if isInArray(houseDummies, targetId) then
+			local playersOnDummy = 0
+			for _, playerTraining in pairs(onExerciseTraining) do
+				if playerTraining.dummyPos == targePos then
+					playersOnDummy = playersOnDummy + 1
+				end
+	
+				if playersOnDummy == maxAllowedOnADummy then
+					player:sendTextMessage(MESSAGE_FAILURE, "That exercise dummy is busy.")
+					return true
+				end
 			end
 		end
 
 		local vocation = player:getVocation()
 		onExerciseTraining[playerId] = {}
-		onExerciseTraining[playerId].event = addEvent(exerciseEvent, vocation:getAttackSpeed(), playerId, target:getPosition(), item.itemid, targetId)
-		onExerciseTraining[playerId].dummyPos = target:getPosition()
+		onExerciseTraining[playerId].event = addEvent(exerciseEvent, vocation:getAttackSpeed(), playerId, targePos, item.itemid, targetId)
+		onExerciseTraining[playerId].dummyPos = targePos
 		player:sendTextMessage(MESSAGE_FAILURE, "You started training.")
 		player:setTraining(true)
 		return true
