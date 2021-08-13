@@ -54,6 +54,10 @@ bool Vocations::loadFromXml()
 			voc.clientId = pugi::cast<uint16_t>(attr.value());
 		}
 
+		if ((attr = vocationNode.attribute("vocationBaseID"))) {
+			voc.vocationBaseID = pugi::cast<uint16_t>(attr.value());
+		}
+		
 		if ((attr = vocationNode.attribute("description"))) {
 			voc.description = attr.as_string();
 		}
