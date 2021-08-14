@@ -42,7 +42,7 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 	local vocation = player:getVocation()
 	local vocationId = vocation:getId()
-	local vocationClientId = vocation:getBaseId()
+	local vocationBaseId = vocation:getBaseId()
 
 	if msgcontains(msg, "pumin") then
 		if npcHandler.topic[cid] == 0 and player:getStorageValue(Storage.PitsOfInferno.ThronePumin) < 1 then
@@ -60,7 +60,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, Vocation(vocationId):getName()) then
 		if npcHandler.topic[cid] == 2 then
-			npcHandler:say("Huhu, please don't hurt me with your " .. config[vocationClientId] .. "! Reason of your visit?", cid)
+			npcHandler:say("Huhu, please don't hurt me with your " .. config[vocationBaseId] .. "! Reason of your visit?", cid)
 			npcHandler.topic[cid] = 3
 		end
 	elseif msgcontains(msg, "411") then

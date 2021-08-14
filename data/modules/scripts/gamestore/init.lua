@@ -765,11 +765,11 @@ function sendShowStoreOffers(playerId, category, redirectId)
 				msg:addString(offer.icons[1])
 			elseif type == GameStore.ConverType.SHOW_MOUNT then
 				local mount = Mount(offer.id)
-				msg:addU16(mount:getBaseId())
+				msg:addU16(mount:getClientId())
 
 				tryOnType = 1
 			elseif type == GameStore.ConverType.SHOW_ITEM then
-				msg:addU16(ItemType(offer.itemtype):getBaseId())
+				msg:addU16(ItemType(offer.itemtype):getClientId())
 			elseif type == GameStore.ConverType.SHOW_OUTFIT then
 				msg:addU16(player:getSex() == PLAYERSEX_FEMALE and offer.sexId.female or offer.sexId.male)
 				local outfit = player:getOutfit()
@@ -1718,9 +1718,9 @@ function sendHomePage(playerId)
 			msg:addString(offer.icons[1])
 		elseif type == GameStore.ConverType.SHOW_MOUNT then
 			local mount = Mount(offer.id)
-			msg:addU16(mount:getBaseId())
+			msg:addU16(mount:getClientId())
 		elseif type == GameStore.ConverType.SHOW_ITEM then
-			msg:addU16(ItemType(offer.itemtype):getBaseId())
+			msg:addU16(ItemType(offer.itemtype):getClientId())
 		elseif type == GameStore.ConverType.SHOW_OUTFIT then
 			msg:addU16(player:getSex() == PLAYERSEX_FEMALE and offer.sexId.female or offer.sexId.male)
 			local outfit = player:getOutfit()
