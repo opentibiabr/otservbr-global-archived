@@ -45,8 +45,8 @@ class Vocation
 			return clientId;
 		}
 
-		uint8_t getVocationBaseId() const {
-			return vocationBaseID;
+		uint8_t getBaseId() const {
+			return baseId;
 		}
 
 		uint32_t getHPGain() const {

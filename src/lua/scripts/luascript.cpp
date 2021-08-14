@@ -2930,7 +2930,7 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Vocation", "getId", LuaScriptInterface::luaVocationGetId);
 	registerMethod("Vocation", "getClientId", LuaScriptInterface::luaVocationGetClientId);
-	registerMethod("Vocation", "getVocationBaseId", LuaScriptInterface::luaVocationGetVocationBaseId);
+	registerMethod("Vocation", "getBaseId", LuaScriptInterface::luaGetBaseId);
 	registerMethod("Vocation", "getName", LuaScriptInterface::luaVocationGetName);
 	registerMethod("Vocation", "getDescription", LuaScriptInterface::luaVocationGetDescription);
 
@@ -13220,12 +13220,12 @@ int LuaScriptInterface::luaVocationGetClientId(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaVocationGetVocationBaseId(lua_State* L)
+int LuaScriptInterface::luaGetBaseId(lua_State* L)
 {
-	// vocation:getVocationBaseId()
+	// vocation:getBaseId()
 	Vocation* vocation = getUserdata<Vocation>(L, 1);
 	if (vocation) {
-		lua_pushnumber(L, vocation->getVocationBaseId());
+		lua_pushnumber(L, vocation->getBaseId());
 	} else {
 		lua_pushnil(L);
 	}
