@@ -48,7 +48,7 @@ function othersDesert.onUse(player, item, fromPosition, target, toPosition, isHo
 			return true
 		end
 
-		local vocationId = creature:getVocation():getClientId()
+		local vocationId = creature:getVocation():getBaseId()
 		if vocationId ~= config[i].vocationId then
 			player:sendCancelMessage('You need one player of each vocation for this quest.')
 			position:sendMagicEffect(CONST_ME_POFF)

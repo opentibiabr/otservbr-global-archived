@@ -283,7 +283,7 @@ end
 
 function Player.iterateTest(self)
 	local dailyTable = DailyReward.rewards[5]
-	local reward = DailyRewardItems[self:getVocation():getClientId()]
+	local reward = DailyRewardItems[self:getVocation():getBaseId()]
 
 	if not(reward) then
 		reward = {}
@@ -572,10 +572,10 @@ function Player.readDailyReward(self, msg, currentDay, state)
 	else
 		if systemType == 1 then
 			if (state == DAILY_REWARD_STATUS_FREE) then
-				rewards = DailyRewardItems[self:getVocation():getClientId()]
+				rewards = DailyRewardItems[self:getVocation():getBaseId()]
 				itemsToPick = dailyTable.freeAccount
 			else
-				rewards = DailyRewardItems[self:getVocation():getClientId()]
+				rewards = DailyRewardItems[self:getVocation():getBaseId()]
 				itemsToPick = dailyTable.premiumAccount
 			end
 

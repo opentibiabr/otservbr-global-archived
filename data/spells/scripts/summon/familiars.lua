@@ -41,7 +41,7 @@ function onCastSpell(player, variant)
 		return false
 	end
 
-	local vocation = familiar[player:getVocation():getVocationBaseId()]
+	local vocation = familiar[player:getVocation():getBaseId()]
 	local familiarName
 
 	if vocation then

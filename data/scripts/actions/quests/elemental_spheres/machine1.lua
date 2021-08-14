@@ -7,7 +7,7 @@ local config = {
 
 local elementalSpheresMachine1 = Action()
 function elementalSpheresMachine1.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local destination = config[player:getVocation():getVocationBaseId()]
+	local destination = config[player:getVocation():getBaseId()]
 	if table.contains({7911, 7912}, item.itemid) then
 		local gemCount = player:getStorageValue(Storage.ElementalSphere.MachineGemCount)
 		if table.contains({33268, 33269}, toPosition.x)

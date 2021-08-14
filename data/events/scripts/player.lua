@@ -198,7 +198,7 @@ function Player:onLook(thing, position, distance)
 				description = string.format("%s\nDecays to: %d", description, decayId)
 			end
 			
-			local clientId = itemType:getClientId()
+			local clientId = itemType:getBaseId()
 			if clientId then
 				description = string.format("%s\nClient ID: %d", description, clientId)
 			end

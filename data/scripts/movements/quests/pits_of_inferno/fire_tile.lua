@@ -38,7 +38,7 @@ function fireTile.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if player:getVocation():getVocationBaseId() == fire.vocationId then
+	if player:getVocation():getBaseId() == fire.vocationId then
 		doTargetCombatHealth(0, player, COMBAT_FIREDAMAGE, -300, -300, CONST_ME_HITBYFIRE)
 	else
 		local combatType = COMBAT_FIREDAMAGE

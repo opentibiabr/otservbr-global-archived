@@ -30,7 +30,7 @@ function tpvoc.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if player:getVocation():getVocationBaseId() == vocation.vocationId then
+	if player:getVocation():getBaseId() == vocation.vocationId then
 		player:teleportTo(vocacoes.toPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	else

@@ -22,7 +22,7 @@ function elementalSpheresSoils2.onUse(player, item, fromPosition, target, toPosi
 		return false
 	end
 
-	if not table.contains(spheres[item.itemid], player:getVocation():getVocationBaseId()) then
+	if not table.contains(spheres[item.itemid], player:getVocation():getBaseId()) then
 		return false
 	end
 

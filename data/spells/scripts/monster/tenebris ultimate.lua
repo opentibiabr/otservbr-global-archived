@@ -51,7 +51,7 @@ function onTargetTile(creature, pos)
 				local max = 2500
 				local player = Player(creatureTable[r])
 
-				if isPlayer(creatureTable[r]) == true and table.contains(vocation, player:getVocation():getVocationBaseId()) then
+				if isPlayer(creatureTable[r]) == true and table.contains(vocation, player:getVocation():getBaseId()) then
 					doTargetCombatHealth(creature, creatureTable[r], COMBAT_DEATHDAMAGE, -min, -max, CONST_ME_NONE)
 				elseif isMonster(creatureTable[r]) == true then
 					doTargetCombatHealth(creature, creatureTable[r], COMBAT_DEATHDAMAGE, -min, -max, CONST_ME_NONE)

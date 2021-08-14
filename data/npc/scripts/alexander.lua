@@ -29,7 +29,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	local itemId = items[player:getVocation():getVocationBaseId()]
+	local itemId = items[player:getVocation():getBaseId()]
 	if msgcontains(msg, 'first rod') or msgcontains(msg, 'first wand') then
 		if player:isMage() then
 			if player:getStorageValue(Storage.firstMageWeapon) == -1 then
