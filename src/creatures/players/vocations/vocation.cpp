@@ -54,7 +54,7 @@ bool Vocations::loadFromXml()
 			voc.clientId = pugi::cast<uint16_t>(attr.value());
 		}
 
-		if ((attr = vocationNode.attribute("baseId"))) {
+		if ((attr = vocationNode.attribute("baseid"))) {
 			voc.baseId = pugi::cast<uint16_t>(attr.value());
 		}
 		
