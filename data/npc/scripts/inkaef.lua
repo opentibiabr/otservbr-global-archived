@@ -16,8 +16,8 @@ function onThink()
 end
 
 local items = {
-	[VOCATION.CLIENT_ID.SORCERER] = 2190,
-	[VOCATION.CLIENT_ID.DRUID] = 2182
+	[VOCATION.BASE_ID.SORCERER] = 2190,
+	[VOCATION.BASE_ID.DRUID] = 2182
 }
 
 local function creatureSayCallback(cid, type, msg)
@@ -26,7 +26,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	local itemId = items[player:getVocation():getClientId()]
+	local itemId = items[player:getVocation():getBaseId()]
 	if msgcontains(msg, 'first rod') or msgcontains(msg, 'first wand') then
 		if player:isMage() then
 			if player:getStorageValue(Storage.firstMageWeapon) == -1 then

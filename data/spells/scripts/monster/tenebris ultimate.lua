@@ -1,8 +1,8 @@
 local vocation = {
-	VOCATION.CLIENT_ID.SORCERER,
-	VOCATION.CLIENT_ID.DRUID,
-	VOCATION.CLIENT_ID.PALADIN,
-	VOCATION.CLIENT_ID.KNIGHT
+	VOCATION.BASE_ID.SORCERER,
+	VOCATION.BASE_ID.DRUID,
+	VOCATION.BASE_ID.PALADIN,
+	VOCATION.BASE_ID.KNIGHT
 }
 
 area = {
@@ -51,7 +51,7 @@ function onTargetTile(creature, pos)
 				local max = 2500
 				local player = Player(creatureTable[r])
 
-				if isPlayer(creatureTable[r]) == true and table.contains(vocation, player:getVocation():getClientId()) then
+				if isPlayer(creatureTable[r]) == true and table.contains(vocation, player:getVocation():getBaseId()) then
 					doTargetCombatHealth(creature, creatureTable[r], COMBAT_DEATHDAMAGE, -min, -max, CONST_ME_NONE)
 				elseif isMonster(creatureTable[r]) == true then
 					doTargetCombatHealth(creature, creatureTable[r], COMBAT_DEATHDAMAGE, -min, -max, CONST_ME_NONE)
