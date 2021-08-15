@@ -226,3 +226,6 @@ function addStamina(playerId, ...)
 	end
 	return false
 end
+
+-- Exercise Training
+onExerciseTraining = {}

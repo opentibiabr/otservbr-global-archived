@@ -1,9 +1,11 @@
 local playerLogout = CreatureEvent("PlayerLogout")
 function playerLogout.onLogout(player)
 	local playerId = player:getId()
+
 	if nextUseStaminaTime[playerId] ~= nil then
 		nextUseStaminaTime[playerId] = nil
 	end
+
 	player:saveSpecialStorage()
 	player:setStorageValue(Storage.ExerciseDummyExhaust, 0)
 
@@ -19,6 +21,13 @@ function playerLogout.onLogout(player)
 			stats.stamina = player:getStamina()
 		end
 	end
+
+	if onExerciseTraining[playerId] then
+		stopEvent(onExerciseTraining[playerId].event)
+		onExerciseTraining[playerId] = nil
+		player:setTraining(false)
+	end
+
 	player:setStorageValue(17101,0)
 	return true
 end
