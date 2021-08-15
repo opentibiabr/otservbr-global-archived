@@ -1,18 +1,18 @@
 local setting = {
 	[57531] = {
-		vocationId = VOCATION.CLIENT_ID.SORCERER,
+		vocationId = VOCATION.BASE_ID.SORCERER,
 		toPosition = {x = 33829, y = 31635, z = 9}
 	},
 	[57532] = {
-		vocationId = VOCATION.CLIENT_ID.DRUID,
+		vocationId = VOCATION.BASE_ID.DRUID,
 		toPosition = {x = 33831, y = 31635, z = 9}
 	},
 	[57533] = {
-		vocationId = VOCATION.CLIENT_ID.PALADIN,
+		vocationId = VOCATION.BASE_ID.PALADIN,
 		toPosition = {x = 33833, y = 31635, z = 9}
 	},
 	[57534] = {
-		vocationId = VOCATION.CLIENT_ID.KNIGHT,
+		vocationId = VOCATION.BASE_ID.KNIGHT,
 		toPosition = {x = 33835, y = 31635, z = 9}
 	}
 }
@@ -30,7 +30,7 @@ function tpvoc.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if player:getVocation():getClientId() == vocation.vocationId then
+	if player:getVocation():getBaseId() == vocation.vocationId then
 		player:teleportTo(vocacoes.toPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	else

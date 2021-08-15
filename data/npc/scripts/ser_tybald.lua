@@ -23,8 +23,8 @@ keywordHandler:addSpellKeyword({"findperson"},
 		price = 80,
 		level = 8,
 		vocation = {
-			VOCATION.CLIENT_ID.PALADIN,
-			VOCATION.CLIENT_ID.KNIGHT
+			VOCATION.BASE_ID.PALADIN,
+			VOCATION.BASE_ID.KNIGHT
 		}
 	}
 )
@@ -35,8 +35,8 @@ keywordHandler:addSpellKeyword({"light"},
 		price = 0,
 		level = 8,
 		vocation = {
-			VOCATION.CLIENT_ID.PALADIN,
-			VOCATION.CLIENT_ID.KNIGHT
+			VOCATION.BASE_ID.PALADIN,
+			VOCATION.BASE_ID.KNIGHT
 		}
 	}
 )
@@ -47,8 +47,8 @@ keywordHandler:addSpellKeyword({"magicrope"},
 		price = 200,
 		level = 9,
 		vocation = {
-			VOCATION.CLIENT_ID.PALADIN,
-			VOCATION.CLIENT_ID.KNIGHT
+			VOCATION.BASE_ID.PALADIN,
+			VOCATION.BASE_ID.KNIGHT
 		}
 	}
 )
@@ -59,8 +59,8 @@ keywordHandler:addSpellKeyword({"curepoison"},
 		price = 150,
 		level = 10,
 		vocation = {
-			VOCATION.CLIENT_ID.PALADIN,
-			VOCATION.CLIENT_ID.KNIGHT
+			VOCATION.BASE_ID.PALADIN,
+			VOCATION.BASE_ID.KNIGHT
 		}
 	}
 )
@@ -71,8 +71,8 @@ keywordHandler:addSpellKeyword({"levitate"},
 		price = 500,
 		level = 12,
 		vocation = {
-			VOCATION.CLIENT_ID.PALADIN,
-			VOCATION.CLIENT_ID.KNIGHT
+			VOCATION.BASE_ID.PALADIN,
+			VOCATION.BASE_ID.KNIGHT
 		}
 	}
 )
@@ -83,8 +83,8 @@ keywordHandler:addSpellKeyword({"haste"},
 		price = 600,
 		level = 14,
 		vocation = {
-			VOCATION.CLIENT_ID.PALADIN,
-			VOCATION.CLIENT_ID.KNIGHT
+			VOCATION.BASE_ID.PALADIN,
+			VOCATION.BASE_ID.KNIGHT
 		}
 	}
 )
@@ -95,8 +95,8 @@ keywordHandler:addSpellKeyword({"greatlight"},
 		price = 500,
 		level = 13,
 		vocation = {
-			VOCATION.CLIENT_ID.PALADIN,
-			VOCATION.CLIENT_ID.KNIGHT
+			VOCATION.BASE_ID.PALADIN,
+			VOCATION.BASE_ID.KNIGHT
 		}
 	}
 )
@@ -107,7 +107,7 @@ keywordHandler:addSpellKeyword({"conjurebolt"},
 		spellName = "Conjure Bolt",
 		price = 750,
 		level = 17,
-		vocation = VOCATION.CLIENT_ID.PALADIN
+		vocation = VOCATION.BASE_ID.PALADIN
 	}
 )
 keywordHandler:addSpellKeyword({"conjurepoisonedarrow"},
@@ -116,7 +116,7 @@ keywordHandler:addSpellKeyword({"conjurepoisonedarrow"},
 		spellName = "Conjure Poisoned Arrow",
 		price = 700,
 		level = 16,
-		vocation = VOCATION.CLIENT_ID.PALADIN
+		vocation = VOCATION.BASE_ID.PALADIN
 	}
 )
 keywordHandler:addSpellKeyword({"conjurearrow"},
@@ -124,7 +124,7 @@ keywordHandler:addSpellKeyword({"conjurearrow"},
 		npcHandler = npcHandler,
 		spellName = "Conjure Arrow",
 		price = 450,
-		level = 13,vocation = VOCATION.CLIENT_ID.PALADIN
+		level = 13,vocation = VOCATION.BASE_ID.PALADIN
 	}
 )
 keywordHandler:addSpellKeyword({"lighthealing"},
@@ -133,7 +133,7 @@ keywordHandler:addSpellKeyword({"lighthealing"},
 		spellName = "Light Healing",
 		price = 0,
 		level = 8,
-		vocation = VOCATION.CLIENT_ID.PALADIN
+		vocation = VOCATION.BASE_ID.PALADIN
 	}
 )
 -- spells for knight
@@ -143,7 +143,7 @@ keywordHandler:addSpellKeyword({"brutalstrike"},
 		spellName = "Brutal Strike",
 		price = 1000,
 		level = 16,
-		vocation = VOCATION.CLIENT_ID.KNIGHT
+		vocation = VOCATION.BASE_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"woundcleansing"},
@@ -152,7 +152,7 @@ keywordHandler:addSpellKeyword({"woundcleansing"},
 		spellName = "Wound Cleansing",
 		price = 0,
 		level = 8,
-		vocation = VOCATION.CLIENT_ID.KNIGHT
+		vocation = VOCATION.BASE_ID.KNIGHT
 	}
 )
 

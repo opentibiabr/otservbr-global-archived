@@ -458,19 +458,19 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("You did it! You put an end to the cults, and as a return, here's your reward.", cid)
 			npcHandler.topic[cid] = 9
 			local item = ""
-			if player:getVocation():getClientId() == VOCATION.CLIENT_ID.SORCERER then
+			if player:getVocation():getBaseId() == VOCATION.BASE_ID.SORCERER then
 				player:addItem(29426)
 				item = "reflecting crown"
 			end
-			if player:getVocation():getClientId() == VOCATION.CLIENT_ID.DRUID then
+			if player:getVocation():getBaseId() == VOCATION.BASE_ID.DRUID then
 				player:addItem(29423)
 				item = "leaf crown"
 			end
-			if player:getVocation():getClientId() == VOCATION.CLIENT_ID.PALADIN then
+			if player:getVocation():getBaseId() == VOCATION.BASE_ID.PALADIN then
 				player:addItem(29425)
 				item = "incandescent crown"
 			end
-			if player:getVocation():getClientId() == VOCATION.CLIENT_ID.KNIGHT then
+			if player:getVocation():getBaseId() == VOCATION.BASE_ID.KNIGHT then
 				player:addItem(29424)
 				item = "iron crown"
 			end

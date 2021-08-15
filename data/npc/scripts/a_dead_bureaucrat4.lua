@@ -23,10 +23,10 @@ local voices = {
 npcHandler:addModule(VoiceModule:new(voices))
 
 local config = {
-	[VOCATION.CLIENT_ID.SORCERER] = "S O R C E R E R",
-	[VOCATION.CLIENT_ID.DRUID] = "D R U I D",
-	[VOCATION.CLIENT_ID.PALADIN] = "P A L A D I N",
-	[VOCATION.CLIENT_ID.KNIGHT] = "K N I G H T"
+	[VOCATION.BASE_ID.SORCERER] = "S O R C E R E R",
+	[VOCATION.BASE_ID.DRUID] = "D R U I D",
+	[VOCATION.BASE_ID.PALADIN] = "P A L A D I N",
+	[VOCATION.BASE_ID.KNIGHT] = "K N I G H T"
 }
 
 local function greetCallback(cid)
@@ -42,7 +42,7 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 	local vocation = player:getVocation()
 	local vocationId = vocation:getId()
-	local vocationClientId = vocation:getClientId()
+	local vocationBaseId = vocation:getBaseId()
 
 	if msgcontains(msg, "pumin") then
 		if player:getStorageValue(Storage.PitsOfInferno.ThronePumin) < 1 then
@@ -56,7 +56,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, Vocation(vocationId):getName()) then
 		if npcHandler.topic[cid] == 2 then
-			npcHandler:say(config[vocationClientId] .. ", is that right?! What do you want from me?", cid)
+			npcHandler:say(config[vocationBaseId] .. ", is that right?! What do you want from me?", cid)
 			npcHandler.topic[cid] = 3
 		end
 	elseif msgcontains(msg, "356") then
