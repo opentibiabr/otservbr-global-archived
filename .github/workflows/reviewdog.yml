@@ -35,6 +35,7 @@ jobs:
         reporter: github-pr-check
         filter: "-whitespace/tab\
           ,-whitespace/line_length\
+          ,-whitespace/tab\
           ,-build/include_subdir\
           ,-whitespace/braces\
           "
