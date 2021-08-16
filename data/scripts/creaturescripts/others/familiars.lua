@@ -1,8 +1,8 @@
 local familiar = {
-	[VOCATION.CLIENT_ID.SORCERER] = {id = 994, name = "Sorcerer familiar"},
-	[VOCATION.CLIENT_ID.DRUID] = {id = 993, name = "Druid familiar"},
-	[VOCATION.CLIENT_ID.PALADIN] = {id = 992, name = "Paladin familiar"},
-	[VOCATION.CLIENT_ID.KNIGHT] = {id = 991, name = "Knight familiar"}
+	[VOCATION.BASE_ID.SORCERER] = {id = 994, name = "Sorcerer familiar"},
+	[VOCATION.BASE_ID.DRUID] = {id = 993, name = "Druid familiar"},
+	[VOCATION.BASE_ID.PALADIN] = {id = 992, name = "Paladin familiar"},
+	[VOCATION.BASE_ID.KNIGHT] = {id = 991, name = "Knight familiar"}
 }
 
 local timer = {
@@ -34,7 +34,7 @@ local familiarLogin = CreatureEvent("FamiliarLogin")
 
 function familiarLogin.onLogin(player)
 	if not player then return false end
-	local vocation = familiar[player:getVocation():getClientId()]
+	local vocation = familiar[player:getVocation():getBaseId()]
 	local familiarName
 	local petTimeLeft = player:getStorageValue(familiarStorage) - player:getLastLogout()
 
@@ -82,7 +82,7 @@ familiarLogin:register()
 local advanceFamiliar = CreatureEvent("AdvanceFamiliar")
 
 function advanceFamiliar.onAdvance(player, skill, oldLevel, newLevel)
-	local vocation = familiar[player:getVocation():getClientId()]
+	local vocation = familiar[player:getVocation():getBaseId()]
 	if newLevel >= 200 and isPremium(player) then
 		if player:getFamiliarLooktype() == 0 then
 				player:setFamiliarLooktype(vocation.id)
@@ -104,7 +104,7 @@ function familiarDeath.onDeath(creature, corpse, lasthitkiller, mostdamagekiller
 	if not player then
 		return false
 	end
-	local vocation = familiar[player:getVocation():getClientId()]
+	local vocation = familiar[player:getVocation():getBaseId()]
 
 	if table.contains(vocation, creature:getName()) then
 		player:setStorageValue(familiarStorage, os.time())

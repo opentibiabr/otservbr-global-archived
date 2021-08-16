@@ -1,15 +1,15 @@
 local spheres = {
-	[8300] = VOCATION.CLIENT_ID.PALADIN,
-	[8304] = VOCATION.CLIENT_ID.SORCERER,
-	[8305] = VOCATION.CLIENT_ID.DRUID,
-	[8306] = VOCATION.CLIENT_ID.KNIGHT
+	[8300] = VOCATION.BASE_ID.PALADIN,
+	[8304] = VOCATION.BASE_ID.SORCERER,
+	[8305] = VOCATION.BASE_ID.DRUID,
+	[8306] = VOCATION.BASE_ID.KNIGHT
 }
 
 local globalTable = {
-	[VOCATION.CLIENT_ID.SORCERER] = 10005,
-	[VOCATION.CLIENT_ID.DRUID] = 10006,
-	[VOCATION.CLIENT_ID.PALADIN] = 10007,
-	[VOCATION.CLIENT_ID.KNIGHT] = 10008
+	[VOCATION.BASE_ID.SORCERER] = 10005,
+	[VOCATION.BASE_ID.DRUID] = 10006,
+	[VOCATION.BASE_ID.PALADIN] = 10007,
+	[VOCATION.BASE_ID.KNIGHT] = 10008
 }
 
 local elementalSpheresSoils2 = Action()
@@ -22,7 +22,7 @@ function elementalSpheresSoils2.onUse(player, item, fromPosition, target, toPosi
 		return false
 	end
 
-	if not table.contains(spheres[item.itemid], player:getVocation():getClientId()) then
+	if not table.contains(spheres[item.itemid], player:getVocation():getBaseId()) then
 		return false
 	end
 

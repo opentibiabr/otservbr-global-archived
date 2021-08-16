@@ -55,16 +55,16 @@ for i = 60, 75 do
 			for r = 1, #creatureTable do
 				if creatureTable[r] ~= creature then
 					local player = Player(creatureTable[r])
-					local vocationClientId = player:getVocation():getClientId()
+					local vocationClientId = player:getVocation():getBaseId()
 
 					if isPlayer(creatureTable[r]) == true
-					and table.contains({VOCATION.CLIENT_ID.SORCERER, VOCATION.CLIENT_ID.DRUID}, vocationClientId) then
+					and table.contains({VOCATION.BASE_ID.SORCERER, VOCATION.BASE_ID.DRUID}, vocationClientId) then
 						player:addCondition(condition2)
 					elseif isPlayer(creatureTable[r]) == true
-					and table.contains({VOCATION.CLIENT_ID.PALADIN}, vocationClientId) then
+					and table.contains({VOCATION.BASE_ID.PALADIN}, vocationClientId) then
 						player:addCondition(condition3)
 					elseif isPlayer(creatureTable[r]) == true
-					and table.contains({VOCATION.CLIENT_ID.KNIGHT}, vocationClientId) then
+					and table.contains({VOCATION.BASE_ID.KNIGHT}, vocationClientId) then
 						player:addCondition(condition1)
 					elseif isMonster(creatureTable[r]) == true then
 					end

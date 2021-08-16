@@ -192,7 +192,7 @@ keywordHandler:addSpellKeyword({"find", "person"},
 		spellName = "Find Person",
 		price = 80,
 		level = 8,
-		vocation = VOCATION.CLIENT_ID.KNIGHT
+		vocation = VOCATION.BASE_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"light"},
@@ -201,7 +201,7 @@ keywordHandler:addSpellKeyword({"light"},
 		spellName = "Light",
 		price = 0,
 		level = 8,
-		vocation = VOCATION.CLIENT_ID.KNIGHT
+		vocation = VOCATION.BASE_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"cure", "poison"},
@@ -210,7 +210,7 @@ keywordHandler:addSpellKeyword({"cure", "poison"},
 		spellName = "Cure Poison",
 		price = 150,
 		level = 10,
-		vocation = VOCATION.CLIENT_ID.KNIGHT
+		vocation = VOCATION.BASE_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"wound", "cleansing"},
@@ -219,7 +219,7 @@ keywordHandler:addSpellKeyword({"wound", "cleansing"},
 		spellName = "Wound Cleansing",
 		price = 0,
 		level = 8,
-		vocation = VOCATION.CLIENT_ID.KNIGHT
+		vocation = VOCATION.BASE_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"great", "light"},
@@ -228,7 +228,7 @@ keywordHandler:addSpellKeyword({"great", "light"},
 		spellName = "Great Light",
 		price = 500,
 		level = 13,
-		vocation = VOCATION.CLIENT_ID.KNIGHT
+		vocation = VOCATION.BASE_ID.KNIGHT
 	}
 )
 

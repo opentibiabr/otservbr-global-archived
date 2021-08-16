@@ -1232,6 +1232,7 @@ class LuaScriptInterface
 
 		static int luaVocationGetId(lua_State* L);
 		static int luaVocationGetClientId(lua_State* L);
+		static int luaGetBaseId(lua_State* L);
 		static int luaVocationGetName(lua_State* L);
 		static int luaVocationGetDescription(lua_State* L);
 
