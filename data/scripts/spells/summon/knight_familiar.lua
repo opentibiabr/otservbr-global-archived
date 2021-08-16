@@ -1,9 +1,6 @@
 local spell = Spell("instant")
 
 local familiar = {
-	[VOCATION.BASE_ID.SORCERER] = {name = "Sorcerer familiar"},
-	[VOCATION.BASE_ID.DRUID] = {name = "Druid familiar"},
-	[VOCATION.BASE_ID.PALADIN] = {name = "Paladin familiar"},
 	[VOCATION.BASE_ID.KNIGHT] = {name = "Knight familiar"}
 }
 

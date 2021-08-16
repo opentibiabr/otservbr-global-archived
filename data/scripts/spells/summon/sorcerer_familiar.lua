@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 local familiar = {
-	[VOCATION.CLIENT_ID.SORCERER] = {name = "Sorcerer familiar"}
+	[VOCATION.BASE_ID.SORCERER] = {name = "Sorcerer familiar"}
 }
 
 local timer = {
@@ -40,7 +40,7 @@ function spell.onCastSpell(player, variant)
 		return false
 	end
 
-	local vocation = familiar[player:getVocation():getClientId()]
+	local vocation = familiar[player:getVocation():getBaseId()]
 	local familiarName
 
 	if vocation then
