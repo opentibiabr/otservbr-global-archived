@@ -547,7 +547,8 @@ class LuaScriptInterface
 		static int luaGamegetEventSLoot(lua_State* L);
 		static int luaGamegetEventSSkill(lua_State* L);
 		static int luaGamegetEventSExp(lua_State* L);
-
+		static int luaGamegetEventSSpawnRate(lua_State* L);
+		
 		static int luaGameGetSpectators(lua_State* L);
 
 		static int luaGameGetBoostedCreature(lua_State* L);

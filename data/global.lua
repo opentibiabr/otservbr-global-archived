@@ -26,6 +26,7 @@ weatherConfig = {
 SCHEDULE_LOOT_RATE = 100
 SCHEDULE_EXP_RATE = 100
 SCHEDULE_SKILL_RATE = 100
+SCHEDULE_SPAWN_RATE = 100
 
 -- MARRY
 PROPOSED_STATUS = 1
@@ -86,23 +87,6 @@ startupGlobalStorages = {
 	GlobalStorage.FerumbrasAscendant.Elements.Third,
 	GlobalStorage.FerumbrasAscendant.Elements.Done
 }
-
-do -- Event Schedule rates
-	local lootRate = Game.getEventSLoot()
-	if lootRate ~= 100 then
-		SCHEDULE_LOOT_RATE = lootRate
-	end
-
-	local expRate = Game.getEventSExp()
-	if expRate ~= 100 then
-		SCHEDULE_EXP_RATE = expRate
-	end
-
-	local skillRate = Game.getEventSSkill()
-	if skillRate ~= 100 then
-		SCHEDULE_SKILL_RATE = skillRate
-	end
-end
 
 table.contains = function(array, value)
 	for _, targetColumn in pairs(array) do

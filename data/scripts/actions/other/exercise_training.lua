@@ -27,8 +27,6 @@ local skills = {
 
 local houseDummies = {32143, 32144, 32145, 32146, 32147, 32148}
 local freeDummies = {32142, 32149}
-local skillRateDefault = configManager.getNumber(configKeys.RATE_SKILL)
-local magicRateDefault = configManager.getNumber(configKeys.RATE_MAGIC)
 
 local function removeExerciseWeapon(player, exercise)
     exercise:remove(1)
@@ -55,14 +53,14 @@ local function startTraining(playerId, startPosition, itemid, tilePosition, bonu
                                 local voc = player:getVocation()
 
                                 if skills[itemid].id == SKILL_MAGLEVEL then
-                                    local magicRate = getRateFromTable(magicLevelStages, player:getBaseMagicLevel(), magicRateDefault)
+                                    local magicRate = getRateFromTable(magicLevelStages, player:getBaseMagicLevel(), configManager.getNumber(configKeys.RATE_MAGIC))
                                     if not bonusDummy then
                                         player:addManaSpent(math.ceil(500*magicRate))
                                     else
                                         player:addManaSpent(math.ceil(500*magicRate)*1.1) -- 10%
                                     end
                                 else
-                                    local skillRate = getRateFromTable(skillsStages, player:getSkillLevel(skills[itemid].id), skillRateDefault)
+									local skillRate = getRateFromTable(skillsStages, player:getSkillLevel(skills[itemid].id), configManager.getNumber(configKeys.RATE_SKILL))
                                     if not bonusDummy then
                                         player:addSkillTries(skills[itemid].id, 7*skillRate)
                                     else

@@ -94,22 +94,21 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 					centerPos.z
 				);
 
-				int32_t boostedrate;
+				int32_t boostedrate = 1;
 
 				if (nameAttribute.value() == BoostedNameGet) {
 					boostedrate = 2;
-				} else {
-					boostedrate = 1;
 				}
 
-				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 100000 / (g_config.getNumber(ConfigManager::RATE_SPAWN) * boostedrate * eventschedule);
+				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 1000 * 100 / std::max((uint32_t)1, (g_config.getNumber(ConfigManager::RATE_SPAWN) * boostedrate * eventschedule));
 				if (interval > MINSPAWN_INTERVAL) {
 					spawn.addMonster(nameAttribute.as_string(), pos, dir, interval);
 				} else {
 					SPDLOG_WARN("[Spawns::loadFromXml] - "
-                                "{} {} spawntime cannot be less than {} seconds",
-                                nameAttribute.as_string(), pos.toString(),
-                                MINSPAWN_INTERVAL / 1000);
+                        "{} {} spawntime cannot be less than {} seconds, set to {} by default.",
+						nameAttribute.as_string(), pos.toString(),
+						MINSPAWN_INTERVAL / 1000, MINSPAWN_INTERVAL / 1000);
+					spawn.addMonster(nameAttribute.as_string(), pos, dir, MINSPAWN_INTERVAL);
 				}
 			} else if (strcasecmp(childNode.name(), "npc") == 0) {
 				pugi::xml_attribute nameAttribute = childNode.attribute("name");
@@ -200,22 +199,21 @@ bool Spawns::loadCustomSpawnXml(const std::string& _filename)
 					centerPos.z
 					);
 
-				int32_t boostedrate;
+				int32_t boostedrate = 1;
 
 				if (nameAttribute.value() == BoostedNameGet) {
 					boostedrate = 2;
-				} else {
-					boostedrate = 1;
 				}
 
-				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 100000 / (g_config.getNumber(ConfigManager::RATE_SPAWN) * boostedrate * eventschedule);
+				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 1000 * 100 / std::max((uint32_t)1, (g_config.getNumber(ConfigManager::RATE_SPAWN) * boostedrate * eventschedule));
 				if (interval > MINSPAWN_INTERVAL) {
 					spawn.addMonster(nameAttribute.as_string(), pos, dir, interval);
 				} else {
-					SPDLOG_WARN("[Spawns::loadCustomSpawnXml] - "
-                                "'{}'] {} {} spawntime cannot be less than {} seconds",
-                                _filename.c_str(), nameAttribute.as_string(),
-                                pos.toString(), MINSPAWN_INTERVAL / 1000);
+					SPDLOG_WARN("[Spawns::loadFromXml] - "
+						"{} {} spawntime cannot be less than {} seconds, set to {} by default.",
+						nameAttribute.as_string(), pos.toString(),
+						MINSPAWN_INTERVAL / 1000, MINSPAWN_INTERVAL / 1000);
+					spawn.addMonster(nameAttribute.as_string(), pos, dir, MINSPAWN_INTERVAL);
 				}
 			} else if (strcasecmp(childNode.name(), "npc") == 0) {
 				pugi::xml_attribute nameAttribute = childNode.attribute("name");

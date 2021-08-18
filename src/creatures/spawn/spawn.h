@@ -71,7 +71,7 @@ class Spawn
 		Position centerPos;
 		int32_t radius;
 
-		uint32_t interval = 60000;
+		uint32_t interval = 30000;
 		uint32_t checkSpawnEvent = 0;
 
 		static bool findPlayer(const Position& pos);
