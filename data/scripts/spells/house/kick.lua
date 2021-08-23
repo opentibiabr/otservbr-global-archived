@@ -1,6 +1,6 @@
 local spell = Spell("instant")
 
-function spell.onCastSpell(creature, variant)
+function spell.onCastSpell(player, variant)
 	local targetPlayer = Player(variant:getString()) or player
 	local guest = targetPlayer:getTile():getHouse()
 	local owner =  player:getTile():getHouse()

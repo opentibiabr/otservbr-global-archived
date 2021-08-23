@@ -1,6 +1,6 @@
 local spell = Spell("instant")
 
-function spell.onCastSpell(creature, variant)
+function spell.onCastSpell(player, variant)
 	local house = player:getTile():getHouse()
 	if not house then
 		return false
