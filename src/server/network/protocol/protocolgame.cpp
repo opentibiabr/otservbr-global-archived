@@ -1852,7 +1852,6 @@ void ProtocolGame::parseBestiarysendMonsterData(NetworkMessage &msg)
 				shouldAddItem = true;
 				break;
 		}
-		
 
 		newmsg.addItemId(shouldAddItem == true ? loot.id : 0);
 		newmsg.addByte(difficult);
