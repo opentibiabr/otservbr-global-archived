@@ -69,7 +69,7 @@ function MonsterType.createLootItem(self, lootBlock, chance, lootTable)
 			Spdlog.warn("[MonsterType.createLootItem] - Convert boss '" .. self:name() .. "' reward ID '" .. lootBlock.itemId .. "' to ID " .. transformDeEquipId .. ".")
 			lootBlock.itemId = transformDeEquipId
 		else
-			print("[Error - MonsterType.createLootItem] Cannot add item " .. lootBlock.itemId .. " as boss " .. self:name() .. " reward. It has decay.")
+			Spdlog.error("[MonsterType.createLootItem] Cannot add item " .. lootBlock.itemId .. " as boss " .. self:name() .. " reward. It has decay.")
 			return lootTable
 		end
 	end
