@@ -53,7 +53,7 @@ local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
 -- Function called by the callback "npcHandler:setCallback(CALLBACK_GREET, greetCallback)" in end of file
-local function greetCallback(creature)
+local function greetCallback(npc, creature)
 	npcHandler:setMessage(MESSAGE_GREET, "Hello |PLAYERNAME|, you need more info about {canary}?")
 	return true
 end
@@ -76,7 +76,7 @@ local function creatureSayCallback(npc, creature, type, msg)
 				a server with a 'clean' datapack, with as few things as possible, \z
 				thus facilitating development and testing.",
 			"See more on our {discord group}."
-		}, npc, creature, false, true, 3000)
+		}, npc, creature, 3000)
 	elseif msgcontains(msg, "discord group") then
 		npcHandler:say("This the our discord group link: {https://discordapp.com/invite/3NxYnyV}", npc, creature)
 	end

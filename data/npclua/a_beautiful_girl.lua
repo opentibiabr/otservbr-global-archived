@@ -1,7 +1,10 @@
-local npcType = Game.createNpcType("A Beautiful Girl")
+local internalNpcName = "A Beautiful Girl"
+
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "A Beautiful Girl"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,33 +12,42 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 140,
-    lookHead = 77,
-    lookBody = 81,
-    lookLegs = 79,
-    lookFeet = 95,
-    lookAddons = 0
+	lookType = 140,
+	lookHead = 77,
+	lookBody = 81,
+	lookLegs = 79,
+	lookFeet = 95,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
+local keywordHandler = KeywordHandler:new()
+local npcHandler = NpcHandler:new(keywordHandler)
+
 npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
 end
 
 npcType.onAppear = function(npc, creature)
+	npcHandler:onCreatureAppear(npc, creature)
 end
 
 npcType.onDisappear = function(npc, creature)
+	npcHandler:onCreatureDisappear(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
+	npcHandler:onCreatureSay(npc, creature, type, message)
 end
+
+npcHandler:setMessage(MESSAGE_GREET, "So you have come, |PLAYERNAME|. I hoped you would not...")
+
+npcHandler:addModule(FocusModule:new())
 
 npcType:register(npcConfig)
