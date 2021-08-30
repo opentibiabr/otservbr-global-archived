@@ -1,7 +1,6 @@
 -- Advanced NPC System by Jiddo
 
 if NpcHandler == nil then
-	local exhaustStorage = Storage.NpcExhaustOnBuy
 	local duration = 1
 	-- Constant talkdelay behaviors.
 	TALKDELAY_NONE = 0 -- No talkdelay. Npc will reply immedeatly.
@@ -15,11 +14,11 @@ if NpcHandler == nil then
 	MESSAGE_GREET = 1 -- When the player greets the npc.
 	MESSAGE_FAREWELL = 2 -- When the player unGreets the npc.
 	MESSAGE_BUY = 3 -- When the npc asks the player if he wants to buy something.
-	MESSAGE_ONBUY = 4 -- When the player successfully buys something via talk.
-	MESSAGE_BOUGHT = 5 -- When the player bought something through the shop window.
-	MESSAGE_SELL = 6 -- When the npc asks the player if he wants to sell something.
-	MESSAGE_ONSELL = 7 -- When the player successfully sells something via talk.
-	MESSAGE_SOLD = 8 -- When the player sold something through the shop window.
+	-- EMPTY = 4
+	-- EMPTY = 5
+	-- EMPTY = 6
+	-- EMPTY = 7
+	-- EMPTY = 8
 	MESSAGE_MISSINGMONEY = 9 -- When the player does not have enough money.
 	MESSAGE_NEEDMONEY = 10 -- Same as above, used for shop window.
 	MESSAGE_MISSINGITEM = 11 -- When the player is trying to sell an item he does not have.
@@ -46,8 +45,6 @@ if NpcHandler == nil then
 	CALLBACK_MESSAGE_DEFAULT = 7
 	CALLBACK_PLAYER_ENDTRADE = 8
 	CALLBACK_PLAYER_CLOSECHANNEL = 9
-	CALLBACK_ONBUY = 10
-	CALLBACK_ONSELL = 11
 	CALLBACK_ONADDFOCUS = 18
 	CALLBACK_ONRELEASEFOCUS = 19
 	CALLBACK_ONTRADEREQUEST = 20
@@ -85,11 +82,10 @@ if NpcHandler == nil then
 			[MESSAGE_GREET] = "Greetings, |PLAYERNAME|.",
 			[MESSAGE_FAREWELL] = "Good bye, |PLAYERNAME|.",
 			[MESSAGE_BUY] = "Do you want to buy |ITEMCOUNT| |ITEMNAME| for |TOTALCOST| gold coins?",
-			[MESSAGE_ONBUY] = "Here you are.",
-			[MESSAGE_BOUGHT] = "Bought |ITEMCOUNT|x |ITEMNAME| for |TOTALCOST| gold.",
-			[MESSAGE_SELL] = "Do you want to sell |ITEMCOUNT| |ITEMNAME| for |TOTALCOST| gold coins?",
-			[MESSAGE_ONSELL] = "Here you are, |TOTALCOST| gold.",
-			[MESSAGE_SOLD] = "Sold |ITEMCOUNT|x |ITEMNAME| for |TOTALCOST| gold.",
+			--[EMPTY] = "EMPTY",
+			--[EMPTY] = "EMPTY",
+			--[EMPTY] = "EMPTY",
+			--[EMPTY] = "EMPTY",
 			[MESSAGE_MISSINGMONEY] = "You don't have enough money.",
 			[MESSAGE_NEEDMONEY] = "You don't have enough money.",
 			[MESSAGE_MISSINGITEM] = "You don't have so many.",
@@ -253,10 +249,6 @@ if NpcHandler == nil then
 				tmpRet = module:callbackOnPlayerEndTrade(...)
 			elseif id == CALLBACK_PLAYER_CLOSECHANNEL and module.callbackOnPlayerCloseChannel ~= nil then
 				tmpRet = module:callbackOnPlayerCloseChannel(...)
-			elseif id == CALLBACK_ONBUY and module.callbackOnBuy ~= nil then
-				tmpRet = module:callbackOnBuy(...)
-			elseif id == CALLBACK_ONSELL and module.callbackOnSell ~= nil then
-				tmpRet = module:callbackOnSell(...)
 			elseif id == CALLBACK_ONTRADEREQUEST and module.callbackOnTradeRequest ~= nil then
 				tmpRet = module:callbackOnTradeRequest(...)
 			elseif id == CALLBACK_ONADDFOCUS and module.callbackOnAddFocus ~= nil then
@@ -349,10 +341,10 @@ if NpcHandler == nil then
 					msg = self:parseMessage(msg, parseInfo)
 					self:say(msg, npc, cid, true)
 				else
-					return
+					return false
 				end
 			else
-				return
+				return false
 			end
 		end
 		self:addFocus(npc, cid)
@@ -388,7 +380,6 @@ if NpcHandler == nil then
 		if npc:getId() == cid then
 			return
 		end
-		print(npc:getId())
 
 		local callback = self:getCallback(CALLBACK_CREATURE_DISAPPEAR)
 		if callback == nil or callback(cid) then
@@ -437,33 +428,6 @@ if NpcHandler == nil then
 				if self:isFocused(cid) then
 					self:unGreet(cid)
 				end
-			end
-		end
-	end
-
-	-- Handles onBuy events. If you wish to handle this yourself, use the CALLBACK_ONBUY callback.
-	function NpcHandler:onBuy(creature, itemid, subType, amount, ignoreCap, inBackpacks)
-		local player = Player(creature.uid)
-		if (os.time() - player:getStorageValue(exhaustStorage)) >= duration then
-			player:setStorageValue(exhaustStorage, os.time()) -- Delay for buy
-		local callback = self:getCallback(CALLBACK_ONBUY)
-		if callback == nil or callback(player, itemid, subType, amount, ignoreCap, inBackpacks) then
-			if self:processModuleCallback(CALLBACK_ONBUY, player, itemid, subType, amount, ignoreCap, inBackpacks) then
-				--
-			end
-		end
-		else
-			return false
-		end
-	end
-
-	-- Handles onSell events. If you wish to handle this yourself, use the CALLBACK_ONSELL callback.
-	function NpcHandler:onSell(creature, itemid, subType, amount, ignoreCap, inBackpacks)
-		local player = Player(creature.uid)
-		local callback = self:getCallback(CALLBACK_ONSELL)
-		if callback == nil or callback(player, itemid, subType, amount, ignoreCap, inBackpacks) then
-			if self:processModuleCallback(CALLBACK_ONSELL, player, itemid, subType, amount, ignoreCap, inBackpacks) then
-				--
 			end
 		end
 	end
@@ -532,12 +496,12 @@ if NpcHandler == nil then
 					local message_female = self:parseMessage(msg_female, parseInfo)
 					if message_female ~= message_male then
 						if playerSex == PLAYERSEX_FEMALE then
-							selfSay(message_female)
+							self:say(message_female, npc, cid)
 						else
-							selfSay(message_male)
+							self:say(message_male, npc, cid)
 						end
 					elseif message ~= "" then
-						selfSay(message)
+						self:say(message, npc, cid)
 					end
 					self:resetNpc(cid)
 					self:releaseFocus(npc, cid)
