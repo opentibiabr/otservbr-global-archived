@@ -1078,9 +1078,9 @@ class LuaScriptInterface
 		static int luaPlayerIsPzLocked(lua_State* L);
 		static int luaPlayerIsOffline(lua_State* L);
 
-        static int luaPlayerGetContainers(lua_State* L);
-        static int luaPlayerSetLootContainer(lua_State* L);
-        static int luaPlayerGetLootContainer(lua_State* L);
+		static int luaPlayerGetContainers(lua_State* L);
+		static int luaPlayerSetLootContainer(lua_State* L);
+		static int luaPlayerGetLootContainer(lua_State* L);
 
 		// New Prey
 		static int luaPlayerGetPreyState(lua_State * L);
@@ -1602,6 +1602,8 @@ class LuaScriptInterface
 		static int luaSpellPremium(lua_State* L);
 		static int luaSpellEnabled(lua_State* L);
 		static int luaSpellNeedTarget(lua_State* L);
+		static int luaSpellAllowOnSelf(lua_State* L);
+		static int luaSpellPzLocked(lua_State* L);
 		static int luaSpellNeedWeapon(lua_State* L);
 		static int luaSpellNeedLearn(lua_State* L);
 		static int luaSpellSelfTarget(lua_State* L);
