@@ -291,7 +291,7 @@ local function antiPush(self, item, count, fromPosition, toPosition, fromCylinde
 
 	pushDelay[cid].items = pushDelay[cid].items + 1
 
-	local currentTime = os.mtime()
+	local currentTime = systemTime()
 	if pushDelay[cid].time == 0 then
 		pushDelay[cid].time = currentTime
 	elseif pushDelay[cid].time == currentTime then
@@ -859,7 +859,7 @@ function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
 			self:removeItem(pid.itemid, pid.count)
 		end
 		-- Removing money
-		self:removeMoneyNpc(price)
+		self:removeMoneyBank(price)
 		-- Refreshing shrine window
 		local nitem = Item(item.uid)
 		self:sendImbuementPanel(nitem)
@@ -887,7 +887,7 @@ function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
 		end
 	end
 
-	if not self:removeMoneyNpc(price) then
+	if not self:removeMoneyBank(price) then
 		self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You don't have enough money " ..price.. " gps.")
 		return false
 	end
@@ -925,7 +925,7 @@ function Player:clearImbuement(item, slot)
 	end
 
 	local imbuement = item:getImbuement(slot)
-	if not self:removeMoneyNpc(imbuement:getBase().removecust) then
+	if not self:removeMoneyBank(imbuement:getBase().removecust) then
 		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR,
 			"You don't have enough money " ..imbuement:getBase().removecust.. " gps.")
 		return false

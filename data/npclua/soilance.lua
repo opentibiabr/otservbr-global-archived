@@ -1,0 +1,47 @@
+local npcType = Game.createNpcType("Soilance")
+local npcConfig = {}
+
+npcConfig.description = "Soilance"
+
+npcConfig.health = 100
+npcConfig.maxHealth = npcConfig.health
+npcConfig.walkInterval = 2000
+npcConfig.walkRadius = 2
+
+npcConfig.outfit = {
+    lookType = 128,
+    lookHead = 79,
+    lookBody = 48,
+    lookLegs = 57,
+    lookFeet = 76,
+    lookAddons = 0
+}
+
+npcConfig.voices = {
+    interval = 120,
+    chance = 0,
+    { text = "Come have a drink in the Hard Rock Racing Track.", yell = false }
+}
+
+npcConfig.flags = {
+    attackable = false,
+    hostile = false,
+    floorchange = false
+}
+
+npcType.onThink = function(npc, interval)
+end
+
+npcType.onAppear = function(npc, creature)
+end
+
+npcType.onDisappear = function(npc, creature)
+end
+
+npcType.onMove = function(npc, creature, fromPosition, toPosition)
+end
+
+npcType.onSay = function(npc, creature, type, message)
+end
+
+npcType:register(npcConfig)

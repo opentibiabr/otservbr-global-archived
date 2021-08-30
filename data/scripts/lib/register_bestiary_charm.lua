@@ -1,74 +1,74 @@
-registerCharmType = {}
-setmetatable(registerCharmType,
+registerCharm = {}
+setmetatable(registerCharm,
 {
-  __call =
-  function(self, charm, mask)
-    for _,parse in pairs(self) do
-      parse(charm, mask)
-    end
-  end
+	__call =
+	function(self, charm, mask)
+		for _,parse in pairs(self) do
+			parse(charm, mask)
+		end
+	end
 })
 
-Bestiaryregister = function(charm, mask)
-  return registerCharmType(charm, mask)
+Charm.register = function(self, mask)
+	return registerCharm(self, mask)
 end
 
-registerCharmType.name = function(charm, mask)
-  if mask.name then
-    charm:Name(mask.name)
-  end
+registerCharm.name = function(charm, mask)
+	if mask.name then
+		charm:name(mask.name)
+	end
 end
 
-registerCharmType.description = function(charm, mask)
-  if mask.description then
-    charm:Description(mask.description)
-  end
+registerCharm.description = function(charm, mask)
+	if mask.description then
+		charm:description(mask.description)
+	end
 end
 
-registerCharmType.type = function(charm, mask)
-  if mask.type then
-    charm:Type(mask.type)
-  end
+registerCharm.type = function(charm, mask)
+	if mask.type then
+		charm:type(mask.type)
+	end
 end
 
-registerCharmType.damageType = function(charm, mask)
-  if mask.damageType then
-    charm:DamageType(mask.damageType)
-  end
+registerCharm.damageType = function(charm, mask)
+	if mask.damageType then
+		charm:damageType(mask.damageType)
+	end
 end
 
-registerCharmType.percent = function(charm, mask)
-  if mask.percent then
-    charm:Percentage(mask.percent)
-  end
+registerCharm.percent = function(charm, mask)
+	if mask.percent then
+		charm:percentage(mask.percent)
+	end
 end
 
-registerCharmType.chance = function(charm, mask)
-  if mask.chance then
-    charm:Chance(mask.chance)
-  end
+registerCharm.chance = function(charm, mask)
+	if mask.chance then
+		charm:chance(mask.chance)
+	end
 end
 
-registerCharmType.messageCancel = function(charm, mask)
-  if mask.messageCancel then
-    charm:CancelMsg(mask.messageCancel)
-  end
+registerCharm.messageCancel = function(charm, mask)
+	if mask.messageCancel then
+		charm:messageCancel(mask.messageCancel)
+	end
 end
 
-registerCharmType.messageServerLog = function(charm, mask)
-  if mask.messageServerLog then
-    charm:LogMsg(mask.messageServerLog)
-  end
+registerCharm.messageServerLog = function(charm, mask)
+	if mask.messageServerLog then
+		charm:messageServerLog(mask.messageServerLog)
+	end
 end
 
-registerCharmType.effect = function(charm, mask)
-  if mask.effect then
-    charm:Effect(mask.effect)
-  end
+registerCharm.effect = function(charm, mask)
+	if mask.effect then
+		charm:effect(mask.effect)
+	end
 end
 
-registerCharmType.points = function(charm, mask)
-  if mask.points then
-    charm:Points(mask.points)
-  end
+registerCharm.points = function(charm, mask)
+	if mask.points then
+		charm:points(mask.points)
+	end
 end

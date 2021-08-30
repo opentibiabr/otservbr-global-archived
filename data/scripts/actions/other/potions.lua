@@ -230,7 +230,7 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 	if not playerDelayPotion[player:getId()] then
 		playerDelayPotion[player:getId()] = 0
 	end
-	if playerDelayPotion[player:getId()] > os.mtime() then
+	if playerDelayPotion[player:getId()] > systemTime() then
 		player:sendTextMessage(MESSAGE_FAILURE, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
 		return true
 	end
@@ -267,7 +267,7 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 	end
 
 	-- Delay potion
-	playerDelayPotion[player:getId()] = os.mtime() + 500
+	playerDelayPotion[player:getId()] = systemTime() + 500
 	
 	if potion.func then
 		potion.func(player)

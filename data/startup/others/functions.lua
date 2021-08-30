@@ -136,20 +136,6 @@ function loadLuaMapBookDocument(tablename)
 	end
 end
 
-function loadLuaNpcs(tablename)
-	for index, value in pairs(tablename) do
-		if value.name and value.position then
-			local spawn = Game.createNpc(value.name, value.position)
-			if spawn then
-				spawn:setMasterPos(value.position)
-				Game.setStorageValue(Storage.NpcSpawn, 1)
-			end
-		end
-	end
-	Spdlog.info("Loaded ".. (#NpcTable) .." npcs and spawned ".. Game.getMonsterCount() .." monsters")
-	Spdlog.info("Loaded ".. #Game.getTowns() .. " towns with ".. #Game.getHouses() .." houses in total")
-end
-
 -- Function for load the map and spawm custom (config.lua line 92)
 -- Set mapCustomEnabled to false for disable the custom map
 function loadCustomMap()
