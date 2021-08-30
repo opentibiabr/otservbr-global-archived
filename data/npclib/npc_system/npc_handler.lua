@@ -561,7 +561,7 @@ if NpcHandler == nil then
 		events = nil
 	end
 
-	function NpcHandler:doNPCTalkALot(msgs, interval, npc, pcid)
+	function NpcHandler:doNPCTalkALot(msgs, delay, npc, pcid)
 		if self.eventDelayedSay[pcid] then
 			self:cancelNPCTalk(self.eventDelayedSay[pcid])
 		end
@@ -570,7 +570,7 @@ if NpcHandler == nil then
 		local ret = {}
 		for aux = 1, #msgs do
 			self.eventDelayedSay[pcid][aux] = {}
-			npc:sayWithDelay(npc:getId(), msgs[aux], TALKTYPE_PRIVATE_NP, ((aux-1) * (interval or 4000)) + 700, self.eventDelayedSay[pcid][aux], pcid)
+			npc:sayWithDelay(npc:getId(), msgs[aux], TALKTYPE_PRIVATE_NP, ((aux-1) * (delay or 4000)), self.eventDelayedSay[pcid][aux], pcid)
 			ret[#ret + 1] = self.eventDelayedSay[pcid][aux]
 		end
 		return(ret)
@@ -578,9 +578,9 @@ if NpcHandler == nil then
 
 	-- Makes the npc represented by this instance of NpcHandler say something.
 	--	This implements the currently set type of talkdelay.
-	function NpcHandler:say(message, npc, focus, publicize, shallDelay, delay)
+	function NpcHandler:say(message, npc, focus, useDelay, delay)
 		if type(message) == "table" then
-			return self:doNPCTalkALot(message, delay or 6000, npc, focus)
+			return self:doNPCTalkALot(message, delay, npc, focus)
 		end
 
 		if self.eventDelayedSay[focus] then
@@ -603,10 +603,16 @@ if NpcHandler == nil then
 		end, self.talkDelayTime * 1000, npcId, message, focus)
 	end
 
-	function NpcHandler:sendMessages(message, messageTable, npc, player)
+	-- sendMessages(msg, messagesTable, npc, creature, useDelay(true or false), delay)
+	-- If not have useDelay = true and delay, then send npc:talk(), this function not have delay of one message to other
+	function NpcHandler:sendMessages(message, messageTable, npc, player, useDelay, delay)
 		for index, value in pairs(messageTable) do
 			if msgcontains(message, index) then
-				self:say(value, npc, player, 2000)
+				if useDelay and useDelay == true then
+					self:say(value, npc, player, delay or 1000)
+				else
+					npc:talk(Player(player), value)
+				end
 				return true
 			end
 		end

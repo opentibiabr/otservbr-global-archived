@@ -77,14 +77,16 @@ local function creatureSayCallback(npc, creature, type, msg)
 		["pirate"] = {
 			"In a just world, I would be captain of a grand ship, ...",
 			"Those pirates out there would now be my minions, and we would brave the seas and become the terror of the coastal towns! ...",
-		"If only our plan had worked!"},
+			"If only our plan had worked!"
+		},
 		["ship"] = {
 			"Captain Kid sold his ship to buy pointless things like those insanely expensive locks for the cell doors. ...",
 			"He said the canoes would do for a while. ...",
 		"I got the impression he was not overly sad to part with the ship because he was known to suffer a lot from seasickness."},
 		["captain"] = {
 			"I'd have been a much better captain then Kid was. I played several captains on stage and I was good! ...",
-		"Where Kid longed for the appreciation of his men, I would rule by fear and with an iron fist!"},
+		"Where Kid longed for the appreciation of his men, I would rule by fear and with an iron fist!"
+		},
 		["plan"] = {
 			"It was all captain Kid's idea. You see, he hated his name and planned to become known by the name captain Kidnap. ...",
 			"All he needed was someone famous to kidnap. ...",
@@ -98,23 +100,28 @@ local function creatureSayCallback(npc, creature, type, msg)
 			"Things went bad when they decided to have a victory party. ...",
 			"As far as I could make out from the mumblings of the pirates, Kid lost the key to my cell while relieving himself in the underground river. ...",
 			"The fool decided to dive after it .. never to be seen again. ...",
-		"When I found out about Kid's demise I tried to convince the pirates it was a hoax, but they just won't believe me!"},
+			"When I found out about Kid's demise I tried to convince the pirates it was a hoax, but they just won't believe me!"
+		},
 		["kidnap"] = {
 			"Ah kidnapping is so much fun. That is, if you're not on the receiving end. ...",
-		"It's easy money and you have a chance to frighten and torture someone who can't fight back!"},
+		"It's easy money and you have a chance to frighten and torture someone who can't fight back!"
+		},
 		["scams"] = {
 			"The more stupid the people are, the easier it is to con them. ...",
 			"And the poorer they are the less means they have to get revenge. Har Har! ...",
-		"So I make sure I ruin those I scam. Then they have other things to worry about than getting revenge on me."},
+		"So I make sure I ruin those I scam. Then they have other things to worry about than getting revenge on me."
+		},
 		["key"] = {
 			"The key was lost in the underground river and has probably washed into the seven seas by now! ...",
-		"If that stupid Kid hadn't been so obsessed with kidnapping he'd not have sold his ship to buy the most expensive and complicated locks for his cells!"},
+			"If that stupid Kid hadn't been so obsessed with kidnapping he'd not have sold his ship to buy the most expensive and complicated locks for his cells!"
+		},
 		["plundering"] = {
 			"As long as we stick to undefended coastal towns we can make an easy fortune. Har Har! ...",
-		"As soon as I get out of here I'll finally become a pirate captain on my own. I don't need Captain Kid!"}
+			"As soon as I get out of here I'll finally become a pirate captain on my own. I don't need Captain Kid!"
+		}
 	}
 
-	return npcHandler:sendMessages(msg, messagesTable, npc, creature)
+	return npcHandler:sendMessages(msg, messagesTable, npc, creature, true, 3000)
 end
 
 npcHandler:setMessage(MESSAGE_GREET, "GET ME OUT OF HERE! NOW!")
