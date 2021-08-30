@@ -602,4 +602,13 @@ if NpcHandler == nil then
 			end
 		end, self.talkDelayTime * 1000, npcId, message, focus)
 	end
+
+	function NpcHandler:sendMessages(message, messageTable, npc, player)
+		for index, value in pairs(messageTable) do
+			if msgcontains(message, index) then
+				self:say(value, npc, player, 2000)
+				return true
+			end
+		end
+	end
 end
