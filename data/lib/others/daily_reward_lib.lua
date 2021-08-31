@@ -217,7 +217,7 @@ function Player.loadDailyRewardBonuses(self)
 		local soulEvent = Daily_Bonus.soul[self:getId()]
 		if not soulEvent then
 			local delay = self:getVocation():getSoulGainTicks()
-			Daily_Bonus.soul[self:getId()] = addEvent(regenSoul, delay * 1000, self:getId(), delay * 1000)
+			Daily_Bonus.soul[self:getId()] = addEvent(regenSoul, delay, self:getId(), delay)
 		end
 	end
 	Spdlog.debug(string.format("Player: %s, streak level: %d, active bonuses: %s",

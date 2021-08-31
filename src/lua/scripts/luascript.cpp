@@ -2064,7 +2064,6 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(RELOAD_TYPE_NPCS)
 	registerEnum(RELOAD_TYPE_RAIDS)
 	registerEnum(RELOAD_TYPE_SCRIPTS)
-	registerEnum(RELOAD_TYPE_SPELLS)
 	registerEnum(RELOAD_TYPE_STAGES)
 
 	registerEnum(ZONE_PROTECTION)
@@ -2142,6 +2141,8 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::STAMINA_PZ_GAIN)
 	registerEnumIn("configKeys", ConfigManager::STAMINA_TRAINER_GAIN)
 
+	registerEnumIn("configKeys", ConfigManager::SORT_LOOT_BY_CHANCE)
+
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_NOTIFY_MESSAGE)
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_NOTIFY_DURATION)
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_CLEAN_MAP)
@@ -2210,6 +2211,18 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::RED_SKULL_DURATION)
 	registerEnumIn("configKeys", ConfigManager::BLACK_SKULL_DURATION)
 	registerEnumIn("configKeys", ConfigManager::ORANGE_SKULL_DURATION)
+
+	registerEnumIn("configKeys", ConfigManager::RATE_HEALTH_REGEN)
+	registerEnumIn("configKeys", ConfigManager::RATE_HEALTH_REGEN_SPEED)
+	registerEnumIn("configKeys", ConfigManager::RATE_MANA_REGEN)
+	registerEnumIn("configKeys", ConfigManager::RATE_MANA_REGEN_SPEED)
+	registerEnumIn("configKeys", ConfigManager::RATE_SOUL_REGEN)
+	registerEnumIn("configKeys", ConfigManager::RATE_SOUL_REGEN_SPEED)
+
+	registerEnumIn("configKeys", ConfigManager::RATE_SPELL_COOLDOWN)
+	registerEnumIn("configKeys", ConfigManager::RATE_ATTACK_SPEED)
+	registerEnumIn("configKeys", ConfigManager::RATE_OFFLINE_TRAINING_SPEED)
+	registerEnumIn("configKeys", ConfigManager::RATE_EXERCISE_TRAINING_SPEED)
 
 	registerEnumIn("configKeys", ConfigManager::RATE_MONSTER_HEALTH)
 	registerEnumIn("configKeys", ConfigManager::RATE_MONSTER_ATTACK)
@@ -2951,6 +2964,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Vocation", "getMaxSoul", LuaScriptInterface::luaVocationGetMaxSoul);
 	registerMethod("Vocation", "getSoulGainTicks", LuaScriptInterface::luaVocationGetSoulGainTicks);
 
+	registerMethod("Vocation", "getBaseAttackSpeed", LuaScriptInterface::luaVocationGetBaseAttackSpeed);
 	registerMethod("Vocation", "getAttackSpeed", LuaScriptInterface::luaVocationGetAttackSpeed);
 	registerMethod("Vocation", "getBaseSpeed", LuaScriptInterface::luaVocationGetBaseSpeed);
 
@@ -3330,6 +3344,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Spell", "needTarget", LuaScriptInterface::luaSpellNeedTarget);
 	registerMethod("Spell", "needWeapon", LuaScriptInterface::luaSpellNeedWeapon);
 	registerMethod("Spell", "needLearn", LuaScriptInterface::luaSpellNeedLearn);
+	registerMethod("Spell", "allowOnSelf", LuaScriptInterface::luaSpellAllowOnSelf);
+	registerMethod("Spell", "setPzLocked", LuaScriptInterface::luaSpellPzLocked);
 	registerMethod("Spell", "isSelfTarget", LuaScriptInterface::luaSpellSelfTarget);
 	registerMethod("Spell", "isBlocking", LuaScriptInterface::luaSpellBlocking);
 	registerMethod("Spell", "isAggressive", LuaScriptInterface::luaSpellAggressive);
@@ -4591,6 +4607,7 @@ SHIFTOP(RightShift, >> )
 const luaL_Reg LuaScriptInterface::luaConfigManagerTable[] = {
 	{"getString", LuaScriptInterface::luaConfigManagerGetString},
 	{"getNumber", LuaScriptInterface::luaConfigManagerGetNumber},
+	{"getFloat", LuaScriptInterface::luaConfigManagerGetFloat},
 	{"getBoolean", LuaScriptInterface::luaConfigManagerGetBoolean},
 	{nullptr, nullptr}
 };
@@ -4604,6 +4621,12 @@ int LuaScriptInterface::luaConfigManagerGetString(lua_State* L)
 int LuaScriptInterface::luaConfigManagerGetNumber(lua_State* L)
 {
 	lua_pushnumber(L, g_config.getNumber(getNumber<ConfigManager::integer_config_t>(L, -1)));
+	return 1;
+}
+
+int LuaScriptInterface::luaConfigManagerGetFloat(lua_State* L)
+{
+	lua_pushnumber(L, g_config.getFloat(getNumber<ConfigManager::floating_config_t>(L, -1)));
 	return 1;
 }
 
@@ -13399,6 +13422,18 @@ int LuaScriptInterface::luaVocationGetSoulGainTicks(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaVocationGetBaseAttackSpeed(lua_State* L)
+{
+	// vocation:getBaseAttackSpeed()
+	Vocation* vocation = getUserdata<Vocation>(L, 1);
+	if (vocation) {
+		lua_pushnumber(L, vocation->getBaseAttackSpeed());
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 int LuaScriptInterface::luaVocationGetAttackSpeed(lua_State* L)
 {
 	// vocation:getAttackSpeed()
@@ -17977,6 +18012,40 @@ int LuaScriptInterface::luaSpellAggressive(lua_State* L)
 			pushBoolean(L, spell->getAggressive());
 		} else {
 			spell->setAggressive(getBoolean(L, 2));
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaSpellAllowOnSelf(lua_State* L)
+{
+	// spell:allowOnSelf(bool)
+	Spell* spell = getUserdata<Spell>(L, 1);
+	if (spell) {
+		if (lua_gettop(L) == 1) {
+			pushBoolean(L, spell->getAllowOnSelf());
+		} else {
+			spell->setAllowOnSelf(getBoolean(L, 2));
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaSpellPzLocked(lua_State* L)
+{
+	// spell:isPzLocked(bool)
+	Spell* spell = getUserdata<Spell>(L, 1);
+	if (spell) {
+		if (lua_gettop(L) == 1) {
+			pushBoolean(L, spell->getLockedPZ());
+		} else {
+			spell->setLockedPZ(getBoolean(L, 2));
 			pushBoolean(L, true);
 		}
 	} else {
