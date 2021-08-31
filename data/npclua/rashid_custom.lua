@@ -1,8 +1,8 @@
 local npcType = Game.createNpcType("Rashid of Island")
 local npcConfig = {}
 
-npcConfig.walkRadius = "3"
-npcConfig.description = "Rashid of Island"
+npcConfig.name = "Rashid"
+npcConfig.description = "Rashid"
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health

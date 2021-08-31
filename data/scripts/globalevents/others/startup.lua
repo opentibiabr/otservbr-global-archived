@@ -127,8 +127,5 @@ function serverstartup.onStartup()
 
 	-- Hireling System
 	HirelingsInit()
-
-	-- Load otservbr-custom map (data/world/custom/otservbr-custom.otbm)
-	loadCustomMap()
 end
 serverstartup:register()
