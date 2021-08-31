@@ -2141,6 +2141,8 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::STAMINA_PZ_GAIN)
 	registerEnumIn("configKeys", ConfigManager::STAMINA_TRAINER_GAIN)
 
+	registerEnumIn("configKeys", ConfigManager::SORT_LOOT_BY_CHANCE)
+
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_NOTIFY_MESSAGE)
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_NOTIFY_DURATION)
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_CLEAN_MAP)
