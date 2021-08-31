@@ -197,12 +197,12 @@ function Player:onLook(thing, position, distance)
 			if decayId ~= -1 then
 				description = string.format("%s\nDecays to: %d", description, decayId)
 			end
-			
+
 			local clientId = itemType:getClientId()
 			if clientId then
 				description = string.format("%s\nClient ID: %d", description, clientId)
 			end
-			
+
 		elseif thing:isCreature() then
 			local str = "%s\nHealth: %d / %d"
 			if thing:isPlayer() and thing:getMaxMana() > 0 then
@@ -681,7 +681,7 @@ function Player:onGainExperience(source, exp, rawExp)
 	-- Soul regeneration
 	local vocation = self:getVocation()
 	if self:getSoul() < vocation:getMaxSoul() and exp >= self:getLevel() then
-		soulCondition:setParameter(CONDITION_PARAM_SOULTICKS, vocation:getSoulGainTicks() * 1000)
+		soulCondition:setParameter(CONDITION_PARAM_SOULTICKS, vocation:getSoulGainTicks())
 		self:addCondition(soulCondition)
 	end
 
@@ -734,7 +734,7 @@ function Player:onGainExperience(source, exp, rawExp)
 			self:setStaminaXpBoost(100)
 		end
 	end
-			
+
 	-- Boosted creature
 	if source:getName():lower() == (Game.getBoostedCreature()):lower() then
 		exp = exp * 2
@@ -950,7 +950,7 @@ function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDama
 	if not item or not target then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
-	
+
 	if ItemType(item:getId()):getWeaponType() == WEAPON_AMMO then
 		if isInArray({ITEM_OLD_DIAMOND_ARROW, ITEM_DIAMOND_ARROW}, item:getId()) then
 			return primaryDamage, primaryType, secondaryDamage, secondaryType
