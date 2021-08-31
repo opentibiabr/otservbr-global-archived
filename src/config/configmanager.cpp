@@ -181,6 +181,9 @@ bool ConfigManager::load()
 	boolean[WEATHER_RAIN] = getGlobalBoolean(L, "weatherRain", false);
 	boolean[WEATHER_THUNDER] = getGlobalBoolean(L, "thunderEffect", false);
 	boolean[ALL_CONSOLE_LOG] = getGlobalBoolean(L, "allConsoleLog", false);
+
+	boolean[SORT_LOOT_BY_CHANCE] = getGlobalBoolean(L, "sortLootByChance", false);
+
 	boolean[FREE_QUESTS] = getGlobalBoolean(L, "freeQuests", false);
 	boolean[SAVE_INTERVAL] = getGlobalBoolean(L, "saveInterval", false);
 	boolean[SAVE_INTERVAL_CLEAN_MAP] = getGlobalBoolean(L, "saveIntervalCleanMap", false);
