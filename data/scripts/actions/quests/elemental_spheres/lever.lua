@@ -3,25 +3,25 @@ local config = {
 		position = Position(33268, 31833, 10),
 		itemid = 8304,
 		toPosition = Position(33268, 31833, 12),
-		vocationId = VOCATION.CLIENT_ID.SORCERER
+		vocationId = VOCATION.BASE_ID.SORCERER
 	},
 	{
 		position = Position(33268, 31838, 10),
 		itemid = 8305,
 		toPosition = Position(33267, 31838, 12),
-		vocationId = VOCATION.CLIENT_ID.DRUID
+		vocationId = VOCATION.BASE_ID.DRUID
 	},
 	{
 		position = Position(33266, 31835, 10),
 		itemid = 8306,
 		toPosition = Position(33265, 31835, 12),
-		vocationId = VOCATION.CLIENT_ID.KNIGHT
+		vocationId = VOCATION.BASE_ID.KNIGHT
 	},
 	{
 		position = Position(33270, 31835, 10),
 		itemid = 8300,
 		toPosition = Position(33270, 31835, 12),
-		vocationId = VOCATION.CLIENT_ID.PALADIN
+		vocationId = VOCATION.BASE_ID.PALADIN
 	}
 }
 
@@ -50,7 +50,7 @@ function elementalSpheresLever.onUse(player, item, fromPosition, target, toPosit
 			return true
 		end
 
-		local vocationId = creature:getVocation():getClientId()
+		local vocationId = creature:getVocation():getBaseId()
 		if vocationId ~= config[i].vocationId or creature:getItemCount(config[i].itemid) < 1 or creature:getStorageValue(Storage.ElementalSphere.QuestLine) < 1 then
 			player:say('You need one player of each vocation having completed the Elemental Spheres quest and also carrying the elemental rare item.', TALKTYPE_MONSTER_SAY, false, 0, Position(33268, 31835, 10))
 			return true

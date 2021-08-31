@@ -42,7 +42,7 @@ local potions = {
 	},
 	[7439] = {
 		vocations = {
-			VOCATION.CLIENT_ID.KNIGHT
+			VOCATION.BASE_ID.KNIGHT
 		},
 		condition = berserk,
 		effect = CONST_ME_MAGIC_RED,
@@ -51,8 +51,8 @@ local potions = {
 	},
 	[7440] = {
 		vocations = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		},
 		condition = mastermind,
 		effect = CONST_ME_MAGIC_BLUE,
@@ -61,7 +61,7 @@ local potions = {
 	},
 	[7443] = {
 		vocations = {
-			VOCATION.CLIENT_ID.PALADIN
+			VOCATION.BASE_ID.PALADIN
 		},
 		condition = bullseye,
 		effect = CONST_ME_MAGIC_GREEN,
@@ -70,8 +70,8 @@ local potions = {
 	},
 	[40398] = {
 		vocations = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		},
 		level = 14,
 		func = magicshield,
@@ -84,8 +84,8 @@ local potions = {
 			350
 		},
 		vocations = {
-			VOCATION.CLIENT_ID.PALADIN,
-			VOCATION.CLIENT_ID.KNIGHT
+			VOCATION.BASE_ID.PALADIN,
+			VOCATION.BASE_ID.KNIGHT
 		},
 		level = 50,
 		flask = 7634,
@@ -106,9 +106,9 @@ local potions = {
 			250
 		},
 		vocations = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID,
-			VOCATION.CLIENT_ID.PALADIN
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID,
+			VOCATION.BASE_ID.PALADIN
 		},
 		level = 80,
 		flask = 7635,
@@ -120,7 +120,7 @@ local potions = {
 			575
 		},
 		vocations = {
-			VOCATION.CLIENT_ID.KNIGHT
+			VOCATION.BASE_ID.KNIGHT
 		},
 		level = 80,
 		flask = 7635,
@@ -150,7 +150,7 @@ local potions = {
 			200
 		},
 		vocations = {
-			VOCATION.CLIENT_ID.PALADIN
+			VOCATION.BASE_ID.PALADIN
 		},
 		level = 80,
 		flask = 7635,
@@ -159,7 +159,7 @@ local potions = {
 	[8473] = {
 		health = {650, 850},
 		vocations = {
-			VOCATION.CLIENT_ID.KNIGHT
+			VOCATION.BASE_ID.KNIGHT
 		},
 		level = 130,
 		flask = 7635,
@@ -182,8 +182,8 @@ local potions = {
 			575
 		},
 		vocations = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		},
 		level = 130,
 		flask = 7635,
@@ -199,7 +199,7 @@ local potions = {
 			350
 		},
 		vocations = {
-			VOCATION.CLIENT_ID.PALADIN
+			VOCATION.BASE_ID.PALADIN
 		},
 		level = 130,
 		flask = 7635,
@@ -211,7 +211,7 @@ local potions = {
 			1125
 		},
 		vocations = {
-			VOCATION.CLIENT_ID.KNIGHT
+			VOCATION.BASE_ID.KNIGHT
 		},
 		level = 200,
 		flask = 7635,
@@ -236,7 +236,7 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 	end
 
 	local potion = potions[item:getId()]
-	if potion.level and player:getLevel() < potion.level or potion.vocations and not table.contains(potion.vocations, player:getVocation():getClientId()) and not (player:getGroup():getId() >= 2) then
+	if potion.level and player:getLevel() < potion.level or potion.vocations and not table.contains(potion.vocations, player:getVocation():getBaseId()) and not (player:getGroup():getId() >= 2) then
 		player:say(potion.description, MESSAGE_POTION)
 		return true
 	end

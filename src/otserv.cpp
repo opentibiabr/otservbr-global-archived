@@ -163,8 +163,6 @@ void loadModules() {
 		"data/XML/imbuements.xml");
 	modulesLoadHelper(g_modules->loadFromXml(),
 		"data/modules/modules.xml");
-	modulesLoadHelper(g_spells->loadFromXml(),
-		"data/spells/spells.xml");
 	modulesLoadHelper(g_events->loadFromXml(),
 		"data/events/events.xml");
 	modulesLoadHelper(g_scripts->loadScripts("scripts", false, false),

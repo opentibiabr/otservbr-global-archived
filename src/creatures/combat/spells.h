@@ -149,6 +149,7 @@ class Spell : public BaseSpell
 
 		void postCastSpell(Player* player, bool finishedCast = true, bool payCost = true) const;
 		static void postCastSpell(Player* player, uint32_t manaCost, uint32_t soulCost);
+		virtual bool isInstant() const = 0;
 
 		uint32_t getManaCost(const Player* player) const;
 		uint32_t getSoulCost() const {
@@ -194,13 +195,6 @@ class Spell : public BaseSpell
 			enabled = e;
 		}
 
-		virtual bool isInstant() const = 0;
-		bool isLearnable() const {
-			return learnable;
-		}
-		void setLearnable(bool l) {
-			learnable = l;
-		}
 
 		const VocSpellMap& getVocMap() const {
 			return vocSpellMap;
@@ -251,9 +245,6 @@ class Spell : public BaseSpell
 		bool getNeedTarget() const {
 			return needTarget;
 		}
-		bool getPzOnUse() const {
-			return pzLocked;
-		}		
 		void setNeedTarget(bool n) {
 			needTarget = n;
 		}
@@ -293,10 +284,23 @@ class Spell : public BaseSpell
 		void setAggressive(bool a) {
 			aggressive = a;
 		}
+		bool getAllowOnSelf() const {
+			return allowOnSelf;
+		}
+		void setAllowOnSelf(bool s) { 
+			allowOnSelf = s;
+		}
+		bool getLockedPZ() const {
+			return pzLocked;
+		}
+		void setLockedPZ(bool b){
+			pzLocked = b;
+		}
 
 		SpellType_t spellType = SPELL_UNDEFINED;
 
 	protected:
+		void applyCooldownConditions(Player* player) const;
 		bool playerSpellCheck(Player* player) const;
 		bool playerInstantSpellCheck(Player* player, const Position& toPos);
 		bool playerRuneSpellCheck(Player* player, const Position& toPos);
@@ -317,9 +321,10 @@ class Spell : public BaseSpell
 
 		bool selfTarget = false;
 		bool needTarget = false;
+		bool allowOnSelf = true;
+		bool pzLocked = false;
 
 	private:
-
 		uint32_t mana = 0;
 		uint32_t manaPercent = 0;
 		uint32_t soul = 0;
@@ -331,8 +336,6 @@ class Spell : public BaseSpell
 		bool learnable = false;
 		bool enabled = true;
 		bool premium = false;
-		bool pzLocked = false;
-
 
 	private:
 		std::string name;
@@ -391,8 +394,6 @@ class InstantSpell final : public TalkAction, public Spell
 
 	private:
 		std::string getScriptEventName() const override;
-
-		bool internalCastSpell(Creature* creature, const LuaVariant& var);
 
 		bool needDirection = false;
 		bool hasParam = false;
