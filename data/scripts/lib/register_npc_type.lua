@@ -27,11 +27,15 @@ end
 
 registerNpcType.speechBubble = function(npcType, mask)
 	-- Set a specific speech bubble
+	local speechBubble = npcType:getSpeechBubble()
 	if mask.speechBubble then
 		npcType:setSpeechBubble(mask.speechBubble)
-	else
-		-- If not have specific speech bubble, then set default speech bubble
+	elseif speechBubble == 3 then
+		npcType:setSpeechBubble(4)
+	elseif npcType:getSpeechBubble() < 1 then
 		npcType:setSpeechBubble(1)
+	else
+		npcType:setSpeechBubble(2)
 	end
 end
 

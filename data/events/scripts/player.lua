@@ -374,7 +374,7 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 	-- SSA exhaust
 	local exhaust = { }
 	if toPosition.x == CONTAINER_POSITION and toPosition.y == CONST_SLOT_NECKLACE
-	and item:getId() == ITEM_STONE_SKIN_AMULET then
+	and item:getClientId() == ITEM_STONE_SKIN_AMULET then
 		local pid = self:getId()
 		if exhaust[pid] then
 			self:sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED)
@@ -390,7 +390,7 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 	local containerIdFrom = fromPosition.y - 64
 	local containerFrom = self:getContainerById(containerIdFrom)
 	if (containerFrom) then
-		if (containerFrom:getId() == ITEM_STORE_INBOX
+		if (containerFrom:getClientId() == ITEM_STORE_INBOX
 		and toPosition.y >= 1 and toPosition.y <= 11 and toPosition.y ~= 3) then
 			self:sendCancelMessage(RETURNVALUE_CONTAINERNOTENOUGHROOM)
 			return false
@@ -399,14 +399,14 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 	local containerTo = self:getContainerById(toPosition.y-64)
 	if (containerTo) then
-		if (containerTo:getId() == ITEM_STORE_INBOX) or (containerTo:getParent():isContainer() and containerTo:getParent():getId() == ITEM_STORE_INBOX and containerTo:getId() ~= ITEM_GOLD_POUCH) then
+		if (containerTo:getClientId() == ITEM_STORE_INBOX) or (containerTo:getParent():isContainer() and containerTo:getParent():getClientId() == ITEM_STORE_INBOX and containerTo:getClientId() ~= ITEM_GOLD_POUCH) then
 			self:sendCancelMessage(RETURNVALUE_CONTAINERNOTENOUGHROOM)
 			return false
 		end
 		-- Gold Pouch
-		if (containerTo:getId() == ITEM_GOLD_POUCH) then
-			if (not (item:getId() == ITEM_CRYSTAL_COIN or item:getId() == ITEM_PLATINUM_COIN
-			or item:getId() == ITEM_GOLD_COIN)) then
+		if (containerTo:getClientId() == ITEM_GOLD_POUCH) then
+			if (not (item:getClientId() == ITEM_CRYSTAL_COIN or item:getClientId() == ITEM_PLATINUM_COIN
+			or item:getClientId() == ITEM_GOLD_COIN)) then
 				self:sendCancelMessage("You can move only money to this container.")
 				return false
 			end
@@ -461,7 +461,7 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		end
 
 		-- Do not let the player insert items into either the Reward Container or the Reward Chest
-		local itemId = container:getId()
+		local itemId = container:getClientId()
 		if itemId == ITEM_REWARD_CONTAINER or itemId == ITEM_REWARD_CHEST then
 			self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 			return false
@@ -952,7 +952,7 @@ function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDama
 	end
 
 	if ItemType(item:getId()):getWeaponType() == WEAPON_AMMO then
-		if isInArray({ITEM_OLD_DIAMOND_ARROW, ITEM_DIAMOND_ARROW}, item:getId()) then
+		if isInArray({ITEM_OLD_DIAMOND_ARROW, ITEM_DIAMOND_ARROW}, item:getClientId()) then
 			return primaryDamage, primaryType, secondaryDamage, secondaryType
 		else
 			item = self:getSlotItem(CONST_SLOT_LEFT)

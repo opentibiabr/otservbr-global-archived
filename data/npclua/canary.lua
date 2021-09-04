@@ -33,7 +33,7 @@ npcConfig.flags = {
 
 -- Npc shop
 npcConfig.shop = {
-	{clientId = 123, buy = 16000, sell = 16000, count = 1},
+	{clientId = 123, buy = 32000, sell = 16000, count = 1},
 	{clientId = 130, buy = 100, count = 1},
 	{clientId = 135, buy = 5000, count = 1},
 	{clientId = 138, buy = 600, count = 1}
@@ -44,7 +44,7 @@ npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackp
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
 end
 -- On sell npc shop message
-npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+npcType.onPlayerSellItem = function(npc, player, itemId, amount, name, totalCost)
 	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
 end
 
