@@ -39,7 +39,9 @@ function familiarLogin.onLogin(player)
 	local petTimeLeft = player:getStorageValue(familiarStorage) - player:getLastLogout()
 
 	if vocation then
-		if isPremium(player) then
+		if (not isPremium(player) and player:hasFamiliar(vocation.id)) or player:getLevel() < 200 then
+			player:removeFamiliar(vocation.id)
+		elseif isPremium(player) and player:getLevel() >= 200 then
 			if petTimeLeft > 0 then
 				familiarName = vocation.name
 			end
