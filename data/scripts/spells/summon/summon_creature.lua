@@ -18,7 +18,7 @@ function spell.onCastSpell(player, variant)
 		end
 
 		if #player:getSummons() >= 2 then
-			player:sendCancelMessage("You cannot summon more players.")
+			player:sendCancelMessage("You cannot summon more creatures.")
 			player:getPosition():sendMagicEffect(CONST_ME_POFF)
 			return false
 		end
@@ -32,7 +32,7 @@ function spell.onCastSpell(player, variant)
 	end
 
 	local position = player:getPosition()
-	local summon = Game.createMonster(monsterName, position, true, false)
+	local summon = Game.createMonster(monsterName, position, true, false, player)
 	if not summon then
 		player:sendCancelMessage(RETURNVALUE_NOTENOUGHROOM)
 		position:sendMagicEffect(CONST_ME_POFF)
@@ -41,8 +41,6 @@ function spell.onCastSpell(player, variant)
 
 	player:addMana(-manaCost)
 	player:addManaSpent(manaCost)
-	player:addSummon(summon)
-	summon:reload()
 	position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	summon:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	return true
