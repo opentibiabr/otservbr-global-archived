@@ -20,9 +20,9 @@
 #include "otpch.h"
 
 #if __has_include("luajit/lua.hpp")
-	#include <luajit/lua.hpp>
+#include <luajit/lua.hpp>
 #else
-	#include <lua.hpp>
+#include <lua.hpp>
 #endif
 
 #include "config/configmanager.h"
@@ -35,83 +35,92 @@
 
 extern Game g_game;
 
-namespace {
-
-std::string getGlobalString(lua_State* L, const char* identifier, const char* defaultValue)
+namespace
 {
-	lua_getglobal(L, identifier);
-	if (!lua_isstring(L, -1)) {
-		return defaultValue;
-	}
 
-	size_t len = lua_strlen(L, -1);
-	std::string ret(lua_tostring(L, -1), len);
-	lua_pop(L, 1);
-	return ret;
-}
-
-int32_t getGlobalNumber(lua_State* L, const char* identifier, const int32_t defaultValue = 0)
-{
-	lua_getglobal(L, identifier);
-	if (!lua_isnumber(L, -1)) {
-		return defaultValue;
-	}
-
-	int32_t val = lua_tonumber(L, -1);
-	lua_pop(L, 1);
-	return val;
-}
-
-bool getGlobalBoolean(lua_State* L, const char* identifier, const bool defaultValue)
-{
-	lua_getglobal(L, identifier);
-	if (!lua_isboolean(L, -1)) {
-		if (!lua_isstring(L, -1)) {
+	std::string getGlobalString(lua_State *L, const char *identifier, const char *defaultValue)
+	{
+		lua_getglobal(L, identifier);
+		if (!lua_isstring(L, -1))
+		{
 			return defaultValue;
 		}
 
 		size_t len = lua_strlen(L, -1);
 		std::string ret(lua_tostring(L, -1), len);
 		lua_pop(L, 1);
-		return booleanString(ret);
+		return ret;
 	}
 
-	int val = lua_toboolean(L, -1);
-	lua_pop(L, 1);
-	return val != 0;
-}
+	int32_t getGlobalNumber(lua_State *L, const char *identifier, const int32_t defaultValue = 0)
+	{
+		lua_getglobal(L, identifier);
+		if (!lua_isnumber(L, -1))
+		{
+			return defaultValue;
+		}
 
-float getGlobalFloat(lua_State* L, const char* identifier, const float defaultValue = 0.0)
-{
-	lua_getglobal(L, identifier);
-	if (!lua_isnumber(L, -1)) {
-		return defaultValue;
+		int32_t val = lua_tonumber(L, -1);
+		lua_pop(L, 1);
+		return val;
 	}
 
-	float val = lua_tonumber(L, -1);
-	lua_pop(L, 1);
-	return val;
-}
+	bool getGlobalBoolean(lua_State *L, const char *identifier, const bool defaultValue)
+	{
+		lua_getglobal(L, identifier);
+		if (!lua_isboolean(L, -1))
+		{
+			if (!lua_isstring(L, -1))
+			{
+				return defaultValue;
+			}
+
+			size_t len = lua_strlen(L, -1);
+			std::string ret(lua_tostring(L, -1), len);
+			lua_pop(L, 1);
+			return booleanString(ret);
+		}
+
+		int val = lua_toboolean(L, -1);
+		lua_pop(L, 1);
+		return val != 0;
+	}
+
+	float getGlobalFloat(lua_State *L, const char *identifier, const float defaultValue = 0.0)
+	{
+		lua_getglobal(L, identifier);
+		if (!lua_isnumber(L, -1))
+		{
+			return defaultValue;
+		}
+
+		float val = lua_tonumber(L, -1);
+		lua_pop(L, 1);
+		return val;
+	}
 
 }
 
 bool ConfigManager::load()
 {
-	lua_State* L = luaL_newstate();
-	if (!L) {
+	lua_State *L = luaL_newstate();
+	if (!L)
+	{
 		throw std::runtime_error("Failed to allocate memory");
 	}
 
 	luaL_openlibs(L);
 
-	if (luaL_dofile(L, configFileLua.c_str())) {
+	if (luaL_dofile(L, configFileLua.c_str()))
+	{
 		SPDLOG_ERROR("[ConfigManager::load] - {}", lua_tostring(L, -1));
 		lua_close(L);
 		return false;
 	}
 
 	//parse config
-	if (!loaded) { //info that must be loaded one time (unless we reset the modules involved)
+	if (!loaded)
+	{ //info that must be loaded one time (unless we reset the modules involved)
 		boolean[BIND_ONLY_GLOBAL_ADDRESS] = getGlobalBoolean(L, "bindOnlyGlobalAddress", false);
 		boolean[OPTIMIZE_DATABASE] = getGlobalBoolean(L, "startupDatabaseOptimization", true);
 
@@ -176,11 +185,9 @@ bool ConfigManager::load()
 	boolean[SERVER_SAVE_SHUTDOWN] = getGlobalBoolean(L, "serverSaveShutdown", true);
 	boolean[STOREMODULES] = getGlobalBoolean(L, "gamestoreByModules", true);
 	boolean[ONLY_INVITED_CAN_MOVE_HOUSE_ITEMS] = getGlobalBoolean(L, "onlyInvitedCanMoveHouseItems", true);
-	boolean[ALLOW_CLIENT_OLD] = getGlobalBoolean(L, "allowClientOld", false);
-	boolean[SAVE_INTERVAL] = getGlobalBoolean(L, "saveInterval", false);
-	boolean[SAVE_INTERVAL_CLEAN_MAP] = getGlobalBoolean(L, "saveIntervalCleanMap", false);
 	boolean[ONLY_PREMIUM_ACCOUNT] = getGlobalBoolean(L, "onlyPremiumAccount", false);
 
+	boolean[ALLOW_CLIENT_OLD] = getGlobalBoolean(L, "allowClientOld", false);
 	boolean[WEATHER_RAIN] = getGlobalBoolean(L, "weatherRain", false);
 	boolean[WEATHER_THUNDER] = getGlobalBoolean(L, "thunderEffect", false);
 	boolean[ALL_CONSOLE_LOG] = getGlobalBoolean(L, "allConsoleLog", false);
@@ -275,7 +282,8 @@ bool ConfigManager::load()
 bool ConfigManager::reload()
 {
 	bool result = load();
-	if (transformToSHA1(getString(ConfigManager::MOTD)) != g_game.getMotdHash()) {
+	if (transformToSHA1(getString(ConfigManager::MOTD)) != g_game.getMotdHash())
+	{
 		g_game.incrementMotdNum();
 	}
 	return result;
@@ -283,9 +291,10 @@ bool ConfigManager::reload()
 
 static std::string dummyStr;
 
-const std::string& ConfigManager::getString(string_config_t what) const
+const std::string &ConfigManager::getString(string_config_t what) const
 {
-	if (what >= LAST_STRING_CONFIG) {
+	if (what >= LAST_STRING_CONFIG)
+	{
 		SPDLOG_WARN("[ConfigManager::getString] - Accessing invalid index: {}", what);
 		return dummyStr;
 	}
@@ -294,7 +303,8 @@ const std::string& ConfigManager::getString(string_config_t what) const
 
 int32_t ConfigManager::getNumber(integer_config_t what) const
 {
-	if (what >= LAST_INTEGER_CONFIG) {
+	if (what >= LAST_INTEGER_CONFIG)
+	{
 		SPDLOG_WARN("[ConfigManager::getNumber] - Accessing invalid index: {}", what);
 		return 0;
 	}
@@ -303,7 +313,8 @@ int32_t ConfigManager::getNumber(integer_config_t what) const
 
 int16_t ConfigManager::getShortNumber(integer_config_t what) const
 {
-	if (what >= LAST_INTEGER_CONFIG) {
+	if (what >= LAST_INTEGER_CONFIG)
+	{
 		SPDLOG_WARN("[ConfigManager::getShortNumber] - Accessing invalid index: {}", what);
 		return 0;
 	}
@@ -312,7 +323,8 @@ int16_t ConfigManager::getShortNumber(integer_config_t what) const
 
 bool ConfigManager::getBoolean(boolean_config_t what) const
 {
-	if (what >= LAST_BOOLEAN_CONFIG) {
+	if (what >= LAST_BOOLEAN_CONFIG)
+	{
 		SPDLOG_WARN("[ConfigManager::getBoolean] - Accessing invalid index: {}", what);
 		return false;
 	}
@@ -321,7 +333,8 @@ bool ConfigManager::getBoolean(boolean_config_t what) const
 
 float ConfigManager::getFloat(floating_config_t what) const
 {
-	if (what >= LAST_FLOATING_CONFIG) {
+	if (what >= LAST_FLOATING_CONFIG)
+	{
 		SPDLOG_WARN("[ConfigManager::getFLoat] - Accessing invalid index: {}", what);
 		return 0;
 	}

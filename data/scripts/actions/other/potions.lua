@@ -238,8 +238,12 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 	end
 
 	local potion = potions[item:getId()]
-	if potion.level and player:getLevel() < potion.level or potion.vocations and not table.contains(potion.vocations, player:getVocation():getBaseId()) and not (player:getGroup():getId() >= 2) then
-		player:say(potion.description, MESSAGE_POTION)
+	if potion.level and player:getLevel() < potion.level or potion.vocations and not table.contains(potion.vocations, player:getVocation():getClientId()) and not (player:getGroup():getId() >= 2) then
+		if client.version > 1100 then
+			player:say(potion.description, MESSAGE_POTION)
+		else
+			player:say(potion.description, TALKTYPE_MONSTER_SAY)
+		end
 		return true
 	end
 

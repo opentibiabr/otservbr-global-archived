@@ -456,7 +456,7 @@ void ProtocolGame::logout(bool displayEffect, bool forced)
 	}
 
 	if (player->getProtocolVersion() >= 1264) {
-		sendSessionEndInformation(forced ? SESSION_END_FORCECLOSE : SESSION_END_LOGOUT);
+		sendSessionEndInformation(SESSION_END_LOGOUT2);
 	} else {
 		disconnect();
 	}
@@ -2570,7 +2570,6 @@ void ProtocolGame::parseMarketBrowse(NetworkMessage &msg)
 	}
 	else
 	{
-	player->sendMarketEnter(player->getLastDepotId());
 		addGameTask(&Game::playerBrowseMarket, player->getID(), browseId);
 	}
 	if (version >= 1200){
