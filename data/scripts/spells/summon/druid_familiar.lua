@@ -28,15 +28,16 @@ local function removePet(creatureId, playerId)
 end
 
 function spell.onCastSpell(player, variant)
+	local playerPosition = player:getPosition()
 	if not player or not isPremium(player) then
-		player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		playerPosition:sendMagicEffect(CONST_ME_POFF)
 		player:sendCancelMessage("You need a premium account.")
 	return false
 	end
 
 	if #player:getSummons() >= 1 then
 		player:sendCancelMessage("You can't have other summons.")
-		player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		playerPosition:sendMagicEffect(CONST_ME_POFF)
 		return false
 	end
 
@@ -47,7 +48,6 @@ function spell.onCastSpell(player, variant)
 		familiarName = vocation.name
 	end
 
-	local playerPosition = player:getPosition()
 	if not familiarName then
 		player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		playerPosition:sendMagicEffect(CONST_ME_POFF)
