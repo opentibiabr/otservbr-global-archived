@@ -1,3 +1,5 @@
+dofile("data/npclua/tereban_functions.lua")
+
 local npcType = Game.createNpcType("Tereban")
 local npcConfig = {}
 
@@ -18,8 +20,6 @@ npcConfig.outfit = {
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
     floorchange = false
 }
 
@@ -45,6 +45,22 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+function creatureSayCallback(npc, creature, type, msg)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	parseTerebanSay(npc, creature, msg, npcHandler)
+	return true
+end
+
+local function onReleaseFocus(creature)
+	message[creature] = nil
+end
+
+npcHandler:setMessage(MESSAGE_GREET, "Greetings, friend. Good you are showing up.")
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
 npcHandler:addModule(FocusModule:new())
 
 npcType:register(npcConfig)
