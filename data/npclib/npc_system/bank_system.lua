@@ -22,9 +22,9 @@ end
 function Npc:parseBank(msg, npc, creature, npcHandler)
 	local player = Player(creature)
 	-- Balance
-	local goldCoin = ItemType(ITEM_GOLD_COIN):getClientId()
-	local platinumCoin = ItemType(ITEM_PLATINUM_COIN):getClientId()
-	local crystalCoin = ItemType(ITEM_CRYSTAL_COIN):getClientId()
+	local goldCoin = player:getItemIdByCid(ITEM_GOLD_COIN)
+	local platinumCoin = player:getItemIdByCid(ITEM_PLATINUM_COIN)
+	local crystalCoin = player:getItemIdByCid(ITEM_CRYSTAL_COIN)
 	if msgcontains(msg, "balance") then
 		if player:getBankBalance() >= 100000000 then
 			npcHandler:say("I think you must be one of the richest inhabitants in the world! Your account balance is " .. player:getBankBalance() .. " gold.", npc, creature)
@@ -212,7 +212,6 @@ function Npc:parseBank(msg, npc, creature, npcHandler)
 				player:addItem(platinumCoin, count[creature])
 				npcHandler:say("Here you are.", npc, creature)
 			else
-				print("go")
 				npcHandler:say("Sorry, you do not have enough gold coins.", npc, creature)
 			end
 		else
