@@ -5678,7 +5678,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 						return false;
 					}
 				}
-				
+
 				if (tmpPlayer == attackerPlayer && attackerPlayer != targetPlayer) {
 					ss.str({});
 					ss << "You heal " << target->getNameDescription() << " for " << damageString;
@@ -6494,11 +6494,13 @@ void Game::checkDecay()
 	auto it = decayItems[bucket].begin(), end = decayItems[bucket].end();
 	while (it != end) {
 		Item* item = *it;
-		if (!item->canDecay()) {
+		if (item && !item->canDecay()) {
 			item->setDecaying(DECAYING_FALSE);
 			ReleaseItem(item);
 			it = decayItems[bucket].erase(it);
 			continue;
+		} else {
+			++it;
 		}
 
 		int32_t duration = item->getDuration();
@@ -6849,7 +6851,7 @@ bool save = false;
 	else if (last_day != 0) {
 		account.SetPremiumLastDay(0);
 		save = true;
-	}
+  }
 
 	if (save && !account.SaveAccountDB()) {
 		account.GetEmail(&email);
@@ -8654,7 +8656,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 		}
 
 		default: {
-			
+
 			g_config.reload();
 			Npcs::reload();
 			raids.reload() && raids.startup();
