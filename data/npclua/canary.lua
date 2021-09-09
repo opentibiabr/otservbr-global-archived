@@ -59,25 +59,25 @@ local function greetCallback(npc, creature)
 end
 
 -- On creature say callback
-local function creatureSayCallback(npc, creature, type, msg)
+local function creatureSayCallback(npc, creature, type, message)
 	local player = Player(creature)
 	if not npcHandler:isFocused(creature) then
 		return false
 	end
 
 	-- Open shop window
-	if msgcontains(msg, "trade") then
+	if msgcontains(message, "trade") then
 		npc:openShopWindow(player)
 	end
 
-	if msgcontains(msg, "canary") then
+	if msgcontains(message, "canary") then
 		npcHandler:say({
 			"The goal is for Canary to be an 'engine', that is, it will be \z
 				a server with a 'clean' datapack, with as few things as possible, \z
 				thus facilitating development and testing.",
 			"See more on our {discord group}."
 		}, npc, creature, 3000)
-	elseif msgcontains(msg, "discord group") then
+	elseif msgcontains(message, "discord group") then
 		npcHandler:say("This the our discord group link: {https://discordapp.com/invite/3NxYnyV}", npc, creature)
 	end
 	return true
@@ -121,3 +121,4 @@ end
 
 -- Register npc
 npcType:register(npcConfig)
+

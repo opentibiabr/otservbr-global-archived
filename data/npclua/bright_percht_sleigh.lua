@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Bright Percht Sleigh")
+local internalNpcName = "Bright Percht Sleigh"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Bright Percht Sleigh"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,13 +11,11 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 1164
+	lookType = 1164
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -42,4 +42,5 @@ end
 
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

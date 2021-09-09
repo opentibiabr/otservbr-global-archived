@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Percy Silverhand")
+local internalNpcName = "Percy Silverhand"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Percy Silverhand"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 132,
-    lookHead = 19,
-    lookBody = 131,
-    lookLegs = 35,
-    lookFeet = 128,
-    lookAddons = 1
+	lookType = 132,
+	lookHead = 19,
+	lookBody = 131,
+	lookLegs = 35,
+	lookFeet = 128,
+	lookAddons = 1
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -47,4 +47,5 @@ end
 
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

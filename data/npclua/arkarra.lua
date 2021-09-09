@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Arkarra")
+local internalNpcName = "Arkarra"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Arkarra"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,13 +11,17 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 381
+	lookType = 381
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{text = 'Krrrrrng.'}
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -40,6 +46,11 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+npcHandler:setMessage(MESSAGE_GREET, "...")
+npcHandler:setMessage(MESSAGE_FAREWELL, "...")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "...")
+
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Benevola")
+local internalNpcName = "Benevola"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Benevola"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,24 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 158,
-    lookHead = 81,
-    lookBody = 120,
-    lookLegs = 15,
-    lookFeet = 94,
-    lookAddons = 0
+	lookType = 158,
+	lookHead = 81,
+	lookBody = 120,
+	lookLegs = 15,
+	lookFeet = 94,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{ text = 'Nature is in pain.' },
+	{ text = 'The weather is fine today.' },
+	{ text = 'I can hear the call of the forest.' }
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -44,7 +52,7 @@ end
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
-
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

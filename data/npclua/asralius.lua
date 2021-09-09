@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Asralius")
+local internalNpcName = "Asralius"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Asralius"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,23 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 194,
-    lookHead = 114,
-    lookBody = 85,
-    lookLegs = 113,
-    lookFeet = 114,
-    lookAddons = 0
+	lookType = 194,
+	lookHead = 114,
+	lookBody = 85,
+	lookLegs = 113,
+	lookFeet = 114,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{ text = 'Let me speak a few words to you.' },
+	{ text = 'Death comes to the best of us, but this time you had no chance.' }
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +52,5 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-npcHandler:addModule(FocusModule:new())
 
 npcType:register(npcConfig)

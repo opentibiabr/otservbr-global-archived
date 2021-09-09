@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Yawno")
+local internalNpcName = "Yawno"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Yawno"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,25 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookTypeex = 3058,
-    lookHead = 0,
-    lookBody = 0,
-    lookLegs = 0,
-    lookFeet = 0,
-    lookAddons = 0
-}
-
-npcConfig.voices = {
-    interval = 14,
-    chance = 0,
-    { text = "It... *yawn* will show up... sooner or later... *yaaawn*", yell = false },
-    { text = "Mmhnmnmnmmmh... no, nooo...! Lemme sleep... I don't wanna go to school...", yell = false }
+	lookTypeex = 3058,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -54,4 +47,5 @@ end
 
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

@@ -1,5 +1,4 @@
 local internalNpcName = "A Behemoth"
-
 local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
@@ -16,8 +15,6 @@ npcConfig.outfit = {
 }
 
 npcConfig.flags = {
-	attackable = false,
-	hostile = false,
 	floorchange = false
 }
 
@@ -67,7 +64,7 @@ function greetCallback(npc, creature)
 
 	player:setStorageValue(SPIKE_LOWER_UNDERCOVER_MAIN, SPIKE_STORAGE + 1)
 	table.insert(UNDERCOVER_CONTACTED[player:getGuid()], npc:getId())
-	npcHandler:releaseFocus(cid)
+	npcHandler:releaseFocus(creature)
 	npcHandler:setMessage(MESSAGE_GREET, "Pssst! Keep it down! <gives you an elaborate report on monster activity>")
 	return true
 end
@@ -75,4 +72,5 @@ end
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

@@ -19,15 +19,13 @@ npcConfig.outfit = {
 }
 
 npcConfig.flags = {
-	attackable = false,
-	hostile = false,
 	floorchange = false
 }
 
 npcConfig.voices = {
 	interval = 5000,
 	chance = 50,
-	{ text = "Don't forget to deposit your money here in the Tibian Bank before you head out for adventure.", yell = false }
+	{text = 'Don\'t forget to deposit your money here in the Tibian Bank before you head out for adventure.', yell = false}
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -52,17 +50,17 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, msg)
+local function creatureSayCallback(npc, creature, type, message)
 	if not npcHandler:isFocused(creature) then
 		return false
 	end
 
 	-- Parse bank
-	npc:parseBank(msg, npc, creature, npcHandler)
+	npc:parseBank(message, npc, creature, npcHandler)
 	-- Parse guild bank
-	npc:parseGuildBank(msg, npc, creature, npcHandler)
+	npc:parseGuildBank(message, npc, creature, npcHandler)
 	-- Normal messages
-	npc:parseBankMessages(msg, npc, creature, npcHandler)
+	npc:parseBankMessages(message, npc, creature, npcHandler)
 	return true
 end
 
@@ -73,4 +71,5 @@ npcHandler:setCallback(CALLBACK_GREET, npcBankGreetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Menesto")
+local internalNpcName = "Menesto"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Menesto"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 131,
-    lookHead = 114,
-    lookBody = 38,
-    lookLegs = 78,
-    lookFeet = 114,
-    lookAddons = 0
+	lookType = 131,
+	lookHead = 114,
+	lookBody = 38,
+	lookLegs = 78,
+	lookFeet = 114,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +45,52 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+function greetCallback(npc, creature)
+	local player = Player(creature)
+	if player:getStorageValue(Storage.Tutorial) < 1 then
+		npcHandler:say(
+			{
+				"Finally, reinforcements - oh but no, you came through the crystal portal, like the others! \z
+					I am ser Menesto, I guard the portal. That beast caught me by surprise, I lost my dagger and had to retreat. ...",
+				"... ...",
+				"Hmm. ...",
+				"You look hungry, you should eat regularly to reagain your strength! \z
+					See what you can find while hunting. Or buy food in a city shop. \z
+					Here, have some of my rations, I'll take my dagger. Tell me when you're {ready}."
+			},
+		npc, creature, 10)
+		player:addItem(2666, 1)
+		player:setStorageValue(Storage.Dawnport.Tutorial, 1)
+	end
+	return true
+end
+
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	local player = Player(creature)
+	if msgcontains(message, "ready") then
+		if player:getStorageValue(Storage.Dawnport.Tutorial) == 1 then
+			npcHandler:say(
+				{
+					"I'll stay here till reinforcements come. Go up the ladder to reach the surface. \z
+						You'll need a rope for the ropestot that comes after the ladder - here, take my spare equipment. ...",
+					"And remember: Tibia is a world with many dangers and mysteries, so be careful! Farewell, friend."
+				},
+			npc, creature, 10)
+			player:setStorageValue(Storage.Dawnport.Tutorial, 2)
+			npcHandler.topic[creature] = 0
+		end
+	end
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
+
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

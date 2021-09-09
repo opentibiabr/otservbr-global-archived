@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Rapanaio")
+local internalNpcName = "Rapanaio"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Rapanaio"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,25 +11,19 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 160,
-    lookHead = 0,
-    lookBody = 21,
-    lookLegs = 20,
-    lookFeet = 39
+	lookType = 160,
+	lookHead = 0,
+	lookBody = 21,
+	lookLegs = 20,
+	lookFeet = 39
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
-local keywordHandler = KeywordHandler:new()
+ local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
-
-npcType.onThink = function(npc, interval)
-	npcHandler:onThink(npc, interval)
-end
 
 npcType.onAppear = function(npc, creature)
 	npcHandler:onCreatureAppear(npc, creature)
@@ -37,13 +33,18 @@ npcType.onDisappear = function(npc, creature)
 	npcHandler:onCreatureDisappear(npc, creature)
 end
 
-npcType.onMove = function(npc, creature, fromPosition, toPosition)
-end
-
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
+end
+
+keywordHandler:addKeyword({'mission'}, StdModule.say, {npcHandler = npcHandler, text = 'Now that we have arrived you should waste no time and fight your way to the lair of evil and destroy its master before its too late!'})
+keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = 'Me humble name is Rapanaio. Good old goblin name meaning honest, generous and nice person, I swear!'})
+
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

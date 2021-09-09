@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Perac")
+local internalNpcName = "Perac"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Perac"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 129,
-    lookHead = 78,
-    lookBody = 90,
-    lookLegs = 68,
-    lookFeet = 114,
-    lookAddons = 0
+	lookType = 129,
+	lookHead = 78,
+	lookBody = 90,
+	lookLegs = 68,
+	lookFeet = 114,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -46,5 +46,28 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 npcHandler:addModule(FocusModule:new())
+
+npcConfig.shop = {
+	-- Sellable items
+	{ itemName = "spear", clientId = 3277, sell = 3 },
+	-- Buyable items
+	{ itemName = "arrow", clientId = 3447, buy = 3 },
+	{ itemName = "blue quiver", clientId = 35848, buy = 400 },
+	{ itemName = "bolt", clientId = 3446, buy = 4 },
+	{ itemName = "bow", clientId = 3350, buy = 400 },
+	{ itemName = "crossbow", clientId = 3349, buy = 500 },
+	{ itemName = "quiver", clientId = 35562, buy = 400 },
+	{ itemName = "red quiver", clientId = 35849, buy = 400 },
+	{ itemName = "spear", clientId = 3277, buy = 10 }
+}
+-- On buy npc shop message
+npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+end
+-- On sell npc shop message
+npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
+end
 
 npcType:register(npcConfig)

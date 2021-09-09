@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Bertram")
+local internalNpcName = "Bertram"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Bertram"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 132,
-    lookHead = 57,
-    lookBody = 114,
-    lookLegs = 0,
-    lookFeet = 114,
-    lookAddons = 0
+	lookType = 132,
+	lookHead = 57,
+	lookBody = 114,
+	lookLegs = 0,
+	lookFeet = 114,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +45,30 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+	local player = Player(creature)
+	if msgcontains(message, 'key') then
+		if player:getStorageValue(Storage.ThievesGuild.Mission06) == 1
+		and player:getSex() == PLAYERSEX_FEMALE then
+			local headItem = player:getSlotItem(CONST_SLOT_HEAD)
+			if headItem and headItem.itemid == 2665 and player:getStorageValue(Storage.Postman.Rank) == 5 then
+				player:addItem(8762, 1)
+				player:setStorageValue(Storage.ThievesGuild.Mission06, 2)
+				npcHandler:say('Oh my! You look so great in your uniform! \z
+				You archpostwomen are not only daring but also beautiful. \z
+				Here take it, that\'s the key you wanted. Just promise to visit me now and then!', npc, creature)
+			end
+		end
+	end
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

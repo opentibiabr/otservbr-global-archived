@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Klaus")
+local internalNpcName = "Klaus"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Klaus"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,17 +11,15 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 96,
-    lookHead = 0,
-    lookBody = 0,
-    lookLegs = 0,
-    lookFeet = 0
+	lookType = 96,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -44,6 +44,43 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	local player = Player(creature)
+	if msgcontains(message, 'mission') then
+		if player:getStorageValue(Storage.TheShatteredIsles.RaysMission4) == 1 then
+			npcHandler:say(
+				'Hmm, you look like a seasoned seadog. Kill Captain Ray Striker, \
+				bring me his lucky pillow as a proof and you are our hero!',
+			creature)
+			player:setStorageValue(Storage.TheShatteredIsles.RaysMission4, 2)
+		elseif player:getStorageValue(Storage.TheShatteredIsles.RaysMission4) == 3 then
+			npcHandler:say("Do you have Striker's pillow?", npc, creature)
+			npcHandler.topic[creature] = 1
+		end
+	elseif msgcontains(message, 'yes') then
+		if player:getStorageValue(Storage.TheShatteredIsles.RaysMission4) == 3 then
+			if npcHandler.topic[creature] == 1 then
+				if player:removeItem(11427, 1) then
+					npcHandler:say('You DID it!!! Incredible! Boys, lets have a PAAAAAARTY!!!!', npc, creature)
+					player:setStorageValue(Storage.TheShatteredIsles.RaysMission4, 4)
+					npcHandler.topic[creature] = 0
+				else
+					npcHandler:say('Come back when you have his lucky pillow.', npc, creature)
+					npcHandler.topic[creature] = 0
+				end
+			end
+		end
+	end
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

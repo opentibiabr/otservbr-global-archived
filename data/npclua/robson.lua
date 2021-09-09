@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Robson")
+local internalNpcName = "Robson"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Robson"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,13 +11,18 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 66
+	lookType = 66
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{ text = '<mumbles>' },
+	{ text = 'Just great. Getting stranded on a remote underground isle was not that bad but now I\'m becoming a tourist attraction!' }
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -40,6 +47,55 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	if msgcontains(message, 'parcel') then
+		npcHandler:say('Do you want to buy a parcel for 15 gold?', npc, creature)
+		npcHandler.topic[creature] = 1
+	elseif msgcontains(message, 'label') then
+		npcHandler:say('Do you want to buy a label for 1 gold?', npc, creature)
+		npcHandler.topic[creature] = 2
+	elseif msgcontains(message, 'yes') then
+		local player = Player(creature)
+		if npcHandler.topic[creature] == 1 then
+			if not player:removeMoneyNpc(15) then
+				npcHandler:say('Sorry, that\'s only dust in your purse.', npc, creature)
+				npcHandler.topic[creature] = 0
+				return true
+			end
+
+			player:addItem(2595, 1)
+			npcHandler:say('Fine.', npc, creature)
+			npcHandler.topic[creature] = 0
+		elseif npcHandler.topic[creature] == 2 then
+			if not player:removeMoneyNpc(1) then
+				npcHandler:say('Sorry, that\'s only dust in your purse.', npc, creature)
+				npcHandler.topic[creature] = 0
+				return true
+			end
+
+			player:addItem(2599, 1)
+			npcHandler:say('Fine.', npc, creature)
+			npcHandler.topic[creature] = 0
+		end
+	elseif msgcontains(message, 'no') then
+		if isInArray({1, 2}, npcHandler.topic[creature]) then
+			npcHandler:say('I knew I would be stuck with that stuff.', npc, creature)
+			npcHandler.topic[creature] = 0
+		end
+	end
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_GREET, "Hrmpf, I'd say welcome if I felt like lying.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "See you next time!")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "No patience at all!")
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

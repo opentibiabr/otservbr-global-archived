@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Nokmir")
+local internalNpcName = "Nokmir"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Nokmir"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,17 +11,15 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 160,
-    lookHead = 57,
-    lookBody = 87,
-    lookLegs = 59,
-    lookFeet = 114
+	lookType = 160,
+	lookHead = 57,
+	lookBody = 87,
+	lookLegs = 59,
+	lookFeet = 114
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -44,6 +44,56 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	local player = Player(creature)
+
+	if msgcontains(message, "mission") then
+		if player:getStorageValue(Storage.HiddenCityOfBeregar.JusticeForAll) < 1 then
+			npcHandler:say("I don't see how you could help me. I'm in deep, deep trouble. I'm accused of having stolen a {ring} from Rerun, but I haven't.", npc, creature)
+			npcHandler.topic[creature] = 1
+		elseif player:getStorageValue(Storage.HiddenCityOfBeregar.JusticeForAll) == 5 then
+			player:setStorageValue(Storage.HiddenCityOfBeregar.JusticeForAll, 6)
+			player:setStorageValue(Storage.HiddenCityOfBeregar.DoorNorthMine, 1)
+			npcHandler:say("WHAT?! I can't believe it. You saved my life... well, at least one week of it 'cause that would have been the time I had to spend in jail. If you want to, you can pass the door now and take a look at the northern mines. Have fun!", npc, creature)
+		end
+	elseif msgcontains(message, "ring") then
+		if npcHandler.topic[creature] == 1 then
+			npcHandler:say({
+				"He said he still had it after work. On that evening, {Grombur}, {Rerun} and me opened a cask of beer in one of the mine tunnels. We had a fun evening there. ...",
+				"On the next day, the guards brought me to emperor {Rehal}, and Rerun was there, too. He said I had stolen his ring. I'd never steal, you have to believe me."
+			}, npc, creature)
+			npcHandler.topic[creature] = 2
+		end
+	elseif msgcontains(message, "grombur") then
+		if npcHandler.topic[creature] == 2 then
+			npcHandler:say("Maybe Grombur knows more than me. The thing is he won't talk to me, and he will surely not accuse his best friend as a liar. What a dilemma!", npc, creature)
+			npcHandler.topic[creature] = 3
+		end
+	elseif msgcontains(message, "rerun") then
+		if npcHandler.topic[creature] == 3 then
+			npcHandler:say("He's a miner in the southern wing. Maybe he has lost the ring there... but even if I find the ring, no one will believe me. Someone should talk to Grombur. He's Rerun's best friend.", npc, creature)
+			npcHandler.topic[creature] = 4
+		end
+	elseif msgcontains(message, "rehal") then
+		if npcHandler.topic[creature] == 4 then
+			player:setStorageValue(Storage.HiddenCityOfBeregar.DefaultStart, 1)
+			player:setStorageValue(Storage.HiddenCityOfBeregar.JusticeForAll, 1)
+			npcHandler:say("He's a good emperor but I doubt he is wise enough to see the truth behind that false accusation against me. If just someone would find out the truth about that whole mess.", npc, creature)
+			npcHandler.topic[creature] = 0
+		end
+	end
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_WALKAWAY, "See you my friend.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "See you my friend.")
+npcHandler:setMessage(MESSAGE_GREET, "You are....kind of tall! Hello.")
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

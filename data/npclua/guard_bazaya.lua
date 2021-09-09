@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Guard Bazaya")
+local internalNpcName = "Guard Bazaya"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Guard Bazaya"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,24 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 1200,
-    lookHead = 76,
-    lookBody = 0,
-    lookLegs = 3,
-    lookFeet = 105,
-    lookAddons = 2
-}
-
-npcConfig.voices = {
-    interval = 120,
-    chance = 0,
-    { text = "Good bye.", yell = false }
+	lookType = 1200,
+	lookHead = 76,
+	lookBody = 0,
+	lookLegs = 3,
+	lookFeet = 105,
+	lookAddons = 2
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -53,4 +47,5 @@ end
 
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

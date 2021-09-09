@@ -1,7 +1,9 @@
+local internalNpcName = "A Dead Bureaucrat"
 local npcType = Game.createNpcType("A Dead Bureaucrat (2)")
 local npcConfig = {}
 
-npcConfig.description = "A Dead Bureaucrat"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,13 +11,18 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 33
+	lookType = 33
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{ text = 'Now where did I put that form?' },
+	{ text = 'Hail Pumin. Yes, hail.' }
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -40,6 +47,32 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function greetCallback(npc, creature)
+	npcHandler:setMessage(MESSAGE_GREET, "Hello " .. (Player(creature):getSex() == PLAYERSEX_FEMALE and "beautiful lady" or "handsome gentleman") .. ", welcome to the atrium of Pumin's Domain. We require some information from you before we can let you pass. Where do you want to go?")
+	return true
+end
+
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	if msgcontains(message, "287") then
+		local player = Player(creature)
+		if player:getStorageValue(Storage.PitsOfInferno.ThronePumin) == 4 then
+			player:setStorageValue(Storage.PitsOfInferno.ThronePumin, 5)
+			npcHandler:say("Sure, you can get it from me. Here you are. Bye", npc, creature)
+		end
+	end
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_WALKAWAY, "Good bye and don't forget me!")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye and don't forget me!")
+
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

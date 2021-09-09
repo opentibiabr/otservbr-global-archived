@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Talphion")
+local internalNpcName = "Talphion"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Talphion"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,17 +11,15 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 160,
-    lookHead = 27,
-    lookBody = 86,
-    lookLegs = 126,
-    lookFeet = 127
+	lookType = 160,
+	lookHead = 27,
+	lookBody = 86,
+	lookLegs = 126,
+	lookFeet = 127
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -44,6 +44,51 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+	local player = Player(creature)
+	if msgcontains(message, "dress pattern") then
+		if player:getStorageValue(Storage.Postman.Mission06) == 3 then
+			if npcHandler.topic[creature] < 1 then
+				npcHandler:say("DRESS FLATTEN? WHO WANTS ME TO FLATTEN A DRESS?", npc, creature)
+				npcHandler.topic[creature] = 1
+			elseif npcHandler.topic[creature] == 1 then
+				npcHandler:say("A PRESS LANTERN? NEVER HEARD ABOUT IT!", npc, creature)
+				npcHandler.topic[creature] = 2
+			elseif npcHandler.topic[creature] == 2 then
+				npcHandler:say("CHESS? I DONT PLAY CHESS!", npc, creature)
+				npcHandler.topic[creature] = 3
+			elseif npcHandler.topic[creature] == 3 then
+				npcHandler:say("A PATTERN IN THIS MESS?? HEY DON'T INSULT MY MACHINEHALL!", npc, creature)
+				npcHandler.topic[creature] = 4
+			elseif npcHandler.topic[creature] == 4 then
+				npcHandler:say("AH YES! I WORKED ON THE DRESS PATTERN FOR THOSE UNIFORMS. STAINLESS TROUSERES, STEAM DRIVEN BOOTS! ANOTHERMARVEL TO BEHOLD! I'LL SENT A COPY TO KEVIN IMEDIATELY!", npc, creature)
+				player:setStorageValue(Storage.Postman.Mission06, 4)
+				npcHandler.topic[creature] = 0
+			end
+		end
+	end
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
+
+npcConfig.shop = {
+	-- Buyable items
+	{ itemName = "crossbow", clientId = 3349, buy = 1150 },
+	{ itemName = "bolt", clientId = 3446, buy = 5 }
+}
+-- On buy npc shop message
+npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+end
+-- On sell npc shop message
+npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
+end
 
 npcType:register(npcConfig)

@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Flora")
+local internalNpcName = "Flora"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Flora"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 148,
-    lookHead = 114,
-    lookBody = 81,
-    lookLegs = 20,
-    lookFeet = 3,
-    lookAddons = 0
+	lookType = 148,
+	lookHead = 114,
+	lookBody = 81,
+	lookLegs = 20,
+	lookFeet = 3,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +45,44 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+--Feito por Master Viciado 18/08/2016
+
+local function greetCallback(npc, creature)
+	npcHandler:setMessage(MESSAGE_GREET, "Greetings, " .. Player(creature):getName() .. ". Well, we all know what time it is. Always when we meet, the citizens of rathleton voted for the {Glooth Fairy}! ... Well, the rules are as simples as always. Ask me for a {fight} and I\'ll teleport you into the room with the lever, therefore I\'ll charge one voting right. ... From this room there is no way back to me. Pull the trigger and after one minute you and your buddies will face the {Glooth Fairy}.", npc, creature)
+	npcHandler.topic[creature] = 0
+	return true
+end
+
+local function creatureSayCallback(npc, creature, type, message)
+	if(not npcHandler:isFocused(creature)) then
+		return false
+	end
+
+	if(msgcontains(message, "fight")) then
+		npcHandler:say("Do you really want to enter the Glooth Fairy\'s hideout. There is no chickening out and I also have to charge one voting right! {Yes} or {no}?", npc, creature)
+			npcHandler.topic[creature] = 1
+	elseif(msgcontains(message, "yes")) then
+		if(npcHandler.topic[creature] == 1) then
+			npcHandler:say("Here you go!", npc, creature)
+			local pos = {x=33660, y=31936, z=9}
+			doTeleportThing(creature, pos)
+			doSendMagicEffect(pos, CONST_ME_TELEPORT)
+			npcHandler.topic[creature] = 0
+		end
+	elseif(msgcontains(message, "no")) then
+		if(npcHandler.topic[creature] == 1) then
+			npcHandler:say("Okay...", npc, creature)
+			npcHandler.topic[creature] = 0
+		end
+	end
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_FAREWELL, 'Come back soon.')
+npcHandler:setMessage(MESSAGE_WALKAWAY, '')
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

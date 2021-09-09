@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Zethra")
+local internalNpcName = "Zethra"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Zethra"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,22 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 471,
-    lookHead = 79,
-    lookBody = 45,
-    lookLegs = 12,
-    lookFeet = 94,
-    lookAddons = 0
+	lookType = 471,
+	lookHead = 79,
+	lookBody = 45,
+	lookLegs = 12,
+	lookFeet = 94,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{text = 'Come over here if you have to resupply!'}
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -44,7 +50,7 @@ end
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
-
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

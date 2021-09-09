@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Guard Saros")
+local internalNpcName = "Guard Saros"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Guard Saros"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,41 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 25,
-    lookHead = 0,
-    lookBody = 0,
-    lookLegs = 0,
-    lookFeet = 0,
-    lookAddons = 0
+	lookType = 25,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+local keywordHandler = KeywordHandler:new()
+local npcHandler = NpcHandler:new(keywordHandler)
+local Price = {}
+npcType.onAppear = function(npc, creature)
+	npcHandler:onCreatureAppear(npc, creature)
+end
+
+npcType.onDisappear = function(npc, creature)
+	npcHandler:onCreatureDisappear(npc, creature)
+end
+
+npcType.onSay = function(npc, creature, type, message)
+	npcHandler:onCreatureSay(npc, creature, type, message)
+end
+
+npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
+end
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{text = 'Praised be Suon, the Benevolent King!'}
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +70,203 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function greetCallback(npc, creature)
+	if Player(creature):getSex() == PLAYERSEX_FEMALE then
+		npcHandler:setMessage(MESSAGE_GREET, "Suon's and Bastesh's blessings! Welcome to {Issavi}, traveller.")
+		npcHandler.topic[creature] = 1
+	else
+		npcHandler:setMessage(MESSAGE_GREET, "Suon's and Bastesh's blessings! Welcome to {Issavi}, traveller.")
+		npcHandler.topic[creature] = nil
+	end
+	Price[creature] = nil
+	return true
+end
+
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+	local player = Player(creature)
+	local Sex = player:getSex()
+	if npcHandler.topic[creature] == 1 then
+		npcHandler:say("I would never have guessed that.", npc, creature)
+		npcHandler.topic[creature] = nil
+	elseif npcHandler.topic[creature] == 2 then
+		if player:removeMoneyNpc(Price[creature]) then
+			npcHandler:say("Oh, sorry, I was distracted, what did you say?", npc, creature)
+		else
+			npcHandler:say("Oh, I just remember I have some work to do, sorry. Bye!", npc, creature)
+			npcHandler:releaseFocus(creature)
+			npcHandler:resetNpc(creature)
+		end
+		npcHandler.topic[creature] = nil
+		Price[creature] = nil
+	elseif npcHandler.topic[creature] == 3 and player:removeItem(2036, 1) then
+		npcHandler:say("Take some time to talk to me!", npc, creature)
+		npcHandler.topic[creature] = nil
+	elseif npcHandler.topic[creature] == 4 and (msgcontains(message, "spouse") or msgcontains(message, "girlfriend")) then
+		npcHandler:say("Well ... I have met him for a little while .. but this was nothing serious.", npc, creature)
+		npcHandler.topic[creature] = 5
+	elseif npcHandler.topic[creature] == 5 and msgcontains(message, "fruit") then
+		npcHandler:say("I remember that grapes were his favourites. He was almost addicted to them.", npc, creature)
+		npcHandler.topic[creature] = nil
+	elseif msgcontains(message, "how") and msgcontains(message, "are") and msgcontains(message, "you") then
+		npcHandler:say("Thank you very much. How kind of you to care about me. I am fine, thank you.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "sell") then
+		npcHandler:say("This is the continent you are currently visiting. You will find vast, dry steppes here as well as high mountains, the river Nykri and the big city {Issavi}.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "job") or msgcontains(message, "issavi") then
+		npcHandler:say("Issavi is the capital of {Kilmaresh}, also called the Golden City. This city has a motto: An open gate for those of peace. This means, anyone is welcome here as long as they respect our laws, be it humans, elves, minotaurs or even a medusa.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "name") then
+		if Sex == PLAYERSEX_FEMALE then
+			npcHandler:say("I am Aruda.", npc, creature)
+		else
+			npcHandler:say("I am a little sad, that you seem to have forgotten me, handsome. I am Aruda.", npc, creature)
+		end
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "aruda") then
+		if Sex == PLAYERSEX_FEMALE then
+			npcHandler:say("Yes, that's me!", npc, creature)
+		else
+			npcHandler:say("Oh, I like it, how you say my name.", npc, creature)
+		end
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "time") then
+		npcHandler:say("Please don't be so rude to look for the time if you are talking to me.", npc, creature)
+		npcHandler.topic[creature] = 3
+	elseif msgcontains(message, "help") then
+		npcHandler:say("I am deeply sorry, I can't help you.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "monster") or msgcontains(message, "dungeon") then
+		npcHandler:say("UH! What a terrifying topic. Please let us speak about something more pleasant, I am a weak and small woman after all.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "sewer") then
+		npcHandler:say("What gives you the impression, I am the kind of women, you find in sewers?", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "god") then
+		npcHandler:say("You should ask about that in one of the temples.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "king") then
+		npcHandler:say("The king, that lives in this fascinating castle? I think he does look kind of cute in his luxurious robes, doesn't he?", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 10
+	elseif msgcontains(message, "sam") then
+		if Sex == PLAYERSEX_FEMALE then
+			npcHandler:say("He is soooo strong! What muscles! What a body! Did you ask him for a date?", npc, creature)
+		else
+			npcHandler:say("He is soooo strong! What muscles! What a body! On the other hand, compared to you he looks quite puny.", npc, creature)
+		end
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "benjamin") then
+		npcHandler:say("He is a little simple minded but always nice and well dressed.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "gorn") then
+		npcHandler:say("He should really sell some stylish gowns or something like that. We Tibians never get some clothing of the latest fashion. It's a shame.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "quentin") then
+		npcHandler:say("I don't understand this lonely monks. I love company too much to become one. Hehehe!", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "bozo") then
+		npcHandler:say("Oh, isn't he funny? I could listen to him the whole day.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "oswald") then
+		npcHandler:say("As far as I know, he is working in the castle.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "rumour") or msgcontains(message, "rumor") or msgcontains(message, "gossip") then
+		npcHandler:say("I am a little shy and so don't hear many rumors.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "kiss") and Sex == PLAYERSEX_MALE then
+		npcHandler:say("Oh, you little devil, stop talking like that! <blush>", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 20
+	elseif msgcontains(message, "weapon") then
+		npcHandler:say("I know only little about weapons. Can you tell me something about them, please?", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "magic") then
+		npcHandler:say("I believe that love is stronger than magic, don't you agree?", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "thief") or msgcontains(message, "theft") then
+		npcHandler:say("Oh, sorry, I have to hurry, bye!", npc, creature)
+		npcHandler.topic[creature] = nil
+		Price[creature] = nil
+		npcHandler:releaseFocus(creature)
+		npcHandler:resetNpc(creature)
+	elseif msgcontains(message, "tibia") then
+		npcHandler:say("I would like to visit the beach more often, but I guess it's too dangerous.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "castle") then
+		npcHandler:say("I love this castle! It's so beautiful.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "muriel") then
+		npcHandler:say("Powerful sorcerers frighten me a little.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "elane") then
+		npcHandler:say("I personally think it's inappropriate for a woman to become a warrior, what do you think about that?", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "marvik") then
+		npcHandler:say("Druids seldom visit a town, what do you know about druids?", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "gregor") then
+		npcHandler:say("I like brave fighters like him.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "noodles") then
+		npcHandler:say("Oh, he is sooooo cute!", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "dog") or msgcontains(message, "poodle") then
+		npcHandler:say("I like dogs, the little ones at least. Do you like dogs, too?", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 5
+	elseif msgcontains(message, "excalibug") then
+		npcHandler:say("Oh, I am just a girl and know nothing about magic swords and such things.", npc, creature)
+		npcHandler.topic[creature] = 2
+		Price[creature] = 10
+	elseif msgcontains(message, "partos") then
+		npcHandler:say("I ... don't know someone named like that.", npc, creature)
+		npcHandler.topic[creature] = 4
+		Price[creature] = nil
+	elseif msgcontains(message, "yenny") then
+		npcHandler:say("Yenny? I know no Yenny, nor have I ever used that name! You have mistook me with someone else.", npc, creature)
+		npcHandler.topic[creature] = nil
+		Price[creature] = nil
+		npcHandler:releaseFocus(creature)
+		npcHandler:resetNpc(creature)
+	end
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_WALKAWAY, "I hope to see you soon.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye, |PLAYERNAME|. I really hope we'll talk again soon.")
+
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

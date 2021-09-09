@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Chuck The Worker")
+local internalNpcName = "Chuck The Worker"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Chuck The Worker"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,17 +11,15 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 128,
-    lookHead = 96,
-    lookBody = 97,
-    lookLegs = 67,
-    lookFeet = 61
+	lookType = 128,
+	lookHead = 96,
+	lookBody = 97,
+	lookLegs = 67,
+	lookFeet = 61
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -46,4 +46,5 @@ end
 
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

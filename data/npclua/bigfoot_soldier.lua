@@ -1,8 +1,9 @@
-local npcType = Game.createNpcType("Bigfoot Soldier")
+local internalNpcName = "Bigfoot Soldier"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.floorChange = "2"
-npcConfig.description = "Bigfoot Soldier"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -10,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 514,
-    lookHead = 78,
-    lookBody = 120,
-    lookLegs = 58,
-    lookFeet = 15,
-    lookAddons = 3
+	lookType = 514,
+	lookHead = 78,
+	lookBody = 120,
+	lookLegs = 58,
+	lookFeet = 15,
+	lookAddons = 3
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -48,4 +47,5 @@ end
 
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

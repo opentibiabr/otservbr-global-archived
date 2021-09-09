@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Maritima")
+local internalNpcName = "Maritima"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Maritima"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,13 +11,11 @@ npcConfig.walkInterval = 0
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookTypeex = 5811
+	lookTypeex = 5811
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -40,6 +40,29 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	local player = Player(creature)
+	if(msgcontains(message, "quara")) then
+		if(player:getStorageValue(Storage.InServiceofYalahar.Questline) == 41 and player:getStorageValue(Storage.InServiceofYalahar.QuaraInky) < 1  and player:getStorageValue(Storage.InServiceofYalahar.QuaraSplasher) < 1 and player:getStorageValue(Storage.InServiceofYalahar.QuaraSharptooth) < 1) then
+			npcHandler:say({
+				"The quara in this area are a strange race that seeks for inner perfection rather than physical one. ...",
+				"However, recently the quara got mad because their area is flooded with toxic sewage from the city. If you could inform someone about it, they might stop the sewage and the quara could return to their own business."
+			}, npc, creature)
+			player:setStorageValue(Storage.InServiceofYalahar.Questline, 42)
+			player:setStorageValue(Storage.InServiceofYalahar.Mission07, 3) -- StorageValue for Questlog "Mission 07: A Fishy Mission"
+			player:setStorageValue(Storage.InServiceofYalahar.QuaraState, 1)
+			npcHandler.topic[creature] = 0
+		end
+	end
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

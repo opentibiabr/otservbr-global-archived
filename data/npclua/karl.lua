@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Karl")
+local internalNpcName = "Karl"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Karl"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 128,
-    lookHead = 58,
-    lookBody = 49,
-    lookLegs = 70,
-    lookFeet = 115,
-    lookAddons = 0
+	lookType = 128,
+	lookHead = 58,
+	lookBody = 49,
+	lookLegs = 70,
+	lookFeet = 115,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +45,67 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	local player = Player(creature)
+
+	if msgcontains(message, 'barrel') then
+		if player:getStorageValue(Storage.SecretService.AVINMission03) == 2 then
+			npcHandler:say('Do you bring me a barrel of beer??', npc, creature)
+			npcHandler.topic[creature] = 1
+		end
+	elseif msgcontains(message, 'whisper beer') then
+		if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 11 then
+			npcHandler:say('Do you want to buy a bottle of our finest whisper beer for 80 gold?', npc, creature)
+			npcHandler.topic[creature] = 2
+		end
+	elseif msgcontains(message, 'yes') then
+		if npcHandler.topic[creature] == 1 then
+			if player:removeItem(7706, 1) then
+				player:setStorageValue(Storage.SecretService.AVINMission03, 3)
+				npcHandler:say('Three cheers for the noble |PLAYERNAME|.', npc, creature)
+			else
+				npcHandler:say("You don't have any barrel of beer!", npc, creature)
+			end
+			npcHandler.topic[creature] = 0
+		elseif npcHandler.topic[creature] == 2 then
+			if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 11 then
+				if player:removeMoneyNpc(80) then
+					npcHandler:say("Here. Don't take it into the city though.", npc, creature)
+					player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 12)
+					player:addItem(6106, 1)
+					npcHandler.topic[creature] = 0
+				else
+					npcHandler:say("You don't have enough money.", npc, creature)
+				end
+			end
+		end
+	end
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_WALKAWAY, "Please come back, but don't tell others.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Please come back, but don't tell others.")
+npcHandler:setMessage(MESSAGE_GREET, 'Pshhhht! Not that loud ... but welcome.')
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
+
+npcConfig.shop = {
+	-- Buyable items
+	{ itemName = "mug of beer", clientId = 2880, buy = 20, count = 3 },
+	{ itemName = "bottle of whisper beer", clientId = 6106, buy = 80 }
+}
+-- On buy npc shop message
+npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+end
+-- On sell npc shop message
+npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
+end
 
 npcType:register(npcConfig)

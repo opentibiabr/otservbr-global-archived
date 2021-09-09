@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Amarie")
+local internalNpcName = "Amarie"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Amarie"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,17 +11,40 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 159,
-    lookHead = 128,
-    lookBody = 34,
-    lookLegs = 28,
-    lookFeet = 116
+	lookType = 159,
+	lookHead = 128,
+	lookBody = 34,
+	lookLegs = 28,
+	lookFeet = 116
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+local keywordHandler = KeywordHandler:new()
+local npcHandler = NpcHandler:new(keywordHandler)
+
+npcType.onAppear = function(npc, creature)
+npcHandler:onCreatureAppear(npc, creature)
+end
+
+npcType.onDisappear = function(npc, creature)
+npcHandler:onCreatureDisappear(npc, creature)
+end
+
+npcType.onSay = function(npc, creature, type, message)
+npcHandler:onCreatureSay(npc, creature, type, message)
+end
+
+npcType.onThink = function(npc, interval)
+npcHandler:onThink(npc, interval)	
+end
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{text = 'Please leave me alone... I have to study.'}
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -44,6 +69,12 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+-- Greeting message
+keywordHandler:addGreetKeyword({"ashari"}, {npcHandler = npcHandler, text = "Greetings, |PLAYERNAME|."})
+--Farewell message
+keywordHandler:addFarewellKeyword({"asgha thrazi"}, {npcHandler = npcHandler, text = "Good bye, |PLAYERNAME|."})
+
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

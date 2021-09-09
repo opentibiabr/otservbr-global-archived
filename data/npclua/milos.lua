@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Milos")
+local internalNpcName = "Milos"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Milos"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,22 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 130,
-    lookHead = 19,
-    lookBody = 3,
-    lookLegs = 3,
-    lookFeet = 2,
-    lookAddons = 0
+	lookType = 130,
+	lookHead = 19,
+	lookBody = 3,
+	lookLegs = 3,
+	lookFeet = 2,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{text = 'What a fascinating idea!'}
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +51,8 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+npcHandler:setMessage(MESSAGE_GREET, "Oh hello. I hardly noticed you. I'm afraid I am a bit distracted at the moment.")
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

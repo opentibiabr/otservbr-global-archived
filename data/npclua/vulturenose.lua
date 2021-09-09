@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Vulturenose")
+local internalNpcName = "Vulturenose"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Vulturenose"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,13 +11,11 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 96
+	lookType = 96
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -40,6 +40,35 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	local player = Player(creature)
+	if msgcontains(message, 'enter') then
+		if player:getStorageValue(Storage.TheShatteredIsles.RaysMission3) == 1
+		and player:getStorageValue(Storage.TheShatteredIsles.YavernDoor) < 0 then
+			local headItem = player:getSlotItem(CONST_SLOT_HEAD)
+			local armorItem = player:getSlotItem(CONST_SLOT_ARMOR)
+			local legsItem = player:getSlotItem(CONST_SLOT_LEGS)
+			local feetItem = player:getSlotItem(CONST_SLOT_FEET)
+			if headItem and headItem.itemid == 6096 and armorItem and armorItem.itemid == 6095
+			and legsItem and legsItem.itemid == 5918 and feetItem and feetItem.itemid == 5462 then
+				npcHandler:say('Hey, I rarely see a dashing pirate like you! Get in, matey!', npc, creature)
+				player:setStorageValue(Storage.TheShatteredIsles.YavernDoor, 1)
+			else
+				npcHandler:say("YOU WILL NOT PASS! Erm ... \
+				I mean you don't look like a true pirate to me. You won't get in.", npc, creature)
+			end
+		end
+	end
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

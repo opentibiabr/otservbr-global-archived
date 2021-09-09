@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Donald McRonald")
+local internalNpcName = "Donald McRonald"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Donald McRonald"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 128,
-    lookHead = 22,
-    lookBody = 94,
-    lookLegs = 79,
-    lookFeet = 117,
-    lookAddons = 0
+	lookType = 128,
+	lookHead = 22,
+	lookBody = 94,
+	lookLegs = 79,
+	lookFeet = 117,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -46,5 +46,26 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 npcHandler:addModule(FocusModule:new())
+
+npcConfig.shop = {
+	-- Sellable items
+	{ itemName = "dead spider", clientId = 3988, sell = 2 },
+	-- Buyable items
+	{ itemName = "beetroot", clientId = 8017, buy = 2 },
+	{ itemName = "bunch of wheat", clientId = 3605, buy = 1 },
+	{ itemName = "carrot", clientId = 3595, buy = 3 },
+	{ itemName = "cheese", clientId = 3607, buy = 5 },
+	{ itemName = "corncob", clientId = 3597, buy = 3 },
+	{ itemName = "cucumber", clientId = 8014, buy = 3 }
+}
+-- On buy npc shop message
+npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+end
+-- On sell npc shop message
+npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
+end
 
 npcType:register(npcConfig)

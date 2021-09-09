@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Carina")
+local internalNpcName = "Carina"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Carina"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,24 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 138,
-    lookHead = 97,
-    lookBody = 70,
-    lookLegs = 94,
-    lookFeet = 76,
-    lookAddons = 0
-}
-
-npcConfig.voices = {
-    interval = 100,
-    chance = 0,
-    { text = "Fine jewels, rings and amulets!", yell = false }
+	lookType = 138,
+	lookHead = 97,
+	lookBody = 70,
+	lookLegs = 94,
+	lookFeet = 76,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -51,6 +45,69 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	local player = Player(creature)
+	if msgcontains(message, 'precious necklace') then
+		if player:getItemCount(8768) > 0 then
+			npcHandler:say('Would you like to buy my precious necklace for 5000 gold?', npc, creature)
+			npcHandler.topic[creature] = 1
+		end
+	elseif msgcontains(message, 'mouse') then
+		npcHandler:say('Wha ... What??? Are you saying you\'ve seen a mouse here??', npc, creature)
+		npcHandler.topic[creature] = 2
+	elseif msgcontains(message, 'yes') then
+		if npcHandler.topic[creature] == 1 then
+			if player:removeMoneyNpc(5000) then
+				player:removeItem(8768, 1)
+				player:addItem(8767, 1)
+				npcHandler:say('Here you go kind sir.', npc, creature)
+				npcHandler.topic[creature] = 0
+			end
+		elseif npcHandler.topic[creature] == 2 then
+			if not player:removeItem(7487, 1) then
+				npcHandler:say('There is no mouse here! Stop talking foolish things about serious issues!', npc, creature)
+				npcHandler.topic[creature] = 0
+				return true
+			end
+
+			player:setStorageValue(Storage.WhatAFoolish.ScaredCarina, 1)
+			npcHandler:say('IIIEEEEEK!', npc, creature)
+			npcHandler.topic[creature] = 0
+		end
+	elseif msgcontains(message, 'no') then
+		if npcHandler.topic[creature] == 2 then
+			npcHandler:say('Thank goodness!', npc, creature)
+			npcHandler.topic[creature] = 0
+		end
+	end
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())
+
+npcConfig.shop = {
+	-- Sellable items
+	{ itemName = "wedding ring", clientId = 3004, sell = 100 },
+	-- Buyable items
+	{ itemName = "golden amulet", clientId = 3013, buy = 6600 },
+	{ itemName = "precious necklace", clientId = 7939, buy = 5000 },
+	{ itemName = "ruby necklace", clientId = 3016, buy = 3560 },
+	{ itemName = "wedding ring", clientId = 3004, buy = 990 }
+}
+-- On buy npc shop message
+npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+end
+-- On sell npc shop message
+npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
+end
 
 npcType:register(npcConfig)

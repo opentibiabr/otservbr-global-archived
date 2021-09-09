@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Rehon")
+local internalNpcName = "Rehon"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Rehon"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,13 +11,11 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 70
+	lookType = 70
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -40,6 +40,27 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	if msgcontains(message, "mission") then
+		local player = Player(creature)
+		if player:getStorageValue(Storage.HiddenCityOfBeregar.RoyalRescue) == 4 and player:removeItem(14350, 1) then
+			player:setStorageValue(Storage.HiddenCityOfBeregar.RoyalRescue, 5)
+			npcHandler:say("By the Gods! You have the key to the cell! Thank you sooo much, mate. And now leave. I'll wait here until the air is clean and then I'm out of here.", npc, creature)
+			npcHandler.topic[creature] = 0
+		end
+	end
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_WALKAWAY, "See you my friend.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "See you my friend.")
+npcHandler:setMessage(MESSAGE_GREET, "Hello, my friend.")
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

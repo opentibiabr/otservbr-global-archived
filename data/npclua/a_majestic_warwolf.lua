@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("A Majestic Warwolf")
+local internalNpcName = "A Majestic Warwolf"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "A Majestic Warwolf"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,13 +11,11 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 3
+	lookType = 3
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -40,6 +40,41 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function greetCallback(npc, creature)
+	if Player(creature):getStorageValue(Storage.OutfitQuest.DruidHatAddon) < 9 then
+		npcHandler:say('GRRRRRRRRRRRRR', npc, creature)
+		return false
+	end
+	return true
+end
+
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+	local player = Player(creature)
+	if isInArray({'addon', 'outfit'}, message) then
+		if player:getStorageValue(Storage.OutfitQuest.DruidHatAddon) == 9 then
+			npcHandler:say('I can see in your eyes that you are a honest and friendly person, |PLAYERNAME|. You were patient enough to learn our language and I will grant you a special gift. Will you accept it?', npc, creature)
+			npcHandler.topic[creature] = 1
+		end
+	elseif msgcontains(message, 'yes') and npcHandler.topic[creature] == 1 then
+		player:setStorageValue(Storage.OutfitQuest.DruidHatAddon, 10)
+		player:addOutfitAddon(148, 2)
+		player:addOutfitAddon(144, 2)
+		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+		npcHandler:say(player:getSex() == PLAYERSEX_FEMALE and 'From now on, you shall be known as |PLAYERNAME|, the wolf girl. You shall be fast and smart as Morgrar, the great white wolf. He shall guide your path.' or 'From now on, you shall be known as |PLAYERNAME|, the bear warrior. You shall be strong and proud as Angros, the great dark bear. He shall guide your path.', npc, creature)
+		npcHandler.topic[creature] = 0
+	end
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:setMessage(MESSAGE_GREET, "Interesting. A human who can speak the language of wolves.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "YOOOOUHHOOOUU!")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "YOOOOUHHOOOUU!")
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

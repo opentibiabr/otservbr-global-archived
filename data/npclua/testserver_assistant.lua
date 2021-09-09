@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Testserver Assistant")
+local internalNpcName = "Testserver Assistant"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Testserver Assistant"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 140,
-    lookHead = 60,
-    lookBody = 24,
-    lookLegs = 38,
-    lookFeet = 0,
-    lookAddons = 0
+	lookType = 140,
+	lookHead = 60,
+	lookBody = 24,
+	lookLegs = 38,
+	lookFeet = 0,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +45,18 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	local player = Player(creature)
+	if msgcontains(message, 'money') then
+		npcHandler:say('There you have', npc, creature)
+		player:addMoney(100000)
+	end
+end
+
+npcHandler:setMessage(MESSAGE_FAREWELL, "Happy hunting, old chap!")
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

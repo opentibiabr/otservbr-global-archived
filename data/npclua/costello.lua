@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Costello")
+local internalNpcName = "Costello"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Costello"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,13 +11,11 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 57
+	lookType = 57
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -40,6 +40,75 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	local player = Player(creature)
+	if msgcontains(message, 'fugio') then
+		if player:getStorageValue(Storage.Quest.SimpleChest.FamilyBrooch) == 1 then
+			npcHandler:say('To be honest, I fear the omen in my dreams may be true. \z
+					Perhaps Fugio is unable to see the danger down there. \z
+					Perhaps ... you are willing to investigate this matter?', npc, creature)
+			npcHandler.topic[creature] = 1
+		end
+	elseif msgcontains(message, 'diary') then
+		if player:getStorageValue(Storage.WhiteRavenMonastery.Diary) == 1 then
+			npcHandler:say('Do you want me to inspect a diary?', npc, creature)
+			npcHandler.topic[creature] = 2
+		end
+	elseif msgcontains(message, 'holy water') then
+		local cStorage = player:getStorageValue(Storage.TibiaTales.RestInHallowedGround.Questline)
+		if cStorage == 1 then
+			npcHandler:say('Who are you to demand holy water from the White Raven Monastery? Who sent you??', npc, creature)
+			npcHandler.topic[creature] = 3
+		elseif cStorage == 2 then
+			npcHandler:say('I already filled your vial with holy water.', npc, creature)
+		end
+	elseif msgcontains(message, 'amanda') and npcHandler.topic[creature] == 0 then
+		if player:getStorageValue(Storage.TibiaTales.RestInHallowedGround.Questline) == 1 then
+			npcHandler:say('Ahh, Amanda from Edron sent you! I hope she\'s doing well. So why did she send you here?', npc, creature)
+		end
+	elseif msgcontains(message, 'yes') then
+		if npcHandler.topic[creature] == 1 then
+			npcHandler:say('Thank you very much! From now on you may open the warded doors to the catacombs.', npc, creature)
+			player:setStorageValue(Storage.WhiteRavenMonastery.Diary, 1)
+			player:setStorageValue(Storage.WhiteRavenMonastery.Door, 1)
+		elseif npcHandler.topic[creature] == 2 then
+			if not player:removeItem(2325, 1) then
+				npcHandler:say('Uhm, as you wish.', npc, creature)
+				return true
+			end
+
+			npcHandler:say('By the gods! This is brother Fugio\'s handwriting and what I read is horrible indeed! You have done our order a great favour by giving this diary to me! Take this blessed Ankh. May it protect you in even your darkest hours.', npc, creature)
+			player:addItem(2327, 1)
+			player:setStorageValue(Storage.WhiteRavenMonastery.Diary, 2)
+		end
+	elseif npcHandler.topic[creature] == 3 then
+		if not msgcontains(message, 'amanda') then
+			npcHandler:say('I never heard that name and you won\'t get holy water for some stranger.', npc, creature)
+			npcHandler.topic[creature] = 0
+			return true
+		end
+
+		player:addItem(7494, 1)
+		player:setStorageValue(Storage.TibiaTales.RestInHallowedGround.Questline, 2)
+		npcHandler:say('Ohh, why didn\'t you tell me before? Sure you get some holy water if it\'s for Amanda! Here you are.', npc, creature)
+		npcHandler.topic[creature] = 0
+	elseif msgcontains(message, 'no') and isInArray({1, 2}, npcHandler.topic[creature]) then
+		npcHandler:say('Uhm, as you wish.', npc, creature)
+		npcHandler.topic[creature] = 0
+	end
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_GREET, "Welcome, |PLAYERNAME|! Feel free to tell me what has brought you here.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye. Come back soon.")
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

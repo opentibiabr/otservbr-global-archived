@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Lizard Tunnel Guard")
+local internalNpcName = "Lizard Tunnel Guard"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Lizard Tunnel Guard"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,13 +11,11 @@ npcConfig.walkInterval = 0
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 338
+	lookType = 338
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -40,6 +40,19 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function greetCallback(npc, creature)
+	local player = Player(creature)
+	if player:getStorageValue(Storage.WrathoftheEmperor.Questline) >= 2 then
+		player:setStorageValue(Storage.WrathoftheEmperor.GuardcaughtYou, 1)
+		player:setStorageValue(Storage.WrathoftheEmperor.CrateStatus, 0)
+		player:teleportTo(Position(33361, 31206, 8))
+		player:say("The guards have spotted you. You were forcibly dragged into a small cell. It looks like you need to build another disguise.", TALKTYPE_MONSTER_SAY)
+	end
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

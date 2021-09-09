@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Livielle")
+local internalNpcName = "Livielle"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Livielle"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,24 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 138,
-    lookHead = 114,
-    lookBody = 94,
-    lookLegs = 132,
-    lookFeet = 132,
-    lookAddons = 0
-}
-
-npcConfig.voices = {
-    interval = 100,
-    chance = 0,
-    { text = "Ah, salut! Come 'ere and 'ave some of my delicious fruits!", yell = false }
+	lookType = 138,
+	lookHead = 114,
+	lookBody = 94,
+	lookLegs = 132,
+	lookFeet = 132,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -52,5 +46,35 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 npcHandler:addModule(FocusModule:new())
+
+npcConfig.shop = {
+	-- Buyable items
+	{ itemName = "bottle of milk", clientId = 2875, buy = 15, count = 6 },
+	{ itemName = "banana", clientId = 3587, buy = 5 },
+	{ itemName = "blueberry", clientId = 3588, buy = 1 },
+	{ itemName = "carrot", clientId = 3595, buy = 3 },
+	{ itemName = "cherry", clientId = 3590, buy = 1 },
+	{ itemName = "corncob", clientId = 3597, buy = 3 },
+	{ itemName = "grapes", clientId = 3592, buy = 3 },
+	{ itemName = "juice squeezer", clientId = 5865, buy = 100 },
+	{ itemName = "lemon", clientId = 8013, buy = 3 },
+	{ itemName = "mango", clientId = 5096, buy = 10 },
+	{ itemName = "melon", clientId = 3593, buy = 10 },
+	{ itemName = "orange", clientId = 3586, buy = 10 },
+	{ itemName = "potato", clientId = 8010, buy = 4 },
+	{ itemName = "pumpkin", clientId = 3594, buy = 10 },
+	{ itemName = "sample of venorean spice", clientId = 8759, buy = 200 },
+	{ itemName = "strawberry", clientId = 3591, buy = 2 },
+	{ itemName = "white mushroom", clientId = 3723, buy = 10 }
+}
+-- On buy npc shop message
+npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+end
+-- On sell npc shop message
+npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
+end
 
 npcType:register(npcConfig)

@@ -10,18 +10,16 @@ npcConfig.walkRadius = 2
 npcConfig.speed = 100
 
 npcConfig.outfit = {
-    lookType = 294,
-    lookHead = 0,
-    lookBody = 0,
-    lookLegs = 0,
-    lookFeet = 0,
-    lookAddons = 0
+	lookType = 294,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -48,4 +46,5 @@ end
 
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

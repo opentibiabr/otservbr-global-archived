@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Hoggle")
+local internalNpcName = "Hoggle"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Hoggle"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,22 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 128,
-    lookHead = 21,
-    lookBody = 46,
-    lookLegs = 88,
-    lookFeet = 94,
-    lookAddons = 0
+	lookType = 128,
+	lookHead = 21,
+	lookBody = 46,
+	lookLegs = 88,
+	lookFeet = 94,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{text = 'Oh, this misery...'}
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +51,11 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+npcHandler:setMessage(MESSAGE_GREET, "Welcome to my humble home!")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye.")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "Good bye.")
+
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

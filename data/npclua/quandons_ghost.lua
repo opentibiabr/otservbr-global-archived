@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Quandons Ghost")
+local internalNpcName = "Quandons Ghost"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Quandons Ghost"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 128,
-    lookHead = 85,
-    lookBody = 9,
-    lookLegs = 85,
-    lookFeet = 9,
-    lookAddons = 0
+	lookType = 128,
+	lookHead = 85,
+	lookBody = 9,
+	lookLegs = 85,
+	lookFeet = 9,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -46,5 +46,15 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 npcHandler:addModule(FocusModule:new())
+
+function creatureSayCallback(npc, creature, type, message)
+	if(not(npcHandler:isFocused(creature))) then
+		return false
+	end
+
+	local player = Player(creature)
+end
+
+-- Missing script for complete the mission 15 of dark trails
 
 npcType:register(npcConfig)

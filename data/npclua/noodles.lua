@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Noodles")
+local internalNpcName = "Noodles"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Noodles"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,13 +11,21 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 32
+	lookType = 32
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{ text = 'Grrrrrrr.' },
+	{ text = '<wiggles>' },
+	{ text = '<sniff>' },
+	{ text = 'Woof! Woof!' },
+	{ text = 'Wooof!' }
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -40,6 +50,56 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+	local player = Player(creature)
+	if msgcontains(message, "banana skin") then
+		if player:getStorageValue(Storage.Postman.Mission06) == 7 then
+			if player:getItemCount(2219) > 0 then
+				npcHandler:say("<sniff><sniff>", npc, creature)
+				npcHandler.topic[creature] = 1
+			end
+		end
+	elseif msgcontains(message, "dirty fur") then
+		if player:getStorageValue(Storage.Postman.Mission06) == 8 then
+			if player:getItemCount(2220) > 0 then
+				npcHandler:say("<sniff><sniff>", npc, creature)
+				npcHandler.topic[creature] = 2
+			end
+		end
+	elseif msgcontains(message, "mouldy cheese") then
+		if player:getStorageValue(Storage.Postman.Mission06) == 9 then
+			if player:getItemCount(2235) > 0 then
+				npcHandler:say("<sniff><sniff>", npc, creature)
+				npcHandler.topic[creature] = 3
+			end
+		end
+	elseif msgcontains(message, "like") then
+		if npcHandler.topic[creature] == 1  then
+			npcHandler:say("Woof!", npc, creature)
+			player:setStorageValue(Storage.Postman.Mission06, 8)
+			npcHandler.topic[creature] = 0
+		elseif npcHandler.topic[creature] == 2 then
+			npcHandler:say("Woof!", npc, creature)
+			player:setStorageValue(Storage.Postman.Mission06, 9)
+			npcHandler.topic[creature] = 0
+		elseif npcHandler.topic[creature] == 3 then
+			npcHandler:say("Meeep! Grrrrr! <spits>", npc, creature)
+			player:setStorageValue(Storage.Postman.Mission06, 10)
+			npcHandler.topic[creature] = 0
+		end
+	end
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_GREET, "<sniff> Woof! <sniff>")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Woof! <wiggle>")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "Woof! <wiggle>")
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

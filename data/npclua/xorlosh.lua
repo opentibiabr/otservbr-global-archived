@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Xorlosh")
+local internalNpcName = "Xorlosh"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Xorlosh"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,17 +11,15 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 160,
-    lookHead = 41,
-    lookBody = 95,
-    lookLegs = 75,
-    lookFeet = 95
+	lookType = 160,
+	lookHead = 41,
+	lookBody = 95,
+	lookLegs = 75,
+	lookFeet = 95
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -44,6 +44,44 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	local player = Player(creature)
+
+	if msgcontains(message, "mission") then
+		if player:getStorageValue(Storage.HiddenCityOfBeregar.GoingDown) < 1 then
+			npcHandler:say("Hmmmm, you could indeed help me. See this mechanism? Some son of a rotworm put WAY too much stuff on this elevator and now it's broken. I need 3 gear wheels to fix it. You think you could get them for me?", npc, creature)
+			npcHandler.topic[creature] = 1
+		elseif player:getStorageValue(Storage.HiddenCityOfBeregar.GoingDown) == 1 and player:removeItem(9690, 3) then
+			player:setStorageValue(Storage.HiddenCityOfBeregar.GoingDown, 2)
+			npcHandler:say("HOLY MOTHER OF ALL ROTWORMS! You did it and they are of even better quality than the old ones. You should be the first one to try the elevator, just jump on it. See you my friend.", npc, creature)
+		end
+	elseif msgcontains(message, "yes") then
+		if npcHandler.topic[creature] == 1 then
+			player:setStorageValue(Storage.HiddenCityOfBeregar.GoingDown, 1)
+			player:setStorageValue(Storage.HiddenCityOfBeregar.DefaultStart, 1)
+			npcHandler:say("That would be great! Maybe a blacksmith can forge you some. Come back when you got them and ask me about your mission.", npc, creature)
+			npcHandler.topic[creature] = 0
+		end
+	elseif msgcontains(message, "tunnel") then
+		if player:getStorageValue(Storage.HiddenCityOfBeregar.RoyalRescue) == 1 then
+			npcHandler:say({
+				"There should be a book in our library about tunnelling. I don't have that much time to talk to you about that. ...",
+				"The book about tunnelling is in the library which is located in the north eastern wing of Beregar city."
+			}, npc, creature)
+		end
+	end
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_WALKAWAY, "See you my friend.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "See you my friend.")
+npcHandler:setMessage(MESSAGE_GREET, "Who are you? Are you a genius in mechanics? You don't look like one.")
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

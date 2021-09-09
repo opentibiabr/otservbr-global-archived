@@ -1,5 +1,4 @@
 local internalNpcName = "Black Bert"
-
 local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
@@ -23,7 +22,6 @@ npcConfig.outfit = {
 npcConfig.flags = {
 	floorchange = false
 }
-
 npcConfig.shop = {
 	{clientId = 123, buy = 16000, sell = 16000, count = 1},
 	{clientId = 130, buy = 100, count = 1},
@@ -135,26 +133,19 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
--- On creature say callback
-local function creatureSayCallback(npc, creature, type, msg)
-	local player = Player(creature)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
-	-- Open shop window
-	if msgcontains(msg, "trade") then
-		npcHandler:say("I don't know you and I don't have any dealings with people whom I don't trust.", npc, creature)
+local function creatureSayCallback(npc, creature, type, message)
+	if msgcontains(message, "trade") then
 		npc:openShopWindow(player)
 	end
 	return true
 end
 
-npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
-
 npcHandler:setMessage(MESSAGE_GREET, "Hi there, |PLAYERNAME|! You look like you are eager to {trade}!")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Bye, |PLAYERNAME|")
 
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

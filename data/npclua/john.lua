@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("John")
+local internalNpcName = "John"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "John"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 128,
-    lookHead = 58,
-    lookBody = 68,
-    lookLegs = 38,
-    lookFeet = 114,
-    lookAddons = 0
+	lookType = 128,
+	lookHead = 58,
+	lookBody = 68,
+	lookLegs = 38,
+	lookFeet = 114,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -46,5 +46,28 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 npcHandler:addModule(FocusModule:new())
+
+npcConfig.shop = {
+	-- Buyable items
+	{ itemName = "camouflage backpack", clientId = 2872, buy = 30 },
+	{ itemName = "camouflage bag", clientId = 2864, buy = 10 },
+	{ itemName = "fishing rod", clientId = 3483, buy = 300 },
+	{ itemName = "pick", clientId = 3456, buy = 100 },
+	{ itemName = "rope", clientId = 3003, buy = 100 },
+	{ itemName = "shovel", clientId = 3457, buy = 100 },
+	{ itemName = "torch", clientId = 2920, buy = 5 },
+	{ itemName = "treasure map", clientId = 5090, buy = 1000 },
+	{ itemName = "very noble-looking watch", clientId = 6092, buy = 500 },
+	{ itemName = "worm", clientId = 3492, buy = 2 }
+}
+-- On buy npc shop message
+npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+end
+-- On sell npc shop message
+npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
+end
 
 npcType:register(npcConfig)

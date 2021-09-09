@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Alexander")
+local internalNpcName = "Alexander"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Alexander"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,22 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 130,
-    lookHead = 96,
-    lookBody = 71,
-    lookLegs = 63,
-    lookFeet = 97,
-    lookAddons = 0
+	lookType = 130,
+	lookHead = 96,
+	lookBody = 71,
+	lookLegs = 63,
+	lookFeet = 97,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{text = 'Selling all sorts of magic equipment. Come and have a look'}
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +51,110 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local items = {
+	[VOCATION.BASE_ID.SORCERER] = 2190,
+	[VOCATION.BASE_ID.DRUID] = 2182
+}
+
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	local player = Player(creature)
+	local itemId = items[player:getVocation():getBaseId()]
+	if msgcontains(message, 'first rod') or msgcontains(message, 'first wand') then
+		if player:isMage() then
+			if player:getStorageValue(Storage.firstMageWeapon) == -1 then
+				npcHandler:say('So you ask me for a {' .. ItemType(itemId):getName() .. '} to begin your adventure?', npc, creature)
+				npcHandler.topic[creature] = 1
+			else
+				npcHandler:say('What? I have already gave you one {' .. ItemType(itemId):getName() .. '}!', npc, creature)
+			end
+		else
+			npcHandler:say('Sorry, you aren\'t a druid either a sorcerer.', npc, creature)
+		end
+	elseif msgcontains(message, 'yes') then
+		if npcHandler.topic[creature] == 1 then
+			player:addItem(itemId, 1)
+			npcHandler:say('Here you are young adept, take care yourself.', npc, creature)
+			player:setStorageValue(Storage.firstMageWeapon, 1)
+		end
+		npcHandler.topic[creature] = 0
+	elseif msgcontains(message, 'no') and npcHandler.topic[creature] == 1 then
+		npcHandler:say('Ok then.', npc, creature)
+		npcHandler.topic[creature] = 0
+	end
+	return true
+end
+
+keywordHandler:addKeyword({'magic'}, StdModule.say, {npcHandler = npcHandler, text = "I'm selling runes, life rings, wands, rods and crystal balls. I also buy powerful spellbooks. If you like to see my offers, ask me for a {trade}."})
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:setMessage(MESSAGE_GREET, "Hi there |PLAYERNAME|, and welcome to the {magic} store.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "See you, |PLAYERNAME|.")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "See you, |PLAYERNAME|.")
+npcHandler:setMessage(MESSAGE_SENDTRADE, "Of course, just browse through my wares. Or do you want to look only at {runes} or {wands}?")
 npcHandler:addModule(FocusModule:new())
+
+npcConfig.shop = {
+	-- Sellable items
+	{ itemName = "crystal ball", clientId = 3076, sell = 190 },
+	{ itemName = "life crystal", clientId = 3061, sell = 85 },
+	{ itemName = "mind stone", clientId = 3062, sell = 170 },
+	{ itemName = "spellbook of enlightenment", clientId = 8072, sell = 4000 },
+	{ itemName = "spellbook of lost souls", clientId = 8075, sell = 19000 },
+	{ itemName = "spellbook of mind control", clientId = 8074, sell = 13000 },
+	{ itemName = "spellbook of warding", clientId = 8073, sell = 8000 },
+	{ itemName = "spellwand", clientId = 651, sell = 299 },
+	-- Buyable items
+	{ itemName = "animate dead rune", clientId = 3203, buy = 375 },
+	{ itemName = "blank rune", clientId = 3147, buy = 10 },
+	{ itemName = "crystal ball", clientId = 3076, buy = 530 },
+	{ itemName = "desintegrate rune", clientId = 3197, buy = 26 },
+	{ itemName = "durable exercise rod", clientId = 35283, buy = 945000, count = 1800 },
+	{ itemName = "durable exercise wand", clientId = 35284, buy = 945000, count = 1800 },
+	{ itemName = "energy bomb rune", clientId = 3149, buy = 203 },
+	{ itemName = "exercise rod", clientId = 28556, buy = 262500, count = 500 },
+	{ itemName = "exercise wand", clientId = 28557, buy = 262500, count = 500 },
+	{ itemName = "fireball rune", clientId = 3189, buy = 30 },
+	{ itemName = "hailstorm rod", clientId = 3067, buy = 15000 },
+	{ itemName = "holy missile rune", clientId = 3182, buy = 16 },
+	{ itemName = "icicle rune", clientId = 3158, buy = 30 },
+	{ itemName = "lasting exercise rod", clientId = 35289, buy = 7560000, count = 14400 },
+	{ itemName = "lasting exercise wand", clientId = 35290, buy = 7560000, count = 14400 },
+	{ itemName = "life ring", clientId = 3052, buy = 900 },
+	{ itemName = "magic wall rune", clientId = 3180, buy = 116 },
+	{ itemName = "moonlight rod", clientId = 3070, buy = 1000 },
+	{ itemName = "necrotic rod", clientId = 3069, buy = 5000 },
+	{ itemName = "northwind rod", clientId = 8083, buy = 7500 },
+	{ itemName = "paralyze rune", clientId = 3165, buy = 700 },
+	{ itemName = "poison bomb rune", clientId = 3173, buy = 85 },
+	{ itemName = "snakebite rod", clientId = 3066, buy = 500 },
+	{ itemName = "soulfire rune", clientId = 3195, buy = 46 },
+	{ itemName = "springsprout rod", clientId = 8084, buy = 18000 },
+	{ itemName = "stone shower rune", clientId = 3175, buy = 37 },
+	{ itemName = "terra rod", clientId = 3065, buy = 10000 },
+	{ itemName = "thunderstorm rune", clientId = 3202, buy = 47 },
+	{ itemName = "underworld rod", clientId = 8082, buy = 22000 },
+	{ itemName = "wand of cosmic energy", clientId = 3073, buy = 10000 },
+	{ itemName = "wand of decay", clientId = 3072, buy = 5000 },
+	{ itemName = "wand of draconia", clientId = 8093, buy = 7500 },
+	{ itemName = "wand of dragonbreath", clientId = 3075, buy = 1000 },
+	{ itemName = "wand of inferno", clientId = 3071, buy = 15000 },
+	{ itemName = "wand of starstorm", clientId = 8092, buy = 18000 },
+	{ itemName = "wand of voodoo", clientId = 8094, buy = 22000 },
+	{ itemName = "wand of vortex", clientId = 3074, buy = 500 },
+	{ itemName = "wild growth rune", clientId = 3156, buy = 160 }
+}
+-- On buy npc shop message
+npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+end
+-- On sell npc shop message
+npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
+end
 
 npcType:register(npcConfig)

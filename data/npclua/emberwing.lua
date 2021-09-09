@@ -1,22 +1,21 @@
-local npcType = Game.createNpcType("Emberwing")
+local internalNpcName = "Emberwing"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Emberwing"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
+npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
 npcConfig.walkInterval = 0
 npcConfig.walkRadius = 2
-npcConfig.speed = 100
 
-npcConfig.health = 100
 npcConfig.outfit = {
-    lookType = 992
+	lookType = 992
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -43,4 +42,5 @@ end
 
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

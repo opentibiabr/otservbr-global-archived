@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Larek")
+local internalNpcName = "Larek"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Larek"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,26 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 472,
-    lookHead = 19,
-    lookBody = 50,
-    lookLegs = 10,
-    lookFeet = 3,
-    lookAddons = 0
-}
-
-npcConfig.voices = {
-    interval = 0,
-    chance = 0,
-    { text = "I should provide more cookies for the ogres. They're looking at me so hungrily.", yell = false },
-    { text = "What an interesting speck of land. I have to write down all this in my essay.", yell = false },
-    { text = "Hm, guess I haven't found all new plants in this secluded part of the world yet.", yell = false }
+	lookType = 472,
+	lookHead = 19,
+	lookBody = 50,
+	lookLegs = 10,
+	lookFeet = 3,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -52,7 +44,35 @@ end
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
-
 npcHandler:addModule(FocusModule:new())
+
+npcConfig.shop = {
+	-- Sellable items
+	{ itemName = "black pearl", clientId = 3027, sell = 280 },
+	{ itemName = "onyx chip", clientId = 22193, sell = 500 },
+	{ itemName = "opal", clientId = 22194, sell = 500 },
+	{ itemName = "small ruby", clientId = 3030, sell = 250 },
+	{ itemName = "small topaz", clientId = 9057, sell = 200 },
+	{ itemName = "white pearl", clientId = 3026, sell = 160 },
+	-- Buyable items
+	{ itemName = "cookie", clientId = 3598, buy = 7 },
+	{ itemName = "flour", clientId = 3603, buy = 30 },
+	{ itemName = "hoe", clientId = 3455, buy = 15 },
+	{ itemName = "juice squeezer", clientId = 5865, buy = 100 },
+	{ itemName = "kitchen knife", clientId = 3469, buy = 20 },
+	{ itemName = "rope", clientId = 3003, buy = 50 },
+	{ itemName = "shovel", clientId = 3457, buy = 50 },
+	{ itemName = "vial of milk", clientId = 2874, buy = 50, count = 6 },
+	{ itemName = "vial", clientId = 2874, buy = 20, count = 0 }
+}
+-- On buy npc shop message
+npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+end
+-- On sell npc shop message
+npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
+end
 
 npcType:register(npcConfig)

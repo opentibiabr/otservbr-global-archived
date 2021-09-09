@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Ferks")
+local internalNpcName = "Ferks"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Ferks"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,22 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 128,
-    lookHead = 59,
-    lookBody = 71,
-    lookLegs = 119,
-    lookFeet = 116,
-    lookAddons = 0
+	lookType = 128,
+	lookHead = 59,
+	lookBody = 71,
+	lookLegs = 119,
+	lookFeet = 116,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{ text = "Don't forget to deposit your money here in the Global Bank before you head out for adventure.", yell = false }
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +51,26 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	-- Parse bank
+	npc:parseBank(message, npc, creature, npcHandler)
+	-- Parse guild bank
+	npc:parseGuildBank(message, npc, creature, npcHandler)
+	-- Normal messages
+	npc:parseBankMessages(message, npc, creature, npcHandler)
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_GREET, "Yes? What may I do for you, |PLAYERNAME|? Bank business, perhaps?")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Have a nice day.")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "Have a nice day.")
+npcHandler:setCallback(CALLBACK_GREET, npcBankGreetCallback)
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

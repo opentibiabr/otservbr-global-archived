@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Bambi Bonecrusher")
+local internalNpcName = "Bambi Bonecrusher"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Bambi Bonecrusher"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 139,
-    lookHead = 96,
-    lookBody = 0,
-    lookLegs = 68,
-    lookFeet = 95,
-    lookAddons = 0
+	lookType = 139,
+	lookHead = 96,
+	lookBody = 0,
+	lookLegs = 68,
+	lookFeet = 95,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +45,31 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local condition = Condition(CONDITION_FIRE)
+condition:setParameter(CONDITION_PARAM_DELAYED, 1)
+condition:addDamage(10, 1000, -10)
+
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+	if isInArray({"fuck", "idiot", "asshole", "ass", "fag", "stupid", "tyrant", "shit", "lunatic"}, message) then
+		npcHandler:say("Take this!", npc, creature)
+		local player = Player(creature)
+		player:getPosition():sendMagicEffect(CONST_ME_EXPLOSIONAREA)
+		player:addCondition(condition)
+		npcHandler:releaseFocus(creature)
+		npcHandler:resetNpc(creature)
+	end
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_GREET, "LONG LIVE THE QUEEN!")
+npcHandler:setMessage(MESSAGE_FAREWELL, "LONG LIVE THE QUEEN!")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "LONG LIVE THE QUEEN!")
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

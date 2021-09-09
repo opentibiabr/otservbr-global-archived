@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Terrence")
+local internalNpcName = "Terrence"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Terrence"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 131,
-    lookHead = 57,
-    lookBody = 28,
-    lookLegs = 28,
-    lookFeet = 51,
-    lookAddons = 1
+	lookType = 131,
+	lookHead = 57,
+	lookBody = 28,
+	lookLegs = 28,
+	lookFeet = 51,
+	lookAddons = 1
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +45,28 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+function creatureSayCallback(npc, creature, type, message)
+	if(not(npcHandler:isFocused(creature))) then
+		return false
+	end
+
+	local player = Player(creature)
+	-- Missing script for complete the mission 16 of dark trails
+	if(msgcontains(message, "mission")) then
+		if player:getStorageValue(Storage.DarkTrails.Mission16) == 1 then
+			npcHandler:say("Ahhhhhhhh! Find and investigate the hideout, the mission 17", npc, creature)
+			setPlayerStorageValue(creature, Storage.DarkTrails.Mission17, 1)
+			setPlayerStorageValue(creature, Storage.DarkTrails.DoorHideout, 1)
+		end
+	else
+		npcHandler:say("Ahhhhhhhh! ", npc, creature)
+	end
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

@@ -94,17 +94,17 @@ terebanConfig = {
 			done = 'Only someone as daring as you could slay the beast to get the necessary scales.'
 		},
 		itemId = 11550 -- Flexibe dragon scale
-	},
+	}
 }
 
-function parseTerebanSay(npc, creature, msg, npcHandler)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
+function clearTerebanMessages(creature)
+	message[creature] = nil
+end
 
+function parseTerebanSay(npc, creature, message, npcHandler)
 	local player = Player(creature)
 	if npcHandler.topic[creature] == 0 then
-		if msgcontains(msg, "cloak") then
+		if msgcontains(message, "cloak") then
 			if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 14) then
 				npcHandler:say(
 					{
@@ -122,7 +122,7 @@ function parseTerebanSay(npc, creature, msg, npcHandler)
 				npcHandler:say("You are not on that mission.", npc, creature)
 				npcHandler.topic[creature] = 0
 			end
-		elseif msgcontains(msg, "mission") then
+		elseif msgcontains(message, "mission") then
 			if player:getStorageValue(Storage.FathersBurden.Status) == 1 then
 				if player:getStorageValue(Storage.FathersBurden.Progress) ~= 8 then
 					npcHandler:say("Well, I need the parts of a sorcerer's robe, a paladin's bow, a knight's shield, and a druid's rod. If you cannot find one of them, ask me about it and I might provide you with some minor hints.", npc, creature)
@@ -153,8 +153,8 @@ function parseTerebanSay(npc, creature, msg, npcHandler)
 					}, npc, creature)
 				npcHandler.topic[creature] = 1
 			end
-		elseif terebanConfig[msg:lower()] then
-			local targetMessage = terebanConfig[msg:lower()]
+		elseif terebanConfig[message:lower()] then
+			local targetMessage = terebanConfig[message:lower()]
 			if player:getStorageValue(targetMessage.storage) == 2 then
 				npcHandler:say(targetMessage.messages.done, npc, creature)
 				return true
@@ -165,7 +165,7 @@ function parseTerebanSay(npc, creature, msg, npcHandler)
 			message[creature] = targetMessage
 		end
 	elseif npcHandler.topic[creature] == 1 then
-		if msgcontains(msg, "yes") then
+		if msgcontains(message, "yes") then
 			npcHandler:say("I am relieved someone as capable as you will handle the task. Well, I need the parts of a sorcerer's robe, a paladin's bow, a knight's shield, and a druid's wand.", npc, creature)
 			player:setStorageValue(Storage.FathersBurden.QuestLog, 1)
 			player:setStorageValue(Storage.FathersBurden.Progress, 0)
@@ -173,13 +173,13 @@ function parseTerebanSay(npc, creature, msg, npcHandler)
 			for i = 1, #storages do
 				player:setStorageValue(storages[i], 1)
 			end
-		elseif msgcontains(msg, "no") then
+		elseif msgcontains(message, "no") then
 			npcHandler:say("Oh my. I really hope you will change your mind.", npc, creature)
 		end
 		npcHandler.topic[creature] = 0
 	elseif npcHandler.topic[creature] == 2 then
 		local targetMessage = message[creature]
-		if msgcontains(msg, "yes") then
+		if msgcontains(message, "yes") then
 			if not player:removeItem(player:getItemIdByCid(targetMessage.itemId), 1) then
 				npcHandler:say(targetMessage.messages.failure, npc, creature)
 				return true
@@ -192,10 +192,9 @@ function parseTerebanSay(npc, creature, msg, npcHandler)
 			)
 			player:addExperience(2500, true)
 			npcHandler:say(targetMessage.messages.success, npc, creature)
-		elseif msgcontains(msg, "no") then
+		elseif msgcontains(message, "no") then
 			npcHandler:say(targetMessage.messages.no, npc, creature)
 		end
 		npcHandler.topic[creature] = 0
 	end
-	return true
 end

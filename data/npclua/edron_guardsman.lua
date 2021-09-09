@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Edron Guardsman")
+local internalNpcName = "Edron Guardsman"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Edron Guardsman"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 0
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 131,
-    lookHead = 38,
-    lookBody = 19,
-    lookLegs = 57,
-    lookFeet = 95,
-    lookAddons = 1
+	lookType = 131,
+	lookHead = 38,
+	lookBody = 19,
+	lookLegs = 57,
+	lookFeet = 95,
+	lookAddons = 1
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +45,15 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function greetCallback(npc, creature)
+	npcHandler:say('Move on!', npc, creature)
+	npcHandler:releaseFocus(creature)
+	npcHandler:resetNpc(creature)
+	return false
+end
+
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

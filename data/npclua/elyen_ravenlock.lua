@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Elyen Ravenlock")
+local internalNpcName = "Elyen Ravenlock"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Elyen Ravenlock"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,13 +11,38 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 58
+	lookType = 58
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+local keywordHandler = KeywordHandler:new()
+local npcHandler = NpcHandler:new(keywordHandler)
+
+npcType.onAppear = function(npc, creature)
+	npcHandler:onCreatureAppear(npc, creature)
+end
+
+npcType.onDisappear = function(npc, creature)
+	npcHandler:onCreatureDisappear(npc, creature)
+end
+
+npcType.onSay = function(npc, creature, type, message)
+	npcHandler:onCreatureSay(npc, creature, type, message)
+end
+
+npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
+end
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{ text = '<hums a dark tune>' },
+	{ text = '<chants> Re Ha, Omrah, Tan Ra...' },
+	{ text = 'The rats... the rats in the walls...' }
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -40,6 +67,55 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	local player = Player(creature)
+	if(msgcontains(message, 'scroll') or msgcontains(message, 'mission')) and player:getStorageValue(Storage.GravediggerOfDrefia.Mission60) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission61) < 1 then
+		npcHandler:say("Hello, brother. You come with a question to me, I believe?", npc, creature)
+		npcHandler.topic[creature] = 1
+	elseif msgcontains(message, 'yes') and npcHandler.topic[creature] == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission60) == 1 then
+		npcHandler:say("And what is it you want? Do you bring news from the undead, or do you seek a dark {artefact}?", npc, creature)
+		player:setStorageValue(Storage.GravediggerOfDrefia.Mission45, 1)
+		npcHandler.topic[creature] = 2
+	elseif(msgcontains(message, 'artefact') or msgcontains(message, 'yes')) and npcHandler.topic[creature] == 2 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission60) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission61) < 1 then
+		npcHandler:say({
+			"The scroll piece there? The symbols look promising, but it is incomplete. ...",
+			"It is of little use to us. But it seems to be of interest to you ...",
+			"In exchange for the scroll piece, you must assist me with something. {Agreed}?"
+		}, npc, creature)
+		npcHandler.topic[creature] = 3
+	elseif(msgcontains(message, 'agreed') or msgcontains(message, 'yes')) and npcHandler.topic[creature] == 3 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission60) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission61) < 1 then
+		npcHandler:say({
+			"I would have to sing to the Dark Shrines, but I cannot. ...",
+			"I... cannot bear Urgith's breed. Everywhere, I hear them - scrabbling, squeaking ...",
+			"Take this bone flute and play it in front of the five Dark Shrines so that they answer with song in return. You will find them in the Gardens of Night. ...",
+			"If you have done that, you may have the scroll piece. Now go."
+		}, npc, creature)
+		player:setStorageValue(Storage.GravediggerOfDrefia.Mission61, 1)
+		player:addItem(21249, 1)
+		npcHandler.topic[creature] = 0
+	elseif msgcontains(message, 'mission') and player:getStorageValue(Storage.GravediggerOfDrefia.Mission66) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission67) < 1 then
+		npcHandler:say("Hello, brother. You have finished the dance?", npc, creature)
+		npcHandler.topic[creature] = 4
+	elseif(msgcontains(message, 'yes')) and npcHandler.topic[creature] == 4 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission66) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission67) < 1 then
+		npcHandler:say({
+			"You have indeed. The shrines have sung back to you. Well done, brother. Not many men take such an interest in our art. ...",
+			"I will take the flute back. Our bargain stands. You may take the scroll."
+		}, npc, creature)
+		player:removeItem(21249, 1)
+		player:setStorageValue(Storage.GravediggerOfDrefia.Mission67, 1)
+		npcHandler.topic[creature] = 0
+		else npcHandler:say({"Time is money, hurry."}, npc, creature)
+	end
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:setMessage(MESSAGE_GREET, "A shadow preceded you. You wish a {scroll} or a {mission}?")
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

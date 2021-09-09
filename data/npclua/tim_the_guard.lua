@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Tim, The Guard")
+local internalNpcName = "Tim, The Guard"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Tim, The Guard"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 131,
-    lookHead = 0,
-    lookBody = 19,
-    lookLegs = 19,
-    lookFeet = 19,
-    lookAddons = 0
+	lookType = 131,
+	lookHead = 0,
+	lookBody = 19,
+	lookLegs = 19,
+	lookFeet = 19,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +45,46 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+	local player = Player(creature)
+	if msgcontains(message, "trouble") and player:getStorageValue(Storage.TheInquisition.TimGuard) < 1 and player:getStorageValue(Storage.TheInquisition.Mission01) ~= -1 then
+		npcHandler:say("Ah, well. Just this morning my new toothbrush fell into the toilet.", npc, creature)
+		npcHandler.topic[creature] = 1
+	elseif msgcontains(message, "authorities") then
+		if npcHandler.topic[creature] == 1 then
+			npcHandler:say("What do you mean? Of course they will immediately send someone with extra long and thin arms to retrieve it! ", npc, creature)
+			npcHandler.topic[creature] = 2
+		end
+	elseif msgcontains(message, "avoided") then
+		if npcHandler.topic[creature] == 2 then
+			npcHandler:say("Your humour might let end you up beaten in some dark alley, you know? No, I don't think someone could have prevented that accident! ", npc, creature)
+			npcHandler.topic[creature] = 3
+		end
+	elseif msgcontains(message, "gods would allow") then
+		if npcHandler.topic[creature] == 3 then
+			npcHandler:say("It's not a drama!! I think there is just no god who's responsible for toothbrush safety, that's all ... ", npc, creature)
+			npcHandler.topic[creature] = 0
+			if player:getStorageValue(Storage.TheInquisition.TimGuard) < 1 then
+				player:setStorageValue(Storage.TheInquisition.TimGuard, 1)
+				player:setStorageValue(Storage.TheInquisition.Mission01, player:getStorageValue(Storage.TheInquisition.Mission01) + 1) -- The Inquisition Questlog- "Mission 1: Interrogation"
+				player:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
+			end
+		end
+	end
+	return true
+end
+
+keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "It's my duty to protect the city."})
+
+npcHandler:setMessage(MESSAGE_GREET, "LONG LIVE THE KING!")
+npcHandler:setMessage(MESSAGE_FAREWELL, "LONG LIVE THE KING!")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "LONG LIVE THE KING!")
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

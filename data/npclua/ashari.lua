@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Ashari")
+local internalNpcName = "Ashari"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Ashari"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,17 +11,15 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 159,
-    lookHead = 38,
-    lookBody = 117,
-    lookLegs = 117,
-    lookFeet = 116
+	lookType = 159,
+	lookHead = 38,
+	lookBody = 117,
+	lookLegs = 117,
+	lookFeet = 116
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -44,6 +44,10 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+npcHandler:setMessage(MESSAGE_GREET, "Hello, stranger! These caves must seem strange to you. I wonder what brings you here... maybe you are interested in some work? There are several tasks I could need a hand with.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Bye!")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "Bye!")
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

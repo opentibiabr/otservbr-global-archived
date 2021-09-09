@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Ashtamor")
+local internalNpcName = "Ashtamor"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Ashtamor"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,22 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 130,
-    lookHead = 19,
-    lookBody = 114,
-    lookLegs = 76,
-    lookFeet = 114,
-    lookAddons = 0
+	lookType = 130,
+	lookHead = 19,
+	lookBody = 114,
+	lookLegs = 76,
+	lookFeet = 114,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{text = 'The passage to the afterlife is filled with obstacles, but I can help you with my wares.'}
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -44,7 +50,7 @@ end
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
-
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

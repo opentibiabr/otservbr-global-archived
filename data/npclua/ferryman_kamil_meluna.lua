@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Ferryman Kamil (Meluna)")
+local internalNpcName = "Ferryman Kamil"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Ferryman Kamil"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,25 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 132,
-    lookHead = 0,
-    lookBody = 71,
-    lookLegs = 76,
-    lookFeet = 115,
-    lookAddons = 3
-}
-
-npcConfig.voices = {
-    interval = 100,
-    chance = 0,
-    { text = "Leaving for Fibula Island soon!", yell = false },
-    { text = "Passage for newly weds only.", yell = false }
+	lookType = 132,
+	lookHead = 0,
+	lookBody = 71,
+	lookLegs = 76,
+	lookFeet = 115,
+	lookAddons = 3
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -51,7 +44,12 @@ end
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
+-- Don't forget npcHandler = npcHandler in the parameters. It is required for all StdModule functions!
+local travelNode = keywordHandler:addKeyword({'fibula'}, StdModule.say, {npcHandler = npcHandler, text = 'You want me to transport you and your spouse back to {Fibula}?'})
+	travelNode:addChildKeyword({'yes'}, StdModule.travel, {npcHandler = npcHandler, premium = false, level = 0, cost = 0, destination = Position(32153, 32457, 7) })
+	travelNode:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, reset = true, text = 'You shouldn\'t miss the experience.'})
 
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

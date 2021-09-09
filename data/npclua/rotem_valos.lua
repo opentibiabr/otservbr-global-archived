@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Rotem Valos")
+local internalNpcName = "Rotem Valos"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Rotem Valos"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,22 @@ npcConfig.walkInterval = 0
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 335,
-    lookHead = 79,
-    lookBody = 77,
-    lookLegs = 79,
-    lookFeet = 94,
-    lookAddons = 2
+	lookType = 335,
+	lookHead = 79,
+	lookBody = 77,
+	lookLegs = 79,
+	lookFeet = 94,
+	lookAddons = 2
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
+}
+
+npcConfig.voices = {
+	interval = 5000,
+	chance = 50,
+	{text = '<sigh> The world has grown complicated since my youth.'}
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -44,7 +50,7 @@ end
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
-
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

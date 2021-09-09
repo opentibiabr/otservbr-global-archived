@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Nymph Challenging")
+local internalNpcName = "Nymph Challenging"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Nymph Challenging"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,25 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 989,
-    lookHead = 0,
-    lookBody = 0,
-    lookLegs = 0,
-    lookFeet = 0,
-    lookAddons = 0
-}
-
-npcConfig.voices = {
-    interval = 120,
-    chance = 0,
-    { text = "Stand in the ashes of a trillion dead souls and ask the ghosts if honor matters.", yell = false },
-    { text = "Hope is what makes us strong. It is why we are here. It is what we fight with when all else is lost.", yell = false }
+	lookType = 989,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -54,4 +47,5 @@ end
 
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

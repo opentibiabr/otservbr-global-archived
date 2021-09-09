@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Miraia")
+local internalNpcName = "Miraia"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Miraia"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 150,
-    lookHead = 114,
-    lookBody = 0,
-    lookLegs = 7,
-    lookFeet = 132,
-    lookAddons = 3
+	lookType = 150,
+	lookHead = 114,
+	lookBody = 0,
+	lookLegs = 7,
+	lookFeet = 132,
+	lookAddons = 3
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +45,168 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local message = {}
+
+local config = {
+	['ape fur'] = {
+		itemId = 5883,
+		count = 100,
+		storageValue = 1,
+		text = {
+			'Have you really managed to fulfil the task and brought me 100 pieces of ape fur?',
+			'Only ape fur is good enough to touch the feet of our Caliph.',
+			'Ahhh, this softness! I\'m impressed, |PLAYERNAME|. You\'re on the best way to earn that turban. Now, please retrieve 100 fish fins.'
+		}
+	},
+	['fish fins'] = {
+		itemId = 5895,
+		count = 100,
+		storageValue = 2,
+		text = {
+			'Were you able to discover the undersea race and retrieved 100 fish fins?',
+			'I really wonder what the explorer society is up to. Actually I have no idea how they managed to dive unterwater.',
+			'I never thought you\'d make it, |PLAYERNAME|. Now we only need two enchanted chicken wings to start our waterwalking test!'
+		}
+	},
+	['enchanted chicken wings'] = {
+		itemId = 5891,
+		count = 2,
+		storageValue = 3,
+		text = {
+			'Were you able to get hold of two enchanted chicken wings?',
+			'Enchanted chicken wings are actually used to make boots of haste, so they could be magically extracted again. Djinns are said to be good at that.',
+			'Great, thank you very much. Just bring me 100 pieces of blue cloth now and I will happily show you how to make a turban.'
+		}
+	},
+	['blue cloth'] = {
+		itemId = 5912,
+		count = 100,
+		storageValue = 4,
+		text = {
+			'Ah, have you brought the 100 pieces of blue cloth?',
+			'It\'s a great material for turbans.',
+			'Ah! Congratulations - I hope this veil will turn out as beautiful as you are. Here, I\'ll do it for you.'
+		}
+	}
+}
+
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+	local player = Player(creature)
+	if msgcontains(message, 'outfit') then
+		npcHandler:say(player:getSex() == PLAYERSEX_FEMALE and 'Hehe, would you like to wear a pretty veil like I do? Well... I could help you, but you would have to complete a task first.' or 'My veil? No, I will definitely not lift it for you! If you are looking for an addon, go talk to Razan.', npc, creature)
+	elseif msgcontains(message, 'task') then
+		if player:getSex() == PLAYERSEX_MALE then
+			npcHandler:say('Uh... I don\'t think that I have work for you right now. If you need a job, go talk to Razan.', npc, creature)
+			return true
+		end
+		if player:getStorageValue(Storage.OutfitQuest.secondOrientalAddon) < 1 then
+			npcHandler:say('You mean, you would like to prove that you deserve to wear such a veil?', npc, creature)
+			npcHandler.topic[creature] = 1
+		end
+	elseif config[message] and npcHandler.topic[creature] == 0 then
+		if player:getStorageValue(Storage.OutfitQuest.secondOrientalAddon) == config[message].storageValue then
+			npcHandler:say(config[message].text[1], npc, creature)
+			npcHandler.topic[creature] = 3
+			message[creature] = message
+		else
+			npcHandler:say(config[message].text[2], npc, creature)
+		end
+	elseif msgcontains(message, 'scarab cheese') then
+		if player:getStorageValue(Storage.TravellingTrader.Mission03) == 1 then
+			npcHandler:say('Let me cover my nose before I get this for you... Would you REALLY like to buy scarab cheese for 100 gold?', npc, creature)
+		elseif player:getStorageValue(Storage.TravellingTrader.Mission03) == 2 then
+			npcHandler:say('Oh the last cheese molded? Would you like to buy another one for 100 gold?', npc, creature)
+		end
+		npcHandler.topic[creature] = 4
+	elseif msgcontains(message, 'yes') then
+		if npcHandler.topic[creature] == 1 then
+			npcHandler:say({
+				'Alright, then listen to the following requirements. We are currently in dire need of ape fur since the Caliph has requested a new bathroom carpet. ...',
+				'Thus, please bring me 100 pieces of ape fur. Secondly, it came to our ears that the explorer society has discovered a new undersea race of fishmen. ...',
+				'Their fins are said to allow humans to walk on water! Please bring us 100 of these fish fin. ...',
+				'Third, if the plan of walking on water should fail, we need enchanted chicken wings to prevent the testers from drowning. Please bring me two. ...',
+				'Last but not least, just drop by with 100 pieces of blue cloth and I will happily show you how to make a turban. ...',
+				'Did you understand everything I told you and are willing to handle this task?'
+			}, npc, creature)
+			npcHandler.topic[creature] = 2
+		elseif npcHandler.topic[creature] == 2 then
+			if player:getStorageValue(Storage.OutfitQuest.DefaultStart) ~= 1 then
+				player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1)
+			end
+			player:setStorageValue(Storage.OutfitQuest.secondOrientalAddon, 1)
+			npcHandler:say('Excellent! Come back to me once you have collected 100 pieces of ape fur.', npc, creature)
+			npcHandler.topic[creature] = 0
+		elseif npcHandler.topic[creature] == 3 then
+			local targetMessage = config[message[creature]]
+			if not player:removeItem(targetMessage.itemId, targetMessage.count) then
+				npcHandler:say('That is a shameless lie.', npc, creature)
+				npcHandler.topic[creature] = 0
+				return true
+			end
+			player:setStorageValue(Storage.OutfitQuest.secondOrientalAddon, player:getStorageValue(Storage.OutfitQuest.secondOrientalAddon) + 1)
+			if player:getStorageValue(Storage.OutfitQuest.secondOrientalAddon) == 5 then
+				player:addOutfitAddon(146, 2)
+				player:addOutfitAddon(150, 2)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+			end
+			npcHandler:say(targetMessage.text[3], npc, creature)
+			npcHandler.topic[creature] = 0
+		elseif npcHandler.topic[creature] == 4 then
+			if player:getMoney() + player:getBankBalance() >= 100 then
+				player:setStorageValue(Storage.TravellingTrader.Mission03, 2)
+				player:addItem(8112, 1)
+				player:removeMoneyNpc(100)
+				npcHandler:say('Here it is.', npc, creature)
+			else
+				npcHandler:say('You don\'t have enough money.', npc, creature)
+			end
+			npcHandler.topic[creature] = 0
+		end
+	elseif msgcontains(message, 'no') and npcHandler.topic[creature] ~= 0 then
+		npcHandler:say('What a pity.', npc, creature)
+		npcHandler.topic[creature] = 0
+	end
+	return true
+end
+
+local function onReleaseFocus(creature)
+	message[creature] = nil
+end
+
+keywordHandler:addKeyword({'drink'}, StdModule.say, {npcHandler = npcHandler, text = 'I can offer you lemonade, camel milk, and water. If you\'d like to see my offers, ask me for a {trade}.'})
+keywordHandler:addKeyword({'food'}, StdModule.say, {npcHandler = npcHandler, text = 'Are you looking for food? I have bread, cheese, ham, and meat. If you\'d like to see my offers, ask me for a {trade}.'})
+
+npcHandler:setMessage(MESSAGE_GREET, 'Daraman\'s blessings, |PLAYERNAME|. Welcome to the Enlightened Oasis. Sit down, have a {drink} or some {food}!')
+npcHandler:setMessage(MESSAGE_FAREWELL, 'Daraman\'s blessings. Come back soon.')
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
 npcHandler:addModule(FocusModule:new())
+
+npcConfig.shop = {
+	-- Sellable items
+	{ itemName = "ice cube", clientId = 7441, sell = 250 },
+	-- Buyable items
+	{ itemName = "cheese", clientId = 3607, buy = 6 },
+	{ itemName = "bread", clientId = 3600, buy = 4 },
+	{ itemName = "ham", clientId = 3582, buy = 8 },
+	{ itemName = "meat", clientId = 3577, buy = 5 },
+	{ itemName = "mug of milk", clientId = 2880, buy = 5, count = 6 },
+	{ itemName = "mug of lemonade", clientId = 2880, buy = 3, count = 5 },
+	{ itemName = "mug of water", clientId = 2880, buy = 2, count = 1 },
+	{ itemName = "scarab cheese", clientId = 169, buy = 100 }
+}
+-- On buy npc shop message
+npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+end
+-- On sell npc shop message
+npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
+end
 
 npcType:register(npcConfig)

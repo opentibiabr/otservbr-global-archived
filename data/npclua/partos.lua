@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Partos")
+local internalNpcName = "Partos"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Partos"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 128,
-    lookHead = 116,
-    lookBody = 56,
-    lookLegs = 95,
-    lookFeet = 121,
-    lookAddons = 0
+	lookType = 128,
+	lookHead = 116,
+	lookBody = 56,
+	lookLegs = 95,
+	lookFeet = 121,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +45,43 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	local player = Player(creature)
+	if msgcontains(message, 'supplies') then
+		if player:getStorageValue(Storage.DjinnWar.EfreetFaction.Mission01) == 1 then
+			npcHandler:say({
+				'What!? I bet, Baa\'leal sent you! ...',
+				'I won\'t tell you anything! Shove off!'
+			}, npc, creature)
+			player:setStorageValue(Storage.DjinnWar.EfreetFaction.Mission01, 2)
+		else
+			npcHandler:say('I won\'t talk about that.', npc, creature)
+		end
+
+	elseif msgcontains(message, 'ankrahmun') then
+		npcHandler:say({
+			'Yes, I\'ve lived in Ankrahmun for quite some time. Ahh, good old times! ...',
+			'Unfortunately I had to relocate. <sigh> ...',
+			'Business reasons - you know.'
+		}, npc, creature)
+	end
+	return true
+end
+
+keywordHandler:addKeyword({'prison'}, StdModule.say, {npcHandler = npcHandler, text = 'You mean that\'s a JAIL? They told me it\'s the finest hotel in town! THAT explains the lousy roomservice!'})
+keywordHandler:addKeyword({'jail'}, StdModule.say, {npcHandler = npcHandler, text = 'You mean that\'s a JAIL? They told me it\'s the finest hotel in town! THAT explains the lousy roomservice!'})
+keywordHandler:addKeyword({'cell'}, StdModule.say, {npcHandler = npcHandler, text = 'You mean that\'s a JAIL? They told me it\'s the finest hotel in town! THAT explains the lousy roomservice!'})
+
+npcHandler:setMessage(MESSAGE_GREET, 'Welcome to my little kingdom, |PLAYERNAME|.')
+npcHandler:setMessage(MESSAGE_FAREWELL, 'Good bye, visit me again. I will be here, promised.')
+npcHandler:setMessage(MESSAGE_WALKAWAY, 'Good bye, visit me again. I will be here, promised.')
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

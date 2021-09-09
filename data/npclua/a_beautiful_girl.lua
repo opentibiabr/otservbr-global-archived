@@ -1,5 +1,4 @@
 local internalNpcName = "A Beautiful Girl"
-
 local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
@@ -50,4 +49,5 @@ npcHandler:setMessage(MESSAGE_GREET, "So you have come, |PLAYERNAME|. I hoped yo
 
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("A Dwarven Ghost")
+local internalNpcName = "A Dwarven Ghost"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "A Dwarven Ghost"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,17 +11,15 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 69,
-    lookHead = 28,
-    lookBody = 85,
-    lookLegs = 104,
-    lookFeet = 66
+	lookType = 69,
+	lookHead = 28,
+	lookBody = 85,
+	lookLegs = 104,
+	lookFeet = 66
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -46,4 +46,5 @@ end
 
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

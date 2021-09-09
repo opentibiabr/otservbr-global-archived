@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Ikassis")
+local internalNpcName = "Ikassis"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Ikassis"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,24 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 28,
-    lookHead = 0,
-    lookBody = 0,
-    lookLegs = 0,
-    lookFeet = 0,
-    lookAddons = 0
-}
-
-npcConfig.voices = {
-    interval = 120,
-    chance = 0,
-    { text = "The wildlife is troubled.", yell = false }
+	lookType = 28,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -51,6 +45,47 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:isFocused(creature) then
+		return false
+	end
+
+	local player = Player(creature)
+	if msgcontains(message, "mission") then
+		if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 5) then
+			npcHandler:say({
+				"One of my sisters, in the disguise of a nightingale, told me that Alkestios would send you. There is a problem which is not concerning me but a wolf mother on the small island Cormaya. ...",
+				"As we, the fae, consider ourselves guardians and protectors of plants and animals, it is important for me to help this wolf. Unfortunately, I can't do it myself because at the moment I'm bound to this vessel, this snake. ...",
+				"Thus I can't cross the ocean to reach Cormaya. Will you help me?"
+			}, npc, creature)
+			npcHandler.topic[creature] = 1
+		elseif (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 11) then
+			player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 12)
+			npcHandler:say("The wolf's ghost has found peace. Thank you, human being. However, there is someone else who needs help: A sister of mine who's bereft of something very precious. You'll find her in the guise of a swan at a small river south-east of here.", npc, creature)
+			npcHandler.topic[creature] = 0
+		else
+			npcHandler:say("You are not on that mission.", npc, creature)
+			npcHandler.topic[creature] = 0
+		end
+	elseif npcHandler.topic[creature] == 1 then
+		if msgcontains(message, "yes") then
+			npcHandler:say({
+				"Nature's blessings! You may find the desperate wolf mother in the south of Cormaya. You will know the place because there is a big stone that looks like a grumpy face. ...",
+				"At night it will weep bloody tears and only at night you will meet the ghost there. Take this talisman so you may be able to talk with animals and even plants and stones. Just don't expect that all of them will answer you."
+			}, npc, creature)
+			player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 6)
+			npcHandler.topic[creature] = 0
+		elseif msgcontains(message, "no") then
+			npcHandler:say("Then not.", npc, creature)
+		end
+		npcHandler.topic[creature] = 0
+	end
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_GREET, "Nature's blessing, traveler!")
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

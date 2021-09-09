@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Jondrin")
+local internalNpcName = "Jondrin"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Jondrin"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,18 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 132,
-    lookHead = 78,
-    lookBody = 25,
-    lookLegs = 30,
-    lookFeet = 97,
-    lookAddons = 0
+	lookType = 132,
+	lookHead = 78,
+	lookBody = 25,
+	lookLegs = 30,
+	lookFeet = 97,
+	lookAddons = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -45,6 +45,34 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+function creatureSayCallback(npc, creature, type, message)
+	if(not(npcHandler:isFocused(creature))) then
+		return false
+	end
+
+	local player = Player(creature)
+	if(msgcontains(message, "necrometer")) then
+		--[[if player:getStorageValue(Storage.Oramond.TaskProbing == 1) then
+		--for this mission is needed script of the npc Doubleday]]
+			npcHandler:say("A necrometer? Have you any idea how rare and expensive a necrometer is? There is no way I could justify giving a necrometer to an inexperienced adventurer. Hm, although ... if you weren't inexperienced that would be a different matter. ...", npc, creature)
+			npcHandler:say("Did you do any measuring task for Doubleday lately?", npc, creature)
+			npcHandler.topic[creature] = 1
+		--end
+	elseif(msgcontains(message, "yes")) then
+		if(npcHandler.topic[creature] == 1) and player:getStorageValue(Storage.DarkTrails.Mission09) == 1 then
+			npcHandler:say("Indeed I heard you did a good job out there. <sigh> I guess that means I can hand you one of our necrometers. Handle it with care", npc, creature)
+			npcHandler.topic[creature] = 0
+			player:setStorageValue(Storage.DarkTrails.Mission10, 1)
+			player:addItem(23495,1)
+			else
+			npcHandler:say("You already got the Necrometer.", npc, creature)
+		end
+	end
+	return true
+end
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

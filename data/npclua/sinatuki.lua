@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Sinatuki")
+local internalNpcName = "Sinatuki"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Sinatuki"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,17 +11,15 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 260,
-    lookHead = 0,
-    lookBody = 0,
-    lookLegs = 0,
-    lookFeet = 0
+	lookType = 260,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -44,6 +44,42 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
+keywordHandler:addKeyword({'Chuqua'}, StdModule.say, {npcHandler = npcHandler, text = "Chuqua jamjam!! Tiyopa Sinatuki?"})
+
+local fishsID = {7158,7159}
+
+function creatureSayCallback(npc, creature, type, message)
+
+local player = Player(creature)
+
+	if(not npcHandler:isFocused(creature)) then
+		return false
+	end
+
+	if msgcontains(message, 'Nupi') then
+	if player:getStorageValue(Storage.BarbarianTest.Questline) >= 3 and player:getStorageValue(Storage.TheIceIslands.Questline) >=5 then
+		for i=1, #fishsID do
+			if player:getItemCount(fishsID[i]) >= 100 then
+				player:removeItem(fishsID[i], 100)
+				player:addItem(7290, 5)
+				npcHandler:say("Jinuma, suvituka siq chuqua!! Nguraka, nguraka! <happily takes the food from you and gives you five glimmering crystals>", npc, creature)
+			break
+			elseif player:getItemCount(fishsID[i]) >= 99 then
+				player:removeItem(fishsID[i], 99)
+				player:addItem(7290, 5)
+				npcHandler:say("Jinuma, suvituka siq chuqua!! Nguraka, nguraka! <happily takes the food from you>", npc, creature)
+			break
+			else
+				npcHandler:say("Kisavuta! <giggles>", npc, creature)
+			end
+		end
+	end
+	end
+return true
+end
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)

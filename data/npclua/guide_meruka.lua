@@ -1,7 +1,9 @@
-local npcType = Game.createNpcType("Guide Meruka")
+local internalNpcName = "Guide Meruka"
+local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
-npcConfig.description = "Guide Meruka"
+npcConfig.name = internalNpcName
+npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
@@ -9,24 +11,16 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-    lookType = 1199,
-    lookHead = 95,
-    lookBody = 10,
-    lookLegs = 74,
-    lookFeet = 3,
-    lookAddons = 2
-}
-
-npcConfig.voices = {
-    interval = 120,
-    chance = 0,
-    { text = "Good bye.", yell = false }
+	lookType = 1199,
+	lookHead = 95,
+	lookBody = 10,
+	lookLegs = 74,
+	lookFeet = 3,
+	lookAddons = 2
 }
 
 npcConfig.flags = {
-    attackable = false,
-    hostile = false,
-    floorchange = false
+	floorchange = false
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -53,4 +47,5 @@ end
 
 npcHandler:addModule(FocusModule:new())
 
+-- npcType registering the npcConfig table
 npcType:register(npcConfig)
