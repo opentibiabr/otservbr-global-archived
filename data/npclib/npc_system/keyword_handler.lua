@@ -184,7 +184,7 @@ if KeywordHandler == nil then
 				self.lastNode[cid] = childNode
 				childNode.parent = node -- Make sure node is the parent of childNode (as one node can be parent to several nodes).
 				if childNode:processMessage(npc, cid, messageLower) then
-					childNode:processAction(cid, messageLower)
+					childNode:processAction(npc, cid, messageLower)
 					return true
 				end
 				self.lastNode[cid] = oldLast

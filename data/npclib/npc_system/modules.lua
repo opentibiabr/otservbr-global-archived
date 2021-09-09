@@ -22,7 +22,7 @@ if Modules == nil then
 	-- Notice: The members of StdModule have not yet been tested. If you find any bugs, please report them to me.
 	-- Usage:
 		-- keywordHandler:addKeyword({"offer"}, StdModule.say, {npcHandler = npcHandler, text = "I sell many powerful melee weapons."})
-	function StdModule.say(cid, message, keywords, parameters, node)
+	function StdModule.say(npc, cid, message, keywords, parameters, node)
 		local npcHandler = parameters.npcHandler
 		if npcHandler == nil then
 			error("StdModule.say called without any npcHandler instance.")
@@ -55,7 +55,7 @@ if Modules == nil then
 
 		local parseInfo = {[TAG_PLAYERNAME] = player:getName(), [TAG_TIME] = getFormattedWorldTime(), [TAG_BLESSCOST] = Blessings.getBlessingsCost(player:getLevel()), [TAG_PVPBLESSCOST] = Blessings.getPvpBlessingCost(player:getLevel()), [TAG_TRAVELCOST] = costMessage}
 		if parameters.text then
-			npcHandler:say(npcHandler:parseMessage(parameters.text, parseInfo), cid, parameters.publicize and true)
+			npcHandler:say(npcHandler:parseMessage(parameters.text, parseInfo), npc, cid, parameters.publicize and true)
 		end
 
 		if parameters.ungreet then
@@ -63,7 +63,7 @@ if Modules == nil then
 			npcHandler:releaseFocus(cid)
 		elseif parameters.reset then
 			local parseInfo = {[TAG_PLAYERNAME] = Player(cid):getName()}
-			npcHandler:say(npcHandler:parseMessage(parameters.text or parameters.message, parseInfo), cid, parameters.publicize and true)
+			npcHandler:say(npcHandler:parseMessage(parameters.text or parameters.message, parseInfo), npc, cid, parameters.publicize and true)
 			if parameters.reset then
 				npcHandler:resetNpc(cid)
 			elseif parameters.moveup then

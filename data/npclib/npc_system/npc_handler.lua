@@ -542,7 +542,7 @@ if NpcHandler == nil then
 
 	-- Makes the npc represented by this instance of NpcHandler say something.
 	--	This implements the currently set type of talkdelay.
-	function NpcHandler:say(message, npc, focus, useDelay, delay)
+	function NpcHandler:say(message, npc, focus, delay)
 		if type(message) == "table" then
 			return self:doNPCTalkALot(message, delay, npc, focus)
 		end
@@ -578,7 +578,7 @@ if NpcHandler == nil then
 				local parseInfo = {[TAG_PLAYERNAME] = player:getName(), [TAG_TIME] = getFormattedWorldTime(), [TAG_BLESSCOST] = Blessings.getBlessingsCost(player:getLevel()), [TAG_PVPBLESSCOST] = Blessings.getPvpBlessingCost(player:getLevel())}
 				npc:say(self:parseMessage(message, parseInfo), TALKTYPE_PRIVATE_NP, false, player, npc:getPosition())
 			end
-		end, self.talkDelayTime * 1000, npc:getId(), message, focusId)
+		end, self.talkDelayTime * 1000, npcId, message, focusId)
 	end
 
 	-- sendMessages(msg, messagesTable, npc, creature, useDelay(true or false), delay)
