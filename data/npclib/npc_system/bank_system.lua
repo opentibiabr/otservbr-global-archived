@@ -44,8 +44,7 @@ function Npc:parseBank(message, npc, creature, npcHandler)
 		end
 	-- Deposit
 	elseif msgcontains(message, "deposit") then
-		count[creature] = getMoneyCount(message)
-		if count[creature] < 1 then
+		if player:getMoney() < 1 then
 			npcHandler:say("You do not have enough gold.", npc, creature)
 			npcHandler.topic[creature] = 0
 			return false
