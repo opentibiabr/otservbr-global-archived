@@ -398,8 +398,8 @@ if NpcHandler == nil then
 		local callback = self:getCallback(CALLBACK_CREATURE_SAY)
 		if callback == nil or callback(npc, cid, msgtype, msg) then
 			if self:processModuleCallback(CALLBACK_CREATURE_SAY, npc, cid, msgtype, msg) then
-				if not npc:isInTalkRange(player:getPosition()) then
-					return false
+				if not self:isInRange(npc, cid) then
+					return
 				end
 
 				if self.keywordHandler ~= nil then
@@ -450,7 +450,7 @@ if NpcHandler == nil then
 			if self:processModuleCallback(CALLBACK_ONTHINK) then
 				for _, focus in pairs(self.focuses) do
 					if focus ~= nil then
-						if not npc:isInTalkRange(Player(focus):getPosition()) then
+						if not self:isInRange(npc, focus) then
 							self:onWalkAway(npc, focus)
 						elseif self.talkStart[focus] ~= nil and (os.time() - self.talkStart[focus]) > self.idleTime then
 							self:unGreet(focus)
@@ -465,9 +465,11 @@ if NpcHandler == nil then
 
 	-- Tries to greet the player with the given cid.
 	function NpcHandler:onGreet(npc, cid, message)
-		if not self:isFocused(cid) then
-			self:greet(npc, cid, message)
-			return
+		if self:isInRange(npc, cid) then
+			if not self:isFocused(cid) then
+				self:greet(npc, cid, message)
+				return
+			end
 		end
 	end
 
@@ -508,6 +510,16 @@ if NpcHandler == nil then
 				end
 			end
 		end
+	end
+
+	-- Returns true if cid is within the talkRadius of this npc.
+	function NpcHandler:isInRange(npc, cid)
+		local distance = Player(cid) ~= nil and npc:getDistanceTo(cid) or -1
+		if distance == -1 then
+			return false
+		end
+
+		return distance <= self.talkRadius
 	end
 
 	-- Resets the npc into its initial state (in regard of the keywordhandler).
@@ -555,10 +567,6 @@ if NpcHandler == nil then
 		self.eventSay[focus] = addEvent(function(npcId, message, focusId)
 			if not Npc(npc) then
 				return Spdlog.error("[NpcHandler:say] - Npc parameter is missing or wrong")
-			end
-
-			if not Player(focus) then
-				return Spdlog.error("[NpcHandler:say] - Player parameter is missing or wrong")
 			end
 			
 			npcId = npc:getId()
