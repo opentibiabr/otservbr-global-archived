@@ -149,7 +149,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	return true
 end
 
-local function onTradeRequest(creature)
+local function onTradeRequest(npc, creature)
 	if Player(creature):getStorageValue(Storage.BigfootBurden.BossKills) < 20 then
 		npcHandler:say('Only if you have killed 20 of our major enemies in the warzones I am allowed to trade with you.', npc, creature)
 		return false

@@ -1368,6 +1368,7 @@ Storage = {
 		cockroachBodyMsgStorage = 51670,
 		ZirellaNpcGreetStorage = 51671,
 		ZirellaQuestLog = 51672,
+		CarlosNpcTradeStorage = 51673,
 		CarlosNpcGreetStorage = 51677,
 		CarlosQuestLog = 51678
 	},

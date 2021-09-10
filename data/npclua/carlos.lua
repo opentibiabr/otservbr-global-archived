@@ -33,6 +33,21 @@ npcConfig.voices = {
 	{ text = 'By the way, if you want to look at old hints again, find the \'Help\' button near your inventory and select \'Tutorial Hints\'.' }
 }
 
+-- Npc shop
+npcConfig.shop = {
+	{ itemName = "meat", clientId = 3577, buy = 0, sell = 2, count = 1 },
+	{ itemName = "ham", clientId = 3582, buy = 0, sell = 2, count = 1 }
+}
+-- On buy npc shop message
+npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+end
+-- On sell npc shop message
+npcType.onPlayerSellItem = function(npc, player, itemId, amount, name, totalCost)
+	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
+end
+
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
@@ -55,25 +70,8 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-
-local function setNewTradeTable(table)
-	local items, item = {}
-	for i = 1, #table do
-		item = table[i]
-		items[item.id] = {itemId = item.id, buyPrice = item.buy, sellPrice = item.sell, subType = 0, realName = item.name}
-	end
-	return items
-end
-
-local function getTable()
-	local itemsList = {
-		{name="meat", id=2666, sell=2},
-		{name="ham", id=2671, sell=2},
-	}
-	return itemsList
-end
-
 local storeTalkCid = {}
+
 local function greetCallback(npc, creature)
 	local player = Player(creature)
 	if player:getStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage) < 1 then
@@ -163,6 +161,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:say("What's that delicious smell? That must be a piece of meat! Please hurry, simply ask me for a {trade} and I'll give you two gold pieces for it!", npc, creature)
 				player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosQuestLog, 6)
 				player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage, 6)
+				player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcTradeStorage, 1)
 				storeTalkCid[creature] = 6
 			else
 				npcHandler:say("Hmm. No, I don't think you have something with you that I'd like to eat. Please come back once you looted a piece of meat or a piece of ham from a rabbit or deer.", npc, creature)
@@ -191,24 +190,6 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage, 8)
 			addEvent(releasePlayer, 1000, npc, creature)
 		end
-	elseif msgcontains(message, "trade") then
-		if storeTalkCid[creature] == 6 then
-			npcHandler:say("Very nice! Food for me! Sell it to me, fast! Once you sold your food to me, just say {ready} to let me know you are done.", npc, creature)
-			player:sendTutorial(13)
-			player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage, 7)
-			storeTalkCid[creature] = 7
-			local items = setNewTradeTable(getTable())
-			local function onSell(creature, item, subType, amount, ignoreEquipped)
-				if items[item].sellPrice and player:removeItem(items[item].itemId, amount, -1, ignoreEquipped) then
-					player:addMoney(items[item].sellPrice * amount)
-					return player:sendTextMessage(MESSAGE_TRADE, 'You sold '..amount..'x '..items[item].realName..' for '..items[item].sellPrice * amount..' gold coins.')
-				else
-					selfSay("You don't have item to sell.", npc, creature)
-				end
-				return true
-			end
-			openShopWindow(creature, getTable(), onBuy, onSell)
-		end
 	elseif msgcontains(message, "ready") then
 		if storeTalkCid[creature] == 7 then
 			npcHandler:say({
@@ -224,13 +205,23 @@ local function creatureSayCallback(npc, creature, type, message)
 	return true
 end
 
+local function onTradeRequest(npc, creature)
+	local player = Player(creature)
+	if player:getStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcTradeStorage) ~= 1 then
+		return false
+	end
+
+	return true
+end
+
 local function onReleaseFocus(creature)
 	storeTalkCid[creature] = nil
 end
 
 npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
-
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
+
+npcHandler:setMessage(MESSAGE_SENDTRADE, "Very nice! Food for me! Sell it to me, fast! Once you sold your food to me, just say {ready} to let me know you are done.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye |PLAYERNAME|!.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Good bye traveller and enjoy your stay on Rookgaard.")
 

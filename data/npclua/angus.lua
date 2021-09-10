@@ -683,7 +683,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	return true
 end
 
-local function onTradeRequest(creature)
+local function onTradeRequest(npc, creature)
 	if Player(creature):getStorageValue(Storage.ExplorerSociety.TheAstralPortals) ~= 56 then
 		return false
 	end

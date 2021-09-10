@@ -108,7 +108,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	return true
 end
 
-local function onTradeRequest(creature)
+local function onTradeRequest(npc, creature)
 	local player = Player(creature)
 	if player:getStorageValue(Storage.DjinnWar.EfreetFaction.Mission03) ~= 3 then
 		npcHandler:say('I\'m sorry, but you don\'t have Malor\'s permission to trade with me.', npc, creature)

@@ -1,3 +1,5 @@
+dofile("data/npclua/alesar_functions.lua")
+
 local internalNpcName = "Alesar"
 local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
@@ -88,74 +90,11 @@ local function creatureSayCallback(npc, creature, type, message)
 		return false
 	end
 
-	local player = Player(creature)
-	local missionProgress = player:getStorageValue(Storage.DjinnWar.EfreetFaction.Mission02)
-	if msgcontains(message, "mission") then
-		if player:getStorageValue(Storage.DjinnWar.EfreetFaction.Mission01) == 3 then
-			if missionProgress < 1 then
-				npcHandler:say({
-					"So Baa'leal thinks you are up to do a mission for us? ...",
-					"I think he is getting old, entrusting human scum such as you are with an important mission like that. ...",
-					"Personally, I don't understand why you haven't been slaughtered right at the gates. ...",
-					"Anyway. Are you prepared to embark on a dangerous mission for us?"
-				}, npc, creature)
-				npcHandler.topic[creature] = 1
-
-			elseif isInArray({1, 2}, missionProgress) then
-				npcHandler:say("Did you find the tear of Daraman?", npc, creature)
-				npcHandler.topic[creature] = 2
-			else
-				npcHandler:say("Don't forget to talk to Malor concerning your next mission.", npc, creature)
-			end
-		end
-
-	elseif npcHandler.topic[creature] == 1 then
-		if msgcontains(message, "yes") then
-			npcHandler:say({
-				"All right then, human. Have you ever heard of the {'Tears of Daraman'}? ...",
-				"They are precious gemstones made of some unknown blue mineral and possess enormous magical power. ...",
-				"If you want to learn more about these gemstones don't forget to visit our library. ...",
-				"Anyway, one of them is enough to create thousands of our mighty djinn blades. ...",
-				"Unfortunately my last gemstone broke and therefore I'm not able to create new blades anymore. ...",
-				"To my knowledge there is only one place where you can find these gemstones - I know for a fact that the Marid have at least one of them. ...",
-				"Well... to cut a long story short, your mission is to sneak into Ashta'daramai and to steal it. ...",
-				"Needless to say, the Marid won't be too eager to part with it. Try not to get killed until you have delivered the stone to me."
-			}, npc, creature)
-			player:setStorageValue(Storage.DjinnWar.EfreetFaction.Mission02, 1)
-			player:setStorageValue(Storage.DjinnWar.EfreetFaction.DoorToMaridTerritory, 1)
-
-		elseif msgcontains(message, "no") then
-			npcHandler:say("Then not.", npc, creature)
-		end
-		npcHandler.topic[creature] = 0
-
-	elseif npcHandler.topic[creature] == 2 then
-		if msgcontains(message, "yes") then
-			if player:getItemCount(2346) == 0 or missionProgress ~= 2 then
-				npcHandler:say("As I expected. You haven't got the stone. Shall I explain your mission again?", npc, creature)
-				npcHandler.topic[creature] = 1
-			else
-				npcHandler:say({
-					"So you have made it? You have really managed to steal a Tear of Daraman? ...",
-					"Amazing how you humans are just impossible to get rid of. Incidentally, you have this character trait in common with many insects and with other vermin. ...",
-					"Nevermind. I hate to say it, but it you have done us a favour, human. That gemstone will serve us well. ...",
-					"Baa'leal, wants you to talk to Malor concerning some new mission. ...",
-					"Looks like you have managed to extended your life expectancy - for just a bit longer."
-				}, npc, creature)
-				player:removeItem(2346, 1)
-				player:setStorageValue(Storage.DjinnWar.EfreetFaction.Mission02, 3)
-				npcHandler.topic[creature] = 0
-			end
-
-		elseif msgcontains(message, "no") then
-			npcHandler:say("As I expected. You haven't got the stone. Shall I explain your mission again?", npc, creature)
-			npcHandler.topic[creature] = 1
-		end
-	end
+	parseAlesarSay(npc, creature, message, npcHandler)
 	return true
 end
 
-local function onTradeRequest(creature)
+local function onTradeRequest(npc, creature)
 	local player = Player(creature)
 	if player:getStorageValue(Storage.DjinnWar.EfreetFaction.Mission03) ~= 3 then
 		npcHandler:say("I'm sorry, but you don't have Malor's permission to trade with me.", npc, creature)

@@ -52,6 +52,30 @@ end
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
+-- onThink
+npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
+end
+
+-- onAppear 
+npcType.onAppear = function(npc, creature)
+	npcHandler:onCreatureAppear(npc, creature)
+end
+
+-- onDisappear
+npcType.onDisappear = function(npc, creature)
+	npcHandler:onCreatureDisappear(npc, creature)
+end
+
+-- onMove
+npcType.onMove = function(npc, creature, fromPosition, toPosition)
+end
+
+-- onSay
+npcType.onSay = function(npc, creature, type, message)
+	npcHandler:onCreatureSay(npc, creature, type, message)
+end
+
 -- Function called by the callback "npcHandler:setCallback(CALLBACK_GREET, greetCallback)" in end of file
 local function greetCallback(npc, creature)
 	npcHandler:setMessage(MESSAGE_GREET, "Hello |PLAYERNAME|, you need more info about {canary}?")
@@ -63,11 +87,6 @@ local function creatureSayCallback(npc, creature, type, message)
 	local player = Player(creature)
 	if not npcHandler:isFocused(creature) then
 		return false
-	end
-
-	-- Open shop window
-	if msgcontains(message, "trade") then
-		npc:openShopWindow(player)
 	end
 
 	if msgcontains(message, "canary") then
@@ -94,30 +113,6 @@ npcHandler:setMessage(MESSAGE_FAREWELL, "Yeah, good bye and don't come again!")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "You not have education?")
 
 npcHandler:addModule(FocusModule:new())
-
--- onThink
-npcType.onThink = function(npc, interval)
-	npcHandler:onThink(npc, interval)
-end
-
--- onAppear 
-npcType.onAppear = function(npc, creature)
-	npcHandler:onCreatureAppear(npc, creature)
-end
-
--- onDisappear
-npcType.onDisappear = function(npc, creature)
-	npcHandler:onCreatureDisappear(npc, creature)
-end
-
--- onMove
-npcType.onMove = function(npc, creature, fromPosition, toPosition)
-end
-
--- onSay
-npcType.onSay = function(npc, creature, type, message)
-	npcHandler:onCreatureSay(npc, creature, type, message)
-end
 
 -- Register npc
 npcType:register(npcConfig)

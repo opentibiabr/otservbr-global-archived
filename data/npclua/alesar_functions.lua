@@ -1,15 +1,6 @@
 function parseAlesarSay(npc, creature, message, npcHandler)
 	local player = Player(creature)
-	if msgcontains(message, "trade") or msgcontains(message, "offers") then
-		if player:getStorageValue(Storage.DjinnWar.EfreetFaction.Mission03) ~= 3 then
-			npcHandler:say("I'm sorry, but you don't have Malor's permission to trade with me.", npc, creature)
-			return false
-		end
-
-		npcHandler:say("At your service, just browse through my wares", npc, creature)
-		npc:openShopWindow(player)
-	end
-
+	
 	local missionProgress = player:getStorageValue(Storage.DjinnWar.EfreetFaction.Mission02)
 	if msgcontains(message, "mission") then
 		if player:getStorageValue(Storage.DjinnWar.EfreetFaction.Mission01) == 3 then

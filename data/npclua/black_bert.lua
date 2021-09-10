@@ -133,17 +133,8 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)
-	if msgcontains(message, "trade") then
-		npc:openShopWindow(player)
-	end
-	return true
-end
-
 npcHandler:setMessage(MESSAGE_GREET, "Hi there, |PLAYERNAME|! You look like you are eager to {trade}!")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Bye, |PLAYERNAME|")
-
-npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
 npcHandler:addModule(FocusModule:new())
 

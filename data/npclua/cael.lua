@@ -18,6 +18,21 @@ npcConfig.flags = {
 	floorchange = false
 }
 
+-- Npc shop
+npcConfig.shop = {
+	{ itemName = "didgeridoo", clientId = 2965, buy = 5, sell = 0, count = 1 },
+	{ itemName = "war drum", clientId = 2966, buy = 1, sell = 0, count = 1 }
+}
+-- On buy npc shop message
+npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+end
+-- On sell npc shop message
+npcType.onPlayerSellItem = function(npc, player, itemId, amount, name, totalCost)
+	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
+end
+
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
@@ -38,50 +53,6 @@ end
 
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
-end
-
-local function getTable(player)
-	local itemsList = {
-		{name="Didgeridoo", id=3952, buy=5,000},
-		{name="War Drum", id=3953, buy=1,000}
-	}
-	return itemsList
-end
-
-local function setNewTradeTable(table)
-	local items, item = {}
-	for i = 1, #table do
-		item = table[i]
-		items[item.id] = {itemId = item.id, buyPrice = item.buy, sellPrice = item.sell, subType = 0, realName = item.name}
-	end
-	return items
-end
-
-local function onBuy(creature, item, subType, amount, ignoreCap, inBackpacks)
-	local player = Player(creature)
-	local items = setNewTradeTable(getTable(player))
-	if not ignoreCap and player:getFreeCapacity() < ItemType(items[item].itemId):getWeight(amount) then
-		return player:sendTextMessage(MESSAGE_FAILURE, 'You don\'t have enough cap.')
-	end
-	if not doPlayerRemoveMoney(creature, items[item].buyPrice * amount) then
-		selfSay("You don't have enough money.", npc, creature)
-	else
-		player:addItem(items[item].itemId, amount)
-		return player:sendTextMessage(MESSAGE_TRADE, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
-	end
-	return true
-end
-
-local function onSell(creature, item, subType, amount, ignoreCap, inBackpacks)
-	local player = Player(creature)
-	local items = setNewTradeTable(getTable(player))
-	if items[item].sellPrice and player:removeItem(items[item].itemId, amount) then
-		player:addMoney(items[item].sellPrice * amount)
-		return player:sendTextMessage(MESSAGE_TRADE, 'Sold '..amount..'x '..items[item].realName..' for '..items[item].sellPrice * amount..' gold coins.')
-	else
-		selfSay("You don't have item to sell.", npc, creature)
-	end
-	return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
@@ -375,18 +346,23 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler.topic[creature] = 0
 			end
 		end
-	elseif msgcontains(message, "trade") then
-		if player:getStorageValue(Storage.TheNewFrontier.TomeofKnowledge) >= 6 then
-			local player = Player(creature)
-			local items = setNewTradeTable(getTable(player))
-				openShopWindow(creature, getTable(player), onBuy, onSell)
-				npcHandler:say("Keep in mind you won't find better offers here. Just browse through my wares.", npc, creature)
-		else
-			npcHandler:say("Sorry, I don't have Items to trade now.", npc, creature)
-		end
 	end
 	return true
 end
+
+local function onTradeRequest(npc, creature)
+	local player = Player(creature)
+	if player:getStorageValue(Storage.TheNewFrontier.TomeofKnowledge) >= 6 then
+		npcHandler:say("Sorry, I don't have items to trade now.", npc, creature)
+		return false
+	end
+
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_SENDTRADE, "Keep in mind you won't find better offers here. Just browse through my wares.")
+
+npcHandler:setCallback(CALLBACK_ONTRADEREQUEST, onTradeRequest)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 

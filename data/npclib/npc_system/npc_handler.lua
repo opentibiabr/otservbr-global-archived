@@ -402,6 +402,11 @@ if NpcHandler == nil then
 					return
 				end
 
+				-- Parse trade message, send shop window if all is ok in the function "requestTrade"
+				if msgcontains(msg, "trade") or msgcontains(msg, "offers") then
+					self:requestTrade(npc, creature)
+				end
+
 				if self.keywordHandler ~= nil then
 					if self:isFocused(cid) and msgtype == TALKTYPE_PRIVATE_PN or not self:isFocused(cid) then
 						local ret = self.keywordHandler:processMessage(npc, cid, msg)
@@ -435,12 +440,35 @@ if NpcHandler == nil then
 	-- Handles onTradeRequest events. If you wish to handle this yourself, use the CALLBACK_ONTRADEREQUEST callback.
 	function NpcHandler:onTradeRequest(npc, cid)
 		local callback = self:getCallback(CALLBACK_ONTRADEREQUEST)
-		if callback == nil or callback(cid) then
+		if callback == nil or callback(npc, cid) then
+			-- If npc have the "CALLBACK_ONTRADEREQUEST" callback, then return true
 			if self:processModuleCallback(CALLBACK_ONTRADEREQUEST, npc, cid) then
 				return true
 			end
 		end
 		return false
+	end
+
+	-- Callback for requesting a trade window with the NPC.
+	function NpcHandler:requestTrade(npc, cid)
+		if self:isFocused(cid) then
+			return false
+		end
+
+		-- If npc have callback "CALLBACK_ONTRADEREQUEST", then return here
+		if not self:onTradeRequest(npc, cid) then
+			return false
+		end
+
+		local parseInfo = { [TAG_PLAYERNAME] = Player(cid):getName() }
+		local msg = self:parseMessage(self:getMessage(MESSAGE_SENDTRADE), parseInfo)
+
+		-- If is npc shop, send shop window and parse default message (if not have callback on the npc)
+		if npc:isMerchant() then
+			npc:openShopWindow(cid)
+			self:say(msg, npc, cid)
+		end
+		return true
 	end
 
 	-- Handles onThink events. If you wish to handle this yourself, please use the CALLBACK_ONTHINK callback.

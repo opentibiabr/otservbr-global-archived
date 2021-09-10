@@ -80,7 +80,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	return true
 end
 
-local function onTradeRequest(creature)
+local function onTradeRequest(npc, creature)
 	local player = Player(creature)
 
 	if player:getStorageValue(Storage.DjinnWar.MaridFaction.Mission03) ~= 3 then
