@@ -22,11 +22,11 @@ end
 
 spell:name("Blood Rage")
 spell:words("utito tempo")
-spell:group("support")
+spell:group("support", "focus")
 spell:vocation("knight;true", "elite knight;true")
 spell:id(133)
 spell:cooldown(2 * 1000)
-spell:groupCooldown(2 * 1000)
+spell:groupCooldown(2 * 1000, 2 * 1000)
 spell:level(60)
 spell:mana(290)
 spell:isSelfTarget(true)
