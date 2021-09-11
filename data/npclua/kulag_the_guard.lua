@@ -39,17 +39,14 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
 	if msgcontains(message, "trouble") and player:getStorageValue(Storage.TheInquisition.KulagGuard) < 1 and player:getStorageValue(Storage.TheInquisition.Mission01) ~= -1 then
 		npcHandler:say("You adventurers become more and more of a pest.", npc, creature)
 		npcHandler.topic[creature] = 1

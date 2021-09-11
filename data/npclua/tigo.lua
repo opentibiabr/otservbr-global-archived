@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -54,14 +55,9 @@ local function greetCallback(npc, creature)
 		npcHandler:setMessage(MESSAGE_GREET, "There, there initiate. You will now become one of us, as so many before you. One of the {Barkless}. Walk with us and you will walk tall my friend.")
 		playerTopic[creature] = 1
 	end
-	npcHandler:addFocus(creature)
 	return true
 end
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	npcHandler.topic[creature] = playerTopic[creature]
 	local player = Player(creature)
 

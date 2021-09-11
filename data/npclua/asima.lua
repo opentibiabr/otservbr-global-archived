@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -51,10 +52,6 @@ local items = {
 }
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	local itemId = items[player:getVocation():getBaseId()]
 	if msgcontains(message, 'first rod') or msgcontains(message, 'first wand') then

@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -49,9 +50,7 @@ keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text
 keywordHandler:addKeyword({'nature'}, StdModule.say, {npcHandler = npcHandler, text = "For me, nature is the harmony of the elements. This harmony can be disturbed by certain events, but nature always finds its way back to harmony in the end."})
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	elseif msgcontains(message, "elements") then
+	if msgcontains(message, "elements") then
 		npcHandler:say({
 			'How can I explain my connection to the elements so that you can understand it? Hmmm, it is like a faint melody, a song, that is always there. ...',
 			'I hear that melody shifting in time with the shifts in the elements. With so many years of listening, I have learned to interpret these shifts and so come to a deeper understanding of the elements. ...',

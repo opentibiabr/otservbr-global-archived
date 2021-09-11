@@ -42,15 +42,11 @@ local function releasePlayer(creature)
 		return
 	end
 
-	npcHandler:releaseFocus(creature)
+	npcHandler:removeInteraction(npc, creature)
 	npcHandler:resetNpc(creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	local missionProgress = player:getStorageValue(Storage.DjinnWar.EfreetFaction.Mission03)
 	if msgcontains(message, 'mission') then

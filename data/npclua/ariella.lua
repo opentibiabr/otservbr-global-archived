@@ -43,6 +43,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -51,10 +52,6 @@ end
 
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	if msgcontains(message, "cookie") then
 		if player:getStorageValue(Storage.WhatAFoolish.Questline) == 31 and
@@ -109,7 +106,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say(
 			"How sweet of you ... Uhh ... OH NO ... Bozo did it again. Tell this prankster I'll pay him back.",
 			creature)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		elseif npcHandler.topic[creature] == 2 then
 			if player:getStorageValue(Storage.OutfitQuest.PirateHatAddon) == -1 then

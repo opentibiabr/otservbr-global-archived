@@ -48,6 +48,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -59,11 +60,7 @@ local configMarks = {
 	{mark = "depottp", position = Position(33214, 32453, 7), markId = MAPMARK_LOCK, description = "Depot and Temple"}
 }
 
-local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
 	if isInArray({"map", "marks"}, message) then
 		npcHandler:say("Would you like me to mark locations like - for example - the depot, bank and shops on your map?", npc, creature)
 		npcHandler.topic[creature] = 1

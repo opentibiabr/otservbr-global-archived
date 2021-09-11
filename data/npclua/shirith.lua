@@ -42,9 +42,6 @@ npcHandler:onThink(npc, interval)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
 	if msgcontains(message, "key") then
 		npcHandler:say("Do you want to buy a key for 50 gold?", npc, creature)
 		npcHandler.topic[creature] = 1

@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -174,10 +175,6 @@ local function onSell(creature, item, subType, amount, ignoreCap, inBackpacks)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	if msgcontains(message, 'trade') then
 		local player = Player(creature)
 		local items = setNewTradeTable(getTable(player))

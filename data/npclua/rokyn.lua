@@ -134,11 +134,7 @@ local function greetCallback(npc, creature)
 	return true
 end
 
-local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
 ---------------------------- help ------------------------
 	if msgcontains(message, 'bank account') then
 		npcHandler:say({

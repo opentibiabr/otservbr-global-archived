@@ -49,6 +49,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -214,11 +215,7 @@ end
 buildStrings()
 
 -- Function to handle donations and its messages
-local function donationHandler(creature, message, keywords, parameters, node)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	local player = Player(creature)
+local function donationHandler(creature, message, keywords, parameters, node)	local player = Player(creature)
 	if (parameters.confirm ~= true) and (parameters.decline ~= true) then
 		npcHandler:say("So you want to donate " .. (player:getMoney() - 500) .. " gold coins? \z
 			The little kiddies are going to appreciate it.", npc, creature)
@@ -244,11 +241,7 @@ local function donationHandler(creature, message, keywords, parameters, node)
 end
 
 -- Function to handle town travel and its messages
-local function townTravelHandler(creature, message, keywords, parameters, node)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	local player = Player(creature)
+local function townTravelHandler(creature, message, keywords, parameters, node)	local player = Player(creature)
 	if (parameters.confirm ~= true) and (parameters.decline ~= true) and parameters.townId then
 		local town = towns[parameters.townId]
 		if town.canBeSailed == false then
@@ -285,7 +278,7 @@ local function townTravelHandler(creature, message, keywords, parameters, node)
 			"Cast off! Don't forget to talk to the guide at the port for directions to nearest bars... err, shops and \z
 			bank and such!", npc, creature)
 		npcHandler:resetNpc(creature)
-		npcHandler:releaseFocus(creature)
+		npcHandler:removeInteraction(npc, creature)
 	elseif (parameters.decline == true) then
 		if player:isPremium() then
 			npcHandler:say("Changed your mind? Which city do you want to head to, " .. townNames.premium .. "?", npc, creature)
@@ -440,11 +433,7 @@ local function greetCallback(npc, creature)
 	return true
 end
 
-local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	local currentNode = keywordHandler:getLastNode(creature)
+local function creatureSayCallback(npc, creature, type, message)	local currentNode = keywordHandler:getLastNode(creature)
 	-- Handle other words for nodes while still handling (bye, farewell) keywords
 	if #currentNode.children == 0 then
 		npcHandler:say(

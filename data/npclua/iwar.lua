@@ -25,6 +25,10 @@ npcConfig.flags = {
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
+npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
+end
+
 npcType.onAppear = function(npc, creature)
 	npcHandler:onCreatureAppear(npc, creature)
 end
@@ -33,26 +37,21 @@ npcType.onDisappear = function(npc, creature)
 	npcHandler:onCreatureDisappear(npc, creature)
 end
 
-npcType.onSay = function(npc, creature, type, message)
-	npcHandler:onCreatureSay(npc, creature, type, message)
+npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
-npcType.onThink = function(npc, interval)
-	npcHandler:onThink(npc, interval)
+npcType.onSay = function(npc, creature, type, message)
+	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
 local playerTopic = {}
 local function greetCallback(npc, creature)
 
 	local player = Player(creature)
-	npcHandler:addFocus(creature)
 	return true
 end
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	npcHandler.topic[creature] = playerTopic[creature]
 	local player = Player(creature)
 	local valorPicture = 10000

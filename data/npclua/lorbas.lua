@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -46,10 +47,6 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 
 	if msgcontains(message, 'cookie') then
@@ -73,7 +70,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 			Npc():getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
 			npcHandler:say('Well, you don\'t mind if I play around with this antidote rune a bit ... UHHH, YOU LOU ... uhm that was so ... funny, haha ... ha. Mhm, you better leave now.', npc, creature)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		end
 	elseif msgcontains(message, 'no') then

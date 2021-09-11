@@ -38,9 +38,6 @@ npcHandler:onThink(npc, interval)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then 
-		return false 
-	end
 	local player = Player(creature)
 	if(msgcontains(message, "outfit")) or (msgcontains(message, "addon")) then
 		selfSay("In exchange for a truly generous donation, I will offer a special outfit. Do you want to make a donation?", npc, creature)

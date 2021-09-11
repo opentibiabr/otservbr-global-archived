@@ -64,10 +64,6 @@ function greetCallback(npc, creature)
 end
 
 function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	local status = player:getStorageValue(SPIKE_LOWER_PARCEL_MAIN)
 
@@ -82,13 +78,13 @@ function creatureSayCallback(npc, creature, type, message)
 
 		if not player:removeItem(21569, 1) then
 			npcHandler:say("But you don't have it...", npc, creature)
-			return npcHandler:releaseFocus(creature)
+			return npcHandler:removeInteraction(npc, creature)
 		end
 
 		npcHandler:say(response[player:getStorageValue(SPIKE_LOWER_PARCEL_MAIN)], npc, creature)
 		player:setStorageValue(SPIKE_LOWER_PARCEL_MAIN, status + 1)
 		table.insert(DELIVERED_PARCELS[player:getGuid()], npc:getId())
-		npcHandler:releaseFocus(creature)
+		npcHandler:removeInteraction(npc, creature)
 	end
 	return true
 end

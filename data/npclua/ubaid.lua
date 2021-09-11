@@ -61,10 +61,6 @@ local function greetCallback(creature, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 
 	-- To Appease the Mighty Quest

@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -51,9 +52,7 @@ keywordHandler:addKeyword({'cruelty'}, StdModule.say, {npcHandler = npcHandler, 
 keywordHandler:addKeyword({'island'}, StdModule.say, {npcHandler = npcHandler, text = "The General of the Red Legion became very angry about these attacks and after some months he STROKE back!"})
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	elseif msgcontains(message, "story") then
+	if msgcontains(message, "story") then
 		npcHandler:say({
 			'Ok, sit down and listen. Back in the early days, one of the ancestors ... <press m for more>',
 			'... of our king Tibianus III wanted to build the best CITY in whole of Tibia.'

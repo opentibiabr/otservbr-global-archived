@@ -64,6 +64,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -100,18 +101,18 @@ local function greetCallback(npc, creature)
 			storeTalkCid[creature] = 6
 		else
 			npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|! Where did you put that delicious piece of food? Did you eat it yourself? Well, if you find another one, please come back.")
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		end
 	elseif player:getStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage) == 7 then
 		npcHandler:setMessage(MESSAGE_GREET, "Hey there, |PLAYERNAME|! Well, that's how trading with NPCs like me works. I think you are ready now to cross the bridge to Rookgaard! Take care!")
 		player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosQuestLog, 7)
 		player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage, 8)
-		npcHandler:releaseFocus(creature)
+		npcHandler:removeInteraction(npc, creature)
 		npcHandler:resetNpc(creature)
 	elseif player:getStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage) == 8 then
 		npcHandler:setMessage(MESSAGE_GREET, "Hello again, |PLAYERNAME|! What are you still doing here? You should head over the bridge to Rookgaard village now!")
-		npcHandler:releaseFocus(creature)
+		npcHandler:removeInteraction(npc, creature)
 		npcHandler:resetNpc(creature)
 	end
 	return true
@@ -122,15 +123,11 @@ local function releasePlayer(creature)
 		return
 	end
 
-	npcHandler:releaseFocus(creature)
+	npcHandler:removeInteraction(npc, creature)
 	npcHandler:resetNpc(creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	if isInArray({"yes", "help", "ok"}, message) then
 		if storeTalkCid[creature] == 1 then
@@ -138,7 +135,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage, 2)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosQuestLog, 2)
 			player:sendTutorial(12)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		elseif storeTalkCid[creature] == 2 then
 			npcHandler:say("You see, I'm quite hungry from standing here all day. Could you get me some {food}?", npc, creature)
@@ -154,7 +151,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("Splendid. I'll be awaiting your return eagerly. Don't forget that you can click on the 'Chase Opponent' button to run after those fast creatures. Good {bye} for now!", npc, creature)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage, 5)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosQuestLog, 5)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		elseif storeTalkCid[creature] == 5 then
 			if player:getItemCount(2666) > 0 or player:getItemCount(2671) > 0 then
@@ -165,7 +162,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				storeTalkCid[creature] = 6
 			else
 				npcHandler:say("Hmm. No, I don't think you have something with you that I'd like to eat. Please come back once you looted a piece of meat or a piece of ham from a rabbit or deer.", npc, creature)
-				npcHandler:releaseFocus(creature)
+				npcHandler:removeInteraction(npc, creature)
 				npcHandler:resetNpc(creature)
 			end
 		elseif storeTalkCid[creature] == 7 then
@@ -176,7 +173,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosQuestLog, 7)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage, 8)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		end
 	elseif msgcontains(message, "outfit") then

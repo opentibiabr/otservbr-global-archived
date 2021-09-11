@@ -26,6 +26,10 @@ npcConfig.flags = {
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
+npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
+end
+
 npcType.onAppear = function(npc, creature)
 	npcHandler:onCreatureAppear(npc, creature)
 end
@@ -34,12 +38,12 @@ npcType.onDisappear = function(npc, creature)
 	npcHandler:onCreatureDisappear(npc, creature)
 end
 
-npcType.onSay = function(npc, creature, type, message)
-	npcHandler:onCreatureSay(npc, creature, type, message)
+npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
-npcType.onThink = function(npc, interval)
-	npcHandler:onThink(npc, interval)
+npcType.onSay = function(npc, creature, type, message)
+	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
 local playerTopic = {}
@@ -56,7 +60,6 @@ local function greetCallback(npc, creature)
 											  "I have sealed some of the areas far too dangerous for anyone to enter. If you can prove you're capable, you'll get an opportunity to help destroy the weird machines, pumping lava into the caves leading to the most dangerous enemies."})
 		playerTopic[creature] = 1
 	end
-	npcHandler:addFocus(creature)
 	return true
 end
 
@@ -72,10 +75,6 @@ keywordHandler:addKeyword({'enemy'}, StdModule.say, {npcHandler = npcHandler, te
 keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = 'Klom Stonecutter\'s the name. '})
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	npcHandler.topic[creature] = playerTopic[creature]
 	local player = Player(creature)
 	npc = Npc(creature)

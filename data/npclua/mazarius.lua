@@ -40,17 +40,14 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
 	if msgcontains(message, "brings") then
 		npcHandler:say("Ah, you have heard about my search for experienced help. And indeed your reputation for solving certain {problems} has preceded you.", npc, creature)
 	elseif msgcontains(message, "problems") then
@@ -86,7 +83,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.FerumbrasAscension.Access, 1)
 		else
 			npcHandler:say("You don\'t have the demonic essences, back here when you get it.", npc, creature)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 		end
 	elseif msgcontains(message, "godbreaker") then
 		npcHandler:say("For a long time, I thought the godbreaker to be some apocryphal myth. But apparently others had learned about the godbreaker in the aeons past and lusted for its power. ...", npc, creature)

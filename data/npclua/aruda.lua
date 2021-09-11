@@ -64,6 +64,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -82,11 +83,7 @@ local function greetCallback(npc, creature)
 	return true
 end
 
-local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
 	local Sex = player:getSex()
 	if npcHandler.topic[creature] == 1 then
 		npcHandler:say("I would never have guessed that.", npc, creature)
@@ -96,7 +93,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("Oh, sorry, I was distracted, what did you say?", npc, creature)
 		else
 			npcHandler:say("Oh, I just remember I have some work to do, sorry. Bye!", npc, creature)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		end
 		npcHandler.topic[creature] = nil
@@ -209,7 +206,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:say("Oh, sorry, I have to hurry, bye!", npc, creature)
 		npcHandler.topic[creature] = nil
 		Price[creature] = nil
-		npcHandler:releaseFocus(creature)
+		npcHandler:removeInteraction(npc, creature)
 		npcHandler:resetNpc(creature)
 	elseif msgcontains(message, "tibia") then
 		npcHandler:say("I would like to visit the beach more often, but I guess it's too dangerous.", npc, creature)
@@ -255,7 +252,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:say("Yenny? I know no Yenny, nor have I ever used that name! You have mistook me with someone else.", npc, creature)
 		npcHandler.topic[creature] = nil
 		Price[creature] = nil
-		npcHandler:releaseFocus(creature)
+		npcHandler:removeInteraction(npc, creature)
 		npcHandler:resetNpc(creature)
 	end
 	return true

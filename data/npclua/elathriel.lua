@@ -34,6 +34,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -242,10 +243,6 @@ keywordHandler:addKeyword({"sell"}, StdModule.say,
 )
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	if msgcontains(message, "key") then
 		npcHandler:say("If you are that curious, do you want to buy a key for 5000 gold? \z
 						Don't blame me if you get sucked in.", npc, creature)

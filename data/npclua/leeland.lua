@@ -40,6 +40,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -47,11 +48,8 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	local player = Player(creature)
-	if not npcHandler:isFocused(creature) then
-		return false
 	--The New Frontier
-	elseif msgcontains(message, "farmine") then
+	if msgcontains(message, "farmine") then
 		if player:getStorageValue(Storage.TheNewFrontier.Questline) == 15 then
 			npcHandler:say("Oh yes, that project the whole dwarven community is so excited about. I guess I already know why you are here, but speak up.", npc, creature)
 			npcHandler.topic[creature] = 1

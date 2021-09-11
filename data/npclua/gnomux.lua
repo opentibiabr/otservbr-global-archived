@@ -65,10 +65,6 @@ end
 
 function creatureSayCallback(npc, creature, type, message)
 
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player, canBuy, shopWindow = Player(creature), false, {}
 
 	for itemid, data in pairs(spike_items) do

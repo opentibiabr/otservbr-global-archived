@@ -46,10 +46,6 @@ noitems2 = 'You do not have all the required items or you do not have the first 
 already = 'It seems you already have this addon, don\'t you try to mock me son!'
 --WAYFARER START --
 function WayfarerFirst(creature, message, keywords, parameters, node)
-	if(not npcHandler:isFocused(creature)) then
-		return false
-	end
-
 	if isPremium(creature) then
 		addon = getPlayerStorageValue(creature,storage)
 		if addon == -1 then
@@ -71,10 +67,6 @@ function WayfarerFirst(creature, message, keywords, parameters, node)
 end
 
 function WayfarerSecond(creature, message, keywords, parameters, node)
-	if(not npcHandler:isFocused(creature)) then
-		return false
-	end
-
 	if isPremium(creature) then
 		addon = getPlayerStorageValue(creature,storage+1)
 		if addon == -1 then

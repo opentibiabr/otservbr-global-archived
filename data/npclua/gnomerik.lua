@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -55,11 +56,7 @@ keywordHandler:addGreetKeyword({'hi'}, {npcHandler = npcHandler, text = 'Hello a
 )
 keywordHandler:addAliasKeyword({'hello'})
 
-local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
 
 	if player:getStorageValue(Storage.BigfootBurden.NeedsBeer) == 1 then
 		if msgcontains(message, "recruit") or msgcontains(message, "test") or msgcontains(message, "result") then

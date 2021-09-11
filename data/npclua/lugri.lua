@@ -26,6 +26,10 @@ npcConfig.flags = {
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
+npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
+end
+
 npcType.onAppear = function(npc, creature)
 	npcHandler:onCreatureAppear(npc, creature)
 end
@@ -34,19 +38,15 @@ npcType.onDisappear = function(npc, creature)
 	npcHandler:onCreatureDisappear(npc, creature)
 end
 
+npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
+end
+
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-npcType.onThink = function(npc, interval)
-	npcHandler:onThink(npc, interval)
-end
-
-local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
 	if msgcontains(message, "outfit") or msgcontains(message, "addon") then
 		if player:getStorageValue(Storage.OutfitQuest.WizardAddon) < 1 then
 			npcHandler:say("This skull shows that you are a true follower of Zathroth and the glorious gods of darkness. Are you willing to prove your loyalty?", npc, creature)

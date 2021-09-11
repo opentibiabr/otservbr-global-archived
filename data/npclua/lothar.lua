@@ -45,6 +45,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -88,9 +89,6 @@ keywordHandler:addKeyword({'tin key'}, StdModule.say, {npcHandler = npcHandler, 
 keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = "It's on the door."})
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
 	if msgcontains(message, "control unit") then
 		npcHandler:say({
 			'That\'s an interesting one, nothing like I have ever seen myself. What you describe is a device of which I heard that it grants literally \'complete\' control over some sort of... artificial thing? ...',

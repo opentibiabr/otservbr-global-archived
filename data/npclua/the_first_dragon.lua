@@ -39,17 +39,14 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-function creatureSayCallback(npc, creature, type, message)
-	if(not npcHandler:isFocused(creature)) then
-		return false
-	end
-	local talkUser = NPCHANDLER_CONVBEHAVIOR == CONVERSATION_DEFAULT and 0 or creature
+function creatureSayCallback(npc, creature, type, message)	local talkUser = NPCHANDLER_CONVBEHAVIOR == CONVERSATION_DEFAULT and 0 or creature
 	local player = Player(creature)
 
 	if msgcontains(message, 'reward') and npcHandler.topic[creature] == 0 and player:getStorageValue(34013) < 1 then

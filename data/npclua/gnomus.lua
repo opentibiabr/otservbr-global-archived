@@ -26,6 +26,10 @@ npcConfig.flags = {
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
+npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
+end
+
 npcType.onAppear = function(npc, creature)
 	npcHandler:onCreatureAppear(npc, creature)
 end
@@ -34,12 +38,12 @@ npcType.onDisappear = function(npc, creature)
 	npcHandler:onCreatureDisappear(npc, creature)
 end
 
-npcType.onSay = function(npc, creature, type, message)
-	npcHandler:onCreatureSay(npc, creature, type, message)
+npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
-npcType.onThink = function(npc, interval)
-	npcHandler:onThink(npc, interval)
+npcType.onSay = function(npc, creature, type, message)
+	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
 local playerTopic = {}
@@ -51,7 +55,6 @@ local function greetCallback(npc, creature)
 		npcHandler:setMessage(MESSAGE_GREET, {"Greetings, member of the Bigfoot Brigade. We could really use some {help} from you right now. You should prove {worthy} to our alliance."})
 		playerTopic[creature] = 1
 	end
-	npcHandler:addFocus(creature)
 	return true
 end
 
@@ -68,10 +71,6 @@ keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, tex
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m the main gnomish contact for this base. I coordinate our efforts with those of the dwarves to ensure everything is running smoothly.'})
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	npcHandler.topic[creature] = playerTopic[creature]
 	local player = Player(creature)
 	npc = Npc(creature)

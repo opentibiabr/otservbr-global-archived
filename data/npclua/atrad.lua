@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -56,10 +57,6 @@ function greetCallback(npc, creature)
 end
 
 function creatureSayCallback(npc, creature, type, message)
-	if(not npcHandler:isFocused(creature)) then
-		return false
-	end
-
 	if(msgcontains(message, "addon") or msgcontains(message, "outfit")) then
 		if(getPlayerStorageValue(creature, Storage.Atrad) < 1) then
 			npcHandler:say("You managed to deceive Erayo? Impressive. Well, I guess, since you have come that far, I might as well give you a task too, eh?", npc, creature)

@@ -78,10 +78,6 @@ local function getTable()
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	if msgcontains(message, "shapers") then
 		npcHandler:say({
@@ -111,7 +107,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif  msgcontains(message, "no") and npcHandler.topic[creature] == 1 then
 		npcHandler:say('I understand. Return to me if you change your mind, my child.', npc, creature)
-		npcHandler:releaseFocus(creature)
+		npcHandler:removeInteraction(npc, creature)
 	end
 
 	if msgcontains(message, 'tomes') and player:getStorageValue(Storage.ForgottenKnowledge.Tomes) < 1 then
@@ -146,11 +142,11 @@ local function creatureSayCallback(npc, creature, type, message)
 		if haveParts then
 			npcHandler:say('As you wish.', npc, creature)
 			player:addItem(27628, 1)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 		end
 	elseif msgcontains(message, 'no') and npcHandler.topic[creature] == 8 then
 		npcHandler:say('ok.', npc, creature)
-		npcHandler:releaseFocus(creature)
+		npcHandler:removeInteraction(npc, creature)
 	end
 
 	--- ####PORTALS###

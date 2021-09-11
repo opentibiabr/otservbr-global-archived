@@ -40,6 +40,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -48,10 +49,6 @@ end
 
 local function creatureSayCallback(npc, creature, type, message)
 	local player = Player(creature)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	if msgcontains(message, "seventh seal") then
 		npcHandler:say("If you have passed the first six seals and entered the blue fires that lead to \z
 				the chamber of the seal you might receive my {kiss} ... It will open the last seal. \z

@@ -43,11 +43,7 @@ npcType.onThink = function(npc, interval)
 	npcHandler:onThink(npc, interval)
 end
 
-function creatureSayCallback(npc, creature, type, message)
-	if(not npcHandler:isFocused(creature)) then
-		return false
-	end
-	if(msgcontains(message, "mission") or msgcontains(message, "task")) then
+function creatureSayCallback(npc, creature, type, message)	if(msgcontains(message, "mission") or msgcontains(message, "task")) then
 		if(getPlayerStorageValue(creature, Storage.RottinWoodAndMaried.Mission03) < 1) and getPlayerStorageValue(creature, Storage.RottinWoodAndMaried.Time) <= os.time() then
 			npcHandler:say("Oh, you want some work? You can help us, alright. Did you know that the people of the city think those rabbit feet are actually lucky charms?", npc, creature)
 			npcHandler.topic[creature] = 1

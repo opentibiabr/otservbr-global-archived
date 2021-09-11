@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -141,10 +142,6 @@ local ACTION = {
 -- dream START --
 function dreamFirst(creature, message, keywords, parameters, node)
 
-	if(not npcHandler:isFocused(creature)) then
-		return false
-	end
-
 	if isPremium(creature) then
 		addon = getPlayerStorageValue(creature, storage)
 		if addon == -1 then
@@ -168,11 +165,7 @@ function dreamFirst(creature, message, keywords, parameters, node)
 end
 
 function dreamSecond(creature, message, keywords, parameters, node)
-	
-	if(not npcHandler:isFocused(creature)) then
-		return false
-	end
-	
+		
 	if isPremium(creature) then
 		addon = getPlayerStorageValue(creature, storage+1)
 		if addon == -1 then
@@ -208,10 +201,6 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	if msgcontains(message, "create") then
 		npcHandler:say("You can try to create {sword}s, {axe}s, {club}s, {bow}s, {crossbow}s and {spellbook}s.", npc, creature)
@@ -407,7 +396,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				end
 			end
 		end
-		npcHandler:releaseFocus(creature)
+		npcHandler:removeInteraction(npc, creature)
 		npcHandler:resetNpc()
 	end
 end

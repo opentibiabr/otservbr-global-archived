@@ -48,6 +48,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -116,10 +117,6 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	if isInArray({"yes", "right", "ok"}, message) then
 		if storeTalkCid[creature] == 0 then
@@ -131,7 +128,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.SantiagoNpcGreetStorage, 2)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.SantiagoQuestLog, 2)
 			player:sendTutorial(3)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		elseif storeTalkCid[creature] == 2 then
 			if player:getItemCount(2651) > 0 then
@@ -156,7 +153,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.SantiagoNpcGreetStorage, 5)
 			Position(32036, 32277, 6):sendMagicEffect(CONST_ME_TUTORIALARROW)
 			player:addItem(2382, 1)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		elseif storeTalkCid[creature] == 4 then
 			npcHandler:say("That's just great! Now you have more health points, can carry more stuff and walk faster. Talking about health, did you get {hurt} by those cockroaches?", npc, creature)
@@ -197,7 +194,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.SantiagoNpcGreetStorage, 13)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.SantiagoQuestLog, 11)
 			player:addMapMark(Position(32045, 32270, 6), MAPMARK_GREENSOUTH, "To Zirella")
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		end
 	elseif msgcontains(message, "hurt") then
@@ -217,7 +214,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.SantiagoNpcGreetStorage, 5)
 			Position(32036, 32277, 6):sendMagicEffect(CONST_ME_TUTORIALARROW)
 			player:addItem(2382, 1)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		end
 	elseif msgcontains(message, "easy") then

@@ -35,6 +35,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -42,9 +43,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	elseif msgcontains(message, "trip") or msgcontains(message, "passage") then
+	if msgcontains(message, "trip") or msgcontains(message, "passage") then
 		--if Player(creature):getStorageValue(Storage.TheNewFrontier.Questline) >= 24 then
 			npcHandler:say("You want trip to Izzle of Zztrife?", npc, creature)
 			npcHandler.topic[creature] = 1

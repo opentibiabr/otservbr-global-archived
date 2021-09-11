@@ -49,6 +49,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -61,10 +62,6 @@ fire:setParameter(CONDITION_PARAM_FORCEUPDATE, true)
 fire:addDamage(25, 9000, -10)
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	if msgcontains(message, 'gamel') and msgcontains(message, 'rebel') then
 		npcHandler:say('Are you saying that Gamel is a member of the rebellion?', npc, creature)
@@ -164,7 +161,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:getPosition():sendMagicEffect(CONST_ME_EXPLOSIONHIT)
 			Npc():getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
 			player:removeItem(2177, 1)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		else
 			npcHandler:say('As you wish.', npc, creature)

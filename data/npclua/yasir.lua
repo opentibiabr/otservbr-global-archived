@@ -39,30 +39,12 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
-
-local function creatureSayCallback(npc, creature, type, message)
-	if(not npcHandler:isFocused(creature)) then
-	return false
-	end
-
-	if message:lower() == "name" then
-		return npcHandler:say("Me Yasir.", npc, creature)
-	elseif message:lower() == "job" then
-		return npcHandler:say("Tje hari ku ne finjala. {Ariki}?", npc, creature)
-	elseif message:lower() == "passage" then
-		return npcHandler:say("Soso yana. <shakes his head>", npc, creature)
-	end
-	return true
-end
-
-npcHandler:setMessage(MESSAGE_FAREWELL, "Si, jema ze harun. <waves>")
-npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
-npcHandler:addModule(FocusModule:new())
 
 npcConfig.shop = {
 	-- Sellable items
@@ -639,5 +621,20 @@ end
 npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
 	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
 end
+
+local function creatureSayCallback(npc, creature, type, message)
+	if msgcontains(message, "name") then
+		return npcHandler:say("Me Yasir.", npc, creature)
+	elseif msgcontains(message, "job") then
+		return npcHandler:say("Tje hari ku ne finjala. {Ariki}?", npc, creature)
+	elseif msgcontains(message, "passage") then
+		return npcHandler:say("Soso yana. <shakes his head>", npc, creature)
+	end
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_FAREWELL, "Si, jema ze harun. <waves>")
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:addModule(FocusModule:new())
 
 npcType:register(npcConfig)

@@ -34,6 +34,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -54,15 +55,10 @@ local function greetCallback(npc, creature)
 		player:setStorageValue(Storage.Kilmaresh.First.Mission, 5)
 		npcHandler.topic[creature] = 20
 	end
-	npcHandler:addFocus(creature)
 	return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	-- Mission 3 Steal The Ambassador Ring
 	if msgcontains(message, "mission") and player:getStorageValue(Storage.Kilmaresh.Twelve.Boss) == 1 then
@@ -202,8 +198,6 @@ end
 
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Well, bye then.')
 
-npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
-npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 

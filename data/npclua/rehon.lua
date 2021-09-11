@@ -34,6 +34,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -41,10 +42,6 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	if msgcontains(message, "mission") then
 		local player = Player(creature)
 		if player:getStorageValue(Storage.HiddenCityOfBeregar.RoyalRescue) == 4 and player:removeItem(14350, 1) then

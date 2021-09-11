@@ -37,6 +37,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -63,7 +64,7 @@ function greetCallback(npc, creature)
 
 	player:setStorageValue(SPIKE_LOWER_UNDERCOVER_MAIN, SPIKE_STORAGE + 1)
 	table.insert(UNDERCOVER_CONTACTED[player:getGuid()], npc:getId())
-	npcHandler:releaseFocus(creature)
+	npcHandler:removeInteraction(npc, creature)
 	npcHandler:setMessage(MESSAGE_GREET, "Pssst! Keep it down! <gives you an elaborate report on monster activity>")
 	return true
 end

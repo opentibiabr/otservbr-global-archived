@@ -38,10 +38,6 @@ npcHandler:onThink(npc, interval)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	local missionProgress = player:getStorageValue(Storage.DjinnWar.MaridFaction.Mission03)
 	if msgcontains(message, 'mission') then

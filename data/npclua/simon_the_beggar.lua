@@ -60,6 +60,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -68,10 +69,6 @@ end
 
 -- First beggar addon
 local function BeggarFirst(creature, message, keywords, parameters, node)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	if player:isPremium() then
 		if player:getStorageValue(Storage.OutfitQuest.BeggarFirstAddonDoor) == -1 then
@@ -94,10 +91,6 @@ end
 
 -- Second beggar addon
 local function BeggarSecond(creature, message, keywords, parameters, node)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	if player:isPremium() then
 		if player:getStorageValue(Storage.OutfitQuest.BeggarSecondAddon) == -1 then
@@ -119,10 +112,6 @@ local function BeggarSecond(creature, message, keywords, parameters, node)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	if msgcontains(message, "cookie") then
 		if player:getStorageValue(Storage.WhatAFoolish.Questline) == 31
@@ -150,7 +139,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("Well, it's the least you can do for those who live in dire poverty. \z
 						A single cookie is a bit less than I'd expected, but better than ... WHA ... WHAT?? \z
 						MY BEARD! MY PRECIOUS BEARD! IT WILL TAKE AGES TO CLEAR IT OF THIS CONFETTI!", npc, creature)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		elseif npcHandler.topic[creature] == 2 then
 			if not player:removeMoneyNpc(100) then

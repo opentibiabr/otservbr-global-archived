@@ -1012,10 +1012,6 @@ end
 
 -- ======================[[ END COOKER FUNCTIONS ]] ======================== --
 local function creatureSayCallback(npc, creature, type, message)
-	if (not npcHandler:isFocused(creature)) then
-		return false
-	end
-
 	local player = Player(creature)
 
 	if not hireling:canTalkTo(player) then

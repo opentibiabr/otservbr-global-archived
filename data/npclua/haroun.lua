@@ -21,6 +21,10 @@ npcConfig.flags = {
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
+npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
+end
+
 npcType.onAppear = function(npc, creature)
 	npcHandler:onCreatureAppear(npc, creature)
 end
@@ -29,19 +33,15 @@ npcType.onDisappear = function(npc, creature)
 	npcHandler:onCreatureDisappear(npc, creature)
 end
 
+npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
+end
+
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-npcType.onThink = function(npc, interval)
-	npcHandler:onThink(npc, interval)
-end
-
-local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
 	if isInArray({"enchanted chicken wing", "boots of haste"}, message) then
 		npcHandler:say('Do you want to trade Boots of haste for Enchanted Chicken Wing?', npc, creature)
 		npcHandler.topic[creature] = 1
@@ -74,7 +74,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif msgcontains(message,'no') and (npcHandler.topic[creature] >= 1 and npcHandler.topic[creature] <= 5) then
 		npcHandler:say('Ok then.', npc, creature)
 		npcHandler.topic[creature] = 0
-		npcHandler:releaseFocus(creature)
+		npcHandler:removeInteraction(npc, creature)
 		npcHandler:resetNpc(creature)
 	end
 	return true

@@ -53,10 +53,6 @@ sleighinfo = {
 local monsterName = {'bright percht sleigh', 'cold percht sleigh', 'dark percht sleigh'}
 
 function creatureSayCallback(npc, creature, type, message)
-	if(not npcHandler:isFocused(creature)) then
-		return false
-	end
-
 	local player = Player(creature)
 	if sleighinfo[message] ~= nil then
 		if (getPlayerStorageValue(creature, sleighinfo[message].storageID) ~= -1) then

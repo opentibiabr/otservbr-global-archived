@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -56,10 +57,6 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	if msgcontains(message, 'dwarven bridge') then
 		npcHandler:say('Wait a minute! Do I get that right? You\'re the owner of the dwarven bridge and you are willing to sell it to me??', npc, creature)
 		npcHandler.topic[creature] = 1
@@ -85,7 +82,7 @@ local function creatureSayCallback(npc, creature, type, message)
 					'Excellent! Here is the painting you requested. It\'s quite precious to my father, but imagine his joy when I tell him about my clever deal! ...',
 					'Now leave me alone please. I have to prepare for my departure. Now my family will not call me a squandering fool anymore!'
 				}, npc, creature)
-				npcHandler:releaseFocus(creature)
+				npcHandler:removeInteraction(npc, creature)
 				npcHandler:resetNpc(creature)
 			end
 		end

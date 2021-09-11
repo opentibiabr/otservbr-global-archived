@@ -54,7 +54,6 @@ npcType.onThink = function(npc, interval)
 		local player = tile:getTopCreature()
 		if not player then
 			npcHandler.focuses = {}
-			npcHandler:updateFocus()
 		end
 	end
 end
@@ -129,11 +128,7 @@ local function greetCallback(npc, creature)
 	return true
 end
 
-local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	
+local function creatureSayCallback(npc, creature, type, message)	
 	local player = Player(creature)
 	if player:getPosition() ~= config.playerPosition then
 		npcHandler:unGreet(creature)

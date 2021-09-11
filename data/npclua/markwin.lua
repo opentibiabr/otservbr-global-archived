@@ -34,6 +34,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -70,10 +71,6 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	if msgcontains(message, "letter") then
 		if player:getStorageValue(Storage.Postman.Mission10) == 1 then
@@ -108,13 +105,13 @@ local function creatureSayCallback(npc, creature, type, message)
 
 			Npc():getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
 			npcHandler:say('I understand this as a peace-offering, human ... UNGH ... THIS IS AN OUTRAGE! THIS MEANS WAR!!!', npc, creature)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		end
 	elseif msgcontains(message, "bye") then
 		npcHandler:say("Hm ... good bye.", npc, creature)
 		player:addCondition(condition)
-		npcHandler:releaseFocus(creature)
+		npcHandler:removeInteraction(npc, creature)
 		npcHandler:resetNpc(creature)
 	end
 	return true

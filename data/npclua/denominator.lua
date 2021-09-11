@@ -21,6 +21,10 @@ npcConfig.flags = {
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
+npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
+end
+
 npcType.onAppear = function(npc, creature)
 	npcHandler:onCreatureAppear(npc, creature)
 end
@@ -29,12 +33,12 @@ npcType.onDisappear = function(npc, creature)
 	npcHandler:onCreatureDisappear(npc, creature)
 end
 
-npcType.onSay = function(npc, creature, type, message)
-	npcHandler:onCreatureSay(npc, creature, type, message)
+npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
-npcType.onThink = function(npc, interval)
-	npcHandler:onThink(npc, interval)
+npcType.onSay = function(npc, creature, type, message)
+	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
 local playerTopic = {}
@@ -48,7 +52,6 @@ local function greetCallback(npc, creature)
 	else
 		npcHandler:setMessage(MESSAGE_GREET, "Greetings.")
 	end
-	npcHandler:addFocus(creature)
 	return true
 end
 
@@ -103,11 +106,7 @@ local quiz3 = {
 	[1] = {p = "Is the number divisible by 3?", r = function(player)return (player:getStorageValue(Storage.CultsOfTibia.MotA.Answer) % 3 == 0 and 1 or 0)end},
 	[2] = {p = "Is the number divisible by 2?", r = function(player)return (player:getStorageValue(Storage.CultsOfTibia.MotA.Answer) % 2 == 0 and 1 or 0)end}
 }
-local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	npcHandler.topic[creature] = playerTopic[creature]
+local function creatureSayCallback(npc, creature, type, message)	npcHandler.topic[creature] = playerTopic[creature]
 	local player = Player(creature)
 	-- Começou a quest
 	if msgcontains(message, "questions") and npcHandler.topic[creature] == 1 then
@@ -131,7 +130,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			if playerLastResp[creature] ~= (tonumber(resposta(player))) then
 				npcHandler:say("Wrong. SHUT DOWN.", npc, creature)
 				npcHandler:resetNpc(creature)
-				npcHandler:releaseFocus(creature)
+				npcHandler:removeInteraction(npc, creature)
 				return false
 			else
 				npcHandler:say("Correct. {Next} question?", npc, creature)
@@ -141,7 +140,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("SHUT DOWN.", npc, creature)
 			npcHandler:resetNpc(creature)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			return false
 		end
 	elseif msgcontains(message, "next") and npcHandler.topic[creature] == 5 then
@@ -165,7 +164,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		else
 			npcHandler:say("Wrong. SHUT DOWN.", npc, creature)
 			npcHandler:resetNpc(creature)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			return false
 		end
 	elseif npcHandler.topic[creature] == 7 and msgcontains(message, "next") then
@@ -189,7 +188,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		else
 			npcHandler:say("Wrong. SHUT DOWN.", npc, creature)
 			npcHandler:resetNpc(creature)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			return false
 		end
 	elseif npcHandler.topic[creature] == 9 and msgcontains(message, "last") then
@@ -207,7 +206,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			if tonumber(playerLastResp[creature]) ~= (tonumber(correct)) then
 				npcHandler:say("Wrong. SHUT DOWN.", npc, creature)
 				npcHandler:resetNpc(creature)
-				npcHandler:releaseFocus(creature)
+				npcHandler:removeInteraction(npc, creature)
 				return false
 			else
 				npcHandler:say("Correct. The lower door is now open. The druid of Crunor lies.", npc, creature)
@@ -217,7 +216,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("SHUT DOWN.", npc, creature)
 			npcHandler:resetNpc(creature)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			return false
 		end
 	end

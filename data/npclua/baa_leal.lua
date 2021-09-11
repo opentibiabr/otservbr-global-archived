@@ -59,10 +59,6 @@ local function greetCallback(creature, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	local missionProgress = player:getStorageValue(Storage.DjinnWar.EfreetFaction.Mission01)
 	if msgcontains(message, 'mission') then

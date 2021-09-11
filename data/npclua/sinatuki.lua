@@ -38,6 +38,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -51,10 +52,6 @@ local fishsID = {7158,7159}
 function creatureSayCallback(npc, creature, type, message)
 
 local player = Player(creature)
-
-	if(not npcHandler:isFocused(creature)) then
-		return false
-	end
 
 	if msgcontains(message, 'Nupi') then
 	if player:getStorageValue(Storage.BarbarianTest.Questline) >= 3 and player:getStorageValue(Storage.TheIceIslands.Questline) >=5 then

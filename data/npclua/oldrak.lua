@@ -52,6 +52,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -87,11 +88,7 @@ keywordHandler:addKeyword({"buy"}, StdModule.say, {npcHandler = npcHandler, text
 keywordHandler:addKeyword({"have"}, StdModule.say, {npcHandler = npcHandler, text = "I can offer you the holy tible for a small fee."})
 keywordHandler:addKeyword({"time"}, StdModule.say, {npcHandler = npcHandler, text = "Now, it is |TIME|."})
 
-local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	
+local function creatureSayCallback(npc, creature, type, message)	
 	local player = Player(creature)
 
 	-- Demon oak quest

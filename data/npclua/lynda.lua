@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -46,10 +47,6 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 
 	if msgcontains(message, "angelina") then
@@ -150,10 +147,6 @@ local function creatureSayCallback(npc, creature, type, message)
 end
 
 local function confirmWedding(creature, message, keywords, parameters, node)
-	if(not npcHandler:isFocused(creature)) then
-		return false
-	end
-
 	local player = Player(creature)
 	local playerStatus = getPlayerMarriageStatus(player:getGuid())
 	local candidate = getPlayerSpouse(player:getGuid())
@@ -179,10 +172,6 @@ local function confirmWedding(creature, message, keywords, parameters, node)
 end
 		-- END --
 local function confirmRemoveEngage(creature, message, keywords, parameters, node)
-	if(not npcHandler:isFocused(creature)) then
-		return false
-	end
-
 	local player = Player(creature)
 	local playerStatus = getPlayerMarriageStatus(player:getGuid())
 	local playerSpouse = getPlayerSpouse(player:getGuid())
@@ -208,10 +197,6 @@ local function confirmRemoveEngage(creature, message, keywords, parameters, node
 end
 
 local function confirmDivorce(creature, message, keywords, parameters, node)
-	if(not npcHandler:isFocused(creature)) then
-		return false
-	end
-
 	local player = Player(creature)
 	local playerStatus = getPlayerMarriageStatus(player:getGuid())
 	local playerSpouse = getPlayerSpouse(player:getGuid())

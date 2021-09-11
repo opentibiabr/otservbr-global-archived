@@ -46,6 +46,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -64,9 +65,7 @@ keywordHandler:addKeyword({'ab\'dendriel'}, StdModule.say, {npcHandler = npcHand
 keywordHandler:addKeyword({'kazordoon'}, StdModule.say, {npcHandler = npcHandler, text = "The city is like the dwarfs that built it. Stony, never-changing and hard to understand for an outsider."})
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	elseif msgcontains(message, "winfred") then
+	if msgcontains(message, "winfred") then
 		npcHandler:say({
 			'He was my one and only true love. He was a mere commoner and so my {father} forbid me to see him ...',
 			'We met anyway, we had plans to flee to {Port Hope} and to start a new life there ...',

@@ -44,10 +44,6 @@ npcType.onThink = function(npc, interval)
 end
 
 function creatureSayCallback(npc, creature, type, message)
-	if(not npcHandler:isFocused(creature)) then
-		return false
-	end
-
 	local player = Player(creature)
 	if (msgcontains(message, "fur")) then
 		if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 8) then

@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -47,7 +48,7 @@ end
 
 local function greetCallback(npc, creature)
 	npcHandler:say('Move on!', npc, creature)
-	npcHandler:releaseFocus(creature)
+	npcHandler:removeInteraction(npc, creature)
 	npcHandler:resetNpc(creature)
 	return false
 end

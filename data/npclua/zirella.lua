@@ -47,6 +47,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -88,10 +89,6 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	if isInArray({"yes", "quest", "ok"}, message) then
 		if storeTalkCid[creature] == 0 then
@@ -132,7 +129,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.ZirellaQuestLog, 6)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage, 6)
 			Position(32064, 32273, 7):sendMagicEffect(CONST_ME_TUTORIALARROW)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		elseif storeTalkCid[creature] == 7 then
 			npcHandler:say({
@@ -148,13 +145,13 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.ZirellaQuestLog, 8)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage, 8)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		end
 	elseif msgcontains(message, "no") then
 		if storeTalkCid[creature] == 7 then
 			npcHandler:say("Well then, I hope you find nice and dry branches for me! Good {bye}!", npc, creature)
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		end
 	end

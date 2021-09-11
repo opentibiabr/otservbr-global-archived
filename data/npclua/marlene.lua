@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -52,9 +53,7 @@ keywordHandler:addKeyword({'graubart'}, StdModule.say, {npcHandler = npcHandler,
 keywordHandler:addKeyword({'thank you'}, StdModule.say, {npcHandler = npcHandler, text = "My pleasure, I always enjoy sharing interesting stories."})
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	elseif msgcontains(message, "seamonster") then
+	if msgcontains(message, "seamonster") then
 		npcHandler:say({
 			'Only some days ago I was at the docks late in the night and was looking for my husband\'s ship when suddenly a known noise appeared near the docks. ...',
 			'I know this noise very well because it is the noise of a ship sailing very fast. I searched the horizon in hope to see my husbands ship. ...',

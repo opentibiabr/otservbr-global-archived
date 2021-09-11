@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -60,60 +61,58 @@ local function greetCallback(npc, creature)
 		player:setStorageValue(Storage.Kilmaresh.First.Mission, 5)
 		playerTopic[creature] = 20
 	end
-	npcHandler:addFocus(creature)
 	return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-if not npcHandler:isFocused(creature) then
-	return false
-end
-npcHandler.topic[creature] = playerTopic[creature]
-local player = Player(creature)
-if msgcontains(message, "mission") and player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 1 then
-	if player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 1 then
-		npcHandler:say({"Could you help me do a ritual?"}, npc, creature)-- It needs to be revised, it's not the same as the global
-		npcHandler.topic[creature] = 1
-		playerTopic[creature] = 1
+	npcHandler.topic[creature] = playerTopic[creature]
+	local player = Player(creature)
+	if msgcontains(message, "mission") and player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 1 then
+		if player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 1 then
+			npcHandler:say({"Could you help me do a ritual?"}, npc, creature)-- It needs to be revised, it's not the same as the global
+			npcHandler.topic[creature] = 1
+			playerTopic[creature] = 1
+		end
+	elseif msgcontains(message, "yes") and playerTopic[creature] == 1 and player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 1 then
+		if player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 1 then	
+			player:addItem(36550, 1)
+			npcHandler:say({"Here is the list with the missing ingredients to complete the ritual."}, npc, creature)-- It needs to be revised, it's not the same as the global
+			player:setStorageValue(Storage.Kilmaresh.Eighth.Shimun, 2)
+			npcHandler.topic[creature] = 2
+			playerTopic[creature] = 2
+		else
+			npcHandler:say({"Sorry."}, npc, creature)-- It needs to be revised, it's not the same as the global
+		end
 	end
-elseif msgcontains(message, "yes") and playerTopic[creature] == 1 and player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 1 then
-	if player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 1 then	
-		player:addItem(36550, 1)
-		npcHandler:say({"Here is the list with the missing ingredients to complete the ritual."}, npc, creature)-- It needs to be revised, it's not the same as the global
-		player:setStorageValue(Storage.Kilmaresh.Eighth.Shimun, 2)
-		npcHandler.topic[creature] = 2
-		playerTopic[creature] = 2
-	else
-		npcHandler:say({"Sorry."}, npc, creature)-- It needs to be revised, it's not the same as the global
+	if msgcontains(message, "mission") and player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 2 then
+		if player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 2 then
+			npcHandler:say({"Did you bring all the materials I informed you about? "}, npc, creature)-- It needs to be revised, it's not the same as the global
+			npcHandler.topic[creature] = 3
+			playerTopic[creature] = 3
+		end
+	elseif msgcontains(message, "yes") and playerTopic[creature] == 3 and player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 2 then
+		if player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 2 and player:getItemById(36175, 1) and player:getItemById(36171, 12) and player:getItemById(2006, 5) then	
+			player:removeItem(36175, 1)
+			player:removeItem(36171, 12)
+			player:removeItem(2006, 5)
+			npcHandler:say({"Thank you this stage of the ritual is complete."}, npc, creature)-- It needs to be revised, it's not the same as the global
+			player:setStorageValue(Storage.Kilmaresh.Eighth.Shimun, 3)
+			npcHandler.topic[creature] = 4
+			playerTopic[creature] = 4
+		else
+			npcHandler:say({"Sorry."}, npc, creature)-- It needs to be revised, it's not the same as the global
+		end
 	end
-end
-if msgcontains(message, "mission") and player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 2 then
-	if player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 2 then
-		npcHandler:say({"Did you bring all the materials I informed you about? "}, npc, creature)-- It needs to be revised, it's not the same as the global
-		npcHandler.topic[creature] = 3
-		playerTopic[creature] = 3
-	end
-elseif msgcontains(message, "yes") and playerTopic[creature] == 3 and player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 2 then
-	if player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 2 and player:getItemById(36175, 1) and player:getItemById(36171, 12) and player:getItemById(2006, 5) then	
-		player:removeItem(36175, 1)
-		player:removeItem(36171, 12)
-		player:removeItem(2006, 5)
-		npcHandler:say({"Thank you this stage of the ritual is complete."}, npc, creature)-- It needs to be revised, it's not the same as the global
-		player:setStorageValue(Storage.Kilmaresh.Eighth.Shimun, 3)
-		npcHandler.topic[creature] = 4
-		playerTopic[creature] = 4
-	else
-		npcHandler:say({"Sorry."}, npc, creature)-- It needs to be revised, it's not the same as the global
-	end
-end
-return true
+	return true
 end
 
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Well, bye then.')
+
 npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
 npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())
 
 -- npcType registering the npcConfig table

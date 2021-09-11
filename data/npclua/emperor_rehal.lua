@@ -46,10 +46,6 @@ keywordHandler:addKeyword({'hi'}, StdModule.say, {npcHandler = npcHandler, onlyU
 keywordHandler:addKeyword({'hello'}, StdModule.say, {npcHandler = npcHandler, onlyUnfocus = true})
 
 function creatureSayCallback(npc, creature, type, message)
-	if(not(npcHandler:isFocused(creature))) then
-		return false
-	end
-
 	local player = Player(creature)	
 	if (msgcontains(message, "nokmir")) then
 		if player:getStorageValue(Storage.HiddenCityOfBeregar.JusticeForAll) == 1 then

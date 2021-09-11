@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -46,10 +47,6 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	if msgcontains(message, 'yes') then
 		local player = Player(creature)
 		if not player:removeMoneyNpc(50) then
@@ -65,7 +62,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	else
 		npcHandler:say('Then not.', npc, creature)
 	end
-	npcHandler:releaseFocus(creature)
+	npcHandler:removeInteraction(npc, creature)
 	npcHandler:resetNpc(creature)
 	return true
 end

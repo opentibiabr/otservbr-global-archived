@@ -69,6 +69,7 @@ end
 
 -- onMove
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 -- onSay
@@ -85,10 +86,6 @@ end
 -- On creature say callback
 local function creatureSayCallback(npc, creature, type, message)
 	local player = Player(creature)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	if msgcontains(message, "canary") then
 		npcHandler:say({
 			"The goal is for Canary to be an 'engine', that is, it will be \z

@@ -98,44 +98,37 @@ local function getReward()
 end
 
 function creatureSayCallback(npc, creature, type, message)
-	 if(not npcHandler:isFocused(creature)) then
-		  return false
-	 end
-	 local talkUser = NPCHANDLER_CONVBEHAVIOR == CONVERSATION_DEFAULT and 0 or creature
-
-	 if msgcontains(message, 'present') then
-		  local player = Player(creature)
-		  if (player:getStorageValue(840293) == 1) then
-			   npcHandler:say("You can't get other present.", npc, creature)
-			   return false
-		  end
-
- --		 if (player:getLevel() < 150) then
- --			  npcHandler:say("You need level 150 to get a present.", npc, creature)
- --			  return false
- --		 end
-
-		  local reward = getReward()
-		  local cont = Container(Player(creature):addItem(6511):getUniqueId())
-		  local count = 1
-
-		  for i = 1, #reward do
-			   if (reward[i] == 2111 or
-				   reward[i] == 2688) then
-					count = 10
-			   end
-
-			   cont:addItem(reward[i], count)
-		  end
-
-		  player:setStorageValue(840293, 1)
-		  npcHandler:say("Merry Christmas!", npc, creature)
-	 end
-
-	 return true
+	local talkUser = NPCHANDLER_CONVBEHAVIOR == CONVERSATION_DEFAULT and 0 or creature
+	
+	if msgcontains(message, 'present') then
+		local player = Player(creature)
+		if (player:getStorageValue(840293) == 1) then
+			npcHandler:say("You can't get other present.", npc, creature)
+			return false
+		end
+		
+		local reward = getReward()
+		local cont = Container(Player(creature):addItem(6511):getUniqueId())
+		local count = 1
+		
+		for i = 1, #reward do
+			if (reward[i] == 2111 or
+			reward[i] == 2688) then
+				count = 10
+			end
+			
+			cont:addItem(reward[i], count)
+		end
+		
+		player:setStorageValue(840293, 1)
+		npcHandler:say("Merry Christmas!", npc, creature)
+	end
+	
+	return true
 end
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())
 
 -- npcType registering the npcConfig table

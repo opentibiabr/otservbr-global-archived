@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -56,11 +57,7 @@ local function greetCallback(npc, creature)
 	return true
 end
 
-local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
 	-- PREQUEST
 	if msgcontains(message, "mine") then
 		if player:getStorageValue(Storage.OutfitQuest.BarbarianAddon) == 1 then
@@ -141,7 +138,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:addCondition(condition)
 			player:setStorageValue(Storage.OutfitQuest.BarbarianAddon, 2)
 			player:setStorageValue(Storage.OutfitQuest.BarbarianAddonWaitTimer, os.time() + 60 * 60) -- 1 hour
-			npcHandler:releaseFocus(creature)
+			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		elseif npcHandler.topic[creature] == 6 then
 			npcHandler:say({

@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -53,10 +54,6 @@ keywordHandler:addKeyword({'forest fury'}, StdModule.say, {npcHandler = npcHandl
 keywordHandler:addKeyword({'orclops'}, StdModule.say, {npcHandler = npcHandler, text = "Cruel beings. Large and monstrous, with a single eye, staring at their prey. "})
 
 local function creatureSayCallback(npc, creature, type, message)
-	if not npcHandler:isFocused(creature) then
-		return false
-	end
-
 	local player = Player(creature)
 	if msgcontains(message, "distress") or msgcontains(message, "mission") then
 		npcHandler:say({

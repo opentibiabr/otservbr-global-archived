@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -60,25 +61,21 @@ local function greetCallback(npc, creature)
 		player:setStorageValue(Storage.Kilmaresh.First.Mission, 5)
 		playerTopic[creature] = 20
 	end
-	npcHandler:addFocus(creature)
 	return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-if not npcHandler:isFocused(creature) then
-	return false
-end
-npcHandler.topic[creature] = playerTopic[creature]
-local player = Player(creature)
-
-if msgcontains(message, "daughter") and player:getStorageValue(Storage.TheSecretLibrary.Peacock) == 1 then
-	npcHandler:say({"I always feared that I lost her. And yet, all those years, I still had a gleam of hope. I'm devastated to learn about her fate - but at least I have certainty now. Thank you for telling me."}, npc, creature)
-	player:setStorageValue(Storage.TheSecretLibrary.Peacock, 2)
-	npcHandler.topic[creature] = 1
-	playerTopic[creature] = 1
-end
-
-return true
+	npcHandler.topic[creature] = playerTopic[creature]
+	local player = Player(creature)
+	
+	if msgcontains(message, "daughter") and player:getStorageValue(Storage.TheSecretLibrary.Peacock) == 1 then
+		npcHandler:say({"I always feared that I lost her. And yet, all those years, I still had a gleam of hope. I'm devastated to learn about her fate - but at least I have certainty now. Thank you for telling me."}, npc, creature)
+		player:setStorageValue(Storage.TheSecretLibrary.Peacock, 2)
+		npcHandler.topic[creature] = 1
+		playerTopic[creature] = 1
+	end
+	
+	return true
 end
 
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Well, bye then.')

@@ -39,6 +39,7 @@ npcType.onDisappear = function(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
@@ -60,38 +61,34 @@ local function greetCallback(npc, creature)
 		player:setStorageValue(Storage.Kilmaresh.First.Mission, 5)
 		playerTopic[creature] = 20
 	end
-	npcHandler:addFocus(creature)
 	return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-if not npcHandler:isFocused(creature) then
-	return false
-end
-npcHandler.topic[creature] = playerTopic[creature]
-local player = Player(creature)
-
-if msgcontains(message, "report") and player:getStorageValue(Storage.TheSecretLibrary.PinkTel) == 1 then
-	npcHandler:say({"Talk to Captain Charles in Port Hope. He told me that he once ran ashore on a small island where he discovered a small ruin. The architecture was like nothing he had seen before."}, npc, creature)
-	player:setStorageValue(Storage.TheSecretLibrary.PinkTel, 2)
-	npcHandler.topic[creature] = 1
-	playerTopic[creature] = 1
-end
-
-if msgcontains(message, "check") and player:getStorageValue(Storage.TheSecretLibrary.HighDry) == 5 then
-	npcHandler:say({"Marvellous! With this information combined we have all that's needed! ...",
-					"So let me see. ...",
-					"Hmm, interesting. And we shouldn't forget about the chant! Yes, excellent! ...",
-					"So listen: To enter the veiled library, travel to the white raven monastery on the Isle of Kings and enter its main altar room. ...",
-					"There, use an ordinary scythe on the right of the two monuments, while concentrating on this glyph here and chant the words: Chamek Athra Thull Zathroth ...",
-					"Oh, and one other thing. For your efforts I want to reward you with one of my old outfits, back from my adventuring days. May it suit you well! ...",
-					"Hurry now my friend. Time is of essence!"}, npc, creature)
-	player:setStorageValue(Storage.TheSecretLibrary.HighDry, 6)
-	npcHandler.topic[creature] = 1
-	playerTopic[creature] = 1
-end
-
-return true
+	npcHandler.topic[creature] = playerTopic[creature]
+	local player = Player(creature)
+	
+	if msgcontains(message, "report") and player:getStorageValue(Storage.TheSecretLibrary.PinkTel) == 1 then
+		npcHandler:say({"Talk to Captain Charles in Port Hope. He told me that he once ran ashore on a small island where he discovered a small ruin. The architecture was like nothing he had seen before."}, npc, creature)
+		player:setStorageValue(Storage.TheSecretLibrary.PinkTel, 2)
+		npcHandler.topic[creature] = 1
+		playerTopic[creature] = 1
+	end
+	
+	if msgcontains(message, "check") and player:getStorageValue(Storage.TheSecretLibrary.HighDry) == 5 then
+		npcHandler:say({"Marvellous! With this information combined we have all that's needed! ...",
+			"So let me see. ...",
+			"Hmm, interesting. And we shouldn't forget about the chant! Yes, excellent! ...",
+			"So listen: To enter the veiled library, travel to the white raven monastery on the Isle of Kings and enter its main altar room. ...",
+			"There, use an ordinary scythe on the right of the two monuments, while concentrating on this glyph here and chant the words: Chamek Athra Thull Zathroth ...",
+			"Oh, and one other thing. For your efforts I want to reward you with one of my old outfits, back from my adventuring days. May it suit you well! ...",
+		"Hurry now my friend. Time is of essence!"}, npc, creature)
+		player:setStorageValue(Storage.TheSecretLibrary.HighDry, 6)
+		npcHandler.topic[creature] = 1
+		playerTopic[creature] = 1
+	end
+	
+	return true
 end
 
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Well, bye then.')
