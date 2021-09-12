@@ -5,12 +5,12 @@ dofile('data/npc/lib/npcsystem/customModules.lua')
 isPlayerPremiumCallback = Player.isPremium
 
 function msgcontains(message, keyword)
-	local message, keyword = message:lower(), keyword:lower()
-	if message == keyword then
+	local lowerMessage, lowerKeyword = message:lower(), keyword:lower()
+	if lowerMessage == lowerKeyword then
 		return true
 	end
 
-	return message:find(keyword) and not message:find('(%w+)' .. keyword)
+	return string.find(lowerMessage, lowerKeyword) and string.find(lowerMessage, lowerKeyword.. '(%w+)')
 end
 
 function doNpcSellItem(cid, itemId, amount, subType, ignoreCap, inBackpacks, backpack)

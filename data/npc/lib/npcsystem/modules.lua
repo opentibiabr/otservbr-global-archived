@@ -349,7 +349,7 @@ if Modules == nil then
 	function FocusModule.messageMatcher(keywords, message)
 		for i, word in pairs(keywords) do
 			if type(word) == "string" then
-				if string.find(message, word) and not string.find(message, "[%w+]" .. word) and not string.find(message, word .. "[%w+]") then
+				if string.find(message, word) and not string.find(message, "[%w+]" .. word) and string.find(message, word .. "[%w+]") then
 					return true
 				end
 			end
