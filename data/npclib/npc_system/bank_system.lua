@@ -4,14 +4,14 @@ local receiptFormat = "Date: %s\nType: %s\nGold Amount: %d\nReceipt Owner: %s\nR
 
 function Npc:parseBankMessages(message, npc, creature, npcHandler)
 	local messagesTable = {
-		["money"] = "We can {exchange} money for you. You can also access your {bank account}",
-		["exchange"] = "There are three different coin types in Tibia: 100 gold coins equal 1 platinum coin, 100 platinum coins equal 1 crystal coin. So if you'd like to change 100 gold into 1 platinum, simply say '{change gold}' and then '1 platinum'",
-		["bank"] = "We can {exchange} money for you. You can also access your {bank account}",
+		["money"] = "We can {change} money for you. You can also access your {bank account}",
+		["change"] = "There are three different coin types in Tibia: 100 gold coins equal 1 platinum coin, 100 platinum coins equal 1 crystal coin. So if you'd like to change 100 gold into 1 platinum, simply say '{change gold}' and then '1 platinum'",
+		["bank"] = "We can {change} money for you. You can also access your {bank account}",
 		["advanced"] = "Your bank account will be used automatically when you want to {rent} a house or place an offer on an item on the {market}. Let me know if you want to know about how either one works",
 		["help"] = "You can check the {balance} of your bank account, {deposit} money or {withdraw} it. You can also {transfer} money to other characters, provided that they have a vocation",
 		["functions"] = "You can check the {balance} of your bank account, {deposit} money or {withdraw} it. You can also {transfer} money to other characters, provided that they have a vocation",
 		["basic"] = "You can check the {balance} of your bank account, {deposit} money or {withdraw} it. You can also {transfer} money to other characters, provided that they have a vocation",
-		["job"] = "I work in this bank. I can change money for you and help you with your bank account",
+		["job"] = "I work in this bank. I can {change money} for you and help you with your bank account",
 		["bank account"] = {"Every Tibian has one. The big advantage is that you can access your money in every branch of the Tibian Bank! ...",
 		"Would you like to know more about the {basic} functions of your bank account, the {advanced} functions, or are you already bored, perhaps?"}
 	}
