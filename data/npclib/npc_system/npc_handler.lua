@@ -149,8 +149,9 @@ if NpcHandler == nil then
 	function NpcHandler:updateInteraction(npc, player)
 		if not self:checkInteraction(npc, player) then
 			npc:setPlayerInteraction(player, 0)
+			return true
 		end
-		return true
+		return npc:turnToCreature(player)
 	end
 
 	-- This function is used to set an interaction between the npc and the player
@@ -374,7 +375,6 @@ if NpcHandler == nil then
 
 	-- Handles onCreatureSay events. If you with to handle this yourself, please use the CALLBACK_CREATURE_SAY callback.
 	function NpcHandler:onCreatureSay(npc, player, msgtype, msg)
-		local playerId = player.uid
 		local callback = self:getCallback(CALLBACK_CREATURE_SAY)
 		if callback == nil or callback(npc, player, msgtype, msg) then
 			if self:processModuleCallback(CALLBACK_CREATURE_SAY, npc, player, msgtype, msg) then
@@ -387,7 +387,7 @@ if NpcHandler == nil then
 						local ret = self.keywordHandler:processMessage(npc, player, msg)
 						if not ret then
 							local callback = self:getCallback(CALLBACK_MESSAGE_DEFAULT)
-							if callback ~= nil and callback(npc, playerId, msgtype, msg) then
+							if callback ~= nil and callback(npc, player, msgtype, msg) then
 								self.talkStart[player] = os.time()
 							end
 						else
@@ -543,11 +543,16 @@ if NpcHandler == nil then
 			self:cancelNPCTalk(self.eventDelayedSay[player])
 		end
 
+		local playerId = player.uid
+		if not playerId then
+			return Spdlog.error("[NpcHandler:doNPCTalkALot] - Player is unsafe.")
+		end
+
 		self.eventDelayedSay[player] = {}
 		local ret = {}
 		for aux = 1, #msgs do
 			self.eventDelayedSay[player][aux] = {}
-			npc:sayWithDelay(npc:getId(), msgs[aux], TALKTYPE_PRIVATE_NP, ((aux-1) * (delay or 4000)), self.eventDelayedSay[player][aux], player)
+			npc:sayWithDelay(npc:getId(), msgs[aux], TALKTYPE_PRIVATE_NP, ((aux-1) * (delay or 4000)), self.eventDelayedSay[player][aux], playerId)
 			ret[#ret + 1] = self.eventDelayedSay[player][aux]
 		end
 		return(ret)
