@@ -1,8 +1,3 @@
--- Including the Advanced NPC System
-dofile('data/npclib/npc_system/bank_system.lua')
-dofile('data/npclib/npc_system/npc_system.lua')
-dofile('data/npclib/npc_system/custom_modules.lua')
-
 isPlayerPremiumCallback = Player.isPremium
 
 -- Function called with by the function "Npc:sayWithDelay"
