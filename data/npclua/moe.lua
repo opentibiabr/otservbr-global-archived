@@ -109,8 +109,8 @@ keywordHandler:addKeyword(
 npcHandler:setMessage(MESSAGE_GREET, "Greetings, traveller. It seems, you're a {guest} here, just like me.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Well, bye then.')
 
-npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
-npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
+npcHandler:setCallback(CALLBACK_SET_INTERACTION, onAddFocus)
+npcHandler:setCallback(CALLBACK_REMOVE_INTERACTION, onReleaseFocus)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
 npcHandler:addModule(FocusModule:new())

@@ -171,7 +171,7 @@ npcHandler:setMessage(MESSAGE_GREET, 'Greetings |PLAYERNAME|. What leads you to 
 npcHandler:setMessage(MESSAGE_FAREWELL, 'Daraman\'s blessings.')
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
-npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
+npcHandler:setCallback(CALLBACK_REMOVE_INTERACTION, onReleaseFocus)
 npcHandler:addModule(FocusModule:new())
 
 -- npcType registering the npcConfig table

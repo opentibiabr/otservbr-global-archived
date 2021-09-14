@@ -71,8 +71,8 @@ keywordHandler:addKeyword(
 npcHandler:setMessage(MESSAGE_GREET, 'Greetings, dear guest. If you are interested in paperware such as books or scrolls, ask me for a trade.')
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Well, bye then.')
 
-npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
-npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
+npcHandler:setCallback(CALLBACK_SET_INTERACTION, onAddFocus)
+npcHandler:setCallback(CALLBACK_REMOVE_INTERACTION, onReleaseFocus)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
 

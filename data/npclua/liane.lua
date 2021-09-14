@@ -66,7 +66,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.Postman.Mission07) >= 1 and	player:getStorageValue(Storage.Postman.MeasurementsLiane) ~= 1 then
 			npcHandler:say("I have more urgent problem to attend then that. Those hawks are hunting my carrier pigeons. Bring me 12 arrows and I'll see if I have the time for this nonsense. Do you have 12 arrows with you? ", npc, creature)
 			npcHandler.topic[playerId] = 1
-	else
+		else
 			npcHandler:say("...", npc, creature)
 			npcHandler.topic[playerId] = 0
 		end
@@ -77,9 +77,9 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:setStorageValue(Storage.Postman.Mission07, player:getStorageValue(Storage.Postman.Mission07) + 1)
 				player:setStorageValue(Storage.Postman.MeasurementsLiane, 1)
 				npcHandler.topic[playerId] = 0
-	else
-			npcHandler:say("Oh, you don\'t have it.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			else
+				npcHandler:say("Oh, you don\'t have it.", npc, creature)
+				npcHandler.topic[playerId] = 0
 			end
 		end
 	end

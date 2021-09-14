@@ -126,7 +126,7 @@ end
 npcHandler:setMessage(MESSAGE_GREET, 'What the... I mean, of course I sensed you.')
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
-npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
+npcHandler:setCallback(CALLBACK_REMOVE_INTERACTION, onReleaseFocus)
 npcHandler:addModule(FocusModule:new())
 
 -- npcType registering the npcConfig table

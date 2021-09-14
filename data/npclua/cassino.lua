@@ -7,7 +7,7 @@ npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
-npcConfig.walkInterval = 2000
+npcConfig.walkInterval = 0
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
@@ -38,24 +38,24 @@ local config = {
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
+npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
+end
+
 npcType.onAppear = function(npc, creature)
 	npcHandler:onCreatureAppear(npc, creature)
 end
+
 npcType.onDisappear = function(npc, creature)
 	npcHandler:onCreatureDisappear(npc, creature)
 end
+
+npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
+end
+
 npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
-end
-npcType.onThink = function(npc, interval)
-	npcHandler:onThink(npc, interval)
-	local tile = Tile(config.playerPosition)
-	if tile then
-		local player = tile:getTopCreature()
-		if not player then
-			npcHandler.focuses = {}
-		end
-	end
 end
 
 local function getCoinValue(id)
@@ -124,6 +124,7 @@ local function greetCallback(npc, creature)
 	local player = Player(creature)
 	if player:getPosition() ~= config.playerPosition then
 		npcHandler:say("If you want to play with me please come near me.", npc, creature)
+		npcHandler:removeInteraction(npc, creature)
 		return false
 	end
 	return true
@@ -237,12 +238,26 @@ local function creatureSayCallback(npc, creature, type, message)
 	return true
 end
 
+local function creatureMoveCallback(npc, player, fromPosition, toPosition)
+	local tile = Tile(config.playerPosition)
+	if tile then
+		local playerTile = tile:getTopCreature()
+		if not playerTile then
+			if npcHandler:checkInteraction(npc, player) then
+				npcHandler:removeInteraction(npc, player)
+			end
+		end
+	end
+	return true
+end
+
 npcHandler:setMessage(MESSAGE_GREET, "Welcome to the Cassino! Here we play with: \n [PAYOUT 180%] {HIGH / LOW}: High for 4, 5, 6 and Low for 1, 2, and 3 - {ODD / EVEN }: Odd for 1, 3, 5 and Even for 2, 4 and 6 \n [PAYOUT 500%] {NUMBERS}: You choose the number, and if you get it right ... {$$$$$}")
 npcHandler:setMessage(MESSAGE_FAREWELL, 'Good bye.')
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Good bye.')
 
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:setCallback(CALLBACK_ONTHINK, creatureMoveCallback)
 
 npcHandler:addModule(FocusModule:new())
 
