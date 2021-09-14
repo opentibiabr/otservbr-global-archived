@@ -257,7 +257,7 @@ npcHandler:setMessage(MESSAGE_WALKAWAY, 'Good bye.')
 
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
-npcHandler:setCallback(CALLBACK_ONTHINK, creatureMoveCallback)
+npcHandler:setCallback(CALLBACK_ONMOVE, creatureMoveCallback)
 
 npcHandler:addModule(FocusModule:new())
 
