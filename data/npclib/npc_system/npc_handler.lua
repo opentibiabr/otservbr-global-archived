@@ -390,7 +390,9 @@ if NpcHandler == nil then
 						end
 					end
 				end
-				self:updateInteraction(npc, player)
+				if self:checkInteraction(npc, player) then
+					self:updateInteraction(npc, player)
+				end
 			end
 		end
 	end
@@ -432,8 +434,8 @@ if NpcHandler == nil then
 	function NpcHandler:onTradeRequest(npc, player, message)
 		if self:checkInteraction(npc, player) then
 			self:tradeRequest(npc, player, message)
+			return true
 		end
-		return true
 	end
 
 	-- Handles onThink events. If you wish to handle this yourself, please use the CALLBACK_ONTHINK callback.
@@ -474,7 +476,10 @@ if NpcHandler == nil then
 
 	-- Simply calls the underlying unGreet function.
 	function NpcHandler:onFarewell(npc, player)
-		self:unGreet(npc, player)
+		if self:checkInteraction(npc, player) then
+			self:unGreet(npc, player)
+			return true
+		end
 	end
 
 	-- Should be called on this npc's player if the distance to player is greater then talkRadius.
@@ -573,7 +578,7 @@ if NpcHandler == nil then
 				return
 			end
 	
-			focusId = Player(player):getId()
+			focusId = player:getId()
 			if npcId == nil then
 				Spdlog.error("[NpcHandler:say] - Player id not found or is nil")
 				return

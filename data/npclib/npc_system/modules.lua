@@ -319,12 +319,8 @@ if Modules == nil then
 
 	-- UnGreeting callback function.
 	function FocusModule.onFarewell(npc, player, message, keywords, parameters)
-		if parameters.module.npcHandler:checkInteraction(npc, player) then
-			parameters.module.npcHandler:onFarewell(npc, player)
-			return true
-		else
-			return false
-		end
+		parameters.module.npcHandler:onFarewell(npc, player)
+		return true
 	end
 
 	-- Custom message matching callback function for greeting messages.
