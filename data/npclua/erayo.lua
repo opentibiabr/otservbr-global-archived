@@ -60,6 +60,10 @@ local config = {
 }
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 
@@ -72,7 +76,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.OutfitQuest.AssassinFirstAddon) == config[message].storageValue then
 			npcHandler:say(config[message].text[1], npc, creature)
 			npcHandler.topic[playerId] = 3
-			message[creature] = message
+			message[playerId] = message
 		end
 	elseif msgcontains(message, 'yes') then
 		if npcHandler.topic[playerId] == 1 then
@@ -91,7 +95,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say('Good. Start with the blue cloth. I\'ll wait.', npc, creature)
 			npcHandler.topic[playerId] = 0
 		elseif npcHandler.topic[playerId] == 3 then
-			local targetMessage = config[message[creature]]
+			local targetMessage = config[message[playerId]]
 			if not player:removeItem(targetMessage.itemId, targetMessage.count) then
 				npcHandler:say('You don\'t have the required items.', npc, creature)
 				npcHandler.topic[playerId] = 0
@@ -115,7 +119,8 @@ local function creatureSayCallback(npc, creature, type, message)
 end
 
 local function onReleaseFocus(creature)
-	message[creature] = nil
+	local playerId = creature:getId()
+	message[playerId] = nil
 end
 
 npcHandler:setMessage(MESSAGE_GREET, 'What the... I mean, of course I sensed you.')

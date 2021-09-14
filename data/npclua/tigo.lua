@@ -54,20 +54,24 @@ local function greetCallback(npc, creature)
 
 	if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) < 2 then
 		npcHandler:setMessage(MESSAGE_GREET, "There, there initiate. You will now become one of us, as so many before you. One of the {Barkless}. Walk with us and you will walk tall my friend.")
-		playerTopic[creature] = 1
+		playerTopic[playerId] = 1
 	end
 	return true
 end
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
-	npcHandler.topic[playerId] = playerTopic[creature]
+	npcHandler.topic[playerId] = playerTopic[playerId]
 	local player = Player(creature)
 
 	-- Começou a quest
 	if msgcontains(message, "barkless") and npcHandler.topic[playerId] == 1 then
 			npcHandler:say({"You are now one of us. Learn to endure this world's suffering in every facet and take delight in the soothing eternity that waits for the {purest} of us on the other side."}, npc, creature)
 			npcHandler.topic[playerId] = 2
-			playerTopic[creature] = 2
+			playerTopic[playerId] = 2
 			if player:getStorageValue(Storage.CultsOfTibia.Questline) < 1 then
 			   player:setStorageValue(Storage.CultsOfTibia.Questline, 1)
 			end
@@ -78,7 +82,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif msgcontains(message, "purest") and npcHandler.topic[playerId] == 2 then
 			npcHandler:say({"Purification is but one of the difficult steps on your way to the other side. The {trial} of tar, sulphur and ice."}, npc, creature)
 			npcHandler.topic[playerId] = 2
-			playerTopic[creature] = 2
+			playerTopic[playerId] = 2
 	elseif msgcontains(message, "trial") and npcHandler.topic[playerId] == 3 then
 			npcHandler:say({"The trial consists of three steps. The trial of tar, where you will suffer unbearable heat and embrace the stigma of misfortune. ...",
 							"The trial of sulphur, where you will bathe in burning sulphur and embrace the stigma of vanity. Then, there is the trial of purification. The truest of us will be purified to face judgement from the {Penitent}.",
@@ -87,7 +91,7 @@ local function creatureSayCallback(npc, creature, type, message)
 							"If he does, follow him into his own chambers. Barkless are neither allowed to go near the throne room, aside from being judged, nor can we actually enter it.",
 							"He should be easy to defeat with his back to the wall, find him - and delvier us from whatever became of the Penitent."}, npc, creature)
 							npcHandler.topic[playerId] = 0
-							playerTopic[creature] = 0
+							playerTopic[playerId] = 0
 		end
 	return true
 end

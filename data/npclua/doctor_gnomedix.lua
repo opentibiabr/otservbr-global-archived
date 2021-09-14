@@ -48,6 +48,10 @@ npcType.onThink = function(npc, interval)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	return true
 end

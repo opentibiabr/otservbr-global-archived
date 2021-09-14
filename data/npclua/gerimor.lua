@@ -457,6 +457,10 @@ local value = {}
 local rewardExperience = {}
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "missions") then
@@ -518,17 +522,17 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif npcHandler.topic[playerId] == 2 then
 		local missionsTable = config.missions[message:lower()]
 		if missionsTable then
-			storage[creature] = missionsTable.storage
-			value[creature] = missionsTable.value
-			rewardExperience[creature] = missionsTable.rewardExp
-			if player:getStorageValue(storage[creature]) > 0 and player:getStorageValue(storage[creature]) == value[creature] then
+			storage[playerId] = missionsTable.storage
+			value[playerId] = missionsTable.value
+			rewardExperience[playerId] = missionsTable.rewardExp
+			if player:getStorageValue(storage[playerId]) > 0 and player:getStorageValue(storage[playerId]) == value[playerId] then
 				npcHandler:say(missionsTable.completeText, npc, creature)
-				player:setStorageValue(storage[creature], player:getStorageValue(storage[creature]) + 1)
-				player:addExperience(rewardExperience[creature])
-				player:sendTextMessage(MESSAGE_EXPERIENCE, "You gained " .. rewardExperience[creature] .. " experience points.")
+				player:setStorageValue(storage[playerId], player:getStorageValue(storage[playerId]) + 1)
+				player:addExperience(rewardExperience[playerId])
+				player:sendTextMessage(MESSAGE_EXPERIENCE, "You gained " .. rewardExperience[playerId] .. " experience points.")
 				npcHandler.topic[playerId] = 0
 
-			elseif player:getStorageValue(storage[creature]) > 0 and player:getStorageValue(storage[creature]) > value[creature] then
+			elseif player:getStorageValue(storage[playerId]) > 0 and player:getStorageValue(storage[playerId]) > value[playerId] then
 				npcHandler:say({"You already done this mission."}, npc, creature)
 				npcHandler.topic[playerId] = 2
 			else
@@ -538,14 +542,14 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	-- Accept mission
 	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 3 then
-		if player:getStorageValue(storage[creature]) < 1 then
+		if player:getStorageValue(storage[playerId]) < 1 then
 			npcHandler:say("Very nice! Come back if you have found what's going on in this cult.", npc, creature)
-			player:setStorageValue(storage[creature], 1)
+			player:setStorageValue(storage[playerId], 1)
 			if player:getStorageValue(Storage.CultsOfTibia.Questline) < 1 then
 				player:setStorageValue(Storage.CultsOfTibia.Questline, 1)
 			end
 			npcHandler.topic[playerId] = 2
-		elseif player:getStorageValue(storage[creature]) > 0 then
+		elseif player:getStorageValue(storage[playerId]) > 0 then
 			npcHandler:say("You have not finished your work yet. Come back when you're done.", npc, creature)
 			npcHandler.topic[playerId] = 2
 		end

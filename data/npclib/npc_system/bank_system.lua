@@ -45,37 +45,28 @@ function Npc:parseBank(message, npc, creature, npcHandler)
 		end
 	-- Deposit
 	elseif msgcontains(message, "deposit") then
-		if player:getMoney() < 1 then
+		count[playerId] = player:getMoney()
+		if count[playerId] < 1 then
 			npcHandler:say("You do not have enough gold.", npc, creature)
 			npcHandler.topic[playerId] = 0
 			return false
-		end
-		if msgcontains(message, "all") then
-			count[playerId] = player:getMoney()
-			npcHandler:say("Would you really like to deposit " .. count[playerId] .. " gold?", npc, creature)
-			npcHandler.topic[playerId] = 2
-			return true
-		else
-			if string.match(message,"%d+") then
-				count[playerId] = getMoneyCount(message)
-				if count[playerId] < 1 then
-					npcHandler:say("You do not have enough gold.", npc, creature)
-					npcHandler.topic[playerId] = 0
-					return false
-				end
-				npcHandler:say("Would you really like to deposit " .. count[playerId] .. " gold?", npc, creature)
-				npcHandler.topic[playerId] = 2
-				return true
-			else
-				npcHandler:say("Please tell me how much gold it is you would like to deposit.", npc, creature)
-				npcHandler.topic[playerId] = 1
-				return true
-			end
 		end
 		if not isValidMoney(count[playerId]) then
 			npcHandler:say("Sorry, but you can't deposit that much.", npc, creature)
 			npcHandler.topic[playerId] = 0
 			return false
+		end
+		npcHandler:say("Please tell me how much gold it is you would like to deposit.", npc, creature)
+		npcHandler.topic[playerId] = 1
+	elseif msgcontains(message, "deposit all") then
+		count[playerId] = player:getMoney()
+		npcHandler:say("Would you really like to deposit " .. count[playerId] .. " gold?", npc, creature)
+		npcHandler.topic[playerId] = 2
+	elseif msgcontains(message, "all") then
+		if npcHandler.topic[playerId] == 1 then
+			count[playerId] = player:getMoney()
+			npcHandler:say("Would you really like to deposit " .. count[playerId] .. " gold?", npc, creature)
+			npcHandler.topic[playerId] = 2
 		end
 	elseif npcHandler.topic[playerId] == 1 then
 		count[playerId] = getMoneyCount(message)
@@ -163,20 +154,20 @@ function Npc:parseBank(message, npc, creature, npcHandler)
 			npcHandler.topic[playerId] = 0
 		end
 	elseif npcHandler.topic[playerId] == 12 then
-		transfer[creature] = message
-		if player:getName() == transfer[creature] then
+		transfer[playerId] = message
+		if player:getName() == transfer[playerId] then
 			npcHandler:say("Fill in this field with person who receives your gold!", npc, creature)
 			npcHandler.topic[playerId] = 0
 			return true
 		end
-		if playerExists(transfer[creature]) then
-		local arrayDenied = {"accountmanager", "rooksample", "druidsample", "sorcerersample", "knightsample", "paladinsample"}
-			if isInArray(arrayDenied, string.gsub(transfer[creature]:lower(), " ", "")) then
+		if playerExists(transfer[playerId]) then
+			local arrayDenied = {"accountmanager", "rooksample", "druidsample", "sorcerersample", "knightsample", "paladinsample"}
+			if isInArray(arrayDenied, string.gsub(transfer[playerId], " ", "")) then
 				npcHandler:say("This player does not exist.", npc, creature)
 				npcHandler.topic[playerId] = 0
 				return true
 			end
-			npcHandler:say("So you would like to transfer " .. count[playerId] .. " gold to " .. transfer[creature] .. "?", npc, creature)
+			npcHandler:say("So you would like to transfer " .. count[playerId] .. " gold to " .. string.titleCase(transfer[playerId]) .. "?", npc, creature)
 			npcHandler.topic[playerId] = 13
 		else
 			npcHandler:say("This player does not exist.", npc, creature)
@@ -184,11 +175,11 @@ function Npc:parseBank(message, npc, creature, npcHandler)
 		end
 	elseif npcHandler.topic[playerId] == 13 then
 		if msgcontains(message, "yes") then
-			if not player:transferMoneyTo(transfer[creature], count[playerId]) then
+			if not player:transferMoneyTo(transfer[playerId], count[playerId]) then
 				npcHandler:say("You cannot transfer money to this account.", npc, creature)
 			else
-				npcHandler:say("Very well. You have transferred " .. count[playerId] .. " gold to " .. transfer[creature] ..".", npc, creature)
-				transfer[creature] = nil
+				npcHandler:say("Very well. You have transferred " .. count[playerId] .. " gold to " .. string.titleCase(transfer[playerId]) ..".", npc, creature)
+				transfer[playerId] = nil
 			end
 		elseif msgcontains(message, "no") then
 			npcHandler:say("Alright, is there something else I can do for you?", npc, creature)
@@ -220,11 +211,11 @@ function Npc:parseBank(message, npc, creature, npcHandler)
 		end
 		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, "change platinum") then
-		npcHandler:say("Would you like to change your platinum coins into gold or crystal?", npc, creature)
+		npcHandler:say("Would you like to change your platinum coins into {gold} or {crystal}?", npc, creature)
 		npcHandler.topic[playerId] = 16
 	elseif npcHandler.topic[playerId] == 16 then
 		if msgcontains(message, "gold") then
-			npcHandler:say("How many platinum coins would you like to change into gold?", npc, creature)
+			npcHandler:say("How many platinum coins would you like to change into {gold}?", npc, creature)
 			npcHandler.topic[playerId] = 17
 		elseif msgcontains(message, "crystal") then
 			npcHandler:say("How many crystal coins would you like to get?", npc, creature)
@@ -458,9 +449,9 @@ function Npc:parseGuildBank(message, npc, creature, npcHandler)
 		if string.match(message, "%d+") then
 			count[playerId] = getMoneyCount(message)
 			if isValidMoney(count[playerId]) then
-				transfer[creature] = string.match(message, "to%s*(.+)$")
-				if transfer[creature] then
-					npcHandler:say("So you would like to transfer " .. count[playerId] .. " gold from your guild account to guild " .. transfer[creature] .. "?", npc, creature)
+				transfer[playerId] = string.match(message, "to%s*(.+)$")
+				if transfer[playerId] then
+					npcHandler:say("So you would like to transfer " .. count[playerId] .. " gold from your guild account to guild " .. string.titleCase(transfer[playerId]) .. "?", npc, creature)
 					npcHandler.topic[playerId] = 28
 				else
 					npcHandler:say("Which guild would you like to transfer " .. count[playerId] .. " gold to?", npc, creature)
@@ -491,25 +482,25 @@ function Npc:parseGuildBank(message, npc, creature, npcHandler)
 		end
 		return true
 	elseif npcHandler.topic[playerId] == 27 then
-		transfer[creature] = message
-		if player:getGuild():getName() == transfer[creature] then
+		transfer[playerId] = message
+		if player:getGuild():getName() == transfer[playerId] then
 			npcHandler:say("Fill in this field with person who receives your gold!", npc, creature)
 			npcHandler.topic[playerId] = 0
 			return true
 		end
-		npcHandler:say("So you would like to transfer " .. count[playerId] .. " gold from your guild account to guild " .. transfer[creature] .. "?", npc, creature)
+		npcHandler:say("So you would like to transfer " .. count[playerId] .. " gold from your guild account to guild " .. string.titleCase(transfer[playerId]) .. "?", npc, creature)
 		npcHandler.topic[playerId] = 28
 		return true
 	elseif npcHandler.topic[playerId] == 28 then
 		if msgcontains(message, "yes") then
-			npcHandler:say("We have placed an order to transfer " .. count[playerId] .. " gold from your guild account to guild " .. transfer[creature] .. ". Please check your inbox for confirmation.", npc, creature)
+			npcHandler:say("We have placed an order to transfer " .. count[playerId] .. " gold from your guild account to guild " .. string.titleCase(transfer[playerId]) .. ". Please check your inbox for confirmation.", npc, creature)
 			local guild = player:getGuild()
 			local balance = guild:getBankBalance()
 			local info = {
 				type = "Guild to Guild Transfer",
 				amount = count[playerId],
 				owner = player:getName() .. " of " .. guild:getName(),
-				recipient = transfer[creature]
+				recipient = transfer[playerId]
 			}
 			if balance < tonumber(count[playerId]) then
 				info.message = "We are sorry to inform you that we could not fulfill your request, due to a lack of the required sum on your guild account."
@@ -518,7 +509,7 @@ function Npc:parseGuildBank(message, npc, creature, npcHandler)
 				local receipt = getReceipt(info)
 				inbox:addItemEx(receipt, INDEX_WHEREEVER, FLAG_NOLIMIT)
 			else
-				getGuildIdByName(transfer[creature], transferFactory(player:getName(), tonumber(count[playerId]), guild:getId(), info))
+				getGuildIdByName(transfer[playerId], transferFactory(player:getName(), tonumber(count[playerId]), guild:getId(), info))
 			end
 			npcHandler.topic[playerId] = 0
 		elseif msgcontains(message, "no") then
@@ -529,8 +520,9 @@ function Npc:parseGuildBank(message, npc, creature, npcHandler)
 end
 
 -- Greet callback
-function npcBankGreetCallback(creature)
-	count[playerId], transfer[creature] = nil, nil
+function npcBankGreetCallback(npc, creature)
+	local playerId = creature:getId()
+	count[playerId], transfer[playerId] = nil, nil
 	return true
 end
 

@@ -47,6 +47,10 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	if msgcontains(message, 'cigar') then
 		npcHandler:say('Oh my. Have you gotten an exquisite cigar for me, my young friend?', npc, creature)

@@ -21,20 +21,24 @@ npcConfig.flags = {
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 
+npcType.onThink = function(npc, interval)
+	npcHandler:onThink(npc, interval)
+end
+
 npcType.onAppear = function(npc, creature)
-npcHandler:onCreatureAppear(npc, creature)
+	npcHandler:onCreatureAppear(npc, creature)
 end
 
 npcType.onDisappear = function(npc, creature)
-npcHandler:onCreatureDisappear(npc, creature)
+	npcHandler:onCreatureDisappear(npc, creature)
+end
+
+npcType.onMove = function(npc, creature, fromPosition, toPosition)
+	npcHandler:onMove(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-npcHandler:onCreatureSay(npc, creature, type, message)
-end
-
-npcType.onThink = function(npc, interval)
-npcHandler:onThink(npc, interval)	
+	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I am the mistress of the hunt. At this place you may buy the food our hunts provide."})
@@ -73,10 +77,10 @@ npcConfig.shop = {
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
 	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
-	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message
-npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+npcType.onPlayerSellItem = function(npc, player, clientId, amount, name, totalCost)
 	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
 end
 

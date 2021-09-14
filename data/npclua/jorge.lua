@@ -85,6 +85,10 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 
@@ -105,9 +109,11 @@ local function creatureSayCallback(npc, creature, type, message)
 end
 
 local function onAddFocus(creature)
+	local playerId = creature:getId()
 end
 
 local function onReleaseFocus(creature)
+	local playerId = creature:getId()
 end
 
 npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)

@@ -223,6 +223,10 @@ local function onSell(creature, item, subType, amount, ignoreCap, inBackpacks)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	if msgcontains(message, "trade") then
 		local player = Player(creature)

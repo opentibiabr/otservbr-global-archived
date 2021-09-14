@@ -57,6 +57,10 @@ keywordHandler:addKeyword({'quest'}, StdModule.say, {npcHandler = npcHandler, te
 keywordHandler:addKeyword({'help'}, StdModule.say, {npcHandler = npcHandler, text = "You want to help me? HELP me? You? Who... who are you anyway? Ah nevermind."})
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	if msgcontains(message, "job") then
 		npcHandler:say({

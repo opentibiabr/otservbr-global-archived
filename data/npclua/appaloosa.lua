@@ -46,6 +46,10 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	if msgcontains(message, 'transport') then
 		npcHandler:say('We can bring you to Thais with one of our coaches for 125 gold. Are you interested?', npc, creature)

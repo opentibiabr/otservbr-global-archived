@@ -180,11 +180,17 @@ function Player.depositMoney(self, amount)
 end
 
 function Player.transferMoneyTo(self, target, amount)
+	if not target then
+		return false
+	end
+
+	-- See if you can afford this transfer
 	local balance = self:getBankBalance()
 	if amount > balance then
 		return false
 	end
 
+	-- See if player is online
 	local targetPlayer = Player(target)
 	if targetPlayer then
 		local town = targetPlayer:getTown()

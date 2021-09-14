@@ -53,6 +53,10 @@ keywordHandler:addKeyword({'graubart'}, StdModule.say, {npcHandler = npcHandler,
 keywordHandler:addKeyword({'thank you'}, StdModule.say, {npcHandler = npcHandler, text = "My pleasure, I always enjoy sharing interesting stories."})
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	if msgcontains(message, "seamonster") then
 		npcHandler:say({

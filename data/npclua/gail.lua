@@ -52,29 +52,33 @@ local function greetCallback(npc, creature)
 	local player = Player(creature)
 	if player:getStorageValue(Storage.Kilmaresh.First.Access) < 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
-		playerTopic[creature] = 1
+		playerTopic[playerId] = 1
 	elseif (player:getStorageValue(Storage.Kilmaresh.First.JamesfrancisTask) >= 0 and player:getStorageValue(Storage.Kilmaresh.First.JamesfrancisTask) <= 50)
 	and player:getStorageValue(Storage.Kilmaresh.First.Mission) < 3 then
 		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
-		playerTopic[creature] = 15
+		playerTopic[playerId] = 15
 	elseif player:getStorageValue(Storage.Kilmaresh.First.Mission) == 4 then
 		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
 		player:setStorageValue(Storage.Kilmaresh.First.Mission, 5)
-		playerTopic[creature] = 20
+		playerTopic[playerId] = 20
 	end
 	return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
-	npcHandler.topic[playerId] = playerTopic[creature]
+	npcHandler.topic[playerId] = playerTopic[playerId]
 	local player = Player(creature)
 	
 	if msgcontains(message, "daughter") and player:getStorageValue(Storage.TheSecretLibrary.Peacock) == 1 then
 		npcHandler:say({"I always feared that I lost her. And yet, all those years, I still had a gleam of hope. I'm devastated to learn about her fate - but at least I have certainty now. Thank you for telling me."}, npc, creature)
 		player:setStorageValue(Storage.TheSecretLibrary.Peacock, 2)
 		npcHandler.topic[playerId] = 1
-		playerTopic[creature] = 1
+		playerTopic[playerId] = 1
 	end
 	
 	return true
@@ -157,10 +161,10 @@ npcConfig.shop = {
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
 	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
-	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message
-npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+npcType.onPlayerSellItem = function(npc, player, clientId, amount, name, totalCost)
 	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
 end
 

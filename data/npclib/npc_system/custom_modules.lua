@@ -32,7 +32,7 @@ function StdModule.kick(npc, player, message, keywords, parameters, node)
 		return false
 	end
 
-	npcHandler:removeInteraction(npc, creature)
+	npcHandler:removeInteraction(npc, player)
 	npcHandler:say(parameters.text or "Off with you!", npc, player)
 
 	local destination = parameters.destination
@@ -48,11 +48,11 @@ end
 
 local GreetModule = {}
 function GreetModule.greet(npc, player, message, keywords, parameters)
-	if not parameters.npcHandler:isInRange(player) then
+	if not parameters.npcHandler:isInRange(npc, player) then
 		return true
 	end
 
-	if parameters.npcHandler:checkInteraction(player) then
+	if parameters.npcHandler:checkInteraction(npc, player) then
 		return true
 	end
 
@@ -166,7 +166,7 @@ function StdModule.rookgaardHints(npc, player, message, keywords, parameters, no
 
 	local player = Player(player)
 	local hintId = player:getStorageValue(Storage.RookgaardHints)
-	npcHandler:say(hints[hintId], player)
+	npcHandler:say(hints[hintId], npc, player)
 	if hintId >= #hints then
 		player:setStorageValue(Storage.RookgaardHints, -1)
 	else

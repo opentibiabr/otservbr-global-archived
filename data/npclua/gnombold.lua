@@ -77,11 +77,11 @@ function creatureSayCallback(npc, creature, type, message)
 	end
 
 	if msgcontains(message, 'report') then
-		talkState[creature] = 'report'
+		talkState[playerId] = 'report'
 		return npcHandler:say('What mission do you want to report about: gathering the geomantic {charges}, the {fertilisation} of the mushroom caves, about destroying monster {nests} and the {killing} of crystal crushers?', npc, creature)
 	end
 
-	if talkState[creature] == 'report' then
+	if talkState[playerId] == 'report' then
 		if msgcontains(message, 'charges') then
 			if player:getStorageValue(SPIKE_MIDDLE_CHARGE_MAIN) == -1 then
 				npcHandler:say('You have not started that mission.', npc, creature)
@@ -133,7 +133,7 @@ function creatureSayCallback(npc, creature, type, message)
 		else
 			npcHandler:say('That\'s not a valid mission name.', npc, creature)
 		end
-		talkState[creature] = nil
+		talkState[playerId] = nil
 		return
 	end
 
@@ -151,21 +151,21 @@ function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(SPIKE_MIDDLE_CHARGE_MAIN) == -1 then
 			npcHandler:say({'Our mission for you is to use a magnet on three different monoliths in the cave system here. After the magnet evaporates on the last charge, enter the magnetic extractor here to deliver your charge.', 'If you are interested, I can give you some more {information} about it. Are you willing to accept this mission?'}, npc, creature)
-			talkState[creature] = 'charges'
+			talkState[playerId] = 'charges'
 		else
 			npcHandler:say('You have already started that mission.', npc, creature)
 		end
 	end
 
-	if talkState[creature] == 'charges' then
+	if talkState[playerId] == 'charges' then
 		if msgcontains(message, 'yes') then
 			player:addItem(21557, 1)
 			player:setStorageValue(SPIKE_MIDDLE_CHARGE_MAIN, 0)
 			npcHandler:say({'Gnometastic! Charge this magnet at three monoliths in the cave system. With three charges, the magnet will disintegrate and charge you with its gathered energies. Step on the magnetic extractor here to deliver the charge to us, then report to me.','If you lose the magnet you\'ll have to bring your own. Gnomux sells all the equipment that is required for our missions.'}, npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Ok then.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		end
 	end
 
@@ -183,21 +183,21 @@ function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(SPIKE_MIDDLE_MUSHROOM_MAIN) == -1 then
 			npcHandler:say('Your mission would be to seek out gardener mushrooms in the caves and use some fertiliser on them. If you are interested, I can give you some more information about it. Are you willing to accept this mission?', npc, creature)
-			talkState[creature] = 'fertilise'
+			talkState[playerId] = 'fertilise'
 		else
 			npcHandler:say('You have already started that mission.', npc, creature)
 		end
 	end
 
-	if talkState[creature] == 'fertilise' then
+	if talkState[playerId] == 'fertilise' then
 		if msgcontains(message, 'yes') then
 			player:addItem(21564)
 			player:setStorageValue(SPIKE_MIDDLE_MUSHROOM_MAIN, 0)
 			npcHandler:say('Gnometastic! And here is your fertiliser - use it on four gardener mushroom in the caves. If you lose the fertiliser you\'ll have to bring your own. Gnomux sells all the equipment that is required for our missions.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Ok then.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		end
 	end
 
@@ -215,20 +215,20 @@ function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(SPIKE_MIDDLE_NEST_MAIN) == -1 then
 			npcHandler:say('Our mission for you is to step into the gnomish transformer and then destroy eight monster nests in the caves. If you are interested, I can give you some more information about it. Are you willing to accept this mission?', npc, creature)
-			talkState[creature] = 'nests'
+			talkState[playerId] = 'nests'
 		else
 			npcHandler:say('You have already started that mission.', npc, creature)
 		end
 	end
 
-	if talkState[creature] == 'nests' then
+	if talkState[playerId] == 'nests' then
 		if msgcontains(message, 'yes') then
 			player:setStorageValue(SPIKE_MIDDLE_NEST_MAIN, 0)
 			npcHandler:say('Gnometastic! Don\'t forget to step into the transformer before you go out and destroy five monster nests. If your transformation runs out, return to the transformer to get another illusion.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Ok then.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		end
 	end
 
@@ -246,20 +246,20 @@ function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(SPIKE_MIDDLE_KILL_MAIN) == -1 then
 			npcHandler:say('This mission will require you to kill some crystal crushers for us. If you are interested, I can give you some more information about it. Are you willing to accept this mission?', npc, creature)
-			talkState[creature] = 'kill'
+			talkState[playerId] = 'kill'
 		else
 			npcHandler:say('You have already started that mission.', npc, creature)
 		end
 	end
 
-	if talkState[creature] == 'kill' then
+	if talkState[playerId] == 'kill' then
 		if msgcontains(message, 'yes') then
 			player:setStorageValue(SPIKE_MIDDLE_KILL_MAIN, 0)
 			npcHandler:say('Gnometastic! You should have no trouble to find enough crystal crushers. Killing seven of them should be enough.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Ok then.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		end
 	end
 	return true

@@ -45,6 +45,10 @@ npcHandler:setMessage(MESSAGE_GREET, "Oink.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Bye.")
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 	if (msgcontains(message, "kiss")) then

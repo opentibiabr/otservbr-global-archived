@@ -92,6 +92,10 @@ local config = {
 }
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 
@@ -111,7 +115,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.OutfitQuest.secondOrientalAddon) == config[message].storageValue then
 			npcHandler:say(config[message].text[1], npc, creature)
 			npcHandler.topic[playerId] = 3
-			message[creature] = message
+			message[playerId] = message
 		else
 			npcHandler:say(config[message].text[2], npc, creature)
 		end
@@ -134,7 +138,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say('Excellent! Come back to me once you have collected 100 pieces of ape fur.', npc, creature)
 			npcHandler.topic[playerId] = 0
 		elseif npcHandler.topic[playerId] == 3 then
-			local targetMessage = config[message[creature]]
+			local targetMessage = config[message[playerId]]
 			if not player:removeItem(targetMessage.itemId, targetMessage.count) then
 				npcHandler:say('That is a shameless lie.', npc, creature)
 				npcHandler.topic[playerId] = 0
@@ -159,7 +163,8 @@ local function creatureSayCallback(npc, creature, type, message)
 end
 
 local function onReleaseFocus(creature)
-	message[creature] = nil
+	local playerId = creature:getId()
+	message[playerId] = nil
 end
 
 npcHandler:setMessage(MESSAGE_GREET, 'Greetings |PLAYERNAME|. What leads you to me?')

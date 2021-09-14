@@ -80,6 +80,10 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 
@@ -92,7 +96,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.OutfitQuest.AssassinBaseOutfit) == config[message].storageValue then
 			npcHandler:say(config[message].text[1], npc, creature)
 			npcHandler.topic[playerId] = 3
-			message[creature] = message
+			message[playerId] = message
 		else
 			npcHandler:say(config[message].text[2], npc, creature)
 		end
@@ -122,7 +126,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say('G-good. Go get them, I\'ll have a beer in the meantime.', npc, creature)
 			npcHandler.topic[playerId] = 0
 		elseif npcHandler.topic[playerId] == 3 then
-			local targetMessage = config[message[creature]]
+			local targetMessage = config[message[playerId]]
 			local count = targetMessage.count or 1
 			if not player:removeItem(targetMessage.itemId, count) then
 				npcHandler:say('Next time you lie to me I\'ll k-kill you. <hicks> Don\'t think I can\'t aim well just because I\'m d-drunk.', npc, creature)
@@ -146,7 +150,8 @@ local function creatureSayCallback(npc, creature, type, message)
 end
 
 local function onReleaseFocus(creature)
-	message[creature] = nil
+	local playerId = creature:getId()
+	message[playerId] = nil
 end
 
 keywordHandler:addKeyword({'addon'}, StdModule.say, {npcHandler = npcHandler, text = 'I can give you a <hicks> scar as an addon. Nyahahah.'})

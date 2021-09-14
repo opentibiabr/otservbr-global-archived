@@ -52,6 +52,10 @@ keywordHandler:addKeyword({'cruelty'}, StdModule.say, {npcHandler = npcHandler, 
 keywordHandler:addKeyword({'island'}, StdModule.say, {npcHandler = npcHandler, text = "The General of the Red Legion became very angry about these attacks and after some months he STROKE back!"})
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	if msgcontains(message, "story") then
 		npcHandler:say({

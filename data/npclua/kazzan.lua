@@ -52,6 +52,10 @@ local function greetCallback(npc, creature)
 	return true
 end
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 

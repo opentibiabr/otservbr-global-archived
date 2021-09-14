@@ -18,55 +18,7 @@ function msgcontains(message, keyword)
 		return true
 	end
 
-	return string.find(lowerMessage, lowerKeyword) and string.find(lowerMessage, lowerKeyword.. '(%w+)') or string.find(lowerMessage, '(%w+)' .. lowerKeyword)
-end
-
-function Npc:sellItem(player, itemId, amount, subType, ignoreCap, inBackpacks, backpack)
-	local localAmount = amount or 1
-	local localSubType = subType or 0
-	local item = 0
-
-	if ItemType(itemId):isStackable() then
-		local stuff
-		if inBackpacks then
-			stuff = Game.createItem(backpack, 1)
-			item = stuff:addItem(itemId, math.min(100, localAmount))
-		else
-			stuff = Game.createItem(itemId, math.min(100, localAmount))
-		end
-
-		return player:addItemEx(stuff, ignoreCap) ~= RETURNVALUE_NOERROR and 0 or localAmount, 0
-	end
-
-	local a = 0
-	if inBackpacks then
-		local container, b = Game.createItem(backpack, 1), 1
-		for i = 1, localAmount do
-			if table.contains({(ItemType(backpack):getCapacity() * b), localAmount}, i) then
-				if player:addItemEx(container, ignoreCap) ~= RETURNVALUE_NOERROR then
-					b = b - 1
-					break
-				end
-
-				a = i
-				if localAmount > i then
-					container = Game.createItem(backpack, 1)
-					b = b + 1
-				end
-			end
-		end
-		return a, b
-	end
-
-	-- Normal method for non-stackable items
-	for i = 1, localAmount do
-		local createItem = Game.createItem(itemId, localSubType)
-		if player:addItemEx(createItem, ignoreCap) ~= RETURNVALUE_NOERROR then
-			break
-		end
-		a = i
-	end
-	return a, 0
+	return string.find(lowerMessage, lowerKeyword) and string.find(lowerMessage, lowerKeyword.. '(%w+)') and string.find(lowerMessage, '(%w+)' .. lowerKeyword)
 end
 
 -- Npc talk

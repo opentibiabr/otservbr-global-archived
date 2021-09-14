@@ -98,11 +98,15 @@ local message = {}
 
 local function greetCallback(npc, creature)
 	local playerId = creature:getId()
-	message[creature] = nil
+	message[playerId] = nil
 	return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "uniforms") then
@@ -153,7 +157,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		npcHandler:say(targetMessage.messages.deliever, npc, creature)
 		npcHandler.topic[playerId] = 4
-		message[creature] = targetMessage
+		message[playerId] = targetMessage
 	elseif msgcontains(message, 'yes') then
 		if npcHandler.topic[playerId] == 2 then
 			npcHandler:say({
@@ -170,7 +174,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say('Terrific! What are you waiting for?! Start right away gathering 20 pieces of brown cloth and come back once you have them!', npc, creature)
 			npcHandler.topic[playerId] = 0
 		elseif npcHandler.topic[playerId] == 4 then
-			local targetMessage = message[creature]
+			local targetMessage = message[playerId]
 			if not player:removeItem(targetMessage.itemId, targetMessage.count) then
 				npcHandler:say(targetMessage.messages.notEnough, npc, creature)
 				return true

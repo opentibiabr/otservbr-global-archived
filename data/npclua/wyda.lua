@@ -50,6 +50,10 @@ condition:setParameter(CONDITION_PARAM_DELAYED, 1)
 condition:addDamage(60, 2000, -10)
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 

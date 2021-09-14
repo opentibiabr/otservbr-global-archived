@@ -61,28 +61,28 @@ local function greetCallback(npc, creature)
 	local player = Player(creature)
 	if player:getStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage) < 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Oh, heaven must have sent you! Could you please help me with a {quest}?")
-		storeTalkCid[creature] = 0
+		storeTalkCid[playerId] = 0
 	elseif player:getStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage) == 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, darling... so about that firewood, could you please {help} me?")
-		storeTalkCid[creature] = 2
+		storeTalkCid[playerId] = 2
 	elseif player:getStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage) == 2 then
 		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, darling... so about the {dead trees}, let me explain that a little more, {yes}?")
-		storeTalkCid[creature] = 3
+		storeTalkCid[playerId] = 3
 	elseif player:getStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage) == 3 then
 		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, darling... so about the {branches}, let me explain that a little more, {yes}?")
-		storeTalkCid[creature] = 4
+		storeTalkCid[playerId] = 4
 	elseif player:getStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage) == 4 then
 		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, darling... so about the {pushing}, let me explain that a little more, {yes}?")
-		storeTalkCid[creature] = 5
+		storeTalkCid[playerId] = 5
 	elseif player:getStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage) == 5 then
 		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, darling... so about the {cart}, let me explain that a little more, {yes}?")
-		storeTalkCid[creature] = 6
+		storeTalkCid[playerId] = 6
 	elseif player:getStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage) == 6 then
 		npcHandler:setMessage(MESSAGE_GREET, "Oh, sweetheart, is there a problem with the quest? Should I {explain} it again?")
-		storeTalkCid[creature] = 7
+		storeTalkCid[playerId] = 7
 	elseif player:getStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage) == 7 then
 		npcHandler:setMessage(MESSAGE_GREET, "Right, thank you sweetheart! This will be enough to heat my oven. Oh, and you are probably waiting for your reward, {yes}?")
-		storeTalkCid[creature] = 8
+		storeTalkCid[playerId] = 8
 	elseif player:getStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage) == 8 then
 		npcHandler:setMessage(MESSAGE_GREET, "Oh, welcome back, dear Isleth Eagonst! Are you here for a little chat? Just use the highlighted {keywords} again to choose a {topic}.")
 	end
@@ -90,38 +90,42 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 	if isInArray({"yes", "quest", "ok"}, message) then
-		if storeTalkCid[creature] == 0 then
+		if storeTalkCid[playerId] == 0 then
 			npcHandler:say("By the way, 'quest' is a keyword that many NPCs react to, especially those which have tasks for you. So darling, about that {quest}... are you listening?", npc, creature)
-			storeTalkCid[creature] = 1
-		elseif storeTalkCid[creature] == 1 then
+			storeTalkCid[playerId] = 1
+		elseif storeTalkCid[playerId] == 1 then
 			npcHandler:say("Thank you so much for your kindness. I'm an old woman and I desperately need firewood for my oven. Could you please help me?", npc, creature)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.ZirellaQuestLog, 1)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage, 1)
-			storeTalkCid[creature] = 2
-		elseif storeTalkCid[creature] == 2 then
+			storeTalkCid[playerId] = 2
+		elseif storeTalkCid[playerId] == 2 then
 			npcHandler:say("You're such a treasure. In the forest south of here, there are {dead trees} without any leaves. The first thing you have to do is search for one, {okay}?", npc, creature)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.ZirellaQuestLog, 2)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage, 2)
-			storeTalkCid[creature] = 3
-		elseif storeTalkCid[creature] == 3 then
+			storeTalkCid[playerId] = 3
+		elseif storeTalkCid[playerId] == 3 then
 			npcHandler:say("Splendid, once you've found one, 'Use' it to break a branch from it. Did you understand that so far?", npc, creature)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.ZirellaQuestLog, 3)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage, 3)
-			storeTalkCid[creature] = 4
-		elseif storeTalkCid[creature] == 4 then
+			storeTalkCid[playerId] = 4
+		elseif storeTalkCid[playerId] == 4 then
 			npcHandler:say("Good... so after you broke a branch, please push it here and select 'use with'. That will turn your mouse cursor into crosshairs. Then left-click on my cart. {Alright}?", npc, creature)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.ZirellaQuestLog, 4)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage, 4)
-			storeTalkCid[creature] = 5
-		elseif storeTalkCid[creature] == 5 then
+			storeTalkCid[playerId] = 5
+		elseif storeTalkCid[playerId] == 5 then
 			npcHandler:say("To push the branch, drag and drop it on the grass by holding the left mousebutton and moving the cursor to where you want to throw the branch. Just push it near my cart before you 'Use' it, {alright}?", npc, creature)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.ZirellaQuestLog, 5)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.ZirellaNpcGreetStorage, 5)
-			storeTalkCid[creature] = 6
-		elseif storeTalkCid[creature] == 6 then
+			storeTalkCid[playerId] = 6
+		elseif storeTalkCid[playerId] == 6 then
 			npcHandler:say({
 				"Thank you darling! My cart is right beside me. It's a little complicated: I need some firewood, but it's very difficult for my slightly advanced age. ...",
 				"Please go into the the forest southeast of here. You will find fine old rotten brown trees. Please RIGHT-CLICK in the lower right corner of that tree and choose 'USE'. That way, a branch should appear on the map. ...",
@@ -133,14 +137,14 @@ local function creatureSayCallback(npc, creature, type, message)
 			Position(32064, 32273, 7):sendMagicEffect(CONST_ME_TUTORIALARROW)
 			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
-		elseif storeTalkCid[creature] == 7 then
+		elseif storeTalkCid[playerId] == 7 then
 			npcHandler:say({
 				"Well, you know that old women like me like to talk a lot. If you see three dots at the end of a sentence, I have still something to say and you should not interrupt, like now ...",
 				"Patience is a virtue, young adventurer! So, the quest was to go into the forest south of here and to find a dead tree. Wait, let me continue! ...",
 				"'Use' a tree to break a dry branch from it. Afterwards, drag and drop the branch back to my cart and select 'Use with', then left-click on my cart. Thanks again for offering your help!"
 			}, npc, creature)
-			storeTalkCid[creature] = nil
-		elseif storeTalkCid[creature] == 8 then
+			storeTalkCid[playerId] = nil
+		elseif storeTalkCid[playerId] == 8 then
 			npcHandler:say("Oh, you deserve it. You really have earned some experience! Also, you may enter my little house now and take what's in that chest beside my bed. Good {bye} for now!", npc, creature)
 			player:addExperience(50, true)
 			Position(32058, 32266, 6):sendMagicEffect(CONST_ME_TUTORIALARROW)
@@ -151,7 +155,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:resetNpc(creature)
 		end
 	elseif msgcontains(message, "no") then
-		if storeTalkCid[creature] == 7 then
+		if storeTalkCid[playerId] == 7 then
 			npcHandler:say("Well then, I hope you find nice and dry branches for me! Good {bye}!", npc, creature)
 			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
@@ -161,7 +165,8 @@ local function creatureSayCallback(npc, creature, type, message)
 end
 
 local function onReleaseFocus(creature)
-	storeTalkCid[creature] = nil
+	local playerId = creature:getId()
+	storeTalkCid[playerId] = nil
 end
 
 npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)

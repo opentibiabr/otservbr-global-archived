@@ -69,7 +69,7 @@ local knightChoice = {}
 
 local function greetCallback(npc, creature)
 	local playerId = creature:getId()
-	knightChoice[creature] = nil
+	knightChoice[playerId] = nil
 	return true
 end
 
@@ -137,7 +137,7 @@ function creatureSayCallback(npc, creature, type, message)
 		end
 		if message:lower() == 'knight' then
 			npcHandler:say("And what would be your preferred weapon? {Club}, {axe} or {sword}", npc, creature)
-			knightChoice[creature] = helmet
+			knightChoice[playerId] = helmet
 			npcHandler.topic[playerId] = 3
 		end
 		if npcHandler.topic[playerId] == 2 then
@@ -151,16 +151,16 @@ function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif isInArray({'axe', 'club', 'sword'}, message:lower()) and npcHandler.topic[playerId] == 3 then
 		local weapontype = message:lower()
-		if not vocations[knightChoice[creature]][weapontype] then
+		if not vocations[knightChoice[playerId]][weapontype] then
 			return false
 		else
 			--if (Set storage if player can enchant helmet(need Grim Vale quest)) then
-			player:setStorageValue(Storage.Grimvale.WereHelmetEnchant, vocations[knightChoice[creature]][weapontype])
+			player:setStorageValue(Storage.Grimvale.WereHelmetEnchant, vocations[knightChoice[playerId]][weapontype])
 			npcHandler:say("So this is your choice. If you want to change it, you will have to come to me again.", npc, creature)
 			--else
 			--npcHandler:say("Message when player do not have quest.", npc, creature)
 			--end
-			knightChoice[creature] = nil
+			knightChoice[playerId] = nil
 			npcHandler.topic[playerId] = 0
 		end
 	end

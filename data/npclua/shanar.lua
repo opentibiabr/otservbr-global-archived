@@ -22,25 +22,6 @@ npcConfig.flags = {
 	floorchange = false
 }
 
-local keywordHandler = KeywordHandler:new()
-local npcHandler = NpcHandler:new(keywordHandler)
-
-npcType.onAppear = function(npc, creature)
-npcHandler:onCreatureAppear(npc, creature)
-end
-
-npcType.onDisappear = function(npc, creature)
-npcHandler:onCreatureDisappear(npc, creature)
-end
-
-npcType.onSay = function(npc, creature, type, message)
-npcHandler:onCreatureSay(npc, creature, type, message)
-end
-
-npcType.onThink = function(npc, interval)
-npcHandler:onThink(npc, interval)	
-end
-
 npcConfig.voices = {
 	interval = 5000,
 	chance = 50,
@@ -163,10 +144,10 @@ npcConfig.shop = {
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
 	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
-	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message
-npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+npcType.onPlayerSellItem = function(npc, player, clientId, amount, name, totalCost)
 	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
 end
 

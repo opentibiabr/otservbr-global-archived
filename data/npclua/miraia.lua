@@ -92,6 +92,10 @@ local config = {
 }
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, 'outfit') then
@@ -109,7 +113,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.OutfitQuest.secondOrientalAddon) == config[message].storageValue then
 			npcHandler:say(config[message].text[1], npc, creature)
 			npcHandler.topic[playerId] = 3
-			message[creature] = message
+			message[playerId] = message
 		else
 			npcHandler:say(config[message].text[2], npc, creature)
 		end
@@ -139,7 +143,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say('Excellent! Come back to me once you have collected 100 pieces of ape fur.', npc, creature)
 			npcHandler.topic[playerId] = 0
 		elseif npcHandler.topic[playerId] == 3 then
-			local targetMessage = config[message[creature]]
+			local targetMessage = config[message[playerId]]
 			if not player:removeItem(targetMessage.itemId, targetMessage.count) then
 				npcHandler:say('That is a shameless lie.', npc, creature)
 				npcHandler.topic[playerId] = 0
@@ -172,7 +176,8 @@ local function creatureSayCallback(npc, creature, type, message)
 end
 
 local function onReleaseFocus(creature)
-	message[creature] = nil
+	local playerId = creature:getId()
+	message[playerId] = nil
 end
 
 keywordHandler:addKeyword({'drink'}, StdModule.say, {npcHandler = npcHandler, text = 'I can offer you lemonade, camel milk, and water. If you\'d like to see my offers, ask me for a {trade}.'})
@@ -201,10 +206,10 @@ npcConfig.shop = {
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
 	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
-	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost), npc, player)
+	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message
-npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, clientId)
+npcType.onPlayerSellItem = function(npc, player, clientId, amount, name, totalCost)
 	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
 end
 

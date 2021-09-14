@@ -47,6 +47,10 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	if msgcontains(message, "monument tower") or msgcontains(message, "passage") or msgcontains(message, "trip") then
 		npcHandler:say("Do you want to travel to the {monument tower} for a 50 gold fee?", npc, creature)

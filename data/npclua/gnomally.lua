@@ -127,6 +127,10 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	if msgcontains(message, 'equipment') then
 		npcHandler:say({
@@ -147,7 +151,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		local itemType = ItemType(config[message].itemid)
 		npcHandler:say(string.format('Do you want to trade %s %s for %d %s tokens?', (itemType:getArticle() ~= "" and itemType:getArticle() or ""), itemType:getName(), config[message].token.count, config[message].token.type), npc, creature)
 		npcHandler.topic[playerId] = 1
-		t[creature] = message
+		t[playerId] = message
 	elseif msgcontains(message, 'relations') then
 		local player = Player(creature)
 		if player:getStorageValue(Storage.BigfootBurden.QuestLine) >= 25 then
@@ -161,7 +165,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		local amount = getMoneyCount(message)
 		if amount > 0 then
 			npcHandler:say('Do you really want to trade ' .. amount .. ' minor tokens for ' .. amount * 5 .. ' renown?', npc, creature)
-			renown[creature] = amount
+			renown[playerId] = amount
 			npcHandler.topic[playerId] = 4
 		end
 	elseif msgcontains(message, 'items') then
@@ -169,7 +173,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler.topic[playerId] = 5
 	elseif msgcontains(message, 'yes') then
 		if npcHandler.topic[playerId] == 1 then
-			local player, targetTable = Player(creature), config[t[creature]]
+			local player, targetTable = Player(creature), config[t[playerId]]
 			if player:getItemCount(targetTable.token.id) < targetTable.token.count then
 				npcHandler:say('Sorry, you don\'t have enough ' .. targetTable.token.type .. ' tokens with you.', npc, creature)
 				npcHandler.topic[playerId] = 0
@@ -198,8 +202,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler.topic[playerId] = 3
 		elseif npcHandler.topic[playerId] == 4 then
 			local player = Player(creature)
-			if player:removeItem(18422, renown[creature]) then
-				player:setStorageValue(Storage.BigfootBurden.Rank, math.max(0, player:getStorageValue(Storage.BigfootBurden.Rank)) + renown[creature] * 5)
+			if player:removeItem(18422, renown[playerId]) then
+				player:setStorageValue(Storage.BigfootBurden.Rank, math.max(0, player:getStorageValue(Storage.BigfootBurden.Rank)) + renown[playerId] * 5)
 				player:checkGnomeRank()
 				npcHandler:say('As you wish! Your new renown is {' .. player:getStorageValue(Storage.BigfootBurden.Rank) .. '}.', npc, creature)
 			else
@@ -219,7 +223,8 @@ local function creatureSayCallback(npc, creature, type, message)
 end
 
 local function onReleaseFocus(creature)
-	t[creature], renown[creature] = nil, nil
+	local playerId = creature:getId()
+	t[playerId], renown[playerId] = nil, nil
 end
 
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)

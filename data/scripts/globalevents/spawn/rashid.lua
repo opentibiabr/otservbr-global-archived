@@ -19,7 +19,7 @@ function rashid.onStartup()
 
 	local config = positionByDay[today]
 	if config then
-		local rashid = Game.createNpc("rashid", config.position)
+		local rashid = Game.createNpc("Rashid", config.position)
 		rashid:setMasterPos(config.position)
 		rashid:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		Spdlog.info(string.format("Rashid arrived at %s", config.city))

@@ -48,6 +48,10 @@ end
 
 -- transcript for buying fresh mushroom beer is probably wrong except for the case where you buy it
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, 'recruitment') then

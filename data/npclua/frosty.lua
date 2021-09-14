@@ -79,59 +79,59 @@ function creatureSayCallback(npc, creature, type, message)
 				text = items_list .. ' and ' .. sleighinfo[message].cost .. ' gp'
 			end
 			npcHandler:say('For a ' .. message .. ' you will need ' .. text .. '. Do you have it with you?', npc, creature)
-			rtnt[creature] = message
-			talkState[creature] = sleighinfo[message].storageID
+			rtnt[playerId] = message
+			talkState[playerId] = sleighinfo[message].storageID
 			return true
 		end
 	elseif message:lower() == 'percht' then
 		npcHandler:say('Nasty creatures especially their queen that sits frozzen on her throne beneath this island.', npc, creature)
 	elseif msgcontains(message, "yes") then
-		if (talkState[creature] >= Storage.Percht1 and talkState[creature] <= Storage.Percht3) then
+		if (talkState[playerId] >= Storage.Percht1 and talkState[playerId] <= Storage.Percht3) then
 			local items_number = 0
-			if table.maxn(sleighinfo[rtnt[creature]].items) > 0 then
-				for i = 1, table.maxn(sleighinfo[rtnt[creature]].items) do
-					local item = sleighinfo[rtnt[creature]].items[i]
+			if table.maxn(sleighinfo[rtnt[playerId]].items) > 0 then
+				for i = 1, table.maxn(sleighinfo[rtnt[playerId]].items) do
+					local item = sleighinfo[rtnt[playerId]].items[i]
 					if (getPlayerItemCount(creature,item[1]) >= item[2]) then
 						items_number = items_number + 1
 					end
 				end
 			end
-			if(player:removeMoneyNpc(sleighinfo[rtnt[creature]].cost) and (items_number == table.maxn(sleighinfo[rtnt[creature]].items))) then
-				if table.maxn(sleighinfo[rtnt[creature]].items) > 0 then
-					for i = 1, table.maxn(sleighinfo[rtnt[creature]].items) do
-						local item = sleighinfo[rtnt[creature]].items[i]
+			if(player:removeMoneyNpc(sleighinfo[rtnt[playerId]].cost) and (items_number == table.maxn(sleighinfo[rtnt[playerId]].items))) then
+				if table.maxn(sleighinfo[rtnt[playerId]].items) > 0 then
+					for i = 1, table.maxn(sleighinfo[rtnt[playerId]].items) do
+						local item = sleighinfo[rtnt[playerId]].items[i]
 						doPlayerRemoveItem(creature,item[1],item[2])
 					end
 				end
-				doPlayerAddMount(creature, sleighinfo[rtnt[creature]].mount)
-				setPlayerStorageValue(creature,sleighinfo[rtnt[creature]].storageID,1)
+				doPlayerAddMount(creature, sleighinfo[rtnt[playerId]].mount)
+				setPlayerStorageValue(creature,sleighinfo[rtnt[playerId]].storageID,1)
 				npcHandler:say('Here you are.', npc, creature)
 			else
 				npcHandler:say('You do not have needed items!', npc, creature)
 			end
-			rtnt[creature] = nil
-			talkState[creature] = 0
+			rtnt[playerId] = nil
+			talkState[playerId] = 0
 			npcHandler:resetNpc()
 			return true
 		end
 	elseif msgcontains(message, "mount") or msgcontains(message, "mounts") or msgcontains(message, "sleigh") or msgcontains(message, "sleighs") then
 		npcHandler:say('I can give you one of the following sleighs: {' .. table.concat(monsterName, "}, {") .. '}.', npc, creature)
-		rtnt[creature] = nil
-		talkState[creature] = 0
+		rtnt[playerId] = nil
+		talkState[playerId] = 0
 		npcHandler:resetNpc()
 		return true
 	elseif msgcontains(message, "help") then
 		npcHandler:say('Just tell me which {sleigh} you want to know more about.', npc, creature)
-		rtnt[creature] = nil
-		talkState[creature] = 0
+		rtnt[playerId] = nil
+		talkState[playerId] = 0
 		npcHandler:resetNpc()
 		return true
 	else
-		if talkState[creature] ~= nil then
-			if talkState[creature] > 0 then
+		if talkState[playerId] ~= nil then
+			if talkState[playerId] > 0 then
 			npcHandler:say('Come back when you get these items.', npc, creature)
-			rtnt[creature] = nil
-			talkState[creature] = 0
+			rtnt[playerId] = nil
+			talkState[playerId] = 0
 			npcHandler:resetNpc()
 			return true
 			end

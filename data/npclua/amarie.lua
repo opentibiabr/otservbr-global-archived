@@ -22,25 +22,6 @@ npcConfig.flags = {
 	floorchange = false
 }
 
-local keywordHandler = KeywordHandler:new()
-local npcHandler = NpcHandler:new(keywordHandler)
-
-npcType.onAppear = function(npc, creature)
-npcHandler:onCreatureAppear(npc, creature)
-end
-
-npcType.onDisappear = function(npc, creature)
-npcHandler:onCreatureDisappear(npc, creature)
-end
-
-npcType.onSay = function(npc, creature, type, message)
-npcHandler:onCreatureSay(npc, creature, type, message)
-end
-
-npcType.onThink = function(npc, interval)
-npcHandler:onThink(npc, interval)	
-end
-
 npcConfig.voices = {
 	interval = 5000,
 	chance = 50,

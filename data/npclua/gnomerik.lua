@@ -57,6 +57,10 @@ keywordHandler:addGreetKeyword({'hi'}, {npcHandler = npcHandler, text = 'Hello a
 keywordHandler:addAliasKeyword({'hello'})
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 

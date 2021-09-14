@@ -157,12 +157,13 @@ if NpcHandler == nil then
 	-- This function is used to set an interaction between the npc and the player
 	-- The "self.focuses" is used to store the player the npc is interacting with, to be used as a callback in the "NpcHandler:onThink", for allowing the player used within the function
 	function NpcHandler:setInteraction(npc, player)
+		local playerId = player:getId()
 		if self:checkInteraction(npc, player) then
 			return false
 		end
 
-		self.focuses[#self.focuses + 1] = player
-		self.topic[player] = 0
+		self.focuses[#self.focuses + 1] = playerId
+		self.topic[playerId] = 0
 		local callback = self:getCallback(CALLBACK_ONADDFOCUS)
 		if callback == nil or callback(player) then
 			self:processModuleCallback(CALLBACK_ONADDFOCUS, player)
@@ -173,19 +174,20 @@ if NpcHandler == nil then
 
 	-- This function removes the npc interaction with the player
 	function NpcHandler:removeInteraction(npc, player)
-		if self.eventDelayedSay[player] then
-			self:cancelNPCTalk(self.eventDelayedSay[player])
+		local playerId = player:getId()
+		if self.eventDelayedSay[playerId] then
+			self:cancelNPCTalk(self.eventDelayedSay[playerId])
 		end
 
 		if Player(player) == nil then
 			return Spdlog.error("[NpcHandler:removeInteraction] - Player is missing or nil")
 		end
 
-		self.focuses[player] = nil
-		self.eventSay[player] = nil
-		self.eventDelayedSay[player] = nil
-		self.talkStart[player] = nil
-		self.topic[player] = nil
+		self.focuses[playerId] = nil
+		self.eventSay[playerId] = nil
+		self.eventDelayedSay[playerId] = nil
+		self.talkStart[playerId] = nil
+		self.topic[playerId] = nil
 
 		local callback = self:getCallback(CALLBACK_ONRELEASEFOCUS)
 		if callback == nil or callback(player) then
@@ -326,6 +328,7 @@ if NpcHandler == nil then
 					local parseInfo = { [TAG_PLAYERNAME] = playerName }
 					msg = self:parseMessage(msg, parseInfo)
 					self:say(msg, npc, player, true)
+					self:updateInteraction(npc, player)
 				else
 					return false
 				end
@@ -375,11 +378,12 @@ if NpcHandler == nil then
 
 	-- Handles onCreatureSay events. If you with to handle this yourself, please use the CALLBACK_CREATURE_SAY callback.
 	function NpcHandler:onCreatureSay(npc, player, msgtype, msg)
+		local playerId = player:getId()
 		local callback = self:getCallback(CALLBACK_CREATURE_SAY)
 		if callback == nil or callback(npc, player, msgtype, msg) then
 			if self:processModuleCallback(CALLBACK_CREATURE_SAY, npc, player, msgtype, msg) then
 				if not self:isInRange(npc, player) then
-					return
+					return false
 				end
 
 				if self.keywordHandler ~= nil then
@@ -388,10 +392,10 @@ if NpcHandler == nil then
 						if not ret then
 							local callback = self:getCallback(CALLBACK_MESSAGE_DEFAULT)
 							if callback ~= nil and callback(npc, player, msgtype, msg) then
-								self.talkStart[player] = os.time()
+								self.talkStart[playerId] = os.time()
 							end
 						else
-							self.talkStart[player] = os.time()
+							self.talkStart[playerId] = os.time()
 						end
 					end
 				end
@@ -446,8 +450,9 @@ if NpcHandler == nil then
 		if callback == nil or callback() then
 			if self:processModuleCallback(CALLBACK_ONTHINK) then
 				for _, player in pairs(self.focuses) do
+					local playerId = player:getId()
 					if player ~= nil then
-						if self.talkStart[player] ~= nil and (os.time() - self.talkStart[player]) > self.idleTime then
+						if self.talkStart[playerId] ~= nil and (os.time() - self.talkStart[playerId]) > self.idleTime then
 							self:unGreet(npc, player)
 						end
 					end
@@ -539,8 +544,9 @@ if NpcHandler == nil then
 	end
 
 	function NpcHandler:doNPCTalkALot(msgs, delay, npc, player)
-		if self.eventDelayedSay[player] then
-			self:cancelNPCTalk(self.eventDelayedSay[player])
+		local playerId = player:getId()
+		if self.eventDelayedSay[playerId] then
+			self:cancelNPCTalk(self.eventDelayedSay[playerId])
 		end
 
 		local playerId = player.uid
@@ -548,12 +554,12 @@ if NpcHandler == nil then
 			return Spdlog.error("[NpcHandler:doNPCTalkALot] - Player is unsafe.")
 		end
 
-		self.eventDelayedSay[player] = {}
+		self.eventDelayedSay[playerId] = {}
 		local ret = {}
 		for aux = 1, #msgs do
-			self.eventDelayedSay[player][aux] = {}
-			npc:sayWithDelay(npc:getId(), msgs[aux], TALKTYPE_PRIVATE_NP, ((aux-1) * (delay or 4000)), self.eventDelayedSay[player][aux], playerId)
-			ret[#ret + 1] = self.eventDelayedSay[player][aux]
+			self.eventDelayedSay[playerId][aux] = {}
+			npc:sayWithDelay(npc:getId(), msgs[aux], TALKTYPE_PRIVATE_NP, ((aux-1) * (delay or 4000)), self.eventDelayedSay[playerId][aux], playerId)
+			ret[#ret + 1] = self.eventDelayedSay[playerId][aux]
 		end
 		return(ret)
 	end
@@ -561,16 +567,17 @@ if NpcHandler == nil then
 	-- Makes the npc represented by this instance of NpcHandler say something.
 	--	This implements the currently set type of talkdelay.
 	function NpcHandler:say(message, npc, player, delay)
+		local playerId = player:getId()
 		if type(message) == "table" then
 			return self:doNPCTalkALot(message, delay, npc, player)
 		end
 
-		if self.eventDelayedSay[player] then
-			self:cancelNPCTalk(self.eventDelayedSay[player])
+		if self.eventDelayedSay[playerId] then
+			self:cancelNPCTalk(self.eventDelayedSay[playerId])
 		end
 
-		stopEvent(self.eventSay[player])
-		self.eventSay[player] = addEvent(function(npcId, message, focusId)
+		stopEvent(self.eventSay[playerId])
+		self.eventSay[playerId] = addEvent(function(npcId, message, focusId)
 			if not Npc(npc) then
 				return Spdlog.error("[NpcHandler:say] - Npc parameter is missing or wrong")
 			end

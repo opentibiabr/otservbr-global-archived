@@ -62,6 +62,10 @@ fire:setParameter(CONDITION_PARAM_FORCEUPDATE, true)
 fire:addDamage(25, 9000, -10)
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, 'gamel') and msgcontains(message, 'rebel') then

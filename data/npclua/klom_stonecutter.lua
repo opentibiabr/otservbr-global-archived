@@ -59,7 +59,7 @@ local function greetCallback(npc, creature)
 	if player then
 		npcHandler:setMessage(MESSAGE_GREET, {"Greetings. A warning straight ahead: I don't like loiterin'. If you're not here to {help} us, you're here to waste my time. Which I consider loiterin'. Now, try and prove your {worth} to our alliance. ... ",
 											  "I have sealed some of the areas far too dangerous for anyone to enter. If you can prove you're capable, you'll get an opportunity to help destroy the weird machines, pumping lava into the caves leading to the most dangerous enemies."})
-		playerTopic[creature] = 1
+		playerTopic[playerId] = 1
 	end
 	return true
 end
@@ -76,8 +76,12 @@ keywordHandler:addKeyword({'enemy'}, StdModule.say, {npcHandler = npcHandler, te
 keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = 'Klom Stonecutter\'s the name. '})
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
-	npcHandler.topic[playerId] = playerTopic[creature]
+	npcHandler.topic[playerId] = playerTopic[playerId]
 	local player = Player(creature)
 	npc = Npc(creature)
 
@@ -87,23 +91,23 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, "subterraneans") and npcHandler.topic[playerId] == 1 then
 		if player:getStorageValue(Storage.DangerousDepths.Dwarves.Subterranean) == 2 and player:getStorageValue(Storage.DangerousDepths.Dwarves.TimeTaskSubterranean) > 0 then
 			npcHandler:say({"I don't need your help for now. Come back later."}, npc, creature)
-			playerTopic[creature] = 1
+			playerTopic[playerId] = 1
 			npcHandler.topic[playerId] = 1
 		end
 		if player:getStorageValue(Storage.DangerousDepths.Dwarves.Subterranean) == 2 and player:getStorageValue(Storage.DangerousDepths.Dwarves.TimeTaskSubterranean) <= 0 then
 			npcHandler:say({"Vermin. Everywhere. We get a lot of strange four-legged crawlers and worms down here lately. It's getting out of hand and... well, I need a real killer for this. ",
 							"Prepared to get rid of some seriously foul creepers for us?"}, npc, creature)
-			playerTopic[creature] = 2
+			playerTopic[playerId] = 2
 			npcHandler.topic[playerId] = 2
 		end
 		if player:getStorageValue(Storage.DangerousDepths.Dwarves.Subterranean) < 1 then -- Não possuía a missão, agora possui!
 			npcHandler:say({"Vermin. Everywhere. We get a lot of strange four-legged crawlers and worms down here lately. It's getting out of hand and... well, I need a real killer for this. ",
 							"Prepared to get rid of some seriously foul creepers for us?"}, npc, creature)
-			playerTopic[creature] = 2
+			playerTopic[playerId] = 2
 			npcHandler.topic[playerId] = 2
 		elseif (player:getStorageValue(Storage.DangerousDepths.Dwarves.Subterranean) == 1) and (player:getStorageValue(Storage.DangerousDepths.Dwarves.Organisms) < 50) then -- Está na missão porém não terminou a task!
 			npcHandler:say({"Come back when you have finished your job."}, npc, creature)
-			playerTopic[creature] = 1
+			playerTopic[playerId] = 1
 			npcHandler.topic[playerId] = 1
 		elseif (player:getStorageValue(Storage.DangerousDepths.Dwarves.Subterranean) == 1) and (player:getStorageValue(Storage.DangerousDepths.Dwarves.Organisms) >= 50) then
 			npcHandler:say({"I'l say I'm blown away but a Klom Stonecutter is not that easily impressed. Still, your got your hands dirt for us and I appreciate that."}, npc, creature)
@@ -112,7 +116,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:addItem(32014, 1)
 			player:setStorageValue(Storage.DangerousDepths.Dwarves.Status, player:getStorageValue(Storage.DangerousDepths.Dwarves.Status) + 1)
 			player:setStorageValue(Storage.DangerousDepths.Dwarves.Subterranean, 2)
-			playerTopic[creature] = 1
+			playerTopic[playerId] = 1
 			npcHandler.topic[playerId] = 1
 		end
 	elseif npcHandler.topic[playerId] == 2 and msgcontains(message, "yes") then
@@ -122,7 +126,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 		player:setStorageValue(Storage.DangerousDepths.Dwarves.Subterranean, 1)
 		player:setStorageValue(Storage.DangerousDepths.Dwarves.Organisms, 0) -- Garantindo que a task não inicie com -1
-		playerTopic[creature] = 1
+		playerTopic[playerId] = 1
 		npcHandler.topic[playerId] = 1
 	end
 
@@ -130,25 +134,25 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, "home") and npcHandler.topic[playerId] == 1 then
 		if player:getStorageValue(Storage.DangerousDepths.Dwarves.Home) == 2 and player:getStorageValue(Storage.DangerousDepths.Dwarves.TimeTaskHome) > 0 then
 			npcHandler:say({"I don't need your help for now. Come back later."}, npc, creature)
-			playerTopic[creature] = 1
+			playerTopic[playerId] = 1
 			npcHandler.topic[playerId] = 1
 		end
 		if player:getStorageValue(Storage.DangerousDepths.Dwarves.Home) == 2 and player:getStorageValue(Storage.DangerousDepths.Dwarves.TimeTaskHome) <= 0 then
 			npcHandler:say({"We need to find a way to drive off the exiles from these caves. Countless makeshift homes are popping up at every corner. Destroy them and get the Lost out of hiding to eliminate them. ... ",
 							"If you can capture a few of them, you'll receive a bonus. Just bring 'em to the border of our outpost and we will take care of the rest. ... ",
 							"Are you ready for that? "}, npc, creature)
-			playerTopic[creature] = 22
+			playerTopic[playerId] = 22
 			npcHandler.topic[playerId] = 22
 		end
 		if player:getStorageValue(Storage.DangerousDepths.Dwarves.Home) < 1 then -- Não possuía a missão, agora possui!
 			npcHandler:say({"We need to find a way to drive off the exiles from these caves. Countless makeshift homes are popping up at every corner. Destroy them and get the Lost out of hiding to eliminate them. ... ",
 							"If you can capture a few of them, you'll receive a bonus. Just bring 'em to the border of our outpost and we will take care of the rest. ... ",
 							"Are you ready for that? "}, npc, creature)
-			playerTopic[creature] = 22
+			playerTopic[playerId] = 22
 			npcHandler.topic[playerId] = 22
 		elseif (player:getStorageValue(Storage.DangerousDepths.Dwarves.Home) == 1) and (player:getStorageValue(Storage.DangerousDepths.Dwarves.LostExiles) < 20 and player:getStorageValue(Storage.DangerousDepths.Dwarves.Prisoners) < 3) then -- Está na missão porém não terminou nenhuma das tasks!
 			npcHandler:say({"Come back when you have finished your job."}, npc, creature)
-			playerTopic[creature] = 1
+			playerTopic[playerId] = 1
 			npcHandler.topic[playerId] = 1
 		elseif (player:getStorageValue(Storage.DangerousDepths.Dwarves.Home) == 1) and (player:getStorageValue(Storage.DangerousDepths.Dwarves.LostExiles) >= 20 and player:getStorageValue(Storage.DangerousDepths.Dwarves.Prisoners) < 3) then
 			npcHandler:say({"So you did it. Well, that won't be the last of 'em but this sure helps our situation down here. Return to me later if you want to help me again!"}, npc, creature) -- Caso não tenha feito o task bônus
@@ -157,7 +161,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.DangerousDepths.Dwarves.Home, 2)
 			player:addItem(32014, 1)
 			player:setStorageValue(Storage.DangerousDepths.Dwarves.Status, player:getStorageValue(Storage.DangerousDepths.Dwarves.Status) + 1)
-			playerTopic[creature] = 1
+			playerTopic[playerId] = 1
 		npcHandler.topic[playerId] = 1
 		elseif (player:getStorageValue(Storage.DangerousDepths.Dwarves.Home) == 1) and (player:getStorageValue(Storage.DangerousDepths.Dwarves.LostExiles) >= 20 and player:getStorageValue(Storage.DangerousDepths.Dwarves.Prisoners) >= 3) then
 			npcHandler:say({"So you did it. And you even made prisoners, the bonus is yours! Well, that won't be the last of 'em but this sure helps our situation down here. Return to me later if you want to help me again!"}, npc, creature) -- Se tiver feito ambas
@@ -166,7 +170,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.DangerousDepths.Dwarves.Home, 2)
 			player:addItem(32014, 2) -- +1 item pela task bônus!
 			player:setStorageValue(Storage.DangerousDepths.Dwarves.Status, player:getStorageValue(Storage.DangerousDepths.Dwarves.Status) + 2) -- +1 ponto pela task bônus!
-			playerTopic[creature] = 1
+			playerTopic[playerId] = 1
 			npcHandler.topic[playerId] = 1
 		end
 	elseif npcHandler.topic[playerId] == 22 and msgcontains(message, "yes") then
@@ -177,69 +181,69 @@ local function creatureSayCallback(npc, creature, type, message)
 		player:setStorageValue(Storage.DangerousDepths.Dwarves.Home, 1)
 		player:setStorageValue(Storage.DangerousDepths.Dwarves.LostExiles, 0) -- Garantindo que a task não inicie com -1
 		player:setStorageValue(Storage.DangerousDepths.Dwarves.Prisoners, 0) -- Garantindo que a task não inicie com -1
-		playerTopic[creature] = 1
+		playerTopic[playerId] = 1
 		npcHandler.topic[playerId] = 1
 	end
 
 	local plural = ""
 	if msgcontains(message, "suspicious devices") or msgcontains(message, "suspicious device") then
 		npcHandler:say({"If you bring me any suspicious devices on creatures you slay down here, I'll make it worth your while by telling the others of your generosity. How many do you want to offer? "}, npc, creature)
-		playerTopic[creature] = 55
+		playerTopic[playerId] = 55
 		npcHandler.topic[playerId] = 55
 	elseif npcHandler.topic[playerId] == 55 then
-		quantidade[creature] = tonumber(message)
-		if quantidade[creature] then
-			if quantidade[creature] > 1 then
+		quantidade[playerId] = tonumber(message)
+		if quantidade[playerId] then
+			if quantidade[playerId] > 1 then
 				plural = plural .. "s"
 			end
-			npcHandler:say({"You want to offer " .. quantidade[creature] .. " suspicious device" ..plural.. ". Which leader shall have it, (Gnomus) of the {gnomes}, (Klom Stonecutter) of the {dwarves} or the {scouts} (Lardoc Bashsmite)?"}, npc, creature)
-			playerTopic[creature] = 56
+			npcHandler:say({"You want to offer " .. quantidade[playerId] .. " suspicious device" ..plural.. ". Which leader shall have it, (Gnomus) of the {gnomes}, (Klom Stonecutter) of the {dwarves} or the {scouts} (Lardoc Bashsmite)?"}, npc, creature)
+			playerTopic[playerId] = 56
 			npcHandler.topic[playerId] = 56
 		else
 			npcHandler:say({"Don't waste my time."}, npc, creature)
-			playerTopic[creature] = 1
+			playerTopic[playerId] = 1
 			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "gnomes") and npcHandler.topic[playerId] == 56 then
-		if player:getItemCount(30888) >= quantidade[creature] then
+		if player:getItemCount(30888) >= quantidade[playerId] then
 			npcHandler:say({"Done."}, npc, creature)
-			if quantidade[creature] > 1 then
+			if quantidade[playerId] > 1 then
 				plural = plural .. "s"
 			end
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You earned ".. quantidade[creature] .." point"..plural.." on the gnomes mission.")
-			player:removeItem(30888, quantidade[creature])
-			player:setStorageValue(Storage.DangerousDepths.Gnomes.Status, player:getStorageValue(Storage.DangerousDepths.Gnomes.Status) + quantidade[creature])
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You earned ".. quantidade[playerId] .." point"..plural.." on the gnomes mission.")
+			player:removeItem(30888, quantidade[playerId])
+			player:setStorageValue(Storage.DangerousDepths.Gnomes.Status, player:getStorageValue(Storage.DangerousDepths.Gnomes.Status) + quantidade[playerId])
 		else
 			npcHandler:say({"You don't have enough suspicious devices."}, npc, creature)
-			playerTopic[creature] = 1
+			playerTopic[playerId] = 1
 			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "dwarves") and npcHandler.topic[playerId] == 56 then
-		if player:getItemCount(30888) >= quantidade[creature] then
+		if player:getItemCount(30888) >= quantidade[playerId] then
 			npcHandler:say({"Done."}, npc, creature)
-			if quantidade[creature] > 1 then
+			if quantidade[playerId] > 1 then
 				plural = plural .. "s"
 			end
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You earned ".. quantidade[creature] .." point"..plural.." on the dwarves mission.")
-			player:removeItem(30888, quantidade[creature])
-			player:setStorageValue(Storage.DangerousDepths.Dwarves.Status, player:getStorageValue(Storage.DangerousDepths.Dwarves.Status) + quantidade[creature])
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You earned ".. quantidade[playerId] .." point"..plural.." on the dwarves mission.")
+			player:removeItem(30888, quantidade[playerId])
+			player:setStorageValue(Storage.DangerousDepths.Dwarves.Status, player:getStorageValue(Storage.DangerousDepths.Dwarves.Status) + quantidade[playerId])
 		else
 			npcHandler:say({"You don't have enough suspicious devices."}, npc, creature)
-			playerTopic[creature] = 1
+			playerTopic[playerId] = 1
 			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "scouts") and npcHandler.topic[playerId] == 56 then
-		if player:getItemCount(30888) >= quantidade[creature] then
+		if player:getItemCount(30888) >= quantidade[playerId] then
 			npcHandler:say({"Done."}, npc, creature)
-			if quantidade[creature] > 1 then
+			if quantidade[playerId] > 1 then
 				plural = plural .. "s"
 			end
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You earned ".. quantidade[creature] .." point"..plural.." on the scouts mission.")
-			player:removeItem(30888, quantidade[creature])
-			player:setStorageValue(Storage.DangerousDepths.Scouts.Status, player:getStorageValue(Storage.DangerousDepths.Scouts.Status) + quantidade[creature])
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You earned ".. quantidade[playerId] .." point"..plural.." on the scouts mission.")
+			player:removeItem(30888, quantidade[playerId])
+			player:setStorageValue(Storage.DangerousDepths.Scouts.Status, player:getStorageValue(Storage.DangerousDepths.Scouts.Status) + quantidade[playerId])
 		else
 			npcHandler:say({"You don't have enough suspicious devices."}, npc, creature)
-			playerTopic[creature] = 1
+			playerTopic[playerId] = 1
 			npcHandler.topic[playerId] = 1
 		end
 	end
@@ -247,7 +251,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		-- Início checagem de pontos de tasks!!
 	if msgcontains(message, "status") then
 		npcHandler:say({"So you want to know what we all think about your deeds? What leader\'s opinion are you interested in, the {gnomes} (Gnomus), the {dwarves} (Klom Stonecutter) or the {scouts} (Lardoc Bashsmite)?"}, npc, creature)
-		playerTopic[creature] = 5
+		playerTopic[playerId] = 5
 		npcHandler.topic[playerId] = 5
 	elseif msgcontains(message, "gnomes") and npcHandler.topic[playerId] == 5 then
 		npcHandler:say({'The gnomes are still in need of your help, member of Bigfoot\'s Brigade. Prove your worth by answering their calls! (' .. math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.Status), 0) .. '/10)'}, npc, creature)

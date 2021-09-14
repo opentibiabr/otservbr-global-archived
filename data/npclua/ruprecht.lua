@@ -73,6 +73,10 @@ local itemsTable = {
 }
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 
@@ -89,17 +93,17 @@ local function creatureSayCallback(npc, creature, type, message)
 		if table then
 			if (table.itemId ~= 6497) then
 				npcHandler:say("So you want to exchange "..message..", for ".. table.count .." christmas tokens?", npc, creature)
-				storeTable[creature] = message
+				storeTable[playerId] = message
 				npcHandler.topic[playerId] = 1
 			else
 				npcHandler:say("So you want to exchange ".. message .." to "..table.count.." christmas token(s)?", npc, creature)
-				storeTable[creature] = 6527
+				storeTable[playerId] = 6527
 				npcHandler.topic[playerId] = 1
 			end
 		end
 	elseif npcHandler.topic[playerId] == 1 then
 		if msgcontains(message, "yes") then
-			if (tonumber(storeTable[creature]) == 6527) then
+			if (tonumber(storeTable[playerId]) == 6527) then
 				if (player:removeItem(6497, 1)) then
 					npcHandler:say("Thank you, here is your 1 christmas token.", npc, creature)
 					player:addItem(6527, 1)
@@ -110,9 +114,9 @@ local function creatureSayCallback(npc, creature, type, message)
 				end
 				return false
 			end
-			if player:removeItem(6527, itemsTable[storeTable[creature]].count) then
-				npcHandler:say("Thank you, here is your "..storeTable[creature]..".", npc, creature)
-				player:addItem(itemsTable[storeTable[creature]].itemId, 1)
+			if player:removeItem(6527, itemsTable[storeTable[playerId]].count) then
+				npcHandler:say("Thank you, here is your "..storeTable[playerId]..".", npc, creature)
+				player:addItem(itemsTable[storeTable[playerId]].itemId, 1)
 				npcHandler.topic[playerId] = 0
 			else
 				npcHandler:say("You don't have enough of tokens.", npc, creature)
@@ -144,7 +148,8 @@ local function creatureSayCallback(npc, creature, type, message)
 end
 
 local function onReleaseFocus(creature)
-	storeTable[creature] = nil
+	local playerId = creature:getId()
+	storeTable[playerId] = nil
 end
 
 npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)

@@ -205,6 +205,10 @@ local function startTrade(creature, player)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 	message = message:gsub("(%l)(%w*)", function(a,b) return string.upper(a)..b end)
@@ -260,14 +264,14 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 		npcHandler:say("In this task you must defeat " .. tasks[task].killsRequired .. " " .. tasks[task].raceName .. "."..
 					" ".."Are you sure that you want to start this task?", npc, creature)
-		choose[creature] = task
+		choose[playerId] = task
 		npcHandler.topic[playerId] = 1
 	elseif message:lower() == "yes" and npcHandler.topic[playerId] == 1 then
-		player:setStorageValue(QUESTSTORAGE_BASE + choose[creature], 1)
-		player:setStorageValue(KILLSSTORAGE_BASE + choose[creature], 0)
+		player:setStorageValue(QUESTSTORAGE_BASE + choose[playerId], 1)
+		player:setStorageValue(KILLSSTORAGE_BASE + choose[playerId], 0)
 		npcHandler:say("Excellent! You can check the {status} of your task saying {report} to me."..
 					" ".."Also you can {cancel} tasks to.", npc, creature)
-		choose[creature] = nil
+		choose[playerId] = nil
 		npcHandler.topic[playerId] = 0
 	elseif msgcontains("status", message) then
 		local started = player:getStartedTasks()
@@ -420,7 +424,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("Are you sure you want to cancel this task?", npc, creature)
 		end
 		npcHandler.topic[playerId] = 3
-		cancel[creature] = task
+		cancel[playerId] = task
 	elseif ((getTaskByName(message)) and
 			(npcHandler.topic[playerId] == 1) and
 			(isInArray(getPlayerStartedTasks(creature), getTaskByName(message)))) then
@@ -435,10 +439,10 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 		npcHandler.topic[playerId] = 0
 	elseif message:lower() == "yes" and npcHandler.topic[playerId] == 3 then
-		player:setStorageValue(QUESTSTORAGE_BASE + cancel[creature], -1)
-		player:setStorageValue(KILLSSTORAGE_BASE + cancel[creature], -1)
+		player:setStorageValue(QUESTSTORAGE_BASE + cancel[playerId], -1)
+		player:setStorageValue(KILLSSTORAGE_BASE + cancel[playerId], -1)
 		npcHandler:say("You have canceled the task " ..
-					(tasks[cancel[creature]].name or tasks[cancel[creature]].raceName) .. ".", npc, creature)
+					(tasks[cancel[playerId]].name or tasks[cancel[playerId]].raceName) .. ".", npc, creature)
 		npcHandler.topic[playerId] = 0
 	elseif isInArray({"points", "rank"}, message:lower()) then
 		npcHandler:say("At this time, you have " .. player:getPawAndFurPoints() .. " Paw & Fur points. You " ..

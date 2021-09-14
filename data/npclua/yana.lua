@@ -181,6 +181,10 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 
@@ -201,37 +205,37 @@ local function creatureSayCallback(npc, creature, type, message)
 		local imbueType = products[message:lower()]
 		if imbueType then
 			npcHandler:say({"You have chosen "..message..". {Basic}, {intricate} or {powerful}?"}, npc, creature)
-			answerType[creature] = message
+			answerType[playerId] = message
 			npcHandler.topic[playerId] = 2
 		end
 	elseif npcHandler.topic[playerId] == 2 then
-		local imbueLevel = products[answerType[creature]][message:lower()]
+		local imbueLevel = products[answerType[playerId]][message:lower()]
 		if imbueLevel then
-			answerLevel[creature] = message:lower()
+			answerLevel[playerId] = message:lower()
 			local neededCap = 0
-			for i = 1, #products[answerType[creature]][answerLevel[creature]].itens do
-				neededCap = neededCap + ItemType(products[answerType[creature]][answerLevel[creature]].itens[i].id):getWeight() * products[answerType[creature]][answerLevel[creature]].itens[i].amount
+			for i = 1, #products[answerType[playerId]][answerLevel[playerId]].itens do
+				neededCap = neededCap + ItemType(products[answerType[playerId]][answerLevel[playerId]].itens[i].id):getWeight() * products[answerType[playerId]][answerLevel[playerId]].itens[i].amount
 			end
 			npcHandler:say({imbueLevel.text.."...", 
-							"Make sure that you have ".. #products[answerType[creature]][answerLevel[creature]].itens .." free slot and that you can carry ".. string.format("%.2f",neededCap/100) .." oz in addition to that."}, npc, creature)
+							"Make sure that you have ".. #products[answerType[playerId]][answerLevel[playerId]].itens .." free slot and that you can carry ".. string.format("%.2f",neededCap/100) .." oz in addition to that."}, npc, creature)
 			npcHandler.topic[playerId] = 3
 		end
 	elseif npcHandler.topic[playerId] == 3 then
 		if msgcontains(message, "yes") then
 			local neededCap = 0
-			for i = 1, #products[answerType[creature]][answerLevel[creature]].itens do
-				neededCap = neededCap + ItemType(products[answerType[creature]][answerLevel[creature]].itens[i].id):getWeight() * products[answerType[creature]][answerLevel[creature]].itens[i].amount
+			for i = 1, #products[answerType[playerId]][answerLevel[playerId]].itens do
+				neededCap = neededCap + ItemType(products[answerType[playerId]][answerLevel[playerId]].itens[i].id):getWeight() * products[answerType[playerId]][answerLevel[playerId]].itens[i].amount
 			end
 			if player:getFreeCapacity() > neededCap then
-				if player:getItemCount(npc:getCurrency()) >= products[answerType[creature]][answerLevel[creature]].value then
-					for i = 1, #products[answerType[creature]][answerLevel[creature]].itens do
-						player:addItem(products[answerType[creature]][answerLevel[creature]].itens[i].id, products[answerType[creature]][answerLevel[creature]].itens[i].amount)
+				if player:getItemCount(npc:getCurrency()) >= products[answerType[playerId]][answerLevel[playerId]].value then
+					for i = 1, #products[answerType[playerId]][answerLevel[playerId]].itens do
+						player:addItem(products[answerType[playerId]][answerLevel[playerId]].itens[i].id, products[answerType[playerId]][answerLevel[playerId]].itens[i].amount)
 					end
-					player:removeItem(npc:getCurrency(), products[answerType[creature]][answerLevel[creature]].value)
+					player:removeItem(npc:getCurrency(), products[answerType[playerId]][answerLevel[playerId]].value)
 					npcHandler:say("There it is.", npc, creature)
 					npcHandler.topic[playerId] = 0
 				else
-					npcHandler:say("I'm sorry but it seems you don't have enough gold tokens? yet. Bring me "..products[answerType[creature]][answerLevel[creature]].value.." of them and we'll make a trade.", npc, creature)
+					npcHandler:say("I'm sorry but it seems you don't have enough gold tokens? yet. Bring me "..products[answerType[playerId]][answerLevel[playerId]].value.." of them and we'll make a trade.", npc, creature)
 				end
 			else
 				npcHandler:say("You don\'t have enough capacity. You must have "..neededCap.." oz.", npc, creature)

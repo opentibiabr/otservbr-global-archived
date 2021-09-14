@@ -72,95 +72,95 @@ function creatureSayCallback(npc, creature, type, message)
 			return npcHandler:say('You are not worthy of a special reward yet.', npc, creature)
 		end
 
-		talkState[creature] = 'worthy'
+		talkState[playerId] = 'worthy'
 		return npcHandler:say('You can acquire the {basic} outfit for 1000 Gold, the {first} addon for 2000 gold and the {second} addon for 3000 gold. Which do you want to buy?', npc, creature)
 	end
 
-	if talkState[creature] == 'worthy' then
+	if talkState[playerId] == 'worthy' then
 		if msgcontains(message, 'basic') then
 			if getPlayerLevel(creature) < 25 then
-				talkState[creature] = nil
+				talkState[playerId] = nil
 				return npcHandler:say('You do not have enough level yet.', npc, creature)
 			end
 
 			if player:hasOutfit(player:getSex() == 0 and 575 or 574) then
-				talkState[creature] = nil
+				talkState[playerId] = nil
 				return npcHandler:say('You already have that outfit.', npc, creature)
 			end
 
-			talkState[creature] = 'basic'
+			talkState[playerId] = 'basic'
 			return npcHandler:say('Do you want to buy the basic outfit for 1000 Gold?', npc, creature)
 		elseif msgcontains(message, 'first') then
 			if getPlayerLevel(creature) < 50 then
-				talkState[creature] = nil
+				talkState[playerId] = nil
 				return npcHandler:say('You do not have enough level yet.', npc, creature)
 			end
 
 			if not player:hasOutfit(player:getSex() == 0 and 575 or 574) then
-				talkState[creature] = nil
+				talkState[playerId] = nil
 				return npcHandler:say('You do not have the Cave Explorer outfit.', npc, creature)
 			end
 
 			if player:hasOutfit(player:getSex() == 0 and 575 or 574, 1) then
-				talkState[creature] = nil
+				talkState[playerId] = nil
 				return npcHandler:say('You already have that addon.', npc, creature)
 			end
 
-			talkState[creature] = 'first'
+			talkState[playerId] = 'first'
 			return npcHandler:say('Do you want to buy the first addon for 2000 Gold?', npc, creature)
 		elseif msgcontains(message, 'second') then
 			if getPlayerLevel(creature) < 80 then
-				talkState[creature] = nil
+				talkState[playerId] = nil
 				return npcHandler:say('You do not have enough level yet.', npc, creature)
 			end
 
 			if not player:hasOutfit(player:getSex() == 0 and 575 or 574) then
-				talkState[creature] = nil
+				talkState[playerId] = nil
 				return npcHandler:say('You do not have the Cave Explorer outfit.', npc, creature)
 			end
 
 			if player:hasOutfit(player:getSex() == 0 and 575 or 574, 2) then
-				talkState[creature] = nil
+				talkState[playerId] = nil
 				return npcHandler:say('You already have that addon.', npc, creature)
 			end
 
-			talkState[creature] = 'second'
+			talkState[playerId] = 'second'
 			return npcHandler:say('Do you want to buy the second addon for 3000 Gold?', npc, creature)
 		end
 	end
 
-	if talkState[creature] == 'basic' then
+	if talkState[playerId] == 'basic' then
 		if msgcontains(message, 'yes') then
 			if not player:removeMoney(1000) then
-				talkState[creature] = nil
+				talkState[playerId] = nil
 				return npcHandler:say('You do not have that money.', npc, creature)
 			end
 		end
 		player:removeFamePoints(100)
 		player:addOutfit(player:getSex() == 0 and 575 or 574)
-		talkState[creature] = nil
+		talkState[playerId] = nil
 		return npcHandler:say('Here it is.', npc, creature)
-	elseif talkState[creature] == 'first' then
+	elseif talkState[playerId] == 'first' then
 		if msgcontains(message, 'yes') then
 			if not player:removeMoney(2000) then
-				talkState[creature] = nil
+				talkState[playerId] = nil
 				return npcHandler:say('You do not have that money.', npc, creature)
 			end
 		end
 		player:removeFamePoints(100)
 		player:addOutfitAddon(player:getSex() == 0 and 575 or 574, 1)
-		talkState[creature] = nil
+		talkState[playerId] = nil
 		return npcHandler:say('Here it is.', npc, creature)
-	elseif talkState[creature] == 'second' then
+	elseif talkState[playerId] == 'second' then
 		if msgcontains(message, 'yes') then
 			if not player:removeMoney(3000) then
-				talkState[creature] = nil
+				talkState[playerId] = nil
 				return npcHandler:say('You do not have that money.', npc, creature)
 			end
 		end
 		player:removeFamePoints(100)
 		player:addOutfitAddon(player:getSex() == 0 and 575 or 574, 2)
-		talkState[creature] = nil
+		talkState[playerId] = nil
 		return npcHandler:say('Here it is.', npc, creature)
 	end
 	return true

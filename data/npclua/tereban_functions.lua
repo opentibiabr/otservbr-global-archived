@@ -98,7 +98,7 @@ terebanConfig = {
 }
 
 function clearTerebanMessages(creature)
-	message[creature] = nil
+	message[playerId] = nil
 end
 
 function parseTerebanSay(npc, creature, message, npcHandler)
@@ -162,7 +162,7 @@ function parseTerebanSay(npc, creature, message, npcHandler)
 
 			npcHandler:say(targetMessage.messages.deliever, npc, creature)
 			npcHandler.topic[playerId] = 2
-			message[creature] = targetMessage
+			message[playerId] = targetMessage
 		end
 	elseif npcHandler.topic[playerId] == 1 then
 		if msgcontains(message, "yes") then
@@ -178,7 +178,7 @@ function parseTerebanSay(npc, creature, message, npcHandler)
 		end
 		npcHandler.topic[playerId] = 0
 	elseif npcHandler.topic[playerId] == 2 then
-		local targetMessage = message[creature]
+		local targetMessage = message[playerId]
 		if msgcontains(message, "yes") then
 			if not player:removeItem(player:getItemIdByCid(targetMessage.itemId), 1) then
 				npcHandler:say(targetMessage.messages.failure, npc, creature)

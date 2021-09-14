@@ -18,25 +18,6 @@ npcConfig.flags = {
 	floorchange = false
 }
 
-local keywordHandler = KeywordHandler:new()
-local npcHandler = NpcHandler:new(keywordHandler)
-
-npcType.onAppear = function(npc, creature)
-npcHandler:onCreatureAppear(npc, creature)
-end
-
-npcType.onDisappear = function(npc, creature)
-npcHandler:onCreatureDisappear(npc, creature)
-end
-
-npcType.onSay = function(npc, creature, type, message)
-npcHandler:onCreatureSay(npc, creature, type, message)
-end
-
-npcType.onThink = function(npc, interval)
-npcHandler:onThink(npc, interval)	
-end
-
 npcConfig.voices = {
 	interval = 5000,
 	chance = 50,
@@ -67,6 +48,10 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 	local missionProgress = player:getStorageValue(Storage.DjinnWar.MaridFaction.Mission01)

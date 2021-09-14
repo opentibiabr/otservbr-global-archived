@@ -76,11 +76,11 @@ function creatureSayCallback(npc, creature, type, message)
 	end
 
 	if msgcontains(message, 'report') then
-		talkState[creature] = 'report'
+		talkState[playerId] = 'report'
 		return npcHandler:say('What mission do you want to report about: recharging the ghost {pacifiers}, the {release} of the spiritual anger, about {tracking} an evil presence and the {killing} of demon skeletons?', npc, creature)
 	end
 
-	if talkState[creature] == 'report' then
+	if talkState[playerId] == 'report' then
 		if msgcontains(message, 'pacifiers') then
 			if player:getStorageValue(SPIKE_UPPER_PACIFIER_MAIN) == -1 then
 				npcHandler:say('You have not started that mission.', npc, creature)
@@ -132,7 +132,7 @@ function creatureSayCallback(npc, creature, type, message)
 		else
 			npcHandler:say('That\'s not a valid mission name.', npc, creature)
 		end
-		talkState[creature] = nil
+		talkState[playerId] = nil
 		return
 	end
 
@@ -150,21 +150,21 @@ function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(SPIKE_UPPER_PACIFIER_MAIN) == -1 then
 			npcHandler:say({'We need you to recharge our ghost pacifiers. They are placed at several strategic points in the caves around us and should be easy to find. Your mission would be to charge seven of them.', 'If you are interested, I can give you some more {information} about it. Are you willing to accept this mission?'}, npc, creature)
-			talkState[creature] = 'pacifiers'
+			talkState[playerId] = 'pacifiers'
 		else
 			npcHandler:say('You have already started that mission.', npc, creature)
 		end
 	end
 
-	if talkState[creature] == 'pacifiers' then
+	if talkState[playerId] == 'pacifiers' then
 		if msgcontains(message, 'yes') then
 			player:addItem(21554, 1)
 			player:setStorageValue(SPIKE_UPPER_PACIFIER_MAIN, 0)
 			npcHandler:say('Gnometastic! Take this resonance charger and use it on seven of the pacifiers in the cave. If you lose the charger, you\'ll have to bring your own. Gnomux sells all the equipment that is required for our missions.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Ok then.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		end
 	end
 
@@ -182,21 +182,21 @@ function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(SPIKE_UPPER_MOUND_MAIN) == -1 then
 			npcHandler:say('Your task would be to use a spirit shovel to release some spirit\'s anger from graves that can be found all around here. If you are interested, I can give you some more information about it. Are you willing to accept this mission?', npc, creature)
-			talkState[creature] = 'release'
+			talkState[playerId] = 'release'
 		else
 			npcHandler:say('You have already started that mission.', npc, creature)
 		end
 	end
 
-	if talkState[creature] == 'release' then
+	if talkState[playerId] == 'release' then
 		if msgcontains(message, 'yes') then
 			player:addItem(21553, 1)
 			player:setStorageValue(SPIKE_UPPER_MOUND_MAIN, 0)
 			npcHandler:say('Gnometastic! Take this spirit shovel and use it on four graves in the cave system. If you lose the shovel you\'ll have to bring your own. Gnomux sells all the equipment that is required for our missions.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Ok then.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		end
 	end
 
@@ -214,22 +214,22 @@ function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(SPIKE_UPPER_TRACK_MAIN) == -1 then
 			npcHandler:say({'You\'d be given the highly important task to track down an enormously malevolent spiritual presence in the cave system. Use your tracking device to find out how close you are to the presence.','Use that information to find the residual energy and use the tracker there. If you are interested, I can give you some more information about it. Are you willing to accept this mission?'}, npc, creature)
-			talkState[creature] = 'track'
+			talkState[playerId] = 'track'
 		else
 			npcHandler:say('You have already started that mission.', npc, creature)
 		end
 	end
 
-	if talkState[creature] == 'track' then
+	if talkState[playerId] == 'track' then
 		if msgcontains(message, 'yes') then
 			GHOST_DETECTOR_MAP[player:getGuid()] = Position.getFreeSand()
 			player:addItem(21555, 1)
 			player:setStorageValue(SPIKE_UPPER_TRACK_MAIN, 0)
 			npcHandler:say('Gnometastic! Use this tracking device in the caves and locate the residual spirit energy. If you lose the tracking device, you\'ll have to bring your own. Gnomux sells all the equipment that is required for our missions.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Ok then.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		end
 	end
 
@@ -247,20 +247,20 @@ function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(SPIKE_UPPER_KILL_MAIN) == -1 then
 			npcHandler:say('We need someone to reduce the steadily growing number of demon skeletons in the caves. If you are interested, I can give you some more information about it. Are you willing to accept this mission?', npc, creature)
-			talkState[creature] = 'kill'
+			talkState[playerId] = 'kill'
 		else
 			npcHandler:say('You have already started that mission.', npc, creature)
 		end
 	end
 
-	if talkState[creature] == 'kill' then
+	if talkState[playerId] == 'kill' then
 		if msgcontains(message, 'yes') then
 			player:setStorageValue(SPIKE_UPPER_KILL_MAIN, 0)
 			npcHandler:say('Gnometastic! Just go out and kill them. You should find more of them than you like.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Ok then.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		end
 	end
 	return true

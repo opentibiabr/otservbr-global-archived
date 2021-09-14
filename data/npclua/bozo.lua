@@ -607,11 +607,15 @@ local function greetCallback(npc, creature)
 	else
 		npcHandler:setMessage(MESSAGE_GREET, 'Hello, hello, hello, little lady |PLAYERNAME|! What brings you {here}?')
 	end
-	value[creature] = nil
+	value[playerId] = nil
 	return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, 'join') then
@@ -644,7 +648,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:say(targetValue.text[1], npc, creature)
 		if targetValue.yes then
 			npcHandler.topic[playerId] = 3
-			value[creature] = targetValue
+			value[playerId] = targetValue
 		end
 	elseif msgcontains(message, 'jester outfit') then
 		if player:getStorageValue(Storage.WhatAFoolish.Questline) == 12 then
@@ -655,7 +659,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 			npcHandler:say(targetValue.text[1], npc, creature)
 			npcHandler.topic[playerId] = 4
-			value[creature] = targetValue
+			value[playerId] = targetValue
 		else
 			npcHandler:say('I\'m sure it suits you well.', npc, creature)
 		end
@@ -680,7 +684,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			npcHandler.topic[playerId] = 0
 		elseif npcHandler.topic[playerId] == 3 then
-			local targetValue = value[creature]
+			local targetValue = value[playerId]
 			if targetValue.checkStorage then
 				if player:getStorageValue(targetValue.checkStorage) ~= 1 then
 					npcHandler:say(targetValue.text[2], npc, creature)
@@ -751,7 +755,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say(targetValue.text[3], npc, creature)
 			npcHandler.topic[playerId] = 0
 		elseif npcHandler.topic[playerId] == 4 then
-			local targetValue = value[creature]
+			local targetValue = value[playerId]
 			if not player:removeItem(targetValue.removeItemId, 1) then
 				npcHandler:say('No, you don\'t! Why do only fools apply for the fools guild?', npc, creature)
 				npcHandler.topic[playerId] = 0
@@ -766,7 +770,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 			npcHandler:say(targetValue.text[2], npc, creature)
 			if not targetValue.last then
-				value[creature] = jesterOutfit[targetValue.choice]
+				value[playerId] = jesterOutfit[targetValue.choice]
 			else
 				npcHandler.topic[playerId] = 0
 			end

@@ -52,29 +52,33 @@ local function greetCallback(npc, creature)
 	local player = Player(creature)
 	if player:getStorageValue(Storage.Kilmaresh.First.Access) < 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
-		playerTopic[creature] = 1
+		playerTopic[playerId] = 1
 	elseif (player:getStorageValue(Storage.Kilmaresh.First.JamesfrancisTask) >= 0 and player:getStorageValue(Storage.Kilmaresh.First.JamesfrancisTask) <= 50)
 	and player:getStorageValue(Storage.Kilmaresh.First.Mission) < 3 then
 		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
-		playerTopic[creature] = 15
+		playerTopic[playerId] = 15
 	elseif player:getStorageValue(Storage.Kilmaresh.First.Mission) == 4 then
 		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
 		player:setStorageValue(Storage.Kilmaresh.First.Mission, 5)
-		playerTopic[creature] = 20
+		playerTopic[playerId] = 20
 	end
 	return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
-	npcHandler.topic[playerId] = playerTopic[creature]
+	npcHandler.topic[playerId] = playerTopic[playerId]
 	local player = Player(creature)
 	
 	if msgcontains(message, "report") and player:getStorageValue(Storage.TheSecretLibrary.PinkTel) == 1 then
 		npcHandler:say({"Talk to Captain Charles in Port Hope. He told me that he once ran ashore on a small island where he discovered a small ruin. The architecture was like nothing he had seen before."}, npc, creature)
 		player:setStorageValue(Storage.TheSecretLibrary.PinkTel, 2)
 		npcHandler.topic[playerId] = 1
-		playerTopic[creature] = 1
+		playerTopic[playerId] = 1
 	end
 	
 	if msgcontains(message, "check") and player:getStorageValue(Storage.TheSecretLibrary.HighDry) == 5 then
@@ -87,7 +91,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		"Hurry now my friend. Time is of essence!"}, npc, creature)
 		player:setStorageValue(Storage.TheSecretLibrary.HighDry, 6)
 		npcHandler.topic[playerId] = 1
-		playerTopic[creature] = 1
+		playerTopic[playerId] = 1
 	end
 	
 	return true

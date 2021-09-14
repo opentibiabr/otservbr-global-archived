@@ -79,11 +79,11 @@ function creatureSayCallback(npc, creature, type, message)
 	end
 
 	if msgcontains(message, 'report') then
-		talkState[creature] = 'report'
+		talkState[playerId] = 'report'
 		return npcHandler:say(' What mission do you want to report about: the {delivery} of parcels, the {undercover} reports, the {temperature} measuring or {kill} of drillworms?', npc, creature)
 	end
 
-	if talkState[creature] == 'report' then
+	if talkState[playerId] == 'report' then
 		if msgcontains(message, 'delivery') then
 			if player:getStorageValue(SPIKE_LOWER_PARCEL_MAIN) == -1 then
 				npcHandler:say('You have not started that mission.', npc, creature)
@@ -135,7 +135,7 @@ function creatureSayCallback(npc, creature, type, message)
 		else
 			npcHandler:say('That\'s not a valid mission name.', npc, creature)
 		end
-		talkState[creature] = nil
+		talkState[playerId] = nil
 		return
 	end
 
@@ -153,21 +153,21 @@ function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(SPIKE_LOWER_PARCEL_MAIN) == -1 then
 			npcHandler:say('We need someone to bring four parcels to some of our far away outposts in the caverns. If you are interested, I can give you some more {information} about it. Are you willing to accept this mission?', npc, creature)
-			talkState[creature] = 'delivery'
+			talkState[playerId] = 'delivery'
 		else
 			npcHandler:say('You have already started that mission.', npc, creature)
 		end
 	end
 
-	if talkState[creature] == 'delivery' then
+	if talkState[playerId] == 'delivery' then
 		if msgcontains(message, 'yes') then
 			player:addItem(21569, 4)
 			player:setStorageValue(SPIKE_LOWER_PARCEL_MAIN, 0)
 			npcHandler:say({'Gnometastic! Here are the parcels. Regrettably, the labels got lost during transport; but I guess those lonely gnomes won\'t mind as long as they get ANY parcel at all.','If you lose the parcels, you\'ll have to get new ones. Gnomux sells all the equipment that is required for our missions.'}, npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Ok then.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		end
 	end
 
@@ -185,20 +185,20 @@ function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(SPIKE_LOWER_UNDERCOVER_MAIN) == -1 then
 			npcHandler:say('Someone is needed to get three reports from our undercover agents posing as monsters in the caves around us. If you are interested, I can give you some more {information} about it. Are you willing to accept this mission?', npc, creature)
-			talkState[creature] = 'undercover'
+			talkState[playerId] = 'undercover'
 		else
 			npcHandler:say('You have already started that mission.', npc, creature)
 		end
 	end
 
-	if talkState[creature] == 'undercover' then
+	if talkState[playerId] == 'undercover' then
 		if msgcontains(message, 'yes') then
 			player:setStorageValue(SPIKE_LOWER_UNDERCOVER_MAIN, 0)
 			npcHandler:say('Gnometastic! Get three reports from our agents. You can find them anywhere in the caves around us. Just keep looking for monsters that behave strangely and give you a wink.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Ok then.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		end
 	end
 
@@ -216,21 +216,21 @@ function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(SPIKE_LOWER_LAVA_MAIN) == -1 then
 			npcHandler:say('Your task would be to use a gnomish temperature measurement device - short GTMD - to locate the hottest spot at the lava pools in the caves. If you are interested, I can give you some more information about it. Are you willing to accept this mission?', npc, creature)
-			talkState[creature] = 'temperature'
+			talkState[playerId] = 'temperature'
 		else
 			npcHandler:say('You have already started that mission.', npc, creature)
 		end
 	end
 
-	if talkState[creature] == 'temperature' then
+	if talkState[playerId] == 'temperature' then
 		if msgcontains(message, 'yes') then
 			player:addItem(21556, 1)
 			player:setStorageValue(SPIKE_LOWER_LAVA_MAIN, 0)
 			npcHandler:say('Gnometastic! Find the hottest spot of the lava pools in the caves. If you lose the GTMD before you find the hot spot, you\'ll have to get yourself a new one. Gnomux sells all the equipment that is required for our missions.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Ok then.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		end
 	end
 
@@ -248,20 +248,20 @@ function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(SPIKE_LOWER_KILL_MAIN) == -1 then
 			npcHandler:say('This mission will require you to kill some drillworms for us. If you are interested, I can give you some more {information} about it. Are you willing to accept this mission?', npc, creature)
-			talkState[creature] = 'kill'
+			talkState[playerId] = 'kill'
 		else
 			npcHandler:say('You have already started that mission.', npc, creature)
 		end
 	end
 
-	if talkState[creature] == 'kill' then
+	if talkState[playerId] == 'kill' then
 		if msgcontains(message, 'yes') then
 			player:setStorageValue(SPIKE_LOWER_KILL_MAIN, 0)
 			npcHandler:say('Gnometastic! You should have no trouble finding enough drillworms.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Ok then.', npc, creature)
-			talkState[creature] = nil
+			talkState[playerId] = nil
 		end
 	end
 	return true

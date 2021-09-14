@@ -93,6 +93,10 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	if not npcHandler:checkInteraction(npc, creature) then
+		return false
+	end
+
 	local playerId = creature:getId()
 	local player = Player(creature)
 	if npcHandler.topic[playerId] == 0 then
@@ -103,7 +107,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif npcHandler.topic[playerId] == 1 then
 		local cityTable = config.towns[message:lower()]
 		if cityTable then
-			town[creature] = cityTable
+			town[playerId] = cityTable
 			npcHandler:say("IN ".. string.upper(message) .."! AND WHAT PROFESSION HAVE YOU CHOSEN: \z
 			{KNIGHT}, {PALADIN}, {SORCERER}, OR {DRUID}?", npc, creature)
 			npcHandler.topic[playerId] = 2
@@ -115,17 +119,17 @@ local function creatureSayCallback(npc, creature, type, message)
 		if vocationTable then
 			npcHandler:say(vocationTable.text, npc, creature)
 			npcHandler.topic[playerId] = 3
-			vocation[creature] = vocationTable.vocationId
+			vocation[playerId] = vocationTable.vocationId
 		else
 			npcHandler:say("{KNIGHT}, {PALADIN}, {SORCERER}, OR {DRUID}?", npc, creature)
 		end
 	elseif npcHandler.topic[playerId] == 3 then
 		if msgcontains(message, "yes") then
 			npcHandler:say("SO BE IT!", npc, creature)
-			player:setVocation(Vocation(vocation[creature]))
-			player:setTown(Town(town[creature]))
+			player:setVocation(Vocation(vocation[playerId]))
+			player:setTown(Town(town[playerId]))
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			player:teleportTo(Town(town[creature]):getTemplePosition())
+			player:teleportTo(Town(town[playerId]):getTemplePosition())
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		else
 			npcHandler:say("THEN WHAT? {KNIGHT}, {PALADIN}, {SORCERER}, OR {DRUID}?", npc, creature)
@@ -136,13 +140,14 @@ local function creatureSayCallback(npc, creature, type, message)
 end
 
 local function onAddFocus(creature)
-	town[creature] = 0
-	vocation[creature] = 0
+	local playerId = creature:getId()
+	town[playerId] = 0
+	vocation[playerId] = 0
 end
 
 local function onReleaseFocus(creature)
-	town[creature] = nil
-	vocation[creature] = nil
+	town[playerId] = nil
+	vocation[playerId] = nil
 end
 
 npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
