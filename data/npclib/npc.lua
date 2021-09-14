@@ -18,7 +18,7 @@ function msgcontains(message, keyword)
 		return true
 	end
 
-	return string.find(lowerMessage, lowerKeyword) and string.find(lowerMessage, lowerKeyword.. '(%w+)')
+	return string.find(lowerMessage, lowerKeyword) and string.find(lowerMessage, lowerKeyword.. '(%w+)') or string.find(lowerMessage, '(%w+)' .. lowerKeyword)
 end
 
 function Npc:sellItem(player, itemId, amount, subType, ignoreCap, inBackpacks, backpack)
