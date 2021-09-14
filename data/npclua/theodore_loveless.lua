@@ -47,13 +47,14 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	if msgcontains(message, 'cigar') then
 		npcHandler:say('Oh my. Have you gotten an exquisite cigar for me, my young friend?', npc, creature)
-		npcHandler.topic[creature] = 1
-	elseif msgcontains(message, 'yes') and npcHandler.topic[creature] == 1 then
+		npcHandler.topic[playerId] = 1
+	elseif msgcontains(message, 'yes') and npcHandler.topic[playerId] == 1 then
 		local player = Player(creature)
 		if not player:removeItem(7499, 1) then
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			return true
 		end
 
@@ -63,10 +64,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			'Ah what a fine blend. I really ...',
 			'OUCH! What have you done you fool? How dare you???'
 		}, npc, creature)
-		npcHandler.topic[creature] = 0
-	elseif msgcontains(message, 'no') and npcHandler.topic[creature] == 1 then
+		npcHandler.topic[playerId] = 0
+	elseif msgcontains(message, 'no') and npcHandler.topic[playerId] == 1 then
 		npcHandler:say('Oh, then there must be a misunderstanding.', npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 
 	return true

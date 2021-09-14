@@ -55,6 +55,7 @@ end
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I run this armoury. If you want to protect your life, you better buy my wares."})
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if isInArray({"addon", "armor"}, message) then
 		if player:getStorageValue(Storage.OutfitQuest.WarriorShoulderAddon) == 5 then

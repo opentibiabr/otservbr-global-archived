@@ -48,6 +48,7 @@ local config = {
 }
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	local lyreProgress = player:getStorageValue(Storage.Diapason.Lyre)
 	local greetMessage = config[lyreProgress]

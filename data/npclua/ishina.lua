@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	if msgcontains(message, 'outfit') then
@@ -57,7 +58,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(Storage.OutfitQuest.firstOrientalAddon) < 1 then
 			npcHandler:say('My jewelled belt? Of course I could make one for you, but I have a small request. Would you fulfil a task for me?', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, 'comb') then
 		if player:getSex() == PLAYERSEX_MALE then
@@ -67,24 +68,24 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(Storage.OutfitQuest.firstOrientalAddon) == 1 then
 			npcHandler:say('Have you brought me a mermaid\'s comb?', npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say({
 				'Listen, um... I have been wanting a comb for a long time... not just any comb, but a mermaid\'s comb. Having a mermaid\'s comb means never having split ends again! ...',
 				'You know what that means to a girl! Could you please bring me such a comb? I really would appreciate it.'
 			}, npc, creature)
-			npcHandler.topic[creature] = 2
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 2
+		elseif npcHandler.topic[playerId] == 2 then
 			player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1)
 			player:setStorageValue(Storage.OutfitQuest.firstOrientalAddon, 1)
 			npcHandler:say('Yay! I will wait for you to return with a mermaid\'s comb then.', npc, creature)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 3 then
 			if not player:removeItem(5945, 1) then
 				npcHandler:say('No... that\'s not it.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 
@@ -93,11 +94,11 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:addOutfitAddon(146, 1)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			npcHandler:say('Yeah! That\'s it! I can\'t wait to comb my hair! Oh - but first, I\'ll fulfil my promise: Here is your jewelled belt! Thanks again!', npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
-	elseif msgcontains(message, 'no') and npcHandler.topic[creature] ~= 0 then
+	elseif msgcontains(message, 'no') and npcHandler.topic[playerId] ~= 0 then
 		npcHandler:say('Oh... okay.', npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 
 	return true

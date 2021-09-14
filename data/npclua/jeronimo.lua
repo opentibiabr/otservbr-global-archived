@@ -64,6 +64,7 @@ local eventShopItems = {
 }
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	message = string.lower(message)
 	if (message == "event shop") then
@@ -71,25 +72,25 @@ local function creatureSayCallback(npc, creature, type, message)
 	end
 	
 	if (eventShopItems[message]) then
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 		local itemId, itemCount, itemPrice = eventShopItems[message][1], eventShopItems[message][2], eventShopItems[message][3]
 		if (player:getItemCount(15515) > 0) then
 			npcHandler:say("You want buy {" ..message.. "} for " ..itemPrice.. "x?", npc, creature)
-			npcHandler.topic[creature] = message
+			npcHandler.topic[playerId] = message
 		else
 			npcHandler:say("You don't have " ..itemPrice.. " {Bar of Gold(s)}!", npc, creature)
 			return true
 		end
 	end
 	
-	if (eventShopItems[npcHandler.topic[creature]]) then
-		local itemId, itemCount, itemPrice = eventShopItems[npcHandler.topic[creature]][1], eventShopItems[npcHandler.topic[creature]][2], eventShopItems[npcHandler.topic[creature]][3]
+	if (eventShopItems[npcHandler.topic[playerId]]) then
+		local itemId, itemCount, itemPrice = eventShopItems[npcHandler.topic[playerId]][1], eventShopItems[npcHandler.topic[playerId]][2], eventShopItems[npcHandler.topic[playerId]][3]
 		if message == "no" then
 			npcHandler:say("So... what you want?", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif message == "yes" then
 			if (player:getItemCount(15515) >= itemPrice) then
-				npcHandler:say("You bought {" ..npcHandler.topic[creature].."} " ..itemCount.. "x for " ..itemPrice.. " {Bar of Gold(s)}!", npc, creature)
+				npcHandler:say("You bought {" ..npcHandler.topic[playerId].."} " ..itemCount.. "x for " ..itemPrice.. " {Bar of Gold(s)}!", npc, creature)
 				player:removeItem(15515, itemPrice)
 				player:addItem(itemId, itemCount)
 			else

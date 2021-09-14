@@ -79,12 +79,14 @@ end
 
 -- Function called by the callback "npcHandler:setCallback(CALLBACK_GREET, greetCallback)" in end of file
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	npcHandler:setMessage(MESSAGE_GREET, "Hello |PLAYERNAME|, you need more info about {canary}?")
 	return true
 end
 
 -- On creature say callback
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "canary") then
 		npcHandler:say({

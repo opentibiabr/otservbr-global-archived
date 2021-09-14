@@ -57,12 +57,13 @@ keywordHandler:addKeyword({'duties'}, StdModule.say, {npcHandler = npcHandler, t
 keywordHandler:addKeyword({'mission'}, StdModule.say, {npcHandler = npcHandler, text = "Besides my various {duties} in the temple, I also take care of visitors. Well, I would but right now I can't get my mind of how my {father}'s doing. I am sorry."})
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "temple") then
 		npcHandler:say({
 			"Well, I hope you like it here. We tried to rebuild in the {Shaper}'s will. I am a bit preoccupied at the moment because of the absence of my {father}. I may not be the best of help currently, sorry."
 		}, npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	end
 
 	if msgcontains(message, "imbuing") or msgcontains(message, "imbuements") then
@@ -77,19 +78,19 @@ local function creatureSayCallback(npc, creature, type, message)
 		}, npc, creature)
 	end
 
-	if msgcontains(message, "father") and npcHandler.topic[creature] == 1 then
+	if msgcontains(message, "father") and npcHandler.topic[playerId] == 1 then
 		npcHandler:say({
 			"Papa- my father has recently started an adventure on his own. His name is Silus, he is a member of the Edron academy. ...",
 			"Ever since he has joined what he called a 'special research division', he went on and on about Zao and how venturing there would help him get ahead. ...",
 			"You must know he lives for science, especially concerning far-away lands and cultures. He talked about the importance of practical field studies but, frankly, he isn't particularly cut out for that. ...",
 			"I know he has to focus to get his research done right now and I simply cannot leave my duties in the temple. You seem like a person who travels a lot, would you be willing to help me?",
 		}, npc, creature)
-		npcHandler.topic[creature] = 2
-	elseif msgcontains(message, "father") and npcHandler.topic[creature] == 1 and player:getStorageValue(Storage.ForgottenKnowledge.Ivalisse) == 1 or player:getStorageValue(Storage.ForgottenKnowledge.Chalice) == 1 then
+		npcHandler.topic[playerId] = 2
+	elseif msgcontains(message, "father") and npcHandler.topic[playerId] == 1 and player:getStorageValue(Storage.ForgottenKnowledge.Ivalisse) == 1 or player:getStorageValue(Storage.ForgottenKnowledge.Chalice) == 1 then
 		npcHandler:say({
 			"Well, I hope you like it here. We tried to rebuild in the Shaper's will. I am a bit preoccupied at the moment because of the absence of my father. I may not be the best of help currently, sorry.",
 		}, npc, creature)
-	elseif msgcontains(message, "father") and npcHandler.topic[creature] == 1 and player:getStorageValue(Storage.ForgottenKnowledge.DragonkingKilled) == 1 then
+	elseif msgcontains(message, "father") and npcHandler.topic[playerId] == 1 and player:getStorageValue(Storage.ForgottenKnowledge.DragonkingKilled) == 1 then
 		npcHandler:say({
 			"What? You're telling me you found father? How is he, what did papa say? A chalice? As a disguise? The whole time? ...",
 			"Well, I am not as much surprised as I am happy to hear that he's alright. You know, after the incident with the duck and the umbrella - it doesn't get to me that easily anymore. ...",
@@ -98,7 +99,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		player:setStorageValue(Storage.ForgottenKnowledge.Ivalisse, 1)
 	end
 
-	if msgcontains(message, "yes") and npcHandler.topic[creature] == 2 then
+	if msgcontains(message, "yes") and npcHandler.topic[playerId] == 2 then
 		npcHandler:say({
 			"Thank you! He told me the other researchers in his team discovered a bridge leading to a cave with a dragon sculpture somewhere in a muggy, grassy area. ...",
 			"The cave is said to lead to a temple complex underground which is ued as a gathering place for a race called 'draken'. He left right away and tried to enter Zao on his own. ...",
@@ -107,20 +108,20 @@ local function creatureSayCallback(npc, creature, type, message)
 			"I may have been a bit stubborn and angry the day he left, I even refused to say farewell. And now I worry if he is safe. ...",
 			"I can not do much to help you but I can open a portal to get you quite close to his last known location in Zao. What do you say, will you help me find my father?",
 		}, npc, creature)
-		npcHandler.topic[creature] = 3
-	elseif msgcontains(message, "no") and npcHandler.topic[creature] == 2 then
+		npcHandler.topic[playerId] = 3
+	elseif msgcontains(message, "no") and npcHandler.topic[playerId] == 2 then
 		npcHandler:say({
 			"Oh nevermind, I am sorry I asked you for this.",
 		}, npc, creature)
 	end
 
-	if msgcontains(message, "yes") and npcHandler.topic[creature] == 3 then
+	if msgcontains(message, "yes") and npcHandler.topic[playerId] == 3 then
 		npcHandler:say({
 			"You would? That's great! Thank you! If you can find my father, tell him I understand and that I really miss him!",
 		}, npc, creature)
 		player:setStorageValue(Storage.ForgottenKnowledge.AccessFire, 1)
 		player:setStorageValue(Storage.ForgottenKnowledge.Chalice, 1)
-	elseif msgcontains(message, "no") and npcHandler.topic[creature] == 3 then
+	elseif msgcontains(message, "no") and npcHandler.topic[playerId] == 3 then
 		npcHandler:say({
 			"Oh nevermind, I am sorry I asked you for this.",
 		}, npc, creature)

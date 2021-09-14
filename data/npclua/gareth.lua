@@ -48,6 +48,7 @@ end
 
 local playerTopic = {}
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 
 	local player = Player(creature)
 
@@ -64,21 +65,22 @@ local function greetCallback(npc, creature)
 	return true
 end
 local function creatureSayCallback(npc, creature, type, message)
-	npcHandler.topic[creature] = playerTopic[creature]
+	local playerId = creature:getId()
+	npcHandler.topic[playerId] = playerTopic[creature]
 	local player = Player(creature)
 	local valor = 10000
 
 	-- Começou a quest
 if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) < 2 then
-	if msgcontains(message, "support") and npcHandler.topic[creature] == 1 then
+	if msgcontains(message, "support") and npcHandler.topic[playerId] == 1 then
 			npcHandler:say({"If you like to, you can pay some gold to become a patron of the arts for this wonderful museum. The price is 10,000 gold. Your personal gain will be priceless. Do you want to pay?"}, npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 			playerTopic[creature] = 2
-	elseif msgcontains(message, "yes") and npcHandler.topic[creature] == 2 then
+	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 2 then
 		if (player:getMoney() + player:getBankBalance()) >= valor then
 			npcHandler:say({"This is a very wise decision. You won't regret it. Congratulations! As your first task I like you to investigate the crime scene of a theft wich occurred last night. ...",
 							"A very varuable artefact has been stolen. I open the door for you. You can find the room on the same floor as we are right now."}, npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 			playerTopic[creature] = 3
 			player:removeMoneyNpc(valor)
 			player:addItem(28995, 1)
@@ -89,7 +91,7 @@ if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) < 2 then
 		end
 		else
 			npcHandler:say({"You don't have enough money."}, npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 			playerTopic[creature] = 1
 		end
 	end
@@ -98,7 +100,7 @@ if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) < 2 then
 		elseif msgcontains(message, "mission") and player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 3 then
 		npcHandler:say({"They want us to buy the picture back. Unfortunately this artefact is so important that I don't see an alternative. Please got to Iwar in Kazordoon and pay the money."}, npc, creature)
 		player:setStorageValue(Storage.CultsOfTibia.MotA.Mission, 4)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 		playerTopic[creature] = 1
 
 		-- Depois de ter pago o Iwar
@@ -107,14 +109,14 @@ if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) < 2 then
 						"Some say one of the small pictures in the entrance hall here is fake. For this reason you have to go to my friend {Angelo} and ask him to get a {magnifier} for the investigation.",
 						"Then do your job here in the museum and come back."}, npc, creature)
 		player:setStorageValue(Storage.CultsOfTibia.MotA.Mission, 6)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 		playerTopic[creature] = 1
 
 		-- Depois de ter visto a pintura falsa
 		elseif msgcontains(message, "mission") and player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 9 then
 		npcHandler:say({"So the rumours are true. How could this happen? I'll keep the picture at its place until we've got a replacement. Please fo to {Angelo} and ask him if he has a new artefact for our museum."}, npc, creature)
 		player:setStorageValue(Storage.CultsOfTibia.MotA.Mission, 10)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 		playerTopic[creature] = 1
 
 		elseif msgcontains(message, "mission") and player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 11 then
@@ -122,7 +124,7 @@ if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) < 2 then
 						"I have no work for you right now. If you like to, you can have a look at the last floor. I open the door for you."}, npc, creature)
 		player:setStorageValue(Storage.CultsOfTibia.MotA.Mission, 12)
 		player:setStorageValue(Storage.CultsOfTibia.MotA.AccessDoorGareth, 1)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 		playerTopic[creature] = 1
 
 		--------------------------------------- FALHAS ----------------------------------------------------------
@@ -134,23 +136,23 @@ if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) < 2 then
 	if msgcontains(message, "extension") and player:getStorageValue(Storage.TheSecretLibrary.LiquidDeath) == 11 then
 		if player:getStorageValue(Storage.TheSecretLibrary.LiquidDeath) == 11 then
 			npcHandler:say({"It is planned to extend the MOTA. But this will take time, because our workers have faced a little problem."}, npc, creature)
-			npcHandler.topic[creature] = 11
+			npcHandler.topic[playerId] = 11
 			playerTopic[creature] = 11
 		end
-	elseif msgcontains(message, "problem") and npcHandler.topic[creature] == 11 then
-		if npcHandler.topic[creature] == 11 then
+	elseif msgcontains(message, "problem") and npcHandler.topic[playerId] == 11 then
+		if npcHandler.topic[playerId] == 11 then
 			npcHandler:say({"Well, the situation is this: We have explored a portal, I would say a very aggressive, capriciously and dangerous one. Through this gate monsters entered the construction site and attacked our workers. ...",
 							"With enormous effort they could have been dispersed. When my fellows tried to fill up the portal, it appeared again and again. So the only thing they could do was to stop working for the moment. Are you eventually interested in further investigations?"}, npc, creature)
-			npcHandler.topic[creature] = 12
+			npcHandler.topic[playerId] = 12
 			playerTopic[creature] = 12
 		end
 
-	elseif msgcontains(message, "yes") and npcHandler.topic[creature] == 12 then
-		if npcHandler.topic[creature] == 12 then
+	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 12 then
+		if npcHandler.topic[playerId] == 12 then
 			npcHandler:say({"You are a true patron of the arts! I have opened the construction site for you. Start your work right now!"}, npc, creature)
 			player:setStorageValue(Storage.TheSecretLibrary.Mota, 1)
 			player:setStorageValue(Storage.TheSecretLibrary.LiquidDeath, 12)
-			npcHandler.topic[creature] = 13
+			npcHandler.topic[playerId] = 13
 			playerTopic[creature] = 13
 		end
 	end
@@ -159,7 +161,7 @@ if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) < 2 then
 			npcHandler:say({"Hmm, interesting. Several years ago I have read some books dealing with strange locking mechanisms. I think what you have found here is a bone lever of category 3. ...",
 							"Normally this is not used because it is not secure. The production failed and the lever can always be activated as follows: back, back, up, right, left. Just have a try, it should work."}, npc, creature)
 			player:setStorageValue(Storage.TheSecretLibrary.Mota, 3)
-			npcHandler.topic[creature] = 14
+			npcHandler.topic[playerId] = 14
 			playerTopic[creature] = 14
 	end
 
@@ -169,7 +171,7 @@ if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) < 2 then
 							"Astonishingly, Dedoras from Cormaya has recently asked me for these kinds of inscriptions. For sure he is able to bring light into the darkness. You should visit him. "}, npc, creature)
 			player:setStorageValue(Storage.TheSecretLibrary.Mota, 12)
 			player:setStorageValue(Storage.TheSecretLibrary.TheLament, 1)
-			npcHandler.topic[creature] = 15
+			npcHandler.topic[playerId] = 15
 			playerTopic[creature] = 15
 	end
 

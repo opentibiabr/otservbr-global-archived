@@ -62,6 +62,7 @@ local config = {
 }
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getStorageValue(Storage.AdventurersGuild.CharosTrav) > 6 then
 		npcHandler:say("Sorry, you have traveled a lot.", npc, creature)
@@ -76,15 +77,16 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
-	if npcHandler.topic[creature] == 0 then
+	if npcHandler.topic[playerId] == 0 then
 		if msgcontains(message, "yes") then
 			npcHandler:say("Fine. You have ".. -player:getStorageValue(Storage.AdventurersGuild.CharosTrav)+7 .." \z
 			attunements left. What is the new city of your choice? Thais, Carlin, Ab'Dendriel, Kazordoon, Venore, \z
 			Ankrahmun, Edron, Darashia, Liberty Bay or Port Hope?", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
-	elseif npcHandler.topic[creature] == 1 then
+	elseif npcHandler.topic[playerId] == 1 then
 		local cityTable = config.towns[message:lower()]
 		if cityTable then
 			player:setStorageValue(Storage.AdventurersGuild.CharosTrav,

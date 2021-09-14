@@ -601,6 +601,7 @@ local jesterOutfit = {
 local value = {}
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	if Player(creature):getSex() == PLAYERSEX_MALE then
 		npcHandler:setMessage(MESSAGE_GREET, 'Hi there, how\'s it hanging, |PLAYERNAME|! What brings you {here}?')
 	else
@@ -611,6 +612,7 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, 'join') then
 		if player:getStorageValue(Storage.WhatAFoolish.Questline) ~= -1 then
@@ -619,7 +621,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 
 		npcHandler:say('Do you wish to become a jester and join the fools guild?', npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif msgcontains(message, 'mission') then
 		local targetValue = config[player:getStorageValue(Storage.WhatAFoolish.Questline)]
 		if not targetValue then
@@ -641,7 +643,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		npcHandler:say(targetValue.text[1], npc, creature)
 		if targetValue.yes then
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 			value[creature] = targetValue
 		end
 	elseif msgcontains(message, 'jester outfit') then
@@ -652,20 +654,20 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 
 			npcHandler:say(targetValue.text[1], npc, creature)
-			npcHandler.topic[creature] = 4
+			npcHandler.topic[playerId] = 4
 			value[creature] = targetValue
 		else
 			npcHandler:say('I\'m sure it suits you well.', npc, creature)
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say({
 				'So you want to make a total fool of yourself? Fine with me, but note that becoming a real fool means more than being just an ordinary fool ...',
 				'You will have to master a whole series of challenging, lengthy and, above all, totally foolish quests ...',
 				'Are you sure you want to waste a part of your limited lifetime on a quest that makes a fool of yourself and which might award you with the prestigious title of a grand fool in a far away future?'
 			}, npc, creature)
-			npcHandler.topic[creature] = 2
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 2
+		elseif npcHandler.topic[playerId] == 2 then
 			player:setStorageValue(Storage.WhatAFoolish.Questline, 1)
 			player:setStorageValue(Storage.WhatAFoolish.Questlog, 1)
 			player:setStorageValue(Storage.WhatAFoolish.Mission1, 1)
@@ -676,13 +678,13 @@ local function creatureSayCallback(npc, creature, type, message)
 				'I\'m making them on my own in my spare time but I need the right material. South of Thais, next to the Whiteflower Temple, you will find the ideal flowers ...',
 				'Take a kitchen knife, cut the thickest and healthiest flower and bring it here. Then talk to me about your mission.'
 			}, npc, creature)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 3 then
 			local targetValue = value[creature]
 			if targetValue.checkStorage then
 				if player:getStorageValue(targetValue.checkStorage) ~= 1 then
 					npcHandler:say(targetValue.text[2], npc, creature)
-					npcHandler.topic[creature] = 0
+					npcHandler.topic[playerId] = 0
 					return true
 				end
 			end
@@ -690,7 +692,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			if targetValue.removeItem then
 				if not player:removeItem(targetValue.removeItem.itemId, targetValue.removeItem.count or 1, targetValue.removeItem.subType or -1) then
 					npcHandler:say(targetValue.text[2], npc, creature)
-					npcHandler.topic[creature] = 0
+					npcHandler.topic[playerId] = 0
 					return true
 				end
 			end
@@ -698,7 +700,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			if targetValue.checkItemCount then
 				if player:getItemCount(targetValue.checkItemCount) == 0 then
 					npcHandler:say(targetValue.text[2], npc, creature)
-					npcHandler.topic[creature] = 0
+					npcHandler.topic[playerId] = 0
 					return true
 				end
 			end
@@ -706,7 +708,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			if targetValue.cookiesDeliveryy then
 				if player:getCookiesDelivered() ~= 10 then
 					npcHandler:say('No, you aren\'t! Why do only fools apply for the fools guild?', npc, creature)
-					npcHandler.topic[creature] = 0
+					npcHandler.topic[playerId] = 0
 					return true
 				end
 			end
@@ -715,7 +717,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				if player:getStorageValue(Storage.WhatAFoolish.PieBoxTimer) > 0
 						and player:getStorageValue(Storage.WhatAFoolish.PieBoxTimer) < os.time() then
 					npcHandler:say('Eeeek! What have you done?? These pies are crawling with bugs! Those must be the infamous parcel bugs! Get some new pies at once you wannabe fool, and this time without any bugs!', npc, creature)
-					npcHandler.topic[creature] = 0
+					npcHandler.topic[playerId] = 0
 					return true
 				end
 			end
@@ -747,12 +749,12 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 
 			npcHandler:say(targetValue.text[3], npc, creature)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 4 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 4 then
 			local targetValue = value[creature]
 			if not player:removeItem(targetValue.removeItemId, 1) then
 				npcHandler:say('No, you don\'t! Why do only fools apply for the fools guild?', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 
@@ -766,13 +768,13 @@ local function creatureSayCallback(npc, creature, type, message)
 			if not targetValue.last then
 				value[creature] = jesterOutfit[targetValue.choice]
 			else
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		end
-	elseif msgcontains(message, 'no') and npcHandler.topic[creature] ~= 0 then
-		if isInArray({1, 2}, npcHandler.topic[creature]) then
+	elseif msgcontains(message, 'no') and npcHandler.topic[playerId] ~= 0 then
+		if isInArray({1, 2}, npcHandler.topic[playerId]) then
 			npcHandler:say('Too bad, I\'m convinced you have it in you.', npc, creature)
-		elseif isInArray({3, 4}, npcHandler.topic[creature]) then
+		elseif isInArray({3, 4}, npcHandler.topic[playerId]) then
 			if player:getStorageValue(Storage.WhatAFoolish.Questline) == 11
 					and player:getStorageValue(Storage.WhatAFoolish.EmperorBeardShave) == 1 then
 				player:setStorageValue(Storage.WhatAFoolish.Questline, 12)
@@ -792,7 +794,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:say('Oh boy, why do only fools apply for the fools guild?', npc, creature)
 			end
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

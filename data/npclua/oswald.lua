@@ -80,18 +80,19 @@ keywordHandler:addKeyword({'durin'}, StdModule.say, {npcHandler = npcHandler, te
 keywordHandler:addKeyword({'monsters'}, StdModule.say, {npcHandler = npcHandler, text = "AHHHH!!! WHERE??? WHERE???"})
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	if msgcontains(message, 'invitation') then
 		if player:getStorageValue(Storage.ThievesGuild.Mission03) == 1 then
 			npcHandler:say('What? So why in the world should I give you an invitation? It\'s not as if you were someone important, are you?', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say('Well, rich and generous people are always welcome in the palace.If you donate 1000 gold to a fund I oversee, I\'ll give you an invitation, ok?', npc, creature)
-			npcHandler.topic[creature] = 3
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 3
+		elseif npcHandler.topic[playerId] == 3 then
 			if player:removeMoneyNpc(1000) then
 				player:addItem(8761, 1)
 				player:setStorageValue(Storage.ThievesGuild.Mission03, 2)
@@ -99,12 +100,12 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say('You don\'t have enough money.', npc, creature)
 			end
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, 'gold') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say('Not that I am bribeable but I doubt that you own 1000 gold pieces. Or do you?', npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		end
 	end
 	return true

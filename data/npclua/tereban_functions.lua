@@ -103,7 +103,7 @@ end
 
 function parseTerebanSay(npc, creature, message, npcHandler)
 	local player = Player(creature)
-	if npcHandler.topic[creature] == 0 then
+	if npcHandler.topic[playerId] == 0 then
 		if msgcontains(message, "cloak") then
 			if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 14) then
 				npcHandler:say(
@@ -120,7 +120,7 @@ function parseTerebanSay(npc, creature, message, npcHandler)
 				player:setStorageValue(Storage.ThreatenedDreams.TatteredSwanFeathers, 0) -- Start Mission 'Tattered Swan Feathers'
 			else
 				npcHandler:say("You are not on that mission.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		elseif msgcontains(message, "mission") then
 			if player:getStorageValue(Storage.FathersBurden.Status) == 1 then
@@ -151,7 +151,7 @@ function parseTerebanSay(npc, creature, message, npcHandler)
 						"As far as I understood it, the places where you can get these items are quite dangerous and so it would take some adventurer to get them. ...",
 						"That would be your mission if you are interested. Uhm, so are you interested?"
 					}, npc, creature)
-				npcHandler.topic[creature] = 1
+				npcHandler.topic[playerId] = 1
 			end
 		elseif terebanConfig[message:lower()] then
 			local targetMessage = terebanConfig[message:lower()]
@@ -161,10 +161,10 @@ function parseTerebanSay(npc, creature, message, npcHandler)
 			end
 
 			npcHandler:say(targetMessage.messages.deliever, npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 			message[creature] = targetMessage
 		end
-	elseif npcHandler.topic[creature] == 1 then
+	elseif npcHandler.topic[playerId] == 1 then
 		if msgcontains(message, "yes") then
 			npcHandler:say("I am relieved someone as capable as you will handle the task. Well, I need the parts of a sorcerer's robe, a paladin's bow, a knight's shield, and a druid's wand.", npc, creature)
 			player:setStorageValue(Storage.FathersBurden.QuestLog, 1)
@@ -176,8 +176,8 @@ function parseTerebanSay(npc, creature, message, npcHandler)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("Oh my. I really hope you will change your mind.", npc, creature)
 		end
-		npcHandler.topic[creature] = 0
-	elseif npcHandler.topic[creature] == 2 then
+		npcHandler.topic[playerId] = 0
+	elseif npcHandler.topic[playerId] == 2 then
 		local targetMessage = message[creature]
 		if msgcontains(message, "yes") then
 			if not player:removeItem(player:getItemIdByCid(targetMessage.itemId), 1) then
@@ -195,6 +195,6 @@ function parseTerebanSay(npc, creature, message, npcHandler)
 		elseif msgcontains(message, "no") then
 			npcHandler:say(targetMessage.messages.no, npc, creature)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 end

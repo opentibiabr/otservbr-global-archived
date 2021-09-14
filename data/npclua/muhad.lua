@@ -57,6 +57,7 @@ keywordHandler:addKeyword({'undead'}, StdModule.say, {npcHandler = npcHandler, t
 keywordHandler:addKeyword({'daraman'}, StdModule.say, {npcHandler = npcHandler, text = 'We have nothing that would be of value for you.'})
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	local AritosTask = player:getStorageValue(Storage.TibiaTales.AritosTask)
 
@@ -67,10 +68,10 @@ local function creatureSayCallback(npc, creature, type, message)
 				'I don\'t know how something like this ever could be possible. He met a girl from {Ankrahmun} and she must have twisted his head. Arito started to tell stories about the Pharaoh and about Ankrahmun. ...',
 				'In the wink of an eye he left us and was never seen again. I think he feared revenge for leaving us - which partially is not without reason. Why are you asking me about him? Did he send you to me?'
 			}, npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 
 	end
-			elseif npcHandler.topic[creature] == 1 then
+			elseif npcHandler.topic[playerId] == 1 then
 			if msgcontains(message, "yes") then
 			npcHandler:say({
 				'Ahh, I know that some of my people fear that Arito tells the old secrets of our race and want to see him dead but I don\'t bear him a grudge. I will have to have a serious word with my people. ...',

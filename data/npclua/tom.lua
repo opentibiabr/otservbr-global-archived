@@ -56,6 +56,7 @@ end
 
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	-- Starting mission 6
 	if player:getStorageValue(Storage.TheRookieGuard.Mission06) == 1 then
@@ -216,6 +217,7 @@ keywordHandler:addKeyword({'dallheim'}, StdModule.say, {npcHandler = npcHandler,
 keywordHandler:addAliasKeyword({'zerbrus'})
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "cough syrup") then
 		npcHandler:say("I had some cough syrup a while ago. It was stolen in an ape raid. I fear if you want more cough syrup you will have to buy it in the druids guild in carlin.", npc, creature)
@@ -223,15 +225,15 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.OutfitQuest.DruidBodyAddon) < 1 then
 			npcHandler:say("Would you like to wear bear paws like I do? No problem, just bring me 50 bear paws and 50 wolf paws and I'll fit them on.", npc, creature)
 			player:setStorageValue(Storage.OutfitQuest.DruidBodyAddon, 1)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "paws") or msgcontains(message, "bear paws") then
 		if player:getStorageValue(Storage.OutfitQuest.DruidBodyAddon) == 1 then
 			npcHandler:say("Have you brought 50 bear paws and 50 wolf paws?", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			if player:getItemCount(5896) >= 50 and player:getItemCount(5897) >= 50 then
 				npcHandler:say("Excellent! Like promised, here are your bear paws. ", npc, creature)
 				player:removeItem(5896, 50)
@@ -239,10 +241,10 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:setStorageValue(Storage.OutfitQuest.DruidBodyAddon, 2)
 				player:addOutfitAddon(148, 1)
 				player:addOutfitAddon(144, 1)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			else
 				npcHandler:say("You don't have all items.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		end
 	end

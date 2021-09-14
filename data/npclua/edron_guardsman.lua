@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	npcHandler:say('Move on!', npc, creature)
 	npcHandler:removeInteraction(npc, creature)
 	npcHandler:resetNpc(creature)

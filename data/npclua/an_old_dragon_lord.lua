@@ -73,6 +73,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getStorageValue(Storage.Dragonfetish) == 1 then
 		npcHandler:say('LEAVE THE DRAGONS\' CEMETERY AT ONCE!', npc, creature)

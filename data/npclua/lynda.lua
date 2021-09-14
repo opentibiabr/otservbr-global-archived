@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	if msgcontains(message, "angelina") then
@@ -56,27 +57,27 @@ local function creatureSayCallback(npc, creature, type, message)
 				"I will happily carry out her wish and reward you, but I fear I need some important ingredients for my blessing spell first. ...",
 				"Will you gather them for me?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "wand") or msgcontains(message, "rod") then
 		if player:getStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand) == 2 then
 			npcHandler:say("Did you bring a sample of each wand and each rod with you?", npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 		end
 	elseif msgcontains(message, "sulphur") then
 		if player:getStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand) == 3 then
 			npcHandler:say("Did you obtain 10 ounces of magic sulphur?", npc, creature)
-			npcHandler.topic[creature] = 4
+			npcHandler.topic[playerId] = 4
 		end
 	elseif msgcontains(message, "soul stone") then
 		if player:getStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand) == 4 then
 			npcHandler:say("Were you actually able to retrieve the Necromancer's soul stone?", npc, creature)
-			npcHandler.topic[creature] = 5
+			npcHandler.topic[playerId] = 5
 		end
 	elseif msgcontains(message, "ankh") then
 		if player:getStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand) == 5 then
 			npcHandler:say("Am I sensing enough holy energy from ankhs here?", npc, creature)
-			npcHandler.topic[creature] = 6
+			npcHandler.topic[playerId] = 6
 		end
 	elseif msgcontains(message, "ritual") then
 		if player:getStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand) == 6 then
@@ -86,13 +87,13 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:addOutfitAddon(130, 1)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				npcHandler:say('I\'m glad to tell you that I have finished the ritual, player. Here is your new wand. I hope you carry it proudly for everyone to see..', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			else
 				npcHandler:say('Please let me focus for a while, |PLAYERNAME|.', npc, creature)
 			end
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say({
 				"Thank you, I promise that your efforts won't be in vain! Listen closely now: First, I need a sample of five druid rods and five sorcerer wands. ...",
 				"I need a snakebite rod, a moonlight rod, a necrotic rod, a terra rod and a hailstorm rod. Then, I need a wand of vortex, a wand of dragonbreath ...",
@@ -102,12 +103,12 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Lastly, I need a lot of holy energy. I can extract it from ankhs, but only a small amount each time. I will need about 20 ankhs. ...",
 				"Did you understand everything I told you and will help me with my blessing?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 2
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 2
+		elseif npcHandler.topic[playerId] == 2 then
 			npcHandler:say("Alright then. Come back to with a sample of all five wands and five rods, please.", npc, creature)
 			player:setStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand, 2)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 3 then
 			if  player:getItemCount(2181) > 0 and player:getItemCount(2182) > 0 and player:getItemCount(2183) > 0 and player:getItemCount(2185) > 0 and player:getItemCount(2186) > 0 and player:getItemCount(2187) > 0 and player:getItemCount(2188) > 0 and player:getItemCount(2189) > 0 and player:getItemCount(2190) > 0 and player:getItemCount(2191) > 0 then
 				npcHandler:say("Thank you, that must have been a lot to carry. Now, please bring me 10 ounces of magic sulphur.", npc, creature)
 				player:removeItem(2181, 1)
@@ -121,26 +122,26 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:removeItem(2190, 1)
 				player:removeItem(2191, 1)
 				player:setStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand, 3)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 4 then
+		elseif npcHandler.topic[playerId] == 4 then
 			if player:removeItem(5904, 10) then
 				npcHandler:say("Very good. I will immediately start to prepare the ritual and extract the elemental energy from the wands and rods. Please bring me the Necromancer's soul stone now.", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand, 4)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 5 then
+		elseif npcHandler.topic[playerId] == 5 then
 			if player:removeItem(5809, 1) then
 				npcHandler:say("You have found a rarity there, |PLAYERNAME|. This will become the tip of your blessed wand. Please bring me 20 ankhs now to complete the ritual.", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand, 5)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 6 then
+		elseif npcHandler.topic[playerId] == 6 then
 			if player:removeItem(2193, 20) then
 				npcHandler:say("The ingredients for the ritual are complete! I will start to prepare your blessed wand, but I have to medidate first. Please come back later to hear how the ritual went.", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand, 6)
 				player:setStorageValue(Storage.OutfitQuest.MageSummoner.AddonWandTimer, os.time() + 10800)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		end
 	end

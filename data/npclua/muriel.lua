@@ -56,6 +56,7 @@ local function releasePlayer(creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	if msgcontains(message, 'mission') then
@@ -71,7 +72,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				'To achieve that I need a desecrated bone. There is a cursed bone pit somewhere in the dungeons north of Thais where the dead never rest. ...',
 				'Find that pit, dig for a well-preserved human skeleton and conserve a sample in a special container which you receive from me. Are you going to help me?'
 			}, npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		elseif player:getStorageValue(Storage.TibiaTales.IntoTheBonePit) == 1 then
 			npcHandler:say({
 				'The rotworms dug deep into the soil north of Thais. Rumours say that you can access a place of endless moaning from there. ...',
@@ -95,7 +96,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			addEvent(releasePlayer, 1000, npc, creature)
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			player:addItem(4863, 1)
 			player:setStorageValue(Storage.TibiaTales.IntoTheBonePit, 1)
 			npcHandler:say({
@@ -105,7 +106,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			addEvent(releasePlayer, 1000, npc, creature)
 		end
 	elseif msgcontains(message, 'no') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say('Ohh, then I need to find another adventurer who wants to earn a great reward. Bye!', npc, creature)
 			addEvent(releasePlayer, 1000, npc, creature)
 		end

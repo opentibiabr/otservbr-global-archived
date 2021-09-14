@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	if msgcontains(message, "mission") then
@@ -58,7 +59,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 		elseif player:getStorageValue(Storage.ThievesGuild.Mission01) == 1 then
 			npcHandler:say('Have you finished your mission?', npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		elseif player:getStorageValue(Storage.ThievesGuild.Quest) == 2 and player:getStorageValue(Storage.ThievesGuild.Mission02) < 1 then
 			player:setStorageValue(Storage.ThievesGuild.Mission02, 1)
 			npcHandler:say({
@@ -70,7 +71,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 		elseif player:getStorageValue(Storage.ThievesGuild.Mission02) == 2 then
 			npcHandler:say('Have you finished your mission?', npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 		elseif player:getStorageValue(Storage.ThievesGuild.Quest) == 3 and player:getStorageValue(Storage.ThievesGuild.Mission03) < 1 then
 			player:setStorageValue(Storage.ThievesGuild.Mission03, 1)
 			npcHandler:say({
@@ -80,7 +81,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 		elseif player:getStorageValue(Storage.ThievesGuild.Mission03) == 2 then
 			npcHandler:say('Have you finished your mission?', npc, creature)
-			npcHandler.topic[creature] = 4
+			npcHandler.topic[playerId] = 4
 		elseif player:getStorageValue(Storage.ThievesGuild.Quest) == 4 and player:getStorageValue(Storage.ThievesGuild.Mission04) < 1 then
 			player:setStorageValue(Storage.ThievesGuild.Mission04, 1)
 			npcHandler:say({
@@ -93,13 +94,13 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 		elseif player:getStorageValue(Storage.ThievesGuild.Mission04) == 7 then
 			npcHandler:say('Have you finished your mission?', npc, creature)
-			npcHandler.topic[creature] = 5
+			npcHandler.topic[playerId] = 5
 		elseif player:getStorageValue(Storage.ThievesGuild.Quest) == 5 and player:getStorageValue(Storage.ThievesGuild.Mission05) < 1 then
 			player:setStorageValue(Storage.ThievesGuild.Mission05, 1)
 			npcHandler:say('Some smugglers underneath Tiquanda, north west of Port Hope owe us some debts. Go there and steal their Golden Goblet and bring it to me.', npc, creature)
 		elseif player:getStorageValue(Storage.ThievesGuild.Mission05) == 1 then
 			npcHandler:say('Have you finished your mission?', npc, creature)
-			npcHandler.topic[creature] = 6
+			npcHandler.topic[playerId] = 6
 		elseif player:getStorageValue(Storage.ThievesGuild.Quest) == 6 and player:getStorageValue(Storage.ThievesGuild.Mission06) < 1 then
 			player:setStorageValue(Storage.ThievesGuild.Mission06, 1)
 			npcHandler:say({
@@ -109,7 +110,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 		elseif player:getStorageValue(Storage.ThievesGuild.Mission06) == 3 then
 			npcHandler:say('Have you finished your mission?', npc, creature)
-			npcHandler.topic[creature] = 7
+			npcHandler.topic[playerId] = 7
 		elseif player:getStorageValue(Storage.ThievesGuild.Quest) == 7 and player:getStorageValue(Storage.ThievesGuild.Mission07) < 1 then
 			player:setStorageValue(Storage.ThievesGuild.Mission07, 1)
 			npcHandler:say({
@@ -118,7 +119,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 		elseif player:getStorageValue(Storage.ThievesGuild.Mission07) == 1 then
 			npcHandler:say('Have you finished your mission?', npc, creature)
-			npcHandler.topic[creature] = 8
+			npcHandler.topic[playerId] = 8
 		elseif player:getStorageValue(Storage.ThievesGuild.Quest) == 8 and player:getStorageValue(Storage.ThievesGuild.Mission08) < 1 then
 			player:setStorageValue(Storage.ThievesGuild.Mission08, 1)
 			player:addItem(8701, 1)
@@ -130,31 +131,31 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 		elseif player:getStorageValue(Storage.ThievesGuild.Mission08) == 2 then
 			npcHandler:say('Have you finished your mission?', npc, creature)
-			npcHandler.topic[creature] = 9
+			npcHandler.topic[playerId] = 9
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			player:setStorageValue(Storage.ThievesGuild.Quest, 1)
 			npcHandler:say({
 				'Excellent. You\'ll learn this trade from scratch. Our operations cover many fields of work. Some aren\'t even illegal. ...',
 				'Well, as long as you don\'t get caught at least. Ask me for a mission whenever you\'re ready.'
 			}, npc, creature)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 2 then
 			if player:removeItem(3956, 10) then
 				player:setStorageValue(Storage.ThievesGuild.Mission01, 2)
 				player:setStorageValue(Storage.ThievesGuild.Quest, 2)
 				npcHandler:say('What a fine material. That will be worth a coin or two. So far, so good. Ask me for another mission if you\'re ready for it.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 3 then
+		elseif npcHandler.topic[playerId] == 3 then
 			if player:removeItem(8760, 1) then
 				player:setStorageValue(Storage.ThievesGuild.Mission02, 3)
 				player:setStorageValue(Storage.ThievesGuild.Quest, 3)
 				npcHandler:say('What an ugly vase. But who am I to question the taste of our customers? Anyway, I might have another mission in store for you.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 4 then
+		elseif npcHandler.topic[playerId] == 4 then
 			if player:removeItem(8761, 1) then
 				player:setStorageValue(Storage.ThievesGuild.Mission03, 3)
 				player:setStorageValue(Storage.ThievesGuild.Quest, 4)
@@ -162,30 +163,30 @@ local function creatureSayCallback(npc, creature, type, message)
 					'Ah, the key to untold riches. Don\'t worry, we\'ll make sure that no one will connect you to the disappearance of certain royal possessions. ...',
 					'You\'re too valuable to us. Speaking about your value, I might have some other mission for you.'
 				}, npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 5 then
+		elseif npcHandler.topic[playerId] == 5 then
 			if player:removeItem(8699, 1) then
 				player:setStorageValue(Storage.ThievesGuild.Mission04, 8)
 				player:setStorageValue(Storage.ThievesGuild.Quest, 5)
 				npcHandler:say('Excellent, that serves this fool right. I fear in your next mission, you\'ll have to get your hands dirty. Just ask me to learn more about it.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 6 then
+		elseif npcHandler.topic[playerId] == 6 then
 			if player:removeItem(8698, 1) then
 				player:setStorageValue(Storage.ThievesGuild.Mission05, 2)
 				player:setStorageValue(Storage.ThievesGuild.Quest, 6)
 				npcHandler:say('That goblet is hardly worth all this trouble but we had to insist on our payment. However, I assume you are eager for more missions, so just ask.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 7 then
+		elseif npcHandler.topic[playerId] == 7 then
 			if player:removeItem(8766, 1) then
 				player:setStorageValue(Storage.ThievesGuild.Mission06, 4)
 				player:setStorageValue(Storage.ThievesGuild.Quest, 7)
 				npcHandler:say('This little goldfish will bring us a hefty ransom! Just ask me if you\'re ready for another mission.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 8 then
+		elseif npcHandler.topic[playerId] == 8 then
 			if player:removeItem(8763, 1) then
 				player:setStorageValue(Storage.ThievesGuild.Mission07, 2)
 				player:setStorageValue(Storage.ThievesGuild.Quest, 8)
@@ -193,9 +194,9 @@ local function creatureSayCallback(npc, creature, type, message)
 					'Excellent, that little letter will do the trick for sure ...',
 					'I think you\'re really capable and if you finish another mission, I\'ll allow you full access to our black market of lost and found items. Just ask me to learn more about that mission.'
 				}, npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 9 then
+		elseif npcHandler.topic[playerId] == 9 then
 			player:setStorageValue(Storage.ThievesGuild.Mission08, 3)
 			player:setStorageValue(Storage.ThievesGuild.Quest, 9)
 			player:setStorageValue(Storage.ThievesGuild.Door, 1)
@@ -203,12 +204,12 @@ local function creatureSayCallback(npc, creature, type, message)
 				'Once again you\'ve finished your job, and I\'ll keep my promise. From now on, you can trade with old Black Bert somewhere upstairs to get access to certain items that mightbe of value to someone like you. ...',
 				'If you like, you can also enter the room to the left and pick one item of your choice.'
 			}, npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, 'thieves') or msgcontains(message, 'join') then
 		if player:getStorageValue(Storage.ThievesGuild.Quest) < 1 then
 			npcHandler:say('Hm. Well, we could use some fresh blood. Ahum. Do you want to join the thieves guild, |PLAYERNAME|?', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, 'lock pick') then
 		npcHandler:say('Yes, I sell lock picks. Ask me for a trade.', npc, creature)

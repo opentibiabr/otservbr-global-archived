@@ -67,6 +67,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	local missionProgress = player:getStorageValue(Storage.DjinnWar.MaridFaction.Mission01)
 	if msgcontains(message, 'recipe') or msgcontains(message, 'mission') then
@@ -75,7 +76,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				'My collection of recipes is almost complete. There are only but a few that are missing. ...',
 				'Hmmm... now that we talk about it. There is something you could help me with. Are you interested?'
 			}, npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		else
 			npcHandler:say('I already told you about the recipes I am missing, now please try to find a cookbook of the dwarven kitchen.', npc, creature)
 		end
@@ -88,12 +89,12 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 		elseif missionProgress == 1 then
 			npcHandler:say('Do you have the cookbook of the dwarven kitchen with you? Can I have it?', npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		else
 			npcHandler:say('Thanks again, for bringing me that book!', npc, creature)
 		end
 
-	elseif npcHandler.topic[creature] == 1 then
+	elseif npcHandler.topic[playerId] == 1 then
 		if msgcontains(message, 'yes') then
 			npcHandler:say({
 				'Fine! Even though I know so many recipes, I\'m looking for the description of some dwarven meals. ...',
@@ -105,9 +106,9 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Well, too bad.', npc, creature)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 
-	elseif npcHandler.topic[creature] == 2 then
+	elseif npcHandler.topic[playerId] == 2 then
 		if msgcontains(message, 'yes') then
 			if not player:removeItem(2347, 1) then
 				npcHandler:say('Too bad. I must have this book.', npc, creature)
@@ -125,7 +126,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Too bad. I must have this book.', npc, creature)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

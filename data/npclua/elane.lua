@@ -46,39 +46,41 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "addon") or msgcontains(message, "outfit") then
 		if player:getStorageValue(Storage.OutfitQuest.HunterHatAddon) < 1 then
 			npcHandler:say("Oh, my winged tiara? Those are traditionally awarded after having completed a difficult {task} for our guild, only to female aspirants though. Male warriors will receive a hooded cloak.", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "task") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say("So you are saying that you would like to prove that you deserve to wear such a hooded cloak?", npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		end
 	elseif msgcontains(message, "crossbow") then
 		if player:getStorageValue(Storage.OutfitQuest.HunterHatAddon) == 1 then
 			npcHandler:say("I'm so excited! Have you really found my crossbow?", npc, creature)
-			npcHandler.topic[creature] = 4
+			npcHandler.topic[playerId] = 4
 		end
 	elseif msgcontains(message, "leather") then
 		if player:getStorageValue(Storage.OutfitQuest.HunterHatAddon) == 2 then
 			npcHandler:say("Did you bring me 100 pieces of lizard leather and 100 pieces of red dragon leather?", npc, creature)
-			npcHandler.topic[creature] = 5
+			npcHandler.topic[playerId] = 5
 		end
 	elseif msgcontains(message, "chicken wing") then
 		if player:getStorageValue(Storage.OutfitQuest.HunterHatAddon) == 3 then
 			npcHandler:say("Were you able to get hold of 5 enchanted chicken wings?", npc, creature)
-			npcHandler.topic[creature] = 6
+			npcHandler.topic[playerId] = 6
 		end
 	elseif msgcontains(message, "steel") then
 		if player:getStorageValue(Storage.OutfitQuest.HunterHatAddon) == 4 then
 			npcHandler:say("Ah, have you brought one piece of royal steel, draconian steel and hell steel each?", npc, creature)
-			npcHandler.topic[creature] = 7
+			npcHandler.topic[playerId] = 7
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 2 then
+		if npcHandler.topic[playerId] == 2 then
 			npcHandler:say({
 				"Alright, I will give you a chance. Pay close attention to what I'm going to tell you now. ...",
 				"Recently, one of our members moved to Liberty Bay out of nowhere, talking about some strange cult. That is not the problem, but he took my favourite crossbow with him. ...",
@@ -88,39 +90,39 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				"Lastly, for our arrow heads we need a lot of steel. Best would be one piece of royal steel, one piece of draconian steel and one piece of hell steel. ...",
 				"Did you understand everything I told you and are willing to handle this task?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 3
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 3
+		elseif npcHandler.topic[playerId] == 3 then
 			npcHandler:say("That's the spirit! I hope you will find my crossbow, |PLAYERNAME|!", npc, creature)
 			player:setStorageValue(Storage.OutfitQuest.HunterHatAddon, 1)
 			player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1) --this for default start of Outfit and Addon Quests
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 4 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 4 then
 			if player:removeItem(5947, 1) then
 				npcHandler:say("Yeah! I could kiss you right here and there! Besides, you're a handsome one. <giggles> Please bring me 100 pieces of lizard leather and 100 pieces of red dragon leather now!", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.HunterHatAddon, 2)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			else
 				npcHandler:say("You don't have it...", npc, creature)
 			end
-		elseif npcHandler.topic[creature] == 5 then
+		elseif npcHandler.topic[playerId] == 5 then
 			if player:getItemCount(5876) >= 100 and player:getItemCount(5948) >= 100  then
 				npcHandler:say("Good work, |PLAYERNAME|! That is enough leather for a lot of sturdy quivers. Now, please bring me 5 enchanted chicken wings.", npc, creature)
 				player:removeItem(5876, 100)
 				player:removeItem(5948, 100)
 				player:setStorageValue(Storage.OutfitQuest.HunterHatAddon, 3)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			else
 				npcHandler:say("You don't have it...", npc, creature)
 			end
-		elseif npcHandler.topic[creature] == 6 then
+		elseif npcHandler.topic[playerId] == 6 then
 			if player:removeItem(5891, 5) then
 				npcHandler:say("Great! Now we can create a few more Tiaras. If only they weren't that expensive... Well anyway, please obtain one piece of royal steel, draconian steel and hell steel each.", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.HunterHatAddon, 4)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			else
 				npcHandler:say("You don't have it...", npc, creature)
 			end
-		elseif npcHandler.topic[creature] == 7 then
+		elseif npcHandler.topic[playerId] == 7 then
 			if player:getItemCount(5887) >= 1 and player:getItemCount(5888) >= 1 and player:getItemCount(5889) >= 1  then
 				npcHandler:say("Wow, I'm impressed, |PLAYERNAME|. Your really are a valuable member of our paladin guild. I shall grant you your reward now. Wear it proudly!", npc, creature)
 				player:removeItem(5887, 1)
@@ -130,15 +132,15 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				player:addOutfitAddon(129, 1)
 				player:addOutfitAddon(137, 2)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			else
 				npcHandler:say("You don't have it...", npc, creature)
 			end
 		end
 	elseif msgcontains(message, "no") then
-		if npcHandler.topic[creature] > 1 then
+		if npcHandler.topic[playerId] > 1 then
 			npcHandler:say("Then no.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	return true
 	end

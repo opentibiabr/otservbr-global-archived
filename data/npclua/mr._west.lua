@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if(player:getStorageValue(Storage.InServiceofYalahar.MrWestDoor) == 1) then
 		npcHandler:setMessage(MESSAGE_GREET, "Wh .. What? How did you get here? Where are all the guards? You .. you could have killed me but yet you chose to talk? What a relief! ... So what brings you here my friend, if I might call you like that? ")
@@ -57,6 +58,7 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if(msgcontains(message, "mission")) then
 		if(player:getStorageValue(Storage.InServiceofYalahar.Questline) == 24) then
@@ -65,13 +67,13 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:setStorageValue(Storage.InServiceofYalahar.Questline, 25)
 				player:setStorageValue(Storage.InServiceofYalahar.Mission04, 3) -- StorageValue for Questlog "Mission 04: Good to be Kingpin"
 				player:setStorageValue(Storage.InServiceofYalahar.MrWestStatus, 1)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			elseif(player:getStorageValue(Storage.InServiceofYalahar.MrWestDoor) == 2) then
 				npcHandler:say("Yes, for the sake of my life I'll accept those terms. I know when I have lost. Tell your master I will comply with his orders. ", npc, creature)
 				player:setStorageValue(Storage.InServiceofYalahar.Questline, 25)
 				player:setStorageValue(Storage.InServiceofYalahar.Mission04, 4) -- StorageValue for Questlog "Mission 04: Good to be Kingpin"
 				player:setStorageValue(Storage.InServiceofYalahar.MrWestStatus, 2)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		end
 	end

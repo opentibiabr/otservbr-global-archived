@@ -623,6 +623,7 @@ npcType.onPlayerSellItem = function(npc, player, amount, name, totalCost, client
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	if msgcontains(message, "name") then
 		return npcHandler:say("Me Yasir.", npc, creature)
 	elseif msgcontains(message, "job") then

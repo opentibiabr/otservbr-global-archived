@@ -120,6 +120,7 @@ local function createMoney(money)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getPosition() ~= config.playerPosition then
 		npcHandler:say("If you want to play with me please come near me.", npc, creature)
@@ -128,7 +129,8 @@ local function greetCallback(npc, creature)
 	return true
 end
 
-local function creatureSayCallback(npc, creature, type, message)	
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getPosition() ~= config.playerPosition then
 		npcHandler:unGreet(creature)
@@ -138,7 +140,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		local bet = getBetValue()
 		if not bet then
 			npcHandler:say("Your bet is lower than the min {".. config.bet.min .."}gps or higher than the max {"..config.bet.max.."}gps bet.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			return true
 		end
 		player:say(message, TALKTYPE_SAY, false, true, player:getPosition())

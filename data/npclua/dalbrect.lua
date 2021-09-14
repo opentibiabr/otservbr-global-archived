@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	if msgcontains(message, "brooch") then
@@ -56,20 +57,20 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 
 		npcHandler:say("What? You want me to examine a brooch?", npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			if player:getItemCount(2318) == 0 then
 				npcHandler:say("What are you talking about? I am too poor to be interested in jewelry.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 
 			npcHandler:say("Can it be? I recognise my family's arms! You have found a treasure indeed! \z
 					I am poor and all I can offer you is my friendship, but ... please ... give that brooch to me?", npc, creature)
-			npcHandler.topic[creature] = 2
-		elseif npcHandler.topic[creature] == 2 then
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 2
+		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler.topic[playerId] = 0
 			if not player:removeItem(2318, 1) then
 				npcHandler:say("I should have known better than to ask for an act of kindness in this cruel, selfish, world!", npc, creature)
 				return true
@@ -81,12 +82,12 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.WhiteRavenMonastery.Passage, 1)
 		end
 	elseif msgcontains(message, "no") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say("Then stop being a fool. I am poor and I have to work the whole day through!", npc, creature)
-		elseif npcHandler.topic[creature] == 2 then
+		elseif npcHandler.topic[playerId] == 2 then
 			npcHandler:say("I should have known better than to ask for an act of kindness in this cruel, selfish, world!", npc, creature)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

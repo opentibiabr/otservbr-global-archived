@@ -98,6 +98,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, 'documents') then
 		if player:getStorageValue(Storage.ThievesGuild.Mission04) == 2 then
@@ -108,7 +109,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 		elseif player:getStorageValue(Storage.ThievesGuild.Mission04) == 4 then
 			npcHandler:say('The slayer of my enemies is my friend! For a mere 1000 gold I will create the documents you need. Are you interested?', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, 'mission') or msgcontains(message, 'quest') then
 		if player:getStorageValue(Storage.QuestChests.StealFromThieves) < 1 then
@@ -116,16 +117,16 @@ local function creatureSayCallback(npc, creature, type, message)
 				"What are you talking about?? I was robbed!!!! Someone catch those filthy thieves!!!!! GUARDS! ...",
 				"<nothing happens>....<SIGH> Like usual, they hide at the slightest sign of trouble! YOU! Want to earn some quick money?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		elseif player:getStorageValue(Storage.QuestChests.StealFromThieves) == 1 or player:getStorageValue(Storage.QuestChests.StealFromThieves) == 2 then
 			npcHandler:say('Did you find my stuff?', npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 		end
 	elseif msgcontains(message, 'book') then
 		npcHandler:say('I see: You want me to add an additional story to this book. A legend about how it brings ill luck to kill a white deer. I could do that, yes. It costs 5000 gold, however. Are you still interested?', npc, creature)
-		npcHandler.topic[creature] = 5
+		npcHandler.topic[playerId] = 5
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			if player:removeMoneyNpc(1000) then
 				player:addItem(8694, 1)
 				player:setStorageValue(Storage.ThievesGuild.Mission04, 5)
@@ -133,26 +134,26 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say('You don\'t have enough money.', npc, creature)
 			end
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 2 then
 			npcHandler:say({
 				"Of course you do! Go hunt down the thieves and bring back the stuff they have stolen from me. ...",
 				" I saw them running out of town and then to the north. Maybe they hide at the oasis."
 			}, npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			player:setStorageValue(Storage.QuestChests.StealFromThieves, 1)
-		elseif npcHandler.topic[creature] == 3 then
+		elseif npcHandler.topic[playerId] == 3 then
 			if player:removeItem(7587, 1) then
 				npcHandler:say('GREAT! If you ever need a job as my personal security guard, let me know. Here is the reward I promised you.', npc, creature)
 				player:setStorageValue(Storage.QuestChests.StealFromThieves, 3)
 				player:addItem(2148, 100)
 				player:addItem(2789, 100)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			else
 				npcHandler:say('Come back when you find my stuff.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 5 then
+		elseif npcHandler.topic[playerId] == 5 then
 			if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 2) then
 				if ( (player:getItemCount(28596) >= 1) and (player:getMoney() > 5000) )then
 					player:removeMoney(5000)
@@ -161,13 +162,13 @@ local function creatureSayCallback(npc, creature, type, message)
 						"So if you want to make sure they read this anytime soon, perhaps don't hide the book in a shelf or chest. Make sure to place it somewhere where they will find it easily, like very obviously on a table or something."
 					}, npc, creature)
 					player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 3)
-					npcHandler.topic[creature] = 0
+					npcHandler.topic[playerId] = 0
 				else
 					npcHandler:say("You need 5000 gps and book with ancient legends.", npc, creature)
 				end
 			else
 				npcHandler:say("You have already completed this mission.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		end
 	end

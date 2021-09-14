@@ -44,6 +44,7 @@ end
 local playerTopic = {}
 local playerLastResp = {}
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 
 	local player = Player(creature)
 	if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 13 then
@@ -106,25 +107,27 @@ local quiz3 = {
 	[1] = {p = "Is the number divisible by 3?", r = function(player)return (player:getStorageValue(Storage.CultsOfTibia.MotA.Answer) % 3 == 0 and 1 or 0)end},
 	[2] = {p = "Is the number divisible by 2?", r = function(player)return (player:getStorageValue(Storage.CultsOfTibia.MotA.Answer) % 2 == 0 and 1 or 0)end}
 }
-local function creatureSayCallback(npc, creature, type, message)	npcHandler.topic[creature] = playerTopic[creature]
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	npcHandler.topic[playerId] = playerTopic[creature]
 	local player = Player(creature)
 	-- Começou a quest
-	if msgcontains(message, "questions") and npcHandler.topic[creature] == 1 then
+	if msgcontains(message, "questions") and npcHandler.topic[playerId] == 1 then
 		npcHandler:say("Ready to {start}?", npc, creature)
-		npcHandler.topic[creature] = 2
+		npcHandler.topic[playerId] = 2
 		playerTopic[creature] = 2
-	elseif msgcontains(message, "start") and npcHandler.topic[creature] == 2 then
+	elseif msgcontains(message, "start") and npcHandler.topic[playerId] == 2 then
 		local perguntaid = math.random(#quiz1)
 		player:setStorageValue(Storage.CultsOfTibia.MotA.QuestionId, perguntaid)
 		npcHandler:say(quiz1[perguntaid].p, npc, creature)
-		npcHandler.topic[creature] = 3
+		npcHandler.topic[playerId] = 3
 		playerTopic[creature] = 3
-	elseif (npcHandler.topic[creature] == 3) then
+	elseif (npcHandler.topic[playerId] == 3) then
 		npcHandler:say(string.format("Your answer is %s, do you want to continue?", message), npc, creature)
 		playerLastResp[creature] = tonumber(message)
-		npcHandler.topic[creature] = 4
+		npcHandler.topic[playerId] = 4
 		playerTopic[creature] = 4
-	elseif (npcHandler.topic[creature] == 4) then
+	elseif (npcHandler.topic[playerId] == 4) then
 		if msgcontains(message, "yes") then
 			local resposta = quiz1[player:getStorageValue(Storage.CultsOfTibia.MotA.QuestionId)].r
 			if playerLastResp[creature] ~= (tonumber(resposta(player))) then
@@ -134,7 +137,7 @@ local function creatureSayCallback(npc, creature, type, message)	npcHandler.topi
 				return false
 			else
 				npcHandler:say("Correct. {Next} question?", npc, creature)
-				npcHandler.topic[creature] = 5
+				npcHandler.topic[playerId] = 5
 				playerTopic[creature] = 5
 			end
 		elseif msgcontains(message, "no") then
@@ -143,13 +146,13 @@ local function creatureSayCallback(npc, creature, type, message)	npcHandler.topi
 			npcHandler:removeInteraction(npc, creature)
 			return false
 		end
-	elseif msgcontains(message, "next") and npcHandler.topic[creature] == 5 then
+	elseif msgcontains(message, "next") and npcHandler.topic[playerId] == 5 then
 		local perguntaid = math.random(#quiz2)
 		player:setStorageValue(Storage.CultsOfTibia.MotA.QuestionId, perguntaid)
 		npcHandler:say(quiz2[perguntaid].p, npc, creature)
-		npcHandler.topic[creature] = 6
+		npcHandler.topic[playerId] = 6
 		playerTopic[creature] = 6
-	elseif npcHandler.topic[creature] == 6 then
+	elseif npcHandler.topic[playerId] == 6 then
 		local resp = 0
 		if msgcontains(message, "no") then
 			resp = 0
@@ -159,7 +162,7 @@ local function creatureSayCallback(npc, creature, type, message)	npcHandler.topi
 		local resposta = quiz2[player:getStorageValue(Storage.CultsOfTibia.MotA.QuestionId)].r
 		if resp == resposta(player) then
 			npcHandler:say("Correct. {Next} question?", npc, creature)
-			npcHandler.topic[creature] = 7
+			npcHandler.topic[playerId] = 7
 			playerTopic[creature] = 7
 		else
 			npcHandler:say("Wrong. SHUT DOWN.", npc, creature)
@@ -167,13 +170,13 @@ local function creatureSayCallback(npc, creature, type, message)	npcHandler.topi
 			npcHandler:removeInteraction(npc, creature)
 			return false
 		end
-	elseif npcHandler.topic[creature] == 7 and msgcontains(message, "next") then
+	elseif npcHandler.topic[playerId] == 7 and msgcontains(message, "next") then
 		local perguntaid = math.random(#quiz3)
 		player:setStorageValue(Storage.CultsOfTibia.MotA.QuestionId, perguntaid)
 		npcHandler:say(quiz3[perguntaid].p, npc, creature)
-		npcHandler.topic[creature] = 8
+		npcHandler.topic[playerId] = 8
 		playerTopic[creature] = 8
-	elseif npcHandler.topic[creature] == 8 then
+	elseif npcHandler.topic[playerId] == 8 then
 		local resp = 0
 		if msgcontains(message, "no") then
 			resp = 0
@@ -183,7 +186,7 @@ local function creatureSayCallback(npc, creature, type, message)	npcHandler.topi
 		local resposta = quiz3[player:getStorageValue(Storage.CultsOfTibia.MotA.QuestionId)].r
 		if resp == resposta(player) then
 			npcHandler:say("Correct. {Last} question?", npc, creature)
-			npcHandler.topic[creature] = 9
+			npcHandler.topic[playerId] = 9
 			playerTopic[creature] = 9
 		else
 			npcHandler:say("Wrong. SHUT DOWN.", npc, creature)
@@ -191,16 +194,16 @@ local function creatureSayCallback(npc, creature, type, message)	npcHandler.topi
 			npcHandler:removeInteraction(npc, creature)
 			return false
 		end
-	elseif npcHandler.topic[creature] == 9 and msgcontains(message, "last") then
+	elseif npcHandler.topic[playerId] == 9 and msgcontains(message, "last") then
 		npcHandler:say("Tell me the correct number?", npc, creature)
-		npcHandler.topic[creature] = 10
+		npcHandler.topic[playerId] = 10
 		playerTopic[creature] = 10
-	elseif npcHandler.topic[creature] == 10 then
+	elseif npcHandler.topic[playerId] == 10 then
 		npcHandler:say(string.format("Your answer is %s, do you want to continue?", message), npc, creature)
 		playerLastResp[creature] = tonumber(message)
-		npcHandler.topic[creature] = 11
+		npcHandler.topic[playerId] = 11
 		playerTopic[creature] = 11
-	elseif npcHandler.topic[creature] == 11 then
+	elseif npcHandler.topic[playerId] == 11 then
 		if msgcontains(message, "yes") then
 			local correct = string.format("%d%d%d", player:getStorageValue(Storage.CultsOfTibia.MotA.Stone1), player:getStorageValue(Storage.CultsOfTibia.MotA.Stone2), player:getStorageValue(Storage.CultsOfTibia.MotA.Stone3))
 			if tonumber(playerLastResp[creature]) ~= (tonumber(correct)) then

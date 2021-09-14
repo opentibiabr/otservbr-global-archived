@@ -134,6 +134,7 @@ keywordHandler:addKeyword({'plunderpurse'}, StdModule.say,
 )
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "dawnport") then
 		npcHandler:say(

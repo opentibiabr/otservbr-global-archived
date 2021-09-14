@@ -46,6 +46,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, 'mission') then
 		if player:getStorageValue(Storage.TheShatteredIsles.RaysMission4) == 1 then
@@ -56,18 +57,18 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.TheShatteredIsles.RaysMission4, 2)
 		elseif player:getStorageValue(Storage.TheShatteredIsles.RaysMission4) == 3 then
 			npcHandler:say("Do you have Striker's pillow?", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, 'yes') then
 		if player:getStorageValue(Storage.TheShatteredIsles.RaysMission4) == 3 then
-			if npcHandler.topic[creature] == 1 then
+			if npcHandler.topic[playerId] == 1 then
 				if player:removeItem(11427, 1) then
 					npcHandler:say('You DID it!!! Incredible! Boys, lets have a PAAAAAARTY!!!!', npc, creature)
 					player:setStorageValue(Storage.TheShatteredIsles.RaysMission4, 4)
-					npcHandler.topic[creature] = 0
+					npcHandler.topic[playerId] = 0
 				else
 					npcHandler:say('Come back when you have his lucky pillow.', npc, creature)
-					npcHandler.topic[creature] = 0
+					npcHandler.topic[playerId] = 0
 				end
 			end
 		end

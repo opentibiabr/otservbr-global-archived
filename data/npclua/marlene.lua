@@ -53,6 +53,7 @@ keywordHandler:addKeyword({'graubart'}, StdModule.say, {npcHandler = npcHandler,
 keywordHandler:addKeyword({'thank you'}, StdModule.say, {npcHandler = npcHandler, text = "My pleasure, I always enjoy sharing interesting stories."})
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	if msgcontains(message, "seamonster") then
 		npcHandler:say({
 			'Only some days ago I was at the docks late in the night and was looking for my husband\'s ship when suddenly a known noise appeared near the docks. ...',

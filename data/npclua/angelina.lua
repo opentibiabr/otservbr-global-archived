@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand) < 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "The gods must be praised that I am finally saved. I do not have many worldly possessions, but please accept a small reward, do you?")
@@ -57,6 +58,7 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "Yes") then
 		if player:getStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand) < 1 then

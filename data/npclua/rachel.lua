@@ -59,13 +59,14 @@ local items = {
 }
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	local itemId = items[player:getVocation():getBaseId()]
 	if msgcontains(message, "first rod") or msgcontains(message, "first wand") then
 		if player:isMage() then
 			if player:getStorageValue(Storage.firstMageWeapon) == -1 then
 				npcHandler:say("So you ask me for a {" .. ItemType(itemId):getName() .. "} to begin your adventure?", npc, creature)
-				npcHandler.topic[creature] = 1
+				npcHandler.topic[playerId] = 1
 			else
 				npcHandler:say("What? I have already gave you one {" .. ItemType(itemId):getName() .. "}!", npc, creature)
 			end
@@ -73,15 +74,15 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("Sorry, you aren't a druid either a sorcerer.", npc, creature)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			player:addItem(itemId, 1)
 			npcHandler:say("Here you are young adept, take care yourself.", npc, creature)
 			player:setStorageValue(Storage.firstMageWeapon, 1)
 		end
-		npcHandler.topic[creature] = 0
-	elseif msgcontains(message, "no") and npcHandler.topic[creature] == 1 then
+		npcHandler.topic[playerId] = 0
+	elseif msgcontains(message, "no") and npcHandler.topic[playerId] == 1 then
 		npcHandler:say("Ok then.", npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

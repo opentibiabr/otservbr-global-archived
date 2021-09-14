@@ -47,25 +47,27 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 -- transcript for buying fresh mushroom beer is probably wrong except for the case where you buy it
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, 'recruitment') then
 		if player:getStorageValue(Storage.BigfootBurden.QuestLine) == 3 then
 			npcHandler:say('Your examination is quite easy. Just step through the green crystal apparatus in the south! We will examine you with what we call g-rays. Where g stands for gnome of course ...', npc, creature)
 			npcHandler:say('Afterwards walk up to Gnomedix for your ear examination.', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, 'tavern') then
 			npcHandler:say('I provide the population with some fresh alcohol-free mushroom {beer}!', npc, creature)
 	elseif msgcontains(message, 'beer') then
 			npcHandler:say('Do you want some mushroom beer for 10 gold?', npc, creature)
-			npcHandler.topic[creature] = 2
-	elseif npcHandler.topic[creature] == 1 then
+			npcHandler.topic[playerId] = 2
+	elseif npcHandler.topic[playerId] == 1 then
 		if msgcontains(message, 'apparatus') then
 			npcHandler:say('Don\'t be afraid. It won\'t hurt! Just step in!', npc, creature)
 			player:setStorageValue(Storage.BigfootBurden.QuestLine, 4)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
-	elseif npcHandler.topic[creature] == 2 then
+	elseif npcHandler.topic[playerId] == 2 then
 		if msgcontains(message, 'yes') then
 			if player:getMoney() + player:getBankBalance() >= 10 then
 				npcHandler:say('And here it is! Drink it quick, it gets stale quite fast!', npc, creature)
@@ -80,7 +82,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 		else
 			npcHandler:say('Come back later.', npc, creature)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

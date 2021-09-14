@@ -43,6 +43,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "battle") then
 		if player:getStorageValue(Storage.TheNewFrontier.Questline) == 24 then
@@ -51,7 +52,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"My mazter wantz to zurprize hiz opponentz by an unexpected move. He will uze warriorz from ze outzide, zomeone zat no one can azzezz. ...",
 				"One of ziz warriorz could be you. Or you could ztay here and rot in ze dungeon. Are you interezted in ziz deal?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "mission") then
 		if player:getStorageValue(Storage.TheNewFrontier.Questline) == 26 then
@@ -62,15 +63,15 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.TheNewFrontier.Questline, 27)
 			player:setStorageValue(Storage.TheNewFrontier.Mission09, 3) --Questlog, The New Frontier Quest "Mission 09: Mortal Combat"
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say("Asss you wishzz.", npc, creature)
 			player:setStorageValue(Storage.TheNewFrontier.Questline, 25)
 			player:setStorageValue(Storage.TheNewFrontier.Mission08, 2) --Questlog, The New Frontier Quest "Mission 08: An Offer You Can't Refuse"
 			player:setStorageValue(Storage.TheNewFrontier.Mission09, 1) --Questlog, The New Frontier Quest "Mission 09: Mortal Combat"
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

@@ -88,14 +88,15 @@ keywordHandler:addKeyword({"buy"}, StdModule.say, {npcHandler = npcHandler, text
 keywordHandler:addKeyword({"have"}, StdModule.say, {npcHandler = npcHandler, text = "I can offer you the holy tible for a small fee."})
 keywordHandler:addKeyword({"time"}, StdModule.say, {npcHandler = npcHandler, text = "Now, it is |TIME|."})
 
-local function creatureSayCallback(npc, creature, type, message)	
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	-- Demon oak quest
 	if msgcontains(message, "mission") or msgcontains(message, "demon oak") then
 		if player:getStorageValue(Storage.DemonOak.Done) < 1 then
 			npcHandler:say("How do you know? Did you go into the infested area?", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		elseif player:getStorageValue(Storage.DemonOak.Progress) == 2 and player:getStorageValue(Storage.DemonOak.Done) < 1 then
 			npcHandler:say("You better don't return here until you've defeated the Demon Oak.", npc, creature)
 		elseif player:getStorageValue(Storage.DemonOak.Done) == 1 then
@@ -106,53 +107,53 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.DemonOak.Done, 2)
 		end
-	elseif msgcontains(message, "yes") and npcHandler.topic[creature] == 1 then
+	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 1 then
 		player:setStorageValue(Storage.DemonOak.Progress, 1)
 		if player:getStorageValue(Storage.DemonOak.Progress) == 1 then
 			npcHandler:say("A demon oak?!? <mumbles some blessings> May the gods be on our side. You'll need a {hallowed axe} to harm that tree. Bring me a simple {axe} and I'll prepare it for you.",creature)
 			player:setStorageValue(Storage.DemonOak.Progress, 2)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		else
 			npcHandler:say("I don't believe a word of it! How rude to lie to a monk!",creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "axe") then
 		if player:getStorageValue(Storage.DemonOak.Progress) == 2 then
 			npcHandler:say("Ahh, you've got an axe. Very good. I can make a hallowed axe out of it. It will cost you... er... a donation of 1,000 gold. Alright?",creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		else
 			npcHandler:say("You have to first talk about {demon oak} or the {mission} before we continue.",creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
-	elseif msgcontains(message, "yes") and npcHandler.topic[creature] == 2 then
+	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 2 then
 		if player:getStorageValue(Storage.DemonOak.Progress) == 2 then
 			if player:getMoney() + player:getBankBalance() >= 1000 then
 				if player:removeItem(2386, 1) and player:removeMoneyNpc(1000) then
 					npcHandler:say("Let's see....<mumbles a prayer>....here we go. The blessing on this axe will be absorbed by all the demonic energy around here. I presume it will not last very long, so better hurry. Actually, I can refresh the blessing as often as you like.",creature)
 					player:addItem(8293, 1)
 					Npc():getPosition():sendMagicEffect(CONST_ME_YELLOWENERGY)
-					npcHandler.topic[creature] = 0
+					npcHandler.topic[playerId] = 0
 				else
 					npcHandler:say("There is no axe with you.",creature)
-					npcHandler.topic[creature] = 0
+					npcHandler.topic[playerId] = 0
 				end
 			else
 				npcHandler:say("There is not enough of money with you.",creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		end
-	elseif msgcontains(message, "no") and npcHandler.topic[creature] == 1 then
+	elseif msgcontains(message, "no") and npcHandler.topic[playerId] == 1 then
 		npcHandler:say("What a pity! Let me know when you managed to get in there. Maybe I can help you when we know what we are dealing with.",creature)
-		npcHandler.topic[creature] = 0
-	elseif msgcontains(message, "no") and npcHandler.topic[creature] == 2 then
+		npcHandler.topic[playerId] = 0
+	elseif msgcontains(message, "no") and npcHandler.topic[playerId] == 2 then
 		npcHandler:say("No then.",creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 
 	-- The paradox tower quest
 	if msgcontains(message, "hugo") then
 		npcHandler:say("Ah, the curse of the Plains of Havoc, the hidden beast, the unbeatable foe. I've been living here for years and I'm sure this is only a myth.", npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, "myth") then
 		if player:getStorageValue(Storage.Quest.TheParadoxTower.TheFearedHugo) < 1 then
 			-- Questlog: The Paradox Tower
@@ -161,10 +162,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.Quest.TheParadoxTower.TheFearedHugo, 1)
 		end
 		npcHandler:say("There are many tales about the fearsome Hugo. It's said it's an abnormality, accidentally created by Yenny the Gentle. It's half demon, half something else and people say it's still alive after all these years.", npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, "yenny the gentle") then
 		npcHandler:say("Yenny, known as the Gentle, was one of the most powerful wielders of magic in ancient times. She was known throughout the world for her mercy and kindness.", npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

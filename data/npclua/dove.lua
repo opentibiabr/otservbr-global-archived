@@ -46,25 +46,27 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "measurements") then
 		if player:getStorageValue(Storage.Postman.Mission07) >= 1 and	player:getStorageValue(Storage.Postman.MeasurementsDove) ~= 1 then
 			npcHandler:say("Oh no! I knew that day would come! I am slightly above the allowed weight and if you can't supply me with some grapes to slim down I will get fired. Do you happen to have some grapes with you? ", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 	else
 			npcHandler:say("...", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			if player:removeItem(2681, 1) then
 				npcHandler:say("Oh thank you! Thank you so much! So listen ... <whispers her measurements> ", npc, creature)
 				player:setStorageValue(Storage.Postman.Mission07, player:getStorageValue(Storage.Postman.Mission07) + 1)
 				player:setStorageValue(Storage.Postman.MeasurementsDove, 1)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 	else
 			npcHandler:say("Oh, you don\'t have it.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			end
 		end
 	end

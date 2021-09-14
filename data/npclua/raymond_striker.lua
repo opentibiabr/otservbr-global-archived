@@ -46,16 +46,18 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "eleonore") then
 		if player:getStorageValue(Storage.TheShatteredIsles.APoemForTheMermaid) < 1 then
 			npcHandler:say("Eleonore ... Yes, I remember her... vaguely. She is a pretty girl ... but still only a girl and now I am in love with a beautiful and passionate woman. A true {mermaid} even.", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "mission") then
 		if player:getStorageValue(Storage.TheShatteredIsles.APoemForTheMermaid) < 1 then
 			npcHandler:say("Don't ask about silly missions. All I can think about is this lovely {mermaid}.", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		elseif player:getStorageValue(Storage.TheShatteredIsles.APoemForTheMermaid) == 3 and player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) < 1 then
 			npcHandler:say("Ask around in the settlement where you can help out. If you have proven your worth I might have some missions for you.", npc, creature)
 			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 1)
@@ -121,14 +123,14 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 		end
 	elseif msgcontains(message, "mermaid") then
 		if player:getStorageValue(Storage.TheShatteredIsles.APoemForTheMermaid) < 1 then
-			if npcHandler.topic[creature] == 1 then
+			if npcHandler.topic[playerId] == 1 then
 				npcHandler:say("The mermaid is the most beautiful creature I have ever met. She is so wonderful. It was some kind of magic as we first met. A look in her eyes and I suddenly knew there would be never again another woman in my life but her.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				player:setStorageValue(Storage.TheShatteredIsles.APoemForTheMermaid, 1)
 			end
 		elseif player:getStorageValue(Storage.TheShatteredIsles.APoemForTheMermaid) == 1 and player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) < 1 then
 			npcHandler:say("I am deeply ashamed that I lacked the willpower to resist her spell. Thank you for your help in that matter. Now my head is once more free to think about our {mission}.", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "pirate outfit") then
 		if player:getStorageValue(Storage.TheShatteredIsles.AccessToLagunaIsland) == 1 and player:getStorageValue(Storage.OutfitQuest.PirateBaseOutfit) < 1 and player:getStorageValue(Storage.TheShatteredIsles.RaysMission4) == 5 then
@@ -137,7 +139,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:addOutfit(155)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
 			player:setStorageValue(Storage.OutfitQuest.PirateBaseOutfit, 1)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

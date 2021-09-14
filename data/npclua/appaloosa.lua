@@ -46,15 +46,16 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	if msgcontains(message, 'transport') then
 		npcHandler:say('We can bring you to Thais with one of our coaches for 125 gold. Are you interested?', npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif isInArray({'rent', 'horses'}, message) then
 		npcHandler:say('Do you want to rent a horse for one day at a price of 500 gold?', npc, creature)
-		npcHandler.topic[creature] = 2
+		npcHandler.topic[playerId] = 2
 	elseif msgcontains(message, 'yes') then
 		local player = Player(creature)
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			if player:isPzLocked() then
 				npcHandler:say('First get rid of those blood stains!', npc, creature)
 				return true
@@ -70,7 +71,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:teleportTo(destination)
 			destination:sendMagicEffect(CONST_ME_TELEPORT)
 			npcHandler:say('Have a nice trip!', npc, creature)
-		elseif npcHandler.topic[creature] == 2 then
+		elseif npcHandler.topic[playerId] == 2 then
 			if player:getStorageValue(Storage.RentedHorseTimer) >= os.time() then
 				npcHandler:say('You already have a horse.', npc, creature)
 				return true
@@ -87,10 +88,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:addAchievement('Natural Born Cowboy')
 			npcHandler:say('I\'ll give you one of our experienced ones. Take care! Look out for low hanging branches.', npc, creature)
 		end
-		npcHandler.topic[creature] = 0
-	elseif msgcontains(message, 'no') and npcHandler.topic[creature] > 0 then
+		npcHandler.topic[playerId] = 0
+	elseif msgcontains(message, 'no') and npcHandler.topic[playerId] > 0 then
 		npcHandler:say('Then not.', npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

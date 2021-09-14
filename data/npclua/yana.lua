@@ -175,11 +175,13 @@ npcType.onThink = function(npc, interval)
 end
 
 local function greetCallback(npc, creature)
-	npcHandler.topic[creature] = 0
+	local playerId = creature:getId()
+	npcHandler.topic[playerId] = 0
 	return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	if msgcontains(message, "information") then
@@ -194,15 +196,15 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:say("If you have any gold tokens with you, let's have a look! These are my offers.", npc, creature)
 	elseif msgcontains(message, "trade") then
 		npcHandler:say({"I have creature products for the imbuements {strike}, {vampirism} and {void}. Make your choice, please!"}, npc, creature)
-		npcHandler.topic[creature] = 1
-	elseif npcHandler.topic[creature] == 1 then
+		npcHandler.topic[playerId] = 1
+	elseif npcHandler.topic[playerId] == 1 then
 		local imbueType = products[message:lower()]
 		if imbueType then
 			npcHandler:say({"You have chosen "..message..". {Basic}, {intricate} or {powerful}?"}, npc, creature)
 			answerType[creature] = message
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		end
-	elseif npcHandler.topic[creature] == 2 then
+	elseif npcHandler.topic[playerId] == 2 then
 		local imbueLevel = products[answerType[creature]][message:lower()]
 		if imbueLevel then
 			answerLevel[creature] = message:lower()
@@ -212,9 +214,9 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 			npcHandler:say({imbueLevel.text.."...", 
 							"Make sure that you have ".. #products[answerType[creature]][answerLevel[creature]].itens .." free slot and that you can carry ".. string.format("%.2f",neededCap/100) .." oz in addition to that."}, npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 		end
-	elseif npcHandler.topic[creature] == 3 then
+	elseif npcHandler.topic[playerId] == 3 then
 		if msgcontains(message, "yes") then
 			local neededCap = 0
 			for i = 1, #products[answerType[creature]][answerLevel[creature]].itens do
@@ -227,7 +229,7 @@ local function creatureSayCallback(npc, creature, type, message)
 					end
 					player:removeItem(npc:getCurrency(), products[answerType[creature]][answerLevel[creature]].value)
 					npcHandler:say("There it is.", npc, creature)
-					npcHandler.topic[creature] = 0
+					npcHandler.topic[playerId] = 0
 				else
 					npcHandler:say("I'm sorry but it seems you don't have enough gold tokens? yet. Bring me "..products[answerType[creature]][answerLevel[creature]].value.." of them and we'll make a trade.", npc, creature)
 				end
@@ -237,7 +239,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("Your decision. Come back if you have changed your mind.",creature)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

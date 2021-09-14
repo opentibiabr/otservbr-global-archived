@@ -42,17 +42,18 @@ npcHandler:onThink(npc, interval)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	if msgcontains(message, 'cookbook') then
 		if player:getStorageValue(Storage.MaryzaCookbook) ~= 1 then
 			npcHandler:say('The cookbook of the famous dwarven kitchen. You\'re lucky. I have a few copies on sale. Do you like one for 150 gold?', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		else
 			npcHandler:say('I\'m sorry but I sell only one copy to each customer. Otherwise they would have been sold out a long time ago.', npc, creature)
 		end
 
-	elseif npcHandler.topic[creature] == 1 then
+	elseif npcHandler.topic[playerId] == 1 then
 		if msgcontains(message, 'yes') then
 			if not player:removeMoneyNpc(150) then
 				npcHandler:say('No gold, no sale, that\'s it.', npc, creature)

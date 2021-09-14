@@ -60,6 +60,7 @@ keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text
 keywordHandler:addKeyword({'mission'}, StdModule.say, {npcHandler = npcHandler, text = 'Well I would rather call it an {Ultimate Challenge} than a mission.'})
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	local arenaId = player:getStorageValue(Storage.SvargrondArena.Arena)
 	if msgcontains(message, 'fight') or msgcontains(message, 'pit') or msgcontains(message, 'challenge') or msgcontains(message, 'arena') then
@@ -75,16 +76,16 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		if ARENA[arenaId] then
 			npcHandler:say('So you agree with the {rules} and want to participate in the {challenge}? The {fee} for one try in {' .. ARENA[arenaId].name .. '} is ' .. ARENA[arenaId].price .. ' gold pieces. Do you really want to participate and pay the {fee}?', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		else
 			npcHandler:say('You\'ve already completed the arena in all {difficulty levels}.', npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 
-	elseif npcHandler.topic[creature] == 1 then
+	elseif npcHandler.topic[playerId] == 1 then
 		if msgcontains(message, 'yes') then
 			if not ARENA[arenaId] then
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 
@@ -102,7 +103,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		else
 			npcHandler:say('Come back when you are ready then.', npc, creature)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

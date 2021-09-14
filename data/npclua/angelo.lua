@@ -48,6 +48,7 @@ end
 
 local playerTopic = {}
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 
 	local player = Player(creature)
 
@@ -63,48 +64,49 @@ local function greetCallback(npc, creature)
 	return true
 end
 local function creatureSayCallback(npc, creature, type, message)
-	npcHandler.topic[creature] = playerTopic[creature]
+	local playerId = creature:getId()
+	npcHandler.topic[playerId] = playerTopic[creature]
 	local player = Player(creature)
 
 -- Sequência para pegar a quest
-if npcHandler.topic[creature] == 1 and msgcontains(message, "project") then
+if npcHandler.topic[playerId] == 1 and msgcontains(message, "project") then
 		npcHandler:say({"The project is called 'Sandy {Cave} Project' and is funded by the {MoTA}. Its goal is the investigation of this {cave}."}, npc, creature)
 		playerTopic[creature] = 2
 
-	elseif npcHandler.topic[creature] == 2 and msgcontains(message, "mota") then
+	elseif npcHandler.topic[playerId] == 2 and msgcontains(message, "mota") then
 		npcHandler:say({"MoTA is short for the recently founded Museum of Tibian Arts. We work together in close collaboration. New {results} are communicated to the museum instantly."}, npc, creature)
 		playerTopic[creature] = 3
 
-	elseif npcHandler.topic[creature] == 3 and msgcontains(message, "results") then
+	elseif npcHandler.topic[playerId] == 3 and msgcontains(message, "results") then
 		npcHandler:say({"We have no scientific results so far to reach our {goal}, because my workers aren't back yet. Should I be {worried}?"}, npc, creature)
 		playerTopic[creature] = 4
 
-	elseif npcHandler.topic[creature] == 4 and msgcontains(message, "yes") then
+	elseif npcHandler.topic[playerId] == 4 and msgcontains(message, "yes") then
 		npcHandler:say({"Alright. I have to find out why they don't return. But I'm old and my back aches. Would you like to go there and look for my workers?"}, npc, creature)
 		playerTopic[creature] = 5
 
-	elseif npcHandler.topic[creature] == 5 and msgcontains(message, "yes") then
+	elseif npcHandler.topic[playerId] == 5 and msgcontains(message, "yes") then
 		npcHandler:say({"Fantastic! Go there and then tell me what you've seen. I've oppened the door for you. Take care of yourself!"}, npc, creature)
 		player:setStorageValue(Storage.CultsOfTibia.Life.Mission, 2)
 		player:setStorageValue(Storage.CultsOfTibia.Life.AccessDoor, 1)
 		playerTopic[creature] = 0
 
 	-- Inútil
-	elseif npcHandler.topic[creature] == 2 and msgcontains(message, "cave") then
+	elseif npcHandler.topic[playerId] == 2 and msgcontains(message, "cave") then
 		npcHandler:say({"We don't know exactly why this cave has now exposed an entry via the {dark pyramid}. It seems that the cave already existed for a long time, however, without a connection to our world. Maybe some smaller earth movements have changed the situation."}, npc, creature)
 		playerTopic[creature] = 11
 
-	elseif npcHandler.topic[creature] == 11 and msgcontains(message, "dark pyramid") then
+	elseif npcHandler.topic[playerId] == 11 and msgcontains(message, "dark pyramid") then
 		npcHandler:say({"We don't know yet to wich extent the cave and the dark pyramid belong together. Thisi s what we try to find out. Maybe the history of this place has to be rewritten."}, npc, creature)
 		playerTopic[creature] = 0
 end
 
 	-- Depois de encontrar o Oasis
 if player:getStorageValue(Storage.CultsOfTibia.Life.Mission) == 3 then
-	if msgcontains(message, "mission") and npcHandler.topic[creature] == 6 then
+	if msgcontains(message, "mission") and npcHandler.topic[playerId] == 6 then
 		npcHandler:say({"The scientists are still missing? You just found some strange green shining mummies and a big oasis? I give you this analysis tool for the water of the oasis. Maybe that's the key. Could you bring me a sample of this water?"}, npc, creature)
 		playerTopic[creature] = 15
-			elseif msgcontains(message, "yes") and npcHandler.topic[creature] == 15 then
+			elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 15 then
 			npcHandler:say({"Very good. Hopefully analysing this sample will get us closer to the solution of this mistery."}, npc, creature)
 			player:addItem(28666, 1)
 			player:setStorageValue(Storage.CultsOfTibia.Life.Mission, 4)
@@ -113,10 +115,10 @@ end
 
 -- Depois de usar o analyzing tool
 if player:getStorageValue(Storage.CultsOfTibia.Life.Mission) == 5 then
-	if msgcontains(message, "mission") and npcHandler.topic[creature] == 6 then
+	if msgcontains(message, "mission") and npcHandler.topic[playerId] == 6 then
 		npcHandler:say({"Do you have the sample I asked you for?"}, npc, creature)
 		playerTopic[creature] = 16
-			elseif msgcontains(message, "yes") and npcHandler.topic[creature] == 16 then
+			elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 16 then
 			npcHandler:say({"Thanks a lot. Let me check the result. Well, I think you need the counteragent. Please apply it to the oasis!"}, npc, creature)
 			player:addItem(28665, 1)
 			player:setStorageValue(Storage.CultsOfTibia.Life.Mission, 6)
@@ -125,7 +127,7 @@ end
 
 -- Depois de usar o conteragent
 if player:getStorageValue(Storage.CultsOfTibia.Life.Mission) == 7 then
-	if msgcontains(message, "mission") and npcHandler.topic[creature] == 6 then
+	if msgcontains(message, "mission") and npcHandler.topic[playerId] == 6 then
 		npcHandler:say({"What has happened? You applied the counteragent to the oasis and then it was destroyed by a sandstorm? Keep on investigating the place."}, npc, creature)
 		playerTopic[creature] = 17
 	end

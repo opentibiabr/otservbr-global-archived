@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, 'letter') then
 		if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 4 then

@@ -46,7 +46,9 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, 'key') then
 		if player:getStorageValue(Storage.ThievesGuild.Mission06) == 1
 		and player:getSex() == PLAYERSEX_FEMALE then

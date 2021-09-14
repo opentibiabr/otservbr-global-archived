@@ -80,10 +80,12 @@ local items = {
 }
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	if message then

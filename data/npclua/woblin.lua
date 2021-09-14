@@ -42,28 +42,29 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "key") then
 		if player:getStorageValue(Storage.Quest.Dawnport.TheDormKey) == 1 then
 			npcHandler:say("Me not give key! Key my precious now! \z
 				By old goblin law all that one has in his pockets for two days is family heirloom! \z
 				Me no part with my precious ... hm unless you provide Woblin with some {reward}!", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "reward") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say("Me good angler but one fish eludes me since many many weeks. I call fish ''Old Nasty''. \z
 				You might catch him in this cave, in that pond there. Bring me Old Nasty and I'll give you key!", npc, creature)
 			player:setStorageValue(Storage.Quest.Dawnport.TheDormKey, 2)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "old nasty") then
 		if player:getStorageValue(Storage.Quest.Dawnport.TheDormKey) == 3 and player:getItemCount(23773) >= 1 then
 			npcHandler:say("You bring me Old Nasty?", npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 2 then
+		if npcHandler.topic[playerId] == 2 then
 			npcHandler:say("Wonderful. I don't believe you will find Dormovo alive, though. \z
 				He would not have stayed abroad that long without refilling his inkpot for his research notes. \z
 				But at least the amulet should be retrieved.", npc, creature)
@@ -71,7 +72,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			key = player:addItem(23763, 1)
 			key:setActionId(103)
 			player:setStorageValue(Storage.Quest.Dawnport.TheDormKey, 4)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

@@ -46,16 +46,18 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, 'belongings of deceasead') or msgcontains(message, 'medicine') then
 		if player:getItemCount(13506) > 0 then
 			npcHandler:say('Did you bring me the medicine pouch?', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		else
 			npcHandler:say('I need a {medicine pouch}, to give you the {belongings of deceased}. Come back when you have them.', npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
-	elseif msgcontains(message, 'yes') and npcHandler.topic[creature] == 1 then
+	elseif msgcontains(message, 'yes') and npcHandler.topic[playerId] == 1 then
 		if player:removeItem(13506, 1) then
 			player:addItem(13670, 1)
 			player:addAchievementProgress('Doctor! Doctor!', 100)
@@ -63,7 +65,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 		else
 			npcHandler:say('You do not have the required items.', npc, creature)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

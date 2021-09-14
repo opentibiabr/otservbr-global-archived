@@ -51,6 +51,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "magic") and player:getStorageValue(12902) < 1 then
 	npcHandler:say("...Tell me...the first... magic word.", npc, creature)

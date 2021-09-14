@@ -46,23 +46,25 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, 'letter') then
 		if player:getStorageValue(Storage.ThievesGuild.Mission06) == 1 then
 			npcHandler:say('You would like Chantalle\'s letter? only if you are willing to pay a price. {gold} maybe?', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, 'gold') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say('Are you willing to pay 1000 gold for this letter?', npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 2 then
+		if npcHandler.topic[playerId] == 2 then
 			if player:removeMoneyNpc(1000) then
 				player:addItem(8768, 1)
 				npcHandler:say('Here you go kind sir.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		end
 	end

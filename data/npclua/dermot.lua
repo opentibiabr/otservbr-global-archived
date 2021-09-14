@@ -46,23 +46,25 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "present") then
 		if player:getStorageValue(Storage.Postman.Mission05) == 2 then
 			npcHandler:say("You have a present for me?? Realy?", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "key") then
 		npcHandler:say("Do you want to buy the dungeon key for 2000 gold?", npc, creature)
-		npcHandler.topic[creature] = 2
+		npcHandler.topic[playerId] = 2
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			if player:removeItem(2331, 1) then
 				npcHandler:say("Thank you very much!", npc, creature)
 				player:setStorageValue(Storage.Postman.Mission05, 3)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 2 then
+		elseif npcHandler.topic[playerId] == 2 then
 			if player:removeMoneyNpc(2000) then
 				npcHandler:say("Here it is.", npc, creature)
 				local key = player:addItem(2087, 1)
@@ -72,7 +74,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			else
 				npcHandler:say("You don't have enough money.", npc, creature)
 			end
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

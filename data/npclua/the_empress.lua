@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getStorageValue(Storage.Kilmaresh.Fifth.Memories) == 4 then
 		player:addItem(36249, 1)

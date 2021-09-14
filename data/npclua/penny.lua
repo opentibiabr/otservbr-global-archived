@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	npcHandler:setMessage(MESSAGE_GREET, "Welcome home, " .. Player(creature):getSex() == PLAYERSEX_FEMALE and "Lady" or "Sir" .. " |PLAYERNAME|.")
 	return true
 end

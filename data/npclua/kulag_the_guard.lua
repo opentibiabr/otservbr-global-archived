@@ -46,19 +46,21 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "trouble") and player:getStorageValue(Storage.TheInquisition.KulagGuard) < 1 and player:getStorageValue(Storage.TheInquisition.Mission01) ~= -1 then
 		npcHandler:say("You adventurers become more and more of a pest.", npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif msgcontains(message, "authorities") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say("They should throw you all into jail instead of giving you all those quests and rewards an honest watchman can only dream about.", npc, creature)
 			if player:getStorageValue(Storage.TheInquisition.KulagGuard) < 1 then
 				player:setStorageValue(Storage.TheInquisition.KulagGuard, 1)
 				player:setStorageValue(Storage.TheInquisition.Mission01, player:getStorageValue(Storage.TheInquisition.Mission01) + 1) -- The Inquisition Questlog- "Mission 1: Interrogation"
 				player:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
 			end
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

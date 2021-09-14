@@ -38,47 +38,48 @@ npcHandler:onThink(npc, interval)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if isInArray({"enchanted chicken wing", "boots of haste", "Enchanted Chicken Wing", "Boots of Haste"}, message) then
 		npcHandler:say('Do you want to trade Boots of haste for Enchanted Chicken Wing?', npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif isInArray({"warrior sweat", "warrior helmet", "Warrior Sweat", "Warrior Helmet"}, message) then
 		npcHandler:say('Do you want to trade 4 Warrior Helmet for Warrior Sweat?', npc, creature)
-		npcHandler.topic[creature] = 2
+		npcHandler.topic[playerId] = 2
 	elseif isInArray({"fighting spirit", "royal helmet", "Fighting Spirit", "Royal Helmet"}, message) then
 		npcHandler:say('Do you want to trade 2 Royal Helmet for Fighting Spirit', npc, creature)
-		npcHandler.topic[creature] = 3
+		npcHandler.topic[playerId] = 3
 	elseif isInArray({"magic sulphur", "fire sword", "Magic Sulphur", "Fire Sword"}, message) then
 		npcHandler:say('Do you want to trade 3 Fire Sword for Magic Sulphur', npc, creature)
-		npcHandler.topic[creature] = 4
+		npcHandler.topic[playerId] = 4
 	elseif isInArray({"job", "items", "Items", "Job"}, message) then
 		npcHandler:say('I trade Enchanted Chicken Wing for Boots of Haste, Warrior Sweat for 4 Warrior Helmets, Fighting Spirit for 2 Royal Helmet Magic Sulphur for 3 Fire Swords', npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, 'cookie') then
 		if player:getStorageValue(Storage.WhatAFoolish.Questline) == 31
 				and player:getStorageValue(Storage.WhatAFoolish.CookieDelivery.Djinn) ~= 1 then
 			npcHandler:say('You brought cookies! How nice of you! Can I have one?', npc, creature)
-			npcHandler.topic[creature] = 5
+			npcHandler.topic[playerId] = 5
 		end
 	elseif msgcontains(message,'yes') then
-		if npcHandler.topic[creature] >= 1 and npcHandler.topic[creature] <= 4 then
+		if npcHandler.topic[playerId] >= 1 and npcHandler.topic[playerId] <= 4 then
 			local trade = {
 					{ NeedItem = 2195, Ncount = 1, GiveItem = 5891, Gcount = 1}, -- Enchanted Chicken Wing
 					{ NeedItem = 2475, Ncount = 4, GiveItem = 5885, Gcount = 1}, -- Flask of Warrior's Sweat
 					{ NeedItem = 2498, Ncount = 2, GiveItem = 5884, Gcount = 1}, -- Spirit Container
 					{ NeedItem = 2392, Ncount = 3, GiveItem = 5904, Gcount = 1}  -- Magic Sulphur
 			}
-			if player:getItemCount(trade[npcHandler.topic[creature]].NeedItem) >= trade[npcHandler.topic[creature]].Ncount then
-				player:removeItem(trade[npcHandler.topic[creature]].NeedItem, trade[npcHandler.topic[creature]].Ncount)
-				player:addItem(trade[npcHandler.topic[creature]].GiveItem, trade[npcHandler.topic[creature]].Gcount)
+			if player:getItemCount(trade[npcHandler.topic[playerId]].NeedItem) >= trade[npcHandler.topic[playerId]].Ncount then
+				player:removeItem(trade[npcHandler.topic[playerId]].NeedItem, trade[npcHandler.topic[playerId]].Ncount)
+				player:addItem(trade[npcHandler.topic[playerId]].GiveItem, trade[npcHandler.topic[playerId]].Gcount)
 				return npcHandler:say('Here you are.', npc, creature)
 			else
 				npcHandler:say('Sorry but you don\'t have the item.', npc, creature)
 			end
-		elseif npcHandler.topic[creature] == 5 then
+		elseif npcHandler.topic[playerId] == 5 then
 			if not player:removeItem(8111, 1) then
 				npcHandler:say('You have no cookie that I\'d like.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 
@@ -93,12 +94,12 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:resetNpc(creature)
 		end
 	elseif msgcontains(message,'no') then
-		if npcHandler.topic[creature] >= 1 and npcHandler.topic[creature] <= 4 then
+		if npcHandler.topic[playerId] >= 1 and npcHandler.topic[playerId] <= 4 then
 			npcHandler:say('Ok then.', npc, creature)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 5 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 5 then
 			npcHandler:say('I see.', npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

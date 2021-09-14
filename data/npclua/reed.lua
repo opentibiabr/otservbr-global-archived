@@ -47,30 +47,31 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if(msgcontains(message, "report")) then
 		if(player:getStorageValue(Storage.InServiceofYalahar.Questline) == 10 or player:getStorageValue(Storage.InServiceofYalahar.Questline) == 11) then
 			npcHandler:say("You have NO idea what we have to endure each day .. <gives a shocking and disturbing report>. ", npc, creature)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, player:getStorageValue(Storage.InServiceofYalahar.Questline) + 1)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission02, player:getStorageValue(Storage.InServiceofYalahar.Mission02) + 1) -- StorageValue for Questlog "Mission 02: Watching the Watchmen"
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif(msgcontains(message, "pass")) then
 		npcHandler:say("You can {pass} either to the {Cemetery Quarter} or {Magician Quarter}. Which one will it be?", npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif(msgcontains(message, "cemetery")) then
-		if(npcHandler.topic[creature] == 1) then
+		if(npcHandler.topic[playerId] == 1) then
 			local destination = Position(32799, 31103, 7)
 			player:teleportTo(destination)
 			destination:sendMagicEffect(CONST_ME_TELEPORT)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif(msgcontains(message, "magician")) then
-		if(npcHandler.topic[creature] == 1) then
+		if(npcHandler.topic[playerId] == 1) then
 			local destination = Position(32804, 31103, 7)
 			player:teleportTo(destination)
 			destination:sendMagicEffect(CONST_ME_TELEPORT)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

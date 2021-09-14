@@ -54,12 +54,14 @@ keywordHandler:addKeyword({'plan'}, StdModule.say, {npcHandler = npcHandler, tex
 keywordHandler:addKeyword({'years'}, StdModule.say, {npcHandler = npcHandler, text = 'I used the time to prepare. You\'ll find my talking tubes all the {way} to his lair, and I can provide you with vital information about the things ahead.'})
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	player:setStorageValue(Storage.HeroRathleton.AccessTeleport3, 1)
 	return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "madman") then
 		npcHandler:say({

@@ -41,20 +41,22 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "mission") then
 		if player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 2 then
 			npcHandler:say("Mhm, what are you doing here. Who zent you? ", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 3 then
 			npcHandler:say("Zo are you ready to get zomezing done?", npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 5 then
 			npcHandler:say("Zo? Did you find a way to reztore ze teleporter? ", npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 		end
 	elseif msgcontains(message, "zalamon") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say({
 				"I zee. Zalamon zent word of ze arrival of a zoftzkin quite zome time ago. Zat muzt be you zen. ... ",
 				"Well, I exzpected zomeone more - imprezzive. However, we will zee how far you can get. You've got newz from ze zouz? ... ",
@@ -65,10 +67,10 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			}, npc, creature)
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 3)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission01, 3) --Questlog, Wrath of the Emperor "Mission 01: Catering the Lions Den"
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 2 then
+		if npcHandler.topic[playerId] == 2 then
 			npcHandler:say({
 				"Alright. Well, az you might not be aware of it yet - we are on top of an old temple complex. It haz been abandoned and it haz crumbled over time. ...",
 				"Ze teleporter over zere uzed to work juzt fine to get uz back to ze zouz. But it haz ztopped operating for quite zome time. ... ",
@@ -78,15 +80,15 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			}, npc, creature)
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 4)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission02, 1) --Questlog, Wrath of the Emperor "Mission 02: First Contact"
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 3 then
 			npcHandler:say({
 				"You did it! Zere waz zome kind of zparkle and I zink it iz working again - oh pleaze feel free to try it, I uhm, I will wait here and be ready juzt in caze zomezing uhm happenz to you. ... ",
 				"And if you head to Zalamon, be zure to inform him about our zituation. Food rationz are running low and we are ztill not well equipped. We need to eztablish a working zupply line. "
 			}, npc, creature)
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 6)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission02, 3) --Questlog, Wrath of the Emperor "Mission 02: First Contact"
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

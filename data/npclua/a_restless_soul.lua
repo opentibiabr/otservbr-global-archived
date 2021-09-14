@@ -42,6 +42,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getStorageValue(Storage.TheIceIslands.Questline) < 37 then
 		npcHandler:say("Uhhhh...", npc, creature)
@@ -51,6 +52,7 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	if msgcontains(message, "story") then
 		local player = Player(creature)
 		if player:getStorageValue(Storage.TheIceIslands.Questline) == 37 then

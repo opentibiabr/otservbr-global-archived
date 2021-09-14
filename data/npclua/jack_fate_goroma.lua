@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if (message) then
 		message = message:lower()
@@ -56,43 +57,43 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.TheShatteredIsles.AccessToGoroma) ~= 1 then
 			if player:getStorageValue(Storage.TheShatteredIsles.Shipwrecked) < 1 then
 				npcHandler:say('I\'d love to bring you back to Liberty Bay, but as you can see, my ship is ruined. I also hurt my leg and can barely move. Can you help me?', npc, creature)
-				npcHandler.topic[creature] = 1
+				npcHandler.topic[playerId] = 1
 			elseif player:getStorageValue(Storage.TheShatteredIsles.Shipwrecked) == 1 then
 				npcHandler:say('Have you brought 30 pieces of wood so that I can repair the ship?', npc, creature)
-				npcHandler.topic[creature] = 3
+				npcHandler.topic[playerId] = 3
 			end
 		else
 			npcHandler:say('Do you want to travel back to Liberty Bay?', npc, creature)
-			npcHandler.topic[creature] = 4
+			npcHandler.topic[playerId] = 4
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say({
 				"Thank you. Luckily the damage my ship has taken looks more severe than it is, so I will only need a few wooden boards. ...",
 				"I saw some lousy trolls running away with some parts of the ship. It might be a good idea to follow them and check if they have some more wood. ...",
 				"We will need 30 pieces of wood, no more, no less. Did you understand everything?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 2
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 2
+		elseif npcHandler.topic[playerId] == 2 then
 			npcHandler:say('Good! Please return once you have gathered 30 pieces of wood.', npc, creature)
 			player:setStorageValue(Storage.TheShatteredIsles.DefaultStart, 1)
 			player:setStorageValue(Storage.TheShatteredIsles.Shipwrecked, 1)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 3 then
 			if player:removeItem(5901, 30) then
 				npcHandler:say("Excellent! Now we can leave this godforsaken place. Thank you for your help. Should you ever want to return to this island, ask me for a passage to Goroma.", npc, creature)
 				player:setStorageValue(Storage.TheShatteredIsles.Shipwrecked, 2)
 				player:setStorageValue(Storage.TheShatteredIsles.AccessToGoroma, 1)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			else
 				npcHandler:say("You don't have enough...", npc, creature)
 			end
-		elseif npcHandler.topic[creature] == 4 then
+		elseif npcHandler.topic[playerId] == 4 then
 			player:teleportTo(Position(32285, 32892, 6), false)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			npcHandler:say('Set the sails!', npc, creature)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

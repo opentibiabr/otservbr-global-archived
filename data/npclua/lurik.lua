@@ -47,11 +47,12 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "mission") then
 		if player:getStorageValue(Storage.ExplorerSociety.TheAstralPortals) == 56 and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 56 then
 			npcHandler:say("Ah, you've just come in time. An experienced explorer is just what we need here! Would you like to go on a mission for us?", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		elseif player:getStorageValue(Storage.ExplorerSociety.TheIslandofDragons) == 58 and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 58 then
 			if player:removeItem(7314, 1) then
 				npcHandler:say({
@@ -81,7 +82,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"You helped as much in our research here. As a reward, you may use our astral portal in the upper room from now on. ...",
 				"For just one orichalcum pearl, you can travel between Liberty Bay and Svargrond. Thank you again!"
 			}, npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			player:setStorageValue(Storage.ExplorerSociety.TheIceMusic, 62)
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 62)
 			player:setStorageValue(Storage.ExplorerSociety.IceMusicDoor, 1)
@@ -91,48 +92,48 @@ local function creatureSayCallback(npc, creature, type, message)
 				"We are trying to find out what is happening in the raider camps. Through our connection to the shamans we could get a covered contact in their majorcamp far to the south. We equipped our contact with a memory crystal so he could report all he knew ...",
 				"We need you to recover this crystal. Travel to the southern camp of the raiders and find our contact man there. Get the memory crystal and bring ithere. The society and the shamans will then decide our next steps. Do you think you can do this?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		elseif player:getStorageValue(Storage.TheIceIslands.Questline) == 33 then
 			npcHandler:say("Have you retrieved the memory crystal?", npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 		elseif player:getStorageValue(Storage.TheIceIslands.Questline) == 34 and player:getStorageValue(Storage.TheIceIslands.MemoryCrystal) > os.time() then
 			npcHandler:say("Give me some more time!", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.TheIceIslands.Questline) == 34 and player:getStorageValue(Storage.TheIceIslands.MemoryCrystal) < os.time() then
 			npcHandler:say({
 				"The information was quite useful. What worries me most are not the raiders but those that have driven them from the old mines...",
 				"We need to investigate the mines. Most entrances collapsed due to the lack of maintenance but there should be some possibilities to get in ...",
 				"In case you find a door, Ill tell you the old trick of the Carlin mining company to open it <whisper> <whisper>. Find some hint or someone who is willing to talk about what is going on there."
 			}, npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			player:setStorageValue(Storage.TheIceIslands.Questline, 35)
 			player:setStorageValue(Storage.TheIceIslands.Mission09, 1) -- Questlog The Ice Islands Quest, Formorgar Mines 1: The Mission
 		end
 	elseif msgcontains(message, "yes") then
 		-- ISLAND OF DRAGONS
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say({
 				"Now we're talking! Maybe you've already heard of the island Okolnir south of Hrodmir. ...",
 				"Okolnir is the home of a new and fierce dragon race, the so-called frost dragons. However, we have no idea where they originate from. ...",
 				"Rumours say that dragon lords, that roamed on this isle, were somehow turned into frost dragons when the great frost covered Okolnir. ...",
 				"Travel to Okolnir and try to find a proof for the existence of dragon lords there in the old times. I think old Buddel might be able to bring you there."
 			}, npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			player:setStorageValue(Storage.ExplorerSociety.TheIslandofDragons, 57)
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 57)
 		-- ISLAND OF DRAGONS
-		elseif npcHandler.topic[creature] == 2 then
+		elseif npcHandler.topic[playerId] == 2 then
 			npcHandler:say("Excellent. Just report about your mission when you got the memory crystal.", npc, creature)
 			player:setStorageValue(Storage.TheIceIslands.Questline, 33)
 			player:setStorageValue(Storage.TheIceIslands.Mission08, 2) -- Questlog The Ice Islands Quest, The Contact
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 3 then
 			if player:removeItem(7281, 1) then
 				npcHandler:say("Ah, great. Please give me some time to evaluate the information. Then talk to me again about your mission. ", npc, creature)
 				player:setStorageValue(Storage.TheIceIslands.Questline, 34)
 				player:setStorageValue(Storage.TheIceIslands.Mission08, 4) -- Questlog The Ice Islands Quest, The Contact
 				player:setStorageValue(Storage.TheIceIslands.MemoryCrystal, os.time() + 5 * 60)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		end
 	end

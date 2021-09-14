@@ -45,7 +45,9 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "sam sent me") or msgcontains(message, "sam send me") then
 		if player:getStorageValue(Storage.SamsOldBackpack) == 1 then
 			npcHandler:say({
@@ -62,7 +64,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:setStorageValue(Storage.Postman.MeasurementsKroox, 1)
 	else
 			npcHandler:say("...", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

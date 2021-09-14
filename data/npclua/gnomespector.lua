@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if not player then
 		return false
@@ -59,11 +60,11 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Afterwards walk up to Gnomedix for your ear examination."
 			}, npc, creature)
 			player:setStorageValue(Storage.BigfootBurden.QuestLine, 8)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
-	elseif msgcontains(message, "apparatus") and npcHandler.topic[creature] == 1 then
+	elseif msgcontains(message, "apparatus") and npcHandler.topic[playerId] == 1 then
 		npcHandler:say("Don't be afraid. It won't hurt! Just step in!", npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

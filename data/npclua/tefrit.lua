@@ -48,6 +48,7 @@ end
 
 local playerTopic = {}
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getStorageValue(Storage.Kilmaresh.First.Access) < 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
@@ -65,12 +66,13 @@ return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	npcHandler.topic[creature] = playerTopic[creature]
+	local playerId = creature:getId()
+	npcHandler.topic[playerId] = playerTopic[creature]
 	local player = Player(creature)
 	if msgcontains(message, "mission") and player:getStorageValue(Storage.Kilmaresh.Eighth.Tefrit) == 1 then
 		if player:getStorageValue(Storage.Kilmaresh.Eighth.Tefrit) == 1 then
 			npcHandler:say({"Could you help me do a ritual?"}, npc, creature)-- It needs to be revised, it's not the same as the global
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 			playerTopic[creature] = 1
 		end
 	elseif msgcontains(message, "yes") and playerTopic[creature] == 1 and player:getStorageValue(Storage.Kilmaresh.Eighth.Tefrit) == 1 then
@@ -78,7 +80,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:addItem(36551, 1)
 			npcHandler:say({"Here is the list with the missing ingredients to complete the ritual."}, npc, creature)-- It needs to be revised, it's not the same as the global
 			player:setStorageValue(Storage.Kilmaresh.Eighth.Tefrit, 2)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 			playerTopic[creature] = 2
 		else
 			npcHandler:say({"Sorry."}, npc, creature)
@@ -87,7 +89,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, "mission") and player:getStorageValue(Storage.Kilmaresh.Eighth.Tefrit) == 2 then
 		if player:getStorageValue(Storage.Kilmaresh.Eighth.Tefrit) == 2 then
 			npcHandler:say({"Did you bring all the materials I informed you about?"}, npc, creature)-- It needs to be revised, it's not the same as the global
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 			playerTopic[creature] = 3
 		end	
 	elseif msgcontains(message, "yes") and playerTopic[creature] == 3 and player:getStorageValue(Storage.Kilmaresh.Eighth.Tefrit) == 2 then
@@ -98,7 +100,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:removeItem(36165, 15)
 			npcHandler:say({"Thank you this stage of the ritual is complete."}, npc, creature)-- It needs to be revised, it's not the same as the global
 			player:setStorageValue(Storage.Kilmaresh.Eighth.Tefrit, 3)
-			npcHandler.topic[creature] = 4
+			npcHandler.topic[playerId] = 4
 			playerTopic[creature] = 4
 		else
 			npcHandler:say({"Sorry."}, npc, creature)-- It needs to be revised, it's not the same as the global

@@ -48,6 +48,7 @@ end
 
 local playerTopic = {}
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getStorageValue(Storage.Kilmaresh.First.Access) < 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
@@ -65,13 +66,14 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	npcHandler.topic[creature] = playerTopic[creature]
+	local playerId = creature:getId()
+	npcHandler.topic[playerId] = playerTopic[creature]
 	local player = Player(creature)
 	
 	if msgcontains(message, "report") and player:getStorageValue(Storage.TheSecretLibrary.PinkTel) == 1 then
 		npcHandler:say({"Talk to Captain Charles in Port Hope. He told me that he once ran ashore on a small island where he discovered a small ruin. The architecture was like nothing he had seen before."}, npc, creature)
 		player:setStorageValue(Storage.TheSecretLibrary.PinkTel, 2)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 		playerTopic[creature] = 1
 	end
 	
@@ -84,7 +86,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			"Oh, and one other thing. For your efforts I want to reward you with one of my old outfits, back from my adventuring days. May it suit you well! ...",
 		"Hurry now my friend. Time is of essence!"}, npc, creature)
 		player:setStorageValue(Storage.TheSecretLibrary.HighDry, 6)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 		playerTopic[creature] = 1
 	end
 	

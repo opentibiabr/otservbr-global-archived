@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "mission") then
 		if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 6) then
@@ -54,28 +55,28 @@ local function creatureSayCallback(npc, creature, type, message)
 				"I'm heartbroken, traveler. Some months ago, I was taking care of my three newborn whelps. They just opened their eyes and started exploring the wilderness as a hunter came by. ...",
 				"He shot me and took my three puppies with him. I have no idea where he brought them or whether they are still alive. This uncertainty harrows me and thus I'm unable to find peace. Will you help me?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		elseif (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 10) then
 			player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 11)
 			npcHandler:say("I guess I will stick around for a time to watch over the grave. After this final watch I will find peace, I can feel this. Thank you, human being. You redeemed me.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		else
 			npcHandler:say("You are not on that mission.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
-	elseif npcHandler.topic[creature] == 1 then
+	elseif npcHandler.topic[playerId] == 1 then
 		if msgcontains(message, "yes") then
 			npcHandler:say({
 				"I didn't dare hope for it! The man told something about selling my babies to the orcs so they could train them as war wolves. ...",
 				"I guess he mentioned Ulderek's Rock. Please search for them and - be they alive or not - return and tell me what happened to them."
 			}, npc, creature)
 			player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 7)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif msgcontains(message, "no") then
 			npcHandler:say("Then not.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

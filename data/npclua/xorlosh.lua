@@ -46,22 +46,23 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	if msgcontains(message, "mission") then
 		if player:getStorageValue(Storage.HiddenCityOfBeregar.GoingDown) < 1 then
 			npcHandler:say("Hmmmm, you could indeed help me. See this mechanism? Some son of a rotworm put WAY too much stuff on this elevator and now it's broken. I need 3 gear wheels to fix it. You think you could get them for me?", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		elseif player:getStorageValue(Storage.HiddenCityOfBeregar.GoingDown) == 1 and player:removeItem(9690, 3) then
 			player:setStorageValue(Storage.HiddenCityOfBeregar.GoingDown, 2)
 			npcHandler:say("HOLY MOTHER OF ALL ROTWORMS! You did it and they are of even better quality than the old ones. You should be the first one to try the elevator, just jump on it. See you my friend.", npc, creature)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			player:setStorageValue(Storage.HiddenCityOfBeregar.GoingDown, 1)
 			player:setStorageValue(Storage.HiddenCityOfBeregar.DefaultStart, 1)
 			npcHandler:say("That would be great! Maybe a blacksmith can forge you some. Come back when you got them and ask me about your mission.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "tunnel") then
 		if player:getStorageValue(Storage.HiddenCityOfBeregar.RoyalRescue) == 1 then

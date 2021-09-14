@@ -47,7 +47,9 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "brings") then
 		npcHandler:say("Ah, you have heard about my search for experienced help. And indeed your reputation for solving certain {problems} has preceded you.", npc, creature)
 	elseif msgcontains(message, "problems") then
@@ -70,13 +72,13 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 	elseif msgcontains(message, "short") then
 		npcHandler:say("My studies indicate that without all doubt Ferumbras the fiendish is in the process of accumulating nearly godlike powers. We have to stop him. ...", npc, creature)
 		npcHandler:say("Therefore I need you to enter a hellish dimension and acquire the parts of a weapon, the {godbreaker}, powerful enough to stop him once and for all. Are you willing to help me in this dire mission?", npc, creature)
-		npcHandler.topic[creature] = 2
-	elseif msgcontains(message, "yes") and npcHandler.topic[creature] == 2 and player:getStorageValue(Storage.FerumbrasAscension.Access) < 1 then
+		npcHandler.topic[playerId] = 2
+	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 2 and player:getStorageValue(Storage.FerumbrasAscension.Access) < 1 then
 		npcHandler:say("Good!, but I need 30 {demonic essences} to exchange with the demonic messenger for a ticket for you to enter the Abodes of Torments.", npc, creature)
 	elseif msgcontains(message, "demonic essence") or msgcontains(message, "essence") then
 		npcHandler:say("Do you have 30 demonic essences to offer to the demonic messenger?", npc, creature)
-		npcHandler.topic[creature] = 3
-	elseif msgcontains(message, "yes") and npcHandler.topic[creature] == 3 then
+		npcHandler.topic[playerId] = 3
+	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 3 then
 		if player:removeItem(6500, 30) then
 			npcHandler:say("Excellent! This will empower possibilty to create a breach is enough to let you pass into that hellish hiding place. ...", npc, creature)
 			player:addItem(24838, 1)

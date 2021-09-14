@@ -45,7 +45,9 @@ local condition = Condition(CONDITION_FIRE)
 condition:setParameter(CONDITION_PARAM_DELAYED, 1)
 condition:addDamage(14, 1000, -10)
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if isInArray({"fuck", "idiot", "asshole", "ass", "fag", "stupid", "tyrant", "shit", "lunatic"}, message) then
 		npcHandler:say("Take this!", npc, creature)
 		player:getPosition():sendMagicEffect(CONST_ME_EXPLOSIONAREA)
@@ -54,16 +56,16 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 		npcHandler:resetNpc(creature)
 	elseif msgcontains(message, "mission") then
 		if player:getStorageValue(Storage.TibiaTales.AgainstTheSpiderCult) < 1 then
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 			npcHandler:say("Very good, we need heroes like you to go on a suici.....er....to earn respect of the authorities here AND in addition get a great reward for it. Are you interested in the job?", npc, creature)
 		elseif player:getStorageValue(Storage.TibiaTales.AgainstTheSpiderCult) == 5 then
 			player:setStorageValue(Storage.TibiaTales.AgainstTheSpiderCult, 6)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			player:addItem(7887, 1)
 			npcHandler:say("What? YOU DID IT?!?! That's...that's...er....<drops a piece of paper. You see the headline 'death certificate'> like I expected!! Here is your reward.", npc, creature)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			player:setStorageValue(Storage.TibiaTales.DefaultStart, 1)
 			player:setStorageValue(Storage.TibiaTales.AgainstTheSpiderCult, 1)
 			npcHandler:say({

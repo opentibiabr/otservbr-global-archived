@@ -67,6 +67,7 @@ function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "ready") then
 		if player:getStorageValue(Storage.Dawnport.Tutorial) == 1 then
@@ -78,7 +79,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				},
 			npc, creature, 10)
 			player:setStorageValue(Storage.Dawnport.Tutorial, 2)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

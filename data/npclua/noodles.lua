@@ -51,41 +51,43 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "banana skin") then
 		if player:getStorageValue(Storage.Postman.Mission06) == 7 then
 			if player:getItemCount(2219) > 0 then
 				npcHandler:say("<sniff><sniff>", npc, creature)
-				npcHandler.topic[creature] = 1
+				npcHandler.topic[playerId] = 1
 			end
 		end
 	elseif msgcontains(message, "dirty fur") then
 		if player:getStorageValue(Storage.Postman.Mission06) == 8 then
 			if player:getItemCount(2220) > 0 then
 				npcHandler:say("<sniff><sniff>", npc, creature)
-				npcHandler.topic[creature] = 2
+				npcHandler.topic[playerId] = 2
 			end
 		end
 	elseif msgcontains(message, "mouldy cheese") then
 		if player:getStorageValue(Storage.Postman.Mission06) == 9 then
 			if player:getItemCount(2235) > 0 then
 				npcHandler:say("<sniff><sniff>", npc, creature)
-				npcHandler.topic[creature] = 3
+				npcHandler.topic[playerId] = 3
 			end
 		end
 	elseif msgcontains(message, "like") then
-		if npcHandler.topic[creature] == 1  then
+		if npcHandler.topic[playerId] == 1  then
 			npcHandler:say("Woof!", npc, creature)
 			player:setStorageValue(Storage.Postman.Mission06, 8)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 2 then
 			npcHandler:say("Woof!", npc, creature)
 			player:setStorageValue(Storage.Postman.Mission06, 9)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 3 then
 			npcHandler:say("Meeep! Grrrrr! <spits>", npc, creature)
 			player:setStorageValue(Storage.Postman.Mission06, 10)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

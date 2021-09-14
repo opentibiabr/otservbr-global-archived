@@ -41,7 +41,9 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "mission") then
 		if player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 22 then
 			npcHandler:say({
@@ -52,7 +54,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 23)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission05, 3) --Questlog, Wrath of the Emperor "Mission 05: New in Town"
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission06, 0) --Questlog, Wrath of the Emperor "Mission 06: The Office Job"
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 23 and player:getStorageValue(Storage.WrathoftheEmperor.Mission06) == 4 then
 			npcHandler:say({
 				"Chaoz and panic are already zpreading. Your barbaric brutality iz frightening effectively. I could acquire a key zat we need to get you into ze palaze itzelf. But zere are ztill too many guardz and elite zquadz even for you to fight. ...",
@@ -61,14 +63,14 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			}, npc, creature)
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 24)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission07, 0) --Questlog, Wrath of the Emperor "Mission 07: A Noble Cause"
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 24 and player:getStorageValue(Storage.WrathoftheEmperor.Mission07) == 6 then
-			if npcHandler.topic[creature] ~= 1 then
+			if npcHandler.topic[playerId] ~= 1 then
 				npcHandler:say({
 					"Word of your deedz iz already zpreading like a wildfire. Zalamon'z plan to unleash zome murderouz beaztz in ze zity workz almozt too well. You are already becoming zome kind of legend with which motherz frighten zeir unruly hatchlingz. ...",
 					"Your next {mizzion} will be a ztrike into ze heart of ze empire."
 				}, npc, creature)
-				npcHandler.topic[creature] = 1
+				npcHandler.topic[playerId] = 1
 			else
 				npcHandler:say({
 					"Your eagernezz for killing and bloodshed iz frightening, but your next mizzion will zuit your tazte. Wiz ze zity in chaoz and defenzez diverted, ze ztage iz zet for our final ztrike. ...",
@@ -78,7 +80,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				}, npc, creature)
 				player:setStorageValue(Storage.WrathoftheEmperor.Mission08, 1) --Questlog, Wrath of the Emperor "Mission 08: Uninvited Guests"
 				player:setStorageValue(Storage.WrathoftheEmperor.Questline, 25)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		end
 	end

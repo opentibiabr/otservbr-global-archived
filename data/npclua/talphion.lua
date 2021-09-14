@@ -45,25 +45,27 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "dress pattern") then
 		if player:getStorageValue(Storage.Postman.Mission06) == 3 then
-			if npcHandler.topic[creature] < 1 then
+			if npcHandler.topic[playerId] < 1 then
 				npcHandler:say("DRESS FLATTEN? WHO WANTS ME TO FLATTEN A DRESS?", npc, creature)
-				npcHandler.topic[creature] = 1
-			elseif npcHandler.topic[creature] == 1 then
+				npcHandler.topic[playerId] = 1
+			elseif npcHandler.topic[playerId] == 1 then
 				npcHandler:say("A PRESS LANTERN? NEVER HEARD ABOUT IT!", npc, creature)
-				npcHandler.topic[creature] = 2
-			elseif npcHandler.topic[creature] == 2 then
+				npcHandler.topic[playerId] = 2
+			elseif npcHandler.topic[playerId] == 2 then
 				npcHandler:say("CHESS? I DONT PLAY CHESS!", npc, creature)
-				npcHandler.topic[creature] = 3
-			elseif npcHandler.topic[creature] == 3 then
+				npcHandler.topic[playerId] = 3
+			elseif npcHandler.topic[playerId] == 3 then
 				npcHandler:say("A PATTERN IN THIS MESS?? HEY DON'T INSULT MY MACHINEHALL!", npc, creature)
-				npcHandler.topic[creature] = 4
-			elseif npcHandler.topic[creature] == 4 then
+				npcHandler.topic[playerId] = 4
+			elseif npcHandler.topic[playerId] == 4 then
 				npcHandler:say("AH YES! I WORKED ON THE DRESS PATTERN FOR THOSE UNIFORMS. STAINLESS TROUSERES, STEAM DRIVEN BOOTS! ANOTHERMARVEL TO BEHOLD! I'LL SENT A COPY TO KEVIN IMEDIATELY!", npc, creature)
 				player:setStorageValue(Storage.Postman.Mission06, 4)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		end
 	end

@@ -47,6 +47,7 @@ local function releasePlayer(creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	local missionProgress = player:getStorageValue(Storage.DjinnWar.EfreetFaction.Mission03)
 	if msgcontains(message, 'mission') then
@@ -57,15 +58,15 @@ local function creatureSayCallback(npc, creature, type, message)
 					'Besides, Baa\'leal told me you have distinguished yourself well in previous missions, so I think you might be the right person for the job. ...',
 					'But think carefully, human, for this mission will bring you close to certain death. Are you prepared to embark on this mission?'
 				}, npc, creature)
-				npcHandler.topic[creature] = 1
+				npcHandler.topic[playerId] = 1
 
 			elseif missionProgress == 1 then
 				npcHandler:say('You haven\'t finished your final mission yet. Shall I explain it again to you?', npc, creature)
-				npcHandler.topic[creature] = 1
+				npcHandler.topic[playerId] = 1
 
 			elseif missionProgress == 2 then
 				npcHandler:say('Have you found Fa\'hradin\'s lamp and placed it in Malor\'s personal chambers?', npc, creature)
-				npcHandler.topic[creature] = 2
+				npcHandler.topic[playerId] = 2
 			else
 				npcHandler:say('There\'s no mission left for you, friend of the Efreet. However, I have a {task} for you.', npc, creature)
 			end
@@ -76,7 +77,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 		end
 
-	elseif npcHandler.topic[creature] == 1 then
+	elseif npcHandler.topic[playerId] == 1 then
 		if msgcontains(message, 'yes') then
 			npcHandler:say({
 				'Well, listen. We are trying to acquire the ultimate weapon to defeat Gabel: Fa\'hradin\'s lamp! ...',
@@ -89,10 +90,10 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Your choice.', npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 
-	elseif npcHandler.topic[creature] == 2 then
+	elseif npcHandler.topic[playerId] == 2 then
 		if msgcontains(message, 'yes') then
 			npcHandler:say({
 				'Well well, human. So you really have made it - you have smuggled the modified lamp into Gabel\'s bedroom! ...',
@@ -110,7 +111,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Just do it!', npc, creature)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

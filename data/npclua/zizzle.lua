@@ -42,13 +42,14 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if(msgcontains(message, "mission")) then
 		if player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 25 then
 			npcHandler:say("You made it! Az zoon az you are prepared, I will brief you for your nexzt mizzion. ", npc, creature)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission08, 2) --Questlog, Wrath of the Emperor "Mission 08: Uninvited Guests"
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 26)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 26 then
 			npcHandler:say({
 				"Ze dragon emperor controlz ze whole empire wiz hiz willpower. But even he iz not powerful enough to uze ziz control continuouzly wizout zome form of aid. ... ",
@@ -59,7 +60,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"But ziz iz not ze catch - ze catch iz, zat ze key iz buried in hiz vazt mind. Ze emperor haz bound ze dragon to himzelf, forzing him into an eternal zlumber. ...",
 				"A zignificant part of ze emperor'z power iz uzed to reztrain ze dragon. Ze only way to free him will be to enter hiz dreamz. Are you prepared for ziz?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 
 		elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 29 then
 		if player:getStorageValue(Storage.WrathoftheEmperor.Questline) < 30 then
@@ -77,7 +78,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission10, 2) --Questlog, Wrath of the Emperor "Mission 10: A Message of Freedom"
 			player:setStorageValue(Storage.WrathoftheEmperor.BossStatus, 1)
 			player:addItem(12318, 1)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			else
 			npcHandler:say({"Now go to the north of Sleeping Dragon room, {dont need talk} with he!"}, npc, creature)
 		end
@@ -85,7 +86,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	end
 
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say({
 				"Didn't exzpect anyzing lezz from you. Alright, zankz to your effortz to build an effective reziztanze, our comradez zalvaged ziz potion and ze formula you need to utter to breach hiz zubconzciouznezz. ...",
 				"Drink it and when you are cloze to ze dragon zpeak: Z...z.. well, juzt take ze sheet wiz ze word and read it yourzelf. A lot of rebelz have died to retrieve ziz information, uze it wizely. ...",
@@ -96,7 +97,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:addItem(12328, 1)
 			player:addItem(12382, 1)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 
 	return true

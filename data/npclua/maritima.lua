@@ -42,6 +42,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if(msgcontains(message, "quara")) then
 		if(player:getStorageValue(Storage.InServiceofYalahar.Questline) == 41 and player:getStorageValue(Storage.InServiceofYalahar.QuaraInky) < 1  and player:getStorageValue(Storage.InServiceofYalahar.QuaraSplasher) < 1 and player:getStorageValue(Storage.InServiceofYalahar.QuaraSharptooth) < 1) then
@@ -52,7 +53,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 42)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission07, 3) -- StorageValue for Questlog "Mission 07: A Fishy Mission"
 			player:setStorageValue(Storage.InServiceofYalahar.QuaraState, 1)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

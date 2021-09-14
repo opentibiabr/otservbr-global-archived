@@ -53,6 +53,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	if msgcontains(message, 'pies') then
@@ -62,25 +63,25 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 
 		npcHandler:say('For 12 pies this is 240 gold. Do you want to buy them?', npc, creature)
-		npcHandler.topic[creature] = 2
+		npcHandler.topic[playerId] = 2
 	elseif msgcontains(message, 'flour') then
 		npcHandler:say('Do you bring me the flour needed for your pies?', npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			if not player:removeItem(2692, 24) then
 				npcHandler:say('I think you are confusing the dust in your pockets with flour. You certainly do not have enough flour for 12 pies.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 
 			player:setStorageValue(Storage.WhatAFoolish.PieBuying, player:getStorageValue(Storage.WhatAFoolish.PieBuying) + 1)
 			npcHandler:say('Excellent. Now I can start baking the pies. As you helped me, I will make you a good price for them.', npc, creature)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 2 then
 			if not player:removeMoneyNpc(240) then
 				npcHandler:say('You don\'t have enough money, don\'t try to fool me.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 
@@ -91,15 +92,15 @@ local function creatureSayCallback(npc, creature, type, message)
 				'Here they are. Wait! Two things you should know: Firstly, they won\'t last long in the sun so you better get them to their destination as quickly as possible ...',
 				'Secondly, since my pies are that delicious it is forbidden to leave the town with them. We can\'t afford to attract more tourists to Edron.'
 			}, npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, 'no') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say('Without flour I can\'t do anything, sorry.', npc, creature)
-		elseif npcHandler.topic[creature] == 2 then
+		elseif npcHandler.topic[playerId] == 2 then
 			npcHandler:say('What are you? Some kind of fool?', npc, creature)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 
 	return true

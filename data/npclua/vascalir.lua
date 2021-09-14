@@ -71,6 +71,7 @@ end
 
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	-- Reject to start missions
 	if player:getStorageValue(Storage.TheRookieGuard.Questline) == -1 and player:getLevel() > 5 then

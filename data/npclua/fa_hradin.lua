@@ -42,6 +42,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	local missionProgress = player:getStorageValue(Storage.DjinnWar.MaridFaction.Mission02)
 	if msgcontains(message, 'spy report') or msgcontains(message, 'mission') then
@@ -64,12 +65,12 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		elseif missionProgress == 1 then
 			npcHandler:say('Did you already retrieve the spyreport?', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		else
 			npcHandler:say('Did you already talk to Gabel about the report? I think he will have further instructions for you.', npc, creature)
 		end
 
-	elseif npcHandler.topic[creature] == 1 then
+	elseif npcHandler.topic[playerId] == 1 then
 		if msgcontains(message, 'yes') then
 			if player:getStorageValue(Storage.DjinnWar.MaridFaction.RataMari) ~= 2 or not player:removeItem(2345, 1) then
 				npcHandler:say({

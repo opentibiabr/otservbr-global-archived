@@ -42,6 +42,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	if Player(creature):getStorageValue(Storage.WrathoftheEmperor.Questline) == 27 then
 		npcHandler:setMessage(MESSAGE_GREET, "ZzzzZzzZz...chrrr...")
 	else
@@ -50,7 +51,9 @@ local function greetCallback(npc, creature)
 	return true
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 27 then
 		if(message == "SOLOSARASATIQUARIUM") and player:getStorageValue(Storage.WrathoftheEmperor.InterdimensionalPotion) == 1 then
 			npcHandler:say({
@@ -68,116 +71,116 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				"Dragon dreams are golden. ...",
 				"You find yourself inside the dragon's dream. You can {look} around or {go} into a specific direction. You can also {take} or {use} an object. Enter {help} to display this information at any time."
 			}, npc, creature)
-			npcHandler.topic[creature] = 1
-		elseif(message:lower() == "help" and npcHandler.topic[creature] > 0 and npcHandler.topic[creature] < 34) then
+			npcHandler.topic[playerId] = 1
+		elseif(message:lower() == "help" and npcHandler.topic[playerId] > 0 and npcHandler.topic[playerId] < 34) then
 			npcHandler:say("You find yourself inside the dragon's dream. You can {look} around or {go} into a specific direction. You can also {take} or {use} an object. Enter {help} to display this information at any time.", npc, creature)
-		elseif(message:lower() == "west" and npcHandler.topic[creature] == 1) then
+		elseif(message:lower() == "west" and npcHandler.topic[playerId] == 1) then
 			npcHandler:say("Advancing to the west, you recognise an increase of onyx on the ground.", npc, creature)
-			npcHandler.topic[creature] = 2
-		elseif(message:lower() == "take attachment" and npcHandler.topic[creature] == 2) then
+			npcHandler.topic[playerId] = 2
+		elseif(message:lower() == "take attachment" and npcHandler.topic[playerId] == 2) then
 			npcHandler:say("You carefully lift the onyx attachment from its socket. It is lighter than you expected.", npc, creature)
-			npcHandler.topic[creature] = 3
-		elseif(message:lower() == "east" and npcHandler.topic[creature] == 3) then
+			npcHandler.topic[playerId] = 3
+		elseif(message:lower() == "east" and npcHandler.topic[playerId] == 3) then
 			npcHandler:say("You return to the plateau in the east.", npc, creature)
-			npcHandler.topic[creature] = 4
-		elseif(message:lower() == "south" and npcHandler.topic[creature] == 4) then
+			npcHandler.topic[playerId] = 4
+		elseif(message:lower() == "south" and npcHandler.topic[playerId] == 4) then
 			npcHandler:say("You wander to the south, passing large obelisks of emerald to your left and sprawling trees of topaz to your right. ", npc, creature)
-			npcHandler.topic[creature] = 5
-		elseif(message:lower() == "take stand" and npcHandler.topic[creature] == 5) then
+			npcHandler.topic[playerId] = 5
+		elseif(message:lower() == "take stand" and npcHandler.topic[playerId] == 5) then
 			npcHandler:say("As you rip the solid stand out of its socket and take it with you, the large gate opens with a deafening rumble. ", npc, creature)
-			npcHandler.topic[creature] = 6
-		elseif(message:lower() == "east" and npcHandler.topic[creature] == 6) then
+			npcHandler.topic[playerId] = 6
+		elseif(message:lower() == "east" and npcHandler.topic[playerId] == 6) then
 			npcHandler:say("You gasp at the size of the large open gate as you walk through to head further to the east.", npc, creature)
-			npcHandler.topic[creature] = 7
-		elseif(message:lower() == "take model" and npcHandler.topic[creature] == 7) then
+			npcHandler.topic[playerId] = 7
+		elseif(message:lower() == "take model" and npcHandler.topic[playerId] == 7) then
 			npcHandler:say("You reach for a small solitary arrangement of combined small houses and put it in your pocket.", npc, creature)
-			npcHandler.topic[creature] = 8
-		elseif(message:lower() == "take emeralds" and npcHandler.topic[creature] == 8) then
+			npcHandler.topic[playerId] = 8
+		elseif(message:lower() == "take emeralds" and npcHandler.topic[playerId] == 8) then
 			npcHandler:say("You take an emerald from the pile. ", npc, creature)
-			npcHandler.topic[creature] = 9
-		elseif(message:lower() == "west" and npcHandler.topic[creature] == 9) then
+			npcHandler.topic[playerId] = 9
+		elseif(message:lower() == "west" and npcHandler.topic[playerId] == 9) then
 			npcHandler:say("You return through the semi-translucent gate to the west. ", npc, creature)
-			npcHandler.topic[creature] = 10
-		elseif(message:lower() == "north" and npcHandler.topic[creature] == 10) then
+			npcHandler.topic[playerId] = 10
+		elseif(message:lower() == "north" and npcHandler.topic[playerId] == 10) then
 			npcHandler:say("You head back north to the plateau. ", npc, creature)
-			npcHandler.topic[creature] = 11
-		elseif(message:lower() == "east" and npcHandler.topic[creature] == 11) then
+			npcHandler.topic[playerId] = 11
+		elseif(message:lower() == "east" and npcHandler.topic[playerId] == 11) then
 			npcHandler:say("You travel east across several large emerald bluffs and edges. All sorts of gems are scattered alongside your path. ", npc, creature)
-			npcHandler.topic[creature] = 12
-		elseif(message:lower() == "take rubies" and npcHandler.topic[creature] == 12) then
+			npcHandler.topic[playerId] = 12
+		elseif(message:lower() == "take rubies" and npcHandler.topic[playerId] == 12) then
 			npcHandler:say("You take a rather large ruby out of a pile before you. ", npc, creature)
-			npcHandler.topic[creature] = 13
-		elseif(message:lower() == "north" and npcHandler.topic[creature] == 13) then
+			npcHandler.topic[playerId] = 13
+		elseif(message:lower() == "north" and npcHandler.topic[playerId] == 13) then
 			npcHandler:say("You head north passing countless stones in the crimson sea of stones beneath your feet.", npc, creature)
-			npcHandler.topic[creature] = 14
-		elseif(message:lower() == "use attachment" and npcHandler.topic[creature] == 14) then
+			npcHandler.topic[playerId] = 14
+		elseif(message:lower() == "use attachment" and npcHandler.topic[playerId] == 14) then
 			npcHandler:say({
 				"Avoiding the bright light, you carefully put the attachment on top of the strange socket. ...",
 				"As your eyes adjust to the sudden reduction of brightness, you see the giant wings of the gate before you move to the side. You can also make out something shiny on the ground."
 			}, npc, creature)
-			npcHandler.topic[creature] = 15
-		elseif(message:lower() == "take mirror" and npcHandler.topic[creature] == 15) then
+			npcHandler.topic[playerId] = 15
+		elseif(message:lower() == "take mirror" and npcHandler.topic[playerId] == 15) then
 			npcHandler:say("You pick the mirror from the ground.", npc, creature)
-			npcHandler.topic[creature] = 16
-		elseif(message:lower() == "north" and npcHandler.topic[creature] == 16) then
+			npcHandler.topic[playerId] = 16
+		elseif(message:lower() == "north" and npcHandler.topic[playerId] == 16) then
 			npcHandler:say({
 				"Your path to the north is open. You pass the gigantic gate wings to your left and right as you advance. After about an hour of travel you hear a slight rustling in the distance. You head further into that direction. ...",
 				"The rustling gets louder until you come to a small dune. Behind it you find the source of the noise."
 			}, npc, creature)
-			npcHandler.topic[creature] = 17
-		elseif(message:lower() == "use model" and npcHandler.topic[creature] == 17) then
+			npcHandler.topic[playerId] = 17
+		elseif(message:lower() == "use model" and npcHandler.topic[playerId] == 17) then
 			npcHandler:say({
 				"You lunge out and throw the model far into the water. As nothing happens, you turn your back to the ocean. ...",
 				"The very moment you walk down the dune to head back south, rays of light burst over your head in a shock wave that makes you tumble down the rest of the hill. ...",
 				"You can also hear a deep loud scraping for several minutes somewhere far in the west."
 			}, npc, creature)
-			npcHandler.topic[creature] = 18
-		elseif(message:lower() == "south" and npcHandler.topic[creature] == 18) then
+			npcHandler.topic[playerId] = 18
+		elseif(message:lower() == "south" and npcHandler.topic[playerId] == 18) then
 			npcHandler:say("You travel all the way back down the dune and through the gate to the south. ", npc, creature)
-			npcHandler.topic[creature] = 19
-		elseif(message:lower() == "south" and npcHandler.topic[creature] == 19) then
+			npcHandler.topic[playerId] = 19
+		elseif(message:lower() == "south" and npcHandler.topic[playerId] == 19) then
 			npcHandler:say("You return to the crimson sea of rubies in the south. ", npc, creature)
-			npcHandler.topic[creature] = 20
-		elseif(message:lower() == "west" and npcHandler.topic[creature] == 20) then
+			npcHandler.topic[playerId] = 20
+		elseif(message:lower() == "west" and npcHandler.topic[playerId] == 20) then
 			npcHandler:say("You travel back to the plateau in the west. ", npc, creature)
-			npcHandler.topic[creature] = 21
-		elseif(message:lower() == "west" and npcHandler.topic[creature] == 21) then
+			npcHandler.topic[playerId] = 21
+		elseif(message:lower() == "west" and npcHandler.topic[playerId] == 21) then
 			npcHandler:say("Advancing to the west, you recognise an increase of onyx on the ground. ", npc, creature)
-			npcHandler.topic[creature] = 22
-		elseif(message:lower() == "north" and npcHandler.topic[creature] == 22) then
+			npcHandler.topic[playerId] = 22
+		elseif(message:lower() == "north" and npcHandler.topic[playerId] == 22) then
 			npcHandler:say("You continue travelling the barren sea of gemstones to the north. ", npc, creature)
-			npcHandler.topic[creature] = 23
-		elseif(message:lower() == "west" and npcHandler.topic[creature] == 23) then
+			npcHandler.topic[playerId] = 23
+		elseif(message:lower() == "west" and npcHandler.topic[playerId] == 23) then
 			npcHandler:say("You leave the massive open gate behind you and go to the west. ", npc, creature)
-			npcHandler.topic[creature] = 24
-		elseif(message:lower() == "bastesh" and npcHandler.topic[creature] == 24) then
+			npcHandler.topic[playerId] = 24
+		elseif(message:lower() == "bastesh" and npcHandler.topic[playerId] == 24) then
 			npcHandler:say("This huge statue of Bastesh is made from onyx, and thrones on a large plateau which can be reached by a sprawling stairway. She holds a large {sapphire} in her hands. ", npc, creature)
-			npcHandler.topic[creature] = 25
-		elseif(message:lower() == "take sapphire" and npcHandler.topic[creature] == 25) then
+			npcHandler.topic[playerId] = 25
+		elseif(message:lower() == "take sapphire" and npcHandler.topic[playerId] == 25) then
 			npcHandler:say("You carefully remove the sapphire from Bastesh's grasp. ", npc, creature)
-			npcHandler.topic[creature] = 26
-		elseif(message:lower() == "east" and npcHandler.topic[creature] == 26) then
+			npcHandler.topic[playerId] = 26
+		elseif(message:lower() == "east" and npcHandler.topic[playerId] == 26) then
 			npcHandler:say("You head back to the east and to the plateau. ", npc, creature)
-			npcHandler.topic[creature] = 27
-		elseif(message:lower() == "south" and npcHandler.topic[creature] == 27) then
+			npcHandler.topic[playerId] = 27
+		elseif(message:lower() == "south" and npcHandler.topic[playerId] == 27) then
 			npcHandler:say("You head back south to the site with the onyx lookout. ", npc, creature)
-			npcHandler.topic[creature] = 28
-		elseif(message:lower() == "east" and npcHandler.topic[creature] == 28) then
+			npcHandler.topic[playerId] = 28
+		elseif(message:lower() == "east" and npcHandler.topic[playerId] == 28) then
 			npcHandler:say("You return to the plateau in the east. ", npc, creature)
-			npcHandler.topic[creature] = 29
-		elseif(message:lower() == "use stand" and npcHandler.topic[creature] == 29) then
+			npcHandler.topic[playerId] = 29
+		elseif(message:lower() == "use stand" and npcHandler.topic[playerId] == 29) then
 			npcHandler:say("You put the stand into a small recess you find near the middle of the plateau. ", npc, creature)
-			npcHandler.topic[creature] = 30
-		elseif(message:lower() == "use ruby" and npcHandler.topic[creature] == 30) then
+			npcHandler.topic[playerId] = 30
+		elseif(message:lower() == "use ruby" and npcHandler.topic[playerId] == 30) then
 			npcHandler:say("As the ruby slips into the notch, the strong red of the stone intensifies a thousandfold. You fear to hurt your eyes and turn away immediately. The ray seems to be directed to the centre of the plateau with astounding precision. ", npc, creature)
-			npcHandler.topic[creature] = 31
-		elseif(message:lower() == "use sapphire" and npcHandler.topic[creature] == 31) then
+			npcHandler.topic[playerId] = 31
+		elseif(message:lower() == "use sapphire" and npcHandler.topic[playerId] == 31) then
 			npcHandler:say("As the sapphire slips into the notch, the deep blue of the stone intensifies a thousandfold. You fear to hurt your eyes and turn away immediately. The ray seems to be directed to the centre of the plateau with astounding precision. ", npc, creature)
-			npcHandler.topic[creature] = 32
-		elseif(message:lower() == "use emerald" and npcHandler.topic[creature] == 32) then
+			npcHandler.topic[playerId] = 32
+		elseif(message:lower() == "use emerald" and npcHandler.topic[playerId] == 32) then
 			npcHandler:say("As the emerald slips into the notch, the vibrant green of the stone intensifies a thousandfold. You fear to hurt your eyes and turn away immediately. The ray seems to be directed to the centre of the plateau with astounding precision. ", npc, creature)
-			npcHandler.topic[creature] = 33
-		elseif(message:lower() == "use mirror" and npcHandler.topic[creature] == 33) then
+			npcHandler.topic[playerId] = 33
+		elseif(message:lower() == "use mirror" and npcHandler.topic[playerId] == 33) then
 			npcHandler:say({
 				"With your eyes covered and avoiding direct sight of the rays, you put the mirror into the stand. ...",
 				"Instinctively you run to a larger emerald bluff near the raise to find cover. Mere seconds after you claimed the sturdy shelter, a deep dark humming starts to swirl through the air. ...",
@@ -189,20 +192,20 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			}, npc, creature)
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 28)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission09, 2) --Questlog, Wrath of the Emperor "Mission 09: The Sleeping Dragon"
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 	end
 	elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 28 then
 		if(msgcontains(message, "wayfarer")) then
 			npcHandler:say("I call you the wayfarer. You travelled through my dreams. You ultimately freed my mind. My mind accepted you and so will I.", npc, creature)
-			npcHandler.topic[creature] = 40
-		elseif(msgcontains(message, "mission") and npcHandler.topic[creature] == 40) then
+			npcHandler.topic[playerId] = 40
+		elseif(msgcontains(message, "mission") and npcHandler.topic[playerId] == 40) then
 			npcHandler:say({
 				"Aaaah... free at last. Hmmm. ...",
 				"I assume you need to get through the gate to reach the evildoer. I can help you if you trust me, wayfarer. I will share a part of my mind with you which should enable you to step through the gate. ...",
 				"This procedure may be exhausting. Are you prepared to receive my key?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 41
-		elseif(msgcontains(message, "yes") and npcHandler.topic[creature] == 41) then
+			npcHandler.topic[playerId] = 41
+		elseif(msgcontains(message, "yes") and npcHandler.topic[playerId] == 41) then
 			npcHandler:say({
 				"SAETHELON TORILUN GARNUM. ...",
 				"SLEEP. ...",
@@ -215,7 +218,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission10, 1) --Questlog, Wrath of the Emperor "Mission 10: A Message of Freedom"
 			player:addItem(11260, 1)
 			player:addAchievement('Wayfarer')
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

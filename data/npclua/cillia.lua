@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	if msgcontains(message, 'yes') then
 		local player = Player(creature)
 		if not player:removeMoneyNpc(50) then

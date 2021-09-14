@@ -59,6 +59,7 @@ end
 
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	-- Continue mission 4
 	if player:getStorageValue(Storage.TheRookieGuard.Mission04) == 1 then

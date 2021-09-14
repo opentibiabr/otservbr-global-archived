@@ -69,6 +69,7 @@ local config = {
 }
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	if Player(creature):getCondition(CONDITION_DRUNK) then
 		npcHandler:setMessage(MESSAGE_GREET, 'Hey t-there, you look like someone who enjoys a good {booze}.')
 	else
@@ -79,17 +80,18 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	if msgcontains(message, 'potion') then
 		if player:getStorageValue(Storage.OutfitQuest.AssassinBaseOutfit) < 1 then
 			npcHandler:say('It\'s so hard to know the exact time when to stop drinking. <hicks> C-could you help me to brew such a potion?', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
-	elseif config[message] and npcHandler.topic[creature] == 0 then
+	elseif config[message] and npcHandler.topic[playerId] == 0 then
 		if player:getStorageValue(Storage.OutfitQuest.AssassinBaseOutfit) == config[message].storageValue then
 			npcHandler:say(config[message].text[1], npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 			message[creature] = message
 		else
 			npcHandler:say(config[message].text[2], npc, creature)
@@ -103,7 +105,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.OutfitQuest.AssassinBaseOutfit, 9)
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say({
 				'You\'re a true buddy. I promise I will t-try to avoid killing you even if someone asks me to. <hicks> ...',
 				'Listen, I have this old formula from my grandma. <hicks> It says... 30 {bonelord eyes}... 10 {red dragon scales}. ...',
@@ -111,34 +113,34 @@ local function creatureSayCallback(npc, creature, type, message)
 				'Add 20 ounces of {vampire dust}, 10 ounces of {demon dust} and mix well with one flask of {warrior\'s sweat}. <hicks> ...',
 				'Okayyy, this is a lot... we\'ll take this step by step. <hicks> Will you help me gathering 30 {bonelord eyes}?'
 			}, npc, creature)
-			npcHandler.topic[creature] = 2
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 2
+		elseif npcHandler.topic[playerId] == 2 then
 			if player:getStorageValue(Storage.OutfitQuest.DefaultStart) ~= 1 then
 				player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1)
 			end
 			player:setStorageValue(Storage.OutfitQuest.AssassinBaseOutfit, 1)
 			npcHandler:say('G-good. Go get them, I\'ll have a beer in the meantime.', npc, creature)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 3 then
 			local targetMessage = config[message[creature]]
 			local count = targetMessage.count or 1
 			if not player:removeItem(targetMessage.itemId, count) then
 				npcHandler:say('Next time you lie to me I\'ll k-kill you. <hicks> Don\'t think I can\'t aim well just because I\'m d-drunk.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 
 			player:setStorageValue(Storage.OutfitQuest.AssassinBaseOutfit, player:getStorageValue(Storage.OutfitQuest.AssassinBaseOutfit) + 1)
 			npcHandler:say(targetMessage.text[3], npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, 'no') then
-		if npcHandler.topic[creature] ~= 3 then
+		if npcHandler.topic[playerId] ~= 3 then
 			npcHandler:say('Then not <hicks>.', npc, creature)
-		elseif npcHandler.topic[creature] == 3 then
+		elseif npcHandler.topic[playerId] == 3 then
 			npcHandler:say('H-hurry up! <hicks> I have to start working soon.', npc, creature)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

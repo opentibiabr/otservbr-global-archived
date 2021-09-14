@@ -42,6 +42,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	if Player(creature):getStorageValue(Storage.OutfitQuest.DruidHatAddon) < 9 then
 		npcHandler:say('GRRRRRRRRRRRRR', npc, creature)
 		return false
@@ -49,19 +50,21 @@ local function greetCallback(npc, creature)
 	return true
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if isInArray({'addon', 'outfit'}, message) then
 		if player:getStorageValue(Storage.OutfitQuest.DruidHatAddon) == 9 then
 			npcHandler:say('I can see in your eyes that you are a honest and friendly person, |PLAYERNAME|. You were patient enough to learn our language and I will grant you a special gift. Will you accept it?', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
-	elseif msgcontains(message, 'yes') and npcHandler.topic[creature] == 1 then
+	elseif msgcontains(message, 'yes') and npcHandler.topic[playerId] == 1 then
 		player:setStorageValue(Storage.OutfitQuest.DruidHatAddon, 10)
 		player:addOutfitAddon(148, 2)
 		player:addOutfitAddon(144, 2)
 		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 		npcHandler:say(player:getSex() == PLAYERSEX_FEMALE and 'From now on, you shall be known as |PLAYERNAME|, the wolf girl. You shall be fast and smart as Morgrar, the great white wolf. He shall guide your path.' or 'From now on, you shall be known as |PLAYERNAME|, the bear warrior. You shall be strong and proud as Angros, the great dark bear. He shall guide your path.', npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

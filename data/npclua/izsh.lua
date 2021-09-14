@@ -42,12 +42,13 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	if msgcontains(message, 'mission') then
 		if Player(creature):getStorageValue(Storage.WrathoftheEmperor.Questline) == 33 then
 			npcHandler:say('Oh yez, let me zee ze documentz. Here we go: zree cheztz filled wiz platinum, one houze, a zet of elite armor, and an unending mana cazket. Iz ziz correct?', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
-	elseif msgcontains(message, 'yes') and npcHandler.topic[creature] == 1 then
+	elseif msgcontains(message, 'yes') and npcHandler.topic[playerId] == 1 then
 		npcHandler:say({
 			'Fine, zo let\'z prozeed. You uzed forged documentz to enter our zity, killed zeveral guardz who enjoyed a quite excluzive and expenzive training, deztroyed rare magical devizez in ze pozzezzion of ze emperor. ...',
 			'Ze good newz iz, your zree cheztz of platinum should be nearly enough to pay ze finez. Lucky you, ziz could have left you broke. ...',
@@ -61,7 +62,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			'Ze rednezz of your faze and ze zound you make wiz your teez iz obviouzly a zign of gratitude of your zpeziez! I am flattered, but pleaze leave now az I have to attend to zome important buzinezz.'
 		}, npc, creature)
 		Player(creature):setStorageValue(Storage.WrathoftheEmperor.Questline, 34)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

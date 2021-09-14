@@ -46,14 +46,16 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "trouble") and player:getStorageValue(Storage.TheInquisition.GrofGuard) < 1 and player:getStorageValue(Storage.TheInquisition.Mission01) ~= -1 then
 		npcHandler:say("I think it'll rain soon and I left some laundry out for drying.", npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif msgcontains(message, "authorities") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say("Yes I'm pretty sure they have failed to send the laundry police to take care of it, you fool.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			if player:getStorageValue(Storage.TheInquisition.GrofGuard) < 1 then
 				player:setStorageValue(Storage.TheInquisition.GrofGuard, 1)
 				player:setStorageValue(Storage.TheInquisition.Mission01, player:getStorageValue(Storage.TheInquisition.Mission01) + 1) -- The Inquisition Questlog- "Mission 1: Interrogation"

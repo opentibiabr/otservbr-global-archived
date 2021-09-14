@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "mission") then
 		if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 4) then
@@ -54,7 +55,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"You succeeded! It seems the poachers have read your little faked story about killing white deer and the ensuing doom. They stopped chasing me. Thank you! ...",
 				"You proved yourself trustworthy - at least as far as I am concerned. But as I told you I'm actually not a real animal. If you want to enter our hidden island, you must prove that you are also willing to help real animals. Would you do that?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		elseif (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 16) then
 			npcHandler:say({
 				"I'm very happy that you could help fae and animals alike. You earned our trust and may now visit our secret realm. I marked you with an arcane fae seal. Hereby you will be able to use the elemental shrines strewn about Tibia. ...",
@@ -66,13 +67,13 @@ local function creatureSayCallback(npc, creature, type, message)
 				"I indeed have some troubles since I'm travelling this part of the world. When I took over the body of a white deer I wasn't aware that such an animal is a sought after quarry for hunters and poachers. ...",
 				"Now I'm living in the constant danger of being caught and killed. Of course, I could just take over another animal but this deer has really grown on me. I'd like to help this beautiful stag but I need your assistance. Are you willing to help me?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
-	elseif npcHandler.topic[creature] == 1 then
+	elseif npcHandler.topic[playerId] == 1 then
 		if msgcontains(message, "yes") then
 			if (player:getStorageValue(Storage.ThreatenedDreams.Start) == 1) then
 				npcHandler:say("You have already started this mission.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			else
 				npcHandler:say({
 					"Your decision honours you. However, if you consider killing the poachers in question I ask you to halt. We, the fae, are rather peaceful beings and abhor bloodshed. Therefore, we must find another way to solve this problem. ...",
@@ -85,8 +86,8 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("Then not.", npc, creature)
 		end
-		npcHandler.topic[creature] = 0
-	elseif npcHandler.topic[creature] == 2 then
+		npcHandler.topic[playerId] = 0
+	elseif npcHandler.topic[playerId] == 2 then
 		npcHandler:say({
 			"I heard there is a problem with a wolf mother and her whelps. However, I don't know more about it. One of my sisters, Ikassis, has taken over the body of a snake. ...",
 			"She knows more about the wolf. Seek her out in the north-west of Edron, near a circle of standing stones."

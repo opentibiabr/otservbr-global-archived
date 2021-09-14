@@ -243,12 +243,13 @@ keywordHandler:addKeyword({"sell"}, StdModule.say,
 )
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	if msgcontains(message, "key") then
 		npcHandler:say("If you are that curious, do you want to buy a key for 5000 gold? \z
 						Don't blame me if you get sucked in.", npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			local player = Player(creature)
 			if player:removeMoneyNpc(5000) then
 				npcHandler:say("Here it is.", npc, creature)
@@ -259,12 +260,12 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say("Come back when you have enough money.", npc, creature)
 			end
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "no") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say("Believe me, it's better for you that way.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

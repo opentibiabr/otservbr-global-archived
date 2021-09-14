@@ -42,6 +42,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getStorageValue(Storage.WrathoftheEmperor.Questline) >= 2 then
 		player:setStorageValue(Storage.WrathoftheEmperor.GuardcaughtYou, 1)

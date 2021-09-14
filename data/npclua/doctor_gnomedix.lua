@@ -47,7 +47,9 @@ npcType.onThink = function(npc, interval)
 	npcHandler:onThink(npc, interval)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	return true
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	return true
 end
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)

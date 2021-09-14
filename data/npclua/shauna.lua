@@ -47,22 +47,23 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	-- Mission 1 - The Supply Thief
 	if msgcontains(message, "job") then
 		if Player(creature):getStorageValue(Storage.DjinnWar.EfreetFaction.Mission01) == 2 then
 			npcHandler:say("What do you think? I am the sheriff of Carlin.", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "water pipe") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say({
 				"Oh, there's a waterpipe in one of my cells? ...",
 				"I guess my last {prisoner} forgot it there."
 			}, npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		end
 	elseif msgcontains(message, "prisoner") then
-		if npcHandler.topic[creature] == 2 then
+		if npcHandler.topic[playerId] == 2 then
 			npcHandler:say({
 				"My last prisoner? Hmm. ...", "I think he was some guy from Darama. Can't remember his name. ...",
 				"He was here just for one night, because he got drunk and annoyed our citizens. ...",
@@ -70,7 +71,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Something tells me that he won't stay out of trouble for too long."
 			}, npc, creature)
 			Player(creature):setStorageValue(Storage.DjinnWar.EfreetFaction.Mission01, 3)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	-- Mission 1 - The Supply Thief

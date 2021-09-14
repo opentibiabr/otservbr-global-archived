@@ -304,6 +304,7 @@ keywordHandler:addKeyword({"wentworth"}, StdModule.say,
 )
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "magic") then
 		npcHandler:say(

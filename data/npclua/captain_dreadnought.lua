@@ -424,6 +424,7 @@ donateNode:addChildKeywordNode(KeywordNode:new({"yes"}, donationHandler, {confir
 donateNode:addChildKeywordNode(KeywordNode:new({"no"}, donationHandler, {decline = true}))
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	npcHandler:setMessage(
 		MESSAGE_GREET,
@@ -433,7 +434,9 @@ local function greetCallback(npc, creature)
 	return true
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local currentNode = keywordHandler:getLastNode(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local currentNode = keywordHandler:getLastNode(creature)
 	-- Handle other words for nodes while still handling (bye, farewell) keywords
 	if #currentNode.children == 0 then
 		npcHandler:say(

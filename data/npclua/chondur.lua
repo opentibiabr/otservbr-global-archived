@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, 'stampor') or msgcontains(message, 'mount') then
 		if not player:hasMount(11) then
@@ -54,10 +55,10 @@ local function creatureSayCallback(npc, creature, type, message)
 				'You did bring all the items I requqested, cuild. Good. \
 				Shall I travel to the spirit realm and try finding a stampor compasion for you?',
 			creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		else
 			npcHandler:say('You already have stampor mount.', npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, 'mission') then
 		if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 8 then
@@ -66,13 +67,13 @@ local function creatureSayCallback(npc, creature, type, message)
 				I need at least five of their pirate voodoo dolls to lift that curse.',
 			creature)
 			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 9)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 9 then
 			npcHandler:say('Did you bring five pirate voodoo dolls?', npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			if player:removeItem(13299, 50) and player:removeItem(13301, 30) and player:removeItem(13300, 100) then
 				npcHandler:say(
 					{
@@ -88,22 +89,22 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say("Sorry you don't have the necessary items.", npc, creature)
 			end
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 2 then
 			if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 9 then
 				if player:removeItem(5810, 5) then
 					npcHandler:say('Finally I can put an end to that curse. I thank you so much.', npc, creature)
 					player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 10)
-					npcHandler.topic[creature] = 0
+					npcHandler.topic[playerId] = 0
 				else
 					npcHandler:say("You don't have it...", npc, creature)
-					npcHandler.topic[creature] = 0
+					npcHandler.topic[playerId] = 0
 				end
 			end
 		end
-	elseif msgcontains(message, 'no') and npcHandler.topic[creature] > 2 then
+	elseif msgcontains(message, 'no') and npcHandler.topic[playerId] > 2 then
 		npcHandler:say('Maybe next time.', npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

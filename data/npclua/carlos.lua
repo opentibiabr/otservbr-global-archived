@@ -74,6 +74,7 @@ end
 local storeTalkCid = {}
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage) < 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Be greeted, |PLAYERNAME|! As a tailor and merchant I have to say - we need to do something about your {outfit}, shall we?")
@@ -128,6 +129,7 @@ local function releasePlayer(creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if isInArray({"yes", "help", "ok"}, message) then
 		if storeTalkCid[creature] == 1 then

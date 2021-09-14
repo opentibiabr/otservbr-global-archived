@@ -112,21 +112,22 @@ local function BeggarSecond(creature, message, keywords, parameters, node)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "cookie") then
 		if player:getStorageValue(Storage.WhatAFoolish.Questline) == 31
 				and player:getStorageValue(Storage.WhatAFoolish.CookieDelivery.SimonTheBeggar) ~= 1 then
 			npcHandler:say("Have you brought a cookie for the poor?", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "help") then
 		npcHandler:say("I need gold. Can you spare 100 gold pieces for me?", npc, creature)
-		npcHandler.topic[creature] = 2
+		npcHandler.topic[playerId] = 2
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			if not player:removeItem(8111, 1) then
 				npcHandler:say("You have no cookie that I'd like.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 
@@ -141,29 +142,29 @@ local function creatureSayCallback(npc, creature, type, message)
 						MY BEARD! MY PRECIOUS BEARD! IT WILL TAKE AGES TO CLEAR IT OF THIS CONFETTI!", npc, creature)
 			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
-		elseif npcHandler.topic[creature] == 2 then
+		elseif npcHandler.topic[playerId] == 2 then
 			if not player:removeMoneyNpc(100) then
 				npcHandler:say("You haven't got enough money for me.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 
 			npcHandler:say("Thank you very much. Can you spare 500 more gold pieces for me? I will give you a nice hint.", npc, creature)
-			npcHandler.topic[creature] = 3
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 3
+		elseif npcHandler.topic[playerId] == 3 then
 			if not player:removeMoneyNpc(500) then
 				npcHandler:say("Sorry, that's not enough.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 
 			npcHandler:say("That's great! I have stolen something from Dermot. \z
 						You can buy it for 200 gold. Do you want to buy it?", npc, creature)
-			npcHandler.topic[creature] = 4
-		elseif npcHandler.topic[creature] == 4 then
+			npcHandler.topic[playerId] = 4
+		elseif npcHandler.topic[playerId] == 4 then
 			if not player:removeMoneyNpc(200) then
 				npcHandler:say("Pah! I said 200 gold. You don't have that much.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 
@@ -172,19 +173,19 @@ local function creatureSayCallback(npc, creature, type, message)
 				key:setActionId(3940)
 			end
 			npcHandler:say("Now you own the hot key.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
-	elseif msgcontains(message, "no") and npcHandler.topic[creature] ~= 0 then
-		if npcHandler.topic[creature] == 1 then
+	elseif msgcontains(message, "no") and npcHandler.topic[playerId] ~= 0 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say("I see.", npc, creature)
-		elseif npcHandler.topic[creature] == 2 then
+		elseif npcHandler.topic[playerId] == 2 then
 			npcHandler:say("Hmm, maybe next time.", npc, creature)
-		elseif npcHandler.topic[creature] == 3 then
+		elseif npcHandler.topic[playerId] == 3 then
 			npcHandler:say("It was your decision.", npc, creature)
-		elseif npcHandler.topic[creature] == 4 then
+		elseif npcHandler.topic[playerId] == 4 then
 			npcHandler:say("Ok. No problem. I'll find another buyer.", npc, creature)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

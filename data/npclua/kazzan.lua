@@ -47,10 +47,12 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function greetCallback(npc, creature)
-	npcHandler.topic[creature] = 0
+	local playerId = creature:getId()
+	npcHandler.topic[playerId] = 0
 	return true
 end
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	-- Pegando a quest
@@ -58,15 +60,15 @@ local function creatureSayCallback(npc, creature, type, message)
 			if player:getStorageValue(Storage.DjinnWar.Faction.MaridDoor) < 1 and player:getStorageValue(Storage.DjinnWar.Faction.EfreetDoor) < 1 then
 			npcHandler:say({
 				'Do you know the location of the djinn fortresses in the mountains south of here?'}, npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
-	elseif npcHandler.topic[creature] == 1 and msgcontains(message, "yes") then
+	elseif npcHandler.topic[playerId] == 1 and msgcontains(message, "yes") then
 			npcHandler:say({
 				'Alright. The problem is that I want to know at least one of them on my side. You never know. I don\'t mind if it\'s the evil Efreet or the Marid. ...',
 				'Your mission will be to visit one kind of the djinns and bring them a peace-offering. Are you interested in that mission?'
 			}, npc, creature)
-			npcHandler.topic[creature] = 2
-	elseif npcHandler.topic[creature] == 2 and msgcontains(message, "yes") then
+			npcHandler.topic[playerId] = 2
+	elseif npcHandler.topic[playerId] == 2 and msgcontains(message, "yes") then
 			npcHandler:say({
 				'Very good. I hope you are able to convince one of the fractions to stand on our side. If you haven\'t done yet, you should first go and look for old Melchior in Ankrahmun. ...',
 				'He knows many things about the djinn race and he may have some hints for you.'

@@ -48,7 +48,9 @@ end
 
 local flaskCost = 1000
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	local missing, totalBlessPrice = Blessings.getInquisitionPrice(player)
 
 	if msgcontains(message, "inquisitor") then
@@ -56,28 +58,28 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 	elseif msgcontains(message, "join") then
 		if player:getStorageValue(Storage.TheInquisition.Questline) < 1 then
 			npcHandler:say("Do you want to join the inquisition?", npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		end
 	elseif msgcontains(message, "blessing") or msgcontains(message, "bless") then
 		if player:getStorageValue(Storage.TheInquisition.Questline) == 25 then --if quest is done
 			npcHandler:say("Do you want to receive the blessing of the inquisition - which means ".. (missing == 5 and "all five available" or missing ) .." blessings - for " .. totalBlessPrice .. " gold?", npc, creature)
-			npcHandler.topic[creature] = 7
+			npcHandler.topic[playerId] = 7
 		else
 			npcHandler:say("You cannot get this blessing unless you have completed The Inquisition Quest.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "flask") or msgcontains(message, "special flask") then
 		if player:getStorageValue(Storage.TheInquisition.Questline) >= 12 then -- give player the ability to purchase the flask.
 		npcHandler:say("Do you want to buy the special flask of holy water for " .. flaskCost .. " gold?" , npc, creature)
-		npcHandler.topic[creature] = 8
+		npcHandler.topic[playerId] = 8
 		else
 			npcHandler:say("You do not need this flask right now.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "mission") or msgcontains(message, "report") then
 		if player:getStorageValue(Storage.TheInquisition.Questline) < 1 then
 			npcHandler:say("Do you want to join the inquisition?", npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		elseif player:getStorageValue(Storage.TheInquisition.Questline) == 1 then
 			npcHandler:say({
 				"Let's see if you are worthy. Take an inquisitor's field guide from the box in the back room. ...",
@@ -85,10 +87,10 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			}, npc, creature)
 			player:setStorageValue(Storage.TheInquisition.Questline, 2)
 			player:setStorageValue(Storage.TheInquisition.Mission01, 1) -- The Inquisition Questlog- "Mission 1: Interrogation"
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.TheInquisition.Questline) == 2 then
 			npcHandler:say("Your current mission is to investigate the reliability of certain guards. Are you done with that mission?", npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 		elseif player:getStorageValue(Storage.TheInquisition.Questline) == 3 then
 			npcHandler:say({
 				"Listen, we have information about a heretic coven that hides in a mountain called the Big Old One. The witches reach this cursed place on flying brooms and think they are safe there. ...",
@@ -99,7 +101,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:setStorageValue(Storage.TheInquisition.Questline, 4)
 			player:setStorageValue(Storage.TheInquisition.Mission02, 1) -- The Inquisition Questlog- "Mission 2: Eclipse"
 			player:addItem(7494, 1)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.TheInquisition.Questline) == 5 then
 			if player:removeItem(8702, 1) then
 				npcHandler:say({
@@ -114,10 +116,10 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			else
 				npcHandler:say("You need bring me the witches' grimoire.", npc, creature)
 			end
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.TheInquisition.Questline) > 5 and player:getStorageValue(Storage.TheInquisition.Questline) < 11 then
 			npcHandler:say("Your current mission is to help the vampire hunter Storkus. Are you done with that mission? ", npc, creature)
-			npcHandler.topic[creature] = 4
+			npcHandler.topic[playerId] = 4
 		elseif player:getStorageValue(Storage.TheInquisition.Questline) == 11 then
 			npcHandler:say({
 				"We've got a report about an abandoned and haunted house in Liberty Bay. I want you to examine this house. It's the only ruin in Liberty Bay so you should have no trouble finding it. ...",
@@ -126,10 +128,10 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:setStorageValue(Storage.TheInquisition.Questline, 12)
 			player:setStorageValue(Storage.TheInquisition.Mission04, 1) -- The Inquisition Questlog- "Mission 4: The Haunted Ruin"
 			player:addItem(7494, 1)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.TheInquisition.Questline) == 12 or player:getStorageValue(Storage.TheInquisition.Questline) == 13 then
 			npcHandler:say("Your current mission is to exorcise an evil being from a house in Liberty Bay. Are you done with that mission? ", npc, creature)
-			npcHandler.topic[creature] = 5
+			npcHandler.topic[playerId] = 5
 		elseif player:getStorageValue(Storage.TheInquisition.Questline) == 14 then
 			npcHandler:say({
 				"You've handled heretics, witches, vampires and ghosts. Now be prepared to face the most evil creatures we are fighting - demons. Your new task is extremely simple, though far from easy. ...",
@@ -137,7 +139,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			}, npc, creature)
 			player:setStorageValue(Storage.TheInquisition.Questline, 15)
 			player:setStorageValue(Storage.TheInquisition.Mission05, 1) -- The Inquisition Questlog- "Mission 5: Essential Gathering"
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.TheInquisition.Questline) == 15 then
 			if player:removeItem(6500, 20) then
 				npcHandler:say({
@@ -149,7 +151,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			else
 				npcHandler:say("You need 20 of them.", npc, creature)
 			end
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.TheInquisition.Questline) == 17 then
 			npcHandler:say({
 				"We've got information about something very dangerous going on on the isle of Edron. The demons are preparing something there ...",
@@ -158,7 +160,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			}, npc, creature)
 			player:setStorageValue(Storage.TheInquisition.Questline, 18)
 			player:setStorageValue(Storage.TheInquisition.Mission06, 1) -- The Inquisition Questlog- "Mission 6: The Demon Ungreez"
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.TheInquisition.Questline) == 19 then
 			npcHandler:say({
 				"So the beast is finally dead! Thank the gods. At least some things work out in our favour ...",
@@ -169,23 +171,23 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:addOutfitAddon(288, 1)
 			player:addOutfitAddon(289, 1)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.TheInquisition.Questline) == 20 then
 			npcHandler:say("Destroy the shadow nexus using this vial of holy water and kill all demon lords.", npc, creature)
 			player:setStorageValue(Storage.TheInquisition.Questline, 21)
 			player:setStorageValue(Storage.TheInquisition.Mission07, 1) -- The Inquisition Questlog- "Mission 7: The Shadow Nexus"
 			player:addItem(7494, 1)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.TheInquisition.Questline) == 21 or player:getStorageValue(Storage.TheInquisition.Questline) == 22 then
 			npcHandler:say("Your current mission is to destroy the shadow nexus in the Demon Forge. Are you done with that mission?", npc, creature)
-			npcHandler.topic[creature] = 6
+			npcHandler.topic[playerId] = 6
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 2 then
+		if npcHandler.topic[playerId] == 2 then
 			npcHandler:say("So be it. Now you are a member of the inquisition. You might ask me for a {mission} to raise in my esteem.", npc, creature)
 			player:setStorageValue(Storage.TheInquisition.Questline, 1)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 3 then
 			if player:getStorageValue(Storage.TheInquisition.WalterGuard) == 1 and player:getStorageValue(Storage.TheInquisition.KulagGuard) == 1 and player:getStorageValue(Storage.TheInquisition.GrofGuard) == 1 and player:getStorageValue(Storage.TheInquisition.MilesGuard) == 1 and player:getStorageValue(Storage.TheInquisition.TimGuard) == 1 then
 				npcHandler:say({
 					"Indeed, this is exactly what my other sources told me. Of course I knew the outcome of this investigation in advance. This was just a test. ...",
@@ -196,8 +198,8 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			else
 				npcHandler:say("You haven't done your mission yet.", npc, creature)
 			end
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 4 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 4 then
 			if player:getStorageValue(Storage.TheInquisition.Questline) == 10 then
 				npcHandler:say("Good, you've returned. Your skill in practical matters seems to be useful. If you're ready for a further mission, just ask. ", npc, creature)
 				player:setStorageValue(Storage.TheInquisition.Questline, 11)
@@ -205,8 +207,8 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			else
 				npcHandler:say("You haven't done your mission with {Storkus} yet.", npc, creature)
 			end
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 5 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 5 then
 			if player:getStorageValue(Storage.TheInquisition.Questline) == 13 then
 				npcHandler:say("Well, this was an easy task, but your next mission will be much more challenging. ", npc, creature)
 				player:setStorageValue(Storage.TheInquisition.Questline, 14)
@@ -214,8 +216,8 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			else
 				npcHandler:say("You haven't done your mission with {Storkus} yet.", npc, creature)
 			end
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 6 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 6 then
 			if player:getStorageValue(Storage.TheInquisition.Questline) == 22 then
 				npcHandler:say({
 					"Incredible! You're a true defender of faith! I grant you the title of a High Inquisitor for your noble deeds. From now on you can obtain the blessing of the inquisition which makes the pilgrimage of ashes obsolete ...",
@@ -227,16 +229,16 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			else
 				npcHandler:say("Come back when you have destroyed the shadow nexus.", npc, creature)
 			end
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 8 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 8 then
 			if player:removeMoneyNpc(flaskCost) then
 			npcHandler:say("Here is your new flask!, |PLAYERNAME|.", npc, creature)
 			player:addItem(7494, 1)
 			else
 			npcHandler:say("Come back when you have enough money.", npc, creature)
 		end
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 7 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 7 then
 			if missing == 0 then
 				npcHandler:say("You already have been blessed!", npc, creature)
 			elseif player:removeMoneyNpc(totalBlessPrice) then
@@ -247,11 +249,11 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				npcHandler:say("Come back when you have enough money.", npc, creature)
 			end
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, "no") then
-		if npcHandler.topic[creature] > 0 then
+		if npcHandler.topic[playerId] > 0 then
 			npcHandler:say("Then no.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "outfit") then
 		if player:getStorageValue(Storage.TheInquisition.Questline) == 16 then
@@ -261,7 +263,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:addOutfit(288, 0)
 			player:addOutfit(289, 0)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.TheInquisition.Questline) == 23 then
 			npcHandler:say("Here is the final addon for your demon hunter outfit. Congratulations!", npc, creature)
 			player:setStorageValue(Storage.TheInquisition.Questline, 24)
@@ -273,30 +275,30 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:addOutfitAddon(289, 2)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			player:addAchievement('Demonbane')
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, 'dark') then
 		npcHandler:say({
 			'The dark powers are always present. If a human shows only the slightest weakness, they try to corrupt him and to lure him into their service. ...',
 			'We must be constantly aware of evil that comes in many disguises.'
 		}, npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, 'king') then
 		npcHandler:say({
 			'The Thaian kings are crowned by a representative of the churches. This means they reign in the name of the gods of good and are part of the godly plan for humanity. ...',
 			'As nominal head of the church of Banor, the kings aren\'t only worldly but also spiritual authorities. ...',
 			'The kings fund the inquisition and sometimes provide manpower in matters of utmost importance. The inquisition, in return, protects the realm from heretics and individuals that aim to undermine the holy reign of the kings.'
 		}, npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, 'banor') then
 		npcHandler:say({
 			'In the past, the order of Banor was the only order of knighthood in existence. In the course of time, the order concentrated more and more on spiritual matters rather than on worldly ones. ...',
 			'Nowadays, the order of Banor sanctions new orders and offers spiritual guidance to the fighters of good.'
 		}, npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, 'fardos') then
 		npcHandler:say('The priests of Fardos are often mystics who have secluded themselves from worldly matters. Others provide guidance and healing to people in need in the temples.', npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, 'uman') then
 		npcHandler:say({
 			'The church of Uman oversees the education of the masses as well as the doings of the sorcerer and druid guilds. It decides which lines of research are in accordance with the will of Uman and which are not. ...',
@@ -305,13 +307,13 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			'The druids lately claim that they are serving Crunor\'s will and not Uman\'s. Such heresy could only become possible with the independence of Carlin from the Thaian kingdom. ...',
 			'The spiritual centre of the druids switched to Carlin where they have much influence and cannot be supervised by the inquisition.'
 		}, npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, 'fafnar') then
 		npcHandler:say({
 			'Fafnar is mostly worshipped by the peasants and farmers in rural areas. ...',
 			'The inquisition has a close eye on these activities. Simply people tend to mix local superstitions with the teachings of the gods. This again may lead to heretical subcults.'
 		}, npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, 'edron') then
 		npcHandler:say({
 			'Edron illustrates perfectly why the inquisition is needed and why we need more funds and manpower. ...',
@@ -319,13 +321,13 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			'We were unable to wipe them out and the local order of knighthood was of little help. ...',
 			'It\'s almost sure that something dangerous is going on there, so we have to continue our efforts.'
 		}, npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, 'ankrahmun') then
 		npcHandler:say({
 			'Even though they claim differently, this city is in the firm grip of Zathroth and his evil minions. Their whole twisted religion is a mockery of the teachings of our gods ...',
 			'As soon as we have gathered the strength, we should crush this city once and for all.'
 		}, npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

@@ -52,6 +52,7 @@ end
 
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	local health = player:getHealth()
 	local lowHealth = health < 65

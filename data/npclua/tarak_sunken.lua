@@ -47,15 +47,16 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	if msgcontains(message, "passage") then
 		npcHandler:say("Do you want to go back to {Yalahar}?", npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			local destination = Position(32916, 31199, 7)
 			Player(creature):teleportTo(destination)
 			destination:sendMagicEffect(CONST_ME_TELEPORT)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

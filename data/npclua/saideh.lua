@@ -43,6 +43,7 @@ end
 
 local playerTopic = {}
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getStorageValue(Storage.Kilmaresh.First.Access) < 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Hello, my name is Saideh. Once this was the entry to the crypt of our heroes. One of the graves belongs to our beloved hero Dayyan. Nowadays it is not a good idea to visit this place.")
@@ -52,19 +53,20 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	npcHandler.topic[creature] = playerTopic[creature]
+	local playerId = creature:getId()
+	npcHandler.topic[playerId] = playerTopic[creature]
 	local player = Player(creature)
 	if msgcontains(message, "mission") and player:getStorageValue(Storage.Kilmaresh.Fourteen.Remains) == 1 then
 		if player:getStorageValue(Storage.Kilmaresh.Fourteen.Remains) == 1 then
 			npcHandler:say({" I would like you to visit the grave of our beloved hero Dayyan. His remains have to be reburied, because a horde of ogres controls this place. Do you want to start this holy mission?"}, npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 			playerTopic[creature] = 1
 		end
 	elseif msgcontains(message, "yes") and playerTopic[creature] == 1 and player:getStorageValue(Storage.Kilmaresh.Fourteen.Remains) == 1 then
 		if player:getStorageValue(Storage.Kilmaresh.Fourteen.Remains) == 1 then
 			npcHandler:say({"Well, I appreciate that. Good luck!"}, npc, creature)
 			player:setStorageValue(Storage.Kilmaresh.Fourteen.Remains, 2)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 			playerTopic[creature] = 2
 		else
 			npcHandler:say({"Sorry."}, npc, creature)

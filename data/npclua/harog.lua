@@ -102,6 +102,7 @@ local function onSell(creature, item, subType, amount, ignoreCap, inBackpacks)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	if msgcontains(message, "trade") then
 		local player = Player(creature)
 		local items = setNewTradeTable(getTable(player))

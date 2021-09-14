@@ -68,6 +68,7 @@ local vocations = {
 local knightChoice = {}
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	knightChoice[creature] = nil
 	return true
 end
@@ -123,13 +124,13 @@ function creatureSayCallback(npc, creature, type, message)
 		npcHandler:say("He's basically a ferryman nowadays, but I remember when he was our village's leading fisherman. He offers a ferry service between Grimvale and Edron. You must have met him - he sailed you here.", npc, creature)
 	elseif msgcontains(message, 'werewolf helmet') then
 		npcHandler:say("You brought the wolven helmet, as i see. Do you want to change something?", npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say("So, which profession would you give preference to when enchanting the helmet: {knight}, {sorcerer}, {druid} or {paladin}?", npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		end
-	elseif isInArray({'knight', 'sorcerer', 'druid', 'paladin'}, message:lower()) and npcHandler.topic[creature] == 2 then
+	elseif isInArray({'knight', 'sorcerer', 'druid', 'paladin'}, message:lower()) and npcHandler.topic[playerId] == 2 then
 		local helmet = message:lower()
 		if not vocations[helmet] then
 			return false
@@ -137,18 +138,18 @@ function creatureSayCallback(npc, creature, type, message)
 		if message:lower() == 'knight' then
 			npcHandler:say("And what would be your preferred weapon? {Club}, {axe} or {sword}", npc, creature)
 			knightChoice[creature] = helmet
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 		end
-		if npcHandler.topic[creature] == 2 then
+		if npcHandler.topic[playerId] == 2 then
 			--if (Set storage if player can enchant helmet(need Grim Vale quest)) then
 			player:setStorageValue(Storage.Grimvale.WereHelmetEnchant, vocations[helmet])
 			npcHandler:say("So this is your choice. If you want to change it, you will have to come to me again.", npc, creature)
 			--else
 			--npcHandler:say("Message when player do not have quest.", npc, creature)
 			--end
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
-	elseif isInArray({'axe', 'club', 'sword'}, message:lower()) and npcHandler.topic[creature] == 3 then
+	elseif isInArray({'axe', 'club', 'sword'}, message:lower()) and npcHandler.topic[playerId] == 3 then
 		local weapontype = message:lower()
 		if not vocations[knightChoice[creature]][weapontype] then
 			return false
@@ -160,7 +161,7 @@ function creatureSayCallback(npc, creature, type, message)
 			--npcHandler:say("Message when player do not have quest.", npc, creature)
 			--end
 			knightChoice[creature] = nil
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 end

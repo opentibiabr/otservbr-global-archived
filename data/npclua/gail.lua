@@ -48,6 +48,7 @@ end
 
 local playerTopic = {}
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getStorageValue(Storage.Kilmaresh.First.Access) < 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
@@ -65,13 +66,14 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
-	npcHandler.topic[creature] = playerTopic[creature]
+	local playerId = creature:getId()
+	npcHandler.topic[playerId] = playerTopic[creature]
 	local player = Player(creature)
 	
 	if msgcontains(message, "daughter") and player:getStorageValue(Storage.TheSecretLibrary.Peacock) == 1 then
 		npcHandler:say({"I always feared that I lost her. And yet, all those years, I still had a gleam of hope. I'm devastated to learn about her fate - but at least I have certainty now. Thank you for telling me."}, npc, creature)
 		player:setStorageValue(Storage.TheSecretLibrary.Peacock, 2)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 		playerTopic[creature] = 1
 	end
 	

@@ -38,6 +38,7 @@ npcHandler:onThink(npc, interval)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	if Player(creature):getStorageValue(Storage.DjinnWar.MaridFaction.Mission02) == -1 then
 		return false
 	end
@@ -45,6 +46,7 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, 'spy report') then
 		local reportProgress = player:getStorageValue(Storage.DjinnWar.MaridFaction.RataMari)
@@ -60,12 +62,12 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		elseif reportProgress == 1 then
 			npcHandler:say('Ok, have you brought me the cheese, I\'ve asked for?', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		else
 			npcHandler:say('I already gave you the report. I\'m not going to write another one!', npc, creature)
 		end
 
-	elseif npcHandler.topic[creature] == 1 then
+	elseif npcHandler.topic[playerId] == 1 then
 		if msgcontains(message, 'yes') then
 			if not player:removeItem(2696, 1) then
 				npcHandler:say('No cheese - no report.', npc, creature)
@@ -77,7 +79,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		else
 			npcHandler:say('No cheese - no report.', npc, creature)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

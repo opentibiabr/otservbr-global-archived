@@ -47,31 +47,33 @@ end
 
 local playerTopic = {}
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 
 	local player = Player(creature)
 	return true
 end
 local function creatureSayCallback(npc, creature, type, message)
-	npcHandler.topic[creature] = playerTopic[creature]
+	local playerId = creature:getId()
+	npcHandler.topic[playerId] = playerTopic[creature]
 	local player = Player(creature)
 	local valorPicture = 10000
 
 	-- Começou a quest
 	if msgcontains(message, "has the cat got your tongue?") and player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 4 then
 			npcHandler:say({"Nice. You like your picture, haa? Give me 10,000 gold and I will deliver it to the museum. Do you {pay}?"}, npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 			playerTopic[creature] = 2
 	elseif msgcontains(message, "pay") or msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 2 then
+		if npcHandler.topic[playerId] == 2 then
 			if (player:getMoney() + player:getBankBalance()) >= valorPicture then
 				npcHandler:say({"Well done. The picture will be delivered to the museum as last as possible."}, npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				playerTopic[creature] = 0
 				player:removeMoneyNpc(valorPicture)
 				player:setStorageValue(Storage.CultsOfTibia.MotA.Mission, 5)
 			else
 				npcHandler:say({"You don't have enough money."}, npc, creature)
-				npcHandler.topic[creature] = 1
+				npcHandler.topic[playerId] = 1
 				playerTopic[creature] = 1
 			end
 		end

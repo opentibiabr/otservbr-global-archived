@@ -121,11 +121,13 @@ local function onSell(creature, item, subType, amount, ignoreCap, inBackpacks)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	npcHandler:setMessage(MESSAGE_GREET, 'Oh, hello! I\'m the gnome-human relations assistant. I am here for you to trade your tokens for {equipment}, resupply you with mission {items} and talk to you about your {relations} to us gnomes! ...')
 	return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	if msgcontains(message, 'equipment') then
 		npcHandler:say({
 			'You can buy different equipment for minor or for major tokens. So, which is the equipment you are interested in, the one for {minor} or {major} tokens? ...',
@@ -144,33 +146,33 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif config[message] then
 		local itemType = ItemType(config[message].itemid)
 		npcHandler:say(string.format('Do you want to trade %s %s for %d %s tokens?', (itemType:getArticle() ~= "" and itemType:getArticle() or ""), itemType:getName(), config[message].token.count, config[message].token.type), npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 		t[creature] = message
 	elseif msgcontains(message, 'relations') then
 		local player = Player(creature)
 		if player:getStorageValue(Storage.BigfootBurden.QuestLine) >= 25 then
 			npcHandler:say('Our relations improve with every mission you undertake on our behalf. Another way to improve your relations with us gnomes is to trade in minor crystal tokens. ...', npc, creature)
 			npcHandler:say('Your renown amongst us gnomes is currently {' .. math.max(0, player:getStorageValue(Storage.BigfootBurden.Rank)) .. '}. Do you want to improve your standing by sacrificing tokens? One token will raise your renown by 5 points. ', npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		else
 			npcHandler:say('You are not even a recruit of the Bigfoots. Sorry I can\'t help you.', npc, creature)
 		end
-	elseif npcHandler.topic[creature] == 3 then
+	elseif npcHandler.topic[playerId] == 3 then
 		local amount = getMoneyCount(message)
 		if amount > 0 then
 			npcHandler:say('Do you really want to trade ' .. amount .. ' minor tokens for ' .. amount * 5 .. ' renown?', npc, creature)
 			renown[creature] = amount
-			npcHandler.topic[creature] = 4
+			npcHandler.topic[playerId] = 4
 		end
 	elseif msgcontains(message, 'items') then
 		npcHandler:say('Do you need to buy any mission items?', npc, creature)
-		npcHandler.topic[creature] = 5
+		npcHandler.topic[playerId] = 5
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			local player, targetTable = Player(creature), config[t[creature]]
 			if player:getItemCount(targetTable.token.id) < targetTable.token.count then
 				npcHandler:say('Sorry, you don\'t have enough ' .. targetTable.token.type .. ' tokens with you.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 
@@ -184,17 +186,17 @@ local function creatureSayCallback(npc, creature, type, message)
 				else
 					npcHandler:say('First make sure you have enough space in your inventory.', npc, creature)
 				end
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 
 			player:removeItem(targetTable.token.id, targetTable.token.count)
 			npcHandler:say('Here have one of our ' .. item:getPluralName() .. '.', npc, creature)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 2 then
 			npcHandler:say("How many tokens do you want to trade?", npc, creature)
-			npcHandler.topic[creature] = 3
-		elseif npcHandler.topic[creature] == 4 then
+			npcHandler.topic[playerId] = 3
+		elseif npcHandler.topic[playerId] == 4 then
 			local player = Player(creature)
 			if player:removeItem(18422, renown[creature]) then
 				player:setStorageValue(Storage.BigfootBurden.Rank, math.max(0, player:getStorageValue(Storage.BigfootBurden.Rank)) + renown[creature] * 5)
@@ -203,15 +205,15 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say('You don\'t have these many tokens.', npc, creature)
 			end
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 5 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 5 then
 			openShopWindow(creature, getTable(), onBuy, onSell)
 			npcHandler:say('Let us see if I have what you need.', npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
-	elseif msgcontains(message, 'no') and isInArray({1, 3, 4, 5}, npcHandler.topic[creature]) then
+	elseif msgcontains(message, 'no') and isInArray({1, 3, 4, 5}, npcHandler.topic[playerId]) then
 		npcHandler:say('As you like.', npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

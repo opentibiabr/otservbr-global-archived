@@ -53,6 +53,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	if player:getStorageValue(Storage.SecretService.AVINMission01) == 1 and player:getItemCount(14326) > 0 then
@@ -61,7 +62,7 @@ local function greetCallback(npc, creature)
 		for i = 1, 2 do
 			Game.createMonster("Bandit", Npc():getPosition())
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	else
 		npcHandler:setMessage(MESSAGE_GREET, "Pssst! Be silent. Do you wish to {buy} something?")
 	end
@@ -69,22 +70,23 @@ local function greetCallback(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	if msgcontains(message, "letter") then
 		if player:getStorageValue(Storage.SecretService.AVINMission01) == 2 then
 			npcHandler:say("You have a letter for me?", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			if player:removeItem(14326, 1) then
 				player:setStorageValue(Storage.SecretService.AVINMission01, 3)
 				npcHandler:say("Oh well. I guess I am still on the hook. Tell your 'uncle' I will proceed as he suggested.", npc, creature)
 			else
 				npcHandler:say("You don't have any letter!", npc, creature)
 			end
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player then
 		npcHandler:setMessage(MESSAGE_GREET, "Greeting, |PLAYERNAME|! I welcome you to this sacred {place}. \z
@@ -456,6 +457,7 @@ local value = {}
 local rewardExperience = {}
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "missions") then
 		-- Final boss check
@@ -463,7 +465,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("You have already fulfilled your job to my full satisfaction. \z
 			The cults are investigated and the final boss is eliminated. \z
 			I have nothing more for you to do. Fare you well!", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.CultsOfTibia.Minotaurs.Mission) == 6
 		and player:getStorageValue(Storage.CultsOfTibia.Life.Mission) == 10
 		and player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 15
@@ -475,14 +477,14 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("It seems to me that you have done all the missions I gave you. \z
 				All the cults have been revealed and now you can kill their leader, the final boss, \z
 				to save the world from a possible catastrophe.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			if player:getStorageValue(Storage.CultsOfTibia.FinalBoss.Mission) < 1 then
 				player:setStorageValue(Storage.CultsOfTibia.FinalBoss.Mission, 1)
 				player:setStorageValue(Storage.CultsOfTibia.FinalBoss.AccessDoor, 1)
 			end
 		elseif player:getStorageValue(Storage.CultsOfTibia.FinalBoss.Mission) == 2 then
 			npcHandler:say("You did it! You put an end to the cults, and as a return, here's your reward.", npc, creature)
-			npcHandler.topic[creature] = 9
+			npcHandler.topic[playerId] = 9
 			local item = ""
 			if player:getVocation():getBaseId() == VOCATION.BASE_ID.SORCERER then
 				player:addItem(29426)
@@ -510,10 +512,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("In wich of the following topics are you interested in? Cult of {Life}, \z
 				Cult of {Prosperity}, Cult of the {Minotaurs}, Cult of the {Barkless}, Cult of the {Misguided}, \z
 				Cult of {Orcs} or Cult of the {Humans}?", npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		end
 	-- General
-	elseif npcHandler.topic[creature] == 2 then
+	elseif npcHandler.topic[playerId] == 2 then
 		local missionsTable = config.missions[message:lower()]
 		if missionsTable then
 			storage[creature] = missionsTable.storage
@@ -524,33 +526,33 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:setStorageValue(storage[creature], player:getStorageValue(storage[creature]) + 1)
 				player:addExperience(rewardExperience[creature])
 				player:sendTextMessage(MESSAGE_EXPERIENCE, "You gained " .. rewardExperience[creature] .. " experience points.")
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 
 			elseif player:getStorageValue(storage[creature]) > 0 and player:getStorageValue(storage[creature]) > value[creature] then
 				npcHandler:say({"You already done this mission."}, npc, creature)
-				npcHandler.topic[creature] = 2
+				npcHandler.topic[playerId] = 2
 			else
 				npcHandler:say(missionsTable.text, npc, creature)
-				npcHandler.topic[creature] = 3
+				npcHandler.topic[playerId] = 3
 			end
 		end
 	-- Accept mission
-	elseif msgcontains(message, "yes") and npcHandler.topic[creature] == 3 then
+	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 3 then
 		if player:getStorageValue(storage[creature]) < 1 then
 			npcHandler:say("Very nice! Come back if you have found what's going on in this cult.", npc, creature)
 			player:setStorageValue(storage[creature], 1)
 			if player:getStorageValue(Storage.CultsOfTibia.Questline) < 1 then
 				player:setStorageValue(Storage.CultsOfTibia.Questline, 1)
 			end
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		elseif player:getStorageValue(storage[creature]) > 0 then
 			npcHandler:say("You have not finished your work yet. Come back when you're done.", npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		end
 	-- Recuse mission
-	elseif msgcontains(message, "no") and npcHandler.topic[creature] == 3 then
+	elseif msgcontains(message, "no") and npcHandler.topic[playerId] == 3 then
 		npcHandler:say("What a pitty! You can come back, when ever you want, if you have changed your opinion.", npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

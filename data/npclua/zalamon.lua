@@ -54,7 +54,9 @@ local marks = {
 	}
 }
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "mission") then
 		-- CHILDREN OF REVOLUTION QUEST
 		if player:getStorageValue(Storage.ChildrenoftheRevolution.Questline) < 1 then
@@ -62,10 +64,10 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				"Zzo you are offering your help to a lizzard? Hmm, unuzzual. I don't know if I can fully truzzt you yet. ...",
 				"You'll have to work to earn my truzzt. Are you zzure you want to offer me your help?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		elseif player:getStorageValue(Storage.ChildrenoftheRevolution.Questline) == 2 then
 			npcHandler:say("What newzz do you bring? Did you find any cluezz about zzeir whereaboutzz? ", npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 		elseif player:getStorageValue(Storage.ChildrenoftheRevolution.Questline) == 3 then
 			npcHandler:say({
 				"Zzurely you have zzeen zze black pondzz and puddlezz all over zze mountain pazz, palezzkin. It izz zze corruption zzat pervadezz zze landzz. It would be wizze not to drink or tazzte from zzem. ... ",
@@ -73,14 +75,14 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				"A temple, norzzwezzt of zze barricaded outpozzt wizztood zze evil influenzze. However, I lozzt contact to itzz inhabitantzz when zze lizzardzz tightened zzeir grip. ... ",
 				"No one made it zzrough zze mountainzz for quite zzome time now - exzzept you. Maybe you can find out what happened zzere? "
 			}, npc, creature)
-			npcHandler.topic[creature] = 5
+			npcHandler.topic[playerId] = 5
 		elseif player:getStorageValue(Storage.ChildrenoftheRevolution.Questline) == 5 then
 			npcHandler:say({
 				"Zzo you found zze temple... lozzt you zzay. It wazz our lazzt remaining bazztion of hope for help from wizzin zze plainzz. ... ",
 				"Zzat meanzz zze plainzz are now in zze handzz of zze emperor and hizz army. I'm afraid zzat even zze great gate izz zzealed and zze landzz beyond it tainted azz well. ... ",
 				"Dark timezz, and I fear we know nozzing about our enemy yet. "
 			}, npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Questline, 6)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Mission01, 3) --Questlog, Children of the Revolution "Mission 1: Corruption"
 		elseif player:getStorageValue(Storage.ChildrenoftheRevolution.Questline) == 6 then
@@ -91,7 +93,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				"I'm mozzt interezzted in zzeir weaponzz, food and zze zztrengzz of zzeir forzzezz. ... ",
 				"Are you prepared for zzizz mizzion? "
 			}, npc, creature)
-			npcHandler.topic[creature] = 6
+			npcHandler.topic[playerId] = 6
 		elseif player:getStorageValue(Storage.ChildrenoftheRevolution.Questline) == 7 then
 			if player:getStorageValue(Storage.ChildrenoftheRevolution.SpyBuilding01) == 1 and player:getStorageValue(Storage.ChildrenoftheRevolution.SpyBuilding02) == 1 and player:getStorageValue(Storage.ChildrenoftheRevolution.SpyBuilding03) == 1 then
 				npcHandler:say({
@@ -100,7 +102,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				}, npc, creature)
 				player:setStorageValue(Storage.ChildrenoftheRevolution.Questline, 8)
 				player:setStorageValue(Storage.ChildrenoftheRevolution.Mission02, 5) --Questlog, Children of the Revolution "Mission 2: Imperial Zzecret Weaponzz"
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		elseif player:getStorageValue(Storage.ChildrenoftheRevolution.Questline) == 8 then
 			npcHandler:say({
@@ -108,13 +110,13 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				"A zzingle individual can be azz zztrong azz an army if he zztrikezz zze army azz a whole. ... ",
 				"Are you ready for your nexzzt tazzk? "
 			}, npc, creature)
-			npcHandler.topic[creature] = 7
+			npcHandler.topic[playerId] = 7
 		elseif player:getStorageValue(Storage.ChildrenoftheRevolution.Questline) == 11 then
 			npcHandler:say({
 				"You accomplished an important tazzk in breaking zze defenzze of zze emperor. Not everyzzing might be lozzt yet. ... ",
 				"I've got anozzer mizzion for you which will be even more dangerouzz zzan zze lazzt one. Return to me when you're ready. "
 			}, npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Questline, 12)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Mission03, 3) --Questlog, Children of the Revolution "Mission 3: Zee Killing Fieldzz"
 		elseif player:getStorageValue(Storage.ChildrenoftheRevolution.Questline) == 12 then
@@ -122,20 +124,20 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				"Wizz zze enemy'zz forzzezz weakened like zzizz, we will be able to zzneak pazzt zze defenzze and furzzer inzzpect zze norzz. You should travel to zze mountain range furzzer eazzt of zze village. ... ",
 				"Zze old route to zze gate hazz been taken by darknezz. You'll have to find ozzer wayzz. Are you up to zzizz, palezzkin? "
 			}, npc, creature)
-			npcHandler.topic[creature] = 10
+			npcHandler.topic[playerId] = 10
 		elseif player:getStorageValue(Storage.ChildrenoftheRevolution.Questline) == 17 then
 			npcHandler:say({
 				"You have zzolved zze riddle? Imprezzive, palezzkin. Zze humming you hear in zze chamber mozzt zzertainly comezz from a magic portal zzomewhere in zze temple. ...",
 				"Have you zzearched zze ozzer chamberzz for any magical devizzezz or portalzz?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 12
+			npcHandler.topic[playerId] = 12
 		elseif player:getStorageValue(Storage.ChildrenoftheRevolution.Questline) == 18 then
 			npcHandler:say({
 				"If I'm correct, zze portal in zze chamber beyond zze mechanizzm will lead you to zze great gate. It izz perfectly pozzible, however, zzat you will not be tranzzported directly into zze area. ...",
 				"You will razzer be brought to a plazze clozze by your goal. Where exzzactly, I cannot zzay. ...",
 				"Take all your courage and walk zze pazz zzrough zze portal. At leazzt TRY it - after all, I didn't make you my pupil for nozzing, Kohei. Are you prepared?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 13
+			npcHandler.topic[playerId] = 13
 		elseif player:getStorageValue(Storage.ChildrenoftheRevolution.Questline) == 20 then
 			npcHandler:say({
 				"Too clozze, far too clozze. I felt a huge impact not long after you left. Zze war machinery of zze emperor muzzt finally have been zztarted. ...",
@@ -148,7 +150,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Mission05, 3) --Questlog, Children of the Revolution "Mission 5: Phantom Army"
 			player:addItem(11116, 1)
 			player:addExperience(10000, true)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		-- CHILDREN OF REVOLUTION QUEST
 
 		-- WRATH OF THE EMPEROR QUEST
@@ -157,10 +159,10 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				"Zze attackzz have weakened our enemy zzignificantly. Yet, your quezzt continuezz. Bezzidezz zzome tazzkzz you could take, zze zzreat of zze emperor izz zztill hanging over our headzz like a rain cloud. ... ",
 				"Zzo, are you indeed willing to continue zze fight for our cauzze? "
 			}, npc, creature)
-			npcHandler.topic[creature] = 14
+			npcHandler.topic[playerId] = 14
 		elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 1 then
 			npcHandler:say("Ah you have returned. I azzume you already found zzome itemzz to build a proper dizzguizze? ", npc, creature)
-			npcHandler.topic[creature] = 16
+			npcHandler.topic[playerId] = 16
 		elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 6 then
 			npcHandler:say({
 				"You ezztablished zze connection to zze hideout, good. But zzizz izz no time to rezzt. Your new tazzk will be quite different. ... ",
@@ -169,10 +171,10 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				"Find him, dezztroy him, bring me hizz - I uhm, mean it izz utterly nezzezzary for you to deliver me a proof of hizz deazz. ... ",
 				"Now go - what are you waiting for, zzoftzzkin? Ready to finish what needzz to be finished? "
 			}, npc, creature)
-			npcHandler.topic[creature] = 19
+			npcHandler.topic[playerId] = 19
 		elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 8 then
 			npcHandler:say("Zzo... you finished him. Show me hizz head, will you? ", npc, creature)
-			npcHandler.topic[creature] = 20
+			npcHandler.topic[playerId] = 20
 		elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 9 then
 			npcHandler:say({
 				"At zze dawn of time, zze children of zze Great Zznake were numerouzz. Zzey daringly colonizzed many partzz of zze world. But all bravery did not help againzzt zze sheer number of enemiezz zzey encountered. ... ",
@@ -188,10 +190,10 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			}, npc, creature)
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 10)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission04, 1) --Questlog, Wrath of the Emperor "Mission 04: Sacrament of the Snake"
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 11 then
 			npcHandler:say("You - azzembled zze zzeptre? Hand it out, give it to me, will you? ", npc, creature)
-			npcHandler.topic[creature] = 21
+			npcHandler.topic[playerId] = 21
 		elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 12 then
 			npcHandler:say({
 				"Now we need to get clozzer to zze emperor himzzelf. A hive of beezz would defend zzeir queen wizz zzeir lives in cazze an enemy gained entranzze. Zzizz makezz a formidable defenzze line, nearly inviolable. ... ",
@@ -203,15 +205,15 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			}, npc, creature)
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 13)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission05, 1) --Questlog, Wrath of the Emperor "Mission 05: New in Town"
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		-- WRATH OF THE EMPEROR QUEST
 		end
 
 	-- WRATH OF THE EMPEROR QUEST
 	elseif msgcontains(message, "crate") then
-		if npcHandler.topic[creature] == 17 then
+		if npcHandler.topic[playerId] == 17 then
 			npcHandler:say("Ah I zzee. You are ready for your mizzion and waiting for me to create and mark zze crate? ", npc, creature)
-			npcHandler.topic[creature] = 18
+			npcHandler.topic[playerId] = 18
 		end
 	-- WRATH OF THE EMPEROR QUEST
 
@@ -222,18 +224,18 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				"Mh, zze zzymbolzz of zze chamber you dezzcribe are very common in our culture, palezzkin. You should have come accrozz zzem in many a plazze already. ...",
 				"Zze zzymbolzz zzeem to be arranged in zzome way you zzay? Were zzere any notizzeable devizzezz? Zzwitchezz or leverzz? "
 			}, npc, creature)
-			npcHandler.topic[creature] = 11
+			npcHandler.topic[playerId] = 11
 		end
 	-- CHILDREN OF REVOLUTION QUEST
 	elseif msgcontains(message, "poison") or msgcontains(message, "poizzon") then
 		if player:getStorageValue(Storage.ChildrenoftheRevolution.Questline) == 9 then
 			npcHandler:say("Zze emperor of zze dragonzz hazz tranzzformed himzzelf into an undead creature to lazzt for all eternity, to cheat deazz. Hizz corruption flowzz to zzozze he bound, and from zzem to zzozze zzey bound, and from zzem into zze land.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	-- CHILDREN OF REVOLUTION QUEST
 	elseif msgcontains(message, "yes") then
 		-- CHILDREN OF REVOLUTION QUEST
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say({
 				"Zzen indeed, I have a tazzk for you. Lizzten carefully and you might even learn zzomezzing. A wizze being hearzz one zzing and underzztandzz ten. ...",
 				"Zze mountainzz to zze norzz are overrun by corrupted lizzardzz. ...",
@@ -242,16 +244,16 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				"If you can find any documentzz about zzeir zztrategiezz, zze rezzizztanzze will be very grateful. ...",
 				"Are you interezzted, palezzkin?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 2
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 2
+		elseif npcHandler.topic[playerId] == 2 then
 			npcHandler:say("Be warned. Zze mountain pazzezz have been dezzerted for zzeveral weekzz now. No one made it acrozz and I fear you won't meet a zzingle friendly zzoul up zzere.", npc, creature)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Questline, 1)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Mission00, 1) --Questlog, Children of the Revolution "Prove Your Worzz!"
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 3 then
 			npcHandler:say("Exzztraordinary. We are mozzt fortunate to have zzezze documentzz in our handzz now. Zzizz would zzertainly help me to build an effective rezzizztanzze. Will you give zzem to me? ", npc, creature)
-			npcHandler.topic[creature] = 4
-		elseif npcHandler.topic[creature] == 4 then
+			npcHandler.topic[playerId] = 4
+		elseif npcHandler.topic[playerId] == 4 then
 			if player:removeItem(11101, 1) then
 				npcHandler:say({
 					"Aaah, zzezze look zzertainly interezzting. Zzezze manuzzcriptzz show uzz zzeveral locationzz of zze enemy troopzz. ... ",
@@ -259,15 +261,15 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				}, npc, creature)
 				player:setStorageValue(Storage.ChildrenoftheRevolution.Questline, 3)
 				player:setStorageValue(Storage.ChildrenoftheRevolution.Mission00, 2) --Questlog, Children of the Revolution "Prove Your Worzz!"
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 5 then
+		elseif npcHandler.topic[playerId] == 5 then
 			npcHandler:say("I've marked itzz location on your map. Go and find out what happened zzere. In zze pazzt it wazz known azz zze Temple of Equilibrium. ", npc, creature)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Questline, 4)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Mission01, 1) --Questlog, Children of the Revolution "Mission 1: Corruption"
 			player:addMapMark(Position(33177, 31193, 7), 5, "Temple of Equilibrium")
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 6 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 6 then
 			npcHandler:say({
 				"I'll mark zze entranzze to Chaochai on your map. ... ",
 				"Conzzentrate on one location at a time. Zze one who chazzezz after two harezz, won't catch even one. "
@@ -278,23 +280,23 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				local mark = marks.ChildrenOfTheRevolution[i]
 				player:addMapMark(mark.position, mark.type, mark.description)
 			end
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 7 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 7 then
 			npcHandler:say({
 				"Not far to zze eazzt of zze village, you'll find rizze fieldzz. Zzey uzze zzem to rezztore zzeir food suppliezz. ... ",
 				"In zze zztorage accrozz zzizz room, you'll find a zzpecial poizzon which will zzignificantly weaken zzem if uzzed on zze water and zzoil zze rizze growzz in. ... ",
 				"Are you fully prepared for zzizz?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 8
-		elseif npcHandler.topic[creature] == 8 then
+			npcHandler.topic[playerId] = 8
+		elseif npcHandler.topic[playerId] == 8 then
 			npcHandler:say({
 				"Good. Zze fieldzz should be not far from Xiachai in zze eazzt. Go to zze top terrazze and mix zze poizzon wizz zze water. ... ",
 				"{Poizzon} izz often uzzed by cowardzz, yet it grantzz great power to zze opprezzed. "
 			}, npc, creature)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Questline, 9)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Mission03, 1) --Questlog, Children of the Revolution "Mission 3: Zee Killing Fieldzz"
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 10 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 10 then
 			npcHandler:say({
 				"Perhapzz you can find a way to enter zze norzz of zze valley and find a pazzage to zze great gate itzzelf. Zzearch any templezz or zzettlementzz you come accrozz for hidden pazzagezz. ... ",
 				"I wish for a zzafe return wizz good newzz. "
@@ -303,8 +305,8 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			if player:getStorageValue(Storage.ChildrenoftheRevolution.Mission04) <= 1 then
 				player:setStorageValue(Storage.ChildrenoftheRevolution.Mission04, 1) --Questlog, Children of the Revolution "Mission 4: Zze Way of Zztonezz"
 			end
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 11 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 11 then
 			npcHandler:say({
 				"Interezzting. It'zz a riddle, zzoftzzkin. Zzuch gamezz are very popular in our culture. I believe zze leverzz will alter zze arrangement. ... ",
 				"Not too far from zze lever, zzere muzzt be a hint of zzome zzort. An image of how zze zzymbolzz muzzt be arranged. Zzurely zze mechanizzm will trigger a zzecret pazzage, maybe a moving wall or a portal. ... ",
@@ -312,8 +314,8 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			}, npc, creature)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.StrangeSymbols, 2)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Mission04, 3) --Questlog, Children of the Revolution "Mission 4: Zze Way of Zztonezz"
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 12 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 12 then
 			npcHandler:say({
 				"Zzen zzizz izz zze way which will lead you to zze great gate. ...",
 				"By zze way, before I forget it - zzinzze you are zzkilled in zzolving riddlezz, maybe you can make uzze of zzizz old tome I've found? It containzz ancient knowledge and truly izz a tezztament of our culture, treat it wizz care. ...",
@@ -322,24 +324,24 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:addItem(11134, 1)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Questline, 18)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Mission04, 6) --Questlog, Children of the Revolution "Mission 4: Zze Way of Zztonezz"
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 13 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 13 then
 			npcHandler:say("You did well on your quezzt zzo far. I hope you will reach zze great gate in time. If we are lucky, it will zztill be open. ... Zalamon: If not, it will already be overrun by enemy zzoldierzz. Direct confrontation will be inevitable in zzat cazze, palezzkin. Now clear your mind and approach zze portal.", npc, creature)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Questline, 19)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Mission05, 1) --Questlog, Children of the Revolution "Mission 5: Phantom Army"
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		-- CHILDREN OF REVOLUTION QUEST
 
 		-- WRATH OF THE EMPEROR QUEST
-		elseif npcHandler.topic[creature] == 14 then
+		elseif npcHandler.topic[playerId] == 14 then
 			npcHandler:say({
 				"You continue to imprezz, zzoftzzkin. ... ",
 				"A contact of zze rezzizztanzze izz located furzzer in zze norzz of Zao. ... ",
 				"Zze emperor will drag hizz forzzezz to zze great gate now to bolzzter hizz defenzze. Zzinzze we attacked zze gate directly, he will not expect uzz taking a completely different route to reach zze norzzern territoriezz. ... ",
 				"I azzume you are already geared up and ready to conquer zze norzz? "
 			}, npc, creature)
-			npcHandler.topic[creature] = 15
-		elseif npcHandler.topic[creature] == 15 then
+			npcHandler.topic[playerId] = 15
+		elseif npcHandler.topic[playerId] == 15 then
 			npcHandler:say({
 				"Your determination izz highly appreciated. To zzneak pazzt zze eyezz of zze enemy, you will have to uzze a diverzzion. Zzere are zzeveral old tunnelzz beneazz zze zzoil of Zzao. ... ",
 				"One of zzem izz uzzed azz a maintenanzze connection by enemy lizardzz. To enter it, you will have to uzze a dizzguizze. Zzomezzing like a crate perhapzz. ... ",
@@ -347,14 +349,14 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			}, npc, creature)
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 1)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission01, 1) --Questlog, Wrath of the Emperor "Mission 01: Catering the Lions Den"
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 16 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 16 then
 			npcHandler:say({
 				"Very good, I am confident zzizz will zzuffizze. Now I can build and mark a {crate} large enough for you to fit in - while zztill being able to breazze of courzze - and I will mark it in our tongue zzo it will look lezz zzuzzpizziouzz. ... ",
 				"Wizz zzeir eyezz towardzz zze gate, your chanzzezz to zzlip zzrough have never been better. I will keep zze zzpare materialzz here wizz me, we can alwayzz build a new one if you need to. "
 			}, npc, creature)
-			npcHandler.topic[creature] = 17
-		elseif npcHandler.topic[creature] == 18 then
+			npcHandler.topic[playerId] = 17
+		elseif npcHandler.topic[playerId] == 18 then
 			if player:getItemCount(8309) >= 3 and player:getItemCount(5901) >= 1 then
 				player:removeItem(5901, 1)
 				player:removeItem(8309, 3)
@@ -372,9 +374,9 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 					local mark = marks.WrathOfTheEmperor[i]
 					player:addMapMark(mark.position, 19, mark.description)
 				end
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 19 then
+		elseif npcHandler.topic[playerId] == 19 then
 			npcHandler:say({
 				"Fine. I guezz poizzoning zzome of hizz plantzz will be enough to lure him out of hizz conzzealment. Zzizz plant poizzon here should allow you to do zzome zzignificant damage, take it. ... ",
 				"You can find him eazzt of zze corrupted gardenzz. Zzere uzzed to be a zzmall domizzile zzere but it hazz probably been conzzumed by zze corruption zzo beware. And now - go. "
@@ -382,21 +384,21 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 7)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission03, 1) --Questlog, Wrath of the Emperor "Mission 03: The Keeper"
 			player:addItem(12320, 1)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 20 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 20 then
 			if player:removeItem(12323, 1) then
 				npcHandler:say("Zzizz izz not hizz head but clearly belonged to zze keeper. I - I am imprezzed. You can go now. Leave me alone for a zzecond. ", npc, creature)
 				player:setStorageValue(Storage.WrathoftheEmperor.Questline, 9)
 				player:setStorageValue(Storage.WrathoftheEmperor.Mission03, 3) --Questlog, Wrath of the Emperor "Mission 03: The Keeper"
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 
-		elseif npcHandler.topic[creature] == 21 then
+		elseif npcHandler.topic[playerId] == 21 then
 			if player:removeItem(12327, 1) then
 				player:setStorageValue(Storage.WrathoftheEmperor.Questline, 12)
 				player:setStorageValue(Storage.WrathoftheEmperor.Mission04, 3) --Questlog, Wrath of the Emperor "Mission 04: Sacrament of the Snake"
 				npcHandler:say("Finally. At lazzt. Zze zzeptre izz - ourzz. Ourzz of courzze. A weapon we should uzze wizzely for our cauzze. I need a zzecond or two. Do you leave me already? ", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		-- WRATH OF THE EMPEROR QUEST
 		end

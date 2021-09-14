@@ -52,37 +52,37 @@ function creatureSayCallback(npc, creature, type, message)
 	if(msgcontains(message, "peg leg")) then
 		if player:getStorageValue(Storage.TheShatteredIsles.AccessToMeriana) == 1 then
 			npcHandler:say("Ohhhh. So... <lowers his voice> you know who sent you so I sail you to you know where. <wink> <wink> It will cost 50 gold to cover my expenses. Is it that what you wish?", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		else
 			npcHandler:say("Sorry, my old ears can't hear you.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif(msgcontains(message, "passage")) then
 			npcHandler:say("<sigh> I knew someone else would claim all the treasure someday. But at least it will be you and not some greedy and selfish person. For a small fee of 200 gold pieces I will sail you to your rendezvous with fate. Do we have a deal?", npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		elseif(msgcontains(message, "no")) then
 			npcHandler:say("I have to admit this leaves me a bit puzzled.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 	elseif(msgcontains(message, "yes")) then
-		if(npcHandler.topic[creature] == 1) then
+		if(npcHandler.topic[playerId] == 1) then
 			if player:removeMoneyNpc(50) then
 				npcHandler:say("And there we go!", npc, creature)
 				player:teleportTo(Position(32346, 32625, 7))
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 		else
 				npcHandler:say("You don't have enough money.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif(npcHandler.topic[creature] == 2) then
+		elseif(npcHandler.topic[playerId] == 2) then
 			if player:removeMoneyNpc(200) then
 				npcHandler:say("And there we go!", npc, creature)
 				player:teleportTo(Position(32131, 32913, 7))
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			else
 				npcHandler:say("You don't have enough money.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		end
 	end

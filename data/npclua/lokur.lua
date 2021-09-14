@@ -52,6 +52,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	-- Parse bank
 	npc:parseBank(message, npc, creature, npcHandler)
 	-- Parse guild bank

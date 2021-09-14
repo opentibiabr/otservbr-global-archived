@@ -41,31 +41,33 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "silk") or msgcontains(message, "yarn") or msgcontains(message, "silk yarn") or msgcontains(message, "spool of yarn") then
 		if player:getStorageValue(Storage.FriendsandTraders.TheMermaidMarina) < 1 then
 			npcHandler:say("Um. You mean, you really want me to touch that gooey spider silk just because you need yarn? Well... do you think that I'm pretty?", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		elseif player:getStorageValue(Storage.FriendsandTraders.TheMermaidMarina) == 2 then
 			npcHandler:say("Okay... a deal is a deal, would you like me to create a {spool of yarn} from {10 pieces of spider silk}?", npc, creature)
-			npcHandler.topic[creature] = 5
+			npcHandler.topic[playerId] = 5
 		end
 	elseif msgcontains(message, "honey") or msgcontains(message, "honeycomb") or msgcontains(message, "50 honeycombs") then
 		if player:getStorageValue(Storage.FriendsandTraders.TheMermaidMarina) == 1 then
 			npcHandler:say("Did you bring me the 50 honeycombs I requested and do you absolutely admire my beauty?", npc, creature)
-			npcHandler.topic[creature] = 4
+			npcHandler.topic[playerId] = 4
 		end
 	elseif msgcontains(message, "raymond striker") then
 		if player:getStorageValue(Storage.TheShatteredIsles.APoemForTheMermaid) == 1 then
 			npcHandler:say("<giggles> I think he has a crush on me. Well, silly man, it is only for his own good. This way he can get accustomed to TRUE beauty. And I won't give him up anymore now that he is mine.", npc, creature)
 			player:setStorageValue(Storage.TheShatteredIsles.APoemForTheMermaid, 2)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "date") then
 		if player:getStorageValue(Storage.TheShatteredIsles.ADjinnInLove) == 1 then
 			npcHandler:say("Is that the best you can do? A true Djinn would have done something more poetic.", npc, creature)
 			player:setStorageValue(Storage.TheShatteredIsles.ADjinnInLove, 2)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.TheShatteredIsles.ADjinnInLove) == 4 then
 			npcHandler:say({
 				"This lovely, exotic Djinn is a true poet. And he is asking me for a date? Excellent. Now I can finaly dump this human pirate. He was growing to be boring more and more with each day ...",
@@ -74,13 +76,13 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:addAchievement('Matchmaker')
 			player:setStorageValue(Storage.TheShatteredIsles.ADjinnInLove, 5)
 			player:setStorageValue(Storage.TheShatteredIsles.AccessToLagunaIsland, 1)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say("Well, everyone would say that in your position. Do you think that I'm really, absolutely the most stunning being that you have ever seen?", npc, creature)
-			npcHandler.topic[creature] = 2
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 2
+		elseif npcHandler.topic[playerId] == 2 then
 			npcHandler:say({
 				"<giggles> It's funny how easy it is to get humans to say what you want. Now, proving it will be even more fun! ...",
 				"You want me to touch something gooey, so you have to touch something gooey for me too. <giggles> ...",
@@ -88,23 +90,23 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			}, npc, creature)
 			player:setStorageValue(Storage.FriendsandTraders.TheMermaidMarina, 1)
 			player:setStorageValue(Storage.FriendsandTraders.DefaultStart, 1)
-		elseif npcHandler.topic[creature] == 4 then
+		elseif npcHandler.topic[playerId] == 4 then
 			if player:removeItem(5902, 50) then
 				npcHandler:say("Oh goodie! Thank you! Okay... I guess since my fingers are sticky now anyway, I will help you. From now on, if you bring me {10 pieces of spider silk}, I will create one {spool of yarn}.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				player:setStorageValue(Storage.FriendsandTraders.TheMermaidMarina, 2)
 			else
 				npcHandler:say("You don't have enough honey.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
-		elseif npcHandler.topic[creature] == 5 then
+		elseif npcHandler.topic[playerId] == 5 then
 			if player:removeItem(5879, 10) then
 				player:addItem(5886, 1)
 				npcHandler:say("Ew... gooey... there you go.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			else
 				npcHandler:say("You don't have the required items.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 			end
 		end
 	end

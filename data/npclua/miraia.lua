@@ -91,7 +91,9 @@ local config = {
 	}
 }
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, 'outfit') then
 		npcHandler:say(player:getSex() == PLAYERSEX_FEMALE and 'Hehe, would you like to wear a pretty veil like I do? Well... I could help you, but you would have to complete a task first.' or 'My veil? No, I will definitely not lift it for you! If you are looking for an addon, go talk to Razan.', npc, creature)
 	elseif msgcontains(message, 'task') then
@@ -101,12 +103,12 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 		end
 		if player:getStorageValue(Storage.OutfitQuest.secondOrientalAddon) < 1 then
 			npcHandler:say('You mean, you would like to prove that you deserve to wear such a veil?', npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
-	elseif config[message] and npcHandler.topic[creature] == 0 then
+	elseif config[message] and npcHandler.topic[playerId] == 0 then
 		if player:getStorageValue(Storage.OutfitQuest.secondOrientalAddon) == config[message].storageValue then
 			npcHandler:say(config[message].text[1], npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 			message[creature] = message
 		else
 			npcHandler:say(config[message].text[2], npc, creature)
@@ -117,9 +119,9 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 		elseif player:getStorageValue(Storage.TravellingTrader.Mission03) == 2 then
 			npcHandler:say('Oh the last cheese molded? Would you like to buy another one for 100 gold?', npc, creature)
 		end
-		npcHandler.topic[creature] = 4
+		npcHandler.topic[playerId] = 4
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say({
 				'Alright, then listen to the following requirements. We are currently in dire need of ape fur since the Caliph has requested a new bathroom carpet. ...',
 				'Thus, please bring me 100 pieces of ape fur. Secondly, it came to our ears that the explorer society has discovered a new undersea race of fishmen. ...',
@@ -128,19 +130,19 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				'Last but not least, just drop by with 100 pieces of blue cloth and I will happily show you how to make a turban. ...',
 				'Did you understand everything I told you and are willing to handle this task?'
 			}, npc, creature)
-			npcHandler.topic[creature] = 2
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 2
+		elseif npcHandler.topic[playerId] == 2 then
 			if player:getStorageValue(Storage.OutfitQuest.DefaultStart) ~= 1 then
 				player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1)
 			end
 			player:setStorageValue(Storage.OutfitQuest.secondOrientalAddon, 1)
 			npcHandler:say('Excellent! Come back to me once you have collected 100 pieces of ape fur.', npc, creature)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 3 then
 			local targetMessage = config[message[creature]]
 			if not player:removeItem(targetMessage.itemId, targetMessage.count) then
 				npcHandler:say('That is a shameless lie.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return true
 			end
 			player:setStorageValue(Storage.OutfitQuest.secondOrientalAddon, player:getStorageValue(Storage.OutfitQuest.secondOrientalAddon) + 1)
@@ -150,8 +152,8 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			end
 			npcHandler:say(targetMessage.text[3], npc, creature)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 4 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 4 then
 			if player:getMoney() + player:getBankBalance() >= 100 then
 				player:setStorageValue(Storage.TravellingTrader.Mission03, 2)
 				player:addItem(8112, 1)
@@ -160,11 +162,11 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			else
 				npcHandler:say('You don\'t have enough money.', npc, creature)
 			end
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
-	elseif msgcontains(message, 'no') and npcHandler.topic[creature] ~= 0 then
+	elseif msgcontains(message, 'no') and npcHandler.topic[playerId] ~= 0 then
 		npcHandler:say('What a pity.', npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

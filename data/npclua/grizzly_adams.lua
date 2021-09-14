@@ -137,6 +137,7 @@ for i = 1, #grizzlyAdamsConfig.ranks.trophyHunter_rank do
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getStorageValue(JOIN_STOR) == -1 then
 		npcHandler:setMessage(MESSAGE_GREET,
@@ -204,13 +205,14 @@ local function startTrade(creature, player)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	message = message:gsub("(%l)(%w*)", function(a,b) return string.upper(a)..b end)
 
 	if msgcontains("trade", message) then
 		startTrade(creature, player)
 	elseif (msgcontains("join", message) or msgcontains("yes", message))
-			and npcHandler.topic[creature] == 0
+			and npcHandler.topic[playerId] == 0
 			and player:getStorageValue(JOIN_STOR) ~= 1 then
 		player:setStorageValue(JOIN_STOR, 1)
 		npcHandler:say("Great! " ..
@@ -242,7 +244,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("The current task" ..
 						(#can > 1 and "s" or "") .. " that you can choose " ..
 						(#can > 1 and "are" or "is") .. " " .. text, npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		else
 			npcHandler:say("I don't have any task for you right now.", npc, creature)
 		end
@@ -259,14 +261,14 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:say("In this task you must defeat " .. tasks[task].killsRequired .. " " .. tasks[task].raceName .. "."..
 					" ".."Are you sure that you want to start this task?", npc, creature)
 		choose[creature] = task
-		npcHandler.topic[creature] = 1
-	elseif message:lower() == "yes" and npcHandler.topic[creature] == 1 then
+		npcHandler.topic[playerId] = 1
+	elseif message:lower() == "yes" and npcHandler.topic[playerId] == 1 then
 		player:setStorageValue(QUESTSTORAGE_BASE + choose[creature], 1)
 		player:setStorageValue(KILLSSTORAGE_BASE + choose[creature], 0)
 		npcHandler:say("Excellent! You can check the {status} of your task saying {report} to me."..
 					" ".."Also you can {cancel} tasks to.", npc, creature)
 		choose[creature] = nil
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains("status", message) then
 		local started = player:getStartedTasks()
 		if started and #started > 0 then
@@ -401,12 +403,12 @@ local function creatureSayCallback(npc, creature, type, message)
 		if started and #started > 0 then
 			npcHandler:say("Canceling a task will make the counter restart. " ..
 						"Which of these tasks you want cancel?" .. (#started > 1 and "" or "") .. " " .. text, npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		else
 			npcHandler:say("You haven't started any task yet.", npc, creature)
 		end
 	elseif ((getTaskByName(message)) and
-			(npcHandler.topic[creature] == 2) and
+			(npcHandler.topic[playerId] == 2) and
 			(isInArray(getPlayerStartedTasks(creature), getTaskByName(message)))) then
 		local task = getTaskByName(message)
 		if player:getStorageValue(KILLSSTORAGE_BASE + task) > 0 then
@@ -417,10 +419,10 @@ local function creatureSayCallback(npc, creature, type, message)
 		else
 			npcHandler:say("Are you sure you want to cancel this task?", npc, creature)
 		end
-		npcHandler.topic[creature] = 3
+		npcHandler.topic[playerId] = 3
 		cancel[creature] = task
 	elseif ((getTaskByName(message)) and
-			(npcHandler.topic[creature] == 1) and
+			(npcHandler.topic[playerId] == 1) and
 			(isInArray(getPlayerStartedTasks(creature), getTaskByName(message)))) then
 		local task = getTaskByName(message)
 		if player:getStorageValue(KILLSSTORAGE_BASE + task) > 0 then
@@ -431,13 +433,13 @@ local function creatureSayCallback(npc, creature, type, message)
 		else
 			npcHandler:say("You currently killed 0/" .. tasks[task].killsRequired .. " " .. tasks[task].raceName .. ".", npc, creature)
 		end
-		npcHandler.topic[creature] = 0
-	elseif message:lower() == "yes" and npcHandler.topic[creature] == 3 then
+		npcHandler.topic[playerId] = 0
+	elseif message:lower() == "yes" and npcHandler.topic[playerId] == 3 then
 		player:setStorageValue(QUESTSTORAGE_BASE + cancel[creature], -1)
 		player:setStorageValue(KILLSSTORAGE_BASE + cancel[creature], -1)
 		npcHandler:say("You have canceled the task " ..
 					(tasks[cancel[creature]].name or tasks[cancel[creature]].raceName) .. ".", npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif isInArray({"points", "rank"}, message:lower()) then
 		npcHandler:say("At this time, you have " .. player:getPawAndFurPoints() .. " Paw & Fur points. You " ..
 					(player:getPawAndFurRank() == 6 and "are an Elite Hunter" or
@@ -447,7 +449,7 @@ local function creatureSayCallback(npc, creature, type, message)
 					player:getPawAndFurRank() == 2 and "are a Huntsman" or
 					player:getPawAndFurRank() == 1 and "are a Member"  or
 					"haven't been ranked yet") .. ".", npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif isInArray({"special task"}, message:lower()) then
 		if (player:getPawAndFurPoints() >= 70) then
 			if ((player:getLevel() > 90) and
@@ -486,7 +488,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:getStorageValue(Storage.KillingInTheNameOf.TiquandasRevengeTeleport) == 0) then
 				npcHandler:say("You have already finished all special tasks.", npc, creature)
 			end
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 end

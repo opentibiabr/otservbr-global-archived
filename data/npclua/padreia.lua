@@ -47,19 +47,20 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	-- Tibia tales quest
 	if msgcontains(message, "cough syrup") then
 		npcHandler:say("Do you want to buy a bottle of cough syrup for 50 gold?", npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif msgcontains(message, 'mission') then
 		if player:getStorageValue(Storage.TibiaTales.TheExterminator) == -1 then
 			npcHandler:say({
 				'Oh |PLAYERNAME|, thank god you came to me. Last night, I had a vision about an upcoming plague here in Carlin. ...',
 				'It will originate from slimes that will swarm out of the sewers and infect every citizen with a deadly disease. Are you willing to help me save Carlin?'
 			}, npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		elseif player:getStorageValue(Storage.TibiaTales.TheExterminator) == 1 then
 			npcHandler:say('You MUST find that slime pool immediately or life here in Carlin will not be the same anymore.', npc, creature)
 		elseif player:getStorageValue(Storage.TibiaTales.TheExterminator) == 2 then
@@ -73,7 +74,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say('Maybe the guards have something to do for you or know someone who could need some help.', npc, creature)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			if not player:removeMoneyNpc(50) then
 				npcHandler:say("You don't have enough money.", npc, creature)
 				return true
@@ -81,7 +82,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 			npcHandler:say("Thank you. Here it is.", npc, creature)
 			player:addItem(4839, 1)
-		elseif npcHandler.topic[creature] == 2 then
+		elseif npcHandler.topic[playerId] == 2 then
 			player:addItem(8205, 1)
 			player:setStorageValue(Storage.TibiaTales.TheExterminator, 1)
 			npcHandler:say({
@@ -89,28 +90,28 @@ local function creatureSayCallback(npc, creature, type, message)
 				'Pour the poison in the water to stop the demise of Carlin. Tell me about your mission after you fulfilled your task.'
 			}, npc, creature)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, "no") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say("Then no.", npc, creature)
-			npcHandler.topic[creature] = 0
-		elseif npcHandler.topic[creature] == 2 then
+			npcHandler.topic[playerId] = 0
+		elseif npcHandler.topic[playerId] == 2 then
 			npcHandler:say('Then the downfall of Carlin is inescapable. Please think about it. You know where to find me.', npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 
 	-- The paradox tower quest
 	if msgcontains(message, "crunor's caress") then
 		npcHandler:say("Don't ask. They were only an unimportant footnote of history.", npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, "footnote") then
 		if player:getStorageValue(Storage.Quest.TheParadoxTower.TheFearedHugo) == 2 then
 			-- Questlog: The Feared Hugo (Lubo)
 			player:setStorageValue(Storage.Quest.TheParadoxTower.TheFearedHugo, 3)
 		end
 		npcHandler:say("They thought they had to bring Crunor to the people, if the people had not found Crunor on their own. To achieve this, they founded the inn called Crunor's Cottage, south of Mt. Sternum.", npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

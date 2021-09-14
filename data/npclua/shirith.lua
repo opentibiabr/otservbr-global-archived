@@ -42,11 +42,12 @@ npcHandler:onThink(npc, interval)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	if msgcontains(message, "key") then
 		npcHandler:say("Do you want to buy a key for 50 gold?", npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			local player = Player(creature)
 			if player:getMoney() + player:getBankBalance() >= 50 then
 				npcHandler:say("Here it is.", npc, creature)
@@ -58,7 +59,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say("You don't have enough money.", npc, creature)
 			end
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true

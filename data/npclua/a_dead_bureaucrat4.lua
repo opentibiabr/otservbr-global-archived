@@ -56,11 +56,13 @@ local config = {
 }
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	npcHandler:setMessage(MESSAGE_GREET, "Hello " .. (Player(creature):getSex() == PLAYERSEX_FEMALE and "beautiful lady" or "handsome gentleman") .. ", welcome to the atrium of Pumin's Domain. We require some information from you before we can let you pass. Where do you want to go?")
 	return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	local vocation = player:getVocation()
 	local vocationId = vocation:getId()
@@ -69,23 +71,23 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, "pumin") then
 		if player:getStorageValue(Storage.PitsOfInferno.ThronePumin) < 1 then
 			npcHandler:say("I'm not sure if you know what you are doing but anyway. Your name is?", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, player:getName()) then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say("Alright |PLAYERNAME|. Vocation?", npc, creature)
-			npcHandler.topic[creature] = 2
+			npcHandler.topic[playerId] = 2
 		end
 	elseif msgcontains(message, Vocation(vocationId):getName()) then
-		if npcHandler.topic[creature] == 2 then
+		if npcHandler.topic[playerId] == 2 then
 			npcHandler:say(config[vocationBaseId] .. ", is that right?! What do you want from me?", npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 		end
 	elseif msgcontains(message, "356") then
-		if npcHandler.topic[creature] == 3 then
+		if npcHandler.topic[playerId] == 3 then
 			player:setStorageValue(Storage.PitsOfInferno.ThronePumin, 2)
 			npcHandler:say("Sorry, you need Form 145 to get Form 356. Come back when you have it", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		elseif player:getStorageValue(Storage.PitsOfInferno.ThronePumin) == 7 then
 			player:setStorageValue(Storage.PitsOfInferno.ThronePumin, 8)
 			npcHandler:say("You are better than I thought! Congratulations, here you are: Form 356!", npc, creature)

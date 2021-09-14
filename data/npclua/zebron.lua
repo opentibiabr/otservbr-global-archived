@@ -53,15 +53,16 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 0 then
+		if npcHandler.topic[playerId] == 0 then
 			npcHandler:say('Hmmm, would you like to play for {money} or for a chance to win your own {dice}?', npc, creature)
-			npcHandler.topic[creature] = 2
-		elseif npcHandler.topic[creature] == 4 then
+			npcHandler.topic[playerId] = 2
+		elseif npcHandler.topic[playerId] == 4 then
 			if not player:removeMoneyNpc(100) then
 				npcHandler:say('I am sorry, but you don\'t have so much money.', npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				return false
 			end
 
@@ -74,34 +75,34 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:say('Ok, here we go ... 6! You have won a dice, congratulations. One more game?', npc, creature)
 				player:addItem(5792, 1)
 			end
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, 'game') then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			npcHandler:say('So you care for a civilized game of dice?', npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, 'money') then
-		if npcHandler.topic[creature] == 2 then
+		if npcHandler.topic[playerId] == 2 then
 			npcHandler:say('I thought so. Okay, I will roll a dice. If it shows 6, you will get five times your bet. How much do you want to bet?', npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 		end
 	elseif msgcontains(message, 'dice') then
-		if npcHandler.topic[creature] == 2 then
+		if npcHandler.topic[playerId] == 2 then
 			npcHandler:say('Hehe, good choice. Okay, the price for this game is 100 gold pieces. I will roll a dice. If I roll a 6, you can have my dice. Agreed?', npc, creature)
-			npcHandler.topic[creature] = 4
+			npcHandler.topic[playerId] = 4
 		end
 	elseif tonumber(message) then
 		local amount = tonumber(message)
 		if amount < 1 or amount > 99 then
 			npcHandler:say('I am sorry, but I accept only bets between 1 and 99 gold. I don\'t want to ruin you after all. How much do you want to bet?', npc, creature)
-			npcHandler.topic[creature] = 3
+			npcHandler.topic[playerId] = 3
 			return false
 		end
 
 		if not player:removeMoneyNpc(amount) then
 			npcHandler:say('I am sorry, but you don\'t have so much money.', npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			return false
 		end
 
@@ -113,10 +114,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say('Ok, here we go ... 6! You have won '.. amount * 5 ..', congratulations. One more game?', npc, creature)
 			player:addMoney(amount * 5)
 		end
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, 'no') then
 		npcHandler:say('Oh come on, don\'t be a child.', npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	end
 	return true
 end

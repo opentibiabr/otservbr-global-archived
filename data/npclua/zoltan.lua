@@ -46,20 +46,21 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 
 	-- The paradox tower quest
 	if msgcontains(message, "yenny the gentle") then
 		npcHandler:say("Ah, Yenny the Gentle was one of the founders of the druid order called Crunor's Caress, that has been originated in her hometown Carlin.", npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	elseif msgcontains(message, "crunors caress") then
 		if player:getStorageValue(Storage.Quest.TheParadoxTower.TheFearedHugo) == 1 then
 			-- Questlog: The Feared Hugo (Padreia)
 			player:setStorageValue(Storage.Quest.TheParadoxTower.TheFearedHugo, 2)
 		end
 		npcHandler:say("A quite undruidic order of druids they were, as far as we know. I have no more enlightening knowledge about them though.", npc, creature)
-		npcHandler.topic[creature] = 0
+		npcHandler.topic[playerId] = 0
 	end
 	return true
 end

@@ -46,22 +46,24 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "barbarian") then
 		if player:getStorageValue(Storage.BarbarianTest.Questline) < 1 then
 			npcHandler:say("A true barbarian is something special among our people. Everyone who wants to become a barbarian will have to pass the barbarian {test}.", npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "test") then
 		npcHandler:say({
 			"All of our juveniles have to take the barbarian test to become a true member of our community. Foreigners who manage to master the test are granted the title of an honorary barbarian and the respect of our people ...",
 			"Are you willing to take the barbarian test?"
 		}, npc, creature)
-		npcHandler.topic[creature] = 2
+		npcHandler.topic[playerId] = 2
 	elseif msgcontains(message, "mead") then
 		if player:getStorageValue(Storage.BarbarianTest.Questline) == 1 then
 			npcHandler:say("Do you have some honey with you?", npc, creature)
-			npcHandler.topic[creature] = 4
+			npcHandler.topic[playerId] = 4
 		elseif player:getStorageValue(Storage.BarbarianTest.Questline) == 3 then
 			npcHandler:say({
 				"An impressive start. Here, take your own mead horn to fill it at the mead bucket as often as you like ...",
@@ -72,7 +74,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:setStorageValue(Storage.BarbarianTest.Questline, 4)
 			player:setStorageValue(Storage.BarbarianTest.Mission02, 1) -- Questlog Barbarian Test Quest Barbarian Test 2: The Bear Hugging
 			player:addItem(7140, 1)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "hug") then
 		if player:getStorageValue(Storage.BarbarianTest.Questline) == 5 then
@@ -84,7 +86,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:setStorageValue(Storage.BarbarianTest.Questline, 6)
 			player:setStorageValue(Storage.BarbarianTest.Mission02, 3) -- Questlog Barbarian Test Quest Barbarian Test 2: The Bear Hugging
 			player:setStorageValue(Storage.BarbarianTest.Mission03, 1) -- Questlog Barbarian Test Quest Barbarian Test 3: The Mammoth Pushing
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "mammoth") then
 		if player:getStorageValue(Storage.BarbarianTest.Questline) == 7 then
@@ -95,28 +97,28 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			player:setStorageValue(Storage.BarbarianTest.Questline, 8)
 			player:setStorageValue(Storage.BarbarianTest.Mission03, 3) -- Questlog Barbarian Test Quest Barbarian Test 3: The Mammoth Pushing
 			player:addAchievement('Honorary Barbarian')
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 2 then
+		if npcHandler.topic[playerId] == 2 then
 			npcHandler:say({
 				"That's the spirit! The barbarian test consists of a few tasks you will have to fulfill. All are rather simple - for a barbarian that is...",
 				"Your first task is to drink some barbarian mead. But be warned, it's a strong brew that could even knock out a bear. You need to make at least ten sips of mead in a row without passing out to pass the test ...",
 				"Do you think you can do this?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 3
-		elseif npcHandler.topic[creature] == 3 then
+			npcHandler.topic[playerId] = 3
+		elseif npcHandler.topic[playerId] == 3 then
 			npcHandler:say({
 				"Good, but to make barbarian mead we need some honey which is rare here. I'd hate to waste mead just to learn you're not worth it ...",
 				"Therefore, you have to get your own honey. You'll probably need more than one try so better get some extra honeycombs. Then talk to me again about barbarian {mead}."
 			}, npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 			player:setStorageValue(Storage.BarbarianTest.Questline, 1)
 			player:setStorageValue(Storage.BarbarianTest.Mission01, 1) -- Questlog Barbarian Test Quest Barbarian Test 1: Barbarian Booze
-		elseif npcHandler.topic[creature] == 4 then
+		elseif npcHandler.topic[playerId] == 4 then
 			if player:removeItem(5902, 1) then
 				npcHandler:say("Good, for this honeycomb I allow you 20 sips from the mead bucket over there. Talk to me again about barbarian mead if you have passed the test.", npc, creature)
-				npcHandler.topic[creature] = 0
+				npcHandler.topic[playerId] = 0
 				player:setStorageValue(Storage.BarbarianTest.Questline, 2)
 				player:setStorageValue(Storage.BarbarianTest.Mission01, 2) -- Questlog Barbarian Test Quest Barbarian Test 1: Barbarian Booze
 				player:setStorageValue(Storage.BarbarianTest.MeadTotalSips, 0)

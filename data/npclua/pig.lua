@@ -45,14 +45,15 @@ npcHandler:setMessage(MESSAGE_GREET, "Oink.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Bye.")
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if (msgcontains(message, "kiss")) then
 		npcHandler:say("Do you want to try to release me with a kiss?", npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif (msgcontains(message, "yes")) then
-		if (npcHandler.topic[creature] == 1) then
+		if (npcHandler.topic[playerId] == 1) then
 			npcHandler:say("Mhm Uhhh. Not bad, not bad at all! But you can still improve your skill a LOT.", npc, creature)
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 end

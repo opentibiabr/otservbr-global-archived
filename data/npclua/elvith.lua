@@ -58,6 +58,7 @@ keywordHandler:addKeyword({'magic'}, StdModule.say, {npcHandler = npcHandler, te
 keywordHandler:addKeyword({'hellgate'}, StdModule.say, {npcHandler = npcHandler, text = 'For the worst of crimes, criminals are cast into hellgate. It is said no one can return from there. Since it is not actually forbidden to enter hellgate, you might convince Elathriel to grant you entrance.'})
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	if msgcontains(message, 'songs of the forest') then
 		npcHandler:say({
 			'The last issue I had was bought by Randor Swiftfinger. He was banished through the hellgate and probably took the book with him ...',
@@ -65,10 +66,10 @@ local function creatureSayCallback(npc, creature, type, message)
 		}, npc, creature)
 	elseif msgcontains(message, 'love poem') then
 		npcHandler:say('Do you want to buy a poem scroll for 200 gold?', npc, creature)
-		npcHandler.topic[creature] = 1
+		npcHandler.topic[playerId] = 1
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[creature] == 1 then
-			npcHandler.topic[creature] = 0
+		if npcHandler.topic[playerId] == 1 then
+			npcHandler.topic[playerId] = 0
 			local player = Player(creature)
 			if not player:removeMoneyNpc(200) then
 				npcHandler:say('You don\'t have enough money.', npc, creature)

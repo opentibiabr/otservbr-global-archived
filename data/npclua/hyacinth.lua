@@ -47,6 +47,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function greetCallback(npc, creature)
+	local playerId = creature:getId()
 	local player = Player(creature)
 	if player:getStorageValue(Storage.TheRookieGuard.Mission04) == 2 then
 		npcHandler:setMessage(MESSAGE_GREET, "Greetings, traveller |PLAYERNAME|. You must be the one sent by Lily. Do you have a sack of {herbs} for me?")

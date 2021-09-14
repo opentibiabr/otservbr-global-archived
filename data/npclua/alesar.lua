@@ -87,6 +87,7 @@ npcType.onSay = function(npc, creature, type, message)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
 	parseAlesarSay(npc, creature, message, npcHandler)
 	return true
 end

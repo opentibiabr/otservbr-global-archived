@@ -70,7 +70,9 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onCreatureSay(npc, creature, type, message)
 end
 
-local function creatureSayCallback(npc, creature, type, message)	local player = Player(creature)
+local function creatureSayCallback(npc, creature, type, message)
+	local playerId = creature:getId()
+	local player = Player(creature)
 	if msgcontains(message, "fine vase") then
 		if player:getStorageValue(Storage.TravellingTrader.Mission04) == 1 then
 			npcHandler:say({
@@ -78,10 +80,10 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 				"Make room in your backpack so that I can place the vase carefully inside it. If it falls to the floor, it will most likely shatter or break if you try to pick it up again. ...",
 				"This vase it not meant to be touched by human hands, so just keep your hands off it. Are you ready to buy that vase for 1000 gold?"
 			}, npc, creature)
-			npcHandler.topic[creature] = 1
+			npcHandler.topic[playerId] = 1
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[creature] == 1 then
+		if npcHandler.topic[playerId] == 1 then
 			if player:getMoney() + player:getBankBalance() >= 1000 then
 				npcHandler:say("Here it is.", npc, creature)
 				player:setStorageValue(Storage.TravellingTrader.Mission04, 2)
@@ -90,7 +92,7 @@ local function creatureSayCallback(npc, creature, type, message)	local player = 
 			else
 				npcHandler:say("You don't have enought money.", npc, creature)
 			end
-			npcHandler.topic[creature] = 0
+			npcHandler.topic[playerId] = 0
 		end
 	end
 	return true
