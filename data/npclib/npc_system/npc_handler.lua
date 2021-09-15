@@ -199,7 +199,6 @@ if NpcHandler == nil then
 		end
 
 		self:setTopic(playerId, 0)
-		print(self:getTopic(playerId))
 		local callback = self:getCallback(CALLBACK_SET_INTERACTION)
 		if callback == nil or callback(npc, player) then
 			self:processModuleCallback(CALLBACK_SET_INTERACTION, npc, player)
@@ -363,7 +362,6 @@ if NpcHandler == nil then
 					local parseInfo = { [TAG_PLAYERNAME] = playerName }
 					msg = self:parseMessage(msg, parseInfo)
 					self:say(msg, npc, player, true)
-					self:updateInteraction(npc, player)
 				else
 					return false
 				end
