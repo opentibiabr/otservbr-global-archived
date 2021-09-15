@@ -103,8 +103,12 @@ local function creatureSayCallback(npc, creature, type, message)
 				thus facilitating development and testing.",
 			"See more on our {discord group}."
 		}, npc, creature, 3000)
+		npcHandler:setTopic(playerId, 1)
 	elseif msgcontains(message, "discord group") then
-		npcHandler:say("This the our discord group link: {https://discordapp.com/invite/3NxYnyV}", npc, creature)
+		if npcHandler:getTopic(playerId) == 1 then
+			npcHandler:say("This the our discord group link: {https://discordapp.com/invite/3NxYnyV}", npc, creature)
+		end
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

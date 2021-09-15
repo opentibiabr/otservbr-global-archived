@@ -122,17 +122,60 @@ if NpcHandler == nil then
 		return obj
 	end
 
-	-- Attackes a new keyword handler to this npchandler
+	-- NpcHandler get and set obj
+	-- Get keyword handler of this npc handler
+	function NpcHandler:getKeywordHandler()
+		return self.keywordHandler
+	end
+
+	-- Attackes a new keyword handler to this npc handler
 	function NpcHandler:setKeywordHandler(newHandler)
 		self.keywordHandler = newHandler
 	end
 
-	-- It will check the player's interaction, return the topic the player is on and also check if the npc is interacting with the player
-	function NpcHandler:checkInteraction(npc, player)
-		if self.topic then
-			npc:isPlayerInteractingOnTopic(player, self.topic)
-		end
+	-- local playerId = player:getId()
+	-- npcHandler:getEventDelayedSay(playerId)
+	function NpcHandler:getEventDelayedSay(playerId)
+		return self.eventDelayedSay[playerId]
+	end
 
+	-- npcHandler:setEventDelayedSay(playerId, nil)
+	function NpcHandler:setEventDelayedSay(playerId, newEventDelayedSay)
+		self.eventDelayedSay[playerId] = newEventDelayedSay
+	end
+
+	-- npcHandler:getEventSay(playerId)
+	function NpcHandler:getEventSay(playerId)
+		return self.eventSay[playerId]
+	end
+
+	-- npcHandler:setEventSay(playerId, nil)
+	function NpcHandler:setEventSay(playerId, newEventSay)
+		self.eventSay[playerId] = newEventSay
+	end
+
+	-- npcHandler:getTalkStart(playerId)
+	function NpcHandler:getTalkStart(playerId)
+		return self.talkStart[playerId]
+	end
+
+	-- npcHandler:setTalkStart(playerId, nil)
+	function NpcHandler:setTalkStart(playerId, newTalkStart)
+		self.talkStart[playerId] = newTalkStart
+	end
+
+	-- npcHandler:getTopic(playerId) == topicId
+	function NpcHandler:getTopic(playerId)
+		return self.topic[playerId]
+	end
+
+	-- npcHandler:setTopic(playerId, nil)
+	function NpcHandler:setTopic(playerId, newTopic)
+		self.topic[playerId] = newTopic
+	end
+
+	-- It will check if the npc is interacting with the player
+	function NpcHandler:checkInteraction(npc, player)
 		return npc:isInteractingWithPlayer(player)
 	end
 
@@ -142,8 +185,8 @@ if NpcHandler == nil then
 			npc:setPlayerInteraction(player, 0)
 			return true
 		end
-		if self.eventDelayedSay[playerId] then
-			self:cancelNPCTalk(self.eventDelayedSay[playerId])
+		if self:getEventDelayedSay(playerId) then
+			self:cancelNPCTalk(self:getEventDelayedSay(playerId))
 		end
 		return npc:turnToCreature(player, true)
 	end
@@ -155,7 +198,8 @@ if NpcHandler == nil then
 			return false
 		end
 
-		self.topic[playerId] = 0
+		self:setTopic(playerId, 0)
+		print(self:getTopic(playerId))
 		local callback = self:getCallback(CALLBACK_SET_INTERACTION)
 		if callback == nil or callback(npc, player) then
 			self:processModuleCallback(CALLBACK_SET_INTERACTION, npc, player)
@@ -171,14 +215,14 @@ if NpcHandler == nil then
 			return Spdlog.error("[NpcHandler:removeInteraction] - Player is missing or nil")
 		end
 
-		if self.eventDelayedSay[playerId] then
-			self:cancelNPCTalk(self.eventDelayedSay[playerId])
+		if self:getEventDelayedSay(playerId) then
+			self:cancelNPCTalk(self:getEventDelayedSay(playerId))
 		end
 
-		self.eventSay[playerId] = nil
-		self.eventDelayedSay[playerId] = nil
-		self.talkStart[playerId] = nil
-		self.topic[playerId] = nil
+		self:setEventDelayedSay(playerId, nil)
+		self:setEventSay(playerId, nil)
+		self:setTalkStart(playerId, nil)
+		self:setTopic(playerId, nil)
 
 		local callback = self:getCallback(CALLBACK_REMOVE_INTERACTION)
 		if callback == nil or callback(npc, player) then
@@ -205,7 +249,7 @@ if NpcHandler == nil then
 		end
 	end
 
-	-- Adds a module to this npchandler and inits it
+	-- Adds a module to this npc handler and inits it
 	function NpcHandler:addModule(module)
 		if self.modules ~= nil then
 			self.modules[#self.modules + 1] = module
@@ -213,7 +257,7 @@ if NpcHandler == nil then
 		end
 	end
 
-	-- Calls the callback function represented by id for all modules added to this npchandler with the given arguments
+	-- Calls the callback function represented by id for all modules added to this npc handler with the given arguments
 	function NpcHandler:processModuleCallback(id, ...)
 		local ret = true
 		for _, module in pairs(self.modules) do
@@ -366,15 +410,12 @@ if NpcHandler == nil then
 						if not ret then
 							local callback = self:getCallback(CALLBACK_MESSAGE_DEFAULT)
 							if callback ~= nil and callback(npc, player, msgtype, msg) then
-								self.talkStart[playerId] = os.time()
+								self:setTalkStart(playerId, os.time())
 							end
 						else
-							self.talkStart[playerId] = os.time()
+							self:setTalkStart(playerId, os.time())
 						end
 					end
-				end
-				if self:checkInteraction(npc, player) then
-					self:updateInteraction(npc, player)
 				end
 			end
 		end
@@ -513,8 +554,8 @@ if NpcHandler == nil then
 
 	function NpcHandler:doNPCTalkALot(msgs, delay, npc, player)
 		local playerId = player:getId()
-		if self.eventDelayedSay[playerId] then
-			self:cancelNPCTalk(self.eventDelayedSay[playerId])
+		if self:getEventDelayedSay(playerId) then
+			self:cancelNPCTalk(self:getEventDelayedSay(playerId))
 		end
 
 		local playerUniqueId = player.uid
@@ -545,8 +586,8 @@ if NpcHandler == nil then
 			return self:doNPCTalkALot(message, delay, npc, player)
 		end
 
-		if self.eventDelayedSay[playerId] then
-			self:cancelNPCTalk(self.eventDelayedSay[playerId])
+		if self:getEventDelayedSay(playerId) then
+			self:cancelNPCTalk(self:getEventDelayedSay(playerId))
 		end
 
 		stopEvent(self.eventSay[playerId])
