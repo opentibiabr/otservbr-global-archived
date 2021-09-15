@@ -174,12 +174,14 @@ if NpcHandler == nil then
 		self.topic[playerId] = newTopic
 	end
 
+	-- Npc handler interaction functions
 	-- It will check if the npc is interacting with the player
 	function NpcHandler:checkInteraction(npc, player)
 		return npc:isInteractingWithPlayer(player)
 	end
 
 	-- If the player is not interacting with the npc, it set the npc's interaction with the player
+	-- It clean the eventDelayedSay and turn npc to the player
 	function NpcHandler:updateInteraction(npc, player)
 		if not self:checkInteraction(npc, player) then
 			npc:setPlayerInteraction(player, 0)
@@ -192,6 +194,7 @@ if NpcHandler == nil then
 	end
 
 	-- This function is used to set an interaction between the npc and the player
+	-- Also set the default (0) topic and call "updateInteraction"
 	function NpcHandler:setInteraction(npc, player)
 		local playerId = player:getId()
 		if self:checkInteraction(npc, player) then
@@ -207,7 +210,8 @@ if NpcHandler == nil then
 		return true
 	end
 
-	-- This function removes the npc interaction with the player
+	-- This function removes the npc interaction with the player and clear the objects
+	-- Also close the shop (if is opened) and clear eventDelayedSay
 	function NpcHandler:removeInteraction(npc, player)
 		local playerId = player:getId()
 		if Player(player) == nil then
@@ -353,20 +357,18 @@ if NpcHandler == nil then
 
 	-- Greets the player, thus initiating the direct interaction between the npc and the player
 	function NpcHandler:greet(npc, player, message)
-		if player ~= 0 then
-			local callback = self:getCallback(CALLBACK_GREET)
-			if callback == nil or callback(npc, player, message) then
-				if self:processModuleCallback(CALLBACK_GREET, npc, player) then
-					local msg = self:getMessage(MESSAGE_GREET)
-					local playerName = player:getName() or -1
-					local parseInfo = { [TAG_PLAYERNAME] = playerName }
-					msg = self:parseMessage(msg, parseInfo)
-					self:say(msg, npc, player, true)
-				else
-					return false
-				end
-			else
-				return false
+		if self:checkInteraction(npc, player) then
+			return
+		end
+
+		local callback = self:getCallback(CALLBACK_GREET)
+		if callback == nil or callback(npc, player, message) then
+			if self:processModuleCallback(CALLBACK_GREET, npc, player) then
+				local msg = self:getMessage(MESSAGE_GREET)
+				local playerName = player:getName() or -1
+				local parseInfo = { [TAG_PLAYERNAME] = playerName }
+				msg = self:parseMessage(msg, parseInfo)
+				self:say(msg, npc, player, true)
 			end
 		end
 		self:setInteraction(npc, player)
@@ -375,9 +377,9 @@ if NpcHandler == nil then
 	-- Handles onAppear events. If you with to handle this yourself, please use the CALLBACK_ON_APPEAR callback.
 	function NpcHandler:onAppear(npc, player)
 		local callback = self:getCallback(CALLBACK_ON_APPEAR)
-		if callback == nil or callback(player) then
-			if self:processModuleCallback(CALLBACK_ON_APPEAR, player) then
-				return true
+		if callback == nil or callback(npc, player) then
+			if self:processModuleCallback(CALLBACK_ON_APPEAR, npc, player) then
+				return callback
 			end
 		end
 	end
@@ -501,6 +503,10 @@ if NpcHandler == nil then
 
 	-- Should be called on this npc's player if the distance to player is greater then talkRadius.
 	function NpcHandler:onWalkAway(npc, player)
+		if not self:checkInteraction(npc, player) then
+			return false
+		end
+
 		local callback = self:getCallback(CALLBACK_ON_DISAPPEAR)
 		if callback == nil or callback() then
 			if self:processModuleCallback(CALLBACK_ON_DISAPPEAR, npc, player) then
