@@ -33,7 +33,7 @@ function leverTheRavager.onUse(player, item, fromPosition, target, toPosition, i
 		for i = 1, #setting.playerPositions do
 			local creature = Tile(setting.playerPositions[i]):getTopCreature()
 			if not creature or not creature:isPlayer() then
-				doPlayerSendCancel(player, "You need 4 of players to fight with The Ravager.")
+				player:sendCancelMessage("You need 4 of players to fight with The Ravager.")
 				return true
 			end
 			storePlayers[#storePlayers + 1] = playerTile
