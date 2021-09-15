@@ -145,7 +145,7 @@ if NpcHandler == nil then
 		if self.eventDelayedSay[playerId] then
 			self:cancelNPCTalk(self.eventDelayedSay[playerId])
 		end
-		return npc:turnToCreature(player)
+		return npc:turnToCreature(player, true)
 	end
 
 	-- This function is used to set an interaction between the npc and the player
