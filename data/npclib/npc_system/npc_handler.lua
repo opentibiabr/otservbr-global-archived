@@ -332,19 +332,6 @@ if NpcHandler == nil then
 
 	-- Handles onCreatureAppear events. If you with to handle this yourself, please use the CALLBACK_CREATURE_APPEAR callback.
 	function NpcHandler:onCreatureAppear(npc, player)
-		if npc then
-			local speechBubble = npc:getSpeechBubble()
-			if speechBubble == 3 then
-				npc:setSpeechBubble(4)
-			else
-				npc:setSpeechBubble(2)
-			end
-		else
-			if self:getMessage(MESSAGE_GREET) and npc:getSpeechBubble() < 1 then
-				npc:setSpeechBubble(1)
-			end
-		end
-
 		local callback = self:getCallback(CALLBACK_CREATURE_APPEAR)
 		if callback == nil or callback(player) then
 			if self:processModuleCallback(CALLBACK_CREATURE_APPEAR, player) then
@@ -355,10 +342,6 @@ if NpcHandler == nil then
 
 	-- Handles onCreatureDisappear events. If you with to handle this yourself, please use the CALLBACK_CREATURE_DISAPPEAR callback.
 	function NpcHandler:onCreatureDisappear(npc, player)
-		if npc:getId() == player then
-			return
-		end
-
 		local callback = self:getCallback(CALLBACK_CREATURE_DISAPPEAR)
 		if callback == nil or callback(npc, player) then
 			if self:processModuleCallback(CALLBACK_CREATURE_DISAPPEAR, npc, player) then
@@ -539,16 +522,21 @@ if NpcHandler == nil then
 			self:cancelNPCTalk(self.eventDelayedSay[playerId])
 		end
 
-		local playerId = player.uid
-		if not playerId then
-			return Spdlog.error("[NpcHandler:doNPCTalkALot] - Player is unsafe.")
+		local playerUniqueId = player.uid
+		if not playerUniqueId then
+			return Spdlog.error("[NpcHandler:doNPCTalkALot] - playerUniqueId is wrong or unsafe.")
+		end
+
+		local npcUniqueId = npc.uid
+		if not npcUniqueId then
+			return Spdlog.error("[NpcHandler:doNPCTalkALot] - npcUniqueId is wrong or unsafe.")
 		end
 
 		self.eventDelayedSay[playerId] = {}
 		local ret = {}
 		for aux = 1, #msgs do
 			self.eventDelayedSay[playerId][aux] = {}
-			npc:sayWithDelay(npc:getId(), msgs[aux], TALKTYPE_PRIVATE_NP, ((aux-1) * (delay or 4000)), self.eventDelayedSay[playerId][aux], playerId)
+			npc:sayWithDelay(npcUniqueId, msgs[aux], TALKTYPE_PRIVATE_NP, ((aux-1) * (delay or 4000)), self.eventDelayedSay[playerId][aux], playerUniqueId)
 			ret[#ret + 1] = self.eventDelayedSay[playerId][aux]
 		end
 		return(ret)
