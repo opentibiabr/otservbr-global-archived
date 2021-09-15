@@ -37,11 +37,11 @@ npcType.onThink = function(npc, interval)
 end
 
 npcType.onAppear = function(npc, creature)
-	npcHandler:onCreatureAppear(npc, creature)
+	npcHandler:onAppear(npc, creature)
 end
 
 npcType.onDisappear = function(npc, creature)
-	npcHandler:onCreatureDisappear(npc, creature)
+	npcHandler:onDisappear(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
@@ -49,7 +49,11 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-	npcHandler:onCreatureSay(npc, creature, type, message)
+	npcHandler:onSay(npc, creature, type, message)
+end
+
+npcType.onPlayerCloseChannel = function(npc, creature)
+	npcHandler:onPlayerCloseChannel(npc, creature)
 end
 
 keywordHandler:addKeyword({'furniture'}, StdModule.say, {npcHandler = npcHandler, text = "I have {beds}, {chairs}, {containers}, {decoration}, {flowers}, {instruments}, {pillows}, {pottery}, {statues}, {tapestries} and {tables}. Which of those would you like to see?"})

@@ -36,22 +36,22 @@ if NpcHandler == nil then
 	MESSAGE_WALKAWAY_FEMALE = 23 -- When a female player walks out of the talkRadius of the npc.
 
 	-- Constant indexes for callback functions. These are also used for module callback ids.
-	CALLBACK_CREATURE_APPEAR = 1
-	CALLBACK_CREATURE_DISAPPEAR = 2
-	CALLBACK_CREATURE_SAY = 3
-	CALLBACK_ONTHINK = 4
+	CALLBACK_ON_APPEAR = 1
+	CALLBACK_ON_DISAPPEAR = 2
+	CALLBACK_ON_SAY = 3
+	CALLBACK_ON_THINK = 4
 	CALLBACK_GREET = 5
 	CALLBACK_FAREWELL = 6
 	CALLBACK_MESSAGE_DEFAULT = 7
-	CALLBACK_PLAYER_ENDTRADE = 8
-	CALLBACK_PLAYER_CLOSECHANNEL = 9
-	CALLBACK_ONMOVE = 10
+	CALLBACK_PLAYER_END_TRADE = 8
+	CALLBACK_PLAYER_CLOSE_CHANNEL = 9
+	CALLBACK_ON_MOVE = 10
 	CALLBACK_SET_INTERACTION = 18
 	CALLBACK_REMOVE_INTERACTION = 19
-	CALLBACK_ONTRADEREQUEST = 20
+	CALLBACK_ON_TRADE_REQUEST = 20
 
 	-- Addidional module callback ids
-	CALLBACK_MODULE_INIT	 = 12
+	CALLBACK_MODULE_INIT = 12
 	CALLBACK_MODULE_RESET = 13
 
 	-- Constant strings defining the keywords to replace in the default messages.
@@ -218,25 +218,25 @@ if NpcHandler == nil then
 		local ret = true
 		for _, module in pairs(self.modules) do
 			local tmpRet = true
-			if id == CALLBACK_CREATURE_APPEAR and module.callbackOnCreatureAppear ~= nil then
-				tmpRet = module:callbackOnCreatureAppear(...)
-			elseif id == CALLBACK_CREATURE_DISAPPEAR and module.callbackOnCreatureDisappear ~= nil then
+			if id == CALLBACK_ON_APPEAR and module.callbackOnAppear ~= nil then
+				tmpRet = module:callbackOnAppear(...)
+			elseif id == CALLBACK_ON_DISAPPEAR and module.callbackOnCreatureDisappear ~= nil then
 				tmpRet = module:callbackOnCreatureDisappear(...)
-			elseif id == CALLBACK_CREATURE_SAY and module.callbackOnCreatureSay ~= nil then
+			elseif id == CALLBACK_ON_SAY and module.callbackOnCreatureSay ~= nil then
 				tmpRet = module:callbackOnCreatureSay(...)
-			elseif id == CALLBACK_PLAYER_ENDTRADE and module.callbackOnPlayerEndTrade ~= nil then
+			elseif id == CALLBACK_PLAYER_END_TRADE and module.callbackOnPlayerEndTrade ~= nil then
 				tmpRet = module:callbackOnPlayerEndTrade(...)
-			elseif id == CALLBACK_PLAYER_CLOSECHANNEL and module.callbackOnPlayerCloseChannel ~= nil then
+			elseif id == CALLBACK_PLAYER_CLOSE_CHANNEL and module.callbackOnPlayerCloseChannel ~= nil then
 				tmpRet = module:callbackOnPlayerCloseChannel(...)
-			elseif id == CALLBACK_ONTRADEREQUEST and module.callbackOnTradeRequest ~= nil then
+			elseif id == CALLBACK_ON_TRADE_REQUEST and module.callbackOnTradeRequest ~= nil then
 				tmpRet = module:callbackOnTradeRequest(...)
 			elseif id == CALLBACK_SET_INTERACTION and module.callbackOnAddFocus ~= nil then
 				tmpRet = module:callbackOnAddFocus(...)
 			elseif id == CALLBACK_REMOVE_INTERACTION and module.callbackOnReleaseFocus ~= nil then
 				tmpRet = module:callbackOnReleaseFocus(...)
-			elseif id == CALLBACK_ONTHINK and module.callbackOnThink ~= nil then
+			elseif id == CALLBACK_ON_THINK and module.callbackOnThink ~= nil then
 				tmpRet = module:callbackOnThink(...)
-			elseif id == CALLBACK_ONMOVE and module.callbackOnMove ~= nil then
+			elseif id == CALLBACK_ON_MOVE and module.callbackOnMove ~= nil then
 				tmpRet = module:callbackOnMove(...)
 			elseif id == CALLBACK_GREET and module.callbackOnGreet ~= nil then
 				tmpRet = module:callbackOnGreet(...)
@@ -330,32 +330,32 @@ if NpcHandler == nil then
 		self:setInteraction(npc, player)
 	end
 
-	-- Handles onCreatureAppear events. If you with to handle this yourself, please use the CALLBACK_CREATURE_APPEAR callback.
-	function NpcHandler:onCreatureAppear(npc, player)
-		local callback = self:getCallback(CALLBACK_CREATURE_APPEAR)
+	-- Handles onAppear events. If you with to handle this yourself, please use the CALLBACK_ON_APPEAR callback.
+	function NpcHandler:onAppear(npc, player)
+		local callback = self:getCallback(CALLBACK_ON_APPEAR)
 		if callback == nil or callback(player) then
-			if self:processModuleCallback(CALLBACK_CREATURE_APPEAR, player) then
-				--
+			if self:processModuleCallback(CALLBACK_ON_APPEAR, player) then
+				return true
 			end
 		end
 	end
 
-	-- Handles onCreatureDisappear events. If you with to handle this yourself, please use the CALLBACK_CREATURE_DISAPPEAR callback.
-	function NpcHandler:onCreatureDisappear(npc, player)
-		local callback = self:getCallback(CALLBACK_CREATURE_DISAPPEAR)
+	-- Handles onDisappear events. If you with to handle this yourself, please use the CALLBACK_ON_DISAPPEAR callback.
+	function NpcHandler:onDisappear(npc, player)
+		local callback = self:getCallback(CALLBACK_ON_DISAPPEAR)
 		if callback == nil or callback(npc, player) then
-			if self:processModuleCallback(CALLBACK_CREATURE_DISAPPEAR, npc, player) then
+			if self:processModuleCallback(CALLBACK_ON_DISAPPEAR, npc, player) then
 				self:unGreet(npc, player)
 			end
 		end
 	end
 
-	-- Handles onCreatureSay events. If you with to handle this yourself, please use the CALLBACK_CREATURE_SAY callback.
-	function NpcHandler:onCreatureSay(npc, player, msgtype, msg)
+	-- Handles onSay events. If you with to handle this yourself, please use the CALLBACK_ON_SAY callback.
+	function NpcHandler:onSay(npc, player, msgtype, msg)
 		local playerId = player:getId()
-		local callback = self:getCallback(CALLBACK_CREATURE_SAY)
+		local callback = self:getCallback(CALLBACK_ON_SAY)
 		if callback == nil or callback(npc, player, msgtype, msg) then
-			if self:processModuleCallback(CALLBACK_CREATURE_SAY, npc, player, msgtype, msg) then
+			if self:processModuleCallback(CALLBACK_ON_SAY, npc, player, msgtype, msg) then
 				if not self:isInRange(npc, player) then
 					return false
 				end
@@ -380,21 +380,21 @@ if NpcHandler == nil then
 		end
 	end
 
-	-- Handles onPlayerCloseChannel events. If you wish to handle this yourself, use the CALLBACK_PLAYER_CLOSECHANNEL callback.
+	-- Handles onPlayerCloseChannel events. If you wish to handle this yourself, use the CALLBACK_PLAYER_CLOSE_CHANNEL callback.
 	function NpcHandler:onPlayerCloseChannel(npc, player)
-		local callback = self:getCallback(CALLBACK_PLAYER_CLOSECHANNEL)
+		local callback = self:getCallback(CALLBACK_PLAYER_CLOSE_CHANNEL)
 		if callback == nil or callback(npc, player) then
-			if self:processModuleCallback(CALLBACK_PLAYER_CLOSECHANNEL, player, msgtype, msg) then
-				self:unGreet(npc, player)
+			if self:processModuleCallback(CALLBACK_PLAYER_CLOSE_CHANNEL, player) then
+				self:onWalkAway(npc, player)
 			end
 		end
 	end
 
-	-- Handles tradeRequest events. If you wish to handle this yourself, use the CALLBACK_ONTRADEREQUEST callback.
+	-- Handles tradeRequest events. If you wish to handle this yourself, use the CALLBACK_ON_TRADE_REQUEST callback.
 	function NpcHandler:tradeRequest(npc, player, message)
-		local callback = self:getCallback(CALLBACK_ONTRADEREQUEST)
+		local callback = self:getCallback(CALLBACK_ON_TRADE_REQUEST)
 		if callback == nil or callback(npc, player, message) then
-			if self:processModuleCallback(CALLBACK_ONTRADEREQUEST, npc, player) then
+			if self:processModuleCallback(CALLBACK_ON_TRADE_REQUEST, npc, player) then
 				local parseInfo = { [TAG_PLAYERNAME] = Player(player):getName() }
 				local msg = self:parseMessage(self:getMessage(MESSAGE_SENDTRADE), parseInfo)
 
@@ -404,13 +404,8 @@ if NpcHandler == nil then
 					self:say(msg, npc, player)
 				end
 				return true
-			else
-				return false
 			end
-		else
-			return false
 		end
-		return false
 	end
 
 	-- Callback for requesting a trade window with the NPC.
@@ -421,21 +416,21 @@ if NpcHandler == nil then
 		end
 	end
 
-	-- Handles onThink events. If you wish to handle this yourself, please use the CALLBACK_ONTHINK callback.
+	-- Handles onThink events. If you wish to handle this yourself, please use the CALLBACK_ON_THINK callback.
 	function NpcHandler:onThink(npc, interval)
-		local callback = self:getCallback(CALLBACK_ONTHINK)
+		local callback = self:getCallback(CALLBACK_ON_THINK)
 		if callback == nil or callback(npc, interval) then
-			if self:processModuleCallback(CALLBACK_ONTHINK, npc, interval) then
+			if self:processModuleCallback(CALLBACK_ON_THINK, npc, interval) then
 				return true
 			end
 		end
 	end
 
-	-- Handles onMove events. If you wish to handle this yourself, please use the CALLBACK_ONMOVE callback.
+	-- Handles onMove events. If you wish to handle this yourself, please use the CALLBACK_ON_MOVE callback.
 	function NpcHandler:onMove(npc, player, fromPosition, toPosition)
-		local callback = self:getCallback(CALLBACK_ONMOVE)
+		local callback = self:getCallback(CALLBACK_ON_MOVE)
 		if callback == nil or callback(npc, player, fromPosition, toPosition) then
-			if self:processModuleCallback(CALLBACK_ONMOVE, npc, player, fromPosition, toPosition) then
+			if self:processModuleCallback(CALLBACK_ON_MOVE, npc, player, fromPosition, toPosition) then
 				if self:checkInteraction(npc, player) then
 					if not self:isInRange(npc, player) then
 						self:onWalkAway(npc, player)
@@ -467,9 +462,9 @@ if NpcHandler == nil then
 
 	-- Should be called on this npc's player if the distance to player is greater then talkRadius.
 	function NpcHandler:onWalkAway(npc, player)
-		local callback = self:getCallback(CALLBACK_CREATURE_DISAPPEAR)
+		local callback = self:getCallback(CALLBACK_ON_DISAPPEAR)
 		if callback == nil or callback() then
-			if self:processModuleCallback(CALLBACK_CREATURE_DISAPPEAR, npc, player) then
+			if self:processModuleCallback(CALLBACK_ON_DISAPPEAR, npc, player) then
 				local msg = self:getMessage(MESSAGE_WALKAWAY)
 				local playerName = player and player:getName() or -1
 				local playerSex = player and player:getSex() or 0

@@ -59,12 +59,12 @@ end
 
 -- onAppear 
 npcType.onAppear = function(npc, creature)
-	npcHandler:onCreatureAppear(npc, creature)
+	npcHandler:onAppear(npc, creature)
 end
 
 -- onDisappear
 npcType.onDisappear = function(npc, creature)
-	npcHandler:onCreatureDisappear(npc, creature)
+	npcHandler:onDisappear(npc, creature)
 end
 
 -- onMove
@@ -74,7 +74,11 @@ end
 
 -- onSay
 npcType.onSay = function(npc, creature, type, message)
-	npcHandler:onCreatureSay(npc, creature, type, message)
+	npcHandler:onSay(npc, creature, type, message)
+end
+
+npcType.onPlayerCloseChannel = function(npc, creature)
+	npcHandler:onPlayerCloseChannel(npc, creature)
 end
 
 -- Function called by the callback "npcHandler:setCallback(CALLBACK_GREET, greetCallback)" in end of file

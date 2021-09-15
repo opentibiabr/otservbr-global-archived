@@ -71,11 +71,11 @@ npcType.onThink = function(npc, interval)
 end
 
 npcType.onAppear = function(npc, creature)
-	npcHandler:onCreatureAppear(npc, creature)
+	npcHandler:onAppear(npc, creature)
 end
 
 npcType.onDisappear = function(npc, creature)
-	npcHandler:onCreatureDisappear(npc, creature)
+	npcHandler:onDisappear(npc, creature)
 end
 
 npcType.onMove = function(npc, creature, fromPosition, toPosition)
@@ -83,7 +83,11 @@ npcType.onMove = function(npc, creature, fromPosition, toPosition)
 end
 
 npcType.onSay = function(npc, creature, type, message)
-	npcHandler:onCreatureSay(npc, creature, type, message)
+	npcHandler:onSay(npc, creature, type, message)
+end
+
+npcType.onPlayerCloseChannel = function(npc, creature)
+	npcHandler:onPlayerCloseChannel(npc, creature)
 end
 
 local function creatureSayCallback(npc, creature, type, message)
@@ -111,7 +115,7 @@ npcHandler:setMessage(MESSAGE_FAREWELL, "Finally.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Finally.")
 npcHandler:setMessage(MESSAGE_SENDTRADE, "At your service, just browse through my wares.")
 
-npcHandler:setCallback(CALLBACK_ONTRADEREQUEST, onTradeRequest)
+npcHandler:setCallback(CALLBACK_ON_TRADE_REQUEST, onTradeRequest)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
 npcHandler:addModule(FocusModule:new())
