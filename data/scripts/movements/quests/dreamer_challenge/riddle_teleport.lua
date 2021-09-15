@@ -13,7 +13,7 @@ local arenaPosition = Position(32818, 32334, 9)
 local function doResetPillows()
 	local storePillows = {}
 	for i = 0, 3 do
-		local pillowId = 1686 + i
+		local pillowId = 2394 + i
 		for i = 1, 9 do
 			storePillows[#storePillows + 1] = pillowId
 		end
@@ -49,10 +49,10 @@ function riddleTeleport.onStepIn(creature, item, position, fromPosition)
 		return false
 	end
 
-	if checkPillows(arenaPosition.x, arenaPosition.y, 1686)
-	and checkPillows(arenaPosition.x + 3, arenaPosition.y, 1688)
-	and checkPillows(arenaPosition.x, arenaPosition.y + 3, 1687)
-	and checkPillows(arenaPosition.x + 3, arenaPosition.y + 3, 1689) then
+	if checkPillows(arenaPosition.x, arenaPosition.y, 2394)
+	and checkPillows(arenaPosition.x + 3, arenaPosition.y, 2396)
+	and checkPillows(arenaPosition.x, arenaPosition.y + 3, 2395)
+	and checkPillows(arenaPosition.x + 3, arenaPosition.y + 3, 900) then
 		player:teleportTo(Position(32766, 32275, 14))
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		doResetPillows()

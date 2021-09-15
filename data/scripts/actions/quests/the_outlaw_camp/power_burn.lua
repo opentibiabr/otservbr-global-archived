@@ -7,15 +7,15 @@ function theOutlawPower.onUse(player, item, fromPosition, target, toPosition, is
 	local stone = Tile(Position({x = 32614, y = 32206, z = 10}))
 	local burn = Position({x = 32615, y = 32221, z = 10})
 
-	if item.itemid == 1945 and power1:getItemById(2166) and wall:getItemById(1025) and stone:getItemById(1304) and barrel:getItemById(1774) then
-		power1:getItemById(2166):transform(1487)
-		wall:getItemById(1025):remove()
-		stone:getItemById(1304):transform(1025)
-		Game.createItem(1487, 1, burn)
+	if item.itemid == 2772 and power1:getItemById(3050) and wall:getItemById(1270) and stone:getItemById(1791) and barrel:getItemById(2523) then
+		power1:getItemById(3050):transform(2118)
+		wall:getItemById(1270):remove()
+		stone:getItemById(1791):transform(1270)
+		Game.createItem(2118, 1, burn)
 	end
-	item:transform(item.itemid == 1945 and 1946 or 1945)
+	item:transform(item.itemid == 2772 and 2773 or 2772)
 	return true
 end
 
-theOutlawPower:id(3402)
+theOutlawPower:id(1491)
 theOutlawPower:register()

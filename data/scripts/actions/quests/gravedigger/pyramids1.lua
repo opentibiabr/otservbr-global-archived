@@ -1,8 +1,8 @@
 local config = {
-	[4646] = {Storage.GravediggerOfDrefia.Mission38, Storage.GravediggerOfDrefia.Mission38a},
-	[4647] = {Storage.GravediggerOfDrefia.Mission38a, Storage.GravediggerOfDrefia.Mission38b},
-	[4648] = {Storage.GravediggerOfDrefia.Mission38b, Storage.GravediggerOfDrefia.Mission38c},
-	[4649] = {Storage.GravediggerOfDrefia.Mission38c, Storage.GravediggerOfDrefia.Mission39}
+	[4635] = {Storage.GravediggerOfDrefia.Mission38, Storage.GravediggerOfDrefia.Mission38a},
+	[4636] = {Storage.GravediggerOfDrefia.Mission38a, Storage.GravediggerOfDrefia.Mission38b},
+	[4637] = {Storage.GravediggerOfDrefia.Mission38b, Storage.GravediggerOfDrefia.Mission38c},
+	[4638] = {Storage.GravediggerOfDrefia.Mission38c, Storage.GravediggerOfDrefia.Mission39}
 }
 
 local gravediggerPyramids1 = Action()
@@ -20,5 +20,5 @@ function gravediggerPyramids1.onUse(player, item, fromPosition, target, toPositi
 	return true
 end
 
-gravediggerPyramids1:id(21449)
+gravediggerPyramids1:id(19133)
 gravediggerPyramids1:register()

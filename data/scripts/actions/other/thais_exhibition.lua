@@ -6,7 +6,7 @@ local exhibits = {
 			{text = 'Look, how our friendship shines!'},
 			{text = 'Hail Tibiafriends!'}
 		},
-		itemid = 10719,
+		itemid = 9802,
 		dir = DIRECTION_NORTH
 	},
 	[50031] = {
@@ -18,7 +18,7 @@ local exhibits = {
 			{text = 'They stoles it! Sneaky little puppetses!'},
 			{text = 'There was a dream that was roleplay. You could only whisper it. Anything more than a whisper and it would vanish.'}
 		},
-		itemid = 10107,
+		itemid = 9189,
 		dir = DIRECTION_WEST
 	},
 	[50032] = {
@@ -27,8 +27,8 @@ local exhibits = {
 			{text = 'Yala Boom', exhibitEffect = CONST_ME_SOUND_RED},
 			{text = 'Hail Portal Tibia!'}
 		},
-		itemid = 10063,
-		transformid = 10064,
+		itemid = 9144,
+		transformid = 9145,
 		dir = DIRECTION_NORTH
 	},
 	[50033] = {
@@ -37,7 +37,7 @@ local exhibits = {
 			{text = 'So cold...'},
 			{text = 'Run, mammoth!'}
 		},
-		itemid = 8982,
+		itemid = 8154,
 		dir = DIRECTION_WEST
 	},
 	[50034] = {
@@ -46,7 +46,7 @@ local exhibits = {
 			{text = 'Shhhhhh, please be quiet!'},
 			{text = 'Books are great!! Aren\'t they?'}
 		},
-		itemid = 20624,
+		itemid = 18343,
 		dir = DIRECTION_NORTH
 	},
 	[50035] = {
@@ -56,7 +56,7 @@ local exhibits = {
 			{text = 'Extra! Extra! Read all about it!'},
 			{text = 'Fresh off the press!'}
 		},
-		itemid = 8981,
+		itemid = 8153,
 		dir = DIRECTION_NORTH
 	},
 	[50036] = {
@@ -67,7 +67,7 @@ local exhibits = {
 			{text = 'Pie for breakfast, pie for lunch and pie for dinner!'},
 			{text = 'Hug me! Feed me! Hail me!'}
 		},
-		itemid = 8977,
+		itemid = 8149,
 		dir = DIRECTION_WEST
 	},
 	[50037] = {
@@ -76,8 +76,8 @@ local exhibits = {
 			{text = 'Let\'s hunt, |PLAYERNAME|!'},
 			{text = 'Hail TibiaBR.com! Flap! Flap!'}
 		},
-		itemid = 8976,
-		transformid = 9003,
+		itemid = 8148,
+		transformid = 8175,
 		dir = DIRECTION_NORTH
 	},
 	[50038] = {
@@ -87,7 +87,7 @@ local exhibits = {
 			{text = 'I SENSE WISDOM...HUMILITY...AND...PERSEVERANCE!!!'},
 			{text = 'MAY MY ETERNAL FLAME BE YOUR SHIELD AND PATH OF SUCCESS, |PLAYERNAME|!'}
 		},
-		itemid = 11394,
+		itemid = 10477,
 		dir = DIRECTION_NORTH
 	},
 	[50039] = {
@@ -97,7 +97,7 @@ local exhibits = {
 			{text = 'THE POWER IS IN TIBIOPEDIA!'},
 			{text = 'THE POWER IS MINE!'}
 		},
-		itemid = 11754,
+		itemid = 10798,
 		dir = DIRECTION_NORTH
 	},
 	[50040] = {
@@ -107,9 +107,9 @@ local exhibits = {
 			{text = 'Look after TibiaTR\'s frozen heart. I\'ve left it with you.'},
 			{text = 'Hail TibiaTR.net!'}
 		},
-		itemid = 13028,
-		transformid = 13029,
-		transformDuration = 13000,
+		itemid = 12041,
+		transformid = 12042,
+		transformDuration = 12013,
 		dir = DIRECTION_NORTH
 	},
 	[50041] = {
@@ -118,18 +118,18 @@ local exhibits = {
 			{text = 'Hail TibiaJourney.com!'},
 			{text = 'Hail |PLAYERNAME|!'}
 		},
-		itemid = 13030,
+		itemid = 12043,
 		dir = DIRECTION_NORTH
 	},
 	[50042] = {
 		itemids = {
 			{
-				itemid = 13032,
-				transformid = 13033
+				itemid = 12045,
+				transformid = 12046
 			},
 			{
-				itemid = 13033,
-				transformid = 13032
+				itemid = 12046,
+				transformid = 12045
 			}
 		},
 		dir = DIRECTION_NORTH
@@ -139,7 +139,7 @@ local exhibits = {
 			{text = 'My powers are limitless!'},
 			{text = 'Hail Tibia Bariloche!'}
 		},
-		itemid = 16107,
+		itemid = 14764,
 		dir = DIRECTION_NORTH
 	},
 	[50044] = {
@@ -148,7 +148,7 @@ local exhibits = {
 			{text = 'Hail |PLAYERNAME|!'},
 			{text = 'Hail Tibia-Market!'}
 		},
-		itemid = 18526,
+		itemid = 16262,
 		dir = DIRECTION_NORTH
 	},
 	[50045] = {
@@ -160,14 +160,14 @@ local exhibits = {
 			{text = 'Look at this one! Wasn\'t this your first battle with a dragon?'},
 			{text = 'This picture reminds me of the latest event.'}
 		},
-		itemid = 21731,
-		transformid = 21732,
+		itemid = 19397,
+		transformid = 19398,
 		transformDuration = 7000,
 		dir = DIRECTION_WEST
 	},
 	[50046] = {
-		itemid = 18550,
-		transformid = 18551,
+		itemid = 16275,
+		transformid = 16276,
 		dir = DIRECTION_NORTH
 	},
 	[50047] = {
@@ -175,26 +175,26 @@ local exhibits = {
 			{text = 'I will petrify thisss moment! Sstonesss are forever!!!'},
 			{text = 'Where isss my body?!? I\'ll kill you!!!'}
 		},
-		itemid = 16105,
+		itemid = 14762,
 		dir = DIRECTION_NORTH
 	},
 	[50048] = {
 		sounds = {
 			{exhibitEffect = CONST_ME_LOSEENERGY}
 		},
-		itemid = 16103,
-		transformid = 16104,
+		itemid = 14760,
+		transformid = 14761,
 		dir = DIRECTION_NORTH
 	},
 	[50049] = {
 		sounds = {
 			{text = 'Now you will see, |PLAYERNAME|!'},
 			{text = 'More eyes for many numbers!'},
-			{text = '469!? So easy...'},
+			{text = '594!? So easy...'},
 			{text = 'Numbers for Exhiti...'}
 		},
-		itemid = 13948,
-		transformid = 13949,
+		itemid = 12811,
+		transformid = 12812,
 		dir = DIRECTION_WEST
 	},
 	[50050] = {
@@ -205,12 +205,12 @@ local exhibits = {
 					{text = 'Hail bffff... RadioTibia!'},
 					{text = 'Hello bffff... |PLAYERNAME|.'}
 				},
-				itemid = 13950,
-				transformid = 13951
+				itemid = 12813,
+				transformid = 12814
 			},
 			{
-				itemid = 13951,
-				transformid = 13950
+				itemid = 12814,
+				transformid = 12813
 			}
 		},
 		dir = DIRECTION_NORTH
@@ -221,7 +221,7 @@ local exhibits = {
 			{text = 'Excalibug is lying at the heart of every true fighter.'},
 			{text = 'Fire is fascinating. But whether it is going to light your path or burning you till death, you can never tell.'}
 		},
-		itemid = 13946,
+		itemid = 12809,
 		dir = DIRECTION_NORTH
 	},
 	[50052] = {
@@ -231,7 +231,7 @@ local exhibits = {
 			{text = 'ou are so unpopular even your own shadow refuses to follow you.'},
 			{text = 'Have fun with FunTibia.com!'}
 		},
-		itemid = 13559,
+		itemid = 12904,
 		dir = DIRECTION_NORTH
 	},
 	[50053] = {
@@ -240,7 +240,7 @@ local exhibits = {
 			{text = 'Feel the eternity of Tibiafans.se!'},
 			{text = '|PLAYERNAME|, you are worthy to feel the power of Tibiafans.se! HAIL TIBIAFANS!'}
 		},
-		itemid = 12667,
+		itemid = 4115,
 		dir = DIRECTION_WEST
 	},
 	[50054] = {
@@ -250,7 +250,7 @@ local exhibits = {
 			{text = 'Wrrrzzzgggrrzzzz...'},
 			{text = 'Yummy...'}
 		},
-		itemid = 11756,
+		itemid = 10800,
 		dir = DIRECTION_NORTH
 	},
 	[50055] = {
@@ -259,7 +259,7 @@ local exhibits = {
 			{text = 'According to tibia-wiki.net, a Bulb of Garlic is a great spice AND protection against vampires.'},
 			{text = 'According to tibia-wiki.net, star and sling herbs taste like cinnamon and vanilla.'}
 		},
-		itemid = 11773,
+		itemid = 10817,
 		dir = DIRECTION_NORTH
 	},
 	[50056] = {
@@ -268,8 +268,8 @@ local exhibits = {
 			{text = 'Click! The box won\'t open for you.'},
 			{text = 'Click! This item is too precious for a newbie. You are unable to open it.'}
 		},
-		itemid = 11401,
-		transformid = 11402,
+		itemid = 3997,
+		transformid = 4010,
 		transformDuration = 7000,
 		dir = DIRECTION_NORTH
 	},
@@ -288,16 +288,16 @@ local function resetExhibit(exhibitPosition, actionid)
 end
 
 local function resetLever(leverPos)
-	local leverItem = Tile(leverPos):getItemById(1946)
+	local leverItem = Tile(leverPos):getItemById(2773)
 	if leverItem then
-		leverItem:transform(1945)
+		leverItem:transform(2772)
 	end
 end
 
 local thaisExhibition = Action()
 
 function thaisExhibition.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 1946 then
+	if item.itemid == 2773 then
 		return false
 	end
 
@@ -348,7 +348,7 @@ function thaisExhibition.onUse(player, item, fromPosition, target, toPosition, i
 		exhibitItem:transform(settings.transformid)
 	end
 
-	item:transform(1946)
+	item:transform(2773)
 	addEvent(resetLever, 6000 or 6000, toPosition)
 
 	if not isToggle then

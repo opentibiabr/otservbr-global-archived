@@ -99,8 +99,8 @@ function getMoneyWeight(money)
 	gold = gold - crystal * 10000
 	local platinum = math.floor(gold / 100)
 	gold = gold - platinum * 100
-	return (ItemType(2160):getWeight() * crystal) + (ItemType(2152):getWeight() * platinum) +
-	(ItemType(2148):getWeight() * gold)
+	return (ItemType(3043):getWeight() * crystal) + (ItemType(3035):getWeight() * platinum) +
+	(ItemType(3031):getWeight() * gold)
 end
 
 function getRealDate()
@@ -274,8 +274,8 @@ function functionRevert()
 	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Habitats.Venom, 0)
 	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Habitats.AllHabitats, 0)
 	for a = 1, #basins do
-		local item = Tile(basins[a].pos):getItemById(24852)
-		item:transform(12070)
+		local item = Tile(basins[a].pos):getItemById(22196)
+		item:transform(11114)
 	end
 	local specs, spec = Game.getSpectators(Position(33629, 32693, 12), false, false, 25, 25, 85, 85)
 	for i = 1, #specs do
@@ -341,16 +341,16 @@ function checkWallArito(item, toPosition)
 		return false
 	end
 	local wallTile = Tile(Position(33206, 32536, 6))
-	if not wallTile or wallTile:getItemCountById(8202) > 0 then
+	if not wallTile or wallTile:getItemCountById(7181) > 0 then
 		return false
 	end
 	local checkEqual = {
-		[2016] = {Position(33207, 32537, 6), {5858, -1}, Position(33205, 32537, 6)},
-		[2419] = {Position(33205, 32537, 6), {2016, 1}, Position(33207, 32537, 6), 5858}
+		[2886] = {Position(33207, 32537, 6), {5858, -1}, Position(33205, 32537, 6)},
+		[3307] = {Position(33205, 32537, 6), {2016, 1}, Position(33207, 32537, 6), 5858}
 	}
 	local it = checkEqual[item:getId()]
 	if (it and it[1] == toPosition and Tile(it[3]):getItemCountById(it[2][1], it[2][2]) > 0) then
-		wallTile:getItemById(877):transform(8202)
+		wallTile:getItemById(1085):transform(7181)
 
 		if (it[4]) then
 			item:transform(it[4])
@@ -359,7 +359,7 @@ function checkWallArito(item, toPosition)
 		addEvent(
 		function()
 			if (Tile(Position(33206, 32536, 6)):getItemCountById(8210) > 0) then
-				Tile(Position(33206, 32536, 6)):getItemById(8210):transform(877)
+				Tile(Position(33206, 32536, 6)):getItemById(8210):transform(1085)
 			end
 			if (Tile(Position(33205, 32537, 6)):getItemCountById(5858) > 0) then
 				Tile(Position(33205, 32537, 6)):getItemById(5858):remove()

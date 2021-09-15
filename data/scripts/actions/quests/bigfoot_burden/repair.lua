@@ -25,5 +25,5 @@ function bigfootRepair.onUse(player, item, fromPosition, target, toPosition, isH
 	return true
 end
 
-bigfootRepair:id(18343)
+bigfootRepair:id(15832)
 bigfootRepair:register()

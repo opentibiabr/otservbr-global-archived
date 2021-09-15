@@ -3,9 +3,9 @@
 -- Description here
 ----
 
----- string of mending id "22542"-----
+---- string of mending id "20208"-----
 local ITEMS = {
-    [13877] = { -----Broken Ring Id "13877" Ring of ending "22516"
+    [12737] = { -----Broken Ring Id "12737" Ring of ending "20182"
         {"ring of ending", 50.50} ----- 1.97 es la probabilidad de crear el item
     }
 }
@@ -44,5 +44,5 @@ function stringOfMending.onUse(cid, item, fromPosition, itemEx, toPosition)
     return true
 end
 
-stringOfMending:id(22542)
+stringOfMending:id(20208)
 stringOfMending:register()

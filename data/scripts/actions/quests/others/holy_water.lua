@@ -20,27 +20,27 @@ local function nexusMessage(player, message)
 end
 
 local storages = {
-	[4008] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave1,
-	[4009] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave2,
-	[4010] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave3,
-	[4011] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave4,
-	[4012] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave5,
-	[4013] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave6,
-	[4014] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave7,
-	[4015] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave8,
-	[4016] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave9,
-	[4017] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave10,
-	[4018] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave11,
-	[4019] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave12,
-	[4020] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave13,
-	[4021] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave14,
-	[4022] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave15,
-	[4023] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave16
+	[3744] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave1,
+	[3745] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave2,
+	[3746] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave3,
+	[3747] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave4,
+	[3748] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave5,
+	[3749] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave6,
+	[3750] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave7,
+	[3751] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave8,
+	[3752] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave9,
+	[3753] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave10,
+	[3754] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave11,
+	[3755] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave12,
+	[3756] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave13,
+	[3757] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave14,
+	[3758] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave15,
+	[3759] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave16
 }
 
 local config = {
-	antler_talisman = 24664,
-	sacred_antler_talisman = 24665
+	antler_talisman = 22008,
+	sacred_antler_talisman = 22009
 }
 
 local othersHolyWater = Action()
@@ -77,9 +77,9 @@ function othersHolyWater.onUse(player, item, fromPosition, target, toPosition, i
 		player:setStorageValue(Storage.TheInquisition.Questline, 13)
 		player:setStorageValue(Storage.TheInquisition.Mission04, 2)
 
-		local doorItem = Tile(doorPosition):getItemById(8697)
+		local doorItem = Tile(doorPosition):getItemById(7869)
 		if doorItem then
-			doorItem:transform(8696)
+			doorItem:transform(7868)
 		end
 		addEvent(revertItem, 10 * 1000, doorPosition, 8696, 8697)
 		return true
@@ -100,23 +100,23 @@ function othersHolyWater.onUse(player, item, fromPosition, target, toPosition, i
 		elseif cStorage == 14 then
 			player:setStorageValue(Storage.TibiaTales.RestInHallowedGround.HolyWater, -1)
 			player:setStorageValue(Storage.TibiaTales.RestInHallowedGround.Questline, 4)
-			item:transform(2006, 0)
+			item:transform(2874, 0)
 		end
 
 		toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	end
 
 	-- Shadow Nexus
-	if isInArray({8753, 8755, 8757}, target.itemid) then
-		if target.itemid == 8757 then
+	if isInArray({7925, 7927, 7929}, target.itemid) then
+		if target.itemid == 7929 then
 			Game.setStorageValue(GlobalStorage.Inquisition, math.random(4,5))
 		end
 		target:transform(target.itemid + 1)
-		target:setAttribute(ITEM_ATTRIBUTE_DURATION, 20000)
+		target:setAttribute(ITEM_ATTRIBUTE_DURATION, 17720)
 		target:decay()
 		nexusMessage(player, player:getName() .. ' damaged the shadow nexus! You can\'t damage it while it\'s burning.')
 		toPosition:sendMagicEffect(CONST_ME_ENERGYHIT)
-	elseif target.itemid == 8759 then
+	elseif target.itemid == 7931 then
 		if Game.getStorageValue(GlobalStorage.Inquisition) > 0 then
 			Game.setStorageValue(GlobalStorage.Inquisition, (Game.getStorageValue(GlobalStorage.Inquisition)-1))
 			if player:getStorageValue(Storage.TheInquisition.Questline) < 22 then
@@ -131,12 +131,12 @@ function othersHolyWater.onUse(player, item, fromPosition, target, toPosition, i
 			item:remove(1)
 			toPosition:sendMagicEffect(CONST_ME_HOLYAREA)
 		else
-			target:transform(8753)
+			target:transform(7925)
 		end
 	end
 
 	return true
 end
 
-othersHolyWater:id(7494)
+othersHolyWater:id(133)
 othersHolyWater:register()

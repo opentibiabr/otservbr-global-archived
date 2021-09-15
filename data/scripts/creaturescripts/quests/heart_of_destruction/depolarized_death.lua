@@ -11,8 +11,8 @@ local function setStorage()
 					if creatures and #creatures > 0 then
 						for _, c in pairs(creatures) do
 							if isPlayer(c) then
-								if c:getStorageValue(14322) < 1 then
-									c:setStorageValue(14322, 1) -- Access to boss Anomaly
+								if c:getStorageValue(126) < 1 then
+									c:setStorageValue(126, 1) -- Access to boss Anomaly
 								end
 							end
 						end
@@ -26,11 +26,11 @@ end
 local depolarizedDeath = CreatureEvent("DepolarizedDeath")
 function depolarizedDeath.onDeath(creature)
 
-	Game.setStorageValue(14323, Game.getStorageValue(14323) + 1)
-	if Game.getStorageValue(14323) == 10 then
+	Game.setStorageValue(135, Game.getStorageValue(135) + 1)
+	if Game.getStorageValue(135) == 10 then
 		setStorage()
 		creature:say("You have reached enough charges to pass further into the destruction!", TALKTYPE_MONSTER_YELL, isInGhostMode, pid, {x = 32209, y = 31326, z = 14})
-		Game.setStorageValue(14323, -1)
+		Game.setStorageValue(135, -1)
 	end
 	return true
 end

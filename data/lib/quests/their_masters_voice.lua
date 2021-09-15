@@ -40,7 +40,7 @@ local servant_positions = {
 	{x = 33347, y = 31889, z = 9}
 }
 
-local slime_ids = {13585, 13586, 13587, 13588, 13589}
+local slime_ids = {12059, 12060, 12061, 12062, 12063}
 
 local servants = {
 	{10, "diamond servant"},
@@ -122,7 +122,7 @@ function Gobbler_onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:say("The slime gobbler gobbles large chunks of the slime fungus with great satisfaction.", TALKTYPE_MONSTER_SAY)
 	player:addExperience(20, true, true)
 	slimes_removed[#slimes_removed + 1] = {cid = player.uid, id = target.itemid, pos = toPosition}
-	target:transform(13590)
+	target:transform(12065)
 
 	if not isInArray(valid_participants, player.uid) then
 		local slime_count = 0

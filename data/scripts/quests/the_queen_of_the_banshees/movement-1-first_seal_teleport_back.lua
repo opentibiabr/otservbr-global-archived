@@ -2,7 +2,7 @@ local teleportBack = MoveEvent()
 
 function teleportBack.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
-	if item.actionid ~= 25019 or not player then
+	if item.actionid ~= 22363 or not player then
 		return true
 	end
 

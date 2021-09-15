@@ -1,6 +1,6 @@
 local secretServiceRing = Action()
 function secretServiceRing.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.actionid ~= 12563 then
+	if target.actionid ~= 11607 then
 		return false
 	end
 
@@ -12,5 +12,5 @@ function secretServiceRing.onUse(player, item, fromPosition, target, toPosition,
 	return true
 end
 
-secretServiceRing:id(7697)
+secretServiceRing:id(349)
 secretServiceRing:register()

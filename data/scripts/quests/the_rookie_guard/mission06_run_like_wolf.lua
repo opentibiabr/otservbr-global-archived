@@ -79,18 +79,18 @@ warWolfDenHole:uid(25024)
 warWolfDenHole:register()
 
 local specialMissionTiles = {
-	[25025] = {
+	[22369] = {
 		state = 2,
 		message = "Well.. that seems to be the poacher. Dead. Check his body - maybe he still has something that you can use.",
 		arrowPosition = {x = 32135, y = 32133, z = 8},
 		newState = 3
 	},
-	[25026] = {
+	[22370] = {
 		state = 3,
 		message = "There is a dead war wolf! Use the knife, and then use it on its body to get some leather - but quickly!",
 		arrowPosition = {x = 32108, y = 32132, z = 11}
 	},
-	[25027] = {
+	[22371] = {
 		state = 5,
 		message = "You reached the exit in time! Phew.. back to Tom.",
 		newState = 6
@@ -180,7 +180,7 @@ function poacherCorpse.onUse(player, item, frompos, item2, topos)
 	if missionState == 3 then
 		local corpseState = player:getStorageValue(Storage.TheRookieGuard.PoacherCorpse)
 		if corpseState == -1 then
-			local reward = Game.createItem(13828, 1)
+			local reward = Game.createItem(12672, 1)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. reward:getArticle() .. " " .. reward:getName() .. ".")
 			player:setStorageValue(Storage.TheRookieGuard.PoacherCorpse, 1)
 			player:addItemEx(reward, true, CONST_SLOT_WHEREEVER)
@@ -200,17 +200,17 @@ local skinningKnife = Action()
 
 function skinningKnife.onUse(player, item, frompos, item2, topos)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission06)
-	if missionState == 3 and item2.uid == 40045 then
+	if missionState == 3 and item2.uid == 35210 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You got the war wolf leather - but you hear a scary howl behind you. Time to get out of here - FAST!")
 		player:setStorageValue(Storage.TheRookieGuard.Mission06, 4)
 		player:addExperience(50, true)
-		player:removeItem(13828, 1)
-		player:addItemEx(Game.createItem(13879, 1), true, CONST_SLOT_WHEREEVER)
+		player:removeItem(12672, 1)
+		player:addItemEx(Game.createItem(12740, 1), true, CONST_SLOT_WHEREEVER)
 	end
 	return true
 end
 
-skinningKnife:id(13828)
+skinningKnife:id(12672)
 skinningKnife:register()
 
 -- War wolf den chest (Small health potion)
@@ -225,7 +225,7 @@ function warWolfDenChest.onUse(player, item, frompos, item2, topos)
 	end
 	local chestState = player:getStorageValue(Storage.TheRookieGuard.WarWolfDenChest)
 	if chestState == -1 then
-		local reward = Game.createItem(8704, 1)
+		local reward = Game.createItem(7876, 1)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. reward:getArticle() .. " " .. reward:getName() .. ".")
 		player:setStorageValue(Storage.TheRookieGuard.WarWolfDenChest, 1)
 		player:addItemEx(reward, true, CONST_SLOT_WHEREEVER)

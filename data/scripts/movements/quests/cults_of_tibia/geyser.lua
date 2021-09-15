@@ -45,5 +45,5 @@ function geyser.onStepIn(creature, item, position, fromPosition)
 end
 
 geyser:type("stepin")
-geyser:id(28869)
+geyser:id(25510)
 geyser:register()

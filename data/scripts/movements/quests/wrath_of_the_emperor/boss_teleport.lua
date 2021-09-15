@@ -1,17 +1,17 @@
 local teleports = {
-	[3189] = {
+	[536] = {
 		destination = Position(33041, 31086, 15),
 		storage = GlobalStorage.WrathOfTheEmperor.Bosses.Fury
 	},
-	[3190] = {
+	[537] = {
 		destination = Position(33091, 31083, 15),
 		storage = GlobalStorage.WrathOfTheEmperor.Bosses.Wrath
 	},
-	[3191] = {
+	[538] = {
 		destination = Position(33094, 31118, 15),
 		storage = GlobalStorage.WrathOfTheEmperor.Bosses.Scorn
 	},
-	[3192] = {
+	[539] = {
 		destination = Position(33038, 31119, 15),
 		storage = GlobalStorage.WrathOfTheEmperor.Bosses.Spite
 	}
@@ -38,7 +38,7 @@ function bossTeleport.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if player:getStorageValue(Storage.WrathoftheEmperor.BossStatus) ~= item.uid - 3188 then
+	if player:getStorageValue(Storage.WrathoftheEmperor.BossStatus) ~= item.uid - 535 then
 		player:teleportTo(fromPosition, true)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Go to another Teleport or take mission with Zizzle.")
 		return true

@@ -1,7 +1,7 @@
 local stairsPosition = Position(33265, 31116, 7)
 
 local function revertStairs()
-	Tile(stairsPosition):getItemById(9197):transform(3219)
+	Tile(stairsPosition):getItemById(8281):transform(566)
 end
 
 local stair = MoveEvent()
@@ -13,13 +13,13 @@ function stair.onStepIn(creature, item, position, fromPosition)
 	end
 
 	-- check if going upstairs
-	if not Tile(position):getItemById(3687) then
+	if not Tile(position):getItemById(1977) then
 		return true
 	end
 
-	local stairs = Tile(stairsPosition):getItemById(3219)
+	local stairs = Tile(stairsPosition):getItemById(566)
 	if stairs then
-		stairs:transform(9197)
+		stairs:transform(8281)
 		addEvent(revertStairs, 5 * 30 * 1000)
 	end
 

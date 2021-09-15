@@ -11,7 +11,7 @@ function feroxaTransform.onThink(creature)
 		end
 	end
 	if creature:getMaxHealth() == 50000 then
-		if creature:getHealth() <= 25000 then
+		if creature:getHealth() <= 22344 then
 			creature:getPosition():sendMagicEffect(CONST_ME_POFF)
 			local feroxas = {
 				[1] = {name = 'feroxa3'},
@@ -27,7 +27,7 @@ feroxaTransform:register()
 
 local feroxaDeath = CreatureEvent("FeroxaDeath")
 function feroxaDeath.onDeath(creature, corpse, deathList)
-	local pool = Tile(creature:getPosition()):getItemById(2016)
+	local pool = Tile(creature:getPosition()):getItemById(2886)
 	if pool then
 		pool:remove()
 	end

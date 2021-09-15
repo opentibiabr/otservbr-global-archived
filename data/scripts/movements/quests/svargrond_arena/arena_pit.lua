@@ -70,5 +70,5 @@ function arenaPit.onStepIn(creature, item, position, fromPosition)
 end
 
 arenaPit:type("stepin")
-arenaPit:aid(25200, 25300)
+arenaPit:aid(25200, 22644)
 arenaPit:register()

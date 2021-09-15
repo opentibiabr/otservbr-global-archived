@@ -14,7 +14,7 @@ charm_t1.chance = 20
 charm_t1.messageCancel = "You wounded the monster."
 charm_t1.messageServerLog = "[Wound charm]"
 charm_t1.effect = CONST_ME_HITAREA
-charm_t1.points = 600
+charm_t1.points = 729
 
 Bestiaryregister(charm_1, charm_t1)
 --
@@ -52,7 +52,7 @@ charm_t3.chance = 20
 charm_t3.messageCancel = "You poisoned the monster."
 charm_t3.messageServerLog = "[Poison charm]"
 charm_t3.effect = CONST_ME_GREEN_RINGS
-charm_t3.points = 600
+charm_t3.points = 729
 
 Bestiaryregister(charm_3, charm_t3)
 --
@@ -109,7 +109,7 @@ charm_t6.chance = 20
 charm_t6.messageCancel = "You curse the monster."
 charm_t6.messageServerLog = "[Curse charm]"
 charm_t6.effect = CONST_ME_SMALLCLOUDS
-charm_t6.points = 900
+charm_t6.points = 1109
 
 Bestiaryregister(charm_6, charm_t6)
 
@@ -157,7 +157,7 @@ charm_t9.type = CHARM_DEFENSIVE
 charm_t9.chance = 20
 charm_t9.messageCancel = "You dodge the attack."
 charm_t9.effect = CONST_ME_POFF
-charm_t9.points = 600
+charm_t9.points = 729
 
 Bestiaryregister(charm_9, charm_t9)
 --
@@ -278,7 +278,7 @@ charm_t17.chance = 20
 charm_t17.messageCancel = "You divine the monster."
 charm_t17.messageServerLog = "[Divine charm]"
 charm_t17.effect = CONST_ME_HOLYDAMAGE
-charm_t17.points = 1500
+charm_t17.points = 21465
 
 Bestiaryregister(charm_17, charm_t17)
 --
@@ -293,7 +293,7 @@ charm_t18.description = "Adds 4% Life Leech to attacks if wearing equipment that
 charm_t18.type = CHARM_PASSIVE
 charm_t18.percent = 4
 charm_t18.chance = 0
-charm_t18.points = 1500
+charm_t18.points = 21465
 
 Bestiaryregister(charm_18, charm_t18)
 --
@@ -308,6 +308,6 @@ charm_t19.description = "Adds 2% Mana Leech to attacks if wearing equipment that
 charm_t19.type = CHARM_PASSIVE
 charm_t19.percent = 2
 charm_t19.chance = 0
-charm_t19.points = 1500
+charm_t19.points = 21465
 
 Bestiaryregister(charm_19, charm_t19)

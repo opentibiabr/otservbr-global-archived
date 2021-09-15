@@ -6,9 +6,9 @@ function ferumbrasAscendantHomeComing.onUse(player, item, fromPosition, target, 
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You need to equip the boot to try use it.')
 		return true
 	end
-	if item.itemid == 25429 then
+	if item.itemid == 22773 then
 		if Tile(player:getPosition()):hasFlag(TILESTATE_PROTECTIONZONE) then
-			item:transform(25430)
+			item:transform(22774)
 			item:decay()
 			player:getPosition():sendMagicEffect(CONST_ME_POFF)
 			player:teleportTo(Position(32121, 32708, 7))
@@ -18,11 +18,11 @@ function ferumbrasAscendantHomeComing.onUse(player, item, fromPosition, target, 
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'If you want to wear this boots you need to stay in a protection zone.')
 			return true
 		end
-	elseif item.itemid == 25430 then
+	elseif item.itemid == 22774 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You are tired of the last use of the boots, you must wait for one hour to use it again.')
 	end
 	return true
 end
 
-ferumbrasAscendantHomeComing:id(25429,25430)
+ferumbrasAscendantHomeComing:id(22773,22774)
 ferumbrasAscendantHomeComing:register()

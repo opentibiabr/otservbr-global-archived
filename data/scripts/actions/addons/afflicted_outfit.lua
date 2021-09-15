@@ -3,7 +3,7 @@ local afflictedOutfit = Action()
 function afflictedOutfit.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local hasOutfit = player:getStorageValue(Storage.OutfitQuest.Afflicted.Outfit) == 1
 	-- Plgue Mask
-	if item.itemid == 13925 then
+	if item.itemid == 12786 then
 		if not hasOutfit then
 			return false
 		end
@@ -20,7 +20,7 @@ function afflictedOutfit.onUse(player, item, fromPosition, target, toPosition, i
 		item:remove()
 
 	-- Plague Bell
-	elseif item.itemid == 13926 then
+	elseif item.itemid == 12787 then
 		if not hasOutfit then
 			return false
 		end
@@ -42,13 +42,13 @@ function afflictedOutfit.onUse(player, item, fromPosition, target, toPosition, i
 			return false
 		end
 
-		for id = 13540, 13545 do
+		for id = 12551, 12556 do
 			if player:getItemCount(id) < 1 then
 				return false
 			end
 		end
 
-		for id = 13540, 13545 do
+		for id = 12551, 12556 do
 			player:removeItem(id, 1)
 		end
 
@@ -61,5 +61,5 @@ function afflictedOutfit.onUse(player, item, fromPosition, target, toPosition, i
 	return true
 end
 
-afflictedOutfit:id(13540, 13541, 13542, 13543, 13544, 13545, 13925, 13926)
+afflictedOutfit:id(12551, 12552, 12553, 12554, 12555, 12556, 12786, 12787)
 afflictedOutfit:register()

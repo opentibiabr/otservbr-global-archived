@@ -4,7 +4,7 @@ function spikeTasksFork.onUse(player, item, fromPosition, target, toPosition, is
 		return player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 	end
 
-	if (target == nil) or not target:isItem() or (target:getId() ~= 21558) then
+	if (target == nil) or not target:isItem() or (target:getId() ~= 19208) then
 		return player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 	end
 
@@ -16,11 +16,11 @@ function spikeTasksFork.onUse(player, item, fromPosition, target, toPosition, is
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Report the task to Gnomilly.")
 	end
 
-	target:transform(21563)
+	target:transform(19213)
 	target:decay()
 	toPosition:sendMagicEffect(24)
 	return true
 end
 
-spikeTasksFork:id(21554)
+spikeTasksFork:id(19204)
 spikeTasksFork:register()

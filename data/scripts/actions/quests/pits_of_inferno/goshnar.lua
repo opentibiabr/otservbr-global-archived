@@ -1,10 +1,10 @@
 local pitsOfInfernoGoshnar = Action()
 function pitsOfInfernoGoshnar.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.actionid ~= 2023 then
+	if target.actionid ~= 2893 then
 		return false
 	end
 
-	if not Tile(toPosition):getItemById(2016, 2) then
+	if not Tile(toPosition):getItemById(2886, 2) then
 		return true
 	end
 

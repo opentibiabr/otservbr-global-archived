@@ -1,41 +1,41 @@
 local config = {
-	[24839] = {
+	[22183] = {
 		toPosition = Position(33419, 32841, 11),
 		backPosition = Position(33484, 32775, 12),
 		timer = Storage.FerumbrasAscension.TarbazTimer
 
 	},
-	[24840] = {
+	[22184] = {
 		toPosition = Position(33452, 32356, 13),
 		backPosition = Position(33432, 32330, 14),
 		timer = Storage.FerumbrasAscension.RagiazTimer
 	},
-	[24841] = {
+	[22185] = {
 		toPosition = Position(33230, 31493, 13),
 		backPosition = Position(33197, 31438, 13),
 		timer = Storage.FerumbrasAscension.PlagirathTimer
 	},
-	[24842] = {
+	[22186] = {
 		toPosition = Position(33380, 32454, 14),
 		backPosition = Position(33399, 32402, 15),
 		timer = Storage.FerumbrasAscension.RazzagornTimer
 	},
-	[24843] = {
+	[22187] = {
 		toPosition = Position(33680, 32736, 11),
 		backPosition = Position(33664, 32682, 10),
 		timer = Storage.FerumbrasAscension.ZamuloshTimer
 	},
-	[24844] = {
+	[22188] = {
 		toPosition = Position(33593, 32658, 14),
 		backPosition = Position(33675, 32690, 13),
 		timer = Storage.FerumbrasAscension.MazoranTimer
 	},
-	[24845] = {
+	[22189] = {
 		toPosition = Position(33436, 32800, 13),
 		backPosition = Position(33477, 32701, 14),
 		timer = Storage.FerumbrasAscension.ShulgraxTimer
 	},
-	[24846] = {
+	[22190] = {
 		toPosition = Position(33270, 31474, 14),
 		backPosition = Position(33324, 31374, 14),
 		timer = Storage.FerumbrasAscension.FerumbrasTimer

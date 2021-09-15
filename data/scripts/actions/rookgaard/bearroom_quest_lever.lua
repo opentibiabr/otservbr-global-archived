@@ -4,16 +4,16 @@ local relocatePosition = Position(32145, 32102, 11)
 local bearRoomQuestLever = Action()
 
 function bearRoomQuestLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 1945 then
-		local stoneItem = Tile(stonePosition):getItemById(1304)
+	if item.itemid == 2772 then
+		local stoneItem = Tile(stonePosition):getItemById(1791)
 		if stoneItem then
 			stoneItem:remove()
-			item:transform(1946)
+			item:transform(2773)
 		end
 	else
 		Tile(stonePosition):relocateTo(relocatePosition)
-		Game.createItem(1304, 1, stonePosition)
-		item:transform(1945)
+		Game.createItem(1791, 1, stonePosition)
+		item:transform(2772)
 	end
 	return true
 end

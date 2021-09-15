@@ -1,8 +1,8 @@
 --[[
 Storages:
-The Hunger = 14334
-The Destruction = 14335
-The Rage = 14336
+The Hunger = 3208
+The Destruction = 3506
+The Rage = 4846
 ]]--
 -- FUNCTIONS
 function sparkDevourerSpawn()
@@ -46,7 +46,7 @@ local function doCheckArea()
 
 	for _, online in ipairs(Game.getPlayers()) do
 		if online:isPlayer() then
-			if online:getStorageValue(14334) >= 1 or online:getStorageValue(14335) >= 1 or online:getStorageValue(14336) >= 1 then
+			if online:getStorageValue(3208) >= 1 or online:getStorageValue(3506) >= 1 or online:getStorageValue(4846) >= 1 then
 				return true
 			end
 		end
@@ -144,23 +144,23 @@ local function changeArea()
 		for _, online in ipairs(Game.getPlayers()) do
 			if online:isPlayer() then
 				-- Teleport players from The Hunger to The Rage
-				if online:getStorageValue(14334) >= 1 then
-					online:setStorageValue(14334, -1)
-					online:setStorageValue(14336, 1)
+				if online:getStorageValue(3208) >= 1 then
+					online:setStorageValue(3208, -1)
+					online:setStorageValue(4846, 1)
 					online:teleportTo({x = 32299, y = 31372, z = 14})
 					online:say("A polarity shift moves you into another part of the heart of destruction.", TALKTYPE_MONSTER_SAY)
 					Position({x = 32299, y = 31372, z = 14}):sendMagicEffect(11)
 				-- Teleport players from The Destruction to The Hunger
-				elseif online:getStorageValue(14335) >= 1 then
-					online:setStorageValue(14335, -1)
-					online:setStorageValue(14334, 1)
+				elseif online:getStorageValue(3506) >= 1 then
+					online:setStorageValue(3506, -1)
+					online:setStorageValue(3208, 1)
 					online:teleportTo({x = 32244, y = 31372, z = 14})
 					online:say("A polarity shift moves you into another part of the heart of destruction.", TALKTYPE_MONSTER_SAY)
 					Position({x = 32244, y = 31372, z = 14}):sendMagicEffect(11)
 				-- Teleport players from The Rage to The Destruction
-				elseif online:getStorageValue(14336) >= 1 then
-					online:setStorageValue(14336, -1)
-					online:setStorageValue(14335, 1)
+				elseif online:getStorageValue(4846) >= 1 then
+					online:setStorageValue(4846, -1)
+					online:setStorageValue(3506, 1)
 					online:teleportTo({x = 32271, y = 31316, z = 14})
 					online:say("A polarity shift moves you into another part of the heart of destruction.", TALKTYPE_MONSTER_SAY)
 					Position({x = 32271, y = 31316, z = 14}):sendMagicEffect(11)
@@ -178,18 +178,18 @@ local function changeArea()
 		stopEvent(areaDevourer4)
 		for _, online in ipairs(Game.getPlayers()) do
 			if online:isPlayer() then
-				if online:getStorageValue(14334) >= 1 then
-					online:setStorageValue(14334, -1)
+				if online:getStorageValue(3208) >= 1 then
+					online:setStorageValue(3208, -1)
 					online:unregisterEvent("DevourerStorage")
 					online:teleportTo({x = 32271, y = 31357, z = 14})
 					Position({x = 32271, y = 31357, z = 14}):sendMagicEffect(11)
-				elseif online:getStorageValue(14335) >= 1 then
-					online:setStorageValue(14335, -1)
+				elseif online:getStorageValue(3506) >= 1 then
+					online:setStorageValue(3506, -1)
 					online:unregisterEvent("DevourerStorage")
 					online:teleportTo({x = 32272, y = 31357, z = 14})
 					Position({x = 32272, y = 31357, z = 14}):sendMagicEffect(11)
-				elseif online:getStorageValue(14336) >= 1 then
-					online:setStorageValue(14336, -1)
+				elseif online:getStorageValue(4846) >= 1 then
+					online:setStorageValue(4846, -1)
 					online:unregisterEvent("DevourerStorage")
 					online:teleportTo({x = 32273, y = 31357, z = 14})
 					Position({x = 32273, y = 31357, z = 14}):sendMagicEffect(11)
@@ -358,7 +358,7 @@ function heartDestructionFinal.onUse(player, item, fromPosition, itemEx, toPosit
 	local pushPos = {x = 32272, y = 31374, z = 14}
 
 	if item.actionid == 14332 then
-		if item.itemid == 9825 then
+		if item.itemid == 8911 then
 			if player:getPosition().x == pushPos.x and player:getPosition().y == pushPos.y and player:getPosition().z == pushPos.z then
 
 				local storeHunger, hungerTile = {}
@@ -405,8 +405,8 @@ function heartDestructionFinal.onUse(player, item, fromPosition, itemEx, toPosit
 						teamHunger = storeHunger[i]
 						config.hungerPositions[i]:sendMagicEffect(CONST_ME_POFF)
 						teamHunger:teleportTo(config.hungerNewPos)
-						teamHunger:setStorageValue(14333, os.time() + 7*24*60*60)
-						teamHunger:setStorageValue(14334, 1) --storage Hunger
+						teamHunger:setStorageValue(9152, os.time() + 7*24*60*60)
+						teamHunger:setStorageValue(3208, 1) --storage Hunger
 						teamHunger:registerEvent("DevourerStorage")
 					end
 
@@ -414,8 +414,8 @@ function heartDestructionFinal.onUse(player, item, fromPosition, itemEx, toPosit
 						teamDestruction = storeDestruction[i]
 						config.destructionPositions[i]:sendMagicEffect(CONST_ME_POFF)
 						teamDestruction:teleportTo(config.destructionNewPos)
-						teamDestruction:setStorageValue(14333, os.time() + 7*24*60*60)
-						teamDestruction:setStorageValue(14335, 1) --storage Destruction
+						teamDestruction:setStorageValue(9152, os.time() + 7*24*60*60)
+						teamDestruction:setStorageValue(3506, 1) --storage Destruction
 						teamDestruction:registerEvent("DevourerStorage")
 					end
 
@@ -423,8 +423,8 @@ function heartDestructionFinal.onUse(player, item, fromPosition, itemEx, toPosit
 						teamRage = storeRage[i]
 						config.ragePositions[i]:sendMagicEffect(CONST_ME_POFF)
 						teamRage:teleportTo(config.rageNewPos)
-						teamRage:setStorageValue(14333, os.time() + 7*24*60*60)
-						teamRage:setStorageValue(14336, 1) --storage Rage
+						teamRage:setStorageValue(9152, os.time() + 7*24*60*60)
+						teamRage:setStorageValue(4846, 1) --storage Rage
 						teamRage:registerEvent("DevourerStorage")
 					end
 
@@ -454,7 +454,7 @@ function heartDestructionFinal.onUse(player, item, fromPosition, itemEx, toPosit
 
 					local vortex = Tile({x = 32281, y = 31348, z = 14}):getItemById(26138)
 					if vortex then
-						vortex:transform(26139)
+						vortex:transform(23483)
 						vortex:setActionId(14352)
 					end
 				else
@@ -464,7 +464,7 @@ function heartDestructionFinal.onUse(player, item, fromPosition, itemEx, toPosit
 				return true
 			end
 		end
-		item:transform(item.itemid == 9825 and 9826 or 9825)
+		item:transform(item.itemid == 8911 and 8912 or 8911)
 	end
 	return true
 end

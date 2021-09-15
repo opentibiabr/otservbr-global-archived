@@ -48,7 +48,7 @@ function parasiteWarzone.onKill(player, target)
 	end
 
 	local pos = targetMonster:getPosition()
-	if pos.x ~= 33097 or pos.y > 31979 or pos.y < 31976 or pos.z ~= 11 then
+	if pos.x ~= 28344 or pos.y > 27359 or pos.y < 27353 or pos.z ~= 11 then
 		return false
 	end
 
@@ -58,7 +58,7 @@ function parasiteWarzone.onKill(player, target)
 		return false
 	end
 
-	if config.wall < 18461 and config.wall >= 18459 then
+	if config.wall < 16171 and config.wall >= 16169 then
 		for i = 1, #positionsWall do
 			local crystal = Tile(positionsWall[i]):getItemById(config.wall)
 			if crystal then
@@ -67,14 +67,14 @@ function parasiteWarzone.onKill(player, target)
 			end
 		end
 		config.wall = config.wall + 1
-	elseif config.wall == 18461 then
+	elseif config.wall == 16171 then
 		for i = 1, #positionsWall do
 			local crystal = Tile(positionsWall[i]):getItemById(config.wall)
 			if crystal then
 				Tile(positionsWall[i]):getItemById(config.wall):remove()
 			end
 		end
-		config.wall = 18459
+		config.wall = 16169
 		addEvent(recreateCrystals, 1 * 60 * 1000, config)
 		addEvent(warzoneConfig.spawnBoss, 1 * 60 * 1000, config.boss, config.bossResp)
 		addEvent(warzoneConfig.resetRoom, 30 * 60 * 1000, config, "You were teleported out by the gnomish emergency device.", true)

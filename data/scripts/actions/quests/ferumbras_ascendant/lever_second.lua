@@ -3,7 +3,7 @@ function ferumbrasAscendantLeverSecond.onUse(player, item, fromPosition, target,
 	if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Active) < 1 then
 		return false
 	end
-	if item.itemid == 10029 then
+	if item.itemid == 9110 then
 		if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Done) < 2 then
 			local spectators = Game.getSpectators(item:getPosition(), false, false, 9, 9, 6, 6)
 			for i = 1, #spectators do
@@ -21,9 +21,9 @@ function ferumbrasAscendantLeverSecond.onUse(player, item, fromPosition, target,
 			Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Done, 3)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Something clicked.")
 		end
-		item:transform(10030)
-	elseif item.itemid == 10030 then
-		item:transform(10029)
+		item:transform(9111)
+	elseif item.itemid == 9111 then
+		item:transform(9110)
 	end
 	return true
 end

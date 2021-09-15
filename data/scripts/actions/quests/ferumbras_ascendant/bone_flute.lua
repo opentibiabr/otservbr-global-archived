@@ -27,5 +27,5 @@ function ferumbrasAscendantBoneFlute.onUse(player, item, fromPosition, target, t
 	return true
 end
 
-ferumbrasAscendantBoneFlute:id(24910)
+ferumbrasAscendantBoneFlute:id(22254)
 ferumbrasAscendantBoneFlute:register()

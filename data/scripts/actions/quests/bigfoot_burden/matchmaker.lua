@@ -1,6 +1,6 @@
 local bigfootMatch = Action()
 function bigfootMatch.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.itemid < 18320 and target.itemid > 18326 then
+	if target.itemid < 15809 and target.itemid > 15815 then
 		return false
 	end
 
@@ -20,5 +20,5 @@ function bigfootMatch.onUse(player, item, fromPosition, target, toPosition, isHo
 	return true
 end
 
-bigfootMatch:id(18312)
+bigfootMatch:id(15801)
 bigfootMatch:register()

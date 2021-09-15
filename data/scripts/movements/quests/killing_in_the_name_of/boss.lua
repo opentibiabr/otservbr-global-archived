@@ -28,7 +28,7 @@ local function clearBossRoom(playerId, bossId,
 end
 
 local bosses = {
-	[3230] = {
+	[577] = {
 		bossName = 'the snapper',
 		storage = 34100,
 		playerPosition = Position(32610, 32723, 8),
@@ -37,7 +37,7 @@ local bosses = {
 		rangeX = 5, rangeY = 5,
 		flamePosition = Position(32612, 32733, 8)
 	},
-	[3231] = {
+	[578] = {
 		bossName = 'hide',
 		storage = 34101,
 		playerPosition = Position(32815, 32703, 8),
@@ -46,7 +46,7 @@ local bosses = {
 		rangeX = 6, rangeY = 5,
 		flamePosition = Position(32810, 32704, 8)
 	},
-	[3232] = {
+	[579] = {
 		bossName = 'deathbine',
 		storage = 34102,
 		playerPosition = Position(32715, 32736, 8),
@@ -55,7 +55,7 @@ local bosses = {
 		rangeX = 9, rangeY = 13,
 		flamePosition = Position(32726, 32727, 8)
 	},
-	[3233] = {
+	[580] = {
 		bossName = 'the bloodtusk',
 		storage = 34103,
 		playerPosition = Position(32102, 31124, 2),
@@ -64,7 +64,7 @@ local bosses = {
 		rangeX = 5, rangeY = 6,
 		flamePosition = Position(32093, 31130, 2)
 	},
-	[3234] = {
+	[581] = {
 		bossName = 'shardhead',
 		storage = 34104,
 		playerPosition = Position(32152, 31137, 3),
@@ -73,7 +73,7 @@ local bosses = {
 		rangeX = 5, rangeY = 7,
 		flamePosition = Position(32149, 31137, 3)
 	},
-	[3235] = {
+	[582] = {
 		bossName = 'esmeralda',
 		storage = 34105,
 		playerPosition = Position(32759, 31252, 9),
@@ -82,7 +82,7 @@ local bosses = {
 		rangeX = 4, rangeY = 4,
 		flamePosition = Position(32758, 31248, 9)
 	},
-	[3236] = {
+	[583] = {
 		bossName = 'fleshcrawler',
 		storage = 34106,
 		playerPosition = Position(33100, 32785, 11),
@@ -91,7 +91,7 @@ local bosses = {
 		rangeX = 15, rangeY = 13,
 		flamePosition = Position(33106, 32775, 11)
 	},
-	[3237] = {
+	[584] = {
 		bossName = 'ribstride',
 		storage = 34107,
 		playerPosition = Position(33012, 32813, 13),
@@ -100,7 +100,7 @@ local bosses = {
 		rangeX = 10, rangeY = 9,
 		flamePosition = Position(33018, 32814, 13)
 	},
-	[3238] = {
+	[585] = {
 		bossName = 'the bloodweb',
 		storage = 34108,
 		playerPosition = Position(32019, 31037, 8),
@@ -109,7 +109,7 @@ local bosses = {
 		rangeX = 11, rangeY = 11,
 		flamePosition = Position(32010, 31031, 8)
 	},
-	[3239] = {
+	[586] = {
 		bossName = 'thul',
 		storage = 34109,
 		playerPosition = Position(32078, 32780, 13),
@@ -118,7 +118,7 @@ local bosses = {
 		rangeX = 6, rangeY = 6,
 		flamePosition = Position(32086, 32776, 13)
 	},
-	[3240] = {
+	[587] = {
 		bossName = 'the old widow',
 		storage = 34110,
 		playerPosition = Position(32805, 32280, 8),
@@ -127,7 +127,7 @@ local bosses = {
 		rangeX = 5, rangeY = 5,
 		flamePosition = Position(32808, 32283, 8)
 	},
-	[3241] = {
+	[588] = {
 		bossName = 'hemming',
 		storage = 34111,
 		playerPosition = Position(32999, 31452, 8),
@@ -136,7 +136,7 @@ local bosses = {
 		rangeX = 9, rangeY = 7,
 		flamePosition = Position(33005, 31437, 8)
 	},
-	[3242] = {
+	[589] = {
 		bossName = 'tormentor',
 		storage = 34112,
 		playerPosition = Position(32043, 31258, 11),
@@ -145,7 +145,7 @@ local bosses = {
 		rangeX = 11, rangeY = 14,
 		flamePosition = Position(32051, 31249, 11)
 	},
-	[3243] = {
+	[590] = {
 		bossName = 'flameborn',
 		storage = 34113,
 		playerPosition = Position(32940, 31064, 8),
@@ -154,7 +154,7 @@ local bosses = {
 		rangeX = 11, rangeY = 10,
 		flamePosition = Position(32818, 31026, 7)
 	},
-	[3244] = {
+	[591] = {
 		bossName = 'fazzrah',
 		storage = 34114,
 		playerPosition = Position(32993, 31175, 7),
@@ -163,7 +163,7 @@ local bosses = {
 		rangeX = 14, rangeY = 6,
 		flamePosition = Position(33007, 31171, 7)
 	},
-	[3245] = {
+	[592] = {
 		bossName = 'tromphonyte',
 		storage = 34115,
 		playerPosition = Position(33111, 31184, 8),

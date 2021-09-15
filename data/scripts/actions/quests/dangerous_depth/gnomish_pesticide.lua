@@ -13,7 +13,7 @@ function dangerousDepthPesticide.onUse(player, item, fromPosition, target, toPos
 	end
 
 	local r = math.random(1, 100)
-	local corpseId = 30729
+	local corpseId = 27494
 	local posTarget = target:getPosition()
 
 	if target:getId() == corpseId then
@@ -30,7 +30,7 @@ function dangerousDepthPesticide.onUse(player, item, fromPosition, target, toPos
 				target:transform(30730)
 			end
 		end
-	elseif (isInArray({30730, 30731, 30732}, target:getId())) then
+	elseif (isInArray({27495, 27496, 27497}, target:getId())) then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Only half-decayed diremaw corpses can be neutralised with these pesticides.")
 		return true
 	end

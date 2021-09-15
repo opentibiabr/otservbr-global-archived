@@ -28,13 +28,13 @@ function omrafirExplode.onThink(creature)
 		addEvent(boom, 10, creature:getId())
 		addEvent(function(cid)
 			Game.createMonster("Omrafir", Position(33586, 32379, 12), false, true)
-		end, 30000, creature:getId())
+		end, 26764, creature:getId())
 	elseif hp <= 3 and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
 		addEvent(boom, 10, creature:getId())
 		addEvent(function(cid)
 			local summon = Game.createMonster("Omrafir2", Position(33586, 32379, 12), false, true)
 			summon:say("OMRAFIR REFORMS HIMSELF WITH NEW STRENGTH!", TALKTYPE_ORANGE_2)
-		end, 30000, creature:getId())
+		end, 26764, creature:getId())
 	end
 	return true
 end

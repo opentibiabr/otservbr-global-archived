@@ -1,7 +1,7 @@
 local teleportPosition = Position(33075, 31878, 12)
 
 local function transformTeleport(open)
-	local id = (open and 18462 or 1387)
+	local id = (open and 16172 or 1949)
 	local teleportItem = Tile(teleportPosition):getItemById(id)
 	if not teleportItem then
 		return
@@ -9,9 +9,9 @@ local function transformTeleport(open)
 
 	teleportPosition:sendMagicEffect(CONST_ME_POFF)
 	if open then
-		teleportItem:transform(18463) -- can pass and summon versperoth
+		teleportItem:transform(16173) -- can pass and summon versperoth
 	else
-		teleportItem:transform(18462) -- cannot summon versperoth
+		teleportItem:transform(16172) -- cannot summon versperoth
 	end
 end
 
@@ -30,11 +30,11 @@ function versperothKill.onKill(creature, target)
 	Game.setStorageValue(GlobalStorage.BigfootBurden.Versperoth.Battle, 2)
 	addEvent(Game.setStorageValue, 30 * 60 * 1000, GlobalStorage.BigfootBurden.Versperoth.Battle, 0)
 
-	blood = Tile(teleportPosition):getItemById(2016)
+	blood = Tile(teleportPosition):getItemById(2886)
 	if blood then
 		blood:remove()
 	end
-	local tp = Game.createItem(1387, 1, teleportPosition)
+	local tp = Game.createItem(1949, 1, teleportPosition)
 	if tp then
 		tp:setActionId(45702)
 	end

@@ -7,7 +7,7 @@ local function doCreateDummy(cid, position, storv)
 	local tile = Tile(position)
 	if tile then
 		local thing = tile:getTopVisibleThing()
-		if thing and isInArray({18226, 18227}, thing.itemid) then
+		if thing and isInArray({15710, 15711}, thing.itemid) then
 			thing:remove()
 		end
 	end
@@ -55,7 +55,7 @@ function taskShooting.onStepOut(creature, item, position, fromPosition)
 	local tile = Tile(thingpos)
 	if tile then
 		local thing = tile:getTopVisibleThing()
-		if thing and isInArray({18226, 18227}, thing.itemid) then
+		if thing and isInArray({15710, 15711}, thing.itemid) then
 			thing:remove()
 		end
 	end

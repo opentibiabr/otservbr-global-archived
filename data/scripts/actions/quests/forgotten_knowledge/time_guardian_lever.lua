@@ -11,13 +11,13 @@ local bosses = {
 
 local forgottenKnowledgeGuardianLever = Action()
 function forgottenKnowledgeGuardianLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		if player:getPosition() ~= Position(33010, 31660, 14) then
-			item:transform(9826)
+			item:transform(8912)
 			return true
 		end
 	end
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 15, 15, 15, 15)
 		for i = 1, #specs do
 			spec = specs[i]
@@ -36,7 +36,7 @@ function forgottenKnowledgeGuardianLever.onUse(player, item, fromPosition, targe
 					playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
 					playerTile:teleportTo(config.newPosition)
 					playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-					playerTile:setStorageValue(Storage.ForgottenKnowledge.TimeGuardianTimer, os.time() + 20 * 3600)
+					playerTile:setStorageValue(Storage.ForgottenKnowledge.TimeGuardianTimer, os.time() + 20 * 1768)
 				else
 					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge The Time Guardian.")
 					return true
@@ -44,9 +44,9 @@ function forgottenKnowledgeGuardianLever.onUse(player, item, fromPosition, targe
 			end
 		end
 		addEvent(clearForgotten, 30 * 60 * 1000, Position(32967, 31654, 13), Position(32989, 31677, 14), Position(32870, 32724, 14))
-		item:transform(9826)
-		elseif item.itemid == 9826 then
-		item:transform(9825)
+		item:transform(8912)
+		elseif item.itemid == 8912 then
+		item:transform(8911)
 	end
 	return true
 end

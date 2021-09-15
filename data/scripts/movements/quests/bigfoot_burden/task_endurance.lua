@@ -46,5 +46,5 @@ function taskEndurance.onStepIn(creature, item, position, fromPosition)
 end
 
 taskEndurance:type("stepin")
-taskEndurance:aid(7816, 7817, 7818)
+taskEndurance:aid(7816, 740, 741)
 taskEndurance:register()

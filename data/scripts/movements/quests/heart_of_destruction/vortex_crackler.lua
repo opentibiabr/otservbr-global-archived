@@ -34,7 +34,7 @@ function vortexCrackler.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if item.itemid == 26127 then
+	if item.itemid == 23471 then
 		if vortexPositions == 1 then
 			local storePlayers, playerTile = {}
 			for i = 1, #positions1 do
@@ -87,7 +87,7 @@ function vortexCrackler.onStepIn(creature, item, position, fromPosition)
 end
 
 vortexCrackler:type("stepin")
-vortexCrackler:id(26127)
+vortexCrackler:id(23471)
 vortexCrackler:register()
 
 vortexCrackler = MoveEvent()
@@ -98,5 +98,5 @@ function vortexCrackler.onStepOut(creature, item, position, fromPosition)
 end
 
 vortexCrackler:type("stepout")
-vortexCrackler:id(26127)
+vortexCrackler:id(23471)
 vortexCrackler:register()

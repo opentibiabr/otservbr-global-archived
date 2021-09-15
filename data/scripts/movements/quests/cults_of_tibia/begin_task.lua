@@ -43,7 +43,7 @@ function beginTask.onEquip(player, item, slot, isCheck)
 end
 
 beginTask:type("equip")
-beginTask:id(28657, 28658)
+beginTask:id(25296, 25297)
 beginTask:register()
 
 beginTask = MoveEvent()
@@ -54,5 +54,5 @@ function beginTask.onDeEquip(player, item, slot, isCheck)
 end
 
 beginTask:type("deequip")
-beginTask:id(28657, 28658)
+beginTask:id(25296, 25297)
 beginTask:register()

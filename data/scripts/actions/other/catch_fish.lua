@@ -1,7 +1,7 @@
 local catchFish = Action()
 
 function catchFish.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.itemid ~= 5554 then
+	if target.itemid ~= 5553 then
 		return false
 	end
 

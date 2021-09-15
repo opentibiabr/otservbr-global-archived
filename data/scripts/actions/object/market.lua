@@ -5,5 +5,5 @@ function market.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-market:id(14405)
+market:id(12903)
 market:register()

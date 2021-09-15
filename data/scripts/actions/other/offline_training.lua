@@ -1,9 +1,9 @@
 local statues = {
-	[18488] = SKILL_SWORD,
-	[18489] = SKILL_AXE,
-	[18490] = SKILL_CLUB,
-	[18491] = SKILL_DISTANCE,
-	[18492] = SKILL_MAGLEVEL
+	[16198] = SKILL_SWORD,
+	[16199] = SKILL_AXE,
+	[16200] = SKILL_CLUB,
+	[16201] = SKILL_DISTANCE,
+	[16202] = SKILL_MAGLEVEL
 }
 
 local offlineTraining = Action()

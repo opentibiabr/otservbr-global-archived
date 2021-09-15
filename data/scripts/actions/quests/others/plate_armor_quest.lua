@@ -5,7 +5,7 @@ function othersPlateArmor.onUse(player, item, fromPosition, target, toPosition, 
 	end
 
 	player:setStorageValue(Storage.GhostShipQuest, 1)
-	player:addItem(2463, 1)
+	player:addItem(3357, 1)
 	return true
 end
 

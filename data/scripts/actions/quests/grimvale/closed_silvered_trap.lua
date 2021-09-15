@@ -8,12 +8,12 @@ function grimValeClosed.onUse(player, item, fromPosition, target, toPosition, is
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You may use it in the Feroxa\'s room.')
 		return true
 	end
-	item:transform(24715)
+	item:transform(22059)
 	item:decay()
 	toPosition:sendMagicEffect(CONST_ME_POFF)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The silvered trap has been set and cannot be removed from its current position.')
 	return true
 end
 
-grimValeClosed:id(24730)
+grimValeClosed:id(22074)
 grimValeClosed:register()

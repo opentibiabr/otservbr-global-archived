@@ -1,30 +1,30 @@
 local destination = {
-	[1067] = {
+	[1312] = {
 		newPos = Position(32903, 31630, 14),
 		backPos = Position(32915, 31639, 14),
 		storage = Storage.ForgottenKnowledge.LadyTenebrisTimer
 	},
-	[1068] = {
+	[1313] = {
 		newPos = Position(32658, 32885, 14),
 		backPos = Position(32678, 32888, 14),
 		storage = Storage.ForgottenKnowledge.ThornKnightTimer
 	},
-	[1069] = {
+	[1314] = {
 		newPos = Position(33391, 31184, 10),
 		backPos = Position(33407, 31172, 10),
 		storage = Storage.ForgottenKnowledge.DragonkingTimer
 	},
-	[1070] = {
+	[1315] = {
 		newPos = Position(32302, 31095, 14),
 		backPos = Position(32318, 31091, 14),
 		storage = Storage.ForgottenKnowledge.HorrorTimer
 	},
-	[1071] = {
+	[1316] = {
 		newPos = Position(33026, 31663, 14),
 		backPos = Position(32849, 32691, 15),
 		storage = Storage.ForgottenKnowledge.TimeGuardianTimer
 	},
-	[1072] = {
+	[1317] = {
 		newPos = Position(32019, 32851, 14),
 		backPos = Position(32035, 32859, 14),
 		storage = Storage.ForgottenKnowledge.LastLoreTimer
@@ -44,7 +44,7 @@ function challenger.onStepIn(creature, item, position, fromPosition)
 		return
 	end
 	if player:getStorageValue(teleport.storage) <= os.time() then
-		if item.uid == 24882 then
+		if item.uid == 22226 then
 			if player:getStorageValue(Storage.ForgottenKnowledge.BabyDragon) < 1 then
 				player:teleportTo(teleport.backPos)
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You not have permission to use this teleport!")

@@ -1,14 +1,14 @@
 local setting = {
-	[26138] = {
+	[23482] = {
 		storage = Storage.CultsOfTibia.Humans.Decaying,
 		max = 10,
-		id = 26138,
+		id = 23482,
 		text = "You absorb the energetic remains of this decaying soul. Its power is very fragile and fleeting"
 	},
-	[26140] = {
+	[23484] = {
 		storage = Storage.CultsOfTibia.Humans.Vaporized,
 		max = 10,
-		id = 26140,
+		id = 23484,
 		text = "You absorb the energetic remains of this whitering soul. Its power is very fragile and fleeting."
 	}
 }

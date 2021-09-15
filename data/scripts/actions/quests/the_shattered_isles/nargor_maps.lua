@@ -1,13 +1,13 @@
 local UniqueTable = {
-	[40001] = {
+	[35166] = {
 		storage = Storage.TheShatteredIsles.TavernMap1,
 		message = "You have sucessfully read plan A."
 	},
-	[40002] = {
+	[35167] = {
 		storage = Storage.TheShatteredIsles.TavernMap2,
 		message = "You have sucessfully read plan B."
 	},
-	[40003] = {
+	[35168] = {
 		storage = Storage.TheShatteredIsles.TavernMap3,
 		message = "You have sucessfully read plan C."
 	}

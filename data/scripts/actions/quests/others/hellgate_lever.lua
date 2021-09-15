@@ -6,7 +6,7 @@ local config = {
 	},
 	removeCreaturePosition = Position(32630, 31699, 10),
 	bridgeID = 5770,
-	waterID = 493
+	waterID = 622
 }
 
 local othersHellGate = Action()
@@ -15,9 +15,9 @@ function othersHellGate.onUse(player, item, fromPosition, target, toPosition, is
 	for i = 1, #config.bridgePositions do
 		tile = Tile(config.bridgePositions[i])
 		if tile then
-			thing, creature = tile:getItemById(item.itemid == 1945 and config.waterID or config.bridgeID), tile:getTopCreature()
+			thing, creature = tile:getItemById(item.itemid == 2772 and config.waterID or config.bridgeID), tile:getTopCreature()
 			if thing then
-				thing:transform(item.itemid == 1945 and config.bridgeID or config.waterID)
+				thing:transform(item.itemid == 2772 and config.bridgeID or config.waterID)
 			end
 
 			if creature then
@@ -26,7 +26,7 @@ function othersHellGate.onUse(player, item, fromPosition, target, toPosition, is
 		end
 	end
 
-	item:transform(item.itemid == 1945 and 1946 or 1945)
+	item:transform(item.itemid == 2772 and 2773 or 2772)
 	return true
 end
 

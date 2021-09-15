@@ -5,5 +5,5 @@ function dailyRewardShrine.onUse(player, item, fromPosition, itemEx, toPosition)
 	return true
 end
 
-dailyRewardShrine:id(29021, 29022, 29023, 29024, 29089, 29090)
+dailyRewardShrine:id(25720, 25721, 25722, 25723, 25802, 25803)
 dailyRewardShrine:register()

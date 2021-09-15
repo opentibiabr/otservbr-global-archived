@@ -36,8 +36,8 @@ function inServiceYalaharMechanism.onUse(player, item, fromPosition, target, toP
 	return true
 end
 
-inServiceYalaharMechanism:uid(1018,1019)
-for value = 3091, 3102 do
+inServiceYalaharMechanism:uid(1018,1264)
+for value = 4273, 4284 do
 	inServiceYalaharMechanism:uid(value)
 end
 inServiceYalaharMechanism:register()

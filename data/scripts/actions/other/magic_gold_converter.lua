@@ -1,7 +1,7 @@
 local data = {
 	converterIds = {
-		[32109] = 33299,
-		[33299] = 32109,
+		[28525] = 28526,
+		[28526] = 28525,
 		},
 	coins = {
 		[ITEM_GOLD_COIN] = ITEM_PLATINUM_COIN,
@@ -73,7 +73,7 @@ local magicGoldConverter = Action()
 function magicGoldConverter.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		item:transform(data.converterIds[item.itemid])
 		item:decay()
-		start_converter(player:getId(), 33299)
+		start_converter(player:getId(), 28526)
 	return true
 end
 

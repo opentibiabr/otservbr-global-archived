@@ -27,5 +27,5 @@ function ferumbrasAscendantTeleportation.onUse(player, item, fromPosition, targe
 	return true
 end
 
-ferumbrasAscendantTeleportation:id(24838)
+ferumbrasAscendantTeleportation:id(22182)
 ferumbrasAscendantTeleportation:register()

@@ -20,7 +20,7 @@ function pisatile.onStepIn(player, item, frompos, item2, topos)
 	end
 	
 	
-	local idpegapisoum = Tile(pegapisoum):getItemById(413) -- verifica primeiro piso
+	local idpegapisoum = Tile(pegapisoum):getItemById(416) -- verifica primeiro piso
 	
 
 	

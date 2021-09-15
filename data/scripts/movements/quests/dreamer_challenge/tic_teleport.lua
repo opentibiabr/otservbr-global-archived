@@ -1,7 +1,7 @@
 local config = {
-	{position = Position(32836, 32288, 14), itemId = 1387, transformId = 6299},
-	{position = Position(32836, 32278, 14), itemId = 1946, transformId = 1945},
-	{position = Position(32834, 32285, 14), itemId = 1946, transformId = 1945}
+	{position = Position(32836, 32288, 14), itemId = 1387, transformId = 6298},
+	{position = Position(32836, 32278, 14), itemId = 1946, transformId = 2772},
+	{position = Position(32834, 32285, 14), itemId = 1946, transformId = 2772}
 }
 
 local tokens = {

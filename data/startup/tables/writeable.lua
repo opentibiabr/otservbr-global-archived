@@ -5,8 +5,8 @@
 -- text: text of item (book, scroll, letter, etc).
 BookDocumentTable = {
 	[1] = {
-		containerId = 1718,
-		itemId = 1962,
+		containerId = 2435,
+		itemId = 2828,
 		position = {x = 32063, y = 31884, z = 4},
 		text = [[
 MONSTERS AND FOES OF DAWNPORT I
@@ -25,8 +25,8 @@ Other beasts - It is certain that other beasts live in the dungeons of our isle.
 		]]
 	},
 	[2] = {
-		containerId = 1718,
-		itemId = 1962,
+		containerId = 2435,
+		itemId = 2828,
 		position = {x = 32063, y = 31884, z = 4},
 		text = [[
 MONSTERS AND FOES OF DAWNPORT II
@@ -45,8 +45,8 @@ The rat - Whether humans brought this pest with them on the isle or whether rats
 		]]
 	},
 	[3] = {
-		containerId = 1718,
-		itemId = 1962,
+		containerId = 2435,
+		itemId = 2828,
 		position = {x = 32063, y = 31884, z = 4},
 		text = [[
 MONSTERS AND FOES OF DAWNPORT III
@@ -61,8 +61,8 @@ The poison spider - Though only slightly tougher than an ordinary spider, this o
 		]]
 	},
 	[4] = {
-		containerId = 1719,
-		itemId = 1962,
+		containerId = 2436,
+		itemId = 2828,
 		position = {x = 32064, y = 31884, z = 4},
 		text = [[
 MONSTERS AND FOES OF DAWNPORT IV
@@ -77,8 +77,8 @@ The Meadow strider - A giant bird that stalks the marshes and meadows, the meado
 		]]
 	},
 	[5] = {
-		containerId = 1719,
-		itemId = 1962,
+		containerId = 2436,
+		itemId = 2828,
 		position = {x = 32064, y = 31884, z = 4},
 		text = [[
 MONSTERS AND FOES OF DAWNPORT V
@@ -98,8 +98,8 @@ The squirrel - Swift and impish, squirrels will run from any human they see. Hun
 	},
 	--The isle of the kings (need position)
 	[6] = {
-		containerId = 1720,
-		itemId = 1955,
+		containerId = 2437,
+		itemId = 2821,
 		--position = {x = xxxxx, y = xxxxx, z = x},
 		text = [[
 Kazordoon, the hidden city
@@ -108,8 +108,8 @@ Since some generations the dwarven city (whose ruler claims a title that might b
 ]]
 	},
 	[7] = {
-		containerId = 1720,
-		itemId = 1959,
+		containerId = 2437,
+		itemId = 2825,
 		position = {x = 32065, y = 31884, z = 4},
 		text = [[
 Kazordoon, the hidden city
@@ -118,8 +118,8 @@ Since some generations the dwarven city (whose ruler claims a title that might b
 		]]
 	},
 	[8] = {
-		containerId = 1720,
-		itemId = 1965,
+		containerId = 2437,
+		itemId = 2831,
 		position = {x = 32066, y = 31884, z = 4},
 		text = [[
 Genesis I. The Awakening of the Gods
@@ -137,8 +137,8 @@ Unfortunately, their combined efforts were hardly more successful. Just like bef
 		]]
 	},
 	[9] = {
-		containerId = 1720,
-		itemId = 1965,
+		containerId = 2437,
+		itemId = 2831,
 		position = {x = 32066, y = 31884, z = 4},
 		text = [[
 Genesis IV. The First Creatures
@@ -152,8 +152,8 @@ Zathroth watched Brog's experiments with great interest. So far he had not held 
 		]]
 	},
 	[10] = {
-		containerId = 1718,
-		itemId = 1955,
+		containerId = 2435,
+		itemId = 2821,
 		--position = (isle of the kings),
 		text = [[
 The Minotaurs by Iregarn Pt. 1
@@ -163,8 +163,8 @@ He looked upon the world and for the first time in aeons a minotaurean warrior s
 ]]
 	},
 	[11] = {
-		containerId = 1718,
-		itemId = 1959,
+		containerId = 2435,
+		itemId = 2825,
 		position = {x = 32061, y = 31889, z = 4},
 		text = [[
 The Minotaurs by Iregarn Pt. 1
@@ -174,24 +174,24 @@ He looked upon the world and for the first time in aeons a minotaurean warrior s
 ]]
 	},
 	[12] = {
-		containerId = 1720,
-		itemId = 1950,
+		containerId = 2437,
+		itemId = 2816,
 		--position = (Rookgaard Academy),
 		text = [[
 Orcs ARE intelligent. Though some dwarves mumble about a shared hivemind of the greenskins, there is no evidence for that. Orcs have speech and are capable to learn other humanoids language quite well ... if they want, what almost never is the case. They lack a written language though. Some of the more educated orcs use human letters to write down orcish texts. Its rumored that the orcs we encounter now and then are just barbarians of their own kind and that there is a more 'civilized' orcish culture somewhere. There are some clues that the orcs indeed had a written language, but the modern orcs is unable to read it as we are.
 ]]
 	},
 	[13] = {
-		containerId = 1720,
-		itemId = 1981,
+		containerId = 2437,
+		itemId = 2847,
 		position = {x = 32062, y = 31889, z = 4},
 		text = [[
 Orcs ARE intelligent. Though some dwarves mumble about a shared hivemind of the greenskins, there is no evidence for that. Orcs have speech and are capable to learn other humanoids language quite well ... if they want, what almost never is the case. They lack a written language though. Some of the more educated orcs use human letters to write down orcish texts. Its rumored that the orcs we encounter now and then are just barbarians of their own kind and that there is a more 'civilized' orcish culture somewhere. There are some clues that the orcs indeed had a written language, but the modern orcs is unable to read it as we are.
 		]]
 	},
 	[14] = {
-		containerId = 1718,
-		itemId = 1964,
+		containerId = 2435,
+		itemId = 2830,
 		position = {x = 32068, y = 31889, z = 4},
 		text = [[
 There are two kinds of spells: rune spells and spontaneous spells. Rune spells are cast on blank rune stones, which requires mana. Rune stones can easily be carried around and store the specific spell. It can be used at any time, and only some spells require further investment of mana.
@@ -199,8 +199,8 @@ Spontaneous spells are cast in the heartbeat they are needed, and take effect in
 ]]
 	},
 	[15] = {
-		containerId = 1718,
-		itemId = 1950,
+		containerId = 2435,
+		itemId = 2816,
 	   --position = (Rookgaard Libraries),
 		text = [[
 Magic
@@ -213,8 +213,8 @@ Instant spells are cast in the heartbeat they are needed and take effect instant
 		]]
 	},
 	[16] = {
-		containerId = 1718,
-		itemId = 1955,
+		containerId = 2435,
+		itemId = 2821,
 		--position = (Isle of the Kings Library),
 		text = [[
 Magic by Puffels
@@ -224,8 +224,8 @@ Spontaneous spells are cased in the heartbeat they are needed and take effect in
 ]]
 	},
 	[17] = {
-		containerId = 1719,
-		itemId = 1955,
+		containerId = 2436,
+		itemId = 2821,
 		position = {x = 32069, y = 31889, z = 4},
 		text = [[
 Combat Tactics
@@ -234,24 +234,24 @@ Most monsters are far more dangerous when you're attacked by more of them. Keep 
 ]]
 	},
 	[18] = {
-		containerId = 1718,
-		itemId = 1950,
+		containerId = 2435,
+		itemId = 2816,
 		--position = (Rookgaard Libraries),
 		text = [[
 As we traveled through the dungeon tunnels we came to a big cave. In the light of our torches we saw several eyes glowing in the darknes, then the trolls attacked, silent as usual. We imediately dropped our torches and raised our shields to block the first attack, then we counterattacked. Soon the floor was wet with blood, ours and theirs. They were verry skilled in blocking our blows and I am sure with inferior weapons we would have hacked on this beasts for an eternity.
 ]]
 	},
 	[19] = {
-		containerId = 1719,
-		itemId = 1961,
+		containerId = 2436,
+		itemId = 2827,
 		position = {x = 32069, y = 31889, z = 4},
 		text = [[
 As we traveled through the dungeon tunnels we came to a big cave. In the light of our torches we saw several eyes glowing in the darknes, then the trolls attacked, silent as usual. We imediately dropped our torches and raised our shields to block the first attack, then we counterattacked. Soon the floor was wet with blood, ours and theirs. They were verry skilled in blocking our blows and I am sure with inferior weapons we would have hacked on this beasts for an eternity.
 		]]
 	},
 	[20] = {
-		containerId = 1719,
-		itemId = 1950,
+		containerId = 2436,
+		itemId = 2816,
 		position = {x = 32069, y = 31889, z = 4},
 		text = [[
 Tactics for close-ranged combat
@@ -264,8 +264,8 @@ Tactics for close-ranged combat
 ]]
 	},
 	[21] = {
-		containerId = 1719,
-		itemId = 1950,
+		containerId = 2436,
+		itemId = 2816,
 		--position = (Isle of the Kings Library),
 		text = [[
 The Tibian Wonders of the World!
@@ -281,8 +281,8 @@ The pyramid city of Ankrahmun
 		]]
 	},
 	[22] = {
-		containerId = 1719,
-		itemId = 1960,
+		containerId = 2436,
+		itemId = 2826,
 		--position = (Ankrahmun great pyramid),
 		text = [[
 The Tibian Wonders of the World!
@@ -298,8 +298,8 @@ The pyramid city of Ankrahmun
 		]]
 	},
 	[23] = {
-		containerId = 1719,
-		itemId = 1959,
+		containerId = 2436,
+		itemId = 2825,
 		position = {x = 32069, y = 31889, z = 4},
 		text = [[
 The Tibian Wonders of the World!
@@ -315,7 +315,7 @@ The pyramid city of Ankrahmun
 		]]
 	},
 	[24] = {
-		itemId = 1965,
+		itemId = 2831,
 		position = {x = 32068, y = 31880, z = 3},
 		text = [[
 Genesis VII, ii. Tibia's Renewal
@@ -326,7 +326,7 @@ It may be that this is yet another one of Zathroth's wicked ploys. It is well kn
 		]]
 	},
 	[25] = {
-		itemId = 1965,
+		itemId = 2831,
 		position = {x = 32054, y = 31894, z = 4},
 		text = [[
 GV.i Part 1: The Age of Chaos
@@ -339,16 +339,16 @@ While Fardos and Uman were working hard on their spell, Zathroth's minions went 
 		]]
 	},
 	[26] = {
-		containerId = 1718,
-		itemId = 7492,
+		containerId = 2435,
+		itemId = 129,
 		position = {x = 32061, y = 31894, z = 4},
 		text = [[
 This is written proof that Captain Plunderpurse gave away all the cursed gold to the little kiddies, bless his generous heart. No torture, extortion, cut off limbs, manipulation or embezzlement at all was involved in my testimony, I swear! And I am very thankful not to make the acquaintance of the Captain's pet sharks, lovely beasts though they are. Signed, Triomon Tangleweed, certifying notary.
 		]]
 	},
 	[27] = {
-		containerId = 1718,
-		itemId = 1960,
+		containerId = 2435,
+		itemId = 2826,
 		position = (Nagor),
 		text = [[
 Treasures of the Southern Isles
@@ -359,8 +359,8 @@ If anyone ever is looking for treasures, then those isles are the best place to 
 		]]
 	},
 	[28] = {
-		containerId = 1718,
-		itemId = 1955,
+		containerId = 2435,
+		itemId = 2821,
 		--position = (Isle of the Kings Library),
 		text = [[
 Treasures of the Southern Isles
@@ -371,8 +371,8 @@ If anyone ever is looking for treasures, then those isles are the best place to 
 		]]
 	},
 	[29] = {
-		containerId = 1718,
-		itemId = 1961,
+		containerId = 2435,
+		itemId = 2827,
 		position = {x = 32061, y = 31894, z = 4},
 		text = [[
 Treasures of the Southern Isles
@@ -383,8 +383,8 @@ If anyone ever is looking for treasures, then those isles are the best place to 
 		]]
 	},
 	[30] = {
-		containerId = 1718,
-		itemId = 1963,
+		containerId = 2435,
+		itemId = 2829,
 		position = {x = 32061, y = 31894, z = 4},
 		text = [[
 The Great Sea Serpents
@@ -393,8 +393,8 @@ The Sea Serpent is as huge as a house and can swallow a small ship in one bite. 
 ]]
 	},
 	[31] = {
-		containerId = 1718,
-		itemId = 1960,
+		containerId = 2435,
+		itemId = 2826,
 		--position = (Nagor),
 		text = [[
 The Great Sea Serpents
@@ -403,8 +403,8 @@ The Sea Serpent is as huge as a house and can swallow a small ship in one bite. 
 		]]
 	},
 	[32] = {
-		containerId = 1718,
-		itemId = 1955,
+		containerId = 2435,
+		itemId = 2821,
 		--position = (Liberty Bay freedom street),
 		text = [[
 The Great Sea Serpents
@@ -413,8 +413,8 @@ The Sea Serpent is as huge as a house and can swallow a small ship in one bite. 
 		]]
 	},
 	[33] = {
-		containerId = 1718,
-		itemId = 1950,
+		containerId = 2435,
+		itemId = 2816,
 		--position = (Isle of the Kings Library),
 		text = [[
 The Great Sea Serpents
@@ -423,8 +423,8 @@ The Sea Serpent is as huge as a house and can swallow a small ship in one bite. 
 		]]
 	},
 	[34] = {
-		containerId = 1718,
-		itemId = 1963,
+		containerId = 2435,
+		itemId = 2829,
 		position = (kharos),
 		text = [[
 The Great Sea Serpents
@@ -433,8 +433,8 @@ The Sea Serpent is as huge as a house and can swallow a small ship in one bite. 
 		]]
 	},
 	[35] = {
-		containerId = 1718,
-		itemId = 1965,
+		containerId = 2435,
+		itemId = 2831,
 		position = {x = 32061, y = 31894, z = 4},
 		text = [[
 V.i Part 2: The Age of Chaos
@@ -447,8 +447,8 @@ Thus the dragons had taken over the rule of the land, but the war was by no mean
 ]]
 	},
 	[36] = {
-		containerId = 3826,
-		itemId = 1965,
+		containerId = 2459,
+		itemId = 2831,
 		position = {x = 32075, y = 31894, z = 4},
 		text = [[
 V. ii, The Age of Chaos
@@ -461,8 +461,8 @@ The elder gods looked at what had happened to their world, and their hearts fill
 		]]
 	},
 	[37] = {
-		containerId = 3826,
-		itemId = 1964,
+		containerId = 2459,
+		itemId = 2830,
 		position = {x = 32075, y = 31894, z = 4},
 		text = [[
 The Shattered Isles
@@ -479,8 +479,8 @@ The Laguna Islands are quite often visited by passing ships to refresh their sup
 ]]
 	},
 	[38] = {
-		containerId = 3826,
-		itemId = 1959,
+		containerId = 2459,
+		itemId = 2825,
 		position = (Nagor),
 		text = [[
 The Shattered Isles
@@ -497,8 +497,8 @@ The Laguna Islands are quite often visited by passing ships to refresh their sup
 		]]
 	},
 	[39] = {
-		containerId = 3826,
-		itemId = 1966,
+		containerId = 2459,
+		itemId = 2832,
 		--position = (Liberty Bay freedom street),
 		text = [[
 The Shattered Isles
@@ -515,8 +515,8 @@ The Laguna Islands are quite often visited by passing ships to refresh their sup
 		]]
 	},
 	[40] = {
-		containerId = 3826,
-		itemId = 1973,
+		containerId = 2459,
+		itemId = 2839,
 		--position = (Liberty Bay Malunga),
 		text = [[
 The Shattered Isles
@@ -533,8 +533,8 @@ The Laguna Islands are quite often visited by passing ships to refresh their sup
 		]]
 	},
 	[41] = {
-		containerId = 3826,
-		itemId = 1959,
+		containerId = 2459,
+		itemId = 2825,
 		--position = (Carlin Congress),
 		text = [[
 The Shattered Isles
@@ -551,8 +551,8 @@ The Laguna Islands are quite often visited by passing ships to refresh their sup
 		]]
 	},
 	[42] = {
-		containerId = 3826,
-		itemId = 1955,
+		containerId = 2459,
+		itemId = 2821,
 		--position = (Carlin Explorer Club),
 		text = [[
 The Shattered Isles
@@ -569,8 +569,8 @@ The Laguna Islands are quite often visited by passing ships to refresh their sup
 ]]
 	},
 	[43] = {
-		containerId = 3827,
-		itemId = 1966,
+		containerId = 2460,
+		itemId = 2832,
 		position = {x = 32068, y = 31898, z = 4},
 		text = [[
 My travels.
@@ -579,8 +579,8 @@ As the orcs approached I've hidden myself in the bushes near the lake. I did har
 ]]
 	},
 	[44] = {
-		containerId = 3827,
-		itemId = 1955,
+		containerId = 2460,
+		itemId = 2821,
 		--position = (Rookgaard Academy),
 		text = [[
 My travels.
@@ -589,8 +589,8 @@ As the orcs approached I've hidden myself in the bushes near the lake. I did har
 		]]
 	},
 	[45] = {
-		containerId = 3827,
-		itemId = 1955,
+		containerId = 2460,
+		itemId = 2821,
 		position = {x = 32068, y = 31898, z = 4},
 		text = [[
 Tibiantis: Fact and Fiction
@@ -599,8 +599,8 @@ In the light of progress made my modern science the tales of Tibiantis can be ch
 ]]
 	},
 	[46] = {
-		containerId = 3827,
-		itemId = 1960,
+		containerId = 2460,
+		itemId = 2826,
 		--position = (Carlin Congress),
 		text = [[
 Tibiantis: Fact and Fiction
@@ -609,8 +609,8 @@ In the light of progress made my modern science the tales of Tibiantis can be ch
 		]]
 	},
 	[47] = {
-		containerId = 3827,
-		itemId = 1958,
+		containerId = 2460,
+		itemId = 2824,
 		--position = (Isle of the Kings Library),
 		text = [[
 Tibiantis: Fact and Fiction
@@ -619,8 +619,8 @@ In the light of progress made my modern science the tales of Tibiantis can be ch
 		]]
 	},
 	[48] = {
-		containerId = 3827,
-		itemId = 1965,
+		containerId = 2460,
+		itemId = 2831,
 		position = {x = 32068, y = 31898, z = 4},
 		text = [[
 You can not even imagine how old I am. In your wildest dreams you won't see the things I have seen. I am the last of my race and even though I am several centuries old I am not immortal and will eventually die. I fear that day. Not for me - I am weary and I don't care much about if I'm alive or dead. But I fear for all these memories that will die with me. For all those who no one will remember anymore.
@@ -628,8 +628,8 @@ Words can't truly preserve their essence so I will leave no books or stone table
 ]]
 	},
 	[49] = {
-		containerId = 3827,
-		itemId = 1950,
+		containerId = 2460,
+		itemId = 2816,
 		--position = (Isle of the Kings Library),
 		text = [[
 You can not even imagine how old I am. In your wildest dreams you won't see the things I have seen. I am the last of my race and even though I am several centuries old I am not immortal and will eventually die. I fear that day. Not for me - I am weary and I don't care much about if I'm alive or dead. But I fear for all these memories that will die with me. For all those who no one will remember anymore.
@@ -637,8 +637,8 @@ Words can't truly preserve their essence so I will leave no books or stone table
 		]]
 	},
 	[50] = {
-		containerId = 3827,
-		itemId = 1963,
+		containerId = 2460,
+		itemId = 2829,
 		position = {x = 32068, y = 31898, z = 4},
 		text = [[
 The Lighthouse in the Middle of Nowhere
@@ -646,8 +646,8 @@ Sailors claim to have travelled as far as the end of the world where the water p
 ]]
 	},
 	[51] = {
-		containerId = 3827,
-		itemId = 1961,
+		containerId = 2460,
+		itemId = 2827,
 		--position = (Liberty Bay),
 		text = [[
 The Lighthouse in the Middle of Nowhere
@@ -655,12 +655,12 @@ Sailors claim to have travelled as far as the end of the world where the water p
 		]]
 	},
 	[52] = {
-		itemId = 12397,
+		itemId = 11441,
 		position = {x = 32075, y = 31898, z = 4},
 		text = "Personal log book of Mr Morris. (The following lines are written in a code that you cannot make out. It seems Mr Morris is a very distrustful person.)"
 	},
 	[53] = {
-		itemId = 1958,
+		itemId = 2824,
 		position = {x = 32070, y = 31900, z = 4},
 		text = [[
 The .........
@@ -669,8 +669,8 @@ From this time on ............. manipulate little of the matter of the dreamland
 ]]
 	},
 	[54] = {
-		containerId = 3827,
-		itemId = 1950,
+		containerId = 2460,
+		itemId = 2816,
 		--position = (Isle of the Kings Library),
 		text = [[
 The .........
@@ -679,14 +679,14 @@ From this time on ............. manipulate little of the matter of the dreamland
 		]]
 	},
 	[55] = {
-		itemId = 7724,
+		itemId = 639,
 		position = {x = 32070, y = 31900, z = 4},
 		text = [[
 (It is covered with a strange language that you cannot make out.)
 		]]
 	},
 	[56] = {
-		itemId = 1966,
+		itemId = 2832,
 		position = {x = 32052, y = 31898, z = 6},
 		text = [[
 ...
@@ -697,14 +697,14 @@ The elder gods looked at what had happened to their world, and their hearts fill
 		]]
 	},
 	[57] = {
-		containerId = 3827,
-		itemId = 1963,
+		containerId = 2460,
+		itemId = 2829,
 		position = {x = 32052, y = 31896, z = 6},
 		text = "Cooking Recipes for the Wildlife (excepting Squirrels!), by Richard"
 	},
 	[58] = {
-		containerId = 3827,
-		itemId = 1965,
+		containerId = 2460,
+		itemId = 2831,
 		position = {x = 32052, y = 31896, z = 6},
 		text = [[
 V. iii, The Age of Chaos
@@ -715,8 +715,8 @@ For all their strength, these races had one important flaw in common: They lacke
 		]]
 	},
 	[59] = {
-		containerId = 3827,
-		itemId = 1961,
+		containerId = 2460,
+		itemId = 2827,
 		position = {x = 32052, y = 31896, z = 6},
 		text = [[
 Thoughts and Notations on the Noble Craft of Potion-Making, by Grandsieur Haruvan of Drefia (the way of writing and the pages look very, very old)
@@ -731,7 +731,7 @@ But still, they can drink, and appreciate, the brews we make to keep a warrior's
 	},
 	[60] = {
 	-- Hiding the Amulet (Dawnport quest)
-		itemId = 23764,
+		itemId = 21393,
 		position = {x = 32046, y = 31915, z = 7},
 		text = [[
 (You can barely read the following words on this soiled piece of paper)
@@ -752,7 +752,7 @@ Dormovo the Impetuous
 		]]
 	},
 	[61] = {
-		itemId = 1953,
+		itemId = 2819,
 		position = {x = 32854, y = 31992, z = 11},
 		text = [[
 What I thought to be digging men are in fact strange green creatures with many arms or eyestalks, who can dig very fast. I think they are called "Beholders".
@@ -762,7 +762,7 @@ I stopped counting the days, because I lost all feeling for time down here.
 Oh, how I long to see humans again!]]
 	},
 	[62] = {
-		itemId = 1953,
+		itemId = 2819,
 		position = {x = 33063, y = 31624, z = 15},
 		text = "Buried forever that he never shall return. Don't remove this seal or bad things may happen."
 	}
@@ -770,54 +770,54 @@ Oh, how I long to see humans again!]]
 
 SignTable = {
 	[1] = {
-		itemId = 1429,
+		itemId = 2012,
 		itemPos = {x = 32073, y = 31936, z = 7},
 		text = "No come near! Goblin home! Humans leave!"
 	},
 	[2] = {
-		itemId = 8835,
+		itemId = 8007,
 		itemPos = {x = 32053, y = 31886, z = 6},
 		text = "Sorcerers of Tibia, use the power of the elements to hunt down your foes and strike \z
 		fear in the heart of your enemies!"
 	},
 	[3] = {
-		itemId = 3739,
+		itemId = 2104,
 		itemPos = {x = 32061, y = 31886, z = 6},
 		text = "Paladins of Tibia, arm yourselves and deal merciless death to all that is evil!"
 	},
 	[4] = {
-		itemId = 8836,
+		itemId = 8008,
 		itemPos = {x = 32067, y = 31886, z = 6},
 		text = "Knights of Tibia, gird yourselves to combat evil and to protect the innocent!"
 	},
 	[5] = {
-		itemId = 8422,
+		itemId = 7592,
 		itemPos = {x = 32075, y = 31886, z = 6},
 		text = "Druids of Tibia, take up your rod to hunt down evil and heal the wounds of the world!"
 	},
 	[6] = {
-		itemId = 1810,
+		itemId = 2597,
 		itemPos = {x = 32056, y = 31890, z = 6},
 		text = "Alchemical fluid generator machine. Caution - random effects!"
 	},
 	[7] = {
-		itemId = 1448,
+		itemId = 2031,
 		itemPos = {x = 32064, y = 31891, z = 6},
 		text = "Rise, Heroes!"
 	},
 	[8] = {
-		itemId = 1815,
+		itemId = 2602,
 		itemPos = {x = 32057, y = 31893, z = 6},
 		text = "Careful with the dustbin! Every item you throw into it will be PERMANENTLY deleted. \z
 		So consider carefully if you really, really want to delete an item before you lay it on the dustbin."
 	},
 	[9] = {
-		itemId = 1441,
+		itemId = 2024,
 		itemPos = {x = 32062, y = 31894, z = 3},
 		text = "Southern Trade Room"
 	},
 	[10] = {
-		itemId = 1409,
+		itemId = 1982,
 		itemPos = {x = 32566, y = 31964, z = 1},
 		text = [[
 No treasures here you fools!
@@ -825,7 +825,7 @@ Leave the grave of my master alone or feel my wrath!
 		]]
 	},
 	[11] = {
-		itemId = 1406,
+		itemId = 134,
 		itemPos = {x = 32566, y = 31963, z = 1},
 		text = [[
 In memory of my beloved master.
@@ -836,17 +836,17 @@ Not mine!
 		]]
 	},
 	[12] = {
-		itemId = 1429,
+		itemId = 2012,
 		itemPos = {x = 32477, y = 31904, z = 4},
 		text = "Room of Sacrifice"
 	},
 	[13] = {
-		itemId = 1444,
+		itemId = 2027,
 		itemPos = {x = 32476, y = 31900, z = 3},
 		text = "Cedric, the white knight"
 	},
 	[14] = {
-		itemId = 1444,
+		itemId = 2027,
 		itemPos = {x = 32481, y = 31900, z = 3},
 		text = "Tristan, the black knight"
 	}

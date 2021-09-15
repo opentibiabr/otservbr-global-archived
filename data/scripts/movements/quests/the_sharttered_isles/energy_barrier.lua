@@ -17,5 +17,5 @@ function energyBarrier.onStepIn(creature, item, position, fromPosition)
 end
 
 energyBarrier:type("stepin")
-energyBarrier:uid(40082, 40083, 40084)
+energyBarrier:uid(40082, 35248, 35249)
 energyBarrier:register()

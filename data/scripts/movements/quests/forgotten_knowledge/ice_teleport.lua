@@ -1,5 +1,5 @@
 local destination = {
-	[26667] = {
+	[23999] = {
 		position = Position(32273, 31053, 13),
 		storage = Storage.ForgottenKnowledge.AccessMachine
 	}

@@ -4,7 +4,7 @@ function theRavagerHeal.onThink(creature)
 	local health = math.random(7500, 9000)
 	local hp = (creature:getHealth()/creature:getMaxHealth())*100
 	if creature:getName() == "The Ravager" and (hp < 99.99) then
-		local tile = Tile(creature:getPosition()):getItemById(3172)
+		local tile = Tile(creature:getPosition()):getItemById(519)
 		if not tile then
 			return true
 		end

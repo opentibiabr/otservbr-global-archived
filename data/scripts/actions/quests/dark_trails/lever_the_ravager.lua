@@ -23,7 +23,7 @@ local setting = {
 
 local leverTheRavager = Action()
 function leverTheRavager.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 1945 then
+	if item.itemid == 2772 then
 		if roomIsOccupied(setting.centerRoom, setting.range, setting.range) then
 			player:say("Someone is fighting against the boss! You need wait awhile.", TALKTYPE_MONSTER_SAY)
 			return true
@@ -52,9 +52,9 @@ function leverTheRavager.onUse(player, item, fromPosition, target, toPosition, i
 			players:teleportTo(setting.newPositions[i])
 			setting.newPositions[i]:sendMagicEffect(CONST_ME_ENERGYAREA)
 		end
-		item:transform(1946)
-	elseif item.itemid == 1946 then
-		item:transform(1945)
+		item:transform(2773)
+	elseif item.itemid == 2773 then
+		item:transform(2772)
 	end
 	return true
 end

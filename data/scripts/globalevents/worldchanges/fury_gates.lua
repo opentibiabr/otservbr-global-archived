@@ -179,6 +179,6 @@ function teleport.onStepIn(creature, item, position, fromPosition)
 end
 
 teleport:type("stepin")
-teleport:aid(9710, 9715)
+teleport:aid(9710, 8800)
 
 teleport:register()

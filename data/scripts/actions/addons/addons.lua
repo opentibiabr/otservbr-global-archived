@@ -1,16 +1,16 @@
 local config = {
 	-- soil guardian
-	[18517] = {female = 514, male = 516, effect = CONST_ME_GREEN_RINGS},
-	[18518] = {female = 514, male = 516, addon = 1, effect = CONST_ME_GREEN_RINGS, achievement = 'Funghitastic'},
-	[18519] = {female = 514, male = 516, addon = 2, effect = CONST_ME_GREEN_RINGS, achievement = 'Funghitastic'},
+	[16252] = {female = 514, male = 516, effect = CONST_ME_GREEN_RINGS},
+	[16253] = {female = 514, male = 516, addon = 1, effect = CONST_ME_GREEN_RINGS, achievement = 'Funghitastic'},
+	[16254] = {female = 514, male = 516, addon = 2, effect = CONST_ME_GREEN_RINGS, achievement = 'Funghitastic'},
 	-- crystal warlord
-	[18520] = {female = 513, male = 512, effect = CONST_ME_GIANTICE},
-	[18521] = {female = 513, male = 512, addon = 1, effect = CONST_ME_GIANTICE, achievement = 'Crystal Clear'},
-	[18522] = {female = 513, male = 512, addon = 2, effect = CONST_ME_GIANTICE, achievement = 'Crystal Clear'},
+	[16255] = {female = 513, male = 512, effect = CONST_ME_GIANTICE},
+	[16256] = {female = 513, male = 512, addon = 1, effect = CONST_ME_GIANTICE, achievement = 'Crystal Clear'},
+	[16257] = {female = 513, male = 512, addon = 2, effect = CONST_ME_GIANTICE, achievement = 'Crystal Clear'},
 	-- makeshift warrior
-	[30890] = {female = 1043, male = 1042},
-	[30892] = {female = 1043, male = 1042, addon = 1, achievement = 'Cobbled and Patched'},
-	[30891] = {female = 1043, male = 1042, addon = 2, achievement = 'Cobbled and Patched'}
+	[27655] = {female = 1043, male = 1042},
+	[27657] = {female = 1043, male = 1042, addon = 1, achievement = 'Cobbled and Patched'},
+	[27656] = {female = 1043, male = 1042, addon = 2, achievement = 'Cobbled and Patched'}
 }
 
 local addons = Action()
@@ -52,5 +52,5 @@ function addons.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-addons:id(18517, 18518, 18519, 18520, 18521, 18522, 30890, 30891, 30892)
+addons:id(16252, 16253, 16254, 16255, 16256, 16257, 27655, 27656, 27657)
 addons:register()

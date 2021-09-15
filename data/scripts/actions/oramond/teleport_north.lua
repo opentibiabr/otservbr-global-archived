@@ -6,5 +6,5 @@ function teleportNorth.onUse(cid, item, fromPosition, itemEx, toPosition)
 	return TRUE
 end
 
-teleportNorth:id(22949)
+teleportNorth:id(20578)
 teleportNorth:register()

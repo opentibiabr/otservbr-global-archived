@@ -10,7 +10,7 @@ function crystaldeepling.onUse(player, item, fromPosition, target, toPosition, i
 			player:setStorageValue(Storage.DeeplingsWorldChange.Crystal, 11)
 		elseif player:getStorageValue(Storage.DeeplingsWorldChange.Crystal) == 11 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"Yeah.")
-			player:addItem(15568, 1)
+			player:addItem(14165, 1)
 			player:setStorageValue(Storage.DeeplingsWorldChange.Crystal, 12)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"Sorry.")

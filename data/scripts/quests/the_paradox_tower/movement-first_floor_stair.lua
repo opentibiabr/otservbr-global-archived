@@ -15,14 +15,14 @@ function firstFloorStair.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	local jungleGrassId = 2782
+	local jungleGrassId = 3696
 	local stairPosition = {x = 32478, y = 31902, z = 7}
-	local stairId = 1385
-	local stoneId = 1304
+	local stairId = 1947
+	local stoneId = 1791
 
 	-- Create stair
 	-- The stair is only created if all the jungles of the "position" variable (line 1) are growing again
-	if item.uid == 25013 then
+	if item.uid == 22357 then
 		-- Checks if all jungle glass are in the positions
 		if Position(positions[1]):hasItem(jungleGrassId)
 		and Position(positions[2]):hasItem(jungleGrassId)
@@ -34,7 +34,7 @@ function firstFloorStair.onStepIn(creature, item, position, fromPosition)
 			Position(stairPosition):transformItem(stoneId, stairId, CONST_ME_POFF)
 		end
 	-- Remove stair if exit of the tower
-	elseif table.contains({25014, 25015}, item.uid) then
+	elseif table.contains({22358, 22359}, item.uid) then
 		-- Checks whether the item in position is the stair
 		if Position(stairPosition):hasItem(stairId) then
 			Position(stairPosition):transformItem(stairId, stoneId, CONST_ME_POFF)
@@ -43,5 +43,5 @@ function firstFloorStair.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-firstFloorStair:uid(25013, 25014, 25015)
+firstFloorStair:uid(25013, 22358, 22359)
 firstFloorStair:register()

@@ -6,21 +6,21 @@ function bigfootExtractor.onUse(player, item, fromPosition, target, toPosition, 
 		return false
 	end
 
-	if target.itemid == 18487 then
+	if target.itemid == 16197 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This body is not ready yet.")
 		return true
 	end
 
-	if target.itemid ~= 18484 then
+	if target.itemid ~= 16194 then
 		return false
 	end
 
 	player:setStorageValue(Storage.BigfootBurden.ExtractedCount, math.max(0, extractedCount) + 1)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You gathered a spark.')
-	target:transform(18485)
+	target:transform(16195)
 	toPosition:sendMagicEffect(CONST_ME_ENERGYHIT)
 	return true
 end
 
-bigfootExtractor:id(18213)
+bigfootExtractor:id(15696)
 bigfootExtractor:register()

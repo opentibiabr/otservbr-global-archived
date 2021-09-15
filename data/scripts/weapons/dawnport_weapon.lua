@@ -17,7 +17,7 @@ dawnportWeapon.onUseWeapon = function(player, variant)
 	return combat:execute(player, variant)
 end
 
-dawnportWeapon:id(23721)
+dawnportWeapon:id(21350)
 dawnportWeapon:mana(1)
 dawnportWeapon:range(3)
 dawnportWeapon:register()
@@ -41,7 +41,7 @@ dawnportWeapon.onUseWeapon = function(player, variant)
 	return combat:execute(player, variant)
 end
 
-dawnportWeapon:id(23719)
+dawnportWeapon:id(21348)
 dawnportWeapon:mana(1)
 dawnportWeapon:range(3)
 dawnportWeapon:register()

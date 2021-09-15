@@ -41,5 +41,5 @@ function iceYakchal.onUse(player, item, fromPosition, target, toPosition, isHotk
 	return true
 end
 
-iceYakchal:id(2361)
+iceYakchal:id(3249)
 iceYakchal:register()

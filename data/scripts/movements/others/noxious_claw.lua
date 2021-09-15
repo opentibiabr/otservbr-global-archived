@@ -1,7 +1,7 @@
 local noxiousClaw = MoveEvent()
 
 function noxiousClaw.onEquip(player, item, slot)
-	item:transform(10309)
+	item:transform(9392)
 	if Tile(player:getPosition()):hasFlag(TILESTATE_PROTECTIONZONE) then
 		return true
 	end
@@ -12,6 +12,6 @@ function noxiousClaw.onEquip(player, item, slot)
 end
 
 noxiousClaw:type("equip")
-noxiousClaw:id(10310)
+noxiousClaw:id(9393)
 noxiousClaw:level(100)
 noxiousClaw:register()

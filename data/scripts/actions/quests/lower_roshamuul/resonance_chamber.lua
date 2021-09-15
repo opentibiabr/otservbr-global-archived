@@ -1,5 +1,5 @@
 local config = {
-	item = 22535,
+	item = 20201,
 	storage = 34380,
 	position = {
 		Position(33637, 32516, 5), -- Top Left
@@ -102,5 +102,5 @@ function lowerRoshamuulChamber.onUse(cid, item, fromPosition, itemEx, toPosition
 	end
 end
 
-lowerRoshamuulChamber:id(22535)
+lowerRoshamuulChamber:id(20201)
 lowerRoshamuulChamber:register()

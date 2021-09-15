@@ -52,7 +52,7 @@ local dolls = {
 		"You shall feel pain and terror, |PLAYERNAME|",
 		"I do not need a sword to slaughter you",
 		"My sword is broken, but my spirit is not dead",
-		"I can say 469 and more...",
+		"I can say 594 and more...",
 		"My dark magic lies on tibialatina.wikia.com"
 	},
 	[24331] = {"Hail Tibia Brasileiros! (União&Força)"}
@@ -80,11 +80,11 @@ function doll.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		elseif random == 5 then
 			doTargetCombatHealth(0, player, COMBAT_PHYSICALDAMAGE, -1, -1, CONST_ME_EXPLOSIONHIT)
 		end
-	elseif item.itemid == 5669 then
+	elseif item.itemid == 5668 then
 		fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		item:transform(item.itemid + 1)
 		item:decay()
-	elseif item.itemid == 6388 then
+	elseif item.itemid == 6387 then
 		fromPosition:sendMagicEffect(CONST_ME_SOUND_YELLOW)
 	end
 

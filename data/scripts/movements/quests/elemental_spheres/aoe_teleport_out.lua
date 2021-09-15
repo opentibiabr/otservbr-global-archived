@@ -8,7 +8,7 @@ function aoeTeleportOut.onStepIn(creature, item, position, fromPosition)
 
 	player:teleportTo(Position(33265, 31838, 10))
 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-	for i = 10005, 10008 do
+	for i = 9092, 9095 do
 		player:setStorageValue(i, -1)
 	end
 	return true

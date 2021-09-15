@@ -10,7 +10,7 @@ function strangelyGlowingMark.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if item.itemid == 24732 then
+	if item.itemid == 22076 then
 		if player:getStorageValue(199990) >= os.time() then
 			return true
 		end
@@ -18,7 +18,7 @@ function strangelyGlowingMark.onStepIn(creature, item, position, fromPosition)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The mythic fires beneath your feet heal you.")
 		player:setStorageValue(199990, os.time() + 60)
 		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
-	elseif item.itemid == 24733 then
+	elseif item.itemid == 22077 then
 		if player:getStorageValue(199991) >= os.time() then
 			return true
 		end
@@ -31,5 +31,5 @@ function strangelyGlowingMark.onStepIn(creature, item, position, fromPosition)
 end
 
 strangelyGlowingMark:type("stepin")
-strangelyGlowingMark:id(24732, 24733)
+strangelyGlowingMark:id(22076, 22077)
 strangelyGlowingMark:register()

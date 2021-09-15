@@ -9,10 +9,10 @@ function wrathEmperorMiss12Just.onUse(player, item, fromPosition, target, toPosi
 		player:addOutfit(367, 2)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found some clothes in wardrobe")
 		player:setStorageValue(Storage.WrathoftheEmperor.Mission12, 1) --Questlog, Wrath of the Emperor "Mission 12: Just Rewards"
-		player:setStorageValue(1150, 1)
+		player:setStorageValue(1395, 1)
 	else
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The wardrobe is empty.")
-		player:setStorageValue(1150, 1)
+		player:setStorageValue(1395, 1)
 	end
 	return true
 end

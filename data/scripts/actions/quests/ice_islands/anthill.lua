@@ -1,7 +1,7 @@
 local iceAntHill = Action()
 function iceAntHill.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local mast = {x = 32360, y = 31365, z = 7}
-	if target.itemid == 3323 and item.itemid == 7243 then
+	if target.itemid == 1079 and item.itemid == 7243 then
 		if player:getStorageValue(Storage.TheIceIslands.Questline) == 6 then
 			toPosition:sendMagicEffect(CONST_ME_GROUNDSHAKER)
 			player:setStorageValue(Storage.TheIceIslands.Mission03, 2) -- Questlog The Ice Islands Quest, Nibelor 2: Ecological Terrorism

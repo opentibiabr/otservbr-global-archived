@@ -7,5 +7,5 @@ function decay.onStepIn(creature, item, position, fromPosition)
 end
 
 decay:type("stepin")
-decay:id(293, 461, 3310)
+decay:id(293, 475, 1066)
 decay:register()

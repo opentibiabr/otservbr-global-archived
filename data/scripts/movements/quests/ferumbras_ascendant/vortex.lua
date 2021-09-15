@@ -20,5 +20,5 @@ function vortex.onStepIn(creature, item, position, fromPosition)
 end
 
 vortex:type("stepin")
-vortex:id(22455)
+vortex:id(20121)
 vortex:register()

@@ -151,7 +151,7 @@ function heartDestructionSparks.onUse(player, item, fromPosition, itemEx, toPosi
 	local pushPos = {x = 32227, y = 31343, z = 11}
 
 	if item.actionid == 14328 then
-		if item.itemid == 9825 then
+		if item.itemid == 8911 then
 			if player:getPosition().x == pushPos.x and player:getPosition().y == pushPos.y and player:getPosition().z == pushPos.z then
 
 				local storePlayers, playerTile = {}
@@ -187,7 +187,7 @@ function heartDestructionSparks.onUse(player, item, fromPosition, itemEx, toPosi
 				return true
 			end
 		end
-		item:transform(item.itemid == 9825 and 9826 or 9825)
+		item:transform(item.itemid == 8911 and 8912 or 8911)
 	end
 
 	return true

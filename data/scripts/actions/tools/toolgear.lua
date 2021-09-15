@@ -11,5 +11,5 @@ function toolGear.onUse(player, item, fromPosition, target, toPosition, isHotkey
 		or onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHotkey)
 end
 
-toolGear:id(10511, 10513, 10515)
+toolGear:id(9594, 9596, 9598)
 toolGear:register()

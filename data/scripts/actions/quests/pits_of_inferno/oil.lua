@@ -1,19 +1,19 @@
 local bridgePosition = Position(32801, 32336, 11)
 
 local function revertBridge()
-	Tile(bridgePosition):getItemById(5770):transform(493)
+	Tile(bridgePosition):getItemById(5770):transform(622)
 end
 
 local function revertLever(position)
-	local leverItem = Tile(position):getItemById(1946)
+	local leverItem = Tile(position):getItemById(2773)
 	if leverItem then
-		leverItem:transform(1945)
+		leverItem:transform(2772)
 	end
 end
 
 local pitsOfInfernoOil = Action()
 function pitsOfInfernoOil.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid ~= 1945 then
+	if item.itemid ~= 2772 then
 		return false
 	end
 
@@ -22,13 +22,13 @@ function pitsOfInfernoOil.onUse(player, item, fromPosition, target, toPosition, 
 		return true
 	end
 
-	local water = Tile(bridgePosition):getItemById(493)
+	local water = Tile(bridgePosition):getItemById(622)
 	if water then
 		water:transform(5770)
 		addEvent(revertBridge, 10 * 60 * 1000)
 	end
 
-	item:transform(1946)
+	item:transform(2773)
 	addEvent(revertLever, 10 * 60 * 1000, toPosition)
 	return true
 end

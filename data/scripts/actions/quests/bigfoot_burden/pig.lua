@@ -1,6 +1,6 @@
 local bigfootPig = Action()
 function bigfootPig.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.itemid ~= 18341 then
+	if target.itemid ~= 15830 then
 		return false
 	end
 
@@ -16,10 +16,10 @@ function bigfootPig.onUse(player, item, fromPosition, target, toPosition, isHotk
 
 	player:setStorageValue(Storage.BigfootBurden.MushroomCount, mushroomCount + 1)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The little pig happily eats the truffles.')
-	target:transform(18218)
+	target:transform(15701)
 	toPosition:sendMagicEffect(CONST_ME_GROUNDSHAKER)
 	return true
 end
 
-bigfootPig:id(18339)
+bigfootPig:id(15828)
 bigfootPig:register()

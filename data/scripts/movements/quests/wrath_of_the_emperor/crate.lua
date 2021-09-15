@@ -21,11 +21,11 @@ function crate.onStepIn(creature, item, position, fromPosition)
 		player:say("You hear guards moving behind doors in the distance. \z
 			If you have any sort of disguise with you, this is the moment to use it.", TALKTYPE_MONSTER_SAY)
 	elseif item.actionid == 8016 then
-		if Tile(Position(player:getPosition().y < 31094 and 33080 
-		or 33385, player:getPosition().y, 8)):getItemById(12213) then
+		if Tile(Position(player:getPosition().y < 1099 and 28327 
+		or 28643, player:getPosition().y, 8)):getItemById(11257) then
 			catchPlayer(playerId)
 		end
-	elseif item.actionid == 8017 or item.actionid == 32362 or item.itemid == 11436 then
+	elseif item.actionid == 8017 or item.actionid == 32362 or item.itemid == 10480 then
 		catchPlayer(playerId)
 	elseif item.actionid == 8018 then
 		if Game.getStorageValue(GlobalStorage.WrathOfTheEmperor.Light01) ~= 1 then
@@ -54,5 +54,5 @@ function crate.onStepIn(creature, item, position, fromPosition)
 end
 
 crate:type("stepin")
-crate:aid(8015, 8016, 8017, 8018, 8019, 8020, 8021, 8022, 8023, 32362)
+crate:aid(8015, 1069, 1087, 1088, 1089, 1090, 1091, 1092, 1093, 6938)
 crate:register()

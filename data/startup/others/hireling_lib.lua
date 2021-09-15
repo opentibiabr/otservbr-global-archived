@@ -68,22 +68,22 @@ HIRELING_OUTFITS_TABLE = {
 }
 
 HIRELING_STORAGE = {
-	SKILL = 28800,
-	OUTFIT = 28900
+	SKILL = 25441,
+	OUTFIT = 25590
 }
 
-HIRELING_LAMP_ID = 34070
+HIRELING_LAMP_ID = 29432
 HIRELING_ATTRIBUTE = "HIRELING_ID"
 
 HIRELING_FOODS_BOOST = {
-	MAGIC = 35174,
-	MELEE = 35175,
-	SHIELDING = 35172,
+	MAGIC = 29410,
+	MELEE = 29411,
+	SHIELDING = 29408,
 	DISTANCE = 35173,
 }
 
 HIRELING_FOODS = { -- only the non-skill ones
-	35176, 35177, 35178, 35179, 35180
+	29412, 29413, 29414, 29415, 29416
 }
 
 -- [[ LOCAL FUNCTIONS AND UTILS ]]
@@ -564,7 +564,7 @@ function Player:sendHirelingOutfitWindow(hireling)
 
 	local availableOutfits = hireling:getAvailableOutfits()
 
-	if client.version >= 1185 then
+	if client.version >= 1430 then
 		msg:addU16(#availableOutfits)
 	else
 		msg:addByte(#availableOutfits)
@@ -575,14 +575,14 @@ function Player:sendHirelingOutfitWindow(hireling)
 		msg:addString(outfit.name)
 		msg:addByte(0x00) -- addons
 
-		if client.version >= 1185 then
+		if client.version >= 1430 then
 			-- something related to the store button (offer_id maybe) not using now
 			msg:addByte(0x00)
 		end
 	end
 
 	-- mounts disabled for hirelings
-	if client.version >= 1185 then
+	if client.version >= 1430 then
 		msg:addU16(0x00) --mounts count
 		msg:addU16(0x00) --familiar count
 		msg:addByte(0x00) -- dunno

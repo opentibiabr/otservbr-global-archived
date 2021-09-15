@@ -1,6 +1,6 @@
 local whatFoolishCrate = Action()
 function whatFoolishCrate.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.itemid ~= 7481 then
+	if target.itemid ~= 116 then
 		return false
 	end
 
@@ -15,5 +15,5 @@ function whatFoolishCrate.onUse(player, item, fromPosition, target, toPosition, 
 	return true
 end
 
-whatFoolishCrate:id(7482)
+whatFoolishCrate:id(117)
 whatFoolishCrate:register()

@@ -18,15 +18,15 @@ local bpItems = {
 }
 
 local chests = {
-	[14021] = {
+	[2150] = {
 		name = "porcelain mask",
 		count = 1
 	},
-	[14022] = {
+	[2151] = {
 		name = "backpack",
 		count = 1
 	},
-	[14023] = {
+	[2186] = {
 		name = "colourful feathers",
 		count = 3
 	}
@@ -38,11 +38,11 @@ function finalReward.onUse(player, item, fromPosition, target, toPosition, isHot
 	if not setting then
 		return true
 	end
-	if item.uid == 14021 and player:getStorageValue(Storage.FirstDragon.RewardFeather) < os.time() then
+	if item.uid == 2150 and player:getStorageValue(Storage.FirstDragon.RewardFeather) < os.time() then
 		player:addItem(setting.name, setting.count, true)
-		player:setStorageValue(Storage.FirstDragon.RewardFeather, os.time() + 24 * 3600)
+		player:setStorageValue(Storage.FirstDragon.RewardFeather, os.time() + 24 * 1768)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found ' ..setting.count.. ' ' ..setting.name..'.')
-	elseif item.uid == 14022 and player:getStorageValue(Storage.FirstDragon.RewardBackpack) < os.time() then
+	elseif item.uid == 2151 and player:getStorageValue(Storage.FirstDragon.RewardBackpack) < os.time() then
 		local bp = Game.createItem('Backpack', 1)
 		if bp then
 			for i = 1, #bpItems do
@@ -52,7 +52,7 @@ function finalReward.onUse(player, item, fromPosition, target, toPosition, isHot
 		end
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found a backpack.')
 		player:setStorageValue(Storage.FirstDragon.RewardBackpack, os.time() + 60 * 60 * 365 * 24)
-	elseif item.uid == 14023 and player:getStorageValue(Storage.FirstDragon.RewardMask) < os.time() then
+	elseif item.uid == 2186 and player:getStorageValue(Storage.FirstDragon.RewardMask) < os.time() then
 		player:addItem(setting.name, setting.count, true)
 		player:setStorageValue(Storage.FirstDragon.RewardMask, os.time() + 60 * 60 * 5 * 24)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found ' ..setting.count.. ' ' ..setting.name..'.')

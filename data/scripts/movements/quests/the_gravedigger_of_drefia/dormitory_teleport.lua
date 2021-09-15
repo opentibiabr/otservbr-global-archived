@@ -25,5 +25,5 @@ function dormitoryTeleport.onStepIn(creature, item, position, fromPosition)
 end
 
 dormitoryTeleport:type("stepin")
-dormitoryTeleport:aid(4534, 4535)
+dormitoryTeleport:aid(4534, 4524)
 dormitoryTeleport:register()

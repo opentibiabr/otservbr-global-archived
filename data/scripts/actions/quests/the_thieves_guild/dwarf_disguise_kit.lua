@@ -9,5 +9,5 @@ function theThievesKit.onUse(player, item, fromPosition, target, toPosition, isH
 	return true
 end
 
-theThievesKit:id(8693)
+theThievesKit:id(7865)
 theThievesKit:register()

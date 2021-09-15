@@ -26,7 +26,7 @@ function theHiddenWagonLevers.onUse(player, item, fromPosition, target, toPositi
 			end
 		end
 	end
-	item:transform(item.itemid == 10044 and 10045 or 10044)
+	item:transform(item.itemid == 9125 and 9126 or 9125)
 	return true
 end
 

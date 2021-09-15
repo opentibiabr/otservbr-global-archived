@@ -30,5 +30,5 @@ function bigfootMusic.onUse(player, item, fromPosition, target, toPosition, isHo
 	return true
 end
 
-bigfootMusic:uid(3124,3125,3126,3127)
+bigfootMusic:uid(3124,4307,4308,4309)
 bigfootMusic:register()

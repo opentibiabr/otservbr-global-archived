@@ -6,7 +6,7 @@ function schrodingersIslandTeleportLvl999Exit.onStepIn(creature, item, position,
 		return false
 	end
 
-	if player:getLevel() >= 999 then
+	if player:getLevel() >= 1244 then
 		local exitPosition = Position(32883, 32527, 11)
 		player:teleportTo(exitPosition)
 		fromPosition:sendMagicEffect(CONST_ME_TELEPORT)

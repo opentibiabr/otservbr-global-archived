@@ -23,7 +23,7 @@ local function sendTextMessages(cid, index, position)
 
 	local playerposuid = Tile(player:getPosition()):getGround()
 	playerposuid = playerposuid:getUniqueId()
-	if playerposuid ~= 3123 then
+	if playerposuid ~= 4305 then
 		return false
 	end
 
@@ -65,7 +65,7 @@ function taskXRay.onStepIn(creature, item, position, fromPosition)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
 			"You have been succesfully g-rayed. Now let Doctor Gnomedix inspect your ears!")
 		end
-	elseif item.uid == 3123 then
+	elseif item.uid == 4305 then
 		if player:getStorageValue(Storage.BigfootBurden.QuestLine) ~= 10 then
 			return true
 		end
@@ -81,6 +81,6 @@ function taskXRay.onStepIn(creature, item, position, fromPosition)
 end
 
 taskXRay:type("stepin")
-taskXRay:aid(9200, 9201)
+taskXRay:aid(9200, 8285)
 taskXRay:uid(3123)
 taskXRay:register()

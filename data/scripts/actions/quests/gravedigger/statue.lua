@@ -1,6 +1,6 @@
 local gravediggerStatue = Action()
 function gravediggerStatue.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.itemid ~= 21429 then
+	if target.itemid ~= 19112 then
 		return false
 	end
 

@@ -12,21 +12,21 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		player:setStorageValue(Storage.Dawnport.Lever, 1)
 	end
 
-	if item.itemid == 10044 and player:getStorageValue(Storage.Dawnport.Lever) == 1 then
+	if item.itemid == 9125 and player:getStorageValue(Storage.Dawnport.Lever) == 1 then
 		for i = 1, #positions do
 			local tile = Tile(positions[i])
-			local createBridge = tile:getItemById(4665)
+			local createBridge = tile:getItemById(4598)
 			if createBridge then
 				createBridge:transform(5769)
 			end
 		end
 		player:say("<squeaak>", TALKTYPE_MONSTER_SAY, false, player, {x = 32107, y = 31904, z = 7})
 		player:setStorageValue(Storage.Dawnport.Lever, 2)
-		item:transform(23661)
+		item:transform(21290)
 		addEvent(function()
-			item:transform(10044)
+			item:transform(9125)
 		end, 8 * 1000)
-	elseif item.itemid == 10044 and player:getStorageValue(Storage.Dawnport.Lever) == 2 then
+	elseif item.itemid == 9125 and player:getStorageValue(Storage.Dawnport.Lever) == 2 then
 		for i = 1, #positions do
 			local tile = Tile(positions[i])
 			if tile then
@@ -53,15 +53,15 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 				local removeBridge = tile:getItemById(5769)
 				if removeBridge then
-					removeBridge:transform(4665)
+					removeBridge:transform(4598)
 				end
 			end
 		end
 		player:say("<crrk>", TALKTYPE_MONSTER_SAY, false, player, {x = 32107, y = 31904, z = 7})
 		player:setStorageValue(Storage.Dawnport.Lever, 1)
-		item:transform(23661)
+		item:transform(21290)
 		addEvent(function()
-			item:transform(10044)
+			item:transform(9125)
 		end, 8 * 1000)
 	end
 	return true

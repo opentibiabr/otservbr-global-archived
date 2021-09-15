@@ -1,15 +1,15 @@
-local helmetIds = {2335, 2336, 2337, 2338, 2339, 2340, 2341}
+local helmetIds = {3222, 3223, 3224, 3225, 3226, 3227, 3228}
 
 local craftHelmet = MoveEvent()
 
 function craftHelmet.onAddItem(moveitem, tileitem, position)
-	if moveitem.itemid == 2147 then
-		local tile = Tile(position):getItemById(2342)
+	if moveitem.itemid == 3030 then
+		local tile = Tile(position):getItemById(3229)
 		if not tile then
 			return true
 		end
 
-		tile:transform(2343)
+		tile:transform(3230)
 		tile:decay()
 		position:sendMagicEffect(CONST_ME_FIREAREA)
 		Item(moveitem.uid):remove(1)
@@ -35,7 +35,7 @@ function craftHelmet.onAddItem(moveitem, tileitem, position)
 		helmetItems[i]:remove()
 	end
 
-	Game.createItem(2342, 1, position)
+	Game.createItem(3229, 1, position)
 	position:sendMagicEffect(CONST_ME_FIREAREA)
 	return true
 end

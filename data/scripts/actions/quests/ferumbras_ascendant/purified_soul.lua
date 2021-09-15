@@ -12,5 +12,5 @@ function ferumbrasAscendantPurifiedSoul.onUse(player, item, fromPosition, target
 	return true
 end
 
-ferumbrasAscendantPurifiedSoul:id(25354)
+ferumbrasAscendantPurifiedSoul:id(22698)
 ferumbrasAscendantPurifiedSoul:register()

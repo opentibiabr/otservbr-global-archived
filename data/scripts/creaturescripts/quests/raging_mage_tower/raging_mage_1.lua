@@ -15,7 +15,7 @@ function ragingMage1.onDeath(creature, corpse, killer, mostDamageKiller, unjusti
 		creature:say("MWAAAHAHAAA!! NO ONE!! NO ONE CAN DEFEAT MEEE!!!",
 		TALKTYPE_MONSTER_YELL, false, nil, Position(33143, 31527, 2))
 		Game.createMonster("Energized Raging Mage", Position(33142, 31529, 2))
-	elseif Game.getStorageValue(yielothaxKillStorage) > 1999 then
+	elseif Game.getStorageValue(yielothaxKillStorage) > 2866 then
 		Game.createMonster("raging mage", Position(33142, 31529, 2))
 		creature:say("GNAAAAAHRRRG!! WHAT? WHAT DID YOU DO TO ME!! I... I feel the energies crawling away... from me... DIE!!!",
 		TALKTYPE_MONSTER_YELL, false, nil, Position(33143, 31527, 2))

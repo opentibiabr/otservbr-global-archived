@@ -1,15 +1,15 @@
 local UniqueTable = {
-	[25002] = {
+	[22346] = {
 		storage = Storage.FirstDragon.DesertTile,
 		msg = "You enter the beautiful oasis. \
 		By visiting this sacred site you're infused with the power of water bringing life to the desert."
 	},
-	[25003] = {
+	[22347] = {
 		storage = Storage.FirstDragon.StoneSculptureTile,
 		msg = "You enter the circle of trees and flowers. \
 		By visiting this sacred site you're infused with the power of nature and plants."
 	},
-	[25004] = {
+	[22348] = {
 		storage = Storage.FirstDragon.SuntowerTile,
 		msg = "You entered the suntower of Ab'dendriel. \
 		By visiting this sacred site you're infused with the power of the life-giving sun."

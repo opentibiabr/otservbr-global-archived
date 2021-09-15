@@ -58,13 +58,13 @@ function rathletonBossKill.onKill(creature, target)
 		end
 	end
 
-	local teleport = Tile(bossConfig.teleportPos):getItemById(1387)
+	local teleport = Tile(bossConfig.teleportPos):getItemById(1949)
 	if not teleport then return true end
 	local teleportPos = bossConfig.teleportPos
 	local oldPos = teleport:getDestination()
 	local newPos = bossConfig.nextpos
 	if teleport then
-		teleport:transform(25417)
+		teleport:transform(22761)
 		targetMonster:getPosition():sendMagicEffect(CONST_ME_THUNDER)
 		teleport:setDestination(newPos)
 		addEvent(revertTeleport, 2 * 60 * 1000, teleportPos, 25417, 1387, oldPos)

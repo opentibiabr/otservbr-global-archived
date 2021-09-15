@@ -43,5 +43,5 @@ function theNewFrontierBeaver.onUse(player, item, fromPosition, target, toPositi
 	return true
 end
 
-theNewFrontierBeaver:id(11100)
+theNewFrontierBeaver:id(9843)
 theNewFrontierBeaver:register()

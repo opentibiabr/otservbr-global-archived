@@ -1,5 +1,5 @@
 local config = {
-	[24900] = {
+	[22244] = {
 		timer = Storage.ThreatenedDreams.KroazurTimer,
 		range = 20,
 		newPos = Position(33591, 32315, 10),
@@ -49,7 +49,7 @@ function kroazurEntrance.onStepIn(creature, item, position, fromPosition)
 		'You have ten minutes to kill and loot this boss. \z
 		Otherwise you will lose that chance and will be kicked out.', TALKTYPE_MONSTER_SAY)
 	addEvent(clearBossRoom, 60 * 10 * 1000, player.uid, monster.uid, teleport.bossPos, teleport.range, teleport.range, fromPosition)
-	player:setStorageValue(teleport.timer, os.time() + 2 * 3600)
+	player:setStorageValue(teleport.timer, os.time() + 2 * 1768)
 	return true
 end
 

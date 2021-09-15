@@ -7,7 +7,7 @@ local monsters = {}
 
 function Game.createRandom(position)
 	local tile = Tile(position)
-	if not tile or Tile(position):getItemById(3139) then
+	if not tile or Tile(position):getItemById(486) then
 		return false
 	end
 

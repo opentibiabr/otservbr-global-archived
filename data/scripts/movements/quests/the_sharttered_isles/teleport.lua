@@ -1,8 +1,8 @@
 local sacrifices = {
-	[2787] = Tile(Position(31918, 32598, 10)), -- top left
-	[2789] = Tile(Position(31918, 32599, 10)), -- bottom left
-	[2796] = Tile(Position(31920, 32598, 10)), -- top right
-	[2792] = Tile(Position(31920, 32599, 10)) -- bottom right
+	[3723] = Tile(Position(31918, 32598, 10)), -- top left
+	[3725] = Tile(Position(31918, 32599, 10)), -- bottom left
+	[3732] = Tile(Position(31920, 32598, 10)), -- top right
+	[3728] = Tile(Position(31920, 32599, 10)) -- bottom right
 }
 
 local teleport = MoveEvent()
@@ -30,10 +30,10 @@ function teleport.onStepIn(creature, item, position, fromPosition)
 	end
 
 	for sacrificeItemId, sacrificeTile in pairs(sacrifices) do
-		if sacrificeTile:getThing(1).itemId == 1485 then
+		if sacrificeTile:getThing(1).itemId == 2114 then
 			sacrificeTile:getThing(1):remove()
 		end
-		if sacrificeTile:getThing(0).itemId == 1485 then
+		if sacrificeTile:getThing(0).itemId == 2114 then
 			sacrificeTile:getThing(0):remove()
 		end
 	end

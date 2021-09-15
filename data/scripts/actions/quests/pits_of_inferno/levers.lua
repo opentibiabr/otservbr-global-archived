@@ -11,9 +11,9 @@ local stonePositions = {
 
 local function createStones()
 	for i = 1, #stonePositions do
-		local stone = Tile(stonePositions[i]):getItemById(1304)
+		local stone = Tile(stonePositions[i]):getItemById(1791)
 		if not stone then
-			Game.createItem(1304, 1, stonePositions[i])
+			Game.createItem(1791, 1, stonePositions[i])
 		end
 	end
 
@@ -21,28 +21,28 @@ local function createStones()
 end
 
 local function revertLever(position)
-	local leverItem = Tile(position):getItemById(1946)
+	local leverItem = Tile(position):getItemById(2773)
 	if leverItem then
-		leverItem:transform(1945)
+		leverItem:transform(2772)
 	end
 end
 
 local pitsOfInfernoLevers = Action()
 function pitsOfInfernoLevers.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid ~= 1945 then
+	if item.itemid ~= 2772 then
 		return false
 	end
 
 	local leverCount = math.max(0, Game.getStorageValue(GlobalStorage.PitsOfInfernoLevers))
-	if item.uid > 2049 and item.uid < 2065 then
-		local number = item.uid - 2049
+	if item.uid > 2919 and item.uid < 2935 then
+		local number = item.uid - 2919
 		if leverCount + 1 ~= number then
 			return false
 		end
 
 		Game.setStorageValue(GlobalStorage.PitsOfInfernoLevers, number)
 		player:say('You flipped the ' .. text[number] .. ' lever. Hurry up and find the next one!', TALKTYPE_MONSTER_SAY, false, player, toPosition)
-	elseif item.uid == 2065 then
+	elseif item.uid == 2935 then
 		if leverCount ~= 15 then
 			player:say('The final lever won\'t budge... yet.', TALKTYPE_MONSTER_SAY)
 			return true
@@ -50,7 +50,7 @@ function pitsOfInfernoLevers.onUse(player, item, fromPosition, target, toPositio
 
 		local stone
 		for i = 1, #stonePositions do
-			stone = Tile(stonePositions[i]):getItemById(1304)
+			stone = Tile(stonePositions[i]):getItemById(1791)
 			if stone then
 				stone:remove()
 				stonePositions[i]:sendMagicEffect(CONST_ME_EXPLOSIONAREA)
@@ -60,12 +60,12 @@ function pitsOfInfernoLevers.onUse(player, item, fromPosition, target, toPositio
 		addEvent(createStones, 15 * 60 * 1000)
 	end
 
-	item:transform(1946)
+	item:transform(2773)
 	addEvent(revertLever, 15 * 60 * 1000, toPosition)
 	return true
 end
 
-for value = 2050, 2065 do
+for value = 2920, 2935 do
 	pitsOfInfernoLevers:uid(value)
 end
 pitsOfInfernoLevers:register()

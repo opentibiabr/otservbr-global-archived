@@ -1,6 +1,6 @@
 local theApeMiss9 = Action()
 function theApeMiss9.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.itemid ~= 4861 then
+	if target.itemid ~= 4850 then
 		return false
 	end
 
@@ -11,11 +11,11 @@ function theApeMiss9.onUse(player, item, fromPosition, target, toPosition, isHot
 
 	player:setStorageValue(Storage.TheApeCity.SnakeDestroyer, 1)
 	item:remove()
-	target:transform(4862)
+	target:transform(4851)
 	target:decay()
 	toPosition:sendMagicEffect(CONST_ME_FIREAREA)
 	return true
 end
 
-theApeMiss9:id(4846)
+theApeMiss9:id(4835)
 theApeMiss9:register()

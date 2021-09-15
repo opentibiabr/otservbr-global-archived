@@ -1,5 +1,5 @@
 local setting = {
-	[19049] = {position = Position(33657, 31658, 8)}, --Entrance
+	[16769] = {position = Position(33657, 31658, 8)}, --Entrance
 }
 
 local accessDepot = MoveEvent()

@@ -1,4 +1,4 @@
-local SPECIAL_QUESTS = {2215, 2216, 10544, 12374, 12513, 26300, 27300, 28300}
+local SPECIAL_QUESTS = {3099, 3100, 9628, 11418, 11557, 23644, 24632, 14338}
 
 local walkback = MoveEvent()
 
@@ -28,5 +28,5 @@ function walkback.onStepIn(creature, item, position, fromPosition)
 end
 
 walkback:type("stepin")
-walkback:id(1714, 1715, 1716, 1717, 1738, 1740, 1741, 1746, 1747, 1748, 1749, 23798, 23799, 23800, 23801, 23802, 23803, 23804, 23805)
+walkback:id(2431, 2432, 2433, 2434, 2469, 2472, 2473, 2478, 2480, 2481, 2482, 21427, 21428, 21429, 21430, 21431, 21432, 21433, 21434)
 walkback:register()

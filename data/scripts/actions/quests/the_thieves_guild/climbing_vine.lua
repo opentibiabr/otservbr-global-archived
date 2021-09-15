@@ -1,6 +1,6 @@
 local config = {
-	[12501] = Position(32336, 31813, 6), -- to the room
-	[12502] = Position(32337, 31815, 7) -- outside the room
+	[11545] = Position(32336, 31813, 6), -- to the room
+	[11546] = Position(32337, 31815, 7) -- outside the room
 }
 
 local theThievesVine = Action()
@@ -19,5 +19,5 @@ function theThievesVine.onUse(player, item, fromPosition, target, toPosition, is
 	return true
 end
 
-theThievesVine:aid(12501,12502)
+theThievesVine:aid(12501,11546)
 theThievesVine:register()

@@ -1,10 +1,10 @@
 local setting = {
-		[5511] = {storage = Storage.CultsOfTibia.Minotaurs.BossTimer},
-		[5513] = {storage = Storage.CultsOfTibia.Humans.BossTimer},
-		[5514] = {storage = Storage.CultsOfTibia.Misguided.BossTimer},
-		[5515] = {storage = Storage.CultsOfTibia.FinalBoss.BossTimer},
-		[5516] = {storage = Storage.CultsOfTibia.Orcs.BossTimer},
-		[5512] = {storage = Storage.CultsOfTibia.Barkless.BossTimer}
+		[5510] = {storage = Storage.CultsOfTibia.Minotaurs.BossTimer},
+		[5512] = {storage = Storage.CultsOfTibia.Humans.BossTimer},
+		[5513] = {storage = Storage.CultsOfTibia.Misguided.BossTimer},
+		[5514] = {storage = Storage.CultsOfTibia.FinalBoss.BossTimer},
+		[5515] = {storage = Storage.CultsOfTibia.Orcs.BossTimer},
+		[5511] = {storage = Storage.CultsOfTibia.Barkless.BossTimer}
 	}
 
 local bossTimer = MoveEvent()

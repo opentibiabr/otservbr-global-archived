@@ -9,7 +9,7 @@ local chargedAnomalyDeath = CreatureEvent("ChargedAnomalyDeath")
 
 function chargedAnomalyDeath.onDeath(creature)
 	for storageValue, health in pairs(monsterTable) do
-		if Game.getStorageValue(14322) == storageValue then
+		if Game.getStorageValue(126) == storageValue then
 			local monster = Game.createMonster("anomaly", {x = 32271, y = 31249, z = 14}, false, true)
 			monster:addHealth(-health)
 		end

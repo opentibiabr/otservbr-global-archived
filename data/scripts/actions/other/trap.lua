@@ -6,5 +6,5 @@ function trap.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-trap:id(2579)
+trap:id(3482)
 trap:register()

@@ -14,9 +14,9 @@ function hoist.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if table.contains({3059, 3061}, item.uid) then
+	if table.contains({4241, 4243}, item.uid) then
 		player:teleportTo(Position(32157, 31125, 10))
-	elseif item.uid == 3060 then
+	elseif item.uid == 4242 then
 		if Tile(Position(32156, 31125, 10)):getItemById(1945) then
 			player:teleportTo(Position(32157, 31125, 11))
 		else
@@ -28,5 +28,5 @@ function hoist.onStepIn(creature, item, position, fromPosition)
 end
 
 hoist:type("stepin")
-hoist:uid(3059, 3060, 3061)
+hoist:uid(3059, 4242, 4243)
 hoist:register()

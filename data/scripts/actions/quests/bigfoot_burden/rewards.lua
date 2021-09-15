@@ -1,41 +1,41 @@
 local rewards = {
-	[3148] = {
+	[495] = {
 		storage = Storage.BigfootBurden.Warzone1Reward,
 		bossName = 'Deathstrike',
 		items = {
-			{rand = true, itemId = {18396, 18501, 18502, 18503}},
-			{itemId = 18402, count = 750},
-			{itemId = 18396},
-			{itemId = 2160, count = 3},
-			{itemId = 18415, count = 7},
-			{itemId = 18423, count = 2}
+			{rand = true, itemId = {16102, 16233, 16234, 16235}},
+			{itemId = 16108, count = 750},
+			{itemId = 16102},
+			{itemId = 3043, count = 3},
+			{itemId = 16121, count = 7},
+			{itemId = 16129, count = 2}
 		},
 		achievement = {'Final Strike', 'Death on Strike'}
 	},
-	[3149] = {
+	[496] = {
 		storage = Storage.BigfootBurden.Warzone2Reward,
 		bossName = 'Gnomevil',
 		items = {
-			{rand = true, itemId = {18505, 18506, 18507}},
-			{itemId = 18407, count = 750},
-			{itemId = 18396},
-			{itemId = 2160, count = 4},
-			{itemId = 18413, count = 10},
-			{itemId = 18423, count = 2}
+			{rand = true, itemId = {16237, 16238, 16239}},
+			{itemId = 16113, count = 750},
+			{itemId = 16102},
+			{itemId = 3043, count = 4},
+			{itemId = 16119, count = 10},
+			{itemId = 16129, count = 2}
 		},
 		miniatureHouse = true,
 		achievement = {'Gnomebane\'s Bane', 'Fall of the Fallen'}
 	},
-	[3150] = {
+	[497] = {
 		storage = Storage.BigfootBurden.Warzone3Reward,
 		bossName = 'Abyssador',
 		items = {
-			{rand = true, itemId = {18497, 18498, 18499}},
-			{itemId = 18408},
-			{itemId = 18396},
-			{itemId = 2160, count = 5},
-			{itemId = 18414, count = 12},
-			{itemId = 18423, count = 2}
+			{rand = true, itemId = {16229, 16230, 16231}},
+			{itemId = 16114},
+			{itemId = 16102},
+			{itemId = 3043, count = 5},
+			{itemId = 16120, count = 12},
+			{itemId = 16129, count = 2}
 		},
 		achievement = {'Death from Below', 'Diplomatic Immunity'}
 	}
@@ -43,15 +43,15 @@ local rewards = {
 
 local bigfootRewards = Action()
 function bigfootRewards.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.uid == 3147 then
+	if item.uid == 494 then
 		if player:getStorageValue(Storage.BigfootBurden.WarzoneStatus) == 4 then
 			player:setStorageValue(Storage.BigfootBurden.WarzoneStatus, 5)
-			player:addItem(2137, 1)
+			player:addItem(3020, 1)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have found some golden fruits.')
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The chest is empty.')
 		end
-	elseif item.uid > 3147 and item.uid < 3151 then
+	elseif item.uid > 494 and item.uid < 498 then
 		local reward = rewards[item.uid]
 		if not reward then
 			return false
@@ -82,7 +82,7 @@ function bigfootRewards.onUse(player, item, fromPosition, target, toPosition, is
 
 		if reward.miniatureHouse then
 			if math.random(25) == 1 then
-				player:addItem(16619, 1)
+				player:addItem(15276, 1)
 			end
 		end
 
@@ -93,5 +93,5 @@ function bigfootRewards.onUse(player, item, fromPosition, target, toPosition, is
 	return true
 end
 
-bigfootRewards:uid(3147,3148,3149,3150)
+bigfootRewards:uid(3147,495,496,497)
 bigfootRewards:register()

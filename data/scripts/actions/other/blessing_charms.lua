@@ -6,5 +6,5 @@ function blessingCharms.onUse(player, item, fromPosition, target, toPosition, is
 	return Blessings.useCharm(player, item)
 end
 
-blessingCharms:id(11258, 11259, 11260, 11261, 11262, 28036, 28037)
+blessingCharms:id(10341, 10342, 10343, 10344, 10345, 25360, 25361)
 blessingCharms:register()

@@ -8,5 +8,5 @@ function lavaDamage.onStepIn(creature, position, fromPosition, toPosition)
 end
 
 lavaDamage:type("stepin")
-lavaDamage:id(25331)
+lavaDamage:id(22675)
 lavaDamage:register()

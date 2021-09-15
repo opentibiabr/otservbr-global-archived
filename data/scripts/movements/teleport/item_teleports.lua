@@ -12,5 +12,5 @@ function itemTeleports.onAddItem(moveitem, tileitem, position)
 end
 
 itemTeleports:type("additem")
-itemTeleports:id(1387, 8058)
+itemTeleports:id(1949, 1959)
 itemTeleports:register()

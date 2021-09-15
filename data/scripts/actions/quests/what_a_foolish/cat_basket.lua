@@ -30,12 +30,12 @@ function whatFoolishCat.onUse(player, item, fromPosition, target, toPosition, is
 		effectPositions[i]:sendMagicEffect(CONST_ME_POFF)
 	end
 
-	Game.createItem(7487, 1, toPosition)
+	Game.createItem(123, 1, toPosition)
 	toPosition:sendMagicEffect(CONST_ME_POFF)
 	local monster = Game.createMonster('Kitty', Position(toPosition.x, toPosition.y + 1, toPosition.z))
 	addEvent(removeKitty, 10000, monster.uid)
 	return true
 end
 
-whatFoolishCat:id(7486)
+whatFoolishCat:id(122)
 whatFoolishCat:register()

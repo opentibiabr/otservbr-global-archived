@@ -1,7 +1,7 @@
 local config = {
-	item = 22728,
-	target = 22727,
-	reward = 22726,
+	item = 20357,
+	target = 20356,
+	reward = 20355,
 }
 local tinderBox = Action()
 function tinderBox.onUse(player, item, fromPosition, target, toPosition, isHotkey)
@@ -15,5 +15,5 @@ function tinderBox.onUse(player, item, fromPosition, target, toPosition, isHotke
 	return true
 end
 
-tinderBox:id(22728)
+tinderBox:id(20357)
 tinderBox:register()

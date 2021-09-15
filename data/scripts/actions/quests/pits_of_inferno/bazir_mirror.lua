@@ -1,9 +1,9 @@
 local config = {
-	[39511] = {
+	[34676] = {
 		fromPosition = Position(32739, 32392, 14),
 		toPosition = Position(32739, 32391, 14)
 	},
-	[39512] = {
+	[34677] = {
 		teleportPlayer = true,
 		fromPosition = Position(32739, 32391, 14),
 		toPosition = Position(32739, 32392, 14)
@@ -30,5 +30,5 @@ function pitsOfInfernoBlackMirror.onUse(player, item, fromPosition, target, toPo
 	return true
 end
 
-pitsOfInfernoBlackMirror:aid(39511,39512)
+pitsOfInfernoBlackMirror:aid(39511,34677)
 pitsOfInfernoBlackMirror:register()

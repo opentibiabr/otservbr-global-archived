@@ -198,7 +198,7 @@ HIRELING_GOODS  =  {
 		{name = "necrotic rod", id = 2185, buy = 5000},
 		{name = "northwind rod", id = 8911, buy = 7500},
 		{name = "snakebite rod", id = 2182, buy = 500},
-		{name = "spellwand", id = 7735, sell = 299},
+		{name = "spellwand", id = 651, sell = 299},
 		{name = "springsprout rod", id = 8912, buy = 18000},
 		{name = "terra rod", id = 2181, buy = 10000},
 		{name = "underworld rod", id = 8910, buy = 22000},
@@ -243,10 +243,10 @@ HIRELING_GOODS  =  {
 		{name = "ultimate health potion", id = 8473, buy = 379},
 		{name = "ultimate mana potion", id = 26029, buy = 438},
 		{name = "ultimate spirit potion", id = 26030, buy = 438},
-		{name = "empty potion flask", id = 7634, sell = 5},
-		{name = "empty potion flask", id = 7635, sell = 5},
-		{name = "empty potion flask", id = 7636, sell = 5},
-		{name = "vial", id = 2006, sell = 5}
+		{name = "empty potion flask", id = 283, sell = 5},
+		{name = "empty potion flask", id = 284, sell = 5},
+		{name = "empty potion flask", id = 285, sell = 5},
+		{name = "vial", id = 2874, sell = 5}
 	},
 	RUNES  =  {
 		{name = "animate dead rune", id = 2316, buy = 375},
@@ -303,7 +303,7 @@ HIRELING_GOODS  =  {
 		{name = "rope", id = 2120, buy = 50, sell = 15},
 		{name = "scythe", id = 2550, buy = 50, sell = 10},
 		{name = "shovel", id = 2554, buy = 50, sell = 8},
-		{name = "spellwand", id = 7735, sell = 299},
+		{name = "spellwand", id = 651, sell = 299},
 		{name = "torch", id = 2050, buy = 2},
 		{name = "watch", id = 2036, buy = 20, sell = 6},
 		{name = "worm", id = 3976, buy = 1}

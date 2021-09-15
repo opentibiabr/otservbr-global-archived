@@ -22,5 +22,5 @@ function goldenOutfitMemorial.onUse(player, item, fromPosition, target, toPositi
     return true
 end
 
-goldenOutfitMemorial:id(36353, 36354, 36355, 36356, 36357, 36358)
+goldenOutfitMemorial:id(31518, 31519, 31520, 31521, 31522, 31523)
 goldenOutfitMemorial:register()

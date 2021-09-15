@@ -1,6 +1,6 @@
 local gravediggerAshes = Action()
 function gravediggerAshes.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.actionid ~= 4638 then
+	if target.actionid ~= 4627 then
 		return false
 	end
 
@@ -12,5 +12,5 @@ function gravediggerAshes.onUse(player, item, fromPosition, target, toPosition, 
 	return true
 end
 
-gravediggerAshes:id(21446)
+gravediggerAshes:id(19129)
 gravediggerAshes:register()

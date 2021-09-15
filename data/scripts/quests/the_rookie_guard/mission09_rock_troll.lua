@@ -91,13 +91,13 @@ local CHEST_ID = {
 }
 
 local chests = {
-	[40048] = {
+	[35213] = {
 		id = CHEST_ID.LEATHER_LEGS,
-		itemId = 2649
+		itemId = 3559
 	},
-	[40049] = {
+	[35214] = {
 		id = CHEST_ID.PICK,
-		itemId = 2553
+		itemId = 3456
 	}
 }
 
@@ -125,7 +125,7 @@ function trunkChest.onUse(player, item, frompos, item2, topos)
 	return true
 end
 
-trunkChest:uid(40048, 40049)
+trunkChest:uid(40048, 35214)
 trunkChest:register()
 
 -- Pick (use pick on pillars)
@@ -139,11 +139,11 @@ local PILLAR_ID = {
 }
 
 local tunnelPillars = {
-	[40050] = PILLAR_ID.BOTOM_RIGHT,
-	[40051] = PILLAR_ID.BOTTOM_LEFT,
-	[40052] = PILLAR_ID.TOP_LEFT,
-	[40053] = PILLAR_ID.TOP_CENTER,
-	[40054] = PILLAR_ID.TOP_RIGHT
+	[35215] = PILLAR_ID.BOTOM_RIGHT,
+	[35216] = PILLAR_ID.BOTTOM_LEFT,
+	[35217] = PILLAR_ID.TOP_LEFT,
+	[35218] = PILLAR_ID.TOP_CENTER,
+	[35219] = PILLAR_ID.TOP_RIGHT
 }
 
 -- /data/scripts/lib/register_actions.lua (onUsePick)

@@ -20,5 +20,5 @@ function gravediggerMonks.onUse(player, item, fromPosition, target, toPosition, 
 	return true
 end
 
-gravediggerMonks:id(21248)
+gravediggerMonks:id(18931)
 gravediggerMonks:register()

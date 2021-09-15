@@ -1,8 +1,8 @@
 local config = {
-	[18328] = 18221,
-	[18329] = 18222,
-	[18330] = 18223,
-	[18331] = 18224
+	[15817] = 15705,
+	[15818] = 15706,
+	[15819] = 15707,
+	[15820] = 15708
 }
 
 local bigfootSpores = Action()
@@ -20,7 +20,7 @@ function bigfootSpores.onUse(player, item, fromPosition, target, toPosition, isH
 	if target.itemid ~= spores then
 		player:setStorageValue(Storage.BigfootBurden.SporeCount, 0)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have gathered the wrong spores. You ruined your collection.')
-		item:transform(18328)
+		item:transform(15817)
 		toPosition:sendMagicEffect(CONST_ME_POFF)
 		return true
 	end
@@ -32,5 +32,5 @@ function bigfootSpores.onUse(player, item, fromPosition, target, toPosition, isH
 	return true
 end
 
-bigfootSpores:id(18328,18329,18330,18331)
+bigfootSpores:id(15817,15818,15819,15820)
 bigfootSpores:register()

@@ -1,5 +1,5 @@
 local function revertAid(position)
-	local mushroom = Tile(position):getItemById(18220)
+	local mushroom = Tile(position):getItemById(15704)
 	if mushroom then
 		mushroom:removeAttribute(ITEM_ATTRIBUTE_ACTIONID)
 	end
@@ -21,5 +21,5 @@ function bigfootMushroom.onUse(player, item, fromPosition, target, toPosition, i
 	return true
 end
 
-bigfootMushroom:id(18220)
+bigfootMushroom:id(15704)
 bigfootMushroom:register()

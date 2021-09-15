@@ -12,10 +12,10 @@ local rooms = {
 }
 
 local function isMirrorsCorrect(fromPosition, toPosition)
-	local Pillar1 = Tile(fromPosition):getItemById(36309)
-	local Pillar2 = Tile(Position(fromPosition.x + 4, fromPosition.y, fromPosition.z)):getItemById(36310)
-	local Pillar3 = Tile(Position(toPosition.x - 4, toPosition.y, toPosition.z)):getItemById(36312)
-	local Pillar4 = Tile(toPosition):getItemById(36311)
+	local Pillar1 = Tile(fromPosition):getItemById(31474)
+	local Pillar2 = Tile(Position(fromPosition.x + 4, fromPosition.y, fromPosition.z)):getItemById(31475)
+	local Pillar3 = Tile(Position(toPosition.x - 4, toPosition.y, toPosition.z)):getItemById(31477)
+	local Pillar4 = Tile(toPosition):getItemById(31476)
 	
 	if Pillar1 and Pillar2 and Pillar3 and Pillar4 then
 		return true

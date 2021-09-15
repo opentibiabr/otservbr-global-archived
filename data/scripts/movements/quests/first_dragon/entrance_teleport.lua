@@ -1,6 +1,6 @@
 local UniqueTable = {
 	-- Tazhadur entrance
-	[35001] = {
+	[28516] = {
 		storage = Storage.FirstDragon.DragonCounter,
 		value = 200,
 		range = 10,
@@ -10,7 +10,7 @@ local UniqueTable = {
 		bossPos = {x = 32018, y = 32465, z = 8}
 	},
 	-- Kalyassa entrance
-	[35002] = {
+	[28627] = {
 		storage = Storage.FirstDragon.ChestCounter,
 		value = 5,
 		range = 10,
@@ -20,7 +20,7 @@ local UniqueTable = {
 		bossPos = {x = 32079, y = 32459, z = 8}
 	},
 	-- Zorvorax entrance
-	[35003] = {
+	[28649] = {
 		storage = Storage.FirstDragon.SecretsCounter,
 		value = 3,
 		range = 10,
@@ -30,7 +30,7 @@ local UniqueTable = {
 		bossPos = {x = 32015, y = 32396, z = 8}
 	},
 	-- Gelidrazah entrance
-	[35004] = {
+	[28654] = {
 		storage = Storage.FirstDragon.GelidrazahAccess,
 		value = 1,
 		range = 10,
@@ -87,7 +87,7 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 		player:teleportTo(setting.newPos)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:say("You have ten minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.", TALKTYPE_MONSTER_SAY)
-		player:setStorageValue(setting.timer, os.time() + 2 * 3600)
+		player:setStorageValue(setting.timer, os.time() + 2 * 1768)
 		addEvent(clearBossRoom, 60 * 30 * 1000, player.uid, monster.uid, setting.bossPos, setting.range, fromPosition)
 		return true
 	end

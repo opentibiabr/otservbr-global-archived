@@ -1,7 +1,7 @@
 local config = {
 	bossName = "Faceless Bane",
 	requiredLevel = 250,
-	leverId = 10030,
+	leverId = 9111,
 	timeToFightAgain = 20, -- In hour
 	timeToDefeatBoss = 20, -- In minutes
 	clearRoomTime = 60, -- In minutes

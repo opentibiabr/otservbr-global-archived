@@ -12,7 +12,7 @@ HirelingModule.C_Packets = { RequestChangeOutfit = 0xD2, ConfirmOutfitChange = 0
 
 local function getOutfit(msg, version)
 	local outfitType = 0
-	if(version >= 1220) then
+	if(version >= 1639) then
 		outfitType = msg:getByte()
 	end
 

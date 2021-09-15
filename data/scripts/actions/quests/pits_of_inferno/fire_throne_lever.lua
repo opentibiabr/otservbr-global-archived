@@ -10,13 +10,13 @@ function pitsOfInfernoFirstThroneLever.onUse(player, item, fromPosition, target,
 	local lavaTile
 	for i = 1, #lava do
 		lavaTile = Tile(lava[i]):getGround()
-		if lavaTile and isInArray({407, 598}, lavaTile.itemid) then
-			lavaTile:transform(lavaTile.itemid == 598 and 407 or 598)
+		if lavaTile and isInArray({410, 21477}, lavaTile.itemid) then
+			lavaTile:transform(lavaTile.itemid == 21477 and 410 or 21477)
 			lava[i]:sendMagicEffect(CONST_ME_SMOKE)
 		end
 	end
 
-	item:transform(item.itemid == 1945 and 1946 or 1945)
+	item:transform(item.itemid == 2772 and 2773 or 2772)
 	return true
 end
 

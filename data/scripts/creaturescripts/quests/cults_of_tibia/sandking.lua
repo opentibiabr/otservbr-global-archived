@@ -27,7 +27,7 @@ local function spawnSandBoss(name, frompos, topos)
 	end
 
 	local str = Game.getStorageValue("sandking")
-	local boss = Game.createMonster("the sandking fake", Position( 33099, 31859, 15))
+	local boss = Game.createMonster("the sandking fake", Position( 28346, 27204, 15))
 	if str < 4 then
 		boss:registerEvent("sandking think")
 	end
@@ -121,7 +121,7 @@ function sandkingDeath.onDeath(creature, attacker, corpse)
 	end
 	local stg = Game.getStorageValue("sandking")
 	if stg == 4 then
-		local monster = Game.createMonster("the sandking", Position( 33099, 31859, 15))
+		local monster = Game.createMonster("the sandking", Position( 28346, 27204, 15))
 		monster:setHealth(monster:getMaxHealth()/2)
 		addEvent(Game.setStorageValue, 2000, "sandking", 5)
 	end

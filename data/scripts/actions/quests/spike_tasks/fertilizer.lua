@@ -8,7 +8,7 @@ function spikeTasksFertilizer.onUse(player, item, fromPosition, target, toPositi
 		return false
 	end
 
-	if (target == nil) or not target:isItem() or (target:getId() ~= 21565) then
+	if (target == nil) or not target:isItem() or (target:getId() ~= 19215) then
 		return false
 	end
 
@@ -32,5 +32,5 @@ function spikeTasksFertilizer.onUse(player, item, fromPosition, target, toPositi
 	return toPosition:sendMagicEffect(46)
 end
 
-spikeTasksFertilizer:id(21564)
+spikeTasksFertilizer:id(19214)
 spikeTasksFertilizer:register()

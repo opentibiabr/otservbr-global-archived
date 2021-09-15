@@ -1,6 +1,6 @@
 local iceCharm = Action()
 function iceCharm.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.itemid ~= 1354 then
+	if target.itemid ~= 1841 then
 		return false
 	end
 

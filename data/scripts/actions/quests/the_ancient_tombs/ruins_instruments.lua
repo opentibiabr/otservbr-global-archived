@@ -1,9 +1,9 @@
 local config = {
-	[2367] = 1,
-	[2373] = 2,
-	[2370] = 3,
-	[2372] = 4,
-	[2369] = 5
+	[3255] = 1,
+	[3261] = 2,
+	[3258] = 3,
+	[3260] = 4,
+	[3257] = 5
 }
 
 local storage = Storage.TheAncientTombs.VashresamunInstruments

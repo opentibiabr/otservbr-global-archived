@@ -69,7 +69,7 @@ function spy.onSay(cid, words, param)
 				text = text..slotName[i]..": Empty"
 			end
 		end
-		cid:showTextDialog(6528, text)
+		cid:showTextDialog(6527, text)
 	else
 		cid:sendCancelMessage("This player is offline or doesn't exist.")
 	end

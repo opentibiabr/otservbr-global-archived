@@ -5,7 +5,7 @@ function flowerBowl.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 	
-	if item.uid == 1066 then
+	if item.uid == 1311 then
 		if creature:getName() == 'Unbeatable Dragon' then
 			creature:say('An allergic reaction weakens the dragon!', TALKTYPE_MONSTER_SAY)
 			creature:remove()
@@ -15,5 +15,5 @@ function flowerBowl.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-flowerBowl:id(9679)
+flowerBowl:id(2983)
 flowerBowl:register()

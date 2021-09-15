@@ -6,7 +6,7 @@ function chest.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 
-	player:addItem(13829, 1)
+	player:addItem(12673, 1)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You found a wooden sword.")
 	player:setStorageValue(405492, 1)
 	return true

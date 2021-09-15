@@ -1,16 +1,16 @@
 local setting = {
-	[23698] = {
+	[21327] = {
 		storage = GlobalStorage.InServiceOfYalahar.WarGolemsMachine2,
 		destination = Position(32869, 31312, 11)
 	},
-	[23699] = {
+	[21328] = {
 		storage = GlobalStorage.InServiceOfYalahar.WarGolemsMachine1,
 		destination = Position(32881, 31312, 11)
 	},
-	[23702] = {
+	[21331] = {
 		destination = Position(32876, 31321, 10)
 	},
-	[23703] = {
+	[21332] = {
 		destination = Position(32875, 31321, 10)
 	}
 }

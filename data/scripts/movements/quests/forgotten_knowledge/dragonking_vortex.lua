@@ -56,5 +56,5 @@ function dragonkingVortex.onStepIn(creature, item, position, fromPosition)
 end
 
 dragonkingVortex:type("stepin")
-dragonkingVortex:id(26396)
+dragonkingVortex:id(23728)
 dragonkingVortex:register()

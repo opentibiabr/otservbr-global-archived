@@ -1,7 +1,7 @@
 local config = {
-	[7960] = 10515, -- TBI
-	[7961] = 10513, -- CGB
-	[7962] = 10511 -- AVIN
+	[897] = 9598, -- TBI
+	[898] = 9596, -- CGB
+	[899] = 9594 -- AVIN
 }
 
 local secretServiceTools = Action()
@@ -18,5 +18,5 @@ function secretServiceTools.onUse(player, item, fromPosition, target, toPosition
 	return true
 end
 
-secretServiceTools:id(7960,7961,7962)
+secretServiceTools:id(897,898,899)
 secretServiceTools:register()

@@ -24,14 +24,14 @@ local spawns = {
 		name = "Talila",
 		spawn = LIGHT_STATE_SUNSET,
 		despawn = LIGHT_STATE_SUNRISE,
-		position = { x=33504 , y=32222 , z=7 }
+		position = { x=28933 , y=13788 , z=7 }
 	},
 	[3] = { -- spawn in day
 		id = "valindara",
 		name = "Valindara",
 		spawn = LIGHT_STATE_SUNRISE,
 		despawn = LIGHT_STATE_SUNSET,
-		position = { x=33504 , y=32222 , z=7 }
+		position = { x=28933 , y=13788 , z=7 }
 	}
 }
 

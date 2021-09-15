@@ -69,7 +69,7 @@ function heartDestructionAnomaly.onUse(player, item, fromPosition, itemEx, toPos
 	local pushPos = {x = 32245, y = 31245, z = 14}
 
 	if item.actionid == 14325 then
-		if item.itemid == 9825 then
+		if item.itemid == 8911 then
 			if player:getPosition().x == pushPos.x and player:getPosition().y == pushPos.y and player:getPosition().z == pushPos.z then
 
 				local storePlayers, playerTile = {}
@@ -89,13 +89,13 @@ function heartDestructionAnomaly.onUse(player, item, fromPosition, itemEx, toPos
 						players = storePlayers[i]
 						config.playerPositions[i]:sendMagicEffect(CONST_ME_POFF)
 						players:teleportTo(config.newPos)
-						players:setStorageValue(14321, os.time() + 20*60*60)
+						players:setStorageValue(120, os.time() + 20*60*60)
 					end
 					Position(config.newPos):sendMagicEffect(11)
 
 					areaAnomaly1 = addEvent(clearArea, 15 * 60000)
 
-					Game.setStorageValue(14322, 0) -- Anomaly Stages
+					Game.setStorageValue(126, 0) -- Anomaly Stages
 
 					Game.createMonster("Spark of Destruction", {x = 32267, y = 31253, z = 14}, false, true)
 					Game.createMonster("Spark of Destruction", {x = 32274, y = 31255, z = 14}, false, true)
@@ -105,7 +105,7 @@ function heartDestructionAnomaly.onUse(player, item, fromPosition, itemEx, toPos
 
 					local vortex = Tile({x = 32261, y = 31250, z = 14}):getItemById(26138)
 					if vortex then
-						vortex:transform(26139)
+						vortex:transform(23483)
 						vortex:setActionId(14324)
 					end
 				else
@@ -115,7 +115,7 @@ function heartDestructionAnomaly.onUse(player, item, fromPosition, itemEx, toPos
 				return true
 			end
 		end
-		item:transform(item.itemid == 9825 and 9826 or 9825)
+		item:transform(item.itemid == 8911 and 8912 or 8911)
 	end
 	return true
 end

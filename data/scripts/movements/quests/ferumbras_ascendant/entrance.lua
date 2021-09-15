@@ -24,7 +24,7 @@ function entrance.onStepIn(creature, item, position, fromPosition)
 			complete = true
 		end
 	end
-	if item:getActionId() == 24837 then
+	if item:getActionId() == 22181 then
 		if complete then
 			player:teleportTo(Position(33275, 32390, 9))
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -34,7 +34,7 @@ function entrance.onStepIn(creature, item, position, fromPosition)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			return true
 		end
-	elseif item:getActionId() == 24838 then
+	elseif item:getActionId() == 22182 then
 		if player:getStorageValue(Storage.FerumbrasAscension.Access) < 1 then
 			player:teleportTo(Position(33275, 32390, 8))
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -50,5 +50,5 @@ function entrance.onStepIn(creature, item, position, fromPosition)
 end
 
 entrance:type("stepin")
-entrance:aid(24837, 24838)
+entrance:aid(24837, 22182)
 entrance:register()

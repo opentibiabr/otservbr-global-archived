@@ -1,5 +1,5 @@
 local config = {
-	[36489] = Position(33559, 31970, 12), --Glooth
+	[31654] = Position(33559, 31970, 12), --Glooth
 	[42626] = Position(33539, 32014, 6), --Oramond
 	[42627] = Position(33491, 31985, 7), --Oramond
 	[42630] = Position(33636, 31891, 6), --City

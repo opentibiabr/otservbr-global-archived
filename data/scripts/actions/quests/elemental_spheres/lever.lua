@@ -1,25 +1,25 @@
 local config = {
 	{
 		position = Position(33268, 31833, 10),
-		itemid = 8304,
+		itemid = 946,
 		toPosition = Position(33268, 31833, 12),
 		vocationId = VOCATION.BASE_ID.SORCERER
 	},
 	{
 		position = Position(33268, 31838, 10),
-		itemid = 8305,
+		itemid = 947,
 		toPosition = Position(33267, 31838, 12),
 		vocationId = VOCATION.BASE_ID.DRUID
 	},
 	{
 		position = Position(33266, 31835, 10),
-		itemid = 8306,
+		itemid = 948,
 		toPosition = Position(33265, 31835, 12),
 		vocationId = VOCATION.BASE_ID.KNIGHT
 	},
 	{
 		position = Position(33270, 31835, 10),
-		itemid = 8300,
+		itemid = 942,
 		toPosition = Position(33270, 31835, 12),
 		vocationId = VOCATION.BASE_ID.PALADIN
 	}
@@ -27,8 +27,8 @@ local config = {
 
 local elementalSpheresLever = Action()
 function elementalSpheresLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid ~= 1945 then
-		item:transform(1945)
+	if item.itemid ~= 2772 then
+		item:transform(2772)
 		return true
 	end
 

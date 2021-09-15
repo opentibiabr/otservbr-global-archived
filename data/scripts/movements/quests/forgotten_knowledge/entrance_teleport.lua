@@ -1,70 +1,70 @@
 local destination = {
-	[27715] = {
+	[25047] = {
 		newPos = Position(32807, 31657, 8),
 		storage = Storage.ForgottenKnowledge.AccessDeath,
 		effect = CONST_ME_MORTAREA
 	},
-	[27716] = {
+	[25048] = {
 		newPos = Position(32325, 32089,7),
 		storage = Storage.ForgottenKnowledge.AccessDeath,
 		effect = CONST_ME_MORTAREA
 	},
-	[27719] = {
+	[25051] = {
 		newPos = Position(32786, 32820, 13),
 		storage = Storage.ForgottenKnowledge.AccessViolet,
 		effect = CONST_ME_PURPLEENERGY
 	},
-	[27720] = {
+	[25052] = {
 		newPos = Position(32328, 32089,7),
 		storage = Storage.ForgottenKnowledge.AccessViolet,
 		effect = CONST_ME_PURPLEENERGY
 	},
-	[27717] = {
+	[25049] = {
 		newPos = Position(32637, 32256, 7),
 		storage = Storage.ForgottenKnowledge.AccessEarth,
 		effect = CONST_ME_SMALLPLANTS
 	},
-	[27718] = {
+	[25050] = {
 		newPos = Position(32331, 32089, 7),
 		storage = Storage.ForgottenKnowledge.AccessEarth,
 		effect = CONST_ME_SMALLPLANTS
 	},
-	[27721] = {
+	[25053] = {
 		newPos = Position(33341, 31168, 7),
 		storage = Storage.ForgottenKnowledge.AccessFire,
 		effect = CONST_ME_FIREAREA
 	},
-	[27722] = {
+	[25054] = {
 		newPos = Position(32334, 32089,7),
 		storage = Storage.ForgottenKnowledge.AccessFire,
 		effect = CONST_ME_FIREAREA
 	},
-	[27725] = {
+	[25057] = {
 		newPos = Position(32207, 31036, 10),
 		storage = Storage.ForgottenKnowledge.AccessIce,
 		effect = CONST_ME_ICEATTACK
 	},
-	[27726] = {
+	[25058] = {
 		newPos = Position(32337, 32089,7),
 		storage = Storage.ForgottenKnowledge.AccessIce,
 		effect = CONST_ME_ICEATTACK
 	},
-	[27723] = {
+	[25055] = {
 		newPos = Position(32780, 32686, 14),
 		storage = Storage.ForgottenKnowledge.AccessGolden,
 		effect = CONST_ME_YELLOWENERGY
 	},
-	[27724] = {
+	[25056] = {
 		newPos = Position(32340, 32089, 7),
 		storage = Storage.ForgottenKnowledge.AccessGolden,
 		effect = CONST_ME_YELLOWENERGY
 	},
-	[11796] = {
+	[10840] = {
 		newPos = Position(32907, 32848, 13),
 		storage = Storage.ForgottenKnowledge.AccessLast,
 		effect = CONST_ME_ENERGYHIT
 	},
-	[11798] = {
+	[10842] = {
 		newPos = Position(32332, 32092, 7),
 		storage = Storage.ForgottenKnowledge.AccessLast,
 	effect = CONST_ME_ENERGYHIT}
@@ -82,7 +82,7 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 	if not teleport then
 		return
 	end
-	if item.itemid == 11796 then
+	if item.itemid == 10840 then
 		if player:getStorageValue(Storage.ForgottenKnowledge.AccessLast) < 1 then
 			if player:getStorageValue(Storage.ForgottenKnowledge.LadyTenebrisKilled) >= 1
 			and player:getStorageValue(Storage.ForgottenKnowledge.LloydKilled) >= 1
@@ -100,7 +100,7 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		return true
 	else
-		if item.itemid == 11796 then
+		if item.itemid == 10840 then
 			player:teleportTo(fromPosition)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You don\'t have the permission to use this portal.")
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)

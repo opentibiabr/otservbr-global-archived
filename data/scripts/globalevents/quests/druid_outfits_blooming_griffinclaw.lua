@@ -1,7 +1,7 @@
 local flowerPosition = Position(32024, 32830, 4)
 
 local function decayFlower()
-	local item = Tile(flowerPosition):getItemById(5659)
+	local item = Tile(flowerPosition):getItemById(5658)
 	if item then
 		item:transform(5687)
 	end
@@ -15,7 +15,7 @@ local function bloom()
 
 	local item = Tile(flowerPosition):getItemById(5687)
 	if item then
-		item:transform(5659)
+		item:transform(5658)
 		flowerPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 	end
 

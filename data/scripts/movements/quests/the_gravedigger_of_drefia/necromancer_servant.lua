@@ -14,5 +14,5 @@ function necromancerServant.onStepIn(creature, item, position, fromPosition)
 end
 
 necromancerServant:type("stepin")
-necromancerServant:aid(4541, 4542)
+necromancerServant:aid(4541, 4531)
 necromancerServant:register()

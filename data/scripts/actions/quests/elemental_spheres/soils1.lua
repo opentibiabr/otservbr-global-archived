@@ -1,8 +1,8 @@
 local config = {
-	[8298] = {targetId = 8572, transformId = 8576, effect = CONST_ME_BIGPLANTS},
-	[8299] = {targetId = 8573, transformId = 8575},
-	[8302] = {targetId = 8571, transformId = 8574, effect = CONST_ME_ICEATTACK},
-	[8303] = {targetId = 8567, createId = 1495}
+	[940] = {targetId = 7742, transformId = 7746, effect = CONST_ME_BIGPLANTS},
+	[941] = {targetId = 7743, transformId = 7745},
+	[944] = {targetId = 7741, transformId = 7744, effect = CONST_ME_ICEATTACK},
+	[945] = {targetId = 7737, createId = 2126}
 }
 
 local elementalSpheresSouls1 = Action()
@@ -34,5 +34,5 @@ function elementalSpheresSouls1.onUse(player, item, fromPosition, target, toPosi
 	return true
 end
 
-elementalSpheresSouls1:id(8298,8299,8302,8303)
+elementalSpheresSouls1:id(940,941,944,945)
 elementalSpheresSouls1:register()

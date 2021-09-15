@@ -1,5 +1,5 @@
 local destination = {
-	[26668] = {
+	[24000] = {
 		position = Position(33411, 31082, 10),
 		storage = Storage.ForgottenKnowledge.AccessLavaTeleport
 	}

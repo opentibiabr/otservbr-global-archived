@@ -1,56 +1,56 @@
 local vortex = {
-	[14321] = Position(32149, 31359, 14), -- Charger TP 1
-	[14322] = Position(32092, 31330, 12), -- Charger Exit
-	[14324] = Position(32104, 31329, 12), -- Anomaly Exit
-	[14325] = Position(32216, 31380, 14), -- Main Room
-	[14340] = Position(32159, 31329, 11), -- Main Room Exit
-	[14341] = Position(32078, 31320, 13), -- Cracklers Exit
-	[14343] = Position(32088, 31321, 13), -- Rupture Exit
-	[14345] = Position(32230, 31358, 11), -- Realityquake Exit
-	[14347] = Position(32225, 31347, 11), -- Unstable Sparks Exit
-	[14348] = Position(32218, 31375, 14), -- Eradicator Exit (Main Room)
-	[14350] = Position(32208, 31372, 14), -- Outburst Exit (Main Room)
-	[14352] = Position(32214, 31376, 14), -- World Devourer Exit (Main Room)
-	[14354] = Position(32112, 31375, 14), -- World Devourer (Reward Room)
+	[120] = Position(32149, 31359, 14), -- Charger TP 1
+	[126] = Position(32092, 31330, 12), -- Charger Exit
+	[5952] = Position(32104, 31329, 12), -- Anomaly Exit
+	[348] = Position(32216, 31380, 14), -- Main Room
+	[3241] = Position(32159, 31329, 11), -- Main Room Exit
+	[7372] = Position(32078, 31320, 13), -- Cracklers Exit
+	[7932] = Position(32088, 31321, 13), -- Rupture Exit
+	[8020] = Position(32230, 31358, 11), -- Realityquake Exit
+	[8764] = Position(32225, 31347, 11), -- Unstable Sparks Exit
+	[8777] = Position(32218, 31375, 14), -- Eradicator Exit (Main Room)
+	[9172] = Position(32208, 31372, 14), -- Outburst Exit (Main Room)
+	[9238] = Position(32214, 31376, 14), -- World Devourer Exit (Main Room)
+	[10184] = Position(32112, 31375, 14), -- World Devourer (Reward Room)
 }
 
 local accessVortex = {
 	-- Anomaly enter
-	[14323] = {
+	[135] = {
 		position = Position(32246, 31252, 14),
 		storage = 14320,
-		storageTime = 14321
+		storageTime = 120
 	},
 	-- Rupture enter
-	[14342] = {
+	[7870] = {
 		position = Position(32305, 31249, 14),
 		storage = 14322,
-		storageTime = 14323
+		storageTime = 135
 	},
 	-- Realityquake enter
-	[14344] = {
+	[7934] = {
 		position = Position(32181, 31240, 14),
 		storage = 14324,
-		storageTime = 14325
+		storageTime = 348
 	},
 }
 
 local finalBosses = {
 	-- Eradicator enter
-	[14346] = {
+	[8117] = {
 		position = Position(32336, 31293, 14),
-		storage1 = 14326,
-		storage2 = 14327,
-		storage3 = 14328,
-		storageTime = 14329
+		storage1 = 402,
+		storage2 = 907,
+		storage3 = 2783,
+		storageTime = 2784
 	},
 	-- Outburst enter
-	[14349] = {
+	[9113] = {
 		position = Position(32204, 31290, 14),
-		storage1 = 14326,
-		storage2 = 14327,
-		storage3 = 14328,
-		storageTime = 14331
+		storage1 = 402,
+		storage2 = 907,
+		storage3 = 2783,
+		storageTime = 2952
 	}
 }
 
@@ -94,9 +94,9 @@ function teleportHeart.onStepIn(creature, item, position, fromPosition)
 			player:sendTextMessage(19, "You don't have access to this portal.")
 		end
 	elseif item.actionid == 14351 then
-		if player:getStorageValue(14330) >= 1
-		and player:getStorageValue(14332) >= 1 then
-			if player:getStorageValue(14333) < os.time() then
+		if player:getStorageValue(11698) >= 1
+		and player:getStorageValue(2957) >= 1 then
+			if player:getStorageValue(9152) < os.time() then
 				player:teleportTo(Position(32272, 31384, 14))
 			else
 				player:teleportTo(fromPosition)
@@ -108,9 +108,9 @@ function teleportHeart.onStepIn(creature, item, position, fromPosition)
 		end
 	elseif item.actionid == 14353 then -- Remove storages from mini bosses
 		player:teleportTo(Position(32214, 31376, 14))
-		player:setStorageValue(14334, -1)
-		player:setStorageValue(14335, -1)
-		player:setStorageValue(14336, -1)
+		player:setStorageValue(3208, -1)
+		player:setStorageValue(3506, -1)
+		player:setStorageValue(4846, -1)
 		player:unregisterEvent("DevourerStorage")
 	end
 	return true

@@ -1,6 +1,6 @@
 local heroRathletonCorpse = Action()
 function heroRathletonCorpse.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.itemid ~= 8641 then
+	if target.itemid ~= 7813 then
 		return false
 	end
 	Game.setStorageValue(GlobalStorage.HeroRathleton.LavaCounter, Game.getStorageValue(GlobalStorage.HeroRathleton.LavaCounter) + 1)
@@ -9,6 +9,6 @@ function heroRathletonCorpse.onUse(player, item, fromPosition, target, toPositio
 	return true
 end
 
-heroRathletonCorpse:id(24184)
+heroRathletonCorpse:id(21815)
 heroRathletonCorpse:allowFarUse(true)
 heroRathletonCorpse:register()

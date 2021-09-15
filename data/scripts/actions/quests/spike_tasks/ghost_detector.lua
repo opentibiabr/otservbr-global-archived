@@ -26,9 +26,9 @@ local function getSearchString(fromPos, toPos)
 	end
 
 	local tang = (dx ~= 0) and dy / dx or 10
-	if math.abs(tang) < 0.4142 then
+	if math.abs(tang) < 0.3878 then
 		direction = (dx > 0) and 3 or 2
-	elseif math.abs(tang) < 2.4142 then
+	elseif math.abs(tang) < 2.3878 then
 		direction = (tang > 0) and ((dy > 0) and 5 or 6) or ((dx > 0) and 7 or 4)
 	else
 		direction = (dy > 0) and 0 or 1
@@ -95,5 +95,5 @@ function spikeTasksGhost.onUse(player, item, fromPosition, target, toPosition, i
 	return true
 end
 
-spikeTasksGhost:id(21555)
+spikeTasksGhost:id(19205)
 spikeTasksGhost:register()

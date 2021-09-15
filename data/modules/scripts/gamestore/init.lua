@@ -530,7 +530,7 @@ function Player.canBuyOffer(self, offer)
 
 	if disabled ~= 1 then
 		if offer.type == GameStore.OfferTypes.OFFER_TYPE_POUNCH then
-			local pounch = self:getItemById(26377, true)
+			local pounch = self:getItemById(23721, true)
 			if pounch then
 				disabled = 1
 				disabledReason = "You already have Loot Pouch."
@@ -835,7 +835,7 @@ function sendStoreTransactionHistory(playerId, page, entriesPerPage)
 	msg:addByte(#entries)
 
 	for k, entry in ipairs(entries) do
-		if version >= 1220 then
+		if version >= 1639 then
 			msg:addU32(0)
 		end
 		msg:addU32(entry.time)
@@ -843,7 +843,7 @@ function sendStoreTransactionHistory(playerId, page, entriesPerPage)
 		msg:addU32(entry.amount)
     	msg:addByte(0x0) -- 0 = transferable tibia coin, 1 = normal tibia coin
 		msg:addString(entry.description)
-		if version >= 1220 then
+		if version >= 1639 then
 			msg:addByte(0) -- details
 		end
 	end
@@ -1296,10 +1296,10 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
 	end
 
     if isKegItem(offerId) then
-    if player:getFreeCapacity() < ItemType(offerId):getWeight(1) + ItemType(2596):getWeight() then
+    if player:getFreeCapacity() < ItemType(offerId):getWeight(1) + ItemType(3504):getWeight() then
         return error({code = 0, message = "Please make sure you have free capacity to hold this item."})
     end
-    elseif player:getFreeCapacity() < ItemType(offerId):getWeight(offerCount) + ItemType(2596):getWeight() then
+    elseif player:getFreeCapacity() < ItemType(offerId):getWeight(offerCount) + ItemType(3504):getWeight() then
         return error({code = 0, message = "Please make sure you have free capacity to hold this item."})
     end
 
@@ -1307,7 +1307,7 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
 	if inbox and inbox:getEmptySlots() > 0 then
 		if (isKegItem(offerId)) then
 			if (offerCount >= 500) then
-				local parcel = Item(inbox:addItem(2596, 1):getUniqueId())
+				local parcel = Item(inbox:addItem(3504, 1):getUniqueId())
 				local function changeParcel(parcel)
 					local packagename = '' .. offerCount .. 'x ' .. offerName .. ' package.'
 					if parcel then
@@ -1332,7 +1332,7 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
 				kegItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, offerCount)
 			end
 		elseif (offerCount > 100) then
-			local parcel = Item(inbox:addItem(2596, 1):getUniqueId())
+			local parcel = Item(inbox:addItem(3504, 1):getUniqueId())
 			local function changeParcel(parcel)
 				local packagename = '' .. offerCount .. 'x ' .. offerName .. ' package.'
 				if parcel then
@@ -1368,7 +1368,7 @@ function GameStore.processHouseRelatedPurchase(player, offerId, offerCount)
 
 	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
 	if inbox and inbox:getEmptySlots() > 0 then
-		local decoKit = inbox:addItem(26054, 1)
+		local decoKit = inbox:addItem(23398, 1)
 		local function changeKit(kit)
 			local decoItemName = ItemType(offerId):getName()
 			if kit then
@@ -1548,7 +1548,7 @@ function GameStore.processHirelingPurchase(player, offer, productType, hirelingN
 		if player:getHirelingsCount() >= 10 then
 			return error({code = 1, message = "You cannot have more than 10 hirelings."})
 		end
-		-- TODO: Use the correct dialog (byte 0xDB) on client 1205+
+		-- TODO: Use the correct dialog (byte 0xDB) on client 1624+
 		-- for compatibility, request name using the change name dialog
 		return addPlayerEvent(sendRequestPurchaseData, 250, playerId, offerId, GameStore.ClientOfferTypes.CLIENT_STORE_OFFER_HIRELING)
 	end

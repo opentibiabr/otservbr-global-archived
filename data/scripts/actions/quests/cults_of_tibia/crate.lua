@@ -5,7 +5,7 @@ function cultsOfTibiaCrate.onUse(player, item, fromPosition, target, toPosition,
 	if item:getPosition() == posCrate then
 		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 7 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Perfect! You took a wonderful loupe from this crate.")
-			player:addItem(28667, 1)
+			player:addItem(25306, 1)
 			player:setStorageValue(Storage.CultsOfTibia.MotA.Mission, 8)
 			elseif player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) > 7 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You already took the magnifier.")

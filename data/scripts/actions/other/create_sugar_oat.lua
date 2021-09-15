@@ -2,11 +2,11 @@ local createSugarOat = Action()
 
 function createSugarOat.onUse(cid, item, fromPosition, itemEx, toPosition, isHotkey)
      local player = Player(cid)
-     if itemEx.itemid == 2694 then
+     if itemEx.itemid == 3605 then
          if toPosition.x ~= CONTAINER_POSITION then
-             Game.createItem(13939, 1, toPosition)
+             Game.createItem(12802, 1, toPosition)
          else
-             player:addItem(13939, 1)
+             player:addItem(12802, 1)
              toPosition = player:getPosition()
          end
          toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
@@ -16,5 +16,5 @@ function createSugarOat.onUse(cid, item, fromPosition, itemEx, toPosition, isHot
      return true
 end
 
-createSugarOat:id(5467)
+createSugarOat:id(5466)
 createSugarOat:register()

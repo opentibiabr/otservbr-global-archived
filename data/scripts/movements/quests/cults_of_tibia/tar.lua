@@ -1,6 +1,6 @@
 local configQuest = {
 	["fire"] = {
-		itidCount = 3613,
+		itidCount = 1857,
 		beginPos = Position(32748, 31488, 8),
 		fromPos = Position(32737, 31489, 8),
 		toPos = Position(32761, 31512, 8),
@@ -23,7 +23,7 @@ local configQuest = {
 		}
 	},
 	["acid"] = {
-		itidCount = 4417,
+		itidCount = 4406,
 		beginPos = Position(32693, 31478, 8),
 		fromPos = Position(32647, 31479, 8),
 		toPos = Position(32710, 31519, 8),
@@ -121,7 +121,7 @@ function tar.onStepIn(creature, item, position, fromPosition)
 end
 
 tar:type("stepin")
-tar:aid(5530, 5531)
+tar:aid(5530, 5530)
 tar:register()
 
 tar = MoveEvent()
@@ -132,7 +132,7 @@ function tar.onStepOut(creature, item, position, fromPosition)
 		return true
 	end
 
-	if item:getActionId() == 5531 then
+	if item:getActionId() == 5530 then
 		if fromPosition.x == 32736 then
 			player:getPosition():sendMagicEffect(CONST_ME_POFF)
 			if player:getStorageValue(Storage.CultsOfTibia.Barkless.Tar) < 3 then
@@ -143,7 +143,7 @@ function tar.onStepOut(creature, item, position, fromPosition)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You traverse the tar unharmed.")
 		end
 	end
-	if item:getActionId() == 5530 then
+	if item:getActionId() == 5529 then
 		if fromPosition.x == 32717 then
 			player:getPosition():sendMagicEffect(CONST_ME_POFF)
 			if player:getStorageValue(Storage.CultsOfTibia.Barkless.sulphur) < 3 then
@@ -158,5 +158,5 @@ function tar.onStepOut(creature, item, position, fromPosition)
 end
 
 tar:type("stepout")
-tar:aid(5530, 5531)
+tar:aid(5530, 5530)
 tar:register()

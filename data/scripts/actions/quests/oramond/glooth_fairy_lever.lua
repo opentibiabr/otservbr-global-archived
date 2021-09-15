@@ -32,20 +32,20 @@ local function teleportAllPlayersFromAreat(fromArea1, fromArea2, toPos)
 end
 
 local function PrepareEnter()
-	removeBosst({x=33679,y=31919,z=9}, {x=33701,y=31941,z=9}, "glooth fairy")
-	teleportAllPlayersFromAreat({x=33659,y=31935,z=9},{x=33668,y=31939,z=9},{x=33684,y=31935,z=9})
-	Game.createMonster("Glooth Fairy", {x=33688,y=31937,z=9})
+	removeBosst({x=29040,y=27295,z=9}, {x=29062,y=27318,z=9}, "glooth fairy")
+	teleportAllPlayersFromAreat({x=29020,y=27312,z=9},{x=29029,y=27316,z=9},{x=29045,y=27312,z=9})
+	Game.createMonster("Glooth Fairy", {x=29049,y=27314,z=9})
 end
 
 local oramondGloothLever = Action()
 function oramondGloothLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 9827 then
-		if getGlobalStorageValue(18081) >= os.time() then
+	if item.itemid == 8913 then
+		if getGlobalStorageValue(15560) >= os.time() then
 			doPlayerSendTextMessage(player, 19, "You need to wait 15 minutes to use again.")
 			return true
 		end
 
-		local specs, spec = Game.getSpectators({x=33688,y=31932,z=9}, false, false, 13, 13, 13, 13)
+		local specs, spec = Game.getSpectators({x=29049,y=27309,z=9}, false, false, 13, 13, 13, 13)
 		for i = 1, #specs do
 			spec = specs[i]
 			if spec:isPlayer() then
@@ -54,13 +54,13 @@ function oramondGloothLever.onUse(player, item, fromPosition, target, toPosition
 			end
 			spec:remove()
 		end
-		setGlobalStorageValue(18081, os.time()+15*60)
+		setGlobalStorageValue(15560, os.time()+15*60)
 		player:say("Everyone in this place will be teleported into Glooth Fairy\'s hideout in one minute. No way back!!!", TALKTYPE_MONSTER_SAY)
 		addEvent(PrepareEnter,60*1000)
 
 	end
 
-	item:transform(item.itemid == 9827 and 9828 or 9827)
+	item:transform(item.itemid == 8913 and 8914 or 8913)
 	return true
 end
 

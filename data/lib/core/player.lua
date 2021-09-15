@@ -230,11 +230,11 @@ end
 
 function Player.hasRookgaardShield(self)
 	-- Wooden Shield, Studded Shield, Brass Shield, Plate Shield, Copper Shield
-	return self:getItemCount(2512) > 0
-		or self:getItemCount(2526) > 0
-		or self:getItemCount(2511) > 0
-		or self:getItemCount(2510) > 0
-		or self:getItemCount(2530) > 0
+	return self:getItemCount(3412) > 0
+		or self:getItemCount(3426) > 0
+		or self:getItemCount(3411) > 0
+		or self:getItemCount(3410) > 0
+		or self:getItemCount(3430) > 0
 end
 
 

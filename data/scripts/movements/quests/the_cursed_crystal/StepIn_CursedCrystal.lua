@@ -51,5 +51,5 @@ function nopermission(teleporter, fromthisposition)
 end
 
 StepInCursedCrystal:type("stepin")
-StepInCursedCrystal:aid(25018, 35001)
+StepInCursedCrystal:aid(25018, 28516)
 StepInCursedCrystal:register()

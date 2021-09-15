@@ -22,18 +22,18 @@ local playerLogin = CreatureEvent("PlayerLogin")
 
 function playerLogin.onLogin(player)
 	local items = {
-		{2120, 1},
-		{2148, 3}
+		{3003, 1},
+		{3031, 3}
 	}
 	if player:getLastLoginSaved() == 0 then
 		player:sendOutfitWindow()
-		local backpack = player:addItem(1988)
+		local backpack = player:addItem(2854)
 		if backpack then
 			for i = 1, #items do
 				backpack:addItem(items[i][1], items[i][2])
 			end
 		end
-		player:addItem(2050, 1, true, 1, CONST_SLOT_AMMO)
+		player:addItem(2920, 1, true, 1, CONST_SLOT_AMMO)
 		db.query('UPDATE `players` SET `istutorial` = 0 where `id`='..player:getGuid())
 	else
 		player:sendTextMessage(MESSAGE_STATUS, "Welcome to " .. SERVER_NAME .. "!")

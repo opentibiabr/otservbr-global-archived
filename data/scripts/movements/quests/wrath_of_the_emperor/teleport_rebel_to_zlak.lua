@@ -1,9 +1,9 @@
 local setting = {
-	[12382] = {
+	[11426] = {
 		storage = Storage.WrathoftheEmperor.Questline,
 		toPosition = {Position(33078, 31219, 8), Position(33216, 31069, 9)}
 	},
-	[12383] = {
+	[11427] = {
 		storage = Storage.WrathoftheEmperor.Questline,
 		toPosition = {Position(33216, 31069, 9), Position(33078, 31219, 8)}
 	}

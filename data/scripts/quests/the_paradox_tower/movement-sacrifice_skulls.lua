@@ -15,7 +15,7 @@ function sacrificeSkulls.onStepIn(creature, item, position, fromPosition)
 
 	for i = 4, #positions do
 		-- Check if have skulls in all positions
-		local tile = Tile(positions[i]):getItemById(2229)
+		local tile = Tile(positions[i]):getItemById(3114)
 		if tile then
 			-- Message, only send in the first acess of the paradox tower
 			if player:getStorageValue(FirstParadoxAcess) < 1 then
@@ -24,10 +24,10 @@ function sacrificeSkulls.onStepIn(creature, item, position, fromPosition)
 			end
 			-- Remove skulls
 			for skulls = 1, #positions do
-				local skull = Tile(positions[skulls]):getItemById(2229)
+				local skull = Tile(positions[skulls]):getItemById(3114)
 				if skull then
 					-- Create poison fields from the positions
-					Game.createItem(1490, 1, Position(positions[skulls]))
+					Game.createItem(105, 1, Position(positions[skulls]))
 					-- Remove skulls from the positions
 					skull:remove(1)
 				end

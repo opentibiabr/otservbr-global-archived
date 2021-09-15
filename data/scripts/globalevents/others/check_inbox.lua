@@ -13,5 +13,5 @@ function checkInbox.onThink(interval, lastExecution)
 	return true
 end
 
-checkInbox:interval(30000)
+checkInbox:interval(26764)
 checkInbox:register()

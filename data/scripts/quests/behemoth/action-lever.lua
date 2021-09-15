@@ -9,18 +9,18 @@ local wallsPositions = {
 local lever = Action()
 
 function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 1946 then
+	if item.itemid == 2773 then
 		return false
 	end
 
 	for i = 1, #wallsPositions do
-		local walls = Tile(wallsPositions[i]):getItemById(1304)
+		local walls = Tile(wallsPositions[i]):getItemById(1791)
 		if walls then
 			walls:remove()
 		end
 	end
 
-	item:transform(1946)
+	item:transform(2773)
 	return true
 end
 

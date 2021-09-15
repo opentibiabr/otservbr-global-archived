@@ -20,5 +20,5 @@ function fifthSealTile.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-fifthSealTile:aid(25020, 25021)
+fifthSealTile:aid(25020, 22365)
 fifthSealTile:register()

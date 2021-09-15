@@ -1,14 +1,14 @@
 -- Table of the first seal
 firstSealTable = {
-	[30010] = {
+	[26774] = {
 		position = {x = 32259, y = 31891, z = 10},
 		revert = true
 	},
-	[30011] = {
+	[26775] = {
 		position = {x = 32259, y = 31890, z = 10},
 		revert = true
 	},
-	[30012] = {
+	[26776] = {
 		position = {x = 32266, y = 31860, z = 11},
 		revert = true
 	}
@@ -24,11 +24,11 @@ secondSealTable = {
 
 -- Table of the third seal
 thirdSealTable = {
-	[1] = 30013,
-	[2] = 30014,
-	[3] = 30015,
-	[4] = 30016,
-	[5] = 30017,
+	[1] = 26777,
+	[2] = 26778,
+	[3] = 26779,
+	[4] = 26780,
+	[5] = 26781,
 
 	effectPosition = {
 		--[[

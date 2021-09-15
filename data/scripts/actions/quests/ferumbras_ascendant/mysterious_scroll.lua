@@ -1,6 +1,6 @@
 local ferumbrasAscendantMysterious = Action()
 function ferumbrasAscendantMysterious.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if player:getStorageValue(Storage.FerumbrasAscension.RiftRunner) >= 1 or player:getStorageValue(24850) < 1 then
+	if player:getStorageValue(Storage.FerumbrasAscension.RiftRunner) >= 1 or player:getStorageValue(22194) < 1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'No matter how often you try, you cannot decipher anything.')
 		return true
 	else

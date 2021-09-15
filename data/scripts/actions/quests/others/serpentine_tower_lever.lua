@@ -7,25 +7,25 @@ local walls = {
 
 local othersSerpentineLever = Action()
 function othersSerpentineLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 1945 then
+	if item.itemid == 2772 then
 		local wallItem
 		for i = 1, #walls do
-			wallItem = Tile(walls[i].position):getItemById(1498)
+			wallItem = Tile(walls[i].position):getItemById(2129)
 			if wallItem then
 				wallItem:remove()
 			end
 		end
 
-		item:transform(1946)
+		item:transform(2773)
 	else
 		local wall
 		for i = 1, #walls do
 			wall = walls[i]
 			Tile(wall.position):relocateTo(wall.relocatePosition)
-			Game.createItem(1498, 1, wall.position)
+			Game.createItem(2129, 1, wall.position)
 		end
 
-		item:transform(1945)
+		item:transform(2772)
 	end
 	return true
 end

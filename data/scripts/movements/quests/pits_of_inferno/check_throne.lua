@@ -1,11 +1,11 @@
 local setting = {
-	[2090] = {storage = Storage.PitsOfInferno.ThroneInfernatil, value = 1},
-	[2091] = {storage = Storage.PitsOfInferno.ThroneTafariel, value = 1},
-	[2092] = {storage = Storage.PitsOfInferno.ThroneVerminor, value = 1},
-	[2093] = {storage = Storage.PitsOfInferno.ThroneApocalypse, value = 1},
-	[2094] = {storage = Storage.PitsOfInferno.ThroneBazir, value = 1},
-	[2095] = {storage = Storage.PitsOfInferno.ThroneAshfalor, value = 1},
-	[2096] = {storage = Storage.PitsOfInferno.ThronePumin, value = 1}
+	[2971] = {storage = Storage.PitsOfInferno.ThroneInfernatil, value = 1},
+	[2972] = {storage = Storage.PitsOfInferno.ThroneTafariel, value = 1},
+	[2973] = {storage = Storage.PitsOfInferno.ThroneVerminor, value = 1},
+	[2974] = {storage = Storage.PitsOfInferno.ThroneApocalypse, value = 1},
+	[2975] = {storage = Storage.PitsOfInferno.ThroneBazir, value = 1},
+	[2976] = {storage = Storage.PitsOfInferno.ThroneAshfalor, value = 1},
+	[2977] = {storage = Storage.PitsOfInferno.ThronePumin, value = 1}
 }
 
 local checkThrone = MoveEvent()

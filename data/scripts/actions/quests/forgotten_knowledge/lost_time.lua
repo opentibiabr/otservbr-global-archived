@@ -10,5 +10,5 @@ function forgottenKnowledgeLostTime.onUse(player, item, fromPosition, target, to
 	return true
 end
 
-forgottenKnowledgeLostTime:id(26397)
+forgottenKnowledgeLostTime:id(23729)
 forgottenKnowledgeLostTime:register()

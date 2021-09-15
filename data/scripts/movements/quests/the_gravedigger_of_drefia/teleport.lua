@@ -1,11 +1,11 @@
 local setting = {
-	[4530] = {
+	[4519] = {
 		firstStorage = Storage.GravediggerOfDrefia.Mission05,
 		secondStorage = Storage.GravediggerOfDrefia.Mission06,
 		firstDestination = Position(32987, 32401, 9),
 		secondDestination = Position(32988, 32397, 9)
 	},
-	[4532] = {
+	[4521] = {
 		storage = Storage.GravediggerOfDrefia.Mission08,
 		storageTwo = Storage.GravediggerOfDrefia.Mission09,
 		firstDestination = Position(33022, 32334, 10),

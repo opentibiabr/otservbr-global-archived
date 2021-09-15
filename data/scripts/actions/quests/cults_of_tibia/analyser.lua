@@ -24,5 +24,5 @@ function cultsOfTibiaAnalyser.onUse(player, item, fromPosition, target, toPositi
 	return true
 end
 
-cultsOfTibiaAnalyser:id(28666)
+cultsOfTibiaAnalyser:id(25305)
 cultsOfTibiaAnalyser:register()

@@ -4,12 +4,12 @@ function lowerRoshamuulMortar.onUse(player, item, fromPosition, target, toPositi
         return false
     end
 
-    if (target:getId() == 2005) and (target:getFluidType() == 1) then
-        item:transform(2005, 0)
-        target:transform(22504)
+    if (target:getId() == 2873) and (target:getFluidType() == 1) then
+        item:transform(2873, 0)
+        target:transform(20170)
     end
     return true
 end
 
-lowerRoshamuulMortar:id(22503)
+lowerRoshamuulMortar:id(20169)
 lowerRoshamuulMortar:register()

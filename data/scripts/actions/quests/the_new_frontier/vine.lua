@@ -1,6 +1,6 @@
 local config = {
-	[3153] = Position(33022, 31536, 6),
-	[3154] = Position(33020, 31536, 4)
+	[500] = Position(33022, 31536, 6),
+	[501] = Position(33020, 31536, 4)
 }
 
 local theNewFrontierVine = Action()
@@ -15,5 +15,5 @@ function theNewFrontierVine.onUse(player, item, fromPosition, target, toPosition
 	return true
 end
 
-theNewFrontierVine:uid(3153,3154)
+theNewFrontierVine:uid(3153,501)
 theNewFrontierVine:register()

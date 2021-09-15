@@ -10,9 +10,9 @@ function sewer.onStepIn(creature, item, position, fromPosition)
 
 	local tile = Tile(sewerPosition)
 	if (tile) then
-		local tileItem = tile:getItemById(430)
+		local tileItem = tile:getItemById(435)
 		if (not tileItem) then
-			Game.createItem(430, 1, sewerPosition)
+			Game.createItem(435, 1, sewerPosition)
 		end
 	end
 	return true
@@ -32,7 +32,7 @@ function sewer.onStepOut(creature, item, position, fromPosition)
 
 	local tile = Tile(sewerPosition)
 	if (tile) then
-		local tileItem = tile:getItemById(430)
+		local tileItem = tile:getItemById(435)
 		if (tileItem) then
 			tileItem:remove(1)
 		end

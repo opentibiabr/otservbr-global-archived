@@ -21,5 +21,5 @@ function hotCuisineCook1.onUse(player, item, fromPosition, target, toPosition, i
 	return true
 end
 
-hotCuisineCook1:id(10006)
+hotCuisineCook1:id(9093)
 hotCuisineCook1:register()

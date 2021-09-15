@@ -1,81 +1,81 @@
 local UniqueTable = {
-	[14001] = {
+	[473] = {
 		name = "giant shimmering pearl",
 		count = 1
 	},
-	[14002] = {
+	[474] = {
 		name = "gold nugget",
 		count = 2
 	},
-	[14003] = {
+	[617] = {
 		name = "blue crystal shard",
 		count = 1
 	},
-	[14004] = {
+	[616] = {
 		name = "violet crystal shard",
 		count = 1
 	},
-	[14005] = {
+	[617] = {
 		name = "green crystal splinter",
 		count = 2
 	},
-	[14006] = {
+	[857] = {
 		name = "red gem",
 		count = 1
 	},
-	[14007] = {
+	[858] = {
 		name = "onyx chip",
 		count = 3
 	},
-	[14008] = {
+	[912] = {
 		name = "platinum coin",
 		count = 3
 	},
-	[14009] = {
+	[913] = {
 		name = "red crystal fragment",
 		count = 2
 	},
-	[14010] = {
+	[922] = {
 		name = "yellow gem",
 		count = 1
 	},
-	[14011] = {
+	[1099] = {
 		name = "talon",
 		count = 3
 	},
-	[14012] = {
+	[1990] = {
 		name = "white pearl",
 		count = 2
 	},
-	[14013] = {
+	[1991] = {
 		name = "gold ingot",
 		count = 1
 	},
-	[14014] = {
+	[2139] = {
 		name = "opal",
 		count = 3
 	},
-	[14015] = {
+	[12878] = {
 		name = "small diamond",
 		count = 2
 	},
-	[14016] = {
+	[12879] = {
 		name = "green crystal shard",
 		count = 1
 	},
-	[14017] = {
+	[2141] = {
 		name = "black pearl",
 		count = 3
 	},
-	[14018] = {
+	[2142] = {
 		name = "emerald bangle",
 		count = 1
 	},
-	[14019] = {
+	[2143] = {
 		name = "green gem",
 		count = 1
 	},
-	[14020] = {
+	[2149] = {
 		name = "giant shimmering pearl",
 		count = 1
 	}

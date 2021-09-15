@@ -9,9 +9,9 @@ local config = {
 		Position(32570, 31421, 9)
 	},
 	removeCreaturePosition = Position(32568, 31422, 9),
-	wallID = 3519,
-	wallID2 = 3524,
-	tileID = 3154
+	wallID = 1608,
+	wallID2 = 1613,
+	tileID = 501
 }
 
 local theHiddenBeregar = Action()
@@ -19,14 +19,14 @@ function theHiddenBeregar.onUse(player, item, fromPosition, target, toPosition, 
 	local tile, thing, thing2 , creature, lever, leverstatus
 	leverstatus = item.itemid
 	for i = 1, #config.leverPositions do
-		lever = Tile(config.leverPositions[i]):getItemById(leverstatus == 1945 and 1945 or 1946)
-		lever:transform(item.itemid == 1945 and 1946 or 1945)
+		lever = Tile(config.leverPositions[i]):getItemById(leverstatus == 2772 and 2772 or 2773)
+		lever:transform(item.itemid == 2772 and 2773 or 2772)
 	end
 	for i = 1, #config.gatePositions do
 		tile = Tile(config.gatePositions[i])
 		if tile then
 			creature = tile:getTopCreature()
-			if leverstatus == 1945 then
+			if leverstatus == 2772 then
 				thing = tile:getItemById(config.wallID)
 				thing2 = tile:getItemById(config.wallID2)
 				if thing and thing2 then

@@ -8,7 +8,7 @@ function theirmastersvoice.onStartup()
 				local position = Position(x, y, 9)
 				local tile = Tile(position)
 				if tile then
-					local item = tile:getItemById(13590)
+					local item = tile:getItemById(12065)
 					if item then
 						local slimeChance = math.random(100)
 						if slimeChance <= 30 then

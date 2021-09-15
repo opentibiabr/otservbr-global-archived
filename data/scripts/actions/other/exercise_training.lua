@@ -1,32 +1,32 @@
 local skills = {
-    [32384] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
-    [32385] = {id=SKILL_AXE,voc=4}, -- KNIGHT
-    [32386] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
-    [32387] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
-    [32388] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
-    [32389] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE}, -- SORCERER
-    [32124] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
-    [32125] = {id=SKILL_AXE,voc=4}, -- KNIGHT
-    [32126] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
-    [32127] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
-    [32128] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
-    [32129] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE}, -- SORCERER
-    [40114] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
-    [40115] = {id=SKILL_AXE,voc=4}, -- KNIGHT
-    [40116] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
-    [40117] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
-    [40118] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
-    [40119] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE}, -- SORCERER
-    [40120] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
-    [40121] = {id=SKILL_AXE,voc=4}, -- KNIGHT
-    [40122] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
-    [40123] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
-    [40124] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
-    [40125] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE} -- SORCERER
+    [28552] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
+    [28553] = {id=SKILL_AXE,voc=4}, -- KNIGHT
+    [28554] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
+    [28555] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
+    [28556] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
+    [28557] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE}, -- SORCERER
+    [28540] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
+    [28541] = {id=SKILL_AXE,voc=4}, -- KNIGHT
+    [28542] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
+    [28543] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
+    [28544] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
+    [28545] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE}, -- SORCERER
+    [35279] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
+    [35280] = {id=SKILL_AXE,voc=4}, -- KNIGHT
+    [35281] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
+    [35282] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
+    [35283] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
+    [35284] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE}, -- SORCERER
+    [35285] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
+    [35286] = {id=SKILL_AXE,voc=4}, -- KNIGHT
+    [35287] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
+    [35288] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
+    [35289] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
+    [35290] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE} -- SORCERER
 }
 
-local houseDummies = {32143, 32144, 32145, 32146, 32147, 32148}
-local freeDummies = {32142, 32149}
+local houseDummies = {28559, 28560, 28561, 28562, 28563, 28564}
+local freeDummies = {28558, 28565}
 local skillRateDefault = configManager.getNumber(configKeys.RATE_SKILL)
 local magicRateDefault = configManager.getNumber(configKeys.RATE_MAGIC)
 
@@ -139,38 +139,38 @@ function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, 
     return true
 end
 
-for id = 32124, 32126 do
+for id = 28540, 28542 do
     exerciseTraining:id(id)
 end
 
-for id = 32127, 32129 do
-    exerciseTraining:id(id)
-    exerciseTraining:allowFarUse(true)
-end
-
-for id = 32384, 32386 do
-    exerciseTraining:id(id)
-end
-
-for id = 32387, 32389 do
+for id = 28543, 28545 do
     exerciseTraining:id(id)
     exerciseTraining:allowFarUse(true)
 end
 
-for id = 40114, 40116 do
+for id = 28552, 28554 do
     exerciseTraining:id(id)
 end
 
-for id = 40117, 40119 do
+for id = 28555, 28557 do
     exerciseTraining:id(id)
     exerciseTraining:allowFarUse(true)
 end
 
-for id = 40120, 40122 do
+for id = 35279, 35281 do
     exerciseTraining:id(id)
 end
 
-for id = 40123, 40125 do
+for id = 35282, 35284 do
+    exerciseTraining:id(id)
+    exerciseTraining:allowFarUse(true)
+end
+
+for id = 35285, 35287 do
+    exerciseTraining:id(id)
+end
+
+for id = 35288, 35290 do
     exerciseTraining:id(id)
     exerciseTraining:allowFarUse(true)
 end

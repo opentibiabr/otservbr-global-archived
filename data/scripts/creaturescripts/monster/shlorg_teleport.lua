@@ -1,8 +1,8 @@
 local position = {
-    [1] = {pos = {x=33170, y=31730, z=9}},
-    [2] = {pos = {x=33175, y=31736, z=9}},
-    [3] = {pos = {x=33174, y=31747, z=9}},
-    [4] = {pos = {x=33164, y=31744, z=9}}
+    [1] = {pos = {x=27582, y=26971, z=9}},
+    [2] = {pos = {x=27673, y=27047, z=9}},
+    [3] = {pos = {x=27669, y=27058, z=9}},
+    [4] = {pos = {x=27513, y=27055, z=9}}
 }
 
 local shlorgTeleport = CreatureEvent("ShlorgTeleport")

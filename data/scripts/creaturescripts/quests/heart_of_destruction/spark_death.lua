@@ -10,8 +10,8 @@ local function setStorage()
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
 						for _, creature in pairs(creatures) do
-							if creature:isPlayer() and creature:getStorageValue(14324) < 1 then -- hardcoded storges
-								creature:setStorageValue(14324, 1) -- Access to boss realityquake
+							if creature:isPlayer() and creature:getStorageValue(5952) < 1 then -- hardcoded storges
+								creature:setStorageValue(5952, 1) -- Access to boss realityquake
 							end
 						end
 					end

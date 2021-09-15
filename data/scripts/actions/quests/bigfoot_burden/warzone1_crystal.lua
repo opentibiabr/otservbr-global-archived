@@ -6,10 +6,10 @@ local creatures = {
 }
 
 local function removeTp()
-    local t = Tile(posdotp):getItemById(1387)
+    local t = Tile(posdotp):getItemById(1949)
     if t then
         t:remove()
-        Game.createItem(17999,1,posdotp)-- Stone pos
+        Game.createItem(15467,1,posdotp)-- Stone pos
         posdotp:sendMagicEffect(CONST_ME_POFF)
     end
 end
@@ -19,10 +19,10 @@ local function magicEffectWz(pos, cons)
 end
 
 local function createTp()
-    local cristal = Tile(posdotp):getItemById(17999)
+    local cristal = Tile(posdotp):getItemById(15467)
     if cristal then
         cristal:remove()
-        local tp = Game.createItem(1387, 1, posdotp)
+        local tp = Game.createItem(1949, 1, posdotp)
         if tp then
             tp:setActionId(45700)
         end

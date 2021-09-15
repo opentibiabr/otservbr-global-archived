@@ -1,6 +1,6 @@
 local config = {
-	[26663] = {storage = GlobalStorage.ForgottenKnowledge.MechanismDiamond, counter = GlobalStorage.ForgottenKnowledge.DiamondServant, msg = "5 diamond entities are consuming too much raw energy for the cosmic chamber to awaken, it will be put to rest again in 10 minutes."},
-	[26664] = {storage = GlobalStorage.ForgottenKnowledge.MechanismGolden, counter = GlobalStorage.ForgottenKnowledge.GoldenServant, msg = "5 golden entities are consuming too much raw energy for the cosmic chamber to awaken, it will be put to rest again in 10 minutes."}
+	[23995] = {storage = GlobalStorage.ForgottenKnowledge.MechanismDiamond, counter = GlobalStorage.ForgottenKnowledge.DiamondServant, msg = "5 diamond entities are consuming too much raw energy for the cosmic chamber to awaken, it will be put to rest again in 10 minutes."},
+	[23996] = {storage = GlobalStorage.ForgottenKnowledge.MechanismGolden, counter = GlobalStorage.ForgottenKnowledge.GoldenServant, msg = "5 golden entities are consuming too much raw energy for the cosmic chamber to awaken, it will be put to rest again in 10 minutes."}
 }
 
 local function clearGolems()
@@ -42,7 +42,7 @@ end
 local forgottenKnowledgeMechanism = Action()
 function forgottenKnowledgeMechanism.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local lever = config[item.actionid]
-	if item.itemid == 10044 then
+	if item.itemid == 9125 then
 		if Game.getStorageValue(lever.storage) >= 1 then
 			player:say('seems that the mechanism still active.', TALKTYPE_MONSTER_SAY, false, nil, toPosition)
 			return true
@@ -51,14 +51,14 @@ function forgottenKnowledgeMechanism.onUse(player, item, fromPosition, target, t
 		Game.setStorageValue(lever.storage, 1)
 		Game.setStorageValue(lever.counter, 0)
 		addEvent(turnOff, 10 * 60 * 1000, lever.storage, lever.counter)
-		item:transform(10045)
+		item:transform(9126)
 		player:say('*click*', TALKTYPE_MONSTER_SAY, false, nil, toPosition)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, lever.msg)
-	elseif item.itemid == 10045 then
-		item:transform(10044)
+	elseif item.itemid == 9126 then
+		item:transform(9125)
 	end
 	return true
 end
 
-forgottenKnowledgeMechanism:aid(26663,26664)
+forgottenKnowledgeMechanism:aid(26663,23996)
 forgottenKnowledgeMechanism:register()

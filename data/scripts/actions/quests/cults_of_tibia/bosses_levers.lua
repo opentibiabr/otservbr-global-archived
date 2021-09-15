@@ -1,6 +1,6 @@
 local transformid = {
-	[9825] = 9826,
-	[9826] = 9825
+	[8911] = 8912,
+	[8912] = 8911
 }
 
 local geyser = {
@@ -117,14 +117,14 @@ local function ativarGeyser(player)
 		addEvent(function()
 			local rand = math.random(1,12)
 			local geyserPos = Position(geyser[rand])
-			local checar1 = Tile(Position(geyserPos)):getItemById(28868)
+			local checar1 = Tile(Position(geyserPos)):getItemById(25509)
 			if checar1 then
 				addEvent(function()
 					local player1 = Game.getPlayers()[1]
-					Game.createItem(28869, 1, geyserPos)
+					Game.createItem(25510, 1, geyserPos)
 					player1:say("SPLASH!", TALKTYPE_MONSTER_SAY, false, false, geyserPos)
 					addEvent(function()
-						local checar2 = Tile(Position(geyserPos)):getItemById(28869)
+						local checar2 = Tile(Position(geyserPos)):getItemById(25510)
 						if checar2 then
 						checar2:remove()
 						end
@@ -148,10 +148,10 @@ function cultsOfTibiaLevers.onUse(player, item, fromPosition, itemEx, toPosition
 	local convertTable = {}
 	item:transform(transformid[item:getId()])
 
-	if item:getActionId() == 5501 and item:getId() == 9826 then -- Leiden
+	if item:getActionId() == 5500 and item:getId() == 8912 then -- Leiden
 		if player:getPosition() == Position(33138, 31953, 15) then
 			local teleport = 0
-			for i = 31953, 31957, 1 do
+			for i = 27330, 27334, 1 do
 				local newpos = Position(33138, i, 15)
 				local nplayer = Tile(newpos):getTopCreature()
 				if nplayer and nplayer:isPlayer() then
@@ -178,7 +178,7 @@ function cultsOfTibiaLevers.onUse(player, item, fromPosition, itemEx, toPosition
 				end
 			end
 
-			for i = 31953, 31957, 1 do
+			for i = 27330, 27334, 1 do
 				local newpos = Position(33138, i, 15)
 				local nplayer = Tile(newpos):getTopCreature()
 				if nplayer and nplayer:isPlayer() then
@@ -193,10 +193,10 @@ function cultsOfTibiaLevers.onUse(player, item, fromPosition, itemEx, toPosition
 		kickerPlayerRoomAfferMin(convertTable, frompos, topos, Position(33121, 31951, 15), "You were kicked for exceeding the time limit within the boss room.", '', 60, true, ittable, blockmonsters)
 		end
 	end
-	if item:getActionId() == 5502 and item:getId() == 9826 then -- Leiden
+	if item:getActionId() == 5501 and item:getId() == 8912 then -- Leiden
 		if player:getPosition() == Position(33162, 31893, 15) then
 			local teleport = 0
-			for i = 31893, 31897, 1 do
+			for i = 27265, 27273, 1 do
 				local newpos = Position(33162, i, 15)
 				local nplayer = Tile(newpos):getTopCreature()
 				if nplayer and nplayer:isPlayer() then
@@ -223,7 +223,7 @@ function cultsOfTibiaLevers.onUse(player, item, fromPosition, itemEx, toPosition
 				end
 			end
 
-			for i = 31893, 31897, 1 do
+			for i = 27265, 27273, 1 do
 				local newpos = Position(33162, i, 15)
 				local nplayer = Tile(newpos):getTopCreature()
 				if nplayer and nplayer:isPlayer() then
@@ -233,8 +233,8 @@ function cultsOfTibiaLevers.onUse(player, item, fromPosition, itemEx, toPosition
 					player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 				end
 			end
-			transformMonster(28661, 1, "minotaur idol", Position(33157, 31910, 15), Position(33168, 31910, 15), 0)
-			transformMonster(28661, 1, "minotaur idol", Position(33158, 31921, 15), Position(33168, 31921, 15), 6)
+			transformMonster(25300, 1, "minotaur idol", Position(33157, 31910, 15), Position(33168, 31910, 15), 0)
+			transformMonster(25300, 1, "minotaur idol", Position(33158, 31921, 15), Position(33168, 31921, 15), 6)
 			addEvent(transformMonster, 13*15000, 3, 3, "Sphere Of Wrath", {}, {}, 0)
 		Game.createMonster("The False God", Position(33159, 31914, 15))
 		-- funçao
@@ -242,10 +242,10 @@ function cultsOfTibiaLevers.onUse(player, item, fromPosition, itemEx, toPosition
 		end
 	end
 
-	if item:getActionId() == 5500 then -- Essence of Malice
+	if item:getActionId() == 5499 then -- Essence of Malice
 		if player:getPosition() == Position(33095, 31943, 15) and item:getId() == 9826 then
 			local teleport = 0
-			for i = 31943, 31947, 1 do
+			for i = 27320, 27324, 1 do
 				local newpos = Position(33095, i, 15)
 				local nplayer = Tile(newpos):getTopCreature()
 				if nplayer and nplayer:isPlayer() then
@@ -272,7 +272,7 @@ function cultsOfTibiaLevers.onUse(player, item, fromPosition, itemEx, toPosition
 				end
 			end
 
-			for i = 31943, 31947, 1 do
+			for i = 27320, 27324, 1 do
 				local newpos = Position(33095, i, 15)
 				local nplayer = Tile(newpos):getTopCreature()
 				if nplayer and nplayer:isPlayer() then
@@ -296,10 +296,10 @@ function cultsOfTibiaLevers.onUse(player, item, fromPosition, itemEx, toPosition
 		end
 	end
 
-	if item:getActionId() == 5503 then -- The Sinister Hermit
+	if item:getActionId() == 5502 then -- The Sinister Hermit
 	if player:getPosition() == Position(33127, 31892, 15) and item:getId() == 9826 then
 		local teleport = 0
-		for i = 31892, 31896, 1 do
+		for i = 11821, 27272, 1 do
 			local newpos = Position(33127, i, 15)
 			local nplayer = Tile(newpos):getTopCreature()
 			if nplayer and nplayer:isPlayer() then
@@ -326,7 +326,7 @@ function cultsOfTibiaLevers.onUse(player, item, fromPosition, itemEx, toPosition
 			end
 		end
 
-		for i = 31892, 31896, 1 do
+		for i = 11821, 27272, 1 do
 			local newpos = Position(33127, i, 15)
 			local nplayer = Tile(newpos):getTopCreature()
 			if nplayer and nplayer:isPlayer() then
@@ -342,7 +342,7 @@ function cultsOfTibiaLevers.onUse(player, item, fromPosition, itemEx, toPosition
 	end
 end
 
-	if item:getActionId() == 5504 then -- Boss do orc
+	if item:getActionId() == 5503 then -- Boss do orc
 		if player:getPosition() == Position(33164, 31859, 15) and item:getId() == 9826 then
 			local teleport = 0
 			for y = 31859, 31863, 1 do
@@ -408,8 +408,8 @@ end
 			-- criando os itens
 			for _, position in pairs(itensToMonster) do
 				local tile = Tile(position)
-				if tile and tile:getItemCountById(8633) < 1 then
-					Game.createItem(8633, 1, position)
+				if tile and tile:getItemCountById(7805) < 1 then
+					Game.createItem(7805, 1, position)
 				end
 			end
 			-- criando os raios
@@ -429,7 +429,7 @@ end
 			kickerPlayerRoomAfferMin(convertTable, frompos, topos, Position(33179, 31840, 15), "You were kicked for exceeding the time limit within the boss room.", '', 60, true, ittable, blockmonsters)
 		end
 	end
-	if item:getActionId() == 5505 then -- Boss da areia
+	if item:getActionId() == 5504 then -- Boss da areia
 		if player:getPosition() == Position(33507, 32228, 10) and item:getId() == 9826 then
 			local teleport = 0
 			for _y = 32228, 32232, 1 do
@@ -487,7 +487,7 @@ end
 	end
 
 	-- final boss
-	if item:getActionId() == 5506 then
+	if item:getActionId() == 5505 then
 		if player:getPosition() == Position(33074, 31884, 15) and item:getId() == 9826 then
 			local convertTable = {}
 			convertTable[#convertTable + 1] = player:getId()
@@ -534,5 +534,5 @@ end
 	return true
 end
 
-cultsOfTibiaLevers:aid(5500,5501,5502,5503,5504,5505,5506)
+cultsOfTibiaLevers:aid(5500,5500,5501,5502,5503,5504,5505)
 cultsOfTibiaLevers:register()

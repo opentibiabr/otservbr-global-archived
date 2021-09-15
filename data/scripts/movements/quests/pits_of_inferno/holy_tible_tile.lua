@@ -1,6 +1,6 @@
 local destinations = {
 	[2000] = Position(32791, 32331, 10),
-	[2001] = Position(32791, 32327, 10)
+	[2868] = Position(32791, 32327, 10)
 }
 
 local holyTibleTile = MoveEvent()
@@ -11,7 +11,7 @@ function holyTibleTile.onStepIn(creature, item, position, fromPosition)
 		return false
 	end
 
-	if player:getItemCount(1970) < 1 then
+	if player:getItemCount(2836) < 1 then
 		player:teleportTo(fromPosition, true)
 		return true
 	end

@@ -1,10 +1,10 @@
 local sacrificeItems = Action()
 
 local config = {
-	[27607] = {storage = Storage.FirstDragon.Scale},
-	[27608] = {storage = Storage.FirstDragon.Tooth},
-	[27609] = {storage = Storage.FirstDragon.Horn},
-	[27610] = {storage = Storage.FirstDragon.Bones}
+	[24939] = {storage = Storage.FirstDragon.Scale},
+	[24940] = {storage = Storage.FirstDragon.Tooth},
+	[24941] = {storage = Storage.FirstDragon.Horn},
+	[24942] = {storage = Storage.FirstDragon.Bones}
 }
 
 function sacrificeItems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
@@ -28,7 +28,7 @@ function sacrificeItems.onUse(player, item, fromPosition, target, toPosition, is
 	end
 	local targetPosition = Position(33047, 32712, 3)
 	if (toPosition == targetPosition) then
-		local targetId = Tile(targetPosition):getItemById(27828)
+		local targetId = Tile(targetPosition):getItemById(25160)
 		if targetId then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You're plunging " ..item:getName().. " into the lava.")
 			player:setStorageValue(Storage.FirstDragon.AccessCave, player:getStorageValue(Storage.FirstDragon.AccessCave) + 1)
@@ -40,7 +40,7 @@ function sacrificeItems.onUse(player, item, fromPosition, target, toPosition, is
 	return false
 end
 
-for value = 27607, 27610 do
+for value = 24939, 24942 do
 	sacrificeItems:id(value)
 end
 

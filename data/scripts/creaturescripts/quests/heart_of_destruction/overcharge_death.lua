@@ -12,8 +12,8 @@ local function setStorage()
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
 						for _, creature in pairs(creatures) do
-							if creature:isPlayer() and creature:getStorageValue(14320) < 1 then
-								creature:setStorageValue(14320, 1) -- Access to boss Anomaly
+							if creature:isPlayer() and creature:getStorageValue(107) < 1 then
+								creature:setStorageValue(107, 1) -- Access to boss Anomaly
 							end
 						end
 					end
@@ -35,8 +35,8 @@ local function setStorage()
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
 						for _, creature in pairs(creatures) do
-							if creature:isPlayer() and creature:getStorageValue(14320) < 1 then -- hardcoded storges
-								creature:setStorageValue(14320, 1) -- Access to boss Anomaly
+							if creature:isPlayer() and creature:getStorageValue(107) < 1 then -- hardcoded storges
+								creature:setStorageValue(107, 1) -- Access to boss Anomaly
 							end
 						end
 					end
@@ -49,12 +49,12 @@ end
 local overchargeDeath = CreatureEvent("OverchargeDeath")
 function overchargeDeath.onDeath(creature)
 
-	Game.setStorageValue(14321, Game.getStorageValue(14321) + 1)
+	Game.setStorageValue(120, Game.getStorageValue(120) + 1)
 
-	if Game.getStorageValue(14321) == 5 then
+	if Game.getStorageValue(120) == 5 then
 		setStorage()
 		creature:say("You have reached enough charges to pass further into the destruction!", TALKTYPE_MONSTER_YELL, isInGhostMode, pid, {x = 32162, y = 31356, z = 15})
-		Game.setStorageValue(14321, -1)
+		Game.setStorageValue(120, -1)
 	end
 
 	return true

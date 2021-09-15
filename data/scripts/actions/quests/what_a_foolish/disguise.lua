@@ -9,5 +9,5 @@ function whatFoolishDisguise.onUse(player, item, fromPosition, target, toPositio
 	return true
 end
 
-whatFoolishDisguise:id(7502)
+whatFoolishDisguise:id(144)
 whatFoolishDisguise:register()

@@ -17,14 +17,14 @@ function rareCrystal.onUse(player, item, fromPosition, target, toPosition, isHot
 	return false
 end
 
-rareCrystal:id(10614)
+rareCrystal:id(9697)
 rareCrystal:register()
 
 -- Collector corpse
 local collectorCorpse = Action()
 
 function collectorCorpse.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.itemid ~= 10612 then
+	if target.itemid ~= 9695 then
 		return false
 	end
 
@@ -35,8 +35,8 @@ function collectorCorpse.onUse(player, item, fromPosition, target, toPosition, i
 	player:say("You carefully put the mirror crystal into the astronomers's device.", TALKTYPE_MONSTER_SAY)
 	player:setStorageValue(Storage.SeaOfLight.Questline, 9)
 	player:setStorageValue(Storage.SeaOfLight.Mission3, 3)
-	item:transform(10616)
+	item:transform(9699)
 end
 
-collectorCorpse:id(10615)
+collectorCorpse:id(9698)
 collectorCorpse:register()

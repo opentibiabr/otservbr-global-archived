@@ -1,67 +1,67 @@
 local UniqueTable = {
-	[40011] = {
+	[35176] = {
 		storage = Storage.InsectoidCell.Reward1,
-		reward = 15572
+		reward = 14172
 	},
-	[40012] = {
+	[35177] = {
 		storage = Storage.InsectoidCell.Reward2,
-		reward = 15572
+		reward = 14172
 	},
-	[40013] = {
+	[35178] = {
 		storage = Storage.InsectoidCell.Reward3,
-		reward = 15572
+		reward = 14172
 	},
-	[40014] = {
+	[35179] = {
 		storage = Storage.InsectoidCell.Reward4,
-		reward = 15572
+		reward = 14172
 	},
-	[40015] = {
+	[35180] = {
 		storage = Storage.InsectoidCell.Reward5,
-		reward = 15572
+		reward = 14172
 	},
-	[40016] = {
+	[35181] = {
 		storage = Storage.InsectoidCell.Reward6,
-		reward = 15572
+		reward = 14172
 	},
-	[40017] = {
+	[35182] = {
 		storage = Storage.InsectoidCell.Reward7,
-		reward = 15572
+		reward = 14172
 	},
-	[40018] = {
+	[35183] = {
 		storage = Storage.InsectoidCell.Reward8,
-		reward = 15572
+		reward = 14172
 	},
-	[40019] = {
+	[35184] = {
 		storage = Storage.InsectoidCell.Reward9,
-		reward = 15572
+		reward = 14172
 	},
-	[40020] = {
+	[35185] = {
 		storage = Storage.InsectoidCell.Reward10,
-		reward = 15572
+		reward = 14172
 	},
-	[40021] = {
+	[35186] = {
 		storage = Storage.InsectoidCell.Reward11,
-		reward = 15572
+		reward = 14172
 	},
-	[40022] = {
+	[35187] = {
 		storage = Storage.InsectoidCell.Reward12,
-		reward = 15572
+		reward = 14172
 	},
-	[40023] = {
+	[35188] = {
 		storage = Storage.InsectoidCell.Reward13,
-		reward = 15572
+		reward = 14172
 	},
-	[40024] = {
+	[35189] = {
 		storage = Storage.InsectoidCell.Reward14,
-		reward = 15572
+		reward = 14172
 	},
-	[40025] = {
+	[35190] = {
 		storage = Storage.InsectoidCell.Reward15,
-		reward = 15572
+		reward = 14172
 	},
-	[40026] = {
+	[35191] = {
 		storage = Storage.InsectoidCell.Reward16,
-		reward = 15572
+		reward = 14172
 	}
 }
 

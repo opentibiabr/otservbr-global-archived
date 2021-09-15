@@ -18,5 +18,5 @@ function lairEntrance.onUse(player, item, fromPosition, target, toPosition, isHo
 	return false
 end
 
-lairEntrance:id(27828)
+lairEntrance:id(25160)
 lairEntrance:register()

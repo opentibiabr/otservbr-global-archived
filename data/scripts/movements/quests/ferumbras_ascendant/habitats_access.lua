@@ -1,5 +1,5 @@
 local config = {
-	[34323] = {
+	[29685] = {
 		toPosition = Position(33630, 32651, 12),
 		backPosition = Position(33630, 32651, 12),
 		timer = Storage.FerumbrasAscension.HabitatsTimer

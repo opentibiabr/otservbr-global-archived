@@ -12,9 +12,9 @@ Then it was discovered that he had built a tower south of the mountains. It is u
 local kosheiBag = Action()
 function kosheiBag.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if (player:getStorageValue(483293) == -1) then
-		local bag = player:addItem(1987, 1)
+		local bag = player:addItem(2853, 1)
 		if (bag) then
-			local document = bag:addItem(1968, 1)
+			local document = bag:addItem(2834, 1)
 			if (document) then
 				document:setAttribute(ITEM_ATTRIBUTE_NAME, "Famous Inhabitants of Darashia, Page 2")
 				document:setAttribute(ITEM_ATTRIBUTE_TEXT, documentContent)

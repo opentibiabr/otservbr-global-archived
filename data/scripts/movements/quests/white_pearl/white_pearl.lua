@@ -1,10 +1,10 @@
 local setting = {
-	[5630] = {
+	[5629] = {
 		teleportPosition = Position(33145, 32863, 7),
 		effect = CONST_ME_MAGIC_GREEN,
 		potPosition = Position(33151, 32864, 7)
 	},
-	[5631] = {
+	[5630] = {
 		teleportPosition = Position(33147, 32864, 7),
 		effect = CONST_ME_MAGIC_GREEN
 	}

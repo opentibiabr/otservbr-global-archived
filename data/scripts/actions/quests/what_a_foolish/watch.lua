@@ -25,5 +25,5 @@ function whatFoolishWatch.onUse(player, item, fromPosition, target, toPosition, 
 	return true
 end
 
-whatFoolishWatch:id(8187)
+whatFoolishWatch:id(112)
 whatFoolishWatch:register()

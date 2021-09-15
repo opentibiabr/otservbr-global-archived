@@ -16,7 +16,7 @@ function enterThalasPoisonTile.onStepIn(creature, item, position, fromPosition)
 
 	player:getPosition():sendMagicEffect(CONST_ME_GREEN_RINGS)
 	player:addCondition(condition)
-	item:transform(417)
+	item:transform(420)
 	return true
 end
 

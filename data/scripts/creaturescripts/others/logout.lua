@@ -19,7 +19,7 @@ function playerLogout.onLogout(player)
 			stats.stamina = player:getStamina()
 		end
 	end
-	player:setStorageValue(17101,0)
+	player:setStorageValue(15288,0)
 	return true
 end
 playerLogout:register()

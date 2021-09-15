@@ -1,6 +1,6 @@
 local whatFoolishCushion = Action()
 function whatFoolishCushion.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.actionid ~= 4202 then
+	if target.actionid ~= 3938 then
 		return false
 	end
 
@@ -17,5 +17,5 @@ function whatFoolishCushion.onUse(player, item, fromPosition, target, toPosition
 	return true
 end
 
-whatFoolishCushion:id(7485)
+whatFoolishCushion:id(121)
 whatFoolishCushion:register()

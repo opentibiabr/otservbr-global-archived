@@ -1,7 +1,7 @@
 local riddle = MoveEvent()
 
 function riddle.onStepIn(creature, item, position, fromPosition)
-	item:transform(425)
+	item:transform(430)
 
 	if item.actionid == 2245 then
 		local new_position = Position(0, position.y, position.z)
@@ -40,16 +40,16 @@ function riddle.onStepIn(creature, item, position, fromPosition)
 end
 
 riddle:type("stepin")
-riddle:aid(2245, 2246)
+riddle:aid(2245, 3131)
 riddle:register()
 
 riddle = MoveEvent()
 
 function riddle.onStepOut(creature, item, position, fromPosition)
-	item:transform(426)
+	item:transform(431)
 	return true
 end
 
 riddle:type("stepout")
-riddle:aid(2245, 2246)
+riddle:aid(2245, 3131)
 riddle:register()

@@ -17,5 +17,5 @@ function orcTeleport.onStepIn(creature, item, position, fromPosition)
 end
 
 orcTeleport:type("stepin")
-orcTeleport:id(11798)
+orcTeleport:id(10842)
 orcTeleport:register()

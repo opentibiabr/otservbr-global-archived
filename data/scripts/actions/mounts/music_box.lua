@@ -42,5 +42,5 @@ function musicBox.onUse(player, item, fromPosition, target, toPosition, isHotkey
 	return true
 end
 
-musicBox:id(18511)
+musicBox:id(16244)
 musicBox:register()

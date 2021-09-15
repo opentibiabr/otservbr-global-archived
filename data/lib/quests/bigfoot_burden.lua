@@ -21,7 +21,7 @@ if not warzoneConfig then
 			storage = Storage.BigfootBurden.BossWarzone2,
 			interval = 20 * 60 * 60,-- 20 hours
 			exit = Position(33001, 31900, 9),
-			wall = 18459 --Id of current crystais in warzone 2 (open killing parasite)
+			wall = 16169 --Id of current crystais in warzone 2 (open killing parasite)
 		},
 		[45702] = {
 			center = Position(33090, 31910, 12),

@@ -22,13 +22,13 @@ local monsters = {
 
 local secretServiceLever = Action()
 function secretServiceLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 1945 then
+	if item.itemid == 2772 then
 		for i = 1, #monsters do
 			Game.createMonster(monsters[i].monster, monsters[i].monsterPos)
 		end
 	end
 
-	item:transform(item.itemid == 1945 and 1946 or 1945)
+	item:transform(item.itemid == 2772 and 2773 or 2772)
  	return true
 end
 

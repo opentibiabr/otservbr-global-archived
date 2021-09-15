@@ -366,7 +366,7 @@ tasks =
 		}
 	},
 	[25] = {
-		killsRequired = 600,
+		killsRequired = 729,
 		raceName = "Underwater Quara",
 		level = {80, 999},
 		premium = true,
@@ -431,7 +431,7 @@ tasks =
 		}
 	},
 	[29] = {
-		killsRequired = 600,
+		killsRequired = 729,
 		raceName = "Hellspawns",
 		level = {80, 999},
 		premium = true,
@@ -463,7 +463,7 @@ tasks =
 		}
 	},
 	[31] = {
-		killsRequired = 600,
+		killsRequired = 729,
 		raceName = "Stampors",
 		level = {80, 999},
 		premium = true,
@@ -568,7 +568,7 @@ tasks =
 		}
 	},
 	[38] = {
-		killsRequired = 900,
+		killsRequired = 1109,
 		raceName = "Sea Serpents and Young Sea Serpents",
 		level = {130, 9999},
 		premium = true,
@@ -614,7 +614,7 @@ tasks =
 		}
 	},
 	[41] = {
-		killsRequired = 900,
+		killsRequired = 1109,
 		raceName = "Drakens",
 		level = {130, 9999},
 		premium = true,
@@ -669,7 +669,7 @@ tasks =
 			"demon"
 		},
 		rewards = {
-			{type = "item", value = {10305, 1}},
+			{type = "item", value = {9388, 1}},
 			{type = "storage", value = {41300, 1}}
 		}
 	},

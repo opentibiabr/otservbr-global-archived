@@ -1,27 +1,27 @@
 local targetIdList = {
  	--health potions casks
-	[28555] = {itemId = 7636, transform = 7618}, [28579] = {itemId = 7636, transform = 7618}, -- Health Potion --
- 	[28556] = {itemId = 7634, transform = 7588}, [28580] = {itemId = 7634, transform = 7588}, -- Strong Health --
- 	[28557] = {itemId = 7635, transform = 7591}, [28581] = {itemId = 7635, transform = 7591}, -- Great Health --
- 	[28558] = {itemId = 7635, transform = 8473}, [28582] = {itemId = 7635, transform = 8473}, -- Ultimate Health --
- 	[28559] = {itemId = 7635, transform = 26031}, [28583] = {itemId = 7635, transform = 26031}, -- Supreme Health --
+	[25879] = {itemId = 285, transform = 266}, [25903] = {itemId = 285, transform = 266}, -- Health Potion --
+ 	[25880] = {itemId = 283, transform = 236}, [25904] = {itemId = 283, transform = 236}, -- Strong Health --
+ 	[25881] = {itemId = 284, transform = 239}, [25905] = {itemId = 284, transform = 239}, -- Great Health --
+ 	[25882] = {itemId = 284, transform = 7643}, [25906] = {itemId = 284, transform = 7643}, -- Ultimate Health --
+ 	[25883] = {itemId = 284, transform = 23375}, [25907] = {itemId = 284, transform = 23375}, -- Supreme Health --
  	--mana potions casks
- 	[28565] = {itemId = 7636, transform = 7620}, [28584] = {itemId = 7636, transform = 7620}, -- Mana Potion --
- 	[28566] = {itemId = 7634, transform = 7589}, [28585] = {itemId = 7634, transform = 7589}, -- Strong Mana --
- 	[28567] = {itemId = 7635, transform = 7590}, [28586] = {itemId = 7635, transform = 7590}, -- Great Mana --
- 	[28568] = {itemId = 7635, transform = 26029}, [28587] = {itemId = 7635, transform = 26029}, -- Ultimate Mana --
+ 	[25889] = {itemId = 285, transform = 268}, [25908] = {itemId = 285, transform = 268}, -- Mana Potion --
+ 	[25890] = {itemId = 283, transform = 237}, [25909] = {itemId = 283, transform = 237}, -- Strong Mana --
+ 	[25891] = {itemId = 284, transform = 238}, [25910] = {itemId = 284, transform = 238}, -- Great Mana --
+ 	[25892] = {itemId = 284, transform = 23373}, [25911] = {itemId = 284, transform = 23373}, -- Ultimate Mana --
  	--spirit potions caks
- 	[28575] = {itemId = 7635, transform = 8472}, [28589] = {itemId = 7635, transform = 8472}, -- Great Spirit --
- 	[28576] = {itemId = 7635, transform = 26030}, [28590] = {itemId = 7635, transform = 26030}, --Ultimate Spirit --
+ 	[25899] = {itemId = 284, transform = 7642}, [25913] = {itemId = 284, transform = 7642}, -- Great Spirit --
+ 	[25900] = {itemId = 284, transform = 23374}, [25914] = {itemId = 284, transform = 23374}, --Ultimate Spirit --
  }
 
 local flasks = Action()
 
 function flasks.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target:getId() >= 28535 and target:getId() <= 28590 then
+	if target:getId() >= 14539 and target:getId() <= 25914 then
 	local house = player:getTile():getHouse()
-	if house and house:canEditAccessList(SUBOWNER_LIST, player) and house:canEditAccessList(doorId, player) or target:getId() >= 28579 then
-	elseif target:getId() >= 28535 and target:getId() < 28579 then
+	if house and house:canEditAccessList(SUBOWNER_LIST, player) and house:canEditAccessList(doorId, player) or target:getId() >= 25903 then
+	elseif target:getId() >= 14539 and target:getId() < 25903 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Sorry, casks only can be useds inside house.')
 		return false
 	else
@@ -59,5 +59,5 @@ function flasks.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 end
 end
 
-flasks:id(7634, 7635, 7636)
+flasks:id(283, 284, 285)
 flasks:register()

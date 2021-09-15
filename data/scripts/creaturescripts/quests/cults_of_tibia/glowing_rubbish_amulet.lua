@@ -11,7 +11,7 @@ function glowingRubbishAmulet.onKill(creature, killed)
 	end
 
 	local colar = player:getSlotItem(CONST_SLOT_NECKLACE)
-	if not colar or colar:getId() ~= 28657 then
+	if not colar or colar:getId() ~= 25296 then
 		return true
 	end
 
@@ -32,7 +32,7 @@ function glowingRubbishAmulet.onKill(creature, killed)
 		player:setStorageValue(Storage.CultsOfTibia.Misguided.Monsters, mStg+1)
 		if player:getStorageValue(Storage.CultsOfTibia.Misguided.Monsters) >= 10 then
 			colar:remove()
-			local it = player:addItem(28658, 1)
+			local it = player:addItem(25297, 1)
 			if it then
 				it:decay()
 			end

@@ -1,6 +1,6 @@
 local bridgePosition = Position(32851, 32309, 11)
 local relocatePosition = Position(32852, 32310, 11)
-local dirtIds = {4808, 4810}
+local dirtIds = {4797, 4799}
 
 local drawbridge = MoveEvent()
 
@@ -11,9 +11,9 @@ function drawbridge.onStepIn(creature, item, position, fromPosition)
 	end
 
 	local tile = Tile(bridgePosition)
-	local lavaItem = tile:getItemById(598)
+	local lavaItem = tile:getItemById(21477)
 	if lavaItem then
-		lavaItem:transform(1284)
+		lavaItem:transform(1771)
 
 		local dirtItem
 		for i = 1, #dirtIds do
@@ -39,10 +39,10 @@ function drawbridge.onStepOut(creature, item, position, fromPosition)
 	end
 
 	local tile = Tile(bridgePosition)
-	local bridgeItem = tile:getItemById(1284)
+	local bridgeItem = tile:getItemById(1771)
 	if bridgeItem then
 		tile:relocateTo(relocatePosition)
-		bridgeItem:transform(598)
+		bridgeItem:transform(21477)
 
 		for i = 1, #dirtIds do
 			Game.createItem(dirtIds[i], 1, bridgePosition)

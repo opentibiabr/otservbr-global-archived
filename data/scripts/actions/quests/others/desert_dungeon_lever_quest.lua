@@ -3,37 +3,37 @@ local config = {
 		fromPosition = Position(32677, 32089, 8),
 		toPosition = Position(32671, 32071, 8),
 		sacrificePosition = Position(32679, 32089, 8),
-		sacrificeId = 2175,
+		sacrificeId = 3059,
 		vocationId = VOCATION.BASE_ID.SORCERER
 	},
 	{
 		fromPosition = Position(32669, 32089, 8),
 		toPosition = Position(32673, 32071, 8),
 		sacrificePosition = Position(32667, 32089, 8),
-		sacrificeId = 2674,
+		sacrificeId = 3585,
 		vocationId = VOCATION.BASE_ID.DRUID
 	},
 	{
 		fromPosition = Position(32673, 32085, 8),
 		toPosition = Position(32670, 32071, 8),
 		sacrificePosition = Position(32673, 32083, 8),
-		sacrificeId = 2455,
+		sacrificeId = 3349,
 		vocationId = VOCATION.BASE_ID.PALADIN
 	},
 	{
 		fromPosition = Position(32673, 32093, 8),
 		toPosition = Position(32672, 32071, 8),
 		sacrificePosition = Position(32673, 32094, 8),
-		sacrificeId = 2376,
+		sacrificeId = 3264,
 		vocationId = VOCATION.BASE_ID.KNIGHT
 	}
 }
 
 local othersDesert = Action()
 function othersDesert.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	item:transform(item.itemid == 1945 and 1946 or 1945)
+	item:transform(item.itemid == 2772 and 2773 or 2772)
 
-	if item.itemid ~= 1945 then
+	if item.itemid ~= 2772 then
 		return true
 	end
 

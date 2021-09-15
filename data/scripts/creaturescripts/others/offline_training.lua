@@ -10,7 +10,7 @@ function offlineTraining.onLogin(player)
 
 	player:setOfflineTrainingSkill(-1)
 
-	if offlineTime < 600 then
+	if offlineTime < 729 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
 			"You must be logged out for more than 10 minutes to start offline training.")
 		return true
@@ -29,14 +29,14 @@ function offlineTraining.onLogin(player)
 	end
 
 	local text = "During your absence you trained for"
-	local hours = math.floor(trainingTime / 3600)
+	local hours = math.floor(trainingTime / 1768)
 	if hours > 1 then
 		text = string.format("%s %d hours", text, hours)
 	elseif hours == 1 then
 		text = string.format("%s 1 hour", text)
 	end
 
-	local minutes = math.floor((trainingTime % 3600) / 60)
+	local minutes = math.floor((trainingTime % 1768) / 60)
 	if minutes ~= 0 then
 		if hours ~= 0 then
 			text = string.format("%s and", text)

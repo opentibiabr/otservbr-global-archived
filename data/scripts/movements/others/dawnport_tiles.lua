@@ -153,16 +153,16 @@ function tutorialTile2.onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-	if item.itemid == 22693 then
+	if item.itemid == 20344 then
 		player:teleportTo({x = 32070, y = 31900, z = 6}, true)
-	elseif item.itemid == 23745 then
+	elseif item.itemid == 21374 then
 		player:teleportTo({x = 32075, y = 31899, z = 5}, true)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "<krrk> <krrrrrk> You move away hurriedly.")
 	end
 	return true
 end
 
-tutorialTile2:id(22693, 23745)
+tutorialTile2:id(20344, 21374)
 tutorialTile2:register()
 
 -- Message on step in the stair for go to NPC's

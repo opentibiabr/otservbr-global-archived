@@ -6,7 +6,7 @@ function schrodingersIslandTeleportLvl999.onStepIn(creature, item, position, fro
 		return false
 	end
 
-	if player:getLevel() < 999 then
+	if player:getLevel() < 1244 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need level 999 to enter here.")
 		creature:teleportTo(fromPosition)
 		fromPosition:sendMagicEffect(CONST_ME_TELEPORT)

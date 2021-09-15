@@ -9,8 +9,8 @@ local lever = Action()
 
 function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	for i = 1, #wallsPositions do
-		if item.itemid == 1945 then
-			Tile(wallsPositions[i]):getItemById(1498):remove()
+		if item.itemid == 2772 then
+			Tile(wallsPositions[i]):getItemById(2129):remove()
 			item:remove()
 		end
 	end

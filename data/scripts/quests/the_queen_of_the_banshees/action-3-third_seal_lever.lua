@@ -1,7 +1,7 @@
 local thirdSealLever = Action()
 
 function thirdSealLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid ~= 1946 then
+	if item.itemid ~= 2773 then
 		return false
 	end
 
@@ -21,7 +21,7 @@ function thirdSealLever.onUse(player, item, fromPosition, target, toPosition, is
 
 	if player:getStorageValue(Storage.Quest.TheQueenOfTheBanshees.ThirdSeal) < 1 then
 		if item.uid == table then
-			item:transform(1945)
+			item:transform(2772)
 			Game.setStorageValue("switchNum", Game.getStorageValue("switchNum") + 1)
 			toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			for i = 1, #thirdSealTable.effectPosition[switchNum] do
@@ -30,8 +30,8 @@ function thirdSealLever.onUse(player, item, fromPosition, target, toPosition, is
 			if Game.getStorageValue("switchNum") == 6 then
 				for i = 1, #thirdSealTable.coalBasinPosition do
 					local positions = thirdSealTable.coalBasinPosition[i]
-					Position(positions):removeItem(1485)
-					Position(positions):createItem(1484)
+					Position(positions):removeItem(2114)
+					Position(positions):createItem(2113)
 				end
 			end
 		else

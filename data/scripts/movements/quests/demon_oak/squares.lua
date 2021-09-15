@@ -17,7 +17,7 @@ function squares.onStepIn(creature, item, position, fromPosition)
 	end
 
 	local status = math.max(player:getStorageValue(Storage.DemonOak.Squares), 0)
-	local startUid = 9000
+	local startUid = 8172
 	if item.uid - startUid == status + 1 then
 		player:setStorageValue(Storage.DemonOak.Squares, status + 1)
 		player:say(voices[math.random(#voices)], TALKTYPE_MONSTER_YELL, false, player, DEMON_OAK_POSITION)
@@ -26,5 +26,5 @@ function squares.onStepIn(creature, item, position, fromPosition)
 end
 
 squares:type("stepin")
-squares:uid(9001, 9002, 9003, 9004, 9005)
+squares:uid(9001, 8174, 8175, 8176, 8177)
 squares:register()

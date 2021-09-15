@@ -1,17 +1,17 @@
 local items = {
-	{itemid = 25387, count = 1},
-	{itemid = 25387, count = 1},
-	{itemid = 25387, count = 1},
-	{itemid = 25387, count = 1},
-	{itemid = 25393, count = 4},
-	{itemid = 25431, count = 1},
-	{itemid = 2160, count = 10},
-	{itemid = 25172, count = 5}
+	{itemid = 22731, count = 1},
+	{itemid = 22731, count = 1},
+	{itemid = 22731, count = 1},
+	{itemid = 22731, count = 1},
+	{itemid = 22737, count = 4},
+	{itemid = 22775, count = 1},
+	{itemid = 3043, count = 10},
+	{itemid = 22516, count = 5}
 }
 
 local ferumbrasAscendantReward = Action()
 function ferumbrasAscendantReward.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid ~= 12664 then
+	if item.itemid ~= 4073 then
 		return false
 	end
 	if player:getStorageValue(Storage.FerumbrasAscension.Reward) >= 1 then
@@ -21,7 +21,7 @@ function ferumbrasAscendantReward.onUse(player, item, fromPosition, target, toPo
 	player:addAchievement('Hat Hunter')
 	player:addOutfitAddon(852, 3)
 	player:addOutfitAddon(846, 3)
-	local bag = Game.createItem(1987)
+	local bag = Game.createItem(2853)
 	for i = 1, #items do
 		bag:addItem(items[i].itemid, items[i].count)
 	end

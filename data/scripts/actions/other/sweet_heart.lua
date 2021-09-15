@@ -16,5 +16,5 @@ function sweetHeart.onUse(cid, item, fromPosition, itemEx, toPosition)
     return true
 end
 
-sweetHeart:id(24324)
+sweetHeart:id(21955)
 sweetHeart:register()

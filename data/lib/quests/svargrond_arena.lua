@@ -6,7 +6,7 @@ TODO
 
 SvargrondArena = {
 	-- kick time in seconds (10 minutes)
-	kickTime = 600,
+	kickTime = 729,
 	kickPosition = Position({x = 32251, y = 31098, z = 6}),
 	rewardPosition = Position({x = 32222, y = 31080, z = 6}),
 
@@ -16,10 +16,10 @@ SvargrondArena = {
 	effectPositionCache = {},
 
 	-- item ids used by the script
-	itemTimer = 10288,
-	itemPillar = 1354,
-	itemTeleport = 5023,
-	itemsNotErasable = {10288, 1354, 1543, 1544, 1545},
+	itemTimer = 21464,
+	itemPillar = 1841,
+	itemTeleport = 5022,
+	itemsNotErasable = {21464, 1841, 2181, 2182, 2183},
 }
 
 -- Script automatically derives other pit positions from this one
@@ -173,12 +173,12 @@ ARENA = {
 }
 
 ARENA_TROPHY = {
-	[3264] = {
+	[1020] = {
 		trophy = 5807,
 		trophyStorage = Storage.SvargrondArena.TrophyGreenhorn,
 		desc = 'It is given to the courageous victor of the barbarian arena in greenhorn difficulty. Awarded to %s',
 	},
-	[3265] = {
+	[1021] = {
 		trophy = 5806,
 		trophyStorage = Storage.SvargrondArena.TrophyScrapper,
 		desc = 'It is given to the courageous victor of the barbarian arena in scrapper difficulty. Awarded to %s.',

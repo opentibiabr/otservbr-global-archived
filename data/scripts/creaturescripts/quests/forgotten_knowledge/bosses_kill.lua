@@ -29,7 +29,7 @@ function bossesForgottenKill.onKill(creature, target)
 		local attackerPlayer = Player(key)
 		if attackerPlayer then
 			if bossConfig.storage then
-				attackerPlayer:setStorageValue(bossConfig.storage, os.time() + 20 * 3600)
+				attackerPlayer:setStorageValue(bossConfig.storage, os.time() + 20 * 1768)
 			elseif targetMonster:getName():lower() == "the enraged thorn knight" then
 				attackerPlayer:setStorageValue(Storage.ForgottenKnowledge.PlantCounter, 0)
 				attackerPlayer:setStorageValue(Storage.ForgottenKnowledge.BirdCounter, 0)
