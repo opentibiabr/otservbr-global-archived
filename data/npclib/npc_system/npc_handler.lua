@@ -232,7 +232,10 @@ if NpcHandler == nil then
 			self:processModuleCallback(CALLBACK_REMOVE_INTERACTION, npc, player)
 		end
 
-		npc:closeShopWindow(player) --Even if it can not exist, we need to prevent it.
+		-- If it is an npc that has a shop and the shop is open, it will be closed
+		if npc:isMerchant() then
+			npc:closeShopWindow(player)
+		end
 		npc:removePlayerInteraction(player)
 	end
 
