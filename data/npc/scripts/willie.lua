@@ -28,18 +28,18 @@ local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
 -- Buyable
 -- Name, id, price, count/charges
-shopModule:addBuyableItem({"bread"}, 2689, 3, 1)
-shopModule:addBuyableItem({"cheese"}, 2696, 5, 1)
-shopModule:addBuyableItem({"ham"}, 2671, 8, 1)
-shopModule:addBuyableItem({"meat"}, 2666, 5, 1)
+shopModule:addBuyableItem({"bread"}, 3600, 3, 1)
+shopModule:addBuyableItem({"cheese"}, 3607, 5, 1)
+shopModule:addBuyableItem({"ham"}, 3582, 8, 1)
+shopModule:addBuyableItem({"meat"}, 3577, 5, 1)
 -- Sellable
-shopModule:addSellableItem({"bread"}, 2689, 1, 1)
-shopModule:addSellableItem({"cheese"}, 2696, 2, 1)
-shopModule:addSellableItem({"ham"}, 2671, 4, 1)
-shopModule:addSellableItem({"meat"}, 2666, 2, 1)
-shopModule:addSellableItem({"cherry"}, 2679, 1, 1)
-shopModule:addSellableItem({"egg"}, 2695, 1, 1)
-shopModule:addSellableItem({"salmon"}, 2668, 2, 1)
+shopModule:addSellableItem({"bread"}, 3600, 1, 1)
+shopModule:addSellableItem({"cheese"}, 3607, 2, 1)
+shopModule:addSellableItem({"ham"}, 3582, 4, 1)
+shopModule:addSellableItem({"meat"}, 3577, 2, 1)
+shopModule:addSellableItem({"cherry"}, 3590, 1, 1)
+shopModule:addSellableItem({"egg"}, 3606, 1, 1)
+shopModule:addSellableItem({"salmon"}, 3579, 2, 1)
 
 -- Basic keywords
 keywordHandler:addKeyword({"offer"}, StdModule.say,
@@ -312,11 +312,11 @@ bananaKeyword:addChildKeyword({"yes"}, StdModule.say,
 		reset = true
 	},
 		function(player)
-			return player:getItemCount(2676) > 0
+			return player:getItemCount(3587) > 0
 		end,
 		function(player)
-			player:removeItem(2676, 1)
-			player:addItem(2526, 1)
+			player:removeItem(3587, 1)
+			player:addItem(3426, 1)
 		end
 )
 bananaKeyword:addChildKeyword({"yes"}, StdModule.say,

@@ -9,58 +9,58 @@
 		<parameter key="message_sendtrade" value="Of course, just browse through my offers."/>
 		<parameter key="message_greet" value="Be mourned pilgrim in flesh. I'm selling general goods."/>
 		<parameter key="shop_buyable" value="
-			arrow, 2544, 3;
-			axe, 2386, 20;
-			bolt, 2543, 4;
-			chain helmet, 2458, 52;
-			coat, 2651, 8;
-			crossbow, 2455, 500;
-			dagger, 2379, 5;
-			doublet, 2485, 16;
-			hand axe, 2380, 8;
-			jacket, 2650, 10;
-			leather armor, 2467, 25;
-			leather helmet, 2461, 12;
-			leather legs, 2649, 10;
-			rapier, 2384, 15;
-			sabre, 2385, 25;
-			scythe, 2550, 12;
-			short sword, 2406, 30;
-			sickle, 2405, 8;
-			spear, 2389, 10;
-			studded helmet, 2482, 63;
-			studded shield, 2526, 50;
-			wooden shield, 2512, 15;"/>
+			arrow, 3447, 3;
+			axe, 3274, 20;
+			bolt, 3446, 4;
+			chain helmet, 3352, 52;
+			coat, 3562, 8;
+			crossbow, 3349, 500;
+			dagger, 3267, 5;
+			doublet, 3379, 16;
+			hand axe, 3268, 8;
+			jacket, 3561, 10;
+			leather armor, 3361, 25;
+			leather helmet, 3355, 12;
+			leather legs, 3559, 10;
+			rapier, 3272, 15;
+			sabre, 3273, 25;
+			scythe, 3453, 12;
+			short sword, 3294, 30;
+			sickle, 3293, 8;
+			spear, 3277, 10;
+			studded helmet, 3376, 63;
+			studded shield, 3426, 50;
+			wooden shield, 3412, 15;"/>
 		<parameter key="shop_sellable" value="
-			axe, 2386, 7;
-			bone club, 2449, 5;
-			brass helmet, 2460, 22;
-			brass shield, 2511, 25;
-			chain armor, 2464, 40;
-			chain helmet, 2458, 12;
-			copper shield, 2530, 50;
-			dagger, 2379, 2;
-			doublet, 2485, 3;
-			hand axe, 2380, 4;
-			hatchet, 2388, 25;
-			katana, 2412, 35;
-			leather armor, 2467, 5;
-			leather boots, 2643, 2;  
-			legion helmet, 2480, 22;
-			mace, 2398, 30;
-			machete, 2420, 6;
-			plate shield, 2510, 40;
-			rapier, 2384, 5;
-			sabre, 2385, 12;
-			scythe, 2550, 3;
-			short sword, 2406, 10;
-			sickle, 2405, 2;
-			spear, 2389, 3;
-			studded armor, 2484, 10;
-			studded helmet, 2482, 20;
-			studded legs, 2468, 15;
-			studded shield, 2526, 16;
-			sword, 2376, 25;
-			viking helmet, 2473, 25;"/>
+			axe, 3274, 7;
+			bone club, 3337, 5;
+			brass helmet, 3354, 22;
+			brass shield, 3411, 25;
+			chain armor, 3358, 40;
+			chain helmet, 3352, 12;
+			copper shield, 3430, 50;
+			dagger, 3267, 2;
+			doublet, 3379, 3;
+			hand axe, 3268, 4;
+			hatchet, 3276, 25;
+			katana, 3300, 35;
+			leather armor, 3361, 5;
+			leather boots, 3552, 2;  
+			legion helmet, 3374, 22;
+			mace, 3286, 30;
+			machete, 3308, 6;
+			plate shield, 3410, 40;
+			rapier, 3272, 5;
+			sabre, 3273, 12;
+			scythe, 3453, 3;
+			short sword, 3294, 10;
+			sickle, 3293, 2;
+			spear, 3277, 3;
+			studded armor, 3378, 10;
+			studded helmet, 3376, 20;
+			studded legs, 3362, 15;
+			studded shield, 3426, 16;
+			sword, 3264, 25;
+			viking helmet, 3367, 25;"/>
 	</parameters>
 </npc>

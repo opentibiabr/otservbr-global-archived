@@ -75,7 +75,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 1 then
-			if player:removeItem(3960, 1) then
+			if player:removeItem(3244, 1) then
 				npcHandler:say({
 					"Thank you very much! This brings back good old memories! Please, as a reward, travel to Kazordoon and ask my old friend Kroox to provide you a special dwarven armor. ...",
 					"I will mail him about you immediately. Just tell him, his old buddy Sam is sending you."
@@ -90,12 +90,12 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('I can\'t believe it. Finally I will be rich! I could move to Edron and enjoy my retirement! But ... wait a minute! I will not start working without a contract! Are you willing to sign one?', cid)
 			npcHandler.topic[cid] = 3
 		elseif npcHandler.topic[cid] == 3 then
-			player:addItem(7492, 1)
+			player:addItem(129, 1)
 			player:setStorageValue(Storage.WhatAFoolish.Contract, 1)
 			npcHandler:say('Fine! Here is the contract. Please sign it. Talk to me about it again when you\'re done.', cid)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 4 then
-			if not player:removeItem(7491, 1) then
+			if not player:removeItem(128, 1) then
 				npcHandler:say('You don\'t have a signed contract.', cid)
 				npcHandler.topic[cid] = 0
 				return true

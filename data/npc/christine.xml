@@ -14,25 +14,25 @@
 		<parameter key="message_sendtrade" value="Of course, just browse through my wares."/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			banana, 2676, 5;
-			bottle of glooth wine, 23516, 10;
-			bowl of glooth soup, 23515, 4;
-			bread, 2689, 4;
-			cake, 6278, 50;
-			cheese, 2696, 6;
-			cookie, 2687, 2;
-			cucumber, 8842, 3;
-			egg, 2695, 2;
-			fish, 2667, 5;
-			glooth sandwich, 23514, 7;
-			glooth steak, 23517, 10;
-			ham, 2671, 8;
-			meat, 2666, 5;
-			potato, 8838, 4;
-			red apple, 2674, 3;
-			roll, 2690, 2;
-			salmon, 2668, 10;
-			tomato, 2685, 5;
-			white mushroom, 2787, 10;"/>
+			banana, 3587, 5;
+			bottle of glooth wine, 21145, 10;
+			bowl of glooth soup, 21144, 4;
+			bread, 3600, 4;
+			cake, 6277, 50;
+			cheese, 3607, 6;
+			cookie, 3598, 2;
+			cucumber, 8014, 3;
+			egg, 3606, 2;
+			fish, 3578, 5;
+			glooth sandwich, 21143, 7;
+			glooth steak, 21146, 10;
+			ham, 3582, 8;
+			meat, 3577, 5;
+			potato, 8010, 4;
+			red apple, 3585, 3;
+			roll, 3601, 2;
+			salmon, 3579, 10;
+			tomato, 3596, 5;
+			white mushroom, 3723, 10;"/>
 	</parameters>
 </npc>

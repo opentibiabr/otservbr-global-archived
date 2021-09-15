@@ -49,7 +49,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, 'yes') then
 		if npcHandler.topic[cid] == 1 then
 			if player:removeMoneyNpc(1000) then
-				player:addItem(8694, 1)
+				player:addItem(7866, 1)
 				player:setStorageValue(Storage.ThievesGuild.Mission04, 5)
 				npcHandler:say('And here they are! Now forget where you got them from.', cid)
 			else
@@ -64,11 +64,11 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 			player:setStorageValue(Storage.QuestChests.StealFromThieves, 1)
 		elseif npcHandler.topic[cid] == 3 then
-			if player:removeItem(7587, 1) then
+			if player:removeItem(235, 1) then
 				npcHandler:say('GREAT! If you ever need a job as my personal security guard, let me know. Here is the reward I promised you.', cid)
 				player:setStorageValue(Storage.QuestChests.StealFromThieves, 3)
-				player:addItem(2148, 100)
-				player:addItem(2789, 100)
+				player:addItem(3031, 100)
+				player:addItem(3725, 100)
 				npcHandler.topic[cid] = 0
 			else
 				npcHandler:say('Come back when you find my stuff.', cid)
@@ -76,7 +76,7 @@ local function creatureSayCallback(cid, type, msg)
 			end
 		elseif npcHandler.topic[cid] == 5 then
 			if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 2) then
-				if ( (player:getItemCount(28596) >= 1) and (player:getMoney() > 5000) )then
+				if ( (player:getItemCount(25235) >= 1) and (player:getMoney() > 5000) )then
 					player:removeMoney(5000)
 					npcHandler:say({
 						"Well then. Here, take the book, I added the story. Oh, just a piece of advice: Not to inflame prejudice but poachers are of rather simple disposition. I doubt they are ardent readers. ...",

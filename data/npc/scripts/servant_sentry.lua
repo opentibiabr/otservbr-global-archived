@@ -47,7 +47,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 1 then
 			player:setStorageValue(Storage.TheirMastersVoice.SlimeGobblerReceived, 1)
-			player:addItem(13601, 1)
+			player:addItem(12077, 1)
 			npcHandler:say("Then. Take. This. Gobbler. Always. Hungry. Eats. Slime. Fungus. Go.", cid)
 			npcHandler.topic[cid] = 0
 		end

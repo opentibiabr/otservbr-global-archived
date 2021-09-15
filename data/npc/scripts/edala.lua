@@ -36,7 +36,7 @@ local function greetCallback(cid)
 		player:setStorageValue(Storage.Diapason.EdalaTimer, os.time() + 86400)
 		if lyreProgress == 7 then
 			player:setStorageValue(Storage.Diapason.Lyre, 8)
-			player:addItem(13536, 1)
+			player:addItem(12547, 1)
 		end
 		npcHandler:setMessage(MESSAGE_GREET, greetMessage)
 	else

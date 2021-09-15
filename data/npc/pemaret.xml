@@ -6,10 +6,10 @@
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_sellable" value="
 			green perch, 7159, 100;
-			marlin, 7963, 800;
-			northern pike, 2669, 100;
+			marlin, 901, 800;
+			northern pike, 3580, 100;
 			rainbow trout, 7158, 100;
-			shimmer swimmer, 13546, 3000;"/>
-		<parameter key="shop_buyable" value="fish, 2667, 5;"/>
+			shimmer swimmer, 12557, 3000;"/>
+		<parameter key="shop_buyable" value="fish, 3578, 5;"/>
 	</parameters>
 </npc>

@@ -5,7 +5,7 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			mug of beer, 2012, 20, 3;
+			mug of beer, 2880, 20, 3;
 			bottle of whisper beer, 6106, 80;"/>
 	</parameters>
 </npc>

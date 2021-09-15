@@ -5,13 +5,13 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			banana, 2676, 3;
-			carrot, 2684, 4;
-			grapes, 2681, 5;
-			melon, 2682, 10;
-			orange, 2675, 7;
-			pumpkin, 2683, 10;
-			sample of sand wasp honey, 9676, 200;
-			tomato, 2685, 5;"/>
+			banana, 3587, 3;
+			carrot, 3595, 4;
+			grapes, 3592, 5;
+			melon, 3593, 10;
+			orange, 3586, 7;
+			pumpkin, 3594, 10;
+			sample of sand wasp honey, 8760, 200;
+			tomato, 3596, 5;"/>
 	</parameters>
 </npc>

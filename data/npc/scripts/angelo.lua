@@ -84,7 +84,7 @@ if player:getStorageValue(Storage.CultsOfTibia.Life.Mission) == 3 then
 		playerTopic[cid] = 15
 			elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 15 then
 			npcHandler:say({"Very good. Hopefully analysing this sample will get us closer to the solution of this mistery."}, cid)
-			player:addItem(28666, 1)
+			player:addItem(25305, 1)
 			player:setStorageValue(Storage.CultsOfTibia.Life.Mission, 4)
 	end
 end
@@ -96,7 +96,7 @@ if player:getStorageValue(Storage.CultsOfTibia.Life.Mission) == 5 then
 		playerTopic[cid] = 16
 			elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 16 then
 			npcHandler:say({"Thanks a lot. Let me check the result. Well, I think you need the counteragent. Please apply it to the oasis!"}, cid)
-			player:addItem(28665, 1)
+			player:addItem(25304, 1)
 			player:setStorageValue(Storage.CultsOfTibia.Life.Mission, 6)
 	end
 end

@@ -28,7 +28,7 @@ function creatureSayCallback(cid, type, msg)
 		if player:getStorageValue(Storage.HiddenCityOfBeregar.JusticeForAll) == 1 then
 			npcHandler:say("I always liked him and I still can't believe that he really stole that ring.", cid)
 			npcHandler.topic[cid] = 1
-		elseif player:getStorageValue(Storage.HiddenCityOfBeregar.JusticeForAll) == 4 and player:removeItem(14348, 1) then
+		elseif player:getStorageValue(Storage.HiddenCityOfBeregar.JusticeForAll) == 4 and player:removeItem(8777, 1) then
 			npcHandler:say("Interesting. The fact that you have the ring means that Nokmir can't have stolen it. Combined with the information Grombur gave you, the case appears in a completely different light. ...", cid)
 			npcHandler:say("Let there be justice for all. Nokmir is innocent and acquitted from all charges! And Rerun... I want him in prison for this malicious act!", cid)
 			player:setStorageValue(Storage.HiddenCityOfBeregar.JusticeForAll, 5)
@@ -55,7 +55,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 3 then	
 			npcHandler:say("Look at these dwarven legs. They were forged years ago by a dwarf who was rather tall for our kind. I want you to have them. Thank you for rescuing my son |PLAYERNAME|.", cid)
-			player:addItem(2504, 1)
+			player:addItem(3398, 1)
 			player:setStorageValue(Storage.HiddenCityOfBeregar.RoyalRescue, 6)
 			npcHandler.topic[cid] = 0
 		end	
@@ -68,7 +68,7 @@ function creatureSayCallback(cid, type, msg)
 	return true
 end
 
-local node1 = keywordHandler:addKeyword({'promot'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, text = 'I can promote you for 20000 gold coins. Do you want me to promote you?'})
+local node1 = keywordHandler:addKeyword({'promot'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, text = 'I can promote you for 17720 gold coins. Do you want me to promote you?'})
 node1:addChildKeyword({'yes'}, StdModule.promotePlayer, {npcHandler = npcHandler, cost = 20000, level = 20, promotion = 1, text = 'Congratulations! You are now promoted.'})
 node1:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, text = 'Alright then, come back when you are ready.', reset = true})
 

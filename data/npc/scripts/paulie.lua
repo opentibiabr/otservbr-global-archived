@@ -257,8 +257,8 @@ function(cid, message, keywords, parameters, node)
 		return false
 	end
 	local player = Player(cid)
-	if player:removeItem(2148, npcHandler.topic[cid] * 100) then
-		player:addItem(2152, npcHandler.topic[cid])
+	if player:removeItem(3031, npcHandler.topic[cid] * 100) then
+		player:addItem(3035, npcHandler.topic[cid])
 		npcHandler:say("Here you are.", cid)
 	else
 		npcHandler:say("Sorry, you don't have enough gold coins.", cid)
@@ -316,10 +316,10 @@ function(cid, message, keywords, parameters, node)
 		return false
 	end
 	local player = Player(cid)
-	if player:getItemCount(2152) >= npcHandler.topic[cid] then
-		if player:getFreeCapacity() >= (ItemType(2148):getWeight() * (npcHandler.topic[cid] * 100)) then
-			player:removeItem(2152, npcHandler.topic[cid])
-			player:addItem(2148, npcHandler.topic[cid] * 100)
+	if player:getItemCount(3035) >= npcHandler.topic[cid] then
+		if player:getFreeCapacity() >= (ItemType(3031):getWeight() * (npcHandler.topic[cid] * 100)) then
+			player:removeItem(3035, npcHandler.topic[cid])
+			player:addItem(3031, npcHandler.topic[cid] * 100)
 			npcHandler:say("Here you are.", cid)
 		else
 			npcHandler:say("Whoah, hold on, this is too heavy for you. I don't want you to drop it on the floor, maybe come back with a cart!", cid)
@@ -373,8 +373,8 @@ function(cid, message, keywords, parameters, node)
 		return false
 	end
 	local player = Player(cid)
-	if player:removeItem(2152, npcHandler.topic[cid] * 100) then
-		player:addItem(2160, npcHandler.topic[cid])
+	if player:removeItem(3035, npcHandler.topic[cid] * 100) then
+		player:addItem(3043, npcHandler.topic[cid])
 		npcHandler:say("Here you are.", cid)
 	else
 		npcHandler:say("Sorry, you don't have enough platinum coins.", cid)
@@ -427,10 +427,10 @@ function(cid, message, keywords, parameters, node)
 	end
 	local player = Player(cid)
 	
-	if player:getItemCount(2160) >= npcHandler.topic[cid] then
-		if player:getFreeCapacity() >= (ItemType(2152):getWeight() * (npcHandler.topic[cid] * 100)) then
-			player:removeItem(2160, npcHandler.topic[cid])
-			player:addItem(2152, npcHandler.topic[cid] * 100)
+	if player:getItemCount(3043) >= npcHandler.topic[cid] then
+		if player:getFreeCapacity() >= (ItemType(3035):getWeight() * (npcHandler.topic[cid] * 100)) then
+			player:removeItem(3043, npcHandler.topic[cid])
+			player:addItem(3035, npcHandler.topic[cid] * 100)
 			npcHandler:say("Here you are.", cid)
 		else
 			npcHandler:say("Whoah, hold on, this is too heavy for you. I don't want you to drop it on the floor, maybe come back with a cart!", cid)

@@ -72,7 +72,7 @@ keywordHandler:addKeyword(
 keywordHandler:addKeyword(
 	{"ring"}, StdModule.say, { npcHandler = npcHandler,
 	text = "You found the Ring of {Secret Thoughts}! Well done! Now give it to the {Ambassador} as a present. He\'s a peacock and will accept such a precious gift for sure. As soon as he wears it, his memories will be stored in the ring."},
-	function (player) return player:getStorageValue(Storage.Kilmaresh.Third.Recovering) == 1 and player:getItemById(36098, true) end,
+	function (player) return player:getStorageValue(Storage.Kilmaresh.Third.Recovering) == 1 and player:getItemById(31263, true) end,
 	function (player) player:setStorageValue(Storage.Kilmaresh.Third.Recovering, 2) end
 )
 

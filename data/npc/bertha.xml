@@ -11,57 +11,57 @@
 		<parameter key="message_greet" value="Oh, please come in, |PLAYERNAME|. What sort of {goods} do you need?"/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			basket, 1989, 6;
-			black book, 1972, 15;
-			bottle, 2007, 3, 0;
-			brown book, 1971, 15;
-			bucket, 2005, 4, 0;
-			candelabrum, 2057, 8;
-			candlestick, 2047, 2;
-			closed trap, 2578, 280;
-			crowbar, 2416, 260;
-			cup, 3942, 2, 0;
-			document, 1952, 12;
-			fishing rod, 2580, 150;
+			basket, 2855, 6;
+			black book, 2838, 15;
+			bottle, 2875, 3, 0;
+			brown book, 2837, 15;
+			bucket, 2873, 4, 0;
+			candelabrum, 2927, 8;
+			candlestick, 2917, 2;
+			closed trap, 3481, 280;
+			crowbar, 3304, 260;
+			cup, 2884, 2, 0;
+			document, 2818, 12;
+			fishing rod, 3483, 150;
 			fur backpack, 7342, 20;
 			fur bag, 7343, 5;
-			greeting card, 6387, 30;
-			grey small book, 1973, 15;
-			hand auger, 36169, 25;
-			inkwell, 2600, 10;
+			greeting card, 6386, 30;
+			grey small book, 2839, 15;
+			hand auger, 31334, 25;
+			inkwell, 3509, 10;
 			jug, 7244, 10;
-			machete, 2420, 35;
-			mug, 2012, 4, 0;
-			net, 36324, 50;
-			parchment, 1948, 8;
-			parchment, 1951, 8;
-			pick, 2553, 50;
-			plate, 2035, 6;
-			present, 1990, 10;
-			rope, 2120, 50;
-			scroll, 1949, 5;
-			scythe, 2550, 50;
-			shovel, 2554, 50;
-			torch, 2050, 2;
+			machete, 3308, 35;
+			mug, 2880, 4, 0;
+			net, 31489, 50;
+			parchment, 2814, 8;
+			parchment, 2817, 8;
+			pick, 3456, 50;
+			plate, 2905, 6;
+			present, 2856, 10;
+			rope, 3003, 50;
+			scroll, 2815, 5;
+			scythe, 3453, 50;
+			shovel, 3457, 50;
+			torch, 2920, 2;
 			valentine's card, 6538, 30;
-			watch, 2036, 20;
-			worm, 3976, 1;"/>
+			watch, 2906, 20;
+			worm, 3492, 1;"/>
 		<parameter key="shop_sellable" value="
-			green book, 1980, 15;
-			orange book, 1977, 30;
-			blue book, 1978, 20;
-			gemmed book, 1976, 100;
-			closed trap, 2578, 75;
-			crowbar, 2416, 50;
-			fishing rod, 2580, 40;
-			inkwell, 2600, 8;
-			machete, 2420, 6;
-			parchment, 7696, 5;
-			pick, 2553, 15;
-			rope, 2120, 15;
-			scythe, 2550, 10;
-			shovel, 2554,8;
-			watch, 2036, 6;
-			wooden hammer, 2556, 15;"/>
+			green book, 2846, 15;
+			orange book, 2843, 30;
+			blue book, 2844, 20;
+			gemmed book, 2842, 100;
+			closed trap, 3481, 75;
+			crowbar, 3304, 50;
+			fishing rod, 3483, 40;
+			inkwell, 3509, 8;
+			machete, 3308, 6;
+			parchment, 5956, 5;
+			pick, 3456, 15;
+			rope, 3003, 15;
+			scythe, 3453, 10;
+			shovel, 3457,8;
+			watch, 2906, 6;
+			wooden hammer, 3459, 15;"/>
 	</parameters>
 </npc>

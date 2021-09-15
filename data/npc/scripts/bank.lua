@@ -25,7 +25,7 @@ end
 --------------------------------guild bank-----------------------------------------------
 local receiptFormat = 'Date: %s\nType: %s\nGold Amount: %d\nReceipt Owner: %s\nRecipient: %s\n\n%s'
 local function getReceipt(info)
-	local receipt = Game.createItem(info.success and 24301 or 24302)
+	local receipt = Game.createItem(info.success and 21932 or 21933)
 	receipt:setAttribute(ITEM_ATTRIBUTE_TEXT, receiptFormat:format(os.date('%d. %b %Y - %H:%M:%S'), info.type, info.amount, info.owner, info.recipient, info.message))
 
 	return receipt
@@ -538,8 +538,8 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif npcHandler.topic[cid] == 15 then
 		if msgcontains(msg, 'yes') then
-			if player:removeItem(2148, count[cid] * 100) then
-				player:addItem(2152, count[cid])
+			if player:removeItem(3031, count[cid] * 100) then
+				player:addItem(3035, count[cid])
 				npcHandler:say('Here you are.', cid)
 			else
 				npcHandler:say('Sorry, you do not have enough gold coins.', cid)
@@ -573,8 +573,8 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif npcHandler.topic[cid] == 18 then
 		if msgcontains(msg, 'yes') then
-			if player:removeItem(2152, count[cid]) then
-				player:addItem(2148, count[cid] * 100)
+			if player:removeItem(3035, count[cid]) then
+				player:addItem(3031, count[cid] * 100)
 				npcHandler:say('Here you are.', cid)
 			else
 				npcHandler:say('Sorry, you do not have enough platinum coins.', cid)
@@ -594,8 +594,8 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif npcHandler.topic[cid] == 20 then
 		if msgcontains(msg, 'yes') then
-			if player:removeItem(2152, count[cid] * 100) then
-				player:addItem(2160, count[cid])
+			if player:removeItem(3035, count[cid] * 100) then
+				player:addItem(3043, count[cid])
 				npcHandler:say('Here you are.', cid)
 			else
 				npcHandler:say('Sorry, you do not have enough platinum coins.', cid)
@@ -618,8 +618,8 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif npcHandler.topic[cid] == 22 then
 		if msgcontains(msg, 'yes') then
-			if player:removeItem(2160, count[cid])  then
-				player:addItem(2152, count[cid] * 100)
+			if player:removeItem(3043, count[cid])  then
+				player:addItem(3035, count[cid] * 100)
 				npcHandler:say('Here you are.', cid)
 			else
 				npcHandler:say('Sorry, you do not have enough crystal coins.', cid)

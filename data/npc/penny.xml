@@ -5,7 +5,7 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			letter, 2597, 1;
-			cake, 6278, 1;"/>
+			letter, 3505, 1;
+			cake, 6277, 1;"/>
 	</parameters>
 </npc>

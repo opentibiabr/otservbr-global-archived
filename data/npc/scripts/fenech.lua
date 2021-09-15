@@ -19,8 +19,8 @@ local voices = { {text = 'Offering all sorts of magic equipment.'} }
 npcHandler:addModule(VoiceModule:new(voices))
 
 local items = {
-	[VOCATION.BASE_ID.SORCERER] = 2190,
-	[VOCATION.BASE_ID.DRUID] = 2182
+	[VOCATION.BASE_ID.SORCERER] = 3074,
+	[VOCATION.BASE_ID.DRUID] = 3066
 }
 
 local function creatureSayCallback(cid, type, msg)

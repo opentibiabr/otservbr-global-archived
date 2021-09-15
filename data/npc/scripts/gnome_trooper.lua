@@ -53,7 +53,7 @@ function creatureSayCallback(cid, type, msg)
 			return true
 		end
 
-		if not player:removeItem(21569, 1) then
+		if not player:removeItem(19219, 1) then
 			npcHandler:say("But you don't have it...", cid)
 			return npcHandler:releaseFocus(cid)
 		end

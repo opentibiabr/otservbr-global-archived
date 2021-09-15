@@ -27,9 +27,9 @@ local player = Player(cid)
 				end
 				player:addAchievement("Wail of the Banshee")
 				player:setStorageValue(Storage.TibiaTales.TheCursedCrystal.Oneeyedjoe, 4)
-				doPlayerAddItem(cid,18413,1)
-				doPlayerAddItem(cid,18414,1)
-				doPlayerAddItem(cid,18415,1)
+				doPlayerAddItem(cid,16119,1)
+				doPlayerAddItem(cid,16120,1)
+				doPlayerAddItem(cid,16121,1)
 				math.randomseed(os.time())
 				chanceToPirate = math.random(1,4)
 				if chanceToPirate == 1 then

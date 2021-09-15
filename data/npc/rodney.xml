@@ -14,12 +14,12 @@
 		<parameter key="keyword_reply2" value="I sell some local fruits."/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			cherry, 2679, 1;
-			grapes, 2681, 3;
-			pear, 2673, 4;
-			plum, 8839, 3;
-			raspberry, 8840, 1;
-			red apple, 2674, 3;
-			sample of venorean spice, 9675, 200;"/>
+			cherry, 3590, 1;
+			grapes, 3592, 3;
+			pear, 3584, 4;
+			plum, 8011, 3;
+			raspberry, 8012, 1;
+			red apple, 3585, 3;
+			sample of venorean spice, 8759, 200;"/>
 	</parameters>
 </npc>

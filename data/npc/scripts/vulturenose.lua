@@ -29,7 +29,7 @@ local function creatureSayCallback(cid, type, msg)
 			local legsItem = player:getSlotItem(CONST_SLOT_LEGS)
 			local feetItem = player:getSlotItem(CONST_SLOT_FEET)
 			if headItem and headItem.itemid == 6096 and armorItem and armorItem.itemid == 6095
-			and legsItem and legsItem.itemid == 5918 and feetItem and feetItem.itemid == 5462 then
+			and legsItem and legsItem.itemid == 5918 and feetItem and feetItem.itemid == 5461 then
 				npcHandler:say('Hey, I rarely see a dashing pirate like you! Get in, matey!', cid)
 				player:setStorageValue(Storage.TheShatteredIsles.YavernDoor, 1)
 			else

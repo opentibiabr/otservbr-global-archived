@@ -21,17 +21,17 @@ keywordHandler:addKeyword({'time'}, StdModule.say, {npcHandler = npcHandler, tex
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I find ways to unveil the secrets of the stars. Judging by this question, I doubt you follow my weekly publications concerning this research."})
 
 local runes = {
-	{runeid = 27622},
-	{runeid = 27623},
-	{runeid = 27624},
-	{runeid = 27625},
-	{runeid = 27626},
-	{runeid = 27627}
+	{runeid = 24954},
+	{runeid = 24955},
+	{runeid = 24956},
+	{runeid = 24957},
+	{runeid = 24958},
+	{runeid = 24959}
 }
 
 local function getTable()
 	local itemsList = {
-		{name = "heavy old tome", id = 26654, sell = 30}
+		{name = "heavy old tome", id = 23986, sell = 30}
 	}
 	return itemsList
 end
@@ -60,8 +60,8 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('You already offered enough tomes for us to study and rebuild this temple. Thank you, my child.', cid)
 			npcHandler.topic[cid] = 0
 		else
-			if (player:getItemCount(26654) >= 5) then
-				player:removeItem(26654, 5)
+			if (player:getItemCount(23986) >= 5) then
+				player:removeItem(23986, 5)
 				npcHandler:say('Thank you very much for your contribution, child. Your first step in the ways of the {Shapers} has been taken.', cid)
 				player:setStorageValue(Storage.ForgottenKnowledge.Tomes, 1)
 			else
@@ -104,7 +104,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 		if haveParts then
 			npcHandler:say('As you wish.', cid)
-			player:addItem(27628, 1)
+			player:addItem(24960, 1)
 			npcHandler:releaseFocus(cid)
 		end
 	elseif msgcontains(msg, 'no') and npcHandler.topic[cid] == 8 then
@@ -126,8 +126,8 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	if msgcontains(msg, 'yes') and npcHandler.topic[cid] == 2 then
-		if player:getStorageValue(Storage.ForgottenKnowledge.AccessIce) < 1 and player:getItemCount(2667) >= 50 then
-			player:removeItem(2667, 50)
+		if player:getStorageValue(Storage.ForgottenKnowledge.AccessIce) < 1 and player:getItemCount(3578) >= 50 then
+			player:removeItem(3578, 50)
 			npcHandler:say('Thank you for your offering. You may pass the Portal to the Powers of Ice now.', cid)
 			player:setStorageValue(Storage.ForgottenKnowledge.AccessIce, 1)
 		else
@@ -150,8 +150,8 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	if msgcontains(msg, 'yes') and npcHandler.topic[cid] == 3 then
-		if player:getStorageValue(Storage.ForgottenKnowledge.AccessGolden) < 1 and player:getItemCount(21246) >= 50 then
-			player:removeItem(21246, 50)
+		if player:getStorageValue(Storage.ForgottenKnowledge.AccessGolden) < 1 and player:getItemCount(18929) >= 50 then
+			player:removeItem(18929, 50)
 			npcHandler:say('Thank you for your offering. You may pass the Portal to the Powers of Holy now.', cid)
 			player:setStorageValue(Storage.ForgottenKnowledge.AccessGolden, 1)
 		else
@@ -174,8 +174,8 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	if msgcontains(msg, 'yes') and npcHandler.topic[cid] == 4 then
-		if player:getStorageValue(Storage.ForgottenKnowledge.AccessViolet) < 1 and player:getItemCount(19742) >= 50 then
-			player:removeItem(19742, 50)
+		if player:getStorageValue(Storage.ForgottenKnowledge.AccessViolet) < 1 and player:getItemCount(17462) >= 50 then
+			player:removeItem(17462, 50)
 			npcHandler:say('Thank you for your offering. You may pass the Portal to the Powers of Energy now.', cid)
 			player:setStorageValue(Storage.ForgottenKnowledge.AccessViolet, 1)
 		else
@@ -198,8 +198,8 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	if msgcontains(msg, 'yes') and npcHandler.topic[cid] == 5 then
-		if player:getStorageValue(Storage.ForgottenKnowledge.AccessEarth) < 1 and player:getItemCount(11213) >= 50 then
-			player:removeItem(11213, 50)
+		if player:getStorageValue(Storage.ForgottenKnowledge.AccessEarth) < 1 and player:getItemCount(10296) >= 50 then
+			player:removeItem(10296, 50)
 			npcHandler:say('Thank you for your offering. You may pass the Portal to the Powers of Earth now.', cid)
 			player:setStorageValue(Storage.ForgottenKnowledge.AccessEarth, 1)
 		else
@@ -222,8 +222,8 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	if msgcontains(msg, 'yes') and npcHandler.topic[cid] == 6 then
-		if player:getStorageValue(Storage.ForgottenKnowledge.AccessDeath) < 1 and player:getItemCount(12437) >= 50 then
-			player:removeItem(12437, 50)
+		if player:getStorageValue(Storage.ForgottenKnowledge.AccessDeath) < 1 and player:getItemCount(11481) >= 50 then
+			player:removeItem(11481, 50)
 			npcHandler:say('Thank you for your offering. You may pass the Portal to the Powers of Death now.', cid)
 			player:setStorageValue(Storage.ForgottenKnowledge.AccessDeath, 1)
 		else

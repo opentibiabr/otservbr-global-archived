@@ -9,23 +9,23 @@
 		<parameter key="message_sendtrade" value="Of course, just browse through my wares."/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			black book, 1972, 15;
-			brown book, 1971, 15;
-			document, 1952, 12;
-			greeting card, 6387, 30;
-			grey small book, 1973, 15;
-			inkwell, 2600, 10;
-			parchment, 1948, 8;
-			parchment, 1951, 8;
-			scroll, 1949, 5;
-			spellbook, 2175, 150;
+			black book, 2838, 15;
+			brown book, 2837, 15;
+			document, 2818, 12;
+			greeting card, 6386, 30;
+			grey small book, 2839, 15;
+			inkwell, 3509, 10;
+			parchment, 2814, 8;
+			parchment, 2817, 8;
+			scroll, 2815, 5;
+			spellbook, 3059, 150;
 			valentines card, 6538, 30;"/>
 		<parameter key="shop_sellable" value="
-			blue book, 1978, 20;
-			gemmed book, 1976, 100;
-			green book, 1980, 15;
-			inkwell, 2600, 8;
-			orange book, 1977, 30;
-			parchment, 1948, 5;"/>
+			blue book, 2844, 20;
+			gemmed book, 2842, 100;
+			green book, 2846, 15;
+			inkwell, 3509, 8;
+			orange book, 2843, 30;
+			parchment, 2814, 5;"/>
 	</parameters>
 </npc>

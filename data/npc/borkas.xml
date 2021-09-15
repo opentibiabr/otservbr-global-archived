@@ -14,20 +14,20 @@
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
 			armor rack kit, 6114, 90;
-			barrel kit, 3919, 12;
-			bookcase kit, 6373, 70;
-			box, 1738, 10;
-			chest, 1740, 10;
-			crate, 1739, 10;
-			drawer kit, 3915, 18;
-			dresser kit, 3916, 25;
-			locker kit, 3917, 30;
-			treasure chest, 1746, 1000;
-			trough kit, 3918, 7;
-			trunk kit, 3920, 10;
-			venorean cabinet kit, 20254, 90;
-			venorean wardrobe kit, 20255, 50;
-			venorean drawer kit, 20257, 40;
+			barrel kit, 2793, 12;
+			bookcase kit, 6372, 70;
+			box, 2469, 10;
+			chest, 2472, 10;
+			crate, 2471, 10;
+			drawer kit, 2789, 18;
+			dresser kit, 2790, 25;
+			locker kit, 2791, 30;
+			treasure chest, 2478, 1000;
+			trough kit, 2792, 7;
+			trunk kit, 2794, 10;
+			venorean cabinet kit, 17974, 90;
+			venorean wardrobe kit, 17975, 50;
+			venorean drawer kit, 17977, 40;
 			weapon rack kit, 6115, 90;"/>
 	</parameters>
 </npc>

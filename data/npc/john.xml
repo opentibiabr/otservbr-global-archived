@@ -5,15 +5,15 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			camouflage backpack, 3940, 30;
-			camouflage bag, 3939, 10;
-			fishing rod, 2580, 300;
-			pick, 2553, 100;
-			rope, 2120, 100;
-			shovel, 2554, 100;
-			torch, 2050, 5;
-			treasure map, 5091, 1000;
-			very noble-looking watch, 6091, 500;
-			worm, 3976, 2;"/>
+			camouflage backpack, 2872, 30;
+			camouflage bag, 2864, 10;
+			fishing rod, 3483, 300;
+			pick, 3456, 100;
+			rope, 3003, 100;
+			shovel, 3457, 100;
+			torch, 2920, 5;
+			treasure map, 5090, 1000;
+			very noble-looking watch, 6092, 500;
+			worm, 3492, 2;"/>
 	</parameters>
 </npc>

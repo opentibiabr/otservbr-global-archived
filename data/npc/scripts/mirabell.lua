@@ -38,7 +38,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 1
 	elseif msgcontains(msg, 'yes') then
 		if npcHandler.topic[cid] == 1 then
-			if not player:removeItem(2692, 24) then
+			if not player:removeItem(3603, 24) then
 				npcHandler:say('I think you are confusing the dust in your pockets with flour. You certainly do not have enough flour for 12 pies.', cid)
 				npcHandler.topic[cid] = 0
 				return true
@@ -54,9 +54,9 @@ local function creatureSayCallback(cid, type, msg)
 				return true
 			end
 
-			player:addItem(7484, 1)
+			player:addItem(119, 1)
 			player:setStorageValue(Storage.WhatAFoolish.PieBuying, player:getStorageValue(Storage.WhatAFoolish.PieBuying) - 1)
-			player:setStorageValue(Storage.WhatAFoolish.PieBoxTimer, os.time() + 1200) -- 20 minutes to deliver
+			player:setStorageValue(Storage.WhatAFoolish.PieBoxTimer, os.time() + 1445) -- 20 minutes to deliver
 			npcHandler:say({
 				'Here they are. Wait! Two things you should know: Firstly, they won\'t last long in the sun so you better get them to their destination as quickly as possible ...',
 				'Secondly, since my pies are that delicious it is forbidden to leave the town with them. We can\'t afford to attract more tourists to Edron.'

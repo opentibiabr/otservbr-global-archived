@@ -48,7 +48,7 @@ if msgcontains(msg, "mission") and player:getStorageValue(Storage.Kilmaresh.Eigh
 	end
 elseif msgcontains(msg, "yes") and playerTopic[cid] == 1 and player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 1 then
 	if player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 1 then	
-		player:addItem(36550, 1)
+		player:addItem(31715, 1)
 		npcHandler:say({"Here is the list with the missing ingredients to complete the ritual."}, cid)-- It needs to be revised, it's not the same as the global
 		player:setStorageValue(Storage.Kilmaresh.Eighth.Shimun, 2)
 		npcHandler.topic[cid] = 2
@@ -64,10 +64,10 @@ if msgcontains(msg, "mission") and player:getStorageValue(Storage.Kilmaresh.Eigh
 		playerTopic[cid] = 3
 	end
 elseif msgcontains(msg, "yes") and playerTopic[cid] == 3 and player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 2 then
-	if player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 2 and player:getItemById(36175, 1) and player:getItemById(36171, 12) and player:getItemById(2006, 5) then	
-		player:removeItem(36175, 1)
-		player:removeItem(36171, 12)
-		player:removeItem(2006, 5)
+	if player:getStorageValue(Storage.Kilmaresh.Eighth.Shimun) == 2 and player:getItemById(31340, 1) and player:getItemById(31336, 12) and player:getItemById(2874, 5) then	
+		player:removeItem(31340, 1)
+		player:removeItem(31336, 12)
+		player:removeItem(2874, 5)
 		npcHandler:say({"Thank you this stage of the ritual is complete."}, cid)-- It needs to be revised, it's not the same as the global
 		player:setStorageValue(Storage.Kilmaresh.Eighth.Shimun, 3)
 		npcHandler.topic[cid] = 4

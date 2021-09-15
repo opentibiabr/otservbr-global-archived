@@ -50,7 +50,7 @@ local function creatureSayCallback(cid, type, msg)
 
 		player:setStorageValue(Storage.Oramond.HarvestedRootCount,
 			player:getStorageValue(Storage.Oramond.HarvestedRootCount) - 5)
-		player:removeItem(23662, 5)
+		player:removeItem(21291, 5)
 
 		player:setStorageValue(Storage.Oramond.MissionToTakeRoots, 0)
 		player:setStorageValue(Storage.Oramond.DoorBeggarKing, 1)

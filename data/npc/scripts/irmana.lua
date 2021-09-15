@@ -71,8 +71,8 @@ function creatureSayCallback(cid, type, msg)
 				end
 			end
 		elseif npcHandler.topic[cid] == 5 then
-			 if getPlayerItemCount(cid,2655) >= 1 then
-					doPlayerRemoveItem(cid,2655,1)
+			 if getPlayerItemCount(cid,3566) >= 1 then
+					doPlayerRemoveItem(cid,3566,1)
 				npcHandler:say("A {Red Robe}! Great. Here, take this red piece of cloth, I don\'t need it anyway.", cid)
 				doPlayerAddItem(cid,5911,1)
 				npcHandler.topic[cid] = 0
@@ -80,8 +80,8 @@ function creatureSayCallback(cid, type, msg)
 				npcHandler:say('Are you trying to mess with me?!', cid)
 			end
 		elseif npcHandler.topic[cid] == 6 then
-				 if getPlayerItemCount(cid,2663) >= 1 then
-				doPlayerRemoveItem(cid,2663,1)
+				 if getPlayerItemCount(cid,3574) >= 1 then
+				doPlayerRemoveItem(cid,3574,1)
 				npcHandler:say("A {Mystic Turban}! Great. Here, take this blue piece of cloth, I don\'t need it anyway.", cid)
 				doPlayerAddItem(cid,5912,1)
 				npcHandler.topic[cid] = 0
@@ -89,8 +89,8 @@ function creatureSayCallback(cid, type, msg)
 				npcHandler:say('Are you trying to mess with me?!', cid)
 			end
 		elseif npcHandler.topic[cid] == 7 then
-				 if getPlayerItemCount(cid,2652) >= 150 then
-				doPlayerRemoveItem(cid,2652,150)
+				 if getPlayerItemCount(cid,3563) >= 150 then
+				doPlayerRemoveItem(cid,3563,150)
 				npcHandler:say("A 150 {Green Tunic}! Great. Here, take this green piece of cloth, I don\'t need it anyway.", cid)
 				doPlayerAddItem(cid,5910,1)
 				npcHandler.topic[cid] = 0
@@ -100,7 +100,7 @@ function creatureSayCallback(cid, type, msg)
 		elseif npcHandler.topic[cid] == 8 then
 			if player:getMoney() >= 1000 then
 				player:removeMoney(1000)
-				player:addItem(28599, 1) -- Fur of a Wolf Whelp
+				player:addItem(25238, 1) -- Fur of a Wolf Whelp
 				npcHandler:say("Alright. Here is the fur.", cid)
 				player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 9)
 				npcHandler.topic[cid] = 0

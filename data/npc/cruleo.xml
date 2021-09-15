@@ -5,7 +5,7 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_sellable" value="
-			white deer antlers, 13533, 400;
-			white deer skin, 13534, 245;"/>
+			white deer antlers, 12544, 400;
+			white deer skin, 12545, 245;"/>
 	</parameters>
 </npc>

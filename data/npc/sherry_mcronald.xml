@@ -5,10 +5,10 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			cheese, 2696, 5;
-			cherry, 2679, 1;
-			melon, 2682, 8;
-			pumpkin, 2683, 10;"/>
-		<parameter key="shop_sellable" value="bread, 2689, 2;"/>
+			cheese, 3607, 5;
+			cherry, 3590, 1;
+			melon, 3593, 8;
+			pumpkin, 3594, 10;"/>
+		<parameter key="shop_sellable" value="bread, 3600, 2;"/>
 	</parameters>
 </npc>

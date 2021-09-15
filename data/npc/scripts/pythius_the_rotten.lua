@@ -22,9 +22,9 @@ local treasureKeyword = keywordHandler:addKeyword({"treasure"}, StdModule.say, {
 local offerKeyword = keywordHandler:addKeyword({"offer"}, StdModule.say, {npcHandler = npcHandler, text = "I GRANT YOU ACCESS TO THE DUNGEON IN THE NORTH. YOU'LL FIND SOME OF MY LIVING BROTHERS THERE....BUT.....EVERY TIME YOU WANT TO ENTER YOU HAVE TO GIVE ME SOMETHING PRECIOUS. ALRIGHT?"}, function(player) return player:getLevel() > 99 end)
 	local mugKeyword = offerKeyword:addChildKeyword({"yes"}, StdModule.say, {npcHandler = npcHandler, text = "AS YOU WISH. WHAT DO YOU HAVE TO OFFER?"})
 		mugKeyword:addChildKeyword({"golden mug"}, StdModule.say, {npcHandler = npcHandler, text = "I LIKE THAT AND GRANT YOU ACCESS TO THE DUNGEON IN THE NORTH FOR THE NEXT FEW MINUTES. COME BACK ANYTIME AND BRING ME MORE TREASURES.", reset = true},
-			function(player) return player:getItemCount(2033) > 0 end,
+			function(player) return player:getItemCount(2903) > 0 end,
 			function(player)
-				player:removeItem(2033, 1)
+				player:removeItem(2903, 1)
 				player:setStorageValue(Storage.HiddenCityOfBeregar.PythiusTheRotten, os.time() + 180)
 			end
 		)

@@ -15,7 +15,7 @@ function onThink()
 	npcHandler:onThink()
 end
 
---Feito por Master Viciado 18/08/2016
+--Feito por Master Viciado 18/08/2886
 
 local function greetCallback(cid)
 	npcHandler:setMessage(MESSAGE_GREET, "Greetings, " .. Player(cid):getName() .. ". Well, we all know what time it is. Always when we meet, the citizens of rathleton voted for the {Glooth Fairy}! ... Well, the rules are as simples as always. Ask me for a {fight} and I\'ll teleport you into the room with the lever, therefore I\'ll charge one voting right. ... From this room there is no way back to me. Pull the trigger and after one minute you and your buddies will face the {Glooth Fairy}.", cid)
@@ -34,7 +34,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif(msgcontains(msg, "yes")) then
 		if(npcHandler.topic[cid] == 1) then
 			npcHandler:say("Here you go!", cid)
-			local pos = {x=33660, y=31936, z=9}
+			local pos = {x=29021, y=27313, z=9}
 			doTeleportThing(cid, pos)
 			doSendMagicEffect(pos, CONST_ME_TELEPORT)
 			npcHandler.topic[cid] = 0

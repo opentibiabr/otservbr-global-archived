@@ -5,9 +5,9 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			drum, 2073, 140;
-			lute, 2072, 195;
-			lyre, 2071, 120;
-			simple fanfare, 2075, 150;"/>
+			drum, 14253, 140;
+			lute, 2950, 195;
+			lyre, 2949, 120;
+			simple fanfare, 2954, 150;"/>
 	</parameters>
 </npc>

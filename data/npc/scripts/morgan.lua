@@ -105,7 +105,7 @@ local function creatureSayCallback(cid, type, msg)
 		if npcHandler.topic[cid] == 2 then
 			if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 3 then
 				npcHandler:say('Alright, we will see. Here, take this letter and deliver it safely to old Eremo on Cormaya.', cid)
-				player:addItem(8188, 1)
+				player:addItem(3506, 1)
 				player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 4)
 				npcHandler.topic[cid] = 0
 			end

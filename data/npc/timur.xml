@@ -5,46 +5,46 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			arrow, 2544, 3;
-			basket, 1989, 6;
-			bolt, 2543, 4;
-			bottle, 2007, 3, 0;
-			bucket, 2005, 4, 0;
-			candelaburm, 2041, 8;
-			candlestick, 2047, 2;
-			closed trap, 2578, 280;
-			crowbar, 2416, 260;
-			document, 1952, 12;
-			fishing rod, 2580, 150;
-			hand auger, 36169, 25;
-			machete, 2420, 35;
-			net, 36324, 50;
-			parchment, 1951, 8;
-			pick, 2553, 50;
-			present, 2331, 10;
-			rope, 2120, 50;
-			scroll, 1949, 10;
-			scythe, 2550, 50;
-			shovel, 2554, 50;
-			torch, 2050, 2;
-			viking helmet, 2473, 265;
-			watch, 2036, 20;
-			worm, 3976, 1;"/>
+			arrow, 3447, 3;
+			basket, 2855, 6;
+			bolt, 3446, 4;
+			bottle, 2875, 3, 0;
+			bucket, 2873, 4, 0;
+			candelaburm, 2911, 8;
+			candlestick, 2917, 2;
+			closed trap, 3481, 280;
+			crowbar, 3304, 260;
+			document, 2818, 12;
+			fishing rod, 3483, 150;
+			hand auger, 31334, 25;
+			machete, 3308, 35;
+			net, 31489, 50;
+			parchment, 2817, 8;
+			pick, 3456, 50;
+			present, 3218, 10;
+			rope, 3003, 50;
+			scroll, 2815, 10;
+			scythe, 3453, 50;
+			shovel, 3457, 50;
+			torch, 2920, 2;
+			viking helmet, 3367, 265;
+			watch, 2906, 20;
+			worm, 3492, 1;"/>
 		<parameter key="shop_sellable" value="
-			bow, 2456, 130;
-			closed trap, 2578, 75;
-			crossbow, 2455, 160;
-			crowbar, 2416, 50;
-			fishing rod, 2580, 40;
-			hatchet, 2388, 25;
-			mace, 2398, 30;
-			machete, 2420, 6;
-			pick, 2553, 15;
-			rope, 2120, 15;
-			scythe, 2550, 10;
-			shovel, 2554, 8;
-			viking helmet, 2473, 66;
-			watch, 2036, 6;
-			wooden hammer, 2556, 15;"/>
+			bow, 3350, 130;
+			closed trap, 3481, 75;
+			crossbow, 3349, 160;
+			crowbar, 3304, 50;
+			fishing rod, 3483, 40;
+			hatchet, 3276, 25;
+			mace, 3286, 30;
+			machete, 3308, 6;
+			pick, 3456, 15;
+			rope, 3003, 15;
+			scythe, 3453, 10;
+			shovel, 3457, 8;
+			viking helmet, 3367, 66;
+			watch, 2906, 6;
+			wooden hammer, 3459, 15;"/>
 	</parameters>
 </npc>

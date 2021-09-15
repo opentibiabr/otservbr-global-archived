@@ -32,9 +32,9 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say("Can melt gold ingot for lil' one. You want?", cid)
 		npcHandler.topic[cid] = 10
 	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 10 then
-		if player:removeItem(9971,1) then
+		if player:removeItem(9058,1) then
 			npcHandler:say("whoooosh There!", cid)
-			player:addItem(13941, 1)
+			player:addItem(12804, 1)
 		else
 			npcHandler:say("There is no gold ingot with you.", cid)
 		end
@@ -47,7 +47,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 9
 		elseif player:getStorageValue(Storage.SweetyCyclops.AmuletStatus) == 1 then
 			npcHandler:say("Ahh, lil' one wants amulet. Here! Have it! Mighty, mighty amulet lil' one has. Don't know what but mighty, mighty it is!!!", cid)
-			player:addItem(8266, 1)
+			player:addItem(7532, 1)
 			player:setStorageValue(Storage.SweetyCyclops.AmuletStatus, 2)
 			npcHandler.topic[cid] = 0
 		end
@@ -61,35 +61,35 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.FriendsandTraders.DefaultStart, 1)
 			player:setStorageValue(Storage.FriendsandTraders.TheSweatyCyclops, 1)
 		elseif npcHandler.topic[cid] == 3 then
-			if player:removeItem(3983, 3) then
+			if player:removeItem(3560, 3) then
 				npcHandler:say("Good good! Woman happy will be. Now me happy too and help you.", cid)
 				npcHandler.topic[cid] = 0
 				player:setStorageValue(Storage.FriendsandTraders.TheSweatyCyclops, 2)
 			end
 		-- Crown Armor
 		elseif npcHandler.topic[cid] == 4 then
-			if player:removeItem(2487, 1) then
+			if player:removeItem(3381, 1) then
 				npcHandler:say("Cling clang!", cid)
 				npcHandler.topic[cid] = 0
 				player:addItem(5887, 1)
 			end
 		-- Dragon Shield
 		elseif npcHandler.topic[cid] == 5 then
-			if player:removeItem(2516, 1) then
+			if player:removeItem(3416, 1) then
 				npcHandler:say("Cling clang!", cid)
 				npcHandler.topic[cid] = 0
 				player:addItem(5889, 1)
 			end
 		-- Devil Helmet
 		elseif npcHandler.topic[cid] == 6 then
-			if player:removeItem(2462, 1) then
+			if player:removeItem(3356, 1) then
 				npcHandler:say("Cling clang!", cid)
 				npcHandler.topic[cid] = 0
 				player:addItem(5888, 1)
 			end
 		-- Giant Sword
 		elseif npcHandler.topic[cid] == 7 then
-			if player:removeItem(2393, 1) then
+			if player:removeItem(3281, 1) then
 				npcHandler:say("Cling clang!", cid)
 				npcHandler.topic[cid] = 0
 				player:addItem(5892, 1)
@@ -100,10 +100,10 @@ local function creatureSayCallback(cid, type, msg)
 				local count = player:getItemCount(5944)
 				for i = 1, count do
 					if math.random(100) <= 1 then
-						player:addItem(6529, 6)
+						player:addItem(6528, 6)
 						player:removeItem(5944, 1)
 					else
-						player:addItem(6529, 3)
+						player:addItem(6528, 3)
 						player:removeItem(5944, 1)
 					end
 				end
@@ -114,11 +114,11 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler.topic[cid] = 0
 			end
 		elseif npcHandler.topic[cid] == 9 then
-			if player:getItemCount(8262) > 0 and player:getItemCount(8263) > 0 and player:getItemCount(8264) > 0 and player:getItemCount(8265) > 0 and player:getMoney() + player:getBankBalance() >= 5000 then
-				player:removeItem(8262, 1)
-				player:removeItem(8263, 1)
-				player:removeItem(8264, 1)
-				player:removeItem(8265, 1)
+			if player:getItemCount(7528) > 0 and player:getItemCount(7529) > 0 and player:getItemCount(7530) > 0 and player:getItemCount(7531) > 0 and player:getMoney() + player:getBankBalance() >= 5000 then
+				player:removeItem(7528, 1)
+				player:removeItem(7529, 1)
+				player:removeItem(7530, 1)
+				player:removeItem(7531, 1)
 				player:removeMoneyNpc(5000)
 				player:setStorageValue(Storage.SweetyCyclops.AmuletTimer, os.time())
 				player:setStorageValue(Storage.SweetyCyclops.AmuletStatus, 1)
@@ -128,7 +128,7 @@ local function creatureSayCallback(cid, type, msg)
 		elseif npcHandler.topic[cid] == 11 then
 			if player:removeItem(5880, 1) then
 				player:setStorageValue(Storage.HiddenCityOfBeregar.GearWheel, player:getStorageValue(Storage.HiddenCityOfBeregar.GearWheel) + 1)
-				player:addItem(9690, 1)
+				player:addItem(8775, 1)
 				npcHandler:say("Cling clang!", cid)
 				npcHandler.topic[cid] = 0
 			else

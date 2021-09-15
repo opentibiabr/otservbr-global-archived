@@ -52,7 +52,7 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 	if msgcontains(msg, "letter") then
 		if player:getStorageValue(Storage.Postman.Mission10) == 1 then
-			if player:getItemCount(2333) > 0 then
+			if player:getItemCount(3220) > 0 then
 				npcHandler:say("A letter from my Moohmy?? Do you have a letter from my Moohmy to me?", cid)
 				npcHandler.topic[cid] = 1
 			end
@@ -67,10 +67,10 @@ local function creatureSayCallback(cid, type, msg)
 		if npcHandler.topic[cid] == 1 then
 			npcHandler:say("Uhm, well thank you, hornless being.", cid)
 			player:setStorageValue(Storage.Postman.Mission10, 2)
-			player:removeItem(2333, 1)
+			player:removeItem(3220, 1)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 2 then
-			if not player:removeItem(8111, 1) then
+			if not player:removeItem(130, 1) then
 				npcHandler:say('You have no cookie that I\'d like.', cid)
 				npcHandler.topic[cid] = 0
 				return true

@@ -5,9 +5,9 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			salt, 38765, 5;
-			meat, 2666, 5;
-			salmon, 2668, 6;
-			ham, 2671, 8;"/>
+			salt, 33930, 5;
+			meat, 3577, 5;
+			salmon, 3579, 6;
+			ham, 3582, 8;"/>
 	</parameters>
 </npc>

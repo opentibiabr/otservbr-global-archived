@@ -14,37 +14,37 @@
 		<parameter key="message_sendtrade" value="Of course, just browse through my wares. Or do you want to look only at {potions}, {wands} or {runes}?"/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			great health potion, 7591, 225;
-			great mana potion, 7590, 144;
-			great spirit potion, 8472, 228;
-			health potion, 7618, 50;
-			mana potion, 7620, 56;
-			strong health potion, 7588, 115;
-			strong mana potion, 7589, 93;
-			supreme health potion, 26031, 625;
-			ultimate mana potion, 26029, 379;
-			ultimate health potion, 8473, 438;
-			ultimate spirit potion, 26030, 438;"/>
+			great health potion, 239, 225;
+			great mana potion, 238, 144;
+			great spirit potion, 7642, 228;
+			health potion, 266, 50;
+			mana potion, 268, 56;
+			strong health potion, 236, 115;
+			strong mana potion, 237, 93;
+			supreme health potion, 23375, 625;
+			ultimate mana potion, 23373, 381;
+			ultimate health potion, 7643, 443;
+			ultimate spirit potion, 23374, 443;"/>
 		<parameter key="shop_sellable" value="
-			cowbell, 23575, 210;
-			empty potion flask, 7634, 5;
-			empty potion flask, 7635, 5;
-			empty potion flask, 7636, 5;
-			execowtioner mask, 23572, 240;
-			giant pacifier, 23570, 170;
-			glob of glooth, 23553, 125;
-			glooth injection tube, 23474, 350;
-			metal jaw, 23564, 260;
-			metal toe, 23569, 430;
-			mooh'tah shell, 23573, 110;
-			moohtant horn, 23571, 140;
-			necromantic rust, 23567, 390;
-			poisoned fang, 23566, 130;
-			seacrest hair, 24170, 260;
-			seacrest pearl, 24116, 400;
-			seacrest scale, 24169, 150;
-			slime heart, 23565, 160;
-			slimy leaf tentacle, 23568, 320;
-			vial, 2006, 5;"/>
+			cowbell, 21204, 210;
+			empty potion flask, 283, 5;
+			empty potion flask, 284, 5;
+			empty potion flask, 285, 5;
+			execowtioner mask, 21201, 240;
+			giant pacifier, 21199, 170;
+			glob of glooth, 21182, 125;
+			glooth injection tube, 21103, 350;
+			metal jaw, 21193, 260;
+			metal toe, 21198, 435;
+			mooh'tah shell, 21202, 110;
+			moohtant horn, 21200, 140;
+			necromantic rust, 21196, 392;
+			poisoned fang, 21195, 130;
+			seacrest hair, 21801, 260;
+			seacrest pearl, 21747, 400;
+			seacrest scale, 21800, 150;
+			slime heart, 21194, 160;
+			slimy leaf tentacle, 21197, 320;
+			vial, 2874, 5;"/>
 	</parameters>
 </npc>

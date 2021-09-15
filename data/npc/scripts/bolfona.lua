@@ -22,7 +22,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
 	if msgcontains(msg, "chocolate cake") then
-		if player:getStorageValue(Storage.HiddenCityOfBeregar.SweetAsChocolateCake) == 1 and player:getItemCount(8847) >= 1 then
+		if player:getStorageValue(Storage.HiddenCityOfBeregar.SweetAsChocolateCake) == 1 and player:getItemCount(8019) >= 1 then
 			npcHandler:say("Is that for me?", cid)
 			npcHandler.topic[cid] = 1
 		elseif player:getStorageValue(Storage.HiddenCityOfBeregar.SweetAsChocolateCake) == 2 then
@@ -31,7 +31,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 1 then
-			if player:removeItem(8847, 1) then
+			if player:removeItem(8019, 1) then
 				npcHandler:say("Err, thanks. I doubt it's from you. Who sent it?", cid)
 				npcHandler.topic[cid] = 2
 				player:setStorageValue(Storage.HiddenCityOfBeregar.SweetAsChocolateCake, 2)

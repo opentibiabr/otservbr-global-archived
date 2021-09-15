@@ -31,13 +31,13 @@ local function greetCallback(cid)
 		return false
 	end
 
-	if not player:removeItem(2787, 1) then
+	if not player:removeItem(3723, 1) then
 		npcHandler:say('AHHHH THE PAIN OF AGESSS! I NEED MUSSSSHRROOOMSSS TO EASSSE MY PAIN! BRRRING ME MUSHRRROOOMSSS!', cid)
 		return false
 	end
 
 	player:setStorageValue(Storage.Dragonfetish, 1)
-	player:addItem(2319, 1)
+	player:addItem(3206, 1)
 	npcHandler:say('AHHH MUSHRRROOOMSSS! NOW MY PAIN WILL BE EASSSED FOR A WHILE! TAKE THISS AND LEAVE THE DRAGONSSS\' CEMETERY AT ONCE!', cid)
 	return false
 end

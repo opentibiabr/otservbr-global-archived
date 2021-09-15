@@ -79,8 +79,8 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 2 then
-			if player:getItemCount(11113) >= 5 and player:getItemCount(5878) >= 5 and player:getItemCount(5876) >= 5 then
-				player:removeItem(11113, 5)
+			if player:getItemCount(10196) >= 5 and player:getItemCount(5878) >= 5 and player:getItemCount(5876) >= 5 then
+				player:removeItem(10196, 5)
 				player:removeItem(5878, 5)
 				player:removeItem(5876, 5)
 				npcHandler:say("Me thank you! Me will bring sacrifice for Pandor. He surely be pleased with our work. Well your work, but me won't tell him. Teehee.", cid)

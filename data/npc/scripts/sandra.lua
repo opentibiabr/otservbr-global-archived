@@ -31,7 +31,7 @@ local function creatureSayCallback(cid, type, msg)
 		if player:getStorageValue(Storage.OutfitQuest.MageSummoner.AddonBelt) < 1 then
 			npcHandler:say(
 				"You have " ..
-				player:getStorageValue(38412) ..
+				player:getStorageValue(33577) ..
 				" credits. We have a special offer right now for depositing vials. Are you interested in hearing it?",
 			cid)
 			npcHandler.topic[cid] = 1
@@ -83,15 +83,15 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1) --this for default start of Outfit and Addon Quests
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 3 then
-			if player:getStorageValue(38412) >= 100
-			or player:removeItem(7634, 100)
-			or player:removeItem(7635, 100)
-			or player:removeItem(7636, 100) then
+			if player:getStorageValue(33577) >= 100
+			or player:removeItem(283, 100)
+			or player:removeItem(284, 100)
+			or player:removeItem(285, 100) then
 				npcHandler:say(
 					"Alright, thank you very much! Here is your lottery ticket, good luck. \
 					Would you like to deposit more vials that way?",
 				cid)
-				player:setStorageValue(38412, player:getStorageValue(38412) - 100)
+				player:setStorageValue(33577, player:getStorageValue(33577) - 100)
 				player:addItem(5957, 1)
 				npcHandler.topic[cid] = 0
 			else

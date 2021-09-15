@@ -47,28 +47,28 @@ keywordHandler:addKeyword({'goshak', 'bata'}, StdModule.say, {npcHandler = npcHa
 keywordHandler:addKeyword({'goshak', 'dora'}, StdModule.say, {npcHandler = npcHandler, text = 'Ikem pashak donga. Ba goshak maruk?'})
 
 -- Bow
-addBuyableKeyword('batuk', 2456, 1, 400, 'Ahhhh, maruk, goshak batuk?')
+addBuyableKeyword('batuk', 3350, 1, 400, 'Ahhhh, maruk, goshak batuk?')
 -- 10 Arrows
-addBuyableKeyword('pixo', 2544, 10, 30, 'Maruk goshak tefar pixo ul batuk?')
+addBuyableKeyword('pixo', 3447, 10, 30, 'Maruk goshak tefar pixo ul batuk?')
 
 -- Brass Shield
-addBuyableKeyword('donga', 2511, 1, 65, 'Maruk goshak ta?')
+addBuyableKeyword('donga', 3411, 1, 65, 'Maruk goshak ta?')
 
 -- Leather Armor
-addBuyableKeyword('bora', 2467, 1, 25, 'Maruk goshak ta?')
+addBuyableKeyword('bora', 3361, 1, 25, 'Maruk goshak ta?')
 -- Studded Armor
-addBuyableKeyword({'tulak', 'bora'}, 2484, 1, 90, 'Maruk goshak ta?')
+addBuyableKeyword({'tulak', 'bora'}, 3378, 1, 90, 'Maruk goshak ta?')
 -- Studded Helmet
-addBuyableKeyword('grofa', 2482, 1, 60, 'Maruk goshak ta?')
+addBuyableKeyword('grofa', 3376, 1, 60, 'Maruk goshak ta?')
 
 -- Sabre
-addBuyableKeyword('charcha', 2385, 1, 25, 'Maruk goshak ta?')
+addBuyableKeyword('charcha', 3273, 1, 25, 'Maruk goshak ta?')
 -- Sword
-addBuyableKeyword({'burka', 'bata'}, 2376, 1, 85, 'Maruk goshak ta?')
+addBuyableKeyword({'burka', 'bata'}, 3264, 1, 85, 'Maruk goshak ta?')
 -- Short Sword
-addBuyableKeyword('burka', 2406, 1, 30, 'Maruk goshak ta?')
+addBuyableKeyword('burka', 3294, 1, 30, 'Maruk goshak ta?')
 -- Hatchet
-addBuyableKeyword('hakhak', 2388, 1, 85, 'Maruk goshak ta?')
+addBuyableKeyword('hakhak', 3276, 1, 85, 'Maruk goshak ta?')
 
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Futchi.')
 

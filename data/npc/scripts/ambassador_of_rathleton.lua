@@ -24,9 +24,9 @@ local voices = {
 keywordHandler:addKeyword(
 	{"present"}, StdModule.say, { npcHandler = npcHandler,
 	text = "This is a very beautiful ring. Thank you for this generous present!"},
-	function (player) return player:getStorageValue(Storage.Kilmaresh.Third.Recovering) == 2 and player:getItemById(36098, true) end,
+	function (player) return player:getStorageValue(Storage.Kilmaresh.Third.Recovering) == 2 and player:getItemById(31263, true) end,
 	function (player) 
-		player:removeItem(36098, 1)
+		player:removeItem(31263, 1)
 		player:setStorageValue(Storage.Kilmaresh.Fourth.Moe, 1)
 		player:setStorageValue(Storage.Kilmaresh.Third.Recovering, 3)
 	end

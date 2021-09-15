@@ -49,7 +49,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif npcHandler.topic[cid] == 1 then
 		if msgcontains(msg, 'yes') then
-			if player:getStorageValue(Storage.DjinnWar.MaridFaction.RataMari) ~= 2 or not player:removeItem(2345, 1) then
+			if player:getStorageValue(Storage.DjinnWar.MaridFaction.RataMari) ~= 2 or not player:removeItem(3232, 1) then
 				npcHandler:say({
 					'Don\'t waste any more time. We need the spyreport of our man in Mal\'ouquah as soon as possible! ...',
 					'Also don\'t forget the password to contact our man: PIEDPIPER!'

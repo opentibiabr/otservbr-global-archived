@@ -69,7 +69,7 @@ local function creatureSayCallback(cid, type, msg)
 			end
 
 			player:setStorageValue(Storage.DjinnWar.ReceivedLamp, 1)
-			player:addItem(2344, 1)
+			player:addItem(3231, 1)
 			npcHandler:say('I was waiting for this day! Take the lamp and let Malor feel my wrath!', cid)
 		else
 			npcHandler:say('I don\'t know your enemy, paleskin! Begone!', cid)
@@ -78,7 +78,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif npcHandler.topic[cid] == 2 then
 		if msgcontains(msg, 'yes') then
-			if not player:removeItem(8111, 1) then
+			if not player:removeItem(130, 1) then
 				npcHandler:say('You have no cookie that I\'d like.', cid)
 				npcHandler.topic[cid] = 0
 				return true

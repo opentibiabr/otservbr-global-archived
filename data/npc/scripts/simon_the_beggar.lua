@@ -27,7 +27,7 @@ npcHandler:addModule(VoiceModule:new(voices))
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
 
-shopModule:addBuyableItem({"shovel"}, 2554, 50, 1)
+shopModule:addBuyableItem({"shovel"}, 3457, 50, 1)
 
 -- First beggar addon
 local function BeggarFirst(cid, message, keywords, parameters, node)
@@ -38,8 +38,8 @@ local function BeggarFirst(cid, message, keywords, parameters, node)
 	local player = Player(cid)
 	if player:isPremium() then
 		if player:getStorageValue(Storage.OutfitQuest.BeggarFirstAddonDoor) == -1 then
-			if player:getItemCount(5883) >= 100 and player:getMoney() + player:getBankBalance() >= 20000 then
-				if player:removeItem(5883, 100) and player:removeMoneyNpc(20000) then
+			if player:getItemCount(5883) >= 100 and player:getMoney() + player:getBankBalance() >= 17720 then
+				if player:removeItem(5883, 100) and player:removeMoneyNpc(17720) then
 					npcHandler:say("Ah, right! The beggar beard or beggar dress! Here you go.", cid)
 					player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 					player:setStorageValue(Storage.OutfitQuest.BeggarFirstAddonDoor, 1)
@@ -98,7 +98,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 2
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 1 then
-			if not player:removeItem(8111, 1) then
+			if not player:removeItem(130, 1) then
 				npcHandler:say("You have no cookie that I'd like.", cid)
 				npcHandler.topic[cid] = 0
 				return true
@@ -167,7 +167,7 @@ end
 node1 = keywordHandler:addKeyword({"addon"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "For the small fee of 20000 gold pieces I will help you mix this potion. \z
+		text = "For the small fee of 17720 gold pieces I will help you mix this potion. \z
 					Just bring me 100 pieces of ape fur, which are necessary to create this potion. ... Do we have a deal?"
 	}
 )
@@ -184,7 +184,7 @@ node1:addChildKeyword({"no"}, StdModule.say,
 node2 = keywordHandler:addKeyword({"dress"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "For the small fee of 20000 gold pieces I will help you mix this potion. \z
+		text = "For the small fee of 17720 gold pieces I will help you mix this potion. \z
 					Just bring me 100 pieces of ape fur, which are necessary to create this potion. ...Do we have a deal?"
 	}
 )
@@ -217,7 +217,7 @@ node3:addChildKeyword({"no"}, StdModule.say,
 node4 = keywordHandler:addKeyword({"outfit"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "For the small fee of 20000 gold pieces I will help you mix this potion. \z
+		text = "For the small fee of 17720 gold pieces I will help you mix this potion. \z
 					Just bring me 100 pieces of ape fur, which are necessary to create this potion. ...Do we have a deal?"
 	}
 )

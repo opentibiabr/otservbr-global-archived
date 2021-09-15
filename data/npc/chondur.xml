@@ -12,10 +12,10 @@
 		<parameter key="message_sendtrade" value="Well, I currently buy mysterious and enigmatic voodoo skulls and a few other things I might need for my rituals."/>
 		<parameter key="module_keywords" value="1"/>
 		<parameter key="shop_sellable" value="
-			black skull, 9969, 4000;
-			blood goblet, 9447, 10000;
-			blood herb, 2798, 500;
-			enigmatic voodoo skull, 5670, 4000;
-			mysterious voodoo skull, 5669, 4000;"/>
+			black skull, 9056, 4000;
+			blood goblet, 8531, 10000;
+			blood herb, 3734, 500;
+			enigmatic voodoo skull, 5669, 4000;
+			mysterious voodoo skull, 5668, 4000;"/>
 	</parameters>
 </npc>

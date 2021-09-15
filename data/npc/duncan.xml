@@ -11,6 +11,6 @@
 		<parameter key="message_walkaway" value="Bye!"/>
 		<parameter key="message_sendtrade" value="Here you go. Those would fit nicely into your house, showing that you're a fan and supporter and all that."/>
 		<parameter key="module_shop" value="1"/>
-		<parameter key="shop_buyable" value="pirate tapestry, 5616, 40;"/>
+		<parameter key="shop_buyable" value="pirate tapestry, 5615, 40;"/>
 	</parameters>
 </npc>

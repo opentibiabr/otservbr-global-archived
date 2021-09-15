@@ -42,8 +42,8 @@ local function creatureSayCallback(cid, type, msg)
 				if player:getMoney() + player:getBankBalance() >= 500000000 then
 					local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
 					if inbox and inbox:getEmptySlots() > 0 then
-						local decoKit = inbox:addItem(26054, 1)
-						local decoItemName = ItemType(36345):getName()
+						local decoKit = inbox:addItem(23398, 1)
+						local decoItemName = ItemType(31510):getName()
 							decoKit:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "You bought this item in the Store.\nUnwrap it in your own house to create a " .. decoItemName .. ".")
 							decoKit:setActionId(36345)
 							selfSay("Take this armor as a token of great gratitude. Let us forever remember this day, my friend!", cid)
@@ -132,7 +132,7 @@ local function creatureSayCallback(cid, type, msg)
 end
 
 -- Promotion
-local node1 = keywordHandler:addKeyword({'promot'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, text = 'I can promote you for 20000 gold coins. Do you want me to promote you?'})
+local node1 = keywordHandler:addKeyword({'promot'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, text = 'I can promote you for 17720 gold coins. Do you want me to promote you?'})
 	node1:addChildKeyword({'yes'}, StdModule.promotePlayer, {npcHandler = npcHandler, cost = 20000, level = 20, text = 'Congratulations! You are now promoted.'})
 	node1:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, text = 'Alright then, come back when you are ready.', reset = true})
 -- Postman

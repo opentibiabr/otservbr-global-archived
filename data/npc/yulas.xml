@@ -10,10 +10,10 @@
 		<parameter key="message_farewell" value="Good bye, |PLAYERNAME|."/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			big table kit, 3911, 30;
-			round table kit, 14328, 25;
-			small table kit, 3908, 20;
-			square table kit, 14329, 25;
-			trophy stand, 7936, 50;"/>
+			big table kit, 2785, 30;
+			round table kit, 2783, 25;
+			small table kit, 2782, 20;
+			square table kit, 2784, 25;
+			trophy stand, 872, 50;"/>
 	</parameters>
 </npc>

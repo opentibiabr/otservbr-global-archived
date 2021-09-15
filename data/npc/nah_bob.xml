@@ -5,38 +5,38 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			bonelord shield, 2518, 7000;
-			noble armor, 2486, 8000;
-			obsidian lance, 2425, 3000;
-			spike sword, 2383, 8000;
-			war hammer, 2391, 10000;"/>
+			bonelord shield, 3418, 7000;
+			noble armor, 3380, 1038;
+			obsidian lance, 3313, 3000;
+			spike sword, 3271, 1038;
+			war hammer, 3279, 10000;"/>
 		<parameter key="shop_sellable" value="
 			angelic axe, 7436, 5000;
-			blue robe, 2656, 10000;
-			bonelord shield, 2518, 1200;
-			boots of haste, 2195, 30000;
-			broadsword, 2413, 500;
-			butcher's axe, 7412, 18000;
-			crown armor, 2487, 12000;
-			crown helmet, 2491, 2500;
-			crown legs, 2488, 12000;
-			crown shield, 2519, 8000;
-			crusader helmet, 2497, 6000;
-			dragon lance, 2414, 9000;
-			dragon shield, 2516, 4000;
-			fire axe, 2432, 8000;
-			fire sword, 2392, 4000;
+			blue robe, 3567, 10000;
+			bonelord shield, 3418, 1445;
+			boots of haste, 3079, 26764;
+			broadsword, 3301, 500;
+			butcher's axe, 7412, 15468;
+			crown armor, 3381, 11044;
+			crown helmet, 3385, 3394;
+			crown legs, 3382, 11044;
+			crown shield, 3419, 1038;
+			crusader helmet, 3391, 6000;
+			dragon lance, 3302, 8172;
+			dragon shield, 3416, 4000;
+			fire axe, 3320, 1038;
+			fire sword, 3280, 4000;
 			glorious axe, 7454, 3000;
-			guardian shield, 2515, 2000;
-			ice rapier, 2396, 1000;
-			noble armor, 2486, 900;
-			obsidian lance, 2425, 500;
-			phoenix shield, 2539, 16000;
-			queen's sceptre, 7410, 20000;
-			royal helmet, 2498, 30000;
+			guardian shield, 3415, 2000;
+			ice rapier, 3284, 1000;
+			noble armor, 3380, 1109;
+			obsidian lance, 3313, 500;
+			phoenix shield, 3439, 14667;
+			queen's sceptre, 7410, 17720;
+			royal helmet, 3392, 26764;
 			shadow sceptre, 7451, 10000;
-			spike sword, 2383, 1000;
-			thaian sword, 7391, 16000;
-			war hammer, 2391, 1200;"/>
+			spike sword, 3271, 1000;
+			thaian sword, 7391, 14667;
+			war hammer, 3279, 1445;"/>
 	</parameters>
 </npc>

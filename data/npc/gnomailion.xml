@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Gnomailion" walkinterval="2000" floorchange="0" script="gnomailion.lua">
 	<health now="100" max="100"/>
-	<look type="493" head="94" body="88" legs="88" feet="114" addons="0"/>
+	<look type="622" head="94" body="88" legs="88" feet="114" addons="0"/>
 	<parameters>
 		<parameter key="message_greet" value="Hello. How may I help you |PLAYERNAME|? Ask me for a {trade} if you want to buy something. I can also explain the {mail} system."/>
 		<parameter key="message_farewell" value="It was a pleasure to help you, |PLAYERNAME|."/>
@@ -15,8 +15,8 @@
 		<parameter key="keyword_reply6" value="In a parcel you can send items to another Tibian's {depot}. Put your items into the parcel and also place a completed {label} with the name and the {city} of the {receiver} inside. Then drag your parcel on one of the blue {mailboxes} here to send it."/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			label, 2599, 1;
-			letter, 2597, 8;
-			parcel, 2595, 15;"/>
+			label, 3507, 1;
+			letter, 3505, 8;
+			parcel, 3503, 15;"/>
 	</parameters>
 </npc>

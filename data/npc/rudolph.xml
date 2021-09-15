@@ -5,15 +5,15 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			belted cape, 8872, 1300;
-			cape, 2654, 9;
-			green tunic, 2652, 25;
-			jacket, 2650, 12;
-			rangers cloak, 2660, 550;
-			leather legs, 2649, 10;
-			leather boots, 2643, 2;
-			sandals, 2642, 2;
-			scarf, 2661, 15;"/>
-		<parameter key="shop_sellable" value="belted cape, 8872, 500;"/>
+			belted cape, 8044, 1787;
+			cape, 3565, 9;
+			green tunic, 3563, 25;
+			jacket, 3561, 12;
+			rangers cloak, 3571, 550;
+			leather legs, 3559, 10;
+			leather boots, 3552, 2;
+			sandals, 3551, 2;
+			scarf, 3572, 15;"/>
+		<parameter key="shop_sellable" value="belted cape, 8044, 500;"/>
 	</parameters>
 </npc>

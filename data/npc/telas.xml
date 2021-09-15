@@ -5,30 +5,30 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_sellable" value="
-			ancient stone, 10549, 200;
-			battle stone, 12403, 290;
-			broken gladiator shield, 10573, 190;
-			coal, 13757, 20;
-			crystal of balance, 9942, 1000;
-			crystal of focus, 9941, 2000;
-			crystal of power, 9980, 3000;
-			crystal pedestal, 9976, 500;
-			crystalline spikes, 18432, 440;
-			flintstone, 13943, 800;
-			gear crystal, 10572, 200;
-			gear wheel, 9690, 500;
+			ancient stone, 9632, 200;
+			battle stone, 11447, 290;
+			broken gladiator shield, 9656, 190;
+			coal, 12600, 20;
+			crystal of balance, 9028, 1000;
+			crystal of focus, 9027, 2000;
+			crystal of power, 9067, 3000;
+			crystal pedestal, 9063, 500;
+			crystalline spikes, 16138, 445;
+			flintstone, 12806, 800;
+			gear crystal, 9655, 200;
+			gear wheel, 8775, 500;
 			huge chunk of crude iron, 5892, 15000;
-			magma clump, 18424, 570;
-			metal spike, 11215, 320;
+			magma clump, 16130, 570;
+			metal spike, 10298, 320;
 			piece of draconian steel, 5889, 3000;
 			piece of hell steel, 5888, 500;
-			piece of hellfire armor, 10581, 550;
+			piece of hellfire armor, 9664, 550;
 			piece of royal steel, 5887, 10000;
-			pulverized ore, 18427, 400;
-			shiny stone, 11227, 500;
-			stone nose, 18431, 590;
-			sulphurous stone, 11232, 100;
-			vein of ore, 18429, 330;
-			war crystal, 10571, 460;"/>
+			pulverized ore, 16133, 400;
+			shiny stone, 10310, 500;
+			stone nose, 16137, 590;
+			sulphurous stone, 10315, 100;
+			vein of ore, 16135, 330;
+			war crystal, 9654, 470;"/>
 	</parameters>
 </npc>

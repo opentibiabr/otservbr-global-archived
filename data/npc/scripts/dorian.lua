@@ -94,7 +94,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 8
 		elseif player:getStorageValue(Storage.ThievesGuild.Quest) == 8 and player:getStorageValue(Storage.ThievesGuild.Mission08) < 1 then
 			player:setStorageValue(Storage.ThievesGuild.Mission08, 1)
-			player:addItem(8701, 1)
+			player:addItem(7873, 1)
 			npcHandler:say({
 				'Competition might be an interesting challenge but our guild isn\'t really keen on competition. ...',
 				'Unfortunately, we are lacking some good fighters, which is quite a disadvantage against certain other organisations. However, I think you\'re a really good fighter ...',
@@ -114,21 +114,21 @@ local function creatureSayCallback(cid, type, msg)
 			}, cid)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 2 then
-			if player:removeItem(3956, 10) then
+			if player:removeItem(3044, 10) then
 				player:setStorageValue(Storage.ThievesGuild.Mission01, 2)
 				player:setStorageValue(Storage.ThievesGuild.Quest, 2)
 				npcHandler:say('What a fine material. That will be worth a coin or two. So far, so good. Ask me for another mission if you\'re ready for it.', cid)
 				npcHandler.topic[cid] = 0
 			end
 		elseif npcHandler.topic[cid] == 3 then
-			if player:removeItem(8760, 1) then
+			if player:removeItem(227, 1) then
 				player:setStorageValue(Storage.ThievesGuild.Mission02, 3)
 				player:setStorageValue(Storage.ThievesGuild.Quest, 3)
 				npcHandler:say('What an ugly vase. But who am I to question the taste of our customers? Anyway, I might have another mission in store for you.', cid)
 				npcHandler.topic[cid] = 0
 			end
 		elseif npcHandler.topic[cid] == 4 then
-			if player:removeItem(8761, 1) then
+			if player:removeItem(7933, 1) then
 				player:setStorageValue(Storage.ThievesGuild.Mission03, 3)
 				player:setStorageValue(Storage.ThievesGuild.Quest, 4)
 				npcHandler:say({
@@ -138,28 +138,28 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler.topic[cid] = 0
 			end
 		elseif npcHandler.topic[cid] == 5 then
-			if player:removeItem(8699, 1) then
+			if player:removeItem(7871, 1) then
 				player:setStorageValue(Storage.ThievesGuild.Mission04, 8)
 				player:setStorageValue(Storage.ThievesGuild.Quest, 5)
 				npcHandler:say('Excellent, that serves this fool right. I fear in your next mission, you\'ll have to get your hands dirty. Just ask me to learn more about it.', cid)
 				npcHandler.topic[cid] = 0
 			end
 		elseif npcHandler.topic[cid] == 6 then
-			if player:removeItem(8698, 1) then
+			if player:removeItem(7369, 1) then
 				player:setStorageValue(Storage.ThievesGuild.Mission05, 2)
 				player:setStorageValue(Storage.ThievesGuild.Quest, 6)
 				npcHandler:say('That goblet is hardly worth all this trouble but we had to insist on our payment. However, I assume you are eager for more missions, so just ask.', cid)
 				npcHandler.topic[cid] = 0
 			end
 		elseif npcHandler.topic[cid] == 7 then
-			if player:removeItem(8766, 1) then
+			if player:removeItem(7936, 1) then
 				player:setStorageValue(Storage.ThievesGuild.Mission06, 4)
 				player:setStorageValue(Storage.ThievesGuild.Quest, 7)
 				npcHandler:say('This little goldfish will bring us a hefty ransom! Just ask me if you\'re ready for another mission.', cid)
 				npcHandler.topic[cid] = 0
 			end
 		elseif npcHandler.topic[cid] == 8 then
-			if player:removeItem(8763, 1) then
+			if player:removeItem(7935, 1) then
 				player:setStorageValue(Storage.ThievesGuild.Mission07, 2)
 				player:setStorageValue(Storage.ThievesGuild.Quest, 8)
 				npcHandler:say({

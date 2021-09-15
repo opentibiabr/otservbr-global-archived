@@ -48,7 +48,7 @@ local function greetCallback(cid)
 		npcHandler:say("I've forgotten to tell you something. Of course I need proof that you killed cockroaches. Please bring me at least 3 of their legs. Good luck!", cid)
 		return false
 	elseif player:getStorageValue(Storage.RookgaardTutorialIsland.SantiagoNpcGreetStorage) == 6 then
-		if player:removeItem(8710, 3) then
+		if player:removeItem(7882, 3) then
 			npcHandler:setMessage(MESSAGE_GREET, "Good job! For that, I'll grant you 100 experience points! Oh - what was that? I think you advanced a level, {right}?")
 			player:addExperience(100, true)
 			player:getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
@@ -102,7 +102,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:releaseFocus(cid)
 			npcHandler:resetNpc(cid)
 		elseif storeTalkCid[cid] == 2 then
-			if player:getItemCount(2651) > 0 then
+			if player:getItemCount(3562) > 0 then
 				local coatSlot = player:getSlotItem(CONST_SLOT_ARMOR)
 				if coatSlot then
 					npcHandler:say("Ah, no need to say anything, I can see it suits you perfectly. Now we're getting to the fun part, let's get you armed! Are you ready for some {action}?", cid)
@@ -114,7 +114,7 @@ local function creatureSayCallback(cid, type, msg)
 					storeTalkCid[cid] = 2
 				end
 			else
-				player:addItem(2651, 1)
+				player:addItem(3562, 1)
 				npcHandler:say("Oh no, did you lose my coat? Well, lucky you, I have a spare one here. Don't lose it again! Now we're getting to the fun part, let's get you armed! Are you ready for some {action}?", cid)
 				storeTalkCid[cid] = 3
 			end
@@ -123,7 +123,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.SantiagoQuestLog, 4)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.SantiagoNpcGreetStorage, 5)
 			Position(32036, 32277, 6):sendMagicEffect(CONST_ME_TUTORIALARROW)
-			player:addItem(2382, 1)
+			player:addItem(3270, 1)
 			npcHandler:releaseFocus(cid)
 			npcHandler:resetNpc(cid)
 		elseif storeTalkCid[cid] == 4 then
@@ -152,7 +152,7 @@ local function creatureSayCallback(cid, type, msg)
 				"By the way: If your hitpoints are below 150, you will regenerate back to 150 hitpoints after few seconds as long as you are not hungry, outside a protection zone and do not have a battle sign. {Easy}, yes?"
 			}, cid)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.SantiagoQuestLog, 9)
-			player:addItem(2667, 1)
+			player:addItem(3578, 1)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.SantiagoNpcGreetStorage, 11)
 			storeTalkCid[cid] = 8
 		elseif storeTalkCid[cid] == 8 then
@@ -184,7 +184,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.SantiagoQuestLog, 4)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.SantiagoNpcGreetStorage, 5)
 			Position(32036, 32277, 6):sendMagicEffect(CONST_ME_TUTORIALARROW)
-			player:addItem(2382, 1)
+			player:addItem(3270, 1)
 			npcHandler:releaseFocus(cid)
 			npcHandler:resetNpc(cid)
 		end

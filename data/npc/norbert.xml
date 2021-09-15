@@ -12,17 +12,17 @@
 		<parameter key="message_onsendtrade" value="Of course, just browse through my wonderful clothes."/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			coat, 2651, 8;
-			doublet, 2485, 16;
-			jacket, 2650, 12;
-			leather armor, 2467, 35;
-			studded armor, 2484, 90;
-			wedding outfit box, 10503, 5000;"/>
+			coat, 3562, 8;
+			doublet, 3379, 16;
+			jacket, 3561, 12;
+			leather armor, 3361, 35;
+			studded armor, 3378, 90;
+			wedding outfit box, 9586, 5000;"/>
 		<parameter key="shop_sellable" value="
-			coat, 2651, 1;
-			doublet, 2485, 3;
-			jacket, 2650, 1;
-			leather armor, 2467, 12;
-			studded armor, 2484, 25;"/>
+			coat, 3562, 1;
+			doublet, 3379, 3;
+			jacket, 3561, 1;
+			leather armor, 3361, 12;
+			studded armor, 3378, 25;"/>
 	</parameters>
 </npc>

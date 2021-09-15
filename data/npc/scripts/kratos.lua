@@ -20,7 +20,7 @@ local eventShopItems = {
 	["stamina refill low"] = {1000, 1, 10},
 	["stamina refill medium"] = {1000, 1, 20},
 	["stamina refill high"] = {1000, 1, 30},
-	["blood herb"] = {2798, 10, 3}
+	["blood herb"] = {3734, 10, 3}
 }
 
 local function creatureSayCallback(cid, type, msg)
@@ -43,7 +43,7 @@ local function creatureSayCallback(cid, type, msg)
 	if (eventShopItems[msg]) then
 		npcHandler.topic[cid] = 0
 		local itemId, itemCount, itemPrice = eventShopItems[msg][1], eventShopItems[msg][2], eventShopItems[msg][3]
-		if (player:getItemCount(26143) > 0) then
+		if (player:getItemCount(23487) > 0) then
 			npcHandler:say("Deseja comprar o item {" ..msg.. "} por " ..itemPrice.. "x?", cid)
 			npcHandler.topic[cid] = msg
 		else
@@ -60,9 +60,9 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		elseif (msg == "yes" or
 				msg == "sim") then
-			if (player:getItemCount(26143) > 0) then
+			if (player:getItemCount(23487) > 0) then
 				npcHandler:say("Voc� comprou o Item {" ..npcHandler.topic[cid].."} " ..itemCount.. "x por " ..itemPrice.. " {Event Token(s)}!", cid)
-				player:removeItem(26143, itemPrice)
+				player:removeItem(23487, itemPrice)
 				player:addItem(itemId, itemCount)
 			end
 		end

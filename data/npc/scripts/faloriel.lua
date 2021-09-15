@@ -32,7 +32,7 @@ local potionTalk = keywordHandler:addKeyword(
 		function (player) return player:getMoney() + player:getBankBalance() >= 1000 end,
 		function (player)
 			player:removeMoneyNpc(1000)
-			player:addItem(36185, 1) -- flask of hallucinogen
+			player:addItem(31350, 1) -- flask of hallucinogen
 		end
 	)
 

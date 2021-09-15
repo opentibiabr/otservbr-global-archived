@@ -153,42 +153,42 @@ local player = Player(cid)
 		else return false
 		end
 	elseif msgcontains(msg, "yes") then
-		if npcHandler.topic[cid] == 1 and player:removeItem(9674,1) then
+		if npcHandler.topic[cid] == 1 and player:removeItem(8758,1) then
 			npcHandler:say("What's that? Bug milk? Hm, perhaps I can find some customers for that! ", cid)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.AbDendriel, 1)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.TownsCounter, player:getStorageValue(Storage.SearoutesAroundYalahar.TownsCounter) + 1)
 			npcHandler.topic[cid] = 0
-		elseif npcHandler.topic[cid] == 2 and player:removeItem(9676,1) then
+		elseif npcHandler.topic[cid] == 2 and player:removeItem(8760,1) then
 			npcHandler:say("Sand wasp honey? Hm, interesting at least!", cid)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.Darashia, 1)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.TownsCounter, player:getStorageValue(Storage.SearoutesAroundYalahar.TownsCounter) + 1)
 			npcHandler.topic[cid] = 0
-		elseif npcHandler.topic[cid] == 3 and player:removeItem(9675,1) then
+		elseif npcHandler.topic[cid] == 3 and player:removeItem(8759,1) then
 			npcHandler:say("Some special spice might be of value indeed.", cid)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.Venore, 1)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.TownsCounter, player:getStorageValue(Storage.SearoutesAroundYalahar.TownsCounter) + 1)
 			npcHandler.topic[cid] = 0
-		elseif npcHandler.topic[cid] == 4 and player:removeItem(9677,1) then
+		elseif npcHandler.topic[cid] == 4 and player:removeItem(8761,1) then
 			npcHandler:say("I can hardly imagine that someone is interested in embalming fluid, but I\'ll give it a try.", cid)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.Ankrahmun, 1)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.TownsCounter, player:getStorageValue(Storage.SearoutesAroundYalahar.TownsCounter) + 1)
 			npcHandler.topic[cid] = 0
-		elseif npcHandler.topic[cid] == 5 and player:removeItem(3956,1) then
+		elseif npcHandler.topic[cid] == 5 and player:removeItem(3044,1) then
 			npcHandler:say("Of course! Ivory! Its value is quite obvious.", cid)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.PortHope, 1)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.TownsCounter, player:getStorageValue(Storage.SearoutesAroundYalahar.TownsCounter) + 1)
 			npcHandler.topic[cid] = 0
-		elseif npcHandler.topic[cid] == 6 and player:removeItem(9678,1) then
+		elseif npcHandler.topic[cid] == 6 and player:removeItem(8762,1) then
 			npcHandler:say("This royal satin is indeed of acceptable quality.", cid)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.Thais, 1)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.TownsCounter, player:getStorageValue(Storage.SearoutesAroundYalahar.TownsCounter) + 1)
 			npcHandler.topic[cid] = 0
-		elseif npcHandler.topic[cid] == 7 and player:removeItem(5553,1,27) then
+		elseif npcHandler.topic[cid] == 7 and player:removeItem(5552,1,27) then
 			npcHandler:say("I doubt that the esteemed Yalahari will indulge into something profane as rum. But who knows, I'll give it a try.", cid)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.LibertyBay, 1)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.TownsCounter, player:getStorageValue(Storage.SearoutesAroundYalahar.TownsCounter) + 1)
 			npcHandler.topic[cid] = 0
-		elseif npcHandler.topic[cid] == 8 and player:removeItem(11428,1) then
+		elseif npcHandler.topic[cid] == 8 and player:removeItem(8763,1) then
 			npcHandler:say("I doubt that these flowers will stay fresh and healthy forever. But if they do, they could be indeed valuable.", cid)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.Carlin, 1)
 			player:setStorageValue(Storage.SearoutesAroundYalahar.TownsCounter, player:getStorageValue(Storage.SearoutesAroundYalahar.TownsCounter) + 1)

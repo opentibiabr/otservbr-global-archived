@@ -136,7 +136,7 @@ function creatureSayCallback(cid, type, msg)
 
 	if talkState[cid] == 'charges' then
 		if msgcontains(msg, 'yes') then
-			player:addItem(21557, 1)
+			player:addItem(19207, 1)
 			player:setStorageValue(SPIKE_MIDDLE_CHARGE_MAIN, 0)
 			npcHandler:say({'Gnometastic! Charge this magnet at three monoliths in the cave system. With three charges, the magnet will disintegrate and charge you with its gathered energies. Step on the magnetic extractor here to deliver the charge to us, then report to me.','If you lose the magnet you\'ll have to bring your own. Gnomux sells all the equipment that is required for our missions.'}, cid)
 			talkState[cid] = nil
@@ -168,7 +168,7 @@ function creatureSayCallback(cid, type, msg)
 
 	if talkState[cid] == 'fertilise' then
 		if msgcontains(msg, 'yes') then
-			player:addItem(21564)
+			player:addItem(19214)
 			player:setStorageValue(SPIKE_MIDDLE_MUSHROOM_MAIN, 0)
 			npcHandler:say('Gnometastic! And here is your fertiliser - use it on four gardener mushroom in the caves. If you lose the fertiliser you\'ll have to bring your own. Gnomux sells all the equipment that is required for our missions.', cid)
 			talkState[cid] = nil

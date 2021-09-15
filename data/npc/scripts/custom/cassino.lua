@@ -39,11 +39,11 @@ function onThink()
 end
 
 local function getCoinValue(id)
-	if id == 2160 then
+	if id == 3043 then
 		return 10000
-	elseif id == 2152 then
+	elseif id == 3035 then
 		return 100
-	elseif id == 2148 then
+	elseif id == 3031 then
 		return 1
 	end
 	return 0
@@ -60,7 +60,7 @@ local function getBetValue()
 
 		local tempMoney = {}
 		for _, item in pairs(items) do
-			if table.contains({2160, 2152, 2148}, item:getId()) then
+			if table.contains({3043, 3035, 3031}, item:getId()) then
 				value = value + getCoinValue(item:getId()) * item:getCount()
 				tempMoney[#tempMoney + 1] = item
 			end
@@ -83,18 +83,18 @@ local function createMoney(money)
 	currentMoney = currentMoney - crystals * 10000
 	while crystals > 0 do
 		local count = math.min(100, crystals)
-		table[#table + 1] = {2160, count}
+		table[#table + 1] = {3043, count}
 		crystals = crystals - count
 	end
 
 	local platinums = math.floor(currentMoney / 100)
 	if platinums ~= 0 then
-		table[#table + 1] = {2152, platinums}
+		table[#table + 1] = {3035, platinums}
 		currentMoney = currentMoney - platinums * 100
 	end
 
 	if currentMoney ~= 0 then
-		table[#table + 1] = {2148, currentMoney}
+		table[#table + 1] = {3031, currentMoney}
 	end
 	return table
 end

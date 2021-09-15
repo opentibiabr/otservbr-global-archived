@@ -28,9 +28,9 @@ if not npcHandler:isFocused(cid) then
 	end
 
 local player = Player(cid)
-	if msgcontains(msg, "magic") and player:getStorageValue(12902) < 1 then
+	if msgcontains(msg, "magic") and player:getStorageValue(11915) < 1 then
 	npcHandler:say("...Tell me...the first... magic word.", cid)
-	player:setStorageValue(12902, 1)
+	player:setStorageValue(11915, 1)
 	else npcHandler:say("...continue with your mission...", cid)
 	end
 

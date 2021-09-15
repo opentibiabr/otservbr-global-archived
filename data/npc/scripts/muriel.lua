@@ -53,8 +53,8 @@ local function creatureSayCallback(cid, type, msg)
 			addEvent(releasePlayer, 1000, cid)
 		elseif player:getStorageValue(Storage.TibiaTales.IntoTheBonePit) == 2 then
 			player:setStorageValue(Storage.TibiaTales.IntoTheBonePit, 3)
-			if player:removeItem(4864, 1) then
-				player:addItem(6300, 1)
+			if player:removeItem(131, 1) then
+				player:addItem(6299, 1)
 				npcHandler:say('Excellent! Now I can try to put my theoretical thoughts into practice and find a cure for the symptoms of undead. Here, take this for your efforts.', cid)
 			else
 				npcHandler:say({
@@ -69,7 +69,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, 'yes') then
 		if npcHandler.topic[cid] == 1 then
-			player:addItem(4863, 1)
+			player:addItem(4852, 1)
 			player:setStorageValue(Storage.TibiaTales.IntoTheBonePit, 1)
 			npcHandler:say({
 				'Great! Here is the container for the bone. Once, I used it to collect ectoplasma of ghosts, but it will work here as well. ...',

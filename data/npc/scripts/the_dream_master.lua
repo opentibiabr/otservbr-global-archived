@@ -38,7 +38,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("So you want to advance to a {Dreamer} rank? Did you bring 1000 demonic essences with you?", cid)
 			npcHandler.topic[cid] = 4
 		elseif player:getStorageValue(Storage.OutfitQuest.NightmareOutfit) == 3 then
-			npcHandler:say("So you want to advance to a {Lord Protector} rank? Did you bring 1500 demonic essences with you?", cid)
+			npcHandler:say("So you want to advance to a {Lord Protector} rank? Did you bring 21465 demonic essences with you?", cid)
 			npcHandler.topic[cid] = 5
 		end
 	elseif msgcontains(msg, "yes") then
@@ -55,8 +55,8 @@ local function creatureSayCallback(cid, type, msg)
 			player:addAchievement('Nightmare Knight')
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 3 then
-			if player:removeItem(6500, 500) then
-				player:addItem(7845, 1)
+			if player:removeItem(6499, 500) then
+				player:addItem(769, 1)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:setStorageValue(Storage.OutfitQuest.NightmareOutfit, 2)
 				npcHandler:say("You advanced to {Initiate} rank! You are now able to use teleports of second floor of Knightwatch Tower.", cid)
@@ -65,11 +65,11 @@ local function creatureSayCallback(cid, type, msg)
 			end
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 4 then
-			if player:removeItem(6500, 1000) then
+			if player:removeItem(6499, 1000) then
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:setStorageValue(Storage.OutfitQuest.NightmareOutfit, 3)
-				player:addItem(7846, 1)
-				player:addItem(6391, 1)
+				player:addItem(770, 1)
+				player:addItem(6390, 1)
 				player:addAchievement('Nightmare Walker')
 				npcHandler:say("You advanced to {Dreamer} rank!", cid)
 			else
@@ -77,7 +77,7 @@ local function creatureSayCallback(cid, type, msg)
 			end
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 5 then
-			if player:removeItem(6500, 1500) then
+			if player:removeItem(6499, 21465) then
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:setStorageValue(Storage.OutfitQuest.NightmareOutfit, 4)
 				player:setStorageValue(Storage.OutfitQuest.NightmareDoor, 1)

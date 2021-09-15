@@ -105,7 +105,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Alright then. Take this botanist's container and return to me once you were able to retrieve a sample. Don't lose patience!", cid)
 			player:setStorageValue(Storage.OutfitQuest.DruidHatAddon, 1)
 			player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1) --this for default start of Outfit and Addon Quests
-			player:addItem(4869, 1)
+			player:addItem(4867, 1)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 5 then
 			if player:removeItem(5937, 1) then

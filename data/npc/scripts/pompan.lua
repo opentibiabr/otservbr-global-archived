@@ -17,71 +17,71 @@ end
 
 local function getTable(player)
 	local itemsList = {
-		{name='backpack', id=1988, buy=20},
-		{name='bag', id=1987, buy=5},
-		{name='basket', id=1989, buy=6},
-		{name='blue quiver', id=40683, buy=400},
-		{name='bucket', id=2005, buy=4},
-		{name='candlestick', id=2047, buy=2},
-		{name='closed trap', id=2578, buy=280, sell=75},
-		{name='crowbar', id=2416, buy=260, sell=50},
-		{name='expedition backpack', id=11241, buy=100},
-		{name='expedition bag', id=11242, buy=50},
-		{name='fishing rod', id=2580, buy=150, sell=40},
-		{name='lamp', id=2044, buy=8},
-		{name='pick', id=2553, buy=50, sell=15},
-		{name='quiver', id=40397, buy=400},
-		{name='red quiver', id=40684, buy=400},
-		{name='rope', id=2120, buy=50, sell=15},
-		{name='scythe', id=2550, buy=50, sell=10},
-		{name='shovel', id=2554, buy=50, sell=8},
-		{name='torch', id=2050, buy=2},
-		{name='watch', id=2036, buy=20, sell=6},
-		{name='worm', id=3976, buy=1},
-		{name='inkwell', id=2600, sell=8},
-		{name='mirror', id=2560, sell=10},
-		{name='sickle', id=2405, sell=3}
+		{name='backpack', id=2854, buy=20},
+		{name='bag', id=2853, buy=5},
+		{name='basket', id=2855, buy=6},
+		{name='blue quiver', id=35848, buy=400},
+		{name='bucket', id=2873, buy=4},
+		{name='candlestick', id=2917, buy=2},
+		{name='closed trap', id=3481, buy=280, sell=75},
+		{name='crowbar', id=3304, buy=260, sell=50},
+		{name='expedition backpack', id=10324, buy=100},
+		{name='expedition bag', id=10325, buy=50},
+		{name='fishing rod', id=3483, buy=150, sell=40},
+		{name='lamp', id=2914, buy=8},
+		{name='pick', id=3456, buy=50, sell=15},
+		{name='quiver', id=35562, buy=400},
+		{name='red quiver', id=35849, buy=400},
+		{name='rope', id=3003, buy=50, sell=15},
+		{name='scythe', id=3453, buy=50, sell=10},
+		{name='shovel', id=3457, buy=50, sell=8},
+		{name='torch', id=2920, buy=2},
+		{name='watch', id=2906, buy=20, sell=6},
+		{name='worm', id=3492, buy=1},
+		{name='inkwell', id=3509, sell=8},
+		{name='mirror', id=3463, sell=10},
+		{name='sickle', id=3293, sell=3}
 	}
 
 	local tomes = {
 		-- 1 tome
 		{
-			{name='arrow', id=2544, buy=3},
-			{name='bolt', id=2543, buy=4},
-			{name='bow', id=2456, buy=400, sell=100},
-			{name='crossbow', id=2455, buy=500, sell=120},
-			{name='crystalline arrow', id=18304, buy=20},
-			{name='diamond arrow', id=40736, buy=100},
-			{name='dragon tapestry', id=11264, buy=80},
-			{name='drill bolt', id=18436, buy=12},
-			{name='earth arrow', id=7850, buy=5},
-			{name='envenomed arrow', id=18437, buy=12},
-			{name='flaming arrow', id=7840, buy=5},
-			{name='flash arrow', id=7838, buy=5},
+			{name='arrow', id=3447, buy=3},
+			{name='bolt', id=3446, buy=4},
+			{name='bow', id=3350, buy=400, sell=100},
+			{name='crossbow', id=3349, buy=500, sell=120},
+			{name='crystalline arrow', id=15793, buy=20},
+			{name='diamond arrow', id=35901, buy=100},
+			{name='dragon tapestry', id=10347, buy=80},
+			{name='drill bolt', id=16142, buy=12},
+			{name='earth arrow', id=774, buy=5},
+			{name='envenomed arrow', id=16143, buy=12},
+			{name='flaming arrow', id=763, buy=5},
+			{name='flash arrow', id=761, buy=5},
 			{name='onyx arrow', id=7365, buy=7},
 			{name='piercing bolt', id=7363, buy=5},
-			{name='power bolt', id=2547, buy=7},
-			{name='prismatic bolt', id=18435, buy=20},
+			{name='power bolt', id=3450, buy=7},
+			{name='prismatic bolt', id=16141, buy=20},
 			{name='royal spear', id=7378, buy=15},
-			{name='shiver arrow', id=7839, buy=5},
+			{name='shiver arrow', id=762, buy=5},
 			{name='sniper arrow', id=7364, buy=5},
-			{name='spear', id=2389, buy=9, sell=3},
-			{name='spectral bolt', id=40737, buy=70},
-			{name='tarsal arrow', id=15648, buy=6},
-			{name='throwing star', id=2399, buy=42},
-			{name='vortex bolt', id=15649, buy=6},
-			{name='corrupted flag', id=11326, sell=700},
-			{name='high guard flag', id=11332, sell=550},
-			{name='legionnaire flags', id=11334, sell=500},
-			{name='zaogun flag', id=11330, sell=600}
+			{name='spear', id=3277, buy=9, sell=3},
+			{name='spectral bolt', id=35902, buy=70},
+			{name='tarsal arrow', id=14251, buy=6},
+			{name='throwing star', id=3287, buy=42},
+			{name='vortex bolt', id=14252, buy=6},
+			{name='corrupted flag', id=10409, sell=700},
+			{name='high guard flag', id=10415, sell=550},
+			{name='legionnaire flags', id=10417, sell=500},
+			{name='zaogun flag', id=10413, sell=600}
 		},
 		-- 2 tomes
 		{
-			{name='minotaur backpack', id=11244, buy=200}
+			{name='minotaur backpack', id=10327, buy=200}
 		},
 		-- 5 tomes
 		{
-			{name='dragon backpack', id=11243, buy=200}
+			{name='dragon backpack', id=10326, buy=200}
 		}
 	}
 

@@ -5,10 +5,10 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			amulet of loss, 2173, 50000;
-			protection amulet, 2200, 700, 250;"/>
+			amulet of loss, 3057, 50000;
+			protection amulet, 3084, 700, 250;"/>
 		<parameter key="shop_sellable" value="
-			amulet of loss, 2173, 45000;
-			broken amulet, 2196, 50000;"/>
+			amulet of loss, 3057, 45000;
+			broken amulet, 3080, 50000;"/>
 	</parameters>
 </npc>

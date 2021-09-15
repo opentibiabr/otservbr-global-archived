@@ -13,14 +13,14 @@
 		<parameter key="keyword_reply1" value="I am the humble supplier for distance fighting weapons of the Ironhouse, owned by Abran Ironeye."/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			arrow, 2544, 3;
-			blue quiver, 40683, 400;
-			bolt, 2543, 4;
-			bow, 2456, 400;
-			crossbow, 2455, 500;
-			quiver, 40397, 400;
-			red quiver, 40684, 400;
-			spear, 2389, 10;"/>
-		<parameter key="shop_sellable" value="spear, 2389, 3;"/>
+			arrow, 3447, 3;
+			blue quiver, 35848, 400;
+			bolt, 3446, 4;
+			bow, 3350, 400;
+			crossbow, 3349, 500;
+			quiver, 35562, 400;
+			red quiver, 35849, 400;
+			spear, 3277, 10;"/>
+		<parameter key="shop_sellable" value="spear, 3277, 3;"/>
 	</parameters>
 </npc>

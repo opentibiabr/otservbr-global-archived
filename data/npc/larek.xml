@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <npc name="Larek" walkinterval="2000" floorchange="0" script="larek.lua">
 	<health now="100" max="100"/>
-	<look type="472" head="19" body="50" legs="10" feet="3" addons="0"/>
+	<look type="597" head="19" body="50" legs="10" feet="3" addons="0"/>
 	<voices>
 		<voice text="I should provide more cookies for the ogres. They're looking at me so hungrily." interval2="0" margin="1" yell="no"/>
 		<voice text="What an interesting speck of land. I have to write down all this in my essay." interval2="0" margin="1" yell="no"/>
@@ -10,21 +10,21 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			cookie, 2687, 7;
-			flour, 2692, 30;
-			hoe, 2552, 15;
+			cookie, 3598, 7;
+			flour, 3603, 30;
+			hoe, 3455, 15;
 			juice squeezer, 5865, 100;
-			kitchen knife, 2566, 20;
-			rope, 2120, 50;
-			shovel, 2554, 50;
-			vial of milk,2006,50,6;
-			vial,2006,20,0;"/>
+			kitchen knife, 3469, 20;
+			rope, 3003, 50;
+			shovel, 3457, 50;
+			vial of milk,2874,50,6;
+			vial,2874,20,0;"/>
 		<parameter key="shop_sellable" value="
-			black pearl, 2144, 280;
-			onyx chip, 24849, 500;
-			opal, 24850, 500;
-			small ruby, 2147, 250;
-			small topaz, 9970, 200;
-			white pearl, 2143, 160;"/>
+			black pearl, 3027, 280;
+			onyx chip, 22193, 500;
+			opal, 22194, 500;
+			small ruby, 3030, 250;
+			small topaz, 9057, 200;
+			white pearl, 3026, 160;"/>
 	</parameters>
  </npc>

@@ -67,7 +67,7 @@ function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(SPIKE_LOWER_PARCEL_MAIN) == 4 then
 				npcHandler:say('You have done well. Here, take your reward.', cid)
 				player:addFamePoint()
-				player:addExperience(3500, true)
+				player:addExperience(1589, true)
 				player:setStorageValue(SPIKE_LOWER_PARCEL_MAIN, -1)
 				player:setStorageValue(SPIKE_LOWER_PARCEL_DAILY, 86400)
 			else
@@ -79,7 +79,7 @@ function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(SPIKE_LOWER_UNDERCOVER_MAIN) == 3 then
 				npcHandler:say('You have done well. Here, take your reward.', cid)
 				player:addFamePoint()
-				player:addExperience(3500, true)
+				player:addExperience(1589, true)
 				player:setStorageValue(SPIKE_LOWER_UNDERCOVER_MAIN, -1)
 				player:setStorageValue(SPIKE_LOWER_UNDERCOVER_DAILY, 86400)
 			else
@@ -91,7 +91,7 @@ function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(SPIKE_LOWER_LAVA_MAIN) == 1 then
 				npcHandler:say('You have done well. Here, take your reward.', cid)
 				player:addFamePoint()
-				player:addExperience(3500, true)
+				player:addExperience(1589, true)
 				player:setStorageValue(SPIKE_LOWER_LAVA_MAIN, -1)
 				player:setStorageValue(SPIKE_LOWER_LAVA_DAILY, 86400)
 			else
@@ -103,7 +103,7 @@ function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(SPIKE_LOWER_KILL_MAIN) == 7 then
 				npcHandler:say('You have done well. Here, take your reward.', cid)
 				player:addFamePoint()
-				player:addExperience(3500, true)
+				player:addExperience(1589, true)
 				player:setStorageValue(SPIKE_LOWER_KILL_MAIN, -1)
 				player:setStorageValue(SPIKE_LOWER_KILL_DAILY, 86400)
 			else
@@ -138,7 +138,7 @@ function creatureSayCallback(cid, type, msg)
 
 	if talkState[cid] == 'delivery' then
 		if msgcontains(msg, 'yes') then
-			player:addItem(21569, 4)
+			player:addItem(19219, 4)
 			player:setStorageValue(SPIKE_LOWER_PARCEL_MAIN, 0)
 			npcHandler:say({'Gnometastic! Here are the parcels. Regrettably, the labels got lost during transport; but I guess those lonely gnomes won\'t mind as long as they get ANY parcel at all.','If you lose the parcels, you\'ll have to get new ones. Gnomux sells all the equipment that is required for our missions.'}, cid)
 			talkState[cid] = nil
@@ -201,7 +201,7 @@ function creatureSayCallback(cid, type, msg)
 
 	if talkState[cid] == 'temperature' then
 		if msgcontains(msg, 'yes') then
-			player:addItem(21556, 1)
+			player:addItem(19206, 1)
 			player:setStorageValue(SPIKE_LOWER_LAVA_MAIN, 0)
 			npcHandler:say('Gnometastic! Find the hottest spot of the lava pools in the caves. If you lose the GTMD before you find the hot spot, you\'ll have to get yourself a new one. Gnomux sells all the equipment that is required for our missions.', cid)
 			talkState[cid] = nil

@@ -5,42 +5,42 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			basket, 1989, 6;
-			blue backpack, 2002, 20;
-			blue bag, 1995, 5;
-			bottle, 2007, 3, 0;
-			bucket, 2005, 4, 0;
-			candelabrum, 2041, 8;
-			candlestick, 2047, 2;
-			closed trap, 2578, 280;
-			crowbar, 2416, 260;
-			fishing rod, 2580, 150;
-			hand auger, 36169, 25;
-			lamp, 2044, 8;
-			machete, 2420, 35;
-			net, 36324, 50;
-			pick, 2553, 50;
-			present, 1990, 10;
-			rope, 2120, 50;
-			scythe, 2550, 50;
-			shovel, 2554, 50;
-			torch, 2050, 2;
-			watch, 2036, 20;
-			waterball, 7956, 222;
-			worm, 3976, 1;"/>
+			basket, 2855, 6;
+			blue backpack, 2869, 20;
+			blue bag, 2861, 5;
+			bottle, 2875, 3, 0;
+			bucket, 2873, 4, 0;
+			candelabrum, 2911, 8;
+			candlestick, 2917, 2;
+			closed trap, 3481, 280;
+			crowbar, 3304, 260;
+			fishing rod, 3483, 150;
+			hand auger, 31334, 25;
+			lamp, 2914, 8;
+			machete, 3308, 35;
+			net, 31489, 50;
+			pick, 3456, 50;
+			present, 2856, 10;
+			rope, 3003, 50;
+			scythe, 3453, 50;
+			shovel, 3457, 50;
+			torch, 2920, 2;
+			watch, 2906, 20;
+			waterball, 893, 222;
+			worm, 3492, 1;"/>
 		<parameter key="shop_sellable" value="
-			closed trap, 2578, 75;
-			crowbar, 2416, 50;
-			fishing rod, 2580, 40;
-			inkwell, 2600, 8;
-			machete, 2420, 6;
-			mirror, 2560, 10;
-			pick, 2553, 15;
-			rope, 2120, 15;
-			scythe, 2550, 10;
-			shovel, 2554, 8;
-			sickle, 2405, 3;
-			watch, 2036, 6;
-			wooden hammer, 2556, 15;"/>
+			closed trap, 3481, 75;
+			crowbar, 3304, 50;
+			fishing rod, 3483, 40;
+			inkwell, 3509, 8;
+			machete, 3308, 6;
+			mirror, 3463, 10;
+			pick, 3456, 15;
+			rope, 3003, 15;
+			scythe, 3453, 10;
+			shovel, 3457, 8;
+			sickle, 3293, 3;
+			watch, 2906, 6;
+			wooden hammer, 3459, 15;"/>
 	</parameters>
 </npc>

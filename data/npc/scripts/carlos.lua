@@ -35,8 +35,8 @@ end
 
 local function getTable()
 	local itemsList = {
-		{name="meat", id=2666, sell=2},
-		{name="ham", id=2671, sell=2},
+		{name="meat", id=3577, sell=2},
+		{name="ham", id=3582, sell=2},
 	}
 	return itemsList
 end
@@ -65,7 +65,7 @@ local function greetCallback(cid)
 		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|! Did you have a successful hunt and carry a piece of {meat} or ham with you?")
 		storeTalkCid[cid] = 5
 	elseif player:getStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage) == 6 then
-		if player:getItemCount(2666) > 0 or player:getItemCount(2671) > 0 then
+		if player:getItemCount(3577) > 0 or player:getItemCount(3582) > 0 then
 			npcHandler:setMessage(MESSAGE_GREET, "Welcome back, Isleth Eagonst! Do you still have that piece of meat or ham? If so, please ask me for a {trade} and I'll give you some gold for it.")
 			storeTalkCid[cid] = 6
 		else
@@ -127,7 +127,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:releaseFocus(cid)
 			npcHandler:resetNpc(cid)
 		elseif storeTalkCid[cid] == 5 then
-			if player:getItemCount(2666) > 0 or player:getItemCount(2671) > 0 then
+			if player:getItemCount(3577) > 0 or player:getItemCount(3582) > 0 then
 				npcHandler:say("What's that delicious smell? That must be a piece of meat! Please hurry, simply ask me for a {trade} and I'll give you two gold pieces for it!", cid)
 				player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosQuestLog, 6)
 				player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage, 6)

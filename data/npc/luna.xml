@@ -5,36 +5,36 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			brown mushroom, 2789, 10;
-			fern, 2801, 24;
-			red mushroom, 2788, 12;
-			red rose, 2744, 11;
-			star herb, 2800, 21;
-			stone herb, 2799, 28;
-			tulip, 2754, 9;
-			white mushroom, 2787, 6;"/>
+			brown mushroom, 3725, 10;
+			fern, 3737, 24;
+			red mushroom, 3724, 12;
+			red rose, 3658, 11;
+			star herb, 3736, 21;
+			stone herb, 3735, 28;
+			tulip, 3668, 9;
+			white mushroom, 3723, 6;"/>
 		<parameter key="shop_sellable" value="
-			bamboo stick, 12401, 30;
-			bundle of cursed straw, 10605, 800;
-			carniphila seeds, 11217, 50;
-			dark mushroom, 2792, 100;
-			dung ball, 15622, 130;
-			fire mushroom, 2795, 200;
-			goat grass, 2760, 50;
-			grave flower, 2747, 25;
-			green mushroom, 2796, 100;
-			lump of dirt, 10609, 10;
-			lump of earth, 11222, 130;
-			nettle blossom, 11231, 75;
-			nettle spit, 12432, 25;
-			orange mushroom, 2790, 150;
-			powder herb, 2803, 10;
-			seeds, 7732, 150;
-			shadow herb, 2804, 20;
-			sling herb, 2802, 10;
-			swamp grass, 10603, 20;
-			troll green, 2805, 25;
-			trollroot, 12471, 50;
-			wood mushroom, 2791, 15;"/>
+			bamboo stick, 11445, 30;
+			bundle of cursed straw, 9688, 800;
+			carniphila seeds, 10300, 50;
+			dark mushroom, 3728, 100;
+			dung ball, 14225, 130;
+			fire mushroom, 3731, 200;
+			goat grass, 3674, 50;
+			grave flower, 3661, 25;
+			green mushroom, 3732, 100;
+			lump of dirt, 9692, 10;
+			lump of earth, 10305, 130;
+			nettle blossom, 10314, 75;
+			nettle spit, 11476, 25;
+			orange mushroom, 3726, 150;
+			powder herb, 3739, 10;
+			seeds, 647, 150;
+			shadow herb, 3740, 20;
+			sling herb, 3738, 10;
+			swamp grass, 9686, 20;
+			troll green, 3741, 25;
+			trollroot, 11515, 50;
+			wood mushroom, 3727, 15;"/>
 	</parameters>
 </npc>

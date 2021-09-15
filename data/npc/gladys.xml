@@ -5,49 +5,49 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			basket, 1989, 6;
-			bottle, 2007, 3, 0;
-			bucket, 2005, 4, 0;
-			candelabrum, 2041, 8;
-			candlestick, 2047, 2;
-			closed trap, 2578, 280;
-			crowbar, 2416, 260;
-			fishing rod, 2580, 150;
-			hand auger, 36169, 25;
-			machete, 2420, 35;
-			net, 36324, 50;
-			pick, 2553, 50;
-			present, 1990, 10;
-			rope, 2120, 50;
-			scythe, 2550, 50;
-			shovel, 2554, 50;
-			torch, 2050, 2;
-			watch, 2036, 20;
-			worm, 3976, 1;"/>
+			basket, 2855, 6;
+			bottle, 2875, 3, 0;
+			bucket, 2873, 4, 0;
+			candelabrum, 2911, 8;
+			candlestick, 2917, 2;
+			closed trap, 3481, 280;
+			crowbar, 3304, 260;
+			fishing rod, 3483, 150;
+			hand auger, 31334, 25;
+			machete, 3308, 35;
+			net, 31489, 50;
+			pick, 3456, 50;
+			present, 2856, 10;
+			rope, 3003, 50;
+			scythe, 3453, 50;
+			shovel, 3457, 50;
+			torch, 2920, 2;
+			watch, 2906, 20;
+			worm, 3492, 1;"/>
 		<parameter key="shop_sellable" value="
-			badger boots, 24742, 7500;
-			closed trap, 2578, 75;
-			crowbar, 2416, 50;
-			fishing rod, 2580, 40;
-			fox paw, 30697, 100;
-			fur armor, 24741, 5000;
-			machete, 2420, 6;
-			pick, 2553, 15;
-			rope, 2120, 15;
-			scythe, 2550, 10;
-			shovel, 2554, 8;
-			watch, 2036, 6;
-			werebadger claws, 24707, 160;
-			werebadger skull, 24711, 185;
-			werebear fur, 24713, 185;
-			werebear skull, 24713, 195;
-			wereboar hooves, 24709, 175;
-			wereboar loincloth, 24743, 1500;
-			wereboar tusk, 24710, 165;
-			werefox tail, 30698, 200;
-			werewolf amulet, 24716, 3000;
-			werewolf fang, 24708, 180;
-			werewolf fur, 11234, 380;
-			wooden hammer, 2556, 15;"/>
+			badger boots, 22086, 142;
+			closed trap, 3481, 75;
+			crowbar, 3304, 50;
+			fishing rod, 3483, 40;
+			fox paw, 27462, 100;
+			fur armor, 22085, 5000;
+			machete, 3308, 6;
+			pick, 3456, 15;
+			rope, 3003, 15;
+			scythe, 3453, 10;
+			shovel, 3457, 8;
+			watch, 2906, 6;
+			werebadger claws, 22051, 160;
+			werebadger skull, 22055, 185;
+			werebear fur, 22057, 185;
+			werebear skull, 22057, 195;
+			wereboar hooves, 22053, 175;
+			wereboar loincloth, 22087, 21465;
+			wereboar tusk, 22054, 165;
+			werefox tail, 27463, 200;
+			werewolf amulet, 22060, 3000;
+			werewolf fang, 22052, 180;
+			werewolf fur, 10317, 382;
+			wooden hammer, 3459, 15;"/>
 	</parameters>
 </npc>

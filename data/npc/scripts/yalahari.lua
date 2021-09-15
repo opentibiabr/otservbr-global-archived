@@ -120,7 +120,7 @@ local function creatureSayCallback(cid, type, msg)
 			}, cid)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 35)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission06, 1) -- StorageValue for Questlog "Mission 06: Frightening Fuel"
-			player:addItem(9737, 1)
+			player:addItem(8822, 1)
 			npcHandler.topic[cid] = 0
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 38 then
 			npcHandler:say({
@@ -131,7 +131,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission06, 5) -- StorageValue for Questlog "Mission 06: Frightening Fuel"
 			npcHandler.topic[cid] = 0
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 37 then
-			if player:removeItem(9742, 1) then
+			if player:removeItem(8827, 1) then
 				npcHandler:say({
 					"Ah, what an unexpected sight. I can almost feel the energy of the charm. It will help to recover some of the past wealth. ...",
 					"You did quite an impressive job. I'm considering to introduce you to my ma.. to my direct superior one day. But there are still other missions to fulfil."
@@ -212,7 +212,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 1 then
-			if player:removeItem(9733, 1) then
+			if player:removeItem(8818, 1) then
 				player:setStorageValue(Storage.InServiceofYalahar.BadSide, 1)
 				player:setStorageValue(Storage.InServiceofYalahar.Questline, 22)
 				player:setStorageValue(Storage.InServiceofYalahar.Mission03, 6) -- StorageValue for Questlog "Mission 03: Death to the Deathbringer"

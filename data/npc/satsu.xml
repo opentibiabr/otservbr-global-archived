@@ -5,15 +5,15 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			cocktail glass of beer, 10150, 52, 3;
-			cocktail glass of fruit juice, 10150, 52, 21;
-			cocktail glass of lemonade, 10150, 52, 5;
-			cocktail glass of mead, 10150, 52, 43;
-			cocktail glass of milk, 10150, 52, 6;
-			cocktail glass of rum, 10150, 52, 27;
-			cocktail glass of tea, 10150, 52, 35;
-			cocktail glass of water, 10150, 52, 1;
-			cocktail glass of wine, 10150, 52, 15;"/>
-		<parameter key="shop_sellable" value="cocktail glass, 10150, 50;"/>
+			cocktail glass of beer, 9232, 52, 3;
+			cocktail glass of fruit juice, 9232, 52, 21;
+			cocktail glass of lemonade, 9232, 52, 5;
+			cocktail glass of mead, 9232, 52, 43;
+			cocktail glass of milk, 9232, 52, 6;
+			cocktail glass of rum, 9232, 52, 27;
+			cocktail glass of tea, 9232, 52, 35;
+			cocktail glass of water, 9232, 52, 1;
+			cocktail glass of wine, 9232, 52, 15;"/>
+		<parameter key="shop_sellable" value="cocktail glass, 9232, 50;"/>
 	</parameters>
 </npc>

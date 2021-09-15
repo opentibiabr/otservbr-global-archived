@@ -5,16 +5,16 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			ethno coat, 8892, 750;
-			magicians robe, 8819, 450;
-			spirit cloak, 8870, 1000;"/>
+			ethno coat, 8064, 750;
+			magicians robe, 7991, 456;
+			spirit cloak, 8042, 1000;"/>
 		<parameter key="shop_sellable" value="
-			batwing hat, 10016, 8000;
-			ethno coat, 8892, 200;
-			focus cape, 8871, 6000;
-			jade hat, 11368, 9000;
-			spellweavers rob, 11355, 12000;
-			spirit cloak, 8870, 350;
-			zaoan robe, 11356, 12000;"/>
+			batwing hat, 9103, 1038;
+			ethno coat, 8064, 200;
+			focus cape, 8043, 6000;
+			jade hat, 10451, 8172;
+			spellweavers rob, 10438, 11044;
+			spirit cloak, 8042, 350;
+			zaoan robe, 10439, 11044;"/>
 	</parameters>
 </npc>

@@ -37,10 +37,10 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 0
 	elseif msgcontains(msg,'yes') and npcHandler.topic[cid] <= 4 and npcHandler.topic[cid] >= 1 then
 		local trade = {
-				{ NeedItem = 2195, Ncount = 1, GiveItem = 5891, Gcount = 1}, -- Enchanted Chicken Wing
-				{ NeedItem = 2475, Ncount = 4, GiveItem = 5885, Gcount = 1}, -- Flask of Warrior's Sweat
-				{ NeedItem = 2498, Ncount = 2, GiveItem = 5884, Gcount = 1}, -- Spirit Container
-				{ NeedItem = 2392, Ncount = 3, GiveItem = 5904, Gcount = 1}  -- Magic Sulphur
+				{ NeedItem = 3079, Ncount = 1, GiveItem = 5891, Gcount = 1}, -- Enchanted Chicken Wing
+				{ NeedItem = 3369, Ncount = 4, GiveItem = 5885, Gcount = 1}, -- Flask of Warrior's Sweat
+				{ NeedItem = 3392, Ncount = 2, GiveItem = 5884, Gcount = 1}, -- Spirit Container
+				{ NeedItem = 3280, Ncount = 3, GiveItem = 5904, Gcount = 1}  -- Magic Sulphur
 		}
 		if player:getItemCount(trade[npcHandler.topic[cid]].NeedItem) >= trade[npcHandler.topic[cid]].Ncount then
 			player:removeItem(trade[npcHandler.topic[cid]].NeedItem, trade[npcHandler.topic[cid]].Ncount)

@@ -5,50 +5,50 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			backpack, 1988, 20;
-			baking tray, 2561, 20;
-			basket, 1989, 6;
-			bottle, 2007, 3, 0;
-			bucket, 2005, 4, 0;
-			candelabrum, 2041, 8;
-			candlestick, 2047, 2;
-			cleaver, 2568, 15;
-			closed trap, 2578, 280;
-			crowbar, 2416, 260;
-			cup, 2013, 2, 0;
-			fishing rod, 2580, 150;
-			fork, 2564, 10;         
-			hand auger, 36169, 25;
-			hoe, 2552, 15;
+			backpack, 2854, 20;
+			baking tray, 3464, 20;
+			basket, 2855, 6;
+			bottle, 2875, 3, 0;
+			bucket, 2873, 4, 0;
+			candelabrum, 2911, 8;
+			candlestick, 2917, 2;
+			cleaver, 3471, 15;
+			closed trap, 3481, 280;
+			crowbar, 3304, 260;
+			cup, 2881, 2, 0;
+			fishing rod, 3483, 150;
+			fork, 3467, 10;         
+			hand auger, 31334, 25;
+			hoe, 3455, 15;
 			jug, 7244, 10;
-			kitchen knife, 2566, 10;
-			machete, 2420, 35;
-			mug, 2012, 4, 0;
-			net, 36324, 50;
-			pan, 2563, 20;          
-			pick, 2553, 50;
-			plate, 2035, 6;
-			present, 1990, 10;          
-			rake, 2549, 20;
-			rope, 2120, 50;
-			scythe, 2550, 50;
-			shovel, 2554, 50;
-			spoon, 2565, 10;
-			torch, 2050, 2;
-			watch, 2036, 20;
-			watering can, 7734, 50;
-			wooden spoon, 2567, 5;
-			worm, 3976, 1;"/>
+			kitchen knife, 3469, 10;
+			machete, 3308, 35;
+			mug, 2880, 4, 0;
+			net, 31489, 50;
+			pan, 3466, 20;          
+			pick, 3456, 50;
+			plate, 2905, 6;
+			present, 2856, 10;          
+			rake, 3452, 20;
+			rope, 3003, 50;
+			scythe, 3453, 50;
+			shovel, 3457, 50;
+			spoon, 3468, 10;
+			torch, 2920, 2;
+			watch, 2906, 20;
+			watering can, 650, 50;
+			wooden spoon, 3470, 5;
+			worm, 3492, 1;"/>
 		<parameter key="shop_sellable" value="
-			closed trap, 2578, 75;
-			crowbar, 2416, 50;
-			fishing rod, 2580, 40;
-			machete, 2420, 6;
-			pick, 2553, 15;
-			rope, 2120, 15;
-			scythe, 2550, 10;
-			shovel, 2554, 8;
-			watch, 2036, 6;
-			wooden hammer, 2556, 15;"/>
+			closed trap, 3481, 75;
+			crowbar, 3304, 50;
+			fishing rod, 3483, 40;
+			machete, 3308, 6;
+			pick, 3456, 15;
+			rope, 3003, 15;
+			scythe, 3453, 10;
+			shovel, 3457, 8;
+			watch, 2906, 6;
+			wooden hammer, 3459, 15;"/>
 	</parameters>
 </npc>

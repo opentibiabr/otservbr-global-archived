@@ -9,7 +9,7 @@
 		<parameter key="message_walkaway" value="Take care, |PLAYERNAME|."/>
 		<parameter key="message_sendtrade" value="Got some Vampire's teeth for me?"/>
 		<parameter key="shop_sellable" value="
-			blood preservation, 12405, 320;
-			vampire teeth, 10602, 275;"/>
+			blood preservation, 11449, 320;
+			vampire teeth, 9685, 275;"/>
 	</parameters>
 </npc>

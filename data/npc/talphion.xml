@@ -5,7 +5,7 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			crossbow, 2455, 1150;
-			bolt, 2543, 5;"/>
+			crossbow, 3349, 1395;
+			bolt, 3446, 5;"/>
 	</parameters>
 </npc>

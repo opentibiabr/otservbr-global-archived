@@ -5,11 +5,11 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			blob bomb, 15390, 150;
-			flask of chitin dissolver, 15463, 150;
-			gooey substance, 15462, 150;
-			reagent flask, 15465, 200;
-			strange powder, 15389, 150;
-			swarmer drum, 15650, 200;"/>
+			blob bomb, 13976, 150;
+			flask of chitin dissolver, 14052, 150;
+			gooey substance, 14051, 150;
+			reagent flask, 14054, 200;
+			strange powder, 13974, 150;
+			swarmer drum, 14255, 200;"/>
 	</parameters>
 </npc>

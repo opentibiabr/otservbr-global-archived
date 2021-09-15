@@ -21,7 +21,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 	local player = Player(cid)
 	if msgcontains(msg, 'belongings of deceasead') or msgcontains(msg, 'medicine') then
-		if player:getItemCount(13506) > 0 then
+		if player:getItemCount(12517) > 0 then
 			npcHandler:say('Did you bring me the medicine pouch?', cid)
 			npcHandler.topic[cid] = 1
 		else
@@ -29,8 +29,8 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, 'yes') and npcHandler.topic[cid] == 1 then
-		if player:removeItem(13506, 1) then
-			player:addItem(13670, 1)
+		if player:removeItem(12517, 1) then
+			player:addItem(12413, 1)
 			player:addAchievementProgress('Doctor! Doctor!', 100)
 			npcHandler:say('Here you are', cid)
 		else

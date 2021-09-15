@@ -5,18 +5,18 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			backpack, 1988, 10;
-			bag, 1987, 4;
-			fishing rod, 2580, 150;
-			rope, 2120, 50;
-			scroll, 1949, 5;
-			scythe, 2550, 12;
-			shovel, 2554, 10;
-			torch, 2050, 2;
-			worm, 3976, 1;"/>
+			backpack, 2854, 10;
+			bag, 2853, 4;
+			fishing rod, 3483, 150;
+			rope, 3003, 50;
+			scroll, 2815, 5;
+			scythe, 3453, 12;
+			shovel, 3457, 10;
+			torch, 2920, 2;
+			worm, 3492, 1;"/>
 		<parameter key="shop_sellable" value="
-			fishing rod, 2580, 30;
-			rope, 2120, 8;
-			shovel, 2554, 2;"/>
+			fishing rod, 3483, 30;
+			rope, 3003, 8;
+			shovel, 3457, 2;"/>
 	</parameters>
 </npc>

@@ -52,14 +52,14 @@ local function creatureSayCallback(cid, type, msg)
 			}, cid)
 			player:setStorageValue(Storage.TheNewFrontier.Questline, 5)
 			player:setStorageValue(Storage.TheNewFrontier.Mission02, 2) --Questlog, The New Frontier Quest "Mission 02: From Kazordoon With Love"
-			player:addItem(11100, 1)
+			player:addItem(9843, 1)
 			for i = 1, #config do
 				player:addMapMark(config[i].position, config[i].type, config[i].description)
 			end
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 2 then
 			if player:removeMoneyNpc(100) then
-				player:addItem(11100, 1)
+				player:addItem(9843, 1)
 				npcHandler:say("Here you go.", cid)
 				npcHandler.topic[cid] = 0
 			else
@@ -81,13 +81,13 @@ end
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
 
-shopModule:addBuyableItem({'Broken Crossbow'}, 12407, 30)
-shopModule:addBuyableItem({'Minotaur Horn'}, 12428, 75)
-shopModule:addBuyableItem({'Piece of Archer Armor'}, 12439, 20)
-shopModule:addBuyableItem({'Piece of Warrior Armor'},  12438, 50)
-shopModule:addBuyableItem({'Purple Robe'}, 12429, 110)
+shopModule:addBuyableItem({'Broken Crossbow'}, 11451, 30)
+shopModule:addBuyableItem({'Minotaur Horn'}, 11472, 75)
+shopModule:addBuyableItem({'Piece of Archer Armor'}, 11483, 20)
+shopModule:addBuyableItem({'Piece of Warrior Armor'},  11482, 50)
+shopModule:addBuyableItem({'Purple Robe'}, 11473, 110)
 
-shopModule:addSellableItem({'Flask with Beaver Bait'}, 11100, 100)
+shopModule:addSellableItem({'Flask with Beaver Bait'}, 9843, 100)
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())

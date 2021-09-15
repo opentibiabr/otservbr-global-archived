@@ -31,7 +31,7 @@ local function creatureSayCallback(cid, type, msg)
 					"A frozen dragon lord? This is just the information we needed! And you even brought a scale from it! Take these 5000 gold pieces as a reward. ...",
 					"As you did such a great job, I might have another mission for you later."
 				}, cid)
-				player:addItem(2152, 50)
+				player:addItem(3035, 50)
 				player:setStorageValue(Storage.ExplorerSociety.TheIslandofDragons, 59)
 				player:setStorageValue(Storage.ExplorerSociety.QuestLine, 59)
 			else

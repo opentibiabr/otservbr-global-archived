@@ -124,7 +124,7 @@ local function creatureSayCallback(cid, type, msg)
 			}, cid)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Questline, 21)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Mission05, 3) --Questlog, Children of the Revolution "Mission 5: Phantom Army"
-			player:addItem(11116, 1)
+			player:addItem(10199, 1)
 			player:addExperience(10000, true)
 			npcHandler.topic[cid] = 0
 		-- CHILDREN OF REVOLUTION QUEST
@@ -230,7 +230,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Exzztraordinary. We are mozzt fortunate to have zzezze documentzz in our handzz now. Zzizz would zzertainly help me to build an effective rezzizztanzze. Will you give zzem to me? ", cid)
 			npcHandler.topic[cid] = 4
 		elseif npcHandler.topic[cid] == 4 then
-			if player:removeItem(11101, 1) then
+			if player:removeItem(637, 1) then
 				npcHandler:say({
 					"Aaah, zzezze look zzertainly interezzting. Zzezze manuzzcriptzz show uzz zzeveral locationzz of zze enemy troopzz. ... ",
 					"I'm imprezzed, zzoftzzkin. Maybe you can be of zzome more help. "
@@ -297,7 +297,7 @@ local function creatureSayCallback(cid, type, msg)
 				"By zze way, before I forget it - zzinzze you are zzkilled in zzolving riddlezz, maybe you can make uzze of zzizz old tome I've found? It containzz ancient knowledge and truly izz a tezztament of our culture, treat it wizz care. ...",
 				"I may alzzo have anozzer mizzion for you if you are interezzted."
 			}, cid)
-			player:addItem(11134, 1)
+			player:addItem(10217, 1)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Questline, 18)
 			player:setStorageValue(Storage.ChildrenoftheRevolution.Mission04, 6) --Questlog, Children of the Revolution "Mission 4: Zze Way of Zztonezz"
 			npcHandler.topic[cid] = 0
@@ -333,12 +333,12 @@ local function creatureSayCallback(cid, type, msg)
 			}, cid)
 			npcHandler.topic[cid] = 17
 		elseif npcHandler.topic[cid] == 18 then
-			if player:getItemCount(8309) >= 3 and player:getItemCount(5901) >= 1 then
+			if player:getItemCount(953) >= 3 and player:getItemCount(5901) >= 1 then
 				player:removeItem(5901, 1)
-				player:removeItem(8309, 3)
+				player:removeItem(953, 3)
 				player:setStorageValue(Storage.WrathoftheEmperor.Questline, 2)
 				player:setStorageValue(Storage.WrathoftheEmperor.Mission01, 2) --Questlog, Wrath of the Emperor "Mission 01: Catering the Lions Den"
-				player:addItem(12284, 1)
+				player:addItem(11328, 1)
 				npcHandler:say({
 					"Alright. Let uzz create a crate. Hm. Let me zzee. ... ",
 					"Good. Zzat will do. ... ",
@@ -359,10 +359,10 @@ local function creatureSayCallback(cid, type, msg)
 			}, cid)
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 7)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission03, 1) --Questlog, Wrath of the Emperor "Mission 03: The Keeper"
-			player:addItem(12320, 1)
+			player:addItem(11364, 1)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 20 then
-			if player:removeItem(12323, 1) then
+			if player:removeItem(11367, 1) then
 				npcHandler:say("Zzizz izz not hizz head but clearly belonged to zze keeper. I - I am imprezzed. You can go now. Leave me alone for a zzecond. ", cid)
 				player:setStorageValue(Storage.WrathoftheEmperor.Questline, 9)
 				player:setStorageValue(Storage.WrathoftheEmperor.Mission03, 3) --Questlog, Wrath of the Emperor "Mission 03: The Keeper"
@@ -370,7 +370,7 @@ local function creatureSayCallback(cid, type, msg)
 			end
 
 		elseif npcHandler.topic[cid] == 21 then
-			if player:removeItem(12327, 1) then
+			if player:removeItem(11371, 1) then
 				player:setStorageValue(Storage.WrathoftheEmperor.Questline, 12)
 				player:setStorageValue(Storage.WrathoftheEmperor.Mission04, 3) --Questlog, Wrath of the Emperor "Mission 04: Sacrament of the Snake"
 				npcHandler:say("Finally. At lazzt. Zze zzeptre izz - ourzz. Ourzz of courzze. A weapon we should uzze wizzely for our cauzze. I need a zzecond or two. Do you leave me already? ", cid)

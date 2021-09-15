@@ -66,7 +66,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 3
 		elseif npcHandler.topic[cid] == 3 then
 			if player:removeMoneyNpc(1000) then
-				player:addItem(8761, 1)
+				player:addItem(7933, 1)
 				player:setStorageValue(Storage.ThievesGuild.Mission03, 2)
 				npcHandler:say('Excellent! Here is your invitation!', cid)
 			else

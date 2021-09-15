@@ -63,9 +63,9 @@ function creatureSayCallback(cid, type, msg)
 				setPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Questline, 2) -- quest log
 			------------------- ITEM RANDOM --------------------
 			items = {
-				[0] = {id = 2152, count = 3, chance = 100},
-				[1] = {id = 2169, count = 1, chance = 80},
-				[2] = {id = 13247, count = 1, chance = 25},
+				[0] = {id = 3035, count = 3, chance = 100},
+				[1] = {id = 3053, count = 1, chance = 80},
+				[2] = {id = 12260, count = 1, chance = 25},
 			}
 			for i = 0, #items do
 			if (items[i].chance > math.random(1, 100)) then
@@ -87,16 +87,16 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler:say("If you need some more ribbons just come back to me and ask.", cid)
 			setPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Mission03, 1)
 			setPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Questline, 1) -- quest log
-			doPlayerAddItem(cid, 13158, 7)
+			doPlayerAddItem(cid, 12171, 7)
 			npcHandler.topic[cid] = 0
-		elseif(npcHandler.topic[cid] == 3) and getPlayerItemCount(cid, 13160) >= 7 then
+		elseif(npcHandler.topic[cid] == 3) and getPlayerItemCount(cid, 12173) >= 7 then
 			npcHandler:say("Good hunt. That will be enough to help us uhm... get through the winter yes. Now if you want to help us getting even more lucky charms, you can always ask.", cid)
-			doPlayerRemoveItem(cid, 13160, 7)
+			doPlayerRemoveItem(cid, 12173, 7)
 			setPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Mission03, 2)
 			setPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Questline, 4) -- quest log
 			npcHandler.topic[cid] = 0
 
-			elseif(npcHandler.topic[cid] == 3) and getPlayerItemCount(cid, 13160) <= 6 then
+			elseif(npcHandler.topic[cid] == 3) and getPlayerItemCount(cid, 12173) <= 6 then
 			npcHandler:say("You do not have sufficient rabbit's foot.", cid)
 
 		------------------------ FINISH MISSION 01 ------------------------
@@ -110,7 +110,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler:say("The walls look as if they will come off in a matter of hours. Oh well, you can always come back and repair this mess, ask me for a task if you want to. Yeah, yeah and here's your reward for today.", cid)
 			setPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Mission03, 4)
 			setPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Questline, 6) -- quest log
-			doPlayerAddItem(cid, 2152, 5)
+			doPlayerAddItem(cid, 3035, 5)
 			npcHandler.topic[cid] = 0
 		------------------------ FINISH MISSION 02 ------------------------
 		elseif(npcHandler.topic[cid] == 6) then
@@ -127,7 +127,7 @@ function creatureSayCallback(cid, type, msg)
 			selfSay("My men will take their share of course and... help you relieve the merchants of any valuables. ...", cid)
 			selfSay("You're done if you get at least... let's say 5 of these fools. Return to me and you will be rewarded. ...", cid)
 			npcHandler:say("Off you go and - good hunt, heh.", cid)
-			doPlayerAddItem(cid, 13173, 5)
+			doPlayerAddItem(cid, 12186, 5)
 			setPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Mission03, 5)
 			setPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Questline, 5) -- quest log
 			npcHandler.topic[cid] = 0

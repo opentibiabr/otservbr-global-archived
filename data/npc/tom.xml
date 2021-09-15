@@ -5,22 +5,22 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_sellable" value="
-			antlers, 11214, 5;
+			antlers, 10297, 5;
 			bear paw, 5896, 10;
-			bunch of troll hair, 10606, 5;
-			dead rabbit, 2992, 2;
-			dead rat, 2813, 2;
-			dead wolf, 2826, 5;
-			lump of dirt, 10609, 2;
-			minotaur horn, 12428, 15;
+			bunch of troll hair, 9689, 5;
+			dead rabbit, 4173, 2;
+			dead rat, 3994, 2;
+			dead wolf, 4007, 5;
+			lump of dirt, 9692, 2;
+			minotaur horn, 11472, 15;
 			minotaur leather, 5878, 12;
-			orc leather, 12435, 8;
-			orc tooth, 11113, 40;
-			pelvis bone, 12437, 5;
-			pig foot, 10610, 2;
-			poison spider shell, 12441, 3;
-			spider fangs, 8859, 4;
+			orc leather, 11479, 8;
+			orc tooth, 10196, 40;
+			pelvis bone, 11481, 5;
+			pig foot, 9693, 2;
+			poison spider shell, 11485, 3;
+			spider fangs, 8031, 4;
 			wolf paw, 5897, 7;
-			wool, 11236, 10;"/>
+			wool, 10319, 10;"/>
 	</parameters>
 </npc>

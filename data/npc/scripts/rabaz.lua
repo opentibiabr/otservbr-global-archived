@@ -47,9 +47,9 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Yes? Yes! That's the enthusiasm I need! Remember to bring a sharp knife to gather the samples, plants - even mutated deformed plants - are very sensitive you know. Off you go and be careful out there, Zao is no place for the feint hearted mind you.", cid)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 2 then
-			if player:removeItem(12655, 1) then
-				player:addItem(12656, 1)
-				player:addItem(2152, 10)
+			if player:removeItem(11699, 1) then
+				player:addItem(11700, 1)
+				player:addItem(3035, 10)
 				player:addExperience(3000, true)
 				player:setStorageValue(Storage.TibiaTales.AnInterestInBotany, 4)
 				npcHandler:say({

@@ -504,10 +504,10 @@ salmonKeyword:addChildKeyword({"yes"}, StdModule.say,
 		reset = true
 	},
 		function(player)
-			return player:getItemCount(2668) > 0
+			return player:getItemCount(3579) > 0
 		end,
 		function(player)
-			player:removeItem(2668, 1)
+			player:removeItem(3579, 1)
 		end
 	)
 salmonKeyword:addChildKeyword({"yes"}, StdModule.say,
@@ -539,10 +539,10 @@ bookKeyword:addChildKeyword({"yes"}, StdModule.say,
 		reset = true
 	},
 		function(player)
-			return player:getItemCount(1955) > 0
+			return player:getItemCount(2821) > 0
 		end,
 		function(player)
-			player:addItem(2406, 1) player:removeItem(1955, 1)
+			player:addItem(3294, 1) player:removeItem(2821, 1)
 		end
 	)
 bookKeyword:addChildKeyword({"yes"}, StdModule.say,

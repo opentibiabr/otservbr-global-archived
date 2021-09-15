@@ -13,11 +13,11 @@
 		<parameter key="keyword_reply1" value="Here you may buy some of the most beautiful flowers."/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			exotic flowers, 2107, 300;
-			flower bowl, 2102, 6;
-			god flowers, 2100, 5;
-			honey flower, 2103, 5;
-			indoor plant kit, 3937, 8;
-			potted flower, 2104, 5;"/>
+			exotic flowers, 2988, 300;
+			flower bowl, 2983, 6;
+			god flowers, 2981, 5;
+			honey flower, 2984, 5;
+			indoor plant kit, 2811, 8;
+			potted flower, 2985, 5;"/>
 	</parameters>
 </npc>

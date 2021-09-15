@@ -5,13 +5,13 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			crimson rose, 24323, 15;
-			flower bouquet, 7733, 20;
-			heart backpack, 11119, 500;
-			present, 1990, 10;
-			sweetheart ring, 24324, 500;
-			truelove teddy, 24322, 1000;
-			valentines cake, 6393, 30;
+			crimson rose, 21954, 15;
+			flower bouquet, 649, 20;
+			heart backpack, 10202, 500;
+			present, 2856, 10;
+			sweetheart ring, 21955, 500;
+			truelove teddy, 21953, 1000;
+			valentines cake, 6392, 30;
 			valentines card, 6538, 5;"/>
 	</parameters>
 </npc>

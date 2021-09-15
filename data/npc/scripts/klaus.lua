@@ -35,7 +35,7 @@ local function creatureSayCallback(cid, type, msg)
     elseif msgcontains(msg, 'yes') then
         if player:getStorageValue(Storage.TheShatteredIsles.RaysMission4) == 3 then
             if npcHandler.topic[cid] == 1 then
-                if player:removeItem(11427, 1) then
+                if player:removeItem(6105, 1) then
                     npcHandler:say('You DID it!!! Incredible! Boys, lets have a PAAAAAARTY!!!!', cid)
                     player:setStorageValue(Storage.TheShatteredIsles.RaysMission4, 4)
                     npcHandler.topic[cid] = 0

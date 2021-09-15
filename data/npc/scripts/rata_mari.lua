@@ -49,12 +49,12 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif npcHandler.topic[cid] == 1 then
 		if msgcontains(msg, 'yes') then
-			if not player:removeItem(2696, 1) then
+			if not player:removeItem(3607, 1) then
 				npcHandler:say('No cheese - no report.', cid)
 				return true
 			end
 			player:setStorageValue(Storage.DjinnWar.MaridFaction.RataMari, 2)
-			player:addItem(2345, 1)
+			player:addItem(3232, 1)
 			npcHandler:say('Meep! Meep! Great! Here is the spyreport for you!', cid)
 		else
 			npcHandler:say('No cheese - no report.', cid)

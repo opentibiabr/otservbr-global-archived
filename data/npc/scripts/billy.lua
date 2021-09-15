@@ -97,10 +97,10 @@ keywordHandler:addAliasKeyword({'zerbrus'})
 -- Health Potion Quest
 local panKeyword = keywordHandler:addKeyword({'pan'}, StdModule.say, {npcHandler = npcHandler, text = 'Have you found a pan for me?'})
 	panKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'A pan! At last! Take this in case you eat something my cousin has cooked.', reset = true},
-			function(player) return player:getItemCount(2563) > 0 end,
+			function(player) return player:getItemCount(3466) > 0 end,
 			function(player)
-				player:removeItem(2563, 1)
-				player:addItem(8704, 1)
+				player:removeItem(3466, 1)
+				player:addItem(7876, 1)
 			end
 	)
 	panKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Hey! You don\'t have one!', reset = true})

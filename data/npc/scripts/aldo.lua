@@ -25,7 +25,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 1
 	elseif msgcontains(msg, 'yes') and npcHandler.topic[cid] == 1 then
 		npcHandler.topic[cid] = 0
-		if player:getItemCount(10021) == 0 then
+		if player:getItemCount(6530) == 0 then
 			npcHandler:say("Sorry, you don't have the item.", cid)
 			return true
 		end
@@ -35,8 +35,8 @@ local function creatureSayCallback(cid, type, msg)
 			return true
 		end
 
-		player:removeItem(10021, 1)
-		player:addItem(6132, 1)
+		player:removeItem(6530, 1)
+		player:addItem(6529, 1)
 		npcHandler:say("Here you are.", cid)
 	elseif msgcontains(msg, 'no') and npcHandler.topic[cid] == 1 then
 		npcHandler.topic[cid] = 0

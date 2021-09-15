@@ -8,7 +8,7 @@
 		<parameter key="message_farewell" value="Bye, bye!"/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			banana, 2676, 2;
+			banana, 3587, 2;
 			monkey statue 'hear' kit, 5087, 65;
 			monkey statue 'see' kit, 5086, 65;
 			monkey statue 'speak' kit, 5088, 65;"/>

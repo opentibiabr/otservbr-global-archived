@@ -18,7 +18,7 @@ end
 local function greetCallback(cid)
 	local player = Player(cid)
 	if player:getStorageValue(Storage.Kilmaresh.Fifth.Memories) == 4 then
-		player:addItem(36249, 1)
+		player:addItem(31414, 1)
 		npcHandler:setMessage(MESSAGE_GREET, {
 			"I see. There is enough and adequate evidence that the Ambassador of Rathleton is indeed an arch traitor. So, Eshaya was right. Well done, mortal being. You have proven your loyalty and bravery, therefore allow me to ask you one more favour. ...", 
 			"The Cult of Fafnar is a serious problem for Issavi. The cultists are roaming the sewers and catacombs beneath the city now and again but this time they are really up to something. ...",
@@ -48,7 +48,7 @@ local masksDialogue = keywordHandler:addKeyword(
 		text = "Thank you."},
 		nil,
 		function (player)
-			player:addItem(36408, 1) -- Sun Medal
+			player:addItem(31573, 1) -- Sun Medal
 			player:setStorageValue(Storage.Kilmaresh.Sixth.Favor, 11)
 		end
 	)

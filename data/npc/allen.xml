@@ -10,19 +10,19 @@
 		<parameter key="keyword_reply1" value="I run this market and sell furniture."/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			blue bed kit, 7907, 80;
-			canopy bed kit, 20252, 200;
-			green bed kit, 7904, 80;
-			green cushioned chair kit, 3902, 40;
-			red bed kit, 7906, 80;
-			red cushioned chair kit, 3901, 40;
-			rocking chair kit, 3904, 25;
-			sofa chair kit, 3905, 55;
-			treasure chest, 1746, 1000;
-			venorean cabinet kit, 20254, 90;
-			venorean drawer kit, 20257, 40;
-			venorean wardrobe kit, 20255, 50;
-			wooden chair kit, 3903, 15;
-			yellow bed kit, 7905, 80;"/>
+			blue bed kit, 834, 80;
+			canopy bed kit, 17972, 200;
+			green bed kit, 831, 80;
+			green cushioned chair kit, 2776, 40;
+			red bed kit, 833, 80;
+			red cushioned chair kit, 2775, 40;
+			rocking chair kit, 2778, 25;
+			sofa chair kit, 2779, 55;
+			treasure chest, 2478, 1000;
+			venorean cabinet kit, 17974, 90;
+			venorean drawer kit, 17977, 40;
+			venorean wardrobe kit, 17975, 50;
+			wooden chair kit, 2777, 15;
+			yellow bed kit, 832, 80;"/>
 	</parameters>
 </npc>

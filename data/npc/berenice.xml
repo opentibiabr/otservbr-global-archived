@@ -14,7 +14,7 @@
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
 			atlas, 6108, 150;
-			orichalcum pearl, 5022, 80;"/>
+			orichalcum pearl, 5021, 80;"/>
 		<parameter key="shop_sellable" value="
 			first verse of the hymn, 6087, 100;
 			second verse of the hymn, 6088, 250;

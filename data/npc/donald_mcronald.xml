@@ -8,12 +8,12 @@
 		<parameter key="message_greet" value="Hmmm, well, hello |PLAYERNAME|."/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			beetroot, 8845, 2;
-			bunch of wheat, 2694, 1;
-			carrot, 2684, 3;
-			cheese, 2696, 5;
-			corncob, 2686, 3;
-			cucumber, 8842, 3;"/>
-		<parameter key="shop_sellable" value="dead spider, 2807, 2;"/>
+			beetroot, 8017, 2;
+			bunch of wheat, 3605, 1;
+			carrot, 3595, 3;
+			cheese, 3607, 5;
+			corncob, 3597, 3;
+			cucumber, 8014, 3;"/>
+		<parameter key="shop_sellable" value="dead spider, 3988, 2;"/>
 	</parameters>
 </npc>

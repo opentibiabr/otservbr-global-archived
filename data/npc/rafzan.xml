@@ -8,28 +8,28 @@
 		<parameter key="message_farewell" value="Bye, little adventurer."/>
 		<parameter key="message_sendtrade" value="Ah, you too clever for me to make any meagre profit. Just please, please don't rob poor stupid goblin too much, you master of shrewd trading."/>
 		<parameter key="shop_buyable" value="
-			advertisement sign, 19948, 75;
-			backpack, 1988, 10;
-			bag, 1987, 4;
-			bottle with rat urine, 19951, 150;
-			fishing rod, 2580, 150;
-			guardcatcher, 19949, 200;
-			perfume gatherer, 19950, 400;
-			rope, 2120, 50;
-			scroll, 1949, 5;
-			scythe, 2550, 12;
-			shovel, 2554, 10;
-			torch, 2050, 2;
-			trunkhammer, 19956, 150;
-			worm, 3976, 1;"/>
+			advertisement sign, 17668, 75;
+			backpack, 2854, 10;
+			bag, 2853, 4;
+			bottle with rat urine, 17671, 150;
+			fishing rod, 3483, 150;
+			guardcatcher, 17669, 200;
+			perfume gatherer, 17670, 400;
+			rope, 3003, 50;
+			scroll, 2815, 5;
+			scythe, 3453, 12;
+			shovel, 3457, 10;
+			torch, 2920, 2;
+			trunkhammer, 17676, 150;
+			worm, 3492, 1;"/>
 		<parameter key="shop_sellable" value="
-			fishing rod, 2580, 30;
-			leather harness, 20126, 750;
-			life preserver, 20093, 300;
-			ratana, 20092, 500;
-			rope, 2120, 8;
-			shovel, 2554, 2;
-			spike shield, 20090, 250;
-			spiky club, 20139, 300;"/>
+			fishing rod, 3483, 30;
+			leather harness, 17846, 750;
+			life preserver, 17813, 300;
+			ratana, 17812, 500;
+			rope, 3003, 8;
+			shovel, 3457, 2;
+			spike shield, 17810, 250;
+			spiky club, 17859, 300;"/>
 	</parameters>
 </npc>

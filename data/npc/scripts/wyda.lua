@@ -51,7 +51,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, 'yes') then
 		if npcHandler.topic[cid] == 1 then
-			if not player:removeItem(8111, 1) then
+			if not player:removeItem(130, 1) then
 				npcHandler:say('You have no cookie that I\'d like.', cid)
 				npcHandler.topic[cid] = 0
 				return true
@@ -68,16 +68,16 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:releaseFocus(cid)
 			npcHandler:resetNpc(cid)
 		elseif npcHandler.topic[cid] == 2 then
-			if player:removeItem(2798, 1) then
+			if player:removeItem(3734, 1) then
 				player:setStorageValue(Storage.BloodHerbQuest, 2)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
 				local TornTeddyRand = math.random(1, 100)
 				if TornTeddyRand <= 70 then
-					player:addItem(2324, 1) -- witchesbroom
+					player:addItem(3454, 1) -- witchesbroom
 					npcHandler:say('Thank you -SOOO- much! No, I really mean it! Really! Here, let me give you a reward...', cid)
 					npcHandler.topic[cid] = 0
 				else
-					player:addItem(13774, 1) -- torn teddy
+					player:addItem(12617, 1) -- torn teddy
 					npcHandler:say('Thank you -SOOO- much! No, I really mean it! Really! Ah, you know what, you can have this old thing...', cid)
 					npcHandler.topic[cid] = 0
 				end

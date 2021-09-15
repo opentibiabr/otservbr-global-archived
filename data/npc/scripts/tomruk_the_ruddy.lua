@@ -45,22 +45,22 @@ local function creatureSayCallback(cid, type, msg)
 			"Take these two sterilised vials, one for each blood basin. Oh, I wish I could go myself! Come back when you have filled both vials."
 		}, cid)
 		player:setStorageValue(Storage.GravediggerOfDrefia.Mission36, 1)
-		player:addItem(21417, 2)
+		player:addItem(19100, 2)
 		npcHandler.topic[cid] = 0
 	elseif(msgcontains(msg, 'scroll') or msgcontains(msg, 'mission') or msgcontains(msg, 'blood')) and player:getStorageValue(Storage.GravediggerOfDrefia.Mission37) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission38) < 1 then
 		npcHandler:say("Hello hello! Did you bring those blood samples?", cid)
 		npcHandler.topic[cid] = 2
 	elseif msgcontains(msg, 'yes') and npcHandler.topic[cid] == 2 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission37) == 1 then
-		if player:getItemCount(21419) >= 1 and player:getItemCount(21418) >= 1 then
+		if player:getItemCount(19102) >= 1 and player:getItemCount(19101) >= 1 then
 			npcHandler:say({
 				"Now, let me see... yes... yes... very good. Let me add THIS ..... swill it... there. Sanguine! ...",
 				"We're not finished yet. Take this tainted blood vial ...",
 				"Dab some drops from it on to the four blood pagodas in the inner circle here. Then pull the lightning lever over there."
 			}, cid)
 			player:setStorageValue(Storage.GravediggerOfDrefia.Mission38, 1)
-			player:removeItem(21418, 1)
-			player:removeItem(21419, 1)
-			player:addItem(21449, 1)
+			player:removeItem(19101, 1)
+			player:removeItem(19102, 1)
+			player:addItem(19133, 1)
 			npcHandler.topic[cid] = 0
 		else
 			npcHandler:say("You haven't got any blood.", cid)
@@ -84,7 +84,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, 'yes') and npcHandler.topic[cid] == 4 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission41) == 1 then
 		npcHandler:say("My heart bleeds to part from it. Here. Extend your hand - I'll just retrieve some blood from in exchange - HOLD STILL.", cid)
 		player:setStorageValue(Storage.GravediggerOfDrefia.Mission42, 1)
-		player:addItem(21250, 1)
+		player:addItem(18933, 1)
 		npcHandler.topic[cid] = 0
 	end
 	return true

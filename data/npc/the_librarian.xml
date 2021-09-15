@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="The Librarian" walkinterval="0" floorchange="0" script="the_librarian.lua">
 	<health now="100" max="100"/>
-	<look type="1065" head="0" body="0" legs="0" feet="0" addons="0"/>
+	<look type="1310" head="0" body="0" legs="0" feet="0" addons="0"/>
 	<parameters>
 		<parameter key="module_shop" value="1"/>
         <parameter key="shop_buyable" value="
 			atlas, 6108, 150;
-			black book, 1972, 20;
-			brown book, 1971, 20;
-			document, 1968, 20;
-			greeting card, 6387, 40;
-			grey small book, 1973, 20;
-			inkwell, 2600, 20;
-			parchment, 1967, 15;
-			parchment, 1969, 15;
-			scroll, 1949, 10;
+			black book, 2838, 20;
+			brown book, 2837, 20;
+			document, 2834, 20;
+			greeting card, 6386, 40;
+			grey small book, 2839, 20;
+			inkwell, 3509, 20;
+			parchment, 2833, 15;
+			parchment, 2835, 15;
+			scroll, 2815, 10;
 			valentine's card, 6538, 40;"/>
 		<parameter key="shop_sellable" value="
-			blue book, 1978, 40;
-			book page, 33316, 640;
-			bunch of reed, 35810, 25;
-			gemmed book, 1976, 150;
-			glowing rune, 33317, 350;
-			green book, 1965, 30;
-			Inkwell black, 33315, 720;
-			inkwell, 2600, 15;
-			orange book, 1977, 60;
-			parchment, 1967, 10;
-			quill, 33314, 1100;
-			silken bookmark, 33313, 1300;"/>
+			blue book, 2844, 40;
+			book page, 28569, 640;
+			bunch of reed, 30975, 25;
+			gemmed book, 2842, 150;
+			glowing rune, 28570, 350;
+			green book, 2831, 30;
+			Inkwell black, 28568, 720;
+			inkwell, 3509, 15;
+			orange book, 2843, 60;
+			parchment, 2833, 10;
+			quill, 28567, 1345;
+			silken bookmark, 28566, 1787;"/>
 	</parameters>
 </npc>
 

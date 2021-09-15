@@ -18,7 +18,7 @@ end
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
 
-shopModule:addBuyableItem({"broken compass"}, 29047, 10000)
+shopModule:addBuyableItem({"broken compass"}, 25746, 10000)
 
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
@@ -68,7 +68,7 @@ local function creatureSayCallback(cid, type, msg)
         end
         if player:getMoney() + player:getBankBalance() >= 5000 then
             player:removeMoneyNpc(5000)
-            player:addItem(11219, 1)
+            player:addItem(10302, 1)
         end
         npcHandler.topic[cid] = 0  
     end

@@ -53,7 +53,7 @@ local function creatureSayCallback(cid, type, msg)
 				return true
 			end
 
-			player:addItem(8189, 1)
+			player:addItem(6119, 1)
 			npcHandler:say('Here it is.', cid)
 		end
 	end

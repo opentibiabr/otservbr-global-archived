@@ -5,22 +5,22 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			banana, 2676, 3;
-			blueberry, 2677, 1;
-			carrot, 2684, 3;
-			cherry, 2679, 1;
-			cucumber, 8842, 5;
-			grapes, 2681, 3;
-			mango, 5097, 8;
-			melon, 2682, 8;
-			orange, 2675, 6;
-			pear, 2673, 5;
-			plum, 8839, 3;
-			potato, 8838, 5;
-			pumpkin, 2683, 10;
-			raspberry, 8840, 1;
-			red apple, 2674, 3;
-			strawberry, 2680, 1;
-			tomato, 2685, 4;"/>
+			banana, 3587, 3;
+			blueberry, 3588, 1;
+			carrot, 3595, 3;
+			cherry, 3590, 1;
+			cucumber, 8014, 5;
+			grapes, 3592, 3;
+			mango, 5096, 8;
+			melon, 3593, 8;
+			orange, 3586, 6;
+			pear, 3584, 5;
+			plum, 8011, 3;
+			potato, 8010, 5;
+			pumpkin, 3594, 10;
+			raspberry, 8012, 1;
+			red apple, 3585, 3;
+			strawberry, 3591, 1;
+			tomato, 3596, 4;"/>
 	</parameters>
 </npc>

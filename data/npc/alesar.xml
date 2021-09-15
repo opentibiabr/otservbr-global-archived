@@ -5,35 +5,35 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			ancient shield, 2532, 5000;
-			dark armor, 2489, 1500;
-			dark helmet, 2490, 1000;
-			ice rapier, 2396, 5000;
-			serpent sword, 2409, 6000;"/>
+			ancient shield, 3432, 5000;
+			dark armor, 3383, 21465;
+			dark helmet, 3384, 1000;
+			ice rapier, 3284, 5000;
+			serpent sword, 3297, 6000;"/>
 		<parameter key="shop_sellable" value="
-			ancient shield, 2532, 900;
-			black shield, 2529, 800;
+			ancient shield, 3432, 1109;
+			black shield, 3429, 800;
 			bonebreaker, 7428, 10000;
-			dark armor, 2489, 400;
-			dark helmet, 2490, 250;
-			dragon hammer, 2434, 2000;
+			dark armor, 3383, 400;
+			dark helmet, 3384, 250;
+			dragon hammer, 3322, 2000;
 			dreaded cleaver, 7419, 15000;
-			giant sword, 2393, 17000;
-			haunted blade, 7407, 8000;
-			knight armor, 2476, 5000;
-			knight axe, 2430, 2000;
-			knight legs, 2477, 5000;
-			mystic turban, 2663, 150;
-			onyx flail, 7421, 22000;
-			ornamented axe, 7411, 20000;
-			poison dagger, 2411, 50;
-			scimitar, 2419, 150;
-			serpent sword, 2409, 900;
-			skull staff, 2436, 6000;
-			strange helmet, 2479, 500;
+			giant sword, 3281, 14814;
+			haunted blade, 7407, 1038;
+			knight armor, 3370, 5000;
+			knight axe, 3318, 2000;
+			knight legs, 3371, 5000;
+			mystic turban, 3574, 150;
+			onyx flail, 7421, 19666;
+			ornamented axe, 7411, 17720;
+			poison dagger, 3299, 50;
+			scimitar, 3307, 150;
+			serpent sword, 3297, 1109;
+			skull staff, 3324, 6000;
+			strange helmet, 3373, 500;
 			titan axe, 7413, 4000;
-			tower shield, 2528, 8000;
-			vampire shield, 2534, 15000;
-			warrior helmet, 2475, 5000;"/>
+			tower shield, 3428, 1038;
+			vampire shield, 3434, 15000;
+			warrior helmet, 3369, 5000;"/>
 	</parameters>
 </npc>

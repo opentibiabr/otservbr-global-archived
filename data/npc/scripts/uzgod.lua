@@ -24,8 +24,8 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say("You bringing me draconian steel and obsidian lance in exchange for obsidian knife?", cid)
 		npcHandler.topic[cid] = 15
 	elseif(msgcontains(msg, "yes") and npcHandler.topic[cid] == 15) then
-		if player:getItemCount(5889) >= 1 and player:getItemCount(2425) >= 1 then
-			if player:removeItem(5889, 1) and player:removeItem(2425, 1) then
+		if player:getItemCount(5889) >= 1 and player:getItemCount(3313) >= 1 then
+			if player:removeItem(5889, 1) and player:removeItem(3313, 1) then
 				npcHandler:say("Here you have it.", cid)
 				player:addItem(5908, 1)
 				npcHandler.topic[cid] = 0
@@ -70,13 +70,13 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.ExplorerSociety.DwacatraDoor, 1)
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 2)
 		elseif(npcHandler.topic[cid] == 3) then
-			if player:removeItem(4845, 1) then -----
+			if player:removeItem(4834, 1) then -----
 				npcHandler:say("Thanking you for brooch. Me guessing you now want your pickaxe?", cid)
 				npcHandler.topic[cid] = 4
 			end
 		elseif(npcHandler.topic[cid] == 4) then
 			npcHandler:say("Here you have it.", cid)
-			player:addItem(4874, 1) -----
+			player:addItem(4845, 1) -----
 			player:setStorageValue(Storage.ExplorerSociety.JoiningTheExplorers, 3)
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 3)
 			npcHandler.topic[cid] = 0

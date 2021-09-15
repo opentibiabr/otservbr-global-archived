@@ -30,7 +30,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 7
 		end
 	elseif msgcontains(msg, "yes") then
-		if	player:removeItem(2329, 1)	and	npcHandler.topic[cid] == 7 then
+		if	player:removeItem(3216, 1)	and	npcHandler.topic[cid] == 7 then
 			npcHandler:say("Ok, ok, I'll take it. I guess I have no other choice anyways. And now leave me alone in my misery please.", cid)
 			player:setStorageValue(Storage.Postman.Mission03, 2)
 			npcHandler.topic[cid] = 0

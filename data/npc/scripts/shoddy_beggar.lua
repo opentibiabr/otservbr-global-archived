@@ -87,7 +87,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('Ah, you think you are wise but you know nothing, nothing about science, nothing about the opportunities it offers... You will never understand scientists like me.', cid)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 11 then
-			player:addItem(10613, 1)
+			player:addItem(9696, 1)
 			player:setStorageValue(Storage.SeaOfLight.Questline, 2)
 			player:setStorageValue(Storage.SeaOfLight.Mission1, 2)
 			npcHandler:say('Well, to be honest, I envy him a little. He can continue his research in his laboratory. He still has working equipment... I sometimes read his publications. He is an able man, but completely on the wrong track... give these plans to him.', cid)

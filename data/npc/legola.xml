@@ -5,8 +5,8 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_sellable" value="
-			girlish hair decoration, 12399, 30;
-			hunters quiver, 12425, 80;
-			protective charm, 12400, 60;"/>
+			girlish hair decoration, 11443, 30;
+			hunters quiver, 11469, 80;
+			protective charm, 11444, 60;"/>
 	</parameters>
 </npc>

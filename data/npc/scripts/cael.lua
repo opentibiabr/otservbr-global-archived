@@ -17,8 +17,8 @@ end
 
 local function getTable(player)
 	local itemsList = {
-		{name="Didgeridoo", id=3952, buy=5,000},
-		{name="War Drum", id=3953, buy=1,000}
+		{name="Didgeridoo", id=2965, buy=5,000},
+		{name="War Drum", id=2966, buy=1,000}
 	}
 	return itemsList
 end
@@ -90,7 +90,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("I'm sorry I'm busy. Speak with Ongulf to get some missions!", cid)
 		end
 	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] >= 1 and npcHandler.topic[cid] <= 13 then
-		if player:removeItem(11134, 1) then --remove tome
+		if player:removeItem(10217, 1) then --remove tome
 			if npcHandler.topic[cid] == 1 then	--tome1
 				npcHandler:say("Thank you! I look forward to reading this interesting discovery of yours and learn a few things about {Zao}.", cid)
 				player:setStorageValue(Storage.TheNewFrontier.TomeofKnowledge, 1)
@@ -293,8 +293,8 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 65
 		end
 	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 65 then
-		if player:removeItem(11206, 1) then
-			player:addItem(11133,1)
+		if player:removeItem(10289, 1) then
+			player:addItem(10216,1)
 			npcHandler:say("Let's put this little lantern here.. there you go. I wrap it up for you, just unwrap it in your house again!", cid)
 			npcHandler.topic[cid] = 0
 		else
@@ -308,7 +308,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 66 then
 		if player:removeItem(5911, 1) then
-			player:addItem(11205,1)
+			player:addItem(10288,1)
 			npcHandler:say("Let's put this cloth over the seat.. there you go. I wrap it up for you, just unwrap it in your house again!", cid)
 			npcHandler.topic[cid] = 0
 		else
@@ -316,10 +316,10 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, "crest") then
-		if player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335) and player:getItemCount(11116) > 0 then
+		if player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335) and player:getItemCount(10199) > 0 then
 		 	npcHandler:say("Oh, wow! Now THAT is an interesting relic! Can I have that serpent crest?", cid)
 			npcHandler.topic[cid] = 60
-		elseif player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335) and player:getItemCount(11115) > 0 then
+		elseif player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335) and player:getItemCount(10198) > 0 then
 			npcHandler:say("Oh, wow! Now THAT is an interesting relic! Can I have that tribal crest?", cid)
 			npcHandler.topic[cid] = 61
 		else
@@ -328,7 +328,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] >= 60 and npcHandler.topic[cid] <= 61 then
 		if npcHandler.topic[cid] == 60 then
-			if not player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335, 1) and player:removeItem(11116, 1) then
+			if not player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335, 1) and player:removeItem(10199, 1) then
 				player:addOutfitAddon(335, 1)
 				player:addOutfitAddon(336, 1)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
@@ -339,7 +339,7 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler.topic[cid] = 0
 			end
 		elseif npcHandler.topic[cid] == 61 then
-			if not player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335, 2) and player:removeItem(11115, 1) then
+			if not player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335, 2) and player:removeItem(10198, 1) then
 				player:addOutfitAddon(335, 2)
 				player:addOutfitAddon(336, 2)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)

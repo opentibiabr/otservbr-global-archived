@@ -66,7 +66,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif npcHandler.topic[cid] == 2 then
 		if msgcontains(msg, 'yes') then
-			if player:getItemCount(2480) < 1 then
+			if player:getItemCount(3374) < 1 then
 				npcHandler:say('Sorry, but I can\'t see a legion helmet.', cid)
 			elseif player:getItemCount(5890) < 100 then
 				npcHandler:say('Sorry, but you don\'t enough chicken feathers.', cid)
@@ -76,7 +76,7 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler:say('Great job! That must have taken a lot of work. Okay, you put it like this... then glue like this... here!', cid)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 
-				player:removeItem(2480, 1)
+				player:removeItem(3374, 1)
 				player:removeItem(5902, 50)
 				player:removeItem(5890, 100)
 

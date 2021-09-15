@@ -45,14 +45,14 @@ function creatureSayCallback(cid, type, msg)
 					player:setStorageValue(Storage.Oramond.PeppermoonBell, -1)
 					player:setStorageValue(Storage.Oramond.PeppermoonBellCount, -15)
 					player:setStorageValue(Storage.DarkTrails.Mission15, 2)
-					player:removeItem(23460, 15)
+					player:removeItem(21089, 15)
 					npcHandler.topic[cid] = 2
 				else
 					npcHandler:say("Ah! Well done! These 15 doses will suffice for now. Here, take this vote for your effort.", cid)
 					player:setStorageValue(Storage.Oramond.PeppermoonBell, -1)
 					player:setStorageValue(Storage.Oramond.PeppermoonBellCount, -15)
 					player:setStorageValue(Storage.Oramond.VotingPoints, player:getStorageValue(Storage.Oramond.VotingPoints) + 1)
-					player:removeItem(23460, 15)
+					player:removeItem(21089, 15)
 					npcHandler.topic[cid] = 0
 				end
 			else

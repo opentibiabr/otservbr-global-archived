@@ -23,8 +23,8 @@
 		<parameter key="keyword_reply9" value="With our mail system you can send {letters} and {parcels} to other Tibians. I can either explain how {letters} and {parcels} work or sell them to you if you ask me for a {trade}."/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-            label, 2599, 1;
-            letter, 2597, 8;
-            parcel, 2595, 15;"/>
+            label, 3507, 1;
+            letter, 3505, 8;
+            parcel, 3503, 15;"/>
 	</parameters>
 </npc>

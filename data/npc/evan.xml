@@ -8,6 +8,6 @@
 		<parameter key="message_walkaway" value="Good bye."/>
 		<parameter key="message_sendtrade" value="A fire bug? Those are needed for sugar cane harvesting. Help yourself."/>
 		<parameter key="module_shop" value="1"/>
-		<parameter key="shop_buyable" value="fire bug, 5468, 100;"/>
+		<parameter key="shop_buyable" value="fire bug, 5467, 100;"/>
 	</parameters>
 </npc>

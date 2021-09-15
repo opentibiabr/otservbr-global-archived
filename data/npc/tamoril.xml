@@ -11,12 +11,12 @@
 		<parameter key="message_walkaway" value="Goodbye and please bring more gold next time. I mean, it would be nice to see you again."/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_sellable" value="
-			blue gem, 2158, 5000;
-			golden mug, 2033, 250;
-			green gem, 2155, 5000;
-			red gem, 2156, 1000;
-			violet gem, 2153, 10000;
-			white gem, 37604, 12000;
-			yellow gem, 2154, 1000;"/>
+			blue gem, 3041, 5000;
+			golden mug, 2903, 250;
+			green gem, 3038, 5000;
+			red gem, 3039, 1000;
+			violet gem, 3036, 10000;
+			white gem, 32769, 11044;
+			yellow gem, 3037, 1000;"/>
 	</parameters>
 </npc>

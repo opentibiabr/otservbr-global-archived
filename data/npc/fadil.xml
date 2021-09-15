@@ -5,36 +5,36 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_sellable" value="
-			collar of blue plasma, 26198, 6000;
-			collar of green plasma, 26199, 6000;
-			collar of red plasma, 26200, 6000;
-			condensed energy, 26157, 260;
-			crystal bone, 26177, 250;
-			crystallized anger, 26163, 400;
-			curious matter, 26167, 430;
-			dangerous proto matter, 26171, 300;
-			energy ball, 26179, 300;
-			energy vein, 26164, 270;
-			frozen lightning, 26175, 270;
-			glistening bone, 26178, 250;
-			green bandage, 29002, 180;
-			instable proto matter, 26172, 300;
-			little bowl of myrrh, 29007, 500;
-			odd organ, 26166, 410;
-			plasma pearls, 26162, 250;
-			plasmatic lightning, 26176, 270;
-			ring of blue plasma, 26185, 8000;
-			ring of green plasma, 26187, 8000;
-			ring of red plasma, 26189, 8000;
-			single human eye, 29006, 1000;
-			small energy ball, 26180, 250;
-			solid rage, 26173, 310;
-			spark sphere, 26174, 350;
-			sparkion claw, 26158, 290;
-			sparkion legs, 26160, 310;
-			sparkion stings, 26161, 280;
-			sparkion tail, 26159, 300;
-			strange proto matter, 26169, 300;
-			volatile proto matter, 26170, 300;"/>
+			collar of blue plasma, 23542, 6000;
+			collar of green plasma, 23543, 6000;
+			collar of red plasma, 23544, 6000;
+			condensed energy, 23501, 260;
+			crystal bone, 23521, 250;
+			crystallized anger, 23507, 400;
+			curious matter, 23511, 435;
+			dangerous proto matter, 23515, 300;
+			energy ball, 23523, 300;
+			energy vein, 23508, 270;
+			frozen lightning, 23519, 270;
+			glistening bone, 23522, 250;
+			green bandage, 25697, 180;
+			instable proto matter, 23516, 300;
+			little bowl of myrrh, 25702, 500;
+			odd organ, 23510, 413;
+			plasma pearls, 23506, 250;
+			plasmatic lightning, 23520, 270;
+			ring of blue plasma, 23529, 1038;
+			ring of green plasma, 23531, 1038;
+			ring of red plasma, 23533, 1038;
+			single human eye, 25701, 1000;
+			small energy ball, 23524, 250;
+			solid rage, 23517, 310;
+			spark sphere, 23518, 350;
+			sparkion claw, 23502, 290;
+			sparkion legs, 23504, 310;
+			sparkion stings, 23505, 280;
+			sparkion tail, 23503, 300;
+			strange proto matter, 23513, 300;
+			volatile proto matter, 23514, 300;"/>
 	</parameters>
 </npc>

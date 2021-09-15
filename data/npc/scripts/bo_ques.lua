@@ -65,7 +65,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif npcHandler.topic[cid] == 2 then
 		if msgcontains(msg, 'yes') then
-			if not player:removeItem(2347, 1) then
+			if not player:removeItem(3234, 1) then
 				npcHandler:say('Too bad. I must have this book.', cid)
 				return true
 			end
@@ -76,7 +76,7 @@ local function creatureSayCallback(cid, type, msg)
 				'Incidentally, I have talked to Fa\'hradin about you during dinner. I think he might have some work for you. Why don\'t you talk to him about it?'
 			}, cid)
 			player:setStorageValue(Storage.DjinnWar.MaridFaction.Mission01, 2)
-			player:addItem(2146, 3)
+			player:addItem(3029, 3)
 
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('Too bad. I must have this book.', cid)

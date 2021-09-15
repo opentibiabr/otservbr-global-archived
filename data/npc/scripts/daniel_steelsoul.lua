@@ -37,7 +37,7 @@ local function creatureSayCallback(cid, type, msg)
 		elseif player:getStorageValue(Storage.TibiaTales.AgainstTheSpiderCult) == 5 then
 			player:setStorageValue(Storage.TibiaTales.AgainstTheSpiderCult, 6)
 			npcHandler.topic[cid] = 0
-			player:addItem(7887, 1)
+			player:addItem(814, 1)
 			npcHandler:say("What? YOU DID IT?!?! That's...that's...er....<drops a piece of paper. You see the headline 'death certificate'> like I expected!! Here is your reward.", cid)
 		end
 	elseif msgcontains(msg, "yes") then

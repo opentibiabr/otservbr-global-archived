@@ -110,7 +110,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.TravellingTrader.Mission02, 1)
 			npcHandler.topic[cid] = 0
 		elseif(npcHandler.topic[cid] == 6) then
-			if player:removeItem(7503, 1) then
+			if player:removeItem(145, 1) then
 				npcHandler:say("Great. Just place it over there - yes, thanks, that's it. Come see me another day, I'll be busy for a while now. ", cid)
 				player:setStorageValue(Storage.TravellingTrader.Mission02, 5)
 				npcHandler.topic[cid] = 0
@@ -129,7 +129,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.TravellingTrader.Mission03, 1)
 			npcHandler.topic[cid] = 0
 		elseif(npcHandler.topic[cid] == 9) then
-			if player:removeItem(8112, 1) then
+			if player:removeItem(169, 1) then
 				npcHandler:say("Mmmhh, the lovely odeur of scarab cheese! I really can't understand why most people can't stand it. Thanks, well done! ", cid)
 				player:setStorageValue(Storage.TravellingTrader.Mission03, 3)
 				npcHandler.topic[cid] = 0
@@ -147,7 +147,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:addMoney(1000)
 			npcHandler.topic[cid] = 0
 		elseif(npcHandler.topic[cid] == 12) then
-			if player:removeItem(7582, 1) then
+			if player:removeItem(227, 1) then
 				npcHandler:say("I'm surprised that you managed to bring this vase without a single crack. That was what I needed to know, thank you. ", cid)
 				player:setStorageValue(Storage.TravellingTrader.Mission04, 3)
 				npcHandler.topic[cid] = 0

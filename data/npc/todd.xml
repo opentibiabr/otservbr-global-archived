@@ -5,7 +5,7 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_sellable" value="
-			scroll of heroic deeds, 12466, 230;
-			small notebook, 12406, 480;"/>
+			scroll of heroic deeds, 11510, 230;
+			small notebook, 11450, 605;"/>
 	</parameters>
 </npc>

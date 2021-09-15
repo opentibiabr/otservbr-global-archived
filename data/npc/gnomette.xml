@@ -6,6 +6,6 @@
 		<parameter key="message_greet" value="Hi |PLAYERNAME|!"/>
 		<parameter key="message_farewell" value="Good bye."/>
 		<parameter key="module_shop" value="1"/>
-		<parameter key="shop_buyable" value="teleport crystal, 18457, 150;"/>
+		<parameter key="shop_buyable" value="teleport crystal, 16167, 150;"/>
 	</parameters>
 </npc>

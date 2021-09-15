@@ -32,7 +32,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 1
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 1 then
-			if player:getItemCount(2318) == 0 then
+			if player:getItemCount(3205) == 0 then
 				npcHandler:say("What are you talking about? I am too poor to be interested in jewelry.", cid)
 				npcHandler.topic[cid] = 0
 				return true
@@ -43,7 +43,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 2
 		elseif npcHandler.topic[cid] == 2 then
 			npcHandler.topic[cid] = 0
-			if not player:removeItem(2318, 1) then
+			if not player:removeItem(3205, 1) then
 				npcHandler:say("I should have known better than to ask for an act of kindness in this cruel, selfish, world!", cid)
 				return true
 			end

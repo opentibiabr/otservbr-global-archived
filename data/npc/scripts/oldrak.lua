@@ -17,7 +17,7 @@ end
 
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
-shopModule:addBuyableItem({"holy Tible"}, 1970, 1000, 1)
+shopModule:addBuyableItem({"holy Tible"}, 2836, 1000, 1)
 
 keywordHandler:addKeyword({"job"}, StdModule.say, {npcHandler = npcHandler, text = "I guard this humble temple as a monument for the order of the {nightmare knights}."})
 keywordHandler:addAliasKeyword({"visitors"})
@@ -91,9 +91,9 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 2 then
 		if player:getStorageValue(Storage.DemonOak.Progress) == 2 then
 			if player:getMoney() + player:getBankBalance() >= 1000 then
-				if player:removeItem(2386, 1) and player:removeMoneyNpc(1000) then
+				if player:removeItem(3274, 1) and player:removeMoneyNpc(1000) then
 					npcHandler:say("Let's see....<mumbles a prayer>....here we go. The blessing on this axe will be absorbed by all the demonic energy around here. I presume it will not last very long, so better hurry. Actually, I can refresh the blessing as often as you like.",cid)
-					player:addItem(8293, 1)
+					player:addItem(919, 1)
 					Npc():getPosition():sendMagicEffect(CONST_ME_YELLOWENERGY)
 					npcHandler.topic[cid] = 0
 				else

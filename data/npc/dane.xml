@@ -5,8 +5,8 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			bottle of lemonade, 2007, 12, 5;
-			bottle of milk,2007, 4, 6;
-			bottle of water, 2007, 2, 1;"/>
+			bottle of lemonade, 2875, 12, 5;
+			bottle of milk,2875, 4, 6;
+			bottle of water, 2875, 2, 1;"/>
 	</parameters>
 </npc>

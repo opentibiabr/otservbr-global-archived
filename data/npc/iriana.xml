@@ -5,9 +5,9 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			backpack, 1988, 10;
-			bag, 1987, 4;
-			fishing rod, 2580, 150;
-			worm, 3976, 1;"/>
+			backpack, 2854, 10;
+			bag, 2853, 4;
+			fishing rod, 3483, 150;
+			worm, 3492, 1;"/>
 	</parameters>
 </npc>

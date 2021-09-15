@@ -46,14 +46,14 @@ local function creatureSayCallback(cid, type, msg)
 				player:setStorageValue(Storage.BigfootBurden.MissionMatchmaker, 1)
 				player:setStorageValue(Storage.BigfootBurden.MatchmakerStatus, 0)
 				player:setStorageValue(Storage.BigfootBurden.MatchmakerIdNeeded, math.random(18320, 18326))
-				player:addItem(18313, 1)   --- taking missions
+				player:addItem(15802, 1)   --- taking missions
 			elseif player:getStorageValue(Storage.BigfootBurden.MatchmakerTimeout) > os.time() then  -- trying to take mission while in cooldown
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionMatchmaker) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.MatchmakerStatus) == 1 then -- can report missions
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 10)
-					player:addItem(18422, 2)
-					player:addItem(18215, 1)
+					player:addItem(16128, 2)
+					player:addItem(15698, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionMatchmaker, 0)
 					player:setStorageValue(Storage.BigfootBurden.MatchmakerStatus, -1)
 					player:setStorageValue(Storage.BigfootBurden.MatchmakerIdNeeded, -1)
@@ -88,15 +88,15 @@ local function creatureSayCallback(cid, type, msg)
 				}, cid)
 				player:setStorageValue(Storage.BigfootBurden.MissionTinkersBell, 1)
 				player:setStorageValue(Storage.BigfootBurden.GolemCount, 0)
-				player:addItem(18343, 1)  --- taking missions
+				player:addItem(15832, 1)  --- taking missions
 			elseif player:getStorageValue(Storage.BigfootBurden.TinkerBellTimeout) > os.time() then  -- trying to take mission while in cooldown
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionTinkersBell) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.GolemCount) >= 4 then -- can report missions
-					player:removeItem(18343, 1)
+					player:removeItem(15832, 1)
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 10)
-					player:addItem(18422, 2)
-					player:addItem(18215, 1)
+					player:addItem(16128, 2)
+					player:addItem(15698, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionTinkersBell, 0)
 					player:setStorageValue(Storage.BigfootBurden.GolemCount, -1)
 					player:setStorageValue(Storage.BigfootBurden.TinkerBellTimeout, os.time() + 72000)
@@ -129,16 +129,16 @@ local function creatureSayCallback(cid, type, msg)
 				}, cid)
 				player:setStorageValue(Storage.BigfootBurden.MissionSporeGathering, 1)
 				player:setStorageValue(Storage.BigfootBurden.SporeCount, 0)
-				player:addItem(18328, 1)
+				player:addItem(15817, 1)
 				npcHandler.topic[cid] = 0  --- taking missions
 			elseif player:getStorageValue(Storage.BigfootBurden.SporeGatheringTimeout) > os.time() then  -- trying to take mission while in cooldown
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionSporeGathering) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.SporeCount) == 4 then -- can report missions
-					player:removeItem(18332, 1)
+					player:removeItem(15821, 1)
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 10)
-					player:addItem(18422, 2)
-					player:addItem(18215, 1)
+					player:addItem(16128, 2)
+					player:addItem(15698, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionSporeGathering, 0)
 					player:setStorageValue(Storage.BigfootBurden.SporeCount, -1)
 					player:setStorageValue(Storage.BigfootBurden.SporeGatheringTimeout, os.time() + 72000)
@@ -175,10 +175,10 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionGrindstoneHunt) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.GrindstoneStatus) == 1 then -- can report missions
-					player:removeItem(18337, 1)
+					player:removeItem(15826, 1)
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 10)
-					player:addItem(18422, 2)
-					player:addItem(18215, 1)
+					player:addItem(16128, 2)
+					player:addItem(15698, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionGrindstoneHunt, 0)
 					player:setStorageValue(Storage.BigfootBurden.GrindstoneStatus, -1)
 					player:setStorageValue(Storage.BigfootBurden.GrindstoneTimeout, os.time() + 72000)

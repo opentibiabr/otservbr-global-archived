@@ -103,7 +103,7 @@ local function creatureSayCallback(cid, type, msg)
 			end
 			npcHandler.topic[cid] = 1
 		elseif value == 1 then
-			if player:getItemCount(player:isSorcerer() and 8304 or player:isDruid() and 8305 or player:isPaladin() and 8300 or player:isKnight() and 8306) > 0 then
+			if player:getItemCount(player:isSorcerer() and 946 or player:isDruid() and 947 or player:isPaladin() and 942 or player:isKnight() and 948) > 0 then
 				player:setStorageValue(Storage.ElementalSphere.QuestLine, 2)
 				npcHandler:say({
 					"Impressive!! Let me take a look.......Ahh, " .. (player:isSorcerer() and "an ETERNAL FLAME! Now you need to find a knight, a druid, and a paladin who also completed this first task. ..." or player:isDruid() and "MOTHER SOIL! Now you need to find a knight, a paladin, and a sorcerer who also completed this first task. ..." or player:isPaladin() and "a FLAWLESS ICE CRYSTAL! Now you need to find a knight, a druid, and a sorcerer who also completed this first task. ..." or player:isKnight() and "PURE ENERGY! Now you need to find a druid, a paladin, and a sorcerer who also completed this first task. ..."),
@@ -115,9 +115,9 @@ local function creatureSayCallback(cid, type, msg)
 			end
 			npcHandler.topic[cid] = 0
 		elseif value == 2 then
-			if player:removeItem(8310, 1) and player:getStorageValue(Storage.ElementalSphere.QuestLine) < 3 then
+			if player:removeItem(954, 1) and player:getStorageValue(Storage.ElementalSphere.QuestLine) < 3 then
 				npcHandler:say("AMAZING!! I'm going to start immediately with the research. If it turns out the way I expect it, Alverus will be revived soon!! Here, take this as a reward and try to collect more of this substance. I'll make you a good offer, I promise. ", cid)
-				player:addItem(player:isSorcerer() and 8867 or player:isDruid() and 8869 or player:isPaladin() and 8853 or player:isKnight() and 8883, 1)
+				player:addItem(player:isSorcerer() and 8039 or player:isDruid() and 8041 or player:isPaladin() and 8025 or player:isKnight() and 8055, 1)
 				player:setStorageValue(Storage.ElementalSphere.QuestLine, 3)
 			end
 		end

@@ -10,35 +10,35 @@
 		<parameter key="message_farewell" value="See you later!"/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			arrow, 2544, 3;
-			blue quiver, 40683, 400;
-			bolt, 2543, 4;
-			bow, 2456, 400;
-			crossbow, 2455, 500;
-			crystalline arrow, 18304, 20;
-			diamond arrow, 40736, 100;
-			drill bolt, 18436, 12;
-			earth arrow, 7850, 5;
-			envenomed arrow, 18437, 12;
-			flaming arrow, 7840, 5;
-			flash arrow, 7838, 5;
+			arrow, 3447, 3;
+			blue quiver, 35848, 400;
+			bolt, 3446, 4;
+			bow, 3350, 400;
+			crossbow, 3349, 500;
+			crystalline arrow, 15793, 20;
+			diamond arrow, 35901, 100;
+			drill bolt, 16142, 12;
+			earth arrow, 774, 5;
+			envenomed arrow, 16143, 12;
+			flaming arrow, 763, 5;
+			flash arrow, 761, 5;
 			onyx arrow, 7365, 7;
 			piercing bolt, 7363, 5;
-			power bolt, 2547, 7;
-			prismatic bolt, 18435, 20;
-			quiver, 40397, 400;
-			red quiver, 40684, 400;
+			power bolt, 3450, 7;
+			prismatic bolt, 16141, 20;
+			quiver, 35562, 400;
+			red quiver, 35849, 400;
 			royal spear, 7378, 15;
-			shiver arrow, 7839, 5;
+			shiver arrow, 762, 5;
 			sniper arrow, 7364, 5;
-			spear, 2389, 9;
-			spectral bolt, 40737, 70;
-			tarsal arrow, 15648, 6;
-			throwing star, 2399, 42;
-			vortex bolt, 15649, 6;"/>
+			spear, 3277, 9;
+			spectral bolt, 35902, 70;
+			tarsal arrow, 14251, 6;
+			throwing star, 3287, 42;
+			vortex bolt, 14252, 6;"/>
 		<parameter key="shop_sellable" value="
-			bow, 2456, 100;
-			crossbow, 2455, 120;
-			spear, 2389, 3;"/>
+			bow, 3350, 100;
+			crossbow, 3349, 120;
+			spear, 3277, 3;"/>
 	</parameters>
 </npc>

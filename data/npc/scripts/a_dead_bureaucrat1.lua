@@ -63,12 +63,12 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Huhu, please don't hurt me with your " .. config[vocationBaseId] .. "! Reason of your visit?", cid)
 			npcHandler.topic[cid] = 3
 		end
-	elseif msgcontains(msg, "411") then
+	elseif msgcontains(msg, "414") then
 		if player:getStorageValue(Storage.PitsOfInferno.ThronePumin) == 3 then
-			npcHandler:say("Form 411? You need Form 287 to get that! Do you have it?", cid)
+			npcHandler:say("Form 414? You need Form 287 to get that! Do you have it?", cid)
 			npcHandler.topic[cid] = 4
 		elseif player:getStorageValue(Storage.PitsOfInferno.ThronePumin) == 5 then
-			npcHandler:say("Form 411? You need Form 287 to get that! Do you have it?", cid)
+			npcHandler:say("Form 414? You need Form 287 to get that! Do you have it?", cid)
 			npcHandler.topic[cid] = 5
 		end
 	elseif msgcontains(msg, "no") then
@@ -79,7 +79,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 5 then
 			player:setStorageValue(Storage.PitsOfInferno.ThronePumin, 6)
-			npcHandler:say("Great. Here you are. Form 411. Come back anytime you want to talk. Bye.", cid)
+			npcHandler:say("Great. Here you are. Form 414. Come back anytime you want to talk. Bye.", cid)
 		end
 	elseif msgcontains(msg, "356") then
 		if player:getStorageValue(Storage.PitsOfInferno.ThronePumin) == 8 then

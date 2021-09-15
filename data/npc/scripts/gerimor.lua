@@ -459,23 +459,23 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 9
 			local item = ""
 			if player:getVocation():getBaseId() == VOCATION.BASE_ID.SORCERER then
-				player:addItem(29426)
+				player:addItem(26190)
 				item = "reflecting crown"
 			end
 			if player:getVocation():getBaseId() == VOCATION.BASE_ID.DRUID then
-				player:addItem(29423)
+				player:addItem(26187)
 				item = "leaf crown"
 			end
 			if player:getVocation():getBaseId() == VOCATION.BASE_ID.PALADIN then
-				player:addItem(29425)
+				player:addItem(26189)
 				item = "incandescent crown"
 			end
 			if player:getVocation():getBaseId() == VOCATION.BASE_ID.KNIGHT then
-				player:addItem(29424)
+				player:addItem(26188)
 				item = "iron crown"
 			end
 			player:addExperience(50000)
-			player:addItem(29422)
+			player:addItem(26186)
 			player:setStorageValue(Storage.CultsOfTibia.FinalBoss.Mission, 3)
 			player:sendTextMessage(MESSAGE_EXPERIENCE, "You gained 50000 experience points.")
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You gained a mystery box.")

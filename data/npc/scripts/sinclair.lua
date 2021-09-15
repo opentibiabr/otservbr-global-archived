@@ -64,7 +64,7 @@ local function creatureSayCallback(cid, type, msg)
 		elseif npcHandler.topic[cid] == 2 then
 			npcHandler:say("Good, now all you need to do is find a ghost, defeat it and catch its very essence with the cage. Once you have it, return to me and Spectulus and I will move it into our chamber device. Good luck, return to me as soon as you are prepared.", cid)
 			player:setStorageValue(Storage.SpiritHunters.Mission01, 3)
-			player:addItem(12671, 1)
+			player:addItem(4050, 1)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 3 then
 			if player:getStorageValue(Storage.SpiritHunters.CharmUse) == 1 then
@@ -99,8 +99,8 @@ local function creatureSayCallback(cid, type, msg)
 			if nightstalkers >= 4 and souleaters >= 4 and ghost >= 4 then
 				npcHandler:say("Alright, let us see how many ghosts you caught!", cid)
 				player:setStorageValue(Storage.SpiritHunters.Mission01, 6)
-				player:addExperience(8000, true)
-				player:addItem(2152, 60)
+				player:addExperience(1038, true)
+				player:addItem(3035, 60)
 				addEvent(releasePlayer, 1000, cid)
 				npcHandler.topic[cid] = 0
 			else

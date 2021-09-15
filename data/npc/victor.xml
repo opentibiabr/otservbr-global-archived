@@ -5,9 +5,9 @@
  	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			health potion, 7618, 75;
-			strong health potion, 7588, 150;
-			great health potion, 7591, 300;
-			ultimate health potion, 8473, 500;"/>
+			health potion, 266, 75;
+			strong health potion, 236, 150;
+			great health potion, 239, 300;
+			ultimate health potion, 7643, 500;"/>
 	</parameters>
 </npc>

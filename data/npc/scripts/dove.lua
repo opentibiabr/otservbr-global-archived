@@ -30,7 +30,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 1 then
-			if player:removeItem(2681, 1) then
+			if player:removeItem(3592, 1) then
 				npcHandler:say("Oh thank you! Thank you so much! So listen ... <whispers her measurements> ", cid)
 				player:setStorageValue(Storage.Postman.Mission07, player:getStorageValue(Storage.Postman.Mission07) + 1)
 				player:setStorageValue(Storage.Postman.MeasurementsDove, 1)

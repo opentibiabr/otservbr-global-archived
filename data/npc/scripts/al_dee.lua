@@ -96,10 +96,10 @@ keywordHandler:addAliasKeyword({'dallheim'})
 -- Pick quest
 local pickKeyword = keywordHandler:addKeyword({'pick'}, StdModule.say, {npcHandler = npcHandler, text = 'Picks are hard to come by. I trade them only in exchange for high quality small axes. Would you like to make that deal?'})
 	pickKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Splendid! Here, take your pick.', reset = true},
-		function(player) return player:getItemCount(2559) > 0 end,
+		function(player) return player:getItemCount(3462) > 0 end,
 		function(player)
-			player:removeItem(2559, 1)
-			player:addItem(2553, 1)
+			player:removeItem(3462, 1)
+			player:addItem(3456, 1)
 		end
 	)
 	pickKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Sorry, I am looking for a SMALL axe.', reset = true})

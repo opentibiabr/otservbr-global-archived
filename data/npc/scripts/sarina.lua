@@ -30,7 +30,7 @@ local function creatureSayCallback(cid, type, msg)
 			local player = Player(cid)
 			if player:getMoney() + player:getBankBalance() >= 111 then
 				npcHandler:say("Here it is.", cid)
-				player:addItem(2109, 1)
+				player:addItem(2990, 1)
 				player:removeMoneyNpc(111)
 			else
 				npcHandler:say("You don't have enough money.", cid)

@@ -11,7 +11,7 @@
 		<parameter key="message_walkaway" value="Goodbye?"/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			meat, 2666, 3;
-			ham, 2671, 5;"/>
+			meat, 3577, 3;
+			ham, 3582, 5;"/>
 	</parameters>
 </npc>

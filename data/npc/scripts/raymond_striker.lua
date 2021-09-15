@@ -80,7 +80,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.TheShatteredIsles.RaysMission4, 1)
 		elseif player:getStorageValue(Storage.TheShatteredIsles.RaysMission4) == 2 then
 			npcHandler:say("My pillow?? They know me all too well... <sigh> I've owned it since my childhood. However. Here, take it and convincehim that I am dead.", cid)
-			player:addItem(11427, 1)
+			player:addItem(6105, 1)
 			player:setStorageValue(Storage.TheShatteredIsles.RaysMission4, 3)
 		elseif player:getStorageValue(Storage.TheShatteredIsles.RaysMission4) == 4 then
 			npcHandler:say({
@@ -88,7 +88,7 @@ local function creatureSayCallback(cid, type, msg)
 				'Sadly I have no ship that lacks a captain, else you would of course be our first choice. I am still true to my word asbest as I am able. ...',
 				'So take this as your very own ship. Oh, and remind me about the pirate outfit sometime.'
 			}, cid)
-			player:addItem(2113, 1)
+			player:addItem(2994, 1)
 			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 21)
 			player:setStorageValue(Storage.TheShatteredIsles.RaysMission4, 5)
 		end

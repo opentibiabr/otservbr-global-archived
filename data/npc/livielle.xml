@@ -14,22 +14,22 @@
 		<parameter key="keyword_reply2" value="Alors, guess what my job might be, standing 'ere in the middle of all these juicy exotic {fruits}?"/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			bottle of milk, 2007, 15, 6;
-			banana, 2676, 5;
-			blueberry, 2677, 1;
-			carrot, 2684, 3;
-			cherry, 2679, 1;
-			corncob, 2686, 3;
-			grapes, 2681, 3;
+			bottle of milk, 2875, 15, 6;
+			banana, 3587, 5;
+			blueberry, 3588, 1;
+			carrot, 3595, 3;
+			cherry, 3590, 1;
+			corncob, 3597, 3;
+			grapes, 3592, 3;
 			juice squeezer, 5865, 100;
-			lemon, 8841, 3;
-			mango, 5097, 10;
-			melon, 2682, 10;
-			orange, 2675, 10;
-			potato, 8838, 4;
-			pumpkin, 2683, 10;
-			sample of venorean spice, 9675, 200;
-			strawberry, 2680, 2;
-			white mushroom, 2787, 10;"/>
+			lemon, 8013, 3;
+			mango, 5096, 10;
+			melon, 3593, 10;
+			orange, 3586, 10;
+			potato, 8010, 4;
+			pumpkin, 3594, 10;
+			sample of venorean spice, 8759, 200;
+			strawberry, 3591, 2;
+			white mushroom, 3723, 10;"/>
 	</parameters>
 </npc>

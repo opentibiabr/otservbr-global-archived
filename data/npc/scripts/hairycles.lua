@@ -246,7 +246,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif npcHandler.topic[cid] == 3 then
 		if msgcontains(msg, 'yes') then
-			if not player:removeItem(4838, 1) then
+			if not player:removeItem(4827, 1) then
 				npcHandler:say('Stupid, you no have the moss me need. Go get it. It\'s somewhere in dworc lair. If you lost it, they might restocked it meanwhile. If you need to hear background of all again, ask Hairycles for {background}.', cid)
 				player:setStorageValue(Storage.QuestChests.WhisperMoss, -1)
 				return true
@@ -261,7 +261,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif npcHandler.topic[cid] == 4 then
 		if msgcontains(msg, 'yes') then
-			if not player:removeItem(4839, 1) then
+			if not player:removeItem(4828, 1) then
 				npcHandler:say('No no, not right syrup you have. Go get other, get right health syrup.', cid)
 				return true
 			end
@@ -300,7 +300,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif npcHandler.topic[cid] == 7 then
 		if msgcontains(msg, 'yes') then
-			if not player:removeItem(5956, 1) then
+			if not player:removeItem(4831, 1) then
 				if player:getStorageValue(Storage.QuestChests.OldParchment) == 1 then
 					npcHandler:say('That\'s bad news. If you lost it, only way to get other is to kill holy serpents. But you can\'t go there so you must ask adventurers who can.', cid)
 				else
@@ -348,7 +348,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif npcHandler.topic[cid] == 11 then
 		if msgcontains(msg, 'yes') then
-			if not player:removeItem(4850, 1) then
+			if not player:removeItem(4839, 1) then
 				npcHandler:say('You not have egg of hydra. Please get one!', cid)
 				return true
 			end
@@ -373,7 +373,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif npcHandler.topic[cid] == 13 then
 		if msgcontains(msg, 'yes') then
-			if not player:removeItem(4840, 1) then
+			if not player:removeItem(4829, 1) then
 				npcHandler:say('Not right mushroom you have. Find me a witches\' cap on Fibula!', cid)
 				return true
 			end
@@ -408,7 +408,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif npcHandler.topic[cid] == 16 then
 		if msgcontains(msg, 'yes') then
-			if not player:removeItem(4843, 1) then
+			if not player:removeItem(4832, 1) then
 				npcHandler:say('You no have hair. You lost it? Go and look again.', cid)
 				player:setStorageValue(Storage.TheApeCity.HolyApeHair, -1)
 				return true
@@ -425,7 +425,7 @@ local function creatureSayCallback(cid, type, msg)
 		if msgcontains(msg, 'yes') then
 			npcHandler:say('Hairycles sure you will make it. Just use hammer on all that looks like snake or lizard. Tell Hairycles if you succeed with mission.', cid)
 			player:setStorageValue(Storage.TheApeCity.Questline, 17)
-			player:addItem(4846, 1)
+			player:addItem(4835, 1)
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('Me sad. Please reconsider.', cid)
 		end
@@ -445,7 +445,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif npcHandler.topic[cid] == 19 then
 		if msgcontains(msg, 'yes') then
-			if not player:removeItem(8111, 1) then
+			if not player:removeItem(130, 1) then
 				npcHandler:say('You have no cookie that I\'d like.', cid)
 				return true
 			end

@@ -5,17 +5,17 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			blue christmas bundle, 6508, 60;
-			blue christmas garland, 6505, 25;
-			christmas branch, 6489, 40;
-			christmas card, 6388, 10;
-			christmas garland, 6503, 25;
-			christmas present green, 6510, 20;
-			christmas present red, 6506, 20;
-			christmas tree package, 3910, 50;
-			christmas wreath, 6502, 45;
-			green christmas bundle, 6509, 80;
-			red christmas bundle, 6507, 70;
-			red christmas garland, 6504, 25;"/>
+			blue christmas bundle, 6507, 60;
+			blue christmas garland, 6504, 25;
+			christmas branch, 6488, 40;
+			christmas card, 6387, 10;
+			christmas garland, 6502, 25;
+			christmas present green, 6509, 20;
+			christmas present red, 6505, 20;
+			christmas tree package, 10207, 50;
+			christmas wreath, 6501, 45;
+			green christmas bundle, 6508, 80;
+			red christmas bundle, 6506, 70;
+			red christmas garland, 6503, 25;"/>
 	</parameters>
 </npc>

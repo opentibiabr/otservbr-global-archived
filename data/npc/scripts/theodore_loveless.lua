@@ -25,7 +25,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 1
 	elseif msgcontains(msg, 'yes') and npcHandler.topic[cid] == 1 then
 		local player = Player(cid)
-		if not player:removeItem(7499, 1) then
+		if not player:removeItem(141, 1) then
 			npcHandler.topic[cid] = 0
 			return true
 		end

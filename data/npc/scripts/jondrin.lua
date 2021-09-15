@@ -33,7 +33,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Indeed I heard you did a good job out there. <sigh> I guess that means I can hand you one of our necrometers. Handle it with care", cid)
 			npcHandler.topic[cid] = 0
 			player:setStorageValue(Storage.DarkTrails.Mission10, 1)
-			player:addItem(23495,1)
+			player:addItem(21124,1)
 			else
 			npcHandler:say("You already got the Necrometer.", cid)
 		end

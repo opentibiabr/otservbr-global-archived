@@ -59,7 +59,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Excellent! I will immediately inform Captain Max to bring you to {Calassa} whenever you are ready. Don't forget to make thorough preparations!", cid)
 			npcHandler.topic[cid] = 4
 		elseif npcHandler.topic[cid] == 5 then
-			if player:removeItem(6124, 1) then
+			if player:removeItem(21378, 1) then
 				player:setStorageValue(Storage.ExplorerSociety.CalassaQuest, 3)
 				npcHandler:say("Yes! That's the logbook! However... it seems that the water has already destroyed many of the pages. This is not your fault though, you did your best. Thank you!", cid)
 				npcHandler.topic[cid] = 0

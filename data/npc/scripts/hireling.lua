@@ -143,7 +143,7 @@ end
 -------------------------------- guild bank -----------------------------------------------
 local receiptFormat = 'Date: %s\nType: %s\nGold Amount: %d\nReceipt Owner: %s\nRecipient: %s\n\n%s'
 local function getReceipt(info)
-	local receipt = Game.createItem(info.success and 24301 or 24302)
+	local receipt = Game.createItem(info.success and 21932 or 21933)
 	receipt:setAttribute(ITEM_ATTRIBUTE_TEXT, receiptFormat:format(os.date('%d. %b %Y - %H:%M:%S'), info.type, info.amount, info.owner, info.recipient, info.message))
 
 	return receipt
@@ -228,12 +228,12 @@ local function handleBankActions(cid, msg)
 			'Every citizen has one. The big advantage is that you can access your money in every branch of the Global Bank! ...',
 			'Would you like to know more about the {basic} functions of your bank account, the {advanced} functions, or are you already bored, perhaps?'
 		}, cid)
-		npcHandler.topic[cid] = 1200
+		npcHandler.topic[cid] = 1445
 		return true
 ---------------------------- balance ---------------------
 --------------------------------guild bank-----------------------------------------------
 	elseif msgcontains(msg, 'guild balance') then
-		npcHandler.topic[cid] = 1200
+		npcHandler.topic[cid] = 1445
 		if not player:getGuild() then
 			npcHandler:say('You are not a member of a guild.', cid)
 			return false
@@ -242,7 +242,7 @@ local function handleBankActions(cid, msg)
 		return true
 --------------------------------guild bank-----------------------------------------------
 	elseif msgcontains(msg, 'balance') then
-		npcHandler.topic[cid] = 1200
+		npcHandler.topic[cid] = 1445
 		if player:getBankBalance() >= 100000000 then
 			npcHandler:say('I think you must be one of the richest inhabitants in the world! Your account balance is ' .. player:getBankBalance() .. ' gold.', cid)
 			return true
@@ -264,42 +264,42 @@ local function handleBankActions(cid, msg)
 	elseif msgcontains(msg, 'guild deposit') then
 		if not player:getGuild() then
 			npcHandler:say('You are not a member of a guild.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 			return false
 		end
 	   -- count[cid] = player:getMoney()
 	   -- if count[cid] < 1 then
 		   -- npcHandler:say('You do not have enough gold.', cid)
-		   -- npcHandler.topic[cid] = 1200
+		   -- npcHandler.topic[cid] = 1445
 		   -- return false
 		--end
 		if string.match(msg, '%d+') then
 			count[cid] = getMoneyCount(msg)
 			if count[cid] < 1 then
 				npcHandler:say('You do not have enough gold.', cid)
-				npcHandler.topic[cid] = 1200
+				npcHandler.topic[cid] = 1445
 				return false
 			end
 			npcHandler:say('Would you really like to deposit ' .. count[cid] .. ' gold to your {guild account}?', cid)
-			npcHandler.topic[cid] = 1223
+			npcHandler.topic[cid] = 1642
 			return true
 		else
 			npcHandler:say('Please tell me how much gold it is you would like to deposit.', cid)
-			npcHandler.topic[cid] = 1222
+			npcHandler.topic[cid] = 1641
 			return true
 		end
-	elseif npcHandler.topic[cid] == 1222 then
+	elseif npcHandler.topic[cid] == 1641 then
 		count[cid] = getMoneyCount(msg)
 		if isValidMoney(count[cid]) then
 			npcHandler:say('Would you really like to deposit ' .. count[cid] .. ' gold to your {guild account}?', cid)
-			npcHandler.topic[cid] = 1223
+			npcHandler.topic[cid] = 1642
 			return true
 		else
 			npcHandler:say('You do not have enough gold.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 			return true
 		end
-	elseif npcHandler.topic[cid] == 1223 then
+	elseif npcHandler.topic[cid] == 1642 then
 		if msgcontains(msg, 'yes') then
 			npcHandler:say('Alright, we have placed an order to deposit the amount of ' .. count[cid] .. ' gold to your guild account. Please check your inbox for confirmation.', cid)
 			local guild = player:getGuild()
@@ -326,55 +326,55 @@ local function handleBankActions(cid, msg)
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('As you wish. Is there something else I can do for you?', cid)
 		end
-		npcHandler.topic[cid] = 1200
+		npcHandler.topic[cid] = 1445
 		return true
 --------------------------------guild bank-----------------------------------------------
 	elseif msgcontains(msg, 'deposit') then
 		count[cid] = player:getMoney()
 		if count[cid] < 1 then
 			npcHandler:say('You do not have enough gold.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 			return false
 		end
 		if msgcontains(msg, 'all') then
 			count[cid] = player:getMoney()
 			npcHandler:say('Would you really like to deposit ' .. count[cid] .. ' gold?', cid)
-			npcHandler.topic[cid] = 1202
+			npcHandler.topic[cid] = 1447
 			return true
 		else
 			if string.match(msg,'%d+') then
 				count[cid] = getMoneyCount(msg)
 				if count[cid] < 1 then
 					npcHandler:say('You do not have enough gold.', cid)
-					npcHandler.topic[cid] = 1200
+					npcHandler.topic[cid] = 1445
 					return false
 				end
 				npcHandler:say('Would you really like to deposit ' .. count[cid] .. ' gold?', cid)
-				npcHandler.topic[cid] = 1202
+				npcHandler.topic[cid] = 1447
 				return true
 			else
 				npcHandler:say('Please tell me how much gold it is you would like to deposit.', cid)
-				npcHandler.topic[cid] = 1201
+				npcHandler.topic[cid] = 1446
 				return true
 			end
 		end
 		if not isValidMoney(count[cid]) then
 			npcHandler:say('Sorry, but you can\'t deposit that much.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 			return false
 		end
-	elseif npcHandler.topic[cid] == 1201 then
+	elseif npcHandler.topic[cid] == 1446 then
 		count[cid] = getMoneyCount(msg)
 		if isValidMoney(count[cid]) then
 			npcHandler:say('Would you really like to deposit ' .. count[cid] .. ' gold?', cid)
-			npcHandler.topic[cid] = 1202
+			npcHandler.topic[cid] = 1447
 			return true
 		else
 			npcHandler:say('You do not have enough gold.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 			return true
 		end
-	elseif npcHandler.topic[cid] == 1202 then
+	elseif npcHandler.topic[cid] == 1447 then
 		if msgcontains(msg, 'yes') then
 			if player:depositMoney(count[cid]) then
 				npcHandler:say('Alright, we have added the amount of ' .. count[cid] .. ' gold to your {balance}. You can {withdraw} your money anytime you want to.', cid)
@@ -384,18 +384,18 @@ local function handleBankActions(cid, msg)
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('As you wish. Is there something else I can do for you?', cid)
 		end
-		npcHandler.topic[cid] = 1200
+		npcHandler.topic[cid] = 1445
 		return true
 ---------------------------- withdraw --------------------
 --------------------------------guild bank-----------------------------------------------
 	elseif msgcontains(msg, 'guild withdraw') then
 		if not player:getGuild() then
 			npcHandler:say('I am sorry but it seems you are currently not in any guild.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 			return false
 		elseif player:getGuildLevel() < 2 then
 			npcHandler:say('Only guild leaders or vice leaders can withdraw money from the guild account.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 			return false
 		end
 
@@ -403,28 +403,28 @@ local function handleBankActions(cid, msg)
 			count[cid] = getMoneyCount(msg)
 			if isValidMoney(count[cid]) then
 				npcHandler:say('Are you sure you wish to withdraw ' .. count[cid] .. ' gold from your guild account?', cid)
-				npcHandler.topic[cid] = 1225
+				npcHandler.topic[cid] = 1644
 			else
 				npcHandler:say('There is not enough gold on your guild account.', cid)
-				npcHandler.topic[cid] = 1200
+				npcHandler.topic[cid] = 1445
 			end
 			return true
 		else
 			npcHandler:say('Please tell me how much gold you would like to withdraw from your guild account.', cid)
-			npcHandler.topic[cid] = 1224
+			npcHandler.topic[cid] = 1643
 			return true
 		end
-	elseif npcHandler.topic[cid] == 1224 then
+	elseif npcHandler.topic[cid] == 1643 then
 		count[cid] = getMoneyCount(msg)
 		if isValidMoney(count[cid]) then
 			npcHandler:say('Are you sure you wish to withdraw ' .. count[cid] .. ' gold from your guild account?', cid)
-			npcHandler.topic[cid] = 1225
+			npcHandler.topic[cid] = 1644
 		else
 			npcHandler:say('There is not enough gold on your guild account.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		end
 		return true
-	elseif npcHandler.topic[cid] == 1225 then
+	elseif npcHandler.topic[cid] == 1644 then
 		if msgcontains(msg, 'yes') then
 			local guild = player:getGuild()
 			local balance = guild:getBankBalance()
@@ -449,10 +449,10 @@ local function handleBankActions(cid, msg)
 			local inbox = player:getInbox()
 			local receipt = getReceipt(info)
 			inbox:addItemEx(receipt, INDEX_WHEREEVER, FLAG_NOLIMIT)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('As you wish. Is there something else I can do for you?', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		end
 		return true
 --------------------------------guild bank-----------------------------------------------
@@ -461,28 +461,28 @@ local function handleBankActions(cid, msg)
 			count[cid] = getMoneyCount(msg)
 			if isValidMoney(count[cid]) then
 				npcHandler:say('Are you sure you wish to withdraw ' .. count[cid] .. ' gold from your bank account?', cid)
-				npcHandler.topic[cid] = 1207
+				npcHandler.topic[cid] = 1626
 			else
 				npcHandler:say('There is not enough gold on your account.', cid)
-				npcHandler.topic[cid] = 1200
+				npcHandler.topic[cid] = 1445
 			end
 			return true
 		else
 			npcHandler:say('Please tell me how much gold you would like to withdraw.', cid)
-			npcHandler.topic[cid] = 1206
+			npcHandler.topic[cid] = 1625
 			return true
 		end
-	elseif npcHandler.topic[cid] == 1206 then
+	elseif npcHandler.topic[cid] == 1625 then
 		count[cid] = getMoneyCount(msg)
 		if isValidMoney(count[cid]) then
 			npcHandler:say('Are you sure you wish to withdraw ' .. count[cid] .. ' gold from your bank account?', cid)
-			npcHandler.topic[cid] = 1207
+			npcHandler.topic[cid] = 1626
 		else
 			npcHandler:say('There is not enough gold on your account.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		end
 		return true
-	elseif npcHandler.topic[cid] == 1207 then
+	elseif npcHandler.topic[cid] == 1626 then
 		if msgcontains(msg, 'yes') then
 			if player:getFreeCapacity() >= getMoneyWeight(count[cid]) then
 				if not player:withdrawMoney(count[cid]) then
@@ -493,10 +493,10 @@ local function handleBankActions(cid, msg)
 			else
 				npcHandler:say('Whoah, hold on, you have no room in your inventory to carry all those coins. I don\'t want you to drop it on the floor, maybe come back with a cart!', cid)
 			end
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('The customer is king! Come back anytime you want to if you wish to {withdraw} your money.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		end
 		return true
 ---------------------------- transfer --------------------
@@ -504,11 +504,11 @@ local function handleBankActions(cid, msg)
 	elseif msgcontains(msg, 'guild transfer') then
 		if not player:getGuild() then
 			npcHandler:say('I am sorry but it seems you are currently not in any guild.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 			return false
 		elseif player:getGuildLevel() < 2 then
 			npcHandler:say('Only guild leaders or vice leaders can transfer money from the guild account.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 			return false
 		end
 
@@ -518,46 +518,46 @@ local function handleBankActions(cid, msg)
 				transfer[cid] = string.match(msg, 'to%s*(.+)$')
 				if transfer[cid] then
 					npcHandler:say('So you would like to transfer ' .. count[cid] .. ' gold from your guild account to guild ' .. transfer[cid] .. '?', cid)
-					npcHandler.topic[cid] = 1228
+					npcHandler.topic[cid] = 1647
 				else
 					npcHandler:say('Which guild would you like to transfer ' .. count[cid] .. ' gold to?', cid)
-					npcHandler.topic[cid] = 1227
+					npcHandler.topic[cid] = 1646
 				end
 			else
 				npcHandler:say('There is not enough gold on your guild account.', cid)
-				npcHandler.topic[cid] = 1200
+				npcHandler.topic[cid] = 1445
 			end
 		else
 			npcHandler:say('Please tell me the amount of gold you would like to transfer.', cid)
-			npcHandler.topic[cid] = 1226
+			npcHandler.topic[cid] = 1645
 		end
 		return true
-	elseif npcHandler.topic[cid] == 1226 then
+	elseif npcHandler.topic[cid] == 1645 then
 		count[cid] = getMoneyCount(msg)
 		if player:getGuild():getBankBalance() < count[cid] then
 			npcHandler:say('There is not enough gold on your guild account.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 			return true
 		end
 		if isValidMoney(count[cid]) then
 			npcHandler:say('Which guild would you like to transfer ' .. count[cid] .. ' gold to?', cid)
-			npcHandler.topic[cid] = 1227
+			npcHandler.topic[cid] = 1646
 		else
 			npcHandler:say('There is not enough gold on your account.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		end
 		return true
-	elseif npcHandler.topic[cid] == 1227 then
+	elseif npcHandler.topic[cid] == 1646 then
 		transfer[cid] = msg
 		if player:getGuild():getName() == transfer[cid] then
 			npcHandler:say('Fill in this field with person who receives your gold!', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 			return true
 		end
 		npcHandler:say('So you would like to transfer ' .. count[cid] .. ' gold from your guild account to guild ' .. transfer[cid] .. '?', cid)
-		npcHandler.topic[cid] = 1228
+		npcHandler.topic[cid] = 1647
 		return true
-	elseif npcHandler.topic[cid] == 1228 then
+	elseif npcHandler.topic[cid] == 1647 then
 		if msgcontains(msg, 'yes') then
 			npcHandler:say('We have placed an order to transfer ' .. count[cid] .. ' gold from your guild account to guild ' .. transfer[cid] .. '. Please check your inbox for confirmation.', cid)
 			local guild = player:getGuild()
@@ -577,50 +577,50 @@ local function handleBankActions(cid, msg)
 			else
 				getGuildIdByName(transfer[cid], transferFactory(player:getName(), tonumber(count[cid]), guild:getId(), info))
 			end
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('Alright, is there something else I can do for you?', cid)
 		end
-		npcHandler.topic[cid] = 1200
+		npcHandler.topic[cid] = 1445
 --------------------------------guild bank-----------------------------------------------
 	elseif msgcontains(msg, 'transfer') then
 		npcHandler:say('Please tell me the amount of gold you would like to transfer.', cid)
-		npcHandler.topic[cid] = 1211
-	elseif npcHandler.topic[cid] == 1211 then
+		npcHandler.topic[cid] = 1630
+	elseif npcHandler.topic[cid] == 1630 then
 		count[cid] = getMoneyCount(msg)
 		if player:getBankBalance() < count[cid] then
 			npcHandler:say('There is not enough gold on your account.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 			return true
 		end
 		if isValidMoney(count[cid]) then
 			npcHandler:say('Who would you like transfer ' .. count[cid] .. ' gold to?', cid)
-			npcHandler.topic[cid] = 1212
+			npcHandler.topic[cid] = 1631
 		else
 			npcHandler:say('There is not enough gold on your account.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		end
-	elseif npcHandler.topic[cid] == 1212 then
+	elseif npcHandler.topic[cid] == 1631 then
 		transfer[cid] = msg
 		if player:getName() == transfer[cid] then
 			npcHandler:say('Fill in this field with person who receives your gold!', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 			return true
 		end
 		if playerExists(transfer[cid]) then
 		local arrayDenied = {"accountmanager", "rooksample", "druidsample", "sorcerersample", "knightsample", "paladinsample"}
 			if isInArray(arrayDenied, string.gsub(transfer[cid]:lower(), " ", "")) then
 				npcHandler:say('This player does not exist.', cid)
-				npcHandler.topic[cid] = 1200
+				npcHandler.topic[cid] = 1445
 				return true
 			end
 			npcHandler:say('So you would like to transfer ' .. count[cid] .. ' gold to ' .. transfer[cid] .. '?', cid)
-			npcHandler.topic[cid] = 1213
+			npcHandler.topic[cid] = 1632
 		else
 			npcHandler:say('This player does not exist.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		end
-	elseif npcHandler.topic[cid] == 1213 then
+	elseif npcHandler.topic[cid] == 1632 then
 		if msgcontains(msg, 'yes') then
 			if not player:transferMoneyTo(transfer[cid], count[cid]) then
 				npcHandler:say('You cannot transfer money to this account.', cid)
@@ -631,24 +631,24 @@ local function handleBankActions(cid, msg)
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('Alright, is there something else I can do for you?', cid)
 		end
-		npcHandler.topic[cid] = 1200
+		npcHandler.topic[cid] = 1445
 ---------------------------- money exchange --------------
 	elseif msgcontains(msg, 'change gold') then
 		npcHandler:say('How many platinum coins would you like to get?', cid)
-		npcHandler.topic[cid] = 1214
-	elseif npcHandler.topic[cid] == 1214 then
+		npcHandler.topic[cid] = 1633
+	elseif npcHandler.topic[cid] == 1633 then
 		if getMoneyCount(msg) < 1 then
 			npcHandler:say('Sorry, you do not have enough gold coins.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		else
 			count[cid] = getMoneyCount(msg)
 			npcHandler:say('So you would like me to change ' .. count[cid] * 100 .. ' of your gold coins into ' .. count[cid] .. ' platinum coins?', cid)
-			npcHandler.topic[cid] = 1215
+			npcHandler.topic[cid] = 1634
 		end
-	elseif npcHandler.topic[cid] == 1215 then
+	elseif npcHandler.topic[cid] == 1634 then
 		if msgcontains(msg, 'yes') then
-			if player:removeItem(2148, count[cid] * 100) then
-				player:addItem(2152, count[cid])
+			if player:removeItem(3031, count[cid] * 100) then
+				player:addItem(3035, count[cid])
 				npcHandler:say('Here you are.', cid)
 			else
 				npcHandler:say('Sorry, you do not have enough gold coins.', cid)
@@ -656,34 +656,34 @@ local function handleBankActions(cid, msg)
 		else
 			npcHandler:say('Well, can I help you with something else?', cid)
 		end
-		npcHandler.topic[cid] = 1200
+		npcHandler.topic[cid] = 1445
 	elseif msgcontains(msg, 'change platinum') then
 		npcHandler:say('Would you like to change your platinum coins into gold or crystal?', cid)
-		npcHandler.topic[cid] = 1216
-	elseif npcHandler.topic[cid] == 1216 then
+		npcHandler.topic[cid] = 1635
+	elseif npcHandler.topic[cid] == 1635 then
 		if msgcontains(msg, 'gold') then
 			npcHandler:say('How many platinum coins would you like to change into gold?', cid)
-			npcHandler.topic[cid] = 1217
+			npcHandler.topic[cid] = 1636
 		elseif msgcontains(msg, 'crystal') then
 			npcHandler:say('How many crystal coins would you like to get?', cid)
-			npcHandler.topic[cid] = 1219
+			npcHandler.topic[cid] = 1638
 		else
 			npcHandler:say('Well, can I help you with something else?', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		end
-	elseif npcHandler.topic[cid] == 1217 then
+	elseif npcHandler.topic[cid] == 1636 then
 		if getMoneyCount(msg) < 1 then
 			npcHandler:say('Sorry, you do not have enough platinum coins.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		else
 			count[cid] = getMoneyCount(msg)
 			npcHandler:say('So you would like me to change ' .. count[cid] .. ' of your platinum coins into ' .. count[cid] * 100 .. ' gold coins for you?', cid)
-			npcHandler.topic[cid] = 1218
+			npcHandler.topic[cid] = 1637
 		end
-	elseif npcHandler.topic[cid] == 1218 then
+	elseif npcHandler.topic[cid] == 1637 then
 		if msgcontains(msg, 'yes') then
-			if player:removeItem(2152, count[cid]) then
-				player:addItem(2148, count[cid] * 100)
+			if player:removeItem(3035, count[cid]) then
+				player:addItem(3031, count[cid] * 100)
 				npcHandler:say('Here you are.', cid)
 			else
 				npcHandler:say('Sorry, you do not have enough platinum coins.', cid)
@@ -691,20 +691,20 @@ local function handleBankActions(cid, msg)
 		else
 			npcHandler:say('Well, can I help you with something else?', cid)
 		end
-		npcHandler.topic[cid] = 1200
-	elseif npcHandler.topic[cid] == 1219 then
+		npcHandler.topic[cid] = 1445
+	elseif npcHandler.topic[cid] == 1638 then
 		if getMoneyCount(msg) < 1 then
 			npcHandler:say('Sorry, you do not have enough platinum coins.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		else
 			count[cid] = getMoneyCount(msg)
 			npcHandler:say('So you would like me to change ' .. count[cid] * 100 .. ' of your platinum coins into ' .. count[cid] .. ' crystal coins for you?', cid)
-			npcHandler.topic[cid] = 1220
+			npcHandler.topic[cid] = 1639
 		end
-	elseif npcHandler.topic[cid] == 1220 then
+	elseif npcHandler.topic[cid] == 1639 then
 		if msgcontains(msg, 'yes') then
-			if player:removeItem(2152, count[cid] * 100) then
-				player:addItem(2160, count[cid])
+			if player:removeItem(3035, count[cid] * 100) then
+				player:addItem(3043, count[cid])
 				npcHandler:say('Here you are.', cid)
 			else
 				npcHandler:say('Sorry, you do not have enough platinum coins.', cid)
@@ -712,23 +712,23 @@ local function handleBankActions(cid, msg)
 		else
 			npcHandler:say('Well, can I help you with something else?', cid)
 		end
-		npcHandler.topic[cid] = 1200
+		npcHandler.topic[cid] = 1445
 	elseif msgcontains(msg, 'change crystal') then
 		npcHandler:say('How many crystal coins would you like to change into platinum?', cid)
-		npcHandler.topic[cid] = 1221
-	elseif npcHandler.topic[cid] == 1221 then
+		npcHandler.topic[cid] = 1640
+	elseif npcHandler.topic[cid] == 1640 then
 		if getMoneyCount(msg) < 1 then
 			npcHandler:say('Sorry, you do not have enough crystal coins.', cid)
-			npcHandler.topic[cid] = 1200
+			npcHandler.topic[cid] = 1445
 		else
 			count[cid] = getMoneyCount(msg)
 			npcHandler:say('So you would like me to change ' .. count[cid] .. ' of your crystal coins into ' .. count[cid] * 100 .. ' platinum coins for you?', cid)
-			npcHandler.topic[cid] = 1222
+			npcHandler.topic[cid] = 1641
 		end
-	elseif npcHandler.topic[cid] == 1222 then
+	elseif npcHandler.topic[cid] == 1641 then
 		if msgcontains(msg, 'yes') then
-			if player:removeItem(2160, count[cid])  then
-				player:addItem(2152, count[cid] * 100)
+			if player:removeItem(3043, count[cid])  then
+				player:addItem(3035, count[cid] * 100)
 				npcHandler:say('Here you are.', cid)
 			else
 				npcHandler:say('Sorry, you do not have enough crystal coins.', cid)
@@ -736,7 +736,7 @@ local function handleBankActions(cid, msg)
 		else
 			npcHandler:say('Well, can I help you with something else?', cid)
 		end
-		npcHandler.topic[cid] = 1200
+		npcHandler.topic[cid] = 1445
 	elseif msgcontains(msg, 'money') then
 		npcHandler:say('We can {change} money for you. You can also access your {bank account}.', cid)
 	elseif msgcontains(msg, 'change') then
@@ -910,23 +910,23 @@ local function getDeliveredMessageByFoodId(food_id) -- remove the hardcoded food
 	local msg = ""
 
 
-	if food_id == 35172 then
+	if food_id == 29408 then
 		msg = "Oh yes, a tasty roasted wings to make you even tougher and skilled with the defensive arts."
-	elseif food_id == 35173 then
+	elseif food_id == 29409 then
 		msg = "Divine! Carrot is a well known nourishment that makes the eyes see even more sharply."
-	elseif food_id == 35174 then
+	elseif food_id == 29410 then
 		msg = "Magnifique! A tiger meat that has been marinated for several hours in magic spices."
-	elseif food_id == 35175 then
+	elseif food_id == 29411 then
 		msg = "Aaah, the beauty of the simple dishes! A delicate salad made of selected ingredients, capable of bring joy to the hearts of bravest warriors and their weapons."
-	elseif food_id == 35176 then
+	elseif food_id == 29412 then
 		msg = "Oh yes, very spicy chilly combined with delicious minced carniphila meat and a side dish of fine salad!"
-	elseif food_id == 35177 then
+	elseif food_id == 29413 then
 		msg = "Aaah, the northern cuisine! A catch of fresh salmon right from the coast Svargrond is the base of this extraordinary fish dish."
-	elseif food_id == 35178 then
+	elseif food_id == 29414 then
 		msg = "A traditional and classy meal. A beefy casserole which smells far better than it sounds!"
-	elseif food_id == 35179 then
+	elseif food_id == 29415 then
 		msg = "A tasty chunk of juicy beef with an aromatic sauce and parsley potatoes, mmh!"
-	elseif food_id == 35180 then
+	elseif food_id == 29416 then
 		msg = "Oooh, well... that one didn't quite turn out as it was supposed to be, I'm sorry."
 	end
 

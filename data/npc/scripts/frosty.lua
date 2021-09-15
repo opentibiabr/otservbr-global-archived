@@ -23,9 +23,9 @@ npcHandler:setMessage(MESSAGE_GREET, "No, you can't have my nose! If you're in n
 
 
 sleighinfo = {
-['bright percht sleigh'] = {cost = 0, items = {{35051,1}}, mount = 133, storageID = Storage.Percht1},
-['cold percht sleigh'] = {cost = 0, items = {{35051,1}}, mount = 132, storageID = Storage.Percht2},
-['dark percht sleigh'] = {cost = 0, items = {{35051,1}}, mount = 134, storageID = Storage.Percht3},
+['bright percht sleigh'] = {cost = 0, items = {{30192,1}}, mount = 133, storageID = Storage.Percht1},
+['cold percht sleigh'] = {cost = 0, items = {{30192,1}}, mount = 132, storageID = Storage.Percht2},
+['dark percht sleigh'] = {cost = 0, items = {{30192,1}}, mount = 134, storageID = Storage.Percht3},
 }
 
 local monsterName = {'bright percht sleigh', 'cold percht sleigh', 'dark percht sleigh'}

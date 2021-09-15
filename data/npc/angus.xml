@@ -9,16 +9,16 @@
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
 			atlas, 6108, 150;
-			butterfly conservation kit, 4865, 250;
-			ectoplasm container, 4863, 750;
-			botanist s container, 4869, 500;
-			orichalcum pearl, 5022, 80;
-			crown backpack, 10522, 800;"/>
+			butterfly conservation kit, 4863, 250;
+			ectoplasm container, 4852, 750;
+			botanist s container, 4867, 500;
+			orichalcum pearl, 5021, 80;
+			crown backpack, 9605, 800;"/>
 		<parameter key="shop_sellable" value="
-			explorer brooch, 4873, 50;
-			giant smithhammer, 2321, 250;
-			hydra egg, 4850, 500;
-			old parchment, 4842, 500;
-			skull of ratha, 2320, 250;"/>
+			explorer brooch, 4871, 50;
+			giant smithhammer, 12510, 250;
+			hydra egg, 4839, 500;
+			old parchment, 5956, 500;
+			skull of ratha, 3207, 250;"/>
 	</parameters>
 </npc>

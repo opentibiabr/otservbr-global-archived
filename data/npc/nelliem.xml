@@ -13,21 +13,21 @@
 		<parameter key="keyword_reply1" value="I'm keeping my thumbs green and selling gardening tools as you can see on the shelves behind me."/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			broom, 2551, 12;
-			crowbar, 2416, 260;
-			empty flower pot, 7655, 250;
-			fishing rod, 2580, 150;
-			hammer, 2557, 80;
-			hoe, 2552, 15;
-			machete, 2420, 35;
-			pick, 2553, 50;
-			pitchfork, 2548, 25;
-			rake, 2549, 20;
-			rope, 2120, 50;
-			saw, 2558, 95;
-			scythe, 2550, 25;
-			shovel, 2554, 20;
-			watering can, 7734, 50;
-			worm, 3976, 1;"/>
+			broom, 3211, 12;
+			crowbar, 3304, 260;
+			empty flower pot, 306, 250;
+			fishing rod, 3483, 150;
+			hammer, 3460, 80;
+			hoe, 3455, 15;
+			machete, 3308, 35;
+			pick, 3456, 50;
+			pitchfork, 3451, 25;
+			rake, 3452, 20;
+			rope, 3003, 50;
+			saw, 3461, 95;
+			scythe, 3453, 25;
+			shovel, 3457, 20;
+			watering can, 650, 50;
+			worm, 3492, 1;"/>
 	</parameters>
 </npc>

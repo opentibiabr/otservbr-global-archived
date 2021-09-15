@@ -32,21 +32,21 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 	if msgcontains(msg, "banana skin") then
 		if player:getStorageValue(Storage.Postman.Mission06) == 7 then
-			if player:getItemCount(2219) > 0 then
+			if player:getItemCount(3104) > 0 then
 				npcHandler:say("<sniff><sniff>", cid)
 				npcHandler.topic[cid] = 1
 			end
 		end
 	elseif msgcontains(msg, "dirty fur") then
 		if player:getStorageValue(Storage.Postman.Mission06) == 8 then
-			if player:getItemCount(2220) > 0 then
+			if player:getItemCount(3105) > 0 then
 				npcHandler:say("<sniff><sniff>", cid)
 				npcHandler.topic[cid] = 2
 			end
 		end
 	elseif msgcontains(msg, "mouldy cheese") then
 		if player:getStorageValue(Storage.Postman.Mission06) == 9 then
-			if player:getItemCount(2235) > 0 then
+			if player:getItemCount(3120) > 0 then
 				npcHandler:say("<sniff><sniff>", cid)
 				npcHandler.topic[cid] = 3
 			end

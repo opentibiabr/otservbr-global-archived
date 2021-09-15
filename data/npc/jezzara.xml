@@ -5,20 +5,20 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			banana, 2676, 5;
-			bulb of garlic, 9114, 3;
-			carrot, 2684, 8;
-			dragon ham, 2672, 25;
-			fish, 2667, 6;
-			grapes, 2681, 8;
-			ham, 2671, 15;
-			jalapeno pepper, 8844, 2;
-			meat, 2666, 10;
-			melon, 2682, 13;
-			onion, 8843, 2;
-			orange, 2675, 9;
-			pumpkin, 2683, 10;
-			salmon, 2668, 7;
-			tomato, 2685, 10;"/>
+			banana, 3587, 5;
+			bulb of garlic, 8197, 3;
+			carrot, 3595, 8;
+			dragon ham, 3583, 25;
+			fish, 3578, 6;
+			grapes, 3592, 8;
+			ham, 3582, 15;
+			jalapeno pepper, 8016, 2;
+			meat, 3577, 10;
+			melon, 3593, 13;
+			onion, 8015, 2;
+			orange, 3586, 9;
+			pumpkin, 3594, 10;
+			salmon, 3579, 7;
+			tomato, 3596, 10;"/>
 	</parameters>
 </npc>

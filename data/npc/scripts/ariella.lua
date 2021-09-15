@@ -62,7 +62,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 1 then
-			if not player:removeItem(8111, 1) then
+			if not player:removeItem(130, 1) then
 				npcHandler:say("You have no cookie that I'd like.", cid)
 				npcHandler.topic[cid] = 0
 				return true
@@ -104,7 +104,7 @@ local function creatureSayCallback(cid, type, msg)
 			end
 		elseif npcHandler.topic[cid] == 3 then
 			if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 2 then
-				if player:removeItem(2689, 100) then
+				if player:removeItem(3600, 100) then
 					npcHandler:say("What a joy. At least for a few days adequate supply is ensured.", cid)
 					player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 3)
 					npcHandler.topic[cid] = 0

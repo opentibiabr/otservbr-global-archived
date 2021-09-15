@@ -135,7 +135,7 @@ function creatureSayCallback(cid, type, msg)
 
 	if talkState[cid] == 'pacifiers' then
 		if msgcontains(msg, 'yes') then
-			player:addItem(21554, 1)
+			player:addItem(19204, 1)
 			player:setStorageValue(SPIKE_UPPER_PACIFIER_MAIN, 0)
 			npcHandler:say('Gnometastic! Take this resonance charger and use it on seven of the pacifiers in the cave. If you lose the charger, you\'ll have to bring your own. Gnomux sells all the equipment that is required for our missions.', cid)
 			talkState[cid] = nil
@@ -167,7 +167,7 @@ function creatureSayCallback(cid, type, msg)
 
 	if talkState[cid] == 'release' then
 		if msgcontains(msg, 'yes') then
-			player:addItem(21553, 1)
+			player:addItem(19203, 1)
 			player:setStorageValue(SPIKE_UPPER_MOUND_MAIN, 0)
 			npcHandler:say('Gnometastic! Take this spirit shovel and use it on four graves in the cave system. If you lose the shovel you\'ll have to bring your own. Gnomux sells all the equipment that is required for our missions.', cid)
 			talkState[cid] = nil
@@ -200,7 +200,7 @@ function creatureSayCallback(cid, type, msg)
 	if talkState[cid] == 'track' then
 		if msgcontains(msg, 'yes') then
 			GHOST_DETECTOR_MAP[player:getGuid()] = Position.getFreeSand()
-			player:addItem(21555, 1)
+			player:addItem(19205, 1)
 			player:setStorageValue(SPIKE_UPPER_TRACK_MAIN, 0)
 			npcHandler:say('Gnometastic! Use this tracking device in the caves and locate the residual spirit energy. If you lose the tracking device, you\'ll have to bring your own. Gnomux sells all the equipment that is required for our missions.', cid)
 			talkState[cid] = nil

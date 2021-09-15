@@ -81,18 +81,18 @@ local function creatureSayCallback(cid, type, msg)
             player:setStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand, 2)
             npcHandler.topic[cid] = 0
         elseif npcHandler.topic[cid] == 3 then
-            if  player:getItemCount(2181) > 0 and player:getItemCount(2182) > 0 and player:getItemCount(2183) > 0 and player:getItemCount(2185) > 0 and player:getItemCount(2186) > 0 and player:getItemCount(2187) > 0 and player:getItemCount(2188) > 0 and player:getItemCount(2189) > 0 and player:getItemCount(2190) > 0 and player:getItemCount(2191) > 0 then
+            if  player:getItemCount(3065) > 0 and player:getItemCount(3066) > 0 and player:getItemCount(3067) > 0 and player:getItemCount(3069) > 0 and player:getItemCount(3070) > 0 and player:getItemCount(3071) > 0 and player:getItemCount(3072) > 0 and player:getItemCount(3073) > 0 and player:getItemCount(3074) > 0 and player:getItemCount(3075) > 0 then
                 npcHandler:say("Thank you, that must have been a lot to carry. Now, please bring me 10 ounces of magic sulphur.", cid)
-                player:removeItem(2181, 1)
-                player:removeItem(2182, 1)
-                player:removeItem(2183, 1)
-                player:removeItem(2185, 1)
-                player:removeItem(2186, 1)
-                player:removeItem(2187, 1)
-                player:removeItem(2188, 1)
-                player:removeItem(2189, 1)
-                player:removeItem(2190, 1)
-                player:removeItem(2191, 1)
+                player:removeItem(3065, 1)
+                player:removeItem(3066, 1)
+                player:removeItem(3067, 1)
+                player:removeItem(3069, 1)
+                player:removeItem(3070, 1)
+                player:removeItem(3071, 1)
+                player:removeItem(3072, 1)
+                player:removeItem(3073, 1)
+                player:removeItem(3074, 1)
+                player:removeItem(3075, 1)
                 player:setStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand, 3)
                 npcHandler.topic[cid] = 0
             end
@@ -109,10 +109,10 @@ local function creatureSayCallback(cid, type, msg)
                 npcHandler.topic[cid] = 0
             end
         elseif npcHandler.topic[cid] == 6 then
-            if player:removeItem(2193, 20) then
+            if player:removeItem(3077, 20) then
                 npcHandler:say("The ingredients for the ritual are complete! I will start to prepare your blessed wand, but I have to medidate first. Please come back later to hear how the ritual went.", cid)
                 player:setStorageValue(Storage.OutfitQuest.MageSummoner.AddonWand, 6)
-                player:setStorageValue(Storage.OutfitQuest.MageSummoner.AddonWandTimer, os.time() + 10800)
+                player:setStorageValue(Storage.OutfitQuest.MageSummoner.AddonWandTimer, os.time() + 9883)
                 npcHandler.topic[cid] = 0
             end
         end
@@ -136,8 +136,8 @@ local function confirmWedding(cid, message, keywords, parameters, node)
         delayedSay('Dear friends and family, we are gathered here today to witness and celebrate the union of ' .. getPlayerNameById(candidate) .. ' and ' .. player:getName() .. ' in marriage.')
         delayedSay('Through their time together, they have come to realize that their personal dreams, hopes, and goals are more attainable and more meaningful through the combined effort and mutual support provided in love, commitment, and family;',5000)
         delayedSay('and so they have decided to live together as husband and wife. And now, by the power vested in me by the Gods of Tibia, I hereby pronounce you husband and wife.',15000)
-        delayedSay('*After a whispered blessing opens an hand towards ' .. player:getName() .. '* Take these two engraved wedding rings and give one of them to your spouse.',22000)
-        delayedSay('You may now kiss your bride.',28000)
+        delayedSay('*After a whispered blessing opens an hand towards ' .. player:getName() .. '* Take these two engraved wedding rings and give one of them to your spouse.',19666)
+        delayedSay('You may now kiss your bride.',6559)
         local item1 = Item(doPlayerAddItem(cid,ITEM_ENGRAVED_WEDDING_RING,1))
         local item2 = Item(doPlayerAddItem(cid,ITEM_ENGRAVED_WEDDING_RING,1))
         item1:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, player:getName() .. ' & ' .. getPlayerNameById(candidate) .. ' forever - married on ' .. os.date('%B %d, %Y.'))
@@ -163,7 +163,7 @@ local function confirmRemoveEngage(cid, message, keywords, parameters, node)
 
         local function removeEngage(cid, message, keywords, parameters, node)
             doPlayerAddItem(cid,ITEM_WEDDING_RING,1)
-       doPlayerAddItem(cid,10503,1)
+       doPlayerAddItem(cid,9586,1)
             setPlayerMarriageStatus(player:getGuid(), 0)
             setPlayerSpouse(player:getGuid(), -1)
             npcHandler:say(parameters.text, cid)

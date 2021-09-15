@@ -36,7 +36,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, "old nasty") then
-		if player:getStorageValue(Storage.Quest.Dawnport.TheDormKey) == 3 and player:getItemCount(23773) >= 1 then
+		if player:getStorageValue(Storage.Quest.Dawnport.TheDormKey) == 3 and player:getItemCount(21402) >= 1 then
 			npcHandler:say("You bring me Old Nasty?", cid)
 			npcHandler.topic[cid] = 2
 		end
@@ -45,7 +45,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Wonderful. I don't believe you will find Dormovo alive, though. \z
 				He would not have stayed abroad that long without refilling his inkpot for his research notes. \z
 				But at least the amulet should be retrieved.", cid)
-			player:removeItem(23773, 1)
+			player:removeItem(21402, 1)
 			key = player:addItem(23763, 1)
 			key:setActionId(103)
 			player:setStorageValue(Storage.Quest.Dawnport.TheDormKey, 4)

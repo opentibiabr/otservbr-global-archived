@@ -57,7 +57,7 @@ if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) < 2 then
 			npcHandler.topic[cid] = 3
 			playerTopic[cid] = 3
 			player:removeMoneyNpc(valor)
-			player:addItem(28995, 1)
+			player:addItem(25689, 1)
 			player:setStorageValue(Storage.CultsOfTibia.MotA.Mission, 2)
 			player:setStorageValue(Storage.CultsOfTibia.MotA.AccessDoorInvestigation, 1)
 		if player:getStorageValue(Storage.CultsOfTibia.Questline) < 1 then

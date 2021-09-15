@@ -191,7 +191,7 @@ local function creatureSayCallback(cid, type, msg)
 			}, cid)
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 29)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission10, 1) --Questlog, Wrath of the Emperor "Mission 10: A Message of Freedom"
-			player:addItem(11260, 1)
+			player:addItem(10343, 1)
 			player:addAchievement('Wayfarer')
 			npcHandler.topic[cid] = 0
 		end

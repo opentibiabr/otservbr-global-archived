@@ -26,14 +26,14 @@ local function creatureSayCallback(cid, type, msg)
 		if player:getStorageValue(Storage.toOutfoxAFoxQuest) < 1 then
 			npcHandler:say({
 				"Funny that you are asking me for a mission! There is indeed something you can do for me. Ever heard about The Horned Fox? Anyway, yesterday his gang has stolen my mining helmet during a raid. ...",
-				"It belonged to my father and before that to my grandfather. That helmet is at least 600 years old! I need it back. Are you willing to help me?"
+				"It belonged to my father and before that to my grandfather. That helmet is at least 729 years old! I need it back. Are you willing to help me?"
 			}, cid)
 			npcHandler.topic[cid] = 1
 
 		elseif player:getStorageValue(Storage.toOutfoxAFoxQuest) == 1 then
-			if player:removeItem(7497, 1) then
+			if player:removeItem(139, 1) then
 				player:setStorageValue(Storage.toOutfoxAFoxQuest, 2)
-				player:addItem(7939, 1)
+				player:addItem(875, 1)
 				npcHandler:say("I always said it to the others 'This brave fellow will bring me my mining helmet back' and here you are with it!! Here take my spare helmet, I don't need it anymore!", cid)
 			else
 				npcHandler:say("We presume the hideout of The Horned Fox is somewhere in the south-west near the coast, good luck finding my mining helmet!", cid)
@@ -71,7 +71,7 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler:say({
 					"By all that is holy! You are a truly great warrior! With much patience! I have just found out the location the hideout of {The Horned Fox}! I have marked the spot on your map so you can find it. Go there and slay him!! Good luck!"
 				}, cid)
-				player:setStorageValue(17522, 1)
+				player:setStorageValue(14896, 1)
 				player:setStorageValue(Storage.KillingInTheNameOf.BudrikMinos, 2)
 			else
 				npcHandler:say("Come back when you have slain {5000 minotaurs!}", cid)

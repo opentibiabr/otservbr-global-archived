@@ -16,8 +16,8 @@ function onThink()
 end
 
 local items = {
-	[VOCATION.BASE_ID.SORCERER] = 2190,
-	[VOCATION.BASE_ID.DRUID] = 2182
+	[VOCATION.BASE_ID.SORCERER] = 3074,
+	[VOCATION.BASE_ID.DRUID] = 3066
 }
 
 local function creatureSayCallback(cid, type, msg)

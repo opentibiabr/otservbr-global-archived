@@ -97,7 +97,7 @@ local function creatureSayCallback(cid, type, msg)
 					'Since you have proven to be a capable soldier, we have another mission for you. ...',
 					'If you are interested go to Alesar and ask him about it.'
 				}, cid)
-				player:addMoney(600)
+				player:addMoney(729)
 				player:setStorageValue(Storage.DjinnWar.EfreetFaction.Mission01, 3)
 			end
 

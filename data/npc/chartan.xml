@@ -6,45 +6,45 @@
 		<parameter key="message_greet" value="Great Znake forgive me to converze wiz ziz unworzy blankzkin."/>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			avalanche rune, 2274, 57;
-			blank rune, 2260, 10;
-			chameleon rune, 2291, 210;
-			convince creature rune, 2290, 80;
-			cure poison rune, 2266, 65;
-			destroy field rune, 2261, 15;
-			dragonfruit, 12638, 5;
-			egg, 2695, 3;
-			energy field rune, 2277, 38;
-			energy wall rune, 2279, 85;
-			explosion rune, 2313, 31;
-			fire bomb rune, 2305, 147;
-			fire field rune, 2301, 28;
-			fire wall rune, 2303, 61;
-			great fireball rune, 2304, 57;
-			great health potion, 7591, 225;
-			great mana potion, 7590, 144;
-			great spirit potion, 8472, 228;
-			ham, 2671, 10;
-			health potion, 7618, 50;
-			heavy magic missile rune, 2311, 12;
-			intense healing rune, 2265, 95;
-			light magic missile rune, 2287, 4;
-			mana potion, 7620, 56;
-			poison field rune, 2285, 21;
-			poison wall rune, 2289, 52;
-			stalagmite rune, 2292, 12;
-			strong health potion, 7588, 115;
-			strong mana potion, 7589, 93;
-			sudden death rune, 2268, 135;
-			supreme health potion, 26031, 625;
-			ultimate healing rune, 2273, 175;
-			ultimate health potion, 8473, 379;
-			ultimate mana potion, 26029, 438;
-			ultimate spirit potion, 26030, 438;"/>
+			avalanche rune, 3161, 57;
+			blank rune, 3147, 10;
+			chameleon rune, 3178, 210;
+			convince creature rune, 3177, 80;
+			cure poison rune, 3153, 65;
+			destroy field rune, 3148, 15;
+			dragonfruit, 11682, 5;
+			egg, 3606, 3;
+			energy field rune, 3164, 38;
+			energy wall rune, 3166, 85;
+			explosion rune, 3200, 31;
+			fire bomb rune, 3192, 147;
+			fire field rune, 3188, 28;
+			fire wall rune, 3190, 61;
+			great fireball rune, 3191, 57;
+			great health potion, 239, 225;
+			great mana potion, 238, 144;
+			great spirit potion, 7642, 228;
+			ham, 3582, 10;
+			health potion, 266, 50;
+			heavy magic missile rune, 3198, 12;
+			intense healing rune, 3152, 95;
+			light magic missile rune, 3174, 4;
+			mana potion, 268, 56;
+			poison field rune, 3172, 21;
+			poison wall rune, 3176, 52;
+			stalagmite rune, 3179, 12;
+			strong health potion, 236, 115;
+			strong mana potion, 237, 93;
+			sudden death rune, 3155, 135;
+			supreme health potion, 23375, 625;
+			ultimate healing rune, 3160, 175;
+			ultimate health potion, 7643, 381;
+			ultimate mana potion, 23373, 443;
+			ultimate spirit potion, 23374, 443;"/>
 		<parameter key="shop_sellable" value="
-			empty potion flask, 7634, 5;
-			empty potion flask, 7635, 5;
-			empty potion flask, 7636, 5;
-			vial, 2006, 5;"/>
+			empty potion flask, 283, 5;
+			empty potion flask, 284, 5;
+			empty potion flask, 285, 5;
+			vial, 2874, 5;"/>
 	</parameters>
 </npc>

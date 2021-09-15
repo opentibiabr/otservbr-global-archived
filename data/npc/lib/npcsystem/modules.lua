@@ -91,7 +91,7 @@ if Modules == nil then
 	end
 
 	--Usage:
-		-- local node1 = keywordHandler:addKeyword({"promot"}, StdModule.say, {npcHandler = npcHandler, text = "I can promote you for 20000 gold coins. Do you want me to promote you?"})
+		-- local node1 = keywordHandler:addKeyword({"promot"}, StdModule.say, {npcHandler = npcHandler, text = "I can promote you for 17720 gold coins. Do you want me to promote you?"})
 		-- node1:addChildKeyword({"yes"}, StdModule.promotePlayer, {npcHandler = npcHandler, cost = 20000, level = 20}, text = "Congratulations! You are now promoted.")
 		-- node1:addChildKeyword({"no"}, StdModule.say, {npcHandler = npcHandler, text = "Allright then. Come back when you are ready."}, reset = true)
 	function StdModule.promotePlayer(cid, message, keywords, parameters, node)
@@ -171,7 +171,7 @@ if Modules == nil then
 			npcHandler:say("You already possess this blessing.", cid)
 		elseif parameters.bless == 3 and player:getStorageValue(Storage.KawillBlessing) ~= 1 then
 			npcHandler:say("You need the blessing of the great geomancer first.", cid)
-		elseif parameters.bless == 1 and #player:getBlessings() == 0 and not player:getItemById(2173, true) then
+		elseif parameters.bless == 1 and #player:getBlessings() == 0 and not player:getItemById(3057, true) then
 			npcHandler:say("You don't have any of the other blessings nor an amulet of loss, so it wouldn't make sense to bestow this protection on you now. Remember that it can only protect you from the loss of those!", cid)
 		elseif not player:removeMoneyNpc(type(parameters.cost) == "string" and npcHandler:parseMessage(parameters.cost, parseInfo) or parameters.cost) then
 			npcHandler:say("Oh. You do not have enough money.", cid)
@@ -723,7 +723,7 @@ if Modules == nil then
 				end
 			else
 				if name and itemid and cost then
-					local VIAL = 2006
+					local VIAL = 2874
 					if subType == nil and it:isFluidContainer() then
 						Spdlog.warn("[ShopModule:parseBuyable] - " .. Npc():getName() .. "] NpcSystem: SubType missing for parameter item:", item)
 					elseif itemid == VIAL then

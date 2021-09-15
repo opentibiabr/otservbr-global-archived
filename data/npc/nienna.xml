@@ -5,27 +5,27 @@
 	<parameters>
 		<parameter key="module_shop" value="1"/>
 		<parameter key="shop_buyable" value="
-			black pearl, 2144, 560;
-			candelabrum, 2041, 8;
-			candlestick, 2047, 2;
-			exotic flowers, 2107, 310;
+			black pearl, 3027, 560;
+			candelabrum, 2911, 8;
+			candlestick, 2917, 2;
+			exotic flowers, 2988, 310;
 			fireworks rocket, 6576, 1000;
-			flower bouquet, 7733, 500;
-			flower bowl, 2102, 6;
-			god flowers, 2100, 5;
-			heart pillow, 1685, 30;
-			honey flower, 2103, 5;
-			lyre, 2071, 120;
-			orange star, 2759, 50;
-			potter flower, 2104, 5;
-			present, 1990, 10;
-			red rose, 2744, 11;
-			ruby necklace, 2133, 3560;
-			small amethyst, 2150, 400;
-			small diamond, 2145, 600;
-			small emerald, 2149, 500;
-			small ruby, 2147, 500;
-			small sapphire, 2146, 500;
-			white pearl, 2143, 320;"/>
+			flower bouquet, 649, 500;
+			flower bowl, 2983, 6;
+			god flowers, 2981, 5;
+			heart pillow, 2393, 30;
+			honey flower, 2984, 5;
+			lyre, 2949, 120;
+			orange star, 3673, 50;
+			potter flower, 2985, 5;
+			present, 2856, 10;
+			red rose, 3658, 11;
+			ruby necklace, 3016, 3560;
+			small amethyst, 3033, 400;
+			small diamond, 3028, 729;
+			small emerald, 3032, 500;
+			small ruby, 3030, 500;
+			small sapphire, 3029, 500;
+			white pearl, 3026, 320;"/>
 	</parameters>
 </npc>

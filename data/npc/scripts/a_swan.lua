@@ -32,8 +32,8 @@ local function creatureSayCallback(cid, type, msg)
             }, cid)
             npcHandler.topic[cid] = 1
         elseif (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 15) then
-            if player:getItemCount(28605) >= 5 then
-                player:removeItem(28605, 5)
+            if player:getItemCount(25244) >= 5 then
+                player:removeItem(25244, 5)
                 player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 16)
                 npcHandler:say({
                     "This is everything that remained of my cloak? That's terrible! However, I guess I can put the feathers together again. Yes, that should be enough feathers. ...",

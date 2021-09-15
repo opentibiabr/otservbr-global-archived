@@ -52,7 +52,7 @@ local function creatureSayCallback(cid, type, msg)
 		elseif npcHandler.topic[cid] == 11 then
 			npcHandler:say('Ah well, I think you passed the test! Here is your disguise kit! Now get lost, fate awaits me!', cid)
 			player:setStorageValue(Storage.ThievesGuild.Mission04, 6)
-			player:addItem(8693, 1)
+			player:addItem(7865, 1)
 			npcHandler.topic[cid] = 0
 		end
 	elseif npcHandler.topic[cid] == 2 then
