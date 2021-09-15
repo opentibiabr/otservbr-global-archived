@@ -69,17 +69,17 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:setStorageValue(Storage.Oramond.QuestLine, 1)
 			end
 			player:setStorageValue(Storage.Oramond.MissionToTakeRoots, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.Oramond.MissionToTakeRoots) == 1 then
 			if player:getStorageValue(Storage.Oramond.HarvestedRootCount) < 5 then
 				npcHandler:say("I am sorry, you didn't harvest enough roots. You need to harvest a bundle of at least five roots - and please try doing it yourself.", npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			elseif player:getStorageValue(Storage.Oramond.HarvestedRootCount) >= 5 then
 				npcHandler:say("Yes? You brought some juicy roots? How nice of you - that's one additional voice in the {magistrate} of {Rathleton} for you! ...", npc, creature)
-				npcHandler.topic[playerId] = 1
+				npcHandler:setTopic(playerId, 1)
 			end
 		end
-	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 1 then
+	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 1 then
 		npcHandler:say("Spend it wisely, though, put in a word for the poor, will ye? Sure you will.", npc, creature)
 		player:setStorageValue(Storage.Oramond.VotingPoints,
 			player:getStorageValue(Storage.Oramond.VotingPoints) + 1)
@@ -90,10 +90,10 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		player:setStorageValue(Storage.Oramond.MissionToTakeRoots, 0)
 		player:setStorageValue(Storage.Oramond.DoorBeggarKing, 1)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	elseif msgcontains(message, "root") then
 		npcHandler:say("They are nutritious, cost nothing and are good for the body hair. If you can bring us bundles of five juicy roots each - we will make it worth your while for the {magistrate}.", npc, creature)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	elseif msgcontains(message, "magistrate") then
 		npcHandler:say("They act so important but it is us common people who keep things going. There is a lot you can do in this city to earn a right to vote in the magistrate, though. So keep an eye out for everyone who needs help.", npc, creature)
 	elseif msgcontains(message, "rathleton") then
@@ -101,7 +101,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			"Don't be fooled, we have here masters and servants like everywhere else. The whole system is a scam to subdue the masses, to fool them about what is really happening. ...",
 			"The system only ensures that the rich have a better control and the labourers are only used."
 		}, npc, creature, 10)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

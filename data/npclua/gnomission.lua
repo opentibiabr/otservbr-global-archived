@@ -65,20 +65,20 @@ local function creatureSayCallback(npc, creature, type, message)
 			"Oh, and to be able to enter the second warzone you have to best the first. To enter the third you have to best the second. ...",
 			"And you can enter each one only once every twenty hours. Your normal teleport crystals won't work on these teleporters. You will have to get mission crystals from Gnomally."
 		}, npc, creature)
-		npcHandler.topic[playerId] = 1
+		npcHandler:setTopic(playerId, 1)
 	elseif(msgcontains(message, "job")) then
 		npcHandler:say("I am responsible for our war {missions}, to {trade} with seasoned soldiers and rewarding war {heroes}. You have to be rank 4 to enter the {warzones}.", npc, creature)
-		npcHandler.topic[playerId] = 2
+		npcHandler:setTopic(playerId, 2)
 	elseif(msgcontains(message, "heroes")) then
-		if npcHandler.topic[playerId] == 2 then
+		if npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say({
 				"You can trade special spoils of war to get a permission to use the war teleporters to the area of the corresponding boss without need of mission crystals. ...",
 				"Which one would you like to trade: the deathstrike's {snippet}, gnomevil's {hat} or the abyssador {lash}?"
 			}, npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		end
 	elseif(msgcontains(message, "snippet")) then
-		if npcHandler.topic[playerId] == 3 then
+		if npcHandler:getTopic(playerId) == 3 then
 			if player:getStorageValue(Storage.BigfootBurden.QuestLine) < 30 then
 				npcHandler:say("It seems you did not even set one big foot into the warzone, I am sorry.")
 			else
@@ -86,7 +86,7 @@ local function creatureSayCallback(npc, creature, type, message)
 					if player:removeItem(18430, 1) then
 						player:setStorageValue(Storage.BigfootBurden.Warzone1Access, 1)
 						npcHandler:say("As a war hero you are allowed to use the warzone teleporter one for free!", npc, creature)
-						npcHandler.topic[playerId] = 0
+						npcHandler:setTopic(playerId, 0)
 					else
 						npcHandler:say("I can't let you enter the warzone teleporter one for free, unless you handle me a Deathstrike's snippet. But can still always use a red teleport crystal.", npc, creature)
 					end
@@ -96,7 +96,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 		end
 	elseif(msgcontains(message, "lash")) then
-		if npcHandler.topic[playerId] == 3 then
+		if npcHandler:getTopic(playerId) == 3 then
 			if player:getStorageValue(Storage.BigfootBurden.QuestLine) < 30 then
 				npcHandler:say("It seems you did not even set one big foot into the warzone, I am sorry.")
 			else
@@ -105,7 +105,7 @@ local function creatureSayCallback(npc, creature, type, message)
 						if player:removeItem(18496, 1) then
 							player:setStorageValue(Storage.BigfootBurden.Warzone3Access, 1)
 							npcHandler:say("As a war hero you are allowed to use the warzone teleporter three for free!", npc, creature)
-							npcHandler.topic[playerId] = 0
+							npcHandler:setTopic(playerId, 0)
 						else
 							npcHandler:say("I can't let you enter the warzone teleporter two for free, unless you handle me an Abyssador's lash. But can still always use a red teleport crystal.", npc, creature)
 						end
@@ -118,7 +118,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 		end
 	elseif(msgcontains(message, "hat")) then
-		if npcHandler.topic[playerId] == 3 then
+		if npcHandler:getTopic(playerId) == 3 then
 			if player:getStorageValue(Storage.BigfootBurden.QuestLine) < 30 then
 				npcHandler:say("It seems you did not even set one big foot into the warzone, I am sorry.")
 			else
@@ -127,7 +127,7 @@ local function creatureSayCallback(npc, creature, type, message)
 						if player:removeItem(18495, 1) then
 							player:setStorageValue(Storage.BigfootBurden.Warzone2Access, 1)
 							npcHandler:say("As a war hero you are allowed to use the warzone teleporter second for free!", npc, creature)
-							npcHandler.topic[playerId] = 0
+							npcHandler:setTopic(playerId, 0)
 						else
 							npcHandler:say("I can't let you enter the warzone teleporter three for free, unless you handle me a Gnomevil's hat. But can still always use a red teleport crystal.", npc, creature)
 						end
@@ -147,10 +147,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say("You have already accepted this mission.", npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		else
 			npcHandler:say("Sorry, you have not yet earned enough renown that we would risk your life in such a dangerous mission.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

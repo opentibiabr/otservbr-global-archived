@@ -113,18 +113,18 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		if player:getStorageValue(Storage.OutfitQuest.secondOrientalAddon) < 1 then
 			npcHandler:say('You mean, you would like to prove that you deserve to wear such a turban?', npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
-	elseif config[message] and npcHandler.topic[playerId] == 0 then
+	elseif config[message] and npcHandler:getTopic(playerId) == 0 then
 		if player:getStorageValue(Storage.OutfitQuest.secondOrientalAddon) == config[message].storageValue then
 			npcHandler:say(config[message].text[1], npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 			message[playerId] = message
 		else
 			npcHandler:say(config[message].text[2], npc, creature)
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say({
 				'Alright, then listen to the following requirements. We are currently in dire need of ape fur since the Caliph has requested a new bathroom carpet. ...',
 				'Thus, please bring me 100 pieces of ape fur. Secondly, it came to our ears that the explorer society has discovered a new undersea race of fishmen. ...',
@@ -133,19 +133,19 @@ local function creatureSayCallback(npc, creature, type, message)
 				'Last but not least, just drop by with 100 pieces of blue cloth and I will happily show you how to make a turban. ...',
 				'Did you understand everything I told you and are willing to handle this task?'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 2
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 2)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			if player:getStorageValue(Storage.OutfitQuest.DefaultStart) ~= 1 then
 				player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1)
 			end
 			player:setStorageValue(Storage.OutfitQuest.secondOrientalAddon, 1)
 			npcHandler:say('Excellent! Come back to me once you have collected 100 pieces of ape fur.', npc, creature)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			local targetMessage = config[message[playerId]]
 			if not player:removeItem(targetMessage.itemId, targetMessage.count) then
 				npcHandler:say('That is a shameless lie.', npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 				return true
 			end
 
@@ -156,11 +156,11 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			end
 			npcHandler:say(targetMessage.text[3], npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
-	elseif msgcontains(message, 'no') and npcHandler.topic[playerId] ~= 0 then
+	elseif msgcontains(message, 'no') and npcHandler:getTopic(playerId) ~= 0 then
 		npcHandler:say('What a pity.', npc, creature)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 
 	return true

@@ -64,33 +64,33 @@ local function creatureSayCallback(npc, creature, type, message)
 				"After all you have passed the Dream Challenge to reach this place, which used to be the process of initiation in the past...",
 				"So I ask you: do you wish to become a member of the ancient order of the Nightmare Knights, |PLAYERNAME|?"
 			}, npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, "advancement") then
 		if player:getStorageValue(Storage.OutfitQuest.NightmareOutfit) == 1 then
 			npcHandler:say("So you want to advance to a {Initiate} rank? Did you bring 500 demonic essences with you?", npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		elseif player:getStorageValue(Storage.OutfitQuest.NightmareOutfit) == 2 then
 			npcHandler:say("So you want to advance to a {Dreamer} rank? Did you bring 1000 demonic essences with you?", npc, creature)
-			npcHandler.topic[playerId] = 4
+			npcHandler:setTopic(playerId, 4)
 		elseif player:getStorageValue(Storage.OutfitQuest.NightmareOutfit) == 3 then
 			npcHandler:say("So you want to advance to a {Lord Protector} rank? Did you bring 1500 demonic essences with you?", npc, creature)
-			npcHandler.topic[playerId] = 5
+			npcHandler:setTopic(playerId, 5)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say("Please know that your decision is irrevocable. You will abandon the opportunity to join any order whose doctrine is incontrast to our own ...", npc, creature)
 			npcHandler:say("Do you still want to join our order?", npc, creature)
-			npcHandler.topic[playerId] = 2
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 2)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say({
 				"So I welcome you as the latest member of the order of the Nightmare Knights. You entered this place as a stranger, butyou will leave this place as a friend ...",
 				"You can always ask me about your current rank and about the privileges the ranks grant to those who hold them."
 			}, npc, creature)
 			player:setStorageValue(Storage.OutfitQuest.NightmareOutfit, 1)
 			player:addAchievement('Nightmare Knight')
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			if player:removeItem(6500, 500) then
 				player:addItem(7845, 1)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
@@ -99,8 +99,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say("Come back when you gather all essences.", npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 4 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 4 then
 			if player:removeItem(6500, 1000) then
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:setStorageValue(Storage.OutfitQuest.NightmareOutfit, 3)
@@ -111,8 +111,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say("Come back when you gather all essences.", npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 5 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 5 then
 			if player:removeItem(6500, 1500) then
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:setStorageValue(Storage.OutfitQuest.NightmareOutfit, 4)
@@ -123,7 +123,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say("Come back when you gather all essences.", npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

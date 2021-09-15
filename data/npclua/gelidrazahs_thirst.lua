@@ -60,24 +60,24 @@ local function creatureSayCallback(npc, creature, type, message)
 	local playerId = creature:getId()
 	local player = Player(creature)
 
-	if msgcontains(message, "yes") and npcHandler.topic[playerId] == 0 then
+	if msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 0 then
 			npcHandler:say({
 				"There are three questions. First: What is the name of the princess who fell in love with a Thaian nobleman during the regency of pharaoh Uthemath? Second: Who is the author of the book ,The Language of the Wolves'? ...",
 				"Third: Which ancient Tibian race reportedly travelled the sky in cloud ships? Can you answer these questions?"
 			}, npc, creature)
-			npcHandler.topic[playerId] = 1
-	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 1 then
+			npcHandler:setTopic(playerId, 1)
+	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 1 then
 		npcHandler:say("So I ask you: What is the name of the princess who fell in love with a Thaian nobleman during the regency of pharaoh Uthemath?", npc, creature)
-		npcHandler.topic[playerId] = 2
-	elseif msgcontains(message, "Tahmehe") and npcHandler.topic[playerId] == 2 then
+		npcHandler:setTopic(playerId, 2)
+	elseif msgcontains(message, "Tahmehe") and npcHandler:getTopic(playerId) == 2 then
 		npcHandler:say("That's right. Listen to the second question: Who is the author of the book ,The Language of the Wolves'?", npc, creature)
-		npcHandler.topic[playerId] = 3
-	elseif msgcontains(message, "Ishara") and npcHandler.topic[playerId] == 3 then
+		npcHandler:setTopic(playerId, 3)
+	elseif msgcontains(message, "Ishara") and npcHandler:getTopic(playerId) == 3 then
 		npcHandler:say("That's right. Listen to the third question: Which ancient Tibian race reportedly travelled the sky in cloud ships?", npc, creature)
-		npcHandler.topic[playerId] = 4
-	 elseif msgcontains(message, "Svir") and npcHandler.topic[playerId] == 4 then
+		npcHandler:setTopic(playerId, 4)
+	 elseif msgcontains(message, "Svir") and npcHandler:getTopic(playerId) == 4 then
 		npcHandler:say("That is correct. You satisfactorily answered all questions. You may pass and enter Gelidrazah's lair.", npc, creature)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 		player:setStorageValue(Storage.FirstDragon.GelidrazahAccess, 1)
 	else
 		npcHandler:say('I don\'t know what you are talking about.', npc, creature)

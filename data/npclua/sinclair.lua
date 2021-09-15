@@ -80,32 +80,32 @@ local function creatureSayCallback(npc, creature, type, message)
 		local qStorage = player:getStorageValue(Storage.SpiritHunters.Mission01)
 		if qStorage == 3 then
 			npcHandler:say("So, did you find anything worth examining? Did you actually catch a ghost?",creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		elseif qStorage == 2 then
 			npcHandler:say({"So you have passed Spectulus' acceptance test. Well, I'm sure you will live up to that. ...",
 							"We are trying to get this business up and running and need any help we can get. Did he tell you about the spirit cage?"
 							}, npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		elseif qStorage > 2 then
 			npcHandler:say("You already done this quest.",creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif qStorage < 2 then
 			npcHandler:say("Talk research with spectulus to take some mission.",creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say({"Excellent. Now we need to concentrate on testing that thing. The spirit cage has been calibrated based on some tests we made - as well as your recent findings over at the graveyard. ...",
 						"Using the device on the remains of a ghost right after its defeat should capture it inside this trap. We could then transfer it into our spirit chamber which is in fact a magical barrier. ..",
 						"At first, however, we need you to find a specimen and bring it here for us to test the capacity of the device. Are you ready for this?"
 						}, npc, creature)
-			npcHandler.topic[playerId] = 2
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 2)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say("Good, now all you need to do is find a ghost, defeat it and catch its very essence with the cage. Once you have it, return to me and Spectulus and I will move it into our chamber device. Good luck, return to me as soon as you are prepared.", npc, creature)
 			player:setStorageValue(Storage.SpiritHunters.Mission01, 3)
 			player:addItem(12671, 1)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			if player:getStorageValue(Storage.SpiritHunters.CharmUse) == 1 then
 				npcHandler:say({"Fascinating, let me see. ...",
 								"Amazing! I will transfer this to our spirit chamber right about - now! ...",
@@ -116,12 +116,12 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:setStorageValue(Storage.SpiritHunters.Mission01, 4)
 				player:addExperience(500, true)
 				addEvent(releasePlayer, 1000, npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Go and use the machine in a dead ghost!", npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
-		elseif npcHandler.topic[playerId] == 4 then
+		elseif npcHandler:getTopic(playerId) == 4 then
 			npcHandler:say({"Magnificent! Alright, we will at least need 5 caught ghosts. We will pay some more if you can catch 5 nightstalkers. Of course you will earn some more if you bring us 5 souleaters. ...",
 							"I heard they dwell somewhere in that new continent - Zao? Well anyway, if you feel you've got enough, just return with what you've got and we will see. Good luck! ...",
 							"Keep in mind that the specimens are only of any worth to us if the exact amount of 5 per specimen is reached. ...",
@@ -129,11 +129,11 @@ local function creatureSayCallback(npc, creature, type, message)
 							"The higher the amount of spirit energy in the cage, the higher its effective capacity. Oh and always come back and tell me if you lose your spirit cage."
 							}, npc, creature)
 			player:setStorageValue(Storage.SpiritHunters.Mission01, 5)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 5 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 5 then
 			npcHandler:say("Good, of course you will also receive an additional monetary reward for your troubles. Are you fine with that?", npc, creature)
-			npcHandler.topic[playerId] = 6
-		elseif npcHandler.topic[playerId] == 6 then
+			npcHandler:setTopic(playerId, 6)
+		elseif npcHandler:getTopic(playerId) == 6 then
 			local nightstalkers, souleaters, ghost = player:getStorageValue(Storage.SpiritHunters.NightstalkerUse), player:getStorageValue(Storage.SpiritHunters.SouleaterUse), player:getStorageValue(Storage.SpiritHunters.GhostUse)
 			if nightstalkers >= 4 and souleaters >= 4 and ghost >= 4 then
 				npcHandler:say("Alright, let us see how many ghosts you caught!", npc, creature)
@@ -141,10 +141,10 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:addExperience(8000, true)
 				player:addItem(2152, 60)
 				addEvent(releasePlayer, 1000, npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("You didnt catch the ghost pieces.", npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		end
 	elseif msgcontains(message, 'research') then
@@ -153,10 +153,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say({"We are still in need of more research concerning environmental as well as psychic ecto-magical influences. Besides more common ghosts we also need some of the harder to come by nightstalkers and - if you're really hardboiled - souleaters. ...",
 						"We will of course pay for every ghost you catch. You will receive more if you hunt for some of the tougher fellows - but don't overdue it. What do you say?"
 						}, npc, creature)
-			npcHandler.topic[playerId] = 4
+			npcHandler:setTopic(playerId, 4)
 		elseif qStorage == 5 then
 			npcHandler:say(" Alright you found something! Are you really finished hunting out there?", npc, creature)
-			npcHandler.topic[playerId] = 5
+			npcHandler:setTopic(playerId, 5)
 		end
 	end
 

@@ -60,21 +60,21 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, "mission") then
 		if player:getStorageValue(Storage.DarkTrails.Mission01) == -1 then
 			npcHandler:say("Well, there is little where we need help beyond the normal tasks you can do for the city. However, there is one thing out of the ordinary where some {assistance} would be appreciated.", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		else
 			npcHandler:say("You already asked for a mission, go to the next.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "assistance") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say(" It's nothing really important, so no one has yet found the time to look it up. It concerns the towns beggars that have started to behave {strange} lately.", npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		end
 	elseif msgcontains(message, "strange") then
-		if npcHandler.topic[playerId] == 2 then
+		if npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say("They usually know better than to show up in the streets and harass our citizens, but lately they've grown more bold or desperate or whatever. I ask you to investigate what they are up to. If necessary, you may scare them away a bit.", npc, creature)
 			player:setStorageValue(Storage.DarkTrails.Mission01, 1) -- Mission 1 start
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "outfit") then
 		if player:getStorageValue(Storage.DarkTrails.Mission18) == 1 then
@@ -82,10 +82,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.DarkTrails.Outfit, 1)
 			doPlayerAddOutfit(610, 1)
 			doPlayerAddOutfit(618, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 	elseif player:getStorageValue(Storage.DarkTrails.Outfit) == 1 then
 			npcHandler:say("You already have the outfit.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

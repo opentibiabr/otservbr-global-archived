@@ -60,34 +60,34 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, 'precious necklace') then
 		if player:getItemCount(8768) > 0 then
 			npcHandler:say('Would you like to buy my precious necklace for 5000 gold?', npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, 'mouse') then
 		npcHandler:say('Wha ... What??? Are you saying you\'ve seen a mouse here??', npc, creature)
-		npcHandler.topic[playerId] = 2
+		npcHandler:setTopic(playerId, 2)
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			if player:removeMoneyBank(5000) then
 				player:removeItem(8768, 1)
 				player:addItem(8767, 1)
 				npcHandler:say('Here you go kind sir.', npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
-		elseif npcHandler.topic[playerId] == 2 then
+		elseif npcHandler:getTopic(playerId) == 2 then
 			if not player:removeItem(7487, 1) then
 				npcHandler:say('There is no mouse here! Stop talking foolish things about serious issues!', npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 				return true
 			end
 
 			player:setStorageValue(Storage.WhatAFoolish.ScaredCarina, 1)
 			npcHandler:say('IIIEEEEEK!', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, 'no') then
-		if npcHandler.topic[playerId] == 2 then
+		if npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say('Thank goodness!', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

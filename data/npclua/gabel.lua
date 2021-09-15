@@ -68,20 +68,20 @@ local function creatureSayCallback(npc, creature, type, message)
 				'I hardly dare to ask you because you have already done so much for us, but there is a task to be done, and I cannot think of anybody else who would be better suited to fulfill it than you. ...',
 				'Think carefully, human, for this mission will bring you into real danger. Are you prepared to do us that final favour?'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 
 		elseif missionProgress == 1 then
 			npcHandler:say('You haven\'t finished your final mission yet. Shall I explain it again to you?', npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 
 		elseif missionProgress == 2 then
 			npcHandler:say('Have you found Fa\'hradin\'s lamp and placed it in Malor\'s personal chambers?', npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		else
 			npcHandler:say('There\'s no mission left for you, friend of the Marid. However, I have a task for you.', npc, creature)
 		end
 
-	elseif npcHandler.topic[playerId] == 1 then
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, 'yes') then
 			npcHandler:say({
 				'All right. Listen! Thanks to Rata\'mari\'s report we now know what Malor is up to: he wants to do to me what I have done to him - he wants to imprison me in Fa\'hradin\'s lamp! ...',
@@ -96,9 +96,9 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('As you wish.', npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 
-	elseif npcHandler.topic[playerId] == 2 then
+	elseif npcHandler:getTopic(playerId) == 2 then
 		if msgcontains(message, 'yes') then
 			npcHandler:say({
 				'Daraman shall bless you and all humans! You have done us all a huge service! Soon, this awful war will be over! ...',
@@ -111,7 +111,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Don\'t give up! May Daraman watch over you!', npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

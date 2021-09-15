@@ -57,12 +57,12 @@ function creatureSayCallback(npc, creature, type, message)
 		--for this mission is needed script of the npc Doubleday]]
 			npcHandler:say("A necrometer? Have you any idea how rare and expensive a necrometer is? There is no way I could justify giving a necrometer to an inexperienced adventurer. Hm, although ... if you weren't inexperienced that would be a different matter. ...", npc, creature)
 			npcHandler:say("Did you do any measuring task for Doubleday lately?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		--end
 	elseif(msgcontains(message, "yes")) then
-		if(npcHandler.topic[playerId] == 1) and player:getStorageValue(Storage.DarkTrails.Mission09) == 1 then
+		if(npcHandler:getTopic(playerId) == 1) and player:getStorageValue(Storage.DarkTrails.Mission09) == 1 then
 			npcHandler:say("Indeed I heard you did a good job out there. <sigh> I guess that means I can hand you one of our necrometers. Handle it with care", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 			player:setStorageValue(Storage.DarkTrails.Mission10, 1)
 			player:addItem(23495,1)
 			else

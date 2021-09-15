@@ -55,7 +55,7 @@ end
 local function greetCallback(npc, creature)
 	local playerId = creature:getId()
 	npcHandler:setMessage(MESSAGE_GREET, "Greetings, " .. Player(creature):getName() .. ". Well, we all know what time it is. Always when we meet, the citizens of rathleton voted for the {Glooth Fairy}! ... Well, the rules are as simples as always. Ask me for a {fight} and I\'ll teleport you into the room with the lever, therefore I\'ll charge one voting right. ... From this room there is no way back to me. Pull the trigger and after one minute you and your buddies will face the {Glooth Fairy}.", npc, creature)
-	npcHandler.topic[playerId] = 0
+	npcHandler:setTopic(playerId, 0)
 	return true
 end
 
@@ -67,19 +67,19 @@ local function creatureSayCallback(npc, creature, type, message)
 	local playerId = creature:getId()
 	if(msgcontains(message, "fight")) then
 		npcHandler:say("Do you really want to enter the Glooth Fairy\'s hideout. There is no chickening out and I also have to charge one voting right! {Yes} or {no}?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 	elseif(msgcontains(message, "yes")) then
-		if(npcHandler.topic[playerId] == 1) then
+		if(npcHandler:getTopic(playerId) == 1) then
 			npcHandler:say("Here you go!", npc, creature)
 			local pos = {x=33660, y=31936, z=9}
 			doTeleportThing(creature, pos)
 			doSendMagicEffect(pos, CONST_ME_TELEPORT)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif(msgcontains(message, "no")) then
-		if(npcHandler.topic[playerId] == 1) then
+		if(npcHandler:getTopic(playerId) == 1) then
 			npcHandler:say("Okay...", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

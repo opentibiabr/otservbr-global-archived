@@ -81,11 +81,11 @@ local function creatureSayCallback(npc, creature, type, message)
 					You will have to prove us your worth. Are you up to that?"
 				},
 			creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 5 then
 			npcHandler:say('Thank you for delivering my letter to Eremo. I have no more missions for you.', npc, creature)
 			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 6)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "warrior's sword") then
 		if player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 142 or 134, 2) then
@@ -96,7 +96,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.OutfitQuest.WarriorSwordAddon) < 1 then
 			player:setStorageValue(Storage.OutfitQuest.WarriorSwordAddon, 1)
 			npcHandler:say('Great! Simply bring me 100 iron ore and one royal steel and I will happily {forge} it for you.', npc, creature)
-		elseif player:getStorageValue(Storage.OutfitQuest.WarriorSwordAddon) == 1 and npcHandler.topic[playerId] == 1 then
+		elseif player:getStorageValue(Storage.OutfitQuest.WarriorSwordAddon) == 1 and npcHandler:getTopic(playerId) == 1 then
 			if player:getItemCount(5887) > 0 and player:getItemCount(5880) > 99 then
 				player:removeItem(5887, 1)
 				player:removeItem(5880, 100)
@@ -109,7 +109,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say('You do not have all the required items.', npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "knight's sword") then
 		if player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 139 or 131, 1) then
@@ -120,7 +120,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.OutfitQuest.Knight.AddonSword) < 1 then
 			player:setStorageValue(Storage.OutfitQuest.Knight.AddonSword, 1)
 			npcHandler:say('Great! Simply bring me 100 Iron Ore and one Crude Iron and I will happily {forge} it for you.', npc, creature)
-		elseif player:getStorageValue(Storage.OutfitQuest.Knight.AddonSword) == 1 and npcHandler.topic[playerId] == 1 then
+		elseif player:getStorageValue(Storage.OutfitQuest.Knight.AddonSword) == 1 and npcHandler:getTopic(playerId) == 1 then
 			if player:getItemCount(5892) > 0 and player:getItemCount(5880) > 99 then
 				player:removeItem(5892, 1)
 				player:removeItem(5880, 100)
@@ -132,18 +132,18 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say('You do not have all the required items.', npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, 'forge') then
 		npcHandler:say("What would you like me to forge for you? A {knight's sword} or a {warrior's sword}?", npc, creature)
-		npcHandler.topic[playerId] = 1
+		npcHandler:setTopic(playerId, 1)
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[playerId] == 2 then
+		if npcHandler:getTopic(playerId) == 2 then
 			if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 3 then
 				npcHandler:say('Alright, we will see. Here, take this letter and deliver it safely to old Eremo on Cormaya.', npc, creature)
 				player:addItem(8188, 1)
 				player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 4)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		end
 	end

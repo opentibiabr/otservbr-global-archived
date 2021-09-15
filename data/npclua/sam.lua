@@ -93,7 +93,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif msgcontains(message, "old backpack") or msgcontains(message, "backpack") then
 		if player:getStorageValue(Storage.SamsOldBackpack) < 1 then
 			npcHandler:say("What? Are you telling me you found my old adventurer's backpack that I lost years ago??", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 
 	elseif msgcontains(message, '2000 steel shields') then
@@ -104,16 +104,16 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 
 		npcHandler:say('What? You want to buy 2000 steel shields??', npc, creature)
-		npcHandler.topic[playerId] = 2
+		npcHandler:setTopic(playerId, 2)
 
 	elseif msgcontains(message, 'contract') then
 		if player:getStorageValue(Storage.WhatAFoolish.Contract) == 0 then
 			npcHandler:say('Have you signed the contract?', npc, creature)
-			npcHandler.topic[playerId] = 4
+			npcHandler:setTopic(playerId, 4)
 		end
 
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			if player:removeItem(3960, 1) then
 				npcHandler:say({
 					"Thank you very much! This brings back good old memories! Please, as a reward, travel to Kazordoon and ask my old friend Kroox to provide you a special dwarven armor. ...",
@@ -124,34 +124,34 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say("You don't have it...", npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say('I can\'t believe it. Finally I will be rich! I could move to Edron and enjoy my retirement! But ... wait a minute! I will not start working without a contract! Are you willing to sign one?', npc, creature)
-			npcHandler.topic[playerId] = 3
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 3)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			player:addItem(7492, 1)
 			player:setStorageValue(Storage.WhatAFoolish.Contract, 1)
 			npcHandler:say('Fine! Here is the contract. Please sign it. Talk to me about it again when you\'re done.', npc, creature)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 4 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 4 then
 			if not player:removeItem(7491, 1) then
 				npcHandler:say('You don\'t have a signed contract.', npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 				return true
 			end
 
 			player:setStorageValue(Storage.WhatAFoolish.Contract, 2)
 			npcHandler:say('Excellent! I will start working right away! Now that I am going to be rich, I will take the opportunity to tell some people what I REALLY think about them!', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 
 	elseif msgcontains(message, "no") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say("Then no.", npc, creature)
-		elseif isInArray({2, 3, 4}, npcHandler.topic[playerId]) then
+		elseif isInArray({2, 3, 4}, npcHandler:getTopic(playerId)) then
 			npcHandler:say("This deal sounded too good to be true anyway.", npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

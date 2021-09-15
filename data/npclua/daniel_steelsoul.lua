@@ -64,16 +64,16 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:resetNpc(creature)
 	elseif msgcontains(message, "mission") then
 		if player:getStorageValue(Storage.TibiaTales.AgainstTheSpiderCult) < 1 then
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 			npcHandler:say("Very good, we need heroes like you to go on a suici.....er....to earn respect of the authorities here AND in addition get a great reward for it. Are you interested in the job?", npc, creature)
 		elseif player:getStorageValue(Storage.TibiaTales.AgainstTheSpiderCult) == 5 then
 			player:setStorageValue(Storage.TibiaTales.AgainstTheSpiderCult, 6)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 			player:addItem(7887, 1)
 			npcHandler:say("What? YOU DID IT?!?! That's...that's...er....<drops a piece of paper. You see the headline 'death certificate'> like I expected!! Here is your reward.", npc, creature)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			player:setStorageValue(Storage.TibiaTales.DefaultStart, 1)
 			player:setStorageValue(Storage.TibiaTales.AgainstTheSpiderCult, 1)
 			npcHandler:say({

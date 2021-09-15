@@ -60,7 +60,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"But to do so I need a magical artefact: a cloak made of swan feathers. If I lose this cloak - or someone steals it from me - I'm stuck to the form of a swan and can't change shape anymore. And this is exactly what happened: ...",
 				"A troll stalked me while I was bathing in the river and he stole my cloak. Now I am trapped in the form of a swan. Please, can you find the thief and bring back the cloak?"
 			}, npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		elseif (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 15) then
 			if player:getItemCount(28605) >= 5 then
 				player:removeItem(28605, 5)
@@ -69,22 +69,22 @@ local function creatureSayCallback(npc, creature, type, message)
 					"This is everything that remained of my cloak? That's terrible! However, I guess I can put the feathers together again. Yes, that should be enough feathers. ...",
 					"Please give them to me so I can restore my cloak. But don't watch me! Swan maidens don't like to be observed. Nature's blessings, human being. I will tell Ikassis that you have been of great assistance."
 				}, npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else 
 				npcHandler:say("You need to deliver me like 5 feathers.", npc, creature)
 			end
 		else
 			npcHandler:say("You are not on that mission.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
-	elseif npcHandler.topic[playerId] == 1 then
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, "yes") then
 			npcHandler:say({
 				"Thank you, human being! I guess the thieving troll headed to the mountains east of here. As far as I know you can only reach these mountain tops by diving into a small cave. ...",
 				"The connecting tunnels will lead you to a mountain where you may discover him. I heard a man named Jerom talking about this when he passed by this river. Perhaps he knows more about it."
 			}, npc, creature)
 			player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 13)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

@@ -152,7 +152,7 @@ local storages = {
 function creatureSayCallback(npc, creature, type, message)
 	local player = Player(creature)
 
-	if npcHandler.topic[playerId] == 0 then
+	if npcHandler:getTopic(playerId) == 0 then
 		if msgcontains(message, 'cloak') then
 			if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 14) then
 				npcHandler:say({
@@ -169,7 +169,7 @@ function creatureSayCallback(npc, creature, type, message)
 				
 			else
 				npcHandler:say("You are not on that mission.", npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		elseif msgcontains(message, 'mission') then
 			if player:getStorageValue(Storage.FathersBurden.Status) == 1 then
@@ -198,7 +198,7 @@ function creatureSayCallback(npc, creature, type, message)
 					'As far as I understood it, the places where you can get these items are quite dangerous and so it would take some adventurer to get them. ...',
 					'That would be your mission if you are interested. Uhm, so are you interested?'
 				}, npc, creature)
-				npcHandler.topic[playerId] = 1
+				npcHandler:setTopic(playerId, 1)
 			end
 		elseif config[message:lower()] then
 			local targetMessage = config[message:lower()]
@@ -208,10 +208,10 @@ function creatureSayCallback(npc, creature, type, message)
 			end
 
 			npcHandler:say(targetMessage.messages.deliever, npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 			message[playerId] = targetMessage
 		end
-	elseif npcHandler.topic[playerId] == 1 then
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, 'yes') then
 			npcHandler:say('I am relieved someone as capable as you will handle the task. Well, I need the parts of a sorcerer\'s robe, a paladin\'s bow, a knight\'s shield, and a druid\'s wand.', npc, creature)
 			player:setStorageValue(Storage.FathersBurden.QuestLog, 1)
@@ -223,8 +223,8 @@ function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Oh my. I really hope you will change your mind.', npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
-	elseif npcHandler.topic[playerId] == 2 then
+		npcHandler:setTopic(playerId, 0)
+	elseif npcHandler:getTopic(playerId) == 2 then
 		local targetMessage = message[playerId]
 		if msgcontains(message, 'yes') then
 			if not player:removeItem(targetMessage.itemId, 1) then
@@ -239,7 +239,7 @@ function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say(targetMessage.messages.no, npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

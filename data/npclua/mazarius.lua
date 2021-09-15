@@ -80,13 +80,13 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif msgcontains(message, "short") then
 		npcHandler:say("My studies indicate that without all doubt Ferumbras the fiendish is in the process of accumulating nearly godlike powers. We have to stop him. ...", npc, creature)
 		npcHandler:say("Therefore I need you to enter a hellish dimension and acquire the parts of a weapon, the {godbreaker}, powerful enough to stop him once and for all. Are you willing to help me in this dire mission?", npc, creature)
-		npcHandler.topic[playerId] = 2
-	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 2 and player:getStorageValue(Storage.FerumbrasAscension.Access) < 1 then
+		npcHandler:setTopic(playerId, 2)
+	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 2 and player:getStorageValue(Storage.FerumbrasAscension.Access) < 1 then
 		npcHandler:say("Good!, but I need 30 {demonic essences} to exchange with the demonic messenger for a ticket for you to enter the Abodes of Torments.", npc, creature)
 	elseif msgcontains(message, "demonic essence") or msgcontains(message, "essence") then
 		npcHandler:say("Do you have 30 demonic essences to offer to the demonic messenger?", npc, creature)
-		npcHandler.topic[playerId] = 3
-	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 3 then
+		npcHandler:setTopic(playerId, 3)
+	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 3 then
 		if player:removeItem(6500, 30) then
 			npcHandler:say("Excellent! This will empower possibilty to create a breach is enough to let you pass into that hellish hiding place. ...", npc, creature)
 			player:addItem(24838, 1)

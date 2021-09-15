@@ -62,46 +62,46 @@ function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("Wow, you already did it, that's fast. I'm used to a more laid-back attitude from most people. It's a shame to risk losing you to some collapsing tunnels, but a deal is a deal. ...", npc, creature)
 			npcHandler:say("I hereby grant you the permission to enter the abandoned part of the sewers. Take care, man! ...", npc, creature)
 			npcHandler:say("If you find something interesting, come back to talk about the {abandoned sewers}.", npc, creature)
-			npcHandler.topic[playerId] = 7
+			npcHandler:setTopic(playerId, 7)
 			player:setStorageValue(Storage.DarkTrails.Mission04, 1)
 			player:setStorageValue(Storage.Oramond.DoorAbandonedSewer, 1)
 		elseif player:getStorageValue(Storage.DarkTrails.Mission05) == 1 then
 			npcHandler:say("I'm glad to see you back alive and healthy. Did you find anything interesting that you want to {report}?", npc, creature)
-			npcHandler.topic[playerId] = 7
+			npcHandler:setTopic(playerId, 7)
 		end
 	-- Mission 3 start
 	elseif(msgcontains(message, "mission")) then
-		if(npcHandler.topic[playerId] == 0) then
+		if(npcHandler:getTopic(playerId) == 0) then
 			npcHandler:say("The sewers need repair. You in?", npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		-- Mission 3 end
 		elseif player:getStorageValue(Storage.DarkTrails.Mission03) == 1 then
 			npcHandler:say("Elliott's keeps calling it that. It's just another job! You fixed some broken pipes and stuff? Let me check, {ok}?", npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		end
 	-- Mission 3 start - sewer access
 	elseif(msgcontains(message, "yes")) then
-		if(npcHandler.topic[playerId] == 2) then
+		if(npcHandler:getTopic(playerId) == 2) then
 			npcHandler:say("Good. Broken pipe and generator pieces, there's smoke evading. That's how you recognise them. See how you can fix them using your hands. Need about, oh, twenty of them at least repaired. Report to me or Jacob", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 			player:setStorageValue(Storage.Oramond.AbandonedSewer, 1)
 			player:setStorageValue(Storage.Oramond.MissionAbandonedSewer, 0)
 		end
 	-- Task: The Ancient Sewers
 	elseif(msgcontains(message, "ok")) then
-		if(npcHandler.topic[playerId] == 3) then
+		if(npcHandler:getTopic(playerId) == 3) then
 			npcHandler:say("Good. Thanks, man. That's one vote you got for helping us with this.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 			player:setStorageValue(Storage.Oramond.MissionAbandonedSewer, 21) -- Mission 3 end
 		end
 	-- Final mission 5
 	elseif(msgcontains(message, "report")) then
 		if player:getStorageValue(Storage.DarkTrails.Mission05) == 1 then
-			if(npcHandler.topic[playerId] == 7) then
+			if(npcHandler:getTopic(playerId) == 7) then
 				npcHandler:say("A sacrificial site? Damn, sounds like some freakish cult or something. Just great. And this ancient structure you talked about that's not part of the sewers? You'd better see the local historian about that, man. ...", npc, creature)
 				npcHandler:say("He can make more sense of what you found there. His name is Barazbaz. He should be in the magistrate building.", npc, creature)
 				player:setStorageValue(Storage.DarkTrails.Mission06, 1) -- Start mission 6
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else npcHandler:say("You already reported this mission, go to the next.", npc, creature)
 			end
 		end

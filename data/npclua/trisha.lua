@@ -113,7 +113,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 	local playerId = creature:getId()
 	local player, storage = Player(creature), Storage.OutfitQuest.WarriorShoulderAddon
-	if npcHandler.topic[playerId] == 0 then
+	if npcHandler:getTopic(playerId) == 0 then
 		if isInArray({"outfit", "addon"}, message) then
 			npcHandler:say("Are you talking about my spiky shoulder pad? You can't buy one of these. \z
 				They have to be {earned}.", npc, creature)
@@ -121,7 +121,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			if player:getStorageValue(storage) < 1 then
 				npcHandler:say("I'm not sure if you are enough of a hero to earn them. \z
 					You could try, though. What do you think?", npc, creature)
-				npcHandler.topic[playerId] = 1
+				npcHandler:setTopic(playerId, 1)
 			elseif player:getStorageValue(storage) >= 1 and player:getStorageValue(storage) < 5 then
 				npcHandler:say("Before I can nominate you for an award, please complete your task.", npc, creature)
 			elseif player:getStorageValue(storage) == 5 then
@@ -136,10 +136,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 
 			npcHandler:say(targetMessage.message.deliever, npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 			message[playerId] = targetMessage
 		end
-	elseif npcHandler.topic[playerId] == 1 then
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, "yes") then
 			npcHandler:say({
 				"Okay, who knows, maybe you have a chance. A really small one though. Listen up: ...",
@@ -151,23 +151,23 @@ local function creatureSayCallback(npc, creature, type, message)
 				"The last task is the hardest. You will need to bring me a claw from a mighty dragon king. ...",
 				"Did you understand everything I told you and are willing to handle this task?"
 			}, npc, creature, 100)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("I thought so. Train hard and maybe some day you will be ready to face this mission.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
-	elseif npcHandler.topic[playerId] == 2 then
+	elseif npcHandler:getTopic(playerId) == 2 then
 		if msgcontains(message, "yes") then
 			player:setStorageValue(storage, 1)
 			-- This for default start of outfit and addon quests
 			player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1)
 			npcHandler:say("Excellent! Don't forget: Your first task is to bring me 100 hardened bones. Good luck!", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("Would you like me to repeat the task requirements then?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
-	elseif npcHandler.topic[playerId] == 3 then
+	elseif npcHandler:getTopic(playerId) == 3 then
 		if msgcontains(message, "yes") then
 			local targetMessage = message[playerId]
 			if not player:removeItem(targetMessage.itemId, targetMessage.count or 1) then
@@ -180,7 +180,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("Don't give up just yet.", npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

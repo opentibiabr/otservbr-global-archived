@@ -68,11 +68,11 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Afterwards walk up to Gnomedix for your ear examination."
 			}, npc, creature)
 			player:setStorageValue(Storage.BigfootBurden.QuestLine, 8)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
-	elseif msgcontains(message, "apparatus") and npcHandler.topic[playerId] == 1 then
+	elseif msgcontains(message, "apparatus") and npcHandler:getTopic(playerId) == 1 then
 		npcHandler:say("Don't be afraid. It won't hurt! Just step in!", npc, creature)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

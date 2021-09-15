@@ -61,29 +61,29 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, 'barrel') then
 		if player:getStorageValue(Storage.SecretService.AVINMission03) == 2 then
 			npcHandler:say('Do you bring me a barrel of beer??', npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, 'whisper beer') then
 		if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 11 then
 			npcHandler:say('Do you want to buy a bottle of our finest whisper beer for 80 gold?', npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			if player:removeItem(7706, 1) then
 				player:setStorageValue(Storage.SecretService.AVINMission03, 3)
 				npcHandler:say('Three cheers for the noble |PLAYERNAME|.', npc, creature)
 			else
 				npcHandler:say("You don't have any barrel of beer!", npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 11 then
 				if player:removeMoneyBank(80) then
 					npcHandler:say("Here. Don't take it into the city though.", npc, creature)
 					player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 12)
 					player:addItem(6106, 1)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				else
 					npcHandler:say("You don't have enough money.", npc, creature)
 				end

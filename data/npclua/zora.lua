@@ -58,9 +58,9 @@ local function creatureSayCallback(npc, creature, type, message)
 	local playerId = creature:getId()
 	if msgcontains(message, "football") then
 		npcHandler:say("Do you want to buy a football for 111 gold?", npc, creature)
-		npcHandler.topic[playerId] = 1
+		npcHandler:setTopic(playerId, 1)
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			local player = Player(creature)
 			if player:getMoney() + player:getBankBalance() >= 111 then
 				npcHandler:say("Here it is.", npc, creature)
@@ -69,7 +69,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say("You don't have enough money.", npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

@@ -85,8 +85,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say({
 				'I should go and tell Fa\'hradin. ...',
 				'I am impressed you know our address of welcome! I honour that. So tell me who sent you on a mission to our fortress?'}, npc, creature)
-			npcHandler.topic[playerId] = 9
-			elseif msgcontains(message, "kazzan") and npcHandler.topic[playerId] == 9 then
+			npcHandler:setTopic(playerId, 9)
+			elseif msgcontains(message, "kazzan") and npcHandler:getTopic(playerId) == 9 then
 			npcHandler:say({
 				'How dare you lie to me?!? The caliph should choose his envoys more carefully. We will not accept his peace-offering ...',
 				'...but we are always looking for support in our fight against the evil Efreets. Tell me if you would like to join our fight.'}, npc, creature)
@@ -99,27 +99,27 @@ local function creatureSayCallback(npc, creature, type, message)
 				'If you want to enter our fortress you have to become one of us and fight the Efreet. ...',
 				'So, are you willing to do so?'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		else
 			npcHandler:say('You already have the permission to enter Ashta\'daramai.', npc, creature)
 		end
 
-	elseif npcHandler.topic[playerId] == 1 then
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, 'yes') then
 			if player:getStorageValue(Storage.DjinnWar.Faction.EfreetDoor) ~= 1 then
 				npcHandler:say('Are you sure? You pledge loyalty to king Gabel, who is... you know. And you are willing to never ever set foot on Efreets\' territory, unless you want to kill them? Yes?', npc, creature)
-				npcHandler.topic[playerId] = 2
+				npcHandler:setTopic(playerId, 2)
 			else
 				npcHandler:say('I don\'t believe you! You better go now.', npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('This isn\'t your war anyway, human.', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 
-	elseif npcHandler.topic[playerId] == 2 then
+	elseif npcHandler:getTopic(playerId) == 2 then
 		if msgcontains(message, 'yes') then
 			npcHandler:say({
 				'Oh. Ok. Welcome then. You may pass. ...',
@@ -131,7 +131,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('This isn\'t your war anyway, human.', npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

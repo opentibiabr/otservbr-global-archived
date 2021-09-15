@@ -74,12 +74,12 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		elseif reportProgress == 1 then
 			npcHandler:say('Ok, have you brought me the cheese, I\'ve asked for?', npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		else
 			npcHandler:say('I already gave you the report. I\'m not going to write another one!', npc, creature)
 		end
 
-	elseif npcHandler.topic[playerId] == 1 then
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, 'yes') then
 			if not player:removeItem(2696, 1) then
 				npcHandler:say('No cheese - no report.', npc, creature)
@@ -91,7 +91,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		else
 			npcHandler:say('No cheese - no report.', npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

@@ -79,8 +79,8 @@ function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif (player:getStorageValue(Storage.TibiaTales.TheCursedCrystal.Oneeyedjoe) >= 0) and (player:getStorageValue(Storage.TibiaTales.TheCursedCrystal.Oneeyedjoe) < 3) then
 		npcHandler:say("Ah, the brave adventurer who sought to destroy the evil crystal down there. Have you been succesful?", npc, creature)			
-	elseif msgcontains(message, "mission") and (player:getStorageValue(Storage.TibiaTales.TheCursedCrystal.Oneeyedjoe) < 0) and npcHandler.topic[playerId] < 1 then
-		npcHandler.topic[playerId] = 1 
+	elseif msgcontains(message, "mission") and (player:getStorageValue(Storage.TibiaTales.TheCursedCrystal.Oneeyedjoe) < 0) and npcHandler:getTopic(playerId) < 1 then
+		npcHandler:setTopic(playerId, 1) 
 		npcHandler:say({
 			"As for myself I haven't been down there. But I heard some disturbing rumours. In these caves are wonderful crystal formations. Some more poetically inclined fellows call them the crystal gardens. ...",
 			"At first glance it seems to be a beautiful - and precious - surrounding. But in truth, deep down in these caverns exists an old evil. Want to hear more?"
@@ -91,14 +91,14 @@ function creatureSayCallback(npc, creature, type, message)
 		npcHandler:say({"Too bad."}, npc, creature)
 	elseif msgcontains(message, "protect ears") then
 		npcHandler:say({"Protect your ears? Hmm ... Wasn't there some fabulous seafarer who used wax or something to plug his ears? There was a story about horrible bird-women or something ...? No, sounds like hogwash, doesn't it."}, npc, creature)
-	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 1 then
-		npcHandler.topic[playerId] = 2
+	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 1 then
+		npcHandler:setTopic(playerId, 2)
 		npcHandler:say({
 			"The evil I mentioned is a strange crystal, imbued with some kind of unholy energy. It is very hard to destroy, no weapon is able to shatter the thing. Maybe a jarring, very loud sound could destroy it. ...",
 			"I heard of creatures, that are able to utter ear-splitting sounds. Don't remember the name, though. Would you go down there and try to destroy the crystal?"
 		}, npc, creature)
-	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 2 then
-		npcHandler.topic[playerId] = 3
+	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 2 then
+		npcHandler:setTopic(playerId, 3)
 		player:setStorageValue(Storage.TibiaTales.DefaultStart, 1)
 		if (player:getStorageValue(Storage.TibiaTales.TheCursedCrystal.Questline) < 0)then
 			player:setStorageValue(Storage.TibiaTales.TheCursedCrystal.Questline, 0)
@@ -110,8 +110,8 @@ function creatureSayCallback(npc, creature, type, message)
 			"In my humble opinion a pirate should win a fortune by boarding ships not by crawling through caves and tunnels. But who am I to bring into question the captain's decision. All I know is that they sell the crystals at a high price. ...",
 			"A certain amount of the crystals is ground to crystal dust with a special kind of mill. Don't ask me why. Some kind of magical component perhaps that they sell to mages and sorcerers."
 		}, npc, creature)
-	elseif msgcontains(message, "cursed") and (player:getStorageValue(Storage.TibiaTales.TheCursedCrystal.Oneeyedjoe) < 0) and npcHandler.topic[playerId] < 1 then
-		npcHandler.topic[playerId] = 1 
+	elseif msgcontains(message, "cursed") and (player:getStorageValue(Storage.TibiaTales.TheCursedCrystal.Oneeyedjoe) < 0) and npcHandler:getTopic(playerId) < 1 then
+		npcHandler:setTopic(playerId, 1) 
 		npcHandler:say({
 			"As for myself I haven't been down there. But I heard some disturbing rumours. In these caves are wonderful crystal formations. Some more poetically inclined fellows call them the crystal gardens. ...",
 			"At first glance it seems to be a beautiful - and precious - surrounding. But in truth, deep down in these caverns exists an old evil. Want to hear more?"

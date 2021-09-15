@@ -64,19 +64,19 @@ local function creatureSayCallback(npc, creature, type, message)
 					(player:getStorageValue(Storage.TibiaTales.JackFutureQuest.Sister)) < 1)
 			 then
 				npcHandler:say("Why are you asking, he didn't get himself into something again did he?", npc, creature)
-				npcHandler.topic[playerId] = 1
+				npcHandler:setTopic(playerId, 1)
 			end
 		end
 	elseif msgcontains(message, "spectulus") then
-		if (npcHandler.topic[playerId] == 3) then
+		if (npcHandler:getTopic(playerId) == 3) then
 			npcHandler:say(
 				"Spelltolust?! That sounds awfully nasty! What was he doing there - are you telling \z
 				me he lived an alternate life and he didn't even tell {mother}?",
 			npc, creature)
-			npcHandler.topic[playerId] = 4
+			npcHandler:setTopic(playerId, 4)
 		end
 	elseif msgcontains(message, "yes") then
-		if (npcHandler.topic[playerId] == 1) then
+		if (npcHandler:getTopic(playerId) == 1) then
 			npcHandler:say(
 				{
 					"I knew it! He likes taking extended walks outside, leaving all the cleaning to me - \z
@@ -85,11 +85,11 @@ local function creatureSayCallback(npc, creature, type, message)
 						secrecy or something like that, didn't he? And you are here because of that?"
 				},
 			npc, creature)
-			npcHandler.topic[playerId] = 2
-		elseif (npcHandler.topic[playerId] == 2) then
+			npcHandler:setTopic(playerId, 2)
+		elseif (npcHandler:getTopic(playerId) == 2) then
 			npcHandler:say("What?! And what did he do there? Who did he visit there?", npc, creature)
-			npcHandler.topic[playerId] = 3
-		elseif (npcHandler.topic[playerId] == 4) then
+			npcHandler:setTopic(playerId, 3)
+		elseif (npcHandler:getTopic(playerId) == 4) then
 			npcHandler:say(
 				{
 					"Yesss! So this time he will get it for a change! And he lived there...? He helped whom? \z
@@ -97,7 +97,7 @@ local function creatureSayCallback(npc, creature, type, message)
 					"Wait till mother hears that! Oh he will be in for a surprise, I can tell you that. Ma!! Maaaaa!!"
 				},
 			npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 			player:setStorageValue(Storage.TibiaTales.JackFutureQuest.Sister, 1)
 			player:setStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine, 6)
 		end

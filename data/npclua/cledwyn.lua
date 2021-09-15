@@ -174,12 +174,12 @@ function creatureSayCallback(npc, creature, type, message)	local player = Player
 		"some elemental protection of your choice! I also sell a magic shield potion for one silver token. So these are my offers."}, npc, creature)
 	elseif msgcontains(message, 'enchant') then
 		npcHandler:say("The following items can be enchanted: {pendulet}, {sleep shawl}, {blister ring}, {theurgic amulet}. Make you choice!", npc, creature)
-		npcHandler.topic[playerId] = 1
-	elseif isInArray({'pendulet', 'sleep shawl', 'blister ring', 'theurgic amulet'}, message:lower()) and npcHandler.topic[playerId] == 1 then
+		npcHandler:setTopic(playerId, 1)
+	elseif isInArray({'pendulet', 'sleep shawl', 'blister ring', 'theurgic amulet'}, message:lower()) and npcHandler:getTopic(playerId) == 1 then
 		npcHandler:say("Should I enchant the item pendulet for 2 ".. ItemType(Npc():getCurrency()):getPluralName():lower() .."?", npc, creature)
 		charge = message:lower()
-		npcHandler.topic[playerId] = 2
-	elseif npcHandler.topic[playerId] == 2 then
+		npcHandler:setTopic(playerId, 2)
+	elseif npcHandler:getTopic(playerId) == 2 then
 		if msgcontains(message, 'yes') then
 			if not chargeItem[charge] then
 				npcHandler:say("Sorry, you don't have an unenchanted ".. charge ..".",creature)
@@ -192,20 +192,20 @@ function creatureSayCallback(npc, creature, type, message)	local player = Player
 				else
 					npcHandler:say("Sorry, friend, but one good turn deserves another. Bring enough ".. ItemType(Npc():getCurrency()):getPluralName():lower() .." and it's a deal.", npc, creature)
 				end
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		elseif msgcontains(message, 'no') then
 			npcHandler:say("Alright, come back if you have changed your mind.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, 'addon') then
 		if player:hasOutfit(846, 0) or player:hasOutfit(845, 0) then
 			npcHandler:say("Ah, very good. Now choose your addon: {first} or {second}.", npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		else
 			npcHandler:say("Sorry, friend, but one good turn deserves another. You need to obtain the rift warrior outfit first.", npc, creature)
 		end
-	elseif isInArray({'first', 'second'}, message:lower()) and npcHandler.topic[playerId] == 3 then
+	elseif isInArray({'first', 'second'}, message:lower()) and npcHandler:getTopic(playerId) == 3 then
 		if message:lower() == 'first' then
 			if not(player:hasOutfit(846, 1)) and not(player:hasOutfit(845, 1)) then
 				if player:removeItem(25172, 100) then
@@ -237,7 +237,7 @@ function creatureSayCallback(npc, creature, type, message)	local player = Player
 				npcHandler:say("Sorry, friend, you already have the second Rift Warrior addon.", npc, creature)
 			end
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

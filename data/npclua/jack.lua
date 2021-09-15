@@ -95,9 +95,9 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, "spectulus") then
 		if (player:getStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine) == 1) then
 			npcHandler:say("Gesundheit! Are you alright? Did you... want to tell me something by that?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		elseif (player:getStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine) == 3) then
-			if npcHandler.topic[playerId] == 3 then
+			if npcHandler:getTopic(playerId) == 3 then
 				npcHandler:say(
 					{
 						"So it's that name again. You are really determined, aren't you. ...",
@@ -122,15 +122,15 @@ local function creatureSayCallback(npc, creature, type, message)
 					"What have you done? What are all these pieces of furniture doing here? Those are ugly at \z
 					best and - hey! Stop! Leave the wallpaper alone! Alright, alright! Just tell me, why are you \z
 					doing this? Who's behind all this?", npc, creature)
-				npcHandler.topic[playerId] = 3
+				npcHandler:setTopic(playerId, 3)
 			end
 		end
 	elseif msgcontains(message, "no") then
 		if player:getStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine) == 10 then
-			if (npcHandler.topic[playerId] == 0) then
+			if (npcHandler:getTopic(playerId) == 0) then
 				npcHandler:say("WHAT?? No way, I ask you again - you DID tell me the TRUTH here... right?", npc, creature)
-				npcHandler.topic[playerId] = 5
-			elseif (npcHandler.topic[playerId] == 5) then
+				npcHandler:setTopic(playerId, 5)
+			elseif (npcHandler:getTopic(playerId) == 5) then
 				npcHandler:say(
 					{
 						"So... so this wasn't EVEN REAL? You brought all this ugly furniture here, you destroyed \z
@@ -144,11 +144,11 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:addAchievement("Truth Be Told")
 				player:setStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine, 11)
 				player:setStorageValue(Storage.TibiaTales.JackFutureQuest.LastMissionState, 1)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		end
 	elseif msgcontains(message, "yes") then
-		if (npcHandler.topic[playerId] == 1) then
+		if (npcHandler:getTopic(playerId) == 1) then
 			npcHandler:say(
 				{
 					"Oh hm, I've got a handkerchief here somewhere - ah, oh no it's already used, I'm sorry. \z
@@ -158,8 +158,8 @@ local function creatureSayCallback(npc, creature, type, message)
 					Why? And you say you are telling the truth?"
 				},
 			npc, creature)
-			npcHandler.topic[playerId] = 2
-		elseif (npcHandler.topic[playerId] == 2) then
+			npcHandler:setTopic(playerId, 2)
+		elseif (npcHandler:getTopic(playerId) == 2) then
 			npcHandler:say(
 				{
 					"I see. Well for starters, I think you're crazy. If I would have 'travelled' in some \z
@@ -168,15 +168,15 @@ local function creatureSayCallback(npc, creature, type, message)
 					behind you when you leave my house. Now."
 				},
 			npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 			player:setStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine, 2)
 		end
 
 		if player:getStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine) == 10 then
-			if (npcHandler.topic[playerId] == 0) then
+			if (npcHandler:getTopic(playerId) == 0) then
 				npcHandler:say("So that's it? Really?", npc, creature)
-				npcHandler.topic[playerId] = 6
-			elseif (npcHandler.topic[playerId] == 6) then
+				npcHandler:setTopic(playerId, 6)
+			elseif (npcHandler:getTopic(playerId) == 6) then
 				npcHandler:say(
 					"Yeah, yeah... so what are you still doing here? I guess I... will have to seek out this \z
 					Spectulus now, see what he has to say. There is nothing left for me in this place.",
@@ -184,7 +184,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:addAchievement("You Don't Know Jack")
 				player:setStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine, 11)
 				player:setStorageValue(Storage.TibiaTales.JackFutureQuest.LastMissionState, 2)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		end
 	elseif msgcontains(message, "hobbies") or msgcontains(message, "hobby") then
@@ -206,14 +206,14 @@ local function creatureSayCallback(npc, creature, type, message)
 					200
 				)
 				player:setStorageValue(Storage.TibiaTales.JackFutureQuest.Statue, 1)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		elseif (player:getStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine) == 8) then
 			npcHandler:say(
 				"I... was... sculpting sulky sculptures. For all my life. Until you came in here and DESTROYED \z
 				MY MASTERPIECE. Go away. I don't like you.",
 			npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

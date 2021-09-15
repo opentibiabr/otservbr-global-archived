@@ -86,25 +86,25 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.Postman.Mission10) == 1 then
 			if player:getItemCount(2333) > 0 then
 				npcHandler:say("A letter from my Moohmy?? Do you have a letter from my Moohmy to me?", npc, creature)
-				npcHandler.topic[playerId] = 1
+				npcHandler:setTopic(playerId, 1)
 			end
 		end
 	elseif msgcontains(message, 'cookie') then
 		if player:getStorageValue(Storage.WhatAFoolish.Questline) == 31
 				and player:getStorageValue(Storage.WhatAFoolish.CookieDelivery.Markwin) ~= 1 then
 			npcHandler:say('You bring me ... a cookie???', npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say("Uhm, well thank you, hornless being.", npc, creature)
 			player:setStorageValue(Storage.Postman.Mission10, 2)
 			player:removeItem(2333, 1)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			if not player:removeItem(8111, 1) then
 				npcHandler:say('You have no cookie that I\'d like.', npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 				return true
 			end
 

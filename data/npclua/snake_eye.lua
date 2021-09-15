@@ -61,7 +61,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.TravellingTrader.Mission02) >= 1 and player:getStorageValue(Storage.TravellingTrader.Mission02) < 3 then
 			npcHandler:say('So you\'re the delivery boy? Go ahead, but I warn you, it\'s quite heavy. You can take it from the box over there.', npc, creature)
 			player:setStorageValue(Storage.TravellingTrader.Mission02, 3)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, 'documents') then
 		if player:getStorageValue(Storage.ThievesGuild.Mission04) == 1 then

@@ -92,42 +92,42 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:say(text, npc, creature)
 	end
 
-	if npcHandler.topic[playerId] == 0 then
+	if npcHandler:getTopic(playerId) == 0 then
 		local table = itemsTable[message]
 		if table then
 			if (table.itemId ~= 6497) then
 				npcHandler:say("So you want to exchange "..message..", for ".. table.count .." christmas tokens?", npc, creature)
 				storeTable[playerId] = message
-				npcHandler.topic[playerId] = 1
+				npcHandler:setTopic(playerId, 1)
 			else
 				npcHandler:say("So you want to exchange ".. message .." to "..table.count.." christmas token(s)?", npc, creature)
 				storeTable[playerId] = 6527
-				npcHandler.topic[playerId] = 1
+				npcHandler:setTopic(playerId, 1)
 			end
 		end
-	elseif npcHandler.topic[playerId] == 1 then
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, "yes") then
 			if (tonumber(storeTable[playerId]) == 6527) then
 				if (player:removeItem(6497, 1)) then
 					npcHandler:say("Thank you, here is your 1 christmas token.", npc, creature)
 					player:addItem(6527, 1)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				else
 					npcHandler:say("You don't have a present bag.", npc, creature)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				end
 				return false
 			end
 			if player:removeItem(6527, itemsTable[storeTable[playerId]].count) then
 				npcHandler:say("Thank you, here is your "..storeTable[playerId]..".", npc, creature)
 				player:addItem(itemsTable[storeTable[playerId]].itemId, 1)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("You don't have enough of tokens.", npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		end
-	elseif npcHandler.topic[playerId] > 0 then
+	elseif npcHandler:getTopic(playerId) > 0 then
 		if msgcontains(message, "no") then
 			npcHandler:say("Come back when you are ready to trade some tokens!", npc, creature)
 		end

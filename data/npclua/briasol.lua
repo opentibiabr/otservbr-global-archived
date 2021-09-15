@@ -69,10 +69,10 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Make room in your backpack so that I can place the vase carefully inside it. If it falls to the floor, it will most likely shatter or break if you try to pick it up again. ...",
 				"This vase it not meant to be touched by human hands, so just keep your hands off it. Are you ready to buy that vase for 1000 gold?"
 			}, npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			if player:getMoney() + player:getBankBalance() >= 1000 then
 				npcHandler:say("Here it is.", npc, creature)
 				player:setStorageValue(Storage.TravellingTrader.Mission04, 2)
@@ -81,7 +81,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say("You don't have enought money.", npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

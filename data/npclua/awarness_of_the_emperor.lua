@@ -62,7 +62,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"You might have to fight several incarnations until the snake god is worn out enough. Then use the power of the snake's own sceptre against it. Use it on its corpse to claim your victory. ...",
 				"Be prepared for the fight of your life! Are you ready?"
 			}, npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 32 then
 			npcHandler:say({
 				"So you have mastered the crisis you invoked with your foolishness. I should crush you for your involvement right here and now. ...",
@@ -75,12 +75,12 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission12, 0) --Questlog, Wrath of the Emperor "Mission 12: Just Rewards"
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			local player = Player(creature)
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 31)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission11, 1) --Questlog, Wrath of the Emperor "Mission 11: Payback Time"
 			npcHandler:say("So be it!", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

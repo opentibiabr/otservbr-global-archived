@@ -77,39 +77,39 @@ local function creatureSayCallback(npc, creature, type, message)
 	local vocationBaseId = vocation:getBaseId()
 
 	if msgcontains(message, "pumin") then
-		if npcHandler.topic[playerId] == 0 and player:getStorageValue(Storage.PitsOfInferno.ThronePumin) < 1 then
+		if npcHandler:getTopic(playerId) == 0 and player:getStorageValue(Storage.PitsOfInferno.ThronePumin) < 1 then
 			npcHandler:say("Sure, where else. Everyone likes to meet my master, he is a great demon, isn't he? Your name is ...?", npc, creature)
-			npcHandler.topic[playerId] = 1
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 1)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			player:setStorageValue(Storage.PitsOfInferno.ThronePumin, 1)
 			npcHandler:say("How very interesting. I need to tell that to my master immediately. Please go to my colleagues and ask for Form 356. You will need it in order to proceed.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, player:getName()) then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say("Alright |PLAYERNAME|. Vocation?", npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		end
 	elseif msgcontains(message, Vocation(vocationId):getName()) then
-		if npcHandler.topic[playerId] == 2 then
+		if npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say("Huhu, please don't hurt me with your " .. config[vocationBaseId] .. "! Reason of your visit?", npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		end
 	elseif msgcontains(message, "411") then
 		if player:getStorageValue(Storage.PitsOfInferno.ThronePumin) == 3 then
 			npcHandler:say("Form 411? You need Form 287 to get that! Do you have it?", npc, creature)
-			npcHandler.topic[playerId] = 4
+			npcHandler:setTopic(playerId, 4)
 		elseif player:getStorageValue(Storage.PitsOfInferno.ThronePumin) == 5 then
 			npcHandler:say("Form 411? You need Form 287 to get that! Do you have it?", npc, creature)
-			npcHandler.topic[playerId] = 5
+			npcHandler:setTopic(playerId, 5)
 		end
 	elseif msgcontains(message, "no") then
-		if npcHandler.topic[playerId] == 4 then
+		if npcHandler:getTopic(playerId) == 4 then
 			player:setStorageValue(Storage.PitsOfInferno.ThronePumin, 4)
 			npcHandler:say("Oh, what a pity. Go see one of my colleagues. I give you the permission to get Form 287. Bye!", npc, creature)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 5 then
+		if npcHandler:getTopic(playerId) == 5 then
 			player:setStorageValue(Storage.PitsOfInferno.ThronePumin, 6)
 			npcHandler:say("Great. Here you are. Form 411. Come back anytime you want to talk. Bye.", npc, creature)
 		end

@@ -64,7 +64,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 		if player:getStorageValue(Storage.OutfitQuest.firstOrientalAddon) < 1 then
 			npcHandler:say('My scimitar? Yes, that is a true masterpiece. Of course I could make one for you, but I have a small request. Would you fulfil a task for me?', npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, 'comb') then
 		if player:getSex() == PLAYERSEX_FEMALE then
@@ -73,24 +73,24 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 		if player:getStorageValue(Storage.OutfitQuest.firstOrientalAddon) == 1 then
 			npcHandler:say('Have you brought a mermaid\'s comb for Ishina?', npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say({
 				'Listen, um... I know that Ishina has been wanting a comb for a long time... not just any comb, but a mermaid\'s comb. She said it prevents split ends... or something. ...',
 				'Do you think you could get one for me so I can give it to her? I really would appreciate it.'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 2
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 2)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1)
 			player:setStorageValue(Storage.OutfitQuest.firstOrientalAddon, 1)
 			npcHandler:say('Brilliant! I will wait for you to return with a mermaid\'s comb then.', npc, creature)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			if not player:removeItem(5945, 1) then
 				npcHandler:say('No... that\'s not it.', npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 				return true
 			end
 			player:setStorageValue(Storage.OutfitQuest.firstOrientalAddon, 2)
@@ -98,11 +98,11 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:addOutfitAddon(146, 1)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			npcHandler:say('Yeah! That\'s it! I can\'t wait to give it to her! Oh - but first, I\'ll fulfil my promise: Here is your scimitar! Thanks again!', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
-	elseif msgcontains(message, 'no') and npcHandler.topic[playerId] ~= 0 then
+	elseif msgcontains(message, 'no') and npcHandler:getTopic(playerId) ~= 0 then
 		npcHandler:say('Ah well. Doesn\'t matter.', npc, creature)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

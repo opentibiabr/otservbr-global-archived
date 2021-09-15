@@ -54,36 +54,36 @@ local function creatureSayCallback(npc, creature, type, message)
 	local player = Player(creature)
 	if isInArray({"enchanted chicken wing", "boots of haste"}, message) then
 		npcHandler:say('Do you want to trade Boots of haste for Enchanted Chicken Wing?', npc, creature)
-		npcHandler.topic[playerId] = 1
+		npcHandler:setTopic(playerId, 1)
 	elseif isInArray({"warrior sweat", "warrior helmet"}, message) then
 		npcHandler:say('Do you want to trade 4 Warrior Helmet for Warrior Sweat?', npc, creature)
-		npcHandler.topic[playerId] = 2
+		npcHandler:setTopic(playerId, 2)
 	elseif isInArray({"fighting spirit", "royal helmet"}, message) then
 		npcHandler:say('Do you want to trade 2 Royal Helmet for Fighting Spirit', npc, creature)
-		npcHandler.topic[playerId] = 3
+		npcHandler:setTopic(playerId, 3)
 	elseif isInArray({"magic sulphur", "fire sword"}, message) then
 		npcHandler:say('Do you want to trade 3 Fire Sword for Magic Sulphur', npc, creature)
-		npcHandler.topic[playerId] = 4
+		npcHandler:setTopic(playerId, 4)
 	elseif isInArray({"job", "items"}, message) then
 		npcHandler:say('I trade Enchanted Chicken Wing for Boots of Haste, Warrior Sweat for 4 Warrior Helmets, Fighting Spirit for 2 Royal Helmet Magic Sulphur for 3 Fire Swords', npc, creature)
-		npcHandler.topic[playerId] = 0
-	elseif msgcontains(message,'yes') and npcHandler.topic[playerId] <= 4 and npcHandler.topic[playerId] >= 1 then
+		npcHandler:setTopic(playerId, 0)
+	elseif msgcontains(message,'yes') and npcHandler:getTopic(playerId) <= 4 and npcHandler:getTopic(playerId) >= 1 then
 		local trade = {
 				{ NeedItem = 2195, Ncount = 1, GiveItem = 5891, Gcount = 1}, -- Enchanted Chicken Wing
 				{ NeedItem = 2475, Ncount = 4, GiveItem = 5885, Gcount = 1}, -- Flask of Warrior's Sweat
 				{ NeedItem = 2498, Ncount = 2, GiveItem = 5884, Gcount = 1}, -- Spirit Container
 				{ NeedItem = 2392, Ncount = 3, GiveItem = 5904, Gcount = 1}  -- Magic Sulphur
 		}
-		if player:getItemCount(trade[npcHandler.topic[playerId]].NeedItem) >= trade[npcHandler.topic[playerId]].Ncount then
-			player:removeItem(trade[npcHandler.topic[playerId]].NeedItem, trade[npcHandler.topic[playerId]].Ncount)
-			player:addItem(trade[npcHandler.topic[playerId]].GiveItem, trade[npcHandler.topic[playerId]].Gcount)
+		if player:getItemCount(trade[npcHandler:getTopic(playerId)].NeedItem) >= trade[npcHandler:getTopic(playerId)].Ncount then
+			player:removeItem(trade[npcHandler:getTopic(playerId)].NeedItem, trade[npcHandler:getTopic(playerId)].Ncount)
+			player:addItem(trade[npcHandler:getTopic(playerId)].GiveItem, trade[npcHandler:getTopic(playerId)].Gcount)
 			return npcHandler:say('Here you are.', npc, creature)
 		else
 			npcHandler:say('Sorry but you don\'t have the item.', npc, creature)
 		end
-	elseif msgcontains(message,'no') and (npcHandler.topic[playerId] >= 1 and npcHandler.topic[playerId] <= 5) then
+	elseif msgcontains(message,'no') and (npcHandler:getTopic(playerId) >= 1 and npcHandler:getTopic(playerId) <= 5) then
 		npcHandler:say('Ok then.', npc, creature)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 		npcHandler:removeInteraction(npc, creature)
 		npcHandler:resetNpc(creature)
 	end

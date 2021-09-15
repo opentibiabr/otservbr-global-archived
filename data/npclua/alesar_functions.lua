@@ -11,17 +11,17 @@ function parseAlesarSay(npc, creature, message, npcHandler)
 					"Personally, I don't understand why you haven't been slaughtered right at the gates. ...",
 					"Anyway. Are you prepared to embark on a dangerous mission for us?"
 				}, npc, creature)
-				npcHandler.topic[playerId] = 1
+				npcHandler:setTopic(playerId, 1)
 
 			elseif isInArray({1, 2}, missionProgress) then
 				npcHandler:say("Did you find the tear of Daraman?", npc, creature)
-				npcHandler.topic[playerId] = 2
+				npcHandler:setTopic(playerId, 2)
 			else
 				npcHandler:say("Don't forget to talk to Malor concerning your next mission.", npc, creature)
 			end
 		end
 
-	elseif npcHandler.topic[playerId] == 1 then
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, "yes") then
 			npcHandler:say({
 				"All right then, human. Have you ever heard of the {'Tears of Daraman'}? ...",
@@ -39,13 +39,13 @@ function parseAlesarSay(npc, creature, message, npcHandler)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("Then not.", npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 
-	elseif npcHandler.topic[playerId] == 2 then
+	elseif npcHandler:getTopic(playerId) == 2 then
 		if msgcontains(message, "yes") then
 			if player:getItemCount(2346) == 0 or missionProgress ~= 2 then
 				npcHandler:say("As I expected. You haven't got the stone. Shall I explain your mission again?", npc, creature)
-				npcHandler.topic[playerId] = 1
+				npcHandler:setTopic(playerId, 1)
 			else
 				npcHandler:say({
 					"So you have made it? You have really managed to steal a Tear of Daraman? ...",
@@ -56,12 +56,12 @@ function parseAlesarSay(npc, creature, message, npcHandler)
 				}, npc, creature)
 				player:removeItem(2346, 1)
 				player:setStorageValue(Storage.DjinnWar.EfreetFaction.Mission02, 3)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 
 		elseif msgcontains(message, "no") then
 			npcHandler:say("As I expected. You haven't got the stone. Shall I explain your mission again?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	end
 end

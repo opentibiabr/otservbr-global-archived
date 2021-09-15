@@ -60,19 +60,19 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, "present") then
 		if player:getStorageValue(Storage.Postman.Mission05) == 2 then
 			npcHandler:say("You have a present for me?? Realy?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, "key") then
 		npcHandler:say("Do you want to buy the dungeon key for 2000 gold?", npc, creature)
-		npcHandler.topic[playerId] = 2
+		npcHandler:setTopic(playerId, 2)
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			if player:removeItem(2331, 1) then
 				npcHandler:say("Thank you very much!", npc, creature)
 				player:setStorageValue(Storage.Postman.Mission05, 3)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
-		elseif npcHandler.topic[playerId] == 2 then
+		elseif npcHandler:getTopic(playerId) == 2 then
 			if player:removeMoneyBank(2000) then
 				npcHandler:say("Here it is.", npc, creature)
 				local key = player:addItem(2087, 1)
@@ -82,7 +82,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say("You don't have enough money.", npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

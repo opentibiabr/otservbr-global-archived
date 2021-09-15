@@ -61,10 +61,10 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, "farmine") then
 		if player:getStorageValue(Storage.TheNewFrontier.Questline) == 15 then
 			npcHandler:say("Oh yes, that project the whole dwarven community is so excited about. I guess I already know why you are here, but speak up.", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, "impress") or msgcontains(message, "plea") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			if player:getStorageValue(Storage.TheNewFrontier.BribeLeeland) < 1 then
 				npcHandler:say("The idea of a promising market and new resources suits us quite well. I think it is reasonable to send some assistance.", npc, creature)
 				player:setStorageValue(Storage.TheNewFrontier.BribeLeeland, 1)

@@ -103,31 +103,31 @@ local function creatureSayCallback(npc, creature, type, message)
 
 	local playerId = creature:getId()
 	local player = Player(creature)
-	if npcHandler.topic[playerId] == 0 then
+	if npcHandler:getTopic(playerId) == 0 then
 		if msgcontains(message, "yes") then
 			npcHandler:say("IN WHICH TOWN DO YOU WANT TO LIVE: {CARLIN}, {THAIS}, OR {VENORE}?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
-	elseif npcHandler.topic[playerId] == 1 then
+	elseif npcHandler:getTopic(playerId) == 1 then
 		local cityTable = config.towns[message:lower()]
 		if cityTable then
 			town[playerId] = cityTable
 			npcHandler:say("IN ".. string.upper(message) .."! AND WHAT PROFESSION HAVE YOU CHOSEN: \z
 			{KNIGHT}, {PALADIN}, {SORCERER}, OR {DRUID}?", npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		else
 			npcHandler:say("IN WHICH TOWN DO YOU WANT TO LIVE: {CARLIN}, {THAIS}, OR {VENORE}?", npc, creature)
 		end
-	elseif npcHandler.topic[playerId] == 2 then
+	elseif npcHandler:getTopic(playerId) == 2 then
 		local vocationTable = config.vocations[message:lower()]
 		if vocationTable then
 			npcHandler:say(vocationTable.text, npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 			vocation[playerId] = vocationTable.vocationId
 		else
 			npcHandler:say("{KNIGHT}, {PALADIN}, {SORCERER}, OR {DRUID}?", npc, creature)
 		end
-	elseif npcHandler.topic[playerId] == 3 then
+	elseif npcHandler:getTopic(playerId) == 3 then
 		if msgcontains(message, "yes") then
 			npcHandler:say("SO BE IT!", npc, creature)
 			player:setVocation(Vocation(vocation[playerId]))
@@ -137,7 +137,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		else
 			npcHandler:say("THEN WHAT? {KNIGHT}, {PALADIN}, {SORCERER}, OR {DRUID}?", npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		end
 	end
 	return true

@@ -63,7 +63,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Funny that you are asking me for a mission! There is indeed something you can do for me. Ever heard about The Horned Fox? Anyway, yesterday his gang has stolen my mining helmet during a raid. ...",
 				"It belonged to my father and before that to my grandfather. That helmet is at least 600 years old! I need it back. Are you willing to help me?"
 			}, npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 
 		elseif player:getStorageValue(Storage.toOutfoxAFoxQuest) == 1 then
 			if player:removeItem(7497, 1) then
@@ -73,21 +73,21 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say("We presume the hideout of The Horned Fox is somewhere in the south-west near the coast, good luck finding my mining helmet!", npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 			else npcHandler:say("Hum... what, {task}?", npc, creature)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			player:setStorageValue(Storage.toOutfoxAFoxQuest, 1)
 			npcHandler:say("I knew you have the guts for that task! We presume the hideout of The Horned Fox somewhere in the south-west near the coast. Good luck!", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 
-			elseif npcHandler.topic[playerId] == 2 then
+			elseif npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say("Hussah! Let's bring war to those hoof-legged, dirt-necked, bull-headed minotaurs!! Come back to me when you are done with your mission.", npc, creature)
 			player:setStorageValue(JOIN_STOR, 1)
 			player:setStorageValue(Storage.KillingInTheNameOf.BudrikMinos, 1)
 			player:setStorageValue(Storage.KillingInTheNameOf.BudrikMinosCount, 0)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 			else npcHandler:say("Zzz...", npc, creature)
 
 		end
@@ -98,7 +98,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"I am so angry I could spit grit! That damn Horned Fox and his attacks! Let's show those bull-heads that they have messed with the wrong people....",
 				"I want you to kill {5000 minotaurs} - no matter where - for me and all the dwarfs of Kazordoon! Are you willing to do that?"
 			}, npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		elseif player:getStorageValue(Storage.KillingInTheNameOf.BudrikMinos) == 1 then
 			if player:getStorageValue(Storage.KillingInTheNameOf.BudrikMinosCount) >= 5000 then
 				npcHandler:say({
@@ -116,7 +116,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.KillingInTheNameOf.BudrikMinos, 3)
 		elseif player:getStorageValue(Storage.KillingInTheNameOf.BudrikMinos) == 3 then
 			npcHandler:say("You already done this task.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 			else npcHandler:say("You need to do the {To Outfox a Fox Quest} before.", npc, creature)
 		end
 		-- AQUI
@@ -124,9 +124,9 @@ local function creatureSayCallback(npc, creature, type, message)
 		-- YES AQUI
 
 	elseif msgcontains(message, "no") then
-		if npcHandler.topic[playerId] > 1 then
+		if npcHandler:getTopic(playerId) > 1 then
 			npcHandler:say("Then no.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 		-- YES AQUI

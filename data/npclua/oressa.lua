@@ -172,7 +172,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	}
 
 	-- Heal and help dialog
-	if msgcontains(message, "healing") and npcHandler.topic[playerId] == 0 then
+	if msgcontains(message, "healing") and npcHandler:getTopic(playerId) == 0 then
 		if player:getLevel() < 8 then
 			if health < 40 or player:getCondition(CONDITION_POISON) then
 				if health < 40 then
@@ -184,12 +184,12 @@ local function creatureSayCallback(npc, creature, type, message)
 					player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
 				end
 				npcHandler:say("You are hurt, my child. I will heal your wounds.", npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else
 				return npcHandler:say("You do not need any healing right now.", npc, creature)
 			end
 		end
-	elseif msgcontains(message, "help") and npcHandler.topic[playerId] == 0 then
+	elseif msgcontains(message, "help") and npcHandler:getTopic(playerId) == 0 then
 		if player:getCondition(CONDITION_POISON) == nil or health > 40 then
 			return npcHandler:say("You do not need any healing right now.", npc, creature)
 		end
@@ -203,27 +203,27 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
 			end
 			npcHandler:say("You are hurt, my child. I will heal your wounds.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	-- Vocation dialog
-	elseif npcHandler.topic[playerId] == 0 and msgcontains(message, "vocation") then
+	elseif npcHandler:getTopic(playerId) == 0 and msgcontains(message, "vocation") then
 		npcHandler:say(vocationDefaultMessages,	npc, creature, 10)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	-- Choosing dialog start
-	elseif msgcontains(message, "choosing") or msgcontains(message, "choose") and npcHandler.topic[playerId] == 0 then
+	elseif msgcontains(message, "choosing") or msgcontains(message, "choose") and npcHandler:getTopic(playerId) == 0 then
 		if player:getLevel() >= 8 then
 			npcHandler:say("I'll help you decide. \z
 				Tell me: Do you like to keep your {distance}, or do you like {close} combat?", npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		else
 			npcHandler:say(vocationDefaultMessages, npc, creature, 10)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
-	elseif msgcontains(message, "distance") and npcHandler.topic[playerId] == 2 then
+	elseif msgcontains(message, "distance") and npcHandler:getTopic(playerId) == 2 then
 		npcHandler:say("Tell me: Do you prefer to fight with {bow} and {spear}, or do you want to cast {magic}?", npc, creature)
-		npcHandler.topic[playerId] = 3
+		npcHandler:setTopic(playerId, 3)
 	-- knight
-	elseif msgcontains(message, "close") and npcHandler.topic[playerId] == 2 then
+	elseif msgcontains(message, "close") and npcHandler:getTopic(playerId) == 2 then
 		npcHandler:say(
 			{
 				"Then you should choose the {vocation} of a knight and become a valiant fighter with sword and shield. ...",
@@ -234,9 +234,9 @@ local function creatureSayCallback(npc, creature, type, message)
 				"So tell me: DO YOU WISH TO BECOME A VALIANT KNIGHT? Answer with a proud {YES} if that is your choice!"
 			},
 		npc, creature, 10)
-		npcHandler.topic[playerId] = 5
+		npcHandler:setTopic(playerId, 5)
 	-- Paladin
-	elseif msgcontains(message, "bow") or msgcontains(message, "spear") and npcHandler.topic[playerId] == 3 then
+	elseif msgcontains(message, "bow") or msgcontains(message, "spear") and npcHandler:getTopic(playerId) == 3 then
 		npcHandler:say(
 			{
 				"Then you should join the ranks of the paladins, noble hunters and rangers of the wild, who rely on the \z
@@ -249,14 +249,14 @@ local function creatureSayCallback(npc, creature, type, message)
 				"DO YOU WISH TO BECOME A DARING PALADIN? Answer with a proud {YES} if that is your choice!"
 			},
 		npc, creature, 10)
-		npcHandler.topic[playerId] = 6
+		npcHandler:setTopic(playerId, 6)
 	-- Mage
-	elseif msgcontains(message, "magic") and npcHandler.topic[playerId] == 3 then
+	elseif msgcontains(message, "magic") and npcHandler:getTopic(playerId) == 3 then
 		npcHandler:say("Tell me: Do you prefer to {heal} and cast the power of nature and ice, or do you want to rain \z
 			fire and {death} on your foes?", npc, creature)
-		npcHandler.topic[playerId] = 4
+		npcHandler:setTopic(playerId, 4)
 	-- Druid
-	elseif msgcontains(message, "heal") and npcHandler.topic[playerId] == 4 then
+	elseif msgcontains(message, "heal") and npcHandler:getTopic(playerId) == 4 then
 		npcHandler:say(
 			{
 				"Then you should learn the ways of the druids, healers and powerful masters of natural magic. ...",
@@ -267,9 +267,9 @@ local function creatureSayCallback(npc, creature, type, message)
 				"So tell me: DO YOU WISH TO BECOME A SAGACIOUS DRUID? Answer with a proud {YES} if that is your choice!"
 			},
 		npc, creature, 10)
-		npcHandler.topic[playerId] = 7
+		npcHandler:setTopic(playerId, 7)
 	-- Sorcerer
-	elseif msgcontains(message, "death") and npcHandler.topic[playerId] == 4 then
+	elseif msgcontains(message, "death") and npcHandler:getTopic(playerId) == 4 then
 		npcHandler:say(
 			{
 				"Then you should become a sorcerer, a mighty wielder of deathly energies and arcane fire. ...",
@@ -280,12 +280,12 @@ local function creatureSayCallback(npc, creature, type, message)
 				"So tell me: DO YOU WISH TO BECOME A POWERFUL SORCERER? Answer with a proud {YES} if that is your choice!"
 			},
 		npc, creature, 10)
-		npcHandler.topic[playerId] = 8
+		npcHandler:setTopic(playerId, 8)
 	-- Choosing dialog start
-	elseif msgcontains(message, "decided") and npcHandler.topic[playerId] == 0 then
+	elseif msgcontains(message, "decided") and npcHandler:getTopic(playerId) == 0 then
 		npcHandler:say("So tell me, which {vocation} do you want to choose: {knight}, {sorcerer}, {paladin} or {druid}?", npc, creature)
 	-- Say vocations name
-	elseif msgcontains(message, "sorcerer") and npcHandler.topic[playerId] == 0 then
+	elseif msgcontains(message, "sorcerer") and npcHandler:getTopic(playerId) == 0 then
 		local message = {
 			"Sorcerers are powerful casters of death, energy and fire magic. \z
 				They can do a little ice or earth damage as well. ...",
@@ -298,13 +298,13 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getLevel() >= 8 then
 			table.insert(message, "So tell me: DO YOU WISH TO BECOME A POWERFUL SORCERER?"..
 									" Answer with a proud {YES} if that is your choice!")
-			npcHandler.topic[playerId] = 8
+			npcHandler:setTopic(playerId, 8)
 		else
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 
 		npcHandler:say(message, npc, creature, 10)
-	elseif msgcontains(message, "druid") and npcHandler.topic[playerId] == 0 then
+	elseif msgcontains(message, "druid") and npcHandler:getTopic(playerId) == 0 then
 		local message = {
 			"Druids are healers and powerful masters of ice and earth magic. \z
 				They can also do a little energy, fire or death damage as well. ... ",
@@ -317,13 +317,13 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getLevel() >= 8 then
 			table.insert(message, "So tell me: DO YOU WISH TO BECOME A SAGACIOUS DRUID?"..
 									" Answer with a proud {YES} if that is your choice!")
-			npcHandler.topic[playerId] = 7
+			npcHandler:setTopic(playerId, 7)
 		else
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 
 		npcHandler:say(message, npc, creature, 10)
-	elseif msgcontains(message, "paladin") and npcHandler.topic[playerId] == 0 then
+	elseif msgcontains(message, "paladin") and npcHandler:getTopic(playerId) == 0 then
 		local message = {
 			"Paladins are sturdy distance fighters. They are tougher than druids or sorcerers and can carry more items, \z
 				but they are less tough than a knight. ... ",
@@ -336,13 +336,13 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getLevel() >= 8 then
 			table.insert(message, "So tell me: DO YOU WISH TO BECOME A DARING PALADIN?"..
 									" Answer with a proud {YES} if that is your choice!")
-			npcHandler.topic[playerId] = 6
+			npcHandler:setTopic(playerId, 6)
 		else
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 
 		npcHandler:say(message, npc, creature, 10)
-	elseif msgcontains(message, "knight") and npcHandler.topic[playerId] == 0 then
+	elseif msgcontains(message, "knight") and npcHandler:getTopic(playerId) == 0 then
 		local message = {
 			"Knights are stalwart melee fighters, the toughest of all vocations. They can take more damage and carry \z
 				more items than the other vocations, but they will deal less damage than paladins, druids or sorcerers. ... ",
@@ -354,22 +354,22 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		if player:getLevel() >= 8 then
 			table.insert(message, "DO YOU WISH TO BECOME A VALIANT KNIGHT? Answer with a proud {YES} if that is your choice!")
-			npcHandler.topic[playerId] = 5
+			npcHandler:setTopic(playerId, 5)
 		else
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 
 		npcHandler:say(message, npc, creature, 10)
-	elseif ((npcHandler.topic[playerId] >= 5) and (npcHandler.topic[playerId] <= 8)) then
+	elseif ((npcHandler:getTopic(playerId) >= 5) and (npcHandler:getTopic(playerId) <= 8)) then
 		if msgcontains(message, "yes") then
 			for index, value in pairs(topicTable) do
-				if npcHandler.topic[playerId] == index then
+				if npcHandler:getTopic(playerId) == index then
 					if player:getStorageValue(Storage.Dawnport.DoorVocation) == -1 then
 						-- Change to new vocation, convert magic level and skills and set proper stats
 						player:changeVocation(value)
 						player:setStorageValue(Storage.Dawnport.DoorVocation, value)
 					else
-						npcHandler.topic[playerId] = 0
+						npcHandler:setTopic(playerId, 0)
 						return true
 					end
 				end
@@ -384,7 +384,7 @@ local function creatureSayCallback(npc, creature, type, message)
 					"Take the ship to reach the Mainland. Farewell, friend and good luck in all you undertake!"
 				},
 			npc, creature, 10)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif msgcontains(message, "no") then
 			local vocationMessage = {
 				[5] = "{paladin}, {sorcerer} or {druid}",
@@ -395,11 +395,11 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say(
 				{
 					"As you wish. If you wish to learn something about the "..
-					vocationMessage[npcHandler.topic[playerId]]..
+					vocationMessage[npcHandler:getTopic(playerId)]..
 					" vocation, tell me.",
 				},
 			npc, creature, 10)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

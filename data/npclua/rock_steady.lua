@@ -57,20 +57,20 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(72326) < 1 then
 			selfSay("If you want anything, you should talk to Old Rock Boy over there. I do {collect} stuff, though. So just ask if you're interested in helping me.", npc, creature)
 			player:setStorageValue(72326, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "collect") then
 		if player:getStorageValue(72326) == 1 then
 			selfSay("I collect everything that reflects light in strange ways. However, I am bored by my collection. And there wasn't anything new to add for years. ...", npc, creature)
 			selfSay("I like pearls for example - but I have already enough. I also like shells - but I can't even count how many I already own. ...", npc, creature)
 			npcHandler:say("If you find anything of REAL VALUE - bring it to me. I will reward you well. You don't already have something for me by chance?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		elseif player:getStorageValue(72326) == 2 then
 			selfSay("Have you got anything for me today?", npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		elseif player:getStorageValue(72326) == 3 then
 			selfSay("Have you got anything for me today?", npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		elseif player:getStorageValue(72326) == 4 and player:removeItem(15434, 1) then
 			selfSay("Have you got anything... what? You want what? A reward? HAHAHAHAAAA!! ...", npc, creature)
 			selfSay("No I'm just teasing you. I'm really happy about my collection now. ...", npc, creature)
@@ -78,21 +78,21 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:addOutfitAddon(464, 1)
 			player:addOutfitAddon(463, 1)
 			player:setStorageValue(72326, 5)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			selfSay("Great! Let me see. Amazing! I will take this, thank you!", npc, creature)
 			player:setStorageValue(72326, 2)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 2 and player:removeItem(15435, 1) then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 2 and player:removeItem(15435, 1) then
 			selfSay("Great! Let me see. Amazing! I will take this, thank you!", npc, creature)
 			player:setStorageValue(72326, 3)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 3 and player:removeItem(15436, 1) then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 3 and player:removeItem(15436, 1) then
 			selfSay("Great! Let me see. Amazing! I will take this, thank you!", npc, creature)
 			player:setStorageValue(72326, 4)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 			else selfSay("You dont have the required items!", npc, creature)
 		end
 	end

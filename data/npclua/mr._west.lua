@@ -75,13 +75,13 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:setStorageValue(Storage.InServiceofYalahar.Questline, 25)
 				player:setStorageValue(Storage.InServiceofYalahar.Mission04, 3) -- StorageValue for Questlog "Mission 04: Good to be Kingpin"
 				player:setStorageValue(Storage.InServiceofYalahar.MrWestStatus, 1)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			elseif(player:getStorageValue(Storage.InServiceofYalahar.MrWestDoor) == 2) then
 				npcHandler:say("Yes, for the sake of my life I'll accept those terms. I know when I have lost. Tell your master I will comply with his orders. ", npc, creature)
 				player:setStorageValue(Storage.InServiceofYalahar.Questline, 25)
 				player:setStorageValue(Storage.InServiceofYalahar.Mission04, 4) -- StorageValue for Questlog "Mission 04: Good to be Kingpin"
 				player:setStorageValue(Storage.InServiceofYalahar.MrWestStatus, 2)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		end
 	end

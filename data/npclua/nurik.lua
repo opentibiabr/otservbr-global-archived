@@ -69,21 +69,21 @@ local function creatureSayCallback(npc, creature, type, message)
 	local playerId = creature:getId()
 	if msgcontains(message, 'dwarven bridge') then
 		npcHandler:say('Wait a minute! Do I get that right? You\'re the owner of the dwarven bridge and you are willing to sell it to me??', npc, creature)
-		npcHandler.topic[playerId] = 1
+		npcHandler:setTopic(playerId, 1)
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say({
 				'That\'s just incredible! I\'ve dreamed about acquiring the dwarven bridge since I was a child! Now my dream will finally become true. ...',
 				'And you are sure you want to sell it? I mean really, really sure?'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 2
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 2)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say('How splendid! Do you have the necessary documents with you?', npc, creature)
-			npcHandler.topic[playerId] = 3
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 3)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			npcHandler:say('Oh my, oh my. I\'m so excited! So let\'s seal this deal as fast as possible so I can visit my very own dwarven bridge. Are you ready for the transaction?', npc, creature)
-			npcHandler.topic[playerId] = 4
-		elseif npcHandler.topic[playerId] == 4 then
+			npcHandler:setTopic(playerId, 4)
+		elseif npcHandler:getTopic(playerId) == 4 then
 			local player = Player(creature)
 			if player:removeItem(8694, 1) then
 				player:addItem(8699, 1)

@@ -66,14 +66,14 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.WhatAFoolish.Questline) == 31 and
 		player:getStorageValue(Storage.WhatAFoolish.CookieDelivery.Ariella) ~= 1 then
 			npcHandler:say("So you brought a cookie to a pirate?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, "addon") and player:getStorageValue(Storage.OutfitQuest.PirateBaseOutfit) == 1 then
 		npcHandler:say(
 		"To get pirate hat you need give me Brutus Bloodbeard's Hat, \
 		Lethal Lissy's Shirt, Ron the Ripper's Sabre and Deadeye Devious' Eye Patch. Do you have them with you?",
 		creature)
-		npcHandler.topic[playerId] = 2
+		npcHandler:setTopic(playerId, 2)
 	elseif msgcontains(message, "mission") then
 		if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 1 then
 			npcHandler:say(
@@ -83,7 +83,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 2)
 		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 2 then
 			npcHandler:say("Are you here to bring me the 100 pieces of bread that I requested?", npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 10 then
 			npcHandler:say(
 			{
@@ -96,13 +96,13 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 11)
 		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 12 then
 			npcHandler:say("Did you get a sample of the whisper beer from Carlin?", npc, creature)
-			npcHandler.topic[playerId] = 4
+			npcHandler:setTopic(playerId, 4)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			if not player:removeItem(8111, 1) then
 				npcHandler:say("You have no cookie that I'd like.", npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 				return true
 			end
 
@@ -117,7 +117,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			creature)
 			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
-		elseif npcHandler.topic[playerId] == 2 then
+		elseif npcHandler:getTopic(playerId) == 2 then
 			if player:getStorageValue(Storage.OutfitQuest.PirateHatAddon) == -1 then
 				if player:getItemCount(6101) > 0 and player:getItemCount(6102) > 0 and player:getItemCount(6100) > 0 and
 				player:getItemCount(6099) > 0
@@ -134,42 +134,42 @@ local function creatureSayCallback(npc, creature, type, message)
 					end
 				else
 					npcHandler:say("You do not have all the required items.", npc, creature)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				end
 			else
 				npcHandler:say("It seems you already have this addon, don't you try to mock me son!", npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
-		elseif npcHandler.topic[playerId] == 3 then
+		elseif npcHandler:getTopic(playerId) == 3 then
 			if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 2 then
 				if player:removeItem(2689, 100) then
 					npcHandler:say("What a joy. At least for a few days adequate supply is ensured.", npc, creature)
 					player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 3)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				else
 					npcHandler:say("Come back when you got all neccessary items.", npc, creature)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				end
 			end
-		elseif npcHandler.topic[playerId] == 4 then
+		elseif npcHandler:getTopic(playerId) == 4 then
 			if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 12 then
 				if player:removeItem(6106, 1) then
 					npcHandler:say("Thank you very much. I will test this beauty in privacy.", npc, creature)
 					player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 14)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				else
 					npcHandler:say("Come back when you got the neccessary item.", npc, creature)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				end
 			end
 		end
 	elseif msgcontains(message, "no") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say("I see.", npc, creature)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say("Alright then. Come back when you got all neccessary items.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

@@ -70,8 +70,8 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 
 		npcHandler:say('Do you want to purchase a weekly ticket for the ore wagons? With it you can travel freely and swiftly through Kazordoon for one week. 250 gold only. Deal?', npc, creature)
-		npcHandler.topic[playerId] = 1
-	elseif npcHandler.topic[playerId] == 1 then
+		npcHandler:setTopic(playerId, 1)
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, 'yes') then
 			if not player:removeMoneyBank(250) then
 				npcHandler:say('You don\'t have enough money.', npc, creature)
@@ -83,7 +83,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('No then.', npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

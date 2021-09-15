@@ -58,22 +58,22 @@ local function creatureSayCallback(npc, creature, type, message)
 	local player = Player(creature)
 	if msgcontains(message, "dress pattern") then
 		if player:getStorageValue(Storage.Postman.Mission06) == 3 then
-			if npcHandler.topic[playerId] < 1 then
+			if npcHandler:getTopic(playerId) < 1 then
 				npcHandler:say("DRESS FLATTEN? WHO WANTS ME TO FLATTEN A DRESS?", npc, creature)
-				npcHandler.topic[playerId] = 1
-			elseif npcHandler.topic[playerId] == 1 then
+				npcHandler:setTopic(playerId, 1)
+			elseif npcHandler:getTopic(playerId) == 1 then
 				npcHandler:say("A PRESS LANTERN? NEVER HEARD ABOUT IT!", npc, creature)
-				npcHandler.topic[playerId] = 2
-			elseif npcHandler.topic[playerId] == 2 then
+				npcHandler:setTopic(playerId, 2)
+			elseif npcHandler:getTopic(playerId) == 2 then
 				npcHandler:say("CHESS? I DONT PLAY CHESS!", npc, creature)
-				npcHandler.topic[playerId] = 3
-			elseif npcHandler.topic[playerId] == 3 then
+				npcHandler:setTopic(playerId, 3)
+			elseif npcHandler:getTopic(playerId) == 3 then
 				npcHandler:say("A PATTERN IN THIS MESS?? HEY DON'T INSULT MY MACHINEHALL!", npc, creature)
-				npcHandler.topic[playerId] = 4
-			elseif npcHandler.topic[playerId] == 4 then
+				npcHandler:setTopic(playerId, 4)
+			elseif npcHandler:getTopic(playerId) == 4 then
 				npcHandler:say("AH YES! I WORKED ON THE DRESS PATTERN FOR THOSE UNIFORMS. STAINLESS TROUSERES, STEAM DRIVEN BOOTS! ANOTHERMARVEL TO BEHOLD! I'LL SENT A COPY TO KEVIN IMEDIATELY!", npc, creature)
 				player:setStorageValue(Storage.Postman.Mission06, 4)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		end
 	end

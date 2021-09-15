@@ -149,7 +149,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		local bet = getBetValue()
 		if not bet then
 			npcHandler:say("Your bet is lower than the min {".. config.bet.min .."}gps or higher than the max {"..config.bet.max.."}gps bet.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 			return true
 		end
 		player:say(message, TALKTYPE_SAY, false, true, player:getPosition())

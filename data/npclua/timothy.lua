@@ -65,14 +65,14 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Oh, by the way, speaking about all the trouble here reminds me of Palimuth, a friend of mine. He is a native who was quite helpful in gathering all these information. ...",
 				"I'd like to pay him back for his kindness by sending him some experienced helper that assists him in his effort to restore some order in this city. Maybe you are interested in this job?"
 			}, npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif(msgcontains(message, "yes")) then
-		if(npcHandler.topic[playerId] == 1) then
+		if(npcHandler:getTopic(playerId) == 1) then
 			player:setStorageValue(Storage.TheWayToYalahar.QuestLine, 2)
 			npcHandler:say("Excellent! You will find Palimuth near the entrance of the city centre. Just ask him if you can assist him in a few missions.", npc, creature)
 			player:addItem(10090, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

@@ -78,7 +78,7 @@ local function creatureSayCallback(npc, creature, type, message)
 					'I can sense your evil intentions to imprison a djinn! You are longing for the lamp, which I still possess. ...',
 					'Who do you want to trap in this cursed lamp?'
 				}, npc, creature)
-				npcHandler.topic[playerId] = 1
+				npcHandler:setTopic(playerId, 1)
 			else
 				npcHandler:say('For eons he was trapped in an enchanted lamp by some ancient race. Now he\'s free to roam the world again. Although he cheated me I appreciate what he and his brethren will do to this world, now it\'s the time of the Djinn again!', npc, creature)
 			end
@@ -87,11 +87,11 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif msgcontains(message, 'cookie') then
 		if player:getStorageValue(Storage.WhatAFoolish.Questline) == 31 and player:getStorageValue(Storage.WhatAFoolish.CookieDelivery.OrcKing) ~= 1 then
 			npcHandler:say('You bring me a stinking cookie???', npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		end
 
 	-- Mission 3 - Orc Fortress
-	elseif npcHandler.topic[playerId] == 1 then
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, 'malor') then
 			if efreet == 1 then
 				player:setStorageValue(Storage.DjinnWar.EfreetFaction.DoorToLamp, 1)
@@ -106,13 +106,13 @@ local function creatureSayCallback(npc, creature, type, message)
 		else
 			npcHandler:say('I don\'t know your enemy, paleskin! Begone!', npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 
-	elseif npcHandler.topic[playerId] == 2 then
+	elseif npcHandler:getTopic(playerId) == 2 then
 		if msgcontains(message, 'yes') then
 			if not player:removeItem(8111, 1) then
 				npcHandler:say('You have no cookie that I\'d like.', npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 				return true
 			end
 
@@ -128,7 +128,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('I see.', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

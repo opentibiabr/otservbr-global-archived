@@ -87,7 +87,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				},
 			npc, creature, 10)
 			player:setStorageValue(Storage.Dawnport.Tutorial, 2)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

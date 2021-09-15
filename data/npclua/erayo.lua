@@ -74,35 +74,35 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, 'addon') then
 		if player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 156 or 152) and player:getStorageValue(Storage.OutfitQuest.AssassinFirstAddon) < 1 then
 			npcHandler:say('Vescu gave you an assassin outfit? Haha. Noticed it lacks the head piece? You look a bit silly. Want my old head piece?', npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
-	elseif config[message] and npcHandler.topic[playerId] == 0 then
+	elseif config[message] and npcHandler:getTopic(playerId) == 0 then
 		if player:getStorageValue(Storage.OutfitQuest.AssassinFirstAddon) == config[message].storageValue then
 			npcHandler:say(config[message].text[1], npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 			message[playerId] = message
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say({
 				'Thought so. Could use some help anyway. Listen, I need stuff. Someone gave me a strange assignment - sneak into Thais castle at night and shroud it with cloth without anyone noticing it. ...',
 				'I wonder why anyone would want to shroud a castle, but as long as long as the guy pays, no problem, I\'ll do the sneaking part. Need a lot of cloth though. ...',
 				'Gonna make it colourful. Bring me 50 pieces of {blue cloth}, 50 pieces of {green cloth}, 50 pieces of {red cloth}, 50 pieces of {brown cloth}, 50 pieces of {yellow cloth} and 50 pieces of {white cloth}. ...',
 				'Besides, gonna need 10 {spools of yarn}. Understood?'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 2
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 2)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			if player:getStorageValue(Storage.OutfitQuest.DefaultStart) ~= 1 then
 				player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1)
 			end
 			player:setStorageValue(Storage.OutfitQuest.AssassinFirstAddon, 1)
 			npcHandler:say('Good. Start with the blue cloth. I\'ll wait.', npc, creature)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			local targetMessage = config[message[playerId]]
 			if not player:removeItem(targetMessage.itemId, targetMessage.count) then
 				npcHandler:say('You don\'t have the required items.', npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 				return true
 			end
 
@@ -113,11 +113,11 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			end
 			npcHandler:say(targetMessage.text[2], npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
-	elseif msgcontains(message, 'no') and npcHandler.topic[playerId] > 0 then
+	elseif msgcontains(message, 'no') and npcHandler:getTopic(playerId) > 0 then
 		npcHandler:say('Maybe another time.', npc, creature)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

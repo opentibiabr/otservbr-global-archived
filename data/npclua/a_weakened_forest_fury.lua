@@ -73,9 +73,9 @@ local function creatureSayCallback(npc, creature, type, message)
 			"The purest {water} from the purest well needs to be brought there and poured and {birds} that give life need to be brought back to the inner sanctum of the glade. ...",
 			"Will you be our guardian?"
 		}, npc, creature)
-		npcHandler.topic[playerId] = 1
+		npcHandler:setTopic(playerId, 1)
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say({
 			"Indeed, you will. Take one of these cages, which have been crafted generations ago to rob a creature of its freedom for that it may earn it again truthfully. Return the birds back to their home in the glade. ...",
 			"You will find {phials} for water near this sacred well which will take you safely to the glade. No seeds are left, they are in the hands of the intruders now. Have faith in yourself, guardian."
@@ -84,31 +84,31 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:addItem(26480, 1)
 		end
 	elseif msgcontains(message, "seeds") then
-			if npcHandler.topic[playerId] == 1 then
+			if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say({
 			"Seeds to give life to strong trees, blooming and proud. The {intruders} robbed us from them."
 			}, npc, creature)
 		end
 	elseif msgcontains(message, "intruders") then
-			if npcHandler.topic[playerId] == 1 then
+			if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say({
 			"The intruders appeared in the blink of an eye. Out of thin air, as if they came from nowhere. They overrun the glade within ours and drove away what was remaining from us within the day."
 			}, npc, creature)
 		end
 	elseif msgcontains(message, "water") then
-			if npcHandler.topic[playerId] == 1 then
+			if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say({
 			"The purest water flows through this well. For centuries we concealed it, for other beings to not lay their eyes on it."
 			}, npc, creature)
 		end
 	elseif msgcontains(message, "birds") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say({
 				"Take care, guardian."
 			}, npc, creature)
 		end
 	elseif msgcontains(message, "phials") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say({
 				"Phials for the purest water from our sacred well. They are finely crafted and very fragile. We keep a small supply up here around the well. Probably the only thing the intruders did not care for."
 			}, npc, creature)
@@ -119,10 +119,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			"Crafted generations ago to rob a creature of its freedom for that it may earn it again truthfully. You will need them if you plan on returning the birds to their rightful home in the glade. ... ",
 			"Are you in need of another one? "
 		}, npc, creature)
-		npcHandler.topic[playerId] = 2
+		npcHandler:setTopic(playerId, 2)
 	end
 	if msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 2 then
+		if npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say({
 				"I already handed a cage to you. If you are in need of another one, you will have to return to me later."
 			}, npc, creature)

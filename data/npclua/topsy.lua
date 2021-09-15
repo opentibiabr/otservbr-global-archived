@@ -73,7 +73,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:isMage() then
 			if player:getStorageValue(Storage.firstMageWeapon) == -1 then
 				npcHandler:say("So you ask me for a {" .. ItemType(itemId):getName() .. "} to begin your adventure?", npc, creature)
-				npcHandler.topic[playerId] = 1
+				npcHandler:setTopic(playerId, 1)
 			else
 				npcHandler:say("What? I have already gave you one {" .. ItemType(itemId):getName() .. "}!", npc, creature)
 			end
@@ -81,15 +81,15 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("Sorry, you aren't a druid either a sorcerer.", npc, creature)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			player:addItem(itemId, 1)
 			npcHandler:say("Here you are young adept, take care yourself.", npc, creature)
 			player:setStorageValue(Storage.firstMageWeapon, 1)
 		end
-		npcHandler.topic[playerId] = 0
-	elseif msgcontains(message, "no") and npcHandler.topic[playerId] == 1 then
+		npcHandler:setTopic(playerId, 0)
+	elseif msgcontains(message, "no") and npcHandler:getTopic(playerId) == 1 then
 		npcHandler:say("Ok then.", npc, creature)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

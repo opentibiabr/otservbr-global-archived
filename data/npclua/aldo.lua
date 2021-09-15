@@ -103,9 +103,9 @@ local function creatureSayCallback(npc, creature, type, message)
 	local player = Player(creature)
 	if isInArray({"soft boots", "repair", "soft", "boots"}, message) then
 		npcHandler:say("Do you want to repair your worn soft boots for 10000 gold coins?", npc, creature)
-		npcHandler.topic[playerId] = 1
-	elseif msgcontains(message, 'yes') and npcHandler.topic[playerId] == 1 then
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 1)
+	elseif msgcontains(message, 'yes') and npcHandler:getTopic(playerId) == 1 then
+		npcHandler:setTopic(playerId, 0)
 		if player:getItemCount(10021) == 0 then
 			npcHandler:say("Sorry, you don't have the item.", npc, creature)
 			return true
@@ -119,8 +119,8 @@ local function creatureSayCallback(npc, creature, type, message)
 		player:removeItem(10021, 1)
 		player:addItem(6132, 1)
 		npcHandler:say("Here you are.", npc, creature)
-	elseif msgcontains(message, 'no') and npcHandler.topic[playerId] == 1 then
-		npcHandler.topic[playerId] = 0
+	elseif msgcontains(message, 'no') and npcHandler:getTopic(playerId) == 1 then
+		npcHandler:setTopic(playerId, 0)
 		npcHandler:say("Ok then.", npc, creature)
 	end
 

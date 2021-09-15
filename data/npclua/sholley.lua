@@ -57,17 +57,17 @@ function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("So you have proven yourself a true friend of our city. It's hard to believe but I think your words only give substance to suspicions my heart had harboured since quite a while. ...", npc, creature)
 			npcHandler:say("So Harsin is probably not the person he appeared to be. Actually I haven't heard from him for quite a while. He was resident in the local bed and breakfast hotel. You should be able to find him there or at least to learn about his whereabouts.", npc, creature)
 			player:setStorageValue(Storage.DarkTrails.Mission13, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif(msgcontains(message, "quandon")) then
 		if player:setStorageValue(Storage.DarkTrails.Mission14) == 2 then
 			npcHandler:say("A transporter dead? This is more then alarming. It seems Harsin is up to something and whatever it is, it's nothing good at all. But not all is lost. A local medium, Barnabas, has truly the gift to speak to the dead. ...", npc, creature)
 			npcHandler:say("I'll mark his home on your map. He should be able to get the information you need to locate Harsin.", npc, creature)
 			player:setStorageValue(Storage.DarkTrails.Mission15, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		else
 			npcHandler:say("Already clicked the body on the house Roswitha ?", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

@@ -78,10 +78,10 @@ local function creatureSayCallback(npc, creature, type, message)
 		}, npc, creature)
 	elseif msgcontains(message, 'love poem') then
 		npcHandler:say('Do you want to buy a poem scroll for 200 gold?', npc, creature)
-		npcHandler.topic[playerId] = 1
+		npcHandler:setTopic(playerId, 1)
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[playerId] == 1 then
-			npcHandler.topic[playerId] = 0
+		if npcHandler:getTopic(playerId) == 1 then
+			npcHandler:setTopic(playerId, 0)
 			local player = Player(creature)
 			if not player:removeMoneyBank(200) then
 				npcHandler:say('You don\'t have enough money.', npc, creature)

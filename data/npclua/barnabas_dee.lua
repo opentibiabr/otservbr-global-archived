@@ -59,17 +59,17 @@ function creatureSayCallback(npc, creature, type, message)
 			"It only blooms underground in a cavern to the northwest. I will need 15 units of pollen. Bring them to me and we shall conduct a séance."}, npc, creature)
 			player:setStorageValue(Storage.Oramond.PeppermoonBell, 1)
 			player:setStorageValue(Storage.Oramond.PeppermoonBellCount, 0)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 			if player:getStorageValue(Storage.Oramond.QuestLine) < 1 then
 				player:setStorageValue(Storage.Oramond.QuestLine, 1)
 			end
 		elseif player:getStorageValue(Storage.Oramond.PeppermoonBell) == 1 then
 		npcHandler:say("Ah! Did you bring me the peppermoon bell pollen I asked for?", npc, creature)
-		npcHandler.topic[playerId] = 1
+		npcHandler:setTopic(playerId, 1)
 		end
 	end
 	if (msgcontains(message, "yes")) then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			if player:getStorageValue(Storage.Oramond.PeppermoonBellCount) >= 15 then
 				if player:getStorageValue(Storage.DarkTrails.Mission15) == 1 then
 					npcHandler:say("Ah! Well done! Now we shall proceed with the seance, yes?", npc, creature)
@@ -77,23 +77,23 @@ function creatureSayCallback(npc, creature, type, message)
 					player:setStorageValue(Storage.Oramond.PeppermoonBellCount, -15)
 					player:setStorageValue(Storage.DarkTrails.Mission15, 2)
 					player:removeItem(23460, 15)
-					npcHandler.topic[playerId] = 2
+					npcHandler:setTopic(playerId, 2)
 				else
 					npcHandler:say("Ah! Well done! These 15 doses will suffice for now. Here, take this vote for your effort.", npc, creature)
 					player:setStorageValue(Storage.Oramond.PeppermoonBell, -1)
 					player:setStorageValue(Storage.Oramond.PeppermoonBellCount, -15)
 					player:setStorageValue(Storage.Oramond.VotingPoints, player:getStorageValue(Storage.Oramond.VotingPoints) + 1)
 					player:removeItem(23460, 15)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				end
 			else
 				npcHandler:say("No no no, I need 15 doses of freshly harvested pollen! Please, harvest those 15 doses yourself, to make absolutely sure you have first-rate quality. I am afraid nothing less will do.", npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
-		elseif npcHandler.topic[playerId] == 2 then
+		elseif npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say("Splendid. Let me make the final preparations... There. Are you ready, too?", npc, creature)
-			npcHandler.topic[playerId] = 3
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 3)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			npcHandler:say({
 			"So let us begin. Please concentrate with me. Concentrate! ...",
 			"Concentrate! ...",
@@ -101,21 +101,21 @@ function creatureSayCallback(npc, creature, type, message)
 			"Concentrate! ...",
 			"Concentrate! ...",
 			"Do you feel something?"}, npc, creature)
-			npcHandler.topic[playerId] = 4
-		elseif npcHandler.topic[playerId] == 4 then
+			npcHandler:setTopic(playerId, 4)
+		elseif npcHandler:getTopic(playerId) == 4 then
 			npcHandler:say("Yes, take care, the gate is opening! Can you see a bright light?", npc, creature)
-			npcHandler.topic[playerId] = 5
-		elseif npcHandler.topic[playerId] == 5 then
+			npcHandler:setTopic(playerId, 5)
+		elseif npcHandler:getTopic(playerId) == 5 then
 			npcHandler:say("Ahhhhhhhh! ", npc, creature)
 			player:setStorageValue(Storage.DarkTrails.Mission15, 3)
 			player:teleportTo(Position(33490, 32037, 8))
 			player:getPosition():sendMagicEffect(CONST_ME_ENERGYHIT)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 		elseif (msgcontains(message, "seance")) then
 			if player:getStorageValue(Storage.DarkTrails.Mission15) == 3 then
 				npcHandler:say("Splendid. Let me make the final preparations... There. Are you ready, too?", npc, creature)
-				npcHandler.topic[playerId] = 3
+				npcHandler:setTopic(playerId, 3)
 			end
 	end
 	return true

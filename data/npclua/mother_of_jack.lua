@@ -64,22 +64,22 @@ local function creatureSayCallback(npc, creature, type, message)
 					"What about him? He's downstairs as he always has been. He never went away from home \z
 					any further than into the forest nearby. He rarely ever took a walk to Edron, did he?",
 				npc, creature)
-				npcHandler.topic[playerId] = 1
+				npcHandler:setTopic(playerId, 1)
 			end
 		end
 	elseif msgcontains(message, "no") then
-		if (npcHandler.topic[playerId] == 2) then
+		if (npcHandler:getTopic(playerId) == 2) then
 			npcHandler:say(
 				"Thought so. Of course he wouldn't do anything wrong. And he went where? Edron. Hm. I can \z
 					see nothing wrong with that. But... he wasn't there often, was he?",
 			npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		end
 	elseif msgcontains(message, "yes") then
-		if (npcHandler.topic[playerId] == 1) then
+		if (npcHandler:getTopic(playerId) == 1) then
 			npcHandler:say("What...? But he wasn't up to something, was he?", npc, creature)
-			npcHandler.topic[playerId] = 2
-		elseif (npcHandler.topic[playerId] == 3) then
+			npcHandler:setTopic(playerId, 2)
+		elseif (npcHandler:getTopic(playerId) == 3) then
 			npcHandler:say(
 				{
 					"Oh my... he did what? Why was he there? Edron Academy? ...",
@@ -89,7 +89,7 @@ local function creatureSayCallback(npc, creature, type, message)
 					"JAAAAACK!"
 				},
 			npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 			player:setStorageValue(Storage.TibiaTales.JackFutureQuest.Mother, 1)
 		end
 	end

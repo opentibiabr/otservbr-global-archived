@@ -66,7 +66,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 18)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission03, 3) -- StorageValue for Questlog "Mission 03: Death to the Deathbringer"
 			player:setStorageValue(Storage.InServiceofYalahar.NotesAzerus, 0)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.NotesAzerus) == 1 and player:getStorageValue(Storage.InServiceofYalahar.Questline) == 18 then
 			npcHandler:say({
 				"I'm mildly impressed by your previous deeds in our service. So I'm willing to grant you some more important {missions}. ...",
@@ -74,7 +74,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"So if you are up for a challenge, ask me for a {mission}."
 			}, npc, creature)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 19)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 19 then
 			npcHandler:say({
 				"The former alchemist quarter was struck by even more disasters than the rest of the city. Fires, explosions, poisonous fumes - all sorts of catastrophes. ...",
@@ -86,10 +86,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 20)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission03, 4) -- StorageValue for Questlog "Mission 03: Death to the Deathbringer"
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 21 and player:getStorageValue(Storage.InServiceofYalahar.AlchemistFormula) == 1 then
 			npcHandler:say("So you have killed the plague carriers. Have you also retrieved the research papers? ", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 22 then
 			npcHandler:say({
 				"We surely cannot allow some underworld kingpin to rule a significant part of the city. Although, I have to admit that his firm grip on the former trade quarter might be useful....",
@@ -99,7 +99,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 23)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission04, 1) -- StorageValue for Questlog "Mission 04: Good to be Kingpin"
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 26 then
 			npcHandler:say({
 				"So he has been too uncooperative for you? Well, you weren't the first we have sent and you won't be the last. ...",
@@ -107,7 +107,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 27)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission04, 6) -- StorageValue for Questlog "Mission 04: Good to be Kingpin"
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 25 and player:getStorageValue(Storage.InServiceofYalahar.MrWestStatus) == 2 then
 			npcHandler:say({
 				"I hope you gave this criminal a real scare! I'm sure he'll remember what he has to expect if he arouses our anger again. ...",
@@ -117,7 +117,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.InServiceofYalahar.BadSide, player:getStorageValue(Storage.InServiceofYalahar.BadSide) >= 0 and player:getStorageValue(Storage.InServiceofYalahar.BadSide) + 1 or 0) -- Side Storage
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 27)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission04, 6) -- StorageValue for Questlog "Mission 04: Good to be Kingpin"
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 27 then
 			npcHandler:say({
 				"As you probably noticed, once our city had a park and a zoo around a grand arena. It was a favourite pastime of our citizens to visit this quarter in their spare time. ...",
@@ -129,14 +129,14 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 28)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission05, 1) -- StorageValue for Questlog "Mission 05: Food or Fight"
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 33 then
 			npcHandler:say({
 				"This druid dares to affront us? We will look into this when we have enough time. But there are other things that needs to be settled. ...",
 				"Although, we probably should not do so after your last failure, we are willing to grant you another mission."
 			}, npc, creature)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 34)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 32 and player:getStorageValue(Storage.InServiceofYalahar.TamerinStatus) == 2 then
 			npcHandler:say({
 				"So have you won us a new ally? Excellent. I knew you would not dare to ruin this mission. Soon we might be able to strengthen our defences and even relocate some of our guards. ...",
@@ -145,7 +145,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.InServiceofYalahar.BadSide, player:getStorageValue(Storage.InServiceofYalahar.BadSide) >= 0 and player:getStorageValue(Storage.InServiceofYalahar.BadSide) + 1 or 0) -- Side Storage
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 34)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission05, 8) -- StorageValue for Questlog "Mission 05: Food or Fight"
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 34 then
 			npcHandler:say({
 				"The old cemetery of the city has been abandoned decades ago when the activity of the various undead there became unbearable. The reason for their appearance was never found out or researched. ...",
@@ -157,7 +157,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 35)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission06, 1) -- StorageValue for Questlog "Mission 06: Frightening Fuel"
 			player:addItem(9737, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 38 then
 			npcHandler:say({
 				"Destroyed you say? That's impossible! I'm not sure if I can trust you in this matter? One might assume, you fled from the ghosts in terror and left the charm there. ...",
@@ -165,7 +165,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 39)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission06, 5) -- StorageValue for Questlog "Mission 06: Frightening Fuel"
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 37 then
 			if player:removeItem(9742, 1) then
 				npcHandler:say({
@@ -176,7 +176,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:setStorageValue(Storage.InServiceofYalahar.Mission06, 5) -- StorageValue for Questlog "Mission 06: Frightening Fuel"
 				player:setStorageValue(Storage.InServiceofYalahar.QuaraState, 2)
 				player:setStorageValue(Storage.InServiceofYalahar.BadSide, player:getStorageValue(Storage.InServiceofYalahar.BadSide) >= 0 and player:getStorageValue(Storage.InServiceofYalahar.BadSide) + 1 or 0) -- Side Storage
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 39 then
 			npcHandler:say({
@@ -186,13 +186,13 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 40)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission07, 1) -- StorageValue for Questlog "Mission 07: A Fishy Mission"
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 41 and player:getStorageValue(Storage.InServiceofYalahar.QuaraInky) == 1 and player:getStorageValue(Storage.InServiceofYalahar.QuaraSharptooth) == 1 and player:getStorageValue(Storage.InServiceofYalahar.QuaraSplasher) == 1 and player:getStorageValue(Storage.InServiceofYalahar.QuaraState) == 2 then
 			npcHandler:say("This will teach these fishmen who is the ruler of that area. You have earned yourself a special privilege. But we will talk about that when we speak about your next mission. ", npc, creature)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 43)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission07, 5) -- StorageValue for Questlog "Mission 07: A Fishy Mission"
 			player:setStorageValue(Storage.InServiceofYalahar.BadSide, player:getStorageValue(Storage.InServiceofYalahar.BadSide) >= 0 and player:getStorageValue(Storage.InServiceofYalahar.BadSide) + 1 or 0) -- Side Storage
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 43 then
 			npcHandler:say({
 				"In the past, we had many magical factories providing the citizens with everything they needed. Now that most of these factories are shut down, we have trouble getting enough supplies. ...",
@@ -202,7 +202,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 44)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission08, 1) -- StorageValue for Questlog "Mission 08: Dangerous Machinations"
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 46 then
 			if player:getStorageValue(Storage.InServiceofYalahar.MatrixState) == 1 then
 				npcHandler:say("Your failure is an outrage! I think we have to talk about the missions you have accomplished so far. ", npc, creature)
@@ -213,7 +213,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 47)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission08, 4) -- StorageValue for Questlog "Mission 08: Dangerous Machinations"
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 47 then
 			npcHandler:say({
 				"I'm impressed by your support for our cause. Still, I'm aware that this scheming Palimuth tried to influence you. Think about who are your real friends and who can assist you in your career. ...",
@@ -221,10 +221,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 48)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission09, 1) -- StorageValue for Questlog "Mission 09: Decision"
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 49 or player:getStorageValue(Storage.InServiceofYalahar.Questline) == 48 then
 			npcHandler:say("So do you want to side with me |PLAYERNAME|? ", npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 50 and player:getStorageValue(Storage.InServiceofYalahar.SideDecision) == 2 then
 			npcHandler:say({
 				"For your noble deeds, we would like to invite you to a special celebration ceremony. ...",
@@ -235,7 +235,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 51)
 			player:setStorageValue(Storage.InServiceofYalahar.DoorToLastFight, 1)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission10, 2) -- StorageValue for Questlog "Mission 10: The Final Battle"
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 52 and player:getStorageValue(Storage.InServiceofYalahar.SideDecision) == 2 then
 			npcHandler:say("Great work, take this outfit and you are able to open the door to the reward room.", npc, creature)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 53)
@@ -244,26 +244,26 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:addOutfit(324, 0)
 			player:addOutfit(325, 0)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			if player:removeItem(9733, 1) then
 				player:setStorageValue(Storage.InServiceofYalahar.BadSide, 1)
 				player:setStorageValue(Storage.InServiceofYalahar.Questline, 22)
 				player:setStorageValue(Storage.InServiceofYalahar.Mission03, 6) -- StorageValue for Questlog "Mission 03: Death to the Deathbringer"
 				npcHandler:say("Impressive indeed! Someone with your skills will quickly raise in our ranks of helpers. You have great potential, and if you are upfor further missions, just ask for them. ", npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
-		elseif npcHandler.topic[playerId] == 2 then
+		elseif npcHandler:getTopic(playerId) == 2 then
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 50)
 			player:setStorageValue(Storage.InServiceofYalahar.SideDecision, 2)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission09, 2) -- StorageValue for Questlog "Mission 09: Decision"
 			npcHandler:say("I knew that you were smart enough to make the right decision! Your next mission will be a special one! ", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "no") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			player:setStorageValue(Storage.InServiceofYalahar.GoodSide, 1)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 22)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission03, 6) -- StorageValue for Questlog "Mission 03: Death to the Deathbringer"
@@ -271,7 +271,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Hm, no sign of any notes you say? That's odd - odd and a bit suspicious. I doubt you have tried hard enough. ...",
 				"There are only a few chances to impress us. For those who please us great rewards are in store. If you fail though, you might lose more than you can imagine."
 			}, npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

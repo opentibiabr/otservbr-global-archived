@@ -76,28 +76,28 @@ local function creatureSayCallback(npc, creature, type, message)
 				"It might be a good idea to explore the city a bit on your own before you deliver the notes here, but please make sure you don't lose them."
 			}, npc, creature)
 			player:setStorageValue(Storage.TheWayToYalahar.QuestLine, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.TheWayToYalahar.QuestLine) == 2 then
 			npcHandler:say("Did you bring the papers I asked you for?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			if player:removeItem(10090, 1) then
 				player:setStorageValue(Storage.TheWayToYalahar.QuestLine, 3)
 				npcHandler:say("Oh marvellous, please excuse me. I need to read this text immediately. Here, take this small reward of 500 gold pieces for your efforts.", npc, creature)
 				player:addMoney(500)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		end
 	--The New Frontier
 	elseif msgcontains(message, "farmine") then
 		if player:getStorageValue(Storage.TheNewFrontier.Questline) == 15 then
 			npcHandler:say("I've heard some odd rumours about this new dwarven outpost. But tell me, what has the Edron academy to do with Farmine?", npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		end
 	elseif msgcontains(message, "plea") then
-		if npcHandler.topic[playerId] == 2 then
+		if npcHandler:getTopic(playerId) == 2 then
 			if player:getStorageValue(Storage.TheNewFrontier.BribeWydrin) < 1 then
 				npcHandler:say("Hm, you are right, we are at the forefront of knowledge and innovation. Our dwarven friends could learn much from one of our representatives.", npc, creature)
 				player:setStorageValue(Storage.TheNewFrontier.BribeWydrin, 1)

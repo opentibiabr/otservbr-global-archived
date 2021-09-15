@@ -72,10 +72,10 @@ local function creatureSayCallback(npc, creature, type, message)
 				You will have to get this rank or ask a high ranking member to buy it for you.',
 			creature)
 			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 7)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 7 then
 			npcHandler:say('Did you get an atlas of the explorers society as I requested?', npc, creature)
-			npcHandler.topic[playerId] = 6
+			npcHandler:setTopic(playerId, 6)
 		elseif
 			player:getStorageValue(Storage.TheShatteredIsles.RaysMission2) > 0 and
 				player:getStorageValue(Storage.TheShatteredIsles.TortoiseEggNargorDoor) < 0
@@ -85,35 +85,35 @@ local function creatureSayCallback(npc, creature, type, message)
 				But these are dire times and everyone of us is expected to give his best and even exceed himself. \
 				Do you think you can handle that?',
 				creature)
-			npcHandler.topic[playerId] = 7
+			npcHandler:setTopic(playerId, 7)
 		elseif player:getStorageValue(Storage.TheShatteredIsles.TortoiseEggNargorDoor) == 1 then
 			npcHandler:say('Did you rescue one of those poor soon-to-be baby tortoises from Nargor?', npc, creature)
-			npcHandler.topic[playerId] = 8
+			npcHandler:setTopic(playerId, 8)
 		end
 	elseif msgcontains(message, 'task') then
 		if player:getStorageValue(storage) < 1 then
 			npcHandler:say(
 				"Are you up to the task which I'm going to give you and willing to prove you're worthy of wearing such a sabre?",
 				creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, 'eye patches') then
 		if player:getStorageValue(storage) == 1 then
 			npcHandler:say('Have you gathered 100 eye patches?', npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		end
 	elseif msgcontains(message, 'peg legs') then
 		if player:getStorageValue(storage) == 2 then
 			npcHandler:say('Have you gathered 100 peg legs?', npc, creature)
-			npcHandler.topic[playerId] = 4
+			npcHandler:setTopic(playerId, 4)
 		end
 	elseif msgcontains(message, 'hooks') then
 		if player:getStorageValue(storage) == 3 then
 			npcHandler:say('Have you gathered 100 hooks?', npc, creature)
-			npcHandler.topic[playerId] = 5
+			npcHandler:setTopic(playerId, 5)
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say(
 				{
 					'Listen, the task is not that hard. Simply prove that you are with us and not with the \
@@ -122,50 +122,50 @@ local function creatureSayCallback(npc, creature, type, message)
 					'Have you understood everything I told you and are willing to handle this task?'
 				},
 				creature)
-			npcHandler.topic[playerId] = 2
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 2)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			player:setStorageValue(storage, 1)
 			player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1) --this for default start of Outfit and Addon Quests
 			npcHandler:say('Good! Come back to me once you have gathered 100 eye patches.', npc, creature)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			if player:removeItem(6098, 100) then
 				player:setStorageValue(storage, 2)
 				npcHandler:say('Good job. Alright, now bring me 100 peg legs.', npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("You don't have it...", npc, creature)
 			end
-		elseif npcHandler.topic[playerId] == 4 then
+		elseif npcHandler:getTopic(playerId) == 4 then
 			if player:removeItem(6126, 100) then
 				player:setStorageValue(storage, 3)
 				npcHandler:say('Nice. Lastly, bring me 100 pirate hooks. That should be enough to earn your sabre.', npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("You don't have it...", npc, creature)
 			end
-		elseif npcHandler.topic[playerId] == 5 then
+		elseif npcHandler:getTopic(playerId) == 5 then
 			if player:removeItem(6097, 100) then
 				player:setStorageValue(storage, 4)
 				npcHandler:say(
 					"I see, I see. Well done. Go to Morgan and tell him this codeword: 'firebird'. He'll know what to do.",
 				creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("You don't have it...", npc, creature)
 			end
-		elseif npcHandler.topic[playerId] == 6 then
+		elseif npcHandler:getTopic(playerId) == 6 then
 			if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 7 then
 				if player:removeItem(6108, 1) then
 					npcHandler:say('Indeed, what a fine work... the book I mean. Your work was acceptable all in all.', npc, creature)
 					player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 8)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				else
 					npcHandler:say("You don't have it...", npc, creature)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				end
 			end
-		elseif npcHandler.topic[playerId] == 7 then
+		elseif npcHandler:getTopic(playerId) == 7 then
 			if player:getStorageValue(Storage.TheShatteredIsles.TortoiseEggNargorDoor) < 0 then
 				npcHandler:say(
 					{
@@ -180,9 +180,9 @@ local function creatureSayCallback(npc, creature, type, message)
 					},
 				creature)
 				player:setStorageValue(Storage.TheShatteredIsles.TortoiseEggNargorDoor, 1)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
-		elseif npcHandler.topic[playerId] == 8 then
+		elseif npcHandler:getTopic(playerId) == 8 then
 			if player:getStorageValue(Storage.TheShatteredIsles.TortoiseEggNargorDoor) == 1 then
 				if player:removeItem(6125, 1) then
 					npcHandler:say('A real tortoise egg ... I guess you are more accustomed to rescue some \z
@@ -190,17 +190,17 @@ local function creatureSayCallback(npc, creature, type, message)
 					player:setStorageValue(Storage.TheShatteredIsles.TortoiseEggNargorDoor, 2)
 					player:addAchievement('Animal Activist')
 					player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 16)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				else
 					npcHandler:say("You don't have it...", npc, creature)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				end
 			end
 		end
 	elseif msgcontains(message, 'no') then
-		if npcHandler.topic[playerId] >= 1 then
+		if npcHandler:getTopic(playerId) >= 1 then
 			npcHandler:say('Then no.', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

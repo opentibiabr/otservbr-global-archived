@@ -68,13 +68,13 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Use the pickaxe on at least three of these places and the chakoyas probably won't be able to pass the ice. Once you are done, return here and report about your mission."
 			}, npc, creature)
 			player:setStorageValue(Storage.TheIceIslands.Mission02, 1) -- Questlog The Ice Islands Quest, Nibelor 1: Breaking the Ice
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 			end
 		elseif player:getStorageValue(Storage.TheIceIslands.Questline) == 4 then
 			npcHandler:say("The spirits are at peace now. The threat of the chakoyas is averted for now. I thank you for your help. Perhaps you should ask Silfind if you can help her in some matters. ", npc, creature)
 			player:setStorageValue(Storage.TheIceIslands.Questline, 5)
 			player:setStorageValue(Storage.TheIceIslands.Mission02, 5) -- Questlog The Ice Islands Quest, Nibelor 1: Breaking the Ice
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.TheIceIslands.Questline) == 29 then
 			npcHandler:say({
 				"There is indeed an important mission. For a long time, the spirits have been worried and have called us for help. It seems that some of our dead have not reached the happy hunting grounds of after life ...",
@@ -83,14 +83,14 @@ local function creatureSayCallback(npc, creature, type, message)
 				"We will grant you permission to travel to that isle of Helheim. Our legends say that this is the entrance to the dark world. The dark world is the place where the evil and lost souls roam in eternal torment ...",
 				"There you find for sure the cause for the unrest of the spirits. Find someone in Svargrond who can give you a passage to Helheim and seek for the cause. Are you willing to do that?"
 			}, npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		elseif player:getStorageValue(Storage.TheIceIslands.Questline) == 31 then
 			npcHandler:say({
 				"There is no need to report about your mission. To be honest, Ive sent a divination spirit with you as well as a couple of destruction spirits that were unleashed when you approached the altar ...",
 				"Forgive me my secrecy but you are not familiar with the spirits and you might have get frightened. The spirits are at work now, destroying the magic with that those evil creatures have polluted Helheim ...",
 				"I cant thank you enough for what you have done for the spirits of my people. Still I have to ask: Would you do us another favour?"
 			}, npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		elseif player:getStorageValue(Storage.TheIceIslands.Questline) == 38 then
 			npcHandler:say({
 				"These are alarming news and we have to act immediately. Take this spirit charm of cold. Travel to the mines and find four special obelisks to mark them with the charm ...",
@@ -103,7 +103,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.TheIceIslands.Mission11, 2) -- Questlog The Ice Islands Quest, Formorgar Mines 3: The Secret
 			player:setStorageValue(Storage.TheIceIslands.Mission12, 1) -- Questlog The Ice Islands Quest, Formorgar Mines 4: Retaliation
 			player:addItem(7289, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.TheIceIslands.Questline) == 39
 				and player:getStorageValue(Storage.TheIceIslands.Obelisk01) == 5
 				and player:getStorageValue(Storage.TheIceIslands.Obelisk02) == 5
@@ -125,21 +125,21 @@ local function creatureSayCallback(npc, creature, type, message)
 					"Take this outfit to keep your warm during your travels in this frozen realm!"
 				}, npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		else
 		npcHandler:say("I have now no mission for you.", npc, creature)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "shard") then
 		if player:getStorageValue(Storage.TheIceIslands.Questline) == 40 then
 			npcHandler:say("Do you bring frostheart shards for our spell?", npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		elseif player:getStorageValue(Storage.TheIceIslands.Questline) == 42 then
 			npcHandler:say("Do you bring frostheart shards for our spell? ", npc, creature)
-			npcHandler.topic[playerId] = 4
+			npcHandler:setTopic(playerId, 4)
 		elseif player:getStorageValue(Storage.TheIceIslands.Questline) == 44 then
 			npcHandler:say("Do you want to sell all your shards for 2000 gold coins per each? ", npc, creature)
-			npcHandler.topic[playerId] = 5
+			npcHandler:setTopic(playerId, 5)
 		end
 	elseif msgcontains(message, "reward") then
 		if player:getStorageValue(Storage.TheIceIslands.Questline) == 41 then
@@ -149,7 +149,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			player:setStorageValue(Storage.TheIceIslands.Questline, 42)
 			player:setStorageValue(Storage.OutfitQuest.NorsemanAddon, 2) -- Questlog Norseman Outfit Quest
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		elseif player:getStorageValue(Storage.TheIceIslands.Questline) == 43 then
 			player:addOutfitAddon(252, 2)
 			player:addOutfitAddon(251, 2)
@@ -157,7 +157,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("Take this. It might suit your Nordic outfit fine. From now on we only can give you 2000 gold pieces for each shard. ", npc, creature)
 			player:setStorageValue(Storage.TheIceIslands.Questline, 44)
 			player:setStorageValue(Storage.OutfitQuest.NorsemanAddon, 3) -- Questlog Norseman Outfit Quest
-			npcHandler.topic[playerId] = 4
+			npcHandler:setTopic(playerId, 4)
 		end
 	elseif msgcontains(message, "tylaf") then
 		if player:getStorageValue(Storage.TheIceIslands.Questline) == 36 then
@@ -167,21 +167,21 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.TheIceIslands.Questline, 37)
 			player:setStorageValue(Storage.TheIceIslands.Mission10, 1) -- Questlog The Ice Islands Quest, Formorgar Mines 2: Ghostwhisperer
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, 'cookie') then
 		if player:getStorageValue(Storage.WhatAFoolish.Questline) == 31
 				and player:getStorageValue(Storage.WhatAFoolish.CookieDelivery.Hjaern) ~= 1 then
 			npcHandler:say('You want to sacrifice a cookie to the spirits?', npc, creature)
-			npcHandler.topic[playerId] = 6
+			npcHandler:setTopic(playerId, 6)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say("This is good news. As I explained, travel to Helheim, seek the reason for the unrest there and then report to me about your mission. ", npc, creature)
 			player:setStorageValue(Storage.TheIceIslands.Questline, 30)
 			player:setStorageValue(Storage.TheIceIslands.Mission07, 2) -- Questlog The Ice Islands Quest, The Secret of Helheim
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say({
 				"Thank you my friend. The local representative of the explorers society has asked for our help ...",
 				"You know their ways better than my people do and are probably best suited to represent us in this matter.",
@@ -189,31 +189,31 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.TheIceIslands.Questline, 32)
 			player:setStorageValue(Storage.TheIceIslands.Mission08, 1) -- Questlog The Ice Islands Quest, The Contact
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			if player:removeItem(7290, 5) then
 				npcHandler:say("Excellent, you collected 5 of them. If you have collected 5 or more, talk to me about your {reward}. ", npc, creature)
 				player:setStorageValue(Storage.TheIceIslands.Questline, 41)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
-		elseif npcHandler.topic[playerId] == 4 then
+		elseif npcHandler:getTopic(playerId) == 4 then
 			if player:removeItem(7290, 10) then
 				npcHandler:say("Excellent, you collected 10 of them. If you have collected 15 or more, talk to me about your {reward}. ", npc, creature)
 				player:setStorageValue(Storage.TheIceIslands.Questline, 43)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
-		elseif npcHandler.topic[playerId] == 5 then
+		elseif npcHandler:getTopic(playerId) == 5 then
 			if player:getItemCount(7290) > 0 then
 				local count = player:getItemCount(7290)
 				player:addMoney(count * 2000)
 				player:removeItem(7290, count)
 				npcHandler:say("Here your are. " .. count * 2000 .. " gold coins for " .. count .. " shards.", npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
-		elseif npcHandler.topic[playerId] == 6 then
+		elseif npcHandler:getTopic(playerId) == 6 then
 			if not player:removeItem(8111, 1) then
 				npcHandler:say('You have no cookie that I\'d like.', npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 				return true
 			end
 
@@ -228,9 +228,9 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:resetNpc(creature)
 		end
 	elseif msgcontains(message, 'no') then
-		if npcHandler.topic[playerId] == 6 then
+		if npcHandler:getTopic(playerId) == 6 then
 			npcHandler:say('I see.', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

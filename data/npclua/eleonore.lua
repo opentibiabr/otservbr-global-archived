@@ -65,43 +65,43 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.TheShatteredIsles.DefaultStart, 1)
 			player:setStorageValue(Storage.TheShatteredIsles.TheGovernorDaughter, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.TheShatteredIsles.TheGovernorDaughter) == 2 then
 			npcHandler:say("Oh, my beloved ring! Have you found it and want to return it to me?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		elseif player:getStorageValue(Storage.TheShatteredIsles.TheGovernorDaughter) == 3 and player:getStorageValue(Storage.TheShatteredIsles.TheErrand) < 1 then
 			npcHandler:say("I would need some help in another matter. It is only a small errand. Are you interested?", npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		end
 	elseif msgcontains(message, "errand") then
 		if player:getStorageValue(Storage.TheShatteredIsles.TheErrand) == 2 then
 			npcHandler:say("Great, thank you! As promised, here are your 5 gold pieces. Is there ... anything left that you might want to discuss with me?", npc, creature)
 			player:addMoney(5)
 			player:setStorageValue(Storage.TheShatteredIsles.TheErrand, 3)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "peg leg") then
 		if player:getStorageValue(Storage.TheShatteredIsles.TheErrand) == 3 then
 			npcHandler:say("You have returned my ring and proven yourself as trustworthy. There is something I have to discuss with you. Are you willing to listen?", npc, creature)
-			npcHandler.topic[playerId] = 4
+			npcHandler:setTopic(playerId, 4)
 		end
 	elseif msgcontains(message, "raymond striker") then
 		if player:getStorageValue(Storage.TheShatteredIsles.AccessToLagunaIsland) == 1 then
 			npcHandler:say("<blushes> Oh, he is so wonderful. A very special man with a special place in my heart.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "mermaid") then
 		if player:getStorageValue(Storage.TheShatteredIsles.AccessToLagunaIsland) == 1 then
 			npcHandler:say("I can't thank you enough for freeing my beloved Ray from that evil spell. I am still shocked that a mermaid could steal his love that easily.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			if player:removeItem(6093, 1) then
 				player:addMoney(150)
 				npcHandler:say("Oh, thank you so much! Take this gold as a reward. ... which reminds me, I would need some help in another matter. It is only a small errand. Are you interested?", npc, creature)
 				player:setStorageValue(Storage.TheShatteredIsles.TheGovernorDaughter, 3)
-				npcHandler.topic[playerId] = 2
+				npcHandler:setTopic(playerId, 2)
 			else
 				player:addMoney(150)
 				npcHandler:say({
@@ -109,17 +109,17 @@ local function creatureSayCallback(npc, creature, type, message)
 					"Thanks a lot anyways and take this gold as a reward. By the way, I would need some help in another matter. It is only a small errand. Are you interested?"
 				}, npc, creature)
 				player:setStorageValue(Storage.TheShatteredIsles.TheGovernorDaughter, 3)
-				npcHandler.topic[playerId] = 2
+				npcHandler:setTopic(playerId, 2)
 			end
-		elseif npcHandler.topic[playerId] == 2 then
+		elseif npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say("Thank you! It is not a difficult matter but a rather urgent one. I need to send some money to a person in town. Would you be willing to run this small errand for me?", npc, creature)
-			npcHandler.topic[playerId] = 3
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 3)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			player:addMoney(200)
 			npcHandler:say("I was hoping that you'd agree. Please deliver these 200 gold pieces to the herbalist Charlotta in the south-western part of the town. If you return from this errand, I will grant you 5 gold pieces as reward for your efforts.", npc, creature)
 			player:setStorageValue(Storage.TheShatteredIsles.TheErrand, 1)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 4 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 4 then
 			npcHandler:say({
 				"I am glad to hear that. So please listen: Due to circumstances too complicated to explain now, I met Captain Ray Striker. He is ... a freedom fighter and would not find my father's acceptance, but we fell in love ...",
 				"Even though he had to hide for a while, we have stayed in contact for a long time now. And our love grew even further against all odds ...",
@@ -130,12 +130,12 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.TheShatteredIsles.TheErrand, 4)
 			player:setStorageValue(Storage.TheShatteredIsles.AccessToMeriana, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "no") then
-		if npcHandler.topic[playerId] >= 1 then
+		if npcHandler:getTopic(playerId) >= 1 then
 			npcHandler:say("Then no.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

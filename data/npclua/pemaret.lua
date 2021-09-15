@@ -60,20 +60,20 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, "marlin") then
 		if player:getItemCount(7963) > 0 then
 			npcHandler:say("WOW! You have a marlin!! I could make a nice decoration for your wall from it. May I have it?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
-	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 1 then
+	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 1 then
 		if player:removeItem(7963, 1) then
 			npcHandler:say("Yeah! Now let's see... <fumble fumble> There you go, I hope you like it!", npc, creature)
 			player:addItem(7964, 1)
 		else
 			npcHandler:say("You don't have the fish.", npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
-	if msgcontains(message, "no") and npcHandler.topic[playerId] == 1 then
+	if msgcontains(message, "no") and npcHandler:getTopic(playerId) == 1 then
 		npcHandler:say("Then no.", npc, creature)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

@@ -73,7 +73,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		if addonProgress < 1 then
 			npcHandler:say("You mean you would like to prove that you deserve to wear such a helmet?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		elseif addonProgress == 1 then
 			npcHandler:say("Your current task is to bring me 100 perfect behemoth fangs, |PLAYERNAME|.", npc, creature)
 		elseif addonProgress == 2 then
@@ -92,7 +92,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif msgcontains(message, "behemoth fang") then
 		if addonProgress == 1 then
 			npcHandler:say("Have you really managed to fulfil the task and brought me 100 perfect behemoth fangs?", npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		else
 			npcHandler:say("You're not serious asking that, are you? They come from behemoths, of course. \z
 				Unless there are behemoth rabbits. Duh.", npc, creature)
@@ -101,7 +101,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif msgcontains(message, "ramsay") then
 		if addonProgress == 2 then
 			npcHandler:say("Did you recover the helmet of Ramsay the Reckless?", npc, creature)
-			npcHandler.topic[playerId] = 4
+			npcHandler:setTopic(playerId, 4)
 		else
 			npcHandler:say("These pesky apes steal everything they can get their dirty hands on.", npc, creature)
 		end
@@ -109,7 +109,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif msgcontains(message, "sweat") then
 		if addonProgress == 3 then
 			npcHandler:say("Were you able to get hold of a flask with pure warrior's sweat?", npc, creature)
-			npcHandler.topic[playerId] = 5
+			npcHandler:setTopic(playerId, 5)
 		else
 			npcHandler:say("Warrior's sweat can be magically extracted from headgear worn by a true warrior, \z
 				but only in small amounts. Djinns are said to be good at magical extractions.", npc, creature)
@@ -118,12 +118,12 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif msgcontains(message, "royal steel") then
 		if addonProgress == 4 then
 			npcHandler:say("Ah, have you brought the royal steel?", npc, creature)
-			npcHandler.topic[playerId] = 6
+			npcHandler:setTopic(playerId, 6)
 		else
 			npcHandler:say("Royal steel can only be refined by very skilled smiths.", npc, creature)
 		end
 
-	elseif npcHandler.topic[playerId] == 1 then
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, "yes") then
 			npcHandler:say(
 				{
@@ -137,26 +137,26 @@ local function creatureSayCallback(npc, creature, type, message)
 					"Did you understand everything I told you and are willing to handle this task?"
 				},
 			npc, creature, 100)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("Bah. Then you will have to wait for the day these helmets are sold in shops, \z
 				but that will not happen before hell freezes over.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 
-	elseif npcHandler.topic[playerId] == 2 then
+	elseif npcHandler:getTopic(playerId) == 2 then
 		if msgcontains(message, "yes") then
 			player:setStorageValue(Storage.OutfitQuest.Ref, math.max(0, player:getStorageValue(Storage.OutfitQuest.Ref)) + 1)
 			player:setStorageValue(Storage.OutfitQuest.Knight.AddonHelmet, 1)
 			player:setStorageValue(Storage.OutfitQuest.Knight.MissionHelmet, 1)
 			npcHandler:say("Alright then. Come back to me once you have collected 100 perfect behemoth fangs.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("Would you like me to repeat the task requirements then?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 
-	elseif npcHandler.topic[playerId] == 3 then
+	elseif npcHandler:getTopic(playerId) == 3 then
 		if msgcontains(message, "yes") then
 			if not player:removeItem(5893, 100) then
 				npcHandler:say("Lying is not exactly honourable, |PLAYERNAME|. Shame on you.", npc, creature)
@@ -171,9 +171,9 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("There is no need to rush anyway.", npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 
-	elseif npcHandler.topic[playerId] == 4 then
+	elseif npcHandler:getTopic(playerId) == 4 then
 		if msgcontains(message, "yes") then
 			if not player:removeItem(5924, 1) then
 				npcHandler:say("Lying is not exactly honourable, |PLAYERNAME|. Shame on you.", npc, creature)
@@ -187,9 +187,9 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("There is no need to rush anyway.", npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 
-	elseif npcHandler.topic[playerId] == 5 then
+	elseif npcHandler:getTopic(playerId) == 5 then
 		if msgcontains(message, "yes") then
 			if not player:removeItem(5885, 1) then
 				npcHandler:say("Lying is not exactly honourable, |PLAYERNAME|. Shame on you.", npc, creature)
@@ -203,9 +203,9 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("There is no need to rush anyway.", npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 
-	elseif npcHandler.topic[playerId] == 6 then
+	elseif npcHandler:getTopic(playerId) == 6 then
 		if msgcontains(message, "yes") then
 			if not player:removeItem(5887, 1) then
 				npcHandler:say("Lying is not exactly honourable, |PLAYERNAME|. Shame on you.", npc, creature)
@@ -219,7 +219,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, "no") then
 			npcHandler:say("There is no need to rush anyway.", npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

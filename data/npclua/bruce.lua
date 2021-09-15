@@ -65,18 +65,18 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif msgcontains(message, 'pass') then
 		npcHandler:say('You can {pass} either to the {Alchemist Quarter} or {Cemetery Quarter}. Which one will it be?', npc, creature)
-		npcHandler.topic[playerId] = 1
-	elseif npcHandler.topic[playerId] == 1 then
+		npcHandler:setTopic(playerId, 1)
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, 'alchemist') then
 			local destination = Position(32738, 31113, 7)
 			Player(creature):teleportTo(destination)
 			destination:sendMagicEffect(CONST_ME_TELEPORT)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif msgcontains(message, 'cemetery') then
 			local destination = Position(32743, 31113, 7)
 			Player(creature):teleportTo(destination)
 			destination:sendMagicEffect(CONST_ME_TELEPORT)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

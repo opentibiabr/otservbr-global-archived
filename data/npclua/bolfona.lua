@@ -59,29 +59,29 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, "chocolate cake") then
 		if player:getStorageValue(Storage.HiddenCityOfBeregar.SweetAsChocolateCake) == 1 and player:getItemCount(8847) >= 1 then
 			npcHandler:say("Is that for me?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		elseif player:getStorageValue(Storage.HiddenCityOfBeregar.SweetAsChocolateCake) == 2 then
 			npcHandler:say("So did you tell her that the cake came from me?", npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			if player:removeItem(8847, 1) then
 				npcHandler:say("Err, thanks. I doubt it's from you. Who sent it?", npc, creature)
-				npcHandler.topic[playerId] = 2
+				npcHandler:setTopic(playerId, 2)
 				player:setStorageValue(Storage.HiddenCityOfBeregar.SweetAsChocolateCake, 2)
 			else
 				npcHandler:say("Oh, I thought you have one.", npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		end
-	elseif npcHandler.topic[playerId] == 2 then
+	elseif npcHandler:getTopic(playerId) == 2 then
 		if msgcontains(message, "Frafnar") then
 			npcHandler:say("Oh, Frafnar. That's so nice of him. I gotta invite him for a beer.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		else
 			npcHandler:say("Never heard that name. Well, I don't mind, thanks for the cake.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

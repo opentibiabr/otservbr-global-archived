@@ -72,7 +72,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.Postman.MeasurementsKroox, 1)
 	else
 			npcHandler:say("...", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

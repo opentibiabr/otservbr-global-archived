@@ -62,10 +62,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("If its necessary ... <tells you her measurements>", npc, creature)
 			player:setStorageValue(Storage.Postman.Mission07, player:getStorageValue(Storage.Postman.Mission07) + 1)
 			player:setStorageValue(Storage.Postman.MeasurementsChrystal, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 	else
 			npcHandler:say("...", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

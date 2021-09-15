@@ -61,7 +61,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 42)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission07, 3) -- StorageValue for Questlog "Mission 07: A Fishy Mission"
 			player:setStorageValue(Storage.InServiceofYalahar.QuaraState, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

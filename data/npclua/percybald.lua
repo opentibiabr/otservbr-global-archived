@@ -68,69 +68,69 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif msgcontains(message, 'test') then
 		if player:getStorageValue(Storage.ThievesGuild.Mission04) == 5 then
 			npcHandler:say('I hope you learnt your role! I\'ll tell you a line from the script and you\'ll have to answer with the corresponding line! Ready?', npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say('How dare you? Are you mad? I hold the princess hostage and you drop your weapons. You\'re all lost!', npc, creature)
-			npcHandler.topic[playerId] = 2
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 2)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			npcHandler:say('Too late puny knight. You can\'t stop my master plan anymore!', npc, creature)
-			npcHandler.topic[playerId] = 4
-		elseif npcHandler.topic[playerId] == 5 then
+			npcHandler:setTopic(playerId, 4)
+		elseif npcHandler:getTopic(playerId) == 5 then
 			npcHandler:say('What\'s this? Behind the doctor?', npc, creature)
-			npcHandler.topic[playerId] = 6
-		elseif npcHandler.topic[playerId] == 7 then
+			npcHandler:setTopic(playerId, 6)
+		elseif npcHandler:getTopic(playerId) == 7 then
 			npcHandler:say('Grrr!', npc, creature)
-			npcHandler.topic[playerId] = 8
-		elseif npcHandler.topic[playerId] == 9 then
+			npcHandler:setTopic(playerId, 8)
+		elseif npcHandler:getTopic(playerId) == 9 then
 			npcHandler:say('You\'re such a monster!', npc, creature)
-			npcHandler.topic[playerId] = 10
-		elseif npcHandler.topic[playerId] == 11 then
+			npcHandler:setTopic(playerId, 10)
+		elseif npcHandler:getTopic(playerId) == 11 then
 			npcHandler:say('Ah well, I think you passed the test! Here is your disguise kit! Now get lost, fate awaits me!', npc, creature)
 			player:setStorageValue(Storage.ThievesGuild.Mission04, 6)
 			player:addItem(8693, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
-	elseif npcHandler.topic[playerId] == 2 then
+	elseif npcHandler:getTopic(playerId) == 2 then
 		if msgcontains(message, 'I don\'t think so, dear doctor!') then
 			npcHandler:say('Ok, ok. You\'ve got this one right! Ready for the next one?', npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		else
 			npcHandler:say('No no no! That is not correct!', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
-	elseif npcHandler.topic[playerId] == 4 then
+	elseif npcHandler:getTopic(playerId) == 4 then
 		if msgcontains(message, 'Watch out! It\'s a trap!') then
 			npcHandler:say('Ok, ok. You\'ve got this one right! Ready for the next one?', npc, creature)
-			npcHandler.topic[playerId] = 5
+			npcHandler:setTopic(playerId, 5)
 		else
 			npcHandler:say('No no no! That is not correct!', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
-	elseif npcHandler.topic[playerId] == 6 then
+	elseif npcHandler:getTopic(playerId) == 6 then
 		if msgcontains(message, 'Look! It\'s Lucky, the wonder dog!') then
 			npcHandler:say('Ok, ok. You\'ve got this one right! Ready for the next one?', npc, creature)
-			npcHandler.topic[playerId] = 7
+			npcHandler:setTopic(playerId, 7)
 		else
 			npcHandler:say('No no no! That is not correct!', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
-	elseif npcHandler.topic[playerId] == 8 then
+	elseif npcHandler:getTopic(playerId) == 8 then
 		if msgcontains(message, 'Ahhhhhh!') then
 			npcHandler:say('Ok, ok. You\'ve got this one right! Ready for the next one?', npc, creature)
-			npcHandler.topic[playerId] = 9
+			npcHandler:setTopic(playerId, 9)
 		else
 			npcHandler:say('No no no! That is not correct!', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
-	elseif npcHandler.topic[playerId] == 10 then
+	elseif npcHandler:getTopic(playerId) == 10 then
 		if msgcontains(message, 'Hahaha! Now drop your weapons or else...') then
 			npcHandler:say('Ok, ok. You\'ve got this one right! Ready for the next one?', npc, creature)
-			npcHandler.topic[playerId] = 11
+			npcHandler:setTopic(playerId, 11)
 		else
 			npcHandler:say('No no no! That is not correct!', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

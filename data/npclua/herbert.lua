@@ -60,19 +60,19 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, 'letter') then
 		if player:getStorageValue(Storage.ThievesGuild.Mission06) == 1 then
 			npcHandler:say('You would like Chantalle\'s letter? only if you are willing to pay a price. {gold} maybe?', npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, 'gold') then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say('Are you willing to pay 1000 gold for this letter?', npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		end
 	elseif msgcontains(message, 'yes') then
-		if npcHandler.topic[playerId] == 2 then
+		if npcHandler:getTopic(playerId) == 2 then
 			if player:removeMoneyBank(1000) then
 				player:addItem(8768, 1)
 				npcHandler:say('Here you go kind sir.', npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		end
 	end

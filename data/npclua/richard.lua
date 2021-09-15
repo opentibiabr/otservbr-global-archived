@@ -107,7 +107,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Woke up on this island. Had to eat squirrels before the adventurers found me and took me in. End of story."
 			},
 		npc, creature, 10)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	elseif msgcontains(message, "rope") then
 		npcHandler:say(
 			{
@@ -116,7 +116,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Now, about that rope - ask me for equipment to see my wares. <winks>"
 			},
 		npc, creature, 10)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

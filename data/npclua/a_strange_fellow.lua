@@ -61,35 +61,35 @@ local function creatureSayCallback(npc, creature, type, message)
 		return true
 	end
 	if msgcontains(message, "bill") then
-		if	npcHandler.topic[playerId] == 6 then
+		if	npcHandler:getTopic(playerId) == 6 then
 			npcHandler:say("A bill? Oh boy so you are delivering another bill to poor me?", npc, creature)
-			npcHandler.topic[playerId] = 7
+			npcHandler:setTopic(playerId, 7)
 		end
 	elseif msgcontains(message, "yes") then
-		if	player:removeItem(2329, 1)	and	npcHandler.topic[playerId] == 7 then
+		if	player:removeItem(2329, 1)	and	npcHandler:getTopic(playerId) == 7 then
 			npcHandler:say("Ok, ok, I'll take it. I guess I have no other choice anyways. And now leave me alone in my misery please.", npc, creature)
 			player:setStorageValue(Storage.Postman.Mission03, 2)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "hat") then
-		if	npcHandler.topic[playerId] < 1 then
+		if	npcHandler:getTopic(playerId) < 1 then
 			npcHandler:say("Uh? What do you want?!", npc, creature)
-			npcHandler.topic[playerId] = 2
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 2)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say("What? My hat?? Theres... nothing special about it!", npc, creature)
-			npcHandler.topic[playerId] = 3
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 3)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			npcHandler:say("Stop bugging me about that hat, do you listen?", npc, creature)
-			npcHandler.topic[playerId] = 4
-		elseif npcHandler.topic[playerId] == 4 then
+			npcHandler:setTopic(playerId, 4)
+		elseif npcHandler:getTopic(playerId) == 4 then
 			npcHandler:say("Hey! Don't touch that hat! Leave it alone!!! Don't do this!!!!", npc, creature)
-			npcHandler.topic[playerId] = 5
-		elseif npcHandler.topic[playerId] == 5 then
+			npcHandler:setTopic(playerId, 5)
+		elseif npcHandler:getTopic(playerId) == 5 then
 			for i = 1, 5 do
 				Game.createMonster("Rabbit", Npc():getPosition())
 			end
 			npcHandler:say("Noooooo! Argh, ok, ok, I guess I can't deny it anymore, I am David Brassacres, the magnificent, so what do you want?", npc, creature)
-			npcHandler.topic[playerId] = 6
+			npcHandler:setTopic(playerId, 6)
 		end
 	end
 	return true

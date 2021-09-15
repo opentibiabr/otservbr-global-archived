@@ -55,27 +55,27 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, "trip") or msgcontains(message, "passage") then
 		--if Player(creature):getStorageValue(Storage.TheNewFrontier.Questline) >= 24 then
 			npcHandler:say("You want trip to Izzle of Zztrife?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 			--else
 			--npcHandler:say("You need The New Frontier Quest to travel.", npc, creature)
 		--end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say("It'zz your doom you travel to.", npc, creature)
 			local player, destination = Player(creature), Position(33102, 31056, 7)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			player:teleportTo(destination)
 			destination:sendMagicEffect(CONST_ME_TELEPORT)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "no") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say("Zzoftzzkinzz zzo full of fear.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, 'hurry') or msgcontains(message, 'job')  then
 		npcHandler:say('Me zzimple ferryman. I arrange {trip} to Izzle of Zztrife.', npc, creature)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

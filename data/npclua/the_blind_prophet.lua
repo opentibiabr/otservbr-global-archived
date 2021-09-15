@@ -80,8 +80,8 @@ local function creatureSayCallback(npc, creature, type, message)
 	local player = Player(creature)
 	if msgcontains(message, "transport") or msgcontains(message, "passage") then
 		npcHandler:say("You want me to transport you to forbidden land?", npc, creature)
-		npcHandler.topic[playerId] = 1
-	elseif npcHandler.topic[playerId] == 1 then
+		npcHandler:setTopic(playerId, 1)
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, 'yes') then
 			npcHandler:say("Take care!", npc, creature)
 			local destination = Position(33025, 32580, 6)

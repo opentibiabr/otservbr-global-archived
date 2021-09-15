@@ -57,11 +57,11 @@ local function creatureSayCallback(npc, creature, type, message)
 	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, 'yes') then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			player:setStorageValue(Storage.SecretService.Quest, 1)
 			npcHandler:say('I am still a bit sceptical, but well, welcome to the girls brigade.', npc, creature)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			if player:removeItem(8190, 1) then
 				player:setStorageValue(Storage.SecretService.CGBMission01, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 3)
@@ -69,8 +69,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say('Bring me the spellbook.', npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			if player:removeItem(7736, 1) then
 				player:setStorageValue(Storage.SecretService.CGBMission02, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 5)
@@ -78,13 +78,13 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say('Bring me the heart as proof.', npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 4 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 4 then
 			player:setStorageValue(Storage.SecretService.CGBMission03, 3)
 			player:setStorageValue(Storage.SecretService.Quest, 7)
 			npcHandler:say('Great! This blow strikes them where it hurts most: profit.', npc, creature)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 5 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 5 then
 			if player:removeItem(7702, 1) then
 				player:setStorageValue(Storage.SecretService.CGBMission04, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 9)
@@ -92,8 +92,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say('You need to bring me those plans!', npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 6 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 6 then
 			if player:removeItem(7703, 1) then
 				player:setStorageValue(Storage.SecretService.CGBMission05, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 11)
@@ -101,8 +101,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say('Bring me back some hints or something!', npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 7 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 7 then
 			if player:removeItem(7704, 1) then
 				player:setStorageValue(Storage.SecretService.CGBMission06, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 13)
@@ -110,8 +110,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say('You need to bring us that book of family trees!', npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 8 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 8 then
 			if player:removeItem(7699, 1) then
 				player:setStorageValue(Storage.SecretService.Mission07, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 15)
@@ -124,11 +124,11 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				npcHandler:say('Please bring me proof of the mad technomancers defeat!', npc, creature)
 			end
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, 'no') then
 		npcHandler:say('As you wish.', npc, creature)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	elseif msgcontains(message, 'join') then
 		if player:getStorageValue(Storage.SecretService.Quest) < 1 then
 			npcHandler:say({
@@ -141,7 +141,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				'exactly what no one would expect. Mhm, on second thought the element of surprise might offset your male inferiority.',
 				'If you join, you dedicate your service to Carlin alone! Do you truly think that you are girl enough to join the brigade?'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, 'mission') then
 		if player:getStorageValue(Storage.SecretService.Quest) == 1 and player:getStorageValue(Storage.SecretService.TBIMission01) < 1 and player:getStorageValue(Storage.SecretService.CGBMission01) < 1 then
@@ -152,10 +152,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			'But we won\'t accept this so easily. With the help of divination, we learnt that the knowledge our druids are looking for is found in a certain book ...',
 			'It will be your task to enter the academy and to steal this book for us.'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.SecretService.CGBMission01) == 1 then
 			npcHandler:say('Have you been successful?', npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		elseif player:getStorageValue(Storage.SecretService.CGBMission01) == 2 and player:getStorageValue(Storage.SecretService.Quest) == 3 then
 			player:setStorageValue(Storage.SecretService.Quest, 4)
 			player:setStorageValue(Storage.SecretService.CGBMission02, 1)
@@ -168,10 +168,10 @@ local function creatureSayCallback(npc, creature, type, message)
 				'Over the years, hundreds have fallen victim to the swamp, conserved by mud and water for eternity. With the help of the death trees, the bonelords strive for an army of undeads. This cannot be tolerated ...',
 				'Travel to Green Claw Swamp and rip out the heart out of the master tree. Without it, the unnatural trees will wither soon. Bring me the heart as proof.'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.SecretService.CGBMission02) == 1 then
 			npcHandler:say('Have you been successful?', npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		elseif player:getStorageValue(Storage.SecretService.CGBMission02) == 2 and player:getStorageValue(Storage.SecretService.Quest) == 5 then
 			player:setStorageValue(Storage.SecretService.Quest, 6)
 			player:setStorageValue(Storage.SecretService.CGBMission03, 1)
@@ -181,10 +181,10 @@ local function creatureSayCallback(npc, creature, type, message)
 				'The druids have supplied us with some exotic bugs. They are called rust bugs and they did not receive this name for their colour ...',
 				'Take this box of rust bugs and use them on the keyhole of the smithy in the Ironhouse. These \'pets\' will ruin all metal there and it will take them a while to get rid of them.'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.SecretService.CGBMission03) == 2 then
 			npcHandler:say('Have you been successful?', npc, creature)
-			npcHandler.topic[playerId] = 4
+			npcHandler:setTopic(playerId, 4)
 		elseif player:getStorageValue(Storage.SecretService.CGBMission03) == 3 and player:getStorageValue(Storage.SecretService.Quest) == 7 then
 			player:setStorageValue(Storage.SecretService.Quest, 8)
 			player:setStorageValue(Storage.SecretService.CGBMission04, 1)
@@ -192,10 +192,10 @@ local function creatureSayCallback(npc, creature, type, message)
 				'Venore has plans for a new kind of ship. It will be faster and more resilient than any other known ship. It will surely improve their dominance over the sea trade. Unless we get those plans for ourselves ...',
 				'And this is where you come into play. Find the ship plans in the Venorean shipyard or perhaps at the harbour and bring them here immediately.'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.SecretService.CGBMission04) == 1 then
 			npcHandler:say('Have you been successful?', npc, creature)
-			npcHandler.topic[playerId] = 5
+			npcHandler:setTopic(playerId, 5)
 		elseif player:getStorageValue(Storage.SecretService.CGBMission04) == 2 and player:getStorageValue(Storage.SecretService.Quest) == 9 then
 			player:setStorageValue(Storage.SecretService.Quest, 10)
 			player:setStorageValue(Storage.SecretService.CGBMission05, 1)
@@ -204,10 +204,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			'There is a continual coming and going which hints on something big hiding there. We ask you to enter the ruins of the cathedral and to find out what all these people are doing there ...',
 			'You might find several hints there, but I am sure you will know exactly when you have found what we are looking for.'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.SecretService.CGBMission05) == 1 then
 			npcHandler:say('Have you been successful?', npc, creature)
-			npcHandler.topic[playerId] = 6
+			npcHandler:setTopic(playerId, 6)
 		elseif player:getStorageValue(Storage.SecretService.CGBMission05) == 2 and player:getStorageValue(Storage.SecretService.Quest) == 11 then
 			player:setStorageValue(Storage.SecretService.Quest, 12)
 			player:setStorageValue(Storage.SecretService.CGBMission06, 1)
@@ -216,10 +216,10 @@ local function creatureSayCallback(npc, creature, type, message)
 				'Therefore, we will take matters into our own hands. There is a grave in the crypts on the Isle of the Kings in which we assume a book containing ancient family histories and family trees ...',
 				'We need this book! We will not ask how you acquired it.'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.SecretService.CGBMission06) == 1 then
 			npcHandler:say('Have you been successful?', npc, creature)
-			npcHandler.topic[playerId] = 7
+			npcHandler:setTopic(playerId, 7)
 		elseif player:getStorageValue(Storage.SecretService.CGBMission06) == 2 and player:getStorageValue(Storage.SecretService.Quest) == 13 then
 			player:setStorageValue(Storage.SecretService.Quest, 14)
 			player:setStorageValue(Storage.SecretService.Mission07, 1)
@@ -227,10 +227,10 @@ local function creatureSayCallback(npc, creature, type, message)
 				'I have bad news: a mad dwarf threatens to destroy our beloved city. He claims to have invented some device that enables him to destroy the whole city ...',
 				'He has a laboratory somewhere in Kazordoon, probably somewhere near the technomancer hall. Find him and kill him! Bring me his beard as a proof!'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.SecretService.CGBMission06) == 2 and player:getStorageValue(Storage.SecretService.Mission07) == 1 then
 			npcHandler:say('Have you been successful?', npc, creature)
-			npcHandler.topic[playerId] = 8
+			npcHandler:setTopic(playerId, 8)
 		end
 	end
 	return true

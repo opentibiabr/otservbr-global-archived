@@ -637,20 +637,20 @@ local function creatureSayCallback(npc, creature, type, message)
 		if Player.getAccountStorage(player, accountId, Storage.Dawnport.Mainland, true) == 1 then
 			npcHandler:say("Hmmm. Long time I visited that isle. Not very exciting place. \z
 			Why do you ask? Do you wish to go there?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		else
 			npcHandler:say(
 				"I'm sorry, but I cannot let you go there, you'll get much better training here than on that ancient isle.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
-	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 1 then
+	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 1 then
 		npcHandler:say({
 			"Careful, careful, it's a one-way ticket only! \z
 			You can never come back here if you leave now, and you will loso all your Dawnport equipment and products! ...",
 			"Are you {SURE} you want to {LEAVE} Dawnport for ROOKGAARD?"
 		}, npc, creature, 10)
-		npcHandler.topic[playerId] = 2
-	elseif npcHandler.topic[playerId] == 2 and msgcontains(message, "yes")
+		npcHandler:setTopic(playerId, 2)
+	elseif npcHandler:getTopic(playerId) == 2 and msgcontains(message, "yes")
 	or msgcontains(message, "sure") or msgcontains(message, "leave") then
 		local town = Town(TOWNS_LIST.ROOKGAARD)
 		player:setTown(town)
@@ -704,7 +704,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		player:addItem(2650, 1)
 		npcHandler:say("Then so be it. I'm sorry to see you go, but if this is what you want, step this way... right. \z
 		Now, cover your eyes... GO!", npc, creature)
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

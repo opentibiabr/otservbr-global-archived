@@ -59,7 +59,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	local player = Player(creature)
 	if msgcontains(message, "mission") then
 		if player:getStorageValue(Storage.TibiaTales.AnInterestInBotany) < 1 then
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 				npcHandler:say({
 					"Why yes, there is indeed some minor issue I could need your help with. I was always a friend of nature and it was not recently I discovered the joys of plants, growths, of all the flora around us. ...",
 					"Botany my friend. The study of plants is of great importance for our future. Many of the potions we often depend on are made of plants you know. Plants can help us tending our wounds, cure us from illness or injury. ...",
@@ -72,17 +72,17 @@ local function creatureSayCallback(npc, creature, type, message)
 					"Simply return to me after you have done that and we will discuss your reward. What do you say, are you in?"
 				}, npc, creature)
 		elseif player:getStorageValue(Storage.TibiaTales.AnInterestInBotany) == 3 then
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 			npcHandler:say("Well fantastic work, you gathered both samples! Now I can continue my work on the almanach, thank you very much for your help indeed. Can I take a look at my book please?", npc, creature)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			player:setStorageValue(Storage.TibiaTales.DefaultStart, 1)
 			player:setStorageValue(Storage.TibiaTales.AnInterestInBotany, 1)
 			player:setStorageValue(Storage.TibiaTales.AnInterestInBotanyChestDoor, 0)
 			npcHandler:say("Yes? Yes! That's the enthusiasm I need! Remember to bring a sharp knife to gather the samples, plants - even mutated deformed plants - are very sensitive you know. Off you go and be careful out there, Zao is no place for the feint hearted mind you.", npc, creature)
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			if player:removeItem(12655, 1) then
 				player:addItem(12656, 1)
 				player:addItem(2152, 10)
@@ -93,10 +93,10 @@ local function creatureSayCallback(npc, creature, type, message)
 					"I hope the sun in the steppe did not exhaust you too much? Shellshock. A dangerous foe in the world of field science and exploration. ...",
 					"Here, I always wore this comfortable hat when travelling, take it. It may be of use for you on further reconnaissances in Zao. Again you have my thanks, friend."
 				}, npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Oh, you don't have my book.", npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		end
 	end

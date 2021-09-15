@@ -81,16 +81,16 @@ local function creatureSayCallback(npc, creature, type, message)
 				'Now that we speak of it ...',
 				'Since you are no djinn, there is something you could help us with. Are you interested, human?'
 			}, npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 
 		elseif isInArray({1, 2}, missionProgress) then
 			npcHandler:say('Did you find the thief of our supplies?', npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		else
 			npcHandler:say('Did you already talk to Alesar? He has another mission for you!', npc, creature)
 		end
 
-	elseif npcHandler.topic[playerId] == 1 then
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, 'yes') then
 			npcHandler:say({
 				'Well ... All right. You may only be a human, but you do seem to have the right spirit. ...',
@@ -106,19 +106,19 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('After all, you\'re just a human.', npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 
-	elseif npcHandler.topic[playerId] == 2 then
+	elseif npcHandler:getTopic(playerId) == 2 then
 		if msgcontains(message, 'yes') then
 			npcHandler:say('Finally! What is his name then?', npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Then go to Carlin and search for him! Look for something that might give you a clue!', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 
-	elseif npcHandler.topic[playerId] == 3 then
+	elseif npcHandler:getTopic(playerId) == 3 then
 		if msgcontains(message, 'partos') then
 			if missionProgress ~= 2 then
 				npcHandler:say('Hmmm... I don\'t think so. Return to Thais and continue your search!', npc, creature)
@@ -135,7 +135,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		else
 			npcHandler:say('Hmmm... I don\'t think so. Return to Thais and continue your search!', npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

@@ -64,15 +64,15 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.OutfitQuest.DruidBodyAddon) < 1 then
 			npcHandler:say("Would you like to wear bear paws like I do? No problem, just bring me 50 bear paws and 50 wolf paws and I'll fit them on.", npc, creature)
 			player:setStorageValue(Storage.OutfitQuest.DruidBodyAddon, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "paws") or msgcontains(message, "bear paws") then
 		if player:getStorageValue(Storage.OutfitQuest.DruidBodyAddon) == 1 then
 			npcHandler:say("Have you brought 50 bear paws and 50 wolf paws?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			if player:getItemCount(5896) >= 50 and player:getItemCount(5897) >= 50 then
 				npcHandler:say("Excellent! Like promised, here are your bear paws. ", npc, creature)
 				player:removeItem(5896, 50)
@@ -80,7 +80,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:setStorageValue(Storage.OutfitQuest.DruidBodyAddon, 2)
 				player:addOutfitAddon(148, 1)
 				player:addOutfitAddon(144, 1)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		end
 	end

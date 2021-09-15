@@ -84,16 +84,16 @@ local function creatureSayCallback(npc, creature, type, message)
 
 		if ARENA[arenaId] then
 			npcHandler:say('So you agree with the {rules} and want to participate in the {challenge}? The {fee} for one try in {' .. ARENA[arenaId].name .. '} is ' .. ARENA[arenaId].price .. ' gold pieces. Do you really want to participate and pay the {fee}?', npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		else
 			npcHandler:say('You\'ve already completed the arena in all {difficulty levels}.', npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 
-	elseif npcHandler.topic[playerId] == 1 then
+	elseif npcHandler:getTopic(playerId) == 1 then
 		if msgcontains(message, 'yes') then
 			if not ARENA[arenaId] then
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 				return true
 			end
 
@@ -111,7 +111,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		else
 			npcHandler:say('Come back when you are ready then.', npc, creature)
 		end
-		npcHandler.topic[playerId] = 0
+		npcHandler:setTopic(playerId, 0)
 	end
 	return true
 end

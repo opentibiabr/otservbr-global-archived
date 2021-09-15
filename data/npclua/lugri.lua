@@ -60,27 +60,27 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, "outfit") or msgcontains(message, "addon") then
 		if player:getStorageValue(Storage.OutfitQuest.WizardAddon) < 1 then
 			npcHandler:say("This skull shows that you are a true follower of Zathroth and the glorious gods of darkness. Are you willing to prove your loyalty?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		end
 	elseif msgcontains(message, "shield") or msgcontains(message, "medusa shield") then
 		if player:getStorageValue(Storage.OutfitQuest.WizardAddon) == 1 then
 			npcHandler:say("Is it your true wish to sacrifice a medusa shield to Zathroth?", npc, creature)
-			npcHandler.topic[playerId] = 3
+			npcHandler:setTopic(playerId, 3)
 		end
 	elseif msgcontains(message, "mail") or msgcontains(message, "dragon scale mail") then
 		if player:getStorageValue(Storage.OutfitQuest.WizardAddon) == 2 then
 			npcHandler:say("Is it your true wish to sacrifice a dragon scale mail to Zathroth?", npc, creature)
-			npcHandler.topic[playerId] = 4
+			npcHandler:setTopic(playerId, 4)
 		end
 	elseif msgcontains(message, "legs") or msgcontains(message, "crown legs") then
 		if player:getStorageValue(Storage.OutfitQuest.WizardAddon) == 3 then
 			npcHandler:say("Is it your true wish to sacrifice crown legs to Zathroth?", npc, creature)
-			npcHandler.topic[playerId] = 5
+			npcHandler:setTopic(playerId, 5)
 		end
 	elseif msgcontains(message, "ring") or msgcontains(message, "ring of the sky") then
 		if player:getStorageValue(Storage.OutfitQuest.WizardAddon) == 4 then
 			npcHandler:say("Is it your true wish to sacrifice a ring of the sky to Zathroth?", npc, creature)
-			npcHandler.topic[playerId] = 6
+			npcHandler:setTopic(playerId, 6)
 		end
 
 	------------Task Part-------------
@@ -91,7 +91,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"I don't need help. But if you desperately wish to do something to earn the favour of Zathroth, feel free. Don't expect any reward though. ...",
 				"Do you want to help and serve Zathroth out of your own free will, without demanding payment or recognition?"
 			}, npc, creature)
-			npcHandler.topic[playerId] = 7
+			npcHandler:setTopic(playerId, 7)
 		elseif player:getStorageValue(Storage.KillingInTheNameOf.LugriNecromancers) == 1 then
 			if player:getStorageValue(Storage.KillingInTheNameOf.LugriNecromancerCount) >= 4000 then
 				npcHandler:say({
@@ -112,53 +112,53 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.KillingInTheNameOf.LugriNecromancers, 3)
 		elseif player:getStorageValue(Storage.KillingInTheNameOf.LugriNecromancers) == 3 then
 			npcHandler:say("You can't live without serving, can you? Although you are quite annoying, you're still somewhat useful. Continue killing Necromancers and Priestesses for me. 1000 are enough this time. What do you say?", npc, creature)
-			npcHandler.topic[playerId] = 8
+			npcHandler:setTopic(playerId, 8)
 		end
 	elseif msgcontains(message, "yes") then
-		if npcHandler.topic[playerId] == 1 then
+		if npcHandler:getTopic(playerId) == 1 then
 			npcHandler:say("It will be a hard task which requires many sacrifices. Do you still want to proceed?", npc, creature)
-			npcHandler.topic[playerId] = 2
-		elseif npcHandler.topic[playerId] == 2 then
+			npcHandler:setTopic(playerId, 2)
+		elseif npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say("Good decision, |PLAYERNAME|. Your first sacrifice will be a medusa shield. Bring it to me and do give it happily.", npc, creature)
 			player:setStorageValue(Storage.OutfitQuest.WizardAddon, 1)
 			player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1) --this for default start of Outfit and Addon Quests
-			npcHandler.topic[playerId] = 0
-		elseif npcHandler.topic[playerId] == 3 then
+			npcHandler:setTopic(playerId, 0)
+		elseif npcHandler:getTopic(playerId) == 3 then
 			if player:removeItem(2536, 1) then
 				npcHandler:say("Good. I accept your sacrifice. The second sacrifice I require from you is a dragon scale mail. Bring it to me and do give it happily.", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.WizardAddon, 2)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("You don't have it...", npc, creature)
 			end
-		elseif npcHandler.topic[playerId] == 4 then
+		elseif npcHandler:getTopic(playerId) == 4 then
 			if player:removeItem(2492, 1) then
 				npcHandler:say("Good. I accept your sacrifice. The third sacrifice I require from you are crown legs. Bring them to me and do give them happily.", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.WizardAddon, 3)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("You don't have it...", npc, creature)
 			end
-		elseif npcHandler.topic[playerId] == 5 then
+		elseif npcHandler:getTopic(playerId) == 5 then
 			if player:removeItem(2488, 1) then
 				npcHandler:say("Good. I accept your sacrifice. The last sacrifice I require from you is a ring of the sky. Bring it to me and do give it happily.", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.WizardAddon, 4)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("You don't have it...", npc, creature)
 			end
-		elseif npcHandler.topic[playerId] == 6 then
+		elseif npcHandler:getTopic(playerId) == 6 then
 			if player:removeItem(2123, 1) then
 				npcHandler:say("Good. I accept your sacrifice. You have proven that you are a true follower of Zathroth and do not hesitate to sacrifice worldly goods. Thus, I will reward you with this headgear. ", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.WizardAddon, 5)
 				player:addOutfitAddon(145, 2)
 				player:addOutfitAddon(149, 2)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("You don't have it...", npc, creature)
 			end
-		elseif npcHandler.topic[playerId] == 7 then
+		elseif npcHandler:getTopic(playerId) == 7 then
 			npcHandler:say({
 				"You do? I mean - wise decision. Let me explain. By now, Tibia has been overrun by numerous followers of different cults and beliefs. The true Necromancers died or left Tibia long ago, shortly after their battle was lost. ...",
 				"What is left are mainly pseudo-dark pretenders, the old wisdom and power being far beyond their grasp. They think they have the right to tap that dark power, but they don't. ...",
@@ -170,14 +170,14 @@ local function creatureSayCallback(npc, creature, type, message)
 			-- aqui
 			player:setStorageValue(Storage.KillingInTheNameOf.LugriNecromancers, 1)
 			player:setStorageValue(Storage.KillingInTheNameOf.LugriNecromancerCount, 0)
-		elseif npcHandler.topic[playerId] == 8 then
+		elseif npcHandler:getTopic(playerId) == 8 then
 			npcHandler:say("Good. Then go.", npc, creature)
 			player:setStorageValue(Storage.KillingInTheNameOf.LugriNecromancers, 4)
 		end
 	elseif msgcontains(message, "no") then
-		if npcHandler.topic[playerId] > 1 then
+		if npcHandler:getTopic(playerId) > 1 then
 			npcHandler:say("Then no.", npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

@@ -64,7 +64,7 @@ function creatureSayCallback(npc, creature, type, message)
 	if(msgcontains(message, "addon") or msgcontains(message, "outfit")) then
 		if(getPlayerStorageValue(creature, Storage.Atrad) < 1) then
 			npcHandler:say("You managed to deceive Erayo? Impressive. Well, I guess, since you have come that far, I might as well give you a task too, eh?", npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		end
 	elseif(msgcontains(message, "nose ring") or msgcontains(message, "ring")) then
 		if(getPlayerStorageValue(creature, Storage.Atrad) == 1) then
@@ -74,20 +74,20 @@ function creatureSayCallback(npc, creature, type, message)
 				doPlayerRemoveItem(creature, 5930, 1)
 				doPlayerAddOutfit(creature, getPlayerSex(creature) == 0 and 156 or 152, 2)
 				setPlayerStorageValue(creature, Storage.Atrad, 2) -- exaust
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("You don't have it...", npc, creature)
-				npcHandler.topic[playerId] = 0
+				npcHandler:setTopic(playerId, 0)
 			end
 		end
 	elseif(msgcontains(message, "yes")) then
-		if(npcHandler.topic[playerId] == 2) then
+		if(npcHandler:getTopic(playerId) == 2) then
 			npcHandler:say("Okay, listen up. I don't have a list of stupid objects, I just want two things. A behemoth claw and a nose ring. Got that?", npc, creature)
-			npcHandler.topic[playerId] = 3
-		elseif(npcHandler.topic[playerId] == 3) then
+			npcHandler:setTopic(playerId, 3)
+		elseif(npcHandler:getTopic(playerId) == 3) then
 			npcHandler:say("Good. Come back then you have BOTH. Should be clear where to get a behemoth claw from. There's a horned fox who wears a nose ring. Good luck.", npc, creature)
 			setPlayerStorageValue(creature, Storage.Atrad, 1)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 	end
 	return true

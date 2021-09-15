@@ -62,10 +62,10 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.BigfootBurden.QuestLine) == 25 then
 			npcHandler:say({"Two missions are available for your {rank}: crystal {keeper} and {spark} hunting. You can undertake each mission but you can turn in a specific mission only once each 20 hours. ...",
 				"If you lose a mission item you can probably buy it from Gnomally."}, npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.BigfootBurden.QuestLine) >= 26 then
 			npcHandler:say({"For your {rank} there are four missions avaliable: crystal {keeper}, {spark} hunting, monster {extermination} and mushroom {digging}. By the way, you {rank} now allows you to take aditional missions from {Gnomeral} in {Gnomebase Alpha}. ... ", "If you lose a mission item you can probably buy it from Gnomally."}, npc, creature)
-			npcHandler.topic[playerId] = 0
+			npcHandler:setTopic(playerId, 0)
 		end
 
 	-- Crystal Kepper
@@ -90,14 +90,14 @@ local function creatureSayCallback(npc, creature, type, message)
 					player:addAchievement('Crystal Keeper')
 					player:checkGnomeRank()
 					npcHandler:say("You did well. That will help us a lot. Take your {token} and this gnomish supply package as a reward. ", npc, creature)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				else   -- haven't finished
-					if npcHandler.topic[playerId] >= 1 then
+					if npcHandler:getTopic(playerId) >= 1 then
 						npcHandler:say("You are not done yet.", npc, creature) -- is reporting
 					else
 						npcHandler:say("You already have accepted this mission. Don't forget to {report} to me when you are done.", npc, creature) -- se nao tiver reportando
 					end
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				end
 			end
 		else
@@ -128,14 +128,14 @@ local function creatureSayCallback(npc, creature, type, message)
 					player:addAchievement('Call Me Sparky')
 					player:checkGnomeRank()
 					npcHandler:say("You did well. That will help us a lot. Take your {token} and this gnomish supply package as a reward. ", npc, creature)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				else   -- haven't finished
-					if npcHandler.topic[playerId] >= 1 then
+					if npcHandler:getTopic(playerId) >= 1 then
 						npcHandler:say("You did not draw enough energy from Crystal Crushers or you have not asked for this task.", npc, creature) -- is reporting
 					else
 						npcHandler:say("You already have accepted this mission. Don't forget to {report} to me when you are done.", npc, creature) -- se nao tiver reportando
 					end
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				end
 			end
 		else
@@ -163,14 +163,14 @@ local function creatureSayCallback(npc, creature, type, message)
 					player:addAchievement('One Foot Vs. Many')
 					player:checkGnomeRank()
 					npcHandler:say("You did well. That will help us a lot. Take your {token} and this gnomish supply package as a reward. ", npc, creature)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				else   -- haven't finished
-					if npcHandler.topic[playerId] >= 1 then
+					if npcHandler:getTopic(playerId) >= 1 then
 						npcHandler:say("You are not done yet.", npc, creature) -- is reporting
 					else
 						npcHandler:say("You already have accepted this mission. Don't forget to {report} to me when you are done.", npc, creature) -- se nao tiver reportando
 					end
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				end
 			end
 		else
@@ -205,14 +205,14 @@ local function creatureSayCallback(npc, creature, type, message)
 					player:addAchievement('The Picky Pig')
 					player:checkGnomeRank()
 					npcHandler:say("You did well. That will help us a lot. Take your {token} and this gnomish supply package as a reward. ", npc, creature)
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				else   -- haven't finished
-					if npcHandler.topic[playerId] >= 1 then
+					if npcHandler:getTopic(playerId) >= 1 then
 						npcHandler:say("You are not done yet.", npc, creature) -- is reporting
 					else
 						npcHandler:say("You already have accepted this mission. Don't forget to {report} to me when you are done.", npc, creature) -- se nao tiver reportando
 					end
-					npcHandler.topic[playerId] = 0
+					npcHandler:setTopic(playerId, 0)
 				end
 			end
 		else
@@ -223,10 +223,10 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif(msgcontains(message, "report")) then
 		if player:getStorageValue(Storage.BigfootBurden.QuestLine) == 25 then
 			npcHandler:say("Which mission do you want to report: crystal {keeper}, {spark} hunting?", npc, creature)
-			npcHandler.topic[playerId] = 1
+			npcHandler:setTopic(playerId, 1)
 		elseif player:getStorageValue(Storage.BigfootBurden.QuestLine) >= 26 then
 			npcHandler:say("Which mission do you want to report: crystal {keeper}, {spark} hunting, monster {extermination} or mushroom {digging}?", npc, creature)
-			npcHandler.topic[playerId] = 2
+			npcHandler:setTopic(playerId, 2)
 		end
 	end
 	return true
