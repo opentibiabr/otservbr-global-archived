@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(2260, 2261, 3)
+	return creature:conjureItem(3147, 3148, 3)
 end
 
 spell:name("Destroy Field Rune")

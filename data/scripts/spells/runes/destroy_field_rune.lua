@@ -18,7 +18,7 @@ end
 rune:group("support")
 rune:id(30)
 rune:name("Destroy Field")
-rune:runeId(2261)
+rune:runeId(3148)
 rune:allowFarUse(true)
 rune:charges(3)
 rune:level(17)

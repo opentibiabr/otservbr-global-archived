@@ -31,7 +31,7 @@ end
 rune:group("support")
 rune:id(14)
 rune:name("Chameleon Rune")
-rune:runeId(2291)
+rune:runeId(3178)
 rune:allowFarUse(true)
 rune:charges(1)
 rune:level(27)

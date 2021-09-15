@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(2260, 2286, 2)
+	return creature:conjureItem(3147, 3173, 2)
 end
 
 spell:name("Poison Bomb Rune")

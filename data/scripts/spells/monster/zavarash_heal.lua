@@ -22,7 +22,7 @@ local area = createCombatArea(arr)
 combat:setArea(area)
 
 function onTargetCreature(creature, target)
-	local min = 425
+	local min = 430
 	local max = 575
 
 	local master = target:getMaster()

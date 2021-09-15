@@ -8,11 +8,11 @@ local function anomalyBreak(pos)
 		        local room = {x=i, y=j, z=k}
 				local tile = Tile(room)
 				if tile then
-					if tile:getItemById(1499) then
-						tile:getItemById(1499):remove()
+					if tile:getItemById(2130) then
+						tile:getItemById(2130):remove()
 						Position(room):sendMagicEffect(3)
-					elseif tile:getItemById(1497) then
-						tile:getItemById(1497):remove()
+					elseif tile:getItemById(2129) then
+						tile:getItemById(2129):remove()
 						Position(room):sendMagicEffect(3)
 					end
 				end

@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(2260, 2290, 1)
+	return creature:conjureItem(3147, 3177, 1)
 end
 
 spell:name("Convince Creature Rune")

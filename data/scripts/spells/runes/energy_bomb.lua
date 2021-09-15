@@ -14,7 +14,7 @@ end
 rune:group("attack")
 rune:id(55)
 rune:name("Energybomb")
-rune:runeId(2262)
+rune:runeId(3149)
 rune:allowFarUse(true)
 rune:setPzLocked(true)
 rune:charges(2)

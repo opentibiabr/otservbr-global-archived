@@ -71,7 +71,7 @@ function rune.onCastSpell(player, variant)
 						position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 						return true
 					end
-				elseif #player:getSummons() < 2 and player:getSkull() ~= SKULL_BLACK and player:getLevel() <= 449 then
+				elseif #player:getSummons() < 2 and player:getSkull() ~= SKULL_BLACK and player:getLevel() <= 455 then
 					local summon = Game.createMonster("Skeleton Elite Warrior", position, true, true)
 					if summon then
 						corpse:remove()
@@ -98,7 +98,7 @@ function rune.onCastSpell(player, variant)
 						position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 						return true
 					end
-				elseif #player:getSummons() < 2 and player:getSkull() ~= SKULL_BLACK and player:getLevel() <= 599 then
+				elseif #player:getSummons() < 2 and player:getSkull() ~= SKULL_BLACK and player:getLevel() <= 728 then
 					local summon = Game.createMonster("Demon", position, true, true)
 					if summon then
 						corpse:remove()
@@ -125,7 +125,7 @@ function rune.onCastSpell(player, variant)
 						position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 						return true
 					end
-				elseif #player:getSummons() < 1 and player:getSkull() ~= SKULL_BLACK and player:getLevel() <= 899 then
+				elseif #player:getSummons() < 1 and player:getSkull() ~= SKULL_BLACK and player:getLevel() <= 1108 then
 					local summon = Game.createMonster("Courage Leech", position, true, true)
 					if summon then
 						corpse:remove()
@@ -134,7 +134,7 @@ function rune.onCastSpell(player, variant)
 						position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 						return true
 					end
-				elseif #player:getSummons() < 1 and player:getSkull() ~= SKULL_BLACK and player:getLevel() <= 999 then
+				elseif #player:getSummons() < 1 and player:getSkull() ~= SKULL_BLACK and player:getLevel() <= 1244 then
 					local summon = Game.createMonster("Zulazza the Corruptor", position, true, true)
 					if summon then
 						corpse:remove()
@@ -169,7 +169,7 @@ end
 rune:group("support")
 rune:id(83)
 rune:name("Animate Dead")
-rune:runeId(2316)
+rune:runeId(3203)
 rune:allowFarUse(true)
 rune:charges(1)
 rune:level(27)

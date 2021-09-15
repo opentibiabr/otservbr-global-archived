@@ -20,7 +20,7 @@ end
 rune:group("attack")
 rune:id(7)
 rune:name("Light Magic Missile")
-rune:runeId(2287)
+rune:runeId(3174)
 rune:allowFarUse(true)
 rune:charges(10)
 rune:level(15)

@@ -21,7 +21,7 @@ end
 rune:group("attack")
 rune:id(115)
 rune:name("Avalanche")
-rune:runeId(2274)
+rune:runeId(3161)
 rune:allowFarUse(true)
 rune:charges(4)
 rune:level(30)

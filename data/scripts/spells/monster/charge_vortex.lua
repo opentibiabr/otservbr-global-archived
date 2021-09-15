@@ -28,9 +28,9 @@ local function createVortex()
 	if tile then
 		local ground = tile:getGround()
 		if ground then
-			ground:transform(25550)
+			ground:transform(22894)
 		    addEvent(function()
-			ground:transform(25705)
+			ground:transform(23049)
 			end, 10*1000) -- 10*1000 = 10 SECONDS
 			mathCount = mathCount + 1
 			table.remove(positions, r1)

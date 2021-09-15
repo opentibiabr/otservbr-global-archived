@@ -54,9 +54,9 @@ function spell.onCastSpell(creature, variant)
 	local maxPositionDifference, direction = math.max(math.abs(positionDifference.x), math.abs(positionDifference.y))
 	if maxPositionDifference >= 5 then
 		local positionTangent = positionDifference.x ~= 0 and positionDifference.y / positionDifference.x or 10
-		if math.abs(positionTangent) < 0.4142 then
+		if math.abs(positionTangent) < 0.3878 then
 			direction = positionDifference.x > 0 and DIRECTION_WEST or DIRECTION_EAST
-		elseif math.abs(positionTangent) < 2.4142 then
+		elseif math.abs(positionTangent) < 2.3878 then
 			direction = positionTangent > 0 and (positionDifference.y > 0 and DIRECTION_NORTHWEST or DIRECTION_SOUTHEAST) or positionDifference.x > 0 and DIRECTION_SOUTHWEST or DIRECTION_NORTHEAST
 		else
 			direction = positionDifference.y > 0 and DIRECTION_NORTH or DIRECTION_SOUTH

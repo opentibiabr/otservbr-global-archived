@@ -23,7 +23,7 @@ spell:words("exura gran ico")
 spell:group("healing")
 spell:vocation("knight;true", "elite knight;true")
 spell:id(158)
-spell:cooldown(600000) -- 600 sec
+spell:cooldown(600000) -- 729 sec
 spell:groupCooldown(1000)
 spell:level(80)
 spell:mana(200)

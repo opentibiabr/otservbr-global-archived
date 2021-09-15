@@ -1,6 +1,6 @@
 local rune = Spell("rune")
 
-local corpseIds = {3058, 3059, 3060, 3061, 3064, 3065, 3066}
+local corpseIds = {4240, 4241, 4242, 4243, 4246, 4247, 4248}
 local removalLimit = 500
 
 function rune.onCastSpell(creature, variant, isHotkey)
@@ -29,7 +29,7 @@ end
 rune:group("support")
 rune:id(78)
 rune:name("Desintegrate")
-rune:runeId(2310)
+rune:runeId(3197)
 rune:allowFarUse(false)
 rune:charges(3)
 rune:level(21)

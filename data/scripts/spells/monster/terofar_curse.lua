@@ -5,7 +5,7 @@ condition2:setParameter(CONDITION_PARAM_TICKS, 15 * 60 * 1000)
 condition2:setParameter(CONDITION_PARAM_HEALTHGAIN, 0.01)
 condition2:setParameter(CONDITION_PARAM_HEALTHTICKS, 15 * 60 * 1000)
 
-for i = 0.935, 0.935 do
+for i = 0.1167, 0.1167 do
 	combat[i] = Combat()
 	combat[i]:setParameter(COMBAT_PARAM_TYPE, COMBAT_DEATHDAMAGE)
 	combat[i]:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_SMALLCLOUDS)

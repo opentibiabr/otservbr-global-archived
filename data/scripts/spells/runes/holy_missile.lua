@@ -21,7 +21,7 @@ end
 rune:group("attack")
 rune:id(130)
 rune:name("Holy Missile")
-rune:runeId(2295)
+rune:runeId(3182)
 rune:allowFarUse(true)
 rune:charges(5)
 rune:level(27)

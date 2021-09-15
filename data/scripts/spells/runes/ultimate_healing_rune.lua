@@ -28,7 +28,7 @@ end
 rune:group("healing")
 rune:id(5)
 rune:name("Ultimate Healing Rune")
-rune:runeId(2273)
+rune:runeId(3160)
 rune:allowFarUse(true)
 rune:charges(1)
 rune:level(24)

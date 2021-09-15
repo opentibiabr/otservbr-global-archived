@@ -20,7 +20,7 @@ end
 rune:group("attack")
 rune:id(16)
 rune:name("Great Fireball")
-rune:runeId(2304)
+rune:runeId(3191)
 rune:allowFarUse(true)
 rune:charges(4)
 rune:level(30)

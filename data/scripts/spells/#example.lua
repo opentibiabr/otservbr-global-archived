@@ -20,7 +20,7 @@ function spell.onCastSpell(creature, variant, isHotkey)
 end
 
 spell:name("test rune")
-spell:runeId(2275)
+spell:runeId(3162)
 spell:id(220)
 spell:level(20)
 spell:magicLevel(5)
@@ -34,7 +34,7 @@ spell:register()
 local conjureRune = Spell(SPELL_INSTANT)
 
 function conjureRune.onCastSpell(creature, variant)
-	return creature:conjureItem(2260, 2275, 25)
+	return creature:conjureItem(3147, 3162, 25)
 end
 
 conjureRune:name("Test")

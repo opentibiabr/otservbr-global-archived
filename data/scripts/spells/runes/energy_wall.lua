@@ -14,7 +14,7 @@ end
 rune:group("attack")
 rune:id(33)
 rune:name("Energy Wall")
-rune:runeId(2279)
+rune:runeId(3166)
 rune:allowFarUse(true)
 rune:setPzLocked(true)
 rune:charges(4)

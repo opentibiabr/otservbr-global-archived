@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(0, 23839, 3, CONST_ME_MAGIC_BLUE)
+	return creature:conjureItem(0, 21470, 3, CONST_ME_MAGIC_BLUE)
 end
 
 spell:name("Arrow Call")

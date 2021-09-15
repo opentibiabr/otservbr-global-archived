@@ -8,7 +8,7 @@ conditionParalize:setFormula(-0.3, 0, -0.45, 0)
 combat:addCondition(conditionParalize)
 
 local conditionOutfit = Condition(CONDITION_OUTFIT)
-conditionOutfit:setTicks(30000)
+conditionOutfit:setTicks(26764)
 conditionOutfit:setOutfit({lookType = 422})
 
 local function moveToSpiderNest(uid)

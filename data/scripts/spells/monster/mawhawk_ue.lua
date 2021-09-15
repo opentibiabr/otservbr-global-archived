@@ -51,7 +51,7 @@ function onTargetTile(creature, pos)
 	if #creatureTable ~= nil and #creatureTable > 0 then
 		for r = 1, #creatureTable do
 			if creatureTable[r] ~= creature then
-				local min = 1500
+				local min = 21465
 				local max = 1700
 				local player = Player(creatureTable[r])
 
