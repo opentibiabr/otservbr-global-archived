@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 3900
 monster.maxHealth = 3900
 monster.race = "venom"
-monster.corpse = 26068
+monster.corpse = 23412
 monster.speed = 340
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -79,28 +79,28 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000, maxCount = 100},
-	{id = 2152, chance = 100000, maxCount = 6},
-	{id = 26201, chance = 15000},
-	{id = 26191, chance = 15000},
-	{id = 26164, chance = 15000},
-	{id = 26176, chance = 14700},
-	{id = 8472, chance = 11400, maxCount = 2},
-	{id = 7590, chance = 10300, maxCount = 2},
-	{id = 7591, chance = 9700, maxCount = 2},
-	{id = 26162, chance = 9700},
-	{id = 26171, chance = 9600},
-	{id = 18418, chance = 7900},
-	{id = 18420, chance = 6000},
-	{id = 18414, chance = 4400},
-	{id = 18413, chance = 4000},
-	{id = 2156, chance = 2600},
-	{id = 26199, chance = 630},
-	{id = 7901, chance = 520},
-	{id = 2153, chance = 370},
-	{id = 26185, chance = 370},
-	{id = 26200, chance = 300},
-	{id = 26187, chance = 220}
+	{id = 3031, chance = 100000, maxCount = 100},
+	{id = 3035, chance = 100000, maxCount = 6},
+	{id = 23545, chance = 15000},
+	{id = 23535, chance = 15000},
+	{id = 23508, chance = 15000},
+	{id = 23520, chance = 14700},
+	{id = 7642, chance = 11400, maxCount = 2},
+	{id = 238, chance = 10300, maxCount = 2},
+	{id = 239, chance = 9700, maxCount = 2},
+	{id = 23506, chance = 9700},
+	{id = 23515, chance = 9600},
+	{id = 16124, chance = 7900},
+	{id = 16126, chance = 6000},
+	{id = 16120, chance = 4400},
+	{id = 16119, chance = 4000},
+	{id = 3039, chance = 2600},
+	{id = 23543, chance = 630},
+	{id = 828, chance = 520},
+	{id = 3036, chance = 370},
+	{id = 23529, chance = 370},
+	{id = 23544, chance = 300},
+	{id = 23531, chance = 220}
 }
 
 monster.attacks = {

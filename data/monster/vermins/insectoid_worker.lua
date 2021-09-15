@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 950
 monster.maxHealth = 950
 monster.race = "venom"
-monster.corpse = 13514
+monster.corpse = 12525
 monster.speed = 240
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -80,7 +80,7 @@ monster.loot = {
 	{name = "epee", chance = 560},
 	{name = "health potion", chance = 5090},
 	{name = "compound eye", chance = 15380},
-	{id = 15622, chance = 14990}
+	{id = 14225, chance = 14990}
 }
 
 monster.attacks = {

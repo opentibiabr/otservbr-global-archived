@@ -32,7 +32,7 @@ monster.Bestiary = {
 monster.health = 7500
 monster.maxHealth = 7500
 monster.race = "venom"
-monster.corpse = 15354
+monster.corpse = 13937
 monster.speed = 230
 monster.manaCost = 0
 monster.maxSummons = 2
@@ -90,7 +90,7 @@ monster.loot = {
 	{name = "platinum coin", chance = 84000, maxCount = 6},
 	{name = "steel boots", chance = 550},
 	{name = "great mana potion", chance = 18000},
-	{id = 7632, chance = 6000},
+	{id = 281, chance = 6000},
 	{name = "ultimate health potion", chance = 12000},
 	{name = "gold ingot", chance = 29000},
 	{name = "kollos shell", chance = 28000},

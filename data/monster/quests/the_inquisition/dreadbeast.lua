@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 800
 monster.maxHealth = 800
 monster.race = "undead"
-monster.corpse = 3031
+monster.corpse = 4212
 monster.speed = 136
 monster.manaCost = 800
 monster.maxSummons = 0
@@ -63,10 +63,10 @@ monster.voices = {
 
 monster.loot = {
 	{name = "gold coin", chance = 11690, maxCount = 88},
-	{id = 2230, chance = 8230},
+	{id = 3115, chance = 8230},
 	{name = "plate armor", chance = 2810},
-	{id = 2229, chance = 2810},
-	{id = 2231, chance = 1950},
+	{id = 3114, chance = 2810},
+	{id = 3116, chance = 1950},
 	{name = "bone club", chance = 1520},
 	{name = "bone shield", chance = 1520},
 	{name = "health potion", chance = 870},

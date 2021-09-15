@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 5000
 monster.maxHealth = 5000
 monster.race = "blood"
-monster.corpse = 34711
+monster.corpse = 30073
 monster.speed = 400
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -90,21 +90,21 @@ monster.loot = {
 	{name = "wand of cosmic energy", chance = 17800},
 	{name = "magma amulet", chance = 8900},
 	{name = "elven amulet", chance = 8100, maxCount = 2},
-	{id = 26200, chance = 10590},
+	{id = 23544, chance = 10590},
 	{name = "sacred tree amulet", chance = 7500},
 	{name = "spider silk", chance = 6500},
 	{name = "life ring", chance = 5560},
 	{name = "orb", chance = 7800},
 	{name = "underworld rod", chance = 7120},
-	{id = 26185, chance = 1000},
+	{id = 23529, chance = 1000},
 	{name = "ring of healing", chance = 9120},
 	{name = "strange talisman", chance = 8110},
 	{name = "axe ring", chance = 7220},
 	{name = "power ring", chance = 6080},
-	{id = 6300, chance = 7502},
+	{id = 6299, chance = 7502},
 	{name = "garlic necklace", chance = 7550},
 	{name = "platinum amulet", chance = 7650},
-	{id = 26199, chance = 10590},
+	{id = 23543, chance = 10590},
 	{name = "Strange Symbol", chance = 2640},
 	{name = "stone skin amulet", chance = 2600},
 	{name = "necklace of the deep", chance = 1800}

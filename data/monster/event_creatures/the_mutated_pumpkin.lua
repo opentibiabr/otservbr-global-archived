@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 500000
 monster.maxHealth = 500000
 monster.race = "undead"
-monster.corpse = 8960
+monster.corpse = 8133
 monster.speed = 400
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -76,16 +76,16 @@ monster.voices = {
 monster.loot = {
 	{name = "pumpkin", chance = 100000},
 	{name = "yummy gummy worm", chance = 100000, maxCount = 20},
-	{id = 2688, chance = 1000, maxCount = 50},
+	{id = 3599, chance = 1000, maxCount = 50},
 	{id = 6569, chance = 1000, maxCount = 50},
 	{name = "spiderwebs", chance = 1000},
-	{id = 9006, chance = 1000},
-	{id = 6492, chance = 1000},
-	{id = 6526, chance = 1000},
+	{id = 8178, chance = 1000},
+	{id = 6491, chance = 1000},
+	{id = 6525, chance = 1000},
 	{name = "bar of chocolate", chance = 1000},
 	{id = 6570, chance = 1000},
 	{id = 6571, chance = 1000},
-	{id = 2096, chance = 1000}
+	{id = 2977, chance = 1000}
 }
 
 monster.attacks = {

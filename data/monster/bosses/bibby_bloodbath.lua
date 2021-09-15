@@ -75,7 +75,7 @@ monster.loot = {
 	{name = "mana potion", chance = 15200, maxCount = 3},
 	{name = "dark armor", chance = 14000},
 	{name = "health potion", chance = 12000, maxCount = 3},
-	{id = 2667, chance = 10300, maxCount = 1},-- fish
+	{id = 3578, chance = 10300, maxCount = 1},-- fish
 	{name = "meat", chance = 10300},
 	{name = "plate legs", chance = 8100},
 	{name = "stealth ring", chance = 6960},

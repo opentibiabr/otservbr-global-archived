@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 290000
 monster.maxHealth = 290000
 monster.race = "venom"
-monster.corpse = 25151
+monster.corpse = 22495
 monster.speed = 320
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -69,29 +69,29 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 25172, chance = 1000000},
-	{id = 11306, chance = 3000},
-	{id = 18411, chance = 1820},
-	{id = 18419, chance = 23000, maxCount = 6},
-	{id = 18420, chance = 23000, maxCount = 6},
-	{id = 18421, chance = 23000, maxCount = 6},
-	{id = 2143, chance = 12000, maxCount = 8},
-	{id = 2146, chance = 12000, maxCount = 9},
-	{id = 2148, chance = 98000, maxCount = 200},
-	{id = 2150, chance = 10000, maxCount = 5},
-	{id = 2152, chance = 8000, maxCount = 58},
-	{id = 25383, chance = 800},
-	{id = 25415, chance = 500, unique = true},
-	{id = 25522, chance = 800},
-	{id = 25523, chance = 800},
-	{id = 6500, chance = 11000},
+	{id = 22516, chance = 1000000},
+	{id = 10389, chance = 3000},
+	{id = 16117, chance = 1820},
+	{id = 16125, chance = 23000, maxCount = 6},
+	{id = 16126, chance = 23000, maxCount = 6},
+	{id = 16127, chance = 23000, maxCount = 6},
+	{id = 3026, chance = 12000, maxCount = 8},
+	{id = 3029, chance = 12000, maxCount = 9},
+	{id = 3031, chance = 98000, maxCount = 200},
+	{id = 3033, chance = 10000, maxCount = 5},
+	{id = 3035, chance = 8000, maxCount = 58},
+	{id = 22727, chance = 800},
+	{id = 22759, chance = 500, unique = true},
+	{id = 22866, chance = 800},
+	{id = 22867, chance = 800},
+	{id = 6499, chance = 11000},
 	{id = 7386, chance = 5000},
-	{id = 7632, chance = 14000, maxCount = 5},
-	{id = 7633, chance = 14000, maxCount = 5},
-	{id = 7887, chance = 5000},
-	{id = 8473, chance = 23000, maxCount = 15},
-	{id = 8901, chance = 4000},
-	{id = 9970, chance = 10000, maxCount = 8}
+	{id = 281, chance = 14000, maxCount = 5},
+	{id = 282, chance = 14000, maxCount = 5},
+	{id = 814, chance = 5000},
+	{id = 7643, chance = 23000, maxCount = 15},
+	{id = 8073, chance = 4000},
+	{id = 9057, chance = 10000, maxCount = 8}
 }
 
 monster.attacks = {

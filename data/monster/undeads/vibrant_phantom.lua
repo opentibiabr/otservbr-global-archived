@@ -19,7 +19,7 @@ monster.Bestiary = {
 	race = BESTY_RACE_UNDEAD,
 	toKill = 5000,
 	FirstUnlock = 25,
-	SecondUnlock = 2500,
+	SecondUnlock = 3394,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 27000
 monster.maxHealth = 27000
 monster.race = "undead"
-monster.corpse = 38648
+monster.corpse = 33813
 monster.speed = 230
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -82,7 +82,7 @@ monster.voices = {
 monster.loot = {
 	{name = "crystal coin", chance = 70540},
 	{name = "ultimate health potion", chance = 32220, maxCount = 7},
-	{id = 7632, chance = 54560}, -- Giant shimmering pearl
+	{id = 281, chance = 54560}, -- Giant shimmering pearl
 	{name = "violet gem", chance = 74560},
 	{name = "terra rod", chance = 21920},
 	{name = "hailstorm rod", chance = 21920},
@@ -93,10 +93,10 @@ monster.loot = {
 	{name = "springsprout rod", chance = 18920},
 	{name = "blue crystal shard", chance = 11920},
 	{name = "violet crystal shard", chance = 11920},
-	{id = 26185, chance = 28920}, -- Ring of blue plasma
-	{id = 38978, chance = 3500}, -- Vibrant hearth
-	{id = 38979, chance = 4500}, -- Vibrant robe
-	{id = 38944, chance = 50} -- Bag you desire
+	{id = 23529, chance = 28920}, -- Ring of blue plasma
+	{id = 34143, chance = 3500}, -- Vibrant hearth
+	{id = 34144, chance = 4500}, -- Vibrant robe
+	{id = 34109, chance = 50} -- Bag you desire
 }
 
 monster.attacks = {

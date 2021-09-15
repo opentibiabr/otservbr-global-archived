@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 9800
 monster.maxHealth = 9800
 monster.race = "blood"
-monster.corpse = 36493
+monster.corpse = 31658
 monster.speed = 320
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -79,7 +79,7 @@ monster.loot = {
 	{name = "wand of draconia", chance = 4770},
 	{name = "sphinx feather", chance = 3450},
 	{name = "fire axe", chance = 2650},
-	{id = 36273, chance = 3450},
+	{id = 31438, chance = 3450},
 	{name = "magma legs", chance = 1860},
 	{name = "magma monocle", chance = 1590},
 	{name = "magma boots", chance = 2120},

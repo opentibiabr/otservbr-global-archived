@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 85
 monster.maxHealth = 85
 monster.race = "undead"
-monster.corpse = 2843
+monster.corpse = 4024
 monster.speed = 154
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -82,7 +82,7 @@ monster.loot = {
 	{name = "gold coin", chance = 50000, maxCount = 15},
 	{name = "scarab coin", chance = 2600},
 	{name = "mace", chance = 3760},
-	{id = 2419, chance = 1640},
+	{id = 3307, chance = 1640},
 	{name = "brown mushroom", chance = 6120, maxCount = 2},
 	{name = "pelvis bone", chance = 8700}
 }

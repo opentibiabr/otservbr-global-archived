@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 4500
 monster.maxHealth = 4500
 monster.race = "blood"
-monster.corpse = 30780
+monster.corpse = 27545
 monster.speed = 204
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -88,13 +88,13 @@ monster.loot = {
 	{name = "Dark Mushroom", chance = 14960},
 	{name = "Green Mushroom", chance = 18520},
 	{name = "Green Crystal Shard", chance = 5360},
-	{id = 30828, chance = 13210, maxCount = 2},
+	{id = 27593, chance = 13210, maxCount = 2},
 	{name = "Deepworm Spikes", chance = 9880},
 	{name = "Small Enchanted Amethyst", chance = 3430, maxCount = 2},
 	{name = "Terra Amulet", chance = 5060},
 	{name = "Springsprout Rod", chance = 1120},
 	{name = "Sacred Tree Amulet", chance = 2390},
-	{id = 7632, chance = 860},
+	{id = 281, chance = 860},
 	{name = "Suspicious Device", chance = 530}
 }
 

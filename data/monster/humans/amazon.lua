@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 110
 monster.maxHealth = 110
 monster.race = "blood"
-monster.corpse = 20323
+monster.corpse = 18042
 monster.speed = 172
 monster.manaCost = 390
 monster.maxSummons = 0
@@ -80,13 +80,13 @@ monster.voices = {
 
 monster.loot = {
 	{name = "dagger", chance = 80000},
-	{id = 2229, chance = 80000, maxCount = 2},
+	{id = 3114, chance = 80000, maxCount = 2},
 	{name = "gold coin", chance = 40000, maxCount = 20},
 	{name = "brown bread", chance = 30000},
 	{name = "sabre", chance = 23000},
 	{name = "girlish hair decoration", chance = 10000},
 	{name = "protective charm", chance = 5200},
-	{id = 2050, chance = 1000},
+	{id = 2920, chance = 1000},
 	{name = "crystal necklace", chance = 260},
 	{name = "small ruby", chance = 130}
 }

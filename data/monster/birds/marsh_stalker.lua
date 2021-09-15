@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 100
 monster.maxHealth = 100
 monster.race = "blood"
-monster.corpse = 19708
+monster.corpse = 17428
 monster.speed = 150
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -78,12 +78,12 @@ monster.voices = {
 monster.loot = {
 	{name = "gold coin", chance = 64090, maxCount = 23},
 	{name = "meat", chance = 19950, maxCount = 2},
-	{id = 2667, chance = 20320, maxCount = 2},--fish
+	{id = 3578, chance = 20320, maxCount = 2},--fish
 	{name = "worm", chance = 14730, maxCount = 2},
 	{name = "marsh stalker feather", chance = 8650},
 	{name = "longsword", chance = 7560},
 	{name = "marsh stalker beak", chance = 6080},
-	{id = 2120, chance = 4830},--rope
+	{id = 3003, chance = 4830},--rope
 	{name = "seeds", chance = 110}
 }
 

@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 3800
 monster.maxHealth = 3800
 monster.race = "fire"
-monster.corpse = 6324
+monster.corpse = 6323
 monster.speed = 330
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -77,7 +77,7 @@ monster.voices = {
 
 monster.loot = {
 	{name = "emerald bangle", chance = 2200},
-	{id = 2136, chance = 190},
+	{id = 3019, chance = 190},
 	{name = "small diamond", chance = 1400},
 	{name = "gold coin", chance = 50000, maxCount = 100},
 	{name = "gold coin", chance = 40000, maxCount = 100},
@@ -93,7 +93,7 @@ monster.loot = {
 	{name = "magma coat", chance = 470},
 	{name = "fiery heart", chance = 9570},
 	{name = "piece of hellfire armor", chance = 5060},
-	{id = 13757, chance = 670}
+	{id = 12600, chance = 670}
 }
 
 monster.attacks = {

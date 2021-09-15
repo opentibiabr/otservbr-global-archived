@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 275
 monster.maxHealth = 275
 monster.race = "undead"
-monster.corpse = 5566
+monster.corpse = 5565
 monster.speed = 210
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -81,7 +81,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 1951, chance = 910},
+	{id = 2817, chance = 910},
 	{name = "gold coin", chance = 48000, maxCount = 67},
 	{name = "stealth ring", chance = 650},
 	{name = "spike sword", chance = 130},

@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 9500
 monster.maxHealth = 9500
 monster.race = "undead"
-monster.corpse = 33345
+monster.corpse = 28601
 monster.speed = 380
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -77,11 +77,11 @@ monster.voices = {
 monster.loot = {
 	{name = "Platinum Coin", chance = 120000, maxCount = 4},
 	{name = "Envenomed Arrow", chance = 1200, maxCount = 14},
-	{id = 33315, chance = 1200, maxCount = 4},
+	{id = 28568, chance = 1200, maxCount = 4},
 	{name = "Poisonous Slime", chance = 1200, maxCount = 4},
 	{name = "Small Diamond", chance = 1200, maxCount = 4},
 	{name = "Small Topaz", chance = 1200, maxCount = 4},
-	{id = 7633, chance = 900, maxCount = 4},
+	{id = 282, chance = 900, maxCount = 4},
 	{name = "Blue Gem", chance = 950, maxCount = 4},
 	{name = "Terra Boots", chance = 850, maxCount = 4},
 	{name = "Terra Hood", chance = 980, maxCount = 4},

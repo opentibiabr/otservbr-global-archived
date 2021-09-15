@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 3800
 monster.maxHealth = 3800
 monster.race = "blood"
-monster.corpse = 17408
+monster.corpse = 16063
 monster.speed = 270
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -100,7 +100,7 @@ monster.loot = {
 	{name = "great mana potion", chance = 6660, maxCount = 2},
 	{name = "great health potion", chance = 7960},
 	{name = "shiny stone", chance = 4660},
-	{id = 13757, chance = 780},
+	{id = 12600, chance = 780},
 	{name = "green crystal shard", chance = 1750},
 	{name = "green crystal splinter", chance = 3110},
 	{name = "brown crystal splinter", chance = 5630, maxCount = 2},

@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 5500
 monster.maxHealth = 5500
 monster.race = "blood"
-monster.corpse = 34715
+monster.corpse = 30077
 monster.speed = 390
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -86,7 +86,7 @@ monster.loot = {
 	{name = "belted cape", chance = 11550},
 	{name = "two handed sword", chance = 13550},
 	{name = "seeds", chance = 14750},
-	{id = 2419, chance = 17550},
+	{id = 3307, chance = 17550},
 	{name = "knife", chance = 15650},
 	{name = "dragon necklace", chance = 14550},
 	{name = "magma amulet", chance = 1655},

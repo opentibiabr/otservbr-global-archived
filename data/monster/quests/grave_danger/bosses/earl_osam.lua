@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 50000
 monster.maxHealth = 50000
 monster.race = "venom"
-monster.corpse = 36434
+monster.corpse = 31599
 monster.speed = 250
 monster.manaCost = 0
 monster.maxSummons = 5
@@ -77,10 +77,10 @@ monster.loot = {
 	{name = "piece of draconian steel", minCount = 0, maxCount = 3, chance = 9000},
 	{name = "red gem", minCount = 0, maxCount = 2, chance = 12000},
 	{name = "silver token", minCount = 0, maxCount = 2, chance = 9500},
-	{id = 26198, chance = 5200},-- collar of blue plasma
-	{id = 26200, chance = 5200},-- collar of red plasma
-	{id = 26185, chance = 5000},-- ring of blue plasma
-	{id = 26189, chance = 5000},-- ring of red plasma
+	{id = 23542, chance = 5200},-- collar of blue plasma
+	{id = 23544, chance = 5200},-- collar of red plasma
+	{id = 23529, chance = 5000},-- ring of blue plasma
+	{id = 23533, chance = 5000},-- ring of red plasma
 	{name = "warrior helmet", chance = 11000},
 	{name = "guardian axe", chance = 6400},
 	{name = "gold ingot", minCount = 0, maxCount = 1, chance = 10000},

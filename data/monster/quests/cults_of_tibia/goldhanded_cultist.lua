@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 3000
 monster.maxHealth = 3000
 monster.race = "blood"
-monster.corpse = 3058
+monster.corpse = 4240
 monster.speed = 230
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -83,13 +83,13 @@ monster.voices = {
 monster.loot = {
 	{name = "golden backpack", chance = 4290},
 	{name = "tiger eye", chance = 11430},
-	{id = 2148, chance = 41430, maxCount = 235},
+	{id = 3031, chance = 41430, maxCount = 235},
 	{name = "golden brush", chance = 20000},
 	{name = "green gem", chance = 5710},
 	{name = "gold ingot", chance = 2860},
 	{name = "opal", chance = 11430},
 	{name = "yellow gem", chance = 5710},
-	{id = 1997, chance = 1430}
+	{id = 2863, chance = 1430}
 }
 
 monster.attacks = {

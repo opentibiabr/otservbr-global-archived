@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1200
 monster.maxHealth = 1200
 monster.race = "fire"
-monster.corpse = 6324
+monster.corpse = 6323
 monster.speed = 238
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -85,7 +85,7 @@ monster.loot = {
 	{name = "magma amulet", chance = 1300},
 	{name = "magma boots", chance = 560},
 	{name = "magma legs", chance = 210},
-	{id = 9809, chance = 1330}
+	{id = 8895, chance = 1330}
 }
 
 monster.attacks = {

@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 1400
 monster.maxHealth = 1400
 monster.race = "blood"
-monster.corpse = 9919
+monster.corpse = 9005
 monster.speed = 440
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -87,7 +87,7 @@ monster.loot = {
 	{name = "platinum coin", chance = 961, maxCount = 3},
 	{name = "crown helmet", chance = 666},
 	{name = "meat", chance = 50000, maxCount = 4},
-	{id = 6300, chance = 250},
+	{id = 6299, chance = 250},
 	{name = "bar of chocolate", chance = 280},
 	{name = "diamond sceptre", chance = 340},
 	{name = "shadow sceptre", chance = 270},

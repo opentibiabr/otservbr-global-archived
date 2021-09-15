@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 4500
 monster.maxHealth = 4500
 monster.race = "blood"
-monster.corpse = 10524
+monster.corpse = 9607
 monster.speed = 250
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -94,7 +94,7 @@ monster.loot = {
 	{name = "terra legs", chance = 420},
 	{name = "terra amulet", chance = 4060},
 	{name = "ultimate health potion", chance = 9290, maxCount = 2},
-	{id = 9810, chance = 500},
+	{id = 8896, chance = 500},
 	{name = "sacred tree amulet", chance = 850},
 	{name = "strand of medusa hair", chance = 9900}
 }

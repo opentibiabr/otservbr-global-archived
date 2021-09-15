@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 35000
 monster.maxHealth = 35000
 monster.race = "blood"
-monster.corpse = 34651
+monster.corpse = 30013
 monster.speed = 250
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -90,7 +90,7 @@ monster.loot = {
 	{name = "Ectoplasmic Shield", chance = 600},
 	{name = "Book Backpack", chance = 550},
 	{name = "Spirit Guide", chance = 530},
-	{id = 34983, chance = 500}, --- Enchanted Pendulet
+	{id = 30345, chance = 500}, --- Enchanted Pendulet
 }
 
 monster.attacks = {

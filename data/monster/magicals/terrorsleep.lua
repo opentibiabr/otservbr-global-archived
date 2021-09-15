@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 7200
 monster.maxHealth = 7200
 monster.race = "blood"
-monster.corpse = 22497
+monster.corpse = 20163
 monster.speed = 360
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -97,7 +97,7 @@ monster.loot = {
 	{name = "blue crystal shard", chance = 6000},
 	{name = "blue crystal splinter", chance = 13000},
 	{name = "cyan crystal fragment", chance = 17000},
-	{id = 22363, chance = 1130},
+	{id = 20029, chance = 1130},
 	{name = "trapped bad dream monster", chance = 13000},
 	{name = "bowl of terror sweat", chance = 18000}
 }

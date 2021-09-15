@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 5300
 monster.maxHealth = 5300
 monster.race = "blood"
-monster.corpse = 34719
+monster.corpse = 30081
 monster.speed = 400
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -90,9 +90,9 @@ monster.loot = {
 	{name = "small enchanted ruby", chance = 1755},
 	{name = "red crystal fragment", chance = 1565},
 	{name = "leaf star", chance = 11100, maxCount = 8},
-	{id = 26185, chance = 1000},
+	{id = 23529, chance = 1000},
 	{name = "sun fruit", chance = 25800},
-	{id = 26198, chance = 1590},-- collar of blue plasma
+	{id = 23542, chance = 1590},-- collar of blue plasma
 	{name = "wood cape", chance = 30000},
 	{name = "small diamond", chance = 800},
 	{name = "yellow gem", chance = 640},

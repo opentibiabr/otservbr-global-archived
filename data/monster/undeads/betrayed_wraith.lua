@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 4200
 monster.maxHealth = 4200
 monster.race = "undead"
-monster.corpse = 6316
+monster.corpse = 6315
 monster.speed = 346
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -86,7 +86,7 @@ monster.loot = {
 	{name = "skull helmet", chance = 390},
 	{name = "golden figurine", chance = 160},
 	{name = "soul orb", chance = 10000},
-	{id = 6300, chance = 390},
+	{id = 6299, chance = 390},
 	{name = "demonic essence", chance = 19430},
 	{name = "concentrated demonic blood", chance = 65250},
 	{name = "assassin star", chance = 10780, maxCount = 5},

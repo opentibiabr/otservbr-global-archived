@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 14000
 monster.maxHealth = 14000
 monster.race = "undead"
-monster.corpse = 32571
+monster.corpse = 28873
 monster.speed = 420
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -75,8 +75,8 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 33316, chance = 10000, maxCount = 5},
-	{id = 33317, chance = 10000, maxCount = 5},
+	{id = 28569, chance = 10000, maxCount = 5},
+	{id = 28570, chance = 10000, maxCount = 5},
 	{name = "Small Amethyst", chance = 10000, maxCount = 5},
 	{name = "Flash Arrow", chance = 10000, maxCount = 5},
 	{name = "Lightning Legs", chance = 250},

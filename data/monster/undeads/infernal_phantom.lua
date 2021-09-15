@@ -19,7 +19,7 @@ monster.Bestiary = {
 	race = BESTY_RACE_UNDEAD,
 	toKill = 5000,
 	FirstUnlock = 25,
-	SecondUnlock = 2500,
+	SecondUnlock = 3394,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 26000
 monster.maxHealth = 26000
 monster.race = "undead"
-monster.corpse = 38960
+monster.corpse = 34125
 monster.speed = 200
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -94,9 +94,9 @@ monster.loot = {
 	{name = "wand of starstorm", chance = 36920},
 	{name = "wand of voodoo", chance = 24920},
 	{name = "warrior's axe", chance = 17920},
-	{id = 38974, chance = 11560}, -- Infernal hearth
-	{id = 38981, chance = 7560}, -- Infernal robe
-	{id = 38944, chance = 50} -- Bag you desire
+	{id = 34139, chance = 11560}, -- Infernal hearth
+	{id = 34146, chance = 7560}, -- Infernal robe
+	{id = 34109, chance = 50} -- Bag you desire
 }
 
 monster.attacks = {

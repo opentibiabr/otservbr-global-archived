@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 300000
 monster.maxHealth = 300000
 monster.race = "blood"
-monster.corpse = 25151
+monster.corpse = 22495
 monster.speed = 230
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -86,7 +86,7 @@ monster.loot = {
 	{name = "curious matter", chance = 30000},
 	{name = "demon horn", chance = 30000},
 	{name = "dreaded cleaver", chance = 30000},
-	{id = 7632, chance = 30000},
+	{id = 281, chance = 30000},
 	{name = "gold token", chance = 1000, maxCount = 6},
 	{name = "green gem", chance = 1000},
 	{name = "knowledgeable book", chance = 1000},
@@ -94,8 +94,8 @@ monster.loot = {
 	{name = "magic sulphur", chance = 1000, maxCount = 2},
 	{name = "muck rod", chance = 1000},
 	{name = "red gem", chance = 1000},
-	{id = 9820, chance = 1000},
-	{id = 9814, chance = 1000},
+	{id = 8906, chance = 1000},
+	{id = 8900, chance = 1000},
 	{name = "silver Token", chance = 1000, maxCount = 6},
 	{name = "sinister book", chance = 1000},
 	{name = "spellbook of warding", chance = 1000},

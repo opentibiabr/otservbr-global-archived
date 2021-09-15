@@ -95,7 +95,7 @@ monster.loot = {
 	{name = "sniper arrow", chance = 8780, maxCount = 5},
 	{name = "two handed sword", chance = 2980},
 	{name = "steel shield", chance = 2040},
-	{id = 2175, chance = 1030},
+	{id = 3059, chance = 1030},
 	{name = "strong mana potion", chance = 830},
 	{name = "giant eye", chance = 460},
 	{name = "bonelord shield", chance = 90},

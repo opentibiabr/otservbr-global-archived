@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 100000
 monster.maxHealth = 100000
 monster.race = "blood"
-monster.corpse = 6324
+monster.corpse = 6323
 monster.speed = 280
 monster.manaCost = 0
 monster.maxSummons = 4
@@ -81,7 +81,7 @@ monster.loot = {
 	{name = "small sapphire", chance = 21000, maxCount = 10},
 	{name = "great spirit potion", chance = 33230, maxCount = 5},
 	{name = "yellow gem", chance = 12000},
-	{id = 7633, chance = 5000},
+	{id = 282, chance = 5000},
 	{name = "platinum coin", chance = 68299, maxCount = 30},
 	{name = "lightning legs", chance = 18000},
 	{name = "sacred tree amulet", chance = 15000},

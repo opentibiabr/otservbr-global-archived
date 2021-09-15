@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 8100
 monster.maxHealth = 8100
 monster.race = "blood"
-monster.corpse = 36258
+monster.corpse = 31423
 monster.speed = 310
 monster.manaCost = 0
 monster.maxSummons = 1
@@ -89,7 +89,7 @@ monster.loot = {
 	{name = "Violet Gem", chance = 2600},
 	{name = "Opal", chance = 2200, maxCount = 2},
 	{name = "Wand of Voodoo", chance = 2200},
-	{id = 36166, chance = 3400},
+	{id = 31331, chance = 3400},
 	{name = "Small Enchanted Emerald", chance = 1500, maxCount = 3}
 }
 

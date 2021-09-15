@@ -62,18 +62,18 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2230, chance = 1410},
-	{id = 2449, chance = 9440},
-	{id = 2379, chance = 17040},
-	{id = 2667, chance = 159200, maxCount = 2},
-	{id = 12495, chance = 1130},
-	{id = 2148, chance = 100000, maxCount = 6},
-	{id = 2467, chance = 6060},
-	{id = 2461, chance = 2680},
-	{id = 2235, chance = 850},
-	{id = 2406, chance = 9720},
-	{id = 2559, chance = 7750},
-	{id = 1294, chance = 15210}
+	{id = 3115, chance = 1410},
+	{id = 3337, chance = 9440},
+	{id = 3267, chance = 17040},
+	{id = 3578, chance = 159200, maxCount = 2},
+	{id = 11539, chance = 1130},
+	{id = 3031, chance = 100000, maxCount = 6},
+	{id = 3361, chance = 6060},
+	{id = 3355, chance = 2680},
+	{id = 3120, chance = 850},
+	{id = 3294, chance = 9720},
+	{id = 3462, chance = 7750},
+	{id = 1781, chance = 15210}
 }
 
 monster.attacks = {

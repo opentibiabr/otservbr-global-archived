@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1050
 monster.maxHealth = 1050
 monster.race = "blood"
-monster.corpse = 9879
+monster.corpse = 8965
 monster.speed = 480
 monster.manaCost = 390
 monster.maxSummons = 0
@@ -87,8 +87,8 @@ monster.loot = {
 	{name = "battle hammer", chance = 5000},
 	{name = "strong health potion", chance = 5000},
 	{name = "strong mana potion", chance = 4000},
-	{id = 9808, chance = 7940},
-	{id = 9809, chance = 7940},
+	{id = 8894, chance = 7940},
+	{id = 8895, chance = 7940},
 	{name = "sea serpent scale", chance = 5000}
 }
 

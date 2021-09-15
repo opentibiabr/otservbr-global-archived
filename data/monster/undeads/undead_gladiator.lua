@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1000
 monster.maxHealth = 1000
 monster.race = "undead"
-monster.corpse = 9823
+monster.corpse = 8909
 monster.speed = 220
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -86,7 +86,7 @@ monster.loot = {
 	{name = "protection amulet", chance = 2200},
 	{name = "two handed sword", chance = 1900},
 	{name = "throwing star", chance = 15700, maxCount = 18},
-	{id = 2419, chance = 11280},
+	{id = 3307, chance = 11280},
 	{name = "knight axe", chance = 280},
 	{name = "plate armor", chance = 1700},
 	{name = "brass armor", chance = 4700},

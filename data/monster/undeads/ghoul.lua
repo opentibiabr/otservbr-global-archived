@@ -82,10 +82,10 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2050, chance = 5000},
+	{id = 2920, chance = 5000},
 	{name = "gold coin", chance = 68000, maxCount = 30},
 	{name = "life ring", chance = 180},
-	{id = 2229, chance = 240},
+	{id = 3114, chance = 240},
 	{name = "viking helmet", chance = 990},
 	{name = "scale armor", chance = 1000},
 	{name = "worm", chance = 9600, maxCount = 2},
@@ -93,7 +93,7 @@ monster.loot = {
 	{name = "rotten piece of cloth", chance = 14470},
 	{name = "ghoul snack", chance = 5130},
 	{name = "pile of grave earth", chance = 950},
-	{id = 26654, chance = 1000}
+	{id = 23986, chance = 1000}
 }
 
 monster.attacks = {

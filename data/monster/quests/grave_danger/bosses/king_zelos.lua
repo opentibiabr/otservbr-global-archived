@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 125000
 monster.maxHealth = monster.health
 monster.race = "venom"
-monster.corpse = 36443
+monster.corpse = 31608
 monster.speed = 425
 monster.maxSummons = 6
 
@@ -63,8 +63,8 @@ monster.loot = {
 	{name = "magma coat", chance = 15200},
 	{name = "gold ingot", minCount = 0, maxCount = 1, chance = 18000},
 	{name = "red tome", chance = 18200},
-	{id = 26185, chance = 12000},-- ring of blue plasma
-	{id = 26189, chance = 12000},-- ring of red plasma
+	{id = 23529, chance = 12000},-- ring of blue plasma
+	{id = 23533, chance = 12000},-- ring of red plasma
 	{name = "young lich worm", chance = 5500},
 	{name = "mortal mace", chance = 1300},
 	{name = "golden hyena pendant", chance = 1100},

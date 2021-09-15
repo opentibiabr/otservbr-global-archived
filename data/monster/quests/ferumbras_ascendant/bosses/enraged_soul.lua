@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 150
 monster.maxHealth = 150
 monster.race = "undead"
-monster.corpse = 21368
+monster.corpse = 19051
 monster.speed = 160
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -68,15 +68,15 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2394, chance = 10610},
-	{id = 2404, chance = 7020},
-	{id = 2804, chance = 14400},
-	{id = 2654, chance = 8810},
-	{id = 1962, chance = 1310},
+	{id = 3282, chance = 10610},
+	{id = 3292, chance = 7020},
+	{id = 3740, chance = 14400},
+	{id = 3565, chance = 8810},
+	{id = 2828, chance = 1310},
 	{id = 5909, chance = 1940},
-	{id = 10607, chance = 1870},
-	{id = 2532, chance = 860},
-	{id = 2165, chance = 180}
+	{id = 9690, chance = 1870},
+	{id = 3432, chance = 860},
+	{id = 3049, chance = 180}
 }
 
 monster.attacks = {

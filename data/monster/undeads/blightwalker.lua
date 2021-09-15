@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 8900
 monster.maxHealth = 8900
 monster.race = "undead"
-monster.corpse = 6354
+monster.corpse = 6353
 monster.speed = 350
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -92,12 +92,12 @@ monster.loot = {
 	{name = "scythe", chance = 3000},
 	{name = "bunch of wheat", chance = 50000},
 	{name = "soul orb", chance = 23720},
-	{id = 6300, chance = 1410},
+	{id = 6299, chance = 1410},
 	{name = "demonic essence", chance = 28000},
 	{name = "assassin star", chance = 5900, maxCount = 10},
 	{name = "great mana potion", chance = 31360, maxCount = 3},
-	{id = 7632, chance = 4450},
-	{id = 7633, chance = 4450},
+	{id = 281, chance = 4450},
+	{id = 282, chance = 4450},
 	{name = "seeds", chance = 4300},
 	{name = "terra mantle", chance = 1050},
 	{name = "terra legs", chance = 2500},

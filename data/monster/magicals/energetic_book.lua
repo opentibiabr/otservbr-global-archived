@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 18500
 monster.maxHealth = 18500
 monster.race = "undead"
-monster.corpse = 32478
+monster.corpse = 28778
 monster.speed = 440
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -76,12 +76,12 @@ monster.voices = {
 
 monster.loot = {
 	{name = "Platinum Coin", chance = 100000, maxCount = 28},
-	{id = 33316, chance = 900, maxCount = 8},
-	{id = 33317, chance = 900, maxCount = 7},
+	{id = 28569, chance = 900, maxCount = 8},
+	{id = 28570, chance = 900, maxCount = 7},
 	{name = "Ultimate Health Potion", chance = 10000, maxCount = 7},
 	{name = "Ultimate Mana Potion", chance = 10000, maxCount = 7},
 	{name = "Energy Ball", chance = 900, maxCount = 7},
-	{id = 33313, chance = 800, maxCount = 7},
+	{id = 28566, chance = 800, maxCount = 7},
 	{name = "Lightning Pendant", chance = 500},
 	{name = "Lightning Boots", chance = 500},
 	{name = "Lightning Headband", chance = 500},

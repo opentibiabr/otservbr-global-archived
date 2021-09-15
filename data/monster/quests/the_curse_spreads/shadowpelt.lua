@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 5000
 monster.maxHealth = 5000
 monster.race = "blood"
-monster.corpse = 32065
+monster.corpse = 27722
 monster.speed = 230
 monster.manaCost = 0
 monster.maxSummons = 2
@@ -91,7 +91,7 @@ monster.loot = {
 	{name = "fur armor", chance = 550},
 	{name = "relic sword", chance = 550},
 	{name = "silver token", chance = 150},
-	{id = 24759, chance = 150},
+	{id = 22103, chance = 150},
 	{name = "wolf backpack", chance = 100}
 }
 

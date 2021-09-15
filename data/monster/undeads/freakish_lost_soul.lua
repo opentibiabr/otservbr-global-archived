@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 7000
 monster.maxHealth = 7000
 monster.race = "undead"
-monster.corpse = 37445
+monster.corpse = 32610
 monster.speed = 260
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -81,7 +81,7 @@ monster.loot = {
 	{name = "emerald bangle", chance = 5980},
 	{name = "gemmed figurine", chance = 3800},
 	{name = "ensouled essence", chance = 2720},
-	{id = 26185, chance = 1220},
+	{id = 23529, chance = 1220},
 	{name = "silver hand mirror", chance = 1090},
 	{name = "ornate crossbow", chance = 1090},
 	{name = "crystal crossbow", chance = 270}

@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 15000
 monster.maxHealth = 15000
 monster.race = "blood"
-monster.corpse = 20546
+monster.corpse = 18265
 monster.speed = 220
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -71,37 +71,37 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 92000, maxCount = 200},
-	{id = 21400, chance = 92000},
+	{id = 3031, chance = 92000, maxCount = 200},
+	{id = 19083, chance = 92000},
 	{id = 7290, chance = 57000},
 	{id = 7449, chance = 42000},
-	{id = 8472, chance = 42000, maxCount = 5},
-	{id = 2396, chance = 42000},
-	{id = 2168, chance = 42000},
+	{id = 7642, chance = 42000, maxCount = 5},
+	{id = 3284, chance = 42000},
+	{id = 3052, chance = 42000},
 	{id = 7443, chance = 35000},
-	{id = 7892, chance = 35000},
+	{id = 819, chance = 35000},
 	{id = 7440, chance = 35000},
-	{id = 2152, chance = 35000},
+	{id = 3035, chance = 35000},
 	{id = 5909, chance = 35000, maxCount = 2},
 	{id = 7439, chance = 28000},
-	{id = 2158, chance = 28000},
-	{id = 2663, chance = 28000},
-	{id = 7888, chance = 21000},
-	{id = 7590, chance = 21000, maxCount = 5},
+	{id = 3041, chance = 28000},
+	{id = 3574, chance = 28000},
+	{id = 815, chance = 21000},
+	{id = 238, chance = 21000, maxCount = 5},
 	{id = 5912, chance = 14000},
-	{id = 2445, chance = 14000},
-	{id = 2201, chance = 14000},
-	{id = 7896, chance = 14000},
-	{id = 7897, chance = 14000},
-	{id = 9971, chance = 14000},
-	{id = 7591, chance = 14000, maxCount = 5},
+	{id = 3333, chance = 14000},
+	{id = 3085, chance = 14000},
+	{id = 823, chance = 14000},
+	{id = 824, chance = 14000},
+	{id = 9058, chance = 14000},
+	{id = 239, chance = 14000, maxCount = 5},
 	{id = 7459, chance = 14000},
-	{id = 2436, chance = 14000},
-	{id = 2195, chance = 7000},
-	{id = 7902, chance = 7000},
+	{id = 3324, chance = 14000},
+	{id = 3079, chance = 7000},
+	{id = 829, chance = 7000},
 	{id = 5911, chance = 7000},
-	{id = 21699, chance = 7000},
-	{id = 21700, chance = 3000},
+	{id = 19365, chance = 7000},
+	{id = 19366, chance = 3000},
 	{id = 7410, chance = 3000}
 }
 

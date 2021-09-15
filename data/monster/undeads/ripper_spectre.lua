@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 3800
 monster.maxHealth = 3800
 monster.race = "blood"
-monster.corpse = 34664
+monster.corpse = 30026
 monster.speed = 380
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -86,7 +86,7 @@ monster.loot = {
 	{name = "Emerald Bangle", chance = 14740},
 	{name = "Twin Hooks", chance = 1170},
 	{name = "Springsprout Rod", chance = 1210},
-	{id = 34721, chance = 1890},
+	{id = 30083, chance = 1890},
 	{name = "Coral Brooch", chance = 1330},
 	{name = "Serpent Sword", chance = 1950},
 	{name = "Hexagonal Ruby", chance = 800},

@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 2300
 monster.maxHealth = 2300
 monster.race = "blood"
-monster.corpse = 40219
+monster.corpse = 35384
 monster.speed = 185
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -79,7 +79,7 @@ monster.loot = {
 	{name = "Pirat's Tail", chance = 4000},
 	{name = "Magma Boots", chance = 3000},
 	{name = "Mouldy Powder", chance = 4000},
-	{id = 26185, chance = 2000},
+	{id = 23529, chance = 2000},
 	{name = "Lightning Boots", chance = 1000},
 	{name = "Wood Cape", chance = 1000}
 }

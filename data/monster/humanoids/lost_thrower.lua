@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1700
 monster.maxHealth = 1700
 monster.race = "blood"
-monster.corpse = 19998
+monster.corpse = 17718
 monster.speed = 240
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -85,7 +85,7 @@ monster.loot = {
 	{name = "iron ore", chance = 9470},
 	{name = "great mana potion", chance = 13470},
 	{name = "great health potion", chance = 14730},
-	{id = 13757, chance = 12180},
+	{id = 12600, chance = 12180},
 	{name = "buckle", chance = 850},
 	{name = "broken throwing axe", chance = 1390},
 	{name = "helmet of the lost", chance = 13560},

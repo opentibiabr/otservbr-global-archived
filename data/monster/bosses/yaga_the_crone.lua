@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 620
 monster.maxHealth = 620
 monster.race = "blood"
-monster.corpse = 20587
+monster.corpse = 18306
 monster.speed = 240
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -73,7 +73,7 @@ monster.loot = {
 	{name = "cookie", chance = 62500, maxCount = 8},
 	{name = "gold coin", chance = 29170, maxCount = 55},
 	{name = "star herb", chance = 20833},
-	{id = 2129, chance = 20833},
+	{id = 3012, chance = 20833},
 	{name = "garlic necklace", chance = 8333},
 	{name = "spellbook of mind control", chance = 8333},
 	{name = "coat", chance = 4170},

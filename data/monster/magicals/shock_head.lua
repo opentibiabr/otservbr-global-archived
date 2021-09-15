@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 4200
 monster.maxHealth = 4200
 monster.race = "blood"
-monster.corpse = 22392
+monster.corpse = 20058
 monster.speed = 272
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -81,7 +81,7 @@ monster.voices = {
 
 monster.loot = {
 	{name = "small sapphire", chance = 5000},
-	{id = 2148, chance = 92000, maxCount = 200},
+	{id = 3031, chance = 92000, maxCount = 200},
 	{name = "royal helmet", chance = 270}
 }
 

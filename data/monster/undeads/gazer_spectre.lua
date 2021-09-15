@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 4500
 monster.maxHealth = 4500
 monster.race = "blood"
-monster.corpse = 34805
+monster.corpse = 30167
 monster.speed = 390
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -88,10 +88,10 @@ monster.loot = {
 	{name = "Small Sapphire", chance = 5000},
 	{name = "Red Gem", chance = 4000},
 	{name = "Yellow Gem", chance = 3000},
-	{id = 33938, chance = 1100},
+	{id = 29299, chance = 1100},
 	{name = "Wand of Draconia", chance = 3500},
 	{name = "Wand of Inferno", chance = 1100},
-	{id = 34722, chance = 700},
+	{id = 30084, chance = 700},
 	{name = "Magma Coat", chance = 900},
 	{name = "Prismatic Quartz", chance = 1500},
 	{name = "Small Enchanted Emerald", chance = 800},

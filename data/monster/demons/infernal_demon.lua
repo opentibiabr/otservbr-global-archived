@@ -19,7 +19,7 @@ monster.Bestiary = {
 	race = BESTY_RACE_DEMON,
 	toKill = 5000,
 	FirstUnlock = 25,
-	SecondUnlock = 2500,
+	SecondUnlock = 3394,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 32000
 monster.maxHealth = 32000
 monster.race = "blood"
-monster.corpse = 38736
+monster.corpse = 33901
 monster.speed = 200
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -95,7 +95,7 @@ monster.loot = {
 	{name = "mercenary sword", chance = 11500},
 	{name = "green crystal fragment", chance = 9500},
 	{name = "onyx chip", chance = 7500},
-	{id = 38944, chance = 50} -- Bag you desire
+	{id = 34109, chance = 50} -- Bag you desire
 }
 
 monster.attacks = {

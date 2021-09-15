@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 100000
 monster.maxHealth = 512000
 monster.race = "blood"
-monster.corpse = 36248
+monster.corpse = 31413
 monster.speed = 190
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -93,19 +93,19 @@ monster.loot = {
 	{name = "yellow gem", chance = 46000},
 	{name = "green gem", chance = 21000},
 	{name = "magma coat", chance = 6000},
-	{id = 7632, chance = 12000},
+	{id = 281, chance = 12000},
 	{name = "violet gem", chance = 6000},
 	{name = "magma monocle", chance = 3000},
-	{id = 36392, chance = 3000},
+	{id = 31557, chance = 3000},
 	{name = "blue gem", chance = 12000},
 	{name = "magma amulet", chance = 12000},
 	{name = "gold ingot", chance = 9000},
 	{name = "giant emerald", chance = 6000},
-	{id = 36098, chance = 100000},
+	{id = 31263, chance = 100000},
 	{name = "giant sapphire", chance = 6000},
 	{name = "winged backpack", chance = 250},
 	{name = "rainbow necklace", chance = 160},
-	{id = 35238, chance = 160},
+	{id = 30403, chance = 160},
 	{name = "Sun Medal", chance = 160},
 	{name = "Sunray Emblem", chance = 160}
 }

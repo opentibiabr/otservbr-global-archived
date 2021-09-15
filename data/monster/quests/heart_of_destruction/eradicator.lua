@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 290000
 monster.maxHealth = 290000
 monster.race = "venom"
-monster.corpse = 26220
+monster.corpse = 23564
 monster.speed = 450
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -70,31 +70,31 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000, maxCount = 200},
-	{id = 2152, chance = 100000, maxCount = 25},
-	{id = 18415, chance = 8000, maxCount = 3},
-	{id = 7590, chance = 8000, maxCount = 5},
-	{id = 8472, chance = 8000, maxCount = 5},
-	{id = 2150, chance = 8000, maxCount = 5},
-	{id = 2147, chance = 8000, maxCount = 5},
-	{id = 9970, chance = 8000, maxCount = 5},
-	{id = 8473, chance = 8000, maxCount = 10},
-	{id = 18414, chance = 8000, maxCount = 3},
-	{id = 26191, chance = 8000},
-	{id = 26176, chance = 8000},
-	{id = 26174, chance = 8000},
-	{id = 25377, chance = 100000},
-	{id = 26165, chance = 100000},
-	{id = 26166, chance = 100000},
-	{id = 2158, chance = 6000},
-	{id = 2155, chance = 6000},
-	{id = 8901, chance = 6000},
-	{id = 2445, chance = 4000},
-	{id = 26185, chance = 3500},
-	{id = 26187, chance = 3500},
-	{id = 26189, chance = 3500},
-	{id = 2645, chance = 5000, unique = true},
-	{id = 8903, chance = 3000, unique = true}
+	{id = 3031, chance = 100000, maxCount = 200},
+	{id = 3035, chance = 100000, maxCount = 25},
+	{id = 16121, chance = 8000, maxCount = 3},
+	{id = 238, chance = 8000, maxCount = 5},
+	{id = 7642, chance = 8000, maxCount = 5},
+	{id = 3033, chance = 8000, maxCount = 5},
+	{id = 3030, chance = 8000, maxCount = 5},
+	{id = 9057, chance = 8000, maxCount = 5},
+	{id = 7643, chance = 8000, maxCount = 10},
+	{id = 16120, chance = 8000, maxCount = 3},
+	{id = 23535, chance = 8000},
+	{id = 23520, chance = 8000},
+	{id = 23518, chance = 8000},
+	{id = 22721, chance = 100000},
+	{id = 23509, chance = 100000},
+	{id = 23510, chance = 100000},
+	{id = 3041, chance = 6000},
+	{id = 3038, chance = 6000},
+	{id = 8073, chance = 6000},
+	{id = 3333, chance = 4000},
+	{id = 23529, chance = 3500},
+	{id = 23531, chance = 3500},
+	{id = 23533, chance = 3500},
+	{id = 3554, chance = 5000, unique = true},
+	{id = 8075, chance = 3000, unique = true}
 }
 
 monster.attacks = {

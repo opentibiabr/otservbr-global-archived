@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 6300
 monster.maxHealth = 6300
 monster.race = "blood"
-monster.corpse = 34775
+monster.corpse = 30137
 monster.speed = 420
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -79,7 +79,7 @@ monster.voices = {
 
 monster.loot = {
 	{name = "Platinum Coin", chance = 100000, maxCount = 12},
-	{id = 34696, chance = 15750, maxCount = 3},
+	{id = 30058, chance = 15750, maxCount = 3},
 	{name = "Dream Essence Egg", chance = 13700},
 	{name = "Elvish Talisman", chance = 4790},
 	{name = "Knight Legs", chance = 4450},
@@ -89,9 +89,9 @@ monster.loot = {
 	{name = "Spellbook of Mind Control", chance = 2400},
 	{name = "Crown Shield", chance = 1710},
 	{name = "Wood Cape", chance = 1710},
-	{id = 26185, chance = 1370},
+	{id = 23529, chance = 1370},
 	{name = "Tower Shield", chance = 680},
-	{id = 26199, chance = 680}
+	{id = 23543, chance = 680}
 }
 
 monster.attacks = {

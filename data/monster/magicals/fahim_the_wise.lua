@@ -81,7 +81,7 @@ monster.loot = {
 	{name = "magma monocle", chance = 4760},
 	{name = "blue gem", chance = 2380},
 	{name = "small oil lamp", chance = 580},
-	{id = 2948, chance = 480},
+	{id = 4129, chance = 480},
 	{name = "heavy machete", chance = 380}
 }
 

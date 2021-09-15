@@ -66,15 +66,15 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 76225, maxCount = 100},
+	{id = 3031, chance = 76225, maxCount = 100},
 	{id = 5893, chance = 64800},
-	{id = 2666, chance = 36200},
+	{id = 3577, chance = 36200},
 	{id = 5930, chance = 50500},
 	{id = 7368, chance = 11225, maxCount = 2},
-	{id = 2489, chance = 7650},
-	{id = 2416, chance = 14800},
-	{id = 2150, chance = 7650, maxCount = 2},
-	{id = 2387, chance = 7650}
+	{id = 3383, chance = 7650},
+	{id = 3304, chance = 14800},
+	{id = 3033, chance = 7650, maxCount = 2},
+	{id = 3275, chance = 7650}
 }
 
 monster.attacks = {

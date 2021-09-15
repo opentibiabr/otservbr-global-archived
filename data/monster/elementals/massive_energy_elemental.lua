@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1100
 monster.maxHealth = 1100
 monster.race = "venom"
-monster.corpse = 8966
+monster.corpse = 8138
 monster.speed = 430
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -87,7 +87,7 @@ monster.loot = {
 	{name = "lightning legs", chance = 150},
 	{name = "spellbook of warding", chance = 360},
 	{name = "wand of starstorm", chance = 730},
-	{id = 9809, chance = 730},
+	{id = 8895, chance = 730},
 	{name = "shockwave amulet", chance = 500}
 }
 

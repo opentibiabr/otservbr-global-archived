@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 55000
 monster.maxHealth = 55000
 monster.race = "blood"
-monster.corpse = 36489
+monster.corpse = 31654
 monster.speed = 185
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -73,12 +73,12 @@ monster.loot = {
 	{name = "blue gem", chance = 31000},
 	{name = "yellow gem", chance = 31000},
 	{name = "green crystal shard", chance = 8600},
-	{id = 7632, chance = 28000},--giant shimmering pearl
+	{id = 281, chance = 28000},--giant shimmering pearl
 	{name = "cobra boots", chance = 315},
 	{name = "cobra crest", chance = 11000},
 	{name = "cobra hood", chance = 320},
 	{name = "skull helmet", chance = 7500},
-	{id = 26198, chance = 7200},-- collar of blue plasma
+	{id = 23542, chance = 7200},-- collar of blue plasma
 	{name = "cobra crossbow", chance = 225}
 }
 

@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 8500
 monster.maxHealth = 8500
 monster.race = "blood"
-monster.corpse = 32558
+monster.corpse = 28861
 monster.speed = 220
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -88,7 +88,7 @@ monster.loot = {
 	{name = "Red Gem", chance = 7500, maxCount = 3},
 	{name = "Green Gem", chance = 4880},
 	{name = "Violet Gem", chance = 4180},
-	{id = 7633, chance = 2260},
+	{id = 282, chance = 2260},
 	{name = "Damaged Armor Plates", chance = 1120},
 	{name = "Falcon Crest", chance = 730},
 	{name = "Golden Armor", chance = 310},

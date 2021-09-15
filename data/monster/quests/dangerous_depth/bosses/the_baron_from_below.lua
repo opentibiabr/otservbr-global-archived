@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 50000
 monster.maxHealth = 50000
 monster.race = "blood"
-monster.corpse = 30868
+monster.corpse = 27633
 monster.speed = 240
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -81,7 +81,7 @@ monster.loot = {
 	{name = "badger boots", chance = 10000},
 	{name = "blue gem", chance = 10000},
 	{name = "Calopteryx Cape", chance = 10000},
-	{id = 30857, chance = 10000},
+	{id = 27622, chance = 10000},
 	{name = "Crystal Mace", chance = 10000},
 	{name = "Fire Sword", chance = 10000},
 	{name = "Green Gem", chance = 10000},
@@ -92,8 +92,8 @@ monster.loot = {
 	{name = "Magic Sulphur", chance = 10000, maxCount = 2},
 	{name = "Magma Coat", chance = 10000},
 	{name = "Red Gem", chance = 10000},
-	{id = 9820, chance = 10000},
-	{id = 9814, chance = 10000},
+	{id = 8906, chance = 10000},
+	{id = 8900, chance = 10000},
 	{name = "Slimy Leg", chance = 10000},
 	{name = "Stone Skin Amulet", chance = 10000},
 	{name = "Violet Gem", chance = 10000},

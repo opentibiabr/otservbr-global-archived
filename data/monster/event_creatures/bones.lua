@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 9500
 monster.maxHealth = 9500
 monster.race = "undead"
-monster.corpse = 6306
+monster.corpse = 6305
 monster.speed = 300
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -76,7 +76,7 @@ monster.loot = {
 	{name = "spectral stone", chance = 800},
 	{name = "skull helmet", chance = 50000},
 	{name = "soul orb", chance = 10000},
-	{id = 6300, chance = 4000},
+	{id = 6299, chance = 4000},
 	{name = "demonic essence", chance = 1538},
 	{id = 6570, chance = 5538, maxCount = 3},
 	{id = 6571, chance = 1538},

@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 390
 monster.maxHealth = 390
 monster.race = "blood"
-monster.corpse = 20491
+monster.corpse = 18210
 monster.speed = 170
 monster.manaCost = 0
 monster.maxSummons = 2
@@ -82,14 +82,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 1962, chance = 890},
-	{id = 2070, chance = 1410},
+	{id = 2828, chance = 890},
+	{id = 2948, chance = 1410},
 	{name = "piggy bank", chance = 90},
 	{name = "crystal necklace", chance = 640},
 	{name = "talon", chance = 750},
 	{name = "hailstorm rod", chance = 1100},
-	{id = 2192, chance = 1250},
-	{id = 2070, chance = 1400},
+	{id = 3076, chance = 1250},
+	{id = 2948, chance = 1400},
 	{name = "clerical mace", chance = 1500},
 	{name = "black shield", chance = 210},
 	{name = "red apple", chance = 7500, maxCount = 2},

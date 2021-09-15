@@ -27,7 +27,7 @@ monster.Bestiary = {
 		in 2 small caves South of Thais, Dark Cathedral, single spawn on top of Crocodile den north of Port Hope, \z
 		Plains of Havoc, underground Liberty Bay, Nargor Undead Cave and other constituents of the Shattered Isles, \z
 		Green Claw Swamp, first floor up in the big building in the Cemetery Quarter, Robson Isle, Vengoth. \z
-		After the summer update of 2008, tarantulas can be seen on the beginner's island of Rookgaard."
+		After the summer update of 2876, tarantulas can be seen on the beginner's island of Rookgaard."
 	}
 
 monster.health = 225
@@ -81,7 +81,7 @@ monster.voices = {
 
 monster.loot = {
 	{name = "gold coin", chance = 79000, maxCount = 40},
-	{id = 2169, chance = 120},
+	{id = 3053, chance = 120},
 	{name = "steel helmet", chance = 990},
 	{name = "brass legs", chance = 3050},
 	{name = "plate shield", chance = 2000},

@@ -19,7 +19,7 @@ monster.Bestiary = {
 	race = BESTY_RACE_UNDEAD,
 	toKill = 5000,
 	FirstUnlock = 25,
-	SecondUnlock = 2500,
+	SecondUnlock = 3394,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 24000
 monster.maxHealth = 24000
 monster.race = "undead"
-monster.corpse = 38632
+monster.corpse = 33797
 monster.speed = 220
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -83,8 +83,8 @@ monster.loot = {
 	{name = "crystal coin", chance = 70540},
 	{name = "platinum coin", chance = 90540, maxCount = 32},
 	{name = "ultimate health potion", chance = 72220, maxCount = 7},
-	{id = 7632, chance = 54560}, -- Giant shimmering pearl
-	{id = 7633, chance = 54560}, -- Giant shimmering pearl
+	{id = 281, chance = 54560}, -- Giant shimmering pearl
+	{id = 282, chance = 54560}, -- Giant shimmering pearl
 	{name = "gold ingot", chance = 34920},
 	{name = "glacier kilt", chance = 12920},
 	{name = "northwind rod", chance = 11920},
@@ -93,11 +93,11 @@ monster.loot = {
 	{name = "green crystal fragment", chance = 22920},
 	{name = "onyx chip", chance = 20000},
 	{name = "rainbow quartz", chance = 13660, maxCount = 2},
-	{id = 38764, chance = 14560}, -- Rod
-	{id = 38849, chance = 14560}, -- Jaws
+	{id = 33929, chance = 14560}, -- Rod
+	{id = 34014, chance = 14560}, -- Jaws
 	{name = "skullcracker armor", chance = 1680},
 	{name = "goblet of gloom", chance = 880},
-	{id = 38944, chance = 50} -- Bag you desire
+	{id = 34109, chance = 50} -- Bag you desire
 }
 
 monster.attacks = {

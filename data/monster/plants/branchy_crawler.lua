@@ -19,7 +19,7 @@ monster.Bestiary = {
 	race = BESTY_RACE_PLANT,
 	toKill = 5000,
 	FirstUnlock = 25,
-	SecondUnlock = 2500,
+	SecondUnlock = 3394,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 27000
 monster.maxHealth = 27000
 monster.race = "blood"
-monster.corpse = 38644
+monster.corpse = 33809
 monster.speed = 235
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -86,7 +86,7 @@ monster.loot = {
 	{name = "gold ingot", chance = 65560},
 	{name = "terra legs", chance = 25560},
 	{name = "violet gem", chance = 60000},
-	{id = 38817, chance = 35560}, -- Crawler's essence
+	{id = 33982, chance = 35560}, -- Crawler's essence
 	{name = "green gem", chance = 70000},
 	{name = "blue gem", chance = 55000},
 	{name = "hammer of wrath", chance = 13500},
@@ -95,7 +95,7 @@ monster.loot = {
 	{name = "twiceslicer", chance = 7500},
 	{name = "crystal crossbow", chance = 6500},
 	{name = "crystalline sword", chance = 7500},
-	{id = 38944, chance = 50} -- Bag you desire
+	{id = 34109, chance = 50} -- Bag you desire
 }
 
 monster.attacks = {

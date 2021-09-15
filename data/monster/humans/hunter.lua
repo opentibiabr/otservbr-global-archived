@@ -31,7 +31,7 @@ monster.Bestiary = {
 monster.health = 150
 monster.maxHealth = 150
 monster.race = "blood"
-monster.corpse = 20419
+monster.corpse = 18138
 monster.speed = 210
 monster.manaCost = 530
 monster.maxSummons = 0
@@ -81,7 +81,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2050, chance = 3300},
+	{id = 2920, chance = 3300},
 	{name = "small ruby", chance = 150},
 	{name = "dragon necklace", chance = 3000},
 	{name = "bow", chance = 5770},

@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 500
 monster.maxHealth = 500
 monster.race = "blood"
-monster.corpse = 20535
+monster.corpse = 18254
 monster.speed = 102
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -68,7 +68,7 @@ monster.loot = {
 	{name = "gold coin", chance = 100000, maxCount = 60},
 	{name = "witch broom", chance = 100000},
 	{name = "cape", chance = 64500},
-	{id = 2129, chance = 41670},
+	{id = 3012, chance = 41670},
 	{name = "broom", chance = 37500},
 	{name = "coat", chance = 37500},
 	{name = "cookie", chance = 25000, maxCount = 10},

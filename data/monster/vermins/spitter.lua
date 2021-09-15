@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1500
 monster.maxHealth = 1500
 monster.race = "venom"
-monster.corpse = 15392
+monster.corpse = 13979
 monster.speed = 270
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -81,7 +81,7 @@ monster.loot = {
 	{name = "small amethyst", chance = 8000, maxCount = 2},
 	{name = "platinum coin", chance = 75250},
 	{name = "green gem", chance = 210},
-	{id = 2169, chance = 2400},
+	{id = 3053, chance = 2400},
 	{name = "platinum amulet", chance = 260},
 	{name = "crusader helmet", chance = 230},
 	{name = "brown mushroom", chance = 7500, maxCount = 3},

@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 50000
 monster.maxHealth = 50000
 monster.race = "venom"
-monster.corpse = 29142
+monster.corpse = 25866
 monster.speed = 250
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -84,24 +84,24 @@ monster.loot = {
 	{name = "yellow gem", chance = 29460},
 	{name = "magic sulphur", chance = 18920},
 	{id = 7440, chance = 2000},
-	{id = 22396, chance = 2000, maxCount = 2},
+	{id = 20062, chance = 2000, maxCount = 2},
 	{name = "Hailstorm Rod", chance = 3470},
-	{id = 2153, chance = 1000},
+	{id = 3036, chance = 1000},
 	{name = "ring of healing", chance = 20000},
-	{id = 2147, chance = 7360, maxCount = 10},
-	{id = 7632, chance = 28540},
+	{id = 3030, chance = 7360, maxCount = 10},
+	{id = 281, chance = 28540},
 	{name = "Skull Staff", chance = 13790},
 	{name = "Grasshopper Legs", chance = 13790},
 	{name = "Huge Chunk of Crude Iron", chance = 10000, maxCount = 2},
 	{id = 7404, chance = 430},
 	{name = "runed sword", chance = 6666},
 	{name = "djinn blade", chance = 200},
-	{id = 18415, chance = 10000, maxCount = 3},
-	{id = 18414, chance = 10000, maxCount = 3},
-	{id = 18413, chance = 10000, maxCount = 3},
-	{id = 8472, chance = 4800},
-	{id = 18451, chance = 7030},
-	{id = 2453, chance = 200},
+	{id = 16121, chance = 10000, maxCount = 3},
+	{id = 16120, chance = 10000, maxCount = 3},
+	{id = 16119, chance = 10000, maxCount = 3},
+	{id = 7642, chance = 4800},
+	{id = 16161, chance = 7030},
+	{id = 3341, chance = 200},
 	{name = "heart of the mountain", chance = 400}
 }
 

@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 425
 monster.maxHealth = 425
 monster.race = "blood"
-monster.corpse = 20471
+monster.corpse = 18190
 monster.speed = 218
 monster.manaCost = 595
 monster.maxSummons = 0
@@ -78,14 +78,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2050, chance = 10190},
+	{id = 2920, chance = 10190},
 	{name = "gold coin", chance = 67740, maxCount = 59},
 	{name = "worn leather boots", chance = 9900},
 	{name = "sabre", chance = 10100},
 	{name = "throwing knife", chance = 9000, maxCount = 5},
 	{name = "plate armor", chance = 1130},
 	{name = "battle shield", chance = 3850},
-	{id = 5091, chance = 1000},
+	{id = 5090, chance = 1000},
 	{name = "rum flask", chance = 120},
 	{id = 5792, chance = 40},
 	{name = "pirate backpack", chance = 430},

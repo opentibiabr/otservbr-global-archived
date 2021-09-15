@@ -97,15 +97,15 @@ monster.loot = {
 	{name = "mastermind potion", chance = 14285},
 	{name = "great mana potion", chance = 11111},
 	{name = "great health potion", chance = 14285},
-	{id = 7632, chance = 33333, maxCount = 2},
+	{id = 281, chance = 33333, maxCount = 2},
 	{name = "flaming arrow", chance = 20000, maxCount = 46},
 	{name = "great spirit potion", chance = 14285},
 	{name = "ultimate health potion", chance = 14285},
 	{name = "lavos armor", chance = 1851},
 	{name = "paladin armor", chance = 10000},
 	{name = "obsidian truncheon", chance = 1234},
-	{id = 9808, chance = 1234},
-	{id = 9810, chance = 50000},
+	{id = 8894, chance = 1234},
+	{id = 8896, chance = 50000},
 	{name = "gold ingot", chance = 20000}
 }
 

@@ -80,7 +80,7 @@ monster.outfit = {
 monster.health = 30000
 monster.maxHealth = 30000
 monster.race = "blood"
-monster.corpse = 33368
+monster.corpse = 28625
 monster.speed = 230
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -126,7 +126,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2230, chance = 30000, maxCount = 1}, 
+	{id = 3115, chance = 30000, maxCount = 1}, 
 	{name = "brass shield", chance = 30000, maxCount = 1},
 	{name = "spatial warp almanac", chance = 25000, maxCount = 1},
 	{name = "viking helmet", chance = 23000, maxCount = 1},

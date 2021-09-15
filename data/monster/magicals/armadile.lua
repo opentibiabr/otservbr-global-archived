@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 3800
 monster.maxHealth = 3800
 monster.race = "undead"
-monster.corpse = 18378
+monster.corpse = 15868
 monster.speed = 440
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -82,7 +82,7 @@ monster.loot = {
 	{name = "gold coin", chance = 100000, maxCount = 100},
 	{name = "gold coin", chance = 100000, maxCount = 98},
 	{name = "platinum coin", chance = 95000, maxCount = 7},
-	{id = 2169, chance = 1000},
+	{id = 3053, chance = 1000},
 	{name = "tower shield", chance = 620},
 	{name = "titan axe", chance = 1540},
 	{name = "bonebreaker", chance = 1150},
@@ -94,7 +94,7 @@ monster.loot = {
 	{name = "terra boots", chance = 2850},
 	{name = "crystalline armor", chance = 230},
 	{name = "battle stone", chance = 12460},
-	{id = 13757, chance = 6000},
+	{id = 12600, chance = 6000},
 	{name = "green crystal splinter", chance = 3920, maxCount = 2},
 	{name = "green crystal fragment", chance = 5690, maxCount = 2},
 	{name = "crystalline spikes", chance = 14540},

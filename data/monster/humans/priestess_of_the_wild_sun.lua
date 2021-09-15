@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 8500
 monster.maxHealth = 8500
 monster.race = "blood"
-monster.corpse = 36254
+monster.corpse = 31419
 monster.speed = 320
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -80,12 +80,12 @@ monster.voices = {
 monster.loot = {
 	{name = "platinum coin", chance = 100000, maxCount = 2},
 	{name = "fafnar symbol", chance = 7360},
-	{id = 36268, chance = 6610},
-	{id = 36270, chance = 6610},
-	{id = 36271, chance = 6610},
-	{id = 36166, chance = 2540},
+	{id = 31433, chance = 6610},
+	{id = 31435, chance = 6610},
+	{id = 31436, chance = 6610},
+	{id = 31331, chance = 2540},
 	{name = "sea horse figurine", chance = 910},
-	{id = 36204, chance = 530},
+	{id = 31369, chance = 530},
 	{name = "wand of decay", chance = 1250},
 	{name = "wand of everblazing", chance = 1290},
 	{name = "golden sickle", chance = 1250},

@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 10000
 monster.maxHealth = 10000
 monster.race = "blood"
-monster.corpse = 36481
+monster.corpse = 31646
 monster.speed = 290
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -80,21 +80,21 @@ monster.voices = {
 monster.loot = {
 	{name = "Platinum Coin", chance = 100000, maxCount = 3},
 	{name = "Fafnar Symbol", chance = 6600},
-	{id = 36268, chance = 5600},
-	{id = 36270, chance = 5600},
-	{id = 36271, chance = 5600},
+	{id = 31433, chance = 5600},
+	{id = 31435, chance = 5600},
+	{id = 31436, chance = 5600},
 	{name = "Dragon Necklace", chance = 4700},
 	{name = "Lightning Pendant", chance = 4100},
 	{name = "Magma Amulet", chance = 3700},
 	{name = "Strange Talisman", chance = 3000},
 	{name = "Magma Boots", chance = 2700},
-	{id = 36166, chance = 2400},
+	{id = 31331, chance = 2400},
 	{name = "Elven Amulet", chance = 2100},
 	{name = "Lightning Legs", chance = 2000},
 	{name = "Lightning Headband", chance = 1700},
 	{name = "Lightning Boots", chance = 1400},
 	{name = "Spellweaver's Robe", chance = 850},
-	{id = 36204, chance = 570},
+	{id = 31369, chance = 570},
 	{name = "Sea Horse Figurine", chance = 140}
 }
 

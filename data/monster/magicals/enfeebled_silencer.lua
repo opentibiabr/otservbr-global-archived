@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1100
 monster.maxHealth = 1100
 monster.race = "blood"
-monster.corpse = 22489
+monster.corpse = 20155
 monster.speed = 330
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -82,18 +82,18 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000, maxCount = 100},
-	{id = 2152, chance = 100000, maxCount = 8},
-	{id = 2165, chance = 1200},
-	{id = 2195, chance = 360},
+	{id = 3031, chance = 100000, maxCount = 100},
+	{id = 3035, chance = 100000, maxCount = 8},
+	{id = 3049, chance = 1200},
+	{id = 3079, chance = 360},
 	{id = 7368, chance = 7600, maxCount = 10},
 	{id = 7387, chance = 960},
 	{id = 7407, chance = 2000},
 	{id = 7451, chance = 640},
 	{id = 7454, chance = 2400},
-	{id = 7885, chance = 960},
-	{id = 7886, chance = 480},
-	{id = 22534, chance = 17000},
+	{id = 812, chance = 960},
+	{id = 813, chance = 480},
+	{id = 20200, chance = 17000},
 	{name = "fairy wings", chance = 30100}
 }
 

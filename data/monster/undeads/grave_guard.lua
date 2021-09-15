@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 720
 monster.maxHealth = 720
 monster.race = "undead"
-monster.corpse = 13975
+monster.corpse = 12840
 monster.speed = 200
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -83,7 +83,7 @@ monster.loot = {
 	{name = "scarab coin", chance = 4166},
 	{name = "daramian waraxe", chance = 1170},
 	{name = "grave flower", chance = 70000},
-	{id = 6300, chance = 1754},
+	{id = 6299, chance = 1754},
 	{name = "health potion", chance = 20000},
 	{name = "mana potion", chance = 20000}
 }

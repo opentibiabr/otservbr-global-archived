@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 850
 monster.maxHealth = 850
 monster.race = "blood"
-monster.corpse = 15208
+monster.corpse = 13771
 monster.speed = 190
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -85,7 +85,7 @@ monster.loot = {
 	{name = "spellsinger's seal", chance = 15185},
 	{name = "deepling filet", chance = 14995},
 	{name = "key to the Drowned Library", chance = 10740},
-	{id = 2667, chance = 3448},--fish
+	{id = 3578, chance = 3448},--fish
 	{name = "small sapphire", chance = 2934},
 	{name = "eye of a deepling", chance = 2540},
 	{name = "life ring", chance = 2459},

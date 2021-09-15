@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 50000
 monster.maxHealth = 50000
 monster.race = "venom"
-monster.corpse = 36434
+monster.corpse = 31599
 monster.speed = 250
 monster.manaCost = 0
 monster.maxSummons = 6
@@ -76,18 +76,18 @@ monster.loot = {
 	{name = "piece of draconian steel", minCount = 0, maxCount = 4, chance = 9000},
 	{name = "red gem", minCount = 0, maxCount = 1, chance = 12000},
 	{name = "silver token", minCount = 0, maxCount = 2, chance = 9500},
-	{id = 26198, chance = 5200},-- collar of blue plasma
-	{id = 26200, chance = 5200},-- collar of red plasma
+	{id = 23542, chance = 5200},-- collar of blue plasma
+	{id = 23544, chance = 5200},-- collar of red plasma
 	{name = "knight legs", chance = 11000},
 	{name = "gold ingot", minCount = 0, maxCount = 1, chance = 10000},
 	{name = "violet gem", minCount = 0, maxCount = 1, chance = 10000},
 	{name = "yellow gem", minCount = 0, maxCount = 1, chance = 10000},
-	{id = 26185, chance = 5000},-- ring of blue plasma
-	{id = 26189, chance = 5000},-- ring of red plasma
+	{id = 23529, chance = 5000},-- ring of blue plasma
+	{id = 23533, chance = 5000},-- ring of red plasma
 	{name = "skull staff", chance = 9000},
 	{name = "young lich worm", chance = 5800},
 	{name = "embrace of nature", chance = 1400},
-	{id = 36427, chance = 1800},
+	{id = 31592, chance = 1800},
 	{name = "terra helmet", chance = 750},
 	{name = "final judgement", chance = 450},
 }

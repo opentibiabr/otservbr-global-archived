@@ -75,7 +75,7 @@ monster.voices = {
 monster.loot = {
 	{name = "blue tome", chance = 20000},
 	{name = "teddy bear", chance = 12500},
-	{id = 2124, chance = 8333},
+	{id = 3007, chance = 8333},
 	{name = "white pearl", chance = 25000, maxCount = 15},
 	{name = "black pearl", chance = 11111, maxCount = 14},
 	{name = "small diamond", chance = 25000, maxCount = 5},
@@ -99,7 +99,7 @@ monster.loot = {
 	{name = "demon shield", chance = 12500},
 	{name = "golden boots", chance = 8333},
 	{name = "demon horn", chance = 33333, maxCount = 2},
-	{id = 6300, chance = 25000},
+	{id = 6299, chance = 25000},
 	{name = "demonic essence", chance = 100000},
 	{name = "ruthless axe", chance = 14285},
 	{name = "assassin star", chance = 12500, maxCount = 44},

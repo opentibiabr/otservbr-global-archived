@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 285
 monster.maxHealth = 285
 monster.race = "blood"
-monster.corpse = 20467
+monster.corpse = 18186
 monster.speed = 200
 monster.manaCost = 0
 monster.maxSummons = 1
@@ -86,7 +86,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 1962, chance = 700},
+	{id = 2828, chance = 700},
 	{name = "small diamond", chance = 210},
 	{name = "gold coin", chance = 43380, maxCount = 40},
 	{name = "wand of vortex", chance = 450},

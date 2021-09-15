@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 13000
 monster.maxHealth = 13000
 monster.race = "undead"
-monster.corpse = 33325
+monster.corpse = 28578
 monster.speed = 420
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -77,7 +77,7 @@ monster.voices = {
 monster.loot = {
 	{name = "Small Sapphire", chance = 8700, maxCount = 5},
 	{name = "Platinum Coin", chance = 87000, maxCount = 50},
-	{id = 33317, chance = 500, maxCount = 10},
+	{id = 28570, chance = 500, maxCount = 10},
 	{name = "Energy Ring", chance = 8700},
 	{id = 7441, chance = 4000},
 	{name = "Shard", chance = 250, maxCount = 3},

@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 350
 monster.maxHealth = 350
 monster.race = "venom"
-monster.corpse = 13486
+monster.corpse = 12497
 monster.speed = 190
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -83,7 +83,7 @@ monster.loot = {
 	{name = "gold coin", chance = 82000, maxCount = 55},
 	{name = "halberd", chance = 1000},
 	{name = "gear wheel", chance = 4840},
-	{id = 9808, chance = 200},
+	{id = 8894, chance = 200},
 	{name = "slime mould", chance = 310}
 }
 

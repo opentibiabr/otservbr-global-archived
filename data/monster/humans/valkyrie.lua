@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 190
 monster.maxHealth = 190
 monster.race = "blood"
-monster.corpse = 20523
+monster.corpse = 18242
 monster.speed = 176
 monster.manaCost = 450
 monster.maxSummons = 0
@@ -91,7 +91,7 @@ monster.loot = {
 	{name = "protective charm", chance = 3200},
 	{name = "protection amulet", chance = 1100},
 	{name = "plate armor", chance = 830},
-	{id = 2229, chance = 760},
+	{id = 3114, chance = 760},
 	{name = "health potion", chance = 500},
 	{name = "double axe", chance = 430},
 	{name = "small diamond", chance = 130}
