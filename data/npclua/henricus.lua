@@ -235,7 +235,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 			npcHandler.topic[playerId] = 0
 		elseif npcHandler.topic[playerId] == 8 then
-			if player:removeMoneyNpc(flaskCost) then
+			if player:removeMoneyBank(flaskCost) then
 			npcHandler:say("Here is your new flask!, |PLAYERNAME|.", npc, creature)
 			player:addItem(7494, 1)
 			else
@@ -245,7 +245,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif npcHandler.topic[playerId] == 7 then
 			if missing == 0 then
 				npcHandler:say("You already have been blessed!", npc, creature)
-			elseif player:removeMoneyNpc(totalBlessPrice) then
+			elseif player:removeMoneyBank(totalBlessPrice) then
 				npcHandler:say("You have been blessed by all of five gods!, |PLAYERNAME|.", npc, creature)
 				player:addMissingBless(false)
 				player:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)

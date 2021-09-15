@@ -73,7 +73,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:say({"Well done. The picture will be delivered to the museum as last as possible."}, npc, creature)
 				npcHandler.topic[playerId] = 0
 				playerTopic[playerId] = 0
-				player:removeMoneyNpc(valorPicture)
+				player:removeMoneyBank(valorPicture)
 				player:setStorageValue(Storage.CultsOfTibia.MotA.Mission, 5)
 			else
 				npcHandler:say({"You don't have enough money."}, npc, creature)

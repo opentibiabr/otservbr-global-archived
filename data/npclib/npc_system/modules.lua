@@ -227,7 +227,8 @@ if Modules == nil then
 		greetWords = nil,
 		farewellWords = nil,
 		greetCallback = nil,
-		farewellCallback = nil
+		farewellCallback = nil,
+		tradeCallback = nil
 	}
 
 	-- Creates a new instance of FocusModule without an associated NpcHandler.
@@ -303,6 +304,11 @@ if Modules == nil then
 	-- Set custom farewell callback
 	function FocusModule:setFarewellCallback(callback)
 		self.farewellCallback = callback
+	end
+
+	-- Set custom trade callback
+	function FocusModule:setTradeCallback(callback)
+		self.tradeCallback = callback
 	end
 
 	-- Greeting callback function.

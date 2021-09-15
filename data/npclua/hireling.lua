@@ -851,7 +851,7 @@ local function onBuy(creature, item, subType, amount, ignoreCap, inBackpacks)
 	if not ignoreCap and player:getFreeCapacity() < itemType:getWeight(amount) then
 		return player:sendTextMessage(MESSAGE_FAILURE, 'You don\'t have enough cap.')
 	end
-	if not player:removeMoneyNpc(items[item].buyPrice * amount) then
+	if not player:removeMoneyBank(items[item].buyPrice * amount) then
 		selfSay("You don't have enough money.", npc, creature)
 	else
 		player:addItem(itemType:getId(), amount, true, subType)
@@ -962,7 +962,7 @@ local function deliverFood(creature, food_id)
 	elseif not inbox or inbox:getEmptySlots() == 0 then
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
 		npcHandler:say("Sorry, you don't have enough room on your inbox", npc, creature)
-	elseif not player:removeMoneyNpc(15000) then
+	elseif not player:removeMoneyBank(15000) then
 		npcHandler:say("Sorry, you don't have enough money.", npc, creature)
 	else
 		local message = getDeliveredMessageByFoodId(food_id)

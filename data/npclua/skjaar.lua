@@ -55,7 +55,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:say('Before we start I must ask you for a small donation of 1000 gold coins. Are you willing to pay 1000 gold coins for the test?', npc, creature)
 		npcHandler.topic[playerId] = 2
 	elseif msgcontains(message, 'yes') and npcHandler.topic[playerId] == 2 then
-		if player:removeMoneyNpc(1000) then
+		if player:removeMoneyBank(1000) then
 			npcHandler:say('All right then. Here comes the first question. What was the name of Dago\'s favourite pet?', npc, creature)
 			npcHandler.topic[playerId] = 3
 		else

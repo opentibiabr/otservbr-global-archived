@@ -163,7 +163,7 @@ local function onBuy(creature, item, subType, amount, ignoreCap, inBackpacks)
 		return player:sendTextMessage(MESSAGE_FAILURE, "You don't have enough cap.")
 	end
 	if items[item].buy then
-		if player:removeMoneyNpc(amount * items[item].buy) then
+		if player:removeMoneyBank(amount * items[item].buy) then
 			player:addItem(items[item].id, amount)
 			return player:sendTextMessage(MESSAGE_TRADE,
 						"Bought "..amount.."x "..items[item].name.." for "..items[item].buy * amount.." gold coins.")

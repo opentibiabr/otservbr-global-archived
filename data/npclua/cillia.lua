@@ -54,7 +54,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	local playerId = creature:getId()
 	if msgcontains(message, 'yes') then
 		local player = Player(creature)
-		if not player:removeMoneyNpc(50) then
+		if not player:removeMoneyBank(50) then
 			npcHandler:say('The exhibition is not for free. You have to pay 50 Gold to get in. Next please!', npc, creature)
 			return true
 		end

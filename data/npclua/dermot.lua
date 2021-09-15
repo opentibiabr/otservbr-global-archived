@@ -69,7 +69,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler.topic[playerId] = 0
 			end
 		elseif npcHandler.topic[playerId] == 2 then
-			if player:removeMoneyNpc(2000) then
+			if player:removeMoneyBank(2000) then
 				npcHandler:say("Here it is.", npc, creature)
 				local key = player:addItem(2087, 1)
 				if key then

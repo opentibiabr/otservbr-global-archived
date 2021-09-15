@@ -65,7 +65,7 @@ function creatureSayCallback(npc, creature, type, message)
 			npcHandler.topic[playerId] = 0
 	elseif(msgcontains(message, "yes")) then
 		if(npcHandler.topic[playerId] == 1) then
-			if player:removeMoneyNpc(50) then
+			if player:removeMoneyBank(50) then
 				npcHandler:say("And there we go!", npc, creature)
 				player:teleportTo(Position(32346, 32625, 7))
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -75,7 +75,7 @@ function creatureSayCallback(npc, creature, type, message)
 				npcHandler.topic[playerId] = 0
 			end
 		elseif(npcHandler.topic[playerId] == 2) then
-			if player:removeMoneyNpc(200) then
+			if player:removeMoneyBank(200) then
 				npcHandler:say("And there we go!", npc, creature)
 				player:teleportTo(Position(32131, 32913, 7))
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)

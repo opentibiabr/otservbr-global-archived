@@ -73,7 +73,7 @@ local function BeggarFirst(creature, message, keywords, parameters, node)
 	if player:isPremium() then
 		if player:getStorageValue(Storage.OutfitQuest.BeggarFirstAddonDoor) == -1 then
 			if player:getItemCount(5883) >= 100 and player:getMoney() + player:getBankBalance() >= 20000 then
-				if player:removeItem(5883, 100) and player:removeMoneyNpc(20000) then
+				if player:removeItem(5883, 100) and player:removeMoneyBank(20000) then
 					npcHandler:say("Ah, right! The beggar beard or beggar dress! Here you go.", npc, creature)
 					player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 					player:setStorageValue(Storage.OutfitQuest.BeggarFirstAddonDoor, 1)
@@ -147,7 +147,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		elseif npcHandler.topic[playerId] == 2 then
-			if not player:removeMoneyNpc(100) then
+			if not player:removeMoneyBank(100) then
 				npcHandler:say("You haven't got enough money for me.", npc, creature)
 				npcHandler.topic[playerId] = 0
 				return true
@@ -156,7 +156,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("Thank you very much. Can you spare 500 more gold pieces for me? I will give you a nice hint.", npc, creature)
 			npcHandler.topic[playerId] = 3
 		elseif npcHandler.topic[playerId] == 3 then
-			if not player:removeMoneyNpc(500) then
+			if not player:removeMoneyBank(500) then
 				npcHandler:say("Sorry, that's not enough.", npc, creature)
 				npcHandler.topic[playerId] = 0
 				return true
@@ -166,7 +166,7 @@ local function creatureSayCallback(npc, creature, type, message)
 						You can buy it for 200 gold. Do you want to buy it?", npc, creature)
 			npcHandler.topic[playerId] = 4
 		elseif npcHandler.topic[playerId] == 4 then
-			if not player:removeMoneyNpc(200) then
+			if not player:removeMoneyBank(200) then
 				npcHandler:say("Pah! I said 200 gold. You don't have that much.", npc, creature)
 				npcHandler.topic[playerId] = 0
 				return true

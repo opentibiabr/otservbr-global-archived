@@ -124,7 +124,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler.topic[playerId] = 0
 		elseif npcHandler.topic[playerId] == 2 then
 			if player:getMoney() + player:getBankBalance() >= 1000 then
-				player:removeMoneyNpc(1000)
+				player:removeMoneyBank(1000)
 				npcHandler:say("Here you are.", npc, creature)
 				npcHandler.topic[playerId] = 0
 				player:addItem(7243, 1)
@@ -194,7 +194,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("Im out of stock.", npc, creature)
 		end
 	elseif msgcontains(message, "yes") and npcHandler.topic[playerId] == 13 then
-		if npcHandler.topic[playerId] == 13 and player:removeMoneyNpc(400) then
+		if npcHandler.topic[playerId] == 13 and player:removeMoneyBank(400) then
 			player:addItem(9734, 1)
 			npcHandler:say("Here you go.", npc, creature)
 			npcHandler.topic[playerId] = 0

@@ -863,18 +863,18 @@ keywordHandler:addKeyword({'flaming', 'pit'}, StdModule.say, {npcHandler = npcHa
 
 local jobKeyword = keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m the royal jes ... uhm ... the royal tax-collector! Do you want to pay your taxes?'})
 	jobKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Come back, when you have enough money.', reset = true}, function(player) return player:getMoney() < 50 end)
-	jobKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Thank you very much. I will have a drink or two on your health!', reset = true}, nil, function(player) if player:removeMoneyNpc(50) then end end)
+	jobKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Thank you very much. I will have a drink or two on your health!', reset = true}, nil, function(player) if player:removeMoneyBank(50) then end end)
 	jobKeyword:addChildKeyword({''}, StdModule.say, {npcHandler = npcHandler, text = 'Well, perhaps later.', reset = true})
 
 local magicKeyword = keywordHandler:addKeyword({'magic'}, StdModule.say, {npcHandler = npcHandler, text = 'I actually know some spells! Do you want to learn how to \'lessen your load\' for 200 gold?'})
 	magicKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Come back, when you have enough money.', reset = true}, function(player) return player:getMoney() < 200 end)
-	magicKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Here you are, I already lessened your load.', reset = true}, nil, function(player) if player:removeMoneyNpc(200) then end end)
+	magicKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Here you are, I already lessened your load.', reset = true}, nil, function(player) if player:removeMoneyBank(200) then end end)
 	magicKeyword:addChildKeyword({''}, StdModule.say, {npcHandler = npcHandler, text = 'You don\'t know what offer you are missing!', reset = true})
 keywordHandler:addAliasKeyword({'spell'})
 
 local weaponKeyword = keywordHandler:addKeyword({'weapon'}, StdModule.say, {npcHandler = npcHandler, text = 'Do you want to buy a \'mace of the fury\' for 250 gold?'})
 	weaponKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Come back, when you have enough money.', reset = true}, function(player) return player:getMoney() < 250 end)
-	weaponKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'And here it is, it suits you well!', reset = true}, nil, function(player) if player:removeMoneyNpc(250) then player:addItem(2570, 1) end end)
+	weaponKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'And here it is, it suits you well!', reset = true}, nil, function(player) if player:removeMoneyBank(250) then player:addItem(2570, 1) end end)
 	weaponKeyword:addChildKeyword({''}, StdModule.say, {npcHandler = npcHandler, text = 'You dont know what offer you have passed!', reset = true})
 
 keywordHandler:addKeyword({'kiss'}, StdModule.say, {npcHandler = npcHandler, text = 'Uh, go away!', ungreet = true}, function(player) return player:getSex() == PLAYERSEX_MALE end)

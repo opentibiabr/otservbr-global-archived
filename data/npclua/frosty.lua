@@ -96,7 +96,7 @@ function creatureSayCallback(npc, creature, type, message)
 					end
 				end
 			end
-			if(player:removeMoneyNpc(sleighinfo[rtnt[playerId]].cost) and (items_number == table.maxn(sleighinfo[rtnt[playerId]].items))) then
+			if(player:removeMoneyBank(sleighinfo[rtnt[playerId]].cost) and (items_number == table.maxn(sleighinfo[rtnt[playerId]].items))) then
 				if table.maxn(sleighinfo[rtnt[playerId]].items) > 0 then
 					for i = 1, table.maxn(sleighinfo[rtnt[playerId]].items) do
 						local item = sleighinfo[rtnt[playerId]].items[i]

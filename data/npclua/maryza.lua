@@ -63,7 +63,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 	elseif npcHandler.topic[playerId] == 1 then
 		if msgcontains(message, 'yes') then
-			if not player:removeMoneyNpc(150) then
+			if not player:removeMoneyBank(150) then
 				npcHandler:say('No gold, no sale, that\'s it.', npc, creature)
 				return true
 			end

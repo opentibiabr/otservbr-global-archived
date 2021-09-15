@@ -75,7 +75,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		if msgcontains(message, 'yes') then
 			if player:getMoney() + player:getBankBalance() >= 10 then
 				npcHandler:say('And here it is! Drink it quick, it gets stale quite fast!', npc, creature)
-				player:removeMoneyNpc(10)
+				player:removeMoneyBank(10)
 				local beerItem = player:addItem(18305)
 				if beerItem then
 					beerItem:decay()

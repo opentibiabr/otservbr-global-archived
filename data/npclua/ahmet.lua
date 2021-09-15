@@ -131,7 +131,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler.topic[playerId] = 5
 	elseif msgcontains(message, 'yes') then
 		if npcHandler.topic[playerId] == 1 then
-			if player:removeMoneyNpc(1000) then
+			if player:removeMoneyBank(1000) then
 				player:addItem(8694, 1)
 				player:setStorageValue(Storage.ThievesGuild.Mission04, 5)
 				npcHandler:say('And here they are! Now forget where you got them from.', npc, creature)
