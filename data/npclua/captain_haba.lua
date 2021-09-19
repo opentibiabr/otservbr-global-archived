@@ -76,13 +76,13 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif msgcontains(message, "bait") then
 		if player:getStorageValue(Storage.TheHuntForTheSeaSerpent.CaptainHaba) == 2 then
-			if player:removeItem(2667, 5) then
+			if player:removeItem(3578, 5) then
 				npcHandler:say("Excellent, now bring me 5 northern pike.", npc, creature)
 				player:setStorageValue(Storage.TheHuntForTheSeaSerpent.CaptainHaba, 3)
 				npcHandler:setTopic(playerId, 3)
 			end
 		elseif player:getStorageValue(Storage.TheHuntForTheSeaSerpent.CaptainHaba) == 3 then
-			if player:removeItem(2669, 5) then
+			if player:removeItem(3580, 5) then
 				npcHandler:say("Excellent, now bring me 5 green perch.", npc, creature)
 				player:setStorageValue(Storage.TheHuntForTheSeaSerpent.CaptainHaba, 4)
 				npcHandler:setTopic(playerId, 4)

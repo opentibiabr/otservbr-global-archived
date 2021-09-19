@@ -57,7 +57,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "chocolate cake") then
-		if player:getStorageValue(Storage.HiddenCityOfBeregar.SweetAsChocolateCake) == 1 and player:getItemCount(8847) >= 1 then
+		if player:getStorageValue(Storage.HiddenCityOfBeregar.SweetAsChocolateCake) == 1 and player:getItemCount(8019) >= 1 then
 			npcHandler:say("Is that for me?", npc, creature)
 			npcHandler:setTopic(playerId, 1)
 		elseif player:getStorageValue(Storage.HiddenCityOfBeregar.SweetAsChocolateCake) == 2 then
@@ -66,7 +66,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif msgcontains(message, "yes") then
 		if npcHandler:getTopic(playerId) == 1 then
-			if player:removeItem(8847, 1) then
+			if player:removeItem(8019, 1) then
 				npcHandler:say("Err, thanks. I doubt it's from you. Who sent it?", npc, creature)
 				npcHandler:setTopic(playerId, 2)
 				player:setStorageValue(Storage.HiddenCityOfBeregar.SweetAsChocolateCake, 2)
@@ -106,7 +106,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

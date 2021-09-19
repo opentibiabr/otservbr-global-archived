@@ -85,8 +85,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 4)
 		elseif npcHandler:getTopic(playerId) == 4 then
 			local player = Player(creature)
-			if player:removeItem(8694, 1) then
-				player:addItem(8699, 1)
+			if player:removeItem(7866, 1) then
+				player:addItem(7871, 1)
 				player:setStorageValue(Storage.ThievesGuild.Mission04, 7)
 				npcHandler:say({
 					'Excellent! Here is the painting you requested. It\'s quite precious to my father, but imagine his joy when I tell him about my clever deal! ...',

@@ -54,26 +54,26 @@ local t = {}
 local renown = {}
 
 local config = {
-	['supply'] = {itemid = 18215, token = {type = 'minor', id = 18422, count = 2}},
-	['muck'] = {itemid = 18395, token = {type = 'minor', id = 18422, count = 8}},
-	['mission'] = {itemid = 18509, token = {type = 'minor', id = 18422, count = 10}},
-	['lamp'] = {itemid = 18388, token = {type = 'minor', id = 18422, count = 15}},
-	['backpack'] = {itemid = 18393, token = {type = 'minor', id = 18422, count = 15}},
-	['addition to the soil guardian outfit'] = {itemid = 18518, token = {type = 'minor', id = 18422, count = 70}},
-	['addition to the crystal warlord armor outfit'] = {itemid = 18521, token = {type = 'minor', id = 18422, count = 70}},
-	['gill gugel'] = {itemid = 18398, token = {type = 'major', id = 18423, count = 10}},
-	['gill coat'] = {itemid = 18399, token = {type = 'major', id = 18423, count = 10}},
-	['gill legs'] = {itemid = 18400, token = {type = 'major', id = 18423, count = 10}},
-	['spellbook'] = {itemid = 18401, token = {type = 'major', id = 18423, count = 10}},
-	['prismatic helmet'] = {itemid = 18403, token = {type = 'major', id = 18423, count = 10}},
-	['prismatic armor'] = {itemid = 18404, token = {type = 'major', id = 18423, count = 10}},
-	['prismatic legs'] = {itemid = 18405, token = {type = 'major', id = 18423, count = 10}},
-	['prismatic boots'] = {itemid = 18406, token = {type = 'major', id = 18423, count = 10}},
-	['prismatic shield'] = {itemid = 18410, token = {type = 'major', id = 18423, count = 10}},
-	['basic soil guardian outfit'] = {itemid = 18517, token = {type = 'major', id = 18423, count = 20}},
-	['basic crystal warlord outfit'] = {itemid = 18520, token = {type = 'major', id = 18423, count = 20}},
-	['iron loadstone'] = {itemid = 18447, token = {type = 'major', id = 18423, count = 20}},
-	['glow wine'] = {itemid = 18448, token = {type = 'major', id = 18423, count = 20}}
+	['supply'] = {itemid = 15698, token = {type = 'minor', id = 16128, count = 2}},
+	['muck'] = {itemid = 16101, token = {type = 'minor', id = 16128, count = 8}},
+	['mission'] = {itemid = 16242, token = {type = 'minor', id = 16128, count = 10}},
+	['lamp'] = {itemid = 16094, token = {type = 'minor', id = 16128, count = 15}},
+	['backpack'] = {itemid = 16099, token = {type = 'minor', id = 16128, count = 15}},
+	['addition to the soil guardian outfit'] = {itemid = 16253, token = {type = 'minor', id = 16128, count = 70}},
+	['addition to the crystal warlord armor outfit'] = {itemid = 16256, token = {type = 'minor', id = 16128, count = 70}},
+	['gill gugel'] = {itemid = 16104, token = {type = 'major', id = 16129, count = 10}},
+	['gill coat'] = {itemid = 16105, token = {type = 'major', id = 16129, count = 10}},
+	['gill legs'] = {itemid = 16106, token = {type = 'major', id = 16129, count = 10}},
+	['spellbook'] = {itemid = 16107, token = {type = 'major', id = 16129, count = 10}},
+	['prismatic helmet'] = {itemid = 16109, token = {type = 'major', id = 16129, count = 10}},
+	['prismatic armor'] = {itemid = 16110, token = {type = 'major', id = 16129, count = 10}},
+	['prismatic legs'] = {itemid = 16111, token = {type = 'major', id = 16129, count = 10}},
+	['prismatic boots'] = {itemid = 16112, token = {type = 'major', id = 16129, count = 10}},
+	['prismatic shield'] = {itemid = 16116, token = {type = 'major', id = 16129, count = 10}},
+	['basic soil guardian outfit'] = {itemid = 16252, token = {type = 'major', id = 16129, count = 20}},
+	['basic crystal warlord outfit'] = {itemid = 16255, token = {type = 'major', id = 16129, count = 20}},
+	['iron loadstone'] = {itemid = 16153, token = {type = 'major', id = 16129, count = 20}},
+	['glow wine'] = {itemid = 16154, token = {type = 'major', id = 16129, count = 20}}
 }
 
 local function getTable()
@@ -206,7 +206,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 3)
 		elseif npcHandler:getTopic(playerId) == 4 then
 			local player = Player(creature)
-			if player:removeItem(18422, renown[playerId]) then
+			if player:removeItem(16128, renown[playerId]) then
 				player:setStorageValue(Storage.BigfootBurden.Rank, math.max(0, player:getStorageValue(Storage.BigfootBurden.Rank)) + renown[playerId] * 5)
 				player:checkGnomeRank()
 				npcHandler:say('As you wish! Your new renown is {' .. player:getStorageValue(Storage.BigfootBurden.Rank) .. '}.', npc, creature)

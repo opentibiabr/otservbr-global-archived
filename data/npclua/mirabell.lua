@@ -77,7 +77,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:setTopic(playerId, 1)
 	elseif msgcontains(message, 'yes') then
 		if npcHandler:getTopic(playerId) == 1 then
-			if not player:removeItem(2692, 24) then
+			if not player:removeItem(3603, 24) then
 				npcHandler:say('I think you are confusing the dust in your pockets with flour. You certainly do not have enough flour for 12 pies.', npc, creature)
 				npcHandler:setTopic(playerId, 0)
 				return true
@@ -93,7 +93,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				return true
 			end
 
-			player:addItem(7484, 1)
+			player:addItem(119, 1)
 			player:setStorageValue(Storage.WhatAFoolish.PieBuying, player:getStorageValue(Storage.WhatAFoolish.PieBuying) - 1)
 			player:setStorageValue(Storage.WhatAFoolish.PieBoxTimer, os.time() + 1200) -- 20 minutes to deliver
 			npcHandler:say({
@@ -138,7 +138,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

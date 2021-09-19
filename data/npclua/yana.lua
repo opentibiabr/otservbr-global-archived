@@ -26,16 +26,16 @@ npcConfig.flags = {
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 local shop = {
-	{id=30686, buy=50, sell=0, name='axe of desctruction'},
-	{id=30684, buy=50, sell=0, name='blade of desctruction'},
-	{id=30690, buy=50, sell=0, name='bow of desctruction'},
-	{id=30687, buy=50, sell=0, name='chopper of desctruction'},
-	{id=30691, buy=50, sell=0, name='crossbow of desctruction'},
-	{id=30689, buy=50, sell=0, name='hammer of desctruction'},
-	{id=30688, buy=50, sell=0, name='mace of desctruction'},
-	{id=30693, buy=50, sell=0, name='rod of desctruction'},
-	{id=30685, buy=50, sell=0, name='slayer of desctruction'},
-	{id=30692, buy=50, sell=0, name='wand of desctruction'}
+	{id=27451, buy=50, sell=0, name='axe of desctruction'},
+	{id=27449, buy=50, sell=0, name='blade of desctruction'},
+	{id=27455, buy=50, sell=0, name='bow of desctruction'},
+	{id=27452, buy=50, sell=0, name='chopper of desctruction'},
+	{id=27456, buy=50, sell=0, name='crossbow of desctruction'},
+	{id=27454, buy=50, sell=0, name='hammer of desctruction'},
+	{id=27453, buy=50, sell=0, name='mace of desctruction'},
+	{id=27458, buy=50, sell=0, name='rod of desctruction'},
+	{id=27450, buy=50, sell=0, name='slayer of desctruction'},
+	{id=27457, buy=50, sell=0, name='wand of desctruction'}
 }
 
 local function setNewTradeTable(table)
@@ -80,24 +80,24 @@ local products = {
 		['basic'] =  {
 			text = "The basic bundle for the strike imbuement consists of 20 protective charms. Would you like to buy it for 2 gold tokens??",
 			itens = {
-				[1] = {id = 12400, amount = 20}
+				[1] = {id = 11444, amount = 20}
 			},
 			value = 2
 		},
 		['intricate'] =  {
 			text = "The intricate bundle for the strike imbuement consists of 20 protective charms and 25 sabreteeth. Would you like to buy it for 4 gold tokens??",
 			itens = {
-				[1] = {id = 12400, amount = 20},
-				[2] = {id = 11228, amount = 25}
+				[1] = {id = 11444, amount = 20},
+				[2] = {id = 10311, amount = 25}
 			},
 			value = 4
 		},
 		['powerful'] = {
 			text = "The powerful bundle for the strike imbuement consists of 20 protective charms, 25 sabreteeth and 5 vexclaw talons. Would you like to buy it for 6 gold tokens??",
 			itens = {
-				[1] = {id = 12400, amount = 20},
-				[2] = {id = 11228, amount = 25},
-				[3] = {id = 25384, amount = 5}
+				[1] = {id = 11444, amount = 20},
+				[2] = {id = 10311, amount = 25},
+				[3] = {id = 22728, amount = 5}
 			},
 			value = 6
 		}
@@ -106,24 +106,24 @@ local products = {
 		['basic'] =  {
 			text = "The basic bundle for the vampirism imbuement consists of 25 vampire teeth. Would you like to buy it for 2 gold tokens??",
 			itens = {
-				[1] = {id = 10602, amount = 25}
+				[1] = {id = 9685, amount = 25}
 			},
 			value = 2
 		},
 		['intricate'] =  {
 			text = "The intricate bundle for the strike imbuement consists of 20 protective charms and 25 sabreteeth. Would you like to buy it for 4 gold tokens??",
 			itens = {
-				[1] = {id = 10602, amount = 25},
-				[2] = {id = 10550, amount = 15}
+				[1] = {id = 9685, amount = 25},
+				[2] = {id = 9633, amount = 15}
 			},
 			value = 4
 		},
 		['powerful'] = {
 			text = "The powerful bundle for the vampirism imbuement consists of 25 vampire teeth, 15 bloody pincers and 5 pieces of dead brain. Would you like to it for 6 gold tokens??",
 			itens = {
-				[1] = {id = 10602, amount = 25},
-				[2] = {id = 10550, amount = 15},
-				[3] = {id = 10580, amount = 5}
+				[1] = {id = 9685, amount = 25},
+				[2] = {id = 9633, amount = 15},
+				[3] = {id = 9663, amount = 5}
 			},
 			value = 6
 		}
@@ -132,24 +132,24 @@ local products = {
 		['basic'] =  {
 			text = "The basic bundle for the void imbuement consists of 25 rope belts. Would you like to buy it for 2 gold tokens??",
 			itens = {
-				[1] = {id = 12448, amount = 25}
+				[1] = {id = 11492, amount = 25}
 			},
 			value = 2,
 		},
 		['intricate'] =  {
 			text = "The intricate bundle for the void imbuement consists of 25 rope belts and 25 silencer claws. Would you like to buy it for 4 gold tokens??.",
 			itens = {
-				[1] = {id = 12448, amount = 25},
-				[2] = {id = 22534, amount = 25}
+				[1] = {id = 11492, amount = 25},
+				[2] = {id = 20200, amount = 25}
 			},
 			value = 4,
 		},
 		['powerful'] = {
 			text = "The powerful bundle for the void imbuement consists of 25 rope belts, 25 silencer claws and 5 grimeleech wings. Would you like to buy it for 6 gold tokens??",
 			itens = {
-				[1] = {id = 12448, amount = 25},
-				[2] = {id = 22534, amount = 25},
-				[3] = {id = 25386, amount = 5}
+				[1] = {id = 11492, amount = 25},
+				[2] = {id = 20200, amount = 25},
+				[3] = {id = 22730, amount = 5}
 			},
 			value = 6,
 		}

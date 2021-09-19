@@ -53,8 +53,8 @@ function WayfarerFirst(creature, message, keywords, parameters, node)
 	if isPremium(creature) then
 		addon = getPlayerStorageValue(creature,storage)
 		if addon == -1 then
-			if getPlayerItemCount(creature,12657) >= 1 then
-				if doPlayerRemoveItem(creature,12657,1) then
+			if getPlayerItemCount(creature,11701) >= 1 then
+				if doPlayerRemoveItem(creature,11701,1) then
 					npcHandler:say(newaddon, npc, creature)
 					doSendMagicEffect(getCreaturePosition(creature), 13)
 					doPlayerAddOutfit(creature, 366, 1)
@@ -74,8 +74,8 @@ function WayfarerSecond(creature, message, keywords, parameters, node)
 	if isPremium(creature) then
 		addon = getPlayerStorageValue(creature,storage+1)
 		if addon == -1 then
-			if getPlayerItemCount(creature,12656) >= 1 then
-				if doPlayerRemoveItem(creature,12656,1) then
+			if getPlayerItemCount(creature,11700) >= 1 then
+				if doPlayerRemoveItem(creature,11700,1) then
 					npcHandler:say(newaddon, npc, creature)
 					doSendMagicEffect(getCreaturePosition(creature), 13)
 					doPlayerAddOutfit(creature, 366, 2)

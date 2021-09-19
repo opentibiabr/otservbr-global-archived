@@ -28,7 +28,7 @@ npcConfig.shop = {
 
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message
@@ -133,7 +133,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:setTopic(playerId, 2)
 	elseif msgcontains(message, "yes") then
 		if npcHandler:getTopic(playerId) == 1 then
-			if not player:removeItem(8111, 1) then
+			if not player:removeItem(130, 1) then
 				npcHandler:say("You have no cookie that I'd like.", npc, creature)
 				npcHandler:setTopic(playerId, 0)
 				return true

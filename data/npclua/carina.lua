@@ -58,7 +58,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, 'precious necklace') then
-		if player:getItemCount(8768) > 0 then
+		if player:getItemCount(7940) > 0 then
 			npcHandler:say('Would you like to buy my precious necklace for 5000 gold?', npc, creature)
 			npcHandler:setTopic(playerId, 1)
 		end
@@ -68,13 +68,13 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif msgcontains(message, 'yes') then
 		if npcHandler:getTopic(playerId) == 1 then
 			if player:removeMoneyBank(5000) then
-				player:removeItem(8768, 1)
-				player:addItem(8767, 1)
+				player:removeItem(7940, 1)
+				player:addItem(7939, 1)
 				npcHandler:say('Here you go kind sir.', npc, creature)
 				npcHandler:setTopic(playerId, 0)
 			end
 		elseif npcHandler:getTopic(playerId) == 2 then
-			if not player:removeItem(7487, 1) then
+			if not player:removeItem(123, 1) then
 				npcHandler:say('There is no mouse here! Stop talking foolish things about serious issues!', npc, creature)
 				npcHandler:setTopic(playerId, 0)
 				return true
@@ -108,7 +108,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

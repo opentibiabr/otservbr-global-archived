@@ -61,7 +61,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:setTopic(playerId, 1)
 	elseif msgcontains(message, 'yes') and npcHandler:getTopic(playerId) == 1 then
 		local player = Player(creature)
-		if not player:removeItem(7499, 1) then
+		if not player:removeItem(141, 1) then
 			npcHandler:setTopic(playerId, 0)
 			return true
 		end

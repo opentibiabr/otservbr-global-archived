@@ -91,8 +91,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:addAchievement('Nightmare Knight')
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 3 then
-			if player:removeItem(6500, 500) then
-				player:addItem(7845, 1)
+			if player:removeItem(6499, 500) then
+				player:addItem(769, 1)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:setStorageValue(Storage.OutfitQuest.NightmareOutfit, 2)
 				npcHandler:say("You advanced to {Initiate} rank! You are now able to use teleports of second floor of Knightwatch Tower.", npc, creature)
@@ -101,11 +101,11 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 4 then
-			if player:removeItem(6500, 1000) then
+			if player:removeItem(6499, 1000) then
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:setStorageValue(Storage.OutfitQuest.NightmareOutfit, 3)
-				player:addItem(7846, 1)
-				player:addItem(6391, 1)
+				player:addItem(770, 1)
+				player:addItem(6390, 1)
 				player:addAchievement('Nightmare Walker')
 				npcHandler:say("You advanced to {Dreamer} rank!", npc, creature)
 			else
@@ -113,7 +113,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 5 then
-			if player:removeItem(6500, 1500) then
+			if player:removeItem(6499, 21465) then
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:setStorageValue(Storage.OutfitQuest.NightmareOutfit, 4)
 				player:setStorageValue(Storage.OutfitQuest.NightmareDoor, 1)

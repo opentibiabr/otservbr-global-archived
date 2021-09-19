@@ -58,8 +58,8 @@ keywordHandler:addKeyword({"magic"}, StdModule.say,
 )
 
 local items = {
-	[VOCATION.BASE_ID.SORCERER] = 2190,
-	[VOCATION.BASE_ID.DRUID] = 2182
+	[VOCATION.BASE_ID.SORCERER] = 3074,
+	[VOCATION.BASE_ID.DRUID] = 3066
 }
 
 local function creatureSayCallback(npc, creature, type, message)
@@ -161,7 +161,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

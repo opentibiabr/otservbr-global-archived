@@ -163,7 +163,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				I'm sure he knows more than he wants to tell us.",
 			npc, creature)
 		elseif player:getStorageValue(Storage.SeaOfLight.Questline) == 2 then
-			if not player:removeItem(10613, 1) then
+			if not player:removeItem(9696, 1) then
 				npcHandler:say(
 					"o have you talked to the beggar? What did he tell you? Where are the plans...? Wh...? He did? He is? \z
 					You've already got the plans? Beautiful!! Amazing! Alright it will take some time to recapitulate these plans.",
@@ -221,7 +221,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				200
 			)
 		elseif player:getStorageValue(Storage.SeaOfLight.Questline) == 5 then
-			if player:getItemCount(10614) == 0 then
+			if player:getItemCount(9697) == 0 then
 				npcHandler:say(
 					"Hm, so did you find a rare crystal? Show me... hey! That's not a rare crystal. What... where did \z
 					you get that anyway? Please return to me with the right crystal.",
@@ -270,7 +270,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			in there. It is the only way to finish the {Lightboat}.",
 			npc, creature)
 		elseif player:getStorageValue(Storage.SeaOfLight.Questline) == 9 then
-			if player:getItemCount(10616) == 0 then
+			if player:getItemCount(9699) == 0 then
 				npcHandler:say(
 					"Put the mirror crystal into the special carrying device \z
 					I gave you and bring it directly to me.",
@@ -399,7 +399,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif npcHandler:getTopic(playerId) == 6 then
 			player:setStorageValue(Storage.SeaOfLight.Questline, 7)
 			player:setStorageValue(Storage.SeaOfLight.Mission3, 1)
-			player:addItem(10615, 1)
+			player:addItem(9698, 1)
 			npcHandler:say(
 				"To collect the unbelievably rare, practically unique mirror crystal, you will need to use this \z
 				special carrying device I developed. If you find the crystal, use it to store it and transport it \z
@@ -407,13 +407,13 @@ local function creatureSayCallback(npc, creature, type, message)
 			npc, creature)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 7 then
-			if not player:removeItem(10616, 1) then
+			if not player:removeItem(9699, 1) then
 				npcHandler:say("", npc, creature)
 				npcHandler:setTopic(playerId, 0)
 				return true
 			end
-			player:addItem(2145, 10)
-			player:addItem(2154, 1)
+			player:addItem(3028, 10)
+			player:addItem(3037, 1)
 			player:addExperience(1000, true)
 			player:setStorageValue(Storage.SeaOfLight.Mission3, 4)
 			player:setStorageValue(Storage.SeaOfLight.Questline, 10)
@@ -481,7 +481,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				marked on your map and take a few measurements on the graves.",
 			npc, creature)
 			player:setStorageValue(Storage.SpiritHunters.Mission01, 1)
-			player:addItem(12670, 1)
+			player:addItem(4049, 1)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 19 then
 			npcHandler:say(
@@ -490,7 +490,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				only some short bursts of magically enhanced energy away.",
 			npc, creature)
 			player:addExperience(500, true)
-			player:addItem(2152, 5)
+			player:addItem(3035, 5)
 			addEvent(releasePlayer, 1000, npc, creature)
 			player:setStorageValue(Storage.SpiritHunters.Mission01, 2)
 			npcHandler:setTopic(playerId, 0)

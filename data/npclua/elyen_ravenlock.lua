@@ -82,7 +82,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			"If you have done that, you may have the scroll piece. Now go."
 		}, npc, creature)
 		player:setStorageValue(Storage.GravediggerOfDrefia.Mission61, 1)
-		player:addItem(21249, 1)
+		player:addItem(18932, 1)
 		npcHandler:setTopic(playerId, 0)
 	elseif msgcontains(message, 'mission') and player:getStorageValue(Storage.GravediggerOfDrefia.Mission66) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission67) < 1 then
 		npcHandler:say("Hello, brother. You have finished the dance?", npc, creature)
@@ -92,7 +92,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			"You have indeed. The shrines have sung back to you. Well done, brother. Not many men take such an interest in our art. ...",
 			"I will take the flute back. Our bargain stands. You may take the scroll."
 		}, npc, creature)
-		player:removeItem(21249, 1)
+		player:removeItem(18932, 1)
 		player:setStorageValue(Storage.GravediggerOfDrefia.Mission67, 1)
 		npcHandler:setTopic(playerId, 0)
 		else npcHandler:say({"Time is money, hurry."}, npc, creature)

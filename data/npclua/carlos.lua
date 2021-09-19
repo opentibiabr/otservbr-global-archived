@@ -40,7 +40,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message
@@ -101,7 +101,7 @@ local function greetCallback(npc, creature)
 		npcHandler:setMessage(MESSAGE_GREET, "Welcome back, |PLAYERNAME|! Did you have a successful hunt and carry a piece of {meat} or ham with you?")
 		storeTalkCid[playerId] = 5
 	elseif player:getStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage) == 6 then
-		if player:getItemCount(2666) > 0 or player:getItemCount(2671) > 0 then
+		if player:getItemCount(3577) > 0 or player:getItemCount(3582) > 0 then
 			npcHandler:setMessage(MESSAGE_GREET, "Welcome back, Isleth Eagonst! Do you still have that piece of meat or ham? If so, please ask me for a {trade} and I'll give you some gold for it.")
 			storeTalkCid[playerId] = 6
 		else
@@ -164,7 +164,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		elseif storeTalkCid[playerId] == 5 then
-			if player:getItemCount(2666) > 0 or player:getItemCount(2671) > 0 then
+			if player:getItemCount(3577) > 0 or player:getItemCount(3582) > 0 then
 				npcHandler:say("What's that delicious smell? That must be a piece of meat! Please hurry, simply ask me for a {trade} and I'll give you two gold pieces for it!", npc, creature)
 				player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosQuestLog, 6)
 				player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage, 6)

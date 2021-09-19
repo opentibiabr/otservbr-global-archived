@@ -60,12 +60,12 @@ local function creatureSayCallback(npc, creature, type, message)
 	if msgcontains(message, 'key') then
 		if player:getStorageValue(Storage.ThievesGuild.Mission06) == 1 then
 			local headItem = player:getSlotItem(CONST_SLOT_HEAD)
-			if headItem and headItem.itemid == 2665 and player:getStorageValue(Storage.Postman.Rank) == 5 and player:getSex() ~= PLAYERSEX_FEMALE then
-				player:addItem(8762)
+			if headItem and headItem.itemid == 3576 and player:getStorageValue(Storage.Postman.Rank) == 5 and player:getSex() ~= PLAYERSEX_FEMALE then
+				player:addItem(2969)
 				player:setStorageValue(Storage.ThievesGuild.Mission06, 2)
 				npcHandler:say('Oh my! You look so great in your uniform! You archpostmen are not only daring but also handsome. Here take it, that\'s the key you wanted. Just promise to visit me now and then!', npc, creature)
-			elseif player:removeItem(8767, 1) then
-				player:addItem(8762)
+			elseif player:removeItem(7939, 1) then
+				player:addItem(2969)
 				player:setStorageValue(Storage.ThievesGuild.Mission06, 2)
 				npcHandler:say('Oh my, such a lovely necklace! Here take it, that\'s the key you wanted. Now let me admire my precious necklace alone.', npc, creature)
 			else
@@ -156,7 +156,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

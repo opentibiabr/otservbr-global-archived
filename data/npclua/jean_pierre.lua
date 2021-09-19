@@ -46,20 +46,20 @@ npcType.onPlayerCloseChannel = function(npc, creature)
 end
 
 local ingredients = {
-	[1] = {{2666, 2}, {8838, 20}, {8843, 1}, {9114, 1}, {2692, 5}, {2006, 2, 3}},
-	[2] = {{7250, 2}, {2685, 2}, {8842, 1}, {2695, 2}, {2805, 1}, {2006, 1, 15}},
-	[3] = {{4298, 1}, {8844, 3}, {2691, 5}, {2695, 2}, {2803, 1}, {2788, 5}},
-	[4] = {{4265, 1}, {8841, 2}, {2675, 2}, {5097, 2}, {2006, 2, 14}, {2799, 1}},
-	[5] = {{6574, 1}, {7966, 1}, {2676, 2}, {2006, 2, 6}, {2802, 1}, {2800, 1}},
-	[6] = {{2684, 2}, {2685, 2}, {2686, 2}, {8842, 2}, {8843, 1}, {9114, 1}, {2696, 1}, {2787, 20}, {2789, 5}},
-	[7] = {{8844, 10}, {2696, 2}, {2805, 1}, {2804, 1}, {2006, 1, 43}, {2695, 2}},
-	[8] = {{2671, 1}, {8839, 5}, {8843, 1}, {8845, 2}, {2683, 1}, {8844, 2}},
-	[9] = {{2669, 1}, {7158, 1}, {7159, 1}, {2670, 5}, {2690, 2}, {2801, 1}},
-	[10] = {{2684, 5}, {2006, 1, 6}, {8841, 1}, {2692, 10}, {2695, 2}, {2687, 10}, {7910, 2}},
-	[11] = {{2006, 5, 14}, {2789, 5}, {2788, 5}, {11246, 10}, {2670, 10}},
-	[12] = {{11373, 5}, {2006, 2, 1}, {2684, 20}, {8838, 10}, {8844, 3}},
-	[13] = {{6569, 3}, {2688, 3}, {6574, 2}, {6501, 15}, {6558, 1}},
-	[14] = {{2695, 40}, {5097, 20}, {5902, 10}, {9674, 1}, {5942, 1}}
+	[1] = {{3577, 2}, {8010, 20}, {8015, 1}, {8197, 1}, {3603, 5}, {2874, 2, 3}},
+	[2] = {{7250, 2}, {3596, 2}, {8014, 1}, {3606, 2}, {3741, 1}, {2874, 1, 15}},
+	[3] = {{4363, 1}, {8016, 3}, {3602, 5}, {3606, 2}, {3739, 1}, {3724, 5}},
+	[4] = {{4330, 1}, {8013, 2}, {3586, 2}, {5096, 2}, {2874, 2, 14}, {3735, 1}},
+	[5] = {{6574, 1}, {904, 1}, {3587, 2}, {2874, 2, 6}, {3738, 1}, {3736, 1}},
+	[6] = {{3595, 2}, {3596, 2}, {3597, 2}, {8014, 2}, {8015, 1}, {8197, 1}, {3607, 1}, {3723, 20}, {3725, 5}},
+	[7] = {{8016, 10}, {3607, 2}, {3741, 1}, {3740, 1}, {2874, 1, 43}, {3606, 2}},
+	[8] = {{3582, 1}, {8011, 5}, {8015, 1}, {8017, 2}, {3594, 1}, {8016, 2}},
+	[9] = {{3580, 1}, {7158, 1}, {7159, 1}, {3581, 5}, {3601, 2}, {3737, 1}},
+	[10] = {{3595, 5}, {2874, 1, 6}, {8013, 1}, {3603, 10}, {3606, 2}, {3598, 10}, {841, 2}},
+	[11] = {{2874, 5, 14}, {3725, 5}, {3724, 5}, {10329, 10}, {3581, 10}},
+	[12] = {{10456, 5}, {2874, 2, 1}, {3595, 20}, {8010, 10}, {8016, 3}},
+	[13] = {{6569, 3}, {3599, 3}, {6574, 2}, {6500, 15}, {6558, 1}},
+	[14] = {{3606, 40}, {5096, 20}, {5902, 10}, {8758, 1}, {5942, 1}}
 }
 
 local function playerHasIngredients(creature)
@@ -231,7 +231,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				}, npc, creature)
 				player:setStorageValue(Storage.HotCuisineQuest.CurrentDish, 2)
 				player:setStorageValue(Storage.HotCuisineQuest.QuestLog, 2)
-				player:addItem(9992, 1)
+				player:addItem(9079, 1)
 				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Make sure that you have all the ingredients, with you.", npc, creature)
@@ -246,7 +246,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				}, npc, creature)
 				player:setStorageValue(Storage.HotCuisineQuest.CurrentDish, 3)
 				player:setStorageValue(Storage.HotCuisineQuest.QuestLog, 3)
-				player:addItem(9993, 1)
+				player:addItem(9080, 1)
 				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Make sure that you have all the ingredients, with you.", npc, creature)
@@ -262,7 +262,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				}, npc, creature)
 				player:setStorageValue(Storage.HotCuisineQuest.CurrentDish, 4)
 				player:setStorageValue(Storage.HotCuisineQuest.QuestLog, 4)
-				player:addItem(9994, 1)
+				player:addItem(9081, 1)
 				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Make sure that you have all the ingredients, with you.", npc, creature)
@@ -278,7 +278,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				}, npc, creature)
 				player:setStorageValue(Storage.HotCuisineQuest.CurrentDish, 5)
 				player:setStorageValue(Storage.HotCuisineQuest.QuestLog, 5)
-				player:addItem(9995, 1)
+				player:addItem(9082, 1)
 				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Make sure that you have all the ingredients, with you.", npc, creature)
@@ -294,7 +294,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				}, npc, creature)
 				player:setStorageValue(Storage.HotCuisineQuest.CurrentDish, 6)
 				player:setStorageValue(Storage.HotCuisineQuest.QuestLog, 6)
-				player:addItem(9996, 1)
+				player:addItem(9083, 1)
 				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Make sure that you have all the ingredients, with you.", npc, creature)
@@ -310,7 +310,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				}, npc, creature)
 				player:setStorageValue(Storage.HotCuisineQuest.CurrentDish, 7)
 				player:setStorageValue(Storage.HotCuisineQuest.QuestLog, 7)
-				player:addItem(9997, 1)
+				player:addItem(9084, 1)
 				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Make sure that you have all the ingredients, with you.", npc, creature)
@@ -327,7 +327,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				}, npc, creature)
 				player:setStorageValue(Storage.HotCuisineQuest.CurrentDish, 8)
 				player:setStorageValue(Storage.HotCuisineQuest.QuestLog, 8)
-				player:addItem(9998, 1)
+				player:addItem(9085, 1)
 				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Make sure that you have all the ingredients, with you.", npc, creature)
@@ -343,7 +343,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				}, npc, creature)
 				player:setStorageValue(Storage.HotCuisineQuest.CurrentDish, 9)
 				player:setStorageValue(Storage.HotCuisineQuest.QuestLog, 9)
-				player:addItem(9999, 1)
+				player:addItem(9086, 1)
 				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Make sure that you have all the ingredients, with you.", npc, creature)
@@ -359,7 +359,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				}, npc, creature)
 				player:setStorageValue(Storage.HotCuisineQuest.CurrentDish, 10)
 				player:setStorageValue(Storage.HotCuisineQuest.QuestLog, 10)
-				player:addItem(10001, 1)
+				player:addItem(9088, 1)
 				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Make sure that you have all the ingredients, with you.", npc, creature)
@@ -397,7 +397,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				}, npc, creature)
 				player:setStorageValue(Storage.HotCuisineQuest.CurrentDish, 12)
 				player:setStorageValue(Storage.HotCuisineQuest.QuestLog, 13)
-				player:addItem(12540, 1)
+				player:addItem(11584, 1)
 				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Make sure that you have all the ingredients, with you.", npc, creature)
@@ -415,7 +415,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				}, npc, creature)
 				player:setStorageValue(Storage.HotCuisineQuest.CurrentDish, 13)
 				player:setStorageValue(Storage.HotCuisineQuest.QuestLog, 14)
-				player:addItem(12542, 1)
+				player:addItem(11586, 1)
 				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Make sure that you have all the ingredients, with you.", npc, creature)
@@ -432,7 +432,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				}, npc, creature)
 				player:setStorageValue(Storage.HotCuisineQuest.CurrentDish, 14)
 				player:setStorageValue(Storage.HotCuisineQuest.QuestLog, 15)
-				player:addItem(12543, 1)
+				player:addItem(11587, 1)
 				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Make sure that you have all the ingredients, with you.", npc, creature)
@@ -451,7 +451,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				player:setStorageValue(Storage.HotCuisineQuest.QuestStart, 2)
 				player:setStorageValue(Storage.HotCuisineQuest.CurrentDish, 15)
 				player:setStorageValue(Storage.HotCuisineQuest.QuestLog, 16)
-				player:addItem(12544, 1)
+				player:addItem(11588, 1)
 				npcHandler:setTopic(playerId, 0)
 			else
 				npcHandler:say("Make sure that you have all the ingredients, with you.", npc, creature)

@@ -65,7 +65,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif msgcontains(message, "yes") then
 		if npcHandler:getTopic(playerId) == 1 then
-			if player:removeItem(7707, 1) then
+			if player:removeItem(405, 1) then
 				player:setStorageValue(Storage.SecretService.AVINMission06, 2)
 				npcHandler:say("Why thank you |PLAYERNAME|.", npc, creature)
 			else

@@ -44,39 +44,39 @@ end
 
 local normalItems = {
 	 {7439, 7440, 7443},
-	 {2688, 6508},
-	 {2688, 6509},
-	 {2688, 6507},
-	 {2688, 2114},
-	 {2688, 2111},
-	 {2167, 2213, 2214},
-	 {11227},
-	 {2156},
-	 {2153}
+	 {3599, 6507},
+	 {3599, 6508},
+	 {3599, 6506},
+	 {3599, 2995},
+	 {3599, 2992},
+	 {3051, 3097, 3098},
+	 {10310},
+	 {3039},
+	 {3036}
 }
 
 local semiRareItems = {
-	 {2173},
-	 {9954},
-	 {9971},
+	 {3057},
+	 {9040},
+	 {9058},
 	 {5080}
 }
 
 local rareItems = {
-	 {2110},
+	 {2991},
 	 {5919},
 	 {6567},
-	 {11255},
-	 {11256},
+	 {10338},
+	 {10339},
 	 {6566},
-	 {2112}
+	 {2993}
 }
 
 local veryRareItems = {
-	 {2659},
-	 {3954},
-	 {2644},
-	 {10521},
+	 {3570},
+	 {3001},
+	 {3553},
+	 {9604},
 	 {5804}
 }
 
@@ -108,12 +108,12 @@ function creatureSayCallback(npc, creature, type, message)
 		end
 		
 		local reward = getReward()
-		local cont = Container(Player(creature):addItem(6511):getUniqueId())
+		local cont = Container(Player(creature):addItem(6510):getUniqueId())
 		local count = 1
 		
 		for i = 1, #reward do
-			if (reward[i] == 2111 or
-			reward[i] == 2688) then
+			if (reward[i] == 2992 or
+			reward[i] == 3599) then
 				count = 10
 			end
 			

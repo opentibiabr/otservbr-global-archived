@@ -83,7 +83,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 1 and player:getStorageValue(Storage.Kilmaresh.Eighth.Narsai) == 1 then
 		if player:getStorageValue(Storage.Kilmaresh.Eighth.Narsai) == 1 then
-			player:addItem(36549, 1)
+			player:addItem(31714, 1)
 			npcHandler:say({"Here is the list of ingredients that are missing to complete the ritual. "}, npc, creature)-- It needs to be revised, it's not the same as the global
 			player:setStorageValue(Storage.Kilmaresh.Eighth.Narsai, 2)
 			npcHandler:setTopic(playerId, 2)
@@ -99,10 +99,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 3)
 		end
 	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 3 and player:getStorageValue(Storage.Kilmaresh.Eighth.Narsai) == 2 then
-		if player:getStorageValue(Storage.Kilmaresh.Eighth.Narsai) == 2 and player:getItemById(36170, 10) and player:getItemById(11196, 2) and player:getItemById(36167, 5) then
-			player:removeItem(36170, 10)
-			player:removeItem(11196, 2)
-			player:removeItem(36167, 5)
+		if player:getStorageValue(Storage.Kilmaresh.Eighth.Narsai) == 2 and player:getItemById(31335, 10) and player:getItemById(10279, 2) and player:getItemById(31332, 5) then
+			player:removeItem(31335, 10)
+			player:removeItem(10279, 2)
+			player:removeItem(31332, 5)
 			npcHandler:say({"Thank you this stage of the ritual is complete."}, npc, creature)-- It needs to be revised, it's not the same as the global
 			player:setStorageValue(Storage.Kilmaresh.Eighth.Narsai, 3)
 			npcHandler:setTopic(playerId, 4)

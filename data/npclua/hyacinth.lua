@@ -71,10 +71,10 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 	npcHandler = npcHandler,
 	text = "Thank you so much! I'm just too old to walk into the village each day, and the herbs must be fresh. Say, would you like to have a sample of my potions as reward?"
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 2 and player:getItemCount(13827) >= 1 end,
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 2 and player:getItemCount(12671) >= 1 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission04, 3)
-	player:removeItem(13827, 1)
+	player:removeItem(12671, 1)
 end
 )
 keywordHandler:addAliasKeyword({"herbs"})
@@ -118,7 +118,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 3 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission04, 4)
-	player:addItemEx(Game.createItem(8704, 2), true, CONST_SLOT_BACKPACK)
+	player:addItemEx(Game.createItem(7876, 2), true, CONST_SLOT_BACKPACK)
 end
 )
 
@@ -137,7 +137,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission04) == 4 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission04, 5)
-	player:addItemEx(Game.createItem(13825, 1), true, CONST_SLOT_BACKPACK)
+	player:addItemEx(Game.createItem(12669, 1), true, CONST_SLOT_BACKPACK)
 end
 )
 
@@ -242,7 +242,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

@@ -60,7 +60,7 @@ local function greetCallback(npc, creature)
 	local playerId = creature:getId()
 	local player = Player(creature)
 
-	if player:getStorageValue(Storage.SecretService.AVINMission01) == 1 and player:getItemCount(14326) > 0 then
+	if player:getStorageValue(Storage.SecretService.AVINMission01) == 1 and player:getItemCount(402) > 0 then
 		player:setStorageValue(Storage.SecretService.AVINMission01, 2)
 		npcHandler:say("I don't like the way you look. Help me boys!", npc, creature)
 		for i = 1, 2 do
@@ -88,7 +88,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif msgcontains(message, "yes") then
 		if npcHandler:getTopic(playerId) == 1 then
-			if player:removeItem(14326, 1) then
+			if player:removeItem(402, 1) then
 				player:setStorageValue(Storage.SecretService.AVINMission01, 3)
 				npcHandler:say("Oh well. I guess I am still on the hook. Tell your 'uncle' I will proceed as he suggested.", npc, creature)
 			else
@@ -192,7 +192,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

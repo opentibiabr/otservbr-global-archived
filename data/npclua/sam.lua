@@ -114,7 +114,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 	elseif msgcontains(message, "yes") then
 		if npcHandler:getTopic(playerId) == 1 then
-			if player:removeItem(3960, 1) then
+			if player:removeItem(3244, 1) then
 				npcHandler:say({
 					"Thank you very much! This brings back good old memories! Please, as a reward, travel to Kazordoon and ask my old friend Kroox to provide you a special dwarven armor. ...",
 					"I will mail him about you immediately. Just tell him, his old buddy Sam is sending you."
@@ -129,12 +129,12 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say('I can\'t believe it. Finally I will be rich! I could move to Edron and enjoy my retirement! But ... wait a minute! I will not start working without a contract! Are you willing to sign one?', npc, creature)
 			npcHandler:setTopic(playerId, 3)
 		elseif npcHandler:getTopic(playerId) == 3 then
-			player:addItem(7492, 1)
+			player:addItem(129, 1)
 			player:setStorageValue(Storage.WhatAFoolish.Contract, 1)
 			npcHandler:say('Fine! Here is the contract. Please sign it. Talk to me about it again when you\'re done.', npc, creature)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 4 then
-			if not player:removeItem(7491, 1) then
+			if not player:removeItem(128, 1) then
 				npcHandler:say('You don\'t have a signed contract.', npc, creature)
 				npcHandler:setTopic(playerId, 0)
 				return true
@@ -297,7 +297,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

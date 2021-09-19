@@ -28,7 +28,7 @@ npcConfig.shop = {
 
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message
@@ -100,14 +100,14 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.TheNewFrontier.Questline, 5)
 			player:setStorageValue(Storage.TheNewFrontier.Mission02, 2) --Questlog, The New Frontier Quest "Mission 02: From Kazordoon With Love"
-			player:addItem(11100, 1)
+			player:addItem(9843, 1)
 			for i = 1, #config do
 				player:addMapMark(config[i].position, config[i].type, config[i].description)
 			end
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 2 then
 			if player:removeMoneyBank(100) then
-				player:addItem(11100, 1)
+				player:addItem(9843, 1)
 				npcHandler:say("Here you go.", npc, creature)
 				npcHandler:setTopic(playerId, 0)
 			else

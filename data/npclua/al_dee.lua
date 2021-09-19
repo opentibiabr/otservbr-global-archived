@@ -48,7 +48,7 @@ npcConfig.shop = {	-- Sellable items
 
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message
@@ -156,10 +156,10 @@ keywordHandler:addAliasKeyword({'dallheim'})
 -- Pick quest
 local pickKeyword = keywordHandler:addKeyword({'pick'}, StdModule.say, {npcHandler = npcHandler, text = 'Picks are hard to come by. I trade them only in exchange for high quality small axes. Would you like to make that deal?'})
 	pickKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Splendid! Here, take your pick.', reset = true},
-		function(player) return player:getItemCount(2559) > 0 end,
+		function(player) return player:getItemCount(3462) > 0 end,
 		function(player)
-			player:removeItem(2559, 1)
-			player:addItem(2553, 1)
+			player:removeItem(3462, 1)
+			player:addItem(3456, 1)
 		end
 	)
 	pickKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Sorry, I am looking for a SMALL axe.', reset = true})

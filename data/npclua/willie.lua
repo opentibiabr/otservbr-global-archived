@@ -34,7 +34,7 @@ npcConfig.shop = {
 
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message
@@ -350,11 +350,11 @@ bananaKeyword:addChildKeyword({"yes"}, StdModule.say,
 		reset = true
 	},
 		function(player)
-			return player:getItemCount(2676) > 0
+			return player:getItemCount(3587) > 0
 		end,
 		function(player)
-			player:removeItem(2676, 1)
-			player:addItem(2526, 1)
+			player:removeItem(3587, 1)
+			player:addItem(3426, 1)
 		end
 )
 bananaKeyword:addChildKeyword({"yes"}, StdModule.say,

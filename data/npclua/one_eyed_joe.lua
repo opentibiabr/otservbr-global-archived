@@ -63,9 +63,9 @@ function creatureSayCallback(npc, creature, type, message)
 		end
 		player:addAchievement("Wail of the Banshee")
 		player:setStorageValue(Storage.TibiaTales.TheCursedCrystal.Oneeyedjoe, 4)
-		doPlayerAddItem(creature,18413,1)
-		doPlayerAddItem(creature,18414,1)
-		doPlayerAddItem(creature,18415,1)
+		doPlayerAddItem(creature,16119,1)
+		doPlayerAddItem(creature,16120,1)
+		doPlayerAddItem(creature,16121,1)
 		math.randomseed(os.time())
 		chanceToPirate = math.random(1,4)
 		if chanceToPirate == 1 then

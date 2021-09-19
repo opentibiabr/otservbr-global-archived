@@ -60,8 +60,8 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:say("You bringing me draconian steel and obsidian lance in exchange for obsidian knife?", npc, creature)
 		npcHandler:setTopic(playerId, 15)
 	elseif(msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 15) then
-		if player:getItemCount(5889) >= 1 and player:getItemCount(2425) >= 1 then
-			if player:removeItem(5889, 1) and player:removeItem(2425, 1) then
+		if player:getItemCount(5889) >= 1 and player:getItemCount(3313) >= 1 then
+			if player:removeItem(5889, 1) and player:removeItem(3313, 1) then
 				npcHandler:say("Here you have it.", npc, creature)
 				player:addItem(5908, 1)
 				npcHandler:setTopic(playerId, 0)
@@ -106,13 +106,13 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.ExplorerSociety.DwacatraDoor, 1)
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 2)
 		elseif(npcHandler:getTopic(playerId) == 3) then
-			if player:removeItem(4845, 1) then -----
+			if player:removeItem(4834, 1) then -----
 				npcHandler:say("Thanking you for brooch. Me guessing you now want your pickaxe?", npc, creature)
 				npcHandler:setTopic(playerId, 4)
 			end
 		elseif(npcHandler:getTopic(playerId) == 4) then
 			npcHandler:say("Here you have it.", npc, creature)
-			player:addItem(4874, 1) -----
+			player:addItem(4845, 1) -----
 			player:setStorageValue(Storage.ExplorerSociety.JoiningTheExplorers, 3)
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 3)
 			npcHandler:setTopic(playerId, 0)
@@ -223,7 +223,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

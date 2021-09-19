@@ -81,7 +81,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				},
 			npc, creature, 10)
 			npcHandler:setTopic(playerId, 1)
-		elseif player:getStorageValue(Storage.Quest.Dawnport.TheLostAmulet) == 2 and player:getItemCount(23750) == 1 then
+		elseif player:getStorageValue(Storage.Quest.Dawnport.TheLostAmulet) == 2 and player:getItemCount(21379) == 1 then
 			npcHandler:say(
 				{
 					"Ah, you found the amulet! Ah. Really? Poor Dormovo. \z
@@ -89,8 +89,8 @@ local function creatureSayCallback(npc, creature, type, message)
 					it was to be expected he would meet an early end. Oh, well. ..."
 				},
 			npc, creature, 0)
-			player:removeItem(23750, 1)
-			player:addItem(2148, 50)
+			player:removeItem(21379, 1)
+			player:addItem(3031, 50)
 			player:setStorageValue(Storage.Quest.Dawnport.TheLostAmulet, 3)
 			npcHandler:setTopic(playerId, 0)
 		end
@@ -102,11 +102,11 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 2)
 		elseif player:getStorageValue(Storage.Quest.Dawnport.TornLogBook) == 1
 		and player:getStorageValue(Storage.Quest.Dawnport.TheStolenLogBook) == 1
-		and player:getItemCount(23749) == 1 then
+		and player:getItemCount(21378) == 1 then
 			npcHandler:say("Ah, yes, that's it! Torn and gnawed, but, ah well, the information is still retrievable. \z
 				Thank you. Here's your reward.", npc, creature)
-			player:removeItem(23749, 1)
-			player:addItem(2148, 50)
+			player:removeItem(21378, 1)
+			player:addItem(3031, 50)
 			player:setStorageValue(Storage.Quest.Dawnport.TheStolenLogBook, 2)
 			npcHandler:setTopic(playerId, 0)
 		end
@@ -119,7 +119,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif player:getStorageValue(Storage.Quest.Dawnport.TheRareHerb) == 2 then
 			npcHandler:say("Ah, wonderful. Freshly cut and full of potent... whatever it is it does. \z
 				Thanks. Here's your reward.", npc, creature)
-			player:addItem(2148, 50)
+			player:addItem(3031, 50)
 			player:setStorageValue(Storage.Quest.Dawnport.TheRareHerb, 3)
 			npcHandler:setTopic(playerId, 0)
 		end
@@ -164,8 +164,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 5 then
 			npcHandler:say("The key to the dormitory! Finally! You're a real sleuth. Here's your reward.", npc, creature)
-			player:removeItem(23763, 1)
-			player:addItem(2148, 50)
+			player:removeItem(21392, 1)
+			player:addItem(3031, 50)
 			player:setStorageValue(Storage.Quest.Dawnport.TheDormKey, 5)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 6 then
@@ -202,9 +202,9 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif player:getStorageValue(Storage.Quest.Dawnport.MorriskTroll) == 1 then
 			if player:getStorageValue(Storage.Quest.Dawnport.MorrisTrollCount) >= 20 then
 				npcHandler:say("Ah, very good job. That should put a crimp in their activities. Here's your reward.", npc, creature)
-				player:setStorageValue(17524, 1)
+				player:setStorageValue(14898, 1)
 				player:setStorageValue(Storage.Quest.Dawnport.MorriskTroll, 2)
-				player:addItem(2148, 50)
+				player:addItem(3031, 50)
 			else
 				npcHandler:say("Come back when you have slain {20 mountain trolls!}", npc, creature)
 			end
@@ -222,9 +222,9 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif player:getStorageValue(Storage.Quest.Dawnport.MorrisGoblin) == 1 then
 			if player:getStorageValue(Storage.Quest.Dawnport.MorrisGoblinCount) >= 20 then
 				npcHandler:say("Ah, very good job. That should put a crimp in their activities. Here's your reward.", npc, creature)
-				player:setStorageValue(17525, 1)
+				player:setStorageValue(14899, 1)
 				player:setStorageValue(Storage.Quest.Dawnport.MorrisGoblin, 2)
-				player:addItem(2148, 50)
+				player:addItem(3031, 50)
 			else
 				npcHandler:say("Come back when you have slain {20 muglex clan footman!}", npc, creature)
 			end
@@ -242,9 +242,9 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif player:getStorageValue(Storage.Quest.Dawnport.MorrisMinos) == 1 then
 			if player:getStorageValue(Storage.Quest.Dawnport.MorrisMinosCount) >= 20 then
 				npcHandler:say("Ah, very good job. That should put a crimp in their activities. Here's your reward.", npc, creature)
-				player:setStorageValue(17526, 1)
+				player:setStorageValue(14900, 1)
 				player:setStorageValue(Storage.Quest.Dawnport.MorrisMinos, 2)
-				player:addItem(2148, 50)
+				player:addItem(3031, 50)
 			else
 				npcHandler:say("Come back when you have slain {20 minotaur bruisers!}", npc, creature)
 			end

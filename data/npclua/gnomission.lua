@@ -83,7 +83,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:say("It seems you did not even set one big foot into the warzone, I am sorry.")
 			else
 				if player:getStorageValue(Storage.BigfootBurden.Warzone1Access) < 1 then
-					if player:removeItem(18430, 1) then
+					if player:removeItem(16136, 1) then
 						player:setStorageValue(Storage.BigfootBurden.Warzone1Access, 1)
 						npcHandler:say("As a war hero you are allowed to use the warzone teleporter one for free!", npc, creature)
 						npcHandler:setTopic(playerId, 0)
@@ -102,7 +102,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				if player:getStorageValue(Storage.BigfootBurden.Warzone3Access) < 1 then
 					if player:getStorageValue(Storage.BigfootBurden.WarzoneStatus) >= 3 then
-						if player:removeItem(18496, 1) then
+						if player:removeItem(16206, 1) then
 							player:setStorageValue(Storage.BigfootBurden.Warzone3Access, 1)
 							npcHandler:say("As a war hero you are allowed to use the warzone teleporter three for free!", npc, creature)
 							npcHandler:setTopic(playerId, 0)
@@ -124,7 +124,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			else
 				if player:getStorageValue(Storage.BigfootBurden.Warzone2Access) < 1 then
 					if player:getStorageValue(Storage.BigfootBurden.WarzoneStatus) >= 2 then
-						if player:removeItem(18495, 1) then
+						if player:removeItem(16205, 1) then
 							player:setStorageValue(Storage.BigfootBurden.Warzone2Access, 1)
 							npcHandler:say("As a war hero you are allowed to use the warzone teleporter second for free!", npc, creature)
 							npcHandler:setTopic(playerId, 0)
@@ -230,7 +230,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

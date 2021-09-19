@@ -164,7 +164,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif npcHandler:getTopic(playerId) == 4 then
 			if player:getMoney() + player:getBankBalance() >= 100 then
 				player:setStorageValue(Storage.TravellingTrader.Mission03, 2)
-				player:addItem(8112, 1)
+				player:addItem(169, 1)
 				player:removeMoneyBank(100)
 				npcHandler:say('Here it is.', npc, creature)
 			else
@@ -209,7 +209,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

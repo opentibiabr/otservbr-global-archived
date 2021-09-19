@@ -72,7 +72,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif player:getStorageValue(Storage.TibiaTales.TheExterminator) == 1 then
 			npcHandler:say('You MUST find that slime pool immediately or life here in Carlin will not be the same anymore.', npc, creature)
 		elseif player:getStorageValue(Storage.TibiaTales.TheExterminator) == 2 then
-			local itemId = {2150, 2149, 2147, 2146}
+			local itemId = {3033, 3032, 3030, 3029}
 			for i = 1, #itemId do
 				player:addItem(itemId[i], 1)
 			end
@@ -89,9 +89,9 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 
 			npcHandler:say("Thank you. Here it is.", npc, creature)
-			player:addItem(4839, 1)
+			player:addItem(4828, 1)
 		elseif npcHandler:getTopic(playerId) == 2 then
-			player:addItem(8205, 1)
+			player:addItem(12784, 1)
 			player:setStorageValue(Storage.TibiaTales.TheExterminator, 1)
 			npcHandler:say({
 				'I knew I could count on you. Take this highly intensified vermin poison. In my vision, I saw some kind of \'pool\' where these slimes came from. ...',

@@ -82,7 +82,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif msgcontains(message, 'yes') then
 		if npcHandler:getTopic(playerId) == 1 then
-			if player:removeItem(13299, 50) and player:removeItem(13301, 30) and player:removeItem(13300, 100) then
+			if player:removeItem(12312, 50) and player:removeItem(12314, 30) and player:removeItem(12313, 100) then
 				npcHandler:say(
 					{
 						'Ohhhhh Mmmmmmmmmmmm Ammmmmgggggggaaaaaaa ...',
@@ -302,7 +302,7 @@ addItemKeyword(
 		}
 	},
 	1,
-	{{itemId = 5015, count = 1}, {itemId = 3955, count = 5}},
+	{{itemId = 5014, count = 1}, {itemId = 3002, count = 5}},
 	2,
 	Storage.OutfitQuest.Shaman.MissionStaff
 )
@@ -316,7 +316,7 @@ addItemKeyword(
 		'A banana staff is the sign of a high ape magician.'
 	},
 	3,
-	{{itemId = 3966, count = 5}, {itemId = 3967, count = 5}},
+	{{itemId = 3348, count = 5}, {itemId = 3403, count = 5}},
 	1,
 	Storage.OutfitQuest.Shaman.MissionMask,
 	true
@@ -528,7 +528,7 @@ addCounterspellKeyword(
 		"Very good! <mumblemumble> 'Your soul shall be protected!' Now, I need a fresh dead rat."
 	},
 	1,
-	4265
+	4330
 )
 addCounterspellKeyword(
 	{
@@ -536,7 +536,7 @@ addCounterspellKeyword(
 		"Very good! <chants and dances> 'You shall face black magic without fear!' Now, I need a fresh dead black sheep."
 	},
 	2,
-	2813
+	3994
 )
 addCounterspellKeyword(
 	{
@@ -544,7 +544,7 @@ addCounterspellKeyword(
 		"Very good! <stomps staff on ground> 'EVIL POWERS SHALL NOT KEEP YOU ANYMORE! SO BE IT!'"
 	},
 	3,
-	2914
+	4095
 )
 
 -- Completed the Counterspell
@@ -595,7 +595,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

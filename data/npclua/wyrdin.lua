@@ -83,7 +83,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif msgcontains(message, "yes") then
 		if npcHandler:getTopic(playerId) == 1 then
-			if player:removeItem(10090, 1) then
+			if player:removeItem(9171, 1) then
 				player:setStorageValue(Storage.TheWayToYalahar.QuestLine, 3)
 				npcHandler:say("Oh marvellous, please excuse me. I need to read this text immediately. Here, take this small reward of 500 gold pieces for your efforts.", npc, creature)
 				player:addMoney(500)

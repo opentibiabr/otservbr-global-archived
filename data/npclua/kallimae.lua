@@ -119,8 +119,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 5)
 		end	
 	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 5 and player:getStorageValue(Storage.Kilmaresh.Eleven.Basin) == 1 then
-		if player:getStorageValue(Storage.Kilmaresh.Eleven.Basin) == 1 and player:getItemById(36266, 1) then
-			player:addItem(36407, 1)
+		if player:getStorageValue(Storage.Kilmaresh.Eleven.Basin) == 1 and player:getItemById(31431, 1) then
+			player:addItem(31572, 1)
 			npcHandler:say({"Thanks. Here is your reward."}, npc, creature)-- It needs to be revised, it's not the same as the global
 			player:setStorageValue(Storage.Kilmaresh.Twelve.Boss, 1)
 			player:setStorageValue(Storage.Kilmaresh.Eleven.Basin, 2)

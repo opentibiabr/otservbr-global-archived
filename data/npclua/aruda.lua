@@ -113,7 +113,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 		npcHandler:setTopic(playerId, nil)
 		Price[playerId] = nil
-	elseif npcHandler:getTopic(playerId) == 3 and player:removeItem(2036, 1) then
+	elseif npcHandler:getTopic(playerId) == 3 and player:removeItem(2906, 1) then
 		npcHandler:say("Take some time to talk to me!", npc, creature)
 		npcHandler:setTopic(playerId, nil)
 	elseif npcHandler:getTopic(playerId) == 4 and (msgcontains(message, "spouse") or msgcontains(message, "girlfriend")) then

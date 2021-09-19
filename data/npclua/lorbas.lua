@@ -66,7 +66,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif msgcontains(message, 'yes') then
 		if npcHandler:getTopic(playerId) == 1 then
-			if not player:removeItem(8111, 1) then
+			if not player:removeItem(130, 1) then
 				npcHandler:say('You have no cookie that I\'d like.', npc, creature)
 				npcHandler:setTopic(playerId, 0)
 				return true

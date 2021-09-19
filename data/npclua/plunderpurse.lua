@@ -232,8 +232,8 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif npcHandler:getTopic(playerId) == 15 then
 		if msgcontains(message, "yes") then
-			if player:removeItem(2148, count[playerId] * 100) then
-				player:addItem(2152, count[playerId])
+			if player:removeItem(3031, count[playerId] * 100) then
+				player:addItem(3035, count[playerId])
 				npcHandler:say("Here you are.", npc, creature)
 			else
 				npcHandler:say("Sorry, you do not have enough gold coins.", npc, creature)
@@ -268,8 +268,8 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif npcHandler:getTopic(playerId) == 18 then
 		if msgcontains(message, "yes") then
-			if player:removeItem(2152, count[playerId]) then
-				player:addItem(2148, count[playerId] * 100)
+			if player:removeItem(3035, count[playerId]) then
+				player:addItem(3031, count[playerId] * 100)
 				npcHandler:say("Here you are.", npc, creature)
 			else
 				npcHandler:say("Sorry, you do not have enough platinum coins.", npc, creature)
@@ -290,8 +290,8 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif npcHandler:getTopic(playerId) == 20 then
 		if msgcontains(message, "yes") then
-			if player:removeItem(2152, count[playerId] * 100) then
-				player:addItem(2160, count[playerId])
+			if player:removeItem(3035, count[playerId] * 100) then
+				player:addItem(3043, count[playerId])
 				npcHandler:say("Here you are.", npc, creature)
 			else
 				npcHandler:say("Sorry, you do not have enough platinum coins.", npc, creature)
@@ -315,8 +315,8 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif npcHandler:getTopic(playerId) == 22 then
 		if msgcontains(message, "yes") then
-			if player:removeItem(2160, count[playerId])  then
-				player:addItem(2152, count[playerId] * 100)
+			if player:removeItem(3043, count[playerId])  then
+				player:addItem(3035, count[playerId] * 100)
 				npcHandler:say("Here you are.", npc, creature)
 			else
 				npcHandler:say("Sorry, you do not have enough crystal coins.", npc, creature)

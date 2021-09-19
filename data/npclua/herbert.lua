@@ -70,7 +70,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif msgcontains(message, 'yes') then
 		if npcHandler:getTopic(playerId) == 2 then
 			if player:removeMoneyBank(1000) then
-				player:addItem(8768, 1)
+				player:addItem(7940, 1)
 				npcHandler:say('Here you go kind sir.', npc, creature)
 				npcHandler:setTopic(playerId, 0)
 			end
@@ -90,7 +90,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

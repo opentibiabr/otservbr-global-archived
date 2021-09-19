@@ -68,7 +68,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	if isInArray({"addon", "armor"}, message) then
 		if player:getStorageValue(Storage.OutfitQuest.WarriorShoulderAddon) == 5 then
 			player:setStorageValue(Storage.OutfitQuest.WarriorShoulderAddon, 6)
-			player:setStorageValue(Storage.OutfitQuest.WarriorShoulderTimer, os.time() + (player:getSex() == PLAYERSEX_FEMALE and 3600 or 7200))
+			player:setStorageValue(Storage.OutfitQuest.WarriorShoulderTimer, os.time() + (player:getSex() == PLAYERSEX_FEMALE and 1768 or 7200))
 			npcHandler:say('Ah, you must be the hero Trisha talked about. I\'ll prepare the shoulder spikes for you. Please give me some time to finish.', npc, creature)
 		elseif player:getStorageValue(Storage.OutfitQuest.WarriorShoulderAddon) == 6 then
 			if player:getStorageValue(Storage.OutfitQuest.WarriorShoulderTimer) > os.time() then
@@ -162,7 +162,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

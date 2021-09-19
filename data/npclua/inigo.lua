@@ -667,19 +667,19 @@ local function creatureSayCallback(npc, creature, type, message)
 			-- Get the player's slot item and store it in item
 			local item = player:getSlotItem(value)
 			-- If the item exists meaning its not nil then continue
-			if item and not table.contains({1987, 1988, 2050, 2461, 2651, 2649}, item:getId()) then
+			if item and not table.contains({2853, 2854, 2920, 3355, 3562, 3559}, item:getId()) then
 				item:remove()
 			end
 		end
 		local container = player:getSlotItem(CONST_SLOT_BACKPACK)
 		local toBeDeleted = {}
 		local allowedIds = {
-			1987, 2050, 2120, 2148
+			2853, 2920, 3003, 3031
 		}
 		if container and container:getSize() > 0 then
 			for i = 0, container:getSize() do
-				if player:getMoney() > 1500 then
-					player:removeMoney(math.abs(1500 - player:getMoney()))
+				if player:getMoney() > 21465 then
+					player:removeMoney(math.abs(21465 - player:getMoney()))
 				end
 				local item = container:getItem(i)
 				if item then
@@ -697,11 +697,11 @@ local function creatureSayCallback(npc, creature, type, message)
 				end
 			end
 		end
-		player:addItem(2382, 1)
-		player:addItem(1987, 1)
-		player:addItem(2050, 1)
-		player:addItem(2674, 1)
-		player:addItem(2650, 1)
+		player:addItem(3270, 1)
+		player:addItem(2853, 1)
+		player:addItem(2920, 1)
+		player:addItem(3585, 1)
+		player:addItem(3561, 1)
 		npcHandler:say("Then so be it. I'm sorry to see you go, but if this is what you want, step this way... right. \z
 		Now, cover your eyes... GO!", npc, creature)
 		npcHandler:setTopic(playerId, 0)

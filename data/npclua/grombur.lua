@@ -72,7 +72,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		if player:getStorageValue(Storage.HiddenCityOfBeregar.TheGoodGuard) < 1 then
 			npcHandler:say("Got any dwarven brown ale?? I DON'T THINK SO....and Bolfana, the tavern keeper, won't sell you anything. I'm sure about that...she doesn't like humans... I tell you what, if you get me a cask of dwarven brown ale, I allow you to enter the mine. Alright?", npc, creature)
 			npcHandler:setTopic(playerId, 2)
-		elseif player:getStorageValue(Storage.HiddenCityOfBeregar.TheGoodGuard) == 1 and player:removeItem(9689, 1) then
+		elseif player:getStorageValue(Storage.HiddenCityOfBeregar.TheGoodGuard) == 1 and player:removeItem(8774, 1) then
 			player:setStorageValue(Storage.HiddenCityOfBeregar.TheGoodGuard, 2)
 			player:setStorageValue(Storage.HiddenCityOfBeregar.DoorSouthMine, 1)
 			npcHandler:say("HOW?....WHERE?....AHHHH, I don't mind....SLUUUUUURP....tastes a little flat but I had worse. Thank you. Just don't tell anyone that I let you in.", npc, creature)

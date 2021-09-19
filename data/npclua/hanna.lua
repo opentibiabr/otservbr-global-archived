@@ -90,7 +90,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 	elseif npcHandler:getTopic(playerId) == 2 then
 		if msgcontains(message, 'yes') then
-			if player:getItemCount(2480) < 1 then
+			if player:getItemCount(3374) < 1 then
 				npcHandler:say('Sorry, but I can\'t see a legion helmet.', npc, creature)
 			elseif player:getItemCount(5890) < 100 then
 				npcHandler:say('Sorry, but you don\'t enough chicken feathers.', npc, creature)
@@ -100,7 +100,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:say('Great job! That must have taken a lot of work. Okay, you put it like this... then glue like this... here!', npc, creature)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 
-				player:removeItem(2480, 1)
+				player:removeItem(3374, 1)
 				player:removeItem(5902, 50)
 				player:removeItem(5890, 100)
 
@@ -199,7 +199,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

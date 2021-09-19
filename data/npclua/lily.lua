@@ -114,7 +114,7 @@ mission4:addChildKeyword({"yes"}, StdModule.say,
 nil,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission04, 2)
-	player:addItemEx(Game.createItem(13827, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(12671, 1), true, CONST_SLOT_WHEREEVER)
 	player:addMapMark({x = 32091, y = 32178, z = 7}, MAPMARK_GREENNORTH, "North Exit")
 	player:addMapMark({x = 32139, y = 32176, z = 7}, MAPMARK_GREENNORTH, "To Hyacinth")
 end
@@ -173,7 +173,7 @@ mission4AcceptAnotherHerbs:addChildKeyword({"yes"}, StdModule.say,
 },
 nil,
 function(player)
-	player:addItemEx(Game.createItem(13827, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(12671, 1), true, CONST_SLOT_WHEREEVER)
 end
 )
 
@@ -242,9 +242,9 @@ keywordHandler:addAliasKeyword({'torch'})
 
 local cookiKeyword = keywordHandler:addKeyword({'cooki'}, StdModule.say, {npcHandler = npcHandler, text = 'Oh yes, I love cookies! Will you accept 1 gold for it?'})
 	cookiKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Fine! Here\'s your gold.', reset = true},
-		function(player) return player:getItemCount(2687) > 0 end,
+		function(player) return player:getItemCount(3598) > 0 end,
 		function(player)
-			player:removeItem(2687, 1)
+			player:removeItem(3598, 1)
 			player:addMoney(1)
 		end
 	)
@@ -253,9 +253,9 @@ local cookiKeyword = keywordHandler:addKeyword({'cooki'}, StdModule.say, {npcHan
 
 local blueberryKeyword = keywordHandler:addKeyword({'blueberry'}, StdModule.say, {npcHandler = npcHandler, text = 'Oh, do you have blueberries for sale? I need them for my {antidote potion}. I give you 1 gold for 5 of them, yes?'})
 	blueberryKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Fine! Here\'s your gold.', reset = true},
-		function(player) return player:getItemCount(2677) >= 5 end,
+		function(player) return player:getItemCount(3588) >= 5 end,
 		function(player)
-			player:removeItem(2677, 5)
+			player:removeItem(3588, 5)
 			player:addMoney(1)
 		end
 	)
@@ -306,7 +306,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

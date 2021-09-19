@@ -176,7 +176,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission06, 2) -- StorageValue for Questlog "Mission 06: Frightening Fuel"
 			npcHandler:setTopic(playerId, 0)
 		elseif player:getStorageValue(Storage.InServiceofYalahar.Questline) == 37 then
-			if player:removeItem(9742, 1) then
+			if player:removeItem(8827, 1) then
 				npcHandler:say({
 					"I thank you also in the name of these poor lost souls. I will send the charm to a priest who is able to release them. ...",
 					"Tell the Yalahari that the charm was destroyed by the energy it contained."
@@ -294,7 +294,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("I knew that you were smart enough to make the right decision! Your next mission will be a special one! ", npc, creature)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 6 then
-			if player:getItemCount(9956) > 0 and player:getStorageValue(Storage.InServiceofYalahar.Questline) == 54 then
+			if player:getItemCount(9042) > 0 and player:getStorageValue(Storage.InServiceofYalahar.Questline) == 54 then
 				player:setStorageValue(Storage.InServiceofYalahar.Questline, 55)
 				npcHandler:say("Great! Here, take this yalaharian addon in a return.", npc, creature)
 				player:addOutfitAddon(325, player:getStorageValue(Storage.InServiceofYalahar.SideDecision) == 1 and 1 or 2)

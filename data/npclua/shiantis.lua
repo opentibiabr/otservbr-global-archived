@@ -70,7 +70,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			local player = Player(creature)
 			if player:getMoney() + player:getBankBalance() >= 111 then
 				npcHandler:say("Here it is.", npc, creature)
-				player:addItem(2109, 1)
+				player:addItem(2990, 1)
 				player:removeMoneyBank(111)
 			else
 				npcHandler:say("You don't have enough money.", npc, creature)
@@ -159,7 +159,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

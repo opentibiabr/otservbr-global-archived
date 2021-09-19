@@ -58,11 +58,11 @@ local function creatureSayCallback(npc, creature, type, message)
 	local playerId = creature:getId()
 	local player = Player(creature)
 	if msgcontains(message, "mission") then
-		if player:getStorageValue(Storage.TibiaTales.ultimateBoozeQuest) == 2 and player:removeItem(7495, 1) then
+		if player:getStorageValue(Storage.TibiaTales.ultimateBoozeQuest) == 2 and player:removeItem(136, 1) then
 			player:setStorageValue(Storage.TibiaTales.ultimateBoozeQuest, 3)
 			npcHandler:setTopic(playerId, 0)
 			player:addItem(5710, 1)
-			player:addItem(2152, 10)
+			player:addItem(3035, 10)
 			player:addExperience(100, true)
 			npcHandler:say("Yessss! Now I only need to build my own small brewery, figure out the secret recipe, duplicate the dwarvish brew and BANG I'll be back in business! Here take this as a reward.", npc, creature)
 		elseif player:getStorageValue(Storage.TibiaTales.ultimateBoozeQuest) < 1 then
@@ -73,7 +73,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		if npcHandler:getTopic(playerId) == 1 then
 			player:setStorageValue(Storage.TibiaTales.DefaultStart, 1)
 			player:setStorageValue(Storage.TibiaTales.ultimateBoozeQuest, 1)
-			player:addItem(7496, 1)
+			player:addItem(138, 1)
 			npcHandler:say("Good! Listen closely. Take this bottle and go to Kazordoon. I need a sample of their very special brown ale. You may find a cask in their brewery. Come back as soon as you got it.", npc, creature)
 		end
 	end
@@ -99,7 +99,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

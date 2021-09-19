@@ -74,7 +74,7 @@ local function creatureSayCallback(npc, creature, type, message)
 
 			npcHandler:say('Here you are. Happy cooking!', npc, creature)
 			player:setStorageValue(Storage.MaryzaCookbook, 1)
-			player:addItem(2347, 1)
+			player:addItem(3234, 1)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('I have but a few copies, anyway.', npc, creature)
 		end
@@ -103,7 +103,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

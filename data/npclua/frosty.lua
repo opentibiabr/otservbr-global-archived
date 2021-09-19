@@ -49,9 +49,9 @@ keywordHandler:addKeyword({'bunnies'}, StdModule.say, {npcHandler = npcHandler, 
 
 npcHandler:setMessage(MESSAGE_GREET, "No, you can't have my nose! If you're in need of a {carrot}, go to the market or just dig up one! Or did you come to bring me a {percht skull}?")
 sleighinfo = {
-['bright percht sleigh'] = {cost = 0, items = {{35051,1}}, mount = 133, storageID = Storage.Percht1},
-['cold percht sleigh'] = {cost = 0, items = {{35051,1}}, mount = 132, storageID = Storage.Percht2},
-['dark percht sleigh'] = {cost = 0, items = {{35051,1}}, mount = 134, storageID = Storage.Percht3}
+['bright percht sleigh'] = {cost = 0, items = {{30192,1}}, mount = 133, storageID = Storage.Percht1},
+['cold percht sleigh'] = {cost = 0, items = {{30192,1}}, mount = 132, storageID = Storage.Percht2},
+['dark percht sleigh'] = {cost = 0, items = {{30192,1}}, mount = 134, storageID = Storage.Percht3}
 }
 
 local monsterName = {'bright percht sleigh', 'cold percht sleigh', 'dark percht sleigh'}

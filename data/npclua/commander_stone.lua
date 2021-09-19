@@ -75,15 +75,15 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:say("You will have to repair some damaged crystals. Go into the Crystal grounds and repair them, using this harmonic crystal. Repair five of them and return to me. ", npc, creature)
 				player:setStorageValue(Storage.BigfootBurden.MissionCrystalKeeper, 1)
 				player:setStorageValue(Storage.BigfootBurden.RepairedCrystalCount, 0)
-				player:addItem(18219, 1)   --- taking missions
+				player:addItem(15703, 1)   --- taking missions
 			elseif player:getStorageValue(Storage.BigfootBurden.CrystalKeeperTimout) > os.time() then  -- trying to take mission while in cooldown
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", npc, creature)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionCrystalKeeper) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.RepairedCrystalCount) >= 5 then -- can report missions
-					player:removeItem(18219, 1)
+					player:removeItem(15703, 1)
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 5)
-					player:addItem(18422, 1)
-					player:addItem(18215, 1)
+					player:addItem(16128, 1)
+					player:addItem(15698, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionCrystalKeeper, 0)
 					player:setStorageValue(Storage.BigfootBurden.CrystalKeeperTimout, os.time() + 20 * 60 * 60)
 					player:setStorageValue(Storage.BigfootBurden.RepairedCrystalCount, -1)
@@ -113,15 +113,15 @@ local function creatureSayCallback(npc, creature, type, message)
 					"Don't worry. The gnomes assured me you'd be save. That is if nothing strange or unusual occurs! "}, npc, creature)
 				player:setStorageValue(Storage.BigfootBurden.MissionRaidersOfTheLostSpark, 1)
 				player:setStorageValue(Storage.BigfootBurden.ExtractedCount, 0)
-				player:addItem(18213, 1)   --- taking missions
+				player:addItem(15696, 1)   --- taking missions
 			elseif player:getStorageValue(Storage.BigfootBurden.RaidersOfTheLostSparkTimeout) > os.time() then  -- trying to take mission while in cooldown
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", npc, creature)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionRaidersOfTheLostSpark) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.ExtractedCount) >= 7 then -- can report missions
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 5)
-					player:removeItem(18213, 1)
-					player:addItem(18422, 1)
-					player:addItem(18215, 1)
+					player:removeItem(15696, 1)
+					player:addItem(16128, 1)
+					player:addItem(15698, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionRaidersOfTheLostSpark, 0)
 					player:setStorageValue(Storage.BigfootBurden.ExtractedCount, -1)
 					player:setStorageValue(Storage.BigfootBurden.RaidersOfTheLostSparkTimeout, os.time() + 20 * 60 * 60)
@@ -155,8 +155,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionExterminators) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.ExterminatedCount) >= 10 then -- can report missions
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 5)
-					player:addItem(18422, 1)
-					player:addItem(18215, 1)
+					player:addItem(16128, 1)
+					player:addItem(15698, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionExterminators, 0)
 					player:setStorageValue(Storage.BigfootBurden.ExterminatedCount, -1)
 					player:setStorageValue(Storage.BigfootBurden.ExterminatorsTimeout, os.time() + 20 * 60 * 60)
@@ -190,15 +190,15 @@ local function creatureSayCallback(npc, creature, type, message)
 				}, npc, creature)
 				player:setStorageValue(Storage.BigfootBurden.MissionMushroomDigger, 1)
 				player:setStorageValue(Storage.BigfootBurden.MushroomCount, 0)
-				player:addItem(18339, 1)   --- taking missions
+				player:addItem(15828, 1)   --- taking missions
 			elseif player:getStorageValue(Storage.BigfootBurden.MushroomDiggerTimeout) > os.time() then  -- trying to take mission while in cooldown
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", npc, creature)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionMushroomDigger) > 0 then  -- reporting mission
 				if player:getStorageValue(Storage.BigfootBurden.MushroomCount) >= 3 then -- can report missions
-					player:removeItem(18339, 1)
+					player:removeItem(15828, 1)
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 5)
-					player:addItem(18422, 1)
-					player:addItem(18215, 1)
+					player:addItem(16128, 1)
+					player:addItem(15698, 1)
 					player:setStorageValue(Storage.BigfootBurden.MissionMushroomDigger, 0)
 					player:setStorageValue(Storage.BigfootBurden.MushroomCount, -1)
 					player:setStorageValue(Storage.BigfootBurden.MushroomDiggerTimeout, os.time() + 20 * 60 * 60)

@@ -114,7 +114,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.UnnaturalSelection.Mission01, 1) --Questlog, Unnatural Selection Quest "Mission 1: Skulled"
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 2 then
-			if player:removeItem(11076, 1) then
+			if player:removeItem(10159, 1) then
 				npcHandler:say("Me thank you much! All wisdom safe again now.", npc, creature)
 				player:setStorageValue(Storage.UnnaturalSelection.Questline, 2)
 				player:setStorageValue(Storage.UnnaturalSelection.Mission01, 3) --Questlog, Unnatural Selection Quest "Mission 1: Skulled"
@@ -125,14 +125,14 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 		elseif npcHandler:getTopic(playerId) == 3 then
 			npcHandler:say("Here take holy skull. You bring where you think is good. See as much as possible! See where other people live!", npc, creature)
-			player:addItem(11076, 1)
+			player:addItem(10159, 1)
 			player:setStorageValue(Storage.UnnaturalSelection.Questline, 3)
 			player:setStorageValue(Storage.UnnaturalSelection.Mission02, 1) --Questlog, Unnatural Selection Quest "Mission 2: All Around the World"
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 4 then
-			if player:getStorageValue(Storage.UnnaturalSelection.Mission02) == 12 and player:getItemCount(11076) >= 1 then
+			if player:getStorageValue(Storage.UnnaturalSelection.Mission02) == 12 and player:getItemCount(10159) >= 1 then
 				npcHandler:say("We make big ritual soon and learn much about world outside. Me thank you many times for teaching us world. Very wise and adventurous you are!", npc, creature)
-				player:removeItem(11076, 1)
+				player:removeItem(10159, 1)
 				player:setStorageValue(Storage.UnnaturalSelection.Questline, 4)
 				player:setStorageValue(Storage.UnnaturalSelection.Mission02, 13) --Questlog, Unnatural Selection Quest "Mission 2: All Around the World"
 				npcHandler:setTopic(playerId, 0)
@@ -146,9 +146,9 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.UnnaturalSelection.Mission03, 1) --Questlog, Unnatural Selection Quest "Mission 3: Dance Dance Evolution"
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 6 then
-			if player:removeItem(2562, 1, 3) then
+			if player:removeItem(3465, 1, 3) then
 				npcHandler:say("We make big ritual soon and learn much about world outside. Me thank you many times for teaching us world. Very wise and adventurous you are!", npc, creature)
-				player:addItem(11115, 1)
+				player:addItem(10198, 1)
 				player:setStorageValue(Storage.UnnaturalSelection.Questline, 15)
 				player:setStorageValue(Storage.UnnaturalSelection.Mission06, 3) --Questlog, Unnatural Selection Quest "Mission 6: Firewater Burn"
 				npcHandler:setTopic(playerId, 0)

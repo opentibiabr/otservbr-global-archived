@@ -25,7 +25,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message
@@ -92,7 +92,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("I'm sorry I'm busy. Speak with Ongulf to get some missions!", npc, creature)
 		end
 	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) >= 1 and npcHandler:getTopic(playerId) <= 13 then
-		if player:removeItem(11134, 1) then --remove tome
+		if player:removeItem(10217, 1) then --remove tome
 			if npcHandler:getTopic(playerId) == 1 then	--tome1
 				npcHandler:say("Thank you! I look forward to reading this interesting discovery of yours and learn a few things about {Zao}.", npc, creature)
 				player:setStorageValue(Storage.TheNewFrontier.TomeofKnowledge, 1)
@@ -295,8 +295,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 65)
 		end
 	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 65 then
-		if player:removeItem(11206, 1) then
-			player:addItem(11133,1)
+		if player:removeItem(10289, 1) then
+			player:addItem(10216,1)
 			npcHandler:say("Let's put this little lantern here.. there you go. I wrap it up for you, just unwrap it in your house again!", npc, creature)
 			npcHandler:setTopic(playerId, 0)
 		else
@@ -310,7 +310,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 66 then
 		if player:removeItem(5911, 1) then
-			player:addItem(11205,1)
+			player:addItem(10288,1)
 			npcHandler:say("Let's put this cloth over the seat.. there you go. I wrap it up for you, just unwrap it in your house again!", npc, creature)
 			npcHandler:setTopic(playerId, 0)
 		else
@@ -318,10 +318,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 0)
 		end
 	elseif msgcontains(message, "crest") then
-		if player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335) and player:getItemCount(11116) > 0 then
+		if player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335) and player:getItemCount(10199) > 0 then
 		 	npcHandler:say("Oh, wow! Now THAT is an interesting relic! Can I have that serpent crest?", npc, creature)
 			npcHandler:setTopic(playerId, 60)
-		elseif player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335) and player:getItemCount(11115) > 0 then
+		elseif player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335) and player:getItemCount(10198) > 0 then
 			npcHandler:say("Oh, wow! Now THAT is an interesting relic! Can I have that tribal crest?", npc, creature)
 			npcHandler:setTopic(playerId, 61)
 		else
@@ -330,7 +330,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) >= 60 and npcHandler:getTopic(playerId) <= 61 then
 		if npcHandler:getTopic(playerId) == 60 then
-			if not player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335, 1) and player:removeItem(11116, 1) then
+			if not player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335, 1) and player:removeItem(10199, 1) then
 				player:addOutfitAddon(335, 1)
 				player:addOutfitAddon(336, 1)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
@@ -341,7 +341,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:setTopic(playerId, 0)
 			end
 		elseif npcHandler:getTopic(playerId) == 61 then
-			if not player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335, 2) and player:removeItem(11115, 1) then
+			if not player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 336 or 335, 2) and player:removeItem(10198, 1) then
 				player:addOutfitAddon(335, 2)
 				player:addOutfitAddon(336, 2)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)

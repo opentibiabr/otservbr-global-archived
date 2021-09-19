@@ -48,27 +48,27 @@ npcType.onThink = function(npc, interval)
 end
 
 local shop = {
-	{id=25177, buy=100, sell=0, name='earthheart cuirass'},
-	{id=25178, buy=100, sell=0, name='earthheart hauberk'},
-	{id=25179, buy=100, sell=0, name='earthheart platemail'},
-	{id=25191, buy=100, sell=0, name='earthmind raiment'},
-	{id=25187, buy=100, sell=0, name='earthsoul tabard'},
-	{id=25174, buy=100, sell=0, name='fireheart cuirass'},
-	{id=25175, buy=100, sell=0, name='fireheart hauberk'},
-	{id=25176, buy=100, sell=0, name='fireheart platemail'},
-	{id=25190, buy=100, sell=0, name='firemind raiment'},
-	{id=25186, buy=100, sell=0, name='firesoul tabard'},
-	{id=25183, buy=100, sell=0, name='frostheart cuirass'},
-	{id=25184, buy=100, sell=0, name='frostheart hauberk'},
-	{id=25185, buy=100, sell=0, name='frostheart platemail'},
-	{id=25193, buy=100, sell=0, name='frostmind raiment'},
-	{id=25189, buy=100, sell=0, name='frostsoul tabard'},
-	{id=40398, buy=1, sell=0, name='magic shield potion'},
-	{id=25180, buy=100, sell=0, name='thunderheart cuirass'},
-	{id=25181, buy=100, sell=0, name='thunderheart hauberk'},
-	{id=25182, buy=100, sell=0, name='thunderheart platemail'},
-	{id=25192, buy=100, sell=0, name='thundermind raiment'},
-	{id=25188, buy=100, sell=0, name='thundersoul tabard'}
+	{id=22521, buy=100, sell=0, name='earthheart cuirass'},
+	{id=22522, buy=100, sell=0, name='earthheart hauberk'},
+	{id=22523, buy=100, sell=0, name='earthheart platemail'},
+	{id=22535, buy=100, sell=0, name='earthmind raiment'},
+	{id=22531, buy=100, sell=0, name='earthsoul tabard'},
+	{id=22518, buy=100, sell=0, name='fireheart cuirass'},
+	{id=22519, buy=100, sell=0, name='fireheart hauberk'},
+	{id=22520, buy=100, sell=0, name='fireheart platemail'},
+	{id=22534, buy=100, sell=0, name='firemind raiment'},
+	{id=22530, buy=100, sell=0, name='firesoul tabard'},
+	{id=22527, buy=100, sell=0, name='frostheart cuirass'},
+	{id=22528, buy=100, sell=0, name='frostheart hauberk'},
+	{id=22529, buy=100, sell=0, name='frostheart platemail'},
+	{id=22537, buy=100, sell=0, name='frostmind raiment'},
+	{id=22533, buy=100, sell=0, name='frostsoul tabard'},
+	{id=35563, buy=1, sell=0, name='magic shield potion'},
+	{id=22524, buy=100, sell=0, name='thunderheart cuirass'},
+	{id=22525, buy=100, sell=0, name='thunderheart hauberk'},
+	{id=22526, buy=100, sell=0, name='thunderheart platemail'},
+	{id=22536, buy=100, sell=0, name='thundermind raiment'},
+	{id=22532, buy=100, sell=0, name='thundersoul tabard'}
 }
 
 local function setNewTradeTable(table)
@@ -109,11 +109,11 @@ local function onSell(creature, item, subType, amount, ignoreCap, inBackpacks)
 end
 
 local chargeItem = {
-	['pendulet'] = {noChargeID = 34067, ChargeID = 34983},
-	['sleep shawl'] = {noChargeID = 34066, ChargeID = 34981},
-	['blister ring'] = {noChargeID = 36392, ChargeID = 36456},
-	['theurgic amulet'] = {noChargeID = 35236, ChargeID = 35238},
-	['ring of souls'] = {noChargeID = 37456, ChargeID = 37471}
+	['pendulet'] = {noChargeID = 29429, ChargeID = 30345},
+	['sleep shawl'] = {noChargeID = 29428, ChargeID = 30343},
+	['blister ring'] = {noChargeID = 31557, ChargeID = 31621},
+	['theurgic amulet'] = {noChargeID = 30401, ChargeID = 30403},
+	['ring of souls'] = {noChargeID = 32621, ChargeID = 32636}
 }
 
 local function greetCallback(npc, creature)
@@ -208,7 +208,7 @@ function creatureSayCallback(npc, creature, type, message)	local player = Player
 	elseif isInArray({'first', 'second'}, message:lower()) and npcHandler:getTopic(playerId) == 3 then
 		if message:lower() == 'first' then
 			if not(player:hasOutfit(846, 1)) and not(player:hasOutfit(845, 1)) then
-				if player:removeItem(25172, 100) then
+				if player:removeItem(22516, 100) then
 					npcHandler:say("Ah, excellent. Obtain the first addon for your rift warrior outfit.", npc, creature)
 					player:addOutfitAddon(846, 1)
 					player:addOutfitAddon(845, 1)
@@ -223,7 +223,7 @@ function creatureSayCallback(npc, creature, type, message)	local player = Player
 			end
 		elseif message:lower() == 'second' then
 			if not(player:hasOutfit(846, 2)) and not(player:hasOutfit(845, 2)) then
-				if player:removeItem(25172, 100) then
+				if player:removeItem(22516, 100) then
 					npcHandler:say("Ah, excellent. Obtain the second addon for your rift warrior outfit.", npc, creature)
 					player:addOutfitAddon(846, 2)
 					player:addOutfitAddon(845, 2)

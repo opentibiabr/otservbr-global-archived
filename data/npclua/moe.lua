@@ -68,9 +68,9 @@ keywordHandler:addKeyword(
 keywordHandler:addKeyword(
 	{"feathers"}, StdModule.say, { npcHandler = npcHandler,
 	text = "Thank you! They look so pretty, I'm very pleased. Agreed, now I will steal the ring from the Ambassador of Rathleton. Just be patient, I have to wait for a good moment."},
-	function (player) return player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 2 and player:getItemById(36272, 10) end,
+	function (player) return player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 2 and player:getItemById(31437, 10) end,
 	function (player) 
-		player:removeItem(36272, 10)
+		player:removeItem(31437, 10)
 		player:setStorageValue(Storage.Kilmaresh.Fourth.Moe, 3)
 		player:setStorageValue(Storage.Kilmaresh.Fourth.MoeTimer, os.time() + 60 * 60 ) -- one hour
 	end
@@ -79,7 +79,7 @@ keywordHandler:addKeyword(
 keywordHandler:addKeyword(
 	{"feathers"}, StdModule.say, { npcHandler = npcHandler,
 	text = "If you bring me ten sphinx {feathers} I will steal this ring for you."},
-	function (player) return player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 2 and not player:getItemById(36272, 10) end
+	function (player) return player:getStorageValue(Storage.Kilmaresh.Fourth.Moe) == 2 and not player:getItemById(31437, 10) end
 )
 
 keywordHandler:addKeyword(
@@ -90,7 +90,7 @@ keywordHandler:addKeyword(
 			player:getStorageValue(Storage.Kilmaresh.Fourth.MoeTimer) - os.time() <= 0
 	end,
 	function (player)
-		player:addItem(36141, 1)
+		player:addItem(31306, 1)
 		player:setStorageValue(Storage.Kilmaresh.Fourth.Moe, 4)
 	end
 )

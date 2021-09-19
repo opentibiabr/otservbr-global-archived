@@ -67,7 +67,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:setTopic(playerId, 2)
 	elseif msgcontains(message, "yes") then
 		if npcHandler:getTopic(playerId) == 1 then
-			if player:removeItem(2331, 1) then
+			if player:removeItem(3218, 1) then
 				npcHandler:say("Thank you very much!", npc, creature)
 				player:setStorageValue(Storage.Postman.Mission05, 3)
 				npcHandler:setTopic(playerId, 0)

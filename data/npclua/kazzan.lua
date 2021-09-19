@@ -91,7 +91,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		'Well, I don\'t blame you for that. I am sure you did your best. Now we can just hope that peace remains. Here, take this small gratification for your effort to help and Daraman may bless you!'
 		}, npc, creature)
 		player:setStorageValue(Storage.TibiaTales.ToAppeaseTheMightyQuest, player:getStorageValue(Storage.TibiaTales.ToAppeaseTheMightyQuest) + 1)
-		player:addItem(2152, 20)
+		player:addItem(3035, 20)
 end
 
 	if player:getStorageValue(Storage.WhatAFoolish.Questline) == 35

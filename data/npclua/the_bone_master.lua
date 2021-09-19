@@ -95,7 +95,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:addAchievement('Bone Brother')
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 3 then
-			if player:removeItem(6500, 500) then
+			if player:removeItem(6499, 500) then
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:setStorageValue(Storage.OutfitQuest.BrotherhoodOutfit, 2)
 				npcHandler:say("You advanced to {Hyaena} rank! You are now able to use teleports of second floor of Knightwatch Tower.", npc, creature)
@@ -104,10 +104,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 4 then
-			if player:removeItem(6500, 1000) then
+			if player:removeItem(6499, 1000) then
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:setStorageValue(Storage.OutfitQuest.BrotherhoodOutfit, 3)
-				player:addItem(6433, 1)
+				player:addItem(6432, 1)
 				player:addAchievement('Skull and Bones')
 				npcHandler:say("You advanced to {Death Dealer} rank!", npc, creature)
 			else
@@ -115,7 +115,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 5 then
-			if player:removeItem(6500, 1500) then
+			if player:removeItem(6499, 21465) then
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:setStorageValue(Storage.OutfitQuest.BrotherhoodOutfit, 4)
 				player:setStorageValue(Storage.OutfitQuest.BrotherhoodDoor, 1)

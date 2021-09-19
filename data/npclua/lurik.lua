@@ -67,7 +67,7 @@ local function creatureSayCallback(npc, creature, type, message)
 					"A frozen dragon lord? This is just the information we needed! And you even brought a scale from it! Take these 5000 gold pieces as a reward. ...",
 					"As you did such a great job, I might have another mission for you later."
 				}, npc, creature)
-				player:addItem(2152, 50)
+				player:addItem(3035, 50)
 				player:setStorageValue(Storage.ExplorerSociety.TheIslandofDragons, 59)
 				player:setStorageValue(Storage.ExplorerSociety.QuestLine, 59)
 			else
@@ -157,7 +157,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

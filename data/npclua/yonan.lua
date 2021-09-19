@@ -92,7 +92,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message
@@ -160,8 +160,8 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 1 and player:getStorageValue(Storage.Kilmaresh.Eighth.Yonan) == 1 then
 		if player:getStorageValue(Storage.Kilmaresh.Eighth.Yonan) == 1 then	
-			player:addItem(36552, 1) -- Yonans List
-			player:addItem(36448, 1) -- Pick Enchanted
+			player:addItem(31717, 1) -- Yonans List
+			player:addItem(31613, 1) -- Pick Enchanted
 			npcHandler:say({"Here is the list with the missing ingredients to complete the ritual."}, npc, creature)-- It needs to be revised, it's not the same as the global
 			player:setStorageValue(Storage.Kilmaresh.Eighth.Yonan, 2)
 			npcHandler:setTopic(playerId, 2)
@@ -177,10 +177,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 3)
 		end	
 	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 3 and player:getStorageValue(Storage.Kilmaresh.Eighth.Yonan) == 2 then
-		if player:getStorageValue(Storage.Kilmaresh.Eighth.Yonan) == 2 and player:getItemById(10568, 3) and player:getItemById(36160, 12) and player:getItemById(36168, 10) then
-			player:removeItem(10568, 3)
-			player:removeItem(36160, 12)
-			player:removeItem(36168, 10)
+		if player:getStorageValue(Storage.Kilmaresh.Eighth.Yonan) == 2 and player:getItemById(9651, 3) and player:getItemById(31325, 12) and player:getItemById(31333, 10) then
+			player:removeItem(9651, 3)
+			player:removeItem(31325, 12)
+			player:removeItem(31333, 10)
 			npcHandler:say({"Thank you this stage of the ritual is complete."}, npc, creature)-- It needs to be revised, it's not the same as the global
 			player:setStorageValue(Storage.Kilmaresh.Eighth.Yonan, 3)
 			npcHandler:setTopic(playerId, 4)

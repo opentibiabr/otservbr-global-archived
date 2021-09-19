@@ -124,7 +124,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.OutfitQuest.DefaultStart, 1) --this for default start of Outfit and Addon Quests
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 3 then
-			if player:removeItem(2536, 1) then
+			if player:removeItem(3436, 1) then
 				npcHandler:say("Good. I accept your sacrifice. The second sacrifice I require from you is a dragon scale mail. Bring it to me and do give it happily.", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.WizardAddon, 2)
 				npcHandler:setTopic(playerId, 0)
@@ -132,7 +132,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:say("You don't have it...", npc, creature)
 			end
 		elseif npcHandler:getTopic(playerId) == 4 then
-			if player:removeItem(2492, 1) then
+			if player:removeItem(3386, 1) then
 				npcHandler:say("Good. I accept your sacrifice. The third sacrifice I require from you are crown legs. Bring them to me and do give them happily.", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.WizardAddon, 3)
 				npcHandler:setTopic(playerId, 0)
@@ -140,7 +140,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:say("You don't have it...", npc, creature)
 			end
 		elseif npcHandler:getTopic(playerId) == 5 then
-			if player:removeItem(2488, 1) then
+			if player:removeItem(3382, 1) then
 				npcHandler:say("Good. I accept your sacrifice. The last sacrifice I require from you is a ring of the sky. Bring it to me and do give it happily.", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.WizardAddon, 4)
 				npcHandler:setTopic(playerId, 0)
@@ -148,7 +148,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:say("You don't have it...", npc, creature)
 			end
 		elseif npcHandler:getTopic(playerId) == 6 then
-			if player:removeItem(2123, 1) then
+			if player:removeItem(3006, 1) then
 				npcHandler:say("Good. I accept your sacrifice. You have proven that you are a true follower of Zathroth and do not hesitate to sacrifice worldly goods. Thus, I will reward you with this headgear. ", npc, creature)
 				player:setStorageValue(Storage.OutfitQuest.WizardAddon, 5)
 				player:addOutfitAddon(145, 2)

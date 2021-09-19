@@ -43,7 +43,7 @@ function parseAlesarSay(npc, creature, message, npcHandler)
 
 	elseif npcHandler:getTopic(playerId) == 2 then
 		if msgcontains(message, "yes") then
-			if player:getItemCount(2346) == 0 or missionProgress ~= 2 then
+			if player:getItemCount(3233) == 0 or missionProgress ~= 2 then
 				npcHandler:say("As I expected. You haven't got the stone. Shall I explain your mission again?", npc, creature)
 				npcHandler:setTopic(playerId, 1)
 			else
@@ -54,7 +54,7 @@ function parseAlesarSay(npc, creature, message, npcHandler)
 					"Baa'leal, wants you to talk to Malor concerning some new mission. ...",
 					"Looks like you have managed to extended your life expectancy - for just a bit longer."
 				}, npc, creature)
-				player:removeItem(2346, 1)
+				player:removeItem(3233, 1)
 				player:setStorageValue(Storage.DjinnWar.EfreetFaction.Mission02, 3)
 				npcHandler:setTopic(playerId, 0)
 			end

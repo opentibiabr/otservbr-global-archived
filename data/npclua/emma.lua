@@ -62,7 +62,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say('I am still a bit sceptical, but well, welcome to the girls brigade.', npc, creature)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 2 then
-			if player:removeItem(8190, 1) then
+			if player:removeItem(648, 1) then
 				player:setStorageValue(Storage.SecretService.CGBMission01, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 3)
 				npcHandler:say('How unnecessarily complicated, but that\'s the way those Thaians are. In the end we got what we wanted and they can\'t do anything about it.', npc, creature)
@@ -71,7 +71,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 3 then
-			if player:removeItem(7736, 1) then
+			if player:removeItem(652, 1) then
 				player:setStorageValue(Storage.SecretService.CGBMission02, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 5)
 				npcHandler:say('I think the druids will be pleased to hear that the immediate threat has been averted.', npc, creature)
@@ -85,7 +85,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say('Great! This blow strikes them where it hurts most: profit.', npc, creature)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 5 then
-			if player:removeItem(7702, 1) then
+			if player:removeItem(399, 1) then
 				player:setStorageValue(Storage.SecretService.CGBMission04, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 9)
 				npcHandler:say('I hope our craftsmen can do something with this stuff. For me it makes hardly any sense.', npc, creature)
@@ -94,7 +94,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 6 then
-			if player:removeItem(7703, 1) then
+			if player:removeItem(400, 1) then
 				player:setStorageValue(Storage.SecretService.CGBMission05, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 11)
 				npcHandler:say('I will have this correspondence examined by our specialists. I am sure they are quite revealing.', npc, creature)
@@ -103,7 +103,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 7 then
-			if player:removeItem(7704, 1) then
+			if player:removeItem(401, 1) then
 				player:setStorageValue(Storage.SecretService.CGBMission06, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 13)
 				npcHandler:say('I hope this old book will do those researches any good. Personally I see little use to proof some bloodlines after we cut all ties to Thais.', npc, creature)
@@ -112,10 +112,10 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 8 then
-			if player:removeItem(7699, 1) then
+			if player:removeItem(396, 1) then
 				player:setStorageValue(Storage.SecretService.Mission07, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 15)
-				player:addItem(7961, 1)
+				player:addItem(898, 1)
 				npcHandler:say({
 				'Excellent. The queen was not amused about this threat. It\'s a good thing that you have saved the city ...',
 				'Unfortunately, as we are secret agents we can\'t parade for you or something like that, but let me express our gratitude for everything you have done for our city ...',
@@ -175,7 +175,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif player:getStorageValue(Storage.SecretService.CGBMission02) == 2 and player:getStorageValue(Storage.SecretService.Quest) == 5 then
 			player:setStorageValue(Storage.SecretService.Quest, 6)
 			player:setStorageValue(Storage.SecretService.CGBMission03, 1)
-			player:addItem(7698, 1)
+			player:addItem(350, 1)
 			npcHandler:say({
 				'The scheming Venoreans are a constant thorn in our side. They supply our enemies with all kind of equipment to boost the threat they pose to our freedom. It will be your task to hinder future weapon deliveries significantly ...',
 				'The druids have supplied us with some exotic bugs. They are called rust bugs and they did not receive this name for their colour ...',

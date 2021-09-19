@@ -59,8 +59,8 @@ local function creatureSayCallback(npc, creature, type, message)
 	local player = Player(creature)
 	if msgcontains(message, 'letter') then
 		if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 4 then
-			if player:getItemCount(8188) > 0 then
-				if player:removeItem(8188, 1) then
+			if player:getItemCount(3506) > 0 then
+				if player:removeItem(3506, 1) then
 					npcHandler:say(
 						'A letter from that youngster Morgan? I believed him dead since years. \
 						These news are good news indeed. Thank you very much, my friend.',
@@ -285,7 +285,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

@@ -60,7 +60,7 @@ local config = {
 			no = 'Perhaps Heoni was out to hunt when you were looking for it. Search in the mountains of Edron. I put my trust in your abilities.',
 			done = 'Your bravery earned us this excellent sinew.'
 		},
-		itemId = 12504
+		itemId = 11548
 	},
 	['exquisite wood'] = {
 		storage = Storage.FathersBurden.Wood,
@@ -71,7 +71,7 @@ local config = {
 			no = 'The wood that I need should be in one of the barbarian camps. It seems logical to search the most northern camp first, it is closest to the place where the tree was cut. Please hurry, there is still so much to do before the birthday.',
 			done = 'The wood you have found is just what we needed.'
 		},
-		itemId = 12503
+		itemId = 11547
 	},
 	['spectral cloth'] = {
 		storage = Storage.FathersBurden.Cloth,
@@ -82,7 +82,7 @@ local config = {
 			no = 'Don\'t forget, you will find it somewhere in the crypts under the Isle of the Kings. You will probably have to look for hidden caves when you don\'t find it at an obvious place. Perhaps you even need a shovel or a pick.',
 			done = 'Thanks to your efforts we have a suitable piece of spectral cloth.'
 		},
-		itemId = 12502
+		itemId = 11546
 	},
 	['exquisite silk'] = {
 		storage = Storage.FathersBurden.Silk,
@@ -93,7 +93,7 @@ local config = {
 			no = 'Then search the spider caves of the continent Zao for the silk. They have to be somewhere in the east of Zao\'s southern part. My sources claim there you will find the silk that we need.',
 			done = 'The silk you have brought me is exquisite indeed.'
 		},
-		itemId = 12501
+		itemId = 11545
 	},
 	['magic crystal'] = {
 		storage = Storage.FathersBurden.Crystal,
@@ -104,7 +104,7 @@ local config = {
 			no = {'It is probably not easy to find the crystal that we need in such a huge desert which may contain several tombs, but please don\'t give up. ...', 'According to my sources the tomb we are looking for is east of Ankrahmun. You probably need a shovel to enter it. We still have some time and I am convinced you will find it.'},
 			done = 'The crystal you have found is absolutely flawless. You did a great job indeed.'
 		},
-		itemId = 12508
+		itemId = 11552
 	},
 	['mystic root'] = {
 		storage = Storage.FathersBurden.Root,
@@ -115,7 +115,7 @@ local config = {
 			no = 'The best advice I can give you is to look underground beneath the city for a suitable root.',
 			done = 'It is even recognisable for me that the root you gave me is filled with magic.'
 		},
-		itemId = 12507
+		itemId = 11551
 	},
 	['old iron'] = {
 		storage = Storage.FathersBurden.Iron,
@@ -126,7 +126,7 @@ local config = {
 			no = 'I know it\'s not easy to find this iron but there has to be some in the deposits beneath the old Kazordoon mines. I doubt it that it can be found in the newer mines outside of Kazordoon.',
 			done = 'The iron that you\'ve found will make an ideal base for a shield.'
 		},
-		itemId = 12505
+		itemId = 11549
 	},
 	['flexible dragon scale'] = {
 		storage = Storage.FathersBurden.Scale,
@@ -137,7 +137,7 @@ local config = {
 			no = 'Oh please, search for Glitterscale. It should not be too hard to find it in those caves north of Thais.',
 			done = 'Only someone as daring as you could slay the beast to get the necessary scales.'
 		},
-		itemId = 12506
+		itemId = 11550
 	}
 }
 
@@ -179,7 +179,7 @@ function creatureSayCallback(npc, creature, type, message)
 				end
 
 				player:setStorageValue(Storage.FathersBurden.Status, 2)
-				player:addItem(12657, 1)
+				player:addItem(11701, 1)
 				player:addExperience(8000, true)
 				npcHandler:say({
 					'I\'m so glad I finally have all the parts for the presents. Your reward is my eternal gratitude. Well, that and some gold of course. ...',

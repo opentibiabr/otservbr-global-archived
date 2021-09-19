@@ -103,7 +103,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif npcHandler:getTopic(playerId) == 2 then
 			npcHandler:say("Good, now all you need to do is find a ghost, defeat it and catch its very essence with the cage. Once you have it, return to me and Spectulus and I will move it into our chamber device. Good luck, return to me as soon as you are prepared.", npc, creature)
 			player:setStorageValue(Storage.SpiritHunters.Mission01, 3)
-			player:addItem(12671, 1)
+			player:addItem(4050, 1)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 3 then
 			if player:getStorageValue(Storage.SpiritHunters.CharmUse) == 1 then
@@ -139,7 +139,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:say("Alright, let us see how many ghosts you caught!", npc, creature)
 				player:setStorageValue(Storage.SpiritHunters.Mission01, 6)
 				player:addExperience(8000, true)
-				player:addItem(2152, 60)
+				player:addItem(3035, 60)
 				addEvent(releasePlayer, 1000, npc, creature)
 				npcHandler:setTopic(playerId, 0)
 			else

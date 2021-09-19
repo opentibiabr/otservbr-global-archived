@@ -66,9 +66,9 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 1)
 
 		elseif player:getStorageValue(Storage.toOutfoxAFoxQuest) == 1 then
-			if player:removeItem(7497, 1) then
+			if player:removeItem(139, 1) then
 				player:setStorageValue(Storage.toOutfoxAFoxQuest, 2)
-				player:addItem(7939, 1)
+				player:addItem(875, 1)
 				npcHandler:say("I always said it to the others 'This brave fellow will bring me my mining helmet back' and here you are with it!! Here take my spare helmet, I don't need it anymore!", npc, creature)
 			else
 				npcHandler:say("We presume the hideout of The Horned Fox is somewhere in the south-west near the coast, good luck finding my mining helmet!", npc, creature)
@@ -104,7 +104,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:say({
 					"By all that is holy! You are a truly great warrior! With much patience! I have just found out the location the hideout of {The Horned Fox}! I have marked the spot on your map so you can find it. Go there and slay him!! Good luck!"
 				}, npc, creature)
-				player:setStorageValue(17522, 1)
+				player:setStorageValue(14896, 1)
 				player:setStorageValue(Storage.KillingInTheNameOf.BudrikMinos, 2)
 			else
 				npcHandler:say("Come back when you have slain {5000 minotaurs!}", npc, creature)

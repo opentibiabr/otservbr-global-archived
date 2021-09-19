@@ -75,45 +75,45 @@ local Config = {
 }
 
 local IDS = {
-	DREAM_MATTER = 22397,
-	CLUSTER_OF_SOLACE = 22396,
+	DREAM_MATTER = 20063,
+	CLUSTER_OF_SOLACE = 20062,
 
 	--weapons
-	CRUDE_UMBRAL_BLADE = 22398,
-	UMBRAL_BLADE = 22399,
-	UMBRAL_MASTER_BLADE = 22400,
+	CRUDE_UMBRAL_BLADE = 20064,
+	UMBRAL_BLADE = 20065,
+	UMBRAL_MASTER_BLADE = 20066,
 
-	CRUDE_UMBRAL_SLAYER = 22401,
-	UMBRAL_SLAYER = 22402,
-	UMBRAL_MASTER_SLAYER = 22403,
+	CRUDE_UMBRAL_SLAYER = 20067,
+	UMBRAL_SLAYER = 20068,
+	UMBRAL_MASTER_SLAYER = 20069,
 
-	CRUDE_UMBRAL_AXE = 22404,
-	UMBRAL_AXE = 22405,
-	UMBRAL_MASTER_AXE = 22406,
+	CRUDE_UMBRAL_AXE = 20070,
+	UMBRAL_AXE = 20071,
+	UMBRAL_MASTER_AXE = 20072,
 
-	CRUDE_UMBRAL_CHOPPER = 22407,
-	UMBRAL_CHOPPER = 22408,
-	UMBRAL_MASTER_CHOPPER = 22409,
+	CRUDE_UMBRAL_CHOPPER = 20073,
+	UMBRAL_CHOPPER = 20074,
+	UMBRAL_MASTER_CHOPPER = 20075,
 
-	CRUDE_UMBRAL_MACE = 22410,
-	UMBRAL_MACE = 22411,
-	UMBRAL_MASTER_MACE = 22412,
+	CRUDE_UMBRAL_MACE = 20076,
+	UMBRAL_MACE = 20077,
+	UMBRAL_MASTER_MACE = 20078,
 
-	CRUDE_UMBRAL_HAMMER = 22413,
-	UMBRAL_HAMMER = 22414,
-	UMBRAL_MASTER_HAMMER = 22415,
+	CRUDE_UMBRAL_HAMMER = 20079,
+	UMBRAL_HAMMER = 20080,
+	UMBRAL_MASTER_HAMMER = 20081,
 
-	CRUDE_UMBRAL_BOW = 22416,
-	UMBRAL_BOW = 22417,
-	UMBRAL_MASTER_BOW = 22418,
+	CRUDE_UMBRAL_BOW = 20082,
+	UMBRAL_BOW = 20083,
+	UMBRAL_MASTER_BOW = 20084,
 
-	CRUDE_UMBRAL_CROSSBOW = 22419,
-	UMBRAL_CROSSBOW = 22420,
-	UMBRAL_MASTER_CROSSBOW = 22421,
+	CRUDE_UMBRAL_CROSSBOW = 20085,
+	UMBRAL_CROSSBOW = 20086,
+	UMBRAL_MASTER_CROSSBOW = 20087,
 
-	CRUDE_UMBRAL_SPELLBOOK = 22422,
-	UMBRAL_SPELLBOOK = 22423,
-	UMBRAL_MASTER_SPELLBOOK = 22424
+	CRUDE_UMBRAL_SPELLBOOK = 20088,
+	UMBRAL_SPELLBOOK = 20089,
+	UMBRAL_MASTER_SPELLBOOK = 20090
 }
 
 local TYPES = {
@@ -149,8 +149,8 @@ function dreamFirst(creature, message, keywords, parameters, node)
 	if isPremium(creature) then
 		addon = getPlayerStorageValue(creature, storage)
 		if addon == -1 then
-			if getPlayerItemCount(creature,22610) >= 1 then
-				if doPlayerRemoveItem(creature,22610,1) then
+			if getPlayerItemCount(creature,20276) >= 1 then
+				if doPlayerRemoveItem(creature,20276,1) then
 					selfSay(newaddon, npc, creature)
 
 					doSendMagicEffect(getCreaturePosition(creature), 13)
@@ -173,8 +173,8 @@ function dreamSecond(creature, message, keywords, parameters, node)
 	if isPremium(creature) then
 		addon = getPlayerStorageValue(creature, storage+1)
 		if addon == -1 then
-			if getPlayerItemCount(creature,22609) >= 1 then
-				if doPlayerRemoveItem(creature,22609,1) then
+			if getPlayerItemCount(creature,20275) >= 1 then
+				if doPlayerRemoveItem(creature,20275,1) then
 					selfSay(newaddon, npc, creature)
 					
 					doSendMagicEffect(getCreaturePosition(creature), 13)

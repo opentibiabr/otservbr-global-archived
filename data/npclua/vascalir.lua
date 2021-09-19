@@ -286,7 +286,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission02) == 4 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission02, 5)
-	player:addItemEx(Game.createItem(2526, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(3426, 1), true, CONST_SLOT_WHEREEVER)
 end
 )
 
@@ -383,7 +383,7 @@ function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission03, 2)
 	player:setStorageValue(Storage.TheRookieGuard.Mission04, 1)
 	player:addExperience(30, true)
-	player:addItemEx(Game.createItem(2385, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(3273, 1), true, CONST_SLOT_WHEREEVER)
 end
 )
 
@@ -464,7 +464,7 @@ function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission05)
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission05, 6)
 	player:setStorageValue(Storage.TheRookieGuard.Mission06, 1)
-	player:addItemEx(Game.createItem(2484, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(3378, 1), true, CONST_SLOT_WHEREEVER)
 end
 )
 
@@ -528,7 +528,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 		"We do have to stop the trolls though before taking care of the orcs. I found their tunnel in the northern ruins. Are you prepared for your next mission?"
 	}
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.LibraryChest) == 1 and player:getItemCount(13831) <= 0 end,
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.LibraryChest) == 1 and player:getItemCount(12675) <= 0 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission07, 2)
 	player:setStorageValue(Storage.TheRookieGuard.LibraryDoor, -1)
@@ -547,13 +547,13 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 		"We do have to stop the trolls though before taking care of the orcs. I found their tunnel in the northern ruins. Are you prepared for your next mission?"
 	}
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.LibraryChest) == 1 and player:getItemCount(13831) >= 1 end,
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.LibraryChest) == 1 and player:getItemCount(12675) >= 1 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission07, 2)
 	player:setStorageValue(Storage.TheRookieGuard.LibraryDoor, -1)
-	player:removeItem(13831, 1)
+	player:removeItem(12675, 1)
 	player:addExperience(100, true)
-	player:addItemEx(Game.createItem(2152, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(3035, 1), true, CONST_SLOT_WHEREEVER)
 end
 )
 
@@ -567,13 +567,13 @@ keywordHandler:addKeyword({"no"}, StdModule.say,
 		"We do have to stop the trolls though before taking care of the orcs. I found their tunnel in the northern ruins. Are you prepared for your next mission?"
 	}
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.LibraryChest) == 1 and player:getItemCount(13831) >= 1 end,
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission07) == 1 and player:getStorageValue(Storage.TheRookieGuard.LibraryChest) == 1 and player:getItemCount(12675) >= 1 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission07, 2)
 	player:setStorageValue(Storage.TheRookieGuard.LibraryDoor, -1)
-	player:removeItem(13831, 1)
+	player:removeItem(12675, 1)
 	player:addExperience(100, true)
-	player:addItemEx(Game.createItem(2152, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(3035, 1), true, CONST_SLOT_WHEREEVER)
 end
 )
 
@@ -644,7 +644,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission09) == 9 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission09, 10)
-	player:addItemEx(Game.createItem(2460, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(3354, 1), true, CONST_SLOT_WHEREEVER)
 end
 )
 
@@ -674,7 +674,7 @@ function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission10, 1)
 	player:setStorageValue(Storage.TheRookieGuard.UnholyCryptDoor, 1)
 	player:setStorageValue(Storage.TheRookieGuard.UnholyCryptChests, 0)
-	player:addItemEx(Game.createItem(2199, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(3083, 1), true, CONST_SLOT_WHEREEVER)
 	player:addMapMark({x = 32131,  y = 32201, z = 7}, MAPMARK_GREENSOUTH, "Unholy Crypt")
 end
 )
@@ -718,11 +718,11 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 	npcHandler = npcHandler,
 	text = "Well done, this bone is exactly what I needed! Great. I have to do some preparations, but as reward for your great work, I have a shiny new weapon for you. Here, would you like to have this sword?"
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission10) == 1 and player:getStorageValue(Storage.TheRookieGuard.Sarcophagus) == 1 and player:getItemCount(13830) >= 1 end,
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission10) == 1 and player:getStorageValue(Storage.TheRookieGuard.Sarcophagus) == 1 and player:getItemCount(12674) >= 1 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission10, 2)
 	player:addExperience(150, true)
-	player:removeItem(13830, 1)
+	player:removeItem(12674, 1)
 end
 )
 keywordHandler:addAliasKeyword({"no"})
@@ -733,7 +733,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 	npcHandler = npcHandler,
 	text = "Ah... well, if you lost that bone on the way, that's too bad. I just hope you didn't get hungry and nibbled on it. I wouldn't eat cursed flesh if I were you. Anyway, you can still have this old sword as reward, do you want it?"
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission10) == 1 and player:getStorageValue(Storage.TheRookieGuard.Sarcophagus) == 1 and player:getItemCount(13830) == 0 end,
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission10) == 1 and player:getStorageValue(Storage.TheRookieGuard.Sarcophagus) == 1 and player:getItemCount(12674) == 0 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission10, 2)
 	player:addExperience(80, true)
@@ -751,7 +751,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission10) == 2 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission10, 3)
-	player:addItemEx(Game.createItem(2376, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(3264, 1), true, CONST_SLOT_WHEREEVER)
 end
 )
 
@@ -798,8 +798,8 @@ mission11:addChildKeyword({"yes"}, StdModule.say,
 nil,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission11, 1)
-	player:addItemEx(Game.createItem(2170, 1), true, CONST_SLOT_WHEREEVER)
-	player:addItemEx(Game.createItem(13924, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(3054, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(12785, 1), true, CONST_SLOT_WHEREEVER)
 	player:addMapMark({x = 32000, y = 32139, z = 7}, MAPMARK_GREENSOUTH, "Wasps' Nest")
 end
 )
@@ -819,7 +819,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 	text = "Oh, but there you have it in your inventory! Yeah, your backpack is a bit of a mess. I understand you overlooked it. Dig deeper!",
 	ungreet = true
 },
-function(player) return (player:getStorageValue(Storage.TheRookieGuard.Mission11) == 1 or player:getStorageValue(Storage.TheRookieGuard.Mission11) == 2) and player:getItemCount(13924) > 0 end
+function(player) return (player:getStorageValue(Storage.TheRookieGuard.Mission11) == 1 or player:getStorageValue(Storage.TheRookieGuard.Mission11) == 2) and player:getItemCount(12785) > 0 end
 )
 
 -- Mission 11: Confirm - Lost Flask (Without having it)
@@ -829,9 +829,9 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 	text = "No problem. Here's a new one. I can only give you one per hour though, so try not to lose it again this time.",
 	ungreet = true
 },
-function(player) return (player:getStorageValue(Storage.TheRookieGuard.Mission11) == 1 or player:getStorageValue(Storage.TheRookieGuard.Mission11) == 2) and player:getItemCount(13924) == 0 end,
+function(player) return (player:getStorageValue(Storage.TheRookieGuard.Mission11) == 1 or player:getStorageValue(Storage.TheRookieGuard.Mission11) == 2) and player:getItemCount(12785) == 0 end,
 function(player)
-	player:addItemEx(Game.createItem(13924, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(12785, 1), true, CONST_SLOT_WHEREEVER)
 end
 )
 
@@ -856,11 +856,11 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 		"And I have a good shield for you, too. Here, can you carry it?"
 	}
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 3 and player:getItemCount(13923) > 0 end,
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 3 and player:getItemCount(12784) > 0 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission11, 4)
-	player:removeItem(13923, 1)
-	player:addItemEx(Game.createItem(8474, 1), true, CONST_SLOT_WHEREEVER)
+	player:removeItem(12784, 1)
+	player:addItemEx(Game.createItem(7644, 1), true, CONST_SLOT_WHEREEVER)
 	player:addExperience(150, true)
 end
 )
@@ -881,7 +881,7 @@ local mission11Reset = keywordHandler:addKeyword({"yes"}, StdModule.say,
 	npcHandler = npcHandler,
 	text = "Oh, but you don't carry any - did you lose the flask? I can give you a new empty one, but that will also reset your mission, meaning you have to extract new poison. Would you like that?"
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 3 and player:getItemCount(13923) == 0 end
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 3 and player:getItemCount(12784) == 0 end
 )
 
 -- Mission 11: Confirm - Reset Mission
@@ -894,7 +894,7 @@ mission11Reset:addChildKeyword({"yes"}, StdModule.say,
 nil,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission11, 1)
-	player:addItemEx(Game.createItem(13924, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(12785, 1), true, CONST_SLOT_WHEREEVER)
 end
 )
 
@@ -917,7 +917,7 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission11) == 4 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission11, 5)
-	player:addItemEx(Game.createItem(2511, 1), true, CONST_SLOT_WHEREEVER)
+	player:addItemEx(Game.createItem(3411, 1), true, CONST_SLOT_WHEREEVER)
 end
 )
 

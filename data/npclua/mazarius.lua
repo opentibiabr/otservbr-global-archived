@@ -87,9 +87,9 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:say("Do you have 30 demonic essences to offer to the demonic messenger?", npc, creature)
 		npcHandler:setTopic(playerId, 3)
 	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 3 then
-		if player:removeItem(6500, 30) then
+		if player:removeItem(6499, 30) then
 			npcHandler:say("Excellent! This will empower possibilty to create a breach is enough to let you pass into that hellish hiding place. ...", npc, creature)
-			player:addItem(24838, 1)
+			player:addItem(22182, 1)
 			player:setStorageValue(Storage.FerumbrasAscension.Access, 1)
 		else
 			npcHandler:say("You don\'t have the demonic essences, back here when you get it.", npc, creature)

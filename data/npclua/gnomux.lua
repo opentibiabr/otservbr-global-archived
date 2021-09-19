@@ -29,13 +29,13 @@ local npcHandler = NpcHandler:new(keywordHandler)
 local talkState = {}
 
 local spike_items = {
-	[21564] = {250, 4, SPIKE_MIDDLE_MUSHROOM_MAIN},
-	[21555] = {150, 3, SPIKE_UPPER_TRACK_MAIN},
-	[21569] = {100, 4, SPIKE_LOWER_PARCEL_MAIN},
-	[21557] = {250, 1, SPIKE_MIDDLE_CHARGE_MAIN},
-	[21553] = {150, 4, SPIKE_UPPER_MOUND_MAIN},
-	[21556] = {500, 1, SPIKE_LOWER_LAVA_MAIN},
-	[21554] = {150, 7, SPIKE_UPPER_PACIFIER_MAIN}
+	[19214] = {250, 4, SPIKE_MIDDLE_MUSHROOM_MAIN},
+	[19205] = {150, 3, SPIKE_UPPER_TRACK_MAIN},
+	[19219] = {100, 4, SPIKE_LOWER_PARCEL_MAIN},
+	[19207] = {250, 1, SPIKE_MIDDLE_CHARGE_MAIN},
+	[19203] = {150, 4, SPIKE_UPPER_MOUND_MAIN},
+	[19206] = {500, 1, SPIKE_LOWER_LAVA_MAIN},
+	[19204] = {150, 7, SPIKE_UPPER_PACIFIER_MAIN}
 }
 
 local onBuy = function(creature, item, subType, amount, ignoreCap, inBackpacks)

@@ -60,7 +60,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	local AritosTask = player:getStorageValue(Storage.TibiaTales.AritosTask)
 		-- START TASK
 	if msgcontains(message, "nomads") then
-		if player:getStorageValue(Storage.TibiaTales.AritosTask) <= 0 and player:getItemCount(8267) >= 0 then
+		if player:getStorageValue(Storage.TibiaTales.AritosTask) <= 0 and player:getItemCount(7533) >= 0 then
 			npcHandler:say({
 				'What?? My name on a deathlist which you retrieved from a nomad?? Show me!! ...',
 				'Oh my god! They found me! You must help me! Please !!!!'
@@ -75,7 +75,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				'These are great news!! Thank you for your help! I don\'t have much, but without you I wouldn\'t have anything so please take this as a reward.'
 			}, npc, creature)
 			player:setStorageValue(Storage.TibiaTales.AritosTask, 3)
-			player:addItem(2152, 50)
+			player:addItem(3035, 50)
 		end
 		return true
 	end
@@ -137,7 +137,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

@@ -158,7 +158,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			return npcHandler:say("You do not have enough inquisition gold for that, so far you can ask for up to ".. max .." clusters.", npc, creature)
 		end
 
-		player:addItem(22396, v)
+		player:addItem(20062, v)
 		npcHandler:setTopic(playerId, nil)
 		player:setStorageValue(ROSHAMUUL_GOLD_RECORD, player:getStorageValue(ROSHAMUUL_GOLD_RECORD) - (v*100))
 		npcHandler:say("There you are. Now I register ".. player:getStorageValue(ROSHAMUUL_GOLD_RECORD) .." inquisition gold of yours in my book.", npc, creature)

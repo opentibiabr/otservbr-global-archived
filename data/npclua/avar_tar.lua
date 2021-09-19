@@ -74,7 +74,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say('So you want to have the demon outfit, hah! Let\'s have a look first if you really deserve it. Tell me: {base}, {shield} or {helmet}?', npc, creature)
 			npcHandler:setTopic(playerId, 2)
 		elseif npcHandler:getTopic(playerId) == 3 then
-			if not player:removeItem(8111, 1) then
+			if not player:removeItem(130, 1) then
 				npcHandler:say('You have no cookie that I\'d like.', npc, creature)
 				npcHandler:setTopic(playerId, 0)
 				return true

@@ -145,8 +145,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 9)
 		end
 	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 9 and player:getStorageValue(Storage.Kilmaresh.Thirteen.Lyre) == 3 then
-		if player:getStorageValue(Storage.Kilmaresh.Thirteen.Lyre) == 3 and player:getItemById(36282, 1) then
-			player:removeItem(36282, 1)
+		if player:getStorageValue(Storage.Kilmaresh.Thirteen.Lyre) == 3 and player:getItemById(31447, 1) then
+			player:removeItem(31447, 1)
 			npcHandler:say({"Thanks. I was looking for Lyre for a long time."}, npc, creature)-- needs review, this is not the speech of the global
 			player:setStorageValue(Storage.Kilmaresh.Thirteen.Lyre, 4)
 		else
@@ -160,8 +160,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 11)
 		end
 	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 11 and player:getStorageValue(Storage.Kilmaresh.Thirteen.Presente) == 2 then
-		if player:getStorageValue(Storage.Kilmaresh.Thirteen.Presente) == 2 and player:getItemById(36280, 1) then
-			player:removeItem(36280, 1)
+		if player:getStorageValue(Storage.Kilmaresh.Thirteen.Presente) == 2 and player:getItemById(31445, 1) then
+			player:removeItem(31445, 1)
 			npcHandler:say({"Thanks. I was looking for Small Tortoise."}, npc, creature)-- needs review, this is not the speech of the global
 			player:setStorageValue(Storage.Kilmaresh.Thirteen.Presente, 3)
 			npcHandler:setTopic(playerId, 12)
@@ -171,14 +171,14 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	end
 	if msgcontains(message, "small tortoise") then
-		if player:getItemById(36280, 1) then
+		if player:getItemById(31445, 1) then
 			npcHandler:say({"Do you want me to stone a small tortoise?"}, npc, creature)-- needs review, this is not the speech of the global
 			npcHandler:setTopic(playerId, 15)
 		end
 	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 15 then
-		if player:getItemById(36280, 1) then
-			player:removeItem(36280, 1)
-			player:addItem(36281, 1)
+		if player:getItemById(31445, 1) then
+			player:removeItem(31445, 1)
+			player:addItem(31446, 1)
 			npcHandler:say({"Here's your Small Petrified Tortoise."}, npc, creature)-- needs review, this is not the speech of the global
 			npcHandler:setTopic(playerId, 16)
 		else
@@ -193,8 +193,8 @@ local function creatureSayCallback(npc, creature, type, message)
 		end
 	elseif msgcontains(message, "yes") and npcHandler:getTopic(playerId) == 13 and player:getStorageValue(Storage.Kilmaresh.Thirteen.Fafnar) == 301 then
 		if player:getStorageValue(Storage.Kilmaresh.Thirteen.Fafnar) == 301 then
-			player:addAchievement(462, "Congratulations! You earned the achievement \"Sculptor Apprentice\".")
-			player:addItem(36409, 1)
+			player:addAchievement("Sculptor Apprentice", "Congratulations! You earned the achievement \"Sculptor Apprentice\".")
+			player:addItem(31574, 1)
 			npcHandler:say({"Congratulations, you have completed the 3 jobs I gave you."}, npc, creature)-- needs review, this is not the speech of the global
 			player:setStorageValue(Storage.Kilmaresh.Fourteen.Remains, 1)
 			npcHandler:setTopic(playerId, 14)

@@ -148,11 +148,11 @@ keywordHandler:addKeyword({"yes"}, StdModule.say,
 		"You can also tame creatures to ride on that will also increase your speed. So don't worry if you're out of breath now - you won't always be that slow. Now off with you and back to Vascalir, I have work to do."
 	}
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission06) == 6 and player:getItemCount(13879) >= 1 end,
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission06) == 6 and player:getItemCount(12740) >= 1 end,
 function(player)
 	player:setStorageValue(Storage.TheRookieGuard.Mission06, 7)
-	player:removeItem(13879, 1)
-	player:addItemEx(Game.createItem(2643, 1), true, CONST_SLOT_WHEREEVER)
+	player:removeItem(12740, 1)
+	player:addItemEx(Game.createItem(3552, 1), true, CONST_SLOT_WHEREEVER)
 end
 )
 
@@ -162,7 +162,7 @@ keywordHandler:addKeyword({"no"}, StdModule.say,
 	npcHandler = npcHandler,
 	text = "Are you sure? I think I see some war wolf leather on you. You should reply with {yes}."
 },
-function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission06) == 6 and player:getItemCount(13879) >= 1 end
+function(player) return player:getStorageValue(Storage.TheRookieGuard.Mission06) == 6 and player:getItemCount(12740) >= 1 end
 )
 
 -- Basic keywords
@@ -289,7 +289,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

@@ -52,12 +52,12 @@ end
 
 local function getPlayerBones(creature)
 	local player = Player(creature)
-	return player:getItemCount(2230) + player:getItemCount(2231)
+	return player:getItemCount(3115) + player:getItemCount(3116)
 end
 
 local function doPlayerRemoveBones(creature)
 	local player = Player(creature)
-	return player:removeItem(2230, player:getItemCount(2230)) and player:removeItem(2231, player:getItemCount(2231))
+	return player:removeItem(3115, player:getItemCount(3115)) and player:removeItem(3116, player:getItemCount(3116))
 end
 
 local function creatureSayCallback(npc, creature, type, message)
@@ -214,7 +214,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif npcHandler:getTopic(playerId) == 10 then
 			npcHandler:say("I need you to deliver a bill to the stage magician David Brassacres. He's hiding from his creditors somewhere in Venore. It's likely you will have to trick him somehow to reveal his identity. Report back when you delivered this bill.", npc, creature)
 			player:setStorageValue(Storage.Postman.Mission03, 1)
-			player:addItem(2329, 1)
+			player:addItem(3216, 1)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 11 then
 			npcHandler:say("Ok, listen: we have some serious trouble with agressive dogs lately. We have accumulated some bones as a sort of pacifier but we need more. Collect 20 bones like the one in my room to the left and report here.", npc, creature)
@@ -234,7 +234,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif npcHandler:getTopic(playerId) == 14 then
 			npcHandler:say("I grant you the title of postman. You are now a full member of our guild. Here have your own officers hat and wear it with pride.", npc, creature)
 			player:setStorageValue(Storage.Postman.Rank, 2)
-			player:addItem(2665, 1)
+			player:addItem(3576, 1)
 			npcHandler:setTopic(playerId, 15)
 		elseif npcHandler:getTopic(playerId) == 15 then
 			npcHandler:say("Since I am convinced I can trust you, this time you must deliver a valuable present to Dermot on Fibula. Do NOT open it!!! You will find the present behind the door here on the lower right side of this room.", npc, creature)
@@ -266,7 +266,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.Postman.Mission08, 1)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 23 then
-			if player:removeItem(2332, 1) then
+			if player:removeItem(3219, 1) then
 			npcHandler:say("Thank you. We will honour this. Your next mission will be a very special one. Good thing you are a special person as well. Are you ready?", npc, creature)
 			player:setStorageValue(Storage.Postman.Mission08, 3)
 			player:setStorageValue(Storage.Postman.Mission09, 0)
@@ -275,7 +275,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif npcHandler:getTopic(playerId) == 24 then
 			npcHandler:say("From now on you are a grand postman for special operations. You are an honoured member of our guild and earned the privilege of your own post horn. Here, take it.", npc, creature)
 			player:setStorageValue(Storage.Postman.Rank, 4)
-			player:addItem(2078, 1)
+			player:addItem(3252, 1)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 25 then
 			npcHandler:say("So listen well. Behind the lower left door you will find a bag. The letters in the bag are for none other than Santa Claus! Deliver them to his house on the isle of Vega, {use} thebag on his mailbox and report back here.", npc, creature)
@@ -285,7 +285,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say("Excellent. Here is a letter for you to deliver. Well, to be honest, no one else volunteered. It's a letter from the mother of Markwin, the king of Mintwallin. Deliver that letter to him, but note that you will not be welcome there.", npc, creature)
 			player:setStorageValue(Storage.Postman.Mission09, 4)
 			player:setStorageValue(Storage.Postman.Mission10, 1)
-			player:addItem(2333, 1)
+			player:addItem(3220, 1)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 27 then
 			npcHandler:say("I grant you the title of Archpostman. You are a legend in our guild. As privilege of your newly aquired status you are allowed to make use of certain mailboxes in dangerous areas. Just look out for them and you'll see.", npc, creature)

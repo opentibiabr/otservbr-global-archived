@@ -134,10 +134,10 @@ keywordHandler:addAliasKeyword({'zerbrus'})
 -- Health Potion Quest
 local panKeyword = keywordHandler:addKeyword({'pan'}, StdModule.say, {npcHandler = npcHandler, text = 'Have you found a pan for me?'})
 	panKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'A pan! At last! Take this in case you eat something my cousin has cooked.', reset = true},
-			function(player) return player:getItemCount(2563) > 0 end,
+			function(player) return player:getItemCount(3466) > 0 end,
 			function(player)
-				player:removeItem(2563, 1)
-				player:addItem(8704, 1)
+				player:removeItem(3466, 1)
+				player:addItem(7876, 1)
 			end
 	)
 	panKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'Hey! You don\'t have one!', reset = true})
@@ -169,7 +169,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

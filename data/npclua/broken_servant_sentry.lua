@@ -61,26 +61,26 @@ function creatureSayCallback(npc, creature, type, message)
 		end
 
 	elseif(msgcontains(message, "cap") or msgcontains(message, "mage")) then
-		if(getPlayerItemCount(creature, 13756) >= 1 and getPlayerStorageValue(creature, Storage.ElementalistQuest1) == 2) and getPlayerStorageValue(creature, Storage.ElementalistQuest2) < 1 then
+		if(getPlayerItemCount(creature, 12599) >= 1 and getPlayerStorageValue(creature, Storage.ElementalistQuest1) == 2) and getPlayerStorageValue(creature, Storage.ElementalistQuest2) < 1 then
 			selfSay("Yo-Yo-Your*chhhrk*. Cap. Is. Slimed. I. Can. Clean. It. *chhhhrrrkchrk* ...", npc, creature)
 			npcHandler:say("Here. You. Are. *chhhrrrrkchrk*", npc, creature)
-			doPlayerRemoveItem(creature, 13756, 1)
+			doPlayerRemoveItem(creature, 12599, 1)
 			setPlayerStorageValue(creature, Storage.ElementalistQuest2, 1)
-			doPlayerAddOutfit(creature, 432, 1)
-			doPlayerAddOutfit(creature, 433, 1)
+			doPlayerAddOutfit(creature, 437, 1)
+			doPlayerAddOutfit(creature, 438, 1)
 			npcHandler:setTopic(playerId, 0)
 		elseif(getPlayerStorageValue(creature, Storage.ElementalistQuest2) == 1) then
 			selfSay("You already have this outfit!", npc, creature)
 			npcHandler:setTopic(playerId, 0)
 		end
 	elseif(msgcontains(message, "staff") or msgcontains(message, "spike")) then
-		if(getPlayerItemCount(creature, 13940) >= 1 and getPlayerStorageValue(creature, Storage.ElementalistQuest1) == 2) and getPlayerStorageValue(creature, Storage.ElementalistQuest3) < 1 then
+		if(getPlayerItemCount(creature, 12803) >= 1 and getPlayerStorageValue(creature, Storage.ElementalistQuest1) == 2) and getPlayerStorageValue(creature, Storage.ElementalistQuest3) < 1 then
 			npcHandler:say({"Yo-Yo-Your*chhhrk*. Cap. Is. Slimed. I. Can. Clean. It. *chhhhrrrkchrk* ...",
 				"Here. You. Are. *chhhrrrrkchrk*"}, npc, creature, 4000)
-			doPlayerRemoveItem(creature, 13940, 1)
+			doPlayerRemoveItem(creature, 12803, 1)
 			setPlayerStorageValue(creature, Storage.ElementalistQuest3, 1)
-			doPlayerAddOutfit(creature, 432, 2)
-			doPlayerAddOutfit(creature, 433, 2)
+			doPlayerAddOutfit(creature, 437, 2)
+			doPlayerAddOutfit(creature, 438, 2)
 			npcHandler:setTopic(playerId, 0)
 		elseif(getPlayerStorageValue(creature, Storage.ElementalistQuest3) == 1) then
 			selfSay("You already have this outfit!", npc, creature)
@@ -99,13 +99,13 @@ function creatureSayCallback(npc, creature, type, message)
 		elseif(npcHandler:getTopic(playerId) == 3) then
 				npcHandler:say("I. Greet. You. Ma-Ma-Ma-ster! Did. You. Bring. Mo-Mo-Mo-M*chhhhrrrk*ore. Samples. For. Me. To-To-To. Analyse-lyse-lyse?", npc, creature)
 				npcHandler:setTopic(playerId, 4)
-		elseif(npcHandler:getTopic(playerId) == 4) and getPlayerItemCount(creature, 13758) >= 20 then
+		elseif(npcHandler:getTopic(playerId) == 4) and getPlayerItemCount(creature, 12601) >= 20 then
 				npcHandler:say({"Please. Wait. I. Can. Not. Han-Han-Han*chhhhhrrrchrk*Handle. *chhhhrchrk* This. Is. Enough. Material. *chrrrchhrk* ...",
 				"I. Have-ve-ve-veee*chrrrck*. Also. Cleaned. Your. Clothes. Master. It. Is. No-No-No*chhrrrrk*Now. Free. Of. Sample. Stains."}, npc, creature, 4000)
-				doPlayerRemoveItem(creature, 13758, 20)
+				doPlayerRemoveItem(creature, 12601, 20)
 				setPlayerStorageValue(creature, Storage.ElementalistQuest1, 2)
-				doPlayerAddOutfit(creature, 432, 0)
-				doPlayerAddOutfit(creature, 433, 0)
+				doPlayerAddOutfit(creature, 437, 0)
+				doPlayerAddOutfit(creature, 438, 0)
 				npcHandler:setTopic(playerId, 0)
 			else
 				selfSay("You do not have all the required items.", npc, creature)

@@ -85,7 +85,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 30)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission10, 2) --Questlog, Wrath of the Emperor "Mission 10: A Message of Freedom"
 			player:setStorageValue(Storage.WrathoftheEmperor.BossStatus, 1)
-			player:addItem(12318, 1)
+			player:addItem(11362, 1)
 			npcHandler:setTopic(playerId, 0)
 			else
 			npcHandler:say({"Now go to the north of Sleeping Dragon room, {dont need talk} with he!"}, npc, creature)
@@ -102,8 +102,8 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission09, 1) --Questlog, Wrath of the Emperor "Mission 08: Uninvited Guests"
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 27)
-			player:addItem(12328, 1)
-			player:addItem(12382, 1)
+			player:addItem(11372, 1)
+			player:addItem(11426, 1)
 		end
 		npcHandler:setTopic(playerId, 0)
 	end

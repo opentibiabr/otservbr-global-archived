@@ -86,7 +86,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"A very varuable artefact has been stolen. I open the door for you. You can find the room on the same floor as we are right now."}, npc, creature)
 				npcHandler:setTopic(playerId, 3)
 				player:removeMoneyBank(valor)
-				player:addItem(28995, 1)
+				player:addItem(25689, 1)
 				player:setStorageValue(Storage.CultsOfTibia.MotA.Mission, 2)
 				player:setStorageValue(Storage.CultsOfTibia.MotA.AccessDoorInvestigation, 1)
 				if player:getStorageValue(Storage.CultsOfTibia.Questline) < 1 then

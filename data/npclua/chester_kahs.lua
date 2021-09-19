@@ -80,15 +80,15 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:say('Do you know what his plans are about?', npc, creature)
 			npcHandler:setTopic(playerId, 2)
 		elseif npcHandler:getTopic(playerId) == 3 then
-			if player:removeItem(2177, 1) then
+			if player:removeItem(3061, 1) then
 				npcHandler:say('Thank you! Take this ring. If you ever need a healing, come, bring the scroll, and ask me to {heal}.', npc, creature)
-				player:addItem(2168, 1)
+				player:addItem(3052, 1)
 			else
 				npcHandler:say('Sorry, but you have none.', npc, creature)
 			end
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 4 then
-			if player:removeItem(2168, 1) then
+			if player:removeItem(3052, 1) then
 				npcHandler:say('So be healed!', npc, creature)
 				player:addHealth(player:getMaxHealth())
 				Npc():getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
@@ -106,7 +106,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				npcHandler:say('I think they understood the warning the way it was meant. If not, you will have to visit Venore soon again. But for now it\'s settled.', npc, creature)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 7 then
-			if player:removeItem(7696, 1) then
+			if player:removeItem(5956, 1) then
 				player:setStorageValue(Storage.SecretService.TBIMission02, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 5)
 				npcHandler:say('Thank you, we can finally let them have some closure regarding this.', npc, creature)
@@ -115,7 +115,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 8 then
-			if player:removeItem(14324, 1) then
+			if player:removeItem(5952, 1) then
 				player:setStorageValue(Storage.SecretService.TBIMission03, 3)
 				player:setStorageValue(Storage.SecretService.Quest, 7)
 				npcHandler:say('I can only hope that this information are as valuable as we expected it. A good man died for them.', npc, creature)
@@ -124,7 +124,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			end
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 9 then
-			if player:removeItem(14325, 1) then
+			if player:removeItem(348, 1) then
 				player:setStorageValue(Storage.SecretService.TBIMission04, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 9)
 				npcHandler:say('Ah yes, very interesting. Almost as I suspected. It\'s a good thing that we got those documents in our hands.', npc, creature)
@@ -144,17 +144,17 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 12 then
 			if player:removeMoneyBank(1000) then
-				player:addItem(7700, 1)
+				player:addItem(397, 1)
 				npcHandler:say('Here you are. Better don\'t loose it again.', npc, creature)
 			else
 				npcHandler:say('You don\'t have enough money', npc, creature)
 			end
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 13 then
-			if player:removeItem(7699, 1) then
+			if player:removeItem(396, 1) then
 				player:setStorageValue(Storage.SecretService.Mission07, 2)
 				player:setStorageValue(Storage.SecretService.Quest, 15)
-				player:addItem(7960, 1)
+				player:addItem(897, 1)
 				npcHandler:say('You have done superb work agent, I grant you the title of Top Agent! Here\'s a little gift you might find useful.', npc, creature)
 			else
 				npcHandler:say('Please bring me proof of the mad technomancers defeat!', npc, creature)
@@ -169,7 +169,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			player:addCondition(fire)
 			player:getPosition():sendMagicEffect(CONST_ME_EXPLOSIONHIT)
 			Npc():getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
-			player:removeItem(2177, 1)
+			player:removeItem(3061, 1)
 			npcHandler:removeInteraction(npc, creature)
 			npcHandler:resetNpc(creature)
 		else
@@ -255,7 +255,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif player:getStorageValue(Storage.SecretService.TBIMission04) == 2 and player:getStorageValue(Storage.SecretService.Quest) == 9 then
 			player:setStorageValue(Storage.SecretService.Quest, 10)
 			player:setStorageValue(Storage.SecretService.TBIMission05, 1)
-			player:addItem(7697, 1)
+			player:addItem(349, 1)
 			npcHandler:say({
 				'It\'s bad enough that Carlin got a solid foothold in the far North but now the Venoreans also try to move in. They try to gain influence on the barbarian raiders by bribing their leaders or making them great promises ...',
 				'We want you to cause some bad blood in this relationship. Travel to their most southern camp, enter the ice tower of their leaders and kill some of them ...',
@@ -268,7 +268,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif player:getStorageValue(Storage.SecretService.TBIMission05) == 3 and player:getStorageValue(Storage.SecretService.Quest) == 11 then
 			player:setStorageValue(Storage.SecretService.Quest, 12)
 			player:setStorageValue(Storage.SecretService.TBIMission06, 1)
-			player:addItem(7700, 1)
+			player:addItem(397, 1)
 			npcHandler:say({
 				'The women of Carlin have the northern city Svargrond in the firm grip of her manicured hands. At the moment, there is little we can do about it but there is one thing that plays into our hands ...',
 				'The barbarians have surely at least heard about the fact that alcohol is outlawed in Carlin ...',

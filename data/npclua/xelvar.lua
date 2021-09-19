@@ -68,7 +68,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 
 			player:setStorageValue(Storage.BigfootBurden.QuestLine, 1)
-			player:addItem(18457, 4)
+			player:addItem(16167, 4)
 
 			--npcHandler:say("Right now I am sort of {recruiting} people.", npc, creature)
 			npcHandler:setTopic(playerId, 1)
@@ -112,7 +112,7 @@ local function creatureSayCallback(npc, creature, type, message)
 			}, npc, creature)
 
 			player:setStorageValue(Storage.BigfootBurden.QuestLine, 1)
-			player:addItem(18457, 4)
+			player:addItem(16167, 4)
 			npcHandler:setTopic(playerId, 0)
 		end
 
@@ -129,7 +129,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

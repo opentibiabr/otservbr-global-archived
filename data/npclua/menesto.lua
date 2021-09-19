@@ -64,7 +64,7 @@ function greetCallback(npc, creature)
 					Here, have some of my rations, I'll take my dagger. Tell me when you're {ready}."
 			},
 		npc, creature, 10)
-		player:addItem(2666, 1)
+		player:addItem(3577, 1)
 		player:setStorageValue(Storage.Dawnport.Tutorial, 1)
 	end
 	return true

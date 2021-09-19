@@ -69,10 +69,10 @@ local function creatureSayCallback(npc, creature, type, message)
 		npcHandler:setTopic(playerId, 0)
 	elseif msgcontains(message,'yes') and npcHandler:getTopic(playerId) <= 4 and npcHandler:getTopic(playerId) >= 1 then
 		local trade = {
-				{ NeedItem = 2195, Ncount = 1, GiveItem = 5891, Gcount = 1}, -- Enchanted Chicken Wing
-				{ NeedItem = 2475, Ncount = 4, GiveItem = 5885, Gcount = 1}, -- Flask of Warrior's Sweat
-				{ NeedItem = 2498, Ncount = 2, GiveItem = 5884, Gcount = 1}, -- Spirit Container
-				{ NeedItem = 2392, Ncount = 3, GiveItem = 5904, Gcount = 1}  -- Magic Sulphur
+				{ NeedItem = 3079, Ncount = 1, GiveItem = 5891, Gcount = 1}, -- Enchanted Chicken Wing
+				{ NeedItem = 3369, Ncount = 4, GiveItem = 5885, Gcount = 1}, -- Flask of Warrior's Sweat
+				{ NeedItem = 3392, Ncount = 2, GiveItem = 5884, Gcount = 1}, -- Spirit Container
+				{ NeedItem = 3280, Ncount = 3, GiveItem = 5904, Gcount = 1}  -- Magic Sulphur
 		}
 		if player:getItemCount(trade[npcHandler:getTopic(playerId)].NeedItem) >= trade[npcHandler:getTopic(playerId)].Ncount then
 			player:removeItem(trade[npcHandler:getTopic(playerId)].NeedItem, trade[npcHandler:getTopic(playerId)].Ncount)
@@ -149,7 +149,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

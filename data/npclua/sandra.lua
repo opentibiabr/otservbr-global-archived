@@ -121,9 +121,9 @@ local function creatureSayCallback(npc, creature, type, message)
 			npcHandler:setTopic(playerId, 0)
 		elseif npcHandler:getTopic(playerId) == 3 then
 			if player:getStorageValue(38412) >= 100
-			or player:removeItem(7634, 100)
-			or player:removeItem(7635, 100)
-			or player:removeItem(7636, 100) then
+			or player:removeItem(283, 100)
+			or player:removeItem(284, 100)
+			or player:removeItem(285, 100) then
 				npcHandler:say(
 					"Alright, thank you very much! Here is your lottery ticket, good luck. \
 					Would you like to deposit more vials that way?",
@@ -209,7 +209,7 @@ npcConfig.shop = {
 }
 -- On buy npc shop message
 npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
-	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 1988)
+	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message

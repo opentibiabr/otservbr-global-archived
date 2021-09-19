@@ -51,13 +51,13 @@ end
 
 local function getTable(player)
 	local itemsList = {
-		{name="metal fitting", id=10034, buy=500},
-		{name="nail", id=8309, sell=10},
-		{name="flask of rust remover", id=9930, buy=50}
+		{name="metal fitting", id=9115, buy=500},
+		{name="nail", id=953, sell=10},
+		{name="flask of rust remover", id=9016, buy=50}
 	}
 
 	local rustremover = {
-		{name="flask of rust remover", id=9930, buy=50},
+		{name="flask of rust remover", id=9016, buy=50},
 	}
 
 	if player:getStorageValue(Storage.HiddenCityOfBeregar.JusticeForAll) == 6 then

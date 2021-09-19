@@ -91,10 +91,10 @@ local function creatureSayCallback(npc, creature, type, message)
 				if player:getMoney() + player:getBankBalance() >= 500000000 then
 					local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
 					if inbox and inbox:getEmptySlots() > 0 then
-						local decoKit = inbox:addItem(26054, 1)
-						local decoItemName = ItemType(36345):getName()
+						local decoKit = inbox:addItem(23398, 1)
+						local decoItemName = ItemType(31510):getName()
 							decoKit:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "Unwrap it in your own house to create a " .. decoItemName .. ".")
-							decoKit:setCustomAttribute("unWrapId", 36345)
+							decoKit:setCustomAttribute("unWrapId", 31510)
 							selfSay("Take this armor as a token of great gratitude. Let us forever remember this day, my friend!", npc, creature)
 							player:removeMoneyBank(500000000)
 							player:addOutfit(1211)

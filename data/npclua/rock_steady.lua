@@ -71,7 +71,7 @@ local function creatureSayCallback(npc, creature, type, message)
 		elseif player:getStorageValue(72326) == 3 then
 			selfSay("Have you got anything for me today?", npc, creature)
 			npcHandler:setTopic(playerId, 3)
-		elseif player:getStorageValue(72326) == 4 and player:removeItem(15434, 1) then
+		elseif player:getStorageValue(72326) == 4 and player:removeItem(14021, 1) then
 			selfSay("Have you got anything... what? You want what? A reward? HAHAHAHAAAA!! ...", npc, creature)
 			selfSay("No I'm just teasing you. I'm really happy about my collection now. ...", npc, creature)
 			npcHandler:say("Well, I found some kind of weapon a long time ago. I believe it may be especially helpful underwater as it is from the deep folk. In any case it is of more use for you than it would be for me.", npc, creature)
@@ -85,11 +85,11 @@ local function creatureSayCallback(npc, creature, type, message)
 			selfSay("Great! Let me see. Amazing! I will take this, thank you!", npc, creature)
 			player:setStorageValue(72326, 2)
 			npcHandler:setTopic(playerId, 0)
-		elseif npcHandler:getTopic(playerId) == 2 and player:removeItem(15435, 1) then
+		elseif npcHandler:getTopic(playerId) == 2 and player:removeItem(14022, 1) then
 			selfSay("Great! Let me see. Amazing! I will take this, thank you!", npc, creature)
 			player:setStorageValue(72326, 3)
 			npcHandler:setTopic(playerId, 0)
-		elseif npcHandler:getTopic(playerId) == 3 and player:removeItem(15436, 1) then
+		elseif npcHandler:getTopic(playerId) == 3 and player:removeItem(14023, 1) then
 			selfSay("Great! Let me see. Amazing! I will take this, thank you!", npc, creature)
 			player:setStorageValue(72326, 4)
 			npcHandler:setTopic(playerId, 0)

@@ -169,7 +169,7 @@ end
 -------------------------------- guild bank -----------------------------------------------
 local receiptFormat = 'Date: %s\nType: %s\nGold Amount: %d\nReceipt Owner: %s\nRecipient: %s\n\n%s'
 local function getReceipt(info)
-	local receipt = Game.createItem(info.success and 24301 or 24302)
+	local receipt = Game.createItem(info.success and 21932 or 21933)
 	receipt:setAttribute(ITEM_ATTRIBUTE_TEXT, receiptFormat:format(os.date('%d. %b %Y - %H:%M:%S'), info.type, info.amount, info.owner, info.recipient, info.message))
 
 	return receipt
@@ -255,12 +255,12 @@ local function handleBankActions(creature, message)
 			'Every citizen has one. The big advantage is that you can access your money in every branch of the Global Bank! ...',
 			'Would you like to know more about the {basic} functions of your bank account, the {advanced} functions, or are you already bored, perhaps?'
 		}, npc, creature)
-		npcHandler:setTopic(playerId, 1200)
+		npcHandler:setTopic(playerId, 1445)
 		return true
 ---------------------------- balance ---------------------
 --------------------------------guild bank-----------------------------------------------
 	elseif msgcontains(message, 'guild balance') then
-		npcHandler:setTopic(playerId, 1200)
+		npcHandler:setTopic(playerId, 1445)
 		if not player:getGuild() then
 			npcHandler:say('You are not a member of a guild.', npc, creature)
 			return false
@@ -269,7 +269,7 @@ local function handleBankActions(creature, message)
 		return true
 --------------------------------guild bank-----------------------------------------------
 	elseif msgcontains(message, 'balance') then
-		npcHandler:setTopic(playerId, 1200)
+		npcHandler:setTopic(playerId, 1445)
 		if player:getBankBalance() >= 100000000 then
 			npcHandler:say('I think you must be one of the richest inhabitants in the world! Your account balance is ' .. player:getBankBalance() .. ' gold.', npc, creature)
 			return true
@@ -291,42 +291,42 @@ local function handleBankActions(creature, message)
 	elseif msgcontains(message, 'guild deposit') then
 		if not player:getGuild() then
 			npcHandler:say('You are not a member of a guild.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 			return false
 		end
 	   -- count[playerId] = player:getMoney()
 	   -- if count[playerId] < 1 then
 		   -- npcHandler:say('You do not have enough gold.', npc, creature)
-		   -- npcHandler:setTopic(playerId, 1200)
+		   -- npcHandler:setTopic(playerId, 1445)
 		   -- return false
 		--end
 		if string.match(message, '%d+') then
 			count[playerId] = getMoneyCount(message)
 			if count[playerId] < 1 then
 				npcHandler:say('You do not have enough gold.', npc, creature)
-				npcHandler:setTopic(playerId, 1200)
+				npcHandler:setTopic(playerId, 1445)
 				return false
 			end
 			npcHandler:say('Would you really like to deposit ' .. count[playerId] .. ' gold to your {guild account}?', npc, creature)
-			npcHandler:setTopic(playerId, 1223)
+			npcHandler:setTopic(playerId, 1642)
 			return true
 		else
 			npcHandler:say('Please tell me how much gold it is you would like to deposit.', npc, creature)
-			npcHandler:setTopic(playerId, 1222)
+			npcHandler:setTopic(playerId, 1641)
 			return true
 		end
-	elseif npcHandler:getTopic(playerId) == 1222 then
+	elseif npcHandler:getTopic(playerId) == 1641 then
 		count[playerId] = getMoneyCount(message)
 		if isValidMoney(count[playerId]) then
 			npcHandler:say('Would you really like to deposit ' .. count[playerId] .. ' gold to your {guild account}?', npc, creature)
-			npcHandler:setTopic(playerId, 1223)
+			npcHandler:setTopic(playerId, 1642)
 			return true
 		else
 			npcHandler:say('You do not have enough gold.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 			return true
 		end
-	elseif npcHandler:getTopic(playerId) == 1223 then
+	elseif npcHandler:getTopic(playerId) == 1642 then
 		if msgcontains(message, 'yes') then
 			npcHandler:say('Alright, we have placed an order to deposit the amount of ' .. count[playerId] .. ' gold to your guild account. Please check your inbox for confirmation.', npc, creature)
 			local guild = player:getGuild()
@@ -353,55 +353,55 @@ local function handleBankActions(creature, message)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('As you wish. Is there something else I can do for you?', npc, creature)
 		end
-		npcHandler:setTopic(playerId, 1200)
+		npcHandler:setTopic(playerId, 1445)
 		return true
 --------------------------------guild bank-----------------------------------------------
 	elseif msgcontains(message, 'deposit') then
 		count[playerId] = player:getMoney()
 		if count[playerId] < 1 then
 			npcHandler:say('You do not have enough gold.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 			return false
 		end
 		if msgcontains(message, 'all') then
 			count[playerId] = player:getMoney()
 			npcHandler:say('Would you really like to deposit ' .. count[playerId] .. ' gold?', npc, creature)
-			npcHandler:setTopic(playerId, 1202)
+			npcHandler:setTopic(playerId, 1447)
 			return true
 		else
 			if string.match(message,'%d+') then
 				count[playerId] = getMoneyCount(message)
 				if count[playerId] < 1 then
 					npcHandler:say('You do not have enough gold.', npc, creature)
-					npcHandler:setTopic(playerId, 1200)
+					npcHandler:setTopic(playerId, 1445)
 					return false
 				end
 				npcHandler:say('Would you really like to deposit ' .. count[playerId] .. ' gold?', npc, creature)
-				npcHandler:setTopic(playerId, 1202)
+				npcHandler:setTopic(playerId, 1447)
 				return true
 			else
 				npcHandler:say('Please tell me how much gold it is you would like to deposit.', npc, creature)
-				npcHandler:setTopic(playerId, 1201)
+				npcHandler:setTopic(playerId, 1446)
 				return true
 			end
 		end
 		if not isValidMoney(count[playerId]) then
 			npcHandler:say('Sorry, but you can\'t deposit that much.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 			return false
 		end
-	elseif npcHandler:getTopic(playerId) == 1201 then
+	elseif npcHandler:getTopic(playerId) == 1446 then
 		count[playerId] = getMoneyCount(message)
 		if isValidMoney(count[playerId]) then
 			npcHandler:say('Would you really like to deposit ' .. count[playerId] .. ' gold?', npc, creature)
-			npcHandler:setTopic(playerId, 1202)
+			npcHandler:setTopic(playerId, 1447)
 			return true
 		else
 			npcHandler:say('You do not have enough gold.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 			return true
 		end
-	elseif npcHandler:getTopic(playerId) == 1202 then
+	elseif npcHandler:getTopic(playerId) == 1447 then
 		if msgcontains(message, 'yes') then
 			if player:depositMoney(count[playerId]) then
 				npcHandler:say('Alright, we have added the amount of ' .. count[playerId] .. ' gold to your {balance}. You can {withdraw} your money anytime you want to.', npc, creature)
@@ -411,18 +411,18 @@ local function handleBankActions(creature, message)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('As you wish. Is there something else I can do for you?', npc, creature)
 		end
-		npcHandler:setTopic(playerId, 1200)
+		npcHandler:setTopic(playerId, 1445)
 		return true
 ---------------------------- withdraw --------------------
 --------------------------------guild bank-----------------------------------------------
 	elseif msgcontains(message, 'guild withdraw') then
 		if not player:getGuild() then
 			npcHandler:say('I am sorry but it seems you are currently not in any guild.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 			return false
 		elseif player:getGuildLevel() < 2 then
 			npcHandler:say('Only guild leaders or vice leaders can withdraw money from the guild account.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 			return false
 		end
 
@@ -430,28 +430,28 @@ local function handleBankActions(creature, message)
 			count[playerId] = getMoneyCount(message)
 			if isValidMoney(count[playerId]) then
 				npcHandler:say('Are you sure you wish to withdraw ' .. count[playerId] .. ' gold from your guild account?', npc, creature)
-				npcHandler:setTopic(playerId, 1225)
+				npcHandler:setTopic(playerId, 1644)
 			else
 				npcHandler:say('There is not enough gold on your guild account.', npc, creature)
-				npcHandler:setTopic(playerId, 1200)
+				npcHandler:setTopic(playerId, 1445)
 			end
 			return true
 		else
 			npcHandler:say('Please tell me how much gold you would like to withdraw from your guild account.', npc, creature)
-			npcHandler:setTopic(playerId, 1224)
+			npcHandler:setTopic(playerId, 1643)
 			return true
 		end
-	elseif npcHandler:getTopic(playerId) == 1224 then
+	elseif npcHandler:getTopic(playerId) == 1643 then
 		count[playerId] = getMoneyCount(message)
 		if isValidMoney(count[playerId]) then
 			npcHandler:say('Are you sure you wish to withdraw ' .. count[playerId] .. ' gold from your guild account?', npc, creature)
-			npcHandler:setTopic(playerId, 1225)
+			npcHandler:setTopic(playerId, 1644)
 		else
 			npcHandler:say('There is not enough gold on your guild account.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		end
 		return true
-	elseif npcHandler:getTopic(playerId) == 1225 then
+	elseif npcHandler:getTopic(playerId) == 1644 then
 		if msgcontains(message, 'yes') then
 			local guild = player:getGuild()
 			local balance = guild:getBankBalance()
@@ -476,10 +476,10 @@ local function handleBankActions(creature, message)
 			local inbox = player:getInbox()
 			local receipt = getReceipt(info)
 			inbox:addItemEx(receipt, INDEX_WHEREEVER, FLAG_NOLIMIT)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('As you wish. Is there something else I can do for you?', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		end
 		return true
 --------------------------------guild bank-----------------------------------------------
@@ -488,28 +488,28 @@ local function handleBankActions(creature, message)
 			count[playerId] = getMoneyCount(message)
 			if isValidMoney(count[playerId]) then
 				npcHandler:say('Are you sure you wish to withdraw ' .. count[playerId] .. ' gold from your bank account?', npc, creature)
-				npcHandler:setTopic(playerId, 1207)
+				npcHandler:setTopic(playerId, 1626)
 			else
 				npcHandler:say('There is not enough gold on your account.', npc, creature)
-				npcHandler:setTopic(playerId, 1200)
+				npcHandler:setTopic(playerId, 1445)
 			end
 			return true
 		else
 			npcHandler:say('Please tell me how much gold you would like to withdraw.', npc, creature)
-			npcHandler:setTopic(playerId, 1206)
+			npcHandler:setTopic(playerId, 1625)
 			return true
 		end
-	elseif npcHandler:getTopic(playerId) == 1206 then
+	elseif npcHandler:getTopic(playerId) == 1625 then
 		count[playerId] = getMoneyCount(message)
 		if isValidMoney(count[playerId]) then
 			npcHandler:say('Are you sure you wish to withdraw ' .. count[playerId] .. ' gold from your bank account?', npc, creature)
-			npcHandler:setTopic(playerId, 1207)
+			npcHandler:setTopic(playerId, 1626)
 		else
 			npcHandler:say('There is not enough gold on your account.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		end
 		return true
-	elseif npcHandler:getTopic(playerId) == 1207 then
+	elseif npcHandler:getTopic(playerId) == 1626 then
 		if msgcontains(message, 'yes') then
 			if player:getFreeCapacity() >= getMoneyWeight(count[playerId]) then
 				if not player:withdrawMoney(count[playerId]) then
@@ -520,10 +520,10 @@ local function handleBankActions(creature, message)
 			else
 				npcHandler:say('Whoah, hold on, you have no room in your inventory to carry all those coins. I don\'t want you to drop it on the floor, maybe come back with a cart!', npc, creature)
 			end
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('The customer is king! Come back anytime you want to if you wish to {withdraw} your money.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		end
 		return true
 ---------------------------- transfer --------------------
@@ -531,11 +531,11 @@ local function handleBankActions(creature, message)
 	elseif msgcontains(message, 'guild transfer') then
 		if not player:getGuild() then
 			npcHandler:say('I am sorry but it seems you are currently not in any guild.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 			return false
 		elseif player:getGuildLevel() < 2 then
 			npcHandler:say('Only guild leaders or vice leaders can transfer money from the guild account.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 			return false
 		end
 
@@ -545,46 +545,46 @@ local function handleBankActions(creature, message)
 				transfer[playerId] = string.match(message, 'to%s*(.+)$')
 				if transfer[playerId] then
 					npcHandler:say('So you would like to transfer ' .. count[playerId] .. ' gold from your guild account to guild ' .. transfer[playerId] .. '?', npc, creature)
-					npcHandler:setTopic(playerId, 1228)
+					npcHandler:setTopic(playerId, 1647)
 				else
 					npcHandler:say('Which guild would you like to transfer ' .. count[playerId] .. ' gold to?', npc, creature)
-					npcHandler:setTopic(playerId, 1227)
+					npcHandler:setTopic(playerId, 1646)
 				end
 			else
 				npcHandler:say('There is not enough gold on your guild account.', npc, creature)
-				npcHandler:setTopic(playerId, 1200)
+				npcHandler:setTopic(playerId, 1445)
 			end
 		else
 			npcHandler:say('Please tell me the amount of gold you would like to transfer.', npc, creature)
-			npcHandler:setTopic(playerId, 1226)
+			npcHandler:setTopic(playerId, 1645)
 		end
 		return true
-	elseif npcHandler:getTopic(playerId) == 1226 then
+	elseif npcHandler:getTopic(playerId) == 1645 then
 		count[playerId] = getMoneyCount(message)
 		if player:getGuild():getBankBalance() < count[playerId] then
 			npcHandler:say('There is not enough gold on your guild account.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 			return true
 		end
 		if isValidMoney(count[playerId]) then
 			npcHandler:say('Which guild would you like to transfer ' .. count[playerId] .. ' gold to?', npc, creature)
-			npcHandler:setTopic(playerId, 1227)
+			npcHandler:setTopic(playerId, 1646)
 		else
 			npcHandler:say('There is not enough gold on your account.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		end
 		return true
-	elseif npcHandler:getTopic(playerId) == 1227 then
+	elseif npcHandler:getTopic(playerId) == 1646 then
 		transfer[playerId] = message
 		if player:getGuild():getName() == transfer[playerId] then
 			npcHandler:say('Fill in this field with person who receives your gold!', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 			return true
 		end
 		npcHandler:say('So you would like to transfer ' .. count[playerId] .. ' gold from your guild account to guild ' .. transfer[playerId] .. '?', npc, creature)
-		npcHandler:setTopic(playerId, 1228)
+		npcHandler:setTopic(playerId, 1647)
 		return true
-	elseif npcHandler:getTopic(playerId) == 1228 then
+	elseif npcHandler:getTopic(playerId) == 1647 then
 		if msgcontains(message, 'yes') then
 			npcHandler:say('We have placed an order to transfer ' .. count[playerId] .. ' gold from your guild account to guild ' .. transfer[playerId] .. '. Please check your inbox for confirmation.', npc, creature)
 			local guild = player:getGuild()
@@ -604,50 +604,50 @@ local function handleBankActions(creature, message)
 			else
 				getGuildIdByName(transfer[playerId], transferFactory(player:getName(), tonumber(count[playerId]), guild:getId(), info))
 			end
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Alright, is there something else I can do for you?', npc, creature)
 		end
-		npcHandler:setTopic(playerId, 1200)
+		npcHandler:setTopic(playerId, 1445)
 --------------------------------guild bank-----------------------------------------------
 	elseif msgcontains(message, 'transfer') then
 		npcHandler:say('Please tell me the amount of gold you would like to transfer.', npc, creature)
-		npcHandler:setTopic(playerId, 1211)
-	elseif npcHandler:getTopic(playerId) == 1211 then
+		npcHandler:setTopic(playerId, 1630)
+	elseif npcHandler:getTopic(playerId) == 1630 then
 		count[playerId] = getMoneyCount(message)
 		if player:getBankBalance() < count[playerId] then
 			npcHandler:say('There is not enough gold on your account.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 			return true
 		end
 		if isValidMoney(count[playerId]) then
 			npcHandler:say('Who would you like transfer ' .. count[playerId] .. ' gold to?', npc, creature)
-			npcHandler:setTopic(playerId, 1212)
+			npcHandler:setTopic(playerId, 1631)
 		else
 			npcHandler:say('There is not enough gold on your account.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		end
-	elseif npcHandler:getTopic(playerId) == 1212 then
+	elseif npcHandler:getTopic(playerId) == 1631 then
 		transfer[playerId] = message
 		if player:getName() == transfer[playerId] then
 			npcHandler:say('Fill in this field with person who receives your gold!', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 			return true
 		end
 		if playerExists(transfer[playerId]) then
 		local arrayDenied = {"accountmanager", "rooksample", "druidsample", "sorcerersample", "knightsample", "paladinsample"}
 			if isInArray(arrayDenied, string.gsub(transfer[playerId]:lower(), " ", "")) then
 				npcHandler:say('This player does not exist.', npc, creature)
-				npcHandler:setTopic(playerId, 1200)
+				npcHandler:setTopic(playerId, 1445)
 				return true
 			end
 			npcHandler:say('So you would like to transfer ' .. count[playerId] .. ' gold to ' .. transfer[playerId] .. '?', npc, creature)
-			npcHandler:setTopic(playerId, 1213)
+			npcHandler:setTopic(playerId, 1632)
 		else
 			npcHandler:say('This player does not exist.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		end
-	elseif npcHandler:getTopic(playerId) == 1213 then
+	elseif npcHandler:getTopic(playerId) == 1632 then
 		if msgcontains(message, 'yes') then
 			if not player:transferMoneyTo(transfer[playerId], count[playerId]) then
 				npcHandler:say('You cannot transfer money to this account.', npc, creature)
@@ -658,24 +658,24 @@ local function handleBankActions(creature, message)
 		elseif msgcontains(message, 'no') then
 			npcHandler:say('Alright, is there something else I can do for you?', npc, creature)
 		end
-		npcHandler:setTopic(playerId, 1200)
+		npcHandler:setTopic(playerId, 1445)
 ---------------------------- money exchange --------------
 	elseif msgcontains(message, 'change gold') then
 		npcHandler:say('How many platinum coins would you like to get?', npc, creature)
-		npcHandler:setTopic(playerId, 1214)
-	elseif npcHandler:getTopic(playerId) == 1214 then
+		npcHandler:setTopic(playerId, 1633)
+	elseif npcHandler:getTopic(playerId) == 1633 then
 		if getMoneyCount(message) < 1 then
 			npcHandler:say('Sorry, you do not have enough gold coins.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		else
 			count[playerId] = getMoneyCount(message)
 			npcHandler:say('So you would like me to change ' .. count[playerId] * 100 .. ' of your gold coins into ' .. count[playerId] .. ' platinum coins?', npc, creature)
-			npcHandler:setTopic(playerId, 1215)
+			npcHandler:setTopic(playerId, 1634)
 		end
-	elseif npcHandler:getTopic(playerId) == 1215 then
+	elseif npcHandler:getTopic(playerId) == 1634 then
 		if msgcontains(message, 'yes') then
-			if player:removeItem(2148, count[playerId] * 100) then
-				player:addItem(2152, count[playerId])
+			if player:removeItem(3031, count[playerId] * 100) then
+				player:addItem(3035, count[playerId])
 				npcHandler:say('Here you are.', npc, creature)
 			else
 				npcHandler:say('Sorry, you do not have enough gold coins.', npc, creature)
@@ -683,34 +683,34 @@ local function handleBankActions(creature, message)
 		else
 			npcHandler:say('Well, can I help you with something else?', npc, creature)
 		end
-		npcHandler:setTopic(playerId, 1200)
+		npcHandler:setTopic(playerId, 1445)
 	elseif msgcontains(message, 'change platinum') then
 		npcHandler:say('Would you like to change your platinum coins into gold or crystal?', npc, creature)
-		npcHandler:setTopic(playerId, 1216)
-	elseif npcHandler:getTopic(playerId) == 1216 then
+		npcHandler:setTopic(playerId, 1635)
+	elseif npcHandler:getTopic(playerId) == 1635 then
 		if msgcontains(message, 'gold') then
 			npcHandler:say('How many platinum coins would you like to change into gold?', npc, creature)
-			npcHandler:setTopic(playerId, 1217)
+			npcHandler:setTopic(playerId, 1636)
 		elseif msgcontains(message, 'crystal') then
 			npcHandler:say('How many crystal coins would you like to get?', npc, creature)
-			npcHandler:setTopic(playerId, 1219)
+			npcHandler:setTopic(playerId, 1638)
 		else
 			npcHandler:say('Well, can I help you with something else?', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		end
-	elseif npcHandler:getTopic(playerId) == 1217 then
+	elseif npcHandler:getTopic(playerId) == 1636 then
 		if getMoneyCount(message) < 1 then
 			npcHandler:say('Sorry, you do not have enough platinum coins.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		else
 			count[playerId] = getMoneyCount(message)
 			npcHandler:say('So you would like me to change ' .. count[playerId] .. ' of your platinum coins into ' .. count[playerId] * 100 .. ' gold coins for you?', npc, creature)
-			npcHandler:setTopic(playerId, 1218)
+			npcHandler:setTopic(playerId, 1637)
 		end
-	elseif npcHandler:getTopic(playerId) == 1218 then
+	elseif npcHandler:getTopic(playerId) == 1637 then
 		if msgcontains(message, 'yes') then
-			if player:removeItem(2152, count[playerId]) then
-				player:addItem(2148, count[playerId] * 100)
+			if player:removeItem(3035, count[playerId]) then
+				player:addItem(3031, count[playerId] * 100)
 				npcHandler:say('Here you are.', npc, creature)
 			else
 				npcHandler:say('Sorry, you do not have enough platinum coins.', npc, creature)
@@ -718,20 +718,20 @@ local function handleBankActions(creature, message)
 		else
 			npcHandler:say('Well, can I help you with something else?', npc, creature)
 		end
-		npcHandler:setTopic(playerId, 1200)
-	elseif npcHandler:getTopic(playerId) == 1219 then
+		npcHandler:setTopic(playerId, 1445)
+	elseif npcHandler:getTopic(playerId) == 1638 then
 		if getMoneyCount(message) < 1 then
 			npcHandler:say('Sorry, you do not have enough platinum coins.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		else
 			count[playerId] = getMoneyCount(message)
 			npcHandler:say('So you would like me to change ' .. count[playerId] * 100 .. ' of your platinum coins into ' .. count[playerId] .. ' crystal coins for you?', npc, creature)
-			npcHandler:setTopic(playerId, 1222)
+			npcHandler:setTopic(playerId, 1641)
 		end
-	elseif npcHandler:getTopic(playerId) == 1220 then
+	elseif npcHandler:getTopic(playerId) == 1639 then
 		if msgcontains(message, 'yes') then
-			if player:removeItem(2152, count[playerId] * 100) then
-				player:addItem(2160, count[playerId])
+			if player:removeItem(3035, count[playerId] * 100) then
+				player:addItem(3043, count[playerId])
 				npcHandler:say('Here you are.', npc, creature)
 			else
 				npcHandler:say('Sorry, you do not have enough platinum coins.', npc, creature)
@@ -739,23 +739,23 @@ local function handleBankActions(creature, message)
 		else
 			npcHandler:say('Well, can I help you with something else?', npc, creature)
 		end
-		npcHandler:setTopic(playerId, 1200)
+		npcHandler:setTopic(playerId, 1445)
 	elseif msgcontains(message, 'change crystal') then
 		npcHandler:say('How many crystal coins would you like to change into platinum?', npc, creature)
-		npcHandler:setTopic(playerId, 1221)
-	elseif npcHandler:getTopic(playerId) == 1221 then
+		npcHandler:setTopic(playerId, 1640)
+	elseif npcHandler:getTopic(playerId) == 1640 then
 		if getMoneyCount(message) < 1 then
 			npcHandler:say('Sorry, you do not have enough crystal coins.', npc, creature)
-			npcHandler:setTopic(playerId, 1200)
+			npcHandler:setTopic(playerId, 1445)
 		else
 			count[playerId] = getMoneyCount(message)
 			npcHandler:say('So you would like me to change ' .. count[playerId] .. ' of your crystal coins into ' .. count[playerId] * 100 .. ' platinum coins for you?', npc, creature)
-			npcHandler:setTopic(playerId, 1222)
+			npcHandler:setTopic(playerId, 1641)
 		end
-	elseif npcHandler:getTopic(playerId) == 1222 then
+	elseif npcHandler:getTopic(playerId) == 1641 then
 		if msgcontains(message, 'yes') then
-			if player:removeItem(2160, count[playerId])  then
-				player:addItem(2152, count[playerId] * 100)
+			if player:removeItem(3043, count[playerId])  then
+				player:addItem(3035, count[playerId] * 100)
 				npcHandler:say('Here you are.', npc, creature)
 			else
 				npcHandler:say('Sorry, you do not have enough crystal coins.', npc, creature)
@@ -763,7 +763,7 @@ local function handleBankActions(creature, message)
 		else
 			npcHandler:say('Well, can I help you with something else?', npc, creature)
 		end
-		npcHandler:setTopic(playerId, 1200)
+		npcHandler:setTopic(playerId, 1445)
 	elseif msgcontains(message, 'money') then
 		npcHandler:say('We can {change} money for you. You can also access your {bank account}.', npc, creature)
 	elseif msgcontains(message, 'change') then
@@ -932,23 +932,23 @@ end
 
 local function getDeliveredMessageByFoodId(food_id) -- remove the hardcoded food ids
 	local message = ""
-	if food_id == 35172 then
+	if food_id == 29408 then
 		message = "Oh yes, a tasty roasted wings to make you even tougher and skilled with the defensive arts."
-	elseif food_id == 35173 then
+	elseif food_id == 29409 then
 		message = "Divine! Carrot is a well known nourishment that makes the eyes see even more sharply."
-	elseif food_id == 35174 then
+	elseif food_id == 29410 then
 		message = "Magnifique! A tiger meat that has been marinated for several hours in magic spices."
-	elseif food_id == 35175 then
+	elseif food_id == 29411 then
 		message = "Aaah, the beauty of the simple dishes! A delicate salad made of selected ingredients, capable of bring joy to the hearts of bravest warriors and their weapons."
-	elseif food_id == 35176 then
+	elseif food_id == 29412 then
 		message = "Oh yes, very spicy chilly combined with delicious minced carniphila meat and a side dish of fine salad!"
-	elseif food_id == 35177 then
+	elseif food_id == 29413 then
 		message = "Aaah, the northern cuisine! A catch of fresh salmon right from the coast Svargrond is the base of this extraordinary fish dish."
-	elseif food_id == 35178 then
+	elseif food_id == 29414 then
 		message = "A traditional and classy meal. A beefy casserole which smells far better than it sounds!"
-	elseif food_id == 35179 then
+	elseif food_id == 29415 then
 		message = "A tasty chunk of juicy beef with an aromatic sauce and parsley potatoes, mmh!"
-	elseif food_id == 35180 then
+	elseif food_id == 29416 then
 		message = "Oooh, well... that one didn't quite turn out as it was supposed to be, I'm sorry."
 	end
 
