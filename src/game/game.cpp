@@ -6558,24 +6558,21 @@ void Game::checkImbuements()
 
 		bool needUpdate = false;
 		uint8_t slots = Item::items[item->getID()].imbuingSlots;
+		int32_t index = player ? player->getThingIndex(item) : -1;
 		for (uint8_t slot = 0; slot < slots; slot++) {
 			uint32_t info = item->getImbuement(slot);
 			int32_t duration = info >> 8;
 			int32_t newDuration = std::max(0, (duration - (EVENT_IMBUEMENTINTERVAL * EVENT_IMBUEMENT_BUCKETS) / 690));
 			if (duration > 0 && newDuration == 0) {
 				needUpdate = true;
-			}
-		}
-
-		int32_t index = player ? player->getThingIndex(item) : -1;
-		needUpdate = needUpdate && index != -1;
-
-		if (needUpdate) {
-			player->postRemoveNotification(item, player, index);
-			ReleaseItem(item);
-			it = imbuedItems[bucket].erase(it);
-			for (uint8_t slot = 0; slot < slots; slot++) {
-				item->setImbuement(slot, 0);
+				if (index != -1)
+				{
+					needUpdate = true;
+					player->postRemoveNotification(item, player, index);
+					ReleaseItem(item);
+					it = imbuedItems[bucket].erase(it);
+					item->setImbuement(slot, 0);
+				}
 			}
 		}
 
