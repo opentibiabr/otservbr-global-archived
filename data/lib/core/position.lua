@@ -223,17 +223,17 @@ local position = {
 }
 
 -- Checks position 1
-if Position(position[1]):hasItem(1498) then
+if Position(position[1]):hasItem(2129) then
 	return true
 end
 
 -- Checks position 2
-if Position(position[2]):hasItem(1499) then
+if Position(position[2]):hasItem(2130) then
 	return true
 end
 
 -- Check two positions
-if Position(position[1]):hasItem(1498) and Position(position[2]):hasItem(1499) then
+if Position(position[1]):hasItem(2129) and Position(position[2]):hasItem(2130) then
 	return true
 end
 ]]

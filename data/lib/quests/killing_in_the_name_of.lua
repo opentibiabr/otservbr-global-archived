@@ -669,7 +669,7 @@ tasks =
 			"demon"
 		},
 		rewards = {
-			{type = "item", value = {10305, 1}},
+			{type = "item", value = {9388, 1}},
 			{type = "storage", value = {41300, 1}}
 		}
 	},

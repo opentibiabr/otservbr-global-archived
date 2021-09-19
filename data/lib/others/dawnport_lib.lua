@@ -143,23 +143,23 @@ end
 -- Removes from player inventory (equipped/containers) maindland smuggling items
 function removeMainlandSmugglingItems(player)
 	local smugglingItemIds = {
-		2461,	-- Leather helmet
-		2651,	-- Coat
-		2649,	-- Leather legs
-		2643,	-- Leather boots
-		23719,	-- The scorcher
-		23721,	-- The chiller
-		23771,	-- Spellbook of the novice
-		2456,	-- Bow
-		2379,	-- Dagger
-		2512,	-- Wooden shield
-		40397,	-- Quiver
-		23839,	-- Simple arrow
-		7618,	-- Health potion
-		7620,	-- Mana potion
-		8704,	-- Small health potion
-		23723,	-- Lightest missile rune
-		23722	-- Light stone shower rune
+		3355,	-- Leather helmet
+		3562,	-- Coat
+		3559,	-- Leather legs
+		3552,	-- Leather boots
+		21348,	-- The scorcher
+		21350,	-- The chiller
+		21400,	-- Spellbook of the novice
+		3350,	-- Bow
+		3267,	-- Dagger
+		3412,	-- Wooden shield
+		35562,	-- Quiver
+		21470,	-- Simple arrow
+		266,	-- Health potion
+		268,	-- Mana potion
+		7876,	-- Small health potion
+		21352,	-- Lightest missile rune
+		21351	-- Light stone shower rune
 	}
 	for i = 1, #smugglingItemIds do
 		local smugglingItemAmount = player:getItemCount(smugglingItemIds[i])
