@@ -343,6 +343,19 @@ function Player.setAutomaticBonus(self, slot)
 	end
 end
 
+function Player.getDiffBonus(self, slot)
+	local currentBonus = self:getPreyBonusType(slot)
+
+	local availableBonuses = {}
+	for bonus = CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT do
+		if bonus ~= currentBonus then
+			table.insert(availableBonuses, bonus)
+		end
+	end
+
+	return availableBonuses[math.random(1, #availableBonuses)]
+end
+
 function onRecvbyte(player, msg, byte)
 	if (byte == Prey.C_Packets.RequestData) then
 		player:sendPreyData(CONST_PREY_SLOT_FIRST)
