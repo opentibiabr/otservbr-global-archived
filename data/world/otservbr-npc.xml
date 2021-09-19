@@ -1552,7 +1552,7 @@
 		<npc name="Willem" x="0" y="0" z="7" spawntime="60" />
 	</npc>
 	<npc centerx="32536" centery="32026" centerz="7" radius="1">
-		<npc name="Lesser Messenger of Heaven" x="0" y="0" z="7" spawntime="60" />
+		<npc name="Lesser Messenger Of Heaven" x="0" y="0" z="7" spawntime="60" />
 	</npc>
 	<npc centerx="32076" centery="32027" centerz="7" radius="1">
 		<npc name="Neill" x="0" y="0" z="7" spawntime="60" />
@@ -1750,7 +1750,7 @@
 		<npc name="Kulag, The Guard" x="0" y="0" z="7" spawntime="60" />
 	</npc>
 	<npc centerx="32614" centery="32266" centerz="7" radius="1">
-		<npc name="A Weakened Forest fury" x="0" y="0" z="7" spawntime="60" />
+		<npc name="A Weakened Forest Fury" x="0" y="0" z="7" spawntime="60" />
 	</npc>
 	<npc centerx="32058" centery="32268" centerz="7" radius="1">
 		<npc name="Zirella" x="0" y="0" z="7" spawntime="60" />
@@ -2122,7 +2122,7 @@
 		<npc name="Zalamon" x="0" y="0" z="8" spawntime="60" />
 	</npc>
 	<npc centerx="32674" centery="31601" centerz="8" radius="1">
-		<npc name="Mysterious Ornate chest" x="0" y="0" z="8" spawntime="60" />
+		<npc name="Mysterious Ornate Chest" x="0" y="0" z="8" spawntime="60" />
 	</npc>
 	<npc centerx="32670" centery="31654" centerz="8" radius="1">
 		<npc name="Bashira" x="0" y="0" z="8" spawntime="60" />
@@ -2731,7 +2731,7 @@
 		<npc name="Thorgrin" x="0" y="0" z="14" spawntime="60" />
 	</npc>
 	<npc centerx="32260" centery="31866" centerz="14" radius="1">
-		<npc name="The Queen Of The banshees" x="0" y="0" z="14" spawntime="60" />
+		<npc name="The Queen Of The Banshees" x="0" y="0" z="14" spawntime="60" />
 	</npc>
 	<npc centerx="33533" centery="31950" centerz="14" radius="1">
 		<npc name="Strange Pipe" x="0" y="0" z="14" spawntime="60" />
