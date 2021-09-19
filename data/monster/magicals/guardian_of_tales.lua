@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 15000
 monster.maxHealth = 15000
 monster.race = "undead"
-monster.corpse = 32470
+monster.corpse = 28770
 monster.speed = 420
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -88,7 +88,7 @@ monster.loot = {
 	{name = "Magma Coat", chance = 350},
 	{name = "Magma Legs", chance = 250},
 	{name = "Piece of Hellfire Armor", chance = 500, maxCount = 5},
-	{id = 13757, chance = 10000, maxCount = 5}
+	{id = 12600, chance = 10000, maxCount = 5}
 }
 
 monster.attacks = {

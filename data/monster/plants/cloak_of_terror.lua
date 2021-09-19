@@ -19,7 +19,7 @@ monster.Bestiary = {
 	race = BESTY_RACE_PLANT,
 	toKill = 5000,
 	FirstUnlock = 25,
-	SecondUnlock = 2500,
+	SecondUnlock = 3394,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 28000
 monster.maxHealth = 28000
 monster.race = "undead"
-monster.corpse = 38636
+monster.corpse = 33801
 monster.speed = 250
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -84,7 +84,7 @@ monster.loot = {
 	{name = "crystal coin", chance = 70540},
 	{name = "ultimate health potion", chance = 32220, maxCount = 7},
 	{name = "wand of starstorm", chance = 74560},
-	{id = 38769, chance = 55400}, -- Telescope eye
+	{id = 33934, chance = 55400}, -- Telescope eye
 	{name = "violet gem", chance = 74560},
 	{name = "lightning headband", chance = 11920},
 	{name = "green gem", chance = 64560},
@@ -92,9 +92,9 @@ monster.loot = {
 	{name = "wand of inferno", chance = 11920},
 	{name = "wand of voodoo", chance = 21920},
 	{name = "wand of defiance", chance = 10000, maxCount = 3},
-	{id = 38770, chance = 4500}, -- Crown
-	{id = 38858, chance = 850}, -- Brooch of embracement
-	{id = 38944, chance = 50} -- Bag you desire
+	{id = 33935, chance = 4500}, -- Crown
+	{id = 34023, chance = 850}, -- Brooch of embracement
+	{id = 34109, chance = 50} -- Bag you desire
 }
 
 monster.attacks = {

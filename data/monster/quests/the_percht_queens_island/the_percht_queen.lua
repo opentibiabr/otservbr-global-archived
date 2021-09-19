@@ -10,7 +10,7 @@ monster.outfit = {
 monster.health = 2300
 monster.maxHealth = 2300
 monster.race = "undead"
-monster.corpse = 35101
+monster.corpse = 30272
 monster.speed = 0
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -67,38 +67,38 @@ monster.loot = {
 	{name = "ultimate mana potion", chance = 61000, maxCount = 20},
 	{name = "bullseye potion", chance = 25500, maxCount = 10},
 	{name = "chaos mace", chance = 25000},
-	{id = 35108, chance = 24500},
+	{id = 30279, chance = 24500},
 	{name = "berserk potion", chance = 23000, maxCount = 10},
 	{name = "red gem", chance = 22500},
 	{name = "soul stone", chance = 224000},
-	{id = 35104, chance = 25000},
+	{id = 30275, chance = 25000},
 	{name = "flames of the percht queen", chance = 18000},
 	{name = "small ladybug", chance = 24980},
 	{name = "gold ingot", chance = 22480},
 	{name = "crystal coin", chance = 24890, maxCount = 2},
-	{id = 7632, chance = 21580},
+	{id = 281, chance = 21580},
 	{name = "skull staff", chance = 19850},
 	{name = "magic sulphur", chance = 25480},
 	{name = "percht queen's frozen heart", chance = 26800},
 	{name = "percht skull", chance = 25842},
-	{id = 35106, chance = 25840},
+	{id = 30277, chance = 25840},
 	{name = "silver token", chance = 5480, maxCount = 5},
 	{name = "percht handkerchief", chance = 5808},
 	{name = "ring of the sky", chance = 5100},
-	{id = 26185, chance = 8486},
-	{id = 35148, chance = 4848},
+	{id = 23529, chance = 8486},
+	{id = 30321, chance = 4848},
 	{name = "percht broom", chance = 6485},
 	{name = "ice hatchet", chance = 5485},
-	{id = 26189, chance = 4858},
-	{id = 26187, chance = 3485},
+	{id = 23533, chance = 4858},
+	{id = 23531, chance = 3485},
 	{name = "yellow gem", chance = 5485},
 	{name = "violet gem", chance = 6485},
-	{id = 26200, chance = 7848},
-	{id = 26199, chance = 5485},
+	{id = 23544, chance = 7848},
+	{id = 23543, chance = 5485},
 	{name = "green gem", chance = 5485},
 	{name = "blue gem", chance = 5845},
 	{name = "frozen chain", chance = 5485},
-	{id = 26198, chance = 5158},-- collar of blue plasma
+	{id = 23542, chance = 5158},-- collar of blue plasma
 	{name = "horseshoe", chance = 1250},
 	{name = "golden horseshoe", chance = 2510},
 	{name = "abyss hammer", chance = 1480},

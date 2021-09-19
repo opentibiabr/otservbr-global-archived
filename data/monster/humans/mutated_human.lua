@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 240
 monster.maxHealth = 240
 monster.race = "blood"
-monster.corpse = 9107
+monster.corpse = 5798
 monster.speed = 154
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -86,13 +86,13 @@ monster.loot = {
 	{name = "strange talisman", chance = 4980},
 	{name = "silver amulet", chance = 70},
 	{name = "fishbone", chance = 10050},
-	{id = 2376, chance = 5030},
+	{id = 3264, chance = 5030},
 	{name = "scale armor", chance = 8080},
-	{id = 2696, chance = 8000},
+	{id = 3607, chance = 8000},
 	{name = "fern", chance = 420},
 	{name = "worm", chance = 7110, maxCount = 2},
 	{name = "peanut", chance = 580},
-	{id = 9808, chance = 190},
+	{id = 8894, chance = 190},
 	{name = "mutated flesh", chance = 19940}
 }
 

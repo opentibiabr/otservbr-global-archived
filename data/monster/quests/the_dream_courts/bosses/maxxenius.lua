@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 20000
 monster.maxHealth = 20000
 monster.race = "blood"
-monster.corpse = 34789
+monster.corpse = 30151
 monster.speed = 250
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -83,17 +83,17 @@ monster.loot = {
 	{name = "Giant Ruby", chance = 3450},
 	{name = "Ornate Locket", chance = 3450},
 	{name = "Gold Token", chance = 68970, maxCount = 2},
-	{id = 7632, chance = 28540},
+	{id = 281, chance = 28540},
 	{name = "Pomegranate", chance = 24140},
 	{name = "Chaos Mace", chance = 6900},
-	{id = 26184, chance = 17240},
-	{id = 26199, chance = 13790},
+	{id = 23528, chance = 17240},
+	{id = 23543, chance = 13790},
 	{name = "Green Gem", chance = 31030},
 	{name = "Yellow Gem", chance = 31030},
 	{name = "Violet Gem", chance = 6900},
 	{name = "Blue Gem", chance = 10340},
 	{name = "Huge Chunk of Crude Iron", chance = 17240},
-	{id = 26185, chance = 3450},
+	{id = 23529, chance = 3450},
 	{name = "Skull Staff", chance = 13790},
 	{name = "Energized Limb", chance = 3450},
 	{name = "Purple Tendril Lantern", chance = 1500}

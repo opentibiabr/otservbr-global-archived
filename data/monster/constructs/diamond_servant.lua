@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1000
 monster.maxHealth = 1000
 monster.race = "venom"
-monster.corpse = 13485
+monster.corpse = 12496
 monster.speed = 172
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -94,7 +94,7 @@ monster.loot = {
 	{name = "lightning pendant", chance = 710},
 	{name = "crystalline armor", chance = 20},
 	{name = "gear wheel", chance = 5000},
-	{id = 9976, chance = 5320},
+	{id = 9063, chance = 5320},
 	{name = "shockwave amulet", chance = 110},
 	{name = "gear crystal", chance = 5000},
 	{name = "slime mould", chance = 480}

@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 800
 monster.maxHealth = 800
 monster.race = "blood"
-monster.corpse = 30771
+monster.corpse = 27536
 monster.speed = 220
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -82,7 +82,7 @@ monster.voices = {
 monster.loot = {
 	{name = "platinum coin", chance = 50930, maxCount = 4},
 	{name = "rare earth", chance = 39750, maxCount = 2},
-	{id = 13757, chance = 27980, maxCount = 5},
+	{id = 12600, chance = 27980, maxCount = 5},
 	{name = "glob of acid slime", chance = 23680},
 	{name = "stonerefiner's skull", chance = 20110},
 	{name = "poisonous slime", chance = 20040, maxCount = 3},

@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 18000
 monster.maxHealth = 18000
 monster.race = "fire"
-monster.corpse = 32454
+monster.corpse = 28754
 monster.speed = 440
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -80,14 +80,14 @@ monster.loot = {
 	{name = "Demonic Essence", chance = 3000, maxCount = 5},
 	{name = "Concentrated Demonic Blood", chance = 3000, maxCount = 3},
 	{name = "Small Amethyst", chance = 2000, maxCount = 4},
-	{id = 2419, chance = 3000},
+	{id = 3307, chance = 3000},
 	{name = "Silken Bookmark", chance = 2000, maxCount = 2},
 	{name = "Magma Coat", chance = 2000},
 	{name = "Guardian Shield", chance = 1500},
 	{name = "Soul Orb", chance = 3000, maxCount = 4},
 	{name = "Necrotic Rod", chance = 3000},
 	{name = "Magma Monocle", chance = 1500},
-	{id = 6300, chance = 1200},
+	{id = 6299, chance = 1200},
 	{name = "Stealth Ring", chance = 1800},
 	{name = "Shadow Sceptre", chance = 8990}
 }

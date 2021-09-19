@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 8500
 monster.maxHealth = 8500
 monster.race = "blood"
-monster.corpse = 36470
+monster.corpse = 31635
 monster.speed = 300
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -92,7 +92,7 @@ monster.loot = {
 	{name = "red gem", chance = 4800},
 	{name = "sacred tree amulet", chance = 5100},
 	{name = "green crystal shard", chance = 2130},
-	{id = 26189, chance = 740}-- ring of red plasma
+	{id = 23533, chance = 740}-- ring of red plasma
 }
 
 

@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 2200
 monster.maxHealth = 2200
 monster.race = "blood"
-monster.corpse = 40215
+monster.corpse = 35380
 monster.speed = 340
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -77,7 +77,7 @@ monster.voices = {
 monster.loot = {
 	{name = "great mana potion", chance = 44810},
 	{name = "wand of inferno", chance = 12500},
-	{id = 40423, chance = 19420},
+	{id = 35588, chance = 19420},
 	{name = "pirate coin", chance = 17810, maxCount = 10},
 	{name = "pirat's tail", chance = 2120},
 	{name = "springsprout rod", chance = 9550},

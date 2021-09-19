@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 28000
 monster.maxHealth = 28000
 monster.race = "undead"
-monster.corpse = 22478
+monster.corpse = 20144
 monster.speed = 340
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -107,7 +107,7 @@ monster.loot = {
 	{name = "cluster of solace", chance = 1800},
 	{name = "sight of surrender's eye", chance = 100000},
 	{name = "broken visor", chance = 100000},
-	{id = 22542, chance = 460}
+	{id = 20208, chance = 460}
 }
 
 monster.attacks = {

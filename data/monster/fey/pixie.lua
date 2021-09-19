@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 770
 monster.maxHealth = 770
 monster.race = "blood"
-monster.corpse = 29098
+monster.corpse = 25811
 monster.speed = 240
 monster.manaCost = 450
 monster.maxSummons = 0
@@ -87,7 +87,7 @@ monster.loot = {
 	{name = "butterfly ring", chance = 492},
 	{name = "wooden spellbook", chance = 92},
 	{name = "dream blossom staff", chance = 92},
-	{id = 2162, chance = 492},
+	{id = 3046, chance = 492},
 	{name = "green mushroom", chance = 492},
 	{name = "small enchanted amethyst", chance = 492, maxCount = 2},
 	{name = "small topaz", chance = 592, maxCount = 2},

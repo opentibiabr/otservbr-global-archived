@@ -80,12 +80,12 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2050, chance = 4950},
+	{id = 2920, chance = 4950},
 	{name = "gold coin", chance = 85780, maxCount = 35},
 	{name = "wand of cosmic energy", chance = 600},
 	{name = "leather helmet", chance = 3000},
 	{name = "leather legs", chance = 5190},
-	{id = 2684, chance = 15003, maxCount = 8},
+	{id = 3595, chance = 15003, maxCount = 8},
 	{name = "minotaur leather", chance = 2290},
 	{name = "taurus mace", chance = 1000},
 	{name = "mana potion", chance = 490},

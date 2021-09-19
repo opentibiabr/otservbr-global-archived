@@ -19,7 +19,7 @@ monster.Bestiary = {
 	race = BESTY_RACE_DEMON,
 	toKill = 5000,
 	FirstUnlock = 25,
-	SecondUnlock = 2500,
+	SecondUnlock = 3394,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 30000
 monster.maxHealth = 30000
 monster.race = "undead"
-monster.corpse = 38640
+monster.corpse = 33805
 monster.speed = 215
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -89,15 +89,15 @@ monster.loot = {
 	{name = "blue gem", chance = 54560},
 	{name = "northwind rod", chance = 11920},
 	{name = "sacred tree amulet", chance = 21920},
-	{id = 38768, chance = 10920}, -- Apron
+	{id = 33933, chance = 10920}, -- Apron
 	{name = "glacier shoes", chance = 12920},
 	{name = "glacier robe", chance = 22920},
 	{name = "stone skin amulet", chance = 8920},
-	{id = 26189, chance = 28920}, -- Ring of red plasma
-	{id = 38767, chance = 5920}, -- Head
+	{id = 23533, chance = 28920}, -- Ring of red plasma
+	{id = 33932, chance = 5920}, -- Head
 	{name = "glacial rod", chance = 3920},
-	{id = 38859, chance = 450}, -- Gruesome fan
-	{id = 38944, chance = 50} -- Bag you desire
+	{id = 34024, chance = 450}, -- Gruesome fan
+	{id = 34109, chance = 50} -- Bag you desire
 }
 
 monster.attacks = {

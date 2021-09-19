@@ -19,7 +19,7 @@ monster.Bestiary = {
 	race = BESTY_RACE_UNDEAD,
 	toKill = 5000,
 	FirstUnlock = 25,
-	SecondUnlock = 2500,
+	SecondUnlock = 3394,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -82,16 +82,16 @@ monster.loot = {
 	{name = "crystal coin", chance = 70540},
 	{name = "platinum coin", chance = 81920, maxCount = 33},
 	{name = "great mana potion", chance = 71920, maxCount = 5},
-	{id = 7632, chance = 54560}, -- Giant shimmering pearl
-	{id = 7633, chance = 54560}, -- Giant shimmering pearl
+	{id = 281, chance = 54560}, -- Giant shimmering pearl
+	{id = 282, chance = 54560}, -- Giant shimmering pearl
 	{name = "blue gem", chance = 64560},
-	{id = 26189, chance = 29000}, -- Ring of red plasma
+	{id = 23533, chance = 29000}, -- Ring of red plasma
 	{name = "wand of voodoo", chance = 31920},
 	{name = "wand of defiance", chance = 25920},
 	{name = "wand of everblazing", chance = 20920},
 	{name = "alloy legs", chance = 17920},
-	{id = 26185, chance = 29000}, -- Ring of blue plasma
-	{id = 26187, chance = 29000}, -- Ring of green plasma
+	{id = 23529, chance = 29000}, -- Ring of blue plasma
+	{id = 23531, chance = 29000}, -- Ring of green plasma
 	{name = "wand of starstorm", chance = 11920}
 }
 

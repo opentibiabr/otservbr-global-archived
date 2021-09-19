@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 2500
 monster.maxHealth = 2500
 monster.race = "undead"
-monster.corpse = 11300
+monster.corpse = 10383
 monster.speed = 204
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -93,7 +93,7 @@ monster.loot = {
 	{name = "spiked iron ball", chance = 9960},
 	{name = "clay lump", chance = 720},
 	{name = "piece of marble rock", chance = 430},
-	{id = 13757, chance = 400}
+	{id = 12600, chance = 400}
 }
 
 monster.attacks = {

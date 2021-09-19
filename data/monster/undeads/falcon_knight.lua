@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 9000
 monster.maxHealth = 9000
 monster.race = "blood"
-monster.corpse = 33364
+monster.corpse = 28621
 monster.speed = 220
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -76,7 +76,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2671, chance = 70080, maxCount = 8},
+	{id = 3582, chance = 70080, maxCount = 8},
 	{name = "Soul Orb", chance = 35000},
 	{name = "Great Mana Potion", chance = 33000, maxCount = 3},
 	{name = "Great Health Potion", chance = 33000, maxCount = 3},
@@ -89,7 +89,7 @@ monster.loot = {
 	{name = "Onyx Arrow", chance = 14480, maxCount = 15},
 	{name = "Small Topaz", chance = 4580, maxCount = 3},
 	{name = "Titan Axe", chance = 3000},
-	{id = 7633, chance = 3000},
+	{id = 282, chance = 3000},
 	{name = "Spiked Squelcher", chance = 2200},
 	{name = "Knight Armor", chance = 1980},
 	{name = "Falcon Crest", chance = 1250},
@@ -100,8 +100,8 @@ monster.loot = {
 	{name = "Golden Armor", chance = 840},
 	{name = "Mastermind Shield", chance = 620},
 	{name = "Heavy Mace", chance = 460},
-	{id = 2578, chance = 370},
-	{id = 2136, chance = 100}
+	{id = 3481, chance = 370},
+	{id = 3019, chance = 100}
 }
 
 monster.attacks = {

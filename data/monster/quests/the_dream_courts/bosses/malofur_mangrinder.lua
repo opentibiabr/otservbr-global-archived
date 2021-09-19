@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 200000
 monster.maxHealth = 200000
 monster.race = "blood"
-monster.corpse = 34655
+monster.corpse = 30017
 monster.speed = 250
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -75,17 +75,17 @@ monster.loot = {
 	{name = "Supreme Health Potion", chance = 50000, maxCount = 6},
 	{name = "Gold Token", chance = 50000, maxCount = 2},
 	{name = "Silver Token", chance = 100000, maxCount = 2},
-	{id = 7632, chance = 100000},
+	{id = 281, chance = 100000},
 	{name = "Green Gem", chance = 100000},
 	{name = "Red Gem", chance = 50000},
 	{name = "Blue Gem", chance = 100000},
-	{id = 26185, chance = 50000},
+	{id = 23529, chance = 50000},
 	{name = "Platinum Coin", chance = 50000, maxCount = 5},
 	{name = "Bullseye Potion", chance = 50000, maxCount = 10},
 	{name = "Piggy Bank", chance = 100000},
 	{name = "Mysterious Remains", chance = 100000},
 	{name = "Energy Bar", chance = 100000},
-	{id = 26199, chance = 50000},
+	{id = 23543, chance = 50000},
 	{name = "Ring of the Sky", chance = 100000},
 	{name = "Crunor Idol", chance = 100000},
 	{name = "Resizer", chance = 100000},

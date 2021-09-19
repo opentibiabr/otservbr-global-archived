@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1500
 monster.maxHealth = 1500
 monster.race = "blood"
-monster.corpse = 30756
+monster.corpse = 27521
 monster.speed = 280
 monster.manaCost = 0
 monster.maxSummons = 1
@@ -99,7 +99,7 @@ monster.loot = {
 	{name = "Platinum Amulet", chance = 130},
 	{name = "Ring of Healing", chance = 200},
 	{name = "Werewolf Amulet", chance = 50},
-	{id = 30941, chance = 30}
+	{id = 27706, chance = 30}
 }
 
 monster.attacks = {

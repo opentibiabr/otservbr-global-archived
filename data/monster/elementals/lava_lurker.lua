@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 5900
 monster.maxHealth = 5900
 monster.race = "fire"
-monster.corpse = 31997
+monster.corpse = 27586
 monster.speed = 58
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -80,7 +80,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 7760, chance = 14620, maxCount = 2}
+	{id = 676, chance = 14620, maxCount = 2}
 }
 
 monster.attacks = {

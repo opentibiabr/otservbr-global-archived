@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 16200
 monster.maxHealth = 16200
 monster.race = "undead"
-monster.corpse = 6307
+monster.corpse = 6306
 monster.speed = 370
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -71,16 +71,16 @@ monster.loot = {
 	{id = 5944, chance = 100000},
 	{id = 5741, chance = 9000},
 	{id = 7420, chance = 3000},
-	{id = 2177, chance = 12000},
+	{id = 3061, chance = 12000},
 	{id = 5925, chance = 5000, maxCount = 3},
-	{id = 7590, chance = 9000, maxCount = 4},
-	{id = 7591, chance = 9000, maxCount = 4},
-	{id = 6300, chance = 14000},
-	{id = 2489, chance = 29000},
-	{id = 2148, chance = 29000, maxCount = 100},
-	{id = 2148, chance = 29000, maxCount = 100},
-	{id = 2152, chance = 20000, maxCount = 8},
-	{id = 6500, chance = 6000, maxCount = 4},
+	{id = 238, chance = 9000, maxCount = 4},
+	{id = 239, chance = 9000, maxCount = 4},
+	{id = 6299, chance = 14000},
+	{id = 3383, chance = 29000},
+	{id = 3031, chance = 29000, maxCount = 100},
+	{id = 3031, chance = 29000, maxCount = 100},
+	{id = 3035, chance = 20000, maxCount = 8},
+	{id = 6499, chance = 6000, maxCount = 4},
 	{id = 6546, chance = 100000}
 }
 

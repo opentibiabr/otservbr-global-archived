@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 5800
 monster.maxHealth = 5800
 monster.race = "blood"
-monster.corpse = 34760
+monster.corpse = 30122
 monster.speed = 380
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -81,7 +81,7 @@ monster.loot = {
 	{name = "platinum coin", chance = 100000, maxCount = 13},
 	{name = "red crystal fragment", chance = 1000000},
 	{name = "red gem", chance = 1000000},
-	{id = 34696, chance = 15000, maxCount = 2},
+	{id = 30058, chance = 15000, maxCount = 2},
 	{name = "small enchanted ruby", chance = 1155},
 	{name = "miraculum", chance = 13550},
 	{name = "ultimate health potion", chance = 14750, maxCount = 2},

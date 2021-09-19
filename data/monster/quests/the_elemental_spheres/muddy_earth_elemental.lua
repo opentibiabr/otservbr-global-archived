@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 650
 monster.maxHealth = 650
 monster.race = "undead"
-monster.corpse = 8933
+monster.corpse = 8105
 monster.speed = 260
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -68,7 +68,7 @@ monster.loot = {
 	{name = "small stone", chance = 40000, maxCount = 3},
 	{name = "gold coin", chance = 24500, maxCount = 80},
 	{name = "gold coin", chance = 24500, maxCount = 47},
-	{id = 2244, chance = 22000},
+	{id = 3129, chance = 22000},
 	{name = "natural soil", chance = 3750}
 }
 

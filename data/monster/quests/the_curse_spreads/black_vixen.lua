@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 3200
 monster.maxHealth = 3200
 monster.race = "blood"
-monster.corpse = 32057
+monster.corpse = 27714
 monster.speed = 200
 monster.manaCost = 0
 monster.maxSummons = 2
@@ -91,7 +91,7 @@ monster.loot = {
 	{name = "composite hornbow", chance = 250},
 	{name = "sai", chance = 250},
 	{name = "silver token", chance = 250},
-	{id = 30941, chance = 250},
+	{id = 27706, chance = 250},
 	{name = "foxtail", chance = 100},
 	{name = "wolf backpack", chance = 100},
 	{name = "silver token", chance = 100}

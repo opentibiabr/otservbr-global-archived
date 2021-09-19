@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 250000
 monster.maxHealth = 250000
 monster.race = "blood"
-monster.corpse = 24256
+monster.corpse = 21887
 monster.speed = 80
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -65,20 +65,20 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 23541, chance = 5000},
-	{id = 24275, chance = 10000},
-	{id = 2148, chance = 100000, maxCount = 50},
-	{id = 7591, chance = 100000, maxCount = 13},
-	{id = 7590, chance = 100000, maxCount = 13},
-	{id = 8472, chance = 100000, maxCount = 13},
-	{id = 23571, chance = 83300, maxCount = 2},
-	{id = 2152, chance = 100000, maxCount = 30},
+	{id = 21170, chance = 5000},
+	{id = 21906, chance = 10000},
+	{id = 3031, chance = 100000, maxCount = 50},
+	{id = 239, chance = 100000, maxCount = 13},
+	{id = 238, chance = 100000, maxCount = 13},
+	{id = 7642, chance = 100000, maxCount = 13},
+	{id = 21200, chance = 83300, maxCount = 2},
+	{id = 3035, chance = 100000, maxCount = 30},
 	{id = 5911, chance = 16670},
-	{id = 2214, chance = 16670},
-	{id = 2145, chance = 16670, maxCount = 5},
-	{id = 2147, chance = 50000},
-	{id = 9970, chance = 16670, maxCount = 3},
-	{id = 2154, chance = 33330}
+	{id = 3098, chance = 16670},
+	{id = 3028, chance = 16670, maxCount = 5},
+	{id = 3030, chance = 50000},
+	{id = 9057, chance = 16670, maxCount = 3},
+	{id = 3037, chance = 33330}
 }
 
 monster.attacks = {

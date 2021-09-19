@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 650
 monster.maxHealth = 650
 monster.race = "undead"
-monster.corpse = 8933
+monster.corpse = 8105
 monster.speed = 230
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -86,11 +86,11 @@ monster.loot = {
 	{name = "blank rune", chance = 10000},
 	{name = "strong mana potion", chance = 1910},
 	{name = "earth arrow", chance = 20160, maxCount = 30},
-	{id = 9808, chance = 350},
+	{id = 8894, chance = 350},
 	{name = "small topaz", chance = 620},
 	{name = "lump of earth", chance = 20460},
 	{name = "clay lump", chance = 570},
-	{id = 13757, chance = 470}
+	{id = 12600, chance = 470}
 }
 
 monster.attacks = {

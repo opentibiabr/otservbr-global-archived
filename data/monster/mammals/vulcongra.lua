@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1600
 monster.maxHealth = 1600
 monster.race = "fire"
-monster.corpse = 18476
+monster.corpse = 16186
 monster.speed = 320
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -93,7 +93,7 @@ monster.loot = {
 	{name = "magma amulet", chance = 970},
 	{name = "magma coat", chance = 140},
 	{name = "fiery heart", chance = 9380},
-	{id = 13757, chance = 940},
+	{id = 12600, chance = 940},
 	{name = "brown crystal splinter", chance = 4850},
 	{name = "red crystal fragment", chance = 2280},
 	{name = "magma clump", chance = 12440},

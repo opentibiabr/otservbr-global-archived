@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 5800
 monster.maxHealth = 5800
 monster.race = "undead"
-monster.corpse = 6310
+monster.corpse = 6309
 monster.speed = 380
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -92,14 +92,14 @@ monster.loot = {
 	{name = "skull helmet", chance = 170},
 	{name = "silver goblet", chance = 4950},
 	{name = "soul orb", chance = 15000},
-	{id = 6300, chance = 2170},
+	{id = 6299, chance = 2170},
 	{name = "demonic essence", chance = 7500},
 	{name = "skeleton decoration", chance = 1250},
 	{name = "haunted blade", chance = 740},
 	{name = "titan axe", chance = 1000},
 	{name = "great mana potion", chance = 14200, maxCount = 2},
 	{name = "great health potion", chance = 8800, maxCount = 2},
-	{id = 9810, chance = 3500},
+	{id = 8896, chance = 3500},
 	{name = "unholy bone", chance = 33010}
 }
 

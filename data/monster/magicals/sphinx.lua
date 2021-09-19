@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 8500
 monster.maxHealth = 8500
 monster.race = "blood"
-monster.corpse = 36221
+monster.corpse = 31386
 monster.speed = 290
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -78,7 +78,7 @@ monster.loot = {
 	{name = "Platinum Coin", chance = 100000, maxCount = 3},
 	{name = "Sphinx Feather", chance = 9300},
 	{name = "Magma Amulet", chance = 7000},
-	{id = 36273, chance = 5500},
+	{id = 31438, chance = 5500},
 	{name = "Magma Boots", chance = 3600},
 	{name = "Lightning Pendant", chance = 3500},
 	{name = "Lightning Headband", chance = 3100},

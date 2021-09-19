@@ -31,7 +31,7 @@ monster.Bestiary = {
 monster.health = 550
 monster.maxHealth = 550
 monster.race = "blood"
-monster.corpse = 9871
+monster.corpse = 8957
 monster.speed = 230
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -82,7 +82,7 @@ monster.loot = {
 	{name = "gold coin", chance = 38000, maxCount = 65},
 	{name = "gold coin", chance = 40000, maxCount = 65},
 	{name = "stealth ring", chance = 540},
-	{id = 2229, chance = 20240},
+	{id = 3114, chance = 20240},
 	{name = "mouldy cheese", chance = 950},
 	{name = "halberd", chance = 2990},
 	{name = "plate shield", chance = 3750},

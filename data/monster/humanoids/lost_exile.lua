@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1600
 monster.maxHealth = 1600
 monster.race = "blood"
-monster.corpse = 33430
+monster.corpse = 28819
 monster.speed = 170
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -85,7 +85,7 @@ monster.loot = {
 	{name = "strong health potion", chance = 10950, maxCount = 2},
 	{name = "great mana potion", chance = 8330, maxCount = 2},
 	{name = "brown mushroom", chance = 16900, maxCount = 2},
-	{id = 13757, chance = 13100},
+	{id = 12600, chance = 13100},
 	{name = "holy ash", chance = 13100},
 	{name = "small topaz", chance = 10240},
 	{name = "lost husher's staff", chance = 6900},

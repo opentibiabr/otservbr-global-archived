@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 5600
 monster.maxHealth = 5600
 monster.race = "undead"
-monster.corpse = 6320
+monster.corpse = 6319
 monster.speed = 270
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -65,30 +65,30 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000},
-	{id = 2148, chance = 100000, maxCount = 98},
-	{id = 2666, chance = 100000},
-	{id = 6500, chance = 64000},
+	{id = 3031, chance = 100000},
+	{id = 3031, chance = 100000, maxCount = 98},
+	{id = 3577, chance = 100000},
+	{id = 6499, chance = 64000},
 	{id = 7368, chance = 100000, maxCount = 10},
-	{id = 2489, chance = 68000},
-	{id = 2150, chance = 28000, maxCount = 5},
-	{id = 2146, chance = 40000, maxCount = 5},
-	{id = 2145, chance = 32000, maxCount = 5},
-	{id = 11215, chance = 100000},
+	{id = 3383, chance = 68000},
+	{id = 3033, chance = 28000, maxCount = 5},
+	{id = 3029, chance = 40000, maxCount = 5},
+	{id = 3028, chance = 32000, maxCount = 5},
+	{id = 10298, chance = 100000},
 	{id = 7452, chance = 32000},
-	{id = 2152, chance = 100000, maxCount = 8},
-	{id = 2393, chance = 24000},
-	{id = 7591, chance = 44000, maxCount = 3},
-	{id = 7590, chance = 44000, maxCount = 3},
-	{id = 8472, chance = 44000, maxCount = 3},
-	{id = 7632, chance = 48000},
-	{id = 7633, chance = 48000},
-	{id = 2645, chance = 4000},
+	{id = 3035, chance = 100000, maxCount = 8},
+	{id = 3281, chance = 24000},
+	{id = 239, chance = 44000, maxCount = 3},
+	{id = 238, chance = 44000, maxCount = 3},
+	{id = 7642, chance = 44000, maxCount = 3},
+	{id = 281, chance = 48000},
+	{id = 282, chance = 48000},
+	{id = 3554, chance = 4000},
 	{id = 7427, chance = 24000},
 	{id = 7419, chance = 12000},
-	{id = 2125, chance = 24000},
-	{id = 2521, chance = 16000},
-	{id = 6300, chance = 100000},
+	{id = 3008, chance = 24000},
+	{id = 3421, chance = 16000},
+	{id = 6299, chance = 100000},
 	{id = 5741, chance = 4000}
 }
 

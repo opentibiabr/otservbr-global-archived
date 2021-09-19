@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 9100
 monster.maxHealth = 9100
 monster.race = "blood"
-monster.corpse = 33364
+monster.corpse = 28621
 monster.speed = 260
 monster.summonCost = 0
 monster.maxSummons = 0
@@ -65,8 +65,8 @@ monster.loot = {
 	{name = "platinum coin", chance = 100000, maxCount = 5},
 	{name = "dirty fur", chance = 53750},
 	{name = "ham", chance = 53750},
-	{id = 2237, chance = 47500},
-	{id = 2247, chance = 28750},
+	{id = 19148, chance = 47500},
+	{id = 3132, chance = 28750},
 	{name = "knife", chance = 25000},
 	{name = "broken helmet", chance = 23750},
 	{name = "dark armor", chance = 18750},
@@ -74,7 +74,7 @@ monster.loot = {
 	{name = "combat knife", chance = 8750},
 	{name = "plate armor", chance = 7500},
 	{name = "studded shield", chance = 7500},
-	{id = 2231, chance = 5000},
+	{id = 3116, chance = 5000},
 	{name = "cape", chance = 5000},
 	{name = "life preserver", chance = 3750},
 	{name = "dwarven shield", chance = 1250},

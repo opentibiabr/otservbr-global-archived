@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1500
 monster.maxHealth = 1500
 monster.race = "venom"
-monster.corpse = 19705
+monster.corpse = 17425
 monster.speed = 220
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -79,14 +79,14 @@ monster.voices = {
 monster.loot = {
 	{name = "gold coin", chance = 50000, maxCount = 100},
 	{name = "gold coin", chance = 50000, maxCount = 50},
-	{id = 2553, chance = 5280},
+	{id = 3456, chance = 5280},
 	{name = "worm", chance = 4580, maxCount = 5},
 	{name = "iron ore", chance = 1750},
 	{name = "spiked squelcher", chance = 540},
 	{name = "terra amulet", chance = 2360},
 	{name = "lump of earth", chance = 15000},
 	{name = "clay lump", chance = 700},
-	{id = 13757, chance = 12130},
+	{id = 12600, chance = 12130},
 	{name = "green crystal splinter", chance = 9780},
 	{name = "brown crystal splinter", chance = 9260},
 	{name = "blue crystal splinter", chance = 9610},

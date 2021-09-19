@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 2600
 monster.maxHealth = 2600
 monster.race = "blood"
-monster.corpse = 19963
+monster.corpse = 17683
 monster.speed = 260
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -94,7 +94,7 @@ monster.loot = {
 	{name = "terra boots", chance = 780},
 	{name = "ultimate health potion", chance = 10250},
 	{name = "small topaz", chance = 10200},
-	{id = 13757, chance = 21130},
+	{id = 12600, chance = 21130},
 	{name = "blue crystal shard", chance = 840},
 	{name = "lost basher's spike", chance = 17260},
 	{name = "lost basher's spike", chance = 14380},

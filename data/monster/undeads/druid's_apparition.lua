@@ -19,7 +19,7 @@ monster.Bestiary = {
 	race = BESTY_RACE_UNDEAD,
 	toKill = 5000,
 	FirstUnlock = 25,
-	SecondUnlock = 2500,
+	SecondUnlock = 3394,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -92,7 +92,7 @@ monster.loot = {
 	{name = "underworld rod", chance = 18920},
 	{name = "springsprout rod", chance = 14920},
 	{name = "sacred tree amulet", chance = 19920},
-	{id = 26200, chance = 29000} -- Collar of red plasma
+	{id = 23544, chance = 29000} -- Collar of red plasma
 }
 
 monster.attacks = {

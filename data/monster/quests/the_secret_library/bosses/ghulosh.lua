@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 300000
 monster.maxHealth = 300000
 monster.race = "blood"
-monster.corpse = 29369
+monster.corpse = 26133
 monster.speed = 100
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -88,9 +88,9 @@ monster.loot = {
 	{name = "butcher's axe", chance = 1000},
 	{name = "dreaded cleaver", chance = 1000},
 	{name = "mercenary sword", chance = 1000},
-	{id = 33094, chance = 1000},
-	{id = 9814, chance = 1000},
-	{id = 9820, chance = 1000},
+	{id = 28341, chance = 1000},
+	{id = 8900, chance = 1000},
+	{id = 8906, chance = 1000},
 	{name = "epaulette", chance = 500},
 	{name = "giant emerald", chance = 500},
 	{name = "unliving demonbone", chance = 500}

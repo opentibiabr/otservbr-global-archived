@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 50000
 monster.maxHealth = 50000
 monster.race = "venom"
-monster.corpse = 36434
+monster.corpse = 31599
 monster.speed = 250
 monster.manaCost = 0
 monster.maxSummons = 6
@@ -75,16 +75,16 @@ monster.loot = {
 	{name = "mastermind potion", minCount = 0, maxCount = 10, chance = 12000},
 	{name = "silver token", minCount = 0, maxCount = 2, chance = 8000},
 	{name = "blue gem", chance = 9000},
-	{id = 26198, chance = 5200},-- collar of blue plasma
-	{id = 26200, chance = 5200},-- collar of red plasma
+	{id = 23542, chance = 5200},-- collar of blue plasma
+	{id = 23544, chance = 5200},-- collar of red plasma
 	{name = "blue gem", chance = 8500},
 	{name = "gold ingot", minCount = 0, maxCount = 1, chance = 10000},
 	{name = "green gem", chance = 8200},
 	{name = "magic sulphur", chance = 6500},
 	{name = "red gem", chance = 8000},
-	{id = 26185, chance = 5000},-- ring of blue plasma
-	{id = 26189, chance = 5000},-- ring of red plasma
-	{id = 26187, chance = 5000},-- ring of green plasma
+	{id = 23529, chance = 5000},-- ring of blue plasma
+	{id = 23533, chance = 5000},-- ring of red plasma
+	{id = 23531, chance = 5000},-- ring of green plasma
 	{name = "skull staff", chance = 7000},
 	{name = "yellow gem", chance = 8500},
 	{name = "young lich worm", chance = 5500},

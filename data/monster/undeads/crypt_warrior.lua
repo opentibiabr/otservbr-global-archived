@@ -63,10 +63,10 @@ monster.voices = {
 
 monster.loot = {
 	{name = "Platinum Coin", chance = 43500, maxCount = 15},
-	{id = 2230, chance = 50000},
+	{id = 3115, chance = 50000},
 	{name = "white mushroom", chance = 24000, maxCount = 3},
 	{name = "Soul Orb", chance = 43500, maxCount = 5},
-	{id = 2376, chance = 2630, maxCount = 1},
+	{id = 3264, chance = 2630, maxCount = 1},
 	{name = "pelvis bone", chance = 2630, maxCount = 10},
 	{name = "Unholy Bone", chance = 2630, maxCount = 5},
 	{name = "Ruthless Axe", chance = 150}

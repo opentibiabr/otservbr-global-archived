@@ -82,7 +82,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 1958, chance = 520},
+	{id = 2824, chance = 520},
 	{name = "gold coin", chance = 90000, maxCount = 5},
 	{name = "wand of decay", chance = 1000},
 	{name = "spear", chance = 4850},
@@ -92,7 +92,7 @@ monster.loot = {
 	{name = "broken shamanic staff", chance = 10300},
 	{name = "shamanic hood", chance = 6860},
 	{name = "orc leather", chance = 4300},
-	{id = 26654, chance = 1000}
+	{id = 23986, chance = 1000}
 }
 
 monster.attacks = {

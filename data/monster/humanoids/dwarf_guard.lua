@@ -91,7 +91,7 @@ monster.loot = {
 	{name = "white mushroom", chance = 55000, maxCount = 2},
 	{name = "iron ore", chance = 510},
 	{name = "health potion", chance = 380},
-	{id = 13757, chance = 280}
+	{id = 12600, chance = 280}
 }
 
 monster.attacks = {

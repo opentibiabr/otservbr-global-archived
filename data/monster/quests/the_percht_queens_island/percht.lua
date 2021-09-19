@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 620
 monster.maxHealth = 620
 monster.race = "blood"
-monster.corpse = 35125
+monster.corpse = 30296
 monster.speed = 270
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -83,7 +83,7 @@ monster.loot = {
 	{name = "grainy fireworks powder", chance = 6640},
 	{name = "broken bell", chance = 5390},
 	{name = "versicolour fireworks powder", chance = 4220},
-	{id = 35152, chance = 3190},
+	{id = 30325, chance = 3190},
 	{name = "green fireworks powder", chance = 2790},
 	{name = "purple fireworks powder", chance = 2090},
 	{name = "turquoise fireworks powder", chance = 1980},

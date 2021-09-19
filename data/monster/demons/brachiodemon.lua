@@ -19,7 +19,7 @@ monster.Bestiary = {
 	race = BESTY_RACE_DEMON,
 	toKill = 5000,
 	FirstUnlock = 25,
-	SecondUnlock = 2500,
+	SecondUnlock = 3394,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 25000
 monster.maxHealth = 25000
 monster.race = "blood"
-monster.corpse = 38652
+monster.corpse = 33817
 monster.speed = 220
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -84,13 +84,13 @@ monster.loot = {
 	{name = "crystal coin", chance = 70540},
 	{name = "platinum coin", chance = 90540, maxCount = 32},
 	{name = "ultimate health potion", chance = 32220, maxCount = 7},
-	{id = 38771, chance = 35560}, -- Hand
+	{id = 33936, chance = 35560}, -- Hand
 	{name = "skull staff", chance = 65560},
 	{name = "epee", chance = 75560},
 	{name = "crystal mace", chance = 25560},
 	{name = "noble axe", chance = 8560},
 	{name = "spellbook of mind control", chance = 9000},
-	{id = 38772, chance = 7500}, -- Head
+	{id = 33937, chance = 7500}, -- Head
 	{name = "fire axe", chance = 13500},
 	{name = "royal helmet", chance = 15500},
 	{name = "mastermind shield", chance = 9500},
@@ -100,9 +100,9 @@ monster.loot = {
 	{name = "crystalline sword", chance = 5500},
 	{name = "alloy legs", chance = 4500},
 	{name = "metal bat", chance = 3500},
-	{id = 26187, chance = 8920}, -- Ring of green plasma
-	{id = 38860, chance = 1550}, -- Diabolic skull
-	{id = 38944, chance = 50} -- Bag you desire
+	{id = 23531, chance = 8920}, -- Ring of green plasma
+	{id = 34025, chance = 1550}, -- Diabolic skull
+	{id = 34109, chance = 50} -- Bag you desire
 }
 
 monster.attacks = {

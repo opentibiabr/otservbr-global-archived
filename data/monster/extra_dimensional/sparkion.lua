@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 2700
 monster.maxHealth = 2700
 monster.race = "venom"
-monster.corpse = 26044
+monster.corpse = 23388
 monster.speed = 302
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -80,29 +80,29 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000, maxCount = 100},
-	{id = 2152, chance = 20000, maxCount = 3},
-	{id = 26158, chance = 15000},
-	{id = 26201, chance = 15000},
-	{id = 26191, chance = 14600},
-	{id = 26161, chance = 14100},
-	{id = 26160, chance = 11100},
-	{id = 7590, chance = 10100, maxCount = 2},
-	{id = 8472, chance = 9700, maxCount = 2},
-	{id = 7591, chance = 9500, maxCount = 2},
-	{id = 26159, chance = 9100},
-	{id = 18418, chance = 8600},
-	{id = 18419, chance = 6000},
-	{id = 2146, chance = 4900, maxCount = 2},
-	{id = 18413, chance = 4200},
-	{id = 2158, chance = 1000},
-	{id = 2189, chance = 920},
-	{id = 26187, chance = 370},
-	{id = 26189, chance = 370},
-	{id = 26185, chance = 240},
-	{id = 26199, chance = 240},
-	{id = 26198, chance = 240},-- collar of blue plasma
-	{id = 26200, chance = 200}
+	{id = 3031, chance = 100000, maxCount = 100},
+	{id = 3035, chance = 20000, maxCount = 3},
+	{id = 23502, chance = 15000},
+	{id = 23545, chance = 15000},
+	{id = 23535, chance = 14600},
+	{id = 23505, chance = 14100},
+	{id = 23504, chance = 11100},
+	{id = 238, chance = 10100, maxCount = 2},
+	{id = 7642, chance = 9700, maxCount = 2},
+	{id = 239, chance = 9500, maxCount = 2},
+	{id = 23503, chance = 9100},
+	{id = 16124, chance = 8600},
+	{id = 16125, chance = 6000},
+	{id = 3029, chance = 4900, maxCount = 2},
+	{id = 16119, chance = 4200},
+	{id = 3041, chance = 1000},
+	{id = 3073, chance = 920},
+	{id = 23531, chance = 370},
+	{id = 23533, chance = 370},
+	{id = 23529, chance = 240},
+	{id = 23543, chance = 240},
+	{id = 23542, chance = 240},-- collar of blue plasma
+	{id = 23544, chance = 200}
 }
 
 monster.attacks = {

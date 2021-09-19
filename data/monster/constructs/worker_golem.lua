@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1470
 monster.maxHealth = 1470
 monster.race = "venom"
-monster.corpse = 9801
+monster.corpse = 8887
 monster.speed = 160
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -98,9 +98,9 @@ monster.loot = {
 	{name = "nail", chance = 5000, maxCount = 5},
 	{name = "great spirit potion", chance = 830},
 	{name = "gear wheel", chance = 1007},
-	{id = 9809, chance = 200},
-	{id = 9812, chance = 50},
-	{id = 9979, chance = 2270},
+	{id = 8895, chance = 200},
+	{id = 8898, chance = 50},
+	{id = 9066, chance = 2270},
 	{name = "gear crystal", chance = 2270}
 }
 

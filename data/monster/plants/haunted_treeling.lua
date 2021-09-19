@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 450
 monster.maxHealth = 450
 monster.race = "undead"
-monster.corpse = 9867
+monster.corpse = 8953
 monster.speed = 230
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -83,7 +83,7 @@ monster.voices = {
 
 monster.loot = {
 	{name = "gold coin", chance = 91920, maxCount = 95},
-	{id = 4860, chance = 29190},
+	{id = 4849, chance = 29190},
 	{name = "red mushroom", chance = 7700},
 	{name = "health potion", chance = 5130},
 	{name = "white mushroom", chance = 5030, maxCount = 2},

@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1600
 monster.maxHealth = 1600
 monster.race = "blood"
-monster.corpse = 19964
+monster.corpse = 17684
 monster.speed = 250
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -93,7 +93,7 @@ monster.loot = {
 	{name = "terra boots", chance = 880},
 	{name = "small topaz", chance = 9780},
 	{name = "clay lump", chance = 500},
-	{id = 13757, chance = 10930},
+	{id = 12600, chance = 10930},
 	{name = "buckle", chance = 8180},
 	{name = "buckle", chance = 770},
 	{name = "bonecarving knife", chance = 8510},

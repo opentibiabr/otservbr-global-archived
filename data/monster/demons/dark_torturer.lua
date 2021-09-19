@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 7350
 monster.maxHealth = 7350
 monster.race = "undead"
-monster.corpse = 6328
+monster.corpse = 6327
 monster.speed = 370
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -87,14 +87,14 @@ monster.loot = {
 	{name = "gold coin", chance = 40000, maxCount = 99},
 	{name = "platinum coin", chance = 55000, maxCount = 8},
 	{name = "golden legs", chance = 30},
-	{id = 2558, chance = 5250},
+	{id = 3461, chance = 5250},
 	{name = "steel boots", chance = 5050},
 	{name = "ham", chance = 60000, maxCount = 2},
 	{name = "orichalcum pearl", chance = 2760, maxCount = 2},
 	{name = "cat's paw", chance = 2222},
 	{name = "jewelled backpack", chance = 1192},
 	{name = "soul orb", chance = 23000},
-	{id = 6300, chance = 2008},
+	{id = 6299, chance = 2008},
 	{name = "demonic essence", chance = 8520},
 	{name = "concentrated demonic blood", chance = 33333, maxCount = 3},
 	{name = "assassin star", chance = 2222, maxCount = 5},

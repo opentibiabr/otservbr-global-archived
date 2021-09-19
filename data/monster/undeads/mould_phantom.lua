@@ -19,7 +19,7 @@ monster.Bestiary = {
 	race = BESTY_RACE_UNDEAD,
 	toKill = 5000,
 	FirstUnlock = 25,
-	SecondUnlock = 2500,
+	SecondUnlock = 3394,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 28000
 monster.maxHealth = 28000
 monster.race = "undead"
-monster.corpse = 38968
+monster.corpse = 34133
 monster.speed = 240
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -90,11 +90,11 @@ monster.loot = {
 	{name = "wand of voodoo", chance = 21920},
 	{name = "ornate crossbow", chance = 41920},
 	{name = "wand of defiance", chance = 21920, maxCount = 3},
-	{id = 26185, chance = 28920},
-	{id = 26198, chance = 28920},
-	{id = 38976, chance = 12920},
+	{id = 23529, chance = 28920},
+	{id = 23542, chance = 28920},
+	{id = 34141, chance = 12920},
 	{name = "crystal crossbow", chance = 1920},
-	{id = 38944, chance = 50}
+	{id = 34109, chance = 50}
 }
 
 monster.attacks = {

@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 95000
 monster.maxHealth = 95000
 monster.race = "blood"
-monster.corpse = 15220
+monster.corpse = 13787
 monster.speed = 440
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -69,7 +69,7 @@ monster.voices = {
 monster.loot = {
 	{name = "deepling axe", chance = 1500},
 	{name = "depth calcei", chance = 1100},
-	{id = 15408, chance = 1400},-- depth galea
+	{id = 13995, chance = 1400},-- depth galea
 	{name = "depth lorica", chance = 800},
 	{name = "ornate chestplate", chance = 650, unique = true},
 	{name = "ornate legs", chance = 740},

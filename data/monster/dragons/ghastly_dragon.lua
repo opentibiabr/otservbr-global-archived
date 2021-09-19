@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 7800
 monster.maxHealth = 7800
 monster.race = "undead"
-monster.corpse = 11362
+monster.corpse = 10445
 monster.speed = 320
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -92,7 +92,7 @@ monster.loot = {
 	{name = "terra boots", chance = 9510},
 	{name = "great spirit potion", chance = 29460, maxCount = 2},
 	{name = "ultimate health potion", chance = 24700},
-	{id = 9810, chance = 180},
+	{id = 8896, chance = 180},
 	{name = "shiny stone", chance = 860},
 	{name = "guardian boots", chance = 200},
 	{name = "Zaoan armor", chance = 870},

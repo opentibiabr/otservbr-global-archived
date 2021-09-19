@@ -66,7 +66,7 @@ monster.voices = {
 
 monster.loot = {
 	{name = "small stone", chance = 13890, maxCount = 4},
-	{id = 2124, chance = 120},
+	{id = 3007, chance = 120},
 	{name = "gold coin", chance = 90000, maxCount = 40},
 	{name = "red gem", chance = 30},
 	{name = "power ring", chance = 5070},
@@ -76,7 +76,7 @@ monster.loot = {
 	{name = "shiny stone", chance = 760},
 	{name = "sulphurous stone", chance = 10370},
 	{name = "piece of marble rock", chance = 380},
-	{id = 13757, chance = 550}
+	{id = 12600, chance = 550}
 }
 
 monster.attacks = {

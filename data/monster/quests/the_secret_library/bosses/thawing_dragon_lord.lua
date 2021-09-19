@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 25000
 monster.maxHealth = 25000
 monster.race = "fire"
-monster.corpse = 33381
+monster.corpse = 28639
 monster.speed = 230
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -62,10 +62,10 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 9971, chance = 50000, maxCount = 4},
-	{id = 8571, chance = 5560},
+	{id = 9058, chance = 50000, maxCount = 4},
+	{id = 7741, chance = 5560},
 	{id = 7377, chance = 5560},
-	{id = 15515, chance = 50}
+	{id = 14112, chance = 50}
 }
 
 monster.attacks = {

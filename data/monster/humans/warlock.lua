@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 3500
 monster.maxHealth = 3500
 monster.race = "blood"
-monster.corpse = 20527
+monster.corpse = 18246
 monster.speed = 230
 monster.manaCost = 0
 monster.maxSummons = 1
@@ -87,7 +87,7 @@ monster.loot = {
 	{name = "candlestick", chance = 1500},
 	{name = "piggy bank", chance = 60},
 	{name = "ring of the sky", chance = 430},
-	{id = 2124, chance = 700},
+	{id = 3007, chance = 700},
 	{name = "small sapphire", chance = 1190},
 	{name = "gold coin", chance = 29340, maxCount = 80},
 	{name = "talon", chance = 1150},
@@ -97,7 +97,7 @@ monster.loot = {
 	{name = "poison dagger", chance = 7600},
 	{name = "skull staff", chance = 6370},
 	{name = "golden armor", chance = 240},
-	{id = 2600, chance = 1000},
+	{id = 3509, chance = 1000},
 	{name = "blue robe", chance = 1410},
 	{name = "cherry", chance = 19000, maxCount = 4},
 	{name = "bread", chance = 9000},

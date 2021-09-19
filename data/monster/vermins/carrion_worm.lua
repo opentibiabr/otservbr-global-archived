@@ -81,7 +81,7 @@ monster.loot = {
 	{name = "meat", chance = 9460, maxCount = 2},
 	{name = "worm", chance = 2100, maxCount = 2},
 	{name = "carrion worm fang", chance = 10000},
-	{id = 13757, chance = 210}
+	{id = 12600, chance = 210}
 }
 
 monster.attacks = {

@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 25000
 monster.maxHealth = 25000
 monster.race = "undead"
-monster.corpse = 11362
+monster.corpse = 10445
 monster.speed = 320
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -79,7 +79,7 @@ monster.loot = {
 	{name = "small amethyst", chance = 12259, maxCount = 10},
 	{name = "odd organ", chance = 100000},
 	{name = "energy bar", chance = 16872, maxCount = 3},
-	{id = 26186, chance = 8762},
+	{id = 23530, chance = 8762},
 	{name = "ultimate health potion", chance = 27652, maxCount = 10},
 	{name = "blade of corruption", chance = 3775}
 }

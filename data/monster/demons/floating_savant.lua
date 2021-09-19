@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 8000
 monster.maxHealth = 8000
 monster.race = "undead"
-monster.corpse = 33341
+monster.corpse = 28598
 monster.speed = 330
 monster.manaCost = 0
 monster.maxSummons = 1
@@ -86,7 +86,7 @@ monster.loot = {
 	{name = "Red Piece of Cloth", chance = 10000, maxCount = 3},
 	{name = "Concentrated Demonic Blood", chance = 12000, maxCount = 5},
 	{name = "Demonic Essence", chance = 10000, maxCount = 5},
-	{id = 2553, chance = 10000},
+	{id = 3456, chance = 10000},
 	{name = "Sample of Monster Blood", chance = 10000, maxCount = 5}
 }
 

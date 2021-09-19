@@ -79,7 +79,7 @@ monster.loot = {
 	{name = "gold coin", chance = 59000, maxCount = 30},
 	{name = "battle hammer", chance = 730},
 	{name = "plate shield", chance = 2850},
-	{id = 2667, chance = 4600},
+	{id = 3578, chance = 4600},
 	{name = "tortoise egg", chance = 770, maxCount = 2},
 	{name = "turtle shell", chance = 1300},
 	{name = "tortoise shield", chance = 200}

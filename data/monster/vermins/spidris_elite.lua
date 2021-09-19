@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 5000
 monster.maxHealth = 5000
 monster.race = "venom"
-monster.corpse = 15296
+monster.corpse = 13870
 monster.speed = 394
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -81,10 +81,10 @@ monster.loot = {
 	{name = "gold coin", chance = 50000, maxCount = 100},
 	{name = "platinum coin", chance = 45000, maxCount = 6},
 	{name = "violet gem", chance = 1120},
-	{id = 6300, chance = 4480},
+	{id = 6299, chance = 4480},
 	{name = "titan axe", chance = 1440},
 	{name = "great mana potion", chance = 20400, maxCount = 2},
-	{id = 7632, chance = 3040},
+	{id = 281, chance = 3040},
 	{name = "ultimate health potion", chance = 9250, maxCount = 2},
 	{name = "spidris mandible", chance = 27440},
 	{name = "compound eye", chance = 13210},

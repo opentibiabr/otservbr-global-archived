@@ -88,7 +88,7 @@ monster.loot = {
 	{name = "meat", chance = 10160},
 	{name = "orc tooth", chance = 210},
 	{name = "orc leather", chance = 590},
-	{id = 26654, chance = 1000}
+	{id = 23986, chance = 1000}
 }
 
 monster.attacks = {

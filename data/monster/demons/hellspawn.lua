@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 3500
 monster.maxHealth = 3500
 monster.race = "fire"
-monster.corpse = 9923
+monster.corpse = 9009
 monster.speed = 344
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -97,9 +97,9 @@ monster.loot = {
 	{name = "spiked squelcher", chance = 970},
 	{name = "great health potion", chance = 40333},
 	{name = "ultimate health potion", chance = 9090},
-	{id = 9809, chance = 3125},
-	{id = 9810, chance = 3125},
-	{id = 9948, chance = 140},
+	{id = 8895, chance = 3125},
+	{id = 8896, chance = 3125},
+	{id = 9034, chance = 140},
 	{name = "black skull", chance = 151},
 	{name = "small topaz", chance = 5882, maxCount = 3},
 	{name = "hellspawn tail", chance = 20000}

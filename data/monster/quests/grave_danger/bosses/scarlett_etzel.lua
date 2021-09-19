@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 30000
 monster.maxHealth = 30000
 monster.race = "blood"
-monster.corpse = 36288
+monster.corpse = 31453
 monster.speed = 175
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -74,7 +74,7 @@ monster.loot = {
 	{name = "Ultimate Spirit Potion", chance = 34000, maxCount = 6},
 	{name = "Yellow Gem", chance = 29600, maxCount = 2},
 	{name = "Royal Star", chance = 26600, maxCount = 100},
-	{id = 7632, chance = 24000},
+	{id = 281, chance = 24000},
 	{name = "Berserk Potion", chance = 20300, maxCount = 10},
 	{name = "Blue Gem", chance = 18500, maxCount = 2},
 	{name = "Bullseye Potion", chance = 18500, maxCount = 10},
@@ -98,7 +98,7 @@ monster.loot = {
 	{name = "Cobra Rod", chance = 650},
 	{name = "Cobra Sword", chance = 650},
 	{name = "Cobra Wand", chance = 650},
-	{name = "The Cobra Amulet", chance = 350}
+	{name = "Cobra Amulet", chance = 350}
 }
 
 monster.attacks = {

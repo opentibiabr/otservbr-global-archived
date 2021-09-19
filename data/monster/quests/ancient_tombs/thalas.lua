@@ -74,7 +74,7 @@ monster.loot = {
 	{name = "small emerald", chance = 7000, maxCount = 3},
 	{name = "green gem", chance = 500},
 	{name = "stealth ring", chance = 1500},
-	{id = 2169, chance = 7000},
+	{id = 3053, chance = 7000},
 	{name = "cobrafang dagger", chance = 100000},
 	{name = "serpent sword", chance = 500},
 	{name = "poison dagger", chance = 7000},

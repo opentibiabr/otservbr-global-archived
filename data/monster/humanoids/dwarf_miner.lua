@@ -72,7 +72,7 @@ monster.loot = {
 	{name = "dwarven ring", chance = 793},
 	{name = "axe", chance = 14285},
 	{name = "studded armor", chance = 6666},
-	{id = 2553, chance = 11111},
+	{id = 3456, chance = 11111},
 	{name = "leather legs", chance = 9090},
 	{name = "meat", chance = 3846},
 	{name = "iron ore", chance = 793}

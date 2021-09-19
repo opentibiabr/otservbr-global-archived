@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 4500
 monster.maxHealth = 4500
 monster.race = "blood"
-monster.corpse = 30729
+monster.corpse = 27494
 monster.speed = 300
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -91,7 +91,7 @@ monster.loot = {
 	{name = "Small Enchanted Emerald", chance = 2940, maxCount = 2},
 	{name = "Small Emerald", chance = 5080, maxCount = 2},
 	{name = "Gold Ingot", chance = 2970},
-	{id = 7632, chance = 3100},
+	{id = 281, chance = 3100},
 	{name = "Suspicious Device", chance = 600},
 	{name = "Mycological Bow", chance = 1200},
 	{name = "Mushroom Backpack", chance = 1500}

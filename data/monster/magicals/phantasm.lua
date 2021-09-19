@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 3950
 monster.maxHealth = 3950
 monster.race = "undead"
-monster.corpse = 6344
+monster.corpse = 6343
 monster.speed = 340
 monster.manaCost = 0
 monster.maxSummons = 4
@@ -95,7 +95,7 @@ monster.loot = {
 	{name = "blank rune", chance = 22500, maxCount = 2},
 	{name = "crown armor", chance = 660},
 	{name = "shadow herb", chance = 26930, maxCount = 2},
-	{id = 6300, chance = 330},
+	{id = 6299, chance = 330},
 	{name = "demonic essence", chance = 16320},
 	{name = "abyss hammer", chance = 110},
 	{name = "shadow sceptre", chance = 550},

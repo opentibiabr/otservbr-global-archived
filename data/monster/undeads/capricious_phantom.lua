@@ -19,7 +19,7 @@ monster.Bestiary = {
 	race = BESTY_RACE_UNDEAD,
 	toKill = 5000,
 	FirstUnlock = 25,
-	SecondUnlock = 2500,
+	SecondUnlock = 3394,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 30000
 monster.maxHealth = 30000
 monster.race = "undead"
-monster.corpse = 38956
+monster.corpse = 34121
 monster.speed = 240
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -92,11 +92,11 @@ monster.loot = {
 	{name = "ornate crossbow", chance = 20020},
 	{name = "glacial rod", chance = 21920},
 	{name = "fur armor", chance = 18920},
-	{id = 38973, chance = 14560}, -- Capricious heart
-	{id = 38980, chance = 11560}, -- Capricious robe
-	{id = 26185, chance = 28920}, -- Ring of blue plasma
-	{id = 26198, chance = 24920}, -- Collar of blue plasma
-	{id = 38944, chance = 50} -- Bag you desire
+	{id = 34138, chance = 14560}, -- Capricious heart
+	{id = 34145, chance = 11560}, -- Capricious robe
+	{id = 23529, chance = 28920}, -- Ring of blue plasma
+	{id = 23542, chance = 24920}, -- Collar of blue plasma
+	{id = 34109, chance = 50} -- Bag you desire
 }
 
 monster.attacks = {

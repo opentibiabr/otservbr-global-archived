@@ -19,7 +19,7 @@ monster.Bestiary = {
 	race = BESTY_RACE_CONSTRUCT,
 	toKill = 5000,
 	FirstUnlock = 25,
-	SecondUnlock = 2500,
+	SecondUnlock = 3394,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 28000
 monster.maxHealth = 28000
 monster.race = "venom"
-monster.corpse = 38732
+monster.corpse = 33897
 monster.speed = 200
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -80,8 +80,8 @@ monster.voices = {
 monster.loot = {
 	{name = "crystal coin", chance = 70540},
 	{name = "great spirit potion", chance = 32220, maxCount = 7},
-	{id = 7632, chance = 54560}, -- Giant shimmering pearl
-	{id = 7633, chance = 54560}, -- Giant shimmering pearl
+	{id = 281, chance = 54560}, -- Giant shimmering pearl
+	{id = 282, chance = 54560}, -- Giant shimmering pearl
 	{name = "terra amulet", chance = 35500},
 	{name = "giant sword", chance = 13500},
 	{name = "war axe", chance = 9500},
@@ -94,7 +94,7 @@ monster.loot = {
 	{name = "wood cape", chance = 2500},
 	{name = "rubber cap", chance = 1500},
 	{name = "stone skin amulet", chance = 2000},
-	{id = 38944, chance = 50} -- Bag you desire
+	{id = 34109, chance = 50} -- Bag you desire
 }
 
 monster.attacks = {

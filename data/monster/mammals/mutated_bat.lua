@@ -32,7 +32,7 @@ monster.Bestiary = {
 monster.health = 900
 monster.maxHealth = 900
 monster.race = "blood"
-monster.corpse = 9829
+monster.corpse = 8915
 monster.speed = 186
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -90,8 +90,8 @@ monster.loot = {
 	{name = "star herb", chance = 5060},
 	{name = "bat wing", chance = 4900, maxCount = 2},
 	{name = "mercenary sword", chance = 110},
-	{id = 9808, chance = 12530},
-	{id = 9809, chance = 12530, maxCount = 2},
+	{id = 8894, chance = 12530},
+	{id = 8895, chance = 12530, maxCount = 2},
 	{name = "batwing hat", chance = 80},
 	{name = "mutated bat ear", chance = 4900}
 }

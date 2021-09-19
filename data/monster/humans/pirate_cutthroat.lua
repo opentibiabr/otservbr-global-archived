@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 325
 monster.maxHealth = 325
 monster.race = "blood"
-monster.corpse = 20479
+monster.corpse = 18198
 monster.speed = 214
 monster.manaCost = 495
 monster.maxSummons = 0
@@ -81,7 +81,7 @@ monster.loot = {
 	{name = "gold coin", chance = 78000, maxCount = 50},
 	{name = "scale armor", chance = 3000},
 	{name = "steel shield", chance = 2800},
-	{id = 5091, chance = 1000},
+	{id = 5090, chance = 1000},
 	{name = "rum flask", chance = 90},
 	{name = "light shovel", chance = 2000},
 	{id = 5792, chance = 110},

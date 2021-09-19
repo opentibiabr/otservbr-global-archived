@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 3700
 monster.maxHealth = 3700
 monster.race = "undead"
-monster.corpse = 6320
+monster.corpse = 6319
 monster.speed = 300
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -94,12 +94,12 @@ monster.loot = {
 	{name = "plate armor", chance = 4347},
 	{name = "dark armor", chance = 10000},
 	{name = "burst arrow", chance = 12500, maxCount = 12},
-	{id = 2553, chance = 6250},
+	{id = 3456, chance = 6250},
 	{name = "steel boots", chance = 992},
 	{name = "meat", chance = 50000, maxCount = 6},
 	{name = "skull helmet", chance = 108},
 	{name = "soul orb", chance = 6666},
-	{id = 6300, chance = 144},
+	{id = 6299, chance = 144},
 	{name = "demonic essence", chance = 20000},
 	{name = "dreaded cleaver", chance = 833},
 	{name = "chaos mace", chance = 869},

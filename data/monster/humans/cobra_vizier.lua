@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 8500
 monster.maxHealth = 8500
 monster.race = "blood"
-monster.corpse = 36474
+monster.corpse = 31639
 monster.speed = 320
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -85,7 +85,7 @@ monster.loot = {
 	{name = "terra hood", chance = 13710},
 	{name = "cyan crystal fragment", chance = 10805},
 	{name = "terra boots", chance = 9680},
-	{id = 7632, chance = 8870}, -- giant shimmering pearl
+	{id = 281, chance = 8870}, -- giant shimmering pearl
 	{name = "red gem", chance = 6450},
 	{name = "emerald bangle", chance = 5650},
 	{name = "gemmed figurine", chance = 4840},

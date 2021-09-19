@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 5300
 monster.maxHealth = 5300
 monster.race = "fire"
-monster.corpse = 22508
+monster.corpse = 20174
 monster.speed = 360
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -94,7 +94,7 @@ monster.loot = {
 	{name = "great health potion", chance = 15000},
 	{name = "underworld rod", chance = 1800},
 	{name = "wand of starstorm", chance = 960},
-	{id = 22363, chance = 3700},
+	{id = 20029, chance = 3700},
 	{name = "goosebump leather", chance = 16400},
 	{name = "pool of chitinous glue", chance = 14000}
 }

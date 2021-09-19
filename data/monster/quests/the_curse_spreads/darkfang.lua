@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 4800
 monster.maxHealth = 4800
 monster.race = "blood"
-monster.corpse = 20380
+monster.corpse = 18099
 monster.speed = 250
 monster.manaCost = 0
 monster.maxSummons = 2
@@ -81,7 +81,7 @@ monster.loot = {
 	{name = "ultimate health potion", chance = 13600000, maxCount = 5},
 	{name = "platinum amulet", chance = 13600000},
 	{name = "stone skin amulet", chance = 13600000},
-	{id = 2169, chance = 13600000},
+	{id = 3053, chance = 13600000},
 	{name = "troll green", chance = 13600000, maxCount = 2},
 	{name = "werewolf fur", chance = 13600000, maxCount = 2},
 	{name = "wolf paw", chance = 13600000, maxCount = 2},

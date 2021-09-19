@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 22
 monster.maxHealth = 22
 monster.race = "blood"
-monster.corpse = 34797
+monster.corpse = 30159
 monster.speed = 250
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -88,18 +88,18 @@ monster.loot = {
 	{name = "ice shield", chance = 13670},
 	{name = "chaos mace", chance = 13670},
 	{name = "gold ingot", chance = 12950},
-	{id = 7633, chance = 10790},
-	{id = 26200, chance = 10070},
-	{id = 26198, chance = 9350},-- collar of blue plasma
-	{id = 26187, chance = 8630},
+	{id = 282, chance = 10790},
+	{id = 23544, chance = 10070},
+	{id = 23542, chance = 9350},-- collar of blue plasma
+	{id = 23531, chance = 8630},
 	{name = "ring of the sky", chance = 8630},
-	{id = 26199, chance = 7910},
+	{id = 23543, chance = 7910},
 	{name = "beast's nightmare-cushion", chance = 6470},
 	{name = "violet gem", chance = 6470},
 	{name = "magic sulphur", chance = 6470},
 	{name = "purple tendril lantern", chance = 5760},
-	{id = 26185, chance = 5040},
-	{id = 26189, chance = 5040},
+	{id = 23529, chance = 5040},
+	{id = 23533, chance = 5040},
 	{name = "soul stone", chance = 5040},
 	{name = "dragon figurine", chance = 5040},
 	{name = "giant sapphire", chance = 4320},
@@ -109,7 +109,7 @@ monster.loot = {
 	{name = "arcane staff", chance = 2880},
 	{name = "giant ruby", chance = 2880},
 	{name = "abyss hammer", chance = 2160},
-	{id = 34981, chance = 2160},
+	{id = 30343, chance = 2160},
 	{name = "unicorn figurine", chance = 1000}
 }
 

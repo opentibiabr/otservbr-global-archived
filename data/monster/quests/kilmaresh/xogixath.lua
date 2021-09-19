@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 28000
 monster.maxHealth = 28000
 monster.race = "fire"
-monster.corpse = 13973
+monster.corpse = 12838
 monster.speed = 190
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -72,9 +72,9 @@ monster.loot = {
 	{name = "Winged Boots", chance = 120},
 	{name = "Small Sapphire", chance = 48000, maxCount = 3},
 	{name = "Stone Skin Amulet", chance = 54000},
-	{id = 36204, chance = 6500},
+	{id = 31369, chance = 6500},
 	{name = "Fire Axe", chance = 34000},
-	{id = 36392, chance = 520}
+	{id = 31557, chance = 520}
 }
 
 monster.attacks = {

@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 300000
 monster.maxHealth = 300000
 monster.race = "blood"
-monster.corpse = 8721
+monster.corpse = 7893
 monster.speed = 230
 monster.manaCost = 0
 monster.maxSummons = 5
@@ -81,16 +81,16 @@ monster.loot = {
 	{name = "blue gem", chance = 70000},
 	{name = "demon horn", chance = 70000},
 	{name = "demonic essence", chance = 70000},
-	{id = 7632, chance = 70000},
+	{id = 281, chance = 70000},
 	{name = "green gem", chance = 70000},
 	{name = "magic sulphur", chance = 70000},
 	{name = "stone skin amulet", chance = 70000},
 	{name = "silver token", chance = 30000, maxCount = 4},
 	{name = "blue robe", chance = 30000},
 	{name = "dreaded cleaver", chance = 30000},
-	{id = 9814, chance = 30000},
+	{id = 8900, chance = 30000},
 	{name = "wand of inferno", chance = 30000},
-	{id = 33094, chance = 1000},
+	{id = 28341, chance = 1000},
 	{name = "sturdy book", chance = 1000}
 }
 

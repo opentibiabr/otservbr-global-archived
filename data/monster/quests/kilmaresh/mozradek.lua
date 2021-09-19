@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 28000
 monster.maxHealth = 28000
 monster.race = "fire"
-monster.corpse = 13973
+monster.corpse = 12838
 monster.speed = 210
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -66,9 +66,9 @@ monster.voices = {
 
 monster.loot = {
 	{name = "Red Gem", chance = 60000},
-	{id = 36204, chance = 9000},
+	{id = 31369, chance = 9000},
 	{name = "Sea Horse Figurine", chance = 6000},
-	{id = 36392, chance = 3500}
+	{id = 31557, chance = 3500}
 }
 
 monster.attacks = {

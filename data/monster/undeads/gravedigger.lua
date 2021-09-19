@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 1500
 monster.maxHealth = 1500
 monster.race = "blood"
-monster.corpse = 21279
+monster.corpse = 18962
 monster.speed = 240
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -89,7 +89,7 @@ monster.loot = {
 	{name = "sudden death rune", chance = 7300},
 	{name = "skull staff", chance = 130},
 	{name = "mysterious voodoo skull", chance = 100},
-	{id = 6300, chance = 800},
+	{id = 6299, chance = 800},
 	{name = "strong health potion", chance = 2260, maxCount = 2},
 	{name = "strong mana potion", chance = 3600, maxCount = 2},
 	{name = "unholy bone", chance = 9570},

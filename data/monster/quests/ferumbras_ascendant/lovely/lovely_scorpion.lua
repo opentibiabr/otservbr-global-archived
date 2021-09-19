@@ -65,7 +65,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 10568, chance = 4970}
+	{id = 9651, chance = 4970}
 }
 
 monster.attacks = {

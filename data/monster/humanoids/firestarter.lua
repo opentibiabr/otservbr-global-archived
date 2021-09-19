@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 180
 monster.maxHealth = 180
 monster.race = "blood"
-monster.corpse = 20599
+monster.corpse = 18318
 monster.speed = 200
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -90,7 +90,7 @@ monster.loot = {
 	{name = "elvish bow", chance = 100},
 	{name = "flaming arrow", chance = 30000, maxCount = 12},
 	{name = "elvish talisman", chance = 5000},
-	{id = 13757, chance = 15280},
+	{id = 12600, chance = 15280},
 	{name = "flintstone", chance = 340}
 }
 

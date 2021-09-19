@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 17000
 monster.maxHealth = 17000
 monster.race = "undead"
-monster.corpse = 32482
+monster.corpse = 28782
 monster.speed = 430
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -75,7 +75,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 33317, chance = 10000},
+	{id = 28570, chance = 10000},
 	{name = "great spirit potion", chance = 10000, maxCount = 3},
 	{name = "fire mushroom", chance = 10000, maxCount = 6},
 	{name = "small amethyst", chance = 90000, maxCount = 5},
@@ -90,7 +90,7 @@ monster.loot = {
 	{name = "purple tome", chance = 6333},
 	{name = "great mana potion", chance = 10000, maxCount = 3},
 	{name = "demonic essence", chance = 4300},
-	{id = 33315, chance = 10000},
+	{id = 28568, chance = 10000},
 	{name = "small ruby", chance = 90000, maxCount = 5},
 	{name = "talon", chance = 8990},
 	{name = "might ring", chance = 4990},

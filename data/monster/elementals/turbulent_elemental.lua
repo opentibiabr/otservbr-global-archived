@@ -19,7 +19,7 @@ monster.Bestiary = {
 	race = BESTY_RACE_ELEMENTAL,
 	toKill = 5000,
 	FirstUnlock = 25,
-	SecondUnlock = 2500,
+	SecondUnlock = 3394,
 	CharmsPoints = 100,
 	Stars = 5,
 	Occurrence = 0,
@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 28000
 monster.maxHealth = 28000
 monster.race = "blood"
-monster.corpse = 38740
+monster.corpse = 33905
 monster.speed = 180
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -92,7 +92,7 @@ monster.loot = {
 	{name = "crystalline armor", chance = 4500},
 	{name = "rubber cap", chance = 3500},
 	{name = "fur armor", chance = 2500},
-	{id = 38944, chance = 50} -- Bag you desire
+	{id = 34109, chance = 50} -- Bag you desire
 }
 
 monster.attacks = {

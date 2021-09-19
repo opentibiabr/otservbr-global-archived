@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 135
 monster.maxHealth = 135
 monster.race = "blood"
-monster.corpse = 20347
+monster.corpse = 18066
 monster.speed = 168
 monster.manaCost = 450
 monster.maxSummons = 0
@@ -81,10 +81,10 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2050, chance = 6680},
+	{id = 2920, chance = 6680},
 	{name = "gold coin", chance = 8240, maxCount = 30},
 	{name = "life ring", chance = 300},
-	{id = 2229, chance = 3000},
+	{id = 3114, chance = 3000},
 	{name = "knife", chance = 1067},
 	{name = "brass helmet", chance = 2200},
 	{name = "viking helmet", chance = 860},

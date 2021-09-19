@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 300
 monster.maxHealth = 300
 monster.race = "blood"
-monster.corpse = 15280
+monster.corpse = 13853
 monster.speed = 280
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -75,8 +75,8 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2670, chance = 9680},--shrimp
-	{id = 2667, chance = 10770},--fish
+	{id = 3581, chance = 9680},--shrimp
+	{id = 3578, chance = 10770},--fish
 	{name = "black pearl", chance = 1500, maxCount = 1},
 	{name = "white pearl", chance = 830, maxCount = 1},
 	{name = "small sapphire", chance = 250, maxCount = 3},

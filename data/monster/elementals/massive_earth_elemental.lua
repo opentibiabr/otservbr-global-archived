@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 1330
 monster.maxHealth = 1330
 monster.race = "undead"
-monster.corpse = 8933
+monster.corpse = 8105
 monster.speed = 370
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -88,11 +88,11 @@ monster.loot = {
 	{name = "dwarven ring", chance = 2790},
 	{name = "diamond sceptre", chance = 150},
 	{name = "terra amulet", chance = 500},
-	{id = 9809, chance = 3300},
+	{id = 8895, chance = 3300},
 	{name = "small topaz", chance = 5280, maxCount = 2},
 	{name = "lump of earth", chance = 40680},
 	{name = "clay lump", chance = 480},
-	{id = 13757, chance = 430}
+	{id = 12600, chance = 430}
 }
 
 monster.attacks = {

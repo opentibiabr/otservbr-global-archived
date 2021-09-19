@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 59000
 monster.maxHealth = 59000
 monster.race = "blood"
-monster.corpse = 23363
+monster.corpse = 20992
 monster.speed = 600
 monster.manaCost = 490
 monster.maxSummons = 0
@@ -65,26 +65,26 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2148, chance = 100000, maxCount = 199},
-	{id = 2152, chance = 37170, maxCount = 14},
-	{id = 23474, chance = 14630},
-	{id = 7590, chance = 11270},
-	{id = 23514, chance = 10550},
-	{id = 9970, chance = 4320, maxCount = 2},
-	{id = 2149, chance = 3600, maxCount = 2},
-	{id = 23554, chance = 2400},
-	{id = 9690, chance = 1920},
-	{id = 23551, chance = 1200},
-	{id = 23529, chance = 1200},
-	{id = 23538, chance = 1200},
-	{id = 2154, chance = 960},
-	{id = 23550, chance = 720},
-	{id = 23549, chance = 480},
-	{id = 23536, chance = 480},
-	{id = 2156, chance = 980},
-	{id = 23663, chance = 480},
+	{id = 3031, chance = 100000, maxCount = 199},
+	{id = 3035, chance = 37170, maxCount = 14},
+	{id = 21103, chance = 14630},
+	{id = 238, chance = 11270},
+	{id = 21143, chance = 10550},
+	{id = 9057, chance = 4320, maxCount = 2},
+	{id = 3032, chance = 3600, maxCount = 2},
+	{id = 21183, chance = 2400},
+	{id = 8775, chance = 1920},
+	{id = 21180, chance = 1200},
+	{id = 21158, chance = 1200},
+	{id = 21167, chance = 1200},
+	{id = 3037, chance = 960},
+	{id = 21179, chance = 720},
+	{id = 21178, chance = 480},
+	{id = 21165, chance = 480},
+	{id = 3039, chance = 980},
+	{id = 21292, chance = 480},
 	{id = 5880, chance = 980},
-	{id = 23515, chance = 280}
+	{id = 21144, chance = 280}
 }
 
 monster.attacks = {

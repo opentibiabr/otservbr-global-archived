@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 1200
 monster.maxHealth = 1200
 monster.race = "blood"
-monster.corpse = 15287
+monster.corpse = 13860
 monster.speed = 290
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -78,11 +78,11 @@ monster.voices = {
 monster.loot = {
 	{name = "gold coin", chance = 50000, maxCount = 100},
 	{name = "gold coin", chance = 41000, maxCount = 38},
-	{id = 2667, chance = 25430, maxCount = 4},
+	{id = 3578, chance = 25430, maxCount = 4},
 	{name = "deepling scales", chance = 9620},
 	{name = "eye of a deepling", chance = 1200},
 	{name = "small sapphire", chance = 1090},
-	{id = 7632, chance = 390},--giant shimmering pearl (brown)
+	{id = 281, chance = 390},--giant shimmering pearl (brown)
 	{name = "fish fin", chance = 161}
 }
 

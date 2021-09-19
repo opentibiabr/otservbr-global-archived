@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 4800
 monster.maxHealth = 4800
 monster.race = "fire"
-monster.corpse = 17336
+monster.corpse = 15991
 monster.speed = 460
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -95,7 +95,7 @@ monster.loot = {
 	{name = "magma boots", chance = 1820},
 	{name = "wand of draconia", chance = 4280},
 	{name = "fiery heart", chance = 7810},
-	{id = 13757, chance = 1675},
+	{id = 12600, chance = 1675},
 	{name = "crystalline arrow", chance = 5950, maxCount = 10},
 	{name = "wand of everblazing", chance = 690},
 	{name = "blue crystal shard", chance = 3930, maxCount = 2},

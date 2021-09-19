@@ -30,7 +30,7 @@ monster.Bestiary = {
 monster.health = 20000
 monster.maxHealth = 20000
 monster.race = "blood"
-monster.corpse = 6336
+monster.corpse = 6335
 monster.speed = 340
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -82,7 +82,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{id = 2136, chance = 550},
+	{id = 3019, chance = 550},
 	{name = "small ruby", chance = 20000, maxCount = 4},
 	{name = "gold coin", chance = 100000, maxCount = 100},
 	{name = "gold coin", chance = 100000, maxCount = 100},
@@ -100,7 +100,7 @@ monster.loot = {
 	{name = "golden legs", chance = 500},
 	{name = "knight armor", chance = 4990},
 	{name = "mastermind shield", chance = 800},
-	{id = 2578, chance = 280},
+	{id = 3481, chance = 280},
 	{name = "ham", chance = 60000, maxCount = 8},
 	{name = "soul orb", chance = 33333},
 	{name = "demonic essence", chance = 45333},

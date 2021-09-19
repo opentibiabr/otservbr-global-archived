@@ -29,7 +29,7 @@ monster.Bestiary = {
 monster.health = 800
 monster.maxHealth = 800
 monster.race = "undead"
-monster.corpse = 13975
+monster.corpse = 12840
 monster.speed = 204
 monster.manaCost = 0
 monster.maxSummons = 0
@@ -80,12 +80,12 @@ monster.loot = {
 	{name = "white pearl", chance = 3000},
 	{name = "gold coin", chance = 70000, maxCount = 144},
 	{name = "scarab coin", chance = 10000, maxCount = 3},
-	{id = 2175, chance = 6800},
+	{id = 3059, chance = 6800},
 	{name = "ring of healing", chance = 1000},
 	{name = "orichalcum pearl", chance = 6000, maxCount = 4},
 	{name = "health potion", chance = 15000},
 	{name = "mana potion", chance = 15000},
-	{id = 13739, chance = 27000}
+	{id = 12482, chance = 27000}
 }
 
 monster.attacks = {
