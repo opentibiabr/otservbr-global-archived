@@ -1,7 +1,7 @@
 local fourthSealSacrifice = MoveEvent()
 
 function fourthSealSacrifice.onAddItem(moveitem, tileitem, position)
-	if moveitem.itemid ~= 2016 or moveitem.type ~= 2 then
+	if moveitem.itemid ~= 2886 or moveitem.type ~= 2 then
 		return true
 	end
 
@@ -12,5 +12,5 @@ function fourthSealSacrifice.onAddItem(moveitem, tileitem, position)
 end
 
 fourthSealSacrifice:type("additem")
-fourthSealSacrifice:id(426)
+fourthSealSacrifice:id(431)
 fourthSealSacrifice:register()

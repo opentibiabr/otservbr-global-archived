@@ -24,7 +24,7 @@ local setting = {
 local lever = Action()
 
 function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 1945 then
+	if item.itemid == 2772 then
 		-- Checks if you have the 4 players and if they have the required level
 		for i = 1, #setting.playersPositions do
 			local creature = Tile(setting.playersPositions[i].fromPos):getTopCreature()
@@ -59,8 +59,8 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				return false
 			end
 		end
-		item:transform(1946)
-	elseif item.itemid == 1946 then
+		item:transform(2773)
+	elseif item.itemid == 2773 then
 		-- If it has "daily = true" then it will execute this function
 		if setting.daily then
 			player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
@@ -75,7 +75,7 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		if Position.removeMonster(setting.centerDemonRoomPosition, 4, 4) then
 			return true
 		end
-		item:transform(1945)
+		item:transform(2772)
 	end
 	return true
 end

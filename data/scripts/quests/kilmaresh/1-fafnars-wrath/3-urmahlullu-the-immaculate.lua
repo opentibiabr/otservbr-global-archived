@@ -18,7 +18,7 @@ local config = {
 local leverboss = Action()
 
 function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		-- Check if the player that pulled the lever is on the correct position
 		if player:getPosition() ~= config.playerPositions[1] then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You can\'t start the battle.")
@@ -76,7 +76,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 		config.teleportPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
 	end
 
-	item:transform(9825)
+	item:transform(8911)
 	return true
 end
 

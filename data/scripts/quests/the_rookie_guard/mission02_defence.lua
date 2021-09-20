@@ -95,7 +95,7 @@ function stonePile.onUse(player, item, frompos, item2, topos)
 		-- Gather delay
 		if player:getStorageValue(Storage.TheRookieGuard.StonePileTimer) - os.time() <= 0 then		
 			player:setStorageValue(Storage.TheRookieGuard.StonePileTimer, os.time() + 2 * 60)
-			player:addItemEx(Game.createItem(13866, 1), true, CONST_SLOT_WHEREEVER)
+			player:addItemEx(Game.createItem(12724, 1), true, CONST_SLOT_WHEREEVER)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to wait a few minutes before you can pick up a new stone.")
 		end
@@ -133,7 +133,7 @@ function heavyStone.onUse(player, item, frompos, item2, topos)
 			player:setStorageValue(Storage.TheRookieGuard.Mission02, missionState + 1)
 			player:setStorageValue(Storage.TheRookieGuard.Catapults, catapultsState + catapults[item2.actionid])			
 			player:addExperience(5, true)
-			player:removeItem(13866, 1)
+			player:removeItem(12724, 1)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have already loaded a stone on this catapult. Look around on other roofs to find the remaining catapults.")
 		end
@@ -141,5 +141,5 @@ function heavyStone.onUse(player, item, frompos, item2, topos)
 	return true
 end
 
-heavyStone:id(13866)
+heavyStone:id(12724)
 heavyStone:register()

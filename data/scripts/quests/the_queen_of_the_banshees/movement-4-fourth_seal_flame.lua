@@ -14,7 +14,7 @@ function fourthSealFlame.onStepIn(creature, item, position, fromPosition)
 	local bloodPos = {x = 32243, y = 31892, z = 14}
 	local tile = Tile(bloodPos)
 	if tile then
-		local bloodItem = tile:getItemById(2016, 2)
+		local bloodItem = tile:getItemById(2886, 2)
 		if not bloodItem then
 			player:teleportTo(fromPosition, true)
 			fromPosition:sendMagicEffect(CONST_ME_TELEPORT)

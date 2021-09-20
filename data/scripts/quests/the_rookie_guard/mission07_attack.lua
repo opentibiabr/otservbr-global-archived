@@ -93,7 +93,7 @@ function fireFields.onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-	if item.itemid == 13882 then
+	if item.itemid == 12743 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This fire is much too hot to walk through it. Use the destroy field rune on the fire to weaken the flames!")
 		player:teleportTo(fromPosition, true)
 	end
@@ -108,9 +108,9 @@ fireFields:register()
 local function restoreFirefield(position)
 	local tile = Tile(position)
 	if tile then
-		local item = tile:getItemById(13883)
+		local item = tile:getItemById(12744)
 		if item then
-			item:transform(13882, 1)
+			item:transform(12743, 1)
 		end
 	end
 end
@@ -119,10 +119,10 @@ local destroyFieldRune = Action()
 
 function destroyFieldRune.onUse(player, item, frompos, item2, topos)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission07)
-	if missionState == 1 and item2.itemid == 13882 then
+	if missionState == 1 and item2.itemid == 12743 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Fire in this stadium can be crossed without taking damage. Open the chest and get out of here!")
 		item2:getPosition():sendMagicEffect(CONST_ME_POFF)
-		item2:transform(13883, 1)
+		item2:transform(12744, 1)
 		addEvent(restoreFirefield, 25000, item2:getPosition())
 	end
 	return true
@@ -144,7 +144,7 @@ function treasureChest.onUse(player, item, frompos, item2, topos)
 	if missionState == 1 then
 		local libraryChestState = player:getStorageValue(Storage.TheRookieGuard.LibraryChest)
 		if libraryChestState == -1 then
-			local reward = Game.createItem(13831, 1)
+			local reward = Game.createItem(12675, 1)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. reward:getArticle() .. " " .. reward:getName() .. ".")
 			player:setStorageValue(Storage.TheRookieGuard.LibraryChest, 1)
 			player:addItemEx(reward, true, CONST_SLOT_WHEREEVER)

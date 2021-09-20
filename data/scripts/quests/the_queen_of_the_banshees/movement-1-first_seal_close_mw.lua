@@ -8,7 +8,7 @@ function firstSealCloseMw.onStepIn(creature, item, position, fromPosition)
 	end
 
 	local magicWallPosition = {x = 32259, y = 31890, z = 10}
-	if Position(magicWallPosition):createItem(1498) then
+	if Position(magicWallPosition):createItem(2129) then
 		stopEvent(Position.revertItem)
 	end
 	return true
@@ -27,7 +27,7 @@ function firstSealCloseMw.onStepIn(creature, item, position, fromPosition)
 	end
 
 	local magicWallPosition = {x = 32259, y = 31891, z = 10}
-	if Position(magicWallPosition):createItem(1498) then
+	if Position(magicWallPosition):createItem(2129) then
 		stopEvent(Position.revertItem)
 	end
 	return true
@@ -49,7 +49,7 @@ function firstSealCloseMw.onStepIn(creature, item, position, fromPosition)
 	Position(magicWallPosition):removeItem(369)
 
 	local leverPosition = {x = 32266, y = 31861, z = 11}
-	Position.revertItem(magicWallPosition, 1498, leverPosition, 1946, 32400)
+	Position.revertItem(magicWallPosition, 2129, leverPosition, 2773, 27260)
 	return true
 end
 

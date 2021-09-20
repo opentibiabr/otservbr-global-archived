@@ -150,18 +150,18 @@ missionGuide:register()
 -- Treasure chest (gather final mission items)
 
 local reward = {
-	containerId = 1987,
+	containerId = 2853,
 	itemIds = {
-		13927,
-		13928,
-		13923,
-		13830
+		12788,
+		12789,
+		12784,
+		12674
 	}
 }
 
 local treasureChest = Action()
 
-function treasureChest.onUse(player, item, frompos, item2, topos)
+function treasureChest.onUse(player, item, frompos, itemEx, topos)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission12)
 	-- Skip if not was started
 	if missionState == -1 then
@@ -194,39 +194,39 @@ treasureChest:register()
 local function orcRecovery(position)
 	local tile = Tile(position)
 	if tile then
-		local item = tile:getItemById(13930)
+		local item = tile:getItemById(12791)
 		if item then
-			item:transform(13929, 1)
+			item:transform(12790, 1)
 		end
 	end
 end
 
 local rollingPin = Action()
 
-function rollingPin.onUse(player, item, frompos, item2, topos)
+function rollingPin.onUse(player, item, frompos, itemEx, topos)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission12)
-	if missionState >= 2 and missionState <= 13 and item2.itemid == 13929 then
+	if missionState >= 2 and missionState <= 13 and itemEx.itemid == 12790 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You knock the unsuspicious orc unconscious. Use him to disguise yourself as orc!")
 		if missionState == 2 then
 			player:setStorageValue(Storage.TheRookieGuard.Mission12, 3)
 			player:addExperience(50, true)
 		end
-		item2:transform(13930, 1)
-		addEvent(orcRecovery, 60000, item2:getPosition())
+		itemEx:transform(12791, 1)
+		addEvent(orcRecovery, 60000, itemEx:getPosition())
 	else
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have no reason to do such an insidious thing.")
 	end
 	return true
 end
 
-rollingPin:id(13928)
+rollingPin:id(12789)
 rollingPin:register()
 
 -- Unconscious orc (Disguise like orc)
 
 local unconsciousOrc = Action()
 
-function unconsciousOrc.onUse(player, item, frompos, item2, topos)
+function unconsciousOrc.onUse(player, item, frompos, itemEx, topos)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission12)
 	if missionState >= 3 and missionState <= 13 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You look almost like an orc. It won't fool all orcs, but the stupid guardsman in front of the fortress should fall for it.")
@@ -241,7 +241,7 @@ function unconsciousOrc.onUse(player, item, frompos, item2, topos)
 	return true
 end
 
-unconsciousOrc:id(13930)
+unconsciousOrc:id(12791)
 unconsciousOrc:register()
 
 -- Fleshy bone (Distract elite orc guard)
@@ -266,22 +266,22 @@ local function eliteOrcGuardRecovery(position)
 			monsters[i]:remove()
 		end
 	end
-	Game.createItem(13931, 1, position)
+	Game.createItem(12792, 1, position)
 end
 
 local fleshyBone = Action()
 
-function fleshyBone.onUse(player, item, frompos, item2, topos)
+function fleshyBone.onUse(player, item, frompos, itemEx, topos)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission12)
-	if missionState >= 5 and item2.itemid == 13931 then
+	if missionState >= 5 and itemEx.itemid == 12792 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This should be enough distraction for you to sneak into the fortress! Hurry up!")
 		if missionState == 5 then
 			player:setStorageValue(Storage.TheRookieGuard.Mission12, 6)
 			player:addExperience(50, true)
 		end
-		local position = item2:getPosition()
+		local position = itemEx:getPosition()
 		local spawnPosition = Position(position.x, position.y + 1, position.z)
-		item2:remove()
+		itemEx:remove()
 		monsters = {}
 		for i = 1, #monstersList do
 			if i == 2 then
@@ -297,32 +297,32 @@ function fleshyBone.onUse(player, item, frompos, item2, topos)
 	return true
 end
 
-fleshyBone:id(13830)
+fleshyBone:id(12674)
 fleshyBone:register()
 
 -- Wasp poison flask (Poison cauldron)
 
 local poisonFlask = Action()
 
-function poisonFlask.onUse(player, item, frompos, item2, topos)
+function poisonFlask.onUse(player, item, frompos, itemEx, topos)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission12)
-	if missionState == 7 and item2.actionid == 40012 then
+	if missionState == 7 and itemEx.actionid == 40012 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You poisoned Kraknaknork's soup. This should weaken him immensely. Time to find his room.")
 		player:setStorageValue(Storage.TheRookieGuard.Mission12, 8)
-		player:removeItem(13923, 1)
+		player:removeItem(12784, 1)
 		player:addExperience(50, true)
 	end
 	return true
 end
 
-poisonFlask:id(13923)
+poisonFlask:id(12784)
 poisonFlask:register()
 
 -- Tarantula trap (Slow furious orc berserker)
 
 local taranturaTrap = Action()
 
-function taranturaTrap.onUse(player, item, frompos, item2, topos)
+function taranturaTrap.onUse(player, item, frompos, itemEx, topos)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission12)
 	target = Tile(topos):getTopCreature()
 	if missionState >= 8 and target:getName() == "Furious Orc Berserker" then
@@ -338,7 +338,7 @@ function taranturaTrap.onUse(player, item, frompos, item2, topos)
 	return true
 end
 
-taranturaTrap:id(13927)
+taranturaTrap:id(12788)
 taranturaTrap:register()
 
 -- Kraknaknork lair teleport
@@ -460,20 +460,20 @@ local levers = {
 }
 
 local function energyBarrierRestore(barrierUID)
-	local energyBarrier = Tile(energyBarriers[barrierUID].position):getItemById(13934)
+	local energyBarrier = Tile(energyBarriers[barrierUID].position):getItemById(12796)
 	if not energyBarrier then
-		energyBarrier = Game.createItem(13934, 1, energyBarriers[barrierUID].position)
+		energyBarrier = Game.createItem(12796, 1, energyBarriers[barrierUID].position)
 		energyBarrier:setAttribute(ITEM_ATTRIBUTE_UNIQUEID, barrierUID)
 	end
 end
 
 local missionLevers = Action()
 
-function missionLevers.onUse(player, item, position, item2, toPosition)
+function missionLevers.onUse(player, item, position, itemEx, toPosition)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission12)
 	if missionState >= 10 then
 		local lever = levers[item.uid]
-		local energyBarrier = Tile(energyBarriers[lever.barrier].position):getItemById(13934)
+		local energyBarrier = Tile(energyBarriers[lever.barrier].position):getItemById(12796)
 		if energyBarrier then
 			energyBarrier:getPosition():sendMagicEffect(CONST_ME_PURPLEENERGY)
 			energyBarrier:remove()
@@ -652,14 +652,14 @@ local chests = {
 	[40073] = {
 		id = CHEST_ID.LEFT,
 		item = {
-			id = 2147,
+			id = 3030,
 			amount = 1
 		}
 	},
 	[40074] = {
 		id = CHEST_ID.RIGHT,
 		item = {
-			id = 2152,
+			id = 3035,
 			amount = 2
 		}
 	}
@@ -667,7 +667,7 @@ local chests = {
 
 local bossChests = Action()
 
-function bossChests.onUse(player, item, frompos, item2, topos)
+function bossChests.onUse(player, item, frompos, itemEx, topos)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission12)
 	-- Skip if not was started
 	if missionState == -1 then
@@ -738,21 +738,21 @@ local chests = {
 	[40079] = {
 		id = CHEST_ID.FORTRESS_TREASURE_CHEST,
 		item = {
-			id = 2695,
+			id = 3606,
 			amount = 30
 		}
 	},
 	[40080] = {
 		id = CHEST_ID.FORTRESS_TRUNK,
 		item = {
-			id = 8704,
+			id = 7876,
 			amount = 2
 		}
 	},
 	[40081] = {
 		id = CHEST_ID.LAIR_TREASURE_CHEST,
 		item = {
-			id = 8704,
+			id = 7876,
 			amount = 1
 		}
 	}
@@ -760,7 +760,7 @@ local chests = {
 
 local orcFortressChests = Action()
 
-function orcFortressChests.onUse(player, item, frompos, item2, topos)
+function orcFortressChests.onUse(player, item, frompos, itemEx, topos)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission10)
 	-- Skip if not was started
 	if missionState == -1 then

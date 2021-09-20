@@ -15,10 +15,10 @@ function firstFloorStair.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	local jungleGrassId = 2782
+	local jungleGrassId = 3696
 	local stairPosition = {x = 32478, y = 31902, z = 7}
-	local stairId = 1385
-	local stoneId = 1304
+	local stairId = 1947
+	local stoneId = 1791
 
 	-- Create stair
 	-- The stair is only created if all the jungles of the "position" variable (line 1) are growing again

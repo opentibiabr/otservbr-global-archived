@@ -107,7 +107,7 @@ function greasyStone.onUse(player, item, frompos, item2, topos)
 	return true
 end
 
-greasyStone:id(13868)
+greasyStone:id(12727)
 greasyStone:register()
 
 -- Spider queen chamber hole

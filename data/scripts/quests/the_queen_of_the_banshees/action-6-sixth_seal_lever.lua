@@ -8,19 +8,19 @@ function sixthSeal.onUse(player, item, fromPosition, target, toPosition, isHotke
 
 	local tile = Tile(lever)
 	if tile then
-		if item.itemid == 1945 then
-			local campfire = tile:getItemById(1423)
+		if item.itemid == 2772 then
+			local campfire = tile:getItemById(1998)
 			if campfire then
-				campfire:transform(1421)
+				campfire:transform(1996)
 			end
-			item:transform(1946)
+			item:transform(2773)
 			return true
-		elseif item.itemid == 1946 then
-			local campfire = tile:getItemById(1421)
+		elseif item.itemid == 2773 then
+			local campfire = tile:getItemById(1996)
 			if campfire then
-				campfire:transform(1423)
+				campfire:transform(1998)
 			end
-			item:transform(1945)
+			item:transform(2772)
 			return true
 		end
 	end

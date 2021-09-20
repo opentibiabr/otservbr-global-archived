@@ -7,8 +7,8 @@ function thirdFloorGhoul.onStepIn(creature, item, position, fromPosition)
 	if monster then
 		if item.uid == 25017 then
 			-- If ghoul step in tile, create the ladder
-			item:transform(425)
-			Position(ladderPosition):createItem(1386)
+			item:transform(430)
+			Position(ladderPosition):createItem(1948)
 			monster:say("<click>")
 		end
 	end
@@ -24,9 +24,9 @@ function thirdFloorGhoul.onStepOut(creature, item, position, fromPosition)
 	local monster = creature:getMonster()
 	if monster then
 		if item.uid == 25017 then
-			item:transform(426)
+			item:transform(431)
 			-- If ghoul step in tile, remove the ladder
-			Position(ladderPosition):removeItem(1386)
+			Position(ladderPosition):removeItem(1948)
 			monster:say("<click>")
 		end
 	end

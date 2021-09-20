@@ -22,7 +22,7 @@ function walls.onStepIn(creature, item, position, fromPosition)
 	-- Check 2 tiles positions have a creature and it is a player
 	if tileCreature1 and tileCreature1:getPlayer() and tileCreature2 and tileCreature2:getPlayer() then
 		for i = 1, #wallsPositions do
-			wall = Tile(wallsPositions[i]):getItemById(1050)
+			wall = Tile(wallsPositions[i]):getItemById(1295)
 			-- Check there walls before delete them
 			if wall then
 				wall:remove()
@@ -47,11 +47,11 @@ function walls.onStepOut(creature, item, position, fromPosition)
 		return true
 	end
 	for i = 1, #wallsPositions do
-		wall = Tile(wallsPositions[i]):getItemById(1050)
+		wall = Tile(wallsPositions[i]):getItemById(1295)
 		-- Check there is no walls before create new ones
 		if not wall then
 			Position(wallsPositions[i]):hasCreature({x = 33211, y = 31631, z = 13})
-			Game.createItem(1050, 1, wallsPositions[i])
+			Game.createItem(1295, 1, wallsPositions[i])
 		end
 	end
 	return true

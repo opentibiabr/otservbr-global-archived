@@ -87,7 +87,7 @@ function sarcophagus.onUse(player, item, frompos, item2, topos)
 	if missionState >= 1 then
 		local sarcophagusState = player:getStorageValue(Storage.TheRookieGuard.Sarcophagus)
 		if sarcophagusState == -1 then
-			local reward = Game.createItem(13830, 1)
+			local reward = Game.createItem(12674, 1)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found " .. reward:getArticle() .. " " .. reward:getName() .. ".")
 			player:setStorageValue(Storage.TheRookieGuard.Sarcophagus, 1)
 			player:addItemEx(reward, true, CONST_SLOT_WHEREEVER)
@@ -112,14 +112,14 @@ local chests = {
 	[40077] = {
 		id = CHEST_ID.BOX,
 		item = {
-			id = 2789,
+			id = 3725,
 			amount = 5
 		}
 	},
 	[40078] = {
 		id = CHEST_ID.COFFIN,
 		item = {
-			id = 8704,
+			id = 7876,
 			amount = 1
 		}
 	}

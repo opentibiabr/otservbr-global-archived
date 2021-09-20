@@ -1,22 +1,22 @@
 local config = {
 	[40036] = {
-        itemId = 35997,
+        itemId = 31162,
         storage = 1
     },
 	[40037] = {
-        itemId = 35997,
+        itemId = 31162,
         storage = 2
     },
 	[40038] = {
-        itemId = 35996,
+        itemId = 31161,
         storage = 4
     },
 	[40039] = {
-        itemId = 35997,
+        itemId = 31162,
         storage = 8
     },
 	[40040] = {
-        itemId = 35996,
+        itemId = 31161,
         storage = 16
     },
 }
@@ -43,5 +43,5 @@ function statuesActions.onUse(player, item, fromPosition, target, toPosition, is
 	return true
 end
 
-statuesActions:id(36249)
+statuesActions:id(31414)
 statuesActions:register()

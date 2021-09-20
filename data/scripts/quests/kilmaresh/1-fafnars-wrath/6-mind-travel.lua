@@ -12,7 +12,7 @@ local templeCenter = { x = 33865, y = 31533, z = 7 }
 local templeRadiusX = 8
 local templeRadiusY = 7
 
-local chargedRingOfSecretThoughtsItemId = 36141
+local chargedRingOfSecretThoughtsItemId = 31306
 
 -- Hallucinogen's potion
 
@@ -36,7 +36,7 @@ function potion.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return false
 end
 
-potion:id(36185)
+potion:id(31350)
 potion:register()
 
 
@@ -78,7 +78,7 @@ rightMirror:register()
 
 -- Memories
 
-local shardIds = {36189, 36190, 36191}
+local shardIds = {31354, 31355, 31356}
 
 local memoriesWords = {
     "The Ambassador tells another dignitary: Rathleton must never be surpassed! I will procure that the Empire falters!",
@@ -87,9 +87,9 @@ local memoriesWords = {
 }
 
 local memoryShardsItemIdsBitmasks = {
-    [36189] = 1,
-    [36190] = 2,
-    [36191] = 4
+    [31354] = 1,
+    [31355] = 2,
+    [31356] = 4
 }
 
 local memoryShards = Action()

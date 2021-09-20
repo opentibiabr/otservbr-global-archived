@@ -7,33 +7,33 @@ function leverFirstSeal.onUse(player, item, fromPosition, target, toPosition, is
 	end
 
 	if item.uid == 30012 then
-		if item.itemid == 32400 then
-			Position(wall.position):removeItem(1498)
+		if item.itemid == 27260 then
+			Position(wall.position):removeItem(2129)
 			Position(wall.position):createItem(369)
-			item:transform(1946)
+			item:transform(2773)
 			return true
-		elseif item.itemid == 1946 then
+		elseif item.itemid == 2773 then
 			Position(wall.position):removeItem(369)
-			Position(wall.position):createItem(1498)
+			Position(wall.position):createItem(2129)
 			item:transform(32400)
 			return true
 		end
 		return false
 	end
 
-	if item.itemid == 1945 then
-		Position(wall.position):removeItem(1498)
+	if item.itemid == 2772 then
+		Position(wall.position):removeItem(2129)
 		if wall.revert == true then
 			addEvent(Position.revertItem, 100 * 1000, wall.position, 1498)
 		end
-		item:transform(1946)
-	elseif item.itemid == 1946 then
-		if Position(wall.position):createItem(1498) then
+		item:transform(2773)
+	elseif item.itemid == 2773 then
+		if Position(wall.position):createItem(2129) then
 			stopEvent(Position.revertItem)
-			item:transform(1945)
+			item:transform(2772)
 			return true
 		end
-		item:transform(1945)
+		item:transform(2772)
 	end
 	return true
 end

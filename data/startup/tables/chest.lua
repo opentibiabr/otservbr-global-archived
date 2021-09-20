@@ -839,10 +839,10 @@ ChestUnique = {
 		storage = Storage.Quest.TheParadoxTower.Reward.Wand
 	},
 	[6093] = {
-		itemId = 2474
+		itemId = 2474,
 		reward = {{2969, 1}},
 		keyAction = Storage.Quest.Key.ID3002,
-		storage = keyAction
+		storage = keyAction,
 		itemPos = {{x = 32802, y = 31576, z = 7}}
 	},
 

@@ -21,7 +21,7 @@ function poison.onStepOut(creature, item, position, fromPosition)
 		for i = 1, #positions do
 			local tile = Tile(positions[i]):getFieldItem()
 			if not tile then
-				Game.createItem(1490, 1, Position(positions[i]))
+				Game.createItem(105, 1, Position(positions[i]))
 			end
 		end
 	end

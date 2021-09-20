@@ -1,18 +1,18 @@
 local masks = {
-    [36204] = {
+    [31369] = {
         storage = 1,
         successMessage = "You have found a gryphon mask.", -- TODO Gryphon Mask
         emptyMessage = "The gryphon nest is empty."
     },
-    [36205] = { -- Silver mask
+    [31370] = { -- Silver mask
         storage = 2,
         successMessage = "You have found a silver mask.",
         emptyMessage = "This palm is empty."
     }, 
-    [36206] = { -- For Ivory mask action see data\scripts\actions\other\gems.lua
+    [31371] = { -- For Ivory mask action see data\scripts\actions\other\gems.lua
         storage = 4
     },
-    [36207] = { -- Mirror Mask
+    [31372] = { -- Mirror Mask
         storage = 8,
         successMessage = "You have found a mirror mask.",
         emptyMessage = "The sarcophagus is empty."
@@ -20,9 +20,9 @@ local masks = {
 }
 
 local uidRewards = {
-    [40033] = 36204,
-    [40034] = 36205,
-    [40035] = 36207
+    [40033] = 31369,
+    [40034] = 31370,
+    [40035] = 31372
 }
 
 local masksAction = Action()
@@ -47,6 +47,9 @@ function masksAction.onUse(player, item, fromPosition, target, toPosition, isHot
     return true
 end
 
-masksAction:uid(40033, 40034, 40035)
+for uniqueId, itemId in pairs(uidRewards) do
+    masksAction:uid(uniqueId)
+end
+
 masksAction:register()
 

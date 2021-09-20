@@ -6,11 +6,11 @@ stair:type("stepin")
 function stair.onStepIn(creature, item, position, fromPosition)
 	-- Create stairs
 	if item.uid == 25010 then
-		local stairsItem = Tile(stairPosition):getItemById(424)
+		local stairsItem = Tile(stairPosition):getItemById(429)
 		if stairsItem then
-			stairsItem:transform(8280)
+			stairsItem:transform(7767)
 		end
-		item:transform(425)
+		item:transform(430)
 	end
 	return true
 end
@@ -22,12 +22,12 @@ stair = MoveEvent()
 stair:type("stepout")
 
 function stair.onStepOut(creature, item, position, fromPosition)
-	local stairsItem = Tile(stairPosition):getItemById(8280)
+	local stairsItem = Tile(stairPosition):getItemById(7767)
 	if stairsItem then
-		stairsItem:transform(424)
+		stairsItem:transform(429)
 	end
 
-	item:transform(426)
+	item:transform(431)
 	return true
 end
 

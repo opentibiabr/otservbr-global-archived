@@ -6,11 +6,11 @@ local demonPositions = {
 }
 
 local function recreateParchment(position)
-	local item = Tile(position):getItemById(1953)
+	local item = Tile(position):getItemById(2819)
 	if item then
 		item:setActionId(104)
 	else
-		local parchment = Game.createItem(1953, 1, position)
+		local parchment = Game.createItem(2819, 1, position)
 		if parchment then
 			parchment:setText("Buried forever that he never shall return. Don't remove this seal or bad things may happen.")
 			parchment:setActionId(104)

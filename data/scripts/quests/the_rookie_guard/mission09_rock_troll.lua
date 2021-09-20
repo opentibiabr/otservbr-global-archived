@@ -93,17 +93,17 @@ local CHEST_ID = {
 local chests = {
 	[40048] = {
 		id = CHEST_ID.LEATHER_LEGS,
-		itemId = 2649
+		itemId = 3559
 	},
 	[40049] = {
 		id = CHEST_ID.PICK,
-		itemId = 2553
+		itemId = 3456
 	}
 }
 
 local trunkChest = Action()
 
-function trunkChest.onUse(player, item, frompos, item2, topos)
+function trunkChest.onUse(player, item, frompos, itemEx, topos)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission09)
 	-- Skip if not was started
 	if missionState == -1 then
@@ -147,9 +147,9 @@ local tunnelPillars = {
 }
 
 -- /data/scripts/lib/register_actions.lua (onUsePick)
-function onUsePickAtTunnelPillar(player, item, fromPosition, item2, toPosition)
+function onUsePickAtTunnelPillar(player, item, fromPosition, itemEx, toPosition)
 	local missionState = player:getStorageValue(Storage.TheRookieGuard.Mission09)
-	local pillarId = tunnelPillars[item2.uid]
+	local pillarId = tunnelPillars[itemEx.uid]
 	if missionState >= 2 and missionState <= 7 and pillarId then
 		local pillarsState = player:getStorageValue(Storage.TheRookieGuard.TunnelPillars)
 		local hasDamagedPillar = testFlag(pillarsState, pillarId)
