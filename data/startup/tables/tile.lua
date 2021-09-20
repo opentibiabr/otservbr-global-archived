@@ -4,7 +4,7 @@ TileAction = {
 	-- Cure poison tiles at dawnport outpost entrances
 	-- Tiles data\scripts\movements\others\dawnport_tiles.lua
 	[20001] = {
-		itemId = 413,
+		itemId = 416,
 		itemPos = {
 			{x = 32064, y = 31881, z = 5},
 			{x = 32065, y = 31881, z = 5},
@@ -53,7 +53,7 @@ TileAction = {
 	--Sorcerer vocation tile
 	--Vocation trial: data\scripts\movements\others\dawnport_vocation_trial.lua
 	[25005] = {
-		itemId = 413,
+		itemId = 416,
 		itemPos = {
 			{x = 32055, y = 31889, z = 5},
 			{x = 32055, y = 31890, z = 5},
@@ -63,7 +63,7 @@ TileAction = {
 	},
 	--Druid vocation tile
 	[25006] = {
-		itemId = 413,
+		itemId = 416,
 		itemPos = {
 			{x = 32063, y = 31901, z = 5},
 			{x = 32064, y = 31901, z = 5},
@@ -73,7 +73,7 @@ TileAction = {
 	},
 	--Paladin vocation tile
 	[25007] = {
-		itemId = 413,
+		itemId = 416,
 		itemPos = {
 			{x = 32075, y = 31889, z = 5},
 			{x = 32075, y = 31890, z = 5},
@@ -83,7 +83,7 @@ TileAction = {
 	},
 	--Knight vocation tile
 	[25008] = {
-		itemId = 413,
+		itemId = 416,
 		itemPos = {
 			{x = 32063, y = 31880, z = 5},
 			{x = 32064, y = 31880, z = 5},
@@ -94,7 +94,7 @@ TileAction = {
 	-- Tiles data\scripts\movements\others\dawnport_tiles.lua
 	--Stairs decided vocation back
 	[25009] = {
-		itemId = 1385,
+		itemId = 1947,
 		itemPos = {
 			{x = 32063, y = 31889, z = 6},
 			{x = 32064, y = 31889, z = 6},
@@ -104,7 +104,7 @@ TileAction = {
 	},
 	--Sorcerer door tile
 	[25010] = {
-		itemId = 406,
+		itemId = 409,
 		itemPos = {
 			{x = 32053, y = 31884, z = 6},
 			{x = 32054, y = 31884, z = 6},
@@ -113,7 +113,7 @@ TileAction = {
 	},
 	--Druid door tile
 	[25011] = {
-		itemId = 406,
+		itemId = 409,
 		itemPos = {
 			{x = 32072, y = 31884, z = 6},
 			{x = 32073, y = 31884, z = 6},
@@ -122,7 +122,7 @@ TileAction = {
 	},
 	--Paladin door tile
 	[25012] = {
-		itemId = 406,
+		itemId = 409,
 		itemPos = {
 			{x = 32058, y = 31884, z = 6},
 			{x = 32059, y = 31884, z = 6},
@@ -131,7 +131,7 @@ TileAction = {
 	},
 	--Knight door tile
 	[25013] = {
-		itemId = 406,
+		itemId = 409,
 		itemPos = {
 			{x = 32067, y = 31884, z = 6},
 			{x = 32068, y = 31884, z = 6},
@@ -140,22 +140,22 @@ TileAction = {
 	},
 	--Sorcerer chest tile
 	[25014] = {
-		itemId = 406,
+		itemId = 409,
 		itemPos = {{x = 32054, y = 31880, z = 6}}
 	},
 	--Druid chest tile
 	[25015] = {
-		itemId = 406,
+		itemId = 409,
 		itemPos = {{x = 32073, y = 31880, z = 6}}
 	},
 	--Paladin chest tile
 	[25016] = {
-		itemId = 406,
+		itemId = 409,
 		itemPos = {{x = 32059, y = 31880, z = 6}}
 	},
 	--Knight chest tile
 	[25017] = {
-		itemId = 406,
+		itemId = 409,
 		itemPos = {{x = 32068, y = 31880, z = 6}}
 	},
 	-- The cursed crystal medusa message
@@ -169,7 +169,7 @@ TileAction = {
 	-- The queen of the banshees quest
 	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(1)-first_seal_teleport_back.lua
 	[25019] = {
-		itemId = 9023,
+		itemId = 353,
 		itemPos = {
 			{x = 32265, y = 31898, z = 12},
 			{x = 32266, y = 31898, z = 12},
@@ -178,7 +178,7 @@ TileAction = {
 	},
 	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(5)-fifth_seal_path.lua
 	[25020] = {
-		itemId = 426,
+		itemId = 431,
 		itemPos = {
 			{x = 32187, y = 31937, z = 14},
 			{x = 32188, y = 31937, z = 14},
@@ -193,7 +193,7 @@ TileAction = {
 	},
 	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(5)-fifth_seal_path.lua
 	[25021] = {
-		itemId = 426,
+		itemId = 431,
 		itemPos = {
 			{x = 32187, y = 31936, z = 14},
 			{x = 32188, y = 31936, z = 14},
@@ -216,12 +216,12 @@ TileAction = {
 	},
 	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(4)-fourth_seal_sacrifice.lua
 	[25022] = {
-		itemId = 425,
+		itemId = 430,
 		itemPos = {{x = 32243, y = 31892, z = 14}}
 	},
 	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(3)-third_seal_warlock_tile.lua
 	[25023] = {
-		itemId = 426,
+		itemId = 431,
 		itemPos = {
 			{x = 32215, y = 31838, z = 15},
 			{x = 32216, y = 31838, z = 15}
@@ -289,7 +289,7 @@ TileAction = {
 	-- data\scripts\movements\quests\the_paradox_tower\movement-last_floor_reward.lua
 	-- Phoenix egg
 	[50308] = {
-		itemId = 426,
+		itemId = 431,
 		itemPos = {
 			{x = 32476, y = 31903, z = 1},
 			{x = 32477, y = 31903, z = 1},
@@ -298,7 +298,7 @@ TileAction = {
 	},
 	-- 10000 gold coins
 	[50309] = {
-		itemId = 426,
+		itemId = 431,
 		itemPos = {
 			{x = 32479, y = 31903, z = 1},
 			{x = 32481, y = 31902, z = 1},
@@ -307,7 +307,7 @@ TileAction = {
 	},
 		-- Talons
 	[50310] = {
-		itemId = 426,
+		itemId = 431,
 		itemPos = {
 			{x = 32478, y = 31902, z = 1},
 			{x = 32479, y = 31902, z = 1},
@@ -316,7 +316,7 @@ TileAction = {
 	},
 	-- Wand of cosmic energy
 	[50311] = {
-		itemId = 426,
+		itemId = 431,
 		itemPos = {
 			{x = 32477, y = 31902, z = 1},
 			{x = 32480, y = 31903, z = 1},
@@ -361,7 +361,7 @@ TileAction = {
 	},
 	-- Academy center
 	[50315] = {
-		itemId = 9146,
+		itemId = 8230,
 		itemPos = {
 			{x = 32096, y = 32194, z = 7},
 			{x = 32097, y = 32194, z = 7},
@@ -370,7 +370,7 @@ TileAction = {
 	},
 	-- Obi shop entrance
 	[50316] = {
-		itemId = 724,
+		itemId = 870,
 		itemPos = {
 			{x = 32101, y = 32204, z = 7},
 			{x = 32101, y = 32205, z = 7},
@@ -403,7 +403,7 @@ TileAction = {
 	},
 	-- North bridge exit
 	[50319] = {
-		itemId = 724,
+		itemId = 870,
 		itemPos = {{x = 32091, y = 32169, z = 7}}
 	},
 	-- Outer north-west path
@@ -659,7 +659,7 @@ TileAction = {
 	},
 	-- Academy entrance
 	[50335] = {
-		itemId = 724,
+		itemId = 870,
 		itemPos = {
 			{x = 32096, y = 32200, z = 7},
 			{x = 32097, y = 32200, z = 7},
@@ -668,12 +668,12 @@ TileAction = {
 	},
 	-- Academy low floor downstairs
 	[50336] = {
-		itemId = 414,
+		itemId = 417,
 		itemPos = {{x = 32096,  y = 32191, z = 8}}
 	},
 	-- Academy library vault entrance
 	[50337] = {
-		itemId = 9146,
+		itemId = 8230,
 		itemPos = {
 			{x = 32089, y = 32157, z = 9},
 			{x = 32090, y = 32157, z = 9},
@@ -682,12 +682,12 @@ TileAction = {
 	},
 	-- Library vault downstairs
 	[50338] = {
-		itemId = 414,
+		itemId = 417,
 		itemPos = {{x = 32089, y = 32154, z = 10}}
 	},
 	-- Library vault room floor
 	[50339] = {
-		itemId = 414,
+		itemId = 417,
 		itemPos = {
 			{x = 32085, y = 32139, z = 10},
 			{x = 32086, y = 32139, z = 10},
@@ -831,7 +831,7 @@ TileAction = {
 	},
 	-- Academy library vault center
 	[50340] = {
-		itemId = 414,
+		itemId = 417,
 		itemPos = {
 			{x = 32085, y = 32145, z = 10},
 			{x = 32090, y = 32145, z = 10},
@@ -840,12 +840,12 @@ TileAction = {
 	},
 	-- Academy library vault near rune
 	[50341] = {
-		itemId = 420,
+		itemId = 423,
 		itemPos = {{x = 32083, y = 32143, z = 10}}
 	},
 	-- North-west drawbridge upstairs
 	[50342] = {
-		itemId = 9043,
+		itemId = 4515,
 		itemPos = {{x = 32088, y = 32147, z = 6}}
 	},
 	-- Troll caves entrance
@@ -862,12 +862,12 @@ TileAction = {
 	},
 	-- Troll caves dug tunnel downstair
 	[50344] = {
-		itemId = 9022,
+		itemId = 352,
 		itemPos = {{x = 32059, y = 32135, z = 10}}
 	},
 	-- Troll caves dug tunnel upstair
 	[50345] = {
-		itemId = 9023,
+		itemId = 353,
 		itemPos = {{x = 32059, y = 32136, z = 9}}
 	},
 	-- Outer east limit
@@ -908,7 +908,7 @@ TileAction = {
 	},
 	-- Unholy crypt door entrance
 	[50348] = {
-		itemId = 3152,
+		itemId = 499,
 		itemPos = {
 			{x = 32146, y = 32187, z = 9},
 			{x = 32147, y = 32187, z = 9}
@@ -934,7 +934,7 @@ TileAction = {
 	},
 	-- North-west drawbridge south downstairs
 	[50351] = {
-		itemId = 9043,
+		itemId = 4515,
 		itemPos = {{x = 32065, y = 32156, z = 7}}
 	},
 	-- Orc land entrance
@@ -949,7 +949,7 @@ TileAction = {
 	},
 	-- Wasp lair entrance
 	[50353] = {
-		itemId = 9025,
+		itemId = 355,
 		itemPos = {
 			{x = 31999, y = 32142, z = 7},
 			{x = 32000, y = 32142, z = 7}
@@ -957,7 +957,7 @@ TileAction = {
 	},
 	-- Academy downfloor trasure door entrance
 	[50354] = {
-		itemId = 414,
+		itemId = 417,
 		itemPos = {
 			{x = 32108, y = 32190, z = 8},
 			{x = 32109, y = 32190, z = 8},
@@ -1010,7 +1010,7 @@ TileAction = {
 	},
 	-- Orc fortress interior
 	[50359] = {
-		itemId = 9023,
+		itemId = 353,
 		itemPos = {{x = 31977, y = 32149, z = 8}}
 	},
 	-- Orc fortress interior kitchen
@@ -1040,7 +1040,7 @@ TileAction = {
 	},
 	-- Orc fortress interior near south downstair
 	[50362] = {
-		itemId = 9021,
+		itemId = 351,
 		itemPos = {
 			{x = 31978, y = 32178, z = 8},
 			{x = 31979, y = 32178, z = 8}
@@ -1061,72 +1061,72 @@ TileUnique = {
 	-- data\scripts\movements\quests\lions_rock\lionsrock.lua
 	-- snake sign
 	[25001] = {
-		itemId = 3152,
+		itemId = 499,
 		itemPos = {x = 33095, y = 32244, z = 9}
 	},
 	-- lizard sign
 	[25002] = {
-		itemId = 3152,
+		itemId = 499,
 		itemPos = {x = 33128, y = 32300, z = 9}
 	},
 	-- scorpion sign
 	[25003] = {
-		itemId = 3152,
+		itemId = 499,
 		itemPos = {x = 33109, y = 32329, z = 9}
 	},
 	-- hyena sign
 	[25004] = {
-		itemId = 3152,
+		itemId = 499,
 		itemPos = {x = 33127, y = 32340, z = 9}
 	},
 	-- Lions rock quest (gems tile) scripts/actions/other/gems
 	[25006] = {
-		itemId = 23812,
+		itemId = 21441,
 		itemPos = {x = 33069, y = 32298, z = 9}
 	},
 	[25007] = {
-		itemId = 23813,
+		itemId = 21442,
 		itemPos = {x = 33069, y = 32302, z = 9}
 	},
 	[25008] = {
-		itemId = 23811,
+		itemId = 21440,
 		itemPos = {x = 33077, y = 32302, z = 9}
 	},
 	[25009] = {
-		itemId = 23808,
+		itemId = 21437,
 		itemPos = {x = 33077, y = 32298, z = 9}
 	},
 	[25010] = {
-		itemId = 426,
+		itemId = 431,
 		itemPos = {x = 32225, y = 32268, z = 9}
 	},
 	-- The paradox tower quest
 	[25011] = {
-		itemId = 9024,
+		itemId = 354,
 		itemPos = {x = 32497, y = 31889, z = 7}
 	},
 	[25012] = {
-		itemId = 11062,
+		itemId = 10145,
 		itemPos = {x = 32566, y = 31957, z = 1}
 	},
 	[25013] = {
-		itemId = 426,
+		itemId = 431,
 		itemPos = {x = 32481, y = 31905, z = 7}
 	},
 	[25014] = {
-		itemId = 9023,
+		itemId = 353,
 		itemPos = {x = 32478, y = 31908, z = 7}
 	},
 	[25015] = {
-		itemId = 9023,
+		itemId = 353,
 		itemPos = {x = 32479, y = 31908, z = 7}
 	},
 	[25016] = {
-		itemId = 1945,
+		itemId = 2772,
 		itemPos = {x = 32479, y = 31905, z = 6}
 	},
 	[25017] = {
-		itemId = 426,
+		itemId = 431,
 		itemPos = {x = 32476, y = 31900, z = 5}
 	},
 	-- Explorer Society Astral Portals
@@ -1135,63 +1135,63 @@ TileUnique = {
 	-- Path: data\scripts\movements\quests\explorer_society\carving_teleport_liberty_bay.lua
 	-- Port Hope
 	[25018] = {
-		itemId = 474,
+		itemId = 599,
 		itemPos = {x = 32665, y = 32736, z = 6}
 	},
 	-- Northport
 	[25019] = {
-		itemId = 474,
+		itemId = 599,
 		itemPos = {x = 32497, y = 31622, z = 6}
 	},
 	-- Liberty Bay
 	[25020] = {
-		itemId = 474,
+		itemId = 599,
 		itemPos = {x = 32358, y = 32807, z = 6}
 	},
 	-- Svarground
 	[25021] = {
-		itemId = 474,
+		itemId = 599,
 		itemPos = {x = 32321, y = 31137, z = 6}
 	},
 	-- The Rookie Guard Quest - Mission 05: Web of Terror
 	-- Path: data\scripts\actions\quests\the_rookie_guard\mission05_web_terror.lua
 	-- Spider lair entrance hole
 	[25022] = {
-		itemId = 13869,
+		itemId = 12728,
 		itemPos = {x = 32051, y = 32110, z = 7}
 	},
 	-- Spider queen chamber hole
 	[25023] = {
-		itemId = 13869,
+		itemId = 12728,
 		itemPos = {x = 32018, y = 32098, z = 11}
 	},
 	-- The Rookie Guard Quest - Mission 06: Run Like a Wolf
 	-- Path: data\scripts\actions\quests\the_rookie_guard\mission06_run_like_wolf.lua
 	-- War wolf den entrance hole
 	[25024] = {
-		itemId = 13869,
+		itemId = 12728,
 		itemPos = {x = 32138, y = 32132, z = 7}
 	},
 	-- War wolf den fall tile
 	[25025] = {
-		itemId = 9023,
+		itemId = 353,
 		itemPos = {x = 32138, y = 32132, z = 8}
 	},
 	-- War wolf den last floor fall tile
 	[25026] = {
-		itemId = 9024,
+		itemId = 354,
 		itemPos = {x = 32106, y = 32130, z = 11}
 	},
 	-- War wolf den last floor ramp tile
 	[25027] = {
-		itemId = 8372,
+		itemId = 7542,
 		itemPos = {x = 32147, y = 32125, z = 11}
 	},
 	-- The Rookie Guard Quest - Mission 09: Rock 'n Troll
 	-- Path: data\scripts\actions\quests\the_rookie_guard\mission09_rock_troll.lua
 	-- Troll caves dug tunnel hole
 	[25028] = {
-		itemId = 13869,
+		itemId = 12728,
 		itemPos = {x = 32059, y = 32135, z = 9}
 	},
 	-- Remove/create item on stepIn
@@ -1199,22 +1199,22 @@ TileUnique = {
 
 	-- Ornamented shield quest
 	[29001] = {
-		itemId = 9023,
+		itemId = 353,
 		itemPos = {x = 32770, y = 32282, z = 10},
 		targetPos = {x = 32771, y = 32297, z = 10},
-		targetItem = 387
+		targetItem = 389
 	},
 	-- Draconia quest
 	[29002] = {
-		itemId = 426,
+		itemId = 431,
 		itemPos = {x = 32810, y = 31595, z = 5},
 		targetPos = {x = 32796, y = 31594, z = 5},
-		targetItem = 1025
+		targetItem = 1270
 	},
 	[29003] = {
-		itemId = 426,
+		itemId = 431,
 		itemPos = {x = 32794, y = 31595, z = 5},
 		targetPos = {x = 32796, y = 31576, z = 5},
-		targetItem = 1025
+		targetItem = 1270
 	}
 }

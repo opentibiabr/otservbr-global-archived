@@ -2964,14 +2964,7 @@
 		<attribute key="weight" value="3500"/>
 		<attribute key="containerSize" value="10"/>
 	</item>
-	<item id="2474" article="a" name="wooden coffin">
-		<attribute key="containerSize" value="6"/>
-	</item>
-	<item id="2475" article="a" name="wooden coffin"/>
-	<item id="2476" article="a" name="wooden coffin">
-		<attribute key="containerSize" value="6"/>
-	</item>
-	<item id="2477" article="a" name="wooden coffin"/>
+	<item fromid="2474" toid="2477" article="a" name="wooden coffin"/>
 	<item id="2478" article="a" name="treasure chest">
 		<attribute key="weight" value="9500"/>
 		<attribute key="containerSize" value="10"/>

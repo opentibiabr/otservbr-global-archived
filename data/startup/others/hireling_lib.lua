@@ -72,18 +72,18 @@ HIRELING_STORAGE = {
 	OUTFIT = 28900
 }
 
-HIRELING_LAMP_ID = 34070
+HIRELING_LAMP_ID = 29432
 HIRELING_ATTRIBUTE = "HIRELING_ID"
 
 HIRELING_FOODS_BOOST = {
-	MAGIC = 35174,
-	MELEE = 35175,
-	SHIELDING = 35172,
+	MAGIC = 29410,
+	MELEE = 29411,
+	SHIELDING = 29408,
 	DISTANCE = 35173,
 }
 
 HIRELING_FOODS = { -- only the non-skill ones
-	35176, 35177, 35178, 35179, 35180
+	29412, 29413, 29414, 29415, 29416
 }
 
 -- [[ LOCAL FUNCTIONS AND UTILS ]]
@@ -564,32 +564,25 @@ function Player:sendHirelingOutfitWindow(hireling)
 
 	local availableOutfits = hireling:getAvailableOutfits()
 
-	if client.version >= 1185 then
-		msg:addU16(#availableOutfits)
-	else
-		msg:addByte(#availableOutfits)
-	end
+	-- Version 1185+
+	msg:addU16(#availableOutfits)
 
 	for _,outfit in ipairs(availableOutfits) do
 		msg:addU16(outfit.lookType)
 		msg:addString(outfit.name)
 		msg:addByte(0x00) -- addons
 
-		if client.version >= 1185 then
-			-- something related to the store button (offer_id maybe) not using now
-			msg:addByte(0x00)
-		end
+		-- Version 1185+
+		-- something related to the store button (offer_id maybe) not using now
+		msg:addByte(0x00)
 	end
 
 	-- mounts disabled for hirelings
-	if client.version >= 1185 then
-		msg:addU16(0x00) --mounts count
-		msg:addU16(0x00) --familiar count
-		msg:addByte(0x00) -- dunno
-		msg:addByte(0x00) -- dunno2
-	else
-		msg:addByte(0x00)
-	end
+	-- Version 1185+
+	msg:addU16(0x00) --mounts count
+	msg:addU16(0x00) --familiar count
+	msg:addByte(0x00) -- dunno
+	msg:addByte(0x00) -- dunno2
 
 	msg:sendToPlayer(self)
 end

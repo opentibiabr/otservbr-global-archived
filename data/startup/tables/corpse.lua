@@ -12,7 +12,7 @@ CorpseAction = {
 	-- Others actions
 	-- Threatened dreams quest
 	[28600] = {
-		itemId = 28602,
+		itemId = 25241,
 		itemPos = {{x = 32951, y = 31810, z = 7}}
 	},
 }
@@ -21,7 +21,7 @@ CorpseUnique = {
 	-- Dark trails (Quandon corpse)
 	-- Path: data\scripts\actions\quests\dark_trails\corpse.lua
 	[20001] = {
-		itemId = 23494,
+		itemId = 21123,
 		itemPos = {x = 33574, y = 31952, z = 6}
 	},
 	-- Lions rock corpse

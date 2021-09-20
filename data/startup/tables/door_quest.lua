@@ -6,38 +6,38 @@ Look README.md for look the reserved action/unique
 QuestDoorAction = {
 	-- The queens of the banshee door
 	[Storage.Quest.TheQueenOfTheBanshees.BansheeDoor] = {
-		itemId = 5114,
+		itemId = 5113,
 		itemPos = {
 			{x = 32246, y = 31861, z = 14},
 			{x = 32246, y = 31862, z = 14}
 		}
 	},
 	[Storage.Quest.TheQueenOfTheBanshees.FirstSealDoor] = {
-		itemId = 5105,
+		itemId = 5104,
 		itemPos = {{x = 32223, y = 31872, z = 14}}
 	},
 	[Storage.Quest.TheQueenOfTheBanshees.SecondSealDoor] = {
-		itemId = 5105,
+		itemId = 5104,
 		itemPos = {{x = 32223, y = 31875, z = 14}}
 	},
 	[Storage.Quest.TheQueenOfTheBanshees.ThirdSealDoor] = {
-		itemId = 5105,
+		itemId = 5104,
 		itemPos = {{x = 32223, y = 31878, z = 14}}
 	},
 	[Storage.Quest.TheQueenOfTheBanshees.FourthSealDoor] = {
-		itemId = 5105,
+		itemId = 5104,
 		itemPos = {{x = 32223, y = 31881, z = 14}}
 	},
 	[Storage.Quest.TheQueenOfTheBanshees.FifthSealDoor] = {
-		itemId = 5105,
+		itemId = 5104,
 		itemPos = {{x = 32223, y = 31884, z = 14}}
 	},
 	[Storage.Quest.TheQueenOfTheBanshees.SixthSealDoor] = {
-		itemId = 5105,
+		itemId = 5104,
 		itemPos = {{x = 32223, y = 31887, z = 14}}
 	},
 	[Storage.Quest.TheQueenOfTheBanshees.LastSealDoor] = {
-		itemId = 5105,
+		itemId = 5104,
 		itemPos = {{x = 32223, y = 31890, z = 14}}
 	},
 	-- Sams old backpack door
@@ -591,7 +591,7 @@ QuestDoorAction = {
 	},
 	-- The annihilator door
 	[Storage.Quest.TheAnnihilator.Reward] = {
-		itemId = 5114,
+		itemId = 5113,
 		itemPos = {{x = 33216, y = 31671, z = 13}}
 	},
 	-- Svargrond arena door
@@ -659,7 +659,7 @@ QuestDoorAction = {
 	},
 	-- The dream courts door (Andrew Lyze npc)
 	[Storage.Quest.TheDreamCourts.AndrewDoor] = {
-		itemId = 22821,
+		itemId = 20450,
 		itemPos = {{x = 32761, y = 32630, z = 7}}
 	},
 	-- Kilmaresh doors
@@ -697,7 +697,7 @@ QuestDoorUnique = {
 	-- Vocation doors
 	-- Sorcerer
 	[22001] = {
-		itemId = 12195,
+		itemId = 11239,
 		itemPos = {x = 32055, y = 31885, z = 6}
 	},
 	-- Druid
@@ -712,7 +712,7 @@ QuestDoorUnique = {
 	},
 	-- Knight
 	[22004] = {
-		itemId = 9279,
+		itemId = 8363,
 		itemPos = {x = 32069, y = 31885, z = 6}
 	}
 }
