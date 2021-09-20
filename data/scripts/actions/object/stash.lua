@@ -5,5 +5,5 @@ function stash.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-stash:id(32450)
+stash:id(28750)
 stash:register()

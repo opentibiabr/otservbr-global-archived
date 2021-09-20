@@ -24,7 +24,7 @@ function moonlightCrystals.onUse(player, item, fromPosition, target, toPosition,
         else
             return false
         end
-	return true
+	    return true
 	end
 	return false
 end
