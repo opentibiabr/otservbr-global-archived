@@ -19,7 +19,7 @@ end
 rune:group("attack")
 rune:id(21)
 rune:name("Sudden Death")
-rune:runeId(2268)
+rune:runeId(3155)
 rune:allowFarUse(true)
 rune:charges(3)
 rune:level(45)

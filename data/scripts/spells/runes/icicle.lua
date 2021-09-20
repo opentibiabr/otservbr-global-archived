@@ -20,7 +20,7 @@ end
 rune:group("attack")
 rune:id(114)
 rune:name("Icicle")
-rune:runeId(2271)
+rune:runeId(3158)
 rune:allowFarUse(true)
 rune:charges(5)
 rune:level(28)

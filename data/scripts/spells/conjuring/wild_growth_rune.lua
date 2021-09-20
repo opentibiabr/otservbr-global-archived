@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(2260, 2269, 2)
+	return creature:conjureItem(3147, 3156, 2)
 end
 
 spell:name("Wild Growth Rune")

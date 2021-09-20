@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(2401, 2433, 1, CONST_ME_MAGIC_GREEN)
+	return creature:conjureItem(3289, 3321, 1, CONST_ME_MAGIC_GREEN)
 end
 
 spell:name("Enchant Staff")

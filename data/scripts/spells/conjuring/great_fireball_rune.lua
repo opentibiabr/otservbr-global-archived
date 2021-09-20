@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(2260, 2304, 4)
+	return creature:conjureItem(3147, 3191, 4)
 end
 
 spell:name("Great Fireball Rune")

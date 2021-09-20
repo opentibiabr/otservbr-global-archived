@@ -21,7 +21,7 @@ end
 rune:group("support")
 rune:id(54)
 rune:name("Paralyze")
-rune:runeId(2278)
+rune:runeId(3165)
 rune:allowFarUse(true)
 rune:charges(1)
 rune:setPzLocked(true)

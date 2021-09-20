@@ -22,7 +22,7 @@ end
 rune:group("attack")
 rune:id(18)
 rune:name("Explosion")
-rune:runeId(2313)
+rune:runeId(3200)
 rune:allowFarUse(true)
 rune:charges(6)
 rune:level(31)

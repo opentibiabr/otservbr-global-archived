@@ -1,7 +1,7 @@
 local spell = Spell("instant")
 
 function spell.onCastSpell(creature, variant)
-	return creature:conjureItem(2260, 2288, 4)
+	return creature:conjureItem(3147, 3175, 4)
 end
 
 spell:name("Stone Shower Rune")
