@@ -1,12 +1,12 @@
 local itemInfos = {
-	[29425] = {29429, 29425}, -- first index is the id of the item and the second the storage number for exhaustion purposes
-	[29429] = {29425, 29425},
-	[29423] = {29427, 29423},
-	[29427] = {29423, 29423},
-	[29428] = {29424, 29428},
-	[29424] = {29428, 29428},
-	[29430] = {29426, 29426},
-	[29426] = {29430, 29426}
+	[26189] = {26193, 29425}, -- first index is the id of the item and the second the storage number for exhaustion purposes
+	[26193] = {26189, 29425},
+	[26187] = {26191, 29423},
+	[26191] = {26187, 29423},
+	[26192] = {26188, 29428},
+	[26188] = {26192, 29428},
+	[26194] = {26190, 29426},
+	[26190] = {26194, 29426}
 }
 
 local storageValues = {}

@@ -12,5 +12,5 @@ function doorShive2.onUse(player, item, fromPosition, target, toPosition, isHotk
 	return true
 end
 
-doorShive2:id(14767, 14768, 14769, 14770, 14771)
+doorShive2:id(13290, 13291, 13292, 13293, 13294)
 doorShive2:register()

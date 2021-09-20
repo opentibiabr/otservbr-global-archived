@@ -12,5 +12,5 @@ function templeScroll.onUse(player, item, fromPosition, target, toPosition, isHo
 	return true
 end
 
-templeScroll:id(29019)
+templeScroll:id(25718)
 templeScroll:register()

@@ -1,8 +1,8 @@
-local waterIds = {493, 4608, 4609, 4610, 4611, 4612, 4613, 4614, 4615, 4616, 4617, 4618, 4619, 4620, 4621, 4622, 4623, 4624, 4625, 7236, 10499, 15401, 15402}
-local lootTrash = {2234, 2238, 2376, 2509, 2667}
-local lootCommon = {2152, 2167, 2168, 2669, 7588, 7589}
-local lootRare = {2143, 2146, 2149, 7158, 7159}
-local lootVeryRare = {7632, 7633, 10220}
+local waterIds = {622, 4597, 4598, 4599, 4600, 4601, 4602, 4609, 4610, 4611, 4612, 4613, 4614, 629, 630, 631, 632, 633, 634, 7236, 9582, 13988, 13989}
+local lootTrash = {3119, 3123, 3264, 3409, 3578}
+local lootCommon = {3035, 3051, 3052, 3580, 236, 237}
+local lootRare = {3026, 3029, 3032, 7158, 7159}
+local lootVeryRare = {281, 282, 9303}
 local useWorms = true
 
 local mechanicalFishing = Action()
@@ -13,7 +13,7 @@ function mechanicalFishing.onUse(player, item, fromPosition, target, toPosition,
 	end
 
 	local targetId = target.itemid
-	if targetId == 10499 then
+	if targetId == 9582 then
 		local owner = target:getAttribute(ITEM_ATTRIBUTE_CORPSEOWNER)
 		if owner ~= 0 and owner ~= player.uid then
 			player:sendTextMessage(MESSAGE_FAILURE, "You are not the owner.")
@@ -40,7 +40,7 @@ function mechanicalFishing.onUse(player, item, fromPosition, target, toPosition,
 		toPosition:sendMagicEffect(CONST_ME_LOSEENERGY)
 	end
 
-	if targetId == 493 or targetId == 15402 then
+	if targetId == 622 or targetId == 13989 then
 		return true
 	end
 
@@ -50,12 +50,12 @@ function mechanicalFishing.onUse(player, item, fromPosition, target, toPosition,
 			return true
 		end
 
-		if targetId == 15401 then
+		if targetId == 13988 then
 			target:transform(targetId + 1)
 			target:decay()
 
 			if math.random(100) >= 97 then
-				player:addItem(15405, 1)
+				player:addItem(13992, 1)
 				return true
 			end
 		elseif targetId == 7236 then
@@ -67,7 +67,7 @@ function mechanicalFishing.onUse(player, item, fromPosition, target, toPosition,
 				player:addItem(7158, 1)
 				return true
 			elseif rareChance <= 4 then
-				player:addItem(2669, 1)
+				player:addItem(3580, 1)
 				return true
 			elseif rareChance <= 10 then
 				player:addItem(7159, 1)
@@ -79,7 +79,7 @@ function mechanicalFishing.onUse(player, item, fromPosition, target, toPosition,
 	return true
 end
 
-mechanicalFishing:id(10223)
+mechanicalFishing:id(9306)
 mechanicalFishing:allowFarUse(true)
 mechanicalFishing:register()
 

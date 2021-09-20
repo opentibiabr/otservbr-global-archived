@@ -1,16 +1,14 @@
--- <action itemid="23574" script="other/glooth_bag.lua"/>
-
 local items = {
-	glooth_spears = 23529,
-	glooth_amulet = 23554,
-	glooth_club = 23549,
-	glooth_axe = 23551,
-	glooth_blade = 23550,
-	glooth_backpack = 23666,
-	glooth_sandwiches = 23514,
-	glooth_soup = 23515,
-	glooth_steaks = 23517,
-	control_unit = 23557,
+	glooth_spears = 21158,
+	glooth_amulet = 21183,
+	glooth_club = 21178,
+	glooth_axe = 21180,
+	glooth_blade = 21179,
+	glooth_backpack = 21295,
+	glooth_sandwiches = 21143,
+	glooth_soup = 21144,
+	glooth_steaks = 21146,
+	control_unit = 21186,
 }
 
 local gloothBag = Action()
@@ -45,5 +43,5 @@ function gloothBag.onUse(player, item, fromPosition, target, toPosition, isHotke
 	return true
 end
 
-gloothBag:id(23574)
+gloothBag:id(21203)
 gloothBag:register()

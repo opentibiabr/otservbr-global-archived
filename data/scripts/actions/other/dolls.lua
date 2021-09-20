@@ -80,11 +80,11 @@ function doll.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		elseif random == 5 then
 			doTargetCombatHealth(0, player, COMBAT_PHYSICALDAMAGE, -1, -1, CONST_ME_EXPLOSIONHIT)
 		end
-	elseif item.itemid == 5669 then
+	elseif item.itemid == 5668 then
 		fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		item:transform(item.itemid + 1)
 		item:decay()
-	elseif item.itemid == 6388 then
+	elseif item.itemid == 6387 then
 		fromPosition:sendMagicEffect(CONST_ME_SOUND_YELLOW)
 	end
 

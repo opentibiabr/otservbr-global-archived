@@ -90,7 +90,7 @@ function fluid.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			return true
 		end
 	end
-	if target.itemid == 29312 then
+	if target.itemid == 26076 then
 		if item.type == 0 then
 			player:sendTextMessage(MESSAGE_FAILURE, 'It is empty.')
 		
@@ -130,7 +130,7 @@ function fluid.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			player:say(fluidMessage[item.type] or 'Gulp.', TALKTYPE_MONSTER_SAY)
 			item:transform(item.itemid, 0)
 		else
-			local pool = Game.createItem(2016, item.type, toPosition)
+			local pool = Game.createItem(2886, item.type, toPosition)
 			if pool then
 				pool:decay()
 				if item.type == 1 then
@@ -170,7 +170,7 @@ function fluid.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 					toPosition = player:getPosition()
 				end
 
-				local pool = Game.createItem(2016, item.type, toPosition)
+				local pool = Game.createItem(2886, item.type, toPosition)
 				if pool then
 					pool:decay()
     				if item.type == 1 then
@@ -185,6 +185,6 @@ function fluid.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-fluid:id(1775, 2005, 2006, 2007, 2008, 2009, 2011, 2012, 2013, 2014, 2015, 2023, 2031, 2032, 2033, 2034, 2562, 2574, 2575, 2576, 2577)
+fluid:id(2524, 2873, 2874, 2875, 2876, 2877, 2879, 2880, 2881, 2882, 2885, 2893, 2901, 2902, 2903, 2904, 3465, 3477, 3478, 3479, 3480)
 fluid:register()
 

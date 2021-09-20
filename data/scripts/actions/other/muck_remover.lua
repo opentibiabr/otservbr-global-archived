@@ -1,19 +1,19 @@
 local config = {
-	{from = 1, to = 1644, itemId = 18394},
-	{from = 1645, to = 3189, itemId = 2158},
-	{from = 3190, to = 4725, itemId = 18391},
-	{from = 4726, to = 6225, itemId = 18414, count = 5},
-	{from = 6226, to = 7672, itemId = 18418, count = 10},
-	{from = 7673, to = 9083, itemId = 18413, count = 10},
-	{from = 9084, to = 9577, itemId = 2445},
-	{from = 9578, to = 9873, itemId = 8878},
-	{from = 9874, to = 9999, itemId = 18450}
+	{from = 1, to = 1644, itemId = 16100},
+	{from = 1645, to = 3189, itemId = 3041},
+	{from = 3190, to = 4725, itemId = 16097},
+	{from = 4726, to = 6225, itemId = 16120, count = 5},
+	{from = 6226, to = 7672, itemId = 16124, count = 10},
+	{from = 7673, to = 9083, itemId = 16119, count = 10},
+	{from = 9084, to = 9577, itemId = 3333},
+	{from = 9578, to = 9873, itemId = 8050},
+	{from = 9874, to = 9999, itemId = 16160}
 }
 
 local muckRemover = Action()
 
 function muckRemover.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.itemid ~= 18396 then
+	if target.itemid ~= 16102 then
 		return false
 	end
 
@@ -37,5 +37,5 @@ function muckRemover.onUse(player, item, fromPosition, target, toPosition, isHot
 	return true
 end
 
-muckRemover:id(18395)
+muckRemover:id(16101)
 muckRemover:register()

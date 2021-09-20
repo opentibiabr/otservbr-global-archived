@@ -1,18 +1,18 @@
 local data = {
-[31719] = {
-	Type = "mana",
-	ExhaustStor = Storage.BlueberryCupcake,
-	timestamp = 10
+	[28484] = {
+		Type = "mana",
+		ExhaustStor = Storage.BlueberryCupcake,
+		timestamp = 10
 	},
-[31720] = {
-	Type = "health",
-	ExhaustStor = Storage.StrawberryCupcake,
-	timestamp = 10
+	[28485] = {
+		Type = "health",
+		ExhaustStor = Storage.StrawberryCupcake,
+		timestamp = 10
 	},
-[31721] = {
-	Type = "skill",
-	ExhaustStor = Storage.LemonCupcake,
-	timestamp = 10
+	[28486] = {
+		Type = "skill",
+		ExhaustStor = Storage.LemonCupcake,
+		timestamp = 10
 	}
 }
 

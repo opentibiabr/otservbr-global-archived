@@ -5,5 +5,5 @@ function fishTank.onUse(cid, item, fromPosition, itemEx, toPosition)
 	return true
 end
 
-fishTank:id(26347)
+fishTank:id(23691)
 fishTank:register()

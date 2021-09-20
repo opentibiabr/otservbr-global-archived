@@ -1,22 +1,22 @@
 local rewards = {
-    { id = 38917, name = "Soulcutter" },
-    { id = 38918, name = "Soulshredder" },
-    { id = 38919, name = "Soulbiter" },
-    { id = 38920, name = "Souleater" },
-    { id = 38921, name = "Soulcrusher" },
-    { id = 38922, name = "Soulmaimer" },
-    { id = 38923, name = "Soulbleeder" },
-    { id = 38924, name = "Soulpiercer" },
-    { id = 38925, name = "Soultainter" },
-    { id = 38926, name = "Soulhexer" },
-    { id = 38927, name = "Soulshanks" },
-    { id = 38928, name = "Soulstrider" },
-    { id = 38929, name = "Soulshell" },
-    { id = 38930, name = "Soulmantel" },
-    { id = 38931, name = "Soulshroud" },
-    { id = 38932, name = "Pair of Soulwalkers" },
-    { id = 38933, name = "Pair of Soulstalkers" },
-    { id = 38934, name = "Soulbastion" }
+    { id = 34082, name = "Soulcutter" },
+    { id = 34083, name = "Soulshredder" },
+    { id = 34084, name = "Soulbiter" },
+    { id = 34085, name = "Souleater" },
+    { id = 34086, name = "Soulcrusher" },
+    { id = 34087, name = "Soulmaimer" },
+    { id = 34088, name = "Soulbleeder" },
+    { id = 34089, name = "Soulpiercer" },
+    { id = 34090, name = "Soultainter" },
+    { id = 34091, name = "Soulhexer" },
+    { id = 34092, name = "Soulshanks" },
+    { id = 34093, name = "Soulstrider" },
+    { id = 34094, name = "Soulshell" },
+    { id = 34095, name = "Soulmantel" },
+    { id = 34096, name = "Soulshroud" },
+    { id = 34097, name = "Pair of Soulwalkers" },
+    { id = 34098, name = "Pair of Soulstalkers" },
+    { id = 34099, name = "Soulbastion" }
 }
 
 local bagyouDesire = Action()
@@ -32,5 +32,5 @@ function bagyouDesire.onUse(player, item, fromPosition, target, toPosition, isHo
 	return true
 end
 
-bagyouDesire:id(38944)
+bagyouDesire:id(34109)
 bagyouDesire:register()

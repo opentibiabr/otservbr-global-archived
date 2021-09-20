@@ -3,7 +3,7 @@ local piggyBank = Action()
 function piggyBank.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if math.random(6) == 1 then
 		fromPosition:sendMagicEffect(CONST_ME_POFF)
-		item:transform(2115)
+		item:transform(2996)
 
 		player:addItem(ITEM_GOLD_COIN, 1)
 		player:addAchievementProgress('Allowance Collector', 50)
@@ -14,5 +14,5 @@ function piggyBank.onUse(player, item, fromPosition, target, toPosition, isHotke
 	return true
 end
 
-piggyBank:id(2114)
+piggyBank:id(2995)
 piggyBank:register()

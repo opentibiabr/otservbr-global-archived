@@ -32,47 +32,47 @@ local hirelingFood = Action()
 function hirelingFood.onUse(player, item, frompos, item2, topos)
 	local cid = player:getId()
 	if (player:getStorageValue(config.storage) <= os.time()) then
-		if (item.itemid == 35172) then
+		if (item.itemid == 29408) then
 			player:say("Chomp.",TALKTYPE_MONSTER_SAY)
 			Creature(cid):addCondition(roastedWyvernWings)
 			item:remove(1)
 			player:setStorageValue(config.storage, os.time() + config.exhaust)
-		elseif (item.itemid == 35173) then
+		elseif (item.itemid == 29409) then
 			player:say("Yummm.",TALKTYPE_MONSTER_SAY)
 			Creature(cid):addCondition(carrotPie)
 			item:remove(1)
 			player:setStorageValue(config.storage, os.time() + config.exhaust)
-		elseif (item.itemid == 35174) then
+		elseif (item.itemid == 29410) then
 			player:say("Munch.",TALKTYPE_MONSTER_SAY)
 			Creature(cid):addCondition(tropicalMarinatedTiger)
 			item:remove(1)
 			player:setStorageValue(config.storage, os.time() + config.exhaust)
-		elseif (item.itemid == 35175) then
+		elseif (item.itemid == 29411) then
 			player:say("Munch.",TALKTYPE_MONSTER_SAY)
 			Creature(cid):addCondition(delicatessenSalad)
 			item:remove(1)
 			player:setStorageValue(config.storage, os.time() + config.exhaust)
-		elseif (item.itemid == 35176) then
+		elseif (item.itemid == 29412) then
 			player:say("Yummm.",TALKTYPE_MONSTER_SAY)
 			Creature(cid):addCondition(chilliConCarniphila)
 			item:remove(1)
 			player:setStorageValue(config.storage, os.time() + config.exhaust)
-		elseif (item.itemid == 35177) then
+		elseif (item.itemid == 29413) then
 			player:say("Mmmmm.",TALKTYPE_MONSTER_SAY)
 			Creature(cid):addCondition(svargrondSalmonFilet)
 			item:remove(1)
 			player:setStorageValue(config.storage, os.time() + config.exhaust)
-		elseif (item.itemid == 35178) then
+		elseif (item.itemid == 29414) then
 			Creature(cid):addHealth(getCreatureMaxHealth(cid)  * 0.3)
 			player:say("Munch.",TALKTYPE_MONSTER_SAY)
 			item:remove(1)
 			player:setStorageValue(config.storage, os.time() + config.exhaust)
-		elseif (item.itemid == 35179) then
+		elseif (item.itemid == 29415) then
 			Creature(cid):addMana(Creature(cid):getMaxMana() * 0.3)
 			player:say("Chomp.",TALKTYPE_MONSTER_SAY)
 			item:remove(1)
 			player:setStorageValue(config.storage, os.time() + config.exhaust)
-		elseif (item.itemid == 35180) then
+		elseif (item.itemid == 29416) then
 			player:say("Blurg.",TALKTYPE_MONSTER_SAY)
 			item:remove(1)
 			player:setStorageValue(config.storage, os.time() + config.exhaust)
@@ -83,5 +83,5 @@ function hirelingFood.onUse(player, item, frompos, item2, topos)
 	return true
 end
 
-hirelingFood:id(35172, 35173, 35174, 35175, 35176, 35177, 35178, 35179, 35180)
+hirelingFood:id(29408, 29409, 29410, 29411, 29412, 29413, 29414, 29415, 29416)
 hirelingFood:register()

@@ -7,11 +7,11 @@ local config = {
 	[1] = {
 		fromPosition = elevatorPosition[1],
 		toPosition = elevatorPosition[2],
-		itemIds = { 20218, 20219 },
+		itemIds = { 17938, 17939 },
 		transform = {
 			position = { elevatorPosition[1], elevatorPosition[2] },
-			itemId = { 20219, 20219 },
-			transformId = { 20222, 20223 }
+			itemId = { 17939, 17939 },
+			transformId = { 17942, 17943 }
 		},
 		sound = 'Srrrt!',
 		soundPosition = Position(33052, 32099, 6),
@@ -20,11 +20,11 @@ local config = {
 	[2] = {
 		fromPosition = elevatorPosition[2],
 		toPosition = elevatorPosition[1],
-		itemIds = { 20218, 20223 },
+		itemIds = { 17938, 17943 },
 		transform = {
 			position = { elevatorPosition[1], elevatorPosition[1] },
-			itemId = { 20222, 20223 },
-			transformId = { 20219, 20219 },
+			itemId = { 17942, 17943 },
+			transformId = { 17939, 17939 },
 		},
 		sound = 'Zrrrt!',
 		soundPosition = Position(33052, 32099, 7),
@@ -33,8 +33,8 @@ local config = {
 }
 
 local winch = {
-	[20220] = { config[2], config[1] },
-	[20224] = { config[1], config[2] }
+	[17940] = { config[2], config[1] },
+	[17944] = { config[1], config[2] }
 }
 
 local relocate = true
@@ -69,7 +69,7 @@ function rafzaneElevator.onUse(player, item, fromPosition, target, toPosition, i
 
 	toPosition.x = toPosition.x - 1
 	local tile = Tile(toPosition)
-	if not tile:getItemById(20218) then
+	if not tile:getItemById(17938) then
 		local option = useItem[1]
 		if relocate then
 			Tile(option.fromPosition):relocateTo(option.relocatePosition)
@@ -91,5 +91,5 @@ function rafzaneElevator.onUse(player, item, fromPosition, target, toPosition, i
 	return true
 end
 
-rafzaneElevator:id(20220, 20224)
+rafzaneElevator:id(17940, 17944)
 rafzaneElevator:register()

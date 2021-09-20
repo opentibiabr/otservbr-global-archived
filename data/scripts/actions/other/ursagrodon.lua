@@ -1,8 +1,8 @@
 local config = {
-	item1 = 22729,
-	item2 = 22730,
-	item3 = 22731,
-	item4 = 22732,
+	item1 = 20358,
+	item2 = 20359,
+	item3 = 20360,
+	item4 = 20361,
 	porcentagem = 30,
 }
 
@@ -53,5 +53,5 @@ function ursagrodon.onUse(player, item, fromPosition, target, toPosition, isHotk
 	return true
 end
 
-ursagrodon:id(22726)
+ursagrodon:id(20355)
 ursagrodon:register()

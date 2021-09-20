@@ -1,43 +1,43 @@
 local MusicEffect = {
-	[2070] = CONST_ME_SOUND_GREEN, 	--Wooden Flute
-	[2071] = CONST_ME_SOUND_GREEN, 	--Lyre
-	[2072] = CONST_ME_SOUND_GREEN, 	--Lute
-	[2073] = CONST_ME_SOUND_GREEN, 	--Drum
-	[2074] = CONST_ME_SOUND_BLUE, 	--Panpipes
-	[2075] = CONST_ME_SOUND_GREEN, 	--Simple Fanfare
-	[2076] = CONST_ME_SOUND_GREEN, 	--Fanfare
-	[2077] = CONST_ME_SOUND_GREEN, 	--Royal Fanfare
-	[2078] = CONST_ME_SOUND_GREEN, 	--Post Horn
-	[2079] = CONST_ME_SOUND_RED, 	--War Horn
-	[2080] = CONST_ME_SOUND_BLUE, 	--Piano
-	[2081] = CONST_ME_SOUND_BLUE, 	--Piano
-	[2082] = CONST_ME_SOUND_BLUE, 	--Piano
-	[2083] = CONST_ME_SOUND_BLUE, 	--Piano
-	[2084] = CONST_ME_SOUND_BLUE, 	--Harp
-	[2085] = CONST_ME_SOUND_BLUE, 	--Harp
-	[2332] = CONST_ME_SOUND_GREEN, 	--Waldo's Post Horn
-	[2364] = CONST_ME_SOUND_GREEN, 	--Post Horn
+	[2948] = CONST_ME_SOUND_GREEN, 	--Wooden Flute
+	[2949] = CONST_ME_SOUND_GREEN, 	--Lyre
+	[2950] = CONST_ME_SOUND_GREEN, 	--Lute
+	[14253] = CONST_ME_SOUND_GREEN, 	--Drum
+	[2953] = CONST_ME_SOUND_BLUE, 	--Panpipes
+	[2954] = CONST_ME_SOUND_GREEN, 	--Simple Fanfare
+	[2955] = CONST_ME_SOUND_GREEN, 	--Fanfare
+	[2956] = CONST_ME_SOUND_GREEN, 	--Royal Fanfare
+	[3252] = CONST_ME_SOUND_GREEN, 	--Post Horn
+	[2958] = CONST_ME_SOUND_RED, 	--War Horn
+	[2959] = CONST_ME_SOUND_BLUE, 	--Piano
+	[2960] = CONST_ME_SOUND_BLUE, 	--Piano
+	[2961] = CONST_ME_SOUND_BLUE, 	--Piano
+	[2962] = CONST_ME_SOUND_BLUE, 	--Piano
+	[2963] = CONST_ME_SOUND_BLUE, 	--Harp
+	[2964] = CONST_ME_SOUND_BLUE, 	--Harp
+	[3219] = CONST_ME_SOUND_GREEN, 	--Waldo's Post Horn
+	[3252] = CONST_ME_SOUND_GREEN, 	--Post Horn
 	-- non movable instruments
-	[2367] = CONST_ME_SOUND_GREEN, 	--Drum
-	[2368] = CONST_ME_SOUND_GREEN, 	--Simple Fanfare
-	[3957] = CONST_ME_SOUND_YELLOW, --Cornucopia
-	[2370] = CONST_ME_SOUND_GREEN, 	--Lute
-	[2371] = CONST_ME_SOUND_BLUE, 	--Horn of Sundering
-	[2372] = CONST_ME_SOUND_GREEN, 	--Lyre
-	[2373] = CONST_ME_SOUND_BLUE, 	--Panpipes
-	[2070] = CONST_ME_SOUND_GREEN, 	--Wooden Flute
+	[3255] = CONST_ME_SOUND_GREEN, 	--Drum
+	[3256] = CONST_ME_SOUND_GREEN, 	--Simple Fanfare
+	[3103] = CONST_ME_SOUND_YELLOW, --Cornucopia
+	[3258] = CONST_ME_SOUND_GREEN, 	--Lute
+	[3259] = CONST_ME_SOUND_BLUE, 	--Horn of Sundering
+	[3260] = CONST_ME_SOUND_GREEN, 	--Lyre
+	[3261] = CONST_ME_SOUND_BLUE, 	--Panpipes
+	[2948] = CONST_ME_SOUND_GREEN, 	--Wooden Flute
 	--
-	[3951] = CONST_ME_SOUND_BLUE, 	--Bongo Drum
-	[3952] = CONST_ME_SOUND_GREEN, 	--Didgeridoo
-	[3953] = CONST_ME_SOUND_RED, 	--War Drum
+	[2951] = CONST_ME_SOUND_BLUE, 	--Bongo Drum
+	[2965] = CONST_ME_SOUND_GREEN, 	--Didgeridoo
+	[2966] = CONST_ME_SOUND_RED, 	--War Drum
 	[5786] = CONST_ME_SOUND_GREEN, 	--Wooden Whistle
-	[13759] = CONST_ME_SOUND_BLUE, 	--Small Whistle
+	[12602] = CONST_ME_SOUND_BLUE, 	--Small Whistle
 }
 
 local music = Action()
 
 function music.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 2071 then
+	if item.itemid == 2949 then
 		if isInRange(player:getPosition(), Position(32695, 31717, 2), Position(32699, 31719, 2)) then
 			local lyreProgress = player:getStorageValue(Storage.Diapason.Lyre)
 			if lyreProgress < 7

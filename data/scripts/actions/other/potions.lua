@@ -36,7 +36,7 @@ end
 local potions = {
 	[6558] = {
 		transform = {
-			id = {7588, 7589}
+			id = {236, 237}
 		},
 		effect = CONST_ME_DRAWBLOOD
 	},
@@ -68,7 +68,7 @@ local potions = {
 		description = "Only paladins may drink this potion.",
 		text = "You feel more accurate."
 	},
-	[40398] = {
+	[35563] = {
 		vocations = {
 			VOCATION.BASE_ID.SORCERER,
 			VOCATION.BASE_ID.DRUID
@@ -78,7 +78,7 @@ local potions = {
 		effect = CONST_ME_ENERGYAREA,
 		description = "Only sorcerers and druids of level 14 or above may drink this potion.",
 	},
-	[7588] = {
+	[236] = {
 		health = {
 			250,
 			350
@@ -88,19 +88,19 @@ local potions = {
 			VOCATION.BASE_ID.KNIGHT
 		},
 		level = 50,
-		flask = 7634,
+		flask = 283,
 		description = "Only knights and paladins of level 50 or above may drink this fluid."
 	},
-	[7589] = {
+	[237] = {
 		mana = {
 			115,
 			185
 		},
 		level = 50,
-		flask = 7634,
+		flask = 283,
 		description = "Only players of level 50 or above may drink this fluid."
 	},
-	[7590] = {
+	[238] = {
 		mana = {
 			150,
 			250
@@ -111,10 +111,10 @@ local potions = {
 			VOCATION.BASE_ID.PALADIN
 		},
 		level = 80,
-		flask = 7635,
+		flask = 284,
 		description = "Only sorcerers, druids and paladins of level 80 or above may drink this fluid."
 	},
-	[7591] = {
+	[239] = {
 		health = {
 			425,
 			575
@@ -123,24 +123,24 @@ local potions = {
 			VOCATION.BASE_ID.KNIGHT
 		},
 		level = 80,
-		flask = 7635,
+		flask = 284,
 		description = "Only knights of level 80 or above may drink this fluid."
 	},
-	[7618] = {
+	[266] = {
 		health = {
 			125,
 			175
 		},
-		flask = 7636
+		flask = 285
 	},
-	[7620] = {
+	[268] = {
 		mana = {
 			75,
 			125
 		},
-		flask = 7636
+		flask = 285
 	},
-	[8472] = {
+	[7642] = {
 		health = {
 			250,
 			350
@@ -153,30 +153,30 @@ local potions = {
 			VOCATION.BASE_ID.PALADIN
 		},
 		level = 80,
-		flask = 7635,
+		flask = 284,
 		description = "Only paladins of level 80 or above may drink this fluid."
 	},
-	[8473] = {
+	[7643] = {
 		health = {650, 850},
 		vocations = {
 			VOCATION.BASE_ID.KNIGHT
 		},
 		level = 130,
-		flask = 7635,
+		flask = 284,
 		description = "Only knights of level 130 or above may drink this fluid."
 	},
-	[8474] = {
+	[7644] = {
 		combat = antidote,
-		flask = 7636
+		flask = 285
 	},
-	[8704] = {
+	[7876] = {
 		health = {
 			60,
 			90
 		},
-		flask = 7636
+		flask = 285
 	},
-	[26029] = {
+	[23373] = {
 		mana = {
 			425,
 			575
@@ -186,10 +186,10 @@ local potions = {
 			VOCATION.BASE_ID.DRUID
 		},
 		level = 130,
-		flask = 7635,
+		flask = 284,
 		description = "Only druids and sorcerers of level 130 or above may drink this fluid."
 	},
-	[26030] = {
+	[23374] = {
 		health = {
 			420,
 			580
@@ -202,10 +202,10 @@ local potions = {
 			VOCATION.BASE_ID.PALADIN
 		},
 		level = 130,
-		flask = 7635,
+		flask = 284,
 		description = "Only paladins of level 130 or above may drink this fluid."
 	},
-	[26031] = {
+	[23375] = {
 		health = {
 			875,
 			1125
@@ -214,7 +214,7 @@ local potions = {
 			VOCATION.BASE_ID.KNIGHT
 		},
 		level = 200,
-		flask = 7635,
+		flask = 284,
 		description = "Only knights of level 200 or above may drink this fluid."
 	}
 }
