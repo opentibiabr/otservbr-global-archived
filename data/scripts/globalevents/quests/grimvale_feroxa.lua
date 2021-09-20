@@ -33,9 +33,9 @@ local function final()
 			spec:teleportTo(Position(33419, 31539, 10))
 		end
 	end
-	local teleport = Tile(Position(33430, 31537, 11)):getItemById(1387)
+	local teleport = Tile(Position(33430, 31537, 11)):getItemById(1949)
 	if teleport and teleport:isTeleport() then
-		teleport:transform(25417)
+		teleport:transform(22761)
 		teleport:setDestination(Position(33419, 31539, 10))
 		teleport:setActionId(12450)
 	end

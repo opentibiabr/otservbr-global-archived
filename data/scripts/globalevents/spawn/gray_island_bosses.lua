@@ -1,5 +1,5 @@
 local config = {
-	teleportId = 1387,
+	teleportId = 1949,
 	days = {
 		["Saturday"] = {Position(33649, 31261, 11), Position(33647, 31254, 11)}, -- tanjis
 		["Friday"] = {Position(33558, 31282, 11), Position(33545, 31263, 11)}, -- jaul
