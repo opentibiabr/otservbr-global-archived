@@ -22,7 +22,7 @@ burstArrow.onUseWeapon = function(player, variant)
 	return combat:execute(player, variant)
 end
 
-burstArrow:id(2546)
+burstArrow:id(3449)
 burstArrow:attack(27)
 burstArrow:action("removecount")
 burstArrow:ammoType("arrow")

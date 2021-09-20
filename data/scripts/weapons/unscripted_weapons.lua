@@ -1,13 +1,13 @@
 local weapons = {
 	{
-		itemId = 40737,
+		itemId = 35902,
 		type = WEAPON_AMMO,
 		level = 150,
 		unproperly = true,
 		action = "removecount"
 	}, -- spectral bolt (no decay)
 	{
-		itemId = 40357,
+		itemId = 35522,
 		type = WEAPON_WAND,
 		wandType = "earth",
 		level = 150,
@@ -19,7 +19,7 @@ local weapons = {
 		}
 	}, -- jungle wand
 	{
-		itemId = 40356,
+		itemId = 35521,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 150,
@@ -31,7 +31,7 @@ local weapons = {
 		}
 	}, -- jungle rod
 	{
-		itemId = 40353,
+		itemId = 35518,
 		type = WEAPON_DISTANCE,
 		level = 150,
 		unproperly = true,
@@ -41,7 +41,7 @@ local weapons = {
 		}
 	}, -- jungle bow
 	{
-		itemId = 40350,
+		itemId = 35515,
 		type = WEAPON_AXE,
 		level = 150,
 		unproperly = true,
@@ -51,7 +51,7 @@ local weapons = {
 		}
 	}, -- throwing axe
 	{
-		itemId = 40349,
+		itemId = 35514,
 		type = WEAPON_CLUB,
 		level = 150,
 		unproperly = true,
@@ -61,7 +61,7 @@ local weapons = {
 		}
 	}, -- jungle flail
 	{
-		itemId = 38990,
+		itemId = 34155,
 		type = WEAPON_SWORD,
 		level = 270,
 		unproperly = true,
@@ -71,7 +71,7 @@ local weapons = {
 		}
 	}, -- lion longsword
 	{
-		itemId = 39089,
+		itemId = 34254,
 		type = WEAPON_CLUB,
 		level = 270,
 		unproperly = true,
@@ -81,7 +81,7 @@ local weapons = {
 		}
 	}, -- lion hammer
 	{
-		itemId = 39088,
+		itemId = 34253,
 		type = WEAPON_AXE,
 		level = 270,
 		unproperly = true,
@@ -91,7 +91,7 @@ local weapons = {
 		}
 	}, -- lion axe
 	{
-		itemId = 38987,
+		itemId = 34152,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 220,
@@ -103,7 +103,7 @@ local weapons = {
 		}
 	}, -- lion wand
 	{
-		itemId = 38986,
+		itemId = 34151,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 270,
@@ -115,7 +115,7 @@ local weapons = {
 		}
 	}, -- lion rod
 	{
-		itemId = 38985,
+		itemId = 34150,
 		type = WEAPON_DISTANCE,
 		level = 270,
 		unproperly = true,
@@ -125,7 +125,7 @@ local weapons = {
 		}
 	}, -- lion longbow
 	{
-		itemId = 38926,
+		itemId = 34091,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 400,
@@ -137,7 +137,7 @@ local weapons = {
 		}
 	}, -- soulhexer rod
 	{
-		itemId = 38925,
+		itemId = 34090,
 		type = WEAPON_WAND,
 		wandType = "death",
 		level = 400,
@@ -149,7 +149,7 @@ local weapons = {
 		}
 	}, -- soultainter wand
 	{
-		itemId = 38924,
+		itemId = 34089,
 		type = WEAPON_DISTANCE,
 		level = 400,
 		unproperly = true,
@@ -159,7 +159,7 @@ local weapons = {
 		}
 	}, -- soulpiercer crossbow
 	{
-		itemId = 38923,
+		itemId = 34088,
 		type = WEAPON_DISTANCE,
 		level = 400,
 		unproperly = true,
@@ -169,7 +169,7 @@ local weapons = {
 		}
 	}, -- soulbleeder bow
 	{
-		itemId = 38922,
+		itemId = 34087,
 		type = WEAPON_CLUB,
 		level = 400,
 		unproperly = true,
@@ -179,7 +179,7 @@ local weapons = {
 		}
 	}, -- soulmaimer club
 	{
-		itemId = 38921,
+		itemId = 34086,
 		type = WEAPON_CLUB,
 		level = 400,
 		unproperly = true,
@@ -189,7 +189,7 @@ local weapons = {
 		}
 	}, -- soulcrusher club
 	{
-		itemId = 38920,
+		itemId = 34085,
 		type = WEAPON_AXE,
 		level = 400,
 		unproperly = true,
@@ -199,7 +199,7 @@ local weapons = {
 		}
 	}, -- souleater axe
 	{
-		itemId = 38919,
+		itemId = 34084,
 		type = WEAPON_AXE,
 		level = 400,
 		unproperly = true,
@@ -209,7 +209,7 @@ local weapons = {
 		}
 	}, -- soulbiter axe
 	{
-		itemId = 38918,
+		itemId = 34083,
 		type = WEAPON_SWORD,
 		level = 400,
 		unproperly = true,
@@ -219,7 +219,7 @@ local weapons = {
 		}
 	}, -- soulshredder sword
 	{
-		itemId = 38917,
+		itemId = 34082,
 		type = WEAPON_SWORD,
 		level = 400,
 		unproperly = true,
@@ -229,7 +229,7 @@ local weapons = {
 		}
 	}, -- soulcutter sword
 	{
-		itemId = 37451,
+		itemId = 32616,
 		type = WEAPON_AXE,
 		level = 180,
 		unproperly = true,
@@ -239,11 +239,11 @@ local weapons = {
 		}
 	}, -- phantasmal axe
 	{
-		itemId = 36928,
+		itemId = 32093,
 		type = WEAPON_CLUB
 	}, -- meat hammer
 	{
-		itemId = 36449,
+		itemId = 31614,
 		type = WEAPON_SWORD,
 		level = 250,
 		unproperly = true,
@@ -253,7 +253,7 @@ local weapons = {
 		}
 	}, -- tagralt blade
 	{
-		itemId = 36416,
+		itemId = 31581,
 		type = WEAPON_DISTANCE,
 		level = 250,
 		unproperly = true,
@@ -263,7 +263,7 @@ local weapons = {
 		}
 	}, -- bow of cataclysm
 	{
-		itemId = 36415,
+		itemId = 31580,
 		type = WEAPON_CLUB,
 		level = 220,
 		unproperly = true,
@@ -273,7 +273,7 @@ local weapons = {
 		}
 	}, -- mortal mace
 	{
-		itemId = 35235,
+		itemId = 30400,
 		type = WEAPON_WAND,
 		wandType = "earth",
 		level = 220,
@@ -285,7 +285,7 @@ local weapons = {
 		}
 	}, -- cobra rod
 	{
-		itemId = 35234,
+		itemId = 30399,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 270,
@@ -297,7 +297,7 @@ local weapons = {
 		}
 	}, -- cobra wand
 	{
-		itemId = 35233,
+		itemId = 30398,
 		type = WEAPON_SWORD,
 		level = 220,
 		unproperly = true,
@@ -307,7 +307,7 @@ local weapons = {
 		}
 	}, -- cobra sword
 	{
-		itemId = 35231,
+		itemId = 30396,
 		type = WEAPON_AXE,
 		level = 220,
 		unproperly = true,
@@ -317,7 +317,7 @@ local weapons = {
 		}
 	}, -- cobra axe
 	{
-		itemId = 35230,
+		itemId = 30395,
 		type = WEAPON_CLUB,
 		level = 220,
 		unproperly = true,
@@ -327,7 +327,7 @@ local weapons = {
 		}
 	}, -- cobra club
 	{
-		itemId = 35228,
+		itemId = 30393,
 		type = WEAPON_DISTANCE,
 		level = 220,
 		unproperly = true,
@@ -337,11 +337,11 @@ local weapons = {
 		}
 	}, -- cobra crossbow
 	{
-		itemId = 35112,
+		itemId = 30283,
 		type = WEAPON_AXE
 	}, -- ice hatchet
 	{
-		itemId = 34063,
+		itemId = 29425,
 		type = WEAPON_WAND,
 		wandType = "fire",
 		level = 180,
@@ -355,7 +355,7 @@ local weapons = {
 		}
 	}, -- energized limb
 	{
-		itemId = 34060,
+		itemId = 29422,
 		type = WEAPON_SWORD,
 		level = 200,
 		unproperly = true,
@@ -365,7 +365,7 @@ local weapons = {
 		}
 	}, -- winterblade
 	{
-		itemId = 34059,
+		itemId = 29421,
 		type = WEAPON_SWORD,
 		level = 200,
 		unproperly = true,
@@ -375,7 +375,7 @@ local weapons = {
 		}
 	}, -- summerblade
 	{
-		itemId = 34057,
+		itemId = 29419,
 		type = WEAPON_CLUB,
 		level = 230,
 		unproperly = true,
@@ -385,7 +385,7 @@ local weapons = {
 		}
 	}, -- resizer
 	{
-		itemId = 34055,
+		itemId = 29417,
 		type = WEAPON_DISTANCE,
 		level = 220,
 		unproperly = true,
@@ -395,55 +395,55 @@ local weapons = {
 		}
 	}, -- living vine bow
 	{
-		itemId = 33925,
+		itemId = 29286,
 		type = WEAPON_AXE
 	}, -- golden axe
 	{
-		itemId = 33267,
+		itemId = 28479,
 		type = WEAPON_WAND
 	}, -- wand of destruction test
 	{
-		itemId = 33266,
+		itemId = 28478,
 		type = WEAPON_DISTANCE
 	}, -- umbral master bow test
 	{
-		itemId = 33254,
+		itemId = 28466,
 		type = WEAPON_WAND
 	}, -- sorcerer test weapon
 	{
-		itemId = 33253,
+		itemId = 28465,
 		type = WEAPON_DISTANCE
 	}, -- bow of destruction test
 	{
-		itemId = 33252,
+		itemId = 28464,
 		type = WEAPON_SWORD
 	}, -- test weapon for knights
 	{
-		itemId = 32529,
+		itemId = 28832,
 		type = WEAPON_CLUB,
 		level = 80,
 		unproperly = true
 	}, -- sulphurous demonbone
 	{
-		itemId = 32528,
+		itemId = 28831,
 		type = WEAPON_CLUB,
 		level = 80,
 		unproperly = true
 	}, -- unliving demonbone
 	{
-		itemId = 32527,
+		itemId = 28830,
 		type = WEAPON_CLUB,
 		level = 80,
 		unproperly = true
 	}, -- energized demonbone
 	{
-		itemId = 32526,
+		itemId = 28829,
 		type = WEAPON_CLUB,
 		level = 80,
 		unproperly = true
 	}, -- rotten demonbone
 	{
-		itemId = 32523,
+		itemId = 28826,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 230,
@@ -457,7 +457,7 @@ local weapons = {
 		}
 	}, -- deepling fork
 	{
-		itemId = 32522,
+		itemId = 28825,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 180,
@@ -471,7 +471,7 @@ local weapons = {
 		}
 	}, -- deepling ceremonial dagger
 	{
-		itemId = 32425,
+		itemId = 28725,
 		type = WEAPON_CLUB,
 		level = 300,
 		unproperly = true,
@@ -481,7 +481,7 @@ local weapons = {
 		}
 	}, -- falcon mace
 	{
-		itemId = 32424,
+		itemId = 28724,
 		type = WEAPON_AXE,
 		level = 300,
 		unproperly = true,
@@ -491,7 +491,7 @@ local weapons = {
 		}
 	}, -- falcon battleaxe
 	{
-		itemId = 32423,
+		itemId = 28723,
 		type = WEAPON_SWORD,
 		level = 300,
 		unproperly = true,
@@ -501,7 +501,7 @@ local weapons = {
 		}
 	}, -- falcon longsword
 	{
-		itemId = 32418,
+		itemId = 28718,
 		type = WEAPON_DISTANCE,
 		level = 300,
 		unproperly = true,
@@ -511,7 +511,7 @@ local weapons = {
 		}
 	}, -- falcon bow
 	{
-		itemId = 32417,
+		itemId = 28717,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 300,
@@ -523,7 +523,7 @@ local weapons = {
 		}
 	}, -- falcon wand
 	{
-		itemId = 32416,
+		itemId = 28716,
 		type = WEAPON_WAND,
 		wandType = "earth",
 		level = 300,
@@ -535,7 +535,7 @@ local weapons = {
 		}
 	}, -- falcon rod
 	{
-		itemId = 30886,
+		itemId = 27651,
 		type = WEAPON_SWORD,
 		level = 250,
 		unproperly = true,
@@ -545,15 +545,15 @@ local weapons = {
 		}
 	}, -- gnome sword
 	{
-		itemId = 30760,
+		itemId = 27525,
 		type = WEAPON_CLUB
 	}, -- mallet handle
 	{
-		itemId = 30758,
+		itemId = 27523,
 		type = WEAPON_CLUB
 	}, -- strange mallet
 	{
-		itemId = 30693,
+		itemId = 27458,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 200,
@@ -565,7 +565,7 @@ local weapons = {
 		}
 	}, -- rod of destruction
 	{
-		itemId = 30692,
+		itemId = 27457,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 200,
@@ -577,7 +577,7 @@ local weapons = {
 		}
 	}, -- wand of destruction
 	{
-		itemId = 30691,
+		itemId = 27456,
 		type = WEAPON_DISTANCE,
 		level = 200,
 		unproperly = true,
@@ -587,7 +587,7 @@ local weapons = {
 		}
 	}, -- crossbow of destruction
 	{
-		itemId = 30690,
+		itemId = 27455,
 		type = WEAPON_DISTANCE,
 		level = 200,
 		unproperly = true,
@@ -597,7 +597,7 @@ local weapons = {
 		}
 	}, -- bow of destruction
 	{
-		itemId = 30689,
+		itemId = 27454,
 		type = WEAPON_CLUB,
 		level = 200,
 		unproperly = true,
@@ -607,7 +607,7 @@ local weapons = {
 		}
 	}, -- hammer of destruction
 	{
-		itemId = 30688,
+		itemId = 27453,
 		type = WEAPON_CLUB,
 		level = 200,
 		unproperly = true,
@@ -617,7 +617,7 @@ local weapons = {
 		}
 	}, -- mace of destruction
 	{
-		itemId = 30687,
+		itemId = 27452,
 		type = WEAPON_AXE,
 		level = 200,
 		unproperly = true,
@@ -627,7 +627,7 @@ local weapons = {
 		}
 	}, -- chopper of destruction
 	{
-		itemId = 30686,
+		itemId = 27451,
 		type = WEAPON_AXE,
 		level = 200,
 		unproperly = true,
@@ -637,7 +637,7 @@ local weapons = {
 		}
 	}, -- axe of destruction
 	{
-		itemId = 30685,
+		itemId = 27450,
 		type = WEAPON_SWORD,
 		level = 200,
 		unproperly = true,
@@ -647,7 +647,7 @@ local weapons = {
 		}
 	}, -- slayer of destruction
 	{
-		itemId = 30684,
+		itemId = 27449,
 		type = WEAPON_SWORD,
 		level = 200,
 		unproperly = true,
@@ -657,463 +657,463 @@ local weapons = {
 		}
 	}, -- blade of destruction
 	{
-		itemId = 29297,
+		itemId = 26061,
 		type = WEAPON_CLUB
 	}, -- ornate carving hammer
 	{
-		itemId = 29296,
+		itemId = 26060,
 		type = WEAPON_CLUB
 	}, -- valuable carving hammer
 	{
-		itemId = 29295,
+		itemId = 26059,
 		type = WEAPON_CLUB
 	}, -- plain carving hammer
 	{
-		itemId = 29294,
+		itemId = 26058,
 		type = WEAPON_CLUB
 	}, -- ornate carving mace
 	{
-		itemId = 29293,
+		itemId = 26057,
 		type = WEAPON_CLUB
 	}, -- valuable carving mace
 	{
-		itemId = 29292,
+		itemId = 26056,
 		type = WEAPON_CLUB
 	}, -- plain carving mace
 	{
-		itemId = 29291,
+		itemId = 26055,
 		type = WEAPON_AXE
 	}, -- ornate carving chopper
 	{
-		itemId = 29290,
+		itemId = 26054,
 		type = WEAPON_AXE
 	}, -- valuable carving chopper
 	{
-		itemId = 29289,
+		itemId = 26053,
 		type = WEAPON_AXE
 	}, -- plain carving chopper
 	{
-		itemId = 29288,
+		itemId = 26052,
 		type = WEAPON_AXE
 	}, -- ornate carving axe
 	{
-		itemId = 29287,
+		itemId = 26051,
 		type = WEAPON_AXE
 	}, -- valuable carving axe
 	{
-		itemId = 29286,
+		itemId = 26050,
 		type = WEAPON_AXE
 	}, -- plain carving axe
 	{
-		itemId = 29285,
+		itemId = 26049,
 		type = WEAPON_SWORD
 	}, -- ornate carving slayer
 	{
-		itemId = 29284,
+		itemId = 26048,
 		type = WEAPON_SWORD
 	}, -- valuable carving slayer
 	{
-		itemId = 29283,
+		itemId = 26047,
 		type = WEAPON_SWORD
 	}, -- plain carving slayer
 	{
-		itemId = 29282,
+		itemId = 26046,
 		type = WEAPON_SWORD
 	}, -- ornate carving blade
 	{
-		itemId = 29281,
+		itemId = 26045,
 		type = WEAPON_SWORD
 	}, -- valuable carving blade
 	{
-		itemId = 29280,
+		itemId = 26044,
 		type = WEAPON_SWORD
 	}, -- plain carving blade
 	{
-		itemId = 29267,
+		itemId = 26031,
 		type = WEAPON_CLUB
 	}, -- ornate remedy hammer
 	{
-		itemId = 29266,
+		itemId = 26030,
 		type = WEAPON_CLUB
 	}, -- valuable remedy hammer
 	{
-		itemId = 29265,
+		itemId = 26029,
 		type = WEAPON_CLUB
 	}, -- plain remedy hammer
 	{
-		itemId = 29264,
+		itemId = 26028,
 		type = WEAPON_CLUB
 	}, -- ornate remedy mace
 	{
-		itemId = 29263,
+		itemId = 26027,
 		type = WEAPON_CLUB
 	}, -- valuable remedy mace
 	{
-		itemId = 29262,
+		itemId = 26026,
 		type = WEAPON_CLUB
 	}, -- plain remedy mace
 	{
-		itemId = 29261,
+		itemId = 26025,
 		type = WEAPON_AXE
 	}, -- ornate remedy chopper
 	{
-		itemId = 29260,
+		itemId = 26024,
 		type = WEAPON_AXE
 	}, -- valuable remedy chopper
 	{
-		itemId = 29259,
+		itemId = 26023,
 		type = WEAPON_AXE
 	}, -- plain remedy chopper
 	{
-		itemId = 29258,
+		itemId = 26022,
 		type = WEAPON_AXE
 	}, -- ornate remedy axe
 	{
-		itemId = 29257,
+		itemId = 26021,
 		type = WEAPON_AXE
 	}, -- valuable remedy axe
 	{
-		itemId = 29256,
+		itemId = 26020,
 		type = WEAPON_AXE
 	}, -- plain remedy axe
 	{
-		itemId = 29255,
+		itemId = 26019,
 		type = WEAPON_SWORD
 	}, -- ornate remedy slayer
 	{
-		itemId = 29254,
+		itemId = 26018,
 		type = WEAPON_SWORD
 	}, -- valuable remedy slayer
 	{
-		itemId = 29253,
+		itemId = 26017,
 		type = WEAPON_SWORD
 	}, -- plain remedy slayer
 	{
-		itemId = 29252,
+		itemId = 26016,
 		type = WEAPON_SWORD
 	}, -- ornate remedy blade
 	{
-		itemId = 29251,
+		itemId = 26015,
 		type = WEAPON_SWORD
 	}, -- valuable remedy blade
 	{
-		itemId = 29250,
+		itemId = 26014,
 		type = WEAPON_SWORD
 	}, -- plain remedy blade
 	{
-		itemId = 29236,
+		itemId = 26000,
 		type = WEAPON_CLUB
 	}, -- ornate mayhem hammer
 	{
-		itemId = 29235,
+		itemId = 25999,
 		type = WEAPON_CLUB
 	}, -- valuable mayhem hammer
 	{
-		itemId = 29234,
+		itemId = 25998,
 		type = WEAPON_CLUB
 	}, -- plain mayhem hammer
 	{
-		itemId = 29233,
+		itemId = 25997,
 		type = WEAPON_CLUB
 	}, -- ornate mayhem mace
 	{
-		itemId = 29232,
+		itemId = 25996,
 		type = WEAPON_CLUB
 	}, -- valuable mayhem mace
 	{
-		itemId = 29231,
+		itemId = 25995,
 		type = WEAPON_CLUB
 	}, -- plain mayhem mace
 	{
-		itemId = 29230,
+		itemId = 25994,
 		type = WEAPON_AXE
 	}, -- ornate mayhem chopper
 	{
-		itemId = 29229,
+		itemId = 25993,
 		type = WEAPON_AXE
 	}, -- valuable mayhem chopper
 	{
-		itemId = 29228,
+		itemId = 25992,
 		type = WEAPON_AXE
 	}, -- plain mayhem chopper
 	{
-		itemId = 29227,
+		itemId = 25991,
 		type = WEAPON_AXE
 	}, -- ornate mayhem axe
 	{
-		itemId = 29226,
+		itemId = 25990,
 		type = WEAPON_AXE
 	}, -- valuable mayhem axe
 	{
-		itemId = 29225,
+		itemId = 25989,
 		type = WEAPON_AXE
 	}, -- plain mayhem axe
 	{
-		itemId = 29224,
+		itemId = 25988,
 		type = WEAPON_SWORD
 	}, -- ornate mayhem slayer
 	{
-		itemId = 29223,
+		itemId = 25987,
 		type = WEAPON_SWORD
 	}, -- valuable mayhem slayer
 	{
-		itemId = 29222,
+		itemId = 25986,
 		type = WEAPON_SWORD
 	}, -- plain mayhem slayer
 	{
-		itemId = 29221,
+		itemId = 25985,
 		type = WEAPON_SWORD
 	}, -- ornate mayhem blade
 	{
-		itemId = 29220,
+		itemId = 25984,
 		type = WEAPON_SWORD
 	}, -- valuable mayhem blade
 	{
-		itemId = 29219,
+		itemId = 25983,
 		type = WEAPON_SWORD
 	}, -- plain mayhem blade
 	{
-		itemId = 29210,
+		itemId = 25974,
 		type = WEAPON_CLUB
 	}, -- energy war hammer replica
 	{
-		itemId = 29209,
+		itemId = 25973,
 		type = WEAPON_CLUB
 	}, -- energy orcish maul replica
 	{
-		itemId = 29208,
+		itemId = 25972,
 		type = WEAPON_CLUB
 	}, -- energy basher replica
 	{
-		itemId = 29207,
+		itemId = 25971,
 		type = WEAPON_CLUB
 	}, -- energy crystal mace replica
 	{
-		itemId = 29206,
+		itemId = 25970,
 		type = WEAPON_CLUB
 	}, -- energy clerical mace replica
 	{
-		itemId = 29205,
+		itemId = 25969,
 		type = WEAPON_AXE
 	}, -- energy war axe replica
 	{
-		itemId = 29204,
+		itemId = 25968,
 		type = WEAPON_AXE
 	}, -- energy headchopper replica
 	{
-		itemId = 29203,
+		itemId = 25967,
 		type = WEAPON_AXE
 	}, -- energy heroic axe replica
 	{
-		itemId = 29202,
+		itemId = 25966,
 		type = WEAPON_AXE
 	}, -- energy knight axe replica
 	{
-		itemId = 29201,
+		itemId = 25965,
 		type = WEAPON_AXE
 	}, -- energy barbarian axe replica
 	{
-		itemId = 29200,
+		itemId = 25964,
 		type = WEAPON_SWORD
 	}, -- energy dragon slayer replica
 	{
-		itemId = 29199,
+		itemId = 25963,
 		type = WEAPON_SWORD
 	}, -- energy blacksteel replica
 	{
-		itemId = 29198,
+		itemId = 25962,
 		type = WEAPON_SWORD
 	}, -- energy mystic blade replica
 	{
-		itemId = 29197,
+		itemId = 25961,
 		type = WEAPON_SWORD
 	}, -- energy relic sword replica
 	{
-		itemId = 29196,
+		itemId = 25960,
 		type = WEAPON_SWORD
 	}, -- energy spike sword replica
 	{
-		itemId = 29195,
+		itemId = 25959,
 		type = WEAPON_CLUB
 	}, -- earth war hammer replica
 	{
-		itemId = 29194,
+		itemId = 25958,
 		type = WEAPON_CLUB
 	}, -- earth orcish maul replica
 	{
-		itemId = 29193,
+		itemId = 25957,
 		type = WEAPON_CLUB
 	}, -- earth basher replica
 	{
-		itemId = 29192,
+		itemId = 25956,
 		type = WEAPON_CLUB
 	}, -- earth crystal mace replica
 	{
-		itemId = 29191,
+		itemId = 25955,
 		type = WEAPON_CLUB
 	}, -- earth clerical mace replica
 	{
-		itemId = 29190,
+		itemId = 25954,
 		type = WEAPON_AXE
 	}, -- earth war axe replica
 	{
-		itemId = 29189,
+		itemId = 25953,
 		type = WEAPON_AXE
 	}, -- earth headchopper replica
 	{
-		itemId = 29188,
+		itemId = 25952,
 		type = WEAPON_AXE
 	}, -- earth heroic axe replica
 	{
-		itemId = 29187,
+		itemId = 25951,
 		type = WEAPON_AXE
 	}, -- earth knight axe replica
 	{
-		itemId = 29186,
+		itemId = 25950,
 		type = WEAPON_AXE
 	}, -- earth barbarian axe replica
 	{
-		itemId = 29185,
+		itemId = 25949,
 		type = WEAPON_SWORD
 	}, -- earth dragon slayer replica
 	{
-		itemId = 29184,
+		itemId = 25948,
 		type = WEAPON_SWORD
 	}, -- earth blacksteel replica
 	{
-		itemId = 29183,
+		itemId = 25947,
 		type = WEAPON_SWORD
 	}, -- earth mystic blade replica
 	{
-		itemId = 29182,
+		itemId = 25946,
 		type = WEAPON_SWORD
 	}, -- earth relic sword replica
 	{
-		itemId = 29181,
+		itemId = 25945,
 		type = WEAPON_SWORD
 	}, -- earth spike sword replica
 	{
-		itemId = 29180,
+		itemId = 25944,
 		type = WEAPON_CLUB
 	}, -- icy war hammer replica
 	{
-		itemId = 29179,
+		itemId = 25943,
 		type = WEAPON_CLUB
 	}, -- icy orcish maul replica
 	{
-		itemId = 29178,
+		itemId = 25942,
 		type = WEAPON_CLUB
 	}, -- icy basher replica
 	{
-		itemId = 29177,
+		itemId = 25941,
 		type = WEAPON_CLUB
 	}, -- icy crystal mace replica
 	{
-		itemId = 29176,
+		itemId = 25940,
 		type = WEAPON_CLUB
 	}, -- icy clerical mace replica
 	{
-		itemId = 29175,
+		itemId = 25939,
 		type = WEAPON_AXE
 	}, -- icy war axe replica
 	{
-		itemId = 29174,
+		itemId = 25938,
 		type = WEAPON_AXE
 	}, -- icy headchopper replica
 	{
-		itemId = 29173,
+		itemId = 25937,
 		type = WEAPON_AXE
 	}, -- icy heroic axe replica
 	{
-		itemId = 29172,
+		itemId = 25936,
 		type = WEAPON_AXE
 	}, -- icy knight axe replica
 	{
-		itemId = 29171,
+		itemId = 25935,
 		type = WEAPON_AXE
 	}, -- icy barbarian axe replica
 	{
-		itemId = 29170,
+		itemId = 25934,
 		type = WEAPON_SWORD
 	}, -- icy dragon slayer replica
 	{
-		itemId = 29169,
+		itemId = 25933,
 		type = WEAPON_SWORD
 	}, -- icy blacksteel replica
 	{
-		itemId = 29168,
+		itemId = 25932,
 		type = WEAPON_SWORD
 	}, -- icy mystic blade replica
 	{
-		itemId = 29167,
+		itemId = 25931,
 		type = WEAPON_SWORD
 	}, -- icy relic sword replica
 	{
-		itemId = 29166,
+		itemId = 25930,
 		type = WEAPON_SWORD
 	}, -- icy spike sword replica
 	{
-		itemId = 29165,
+		itemId = 25929,
 		type = WEAPON_CLUB
 	}, -- fiery war hammer replica
 	{
-		itemId = 29164,
+		itemId = 25928,
 		type = WEAPON_CLUB
 	}, -- fiery orcish maul replica
 	{
-		itemId = 29163,
+		itemId = 25927,
 		type = WEAPON_CLUB
 	}, -- fiery basher replica
 	{
-		itemId = 29162,
+		itemId = 25926,
 		type = WEAPON_CLUB
 	}, -- fiery crystal mace replica
 	{
-		itemId = 29161,
+		itemId = 25925,
 		type = WEAPON_CLUB
 	}, -- fiery clerical mace replica
 	{
-		itemId = 29160,
+		itemId = 25924,
 		type = WEAPON_AXE
 	}, -- fiery war axe replica
 	{
-		itemId = 29159,
+		itemId = 25923,
 		type = WEAPON_AXE
 	}, -- fiery headchopper replica
 	{
-		itemId = 29158,
+		itemId = 25922,
 		type = WEAPON_AXE
 	}, -- fiery heroic axe replica
 	{
-		itemId = 29157,
+		itemId = 25921,
 		type = WEAPON_AXE
 	}, -- fiery knight axe replica
 	{
-		itemId = 29156,
+		itemId = 25920,
 		type = WEAPON_AXE
 	}, -- fiery barbarian axe replica
 	{
-		itemId = 29155,
+		itemId = 25919,
 		type = WEAPON_SWORD
 	}, -- fiery dragon slayer replica
 	{
-		itemId = 29154,
+		itemId = 25918,
 		type = WEAPON_SWORD
 	}, -- fiery blacksteel replica
 	{
-		itemId = 29153,
+		itemId = 25917,
 		type = WEAPON_SWORD
 	}, -- fiery mystic blade replica
 	{
-		itemId = 29152,
+		itemId = 25916,
 		type = WEAPON_SWORD
 	}, -- fiery relic sword replica
 	{
-		itemId = 29151,
+		itemId = 25915,
 		type = WEAPON_SWORD
 	}, -- fiery spike sword replica
 	{
-		itemId = 29060,
+		itemId = 25760,
 		type = WEAPON_WAND,
 		wandType = "death",
 		level = 41,
@@ -1125,28 +1125,28 @@ local weapons = {
 		}
 	}, -- wand of darkness
 	{
-		itemId = 29059,
+		itemId = 25759,
 		type = WEAPON_DISTANCE,
 		level = 120,
 		unproperly = true,
 		breakChance = 30
 	}, -- royal star
 	{
-		itemId = 29058,
+		itemId = 25758,
 		type = WEAPON_AMMO,
 		level = 150,
 		unproperly = true,
 		action = "removecount"
 	}, -- spectral bolt
 	{
-		itemId = 29036,
+		itemId = 25735,
 		type = WEAPON_DISTANCE,
 		level = 60,
 		unproperly = true,
 		breakChance = 40
 	}, -- leaf star
 	{
-		itemId = 29005,
+		itemId = 25700,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 80,
@@ -1160,7 +1160,7 @@ local weapons = {
 		}
 	}, -- dream blossom staff
 	{
-		itemId = 25995,
+		itemId = 23339,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 100,
@@ -1172,7 +1172,7 @@ local weapons = {
 		}
 	}, -- rod of carving
 	{
-		itemId = 25991,
+		itemId = 23335,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 100,
@@ -1184,7 +1184,7 @@ local weapons = {
 		}
 	}, -- wand of carving
 	{
-		itemId = 25987,
+		itemId = 23331,
 		type = WEAPON_DISTANCE,
 		level = 100,
 		unproperly = true,
@@ -1194,7 +1194,7 @@ local weapons = {
 		}
 	}, -- crossbow of carving
 	{
-		itemId = 25983,
+		itemId = 23327,
 		type = WEAPON_DISTANCE,
 		level = 100,
 		unproperly = true,
@@ -1204,7 +1204,7 @@ local weapons = {
 		}
 	}, -- bow of carving
 	{
-		itemId = 25979,
+		itemId = 23323,
 		type = WEAPON_CLUB,
 		level = 100,
 		unproperly = true,
@@ -1214,7 +1214,7 @@ local weapons = {
 		}
 	}, -- hammer of carving
 	{
-		itemId = 25975,
+		itemId = 23319,
 		type = WEAPON_CLUB,
 		level = 100,
 		unproperly = true,
@@ -1224,7 +1224,7 @@ local weapons = {
 		}
 	}, -- mace of carving
 	{
-		itemId = 25971,
+		itemId = 23315,
 		type = WEAPON_AXE,
 		level = 100,
 		unproperly = true,
@@ -1234,7 +1234,7 @@ local weapons = {
 		}
 	}, -- chopper of carving
 	{
-		itemId = 25967,
+		itemId = 23311,
 		type = WEAPON_AXE,
 		level = 100,
 		unproperly = true,
@@ -1244,7 +1244,7 @@ local weapons = {
 		}
 	}, -- axe of carving
 	{
-		itemId = 25963,
+		itemId = 23307,
 		type = WEAPON_SWORD,
 		level = 100,
 		unproperly = true,
@@ -1254,7 +1254,7 @@ local weapons = {
 		}
 	}, -- slayer of carving
 	{
-		itemId = 25959,
+		itemId = 23303,
 		type = WEAPON_SWORD,
 		level = 100,
 		unproperly = true,
@@ -1264,7 +1264,7 @@ local weapons = {
 		}
 	}, -- blade of carving
 	{
-		itemId = 25955,
+		itemId = 23299,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 100,
@@ -1276,7 +1276,7 @@ local weapons = {
 		}
 	}, -- rod of remedy
 	{
-		itemId = 25951,
+		itemId = 23295,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 100,
@@ -1288,7 +1288,7 @@ local weapons = {
 		}
 	}, -- wand of remedy
 	{
-		itemId = 25947,
+		itemId = 23291,
 		type = WEAPON_DISTANCE,
 		level = 100,
 		unproperly = true,
@@ -1298,7 +1298,7 @@ local weapons = {
 		}
 	}, -- crossbow of remedy
 	{
-		itemId = 25943,
+		itemId = 23287,
 		type = WEAPON_DISTANCE,
 		level = 100,
 		unproperly = true,
@@ -1308,7 +1308,7 @@ local weapons = {
 		}
 	}, -- bow of remedy
 	{
-		itemId = 25939,
+		itemId = 23283,
 		type = WEAPON_CLUB,
 		level = 100,
 		unproperly = true,
@@ -1318,7 +1318,7 @@ local weapons = {
 		}
 	}, -- hammer of remedy
 	{
-		itemId = 25935,
+		itemId = 23279,
 		type = WEAPON_CLUB,
 		level = 100,
 		unproperly = true,
@@ -1328,7 +1328,7 @@ local weapons = {
 		}
 	}, -- mace of remedy
 	{
-		itemId = 25931,
+		itemId = 23275,
 		type = WEAPON_AXE,
 		level = 100,
 		unproperly = true,
@@ -1338,7 +1338,7 @@ local weapons = {
 		}
 	}, -- chopper of remedy
 	{
-		itemId = 25927,
+		itemId = 23271,
 		type = WEAPON_AXE,
 		level = 100,
 		unproperly = true,
@@ -1348,7 +1348,7 @@ local weapons = {
 		}
 	}, -- axe of remedy
 	{
-		itemId = 25923,
+		itemId = 23267,
 		type = WEAPON_SWORD,
 		level = 100,
 		unproperly = true,
@@ -1358,7 +1358,7 @@ local weapons = {
 		}
 	}, -- slayer of remedy
 	{
-		itemId = 25919,
+		itemId = 23263,
 		type = WEAPON_SWORD,
 		level = 100,
 		unproperly = true,
@@ -1368,7 +1368,7 @@ local weapons = {
 		}
 	}, -- blade of remedy
 	{
-		itemId = 25888,
+		itemId = 23232,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 100,
@@ -1380,7 +1380,7 @@ local weapons = {
 		}
 	}, -- rod of mayhem
 	{
-		itemId = 25887,
+		itemId = 23231,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 100,
@@ -1392,7 +1392,7 @@ local weapons = {
 		}
 	}, -- wand of mayhem
 	{
-		itemId = 25886,
+		itemId = 23230,
 		type = WEAPON_DISTANCE,
 		level = 100,
 		unproperly = true,
@@ -1402,7 +1402,7 @@ local weapons = {
 		}
 	}, -- crossbow of mayhem
 	{
-		itemId = 25885,
+		itemId = 23229,
 		type = WEAPON_DISTANCE,
 		level = 100,
 		unproperly = true,
@@ -1412,7 +1412,7 @@ local weapons = {
 		}
 	}, -- bow of mayhem
 	{
-		itemId = 25884,
+		itemId = 23228,
 		type = WEAPON_CLUB,
 		level = 100,
 		unproperly = true,
@@ -1422,7 +1422,7 @@ local weapons = {
 		}
 	}, -- hammer of mayhem
 	{
-		itemId = 25883,
+		itemId = 23227,
 		type = WEAPON_CLUB,
 		level = 100,
 		unproperly = true,
@@ -1432,7 +1432,7 @@ local weapons = {
 		}
 	}, -- mace of mayhem
 	{
-		itemId = 25882,
+		itemId = 23226,
 		type = WEAPON_AXE,
 		level = 100,
 		unproperly = true,
@@ -1442,7 +1442,7 @@ local weapons = {
 		}
 	}, -- chopper of mayhem
 	{
-		itemId = 25881,
+		itemId = 23225,
 		type = WEAPON_AXE,
 		level = 100,
 		unproperly = true,
@@ -1452,7 +1452,7 @@ local weapons = {
 		}
 	}, -- axe of mayhem
 	{
-		itemId = 25880,
+		itemId = 23224,
 		type = WEAPON_SWORD,
 		level = 100,
 		unproperly = true,
@@ -1462,7 +1462,7 @@ local weapons = {
 		}
 	}, -- slayer of mayhem
 	{
-		itemId = 25879,
+		itemId = 23223,
 		type = WEAPON_SWORD,
 		level = 100,
 		unproperly = true,
@@ -1472,7 +1472,7 @@ local weapons = {
 		}
 	}, -- blade of mayhem
 	{
-		itemId = 25523,
+		itemId = 22867,
 		type = WEAPON_DISTANCE,
 		level = 120,
 		unproperly = true,
@@ -1482,7 +1482,7 @@ local weapons = {
 		}
 	}, -- rift crossbow
 	{
-		itemId = 25522,
+		itemId = 22866,
 		type = WEAPON_DISTANCE,
 		level = 120,
 		unproperly = true,
@@ -1492,7 +1492,7 @@ local weapons = {
 		}
 	}, -- rift bow
 	{
-		itemId = 25422,
+		itemId = 22766,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 100,
@@ -1504,7 +1504,7 @@ local weapons = {
 		}
 	}, -- ferumbras' staff (enchanted)
 	{
-		itemId = 25421,
+		itemId = 22765,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 65,
@@ -1516,37 +1516,37 @@ local weapons = {
 		}
 	}, -- ferumbras' staff (failed)
 	{
-		itemId = 25420,
+		itemId = 22764,
 		type = WEAPON_CLUB,
 		level = 100,
 		unproperly = true
 	}, -- Ferumbras' staff
 	{
-		itemId = 25418,
+		itemId = 22762,
 		type = WEAPON_CLUB,
 		level = 150,
 		unproperly = true
 	}, -- maimer
 	{
-		itemId = 25416,
+		itemId = 22760,
 		type = WEAPON_SWORD,
 		level = 150,
 		unproperly = true
 	}, -- Impaler of the igniter
 	{
-		itemId = 25415,
+		itemId = 22759,
 		type = WEAPON_AXE,
 		level = 150,
 		unproperly = true
 	}, -- plague bite
 	{
-		itemId = 25383,
+		itemId = 22727,
 		type = WEAPON_AXE,
 		level = 70,
 		unproperly = true
 	}, -- rift lance
 	{
-		itemId = 24839,
+		itemId = 22183,
 		type = WEAPON_WAND,
 		wandType = "earth",
 		level = 37,
@@ -1558,40 +1558,40 @@ local weapons = {
 		}
 	}, -- ogre sceptra
 	{
-		itemId = 24828,
+		itemId = 22172,
 		type = WEAPON_AXE,
 		level = 25,
 		unproperly = true
 	}, -- ogre choppa
 	{
-		itemId = 24827,
+		itemId = 22171,
 		type = WEAPON_AXE,
 		level = 50,
 		unproperly = true
 	}, -- ogre klubba
 	{
-		itemId = 23839,
+		itemId = 21470,
 		type = WEAPON_AMMO,
 		action = "removecount"
 	}, -- simple arrow
 	--[[
 		the chiller
-		{itemId = 23721}
+		{itemId = 21350}
 		scripted weapon
 	]]
 	--[[
 		the scorcher
-		{itemId = 23719}
+		{itemId = 21348}
 		scripted weapon
 	]]
 	{
-		itemId = 23590,
+		itemId = 21219,
 		type = WEAPON_CLUB,
 		level = 70,
 		unproperly = true
 	}, -- one hit wonder
 	{
-		itemId = 23551,
+		itemId = 21180,
 		type = WEAPON_AXE,
 		level = 75,
 		unproperly = true,
@@ -1601,7 +1601,7 @@ local weapons = {
 		}
 	}, -- glooth axe
 	{
-		itemId = 23550,
+		itemId = 21179,
 		type = WEAPON_SWORD,
 		level = 75,
 		unproperly = true,
@@ -1611,7 +1611,7 @@ local weapons = {
 		}
 	}, -- glooth blade
 	{
-		itemId = 23549,
+		itemId = 21178,
 		type = WEAPON_CLUB,
 		level = 75,
 		unproperly = true,
@@ -1622,50 +1622,50 @@ local weapons = {
 		}
 	}, -- glooth club
 	{
-		itemId = 23548,
+		itemId = 21177,
 		type = WEAPON_SWORD,
 		level = 25,
 		unproperly = true
 	}, -- cowtana
 	{
-		itemId = 23547,
+		itemId = 21176,
 		type = WEAPON_AXE,
 		level = 55,
 		unproperly = true
 	}, -- execowtioner axe
 	{
-		itemId = 23545,
+		itemId = 21174,
 		type = WEAPON_AXE,
 		level = 45,
 		unproperly = true
 	}, -- mino lance
 	{
-		itemId = 23544,
+		itemId = 21173,
 		type = WEAPON_CLUB,
 		level = 60,
 		unproperly = true
 	}, -- moohtant cudgel
 	{
-		itemId = 23543,
+		itemId = 21172,
 		type = WEAPON_CLUB,
 		level = 25,
 		unproperly = true
 	}, -- glooth whip
 	{
-		itemId = 23542,
+		itemId = 21171,
 		type = WEAPON_CLUB,
 		level = 55,
 		unproperly = true
 	}, -- metal bat
 	{
-		itemId = 23529,
+		itemId = 21158,
 		type = WEAPON_DISTANCE,
 		level = 60,
 		unproperly = true,
 		breakChance = 2
 	}, -- glooth spear
 	{
-		itemId = 22421,
+		itemId = 20087,
 		type = WEAPON_DISTANCE,
 		level = 250,
 		unproperly = true,
@@ -1675,7 +1675,7 @@ local weapons = {
 		}
 	}, -- umbral master crossbow
 	{
-		itemId = 22420,
+		itemId = 20086,
 		type = WEAPON_DISTANCE,
 		level = 120,
 		unproperly = true,
@@ -1685,7 +1685,7 @@ local weapons = {
 		}
 	}, -- umbral crossbow
 	{
-		itemId = 22419,
+		itemId = 20085,
 		type = WEAPON_DISTANCE,
 		level = 75,
 		unproperly = true,
@@ -1695,7 +1695,7 @@ local weapons = {
 		}
 	}, -- crude umbral crossbow
 	{
-		itemId = 22418,
+		itemId = 20084,
 		type = WEAPON_DISTANCE,
 		level = 250,
 		unproperly = true,
@@ -1705,7 +1705,7 @@ local weapons = {
 		}
 	}, -- umbral master bow
 	{
-		itemId = 22417,
+		itemId = 20083,
 		type = WEAPON_DISTANCE,
 		level = 120,
 		unproperly = true,
@@ -1715,7 +1715,7 @@ local weapons = {
 		}
 	}, -- umbral bow
 	{
-		itemId = 22416,
+		itemId = 20082,
 		type = WEAPON_DISTANCE,
 		level = 75,
 		unproperly = true,
@@ -1725,7 +1725,7 @@ local weapons = {
 		}
 	}, -- crude umbral bow
 	{
-		itemId = 22415,
+		itemId = 20081,
 		type = WEAPON_CLUB,
 		level = 250,
 		unproperly = true,
@@ -1735,7 +1735,7 @@ local weapons = {
 		}
 	}, -- umbral master hammer
 	{
-		itemId = 22414,
+		itemId = 20080,
 		type = WEAPON_CLUB,
 		level = 120,
 		unproperly = true,
@@ -1745,7 +1745,7 @@ local weapons = {
 		}
 	}, -- umbral hammer
 	{
-		itemId = 22413,
+		itemId = 20079,
 		type = WEAPON_CLUB,
 		level = 75,
 		unproperly = true,
@@ -1755,7 +1755,7 @@ local weapons = {
 		}
 	}, -- crude umbral hammer
 	{
-		itemId = 22412,
+		itemId = 20078,
 		type = WEAPON_CLUB,
 		level = 250,
 		unproperly = true,
@@ -1765,7 +1765,7 @@ local weapons = {
 		}
 	}, -- umbral master mace
 	{
-		itemId = 22411,
+		itemId = 20077,
 		type = WEAPON_CLUB,
 		level = 120,
 		unproperly = true,
@@ -1775,7 +1775,7 @@ local weapons = {
 		}
 	}, -- umbral mace
 	{
-		itemId = 22410,
+		itemId = 20076,
 		type = WEAPON_CLUB,
 		level = 75,
 		unproperly = true,
@@ -1785,7 +1785,7 @@ local weapons = {
 		}
 	}, -- crude umbral mace
 	{
-		itemId = 22409,
+		itemId = 20075,
 		type = WEAPON_AXE,
 		level = 250,
 		unproperly = true,
@@ -1795,7 +1795,7 @@ local weapons = {
 		}
 	}, -- umbral master chopper
 	{
-		itemId = 22408,
+		itemId = 20074,
 		type = WEAPON_AXE,
 		level = 120,
 		unproperly = true,
@@ -1805,7 +1805,7 @@ local weapons = {
 		}
 	}, -- umbral chopper
 	{
-		itemId = 22407,
+		itemId = 20073,
 		type = WEAPON_AXE,
 		level = 75,
 		unproperly = true,
@@ -1815,7 +1815,7 @@ local weapons = {
 		}
 	}, -- guardian halberd
 	{
-		itemId = 22406,
+		itemId = 20072,
 		type = WEAPON_AXE,
 		level = 250,
 		unproperly = true,
@@ -1825,7 +1825,7 @@ local weapons = {
 		}
 	}, -- umbral master axe
 	{
-		itemId = 22405,
+		itemId = 20071,
 		type = WEAPON_AXE,
 		level = 120,
 		unproperly = true,
@@ -1835,7 +1835,7 @@ local weapons = {
 		}
 	}, -- umbral axe
 	{
-		itemId = 22404,
+		itemId = 20070,
 		type = WEAPON_AXE,
 		level = 75,
 		unproperly = true,
@@ -1845,7 +1845,7 @@ local weapons = {
 		}
 	}, -- crude umbral axe
 	{
-		itemId = 22403,
+		itemId = 20069,
 		type = WEAPON_SWORD,
 		level = 250,
 		unproperly = true,
@@ -1855,7 +1855,7 @@ local weapons = {
 		}
 	}, -- umbral master slayer
 	{
-		itemId = 22402,
+		itemId = 20068,
 		type = WEAPON_SWORD,
 		level = 120,
 		unproperly = true,
@@ -1865,7 +1865,7 @@ local weapons = {
 		}
 	}, -- umbral slayer
 	{
-		itemId = 22401,
+		itemId = 20067,
 		type = WEAPON_SWORD,
 		level = 75,
 		unproperly = true,
@@ -1875,7 +1875,7 @@ local weapons = {
 		}
 	}, -- crude umbral slayer
 	{
-		itemId = 22400,
+		itemId = 20066,
 		type = WEAPON_SWORD,
 		level = 250,
 		unproperly = true,
@@ -1885,7 +1885,7 @@ local weapons = {
 		}
 	}, -- umbral masterblade
 	{
-		itemId = 22399,
+		itemId = 20065,
 		type = WEAPON_SWORD,
 		level = 120,
 		unproperly = true,
@@ -1895,7 +1895,7 @@ local weapons = {
 		}
 	}, -- umbral blade
 	{
-		itemId = 22398,
+		itemId = 20064,
 		type = WEAPON_SWORD,
 		level = 75,
 		unproperly = true,
@@ -1905,12 +1905,12 @@ local weapons = {
 		}
 	}, -- crude umbral blade
 	{
-		itemId = 21696,
+		itemId = 19362,
 		type = WEAPON_DISTANCE,
 		unproperly = true
 	}, -- icicle bow
 	{
-		itemId = 21690,
+		itemId = 19356,
 		type = WEAPON_DISTANCE,
 		level = 70,
 		unproperly = true,
@@ -1920,13 +1920,13 @@ local weapons = {
 		}
 	}, -- triple bolt crossbow
 	{
-		itemId = 20139,
+		itemId = 17859,
 		type = WEAPON_CLUB,
 		level = 20,
 		unproperly = true
 	}, -- spiky club
 	{
-		itemId = 20108,
+		itemId = 17828,
 		type = WEAPON_CLUB,
 		level = 50,
 		unproperly = true,
@@ -1936,23 +1936,23 @@ local weapons = {
 		}
 	}, -- pair of iron fists
 	{
-		itemId = 20104,
+		itemId = 17824,
 		type = WEAPON_CLUB
 	}, -- swampling club
 	{
-		itemId = 20093,
+		itemId = 17813,
 		type = WEAPON_CLUB,
 		level = 15,
 		unproperly = true
 	}, -- life preserver
 	{
-		itemId = 20092,
+		itemId = 17812,
 		type = WEAPON_SWORD,
 		level = 15,
 		unproperly = true
 	}, -- ratana
 	{
-		itemId = 19391,
+		itemId = 17111,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 1,
@@ -1963,7 +1963,7 @@ local weapons = {
 		}
 	}, -- sorc and druid staff
 	{
-		itemId = 19390,
+		itemId = 17110,
 		type = WEAPON_DISTANCE,
 		breakChance = 3,
 		vocation = {
@@ -1971,7 +1971,7 @@ local weapons = {
 		}
 	}, -- mean paladin spear
 	{
-		itemId = 19389,
+		itemId = 17109,
 		type = WEAPON_SWORD,
 		unproperly = true,
 		vocation = {
@@ -1979,13 +1979,13 @@ local weapons = {
 		}
 	}, -- mean knight sword
 	{
-		itemId = 18465,
+		itemId = 16175,
 		type = WEAPON_SWORD,
 		level = 120,
 		unproperly = true
 	}, -- shiny blade
 	{
-		itemId = 18454,
+		itemId = 16164,
 		type = WEAPON_DISTANCE,
 		level = 105,
 		unproperly = true,
@@ -1995,7 +1995,7 @@ local weapons = {
 		}
 	}, -- mycological bow
 	{
-		itemId = 18453,
+		itemId = 16163,
 		type = WEAPON_DISTANCE,
 		level = 90,
 		unproperly = true,
@@ -2005,46 +2005,46 @@ local weapons = {
 		}
 	}, -- crystal crossbow
 	{
-		itemId = 18452,
+		itemId = 16162,
 		type = WEAPON_CLUB,
 		level = 120,
 		unproperly = true
 	}, -- mycological mace
 	{
-		itemId = 18451,
+		itemId = 16161,
 		type = WEAPON_AXE,
 		level = 120,
 		unproperly = true
 	}, -- crystalline axe
 	{
-		itemId = 18450,
+		itemId = 16160,
 		type = WEAPON_SWORD,
 		level = 62,
 		unproperly = true
 	}, -- crystalline sword
 	{
-		itemId = 18437,
+		itemId = 16143,
 		type = WEAPON_AMMO,
 		level = 70,
 		unproperly = true,
 		action = "removecount"
 	}, -- envenomed arrow
 	{
-		itemId = 18436,
+		itemId = 16142,
 		type = WEAPON_AMMO,
 		level = 70,
 		unproperly = true,
 		action = "removecount"
 	}, -- drill bolt
 	{
-		itemId = 18435,
+		itemId = 16141,
 		type = WEAPON_AMMO,
 		level = 90,
 		unproperly = true,
 		action = "removecount"
 	}, -- prismatic bolt
 	{
-		itemId = 18412,
+		itemId = 16118,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 65,
@@ -2056,7 +2056,7 @@ local weapons = {
 		}
 	}, -- glacial rod
 	{
-		itemId = 18411,
+		itemId = 16117,
 		type = WEAPON_WAND,
 		wandType = "earth",
 		level = 65,
@@ -2068,7 +2068,7 @@ local weapons = {
 		}
 	}, -- muck rod
 	{
-		itemId = 18409,
+		itemId = 16115,
 		type = WEAPON_WAND,
 		wandType = "fire",
 		level = 65,
@@ -2080,7 +2080,7 @@ local weapons = {
 		}
 	}, -- wand of everblazing
 	{
-		itemId = 18390,
+		itemId = 16096,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 65,
@@ -2092,19 +2092,19 @@ local weapons = {
 		}
 	}, -- wand of defiance
 	{
-		itemId = 18304,
+		itemId = 15793,
 		type = WEAPON_AMMO,
 		level = 90,
 		unproperly = true,
 		action = "removecount"
 	}, -- crystalline arrow
 	{
-		itemId = 18303,
+		itemId = 15792,
 		type = WEAPON_AMMO,
 		action = "removecount"
 	}, -- crystal bolt
 	{
-		itemId = 16111,
+		itemId = 14768,
 		type = WEAPON_DISTANCE,
 		level = 150,
 		unproperly = true,
@@ -2114,27 +2114,27 @@ local weapons = {
 		}
 	}, -- thorn spitter
 	{
-		itemId = 15649,
+		itemId = 14252,
 		type = WEAPON_AMMO,
 		level = 40,
 		unproperly = true,
 		action = "removecount"
 	}, -- vortex bolt
 	{
-		itemId = 15648,
+		itemId = 14251,
 		type = WEAPON_AMMO,
 		level = 30,
 		unproperly = true,
 		action = "removecount"
 	}, -- tarsal arrow
 	{
-		itemId = 15647,
+		itemId = 14250,
 		type = WEAPON_CLUB,
 		level = 48,
 		unproperly = true
 	}, -- deepling squelcher
 	{
-		itemId = 15644,
+		itemId = 14247,
 		type = WEAPON_DISTANCE,
 		level = 50,
 		unproperly = true,
@@ -2144,7 +2144,7 @@ local weapons = {
 		}
 	}, -- ornate crossbow
 	{
-		itemId = 15643,
+		itemId = 14246,
 		type = WEAPON_DISTANCE,
 		level = 85,
 		unproperly = true,
@@ -2154,43 +2154,43 @@ local weapons = {
 		}
 	}, -- hive bow
 	{
-		itemId = 15492,
+		itemId = 14089,
 		type = WEAPON_AXE,
 		level = 70,
 		unproperly = true
 	}, -- hive scythe
 	{
-		itemId = 15454,
+		itemId = 14043,
 		type = WEAPON_AXE,
 		level = 50,
 		unproperly = true
 	}, -- guardian axe
 	{
-		itemId = 15451,
+		itemId = 14040,
 		type = WEAPON_AXE,
 		level = 40,
 		unproperly = true
 	}, -- warrior's axe
 	{
-		itemId = 15414,
+		itemId = 14001,
 		type = WEAPON_CLUB,
 		level = 90,
 		unproperly = true
 	}, -- ornate mace
 	{
-		itemId = 15404,
+		itemId = 13991,
 		type = WEAPON_AXE,
 		level = 80,
 		unproperly = true
 	}, -- deepling axe
 	{
-		itemId = 15400,
+		itemId = 13987,
 		type = WEAPON_CLUB,
 		level = 38,
 		unproperly = true
 	}, -- deepling staff
 	{
-		itemId = 13880,
+		itemId = 12741,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 40,
@@ -2202,7 +2202,7 @@ local weapons = {
 		}
 	}, -- shimmer wand
 	{
-		itemId = 13873,
+		itemId = 12733,
 		type = WEAPON_DISTANCE,
 		level = 40,
 		unproperly = true,
@@ -2212,7 +2212,7 @@ local weapons = {
 		}
 	}, -- shimmer bow
 	{
-		itemId = 13872,
+		itemId = 12732,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 40,
@@ -2224,23 +2224,23 @@ local weapons = {
 		}
 	}, -- shimmer rod
 	{
-		itemId = 13871,
+		itemId = 12731,
 		type = WEAPON_SWORD,
 		level = 40,
 		unproperly = true
 	}, -- shimmer sword
 	{
-		itemId = 13838,
+		itemId = 12683,
 		type = WEAPON_AXE,
 		level = 25,
 		unproperly = true
 	}, -- heavy trident
 	{
-		itemId = 13829,
+		itemId = 12673,
 		type = WEAPON_SWORD
 	}, -- wooden sword
 	{
-		itemId = 13760,
+		itemId = 12603,
 		type = WEAPON_WAND,
 		wandType = "death",
 		level = 37,
@@ -2252,19 +2252,19 @@ local weapons = {
 		}
 	}, -- wand of dimensions
 	{
-		itemId = 12649,
+		itemId = 11693,
 		type = WEAPON_SWORD,
 		level = 82,
 		unproperly = true
 	}, -- blade of corruption
 	{
-		itemId = 12648,
+		itemId = 11692,
 		type = WEAPON_CLUB,
 		level = 82,
 		unproperly = true
 	}, -- snake god's sceptre
 	{
-		itemId = 12613,
+		itemId = 11657,
 		type = WEAPON_SWORD,
 		level = 58,
 		unproperly = true,
@@ -2274,13 +2274,13 @@ local weapons = {
 		}
 	}, -- twiceslicer
 	{
-		itemId = 11323,
+		itemId = 10406,
 		type = WEAPON_AXE,
 		level = 25,
 		unproperly = true
 	}, -- Zaoan halberd
 	{
-		itemId = 11309,
+		itemId = 10392,
 		type = WEAPON_SWORD,
 		level = 20,
 		unproperly = true,
@@ -2290,7 +2290,7 @@ local weapons = {
 		}
 	}, -- twin hooks
 	{
-		itemId = 11308,
+		itemId = 10391,
 		type = WEAPON_CLUB,
 		level = 55,
 		unproperly = true,
@@ -2300,13 +2300,13 @@ local weapons = {
 		}
 	}, -- drachaku
 	{
-		itemId = 11307,
+		itemId = 10390,
 		type = WEAPON_SWORD,
 		level = 55,
 		unproperly = true
 	}, -- Zaoan sword
 	{
-		itemId = 11306,
+		itemId = 10389,
 		type = WEAPON_SWORD,
 		level = 50,
 		unproperly = true,
@@ -2316,49 +2316,49 @@ local weapons = {
 		}
 	}, -- sai
 	{
-		itemId = 11305,
+		itemId = 10388,
 		type = WEAPON_AXE,
 		level = 60,
 		unproperly = true
 	}, -- drakinata
 	{
-		itemId = 10313,
+		itemId = 9396,
 		type = WEAPON_SWORD
 	}, -- incredible mumpiz slayer
 	{
-		itemId = 10304,
+		itemId = 9387,
 		type = WEAPON_SWORD
 	}, -- poet's fencing quill
 	{
-		itemId = 10303,
+		itemId = 9386,
 		type = WEAPON_AXE
 	}, -- farmer's avenger
 	{
-		itemId = 10302,
+		itemId = 9385,
 		type = WEAPON_CLUB
 	}, -- club of the fury
 	{
-		itemId = 10301,
+		itemId = 9384,
 		type = WEAPON_AXE
 	}, -- scythe of the reaper
 	{
-		itemId = 10295,
+		itemId = 9378,
 		type = WEAPON_DISTANCE
 	}, -- musician's bow
 	{
-		itemId = 10293,
+		itemId = 9376,
 		type = WEAPON_CLUB
 	}, -- stale bread of ancientness
 	{
-		itemId = 10292,
+		itemId = 9375,
 		type = WEAPON_SWORD
 	}, -- pointed rabbitslayer
 	{
-		itemId = 10290,
+		itemId = 9373,
 		type = WEAPON_CLUB
 	}, -- glutton's mace
 	{
-		itemId = 8932,
+		itemId = 8104,
 		type = WEAPON_SWORD,
 		level = 100,
 		unproperly = true,
@@ -2368,19 +2368,19 @@ local weapons = {
 		}
 	}, -- the calamity
 	{
-		itemId = 8931,
+		itemId = 8103,
 		type = WEAPON_SWORD,
 		level = 120,
 		unproperly = true
 	}, -- the epiphany
 	{
-		itemId = 8930,
+		itemId = 8102,
 		type = WEAPON_SWORD,
 		level = 100,
 		unproperly = true
 	}, -- emerald sword
 	{
-		itemId = 8929,
+		itemId = 8101,
 		type = WEAPON_CLUB,
 		level = 100,
 		unproperly = true,
@@ -2390,19 +2390,19 @@ local weapons = {
 		}
 	}, -- the stomper
 	{
-		itemId = 8928,
+		itemId = 8100,
 		type = WEAPON_CLUB,
 		level = 100,
 		unproperly = true
 	}, -- obsidian truncheon
 	{
-		itemId = 8927,
+		itemId = 8099,
 		type = WEAPON_CLUB,
 		level = 120,
 		unproperly = true
 	}, -- dark trinity mace
 	{
-		itemId = 8926,
+		itemId = 8098,
 		type = WEAPON_AXE,
 		level = 120,
 		unproperly = true,
@@ -2412,19 +2412,19 @@ local weapons = {
 		}
 	}, -- demonwing axe
 	{
-		itemId = 8925,
+		itemId = 8097,
 		type = WEAPON_AXE,
 		level = 130,
 		unproperly = true
 	}, -- solar axe
 	{
-		itemId = 8924,
+		itemId = 8096,
 		type = WEAPON_AXE,
 		level = 110,
 		unproperly = true
 	}, -- hellforged axe
 	{
-		itemId = 8922,
+		itemId = 8094,
 		type = WEAPON_WAND,
 		wandType = "death",
 		level = 42,
@@ -2436,7 +2436,7 @@ local weapons = {
 		}
 	}, -- wand of voodoo
 	{
-		itemId = 8921,
+		itemId = 8093,
 		type = WEAPON_WAND,
 		wandType = "fire",
 		level = 22,
@@ -2448,7 +2448,7 @@ local weapons = {
 		}
 	}, -- wand of draconia
 	{
-		itemId = 8920,
+		itemId = 8092,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 37,
@@ -2460,7 +2460,7 @@ local weapons = {
 		}
 	}, -- wand of starmstorm
 	{
-		itemId = 8912,
+		itemId = 8084,
 		type = WEAPON_WAND,
 		wandType = "earth",
 		level = 37,
@@ -2472,7 +2472,7 @@ local weapons = {
 		}
 	}, -- springsprout rod
 	{
-		itemId = 8911,
+		itemId = 8083,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 22,
@@ -2484,7 +2484,7 @@ local weapons = {
 		}
 	}, -- northwind rod
 	{
-		itemId = 8910,
+		itemId = 8082,
 		type = WEAPON_WAND,
 		wandType = "death",
 		level = 42,
@@ -2496,7 +2496,7 @@ local weapons = {
 		}
 	}, -- underworld rod
 	{
-		itemId = 8858,
+		itemId = 8030,
 		type = WEAPON_DISTANCE,
 		level = 70,
 		unproperly = true,
@@ -2506,7 +2506,7 @@ local weapons = {
 		}
 	}, -- elethriel's elemental bow
 	{
-		itemId = 8857,
+		itemId = 8029,
 		type = WEAPON_DISTANCE,
 		level = 40,
 		unproperly = true,
@@ -2516,7 +2516,7 @@ local weapons = {
 		}
 	}, -- silkweaver bow
 	{
-		itemId = 8856,
+		itemId = 8028,
 		type = WEAPON_DISTANCE,
 		level = 60,
 		unproperly = true,
@@ -2526,7 +2526,7 @@ local weapons = {
 		}
 	}, -- yol's bow
 	{
-		itemId = 8855,
+		itemId = 8027,
 		type = WEAPON_DISTANCE,
 		level = 50,
 		unproperly = true,
@@ -2536,7 +2536,7 @@ local weapons = {
 		}
 	}, -- composite hornbow
 	{
-		itemId = 8854,
+		itemId = 8026,
 		type = WEAPON_DISTANCE,
 		level = 80,
 		unproperly = true,
@@ -2546,7 +2546,7 @@ local weapons = {
 		}
 	}, -- warsinger bow
 	{
-		itemId = 8853,
+		itemId = 8025,
 		type = WEAPON_DISTANCE,
 		level = 80,
 		unproperly = true,
@@ -2556,7 +2556,7 @@ local weapons = {
 		}
 	}, -- ironworker
 	{
-		itemId = 8852,
+		itemId = 8024,
 		type = WEAPON_DISTANCE,
 		level = 100,
 		unproperly = true,
@@ -2566,7 +2566,7 @@ local weapons = {
 		}
 	}, -- devileye
 	{
-		itemId = 8851,
+		itemId = 8023,
 		type = WEAPON_DISTANCE,
 		level = 130,
 		unproperly = true,
@@ -2576,7 +2576,7 @@ local weapons = {
 		}
 	}, -- royal crossbow
 	{
-		itemId = 8850,
+		itemId = 8022,
 		type = WEAPON_DISTANCE,
 		level = 60,
 		unproperly = true,
@@ -2586,7 +2586,7 @@ local weapons = {
 		}
 	}, -- chain bolter
 	{
-		itemId = 8849,
+		itemId = 8021,
 		type = WEAPON_DISTANCE,
 		level = 45,
 		unproperly = true,
@@ -2596,19 +2596,19 @@ local weapons = {
 		}
 	}, -- modified crossbow
 	{
-		itemId = 8602,
+		itemId = 7774,
 		type = WEAPON_SWORD
 	}, -- jagged sword
 	{
-		itemId = 8601,
+		itemId = 7773,
 		type = WEAPON_AXE
 	}, -- steel axe
 	{
-		itemId = 8209,
+		itemId = 860,
 		type = WEAPON_SWORD
 	}, -- crimson sword
 	{
-		itemId = 7883,
+		itemId = 810,
 		type = WEAPON_CLUB,
 		level = 50,
 		unproperly = true,
@@ -2619,35 +2619,35 @@ local weapons = {
 		}
 	}, -- energy war hammer
 	{
-		itemId = 7882,
+		itemId = 809,
 		type = WEAPON_CLUB,
 		level = 35,
 		unproperly = true,
 		action = "removecharge"
 	}, -- energy orcish maul
 	{
-		itemId = 7881,
+		itemId = 808,
 		type = WEAPON_CLUB,
 		level = 60,
 		unproperly = true,
 		action = "removecharge"
 	}, -- energy cranial basher
 	{
-		itemId = 7880,
+		itemId = 807,
 		type = WEAPON_CLUB,
 		level = 35,
 		unproperly = true,
 		action = "removecharge"
 	}, -- energy crystal mace
 	{
-		itemId = 7879,
+		itemId = 806,
 		type = WEAPON_CLUB,
 		level = 20,
 		unproperly = true,
 		action = "removecharge"
 	}, -- energy clerical mace
 	{
-		itemId = 7878,
+		itemId = 805,
 		type = WEAPON_AXE,
 		level = 65,
 		unproperly = true,
@@ -2658,7 +2658,7 @@ local weapons = {
 		}
 	}, -- energy war axe
 	{
-		itemId = 7877,
+		itemId = 804,
 		type = WEAPON_AXE,
 		level = 35,
 		unproperly = true,
@@ -2669,28 +2669,28 @@ local weapons = {
 		}
 	}, -- energy headchopper
 	{
-		itemId = 7876,
+		itemId = 803,
 		type = WEAPON_AXE,
 		level = 60,
 		unproperly = true,
 		action = "removecharge"
 	}, -- energy heroic axe
 	{
-		itemId = 7875,
+		itemId = 802,
 		type = WEAPON_AXE,
 		level = 25,
 		unproperly = true,
 		action = "removecharge"
 	}, -- energy knight axe
 	{
-		itemId = 7874,
+		itemId = 801,
 		type = WEAPON_AXE,
 		level = 20,
 		unproperly = true,
 		action = "removecharge"
 	}, -- energy barbarian axe
 	{
-		itemId = 7873,
+		itemId = 798,
 		type = WEAPON_SWORD,
 		level = 45,
 		unproperly = true,
@@ -2701,7 +2701,7 @@ local weapons = {
 		}
 	}, -- energy dragon slayer
 	{
-		itemId = 7872,
+		itemId = 797,
 		type = WEAPON_SWORD,
 		level = 35,
 		unproperly = true,
@@ -2712,26 +2712,26 @@ local weapons = {
 		}
 	}, -- energy blacksteel sword
 	{
-		itemId = 7871,
+		itemId = 796,
 		type = WEAPON_SWORD,
 		level = 60,
 		unproperly = true,
 		action = "removecharge"
 	}, -- energy mystic blade
 	{
-		itemId = 7870,
+		itemId = 795,
 		type = WEAPON_SWORD,
 		level = 50,
 		unproperly = true,
 		action = "removecharge"
 	}, -- energy relic sword
 	{
-		itemId = 7869,
+		itemId = 794,
 		type = WEAPON_SWORD,
 		action = "removecharge"
 	}, -- energy spike sword
 	{
-		itemId = 7868,
+		itemId = 793,
 		type = WEAPON_CLUB,
 		level = 50,
 		unproperly = true,
@@ -2742,35 +2742,35 @@ local weapons = {
 		}
 	}, -- earth war hammer
 	{
-		itemId = 7867,
+		itemId = 792,
 		type = WEAPON_CLUB,
 		level = 35,
 		unproperly = true,
 		action = "removecharge"
 	}, -- earth orcish maul
 	{
-		itemId = 7866,
+		itemId = 791,
 		type = WEAPON_CLUB,
 		level = 60,
 		unproperly = true,
 		action = "removecharge"
 	}, -- earth cranial basher
 	{
-		itemId = 7865,
+		itemId = 790,
 		type = WEAPON_CLUB,
 		level = 35,
 		unproperly = true,
 		action = "removecharge"
 	}, -- earth crystal mace
 	{
-		itemId = 7864,
+		itemId = 789,
 		type = WEAPON_CLUB,
 		level = 20,
 		unproperly = true,
 		action = "removecharge"
 	}, -- earth clerical mace
 	{
-		itemId = 7863,
+		itemId = 788,
 		type = WEAPON_AXE,
 		level = 65,
 		unproperly = true,
@@ -2781,7 +2781,7 @@ local weapons = {
 		}
 	}, -- earth war axe
 	{
-		itemId = 7862,
+		itemId = 787,
 		type = WEAPON_AXE,
 		level = 35,
 		unproperly = true,
@@ -2792,28 +2792,28 @@ local weapons = {
 		}
 	}, -- earth headchopper
 	{
-		itemId = 7861,
+		itemId = 786,
 		type = WEAPON_AXE,
 		level = 60,
 		unproperly = true,
 		action = "removecharge"
 	}, -- earth heroic axe
 	{
-		itemId = 7860,
+		itemId = 785,
 		type = WEAPON_AXE,
 		level = 25,
 		unproperly = true,
 		action = "removecharge"
 	}, -- earth knight axe
 	{
-		itemId = 7859,
+		itemId = 784,
 		type = WEAPON_AXE,
 		level = 20,
 		unproperly = true,
 		action = "removecharge"
 	}, -- earth barbarian axe
 	{
-		itemId = 7858,
+		itemId = 783,
 		type = WEAPON_SWORD,
 		level = 45,
 		unproperly = true,
@@ -2824,7 +2824,7 @@ local weapons = {
 		}
 	}, -- earth dragon slayer
 	{
-		itemId = 7857,
+		itemId = 782,
 		type = WEAPON_SWORD,
 		level = 35,
 		unproperly = true,
@@ -2835,54 +2835,54 @@ local weapons = {
 		}
 	}, -- earth blacksteel sword
 	{
-		itemId = 7856,
+		itemId = 781,
 		type = WEAPON_SWORD,
 		level = 60,
 		unproperly = true,
 		action = "removecharge"
 	}, -- earth mystic blade
 	{
-		itemId = 7855,
+		itemId = 780,
 		type = WEAPON_SWORD,
 		level = 50,
 		unproperly = true,
 		action = "removecharge"
 	}, -- earth relic sword
 	{
-		itemId = 7854,
+		itemId = 779,
 		type = WEAPON_SWORD,
 		action = "removecharge"
 	}, -- earth spike sword
 	{
-		itemId = 7850,
+		itemId = 774,
 		type = WEAPON_AMMO,
 		level = 20,
 		unproperly = true,
 		action = "removecount"
 	}, -- earth arrow
 	{
-		itemId = 7840,
+		itemId = 763,
 		type = WEAPON_AMMO,
 		level = 20,
 		unproperly = true,
 		action = "removecount"
 	}, -- flaming arrow
 	{
-		itemId = 7839,
+		itemId = 762,
 		type = WEAPON_AMMO,
 		level = 20,
 		unproperly = true,
 		action = "removecount"
 	}, -- shiver arrow
 	{
-		itemId = 7838,
+		itemId = 761,
 		type = WEAPON_AMMO,
 		level = 20,
 		unproperly = true,
 		action = "removecount"
 	}, -- flash arrow
 	{
-		itemId = 7777,
+		itemId = 693,
 		type = WEAPON_CLUB,
 		level = 50,
 		unproperly = true,
@@ -2893,35 +2893,35 @@ local weapons = {
 		}
 	}, -- icy war hammer
 	{
-		itemId = 7776,
+		itemId = 692,
 		type = WEAPON_CLUB,
 		level = 35,
 		unproperly = true,
 		action = "removecharge"
 	}, -- icy orcish maul
 	{
-		itemId = 7775,
+		itemId = 691,
 		type = WEAPON_CLUB,
 		level = 60,
 		unproperly = true,
 		action = "removecharge"
 	}, -- icy cranial basher
 	{
-		itemId = 7774,
+		itemId = 690,
 		type = WEAPON_CLUB,
 		level = 35,
 		unproperly = true,
 		action = "removecharge"
 	}, -- icy crystal mace
 	{
-		itemId = 7773,
+		itemId = 689,
 		type = WEAPON_CLUB,
 		level = 20,
 		unproperly = true,
 		action = "removecharge"
 	}, -- icy clerical mace
 	{
-		itemId = 7772,
+		itemId = 688,
 		type = WEAPON_AXE,
 		level = 65,
 		unproperly = true,
@@ -2932,7 +2932,7 @@ local weapons = {
 		}
 	}, -- icy war axe
 	{
-		itemId = 7771,
+		itemId = 687,
 		type = WEAPON_AXE,
 		level = 35,
 		unproperly = true,
@@ -2943,28 +2943,28 @@ local weapons = {
 		}
 	}, -- icy headchopper
 	{
-		itemId = 7770,
+		itemId = 686,
 		type = WEAPON_AXE,
 		level = 60,
 		unproperly = true,
 		action = "removecharge"
 	}, -- icy heroic axe
 	{
-		itemId = 7769,
+		itemId = 685,
 		type = WEAPON_AXE,
 		level = 25,
 		unproperly = true,
 		action = "removecharge"
 	}, -- icy knight axe
 	{
-		itemId = 7768,
+		itemId = 684,
 		type = WEAPON_AXE,
 		level = 20,
 		unproperly = true,
 		action = "removecharge"
 	}, -- icy barbarian axe
 	{
-		itemId = 7767,
+		itemId = 683,
 		type = WEAPON_SWORD,
 		level = 45,
 		unproperly = true,
@@ -2975,7 +2975,7 @@ local weapons = {
 		}
 	}, -- icy dragon slayer
 	{
-		itemId = 7766,
+		itemId = 682,
 		type = WEAPON_SWORD,
 		level = 35,
 		unproperly = true,
@@ -2986,26 +2986,26 @@ local weapons = {
 		}
 	}, -- icy blacksteel sword
 	{
-		itemId = 7765,
+		itemId = 681,
 		type = WEAPON_SWORD,
 		level = 60,
 		unproperly = true,
 		action = "removecharge"
 	}, -- icy mystic blade
 	{
-		itemId = 7764,
+		itemId = 680,
 		type = WEAPON_SWORD,
 		level = 50,
 		unproperly = true,
 		action = "removecharge"
 	}, -- icy relic sword
 	{
-		itemId = 7763,
+		itemId = 679,
 		type = WEAPON_SWORD,
 		action = "removecharge"
 	}, -- icy spike sword
 	{
-		itemId = 7758,
+		itemId = 674,
 		type = WEAPON_CLUB,
 		level = 50,
 		unproperly = true,
@@ -3016,35 +3016,35 @@ local weapons = {
 		}
 	}, -- fiery war hammer
 	{
-		itemId = 7757,
+		itemId = 673,
 		type = WEAPON_CLUB,
 		level = 35,
 		unproperly = true,
 		action = "removecharge"
 	}, -- fiery orcish maul
 	{
-		itemId = 7756,
+		itemId = 672,
 		type = WEAPON_CLUB,
 		level = 60,
 		unproperly = true,
 		action = "removecharge"
 	}, -- fiery cranial basher
 	{
-		itemId = 7755,
+		itemId = 671,
 		type = WEAPON_CLUB,
 		level = 35,
 		unproperly = true,
 		action = "removecharge"
 	}, -- fiery crystal mace
 	{
-		itemId = 7754,
+		itemId = 670,
 		type = WEAPON_CLUB,
 		level = 20,
 		unproperly = true,
 		action = "removecharge"
 	}, -- fiery clerical mace
 	{
-		itemId = 7753,
+		itemId = 669,
 		type = WEAPON_AXE,
 		level = 65,
 		unproperly = true,
@@ -3055,7 +3055,7 @@ local weapons = {
 		}
 	}, -- fiery war axe
 	{
-		itemId = 7752,
+		itemId = 668,
 		type = WEAPON_AXE,
 		level = 35,
 		unproperly = true,
@@ -3066,28 +3066,28 @@ local weapons = {
 		}
 	}, -- fiery headchopper
 	{
-		itemId = 7751,
+		itemId = 667,
 		type = WEAPON_AXE,
 		level = 60,
 		unproperly = true,
 		action = "removecharge"
 	}, -- fiery heroic axe
 	{
-		itemId = 7750,
+		itemId = 666,
 		type = WEAPON_AXE,
 		level = 25,
 		unproperly = true,
 		action = "removecharge"
 	}, -- fiery knight axe
 	{
-		itemId = 7749,
+		itemId = 665,
 		type = WEAPON_AXE,
 		level = 20,
 		unproperly = true,
 		action = "removecharge"
 	}, -- fiery barbarian axe
 	{
-		itemId = 7748,
+		itemId = 664,
 		type = WEAPON_SWORD,
 		level = 45,
 		unproperly = true,
@@ -3098,7 +3098,7 @@ local weapons = {
 		}
 	}, -- fiery dragon slayer
 	{
-		itemId = 7747,
+		itemId = 663,
 		type = WEAPON_SWORD,
 		level = 35,
 		unproperly = true,
@@ -3109,21 +3109,21 @@ local weapons = {
 		}
 	}, -- fiery blacksteel sword
 	{
-		itemId = 7746,
+		itemId = 662,
 		type = WEAPON_SWORD,
 		level = 60,
 		unproperly = true,
 		action = "removecharge"
 	}, -- fiery mystic blade
 	{
-		itemId = 7745,
+		itemId = 661,
 		type = WEAPON_SWORD,
 		level = 50,
 		unproperly = true,
 		action = "removecharge"
 	}, -- fiery relic sword
 	{
-		itemId = 7744,
+		itemId = 660,
 		type = WEAPON_SWORD,
 		action = "removecharge"
 	}, -- fiery spike sword
@@ -3608,14 +3608,14 @@ local weapons = {
 		}
 	}, -- ruthless axe
 	{
-		itemId = 6529,
+		itemId = 6528,
 		type = WEAPON_AMMO,
 		level = 110,
 		unproperly = true,
 		action = "removecount"
 	}, -- infernal bolt
 	{
-		itemId = 6528,
+		itemId = 6527,
 		type = WEAPON_SWORD,
 		level = 75,
 		unproperly = true,
@@ -3639,67 +3639,67 @@ local weapons = {
 		}
 	}, -- arbalest
 	{
-		itemId = 3966,
+		itemId = 3348,
 		type = WEAPON_CLUB
 	}, -- banana staff
 	{
-		itemId = 3965,
+		itemId = 3347,
 		type = WEAPON_DISTANCE,
 		level = 20,
 		unproperly = true,
 		breakChance = 6
 	}, -- hunting spear
 	{
-		itemId = 3964,
+		itemId = 3346,
 		type = WEAPON_AXE
 	}, -- ripper lance
 	{
-		itemId = 3963,
+		itemId = 3345,
 		type = WEAPON_SWORD
 	}, -- templar scytheblade
 	{
-		itemId = 3962,
+		itemId = 3344,
 		type = WEAPON_AXE,
 		level = 30,
 		unproperly = true
 	}, -- beastslayer axe
 	{
-		itemId = 3961,
+		itemId = 3343,
 		type = WEAPON_CLUB,
 		level = 40,
 		unproperly = true
 	}, -- lich staff
 	{
-		itemId = 2550,
+		itemId = 3453,
 		type = WEAPON_CLUB
 	}, -- scythe
 	{
-		itemId = 2547,
+		itemId = 3450,
 		type = WEAPON_AMMO,
 		level = 55,
 		unproperly = true,
 		action = "removecount"
 	}, -- power bolt
 	{
-		itemId = 2544,
+		itemId = 3447,
 		type = WEAPON_AMMO,
 		action = "removecount"
 	}, -- arrow
 	{
-		itemId = 2543,
+		itemId = 3446,
 		type = WEAPON_AMMO,
 		action = "removecount"
 	}, -- bolt
 	{
-		itemId = 2456,
+		itemId = 3350,
 		type = WEAPON_DISTANCE
 	}, -- bow
 	{
-		itemId = 2455,
+		itemId = 3349,
 		type = WEAPON_DISTANCE
 	}, -- crossbow
 	{
-		itemId = 2454,
+		itemId = 3342,
 		type = WEAPON_AXE,
 		level = 65,
 		unproperly = true,
@@ -3709,13 +3709,13 @@ local weapons = {
 		}
 	}, -- war axe
 	{
-		itemId = 2453,
+		itemId = 3341,
 		type = WEAPON_CLUB,
 		level = 75,
 		unproperly = true
 	}, -- arcane staff
 	{
-		itemId = 2452,
+		itemId = 3340,
 		type = WEAPON_CLUB,
 		level = 70,
 		unproperly = true,
@@ -3725,25 +3725,25 @@ local weapons = {
 		}
 	}, -- heavy mace
 	{
-		itemId = 2451,
+		itemId = 3339,
 		type = WEAPON_SWORD,
 		level = 35,
 		unproperly = true
 	}, -- djinn blade
 	{
-		itemId = 2450,
+		itemId = 3338,
 		type = WEAPON_SWORD
 	}, -- bone sword
 	{
-		itemId = 2449,
+		itemId = 3337,
 		type = WEAPON_CLUB
 	}, -- bone club
 	{
-		itemId = 2448,
+		itemId = 3336,
 		type = WEAPON_CLUB
 	}, -- studded club
 	{
-		itemId = 2447,
+		itemId = 3335,
 		type = WEAPON_AXE,
 		level = 50,
 		unproperly = true,
@@ -3753,19 +3753,19 @@ local weapons = {
 		}
 	}, -- twin axe
 	{
-		itemId = 2446,
+		itemId = 3334,
 		type = WEAPON_SWORD,
 		level = 45,
 		unproperly = true
 	}, -- pharaoh sword
 	{
-		itemId = 2445,
+		itemId = 3333,
 		type = WEAPON_CLUB,
 		level = 35,
 		unproperly = true
 	}, -- crystal mace
 	{
-		itemId = 2444,
+		itemId = 3332,
 		type = WEAPON_CLUB,
 		level = 65,
 		unproperly = true,
@@ -3775,7 +3775,7 @@ local weapons = {
 		}
 	}, -- hammer of wrath
 	{
-		itemId = 2443,
+		itemId = 3331,
 		type = WEAPON_AXE,
 		level = 70,
 		unproperly = true,
@@ -3785,15 +3785,15 @@ local weapons = {
 		}
 	}, -- ravager's axe
 	{
-		itemId = 2442,
+		itemId = 3330,
 		type = WEAPON_SWORD
 	}, -- heavy machete
 	{
-		itemId = 2441,
+		itemId = 3329,
 		type = WEAPON_AXE
 	}, -- daramian axe
 	{
-		itemId = 2440,
+		itemId = 3328,
 		type = WEAPON_AXE,
 		level = 25,
 		unproperly = true,
@@ -3803,131 +3803,131 @@ local weapons = {
 		}
 	}, -- daramian waraxe
 	{
-		itemId = 2439,
+		itemId = 3327,
 		type = WEAPON_CLUB
 	}, -- daramian mace
 	{
-		itemId = 2438,
+		itemId = 3326,
 		type = WEAPON_SWORD,
 		level = 30,
 		unproperly = true
 	}, -- epee
 	{
-		itemId = 2437,
+		itemId = 3325,
 		type = WEAPON_CLUB
 	}, -- light mace
 	{
-		itemId = 2436,
+		itemId = 3324,
 		type = WEAPON_CLUB,
 		level = 30,
 		unproperly = true
 	}, -- skull staff
 	{
-		itemId = 2435,
+		itemId = 3323,
 		type = WEAPON_AXE,
 		level = 20,
 		unproperly = true
 	}, -- dwarven axe
 	{
-		itemId = 2434,
+		itemId = 3322,
 		type = WEAPON_CLUB,
 		level = 25,
 		unproperly = true
 	}, -- dragon hammer
 	{
-		itemId = 2433,
+		itemId = 3321,
 		type = WEAPON_CLUB
 	}, -- enchanted staff
 	{
-		itemId = 2432,
+		itemId = 3320,
 		type = WEAPON_AXE,
 		level = 35,
 		unproperly = true
 	}, -- fire axe
 	{
-		itemId = 2431,
+		itemId = 3319,
 		type = WEAPON_AXE,
 		level = 90,
 		unproperly = true
 	}, -- stonecutter axe
 	{
-		itemId = 2430,
+		itemId = 3318,
 		type = WEAPON_AXE,
 		level = 25,
 		unproperly = true
 	}, -- knight axe
 	{
-		itemId = 2429,
+		itemId = 3317,
 		type = WEAPON_AXE,
 		level = 20,
 		unproperly = true
 	}, -- barbarian axe
 	{
-		itemId = 2428,
+		itemId = 3316,
 		type = WEAPON_AXE
 	}, -- orcish axe
 	{
-		itemId = 2427,
+		itemId = 3315,
 		type = WEAPON_AXE,
 		level = 55,
 		unproperly = true
 	}, -- guardian halberd
 	{
-		itemId = 2426,
+		itemId = 3314,
 		type = WEAPON_AXE,
 		level = 25,
 		unproperly = true
 	}, -- naginata
 	{
-		itemId = 2425,
+		itemId = 3313,
 		type = WEAPON_AXE,
 		level = 20,
 		unproperly = true
 	}, -- obsidian lance
 	{
-		itemId = 2424,
+		itemId = 3312,
 		type = WEAPON_CLUB,
 		level = 45,
 		unproperly = true
 	}, -- silver mace
 	{
-		itemId = 2423,
+		itemId = 3311,
 		type = WEAPON_CLUB,
 		level = 20,
 		unproperly = true
 	}, -- clerical mace
 	{
-		itemId = 2422,
+		itemId = 3310,
 		type = WEAPON_CLUB
 	}, -- iron hammer
 	{
-		itemId = 2421,
+		itemId = 3309,
 		type = WEAPON_CLUB,
 		level = 85,
 		unproperly = true
 	}, -- thunder hammer
 	{
-		itemId = 2420,
+		itemId = 3308,
 		type = WEAPON_SWORD
 	}, -- machete
 	{
-		itemId = 2419,
+		itemId = 3307,
 		type = WEAPON_SWORD
 	}, -- scimitar
 	{
-		itemId = 2418,
+		itemId = 3306,
 		type = WEAPON_AXE
 	}, -- golden sickle
 	{
-		itemId = 2417,
+		itemId = 3305,
 		type = WEAPON_CLUB
 	}, -- battle hammer
 	{
-		itemId = 2416,
+		itemId = 3304,
 		type = WEAPON_CLUB
 	}, -- crowbar
 	{
-		itemId = 2415,
+		itemId = 3303,
 		type = WEAPON_AXE,
 		level = 95,
 		unproperly = true,
@@ -3937,13 +3937,13 @@ local weapons = {
 		}
 	}, -- great axe
 	{
-		itemId = 2414,
+		itemId = 3302,
 		type = WEAPON_AXE,
 		level = 60,
 		unproperly = true
 	}, -- dragon lance
 	{
-		itemId = 2413,
+		itemId = 3301,
 		type = WEAPON_SWORD,
 		vocation = {
 			{"Knight", true},
@@ -3951,24 +3951,24 @@ local weapons = {
 		}
 	}, -- broadsword
 	{
-		itemId = 2412,
+		itemId = 3300,
 		type = WEAPON_SWORD
 	}, -- katana
 	{
-		itemId = 2411,
+		itemId = 3299,
 		type = WEAPON_SWORD
 	}, -- poison dagger
 	{
-		itemId = 2410,
+		itemId = 3298,
 		type = WEAPON_DISTANCE,
 		breakChance = 7
 	}, -- throwing knife
 	{
-		itemId = 2409,
+		itemId = 3297,
 		type = WEAPON_SWORD
 	}, -- serpent sword
 	{
-		itemId = 2408,
+		itemId = 3296,
 		type = WEAPON_SWORD,
 		level = 120,
 		unproperly = true,
@@ -3978,56 +3978,56 @@ local weapons = {
 		}
 	}, -- warlord sword
 	{
-		itemId = 2407,
+		itemId = 3295,
 		type = WEAPON_SWORD,
 		level = 30,
 		unproperly = true
 	}, -- bright sword
 	{
-		itemId = 2406,
+		itemId = 3294,
 		type = WEAPON_SWORD
 	}, -- short sword
 	{
-		itemId = 2405,
+		itemId = 3293,
 		type = WEAPON_AXE
 	}, -- sickle
 	{
-		itemId = 2404,
+		itemId = 3292,
 		type = WEAPON_SWORD
 	}, -- combat knife
 	{
-		itemId = 2403,
+		itemId = 3291,
 		type = WEAPON_SWORD
 	}, -- knife
 	{
-		itemId = 2402,
+		itemId = 3290,
 		type = WEAPON_SWORD
 	}, -- silver dagger
 	{
-		itemId = 2401,
+		itemId = 3289,
 		type = WEAPON_CLUB
 	}, -- staff
 	{
-		itemId = 2400,
+		itemId = 3288,
 		type = WEAPON_SWORD,
 		level = 80,
 		unproperly = true
 	}, -- magic sword
 	{
-		itemId = 2399,
+		itemId = 3287,
 		type = WEAPON_DISTANCE,
 		breakChance = 10
 	}, -- throwing star
 	{
-		itemId = 2398,
+		itemId = 3286,
 		type = WEAPON_CLUB
 	}, -- mace
 	{
-		itemId = 2397,
+		itemId = 3285,
 		type = WEAPON_SWORD
 	}, -- longsword
 	{
-		itemId = 2396,
+		itemId = 3284,
 		type = WEAPON_SWORD,
 		action = "removecharge",
 		vocation = {
@@ -4036,15 +4036,15 @@ local weapons = {
 		}
 	}, -- ice rapier
 	{
-		itemId = 2395,
+		itemId = 3283,
 		type = WEAPON_SWORD
 	}, -- carlin sword
 	{
-		itemId = 2394,
+		itemId = 3282,
 		type = WEAPON_CLUB
 	}, -- morning star
 	{
-		itemId = 2393,
+		itemId = 3281,
 		type = WEAPON_SWORD,
 		level = 55,
 		unproperly = true,
@@ -4054,13 +4054,13 @@ local weapons = {
 		}
 	}, -- giant sword
 	{
-		itemId = 2392,
+		itemId = 3280,
 		type = WEAPON_SWORD,
 		level = 30,
 		unproperly = true
 	}, -- fire sword
 	{
-		itemId = 2391,
+		itemId = 3279,
 		type = WEAPON_CLUB,
 		level = 50,
 		unproperly = true,
@@ -4070,7 +4070,7 @@ local weapons = {
 		}
 	}, -- war hammer
 	{
-		itemId = 2390,
+		itemId = 3278,
 		type = WEAPON_SWORD,
 		level = 140,
 		unproperly = true,
@@ -4080,16 +4080,16 @@ local weapons = {
 		}
 	}, -- magic longsword
 	{
-		itemId = 2389,
+		itemId = 3277,
 		type = WEAPON_DISTANCE,
 		breakChance = 3
 	}, -- spear
 	{
-		itemId = 2388,
+		itemId = 3276,
 		type = WEAPON_AXE
 	}, -- hatchet
 	{
-		itemId = 2387,
+		itemId = 3275,
 		type = WEAPON_AXE,
 		level = 25,
 		unproperly = true,
@@ -4099,41 +4099,41 @@ local weapons = {
 		}
 	}, -- double axe
 	{
-		itemId = 2386,
+		itemId = 3274,
 		type = WEAPON_AXE
 	}, -- axe
 	{
-		itemId = 2385,
+		itemId = 3273,
 		type = WEAPON_SWORD
 	}, -- sabre
 	{
-		itemId = 2384,
+		itemId = 3272,
 		type = WEAPON_SWORD
 	}, -- rapier
 	{
-		itemId = 2383,
+		itemId = 3271,
 		type = WEAPON_SWORD
 	}, -- spike sword
 	{
-		itemId = 2382,
+		itemId = 3270,
 		type = WEAPON_CLUB
 	}, -- club
 	{
-		itemId = 2381,
+		itemId = 3269,
 		type = WEAPON_AXE,
 		level = 25,
 		unproperly = true
 	}, -- halberd
 	{
-		itemId = 2380,
+		itemId = 3268,
 		type = WEAPON_AXE
 	}, -- hand axe
 	{
-		itemId = 2379,
+		itemId = 3267,
 		type = WEAPON_SWORD
 	}, -- dagger
 	{
-		itemId = 2378,
+		itemId = 3266,
 		type = WEAPON_AXE,
 		unproperly = true,
 		vocation = {
@@ -4142,7 +4142,7 @@ local weapons = {
 		}
 	}, -- battle axe
 	{
-		itemId = 2377,
+		itemId = 3265,
 		type = WEAPON_SWORD,
 		level = 20,
 		unproperly = true,
@@ -4152,15 +4152,15 @@ local weapons = {
 		}
 	}, -- two handed sword
 	{
-		itemId = 2376,
+		itemId = 3264,
 		type = WEAPON_SWORD
 	}, -- sword
 	{
-		itemId = 2321,
+		itemId = 12510,
 		type = WEAPON_CLUB
 	}, -- giant smithhammer
 	{
-		itemId = 2191,
+		itemId = 3075,
 		type = WEAPON_WAND,
 		wandType = "fire",
 		level = 13,
@@ -4172,7 +4172,7 @@ local weapons = {
 		}
 	}, -- wand of dragonbreath
 	{
-		itemId = 2190,
+		itemId = 3074,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 6,
@@ -4184,7 +4184,7 @@ local weapons = {
 		}
 	}, -- wand of vortex
 	{
-		itemId = 2189,
+		itemId = 3073,
 		type = WEAPON_WAND,
 		wandType = "energy",
 		level = 26,
@@ -4196,7 +4196,7 @@ local weapons = {
 		}
 	}, -- wand of cosmic energy
 	{
-		itemId = 2188,
+		itemId = 3072,
 		type = WEAPON_WAND,
 		wandType = "death",
 		level = 19,
@@ -4208,7 +4208,7 @@ local weapons = {
 		}
 	}, -- wand of decay
 	{
-		itemId = 2187,
+		itemId = 3071,
 		type = WEAPON_WAND,
 		wandType = "fire",
 		level = 33,
@@ -4220,7 +4220,7 @@ local weapons = {
 		}
 	}, -- wand of inferno
 	{
-		itemId = 2186,
+		itemId = 3070,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 13,
@@ -4232,7 +4232,7 @@ local weapons = {
 		}
 	}, -- moonlight rod
 	{
-		itemId = 2185,
+		itemId = 3069,
 		type = WEAPON_WAND,
 		wandType = "death",
 		level = 19,
@@ -4244,7 +4244,7 @@ local weapons = {
 		}
 	}, -- necrotic rod
 	{
-		itemId = 2183,
+		itemId = 3067,
 		type = WEAPON_WAND,
 		wandType = "ice",
 		level = 33,
@@ -4256,7 +4256,7 @@ local weapons = {
 		}
 	}, -- hailstorm rod
 	{
-		itemId = 2182,
+		itemId = 3066,
 		type = WEAPON_WAND,
 		wandType = "earth",
 		level = 6,
@@ -4268,7 +4268,7 @@ local weapons = {
 		}
 	}, -- snakebit rod
 	{
-		itemId = 2181,
+		itemId = 3065,
 		type = WEAPON_WAND,
 		wandType = "earth",
 		level = 26,
@@ -4280,12 +4280,12 @@ local weapons = {
 		}
 	}, -- terra rod
 	{
-		itemId = 2111,
+		itemId = 2992,
 		type = WEAPON_DISTANCE,
 		action = "removecount"
 	}, -- snowball
 	{
-		itemId = 1294,
+		itemId = 1781,
 		type = WEAPON_DISTANCE,
 		breakChance = 3
 	} -- small stone
