@@ -4,8 +4,8 @@ local trapDoor = Action()
 
 function trapDoor.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local ground = Tile(exitPosition):getGround()
-	if ground and isInArray({369, 413}, ground.itemid) then
-		ground:transform(ground.itemid == 369 and 413 or 369)
+	if ground and isInArray({369, 416}, ground.itemid) then
+		ground:transform(ground.itemid == 369 and 416 or 369)
 
 		if ground.itemid == 369 then
 			local items = ground:getTile():getItems()
@@ -18,7 +18,7 @@ function trapDoor.onUse(player, item, fromPosition, target, toPosition, isHotkey
 		end
 	end
 
-	item:transform(item.itemid == 1945 and 1946 or 1945)
+	item:transform(item.itemid == 2772 and 2773 or 2772)
 	return true
 end
 

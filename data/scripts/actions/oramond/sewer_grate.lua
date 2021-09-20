@@ -1,4 +1,4 @@
-local upFloorIds = {23669}
+local upFloorIds = {21298}
 
 local sewerGrate = Action()
 
@@ -11,5 +11,5 @@ function sewerGrate.onUse(cid, item, fromPosition, itemEx, toPosition)
 	return TRUE
 end
 
-sewerGrate:id(23669)
+sewerGrate:id(21298)
 sewerGrate:register()

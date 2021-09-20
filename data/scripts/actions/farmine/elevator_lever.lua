@@ -12,7 +12,7 @@ local elevatorLever = Action()
 function elevatorLever.onUse(cid, item, fromPosition, itemEx, toPosition)
 	local k = t[item.actionid]
 	local thing = getTopCreature(k[1]).uid
-	if(item.actionid == 9120 and item.itemid == 1945) then -- elevator to Farmine
+	if(item.actionid == 9120 and item.itemid == 2772) then -- elevator to Farmine
 		if(isPlayer(thing)) then
 			if cid:getStorageValue(Storage.TheNewFrontier.Mission05) == 7 then -- if Farmine is on Stage 3
 				k[2].z = 10
@@ -26,7 +26,7 @@ function elevatorLever.onUse(cid, item, fromPosition, itemEx, toPosition)
 				doSendMagicEffect(k[2], CONST_ME_TELEPORT)
 			end
 		end
-	elseif(k and item.itemid == 1945) then
+	elseif(k and item.itemid == 2772) then
 		if(isPlayer(thing)) then
 			doTeleportThing(thing, k[2], false)
 			if(k.effect) then
@@ -34,7 +34,7 @@ function elevatorLever.onUse(cid, item, fromPosition, itemEx, toPosition)
 			end
 		end
 	end
-	return doTransformItem(item.uid, item.itemid == 1945 and 1946 or 1945)
+	return doTransformItem(item.uid, item.itemid == 2772 and 2773 or 2772)
 end
 
 elevatorLever:aid(9118, 9119, 9120, 9121, 9122, 9123)

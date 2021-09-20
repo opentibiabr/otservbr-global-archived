@@ -2,7 +2,7 @@ local magicDoor = Action()
 
 function magicDoor.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local playerPos, destination = player:getPosition()
-	if item.itemid == 19598 then
+	if item.itemid == 17318 then
 		player:setStorageValue(Storage.AdventurersGuild.MagicDoor, 1)
 		destination = Position(32292, 32293, 7)
 	else
@@ -21,5 +21,5 @@ function magicDoor.onUse(player, item, fromPosition, target, toPosition, isHotke
 	return true
 end
 
-magicDoor:id(19598, 19599)
+magicDoor:id(17318, 17319)
 magicDoor:register()

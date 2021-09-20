@@ -11,7 +11,7 @@ local oberonLever = Action()
 
 -- Start Script
 function oberonLever.onUse(creature, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 1945 and item.actionid == 57605 then
+	if item.itemid == 2772 and item.actionid == 57605 then
 	local clearOberonRoom = Game.getSpectators(Position(setting.centerRoom), false, false, 10, 10, 10, 10)       
 	for index, spectatorcheckface in ipairs(clearOberonRoom) do
 		if spectatorcheckface:isPlayer() then

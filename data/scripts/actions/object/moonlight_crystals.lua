@@ -1,25 +1,25 @@
 local moonlightCrystals = Action()
 
 function moonlightCrystals.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.itemid == 24716 then
-		target:transform(24717)
+	if target.itemid == 22060 then
+		target:transform(22061)
 		item:remove(1)
 		return true
-	elseif target.itemid == 24718 then
+	elseif target.itemid == 22062 then
         if (player:getStorageValue(Storage.Grimvale.WereHelmetEnchant) == 0) or (player:getStorageValue(Storage.Grimvale.WereHelmetEnchant) == 1) then
             target:transform(24783) -- Magic level helmet
 			item:remove(1)
         elseif player:getStorageValue(Storage.Grimvale.WereHelmetEnchant) == 2 then
-            target:transform(24788) -- Paladin helmet
+            target:transform(22132) -- Paladin helmet
 			item:remove(1)
         elseif player:getStorageValue(Storage.Grimvale.WereHelmetEnchant) == 3 then
-            target:transform(24784) -- Knight club
+            target:transform(22128) -- Knight club
 			item:remove(1)
         elseif player:getStorageValue(Storage.Grimvale.WereHelmetEnchant) == 4 then
-            target:transform(24786) -- Knight axe
+            target:transform(22130) -- Knight axe
 			item:remove(1)
         elseif player:getStorageValue(Storage.Grimvale.WereHelmetEnchant) == 5 then
-            target:transform(24785) -- Knight sword
+            target:transform(22129) -- Knight sword
 			item:remove(1)
         else
             return false
@@ -29,5 +29,5 @@ function moonlightCrystals.onUse(player, item, fromPosition, target, toPosition,
 	return false
 end
 
-moonlightCrystals:id(24739)
+moonlightCrystals:id(22083)
 moonlightCrystals:register()

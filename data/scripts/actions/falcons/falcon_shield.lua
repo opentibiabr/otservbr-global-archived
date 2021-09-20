@@ -9,7 +9,7 @@ function falconShield.onUse(player, item, fromPosition, target, toPosition, isHo
 		return false
 	end
 
-	if target:getId() ~= 8671 or target:getPosition() ~= Position(33363, 31342, 7) then
+	if target:getId() ~= 7843 or target:getPosition() ~= Position(33363, 31342, 7) then
 		return false
 	end
 

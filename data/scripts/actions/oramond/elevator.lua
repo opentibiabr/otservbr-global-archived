@@ -1,8 +1,8 @@
 local firstFloor = Position(33638, 31903, 6)
 local secondFloor =  Position(33638, 31903, 5)
-local elevatorPusherItemId = 23424
-local elevatorStructureItemId = 23428
-local elevatorBaseItemId = 23432
+local elevatorPusherItemId = 21053
+local elevatorStructureItemId = 21057
+local elevatorBaseItemId = 21061
 
 local elevator = Action()
 
@@ -42,5 +42,5 @@ function elevator.onUse(player, item, fromPosition, target, toPosition, isHotkey
     return true
 end
 
-elevator:id(23422, 23429)
+elevator:id(21051, 21058)
 elevator:register()
