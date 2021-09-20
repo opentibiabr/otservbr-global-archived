@@ -1,8 +1,8 @@
 local traps = {
-    [1510] = {transformTo = 1511, damage = {-50, -100}},
-    [1513] = {damage = {-50, -100}},
-    [2579] = {transformTo = 2578, damage = {-15, -30}, ignorePlayer = (Game.getWorldType() == WORLD_TYPE_NO_PVP) },
-    [4208] = {transformTo = 4209, damage = {-15, -30}, type = COMBAT_EARTHDAMAGE}
+    [2145] = {transformTo = 2146, damage = {-50, -100}},
+    [2148] = {damage = {-50, -100}},
+    [3482] = {transformTo = 3481, damage = {-15, -30}, ignorePlayer = (Game.getWorldType() == WORLD_TYPE_NO_PVP) },
+    [3944] = {transformTo = 3945, damage = {-15, -30}, type = COMBAT_EARTHDAMAGE}
 }
 
 local trap = MoveEvent()
@@ -17,7 +17,7 @@ function trap.onStepIn(creature, item, position, fromPosition)
         return true
     end
 
-    if Tile(position):getItemCountById(2579) > 1 then
+    if Tile(position):getItemCountById(3482) > 1 then
         return true
     end
 
@@ -34,7 +34,10 @@ function trap.onStepIn(creature, item, position, fromPosition)
 end
 
 trap:type("stepin")
-trap:id(1510, 1513, 2579, 4208)
+for itemId, info in pairs(traps) do
+    trap:id(itemId)
+end
+
 trap:register()
 
 trap = MoveEvent()
@@ -49,7 +52,7 @@ function trap.onStepOut(creature, item, position, fromPosition)
 end
 
 trap:type("stepout")
-trap:id(1511, 4209)
+trap:id(2146, 3945)
 trap:register()
 
 trap = MoveEvent()
@@ -64,5 +67,5 @@ function trap.onRemoveItem(item, tile, position)
 end
 
 trap:type("removeitem")
-trap:id(2579)
+trap:id(3482)
 trap:register()

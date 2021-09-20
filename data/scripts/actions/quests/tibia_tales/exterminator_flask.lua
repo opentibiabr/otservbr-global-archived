@@ -14,5 +14,5 @@ function exterminatorFlask.onUse(player, item, fromPosition, target, toPosition,
 	return true
 end
 
-exterminatorFlask:id(12784)
+exterminatorFlask:id(135)
 exterminatorFlask:register()

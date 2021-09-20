@@ -17,7 +17,7 @@ function tombCoalBasin.onAddItem(moveitem, tileitem, position)
 		return true
 	end
 
-	if moveitem.itemid ~= 2159 then
+	if moveitem.itemid ~= 3042 then
 		position:sendMagicEffect(CONST_ME_POFF)
 		return true
 	end

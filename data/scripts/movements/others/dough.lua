@@ -1,6 +1,6 @@
 local pastries = {
-	[2693] = 2689,
-	[6277] = 6278
+	[3604] = 3600,
+	[6276] = 6277
 }
 
 local dough = MoveEvent()
@@ -17,5 +17,5 @@ function dough.onAddItem(moveitem, tileitem, position)
 end
 
 dough:type("additem")
-dough:id(1786, 1788, 1790, 1792)
+dough:id(2535, 2537, 2539, 2541)
 dough:register()

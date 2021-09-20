@@ -13,5 +13,5 @@ function areaDamage.onStepIn(creature, item, position, fromPosition)
 end
 
 areaDamage:type("stepin")
-areaDamage:id(8292)
+areaDamage:id(918)
 areaDamage:register()

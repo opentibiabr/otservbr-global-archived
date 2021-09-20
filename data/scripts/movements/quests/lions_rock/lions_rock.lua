@@ -3,7 +3,7 @@ local UniqueTable = {
 		storage = Storage.LionsRock.SnakeSign,
 		needStorage = Storage.LionsRock.Questline,
 		value = 5,
-		item = 23836,
+		item = 21467,
 		message1 = "With the aid of the old scroll you translate the inscriptions on the floor: \z
 		And the mighty lion defeated the jealous snake.",
 		message2 = "As a sign of victory he tooks its eye, yellow as envy and malevolence, and out \z
@@ -13,7 +13,7 @@ local UniqueTable = {
 		storage = Storage.LionsRock.LizardSign,
 		needStorage = Storage.LionsRock.Questline,
 		value = 5,
-		item = 23836,
+		item = 21467,
 		message1 = "With the aid of the old scroll you translate the inscriptions on the floor: \z
 		And the mighty lion defeated the lazy lizard.",
 		message2 = "As a sign of victory he tooks its egg, blue as sloth and conceit, and out \z
@@ -23,7 +23,7 @@ local UniqueTable = {
 		storage = Storage.LionsRock.ScorpionSign,
 		needStorage = Storage.LionsRock.Questline,
 		value = 5,
-		item = 23836,
+		item = 21467,
 		message1 = "With the aid of the old scroll you translate the inscriptions on the golden altar: \z
 		And the mighty lion defeated the treacherous scorpion.",
 		message2 = "As a sign of victory he tooks its poison, violet as deceit and betrayal, and \z
@@ -33,7 +33,7 @@ local UniqueTable = {
 		storage = Storage.LionsRock.HyenaSign,
 		needStorage = Storage.LionsRock.Questline,
 		value = 5,
-		item = 23836,
+		item = 21467,
 		message1 = "With the aid of the old scroll you translate the inscriptions on the golden statue: \z
 		And the mighty lion defeated the greedy hyaena.",
 		message2 = "As a sign of victory he tooks its blood, red as voracity and lust, and \z

@@ -22,10 +22,10 @@ function crate.onStepIn(creature, item, position, fromPosition)
 			If you have any sort of disguise with you, this is the moment to use it.", TALKTYPE_MONSTER_SAY)
 	elseif item.actionid == 8016 then
 		if Tile(Position(player:getPosition().y < 31094 and 33080 
-		or 33385, player:getPosition().y, 8)):getItemById(12213) then
+		or 33385, player:getPosition().y, 8)):getItemById(11257) then
 			catchPlayer(playerId)
 		end
-	elseif item.actionid == 8017 or item.actionid == 32362 or item.itemid == 11436 then
+	elseif item.actionid == 8017 or item.actionid == 32362 or item.itemid == 10480 then
 		catchPlayer(playerId)
 	elseif item.actionid == 8018 then
 		if Game.getStorageValue(GlobalStorage.WrathOfTheEmperor.Light01) ~= 1 then
@@ -48,7 +48,7 @@ function crate.onStepIn(creature, item, position, fromPosition)
 		end
 	elseif item.actionid == 8023 then
 		player:setStorageValue(Storage.WrathoftheEmperor.CrateStatus, 0)
-		player:setOutfit({lookTypeEx = 12496}, 1)
+		player:setOutfit({lookTypeEx = 11540}, 1)
 	end
 	return true
 end

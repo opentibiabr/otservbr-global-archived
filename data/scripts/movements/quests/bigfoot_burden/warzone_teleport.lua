@@ -32,7 +32,7 @@ function warzoneTeleport.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if player:getStorageValue(destination.storage) < 1 and not player:removeItem(18509, 1) then
+	if player:getStorageValue(destination.storage) < 1 and not player:removeItem(16242, 1) then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need a mission crystal or a job done with Gnomission to enter.")
 		player:teleportTo(fromPosition)
 		position:sendMagicEffect(CONST_ME_TELEPORT)

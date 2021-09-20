@@ -25,5 +25,5 @@ function whatFoolishFlask.onUse(player, item, fromPosition, target, toPosition, 
 	return true
 end
 
-whatFoolishFlask:id(12785)
+whatFoolishFlask:id(107)
 whatFoolishFlask:register()

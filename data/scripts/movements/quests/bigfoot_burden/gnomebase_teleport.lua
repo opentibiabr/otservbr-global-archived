@@ -47,7 +47,7 @@ function gnomebaseTeleport.onStepIn(creature, item, position, fromPosition)
 		return false
 	end
 
-	if not teleportCrystal.needCrystal or player:removeItem(18457, 1) then
+	if not teleportCrystal.needCrystal or player:removeItem(16167, 1) then
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo(teleportCrystal.position)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)

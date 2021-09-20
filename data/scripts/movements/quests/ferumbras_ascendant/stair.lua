@@ -15,7 +15,7 @@ function stair.onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-	if item:getId() == 24813 then
+	if item:getId() == 22157 then
 		local complete = false
 		for i = 1, #config do
 			local storage = config[i].storage
@@ -31,7 +31,7 @@ function stair.onStepIn(creature, item, position, fromPosition)
 			player:teleportTo(Position(33271, 32396, 8))
 		end
 		player:setDirection(SOUTH)
-	elseif item:getId() == 24812 then
+	elseif item:getId() == 22156 then
 		player:teleportTo(Position(33271, 32394, 7))
 		player:setDirection(NORTH)
 	end
@@ -39,5 +39,5 @@ function stair.onStepIn(creature, item, position, fromPosition)
 end
 
 stair:type("stepin")
-stair:id(24812, 24813)
+stair:id(22156, 22157)
 stair:register()

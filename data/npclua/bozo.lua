@@ -82,7 +82,7 @@ local config = {
 				'Take this special vial and fill it with the perfect stench. Then return here and we will talk about your mission.'
 			}
 		},
-		addItem = {itemId = 12785},
+		addItem = {itemId = 107},
 		updateStorages = {
 			{key = Storage.WhatAFoolish.Mission2, value = 1},
 			{key = Storage.WhatAFoolish.Questline, value = 3}
@@ -398,7 +398,7 @@ local config = {
 			{key = Storage.WhatAFoolish.Mission9, value = 1},
 			{key = Storage.WhatAFoolish.Questline, value = 26}
 		},
-		addItem = {itemId = 12785}
+		addItem = {itemId = 107}
 	},
 	[26] = {
 		text = {
@@ -415,7 +415,7 @@ local config = {
 			{key = Storage.WhatAFoolish.Mission9, value = 2},
 			{key = Storage.WhatAFoolish.Questline, value = 27}
 		},
-		addItem = {itemId = 12785}
+		addItem = {itemId = 107}
 	},
 	[27] = {
 		text = {

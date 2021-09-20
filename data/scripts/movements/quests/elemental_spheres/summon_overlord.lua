@@ -1,8 +1,8 @@
 local config = {
-	[8568] = {
+	[7738] = {
 		storage = GlobalStorage.ElementalSphere.KnightBoss,
-		corpse = 8967,
-		charged = 1495,
+		corpse = 8139,
+		charged = 2126,
 		inactive = 0,
 		boss = "energy overlord",
 		effect = CONST_ME_BIGCLOUDS,
@@ -18,11 +18,11 @@ local config = {
 			Position(33092, 32191, 13)
 		}
 	},
-	[8569] = {
+	[7739] = {
 		storage = GlobalStorage.ElementalSphere.SorcererBoss,
-		corpse = 8969,
-		charged = 8575,
-		inactive = 8573,
+		corpse = 8141,
+		charged = 7745,
+		inactive = 7743,
 		boss = "fire overlord",
 		effect = CONST_ME_FIREAREA,
 		summonPos = Position(33199, 32103, 13),
@@ -37,11 +37,11 @@ local config = {
 			Position(33196, 32104, 13)
 		}
 	},
-	[8570] = {
+	[7740] = {
 		storage = GlobalStorage.ElementalSphere.PaladinBoss,
-		corpse = 8968,
-		charged = 8574,
-		inactive = 8571,
+		corpse = 8140,
+		charged = 7744,
+		inactive = 7741,
 		boss = 'Ice Overlord',
 		effect = CONST_ME_ICETORNADO,
 		summonEffect = CONST_ME_ICEAREA,
@@ -57,11 +57,11 @@ local config = {
 			Position(33283, 32099, 13)
 		}
 	},
-	[8578] = {
+	[7748] = {
 		storage = GlobalStorage.ElementalSphere.DruidBoss,
-		corpse = 8934,
-		charged = 8576,
-		inactive = 8572,
+		corpse = 8106,
+		charged = 7746,
+		inactive = 7742,
 		boss = 'Earth Overlord',
 		effect = CONST_ME_BIGPLANTS,
 		summonPos = Position(33347, 32208, 13),

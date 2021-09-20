@@ -14,7 +14,7 @@ function lowerRoshamuul.onStepIn(creature, item, position, fromPosition)
         return false
     end
 
-    if item:getId() == 22456 then
+    if item:getId() == 20122 then
         creature:teleportTo(Position(33551, 32556, 7))
     else
         creature:teleportTo(roshamuulCaves[math.random(#roshamuulCaves)])
@@ -23,6 +23,6 @@ function lowerRoshamuul.onStepIn(creature, item, position, fromPosition)
 end
 
 lowerRoshamuul:type("stepin")
-lowerRoshamuul:id(22456)
+lowerRoshamuul:id(20122)
 lowerRoshamuul:aid(1500)
 lowerRoshamuul:register()

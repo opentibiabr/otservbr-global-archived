@@ -12,11 +12,11 @@ function silveredTrap.onStepIn(creature, item, position, fromPosition)
 	if monster:getMaxHealth() == 50000 then
 		doTargetCombatHealth(0, monster, COMBAT_UNDEFINEDDAMAGE, -1000, -1000, CONST_ME_DRAWBLOOD)
 	end
-	item:transform(24730)
+	item:transform(22074)
 	position:sendMagicEffect(CONST_ME_BLOCKHIT)
 	return true
 end
 
 silveredTrap:type("stepin")
-silveredTrap:id(24715)
+silveredTrap:id(22059)
 silveredTrap:register()

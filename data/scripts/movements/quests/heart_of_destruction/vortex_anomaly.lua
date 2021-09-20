@@ -1,7 +1,7 @@
 local vortexAnomaly = MoveEvent()
 
 function vortexAnomaly.onStepIn(creature, item, position, fromPosition)
-	if item.itemid == 25550 then
+	if item.itemid == 22894 then
 		if creature:isMonster() then
 			if creature:getName():lower() == "charged anomaly" then
 				creature:addHealth(-6000, COMBAT_DROWNDAMAGE)
@@ -14,5 +14,5 @@ function vortexAnomaly.onStepIn(creature, item, position, fromPosition)
 end
 
 vortexAnomaly:type("stepin")
-vortexAnomaly:id(25550)
+vortexAnomaly:id(22894)
 vortexAnomaly:register()

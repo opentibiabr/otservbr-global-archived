@@ -7,7 +7,7 @@ function quaraVortex.onStepIn(creature, item, position, fromPosition)
 	end
 
 	local headItem = player:getSlotItem(CONST_SLOT_HEAD)
-	if headItem and table.contains({5461, 12541, 15408}, headItem.itemid) then
+	if headItem and table.contains({5460, 11585, 13995}, headItem.itemid) then
 		player:teleportTo(Position(32950, 31181, 9))
 		player:getPosition():sendMagicEffect(CONST_ME_WATERSPLASH)
 		player:say("The vortex throws you out in this vicious place.", TALKTYPE_MONSTER_SAY)

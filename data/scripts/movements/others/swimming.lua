@@ -23,7 +23,7 @@ function swimming.onStepIn(creature, item, position, fromPosition)
 end
 
 swimming:type("stepin")
-swimming:id(4620, 4621, 4622, 4623, 4624, 4625)
+swimming:id(629, 630, 631, 632, 633, 634)
 swimming:register()
 
 swimming = MoveEvent()
@@ -38,5 +38,5 @@ function swimming.onStepOut(creature, item, position, fromPosition)
 end
 
 swimming:type("stepout")
-swimming:id(4620, 4621, 4622, 4623, 4624, 4625)
+swimming:id(629, 630, 631, 632, 633, 634)
 swimming:register()

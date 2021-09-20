@@ -6,10 +6,10 @@ function fireBugTeleport.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if item.itemid == 1387 then
+	if item.itemid == 1949 then
 		player:teleportTo(Position(32857, 32234, 11))
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		item:transform(2249)
+		item:transform(3134)
 	end
 	return true
 end

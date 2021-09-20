@@ -5,7 +5,7 @@ local config = {
 		Position(32876, 32584, 10),
 		Position(32744, 32586, 10)
 	},
-	brokenAmphoraId = 2252 --4997
+	brokenAmphoraId = 3137 --4997
 }
 
 local mission9TheDeepestCatacombTeleport = MoveEvent()

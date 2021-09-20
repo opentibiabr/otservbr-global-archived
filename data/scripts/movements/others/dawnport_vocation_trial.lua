@@ -25,13 +25,13 @@ local vocationTrials = {
 			}
 		},
 		items = {
-			{id = 23719, amount = 1, slot = CONST_SLOT_LEFT}, -- The scorcher
-			{id = 23771, amount = 1, slot = CONST_SLOT_RIGHT}, -- Spellbook of the novice
-			{id = 8704, amount = 2, storage = Storage.Dawnport.SorcererHealthPotion, limit = 1}, -- Health potion
-			{id = 7620, amount = 10, storage = Storage.Dawnport.SorcererManaPotion, limit = 1}, -- Mana potion
-			{id = 23723, amount = 2, storage = Storage.Dawnport.SorcererLightestMissile, limit = 1}, -- Lightest missile runes
-			{id = 23722, amount = 2, storage = Storage.Dawnport.SorcererLightStoneShower, limit = 1}, -- Light stone shower runes
-			{id = 2666, amount = 1, storage = Storage.Dawnport.SorcererMeat, limit = 1} -- Meat
+			{id = 21348, amount = 1, slot = CONST_SLOT_LEFT}, -- The scorcher
+			{id = 21400, amount = 1, slot = CONST_SLOT_RIGHT}, -- Spellbook of the novice
+			{id = 7876, amount = 2, storage = Storage.Dawnport.SorcererHealthPotion, limit = 1}, -- Health potion
+			{id = 268, amount = 10, storage = Storage.Dawnport.SorcererManaPotion, limit = 1}, -- Mana potion
+			{id = 21352, amount = 2, storage = Storage.Dawnport.SorcererLightestMissile, limit = 1}, -- Lightest missile runes
+			{id = 21351, amount = 2, storage = Storage.Dawnport.SorcererLightStoneShower, limit = 1}, -- Light stone shower runes
+			{id = 3577, amount = 1, storage = Storage.Dawnport.SorcererMeat, limit = 1} -- Meat
 		}
 	},
 	-- Druid trial
@@ -55,13 +55,13 @@ local vocationTrials = {
 			}
 		},
 		items = {
-			{id = 23721, amount = 1, slot = CONST_SLOT_LEFT}, -- The chiller
-			{id = 23771, amount = 1, slot = CONST_SLOT_RIGHT}, -- Spellbook of the novice
-			{id = 8704, amount = 2, storage = Storage.Dawnport.DruidHealthPotion, limit = 1}, -- Health potion
-			{id = 7620, amount = 10, storage = Storage.Dawnport.DruidManaPotion, limit = 1}, -- Mana potion
-			{id = 23723, amount = 2, storage = Storage.Dawnport.DruidLightestMissile, limit = 1}, -- Lightest missile runes
-			{id = 23722, amount = 2, storage = Storage.Dawnport.DruidLightStoneShower, limit = 1}, -- Light stone shower runes
-			{id = 2666, amount = 1, storage = Storage.Dawnport.DruidMeat, limit = 1} -- Meat
+			{id = 21350, amount = 1, slot = CONST_SLOT_LEFT}, -- The chiller
+			{id = 21400, amount = 1, slot = CONST_SLOT_RIGHT}, -- Spellbook of the novice
+			{id = 7876, amount = 2, storage = Storage.Dawnport.DruidHealthPotion, limit = 1}, -- Health potion
+			{id = 268, amount = 10, storage = Storage.Dawnport.DruidManaPotion, limit = 1}, -- Mana potion
+			{id = 21352, amount = 2, storage = Storage.Dawnport.DruidLightestMissile, limit = 1}, -- Lightest missile runes
+			{id = 21351, amount = 2, storage = Storage.Dawnport.DruidLightStoneShower, limit = 1}, -- Light stone shower runes
+			{id = 3577, amount = 1, storage = Storage.Dawnport.DruidMeat, limit = 1} -- Meat
 		}
 	},
 	-- Paladin trial
@@ -85,14 +85,14 @@ local vocationTrials = {
 			}
 		},
 		items = {
-			{id = 2456, amount = 1, slot = CONST_SLOT_LEFT}, -- Bow
-			{id = 40397, amount = 1, slot = CONST_SLOT_RIGHT}, -- Quiver
-			{id = 23839, amount = 100}, -- Simple arrow
-			{id = 8704, amount = 7, storage = Storage.Dawnport.PaladinHealthPotion, limit = 1}, -- Health potion
-			{id = 7620, amount = 5, storage = Storage.Dawnport.PaladinManaPotion, limit = 1}, -- Mana potion
-			{id = 23723, amount = 1, storage = Storage.Dawnport.PaladinLightestMissile, limit = 1}, -- Lightest missile rune
-			{id = 23722, amount = 1, storage = Storage.Dawnport.PaladinLightStoneShower, limit = 1}, -- Light stone shower rune
-			{id = 2666, amount = 1, storage = Storage.Dawnport.PaladinMeat, limit = 1} -- Meat
+			{id = 3350, amount = 1, slot = CONST_SLOT_LEFT}, -- Bow
+			{id = 35562, amount = 1, slot = CONST_SLOT_RIGHT}, -- Quiver
+			{id = 21470, amount = 100}, -- Simple arrow
+			{id = 7876, amount = 7, storage = Storage.Dawnport.PaladinHealthPotion, limit = 1}, -- Health potion
+			{id = 268, amount = 5, storage = Storage.Dawnport.PaladinManaPotion, limit = 1}, -- Mana potion
+			{id = 21352, amount = 1, storage = Storage.Dawnport.PaladinLightestMissile, limit = 1}, -- Lightest missile rune
+			{id = 21351, amount = 1, storage = Storage.Dawnport.PaladinLightStoneShower, limit = 1}, -- Light stone shower rune
+			{id = 3577, amount = 1, storage = Storage.Dawnport.PaladinMeat, limit = 1} -- Meat
 		}
 	},
 	-- Knight trial
@@ -116,11 +116,11 @@ local vocationTrials = {
 			}
 		},
 		items = {
-			{id = 2379, amount = 1, slot = CONST_SLOT_LEFT}, -- Dagger
-			{id = 2512, amount = 1, slot = CONST_SLOT_RIGHT}, -- Wooden shield
-			{id = 8704, amount = 10, storage = Storage.Dawnport.KnightHealthPotion, limit = 1}, -- Health potion
-			{id = 7620, amount = 2, storage = Storage.Dawnport.KnightManaPotion, limit = 1}, -- Mana potion
-			{id = 2666, amount = 1, storage = Storage.Dawnport.KnightMeat, limit = 1} -- Meat
+			{id = 3267, amount = 1, slot = CONST_SLOT_LEFT}, -- Dagger
+			{id = 3412, amount = 1, slot = CONST_SLOT_RIGHT}, -- Wooden shield
+			{id = 7876, amount = 10, storage = Storage.Dawnport.KnightHealthPotion, limit = 1}, -- Health potion
+			{id = 268, amount = 2, storage = Storage.Dawnport.KnightManaPotion, limit = 1}, -- Mana potion
+			{id = 3577, amount = 1, storage = Storage.Dawnport.KnightMeat, limit = 1} -- Meat
 		}
 	}
 }
@@ -129,10 +129,10 @@ local vocationTrials = {
 local function addFirstItems(player)
 	local firstItems = {
 		slots = {
-			[CONST_SLOT_HEAD] = Game.createItem(2461),
-			[CONST_SLOT_ARMOR] = Game.createItem(2651),
-			[CONST_SLOT_LEGS] = Game.createItem(2649),
-			[CONST_SLOT_FEET] = Game.createItem(2643)
+			[CONST_SLOT_HEAD] = Game.createItem(3355),
+			[CONST_SLOT_ARMOR] = Game.createItem(3562),
+			[CONST_SLOT_LEGS] = Game.createItem(3559),
+			[CONST_SLOT_FEET] = Game.createItem(3552)
 		}
 	}
 	for slot, item in pairs(firstItems.slots) do
@@ -172,13 +172,13 @@ end
 -- Remove vocation trial equipment items
 local function removeItems(player)
 	local equipmentItemIds = {
-		23719,	-- The scorcher
-		23721,	-- The chiller
-		23771,	-- Spellbook of the novice
-		2456,	-- Bow
-		2379,	-- Dagger
-		2512,	-- Wooden shield
-		40397	-- Quiver
+		21348, -- The scorcher
+		21350, -- The chiller
+		21400, -- Spellbook of the novice
+		3350, -- Bow
+		3267, -- Dagger
+		3412, -- Wooden shield
+		35562 -- Quiver
 	}
 	for i = 1, #equipmentItemIds do
 		local equipmentItemAmount = player:getItemCount(equipmentItemIds[i])

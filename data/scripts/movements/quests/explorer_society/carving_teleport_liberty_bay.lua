@@ -18,7 +18,7 @@ function carvingTeleportLibertyBay.onStepIn(creature, item, position, fromPositi
 
 	if player:getStorageValue(Storage.ExplorerSociety.TheIceMusic) >= 62
 	and player:getStorageValue(Storage.ExplorerSociety.QuestLine) >= 62
-	and player:removeItem(5022, 1) then
+	and player:removeItem(5021, 1) then
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo(carvingTP.position)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)

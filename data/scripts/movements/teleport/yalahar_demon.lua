@@ -27,7 +27,7 @@ function yalaharDemon.onStepIn(creature, item, position, fromPosition)
 	end
 
 	local sacrificeId, sacrifice = Tile(flame.sacrificePosition):getThing(1).itemid, true
-	if not isInArray({8298, 8299, 8302, 8303}, sacrificeId) then
+	if not isInArray({940, 941, 944, 945}, sacrificeId) then
 		sacrifice = false
 	end
 

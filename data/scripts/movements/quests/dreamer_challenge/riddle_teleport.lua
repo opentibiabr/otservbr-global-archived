@@ -13,7 +13,7 @@ local arenaPosition = Position(32818, 32334, 9)
 local function doResetPillows()
 	local storePillows = {}
 	for i = 0, 3 do
-		local pillowId = 1686 + i
+		local pillowId = 2394 + i
 		for i = 1, 9 do
 			storePillows[#storePillows + 1] = pillowId
 		end

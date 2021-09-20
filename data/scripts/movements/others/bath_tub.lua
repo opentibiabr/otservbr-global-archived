@@ -1,5 +1,6 @@
+local playerBathTub = 26087
+
 local bathtubEnter = MoveEvent()
-local playerBathTub = 29323
 
 function bathtubEnter.onStepIn(creature, item, position, fromPosition)
 	if not creature:isPlayer() then

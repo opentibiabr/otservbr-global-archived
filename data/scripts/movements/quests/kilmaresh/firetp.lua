@@ -3,8 +3,8 @@ local primeirotp = {
 	localfireum = {x = 33830, y = 31628, z = 9}, -- local do fire um
 	localfiredois = {x = 33832, y = 31628, z = 9}, -- local do fire dois
 	localfiretres = {x = 33834, y = 31628, z = 9}, -- local do fire tres
-	fireon = 7527, -- id do fire on
-	fireoff = 1485, -- id do fire off
+	fireon = 171, -- id do fire on
+	fireoff = 2114, -- id do fire off
 }
 
 local segundotp = {
@@ -12,8 +12,8 @@ local segundotp = {
 	localfireum = {x = 33830, y = 31628, z = 9}, -- local do fire um
 	localfiredois = {x = 33832, y = 31628, z = 9}, -- local do fire dois
 	localfiretres = {x = 33834, y = 31628, z = 9}, -- local do fire tres
-	fireon = 7527, -- id do fire on
-	fireoff = 1485, -- id do fire off
+	fireon = 171, -- id do fire on
+	fireoff = 2114, -- id do fire off
 }
 
 local terceirotp = {
@@ -21,8 +21,8 @@ local terceirotp = {
 	localfireum = {x = 33830, y = 31628, z = 9}, -- local do fire um
 	localfiredois = {x = 33832, y = 31628, z = 9}, -- local do fire dois
 	localfiretres = {x = 33834, y = 31628, z = 9}, -- local do fire tres
-	fireon = 7527, -- id do fire on
-	fireoff = 1485, -- id do fire off
+	fireon = 171, -- id do fire on
+	fireoff = 2114, -- id do fire off
 }
 
 local quartotp = {
@@ -30,8 +30,8 @@ local quartotp = {
 	localfireum = {x = 33830, y = 31628, z = 9}, -- local do fire um
 	localfiredois = {x = 33832, y = 31628, z = 9}, -- local do fire dois
 	localfiretres = {x = 33834, y = 31628, z = 9}, -- local do fire tres
-	fireon = 7527, -- id do fire on
-	fireoff = 1485, -- id do fire off
+	fireon = 171, -- id do fire on
+	fireoff = 2114, -- id do fire off
 }
 
 

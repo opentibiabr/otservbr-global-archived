@@ -14,5 +14,5 @@ function rookVillage.onStepIn(creature, item, position, fromPosition)
 end
 
 rookVillage:type("stepin")
-rookVillage:id(8716)
+rookVillage:id(7888)
 rookVillage:register()

@@ -5,17 +5,17 @@ function taskTruffles.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	local moldFloor = Tile(position):getItemById(18340)
+	local moldFloor = Tile(position):getItemById(15829)
 	if moldFloor.actionid == 100 then
 		return true
 	end
 
 	if math.random(3) < 3 then
-		moldFloor:transform(18218)
+		moldFloor:transform(15701)
 		moldFloor:decay()
 		position:sendMagicEffect(CONST_ME_POFF)
 	else
-		moldFloor:transform(18341)
+		moldFloor:transform(15830)
 		moldFloor:decay()
 		position:sendMagicEffect(CONST_ME_GROUNDSHAKER)
 	end
@@ -23,5 +23,5 @@ function taskTruffles.onStepIn(creature, item, position, fromPosition)
 end
 
 taskTruffles:type("stepin")
-taskTruffles:id(18340)
+taskTruffles:id(15829)
 taskTruffles:register()

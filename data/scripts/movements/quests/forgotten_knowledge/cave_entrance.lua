@@ -16,5 +16,5 @@ function caveEntrance.onStepIn(creature, item, position, fromPosition)
 end
 
 caveEntrance:type("stepin")
-caveEntrance:id(26403)
+caveEntrance:id(23735)
 caveEntrance:register()

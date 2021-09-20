@@ -1,6 +1,6 @@
 local configQuest = {
 	["fire"] = {
-		itidCount = 3613,
+		itemId = 1857,
 		beginPos = Position(32748, 31488, 8),
 		fromPos = Position(32737, 31489, 8),
 		toPos = Position(32761, 31512, 8),
@@ -23,7 +23,7 @@ local configQuest = {
 		}
 	},
 	["acid"] = {
-		itidCount = 4417,
+		itemId = 4406,
 		beginPos = Position(32693, 31478, 8),
 		fromPos = Position(32647, 31479, 8),
 		toPos = Position(32710, 31519, 8),
@@ -95,7 +95,7 @@ function tar.onStepIn(creature, item, position, fromPosition)
 	end
 
 	for index, value in pairs(configQuest)do
-		if item:getId() == value.itidCount and fromPosition:compare(value.beginPos) then
+		if item:getId() == value.itemId and fromPosition:compare(value.beginPos) then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, value.msgs[1])
 			sendConditionCults(player:getId(), index, value.fromPos, value.toPos, 0)
 			return true

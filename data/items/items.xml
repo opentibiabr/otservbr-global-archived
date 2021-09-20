@@ -1712,14 +1712,21 @@
 		<attribute key="weight" value="600"/>
 		<attribute key="containerSize" value="5"/>
 	</item>
-	<item id="907" article="a" name="shapeshifter ring">
-		<attribute key="duration" value="36000"/>
+	<item id="907" article="a" name="shapeshifter ring that is brand-new">
 		<attribute key="description" value="It will only work for a few days after the challenge of Kurik has been won."/>
+		<attribute key="slotType" value="ring"/>
+		<attribute key="transformequipto" value="908"/>
+		<attribute key="stopduration" value="1"/>
+		<attribute key="showduration" value="1"/>
 		<attribute key="weight" value="80"/>
 	</item>
 	<item id="908" article="a" name="shapeshifter ring">
+		<attribute key="slotType" value="ring"/>
+		<attribute key="decayTo" value="0"/>
+		<attribute key="transformdeequipto" value="907"/>
 		<attribute key="duration" value="36000"/>
-		<attribute key="description" value="It will only work for a few days after the challenge of Kurik has been won."/>
+		<attribute key="showduration" value="1"/>
+		<attribute key="showAttributes" value="1"/>
 		<attribute key="weight" value="80"/>
 	</item>
 	<item id="909" article="a" name="dead dragon hatchling">

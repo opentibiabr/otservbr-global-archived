@@ -4,7 +4,7 @@ function heavenBlossom.onStepIn(creature, item, position, fromPosition)
 	if creature:isPlayer() then
 		return true
 	end
-	
+
 	if item.uid == 1066 then
 		if creature:getName() == 'Spirit of Fertility' then
 		creature:say('An allergic reaction weakens the dragon!', TALKTYPE_MONSTER_SAY)
@@ -17,5 +17,5 @@ function heavenBlossom.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-heavenBlossom:id(2743)
+heavenBlossom:id(3657)
 heavenBlossom:register()

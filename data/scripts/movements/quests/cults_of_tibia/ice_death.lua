@@ -52,9 +52,9 @@ function iceDeath.onStepIn(creature, item, position, fromPosition)
 				player:removeCondition(conditionType)
 			end
 		end
-		condition:setOutfit(player:getSex() == PLAYERSEX_FEMALE and 3065 or 3058)
+		condition:setOutfit(player:getSex() == PLAYERSEX_FEMALE and 4247 or 4240)
 		player:addCondition(condition)
-		local it = Game.createItem(player:getSex() == PLAYERSEX_FEMALE and 3065 or 3058, 1, player:getPosition())
+		local it = Game.createItem(player:getSex() == PLAYERSEX_FEMALE and 4247 or 4240, 1, player:getPosition())
 		if it then
 			it:decay()
 		end

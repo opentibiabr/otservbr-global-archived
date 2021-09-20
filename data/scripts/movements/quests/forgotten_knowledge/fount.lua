@@ -17,5 +17,5 @@ function fount.onStepIn(creature, item, position, fromPosition)
 end
 
 fount:type("stepin")
-fount:id(27803, 27804, 27805, 27806)
+fount:id(25135, 25136, 25137, 25138)
 fount:register()

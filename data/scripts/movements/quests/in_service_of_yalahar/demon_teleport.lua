@@ -5,7 +5,7 @@ local teleports = {
 	[3106] = {destination = Position(32894, 31046, 9)},
 }
 
-local soilIds = {8302, 8303, 8298, 8299}
+local soilIds = {944, 945, 940, 941}
 
 local demonTeleport = MoveEvent()
 

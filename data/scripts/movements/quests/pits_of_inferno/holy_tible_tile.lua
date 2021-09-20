@@ -11,7 +11,7 @@ function holyTibleTile.onStepIn(creature, item, position, fromPosition)
 		return false
 	end
 
-	if player:getItemCount(1970) < 1 then
+	if player:getItemCount(2836) < 1 then
 		player:teleportTo(fromPosition, true)
 		return true
 	end

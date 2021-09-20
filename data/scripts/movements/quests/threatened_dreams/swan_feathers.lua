@@ -21,7 +21,7 @@ function swanFeathers.onStepIn(creature, item, position, fromPosition)
             if (player:getStorageValue(item.actionid) == 1) then
                 player:sendCancelMessage("You have already completed this mission.")
             else
-                player:addItem(28605, 1)
+                player:addItem(25244, 1)
                 player:setStorageValue(item.actionid, 1)
                 player:setStorageValue(Storage.ThreatenedDreams.TatteredSwanFeathers, player:getStorageValue(Storage.ThreatenedDreams.TatteredSwanFeathers)+1)
                 player:getPosition():sendMagicEffect(CONST_ME_POFF)
