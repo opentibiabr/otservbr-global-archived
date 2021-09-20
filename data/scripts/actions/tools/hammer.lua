@@ -1,10 +1,10 @@
 function remove01()
 
 local wood1 = Position(32647, 32216, 7)
-			local wooda = Tile(wood1):getItemById(6475)
+			local wooda = Tile(wood1):getItemById(6474)
 			if wooda then
 			wooda:remove()
-			local woods = Game.createItem(13170, 1, { x=32647, y=32216, z=7})
+			local woods = Game.createItem(12183, 1, { x=32647, y=32216, z=7})
 			woods:setActionId(42501)
 			end
     return true
@@ -14,10 +14,10 @@ end
 function remove02()
 
 local wood11 = Position(32660, 32213, 7)
-			local woodaa = Tile(wood11):getItemById(6475)
+			local woodaa = Tile(wood11):getItemById(6474)
 			if woodaa then
 			woodaa:remove()
-			local woodss = Game.createItem(13170, 1, { x=32660, y=32213, z=7}) -- 32660, 32213, 7
+			local woodss = Game.createItem(12183, 1, { x=32660, y=32213, z=7}) -- 32660, 32213, 7
 			woodss:setActionId(42502)
 			end
     return true
@@ -26,10 +26,10 @@ end
 function remove03()
 
 local wood111 = Position(32644, 32183, 6)
-			local woodaaa = Tile(wood111):getItemById(6474)
+			local woodaaa = Tile(wood111):getItemById(6473)
 			if woodaaa then
 			woodaaa:remove()
-			local woodsss = Game.createItem(13172, 1, { x=32644, y=32183, z=6}) -- 32660, 32213, 7
+			local woodsss = Game.createItem(12185, 1, { x=32644, y=32183, z=6}) -- 32660, 32213, 7
 			woodsss:setActionId(42503)
 			end
     return true
@@ -38,10 +38,10 @@ end
 function remove04()
 
 local wood1111 = Position(32660, 32201, 7)
-			local woodaaaa = Tile(wood1111):getItemById(6474)
+			local woodaaaa = Tile(wood1111):getItemById(6473)
 			if woodaaaa then
 			woodaaaa:remove()
-			local woodssss = Game.createItem(13171, 1, { x=32660, y=32201, z=7}) --
+			local woodssss = Game.createItem(12184, 1, { x=32660, y=32201, z=7}) --
 			woodssss:setActionId(42504)
 			end
     return true
@@ -50,10 +50,10 @@ end
 function remove05()
 
 local wood11111 = Position(32652, 32200, 5)
-			local woodaaaaa = Tile(wood11111):getItemById(6474)
+			local woodaaaaa = Tile(wood11111):getItemById(6473)
 			if woodaaaaa then
 			woodaaaaa:remove()
-			local woodsssss = Game.createItem(13172, 1, { x=32652, y=32200, z=5}) --
+			local woodsssss = Game.createItem(12185, 1, { x=32652, y=32200, z=5}) --
 			woodsssss:setActionId(42505)
 			end
     return true
@@ -69,9 +69,9 @@ function hammer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetActionId = target:getActionId()
 	-- Lay down the wood
 	if targetActionId == 50109 then
-		if player:getItemCount(5901) >= 3 and player:getItemCount(8309) >= 3 then
+		if player:getItemCount(5901) >= 3 and player:getItemCount(953) >= 3 then
 			player:removeItem(5901, 3)
-			player:removeItem(8309, 3)
+			player:removeItem(953, 3)
 			player:say("KLING KLONG!", TALKTYPE_MONSTER_SAY)
 
 			local bridge = Game.createItem(5770, 1, Position(32571, 31508, 9))
@@ -82,10 +82,10 @@ function hammer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	-- Lay down the rails
 	elseif targetActionId == 50110 then
-		if player:getItemCount(10033) >= 1 and player:getItemCount(10034) >= 2 and player:getItemCount(8309) >= 3 then
-			player:removeItem(10033, 1)
-			player:removeItem(10034, 2)
-			player:removeItem(8309, 3)
+		if player:getItemCount(9114) >= 1 and player:getItemCount(9115) >= 2 and player:getItemCount(953) >= 3 then
+			player:removeItem(9114, 1)
+			player:removeItem(9115, 2)
+			player:removeItem(953, 3)
 			player:say("KLING KLONG!", TALKTYPE_MONSTER_SAY)
 
 			local rails = Game.createItem(7122, 1, Position(32571, 31508, 9))
@@ -99,10 +99,10 @@ function hammer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			if player:getStorageValue(41600) == 3 and player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) < 6 then
 
 			local wood1 = Position(32647, 32216, 7)
-			local wooda = Tile(wood1):getItemById(13170)
+			local wooda = Tile(wood1):getItemById(12183)
 			if wooda then
 			wooda:remove()
-			Game.createItem(6475, 1, { x=32647, y=32216, z=7})
+			Game.createItem(6474, 1, { x=32647, y=32216, z=7})
 			addEvent(remove01, 2*60*1000)
 			end
 
@@ -116,10 +116,10 @@ function hammer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			if player:getStorageValue(41600) == 3 and player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) < 6 then
 
 			local wood11 = Position(32660, 32213, 7)
-			local woodaa = Tile(wood11):getItemById(13170)
+			local woodaa = Tile(wood11):getItemById(12183)
 			if woodaa then
 			woodaa:remove()
-			Game.createItem(6475, 1, { x=32660, y=32213, z=7})
+			Game.createItem(6474, 1, { x=32660, y=32213, z=7})
 			addEvent(remove02, 2*60*1000)
 			end
 
@@ -132,10 +132,10 @@ function hammer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			elseif targetActionId == 42503 then
 			if player:getStorageValue(41600) == 3 and player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) < 6 then
 			local wood111 = Position(32644, 32183, 6)
-			local woodaaa = Tile(wood111):getItemById(13172)
+			local woodaaa = Tile(wood111):getItemById(12185)
 			if woodaaa then
 			woodaaa:remove()
-			Game.createItem(6474, 1, { x=32644, y=32183, z=6})
+			Game.createItem(6473, 1, { x=32644, y=32183, z=6})
 			addEvent(remove03, 2*60*1000)
 			end
 
@@ -148,10 +148,10 @@ function hammer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			elseif targetActionId == 42504 then
 			if player:getStorageValue(41600) == 3 and player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) < 6 then
 			local wood1111 = Position(32660, 32201, 7)
-			local woodaaaa = Tile(wood1111):getItemById(13171)
+			local woodaaaa = Tile(wood1111):getItemById(12184)
 			if woodaaaa then
 			woodaaaa:remove()
-			Game.createItem(6474, 1, { x=32660, y=32201, z=7})
+			Game.createItem(6473, 1, { x=32660, y=32201, z=7})
 			addEvent(remove04, 2*60*1000)
 			end
 
@@ -164,10 +164,10 @@ function hammer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			elseif targetActionId == 42505 then
 			if player:getStorageValue(41600) == 3 and player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) < 6 then
 			local wood11111 = Position(32652, 32200, 5)
-			local woodaaaaa = Tile(wood11111):getItemById(13172)
+			local woodaaaaa = Tile(wood11111):getItemById(12185)
 			if woodaaaaa then
 			woodaaaaa:remove()
-			Game.createItem(6474, 1, { x=32652, y=32200, z=5})
+			Game.createItem(6473, 1, { x=32652, y=32200, z=5})
 			addEvent(remove05, 2*60*1000)
 			end
 
@@ -185,5 +185,5 @@ function hammer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-hammer:id(2557)
+hammer:id(3460)
 hammer:register()

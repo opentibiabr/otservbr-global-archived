@@ -5,10 +5,10 @@ function saw.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
-	target:transform(10033)
+	target:transform(9114)
 	toPosition:sendMagicEffect(CONST_ME_POFF) --Not sure if there's any magic effect when you use saw?
 	return true
 end
 
-saw:id(2558)
+saw:id(3461)
 saw:register()

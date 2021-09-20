@@ -4,5 +4,5 @@ function shovel.onUse(player, item, itemEx, fromPosition, target, toPosition, is
 	return onUseShovel(player, item, itemEx, fromPosition, target, toPosition, isHotkey)
 end
 
-shovel:id(2554, 5710)
+shovel:id(3457, 5710)
 shovel:register()

@@ -1,11 +1,11 @@
-local fruits = {2673, 2674, 2675, 2676, 2677, 2678, 2679, 2680, 2681, 2682, 2684, 2685, 5097, 8839, 8840, 8841}
+local fruits = {3584, 3585, 3586, 3587, 3588, 3589, 3590, 3591, 3592, 3593, 3595, 3596, 5096, 8011, 8012, 8013}
 
 local juiceSqueezer = Action()
 
 function juiceSqueezer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if isInArray(fruits, target.itemid) and player:removeItem(2006, 1, 0) then
+	if isInArray(fruits, target.itemid) and player:removeItem(2874, 1, 0) then
 		target:remove(1)
-		player:addItem(2006, target.itemid == 2678 and 14 or 21)
+		player:addItem(2874, target.itemid == 3589 and 14 or 21)
 		return true
 	end
 end
