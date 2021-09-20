@@ -10,7 +10,7 @@ function theNewFrontierLever.onUse(player, item, fromPosition, target, toPositio
 		return true
 	end
 
-	item:transform(item.itemid == 1945 and 1946 or 1945)
+	item:transform(item.itemid == 2772 and 2773 or 2772)
 
 	toPosition.x = item.actionid == 8005 and toPosition.x + 1 or toPosition.x - 1
 	local creature = Tile(toPosition):getTopCreature()
@@ -18,7 +18,7 @@ function theNewFrontierLever.onUse(player, item, fromPosition, target, toPositio
 		return true
 	end
 
-	if item.itemid ~= 1945 then
+	if item.itemid ~= 2772 then
 		return true
 	end
 

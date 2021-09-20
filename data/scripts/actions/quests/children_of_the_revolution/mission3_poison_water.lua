@@ -1,6 +1,6 @@
 local childrenPoison = Action()
 function childrenPoison.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.actionid ~= 8012 then
+	if target.actionid ~= 1050 then
 		return false
 	end
 
@@ -13,5 +13,5 @@ function childrenPoison.onUse(player, item, fromPosition, target, toPosition, is
 	return true
 end
 
-childrenPoison:id(10760)
+childrenPoison:id(10183)
 childrenPoison:register()

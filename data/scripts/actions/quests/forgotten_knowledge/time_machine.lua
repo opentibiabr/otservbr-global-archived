@@ -22,5 +22,5 @@ function forgottenKnowledgeMachine.onUse(player, item, fromPosition, target, toP
 	end
 end
 
-forgottenKnowledgeMachine:id(27764)
+forgottenKnowledgeMachine:id(25096)
 forgottenKnowledgeMachine:register()

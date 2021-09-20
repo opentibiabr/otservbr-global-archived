@@ -1,8 +1,6 @@
--------------THIS SCRIPT WAS MADED BY VANKK AT 15TH DECEMBER 2016 AT 4 P.M (GMT - 3) -------------
-
 local config = {
-	[22606] = {
-		targetId = 22636, -- Target ID.
+	[20272] = {
+		targetId = 20302, -- Target ID.
 		bossName = 'Zavarash', -- boss name
 		keyPlayerPosition = Position(33608, 32394, 11), -- Where the player should be.
 		newPosition = Position(33567, 32422, 12), -- Position to teleport
@@ -13,8 +11,8 @@ local config = {
 		rangeY = 20, -- Range in Y
 		time = 15, -- time in minutes to remove the player
 	},
-	[22605] = {
-		targetId = 22634, -- Target ID.
+	[20271] = {
+		targetId = 20300, -- Target ID.
 		bossName = 'Horadron', -- boss name
 		keyPlayerPosition = Position(33603, 32394, 11), -- Where the player should be.
 		newPosition = Position(33607, 32421, 12), -- Position to teleport
@@ -25,8 +23,8 @@ local config = {
 		rangeY = 20,
 		time = 15, -- time in minutes to remove the player
 	},
-	[22604] = {
-		targetId = 22638, -- Target ID.
+	[20270] = {
+		targetId = 20304, -- Target ID.
 		bossName = 'Terofar', -- boss name
 		keyPlayerPosition = Position(33614, 32394, 11),  -- Where the player should be.
 		newPosition = Position(33526, 32421, 12), -- Position to teleport
@@ -102,5 +100,5 @@ function keys.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-keys:id(22604, 22605, 22606)
+keys:id(20270, 20271, 20272)
 keys:register()

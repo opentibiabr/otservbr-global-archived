@@ -63,5 +63,5 @@ function golden.onUse(player, item, fromPosition, target, toPosition, monster, i
 	return true
 end
 
-golden:id(22607)
+golden:id(20273)
 golden:register()

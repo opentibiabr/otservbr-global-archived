@@ -6,11 +6,13 @@ local function revert(position, itemId, transformId)
 end
 
 local function revertAshes()
-	local item = Tile(Position(32849, 32233, 9)):getItemById(1387)
-	if item then
-		item:transform(2249)
-		local itemUid = Tile(Position(32849, 32233, 9)):getItemById(2249)
-		if itemUid then
+	local tile = Tile(Position(32849, 32233, 9))
+	local item = tile:getItemById(1949)
+	if tile and item then
+		item:transform(3134)
+		local tileItemUid = Tile(Position(32849, 32233, 9))
+		local itemUid = tileItemUid:getItemById(3134)
+		if tileItemUid and itemUid then
 			itemUid:setAttribute(ITEM_ATTRIBUTE_UNIQUEID, 2243)
 		end
 	end
@@ -29,7 +31,7 @@ local positions = {
 
 local othersFireBug = Action()
 function othersFireBug.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.actionid == 54387 and target.itemid == 25531 then
+	if target.actionid == 54387 and target.itemid == 22875 then
 		if player:getStorageValue(Storage.FerumbrasAscension.BasinCounter) >= 8 or player:getStorageValue(Storage.FerumbrasAscension.BoneFlute) < 1 then
 			return false
 		end
@@ -41,15 +43,15 @@ function othersFireBug.onUse(player, item, fromPosition, target, toPosition, isH
 			item:remove()
 			player:setStorageValue(Storage.FerumbrasAscension.MonsterDoor, 1)
 		end
-		target:transform(25532)
+		target:transform(22876)
 		player:setStorageValue(Storage.FerumbrasAscension.BasinCounter, player:getStorageValue(Storage.FerumbrasAscension.BasinCounter) + 1)
 		toPosition:sendMagicEffect(CONST_ME_FIREAREA)
 		addEvent(revert, 2 * 60 * 1000, toPosition, 25532, 25531)
 		return true
 	elseif target.uid == 2243 then
 		local tile = Tile(Position(32849, 32233, 9))
-		local item = tile:getItemById(2249)
-		local createTeleport = Game.createItem(1387, 1, Position(32849, 32233, 9))
+		local item = tile:getItemById(3134)
+		local createTeleport = Game.createItem(1949, 1, Position(32849, 32233, 9))
 		for k, v in pairs(positions) do
 			v:sendMagicEffect(CONST_ME_YELLOW_RINGS)
 		end
@@ -61,28 +63,28 @@ function othersFireBug.onUse(player, item, fromPosition, target, toPosition, isH
 
 	local random = math.random(10)
 	if random >= 4 then --success 6% chance
-		if target.itemid == 7538 then --Destroy spider webs/North - South
+		if target.itemid == 182 then --Destroy spider webs/North - South
 			toPosition:sendMagicEffect(CONST_ME_HITBYFIRE)
-			target:transform(7544)
+			target:transform(188)
 			target:decay()
 			return true
-		elseif target.itemid == 7539 then --Destroy spider webs/EAST- West
+		elseif target.itemid == 183 then --Destroy spider webs/EAST- West
 			toPosition:sendMagicEffect(CONST_ME_HITBYFIRE)
-			target:transform(7545)
+			target:transform(189)
 			target:decay()
 			return true
-		elseif target.itemid == 5466 then --Burn Sugar Cane
+		elseif target.itemid == 5465 then --Burn Sugar Cane
 			toPosition:sendMagicEffect(CONST_ME_FIREAREA)
-			target:transform(5465)
-			target:decay(5464)
+			target:transform(5464)
+			target:decay(5463)
 			return true
-		elseif target.itemid == 1485 then --Light Up empty coal basins
+		elseif target.itemid == 2114 then --Light Up empty coal basins
 			toPosition:sendMagicEffect(CONST_ME_HITBYFIRE)
-			target:transform(1484)
+			target:transform(2113)
 			return true
 		elseif target.actionid == 12550 or target.actionid == 12551 then -- Secret Service Quest
 			if player:getStorageValue(Storage.secretService.TBIMission01) == 1 then
-				Game.createItem(1487, 1, Position(32893, 32012, 6))
+				Game.createItem(2118, 1, Position(32893, 32012, 6))
 				player:setStorageValue(Storage.secretService.TBIMission01, 2)
 			end
 		end
@@ -103,5 +105,5 @@ function othersFireBug.onUse(player, item, fromPosition, target, toPosition, isH
 	return false
 end
 
-othersFireBug:id(5468)
+othersFireBug:id(5467)
 othersFireBug:register()

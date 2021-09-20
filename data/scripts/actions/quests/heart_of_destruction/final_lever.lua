@@ -358,7 +358,7 @@ function heartDestructionFinal.onUse(player, item, fromPosition, itemEx, toPosit
 	local pushPos = {x = 32272, y = 31374, z = 14}
 
 	if item.actionid == 14332 then
-		if item.itemid == 9825 then
+		if item.itemid == 8911 then
 			if player:getPosition().x == pushPos.x and player:getPosition().y == pushPos.y and player:getPosition().z == pushPos.z then
 
 				local storeHunger, hungerTile = {}
@@ -452,10 +452,11 @@ function heartDestructionFinal.onUse(player, item, fromPosition, itemEx, toPosit
 					Game.createMonster("The Destruction", {x = 32271, y = 31316, z = 14}, false, true)
 					Game.createMonster("The Rage", {x = 32299, y = 31372, z = 14}, false, true)
 
-					local vortex = Tile({x = 32281, y = 31348, z = 14}):getItemById(26138)
-					if vortex then
-						vortex:transform(26139)
-						vortex:setActionId(14352)
+					local vortex = Tile({x = 32281, y = 31348, z = 14})
+					local vortexId = vortex:getItemById(23482)
+					if vortex and vortexId then
+						vortexId:transform(23483)
+						vortexId:setActionId(14352)
 					end
 				else
 					player:sendTextMessage(19, "Someone is in the area.")
@@ -464,7 +465,7 @@ function heartDestructionFinal.onUse(player, item, fromPosition, itemEx, toPosit
 				return true
 			end
 		end
-		item:transform(item.itemid == 9825 and 9826 or 9825)
+		item:transform(item.itemid == 8911 and 8912 or 8911)
 	end
 	return true
 end

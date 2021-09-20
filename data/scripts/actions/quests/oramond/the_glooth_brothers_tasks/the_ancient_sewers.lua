@@ -9,8 +9,8 @@ local function revertItem(toPosition, getItemId, itemTransform)
 end
 
 local config = {
-	[23410] = {itemGerator = 24161, itemTransform = 23410}, -- Gerator 1
-	[23411] = {itemGerator = 24161, itemTransform = 23411} -- Gerator 2
+	[21039] = {itemGerator = 21792, itemTransform = 21039}, -- Gerator 1
+	[21040] = {itemGerator = 21792, itemTransform = 21040} -- Gerator 2
 }
 
 local theAncientSewers = Action()
@@ -77,5 +77,8 @@ function theAncientSewers.onUse(player, item, fromPosition, target, toPosition, 
 	return true
 end
 
-theAncientSewers:id(23410, 23411)
+for itemId, info in pairs(config) do
+	theAncientSewers:id(itemId)
+end
+
 theAncientSewers:register()

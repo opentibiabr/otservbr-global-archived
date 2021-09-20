@@ -13,13 +13,13 @@ local monsters = {
 
 local forgottenKnowledgeDragonking = Action()
 function forgottenKnowledgeDragonking.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		if player:getPosition() ~= Position(33391, 31178, 10) then
-			item:transform(9826)
+			item:transform(8912)
 			return true
 		end
 	end
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		for v = 10, 12 do
 			local specs, spec = Game.getSpectators(Position(33357, 31182, v), false, false, 15, 15, 15, 15)
 			for i = 1, #specs do
@@ -50,9 +50,9 @@ function forgottenKnowledgeDragonking.onUse(player, item, fromPosition, target, 
 			end
 		end
 		addEvent(clearForgotten, 30 * 60 * 1000, Position(33348, 31172, 10), Position(33368, 31190, 12), Position(33407, 31172, 10))
-		item:transform(9826)
-	elseif item.itemid == 9826 then
-		item:transform(9825)
+		item:transform(8912)
+	elseif item.itemid == 8912 then
+		item:transform(8911)
 	end
 	return true
 end

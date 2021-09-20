@@ -1,5 +1,5 @@
 local config = {
-	demonOakIds = {8288, 8289, 8290, 8291},
+	demonOakIds = {914, 915, 916, 917},
 	sounds = {
 		'MY ROOTS ARE SHARP AS A SCYTHE! FEEL IT?!?',
 		'CURSE YOU!',
@@ -29,28 +29,28 @@ local config = {
 		{x = 32719, y = 32348, z = 7}
 	},
 	summons = {
-		[8288] = {
+		[914] = {
 			[5] = {'Spectre', 'Blightwalker', 'Braindeath', 'Demon'},
 			[10] = {'Betrayed Wraith', 'Betrayed Wraith'}
 		},
-		[8289] = {
+		[915] = {
 			[5] = {'Plaguesmith', 'Plaguesmith', 'Blightwalker'},
 			[10] = {'Dark Torturer', 'Blightwalker'}
 		},
-		[8290] = {
+		[916] = {
 			[5] = {'Banshee', 'Plaguesmith', 'Hellhound'},
 			[10] = {'Grim Reaper'}
 		},
-		[8291] = {
+		[917] = {
 			[5] = {'Plaguesmith', 'Hellhound', 'Hellhound'},
 			[10] = {'Undead Dragon', 'Hand of Cursed Fate'}
 		}
 	},
 	storages = {
-		[8288] = Storage.DemonOak.AxeBlowsBird,
-		[8289] = Storage.DemonOak.AxeBlowsLeft,
-		[8290] = Storage.DemonOak.AxeBlowsRight,
-		[8291] = Storage.DemonOak.AxeBlowsFace
+		[914] = Storage.DemonOak.AxeBlowsBird,
+		[915] = Storage.DemonOak.AxeBlowsLeft,
+		[916] = Storage.DemonOak.AxeBlowsRight,
+		[917] = Storage.DemonOak.AxeBlowsFace
 	}
 }
 
@@ -128,5 +128,5 @@ function demonOak.onUse(player, item, fromPosition, target, toPosition, isHotkey
 	return true
 end
 
-demonOak:id(8293)
+demonOak:id(919)
 demonOak:register()

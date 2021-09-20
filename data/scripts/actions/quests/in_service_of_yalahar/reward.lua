@@ -4,7 +4,7 @@ function inServiceYalaharReward.onUse(player, item, fromPosition, target, toPosi
 		if(player:getStorageValue(Storage.InServiceofYalahar.Questline) == 53) then
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 54)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission10, 5) -- StorageValue for Questlog "Mission 10: The Final Battle"
-			player:addItem(9776, 1)
+			player:addItem(8862, 1)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a yalahari armor.")
 			player:addOutfitAddon(324, 2)
 			player:addOutfitAddon(324, 1)
@@ -18,7 +18,7 @@ function inServiceYalaharReward.onUse(player, item, fromPosition, target, toPosi
 		if(player:getStorageValue(Storage.InServiceofYalahar.Questline) == 53) then
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 54)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission10, 5) -- StorageValue for Questlog "Mission 10: The Final Battle"
-			player:addItem(9778, 1)
+			player:addItem(8864, 1)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a yalahari mask.")
 			player:addOutfitAddon(324, 2)
 			player:addOutfitAddon(324, 1)
@@ -31,7 +31,7 @@ function inServiceYalaharReward.onUse(player, item, fromPosition, target, toPosi
 		if(player:getStorageValue(Storage.InServiceofYalahar.Questline) == 53) then
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 54)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission10, 5) -- StorageValue for Questlog "Mission 10: The Final Battle"
-			player:addItem(9777, 1)
+			player:addItem(8863, 1)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a yalahari leg piece.")
 			player:addOutfitAddon(324, 2)
 			player:addOutfitAddon(324, 1)

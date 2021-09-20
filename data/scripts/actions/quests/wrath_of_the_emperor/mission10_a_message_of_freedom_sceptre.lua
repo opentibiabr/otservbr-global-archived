@@ -7,11 +7,11 @@ local boss = {
 
 local wrathEmperorMiss10Message = Action()
 function wrathEmperorMiss10Message.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if boss[target.uid] and target.itemid == 12383 then
-		target:transform(11753)
+	if boss[target.uid] and target.itemid == 11427 then
+		target:transform(10797)
 		Game.createMonster(boss[target.uid], {x = toPosition.x + 4, y = toPosition.y, z = toPosition.z})
 		Game.setStorageValue(target.uid - 4, 1)
-	elseif target.itemid == 12317 then
+	elseif target.itemid == 11361 then
 		if toPosition.x > 33034 and toPosition.x < 33071 and
 			toPosition.y > 31079 and toPosition.y < 31102 then
 			if player:getStorageValue(Storage.WrathoftheEmperor.BossStatus) == 1 then
@@ -45,7 +45,7 @@ function wrathEmperorMiss10Message.onUse(player, item, fromPosition, target, toP
 				destination:sendMagicEffect(CONST_ME_TELEPORT)
 			end
 		end
-	elseif target.itemid == 12385 then
+	elseif target.itemid == 11429 then
 		if player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 31 then
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 32)
 			player:setStorageValue(Storage.WrathoftheEmperor.Mission11, 2) --Questlog, Wrath of the Emperor "Mission 11: Payback Time"
@@ -56,5 +56,5 @@ function wrathEmperorMiss10Message.onUse(player, item, fromPosition, target, toP
 	return true
 end
 
-wrathEmperorMiss10Message:id(12318)
+wrathEmperorMiss10Message:id(11362)
 wrathEmperorMiss10Message:register()

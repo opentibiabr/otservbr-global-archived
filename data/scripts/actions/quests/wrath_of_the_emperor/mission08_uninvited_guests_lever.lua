@@ -10,7 +10,7 @@ function wrathEmperorMiss8Uninvited.onUse(player, item, fromPosition, target, to
 		return true
 	end
 
-	item:transform(item.itemid == 1945 and 1946 or 1945)
+	item:transform(item.itemid == 2772 and 2773 or 2772)
 
 	toPosition.y = toPosition.y + 1
 	local creature = Tile(toPosition):getTopCreature()
@@ -18,7 +18,7 @@ function wrathEmperorMiss8Uninvited.onUse(player, item, fromPosition, target, to
 		return true
 	end
 
-	if item.itemid ~= 1945 then
+	if item.itemid ~= 2772 then
 		return true
 	end
 

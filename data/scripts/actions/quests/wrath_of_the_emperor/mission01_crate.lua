@@ -12,5 +12,5 @@ function wrathEmperorMiss1Crate.onUse(player, item, fromPosition, target, toPosi
 	return true
 end
 
-wrathEmperorMiss1Crate:id(12284)
+wrathEmperorMiss1Crate:id(11328)
 wrathEmperorMiss1Crate:register()

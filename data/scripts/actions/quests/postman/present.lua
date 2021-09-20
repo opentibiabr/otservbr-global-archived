@@ -6,5 +6,5 @@ function postmanPresent.onUse(player, item, fromPosition, target, toPosition, is
 	return true
 end
 
-postmanPresent:id(2331)
+postmanPresent:id(3218)
 postmanPresent:register()

@@ -12,13 +12,13 @@ local config = {
 
 local ferumbrasAscendantRagiaz = Action()
 function ferumbrasAscendantRagiaz.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		if player:getPosition() ~= Position(33456, 32356, 13) then
-			item:transform(9826)
+			item:transform(8912)
 			return true
 		end
 	end
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 15, 15, 15, 15)
 		for i = 1, #specs do
 			spec = specs[i]
@@ -41,9 +41,9 @@ function ferumbrasAscendantRagiaz.onUse(player, item, fromPosition, target, toPo
 		end
 		Game.setStorageValue(GlobalStorage.FerumbrasAscendant.RagiazTimer, 1)
 		addEvent(clearForgotten, 30 * 60 * 1000, Position(33472, 32323, 13), Position(33493, 32347, 13), Position(33319, 32318, 13), GlobalStorage.FerumbrasAscendant.RagiazTimer)
-		item:transform(9826)
-	elseif item.itemid == 9826 then
-		item:transform(9825)
+		item:transform(8912)
+	elseif item.itemid == 8912 then
+		item:transform(8911)
 	end
 	return true
 end

@@ -3,32 +3,32 @@ local rewards = {
 		storage = Storage.DeeplingBosses.Jaul,
 		bossName = 'Jaul',
 		items = {
-			{rand = true, itemId = {15403, 15434}},
-			{itemId = 2152, count = 50},
-			{itemId = 15621},
-			{itemId = 15453}
+			{rand = true, itemId = {13990, 14021}},
+			{itemId = 3035, count = 50},
+			{itemId = 14224},
+			{itemId = 14042}
 		}
 	},
 	[9303] = {
 		storage = Storage.DeeplingBosses.Tanjis,
 		bossName = 'Tanjis',
 		items = {
-			{rand = true, itemId = {15435, 2144}},
-			{itemId = 15620},
-			{itemId = 2152, count = 20},
-			{itemId = 15403},
-			{itemId = 15453}
+			{rand = true, itemId = {14022, 3027}},
+			{itemId = 14223},
+			{itemId = 3035, count = 20},
+			{itemId = 13990},
+			{itemId = 14042}
 		}
 	},
 	[9304] = {
 		storage = Storage.DeeplingBosses.Obujos,
 		bossName = 'Obujos',
 		items = {
-			{rand = true, itemId = {15436, 7632}},
-			{itemId = 15619},
-			{itemId = 15454},
-			{itemId = 2152, count = 30},
-			{itemId = 15400}
+			{rand = true, itemId = {14023, 281}},
+			{itemId = 14222},
+			{itemId = 14043},
+			{itemId = 3035, count = 30},
+			{itemId = 13987}
 		}
 	}
 }

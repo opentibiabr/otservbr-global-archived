@@ -1,13 +1,13 @@
 local config = {
-	[1074] = {itemId = 17240, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 2, setValue = 3},
-	[1075] = {itemId = 17240, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 3, setValue = 4},
-	[1076] = {itemId = 17240, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 4, setValue = 5},
-	[1077] = {itemId = 17240, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 5, setValue = 6},
-	[1078] = {itemId = 17240, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 6, setValue = 7},
-	[1079] = {itemId = 17240, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 7, setValue = 8},
-	[1080] = {itemId = 17240, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 8, setValue = 9},
-	[1081] = {itemId = 17240, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 9, setValue = 10},
-	[1082] = {itemId = 17240, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 10, setValue = 11},
+	[1074] = {itemId = 15895, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 2, setValue = 3},
+	[1075] = {itemId = 15895, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 3, setValue = 4},
+	[1076] = {itemId = 15895, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 4, setValue = 5},
+	[1077] = {itemId = 15895, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 5, setValue = 6},
+	[1078] = {itemId = 15895, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 6, setValue = 7},
+	[1079] = {itemId = 15895, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 7, setValue = 8},
+	[1080] = {itemId = 15895, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 8, setValue = 9},
+	[1081] = {itemId = 15895, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 9, setValue = 10},
+	[1082] = {itemId = 15895, msg = "The Njey will appreciate your help.", storage = Storage.TheSecretLibrary.LiquidDeath, getValue = 10, setValue = 11},
 }
 
 local statuedeeplings = Action()

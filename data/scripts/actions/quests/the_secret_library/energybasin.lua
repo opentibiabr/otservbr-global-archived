@@ -1,30 +1,30 @@
 local config = {
 	-- yellow
 	[1085] = {
-		itemId = 32642,
+		itemId = 27868,
 		msg = "Success",
 		storage = Storage.TheSecretLibrary.Mota,
 		getValue = 4,
 		setValue = 5,
-		basin = 2605
+		basin = 3514
 	},
 	-- green
 	[1086] = {
-		itemId = 32641,
+		itemId = 27867,
 		msg = "Success",
 		storage = Storage.TheSecretLibrary.Mota,
 		getValue = 5,
 		setValue = 6,
-		basin = 2605
+		basin = 3514
 	},
 	-- red
 	[1087] =
-	{itemId = 32643,
+	{itemId = 27869,
 		msg = "Success",
 		storage = Storage.TheSecretLibrary.Mota,
 		getValue = 6,
 		setValue = 7,
-		basin = 2605
+		basin = 3514
 	}
 }
 

@@ -33,5 +33,5 @@ function spikeTasksThermometer.onUse(player, item, fromPosition, target, toPosit
 	return true
 end
 
-spikeTasksThermometer:id(21556)
+spikeTasksThermometer:id(19206)
 spikeTasksThermometer:register()

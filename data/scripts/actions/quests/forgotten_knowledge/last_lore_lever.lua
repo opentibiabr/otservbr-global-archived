@@ -9,13 +9,13 @@ local config = {
 
 local forgottenKnowledgeLastLore = Action()
 function forgottenKnowledgeLastLore.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		if player:getPosition() ~= Position(32019, 32844, 14) then
-			item:transform(9826)
+			item:transform(8912)
 			return true
 		end
 	end
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		for xx = 14, 15 do
 		local spectators = Game.getSpectators(Position(31986, 32846, xx), false, false, 21, 21, 21, 21)
 			for i = 1, #spectators do
@@ -49,9 +49,9 @@ function forgottenKnowledgeLastLore.onUse(player, item, fromPosition, target, to
 		Game.setStorageValue(GlobalStorage.ForgottenKnowledge.AstralGlyph, 0)
 		player:say('The Astral Glyph begins to draw upon bound astral power to expel you from the room!', TALKTYPE_MONSTER_SAY)
 		addEvent(clearForgotten, 30 * 60 * 1000, Position(31968, 32821, 14), Position(32004, 32865, 15), Position(32035, 32859, 14))
-		item:transform(9826)
-		elseif item.itemid == 9826 then
-		item:transform(9825)
+		item:transform(8912)
+		elseif item.itemid == 8912 then
+		item:transform(8911)
 	end
 	return true
 end

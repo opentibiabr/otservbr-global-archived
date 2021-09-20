@@ -1,8 +1,8 @@
 local config = {
-	[9738] = 9739,
-	[9739] = 9740,
-	[9740] = 9773,
-	[9773] = 9742
+	[8823] = 8824,
+	[8824] = 8825,
+	[8825] = 8859,
+	[8859] = 8827
 }
 
 local inServiceYalaharGhost = Action()
@@ -25,13 +25,13 @@ function inServiceYalaharGhost.onUse(player, item, fromPosition, target, toPosit
 	item:remove()
 	player:say('The ghost charm is charging.', TALKTYPE_MONSTER_SAY)
 
-	if target.itemid == 9773 then
+	if target.itemid == 8859 then
 		player:setStorageValue(Storage.InServiceofYalahar.Questline, 37)
 		player:setStorageValue(Storage.InServiceofYalahar.Mission06, 3) -- StorageValue for Questlog "Mission 06: Frightening Fuel"
-		player:removeItem(9737, 1)
+		player:removeItem(8822, 1)
 	end
 	return true
 end
 
-inServiceYalaharGhost:id(9741)
+inServiceYalaharGhost:id(8826)
 inServiceYalaharGhost:register()

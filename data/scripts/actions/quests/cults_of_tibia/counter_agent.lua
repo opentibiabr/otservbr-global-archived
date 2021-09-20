@@ -42,5 +42,5 @@ function cultsOfTibiaCounter.onUse(player, item, fromPosition, target, toPositio
 	return true
 end
 
-cultsOfTibiaCounter:id(28665)
+cultsOfTibiaCounter:id(25304)
 cultsOfTibiaCounter:register()

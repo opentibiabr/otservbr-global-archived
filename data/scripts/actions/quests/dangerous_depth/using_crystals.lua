@@ -75,11 +75,11 @@ local function lavaHoles(i)
 	end
 	if boss == true then
 		local position = lavaHolesArray[i]
-		local desativado = Tile(position):getItemById(388)
+		local desativado = Tile(position):getItemById(390)
 		if desativado then
-			desativado:transform(389)
+			desativado:transform(391)
 			addEvent(function()
-				local ativado = Tile(position):getItemById(389)
+				local ativado = Tile(position):getItemById(391)
 					if ativado then
 						local c = Game.getPlayers()[1]
 						c:say("BOOOOM!", TALKTYPE_MONSTER_SAY, false, false, position)
@@ -90,8 +90,8 @@ local function lavaHoles(i)
 										if Tile(Position(x, y, z)) then
 											local sqm = Position(x, y, z)
 											local creature = Tile(Position(x, y, z)):getTopCreature()
-											local mwCheck = Tile(Position(x, y, z)):getItemById(1497)
-											local wildCheck = Tile(Position(x, y, z)):getItemById(1499)
+											local mwCheck = Tile(Position(x, y, z)):getItemById(2129)
+											local wildCheck = Tile(Position(x, y, z)):getItemById(2130)
 											if not (mwCheck or wildCheck) then
 												if creature then
 													if creature:isPlayer() then
@@ -105,7 +105,7 @@ local function lavaHoles(i)
 								end
 							end
 						end
-						ativado:transform(388)
+						ativado:transform(390)
 					end
 				end, 3*1000)
 			i = i + 1
@@ -239,8 +239,8 @@ local checagem = false
 													if Tile(Position(x, y, z)) then
 														local sqm = Position(x, y, z)
 														local creature = Tile(Position(x, y, z)):getTopCreature()
-														local mwCheck = Tile(Position(x, y, z)):getItemById(1497)
-														local wildCheck = Tile(Position(x, y, z)):getItemById(1499)
+														local mwCheck = Tile(Position(x, y, z)):getItemById(2129)
+														local wildCheck = Tile(Position(x, y, z)):getItemById(2130)
 														if not (mwCheck or wildCheck) then
 															if creature then
 																if creature:isMonster() then
@@ -268,8 +268,8 @@ local checagem = false
 													if Tile(Position(x, y, z)) then
 														local sqm = Position(x, y, z)
 														local creature = Tile(Position(x, y, z)):getTopCreature()
-														local mwCheck = Tile(Position(x, y, z)):getItemById(1497)
-														local wildCheck = Tile(Position(x, y, z)):getItemById(1499)
+														local mwCheck = Tile(Position(x, y, z)):getItemById(2129)
+														local wildCheck = Tile(Position(x, y, z)):getItemById(2130)
 														if not (mwCheck or wildCheck) then
 															if creature then
 																if creature:isMonster() then
@@ -423,7 +423,7 @@ function dangerousDepthCrystals.onUse(player, item, fromPosition, target, toPosi
 	local WarzoneVI = Position(33274, 32316, 15)
 	local WarzoneIV = Position(33459, 32267, 15)
 	local WarzoneV = Position(33323, 32109, 15)
-	local geodeId = 30745
+	local geodeId = 27510
 	local targetPosition = target:getPosition()
 
 	if targetPosition == WarzoneIV and target:getId() == geodeId then -- Warzone 4 BOSS!!!
@@ -444,12 +444,12 @@ function dangerousDepthCrystals.onUse(player, item, fromPosition, target, toPosi
 				local stalagmites = Tile(Position(33460, 32267, 15)):getItemById(386)
 				if stalagmites then
 					stalagmites:remove()
-					local teleport = Game.createItem(1387, 1, Position(33460, 32267, 15))
+					local teleport = Game.createItem(1949, 1, Position(33460, 32267, 15))
 					teleport:setActionId(57243)
 					addEvent(function()
 						if teleport then
 							teleport:remove(1)
-							Game.createItem(386, 1, Position(33460, 32267, 15))
+							Game.createItem(388, 1, Position(33460, 32267, 15))
 						end
 					end, 8*1000)
 					addEvent(clearForgotten, 30*60*1000, Position(33638, 32291, 15), Position(33675, 32313, 15), Position(33462, 32267, 15), GlobalStorage.DangerousDepths.Geodes.WarzoneIV)
@@ -479,12 +479,12 @@ function dangerousDepthCrystals.onUse(player, item, fromPosition, target, toPosi
 				local stalagmites = Tile(Position(33324, 32109, 15)):getItemById(386)
 				if stalagmites then
 					stalagmites:remove()
-					local teleport = Game.createItem(1387, 1, Position(33324, 32109, 15))
+					local teleport = Game.createItem(1949, 1, Position(33324, 32109, 15))
 					teleport:setActionId(57243)
 					addEvent(function()
 						if teleport then
 							teleport:remove(1)
-							Game.createItem(386, 1, Position(33324, 32109, 15))
+							Game.createItem(388, 1, Position(33324, 32109, 15))
 						end
 					end, 8*1000)
 					addEvent(clearForgotten, 30*60*1000, Position(33668, 32310, 15), Position(33695, 32343, 15), Position(33323, 32111, 15), GlobalStorage.DangerousDepths.Geodes.WarzoneV)
@@ -514,12 +514,12 @@ function dangerousDepthCrystals.onUse(player, item, fromPosition, target, toPosi
 				local stalagmites = Tile(Position(33275, 32316, 15)):getItemById(386)
 				if stalagmites then
 					stalagmites:remove()
-					local teleport = Game.createItem(1387, 1, Position(33275, 32316, 15))
+					local teleport = Game.createItem(1949, 1, Position(33275, 32316, 15))
 					teleport:setActionId(57243)
 					addEvent(function()
 						if teleport then
 							teleport:remove(1)
-							Game.createItem(386, 1, Position(33275, 32316, 15))
+							Game.createItem(388, 1, Position(33275, 32316, 15))
 						end
 					end, 8*1000)
 					addEvent(clearForgotten, 30*60*1000, Position(33684, 32293, 15), Position(33724, 32314, 15), Position(33275, 32318, 15), GlobalStorage.DangerousDepths.Geodes.WarzoneVI)

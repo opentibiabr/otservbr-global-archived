@@ -41,7 +41,7 @@ end
 
 local ferumbrasAscendantLever = Action()
 function ferumbrasAscendantLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		if player:getPosition() ~= Position(33270, 31477, 14) then
 			return true
 		end
@@ -52,7 +52,7 @@ function ferumbrasAscendantLever.onUse(player, item, fromPosition, target, toPos
 				if playerTile and playerTile:isPlayer() then
 					if playerTile:getStorageValue(Storage.FerumbrasAscension.FerumbrasTimer) > os.time() then
 						player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You or a member in your team have to wait 5 days to face Ferumbras again!")
-						item:transform(9826)
+						item:transform(8912)
 						return true
 					end
 				end
@@ -96,12 +96,12 @@ function ferumbrasAscendantLever.onUse(player, item, fromPosition, target, toPos
 					end
 
 					Game.createMonster(config.bossName, config.bossPos, true, true)
-					item:transform(9826)
+					item:transform(8912)
 				end
 			end
 		end
-	elseif item.itemid == 9826 then
-		item:transform(9825)
+	elseif item.itemid == 8912 then
+		item:transform(8911)
 		return true
 	end
 end

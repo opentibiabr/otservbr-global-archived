@@ -1,11 +1,12 @@
-local heartDestructionEggs = Action()
-function heartDestructionEggs.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local config = {
-		[26194] = {mountId = 94, message = "You receive the permission to ride a sparkion"},
-		[26340] = {mountId = 98, message = "You receive the permission to ride a neon sparkid"},
-		[26341] = {mountId = 99, message = "You receive the permission to ride a vortexion"},
-	}
+local config = {
+	[23538] = {mountId = 94, message = "You receive the permission to ride a sparkion"},
+	[23684] = {mountId = 98, message = "You receive the permission to ride a neon sparkid"},
+	[23685] = {mountId = 99, message = "You receive the permission to ride a vortexion"},
+}
 
+local heartDestructionEggs = Action()
+
+function heartDestructionEggs.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local mount = config[item.itemid]
 
 	if not mount then
@@ -22,5 +23,9 @@ function heartDestructionEggs.onUse(player, item, fromPosition, target, toPositi
 	return true
 end
 
-heartDestructionEggs:id(26194,26340,26341)
+
+for itemId, info in pairs(config) do
+	heartDestructionEggs:id(itemId)
+end
+
 heartDestructionEggs:register()

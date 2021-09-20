@@ -1,7 +1,7 @@
 local ferumbrasAscendantColorLevers = Action()
 function ferumbrasAscendantColorLevers.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.FerumbrasAscension.FirstDoor) >= 1 then
-		item:transform(item.itemid == 10044 and 10045 or 10044)
+		item:transform(item.itemid == 9125 and 9126 or 9125)
 		return true
 	end
 	if item.actionid == 54381 then
@@ -36,7 +36,7 @@ function ferumbrasAscendantColorLevers.onUse(player, item, fromPosition, target,
 			toPosition:sendMagicEffect(CONST_ME_POFF)
 		end
 	end
-	item:transform(item.itemid == 10044 and 10045 or 10044)
+	item:transform(item.itemid == 9125 and 9126 or 9125)
 	return true
 end
 

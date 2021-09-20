@@ -1,8 +1,8 @@
 local chests = {
-	[1002] = {itemid = 2495, count = 1},
-	[1003] = {itemid = 8905, count = 1},
-	[1004] = {itemid = 16111, count = 1},
-	[1005] = {itemid = 16112, count = 1}
+	[1002] = {itemid = 3389, count = 1},
+	[1003] = {itemid = 8077, count = 1},
+	[1004] = {itemid = 14768, count = 1},
+	[1005] = {itemid = 14769, count = 1}
 }
 
 local demonOakChest = Action()
@@ -26,5 +26,8 @@ function demonOakChest.onUse(player, item, fromPosition, target, toPosition, isH
 	return true
 end
 
-demonOakChest:uid(1002, 1003, 1004, 1005)
+for unique, itemInfo in pairs(chests) do
+	demonOakChest:uid(unique)
+end
+
 demonOakChest:register()

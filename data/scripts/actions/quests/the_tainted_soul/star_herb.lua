@@ -1,6 +1,6 @@
 local config = { 
-	antlers = 11214,
-	antler_talisman = 24664
+	antlers = 10297,
+	antler_talisman = 22008
 }
 
 local starHerb = Action()
@@ -16,5 +16,5 @@ function starHerb.onUse(player, item, fromPosition, target, toPosition, isHotkey
 	return true
 end
 
-starHerb:id(2800)
+starHerb:id(3736)
 starHerb:register()

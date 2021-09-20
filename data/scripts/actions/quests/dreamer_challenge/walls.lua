@@ -1,22 +1,22 @@
 local config = {
-	[2246] = {
+	[3131] = {
 		[1] = {pos = Position(32763, 32292, 14), id = 1026},
 		[2] = {pos = Position(32762, 32292, 14), id = 1026},
 		[3] = {pos = Position(32761, 32292, 14), id = 1026}
 	},
-	[2247] = {
+	[3132] = {
 		[1] = {pos = Position(32760, 32289, 14), id = 1025},
 		[2] = {pos = Position(32760, 32290, 14), id = 1025},
 		[3] = {pos = Position(32760, 32291, 14), id = 1025},
 		[4] = {pos = Position(32760, 32292, 14), id = 1030}
 	},
-	[2248] = {
+	[3133] = {
 		[1] = {pos = Position(32764, 32292, 14), id = 1029},
 		[2] = {pos = Position(32764, 32291, 14), id = 1025},
 		[3] = {pos = Position(32764, 32290, 14), id = 1025},
 		[4] = {pos = Position(32764, 32289, 14), id = 1025}
 	},
-	[2249] = {
+	[3134] = {
 		[1] = {pos = Position(32760, 32288, 14), id = 1027},
 		[2] = {pos = Position(32761, 32288, 14), id = 1026},
 		[3] = {pos = Position(32762, 32288, 14), id = 1026},
@@ -26,9 +26,9 @@ local config = {
 }
 
 local function revertLever(position)
-	local leverItem = Tile(position):getItemById(1946)
+	local leverItem = Tile(position):getItemById(2773)
 	if leverItem then
-		leverItem:transform(1945)
+		leverItem:transform(2772)
 	end
 end
 
@@ -39,11 +39,11 @@ function dreamerWalls.onUse(player, item, fromPosition, target, toPosition, isHo
 		return true
 	end
 
-	if item.itemid ~= 1945 then
+	if item.itemid ~= 2772 then
 		return false
 	end
 
-	item:transform(1946)
+	item:transform(2773)
 	addEvent(revertLever, 8 * 1000, toPosition)
 
 	local wallItem

@@ -20,11 +20,11 @@ local config = {
 
 local theAncientLever = Action()
 function theAncientLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local leverLeft, lever = item.itemid == 1945
+	local leverLeft, lever = item.itemid == 2772
 	for i = 1, #config.leverPositions do
-		lever = Tile(config.leverPositions[i]):getItemById(leverLeft and 1945 or 1946)
+		lever = Tile(config.leverPositions[i]):getItemById(leverLeft and 2772 or 2773)
 		if lever then
-			lever:transform(leverLeft and 1946 or 1945)
+			lever:transform(leverLeft and 2773 or 2772)
 		end
 	end
 

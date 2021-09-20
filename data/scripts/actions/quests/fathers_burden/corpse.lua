@@ -1,6 +1,6 @@
 local config = {
-	[12545] = {itemId = 12506, storage = Storage.FathersBurden.Corpse.Scale, text = 'Glitterscale\'s scale.'},
-	[12546] = {itemId = 12504, storage = Storage.FathersBurden.Corpse.Sinew, text = 'Heoni\'s sinew'}
+	[11589] = {itemId = 11550, storage = Storage.FathersBurden.Corpse.Scale, text = 'Glitterscale\'s scale.'},
+	[11590] = {itemId = 11548, storage = Storage.FathersBurden.Corpse.Sinew, text = 'Heoni\'s sinew'}
 }
 
 local fatherCorpse = Action()
@@ -20,5 +20,9 @@ function fatherCorpse.onUse(player, item, fromPosition, target, toPosition, isHo
 	return true
 end
 
-fatherCorpse:id(12545, 12546)
+
+for itemId, itemInfo in pairs(config) do
+	fatherCorpse:id(itemId)
+end
+
 fatherCorpse:register()

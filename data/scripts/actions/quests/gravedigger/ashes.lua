@@ -12,5 +12,5 @@ function gravediggerAshes.onUse(player, item, fromPosition, target, toPosition, 
 	return true
 end
 
-gravediggerAshes:id(21446)
+gravediggerAshes:id(19129)
 gravediggerAshes:register()

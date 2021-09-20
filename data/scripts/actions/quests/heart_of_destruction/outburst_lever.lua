@@ -70,7 +70,7 @@ function heartDestructionOutburst.onUse(player, item, fromPosition, itemEx, toPo
 	local pushPos = {x = 32207, y = 31284, z = 14}
 
 	if item.actionid == 14331 then
-		if item.itemid == 9825 then
+		if item.itemid == 8911 then
 			if player:getPosition().x == pushPos.x and player:getPosition().y == pushPos.y and player:getPosition().z == pushPos.z then
 
 				local storePlayers, playerTile = {}
@@ -107,7 +107,7 @@ function heartDestructionOutburst.onUse(player, item, fromPosition, itemEx, toPo
 
 					local vortex = Tile({x = 32225, y = 31285, z = 14}):getItemById(26138)
 					if vortex then
-						vortex:transform(26139)
+						vortex:transform(23483)
 						vortex:setActionId(14350)
 					end
 				else
@@ -117,7 +117,7 @@ function heartDestructionOutburst.onUse(player, item, fromPosition, itemEx, toPo
 				return true
 			end
 		end
-		item:transform(item.itemid == 9825 and 9826 or 9825)
+		item:transform(item.itemid == 8911 and 8912 or 8911)
 	end
 	return true
 end

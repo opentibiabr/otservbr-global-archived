@@ -8,7 +8,7 @@ local config = {
 local elementalSpheresMachine1 = Action()
 function elementalSpheresMachine1.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local destination = config[player:getVocation():getBaseId()]
-	if table.contains({7911, 7912}, item.itemid) then
+	if table.contains({842, 843}, item.itemid) then
 		local gemCount = player:getStorageValue(Storage.ElementalSphere.MachineGemCount)
 		if table.contains({33268, 33269}, toPosition.x)
 		and toPosition.y == 31830
@@ -19,20 +19,20 @@ function elementalSpheresMachine1.onUse(player, item, fromPosition, target, toPo
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		end
-		toPosition.x = toPosition.x + (item.itemid == 7911 and 1 or -1)
+		toPosition.x = toPosition.x + (item.itemid == 842 and 1 or -1)
 		local tile = toPosition:getTile()
 		if tile then
-			local thing = tile:getItemById(item.itemid == 7911 and 7912 or 7911)
+			local thing = tile:getItemById(item.itemid == 842 and 843 or 842)
 			if thing then
 				thing:transform(thing.itemid + 4)
 			end
 		end
 		item:transform(item.itemid + 4)
 	else
-		toPosition.x = toPosition.x + (item.itemid == 7915 and 1 or -1)
+		toPosition.x = toPosition.x + (item.itemid == 846 and 1 or -1)
 		local tile = toPosition:getTile()
 		if tile then
-			local thing = tile:getItemById(item.itemid == 7915 and 7916 or 7915)
+			local thing = tile:getItemById(item.itemid == 842 and 843 or 842)
 			if thing then
 				thing:transform(thing.itemid - 4)
 			end
@@ -42,5 +42,5 @@ function elementalSpheresMachine1.onUse(player, item, fromPosition, target, toPo
 	return true
 end
 
-elementalSpheresMachine1:id(7911, 7912, 7915, 7916)
+elementalSpheresMachine1:id(842, 843)
 elementalSpheresMachine1:register()

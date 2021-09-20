@@ -2,49 +2,49 @@ local UniqueTable = {
 	-- Chests uniques
 	[14029] = {
 		-- Uzgod's Family Brooch
-		rewardItemId = 4845,
+		rewardItemId = 4834,
 		storageMission = Storage.ExplorerSociety.TheBonelordSecret,
 		storageMissionValue = 31,
 		storageQuestlineValue = 30
 	},
 	[14030] = {
 		-- Wrinkled parchment
-		rewardItemId = 4857,
+		rewardItemId = 173,
 		storageMission = Storage.ExplorerSociety.TheBonelordSecret,
 		storageMissionValue = 31,
 		storageQuestlineValue = 30
 	},
 	[14031] = {
 		-- Strange powder
-		rewardItemId = 15389,
+		rewardItemId = 13974,
 		storageMission = Storage.ExplorerSociety.TheOrcPowder,
 		storageMissionValue = 34,
 		storageQuestlineValue = 33
 	},
 	[14032] = {
 		-- Elven poetry book
-		rewardItemId = 4855,
+		rewardItemId = 4844,
 		storageMission = Storage.ExplorerSociety.TheElvenPoetry,
 		storageMissionValue = 37,
 		storageQuestlineValue = 36
 	},
 	[14033] = {
 		-- Memory stone
-		rewardItemId = 4852,
+		rewardItemId = 4841,
 		storageMission = Storage.ExplorerSociety.TheMemoryStone,
 		storageMissionValue = 40,
 		storageQuestlineValue = 39
 	},
 	[14034] = {
 		-- Spectral dress
-		rewardItemId = 4847,
+		rewardItemId = 4836,
 		storageMission = Storage.ExplorerSociety.TheSpectralDress,
 		storageMissionValue = 49,
 		storageQuestlineValue = 48
 	},
 	[14035] = {
 		-- Damage logbook
-		rewardItemId = 6124,
+		rewardItemId = 21378,
 		storageMission = Storage.ExplorerSociety.CalassaQuest,
 		storageMissionValue = 2,
 		storageQuestlineValue = 0
@@ -52,7 +52,7 @@ local UniqueTable = {
 	-- Others uniques
 	[40041] = {
 		-- Funeral urn
-		rewardItemId = 4858,
+		rewardItemId = 4847,
 		storageMission = Storage.ExplorerSociety.TheLizardUrn,
 		storageMissionValue = 28,
 		storageQuestlineValue = 27

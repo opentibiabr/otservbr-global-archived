@@ -1,5 +1,5 @@
 
-local anchorIds = {15358, 15359}
+local anchorIds = {13941, 13942}
 local navigatorNpc = Position(33640, 31379, 9)
 local goldenAnchorTeleport = Action()
 
@@ -17,5 +17,5 @@ function goldenAnchorTeleport.onUse(creature, item, fromPosition, target, toPosi
 	return true
 end
 
-goldenAnchorTeleport:id(15432)
+goldenAnchorTeleport:id(14019)
 goldenAnchorTeleport:register()

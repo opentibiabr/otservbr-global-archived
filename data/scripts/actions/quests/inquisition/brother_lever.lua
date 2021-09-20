@@ -15,8 +15,8 @@ local config = {
 			Position(33237, 31721, 11),
 			Position(33238, 31721, 11)
 		},
-		wallDown = 1524,
-		wallUp = 1050
+		wallDown = 2162,
+		wallUp = 1295
 	},
 	[1007] = {
 		wallPositions = {
@@ -30,8 +30,8 @@ local config = {
 			Position(33223, 31731, 11),
 			Position(33223, 31732, 11)
 		},
-		wallDown = 1526,
-		wallUp = 1049
+		wallDown = 2164,
+		wallUp = 1294
 	},
 	[1008] = {
 		wallPositions = {
@@ -49,8 +49,8 @@ local config = {
 			Position(33237, 31735, 11),
 			Position(33238, 31735, 11)
 		},
-		wallDown = 1524,
-		wallUp = 1050
+		wallDown = 2162,
+		wallUp = 1295
 	},
 	[1009] = {
 		wallPositions = {
@@ -64,12 +64,13 @@ local config = {
 			Position(33241, 31731, 11),
 			Position(33241, 31732, 11)
 		},
-		wallDown = 1526,
-		wallUp = 1049
+		wallDown = 2164,
+		wallUp = 1294
 	}
 }
 
 local inquisitionBrother = Action()
+
 function inquisitionBrother.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetLever = config[item.uid]
 	if not targetLever then
@@ -80,16 +81,19 @@ function inquisitionBrother.onUse(player, item, fromPosition, target, toPosition
 	for i = 1, #targetLever.wallPositions do
 		tile = Tile(targetLever.wallPositions[i])
 		if tile then
-			thing = tile:getItemById(item.itemid == 1945 and targetLever.wallDown or targetLever.wallUp)
+			thing = tile:getItemById(item.itemid == 2772 and targetLever.wallDown or targetLever.wallUp)
 			if thing then
-				thing:transform(item.itemid == 1945 and targetLever.wallUp or targetLever.wallDown)
+				thing:transform(item.itemid == 2772 and targetLever.wallUp or targetLever.wallDown)
 			end
 		end
 	end
 
-	item:transform(item.itemid == 1945 and 1946 or 1945)
+	item:transform(item.itemid == 2772 and 2773 or 2772)
 	return true
 end
 
-inquisitionBrother:uid(1006,1007,1008,1009)
+for uniqueId, info in pairs(config) do
+	inquisitionBrother:uid(uniqueId)
+end
+
 inquisitionBrother:register()

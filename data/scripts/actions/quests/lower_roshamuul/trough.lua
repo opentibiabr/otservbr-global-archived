@@ -4,13 +4,13 @@ function lowerRoshamuulTrough.onUse(player, item, fromPosition, target, toPositi
         return false
     end
 
-    if target:getId() == 22550 then
-        item:transform(2005, 0)
+    if target:getId() == 20216 then
+        item:transform(2873, 0)
         toPosition:sendMagicEffect(10)
         player:setStorageValue(ROSHAMUUL_MORTAR_THROWN, math.max(0, player:getStorageValue(ROSHAMUUL_MORTAR_THROWN)) + 1)
     end
     return true
 end
 
-lowerRoshamuulTrough:id(22504)
+lowerRoshamuulTrough:id(20170)
 lowerRoshamuulTrough:register()

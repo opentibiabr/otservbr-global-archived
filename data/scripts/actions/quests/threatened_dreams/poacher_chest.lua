@@ -1,5 +1,5 @@
 local chests = {
-	[14036] = {itemid = 28596, count = 1}
+	[14036] = {itemid = 25235, count = 1}
 }
 
 local poacherChest = Action()

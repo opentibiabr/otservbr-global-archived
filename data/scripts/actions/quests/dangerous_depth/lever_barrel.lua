@@ -1,6 +1,6 @@
 local transformid = {
-	[28594] = 1946,
-	[1946] = 28594
+	[2772] = 2773,
+	[2773] = 2772
 }
 
 local config = {
@@ -129,7 +129,7 @@ function dangerousDepthLever.onUse(player, item)
 	local stgCount = player:getStorageValue(Storage.DangerousDepths.Scouts.BarrelCount)
 	local BarrelTimer = player:getStorageValue(Storage.DangerousDepths.Scouts.BarrelTimer)
 
-	if item:getId() == 28594 then
+	if item:getId() == 2772 then
 		if player:getStorageValue(Storage.DangerousDepths.Scouts.Growth) == 1 and stgCount < 5 and BarrelTimer <= 0 then
 			local barril = Game.createItem(31992, 1, posBarril)
 			local stgBarril = barril:getSpecialAttribute(Storage.DangerousDepths.Scouts.Barrel) or -1

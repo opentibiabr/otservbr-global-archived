@@ -1,5 +1,5 @@
 bossConfig = {
-        [34000] = {  -- ActionID
+    [34000] = {  -- ActionID
         requiredLevel = 150,
         minPlayersRequired = 1,
 
@@ -37,7 +37,7 @@ end
 local secretBrokul = Action()
 function secretBrokul.onUse(player, item, fromPosition, target, toPosition, isHotkey)
    
-    if item.itemid == 1946 then
+    if item.itemid == 2773 then
         local bossConfig = bossConfig[item:getActionId()]
         if not bossConfig then
             return false
@@ -93,7 +93,7 @@ function secretBrokul.onUse(player, item, fromPosition, target, toPosition, isHo
         end
  
     end
-    item:transform(item.itemid == 1946 and 1945 or 1946)
+    item:transform(item.itemid == 2773 and 2772 or 2773)
  
     return true
 end

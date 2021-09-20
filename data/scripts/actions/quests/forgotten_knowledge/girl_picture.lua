@@ -9,5 +9,5 @@ function forgottenKnowledgeGirl.onUse(player, item, fromPosition, target, toPosi
 	return true
 end
 
-forgottenKnowledgeGirl:id(26400)
+forgottenKnowledgeGirl:id(23732)
 forgottenKnowledgeGirl:register()

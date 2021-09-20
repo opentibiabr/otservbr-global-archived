@@ -5,7 +5,7 @@ function othersDeeper.onUse(player, item, fromPosition, target, toPosition, isHo
 	end
 
 	if player:getStorageValue(Storage.BanutaSecretTunnel.DeeperBanutaShortcut) ~= 1 then
-		player:removeItem(10523, 1)
+		player:removeItem(9606, 1)
 		player:setStorageValue(Storage.BanutaSecretTunnel.DeeperBanutaShortcut, 1)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You discovered a secret tunnel.")
 	else
@@ -14,5 +14,5 @@ function othersDeeper.onUse(player, item, fromPosition, target, toPosition, isHo
 	return true
 end
 
-othersDeeper:id(10523)
+othersDeeper:id(9606)
 othersDeeper:register()

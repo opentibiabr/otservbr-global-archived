@@ -6,11 +6,11 @@ function gravediggerBones.onUse(player, item, fromPosition, target, toPosition, 
 
 	if player:getStorageValue(Storage.GravediggerOfDrefia.Mission17) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission19) < 1 then
 		player:setStorageValue(Storage.GravediggerOfDrefia.Mission19, 1)
-		player:addItem(21406, 1)
+		player:addItem(19089, 1)
 		item:remove()
 	end
 	return true
 end
 
-gravediggerBones:id(21407)
+gravediggerBones:id(19090)
 gravediggerBones:register()

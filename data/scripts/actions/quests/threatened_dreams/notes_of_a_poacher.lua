@@ -1,7 +1,7 @@
 local notesPoacher = Action()
 function notesPoacher.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 7) then
-        player:addItem(28603, 1)
+        player:addItem(25242, 1)
         player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 8)
     else
         player:sendCancelMessage("You are not on that mission.")

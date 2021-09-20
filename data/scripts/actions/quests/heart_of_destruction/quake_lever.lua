@@ -70,7 +70,7 @@ function heartDestructionQuake.onUse(player, item, fromPosition, itemEx, toPosit
 	local pushPos = {x = 32182, y = 31244, z = 14}
 
 	if item.actionid == 14329 then
-		if item.itemid == 9825 then
+		if item.itemid == 8911 then
 			if player:getPosition().x == pushPos.x and player:getPosition().y == pushPos.y and player:getPosition().z == pushPos.z then
 
 				local storePlayers, playerTile = {}
@@ -110,7 +110,7 @@ function heartDestructionQuake.onUse(player, item, fromPosition, itemEx, toPosit
 
 					local vortex = Tile({x = 32199, y = 31248, z = 14}):getItemById(26138)
 					if vortex then
-						vortex:transform(26139)
+						vortex:transform(23483)
 						vortex:setActionId(14345)
 					end
 				else
@@ -120,7 +120,7 @@ function heartDestructionQuake.onUse(player, item, fromPosition, itemEx, toPosit
 				return true
 			end
 		end
-		item:transform(item.itemid == 9825 and 9826 or 9825)
+		item:transform(item.itemid == 8911 and 8912 or 8911)
 	end
 	return true
 end

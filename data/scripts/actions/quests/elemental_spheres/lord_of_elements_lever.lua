@@ -70,9 +70,9 @@ local function resetRoom(players)
 	end
 
 	for i = 1, #config.leverPositions do
-		local leverItem = Tile(config.leverPositions[i]):getItemById(1946)
+		local leverItem = Tile(config.leverPositions[i]):getItemById(2773)
 		if leverItem then
-			leverItem:transform(1945)
+			leverItem:transform(2772)
 		end
 	end
 
@@ -111,7 +111,7 @@ end
 
 local elementalSpheresLordLever = Action()
 function elementalSpheresLordLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid ~= 1945 then
+	if item.itemid ~= 2772 then
 		return true
 	end
 
@@ -128,10 +128,10 @@ function elementalSpheresLordLever.onUse(player, item, fromPosition, target, toP
 		return false
 	end
 
-	item:transform(1946)
+	item:transform(2773)
 	local leverCount = 0
 	for i = 1, #config.leverPositions do
-		if Tile(config.leverPositions[i]):getItemById(1946) then
+		if Tile(config.leverPositions[i]):getItemById(2773) then
 			leverCount = leverCount + 1
 		end
 	end

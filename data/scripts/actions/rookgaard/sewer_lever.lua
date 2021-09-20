@@ -1,8 +1,8 @@
 local config = {
 	bridgePositions = {
-		{position = Position(32099, 32205, 8), groundId = 9022, itemId = 4645},
-		{position = Position(32100, 32205, 8), groundId = 4616},
-		{position = Position(32101, 32205, 8), groundId = 9022, itemId = 4647}
+		{position = Position(32099, 32205, 8), groundId = 352, itemId = 4634},
+		{position = Position(32100, 32205, 8), groundId = 4611},
+		{position = Position(32101, 32205, 8), groundId = 352, itemId = 4636}
 	},
 	leverPositions = {
 		Position(32098, 32204, 8),
@@ -44,11 +44,11 @@ end
 local sewerLever = Action()
 
 function sewerLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local leverLeft, lever = item.itemid == 1945
+	local leverLeft, lever = item.itemid == 2772
 	for i = 1, #config.leverPositions do
-		lever = Tile(config.leverPositions[i]):getItemById(leverLeft and 1945 or 1946)
+		lever = Tile(config.leverPositions[i]):getItemById(leverLeft and 2772 or 2773)
 		if lever then
-			lever:transform(leverLeft and 1946 or 1945)
+			lever:transform(leverLeft and 2773 or 2772)
 		end
 	end
 

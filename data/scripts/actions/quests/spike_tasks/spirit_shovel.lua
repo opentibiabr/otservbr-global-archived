@@ -12,11 +12,11 @@ function spikeTasksShovel.onUse(player, item, fromPosition, target, toPosition, 
 		return player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 	end
 
-	if (target == nil) or not target:isItem() or (target:getId() ~= 21561) then
+	if (target == nil) or not target:isItem() or (target:getId() ~= 19211) then
 		return player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 	end
 
-	target:transform(21562)
+	target:transform(19212)
 	target:decay()
 	local luck = math.random(100)
 	for i, result in ipairs(chance) do
@@ -39,5 +39,5 @@ function spikeTasksShovel.onUse(player, item, fromPosition, target, toPosition, 
 	return toPosition:sendMagicEffect(35)
 end
 
-spikeTasksShovel:id(21553)
+spikeTasksShovel:id(19203)
 spikeTasksShovel:register()

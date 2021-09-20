@@ -1,6 +1,6 @@
 local transformTo = {
-	[21557] = 21566,
-	[21566] = 21568,
+	[19207] = 19216,
+	[19216] = 19218
 }
 
 local area = { --area where to teleport
@@ -13,13 +13,13 @@ function spikeTasksStone.onUse(player, item, fromPosition, target, toPosition, i
 		return false
 	end
 
-	if (target == nil) or not target:isItem() or (target:getId() ~= 21567) then
+	if (target == nil) or not target:isItem() or (target:getId() ~= 19217) then
 		return false
 	end
 
-	target:transform(21713)
+	target:transform(19379)
 	target:decay()
-	if item:getId() == 21568 then
+	if item:getId() == 19218 then
 		player:setStorageValue(SPIKE_MIDDLE_CHARGE_MAIN, 1)
 		player:getPosition():sendMagicEffect(12)
 		player:say('Your tinkering caused some kind of magnetic storm that caused you to get disorientated.', TALKTYPE_MONSTER_SAY)
@@ -34,5 +34,9 @@ function spikeTasksStone.onUse(player, item, fromPosition, target, toPosition, i
 	return toPosition:sendMagicEffect(12)
 end
 
-spikeTasksStone:id(21557,21566,21568)
+for itemId, info in pairs(transformTo) do
+	spikeTasksStone:id(itemId)
+end
+spikeTasksStone:id(21568)
+
 spikeTasksStone:register()

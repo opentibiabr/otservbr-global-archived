@@ -4,5 +4,5 @@ function bigfootPackage.onUse(player, item, fromPosition, target, toPosition, is
 	return true
 end
 
-bigfootPackage:id(18313)
+bigfootPackage:id(15802)
 bigfootPackage:register()

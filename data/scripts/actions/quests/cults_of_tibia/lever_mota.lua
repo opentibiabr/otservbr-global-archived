@@ -1,6 +1,6 @@
 local transformid = {
-	[10029] = 10030,
-	[10030] = 10029
+	[9110] = 9111,
+	[9111] = 9110
 }
 
 local cultsOfTibiaLeverMota = Action()
@@ -8,7 +8,7 @@ function cultsOfTibiaLeverMota.onUse(player, item, fromPosition, itemEx, toPosit
 	local posPedra = Position()
 	local posPedra2 = Position()
 	local posPedra3 = Position()
-	local pedraid = 18008
+	local pedraid = 15487
 	if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) ~= 12 then
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
 		return false

@@ -12,5 +12,5 @@ function gravediggerTears.onUse(player, item, fromPosition, target, toPosition, 
 	return true
 end
 
-gravediggerTears:id(21401)
+gravediggerTears:id(19084)
 gravediggerTears:register()

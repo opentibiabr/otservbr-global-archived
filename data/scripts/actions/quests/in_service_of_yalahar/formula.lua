@@ -1,6 +1,6 @@
 local inServiceYalaharFormula = Action()
 function inServiceYalaharFormula.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if not isInArray({1786, 1787, 1788, 1789, 1790, 1791, 1792, 1793, 9911}, target.itemid) then
+	if not isInArray({2535, 2536, 2537, 2538, 2539, 2540, 2541, 2542, 8997}, target.itemid) then
 		return false
 	end
 
@@ -10,5 +10,5 @@ function inServiceYalaharFormula.onUse(player, item, fromPosition, target, toPos
 	return true
 end
 
-inServiceYalaharFormula:id(9733)
+inServiceYalaharFormula:id(8818)
 inServiceYalaharFormula:register()

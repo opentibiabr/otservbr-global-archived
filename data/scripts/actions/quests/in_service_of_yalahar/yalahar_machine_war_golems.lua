@@ -34,14 +34,14 @@ function inServiceYalaharWarGolem.onUse(player, item, fromPosition, target, toPo
 		return true
 	end
 
-	if player:getItemCount(9690) < 4 then
+	if player:getItemCount(8775) < 4 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You don\'t have enough gear wheels to activate the machine.')
 		return true
 	end
 
 	Game.setStorageValue(machineGroup.storage, 1)
 	addEvent(disableMachine, 60 * 60 * 1000, machineGroup.storage)
-	player:removeItem(9690, 4)
+	player:removeItem(8775, 4)
 	for i = 1, #machineGroup.machines do
 		player:say('*CLICK*', TALKTYPE_MONSTER_YELL, false, player, machineGroup.machines[i])
 	end

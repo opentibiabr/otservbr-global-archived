@@ -95,5 +95,5 @@ function spikeTasksGhost.onUse(player, item, fromPosition, target, toPosition, i
 	return true
 end
 
-spikeTasksGhost:id(21555)
+spikeTasksGhost:id(19205)
 spikeTasksGhost:register()

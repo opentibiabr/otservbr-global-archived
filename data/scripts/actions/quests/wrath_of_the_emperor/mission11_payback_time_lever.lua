@@ -46,7 +46,7 @@ function wrathEmperorMiss11Payback.onUse(player, item, fromPosition, target, toP
 	end
 
 	Game.createMonster(config.firstboss, config.bossPosition)
-	item:transform(item.itemid == 1945 and 1946 or 1945)
+	item:transform(item.itemid == 2772 and 2773 or 2772)
 	return true
 end
 

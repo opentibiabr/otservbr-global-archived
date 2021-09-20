@@ -1,13 +1,13 @@
 local rewards = {
-	[1300] = 8890,
-	[1301] = 8918,
-	[1302] = 8881,
-	[1303] = 8888,
-	[1304] = 8851,
-	[1305] = 8924,
-	[1306] = 8928,
-	[1307] = 8930,
-	[1308] = 8854
+	[1300] = 8062,
+	[1301] = 8090,
+	[1302] = 8053,
+	[1303] = 8060,
+	[1304] = 8023,
+	[1305] = 8096,
+	[1306] = 8100,
+	[1307] = 8102,
+	[1308] = 8026
 }
 
 local inquisitionRewards = Action()
@@ -29,7 +29,8 @@ function inquisitionRewards.onUse(player, item, fromPosition, target, toPosition
 	return true
 end
 
-for value = 1300, 1308 do
-	inquisitionRewards:uid(value)
+for uniqueId, info in pairs(rewards) do
+	inquisitionRewards:uid(uniqueId)
 end
+
 inquisitionRewards:register()

@@ -20,9 +20,9 @@ local config = {
 }
 
 local function revertLever(position)
-	local leverItem = Tile(position):getItemById(1946)
+	local leverItem = Tile(position):getItemById(2773)
 	if leverItem then
-		leverItem:transform(1945)
+		leverItem:transform(2772)
 	end
 end
 
@@ -36,13 +36,13 @@ end
 
 local theApeMiss9 = Action()
 function theApeMiss9.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid ~= 1945 then
+	if item.itemid ~= 2772 then
 		player:sendTextMessage(MESSAGE_FAILURE, 'It doesn\'t move.')
 		return true
 	end
 
 	if isInArray(config.leverPositions, toPosition) then
-		item:transform(1946)
+		item:transform(2773)
 		addEvent(revertLever, config.leverTime * 1000, toPosition)
 		return true
 	end
@@ -62,7 +62,7 @@ function theApeMiss9.onUse(player, item, fromPosition, target, toPosition, isHot
 	if not gateLever.ignoreLevers then
 		for i = 1, #config.leverPositions do
 			-- if lever not pushed, do not continue
-			local leverItem = Tile(config.leverPositions[i]):getItemById(1946)
+			local leverItem = Tile(config.leverPositions[i]):getItemById(2773)
 			if not leverItem then
 				return false
 			end
@@ -82,7 +82,7 @@ function theApeMiss9.onUse(player, item, fromPosition, target, toPosition, isHot
 	end
 
 	addEvent(revertWalls, gateLever.duration * 1000, toPosition)
-	item:transform(1946)
+	item:transform(2773)
 	return true
 end
 

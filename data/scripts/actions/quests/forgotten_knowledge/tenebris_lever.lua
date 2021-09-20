@@ -20,12 +20,12 @@ end
 
 local forgottenKnowledgeTenebris = Action()
 function forgottenKnowledgeTenebris.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		if player:getPosition() ~= Position(32902, 31623, 14) then
 			return true
 		end
 	end
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 15, 15, 15, 15)
 		for i = 1, #specs do
 			spec = specs[i]
@@ -54,9 +54,9 @@ function forgottenKnowledgeTenebris.onUse(player, item, fromPosition, target, to
 			end
 		end
 		addEvent(clearTenebris, 20 * 60 * 1000, Position(32902, 31589, 14), Position(32922, 31589, 14), Position(32924, 31610, 14))
-		item:transform(9826)
-	elseif item.itemid == 9826 then
-		item:transform(9825)
+		item:transform(8912)
+	elseif item.itemid == 8912 then
+		item:transform(8911)
 	end
 	return true
 end

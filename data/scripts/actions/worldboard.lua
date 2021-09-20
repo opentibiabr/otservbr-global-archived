@@ -29,5 +29,5 @@ end
 end
 
 
-worldBoard:id(21570)
+worldBoard:id(19236)
 worldBoard:register()

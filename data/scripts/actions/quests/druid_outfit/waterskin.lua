@@ -1,6 +1,6 @@
 local druidWaterSkin = Action()
 function druidWaterSkin.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if target.itemid ~= 5663 then
+	if target.itemid ~= 5662 then
 		return false
 	end
 

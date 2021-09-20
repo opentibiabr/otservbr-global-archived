@@ -1,5 +1,5 @@
 local function returnCrystal(position, id)
-	local tile = Tile(position):getItemById(18311)
+	local tile = Tile(position):getItemById(15800)
 	if tile then
 		tile:transform(id)
 	end
@@ -12,11 +12,11 @@ function bigfootCrystal.onUse(player, item, fromPosition, target, toPosition, is
 		return false
 	end
 
-	if target.itemid == 18307 or target.itemid == 18228 then
+	if target.itemid == 15796 or target.itemid == 15712 then
 		player:setStorageValue(Storage.BigfootBurden.RepairedCrystalCount, repairedCount + 1)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have repaired a damaged crystal!')
 		addEvent(returnCrystal, math.random(50, 140) * 1000, toPosition, target.itemid)
-		target:transform(18311)
+		target:transform(15800)
 		toPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
 	else
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'This is no damaged crystal!')
@@ -24,5 +24,5 @@ function bigfootCrystal.onUse(player, item, fromPosition, target, toPosition, is
 	return true
 end
 
-bigfootCrystal:id(18219)
+bigfootCrystal:id(15703)
 bigfootCrystal:register()

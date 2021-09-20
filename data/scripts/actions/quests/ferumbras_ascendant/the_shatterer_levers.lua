@@ -1,40 +1,40 @@
 local chains = {
 	West = {
-		[1] = {itemid = 23656, position = Position(33401, 32419, 14)},
-		[2] = {itemid = 23655, position = Position(33402, 32419, 14)},
-		[3] = {itemid = 23655, position = Position(33403, 32419, 14)},
-		[4] = {itemid = 23657, position = Position(33404, 32419, 14)},
-		[5] = {itemid = 23656, position = Position(33405, 32419, 14)},
-		[6] = {itemid = 23657, position = Position(33406, 32419, 14)},
-		[7] = {itemid = 1495, position = Position(33403, 32418, 14)},
-		[8] = {itemid = 1495, position = Position(33404, 32418, 14)}
+		[1] = {itemid = 21285, position = Position(33401, 32419, 14)},
+		[2] = {itemid = 21284, position = Position(33402, 32419, 14)},
+		[3] = {itemid = 21284, position = Position(33403, 32419, 14)},
+		[4] = {itemid = 21286, position = Position(33404, 32419, 14)},
+		[5] = {itemid = 21285, position = Position(33405, 32419, 14)},
+		[6] = {itemid = 21286, position = Position(33406, 32419, 14)},
+		[7] = {itemid = 2126, position = Position(33403, 32418, 14)},
+		[8] = {itemid = 2126, position = Position(33404, 32418, 14)}
 	},
 	North = {
-		[1] = {itemid = 23659, position = Position(33407, 32414, 14)},
-		[2] = {itemid = 23658, position = Position(33407, 32415, 14)},
-		[3] = {itemid = 23660, position = Position(33407, 32416, 14)},
-		[4] = {itemid = 23659, position = Position(33407, 32417, 14)},
-		[5] = {itemid = 23660, position = Position(33407, 32418, 14)},
-		[6] = {itemid = 1495, position = Position(33406, 32415, 14)},
-		[7] = {itemid = 1495, position = Position(33406, 32416, 14)}
+		[1] = {itemid = 21288, position = Position(33407, 32414, 14)},
+		[2] = {itemid = 21287, position = Position(33407, 32415, 14)},
+		[3] = {itemid = 21289, position = Position(33407, 32416, 14)},
+		[4] = {itemid = 21288, position = Position(33407, 32417, 14)},
+		[5] = {itemid = 21289, position = Position(33407, 32418, 14)},
+		[6] = {itemid = 2126, position = Position(33406, 32415, 14)},
+		[7] = {itemid = 2126, position = Position(33406, 32416, 14)}
 	},
 	East = {
-		[1] = {itemid = 23656, position = Position(33408, 32419, 14)},
-		[2] = {itemid = 23657, position = Position(33409, 32419, 14)},
-		[3] = {itemid = 23656, position = Position(33410, 32419, 14)},
-		[4] = {itemid = 23655, position = Position(33411, 32419, 14)},
-		[5] = {itemid = 23657, position = Position(33412, 32419, 14)},
-		[6] = {itemid = 1495, position = Position(33408, 32418, 14)},
-		[7] = {itemid = 1495, position = Position(33409, 32418, 14)}
+		[1] = {itemid = 21285, position = Position(33408, 32419, 14)},
+		[2] = {itemid = 21286, position = Position(33409, 32419, 14)},
+		[3] = {itemid = 21285, position = Position(33410, 32419, 14)},
+		[4] = {itemid = 21284, position = Position(33411, 32419, 14)},
+		[5] = {itemid = 21286, position = Position(33412, 32419, 14)},
+		[6] = {itemid = 2126, position = Position(33408, 32418, 14)},
+		[7] = {itemid = 2126, position = Position(33409, 32418, 14)}
 	},
 	South = {
-		[1] = {itemid = 23659, position = Position(33407, 32420, 14)},
-		[2] = {itemid = 23660, position = Position(33407, 32421, 14)},
-		[3] = {itemid = 23659, position = Position(33407, 32422, 14)},
-		[4] = {itemid = 23658, position = Position(33407, 32423, 14)},
-		[5] = {itemid = 23660, position = Position(33407, 32424, 14)},
-		[6] = {itemid = 1495, position = Position(33406, 32420, 14)},
-		[7] = {itemid = 1495, position = Position(33406, 32421, 14)}
+		[1] = {itemid = 21288, position = Position(33407, 32420, 14)},
+		[2] = {itemid = 21289, position = Position(33407, 32421, 14)},
+		[3] = {itemid = 21288, position = Position(33407, 32422, 14)},
+		[4] = {itemid = 21287, position = Position(33407, 32423, 14)},
+		[5] = {itemid = 21289, position = Position(33407, 32424, 14)},
+		[6] = {itemid = 2126, position = Position(33406, 32420, 14)},
+		[7] = {itemid = 2126, position = Position(33406, 32421, 14)}
 	}
 }
 
@@ -44,8 +44,8 @@ function ferumbrasAscendantTheShattererLevers.onUse(player, item, fromPosition, 
 		player:sendCancelMessage('You cannot use this lever again.')
 		return true
 	end
-	if item.itemid == 9825 then
-		item:transform(9826)
+	if item.itemid == 8911 then
+		item:transform(8912)
 		if item:getPosition() == Position(33385, 32410, 14) then
 			for i = 1, #chains.West do
 				local chain = chains.West[i]
@@ -118,7 +118,7 @@ function ferumbrasAscendantTheShattererLevers.onUse(player, item, fromPosition, 
 			end
 		end
 		player:say('CLICK', TALKTYPE_MONSTER_SAY, false, nil, toPosition)
-	elseif item.itemid == 9826 then
+	elseif item.itemid == 8912 then
 		player:sendCancelMessage('Sorry, not possible.')
 		return true
 	end

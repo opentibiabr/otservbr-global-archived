@@ -1,9 +1,9 @@
 local pitsOfInfernoTrapLever = Action()
 function pitsOfInfernoTrapLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
-	item:transform(item.itemid == 1945 and 1946 or 1945)
+	item:transform(item.itemid == 2772 and 2773 or 2772)
 
-	if item.itemid ~= 1945 then
+	if item.itemid ~= 2772 then
 		return true
 	end
 

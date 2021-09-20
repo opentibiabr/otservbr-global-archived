@@ -65,17 +65,17 @@ local config = {
 }
 
 function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		for i = 1, #playerPositions do
 			local creature = Tile(playerPositions[i]):getTopCreature()
 			if not creature then
-				item:transform(9826)
+				item:transform(8912)
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need 5 players to fight with this boss.")
 				return true
 			end
 		end
 	end
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		if roomIsOccupied(setting.centerRoom, setting.range, setting.range) then
 			player:say("Someone is fighting against the boss! You need wait awhile.", TALKTYPE_MONSTER_SAY)
 			return true
@@ -120,9 +120,9 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		-- One hour for clean the room
 		addEvent(clearRoom, 60 * 60 * 1000, Position(33583, 31022, 14), 50, 50, fromPosition)
 		Game.createMonster("spirit of fertility", Position(33625, 31021, 14), true, true)
-		item:transform(9826)
-	elseif item.itemid == 9826 then
-		item:transform(9825)
+		item:transform(8912)
+	elseif item.itemid == 8912 then
+		item:transform(8911)
 	end
 	return true
 end

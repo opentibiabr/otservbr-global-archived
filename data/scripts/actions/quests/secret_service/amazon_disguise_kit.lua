@@ -10,5 +10,5 @@ function secretServiceKit.onUse(player, item, fromPosition, target, toPosition, 
 	return true
 end
 
-secretServiceKit:id(7700)
+secretServiceKit:id(397)
 secretServiceKit:register()

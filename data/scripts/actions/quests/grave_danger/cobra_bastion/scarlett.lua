@@ -5,21 +5,21 @@ local info = {
 	toPos = Position(33406, 32660, 6),
 	exitPos = Position(33395, 32670, 6),
 	timer = Storage.GraveDanger.CobraBastion.ScarlettTimer,
-	armorId = 36317,
+	armorId = 31482,
 	armorPos = Position(33398, 32640, 6),
 }
 
 local entry = {
-	metalWallId = 36284,
+	metalWallId = 31449,
 	roomEntryPos = Position(33395, 32666, 6),
 	roomExitPos = Position(33395, 32668, 6)
 }
 
 local transformTo = {
-	[36309] = 36310,
-	[36310] = 36311,
-	[36311] = 36312,
-	[36312] = 36309
+	[31474] = 31475,
+	[31475] = 31476,
+	[31476] = 31477,
+	[31477] = 31474
 }
 
 local function createArmor(id, amount, pos)
@@ -35,7 +35,7 @@ function graveScarlettUid.onUse(player, item, fromPosition, target, toPosition, 
 			for x = info.middle.x - 1, info.middle.x + 1 do
 				for y = info.middle.y - 1, info.middle.y + 1 do
 					local sqm = Tile(Position(x, y, 6))
-					if sqm and sqm:getGround():getId() == 20293 then
+					if sqm and sqm:getGround():getId() == 18013 then
 						local player_ = sqm:getTopCreature()
 						if player_ and player_:isPlayer() then
 							if player_:getStorageValue(info.timer) > os.time() then
@@ -75,7 +75,7 @@ graveScarlettUid:register()
 local mirror = {
 	fromPos = Position(33389, 32641, 6),
 	toPos = Position(33403, 32655, 6),
-	mirrors = {36309, 36310, 36311, 36312}
+	mirrors = {31474, 31475, 31476, 31477}
 }
 
 local function backMirror()

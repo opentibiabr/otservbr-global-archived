@@ -4,7 +4,7 @@ function greenTear.onUse(player, item, fromPosition, target, toPosition, isHotke
 		return true
 	end
 
-	Game.createItem(2346, 1, fromPosition)
+	Game.createItem(3233, 1, fromPosition)
 	player:setStorageValue(Storage.DjinnWar.EfreetFaction.Mission02, 2)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a tear of daraman.")
 	return true

@@ -9,10 +9,10 @@ function exterminatorFlask.onUse(player, item, fromPosition, target, toPosition,
 	end
 
 	player:setStorageValue(Storage.TibiaTales.TheExterminator, 2)
-	item:transform(2006, 0)
+	item:transform(2874, 0)
 	toPosition:sendMagicEffect(CONST_ME_GREEN_RINGS)
 	return true
 end
 
-exterminatorFlask:id(8205)
+exterminatorFlask:id(12784)
 exterminatorFlask:register()

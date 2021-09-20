@@ -4,7 +4,7 @@ function pitsOfInfernoGoshnar.onUse(player, item, fromPosition, target, toPositi
 		return false
 	end
 
-	if not Tile(toPosition):getItemById(2016, 2) then
+	if not Tile(toPosition):getItemById(2886, 2) then
 		return true
 	end
 

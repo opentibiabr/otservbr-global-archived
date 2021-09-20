@@ -1,5 +1,5 @@
 local transformid = {
-	[30735] = 30737,
+	[27500] = 27502,
 }
 
 local dangerousDepthPump = Action()

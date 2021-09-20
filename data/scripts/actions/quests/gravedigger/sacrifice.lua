@@ -5,7 +5,7 @@ function gravediggerSacrifice.onUse(player, item, fromPosition, target, toPositi
 		if skullItem then
 			skullItem:remove()
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The scroll burns to dust. The magic stutters. Omrabas\' soul flees to his old hideaway.')
-			player:removeItem(21251, 1)
+			player:removeItem(18934, 1)
 			player:setStorageValue(Storage.GravediggerOfDrefia.Mission74, 1)
 			Game.createMonster("Chicken", Position(33015, 32418, 11))
 		end
@@ -14,7 +14,7 @@ function gravediggerSacrifice.onUse(player, item, fromPosition, target, toPositi
 	return true
 end
 
-gravediggerSacrifice:id(21251)
+gravediggerSacrifice:id(18934)
 gravediggerSacrifice:register()
 
 -- SE DER RUIM AI EM CIMA, COLOCAR ESSE:
@@ -25,7 +25,7 @@ gravediggerSacrifice:register()
 		--if skullItem then
 		--	skullItem:remove()
 		--	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The scroll burns to dust. The magic stutters. Omrabas\' soul flees to his old hideaway.')
-		--	player:removeItem(21251, 1)
+		--	player:removeItem(18934, 1)
 			--player:setStorageValue(Storage.GravediggerOfDrefia.Mission73, 1)
 		--	Game.createMonster("Chicken", Position(33015, 32418, 11))
 		--end

@@ -1,7 +1,7 @@
 local poacherUse = Action()
 function poacherUse.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 3) then
-        if (target.itemid == 13805 or target.itemid == 13806)then
+        if (target.itemid == 12648 or target.itemid == 12649)then
             target:decay()
             item:remove(1)
             player:say("You are placing the book on the table, hopefully the poachers will discover it soon.", TALKTYPE_ORANGE_1)
@@ -14,5 +14,5 @@ function poacherUse.onUse(player, item, fromPosition, target, toPosition, isHotk
     end
 end
 
-poacherUse:id(28596)
+poacherUse:id(25235)
 poacherUse:register()

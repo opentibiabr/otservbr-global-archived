@@ -12,9 +12,9 @@ function whatFoolishWorn.onUse(player, item, fromPosition, target, toPosition, i
 	player:setStorageValue(Storage.WhatAFoolish.OldWornCloth, 1)
 	player:say('Amazing! That was quite fast!', TALKTYPE_MONSTER_SAY)
 	toPosition:sendMagicEffect(CONST_ME_BLOCKHIT)
-	item:transform(7501)
+	item:transform(143)
 	return true
 end
 
-whatFoolishWorn:id(7500)
+whatFoolishWorn:id(142)
 whatFoolishWorn:register()

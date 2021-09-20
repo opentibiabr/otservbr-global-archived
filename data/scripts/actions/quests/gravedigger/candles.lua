@@ -7,11 +7,11 @@ function gravediggerCandles.onUse(player, item, fromPosition, target, toPosition
 	if player:getStorageValue(Storage.GravediggerOfDrefia.Mission31) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission32) < 1 then
 		player:setStorageValue(Storage.GravediggerOfDrefia.Mission32, 1)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Reading the parchment, you identify three human tallow candles and pocket them.')
-		player:addItem(21248, 3)
+		player:addItem(18931, 3)
 		item:remove(1)
 	end
 	return true
 end
 
-gravediggerCandles:id(21448)
+gravediggerCandles:id(19132)
 gravediggerCandles:register()

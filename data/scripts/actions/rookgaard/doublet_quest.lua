@@ -5,7 +5,7 @@ function doubletQuest.onUse(player, item, fromPosition, target, toPosition, isHo
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The loose board is empty.')
 	else
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have found a doublet.')
-		player:addItem(2485, 1)
+		player:addItem(3379, 1)
 		player:setStorageValue(Storage.QuestChests.DoubletQuest, 1)
 	end
 	return true

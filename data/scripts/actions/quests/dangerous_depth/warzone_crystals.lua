@@ -27,10 +27,10 @@ local crystals = {
 }
 
 local crystalsChance = {
-	[30738] = 1, -- Large Crystal
-	[30740] = 5, -- Medium Crystal
-	[17017] = 5, -- Medium Crystal
-	[32405] = 7, -- Small Crystal
+	[27503] = 1, -- Large Crystal
+	[27505] = 5, -- Medium Crystal
+	[14831] = 5, -- Medium Crystal
+	[28705] = 7, -- Small Crystal
 }
 
 local function createCrystal(crystalId, player)
@@ -40,7 +40,7 @@ local function createCrystal(crystalId, player)
 	end
 
 	local chance = math.random(10)
-	local itemId = chance <= crystalChance and 18554 or 31993
+	local itemId = chance <= crystalChance and 20131 or 27509
 
 	local item = Game.createItem(itemId, 1)
 	local ret = player:addItemEx(item)

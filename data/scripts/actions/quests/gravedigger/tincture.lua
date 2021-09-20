@@ -12,5 +12,5 @@ function gravediggerTincture.onUse(player, item, fromPosition, target, toPositio
 	return true
 end
 
-gravediggerTincture:id(21245)
+gravediggerTincture:id(18928)
 gravediggerTincture:register()

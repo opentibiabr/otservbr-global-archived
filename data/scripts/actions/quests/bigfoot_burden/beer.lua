@@ -10,5 +10,5 @@ function bigfootBeer.onUse(player, item, fromPosition, target, toPosition, isHot
 	return true
 end
 
-bigfootBeer:id(18305)
+bigfootBeer:id(15794)
 bigfootBeer:register()

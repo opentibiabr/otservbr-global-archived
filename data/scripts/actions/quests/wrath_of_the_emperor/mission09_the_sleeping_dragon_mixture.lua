@@ -11,5 +11,5 @@ function wrathEmperorMiss9Sleeping.onUse(player, item, fromPosition, target, toP
 	return true
 end
 
-wrathEmperorMiss9Sleeping:id(12328)
+wrathEmperorMiss9Sleeping:id(11372)
 wrathEmperorMiss9Sleeping:register()

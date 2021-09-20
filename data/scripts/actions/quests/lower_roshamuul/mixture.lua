@@ -1,6 +1,6 @@
 local buckets = {
-    [22387] = 22388,
-    [22388] = 22387
+    [20053] = 20054,
+    [20054] = 20053
 }
 
 local lowerRoshamuulMixtune = Action()
@@ -10,11 +10,11 @@ function lowerRoshamuulMixtune.onUse(player, item, fromPosition, target, toPosit
     end
 
     if target:getId() == buckets[item:getId()] then
-        item:transform(2005, 0)
-        target:transform(22503)
+        item:transform(2873, 0)
+        target:transform(20169)
     end
     return true
 end
 
-lowerRoshamuulMixtune:id(22387,22388)
+lowerRoshamuulMixtune:id(20053,20054)
 lowerRoshamuulMixtune:register()

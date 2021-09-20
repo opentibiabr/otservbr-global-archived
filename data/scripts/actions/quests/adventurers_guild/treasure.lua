@@ -1,14 +1,14 @@
 local items = {
     { description = 'a platinum coins', items = {{ id = ITEM_PLATINUM_COIN, count = 5 }}},
     { description = 'some gems', items = {
-        { id = 2146, count = 1 },
-        { id = 2149, count = 1 },
-        { id = 2147, count = 1 }
+        { id = 3029, count = 1 },
+        { id = 3032, count = 1 },
+        { id = 3030, count = 1 }
     }},
-    { description = 'a life ring', items = {{ id = 2205, count = 1 }} },
-    { description = 'a red gem', items = {{ id = 2156, count = 1 }} },
-    { description = 'a mana potion', items = {{ id = 7589, count = 10 }} },
-    { description = 'a health potion', items = {{ id = 7588, count = 8 }} }
+    { description = 'a life ring', items = {{ id = 3089, count = 1 }} },
+    { description = 'a red gem', items = {{ id = 3039, count = 1 }} },
+    { description = 'a mana potion', items = {{ id = 237, count = 10 }} },
+    { description = 'a health potion', items = {{ id = 236, count = 8 }} }
 }
 
 local adventurersTreasure = Action()

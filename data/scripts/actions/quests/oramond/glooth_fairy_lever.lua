@@ -39,8 +39,8 @@ end
 
 local oramondGloothLever = Action()
 function oramondGloothLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 9827 then
-		if getGlobalStorageValue(18081) >= os.time() then
+	if item.itemid == 8913 then
+		if getGlobalStorageValue(15560) >= os.time() then
 			doPlayerSendTextMessage(player, 19, "You need to wait 15 minutes to use again.")
 			return true
 		end
@@ -60,7 +60,7 @@ function oramondGloothLever.onUse(player, item, fromPosition, target, toPosition
 
 	end
 
-	item:transform(item.itemid == 9827 and 9828 or 9827)
+	item:transform(item.itemid == 8913 and 8914 or 8913)
 	return true
 end
 

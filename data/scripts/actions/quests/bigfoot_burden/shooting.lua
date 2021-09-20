@@ -4,10 +4,10 @@ function bigfootShooting.onUse(player, item, fromPosition, target, toPosition, i
 	if player:getStorageValue(Storage.BigfootBurden.Shooting) < 5 then
 		local pos = Position(playerPos.x, playerPos.y - 5, 10)
 		local tile = Tile(pos)
-		if tile:getItemById(18226) then
+		if tile:getItemById(15710) then
 			player:setStorageValue(Storage.BigfootBurden.Shooting, player:getStorageValue(Storage.BigfootBurden.Shooting) + 1)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Hit!")
-			tile:getItemById(18226):remove()
+			tile:getItemById(15710):remove()
 			pos:sendMagicEffect(CONST_ME_FIREATTACK)
 			for i = 2, 4 do
 				Position(playerPos.x, playerPos.y - i, 10):sendMagicEffect(CONST_ME_TELEPORT)
@@ -15,10 +15,10 @@ function bigfootShooting.onUse(player, item, fromPosition, target, toPosition, i
 			if player:getStorageValue(Storage.BigfootBurden.Shooting) >= 5 then
 				player:setStorageValue(Storage.BigfootBurden.QuestLine, 14)
 			end
-		elseif tile:getItemById(18227) then
+		elseif tile:getItemById(15711) then
 			player:setStorageValue(Storage.BigfootBurden.Shooting, 0)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You've hit the wrong target and have to start all over!")
-			tile:getItemById(18227):remove()
+			tile:getItemById(15711):remove()
 			pos:sendMagicEffect(CONST_ME_FIREATTACK)
 			for i = 2, 4 do
 				Position(playerPos.x, playerPos.y - i, 10):sendMagicEffect(CONST_ME_TELEPORT)
@@ -30,5 +30,5 @@ function bigfootShooting.onUse(player, item, fromPosition, target, toPosition, i
 	return true
 end
 
-bigfootShooting:id(18225)
+bigfootShooting:id(15709)
 bigfootShooting:register()

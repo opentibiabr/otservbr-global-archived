@@ -17,5 +17,5 @@ function whatFoolishCushion.onUse(player, item, fromPosition, target, toPosition
 	return true
 end
 
-whatFoolishCushion:id(7485)
+whatFoolishCushion:id(121)
 whatFoolishCushion:register()

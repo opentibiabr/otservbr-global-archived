@@ -83,36 +83,36 @@ local function createVortex()
 	if vortexPositions == 0 then
 		for i = 1, #positions1 do
 			local items = Tile(Position(positions1[i])):getGround()
-			items:transform(26127)
+			items:transform(23471)
 			addEvent(function()
-			items:transform(25707)
+			items:transform(23051)
 			end, tempo*1000)
 		end
 		vortexPositions = 1
 	elseif vortexPositions == 1 then
 		for i = 1, #positions2 do
 			local items = Tile(Position(positions2[i])):getGround()
-			items:transform(26127)
+			items:transform(23471)
 			addEvent(function()
-			items:transform(25707)
+			items:transform(23051)
 			end, tempo*1000)
 		end
 		vortexPositions = 2
 	elseif vortexPositions == 2 then
 		for i = 1, #positions3 do
 			local items = Tile(Position(positions3[i])):getGround()
-			items:transform(26127)
+			items:transform(23471)
 			addEvent(function()
-			items:transform(25707)
+			items:transform(23051)
 			end, tempo*1000)
 		end
 		vortexPositions = 3
 	elseif vortexPositions == 3 then
 		for i = 1, #positions4 do
 			local items = Tile(Position(positions4[i])):getGround()
-			items:transform(26127)
+			items:transform(23471)
 			addEvent(function()
-			items:transform(25707)
+			items:transform(23051)
 			end, tempo*1000)
 		end
 		vortexPositions = 0
@@ -141,7 +141,7 @@ function heartDestructionCracklers.onUse(player, item, fromPosition, itemEx, toP
 	local pushPos = {x = 32079, y = 31313, z = 13}
 
 	if item.actionid == 14326 then
-		if item.itemid == 9825 then
+		if item.itemid == 8911 then
 			if player:getPosition().x == pushPos.x and player:getPosition().y == pushPos.y and player:getPosition().z == pushPos.z then
 
 				local storePlayers, playerTile = {}
@@ -192,7 +192,7 @@ function heartDestructionCracklers.onUse(player, item, fromPosition, itemEx, toP
 				return true
 			end
 		end
-		item:transform(item.itemid == 9825 and 9826 or 9825)
+		item:transform(item.itemid == 8911 and 8912 or 8911)
 	end
 
 	return true

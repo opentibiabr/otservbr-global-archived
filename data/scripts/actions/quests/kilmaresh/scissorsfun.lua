@@ -1,269 +1,269 @@
 local config = {
-	[35261] = {
-		itemId = 35261,
+	[30426] = {
+		itemId = 30426,
 		msg = "You are cutting some veldt flowers.",
 		storage = Storage.Kilmaresh.Eighth.Yonan,
 		getValue = 2,
-		addValue = 36160
+		addItemId = 31325
 	}, -- Veldt Flower
-	[35257] = {
-		itemId = 35257,
+	[30422] = {
+		itemId = 30422,
 		msg = "You are cutting some snake maw.",
 		storage = Storage.Kilmaresh.Eighth.Shimun,
 		getValue = 2,
-		addValue = 36171
+		addItemId = 31336
 	}, -- Sanke Maw
-	[35262] = {
-		itemId = 35262,
+	[30427] = {
+		itemId = 30427,
 		msg = "You are cutting some desert rose blossoms.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36165
+		addItemId = 31330
 	}, -- Rose Blossoms
-	[13886] = {
-		itemId = 13886,
+	[12747] = {
+		itemId = 12747,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13887] = {
-		itemId = 13887,
+	[12748] = {
+		itemId = 12748,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13888] = {
-		itemId = 13888,
+	[12749] = {
+		itemId = 12749,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13889] = {
-		itemId = 13889,
+	[12750] = {
+		itemId = 12750,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13890] = {
-		itemId = 13890,
+	[12751] = {
+		itemId = 12751,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13891] = {
-		itemId = 13891,
+	[12752] = {
+		itemId = 12752,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13892] = {
-		itemId = 13892,
+	[12753] = {
+		itemId = 12753,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13893] = {
-		itemId = 13893,
+	[12754] = {
+		itemId = 12754,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13894] = {
-		itemId = 13894,
+	[12755] = {
+		itemId = 12755,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13895] = {
-		itemId = 13895,
+	[12756] = {
+		itemId = 12756,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13896] = {
-		itemId = 13896,
+	[12757] = {
+		itemId = 12757,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13897] = {
-		itemId = 13897,
+	[12758] = {
+		itemId = 12758,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13898] = {
-		itemId = 13898,
+	[12759] = {
+		itemId = 12759,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13899] = {
-		itemId = 13899,
+	[12760] = {
+		itemId = 12760,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13900] = {
-		itemId = 13900,
+	[12761] = {
+		itemId = 12761,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13901] = {
-		itemId = 13901,
+	[12762] = {
+		itemId = 12762,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13902] = {
-		itemId = 13902,
+	[12763] = {
+		itemId = 12763,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13903] = {
-		itemId = 13903,
+	[12764] = {
+		itemId = 12764,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13904] = {
-		itemId = 13904,
+	[12765] = {
+		itemId = 12765,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13905] = {
-		itemId = 13905,
+	[12766] = {
+		itemId = 12766,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13906] = {
-		itemId = 13906,
+	[12767] = {
+		itemId = 12767,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13907] = {
-		itemId = 13907,
+	[12768] = {
+		itemId = 12768,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13908] = {
-		itemId = 13908,
+	[12769] = {
+		itemId = 12769,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13909] = {
-		itemId = 13909,
+	[12770] = {
+		itemId = 12770,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13910] = {
-		itemId = 13910,
+	[12771] = {
+		itemId = 12771,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13911] = {
-		itemId = 13911,
+	[12772] = {
+		itemId = 12772,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13912] = {
-		itemId = 13912,
+	[12773] = {
+		itemId = 12773,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13913] = {
-		itemId = 13913,
+	[12774] = {
+		itemId = 12774,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13914] = {
-		itemId = 13914,
+	[12775] = {
+		itemId = 12775,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13915] = {
-		itemId = 13915,
+	[12776] = {
+		itemId = 12776,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13916] = {
-		itemId = 13916,
+	[12777] = {
+		itemId = 12777,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13917] = {
-		itemId = 13917,
+	[12778] = {
+		itemId = 12778,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13918] = {
-		itemId = 13918,
+	[12779] = {
+		itemId = 12779,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13919] = {
-		itemId = 13919,
+	[12780] = {
+		itemId = 12780,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
-	[13920] = {
-		itemId = 13920,
+	[12781] = {
+		itemId = 12781,
 		msg = "You are gathering some spiderweb cloud shreds. But you become entangled.",
 		storage = Storage.Kilmaresh.Eighth.Tefrit,
 		getValue = 2,
-		addValue = 36174
+		addItemId = 31339
 	}, -- Spider Cloud Shreds
 }
 
@@ -275,7 +275,7 @@ function scissorsfun.onUse(player, item, fromPosition, target, toPosition, isHot
 			if table.contains({key.itemId
 			}, target.itemid) then
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, key.msg)
-				player:addItem(key.addValue, 1)
+				player:addItem(key.addItemId, 1)
 			end
 		else
 			player:sendTextMessage(MESSAGE_FAILURE, "Sorry, not possible.")
@@ -284,5 +284,5 @@ function scissorsfun.onUse(player, item, fromPosition, target, toPosition, isHot
 	return true
 end
 
-scissorsfun:id(36162)
+scissorsfun:id(31327)
 scissorsfun:register()

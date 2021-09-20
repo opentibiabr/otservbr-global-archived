@@ -20,5 +20,5 @@ function gravediggerPyramids1.onUse(player, item, fromPosition, target, toPositi
 	return true
 end
 
-gravediggerPyramids1:id(21449)
+gravediggerPyramids1:id(19133)
 gravediggerPyramids1:register()

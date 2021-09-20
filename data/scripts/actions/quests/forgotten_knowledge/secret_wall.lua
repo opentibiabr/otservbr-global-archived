@@ -4,10 +4,10 @@ function forgottenKnowledgeSecret.onUse(player, item, fromPosition, target, toPo
 		player:teleportTo(Position(32891, 31620, 10))
 		return true
 	end
-	if not player:getItemById(26406, true) then
+	if not player:getItemById(23738, true) then
 		return false
 	end
-	if player:getStorageValue(Storage.ForgottenKnowledge.SilverKey) < 1 or not player:getItemById(26401, true) then
+	if player:getStorageValue(Storage.ForgottenKnowledge.SilverKey) < 1 or not player:getItemById(23733, true) then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You don\'t have the fitting key.')
 		return true
 	end

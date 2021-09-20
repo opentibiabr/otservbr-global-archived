@@ -8,7 +8,7 @@ end
 
 local heroRathletonGlooth = Action()
 function heroRathletonGlooth.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid ~= 24112 then
+	if item.itemid ~= 21743 then
 		return false
 	end
 
@@ -21,7 +21,7 @@ function heroRathletonGlooth.onUse(player, item, fromPosition, target, toPositio
 		player:say('All machines are working, now is possible to use the teleport at west.', TALKTYPE_MONSTER_SAY)
 	end
 
-	item:transform(24113)
+	item:transform(21744)
 	addEvent(revertMachine, 10 * 60 * 1000, toPosition, 24113, 24112)
 	Game.setStorageValue(GlobalStorage.HeroRathleton.SecondMachines, Game.getStorageValue(GlobalStorage.HeroRathleton.SecondMachines) + 1)
 	player:say('~Zzzz~\n The machine is working!', TALKTYPE_MONSTER_SAY, false, nil, toPosition)

@@ -4,10 +4,10 @@ function gravediggerCape.onUse(player, item, fromPosition, target, toPosition, i
 		player:setStorageValue(Storage.GravediggerOfDrefia.Mission60, 1)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You now look like a Necromancer.')
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
-		player:removeItem(21464, 1)
+		player:removeItem(19148, 1)
 	end
 	return true
 end
 
-gravediggerCape:id(21464)
+gravediggerCape:id(19148)
 gravediggerCape:register()

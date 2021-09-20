@@ -10,7 +10,7 @@ function crystaldeepling.onUse(player, item, fromPosition, target, toPosition, i
 			player:setStorageValue(Storage.DeeplingsWorldChange.Crystal, 3)
 		elseif player:getStorageValue(Storage.DeeplingsWorldChange.Crystal) == 3 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"With considerable effort you manage to knock a largely unscathed rough gem out of the rocks.")
-			player:addItem(15565, 1)
+			player:addItem(14162, 1)
 			player:setStorageValue(Storage.DeeplingsWorldChange.Crystal, 4)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"Sorry.")

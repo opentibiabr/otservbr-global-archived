@@ -6,13 +6,13 @@ local config = {
 
 local ferumbrasAscendantRazzagornLever = Action()
 function ferumbrasAscendantRazzagornLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		if player:getPosition() ~= Position(33386, 32455, 14) then
-			item:transform(9826)
+			item:transform(8912)
 			return true
 		end
 	end
-	if item.itemid == 9825 then
+	if item.itemid == 8911 then
 		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 15, 15, 15, 15)
 		for i = 1, #specs do
 			spec = specs[i]
@@ -31,9 +31,9 @@ function ferumbrasAscendantRazzagornLever.onUse(player, item, fromPosition, targ
 			end
 		end
 		addEvent(clearForgotten, 30 * 60 * 1000, Position(33408, 32454, 14), Position(33440, 32480, 14), Position(33319, 32318, 13))
-		item:transform(9826)
-	elseif item.itemid == 9826 then
-		item:transform(9825)
+		item:transform(8912)
+	elseif item.itemid == 8912 then
+		item:transform(8911)
 	end
 	return true
 end

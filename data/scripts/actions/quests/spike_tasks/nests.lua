@@ -22,11 +22,11 @@ function spikeTasksNests.onUse(player, item, fromPosition, target, toPosition, i
 		Game.createMonster(summon[math.random(#summon)], player:getPosition())
 	end
 
-	item:transform(21560)
+	item:transform(19210)
 	item:decay()
 	toPosition:sendMagicEffect(17)
 	return true
 end
 
-spikeTasksNests:id(21559)
+spikeTasksNests:id(19209)
 spikeTasksNests:register()

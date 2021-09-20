@@ -1,4 +1,4 @@
-local lionsRockSanctuaryRockId = 3608
+local lionsRockSanctuaryRockId = 1852
 
 local rewards = {
 	'emerald bangle',
@@ -15,7 +15,7 @@ local UniqueTable = {
 		storage = Storage.LionsRock.LionsStrength,
 		itemPosition = {x = 33137, y = 32291, z = 8},
 		pagodaPosition = { x = 33134, y = 32289, z = 8},
-		item = 10551,
+		item = 9634,
 		storage = Storage.LionsRock.Questline,
 		value = 1,
 		newValue = 2,
@@ -27,7 +27,7 @@ local UniqueTable = {
 		storage = Storage.LionsRock.LionsBeauty,
 		itemPosition = {x = 33138, y = 32369, z = 8},
 		pagodaPosition = { x = 33136, y = 32369, z = 8},
-		item = 23760,
+		item = 21389,
 		storage = Storage.LionsRock.Questline,
 		value = 2,
 		newValue = 3,
@@ -38,7 +38,7 @@ local UniqueTable = {
 		storage = Storage.LionsRock.LionsTears,
 		itemPosition = {x = 33154, y = 32279, z = 8},
 		pagodaPosition = { x = 33156, y = 32279, z = 8},
-		item = 23835,
+		item = 21466,
 		storage = Storage.LionsRock.Questline,
 		value = 3,
 		newValue = 4,
@@ -59,7 +59,7 @@ function lionsRockSkeleton.onUse(player, item, fromPosition, target, toPosition,
 
 	if player:getStorageValue(Storage.LionsRock.Questline) < 0 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have discovered a skeleton. It seems to hold an old parchment.')
-		player:addItem(23784, 1):setAttribute(
+		player:addItem(21413, 1):setAttribute(
 			ITEM_ATTRIBUTE_TEXT,
 			"\"Still it is hard to believe that I finally found the mystical rock formations near Darashia, \z
 			known as Lion's Rock. According to ancient records there is a temple for an unknown, probably long \z
@@ -95,17 +95,17 @@ function lionsRockSacrificesTest.onUse(player, item, fromPosition, target, toPos
 	end
 
 	local function reset()
-		local pagodaLit = Tile(setting.itemPosition):getItemById(3710)
+		local pagodaLit = Tile(setting.itemPosition):getItemById(2075)
 		if pagodaLit then
-			pagodaLit:transform(3709)
+			pagodaLit:transform(2074)
 		end
 	end
 
 	if item.itemid == setting.item then
 		if player:getStorageValue(setting.storage) == setting.value then
-			local pagoda = Tile(setting.pagodaPosition):getItemById(3709)
+			local pagoda = Tile(setting.pagodaPosition):getItemById(2074)
 			if pagoda then
-				pagoda:transform(3710)
+				pagoda:transform(2075)
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, setting.message)
 				player:setStorageValue(setting.storage, setting.newValue)
 				player:removeItem(setting.item, 1)
@@ -117,20 +117,20 @@ function lionsRockSacrificesTest.onUse(player, item, fromPosition, target, toPos
 	return true
 end
 
-lionsRockSacrificesTest:id(10551)
-lionsRockSacrificesTest:id(23760)
-lionsRockSacrificesTest:id(23835)
+lionsRockSacrificesTest:id(9634)
+lionsRockSacrificesTest:id(21389)
+lionsRockSacrificesTest:id(21466)
 lionsRockSacrificesTest:register()
 
 -- Get lions mane
 local lionsGetLionsMane = Action()
 
 function lionsGetLionsMane.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 23759 then
+	if item.itemid == 21388 then
 		if player:getStorageValue(Storage.LionsRock.Questline) > 0 then
 			if player:getStorageValue(Storage.LionsRock.GetLionsMane) < 0 then
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You picked a beautiful lion's mane flower.")
-				player:addItem(23760, 1)
+				player:addItem(21389, 1)
 				player:setStorageValue(Storage.LionsRock.GetLionsMane, 1)
 			end
 		end
@@ -138,7 +138,7 @@ function lionsGetLionsMane.onUse(player, item, fromPosition, target, toPosition,
 	return true
 end
 
-lionsGetLionsMane:id(23759)
+lionsGetLionsMane:id(21388)
 lionsGetLionsMane:register()
 
 -- Get holy water
@@ -153,7 +153,7 @@ function lionsGetHolyWater.onUse(player, item, fromPosition, target, toPosition,
 	if player:getStorageValue(Storage.LionsRock.Questline) > 0 then
 		if player:getStorageValue(Storage.LionsRock.GetHolyWater) < 0 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You took some holy water from the sacred well.')
-			player:addItem(23835, 1)
+			player:addItem(21466, 1)
 			player:setStorageValue(Storage.LionsRock.GetHolyWater, 1)
 		end
 	end
@@ -168,8 +168,8 @@ local lionsRockTranslationScroll = Action()
 
 function lionsRockTranslationScroll.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local amphoraPos = Position(33119, 32247, 9)
-	local amphoraID = 24314
-	local amphoraBrokenID = 24315
+	local amphoraID = 21945
+	local amphoraBrokenID = 21946
 
 	local function reset()
 		local brokenAmphora = Tile(amphoraPos):getItemById(amphoraBrokenID)
@@ -188,7 +188,7 @@ function lionsRockTranslationScroll.onUse(player, item, fromPosition, target, to
 				Amidst the debris you discover an old scroll.'
 			)
 			player:setStorageValue(Storage.LionsRock.Questline, 5)
-			player:addItem(23836, 1)
+			player:addItem(21467, 1)
 			toPosition:sendMagicEffect(CONST_ME_GROUNDSHAKER)
 			addEvent(reset, 15 * 1000)
 		end
@@ -231,5 +231,5 @@ function lionsRockFountain.onUse(player, item, fromPosition, target, toPosition,
 	return true
 end
 
-lionsRockFountain:id(6390)
+lionsRockFountain:id(6389)
 lionsRockFountain:register()
