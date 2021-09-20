@@ -25,9 +25,9 @@ local function transformCrystal()
 		local crystal = crystals[c]
 		Game.getStorageValue(crystal.globalStorage, 0)
 		Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Crystals.AllCrystals, 0)
-		local item = Tile(crystal.crystalPosition):getItemById(17586)
+		local item = Tile(crystal.crystalPosition):getItemById(14961)
 		if item then
-			item:transform(17580)
+			item:transform(14955)
 		end
 	end
 end
@@ -67,13 +67,13 @@ function ascendantBossesKill.onKill(creature, target)
 		end
 	end
 
-	local teleport = Tile(bossConfig.teleportPos):getItemById(1387)
+	local teleport = Tile(bossConfig.teleportPos):getItemById(1949)
 	if not teleport then
 		return true
 	end
 
 	if teleport then
-		teleport:transform(25417)
+		teleport:transform(22761)
 		targetMonster:getPosition():sendMagicEffect(CONST_ME_THUNDER)
 		teleport:setDestination(bossConfig.godbreakerPos)
 		addEvent(revertTeleport, 2 * 60 * 1000, bossConfig.teleportPos, 25417, 1387, teleport:getDestination())

@@ -28,9 +28,9 @@ function bossesKill.onKill(creature, target)
 	Game.setStorageValue(bossConfig.storage, 0)
 	local tile = Tile(bossConfig.position)
 	if tile then
-		local thing = tile:getItemById(11753)
+		local thing = tile:getItemById(10797)
 		if thing then
-			thing:transform(12383)
+			thing:transform(11427)
 		end
 	end
 	return true

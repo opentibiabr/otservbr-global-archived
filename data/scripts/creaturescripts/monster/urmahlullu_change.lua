@@ -3,8 +3,8 @@ local WeakenedDeath = CreatureEvent("WeakenedDeath")
 local timetochange = 60 --in seconds
 
 local config = {
-    {itemId = 36248},
-    {itemId = 2016},
+    {itemId = 31413},
+    {itemId = 2886},
 }
 
 --base urmahlullu have 515000/515000 hp, next form 400000/515000,

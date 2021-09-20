@@ -1,8 +1,3 @@
---[[
-Created by gagoosh [gudan garam on otland]
-for otx server malucoo
-]]
-
 local positionsWall = {
 	{x = 33098, y = 31979, z = 11},
 	{x = 33098, y = 31978, z = 11},
@@ -58,7 +53,7 @@ function parasiteWarzone.onKill(player, target)
 		return false
 	end
 
-	if config.wall < 18461 and config.wall >= 18459 then
+	if config.wall < 16171 and config.wall >= 16169 then
 		for i = 1, #positionsWall do
 			local crystal = Tile(positionsWall[i]):getItemById(config.wall)
 			if crystal then
@@ -67,14 +62,14 @@ function parasiteWarzone.onKill(player, target)
 			end
 		end
 		config.wall = config.wall + 1
-	elseif config.wall == 18461 then
+	elseif config.wall == 16171 then
 		for i = 1, #positionsWall do
 			local crystal = Tile(positionsWall[i]):getItemById(config.wall)
 			if crystal then
 				Tile(positionsWall[i]):getItemById(config.wall):remove()
 			end
 		end
-		config.wall = 18459
+		config.wall = 16169
 		addEvent(recreateCrystals, 1 * 60 * 1000, config)
 		addEvent(warzoneConfig.spawnBoss, 1 * 60 * 1000, config.boss, config.bossResp)
 		addEvent(warzoneConfig.resetRoom, 30 * 60 * 1000, config, "You were teleported out by the gnomish emergency device.", true)

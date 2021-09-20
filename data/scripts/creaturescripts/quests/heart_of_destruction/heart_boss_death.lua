@@ -118,14 +118,14 @@ function heartBossDeath.onDeath(creature)
 	if bossName then
 		local vortex = Tile(bossName.tile):getItemById(26139)
 		if vortex then
-			vortex:transform(26138)
+			vortex:transform(23482)
 			vortex:setActionId(bossName.actionId)
 		end
 		setStorage(bossName.fromPos, bossName.toPos, bossName.storage)
 	elseif monsterName == "world devourer" then
 		local vortex = Tile({x = 32281, y = 31348, z = 14}):getItemById(26139)
 		if vortex then
-			vortex:transform(26138)
+			vortex:transform(23482)
 			vortex:setActionId(14354)
 		end
 		setStorageDevourer()

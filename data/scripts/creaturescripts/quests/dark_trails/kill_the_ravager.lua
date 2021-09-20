@@ -1,5 +1,5 @@
 local function removeTeleport(position)
-	local teleportItem = Tile({x = 33496, y = 32070, z = 8}):getItemById(1387)
+	local teleportItem = Tile({x = 33496, y = 32070, z = 8}):getItemById(1949)
 	if teleportItem then
 		teleportItem:remove()
 		position:sendMagicEffect(CONST_ME_POFF)

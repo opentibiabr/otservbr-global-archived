@@ -24,11 +24,11 @@ function riftInvaderDeath.onDeath(creature, corpse, lasthitkiller, mostdamagekil
 		local crystal = crystals[i]
 		if isInRange(targetMonster:getPosition(), crystal.fromPosition, crystal.toPosition) then
 			if Game.getStorageValue(crystal.globalStorage) > 8 then
-				local item = Tile(crystal.crystalPosition):getItemById(17580)
+				local item = Tile(crystal.crystalPosition):getItemById(14955)
 				if not item then
 					return true
 				end
-				item:transform(17586)
+				item:transform(14961)
 				Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Crystals.AllCrystals, Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Crystals.AllCrystals) + 1)
 			end
 			if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Crystals.AllCrystals) == 8 then

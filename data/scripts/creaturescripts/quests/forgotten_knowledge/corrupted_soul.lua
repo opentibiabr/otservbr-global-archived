@@ -14,13 +14,13 @@ function corruptedSoul.onDeath(creature, corpse, lasthitkiller, mostdamagekiller
 	local pos = targetMonster:getPosition()
 	local vortex = Tile(pos):getItemById(26394) or Tile(pos):getItemById(26395) or Tile(pos):getItemById(26396)
 	if not vortex then
-		Game.createItem(26394, 1, pos)
+		Game.createItem(23726, 1, pos)
 		return true
 	end
-	if vortex:getId() == 26394 then
-		vortex:transform(26395)
-	elseif vortex:getId() == 26395 then
-		vortex:transform(26396)
+	if vortex:getId() == 23726 then
+		vortex:transform(23727)
+	elseif vortex:getId() == 23727 then
+		vortex:transform(23728)
 	end
 	addEvent(removeVortex, 30 * 1000, pos)
 	return true

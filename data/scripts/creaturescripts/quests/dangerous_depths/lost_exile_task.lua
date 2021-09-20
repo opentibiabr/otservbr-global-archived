@@ -35,7 +35,7 @@ function lostExileKill.onKill(creature, target)
 			end
 		end
 	elseif (isInArray({'makeshift home'}, monsterName)) then
-		local woodenTrash = Game.createItem(7701, 1, target:getPosition())
+		local woodenTrash = Game.createItem(398, 1, target:getPosition())
 		woodenTrash:setActionId(57233)
 	end
 	return true

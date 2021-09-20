@@ -27,7 +27,7 @@ feroxaTransform:register()
 
 local feroxaDeath = CreatureEvent("FeroxaDeath")
 function feroxaDeath.onDeath(creature, corpse, deathList)
-	local pool = Tile(creature:getPosition()):getItemById(2016)
+	local pool = Tile(creature:getPosition()):getItemById(2886)
 	if pool then
 		pool:remove()
 	end

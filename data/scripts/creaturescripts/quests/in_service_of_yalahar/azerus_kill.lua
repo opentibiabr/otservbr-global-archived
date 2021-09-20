@@ -1,6 +1,6 @@
 
 local function removeTeleport(position)
-	local teleportItem = Tile(position):getItemById(1387)
+	local teleportItem = Tile(position):getItemById(1949)
 	if teleportItem then
 		teleportItem:remove()
 		position:sendMagicEffect(CONST_ME_POFF)
@@ -16,7 +16,7 @@ function azerus.onKill(creature, target)
 
 	local position = targetMonster:getPosition()
 	position:sendMagicEffect(CONST_ME_TELEPORT)
-	local item = Game.createItem(1387, 1, position)
+	local item = Game.createItem(1949, 1, position)
 	local teleportToPosition = Position(32780, 31168, 14)
 	if item:isTeleport() then
 		item:setDestination(teleportToPosition)

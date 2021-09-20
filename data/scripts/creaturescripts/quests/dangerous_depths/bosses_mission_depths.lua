@@ -1,7 +1,7 @@
 local function revert(position, toPosition)
-	local teleport = Tile(position):getItemById(25417)
+	local teleport = Tile(position):getItemById(22761)
 	if teleport then
-		teleport:transform(1387)
+		teleport:transform(1949)
 		teleport:setDestination(toPosition)
 	end
 end
@@ -35,9 +35,9 @@ function bossesMissionDepth.onKill(creature, creature)
 				end
 			end
 		end
-		local teleport = Tile(boss.teleportPosition):getItemById(1387)
+		local teleport = Tile(boss.teleportPosition):getItemById(1949)
 		if teleport then
-			teleport:transform(25417)
+			teleport:transform(22761)
 			teleport:setDestination(boss.toPosition)
 			addEvent(revert, 20*60*1000, boss.teleportPosition, boss.toPositionBack)
 		end
