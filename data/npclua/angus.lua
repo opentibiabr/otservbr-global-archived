@@ -405,7 +405,7 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Should the ice melt away, report on your ice delivery mission anyway. I will then tell you if the time is right to start another mission."
 			}, npc, creature)
 			npcHandler:setTopic(playerId, 0)
-			player:addItem(3456, 1)
+			player:addItem(4872, 1)
 		elseif npcHandler:getTopic(playerId) == 5 then
 			if player:removeItem(4837, 1) then
 				player:setStorageValue(Storage.ExplorerSociety.TheIceDelivery, 7)
