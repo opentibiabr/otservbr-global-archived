@@ -2570,11 +2570,10 @@ void ProtocolGame::parseMarketBrowse(NetworkMessage &msg)
 	}
 	else
 	{
-	player->sendMarketEnter(player->getLastDepotId());
 		addGameTask(&Game::playerBrowseMarket, player->getID(), browseId);
 	}
 	if (version >= 1200){
-		 player->sendMarketEnter(player->getLastDepotId());
+		player->sendMarketEnter(player->getLastDepotId());
 	}
 }
 
@@ -2845,15 +2844,17 @@ void ProtocolGame::sendCreatureType(const Creature *creature, uint8_t creatureTy
 	NetworkMessage msg;
 	msg.addByte(0x95);
 	msg.add<uint32_t>(creature->getID());
+
 	if (creatureType == CREATURETYPE_SUMMON_OTHERS) {
 		creatureType = CREATURETYPE_SUMMON_PLAYER;
 	}
+
 	if (player->getOperatingSystem() == CLIENTOS_WINDOWS && version >= 1200)
 	{
 		msg.addByte(creatureType); // type or any byte idk
 	}
 
-	if (creatureType == CREATURETYPE_SUMMONPLAYER && version >= 1200)
+	if (creatureType == CREATURETYPE_SUMMON_PLAYER && version >= 1200)
 	{
 		const Creature* master = creature->getMaster();
 		if (master) {
