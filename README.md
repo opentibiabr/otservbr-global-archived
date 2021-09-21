@@ -57,6 +57,7 @@ Before [creating a pull request](https://github.com/opentibiabr/otservbr-global/
   * [mattyx14/otxserver](https://github.com/mattyx14/otxserver) and contributors
   * [otland/forgottenserver](https://github.com/otland/forgottenserver) and contributors
   * [saiyansking/optimized_forgottenserver](https://github.com/SaiyansKing/optimized_forgottenserver) and contributors
+  * [Dominik Marszk](https://github.com/dmarszk/)
   * if we forget someone, we apologize by forgot you. but you know, **forgot**tenserver.
 
 ### **Sponsors**
