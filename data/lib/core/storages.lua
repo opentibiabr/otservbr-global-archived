@@ -82,7 +82,6 @@ Storage = {
 	-- General storages
 	isTraining = 30000,
 	NpcExhaust = 30001,
-	NpcExhaustOnBuy = 30002,
 	Dragonfetish = 30003,
 	EdronRopeQuest = 30004,
 	GhostShipQuest = 30005,
