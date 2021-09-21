@@ -18,36 +18,12 @@ jobs:
     - name: Setup xmllint
       run: sudo apt-get update && sudo apt-get install -y libxml2-utils
 
-    - name: Setup cppcheck
-      run: sudo apt-get install -y cppcheck
-
     - name: Check out code.
       uses: actions/checkout@v1
 
     - name: Setup reviewdog
       run: |
         mkdir -p $HOME/bin && curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b $HOME/bin
-
-    - name: cpplint
-      uses: reviewdog/action-cpplint@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        reporter: github-pr-check
-        filter: "-whitespace/tab\
-          ,-whitespace/line_length\
-          ,-whitespace/tab\
-          ,-build/include_subdir\
-          ,-whitespace/braces\
-          "
-        # flags: --linelength=120
-
-    - name: cppcheck
-      env:
-        REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        cd ${{ runner.workspace }}/otservbr-global
-        cppcheck --version
-        $HOME/bin/reviewdog -reporter=github-pr-check -runners=cppcheck
 
     - name: luacheck
       env:
