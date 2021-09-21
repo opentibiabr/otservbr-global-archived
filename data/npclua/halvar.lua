@@ -46,8 +46,8 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onSay(npc, creature, type, message)
 end
 
-npcType.onPlayerCloseChannel = function(npc, creature)
-	npcHandler:onPlayerCloseChannel(npc, creature)
+npcType.onCloseChannel = function(npc, creature)
+	npcHandler:onCloseChannel(npc, creature)
 end
 
 keywordHandler:addKeyword({'rules'}, StdModule.say, {npcHandler = npcHandler, text = 'What do you want to know? Something about the three different {difficulties}, the {general} rules or the {prices}? Maybe you also want to know what happens when you {die}?'})

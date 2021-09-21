@@ -52,8 +52,8 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onSay(npc, creature, type, message)
 end
 
-npcType.onPlayerCloseChannel = function(npc, creature)
-	npcHandler:onPlayerCloseChannel(npc, creature)
+npcType.onCloseChannel = function(npc, creature)
+	npcHandler:onCloseChannel(npc, creature)
 end
 
 keywordHandler:addKeyword({'here'}, StdModule.say, {npcHandler = npcHandler, text = "Some call me {animal} whisperer. Others say I'm just crazy. I refer to myself as a simple {stable} keeper."})

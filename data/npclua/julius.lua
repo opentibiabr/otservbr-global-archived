@@ -46,8 +46,8 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onSay(npc, creature, type, message)
 end
 
-npcType.onPlayerCloseChannel = function(npc, creature)
-	npcHandler:onPlayerCloseChannel(npc, creature)
+npcType.onCloseChannel = function(npc, creature)
+	npcHandler:onCloseChannel(npc, creature)
 end
 
 npcHandler:addModule(FocusModule:new())
@@ -58,12 +58,12 @@ npcConfig.shop = {
 	{ itemName = "vampire teeth", clientId = 9685, sell = 275 }
 }
 -- On buy npc shop message
-npcType.onPlayerBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
+npcType.onBuyItem = function(npc, player, itemId, subType, amount, inBackpacks, name, totalCost)
 	npc:sellItem(player, itemId, amount, subType, true, inBackpacks, 2854)
 	npc:talk(player, string.format("You've bought %i %s for %i gold coins.", amount, name, totalCost))
 end
 -- On sell npc shop message
-npcType.onPlayerSellItem = function(npc, player, clientId, amount, name, totalCost)
+npcType.onSellItem = function(npc, player, clientId, amount, name, totalCost)
 	npc:talk(player, string.format("You've sold %i %s for %i gold coins.", amount, name, totalCost))
 end
 

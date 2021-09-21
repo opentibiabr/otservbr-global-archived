@@ -41,8 +41,8 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onSay(npc, creature, type, message)
 end
 
-npcType.onPlayerCloseChannel = function(npc, creature)
-	npcHandler:onPlayerCloseChannel(npc, creature)
+npcType.onCloseChannel = function(npc, creature)
+	npcHandler:onCloseChannel(npc, creature)
 end
 
 keywordHandler:addKeyword({'prince'}, StdModule.say, {npcHandler = npcHandler, text = "If another prince comes to kiss me, I'll kick his ass so bad that he'll need a sedan chair to get away."})

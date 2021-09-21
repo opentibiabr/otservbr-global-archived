@@ -48,8 +48,8 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onSay(npc, creature, type, message)
 end
 
-npcType.onPlayerCloseChannel = function(npc, creature)
-	npcHandler:onPlayerCloseChannel(npc, creature)
+npcType.onCloseChannel = function(npc, creature)
+	npcHandler:onCloseChannel(npc, creature)
 end
 
 keywordHandler:addKeyword({'death'}, StdModule.say, {npcHandler = npcHandler, text = "Yes, yes, I will kill you soon enough, now let me continue my investigation on you."})

@@ -71,8 +71,8 @@ npcType.onSay = function(npc, creature, type, message)
 	npcHandler:onSay(npc, creature, type, message)
 end
 
-npcType.onPlayerCloseChannel = function(npc, creature)
-	npcHandler:onPlayerCloseChannel(npc, creature)
+npcType.onCloseChannel = function(npc, creature)
+	npcHandler:onCloseChannel(npc, creature)
 end
 
 keywordHandler:addKeyword({'tibia'}, StdModule.say, {npcHandler = npcHandler, text = "Our world, our home, our very own plane of existence. We have to protect it, mind you. Underneath all the battles, challenges and monsters there still resides a majestic, yet vulnerable being. A mother to us all."})

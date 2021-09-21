@@ -44,7 +44,7 @@ if NpcHandler == nil then
 	CALLBACK_FAREWELL = 6
 	CALLBACK_MESSAGE_DEFAULT = 7
 	CALLBACK_PLAYER_END_TRADE = 8
-	CALLBACK_PLAYER_CLOSE_CHANNEL = 9
+	CALLBACK_CLOSE_CHANNEL = 9
 	CALLBACK_ON_MOVE = 10
 	CALLBACK_SET_INTERACTION = 18
 	CALLBACK_REMOVE_INTERACTION = 19
@@ -276,8 +276,8 @@ if NpcHandler == nil then
 				tmpRet = module:callbackOnCreatureSay(...)
 			elseif id == CALLBACK_PLAYER_END_TRADE and module.callbackOnPlayerEndTrade ~= nil then
 				tmpRet = module:callbackOnPlayerEndTrade(...)
-			elseif id == CALLBACK_PLAYER_CLOSE_CHANNEL and module.callbackOnPlayerCloseChannel ~= nil then
-				tmpRet = module:callbackOnPlayerCloseChannel(...)
+			elseif id == CALLBACK_CLOSE_CHANNEL and module.callbackOnCloseChannel ~= nil then
+				tmpRet = module:callbackOnCloseChannel(...)
 			elseif id == CALLBACK_ON_TRADE_REQUEST and module.callbackOnTradeRequest ~= nil then
 				tmpRet = module:callbackOnTradeRequest(...)
 			elseif id == CALLBACK_SET_INTERACTION and module.callbackOnAddFocus ~= nil then
@@ -424,11 +424,11 @@ if NpcHandler == nil then
 		end
 	end
 
-	-- Handles onPlayerCloseChannel events. If you wish to handle this yourself, use the CALLBACK_PLAYER_CLOSE_CHANNEL callback.
-	function NpcHandler:onPlayerCloseChannel(npc, player)
-		local callback = self:getCallback(CALLBACK_PLAYER_CLOSE_CHANNEL)
+	-- Handles onCloseChannel events. If you wish to handle this yourself, use the CALLBACK_CLOSE_CHANNEL callback.
+	function NpcHandler:onCloseChannel(npc, player)
+		local callback = self:getCallback(CALLBACK_CLOSE_CHANNEL)
 		if callback == nil or callback(npc, player) then
-			if self:processModuleCallback(CALLBACK_PLAYER_CLOSE_CHANNEL, player) then
+			if self:processModuleCallback(CALLBACK_CLOSE_CHANNEL, player) then
 				self:onWalkAway(npc, player)
 			end
 		end
