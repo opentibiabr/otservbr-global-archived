@@ -408,12 +408,12 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 			toPosition:sendMagicEffect(CONST_ME_POFF)
 		end
 	elseif target.itemid == 7921 then
-		local coalItem = Tile(Position(32699, 31492, 11)):getItemById(8749)
+		local coalItem = Tile(Position(32699, 31492, 11)):getItemById(7921)
 		if coalItem then
 			coalItem:remove(1)
 			toPosition:sendMagicEffect(CONST_ME_POFF)
 
-			local crucibleItem = Tile(Position(32699, 31494, 11)):getItemById(8642)
+			local crucibleItem = Tile(Position(32699, 31494, 11)):getItemById(7814)
 			if crucibleItem then
 				crucibleItem:setActionId(50119)
 			end
@@ -651,7 +651,8 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 			player:teleportTo(Position(32566, 31338, 10))
 		end
 	elseif target.actionid == 50114 then
-		if Tile(Position(32617, 31513, 9)):getItemById(1027) and Tile(Position(32617, 31514, 9)):getItemById(1205) then
+		if Tile(Position(32617, 31513, 9)):getItemById(1272)
+		and Tile(Position(32617, 31514, 9)):getItemById(1624) then
 			local rubbleItem = Tile(Position(32619, 31514, 9)):getItemById(5709)
 			if rubbleItem then
 				rubbleItem:remove(1)

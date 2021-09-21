@@ -6,7 +6,7 @@ function bellow.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	local crucibleItem = Tile(Position(32699, 31494, 11)):getItemById(8641)
+	local crucibleItem = Tile(Position(32699, 31494, 11)):getItemById(7813)
 	if not crucibleItem then
 		return true
 	end

@@ -12,7 +12,7 @@ function theHiddenCoalLevers.onUse(player, item, fromPosition, target, toPositio
 		return true
 	end
 
-	local crucible = Tile(Position(32699, 31494, 11)):getItemById(8641)
+	local crucible = Tile(Position(32699, 31494, 11)):getItemById(7813)
 	if crucible.actionid == 50121 then
 		local wagon = Game.createItem(7132, 1, useItem.wagonPos)
 		if wagon then

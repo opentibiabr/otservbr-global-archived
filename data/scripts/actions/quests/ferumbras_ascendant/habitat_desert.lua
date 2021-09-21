@@ -364,7 +364,7 @@ function ferumbrasAscendantHabitatDesert.onUse(player, item, fromPosition, targe
 		Game.createMonster('lovely rotworm', Position(33641, 32684, 12), true, true)
 		addEvent(transformArea, 2 * 1000)
 		item:transform(9126)
-		local basin = Tile(Position(33631, 32685, 12)):getItemById(12070)
+		local basin = Tile(Position(33631, 32685, 12)):getItemById(11114)
 		if basin then
 			basin:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
 			basin:transform(22196)

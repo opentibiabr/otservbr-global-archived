@@ -21,7 +21,7 @@ function crate.onStepIn(creature, item, position, fromPosition)
 		player:say("You hear guards moving behind doors in the distance. \z
 			If you have any sort of disguise with you, this is the moment to use it.", TALKTYPE_MONSTER_SAY)
 	elseif item.actionid == 8016 then
-		if Tile(Position(player:getPosition().y < 31094 and 33080 
+		if Tile(Position(player:getPosition().y < 31094 and 33080
 		or 33385, player:getPosition().y, 8)):getItemById(11257) then
 			catchPlayer(playerId)
 		end

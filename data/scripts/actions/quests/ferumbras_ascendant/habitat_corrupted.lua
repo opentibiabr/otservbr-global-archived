@@ -384,7 +384,7 @@ function ferumbrasAscendantHabitatCorrupted.onUse(player, item, fromPosition, ta
 		Game.createMonster('lovely yielothax', Position(33619, 32722, 12), true, true)
 		addEvent(transformArea, 2 * 1000)
 		item:transform(9126)
-		local basin = Tile(Position(33628, 32721, 12)):getItemById(12070)
+		local basin = Tile(Position(33628, 32721, 12)):getItemById(11114)
 		if basin then
 			basin:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
 			basin:transform(22196)

@@ -358,8 +358,8 @@ function checkWallArito(item, toPosition)
 
 		addEvent(
 		function()
-			if (Tile(Position(33206, 32536, 6)):getItemCountById(8210) > 0) then
-				Tile(Position(33206, 32536, 6)):getItemById(8210):transform(1085)
+			if (Tile(Position(33206, 32536, 6)):getItemCountById(7476) > 0) then
+				Tile(Position(33206, 32536, 6)):getItemById(7476):transform(1085)
 			end
 			if (Tile(Position(33205, 32537, 6)):getItemCountById(5858) > 0) then
 				Tile(Position(33205, 32537, 6)):getItemById(5858):remove()

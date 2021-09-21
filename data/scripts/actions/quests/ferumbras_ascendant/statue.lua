@@ -7,7 +7,7 @@ local fount = {
 
 local ferumbrasAscendantStatue = Action()
 function ferumbrasAscendantStatue.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if Tile(Position(33415, 32379, 12)):getItemById(24819) or player:getStorageValue(Storage.FerumbrasAscension.Fount) < 4 or player:getStorageValue(Storage.FerumbrasAscension.Statue) >= 1 then
+	if Tile(Position(33415, 32379, 12)):getItemById(22163) or player:getStorageValue(Storage.FerumbrasAscension.Fount) < 4 or player:getStorageValue(Storage.FerumbrasAscension.Statue) >= 1 then
 		return false
 	end
 	for i = 1, #fount do

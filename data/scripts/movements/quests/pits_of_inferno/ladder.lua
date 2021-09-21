@@ -27,7 +27,7 @@ function ladder.onStepOut(creature, item, position, fromPosition)
 		return true
 	end
 
-	local ladderItem = Tile(Position(32854, 32321, 11)):getItemById(5543)
+	local ladderItem = Tile(Position(32854, 32321, 11)):getItemById(5542)
 	if ladderItem then
 		ladderItem:remove()
 		player:say("You hear a rumbling from far away.", TALKTYPE_MONSTER_SAY, false, player)

@@ -441,7 +441,7 @@ function dangerousDepthCrystals.onUse(player, item, fromPosition, target, toPosi
 						spectator:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This crystal geode is shaking from a battle nearby.")
 					end
 				end
-				local stalagmites = Tile(Position(33460, 32267, 15)):getItemById(386)
+				local stalagmites = Tile(Position(33460, 32267, 15)):getItemById(388)
 				if stalagmites then
 					stalagmites:remove()
 					local teleport = Game.createItem(1949, 1, Position(33460, 32267, 15))
@@ -476,7 +476,7 @@ function dangerousDepthCrystals.onUse(player, item, fromPosition, target, toPosi
 						spectator:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This crystal geode is shaking from a battle nearby.")
 					end
 				end
-				local stalagmites = Tile(Position(33324, 32109, 15)):getItemById(386)
+				local stalagmites = Tile(Position(33324, 32109, 15)):getItemById(388)
 				if stalagmites then
 					stalagmites:remove()
 					local teleport = Game.createItem(1949, 1, Position(33324, 32109, 15))
@@ -511,7 +511,7 @@ function dangerousDepthCrystals.onUse(player, item, fromPosition, target, toPosi
 						spectator:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This crystal geode is shaking from a battle nearby.")
 					end
 				end
-				local stalagmites = Tile(Position(33275, 32316, 15)):getItemById(386)
+				local stalagmites = Tile(Position(33275, 32316, 15)):getItemById(388)
 				if stalagmites then
 					stalagmites:remove()
 					local teleport = Game.createItem(1949, 1, Position(33275, 32316, 15))

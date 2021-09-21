@@ -7,7 +7,7 @@ function pitsOfInfernoTrapLever.onUse(player, item, fromPosition, target, toPosi
 		return true
 	end
 
-	local stoneItem = Tile(Position(32826, 32274, 11)):getItemById(1285)
+	local stoneItem = Tile(Position(32826, 32274, 11)):getItemById(1772)
 	if stoneItem then
 		stoneItem:remove()
 	end

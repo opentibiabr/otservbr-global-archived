@@ -32,7 +32,7 @@ local function turnOff(storage, counter)
 	Game.setStorageValue(storage, 0)
 	Game.setStorageValue(counter, 0)
 	clearGolems()
-	local teleport = Tile(Position(32815, 32870, 13)):getItemById(11796)
+	local teleport = Tile(Position(32815, 32870, 13)):getItemById(10840)
 	if teleport then
 		teleport:getPosition():sendMagicEffect(CONST_ME_POFF)
 		teleport:remove()

@@ -455,7 +455,7 @@ function ferumbrasAscendantHabitatVenom.onUse(player, item, fromPosition, target
 		Game.createMonster('lovely polar bear', Position(33617, 32702, 12), true, true)
 		addEvent(transformArea, 2 * 1000)
 		item:transform(9126)
-		local basin = Tile(Position(33628, 32703, 12)):getItemById(12070)
+		local basin = Tile(Position(33628, 32703, 12)):getItemById(11114)
 		if basin then
 			basin:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
 			basin:transform(22196)

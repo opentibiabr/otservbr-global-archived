@@ -56,7 +56,7 @@ local missionTiles = {
 		{
 			states = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14},
 			condition = function(player)
-				return Tile(Position(31977, 32150, 7)):getItemById(13931) ~= nil
+				return Tile(Position(31977, 32150, 7)):getItemById(12792) ~= nil
 			end,
 			message = "You cannot hope to sneak past this guard. Maybe some distraction would help? You could try using the fleshy bone on him...",
 			teleportTo = {x = 31977, y = 32155, z = 7}

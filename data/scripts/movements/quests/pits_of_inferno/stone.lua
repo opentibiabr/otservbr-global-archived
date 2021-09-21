@@ -7,7 +7,8 @@ function stone.onStepIn(creature, item, position, fromPosition)
 	end
 
 	local stonePosition = Position(32849, 32282, 10)
-	local stoneItem, leverItem = Tile(stonePosition):getItemById(1791), Tile(Position(32850, 32268, 10)):getItemById(2773)
+	local stoneItem = Tile(stonePosition):getItemById(1791)
+	local leverItem = Tile(Position(32850, 32268, 10)):getItemById(2773)
 	if not stoneItem and leverItem then
 		Game.createItem(1791, 1, stonePosition)
 		leverItem:transform(2772)

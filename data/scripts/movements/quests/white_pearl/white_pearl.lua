@@ -24,7 +24,7 @@ function whitePearl.onStepIn(creature, item, position, fromPosition)
 	end
 
 	if teleport.potPosition then
-		local potItem = Tile(Position(33145, 32862, 7)):getItemById(2562)
+		local potItem = Tile(Position(33145, 32862, 7)):getItemById(3465)
 		if potItem then
 			player:teleportTo(teleport.potPosition)
 			teleport.potPosition:sendMagicEffect(teleport.effect)

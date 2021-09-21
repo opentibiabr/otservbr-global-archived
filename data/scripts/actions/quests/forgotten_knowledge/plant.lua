@@ -393,9 +393,9 @@ local function revertTree()
 		config.fromPosition,
 		config.toPosition
 	)
-	local tree = Tile(Position(32737, 32114, 10)):getItemById(2703)
-	local teleport = Tile(Position(32736, 32117, 10)):getItemById(1397)
-	local jade = Tile(Position(32736, 32117, 10)):getItemById(12064)
+	local tree = Tile(Position(32737, 32114, 10)):getItemById(3617)
+	local teleport = Tile(Position(32736, 32117, 10)):getItemById(775)
+	local jade = Tile(Position(32736, 32117, 10)):getItemById(11108)
 	if teleport then
 		teleport:getPosition():sendMagicEffect(CONST_ME_POFF)
 		teleport:remove()
@@ -471,7 +471,7 @@ function forgottenKnowledgePlant.onUse(player, item, fromPosition, target, toPos
 				local pos = Position(items[k].position)
 				pos:sendMagicEffect(CONST_ME_THUNDER)
 			end
-			local tree = Tile(Position(32737, 32114, 10)):getItemById(6190)
+			local tree = Tile(Position(32737, 32114, 10)):getItemById(6189)
 			if tree then
 				tree:getPosition():sendMagicEffect(CONST_ME_THUNDER)
 				tree:transform(3617)

@@ -18,12 +18,12 @@ function theHiddenTunnel.onUse(player, item, fromPosition, target, toPosition, i
 	player:say("You safely passed the tunnel.", TALKTYPE_MONSTER_SAY)
 	Game.createItem(5709, 1, rubblePosition)
 
-	local wallItem = Tile(Position(32617, 31513, 9)):getItemById(1027)
+	local wallItem = Tile(Position(32617, 31513, 9)):getItemById(1272)
 	if wallItem then
 		wallItem:remove()
 	end
 
-	local archwayItem = Tile(Position(32617, 31514, 9)):getItemById(1205)
+	local archwayItem = Tile(Position(32617, 31514, 9)):getItemById(1624)
 	if archwayItem then
 		archwayItem:remove()
 	end
