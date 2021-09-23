@@ -32,7 +32,7 @@ extern Monsters g_monsters;
 bool IOBestiary::parseCharmCombat(Charm* charm, Player* player, Creature* target, int32_t realDamage)
 {
 	if (!charm || !player || target) {
-		return;
+		return false;
 	}
 
 	CombatParams charmParams;
@@ -44,7 +44,7 @@ bool IOBestiary::parseCharmCombat(Charm* charm, Player* player, Creature* target
 			target->addCondition(cripple);
 			player->sendCancelMessage(charm->cancelMsg);
 			return false;
-		}
+      }
 		int32_t maxHealth = target->getMaxHealth();
 		charmDamage.primary.type = charm->dmgtype;
 		charmDamage.primary.value = ((-maxHealth * (charm->percent)) / 100);
@@ -104,7 +104,7 @@ bool IOBestiary::parseCharmCombat(Charm* charm, Player* player, Creature* target
 Charm* IOBestiary::getBestiaryCharm(charmRune_t activeCharm, bool force /*= false*/)
 {
 	if (!activeCharm) {
-		return;
+		return nullptr;
 	}
 
 	std::vector<Charm*> charmInternal = g_game.getCharmList();
@@ -197,7 +197,7 @@ std::list<charmRune_t> IOBestiary::getCharmUsedRuneBitAll(Player* player)
 uint16_t IOBestiary::getBestiaryRaceUnlocked(Player* player, BestiaryType_t race) const
 {
 	if (!player) {
-		return;
+		return 0;
 	}
 
 	uint16_t count = 0;
@@ -269,7 +269,7 @@ void IOBestiary::addBestiaryKill(Player* player, MonsterType* mtype, uint32_t am
 charmRune_t IOBestiary::getCharmFromTarget(Player* player, MonsterType* mtype)
 {
 	if (!player || !mtype) {
-		return;
+		return CHARM_NONE;
 	}
 
 	uint16_t bestiaryEntry = mtype->info.raceid;
@@ -287,7 +287,7 @@ charmRune_t IOBestiary::getCharmFromTarget(Player* player, MonsterType* mtype)
 bool IOBestiary::hasCharmUnlockedRuneBit(Charm* charm, int32_t input) const
 {
 	if (!charm) {
-		return;
+		return false;
 	}
 
 	return ((input & charm->binary) != 0);
@@ -296,7 +296,7 @@ bool IOBestiary::hasCharmUnlockedRuneBit(Charm* charm, int32_t input) const
 int32_t IOBestiary::bitToggle(int32_t input, Charm* charm, bool on) const
 {
 	if (!charm) {
-		return;
+		return CHARM_NONE;
 	}
 
 	int32_t returnToggle = 0;
