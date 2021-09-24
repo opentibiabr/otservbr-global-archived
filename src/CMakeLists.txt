@@ -150,6 +150,7 @@ target_sources(${PROJECT_NAME}
 		items/containers/rewards/reward.cpp
 		items/containers/rewards/rewardchest.cpp
 		items/cylinder.cpp
+		items/decay/decay.cpp
 		items/item.cpp
 		items/items.cpp
 		items/thing.cpp
