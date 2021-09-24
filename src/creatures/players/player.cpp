@@ -73,7 +73,7 @@ Player::~Player()
 
 	for (const auto& it : depotLockerMap) {
 		it.second->removeInbox(inbox);
-		item->stopDecaying();
+		it.second->stopDecaying();
 		it.second->decrementReferenceCounter();
 	}
 
@@ -85,7 +85,7 @@ Player::~Player()
 		it.second->decrementReferenceCounter();
 	}
 
-	item->stopDecaying();
+	inbox->stopDecaying();
 	inbox->decrementReferenceCounter();
 
 	setWriteItem(nullptr);

@@ -638,9 +638,10 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
       int32_t pid = pair.second;
       if (pid >= 0 && pid < 100) {
         DepotChest* depotChest = player->getDepotChest(pid, true);
-        if (depotChest) {
-          depotChest->internalAddThing(item);
-          item->startDecaying();
+				if (depotChest) {
+					depotChest->internalAddThing(item);
+					item->startDecaying();
+				}
       } else {
         ItemMap::const_iterator it2 = itemMap.find(pid);
         if (it2 == itemMap.end()) {

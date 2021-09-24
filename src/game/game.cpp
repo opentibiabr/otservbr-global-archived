@@ -1733,7 +1733,6 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 			n = std::min<uint32_t>(100 - toItem->getItemCount(), m);
 				toCylinder->updateThing(toItem, toItem->getID(), toItem->getItemCount() + n);
 				updateItem = toItem;
-			}
 		} else {
 			n = 0;
 		}
