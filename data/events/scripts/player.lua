@@ -646,36 +646,10 @@ local function useStamina(player)
 	player:setStamina(staminaMinutes)
 end
 
-local function useStaminaXp(player)
-	local staminaMinutes = player:getExpBoostStamina() / 60
-	if staminaMinutes == 0 then
-		return
-	end
-
-	local playerId = player:getId()
-	local currentTime = os.time()
-	local timePassed = currentTime - nextUseXpStamina[playerId]
-	if timePassed <= 0 then
-		return
-	end
-
-	if timePassed > 60 then
-		if staminaMinutes > 2 then
-			staminaMinutes = staminaMinutes - 2
-		else
-			staminaMinutes = 0
-		end
-		nextUseXpStamina[playerId] = currentTime + 120
-	else
-		staminaMinutes = staminaMinutes - 1
-		nextUseXpStamina[playerId] = currentTime + 60
-	end
-	player:setExpBoostStamina(staminaMinutes * 60)
-end
-
-function Player:onGainExperience(source, exp, rawExp)
-	if not source or source:isPlayer() then
-		return exp
+function Player:onGainExperience(creature, exp, rawExp)
+	local monster = creature:getMonster()
+	if not monster then
+		return true
 	end
 
 	-- Soul regeneration
@@ -688,20 +662,28 @@ function Player:onGainExperience(source, exp, rawExp)
 	-- Experience Stage Multiplier
 	local expStage = getRateFromTable(experienceStages, self:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
 
+	if configManager.getBoolean(configKeys.STAMINA_SYSTEM) then
+		useStamina(self)
+
+		local staminaMinutes = self:getStamina()
+		if staminaMinutes > 2400 and self:isPremium() then
+			exp = exp * 1.5
+		elseif staminaMinutes <= 840 then
+			exp = exp * 0.5
+		end
+	end
+
 	-- Prey Bonus
 	local preyBonus = 0
 	for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
-		if (self:getPreyCurrentMonster(slot) == source:getName()
+		if (self:getPreyCurrentMonster(slot) == monster:getName()
 		and self:getPreyBonusType(slot) == CONST_BONUS_XP_BONUS) then
 			preyBonus = self:getPreyBonusValue(slot)
 		end
 		if (self:getPreyTimeLeft(slot) / 60) > 0 then
-			preyTimeLeft(self, slot) -- slot consumption, outside of the mosnter check
+			preyTimeLeft(self, slot) -- slot consumption, outside of the monster check
 		end
 	end
-
-	-- Store Bonus
-	useStaminaXp(self) -- Use store boost stamina
 
 	local Boost = self:getExpBoostStamina()
 	local stillHasBoost = Boost > 0
@@ -710,24 +692,11 @@ function Player:onGainExperience(source, exp, rawExp)
 	self:setStoreXpBoost(storeXpBoostAmount)
 
 	if (storeXpBoostAmount > 0) then
-		exp = exp + (baseExp * (storeXpBoostAmount/100)) -- Exp Boost
+		exp = exp + (storeXpBoostAmount/100) -- Exp Boost
 	end
 
-	-- Stamina Bonus
-	local staminaBoost = 1
-	if configManager.getBoolean(configKeys.STAMINA_SYSTEM) then
-		useStamina(self)
-		local staminaMinutes = self:getStamina()
-		if staminaMinutes > 2340 and self:isPremium() then
-			staminaBoost = 1.5
-		elseif staminaMinutes <= 840 then
-			staminaBoost = 0.5 --TODO destroy loot of people with 840- stamina
-		end
-		self:setStaminaXpBoost(staminaBoost * 100)
-	end
-
-	-- Boosted creature
-	if source:getName():lower() == (Game.getBoostedCreature()):lower() then
+	-- Boosted monster
+	if monster:getName():lower() == (Game.getBoostedCreature()):lower() then
 		exp = exp * 2
 	end
 
@@ -735,7 +704,7 @@ function Player:onGainExperience(source, exp, rawExp)
 	if SCHEDULE_EXP_RATE ~= 100 then
 		expStage = math.max(0, (expStage * SCHEDULE_EXP_RATE)/100)
 	end
-	return (exp / 100 * ((expStage * 100 + storeXpBoostAmount + preyBonus) * staminaBoost))
+	return (exp / 100 * (expStage * 100 + storeXpBoostAmount + preyBonus))
 end
 
 function Player:onLoseExperience(exp)

@@ -139,9 +139,6 @@ function playerLogin.onLogin(player)
 	-- Stamina
 	nextUseStaminaTime[playerId] = 1
 
-	-- EXP Stamina
-	nextUseXpStamina[playerId] = 1
-
 	-- Prey Small Window
 	for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
 		player:sendPreyData(slot)

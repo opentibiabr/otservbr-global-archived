@@ -126,10 +126,6 @@ if nextUseStaminaPrey == nil then
 	nextUseStaminaPrey = {}
 end
 
-if nextUseXpStamina == nil then
-	nextUseXpStamina = {}
-end
-
 if lastItemImbuing == nil then
 	lastItemImbuing = {}
 end
