@@ -23,7 +23,6 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 
 	if msgcontains(msg, "again") then
-		print(player:getStorageValue(Storage.BigfootBurden.QuestLine))
 		player:setStorageValue(Storage.BigfootBurden.QuestLine, 19)
 	end
 

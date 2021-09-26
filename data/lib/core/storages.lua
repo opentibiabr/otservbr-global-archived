@@ -430,7 +430,8 @@ Storage = {
 		TatteredSwanFeathers02 = 50302,
 		TatteredSwanFeathers03 = 50303,
 		TatteredSwanFeathers04 = 50304,
-		TatteredSwanFeathers05 = 50305
+		TatteredSwanFeathers05 = 50305,
+		PoacherChest = 50306
 	},
 	FirstDragon = {
 		-- Reserved storage from 50350 - 50379
@@ -1296,7 +1297,7 @@ Storage = {
 			LastMissionState = 51529
 		},
 	TheCursedCrystal = {
-		Oneeyedjoe = 51530, 
+		Oneeyedjoe = 51530,
 		MedusaOil = 51531,
 		Questline = 51532
 		}
@@ -1708,6 +1709,7 @@ Storage = {
 		HyenaSign = 52299,
 		Time = 52300
 	},
+	
 	GraveDanger = {
 		-- Reserved storage from 52310 - 52339
 		Questline = 52310,
@@ -1731,6 +1733,16 @@ Storage = {
 		Time2 = 52352,
 		Time3 = 52353,
 		Time4 = 52354,
+	},
+	TheOrderOfTheLion = {
+		-- Reserved storage 52360-52395 (TheRookieGuard)
+		-- Reserved storage 52396-52410 (TheOrderOfTheLion)
+		Drume = {
+			Commander = 52396, -- Global
+			TotalLionCommanders = 52397, -- Global
+			TotalUsurperCommanders = 52398, -- Global
+			Timer = 52399
+		},
 	},
 	-- News quest development
 	-- New storages
@@ -2421,8 +2433,9 @@ table.sort(extraction) -- Sort the table
 if #extraction > 1 then
 	for i = 1, #extraction - 1 do
 		if extraction[i] == extraction[i+1] then
-			print(">> Duplicate storage value found: ".. extraction[i])
-			print(string.format("> Processed in %.4f(s)", os.clock() - benchmark))
+			Spdlog.warn(string.format("Duplicate storage value found: %d",
+				extraction[i]))
+			Spdlog.warn(string.format("Processed in %.4f(s)", os.clock() - benchmark))
 		end
 	end
 end

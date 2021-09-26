@@ -32,9 +32,6 @@ local reloadTypes = {
 
 	["scripts"] = RELOAD_TYPE_SCRIPTS,
 
-	["spell"] = RELOAD_TYPE_SPELLS,
-	["spells"] =  RELOAD_TYPE_SPELLS,
-
 	["stage"] = RELOAD_TYPE_STAGES,
 	["stages"] = RELOAD_TYPE_STAGES,
 
@@ -60,11 +57,11 @@ function reload.onSay(player, words, param)
 	if reloadType then
 		Game.reload(reloadType)
 		player:sendTextMessage(MESSAGE_ADMINISTRADOR, string.format("Reloaded %s.", param:lower()))
-		print("Reloaded: " .. param:lower() .. ".")
+		Spdlog.info("Reloaded " .. param:lower())
 		return true
 	elseif not reloadType then
 		player:sendCancelMessage("Reload type not found.")
-		print("Reload type not found.")
+		Spdlog.warn("[reload.onSay] - Reload type '".. param.. "' not found")
 		return false
 	end
 	return false

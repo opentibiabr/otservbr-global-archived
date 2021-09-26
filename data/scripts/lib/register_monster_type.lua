@@ -61,7 +61,7 @@ registerMonsterType.Bestiary = function(mtype, mask)
 		end
 		if mask.Bestiary.Locations then
 			mtype:BestiaryLocations(mask.Bestiary.Locations)
-		end		
+		end
 	end
 end
 registerMonsterType.skull = function(mtype, mask)
@@ -109,6 +109,32 @@ registerMonsterType.corpse = function(mtype, mask)
 		mtype:corpseId(mask.corpse)
 	end
 end
+registerMonsterType.faction = function(mtype, mask)
+	if mask.faction then
+		mtype:faction(mask.faction)
+	end
+end
+registerMonsterType.targetPreferPlayer = function(mtype, mask)
+	if mask.targetPreferPlayer then
+		mtype:targetPreferPlayer(mask.targetPreferPlayer)
+	end
+end
+registerMonsterType.targetPreferMaster = function(mtype, mask)
+	if mask.targetPreferMaster then
+		mtype:targetPreferMaster(mask.targetPreferMaster)
+	end
+end
+registerMonsterType.enemyFactions = function(mtype, mask)
+	if mask.enemyFactions then
+		for _, enemyFaction in pairs(mask.enemyFactions) do
+			if not enemyFaction then
+				print("[Error - Loading monsters] Monster: \"" .. mtype:name() .. "\". Unknown enemy faction.")
+			else
+				mtype:enemyFactions(enemyFaction)
+			end
+		end
+	end
+end
 registerMonsterType.flags = function(mtype, mask)
 	if mask.flags then
 		if mask.flags.attackable ~= nil then
@@ -142,7 +168,8 @@ registerMonsterType.flags = function(mtype, mask)
 			mtype:isPet(mask.flags.pet)
 		end
 		if mask.flags.respawntype or mask.flags.respawnType then
-			print("[Error - Loading monsters] Monster: \"".. mtype:name() .. "\". Deprecated flag 'respawnType', use instead table 'respawnType = { period = RespawnPeriod_t, underground = boolean}'")
+			Spdlog.warn(string.format("[registerMonsterType.flags] - Monster: %s. Deprecated flag 'respawnType', use instead table 'respawnType = { period = RespawnPeriod_t, underground = boolean}'",
+				mtype:name()))
 		end
 		if mask.flags.canPushCreatures ~= nil then
 			mtype:canPushCreatures(mask.flags.canPushCreatures)
@@ -246,8 +273,24 @@ registerMonsterType.events = function(mtype, mask)
 		end
 	end
 end
+
+function sortLootByChance(loot)
+	if not configManager.getBoolean(configKeys.SORT_LOOT_BY_CHANCE) then
+		return
+	end
+
+	table.sort(loot, function(loot1, loot2)
+		if not loot1.chance or not loot2.chance then
+			return 0
+		end
+
+		return loot1.chance < loot2.chance
+	end)
+end
+
 registerMonsterType.loot = function(mtype, mask)
 	if type(mask.loot) == "table" then
+		sortLootByChance(mask.loot)
 		local lootError = false
 		for _, loot in pairs(mask.loot) do
 			local parent = Loot()
@@ -309,6 +352,7 @@ registerMonsterType.loot = function(mtype, mask)
 				parent:setUnique(loot.unique)
 			end
 			if loot.child then
+				sortLootByChance(loot.child)
 				for _, children in pairs(loot.child) do
 					local child = Loot()
 					if children.name then
@@ -374,7 +418,7 @@ registerMonsterType.loot = function(mtype, mask)
 			mtype:addLoot(parent)
 		end
 		if lootError then
-			print("[Warning - end] Monster: \"".. mtype:name() .. "\" loot could not correctly be load.")
+			Spdlog.warn("[registerMonsterType.loot] - Monster: ".. mtype:name() .. " loot could not correctly be load")
 		end
 	end
 end
@@ -465,8 +509,8 @@ function readSpell(incomingLua)
 					spell:setCombatType(incomingLua.type)
 				elseif incomingLua.name == "condition" then
 					spell:setConditionType(incomingLua.type)
-				else 
-					print("[Warning - register_monster_type] Monster \"".. mtype:name() .. "\": Loading spell \"".. incomingLua.name .. "\". Parameter type applies only for condition and combat.")
+				else
+					Spdlog.warn("[readSpell] - Monster ".. mtype:name() .. ": Loading spell ".. incomingLua.name .. ". Parameter type applies only for condition and combat.")
 				end
 			end
 			if incomingLua.interval then

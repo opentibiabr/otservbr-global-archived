@@ -4,28 +4,28 @@ local config = {
 		toPosition = Position(32671, 32071, 8),
 		sacrificePosition = Position(32679, 32089, 8),
 		sacrificeId = 2175,
-		vocationId = VOCATION.CLIENT_ID.SORCERER
+		vocationId = VOCATION.BASE_ID.SORCERER
 	},
 	{
 		fromPosition = Position(32669, 32089, 8),
 		toPosition = Position(32673, 32071, 8),
 		sacrificePosition = Position(32667, 32089, 8),
 		sacrificeId = 2674,
-		vocationId = VOCATION.CLIENT_ID.DRUID
+		vocationId = VOCATION.BASE_ID.DRUID
 	},
 	{
 		fromPosition = Position(32673, 32085, 8),
 		toPosition = Position(32670, 32071, 8),
 		sacrificePosition = Position(32673, 32083, 8),
 		sacrificeId = 2455,
-		vocationId = VOCATION.CLIENT_ID.PALADIN
+		vocationId = VOCATION.BASE_ID.PALADIN
 	},
 	{
 		fromPosition = Position(32673, 32093, 8),
 		toPosition = Position(32672, 32071, 8),
 		sacrificePosition = Position(32673, 32094, 8),
 		sacrificeId = 2376,
-		vocationId = VOCATION.CLIENT_ID.KNIGHT
+		vocationId = VOCATION.BASE_ID.KNIGHT
 	}
 }
 
@@ -48,7 +48,7 @@ function othersDesert.onUse(player, item, fromPosition, target, toPosition, isHo
 			return true
 		end
 
-		local vocationId = creature:getVocation():getClientId()
+		local vocationId = creature:getVocation():getBaseId()
 		if vocationId ~= config[i].vocationId then
 			player:sendCancelMessage('You need one player of each vocation for this quest.')
 			position:sendMagicEffect(CONST_ME_POFF)

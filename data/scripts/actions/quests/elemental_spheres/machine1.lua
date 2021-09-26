@@ -1,13 +1,13 @@
 local config = {
-	[VOCATION.CLIENT_ID.SORCERER] = {x = 33183, y = 32197, z = 13},
-	[VOCATION.CLIENT_ID.DRUID] = {x = 33331, y = 32076, z = 13},
-	[VOCATION.CLIENT_ID.PALADIN] = {x = 33265, y = 32202, z = 13},
-	[VOCATION.CLIENT_ID.KNIGHT] = {x = 33087, y = 32096, z = 13}
+	[VOCATION.BASE_ID.SORCERER] = {x = 33183, y = 32197, z = 13},
+	[VOCATION.BASE_ID.DRUID] = {x = 33331, y = 32076, z = 13},
+	[VOCATION.BASE_ID.PALADIN] = {x = 33265, y = 32202, z = 13},
+	[VOCATION.BASE_ID.KNIGHT] = {x = 33087, y = 32096, z = 13}
 }
 
 local elementalSpheresMachine1 = Action()
 function elementalSpheresMachine1.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local destination = config[player:getVocation():getClientId()]
+	local destination = config[player:getVocation():getBaseId()]
 	if table.contains({7911, 7912}, item.itemid) then
 		local gemCount = player:getStorageValue(Storage.ElementalSphere.MachineGemCount)
 		if table.contains({33268, 33269}, toPosition.x)

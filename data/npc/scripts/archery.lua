@@ -22,7 +22,7 @@ npcHandler:addModule(VoiceModule:new(voices))
 
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I am the owner of this saloon. I call it Archery's Hut. I am also {selling} ammunitions."})
 
-npcHandler:setMessage(MESSAGE_GREET, "Welcome to Archery's shop.")
+npcHandler:setMessage(MESSAGE_GREET, "Welcome to Archery's shop!")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Please come back from time to time.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Please come back from time to time.")
 

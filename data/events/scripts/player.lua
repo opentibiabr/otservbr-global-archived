@@ -197,12 +197,12 @@ function Player:onLook(thing, position, distance)
 			if decayId ~= -1 then
 				description = string.format("%s\nDecays to: %d", description, decayId)
 			end
-			
+
 			local clientId = itemType:getClientId()
 			if clientId then
 				description = string.format("%s\nClient ID: %d", description, clientId)
 			end
-			
+
 		elseif thing:isCreature() then
 			local str = "%s\nHealth: %d / %d"
 			if thing:isPlayer() and thing:getMaxMana() > 0 then
@@ -333,6 +333,16 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 	and item:getWeight() > CONTAINER_WEIGHT_MAX then
 		self:sendCancelMessage("Your cannot move this item too heavy.")
 		return false
+	end
+
+	-- Players cannot throw items on teleports
+	if blockTeleportTrashing and toPosition.x ~= CONTAINER_POSITION then
+		local thing = Tile(toPosition):getItemByType(ITEM_TYPE_TELEPORT)
+		if thing then
+			self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+			self:getPosition():sendMagicEffect(CONST_ME_POFF)
+			return false
+		end
 	end
 
 	-- Cults of Tibia begin
@@ -479,16 +489,6 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		self:getPosition():sendMagicEffect(CONST_ME_POFF)
 		return false
-	end
-
-	-- Players cannot throw items on teleports
-	if blockTeleportTrashing and toPosition.x ~= CONTAINER_POSITION then
-		local thing = Tile(toPosition):getItemByType(ITEM_TYPE_TELEPORT)
-		if thing then
-			self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-			self:getPosition():sendMagicEffect(CONST_ME_POFF)
-			return false
-		end
 	end
 
 	if tile and tile:getItemById(370) then -- Trapdoor
@@ -681,7 +681,7 @@ function Player:onGainExperience(source, exp, rawExp)
 	-- Soul regeneration
 	local vocation = self:getVocation()
 	if self:getSoul() < vocation:getMaxSoul() and exp >= self:getLevel() then
-		soulCondition:setParameter(CONDITION_PARAM_SOULTICKS, vocation:getSoulGainTicks() * 1000)
+		soulCondition:setParameter(CONDITION_PARAM_SOULTICKS, vocation:getSoulGainTicks())
 		self:addCondition(soulCondition)
 	end
 
@@ -734,7 +734,7 @@ function Player:onGainExperience(source, exp, rawExp)
 			self:setStaminaXpBoost(100)
 		end
 	end
-			
+
 	-- Boosted creature
 	if source:getName():lower() == (Game.getBoostedCreature()):lower() then
 		exp = exp * 2
@@ -770,10 +770,10 @@ function Player:onGainSkillTries(skill, tries)
 	local magicRate = configManager.getNumber(configKeys.RATE_MAGIC)
 
 	if(skill == SKILL_MAGLEVEL) then -- Magic getLevel
-		return tries * getRateFromTable(magicLevelStages, self:getMagicLevel(), magicRate)
+		return tries * getRateFromTable(magicLevelStages, self:getBaseMagicLevel(), magicRate)
 	end
 
-	return tries * getRateFromTable(skillsStages, self:getEffectiveSkillLevel(skill), skillRate)
+	return tries * getRateFromTable(skillsStages, self:getSkillLevel(skill), skillRate)
 end
 
 function Player:onRemoveCount(item)
@@ -829,12 +829,12 @@ end
 
 function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
 	for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
-    	local slotItem = self:getSlotItem(slot)
-   		if slotItem and slotItem == item then
-			self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You can't imbue a equipped item.")
-			self:closeImbuementWindow()
-            return true
-   		end
+			local slotItem = self:getSlotItem(slot)
+			if slotItem and slotItem == item then
+				self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You can't imbue a equipped item.")
+				self:closeImbuementWindow()
+				return true
+			end
 	end
 
 	for _, pid in pairs(imbuement:getItems()) do
@@ -950,7 +950,7 @@ function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDama
 	if not item or not target then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
-	
+
 	if ItemType(item:getId()):getWeaponType() == WEAPON_AMMO then
 		if isInArray({ITEM_OLD_DIAMOND_ARROW, ITEM_DIAMOND_ARROW}, item:getId()) then
 			return primaryDamage, primaryType, secondaryDamage, secondaryType
@@ -979,4 +979,40 @@ function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDama
 	end
 
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
+end
+
+function Player:onChangeZone(zone)
+	if self:isPremium() then
+		local event = staminaBonus.eventsPz[self:getId()]
+
+		if configManager.getBoolean(configKeys.STAMINA_PZ) then
+			if zone == ZONE_PROTECTION then
+				if self:getStamina() < 2520 then
+					if not event then
+						local delay = configManager.getNumber(configKeys.STAMINA_ORANGE_DELAY)
+						if self:getStamina() > 2400 and self:getStamina() <= 2520 then
+							delay = configManager.getNumber(configKeys.STAMINA_GREEN_DELAY)
+						end
+
+						self:sendTextMessage(MESSAGE_STATUS,
+                                             string.format("In protection zone. \
+                                                           Every %i minutes, gain %i stamina.",
+                                                           delay, configManager.getNumber(configKeys.STAMINA_PZ_GAIN)
+                                             )
+                        )
+						staminaBonus.eventsPz[self:getId()] = addEvent(addStamina, delay * 60 * 1000, nil, self:getId(), delay * 60 * 1000)
+					end
+				end
+			else
+				if event then
+					self:sendTextMessage(MESSAGE_STATUS, "You are no longer refilling stamina, \z
+                                         since you left a regeneration zone.")
+					stopEvent(event)
+					staminaBonus.eventsPz[self:getId()] = nil
+				end
+			end
+			return not configManager.getBoolean(configKeys.STAMINA_PZ)
+		end
+	end
+	return false
 end

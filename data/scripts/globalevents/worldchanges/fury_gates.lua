@@ -100,6 +100,9 @@ local gates = {
 	}
 }
 
+local function Furywebhook(message)	-- New local function that runs on delay to send webhook message.
+	Webhook.send("[Fury Gates] ", message, WEBHOOK_COLOR_ONLINE)	--Sends webhook message
+end
 
 -- FURY GATES MAP LOAD
 
@@ -107,7 +110,7 @@ local furygates = GlobalEvent("furygates")
 
 function furygates.onStartup(interval)
 	local gateId = math.random(1, 10)
-	
+
 	-- Remove burnt items
 	if gates[gateId].burntItems then
 		local item
@@ -118,13 +121,17 @@ function furygates.onStartup(interval)
 			end
 		end
 	end
-	
+
 	Game.loadMap('data/world/furygates/' .. gates[gateId].mapName .. '.otbm')
-	
+
 	setGlobalStorageValue(GlobalStorage.FuryGates, gateId)
-	
-	print('>> Fury Gate will be active in ' .. gates[gateId].city .. ' today')
-	
+
+	Spdlog.info(string.format("Fury Gate will be active in %s today",
+		gates[gateId].city))
+	local message = (string.format("Fury Gate will be active in %s today",
+		gates[gateId].city))	-- Declaring the message to send to webhook.
+	addEvent(Furywebhook, 60000, message)	-- Event with 1 minute delay to send webhook message after server starts.
+
 	return true
 end
 
@@ -140,13 +147,13 @@ function teleport.onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-	
+
 	local gateId = Game.getStorageValue(GlobalStorage.FuryGates)
-	
+
 	if not gates[gateId] then
 		return true
 	end
-	
+
 	position:sendMagicEffect(CONST_ME_TELEPORT)
 
 	-- Enter gates
@@ -167,7 +174,7 @@ function teleport.onStepIn(creature, item, position, fromPosition)
 		player:teleportTo(gates[gateId].exitPosition)
 		gates[gateId].exitPosition:sendMagicEffect(CONST_ME_TELEPORT)
 	end
-	
+
 	return true
 end
 

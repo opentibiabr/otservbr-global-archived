@@ -23,8 +23,8 @@ keywordHandler:addSpellKeyword({"findperson"},
 		price = 0,
 		level = 8,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -35,8 +35,8 @@ keywordHandler:addSpellKeyword({"apprenticesstrike"},
 		price = 0,
 		level = 8,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -47,8 +47,8 @@ keywordHandler:addSpellKeyword({"lighthealing"},
 		price = 0,
 		level = 8,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -59,8 +59,8 @@ keywordHandler:addSpellKeyword({"light"},
 		price = 0,
 		level = 8,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -71,8 +71,8 @@ keywordHandler:addSpellKeyword({"magicrope"},
 		price = 0,
 		level = 9,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -83,8 +83,8 @@ keywordHandler:addSpellKeyword({"curepoison"},
 		price = 0,
 		level = 10,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -95,8 +95,8 @@ keywordHandler:addSpellKeyword({"energystrike"},
 		price = 0,
 		level = 12,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -107,8 +107,8 @@ keywordHandler:addSpellKeyword({"levitate"},
 		price = 0,
 		level = 12,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -119,8 +119,8 @@ keywordHandler:addSpellKeyword({"greatlight"},
 		price = 0,
 		level = 13,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -131,8 +131,8 @@ keywordHandler:addSpellKeyword({"terrastrike"},
 		price = 0,
 		level = 13,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -143,8 +143,8 @@ keywordHandler:addSpellKeyword({"haste"},
 		price = 0,
 		level = 14,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -155,8 +155,8 @@ keywordHandler:addSpellKeyword({"flamestrike"},
 		price = 0,
 		level = 14,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -167,8 +167,8 @@ keywordHandler:addSpellKeyword({"icestrike"},
 		price = 0,
 		level = 15,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -179,8 +179,8 @@ keywordHandler:addSpellKeyword({"poisonfield"},
 		price = 0,
 		level = 14,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -191,8 +191,8 @@ keywordHandler:addSpellKeyword({"firefield"},
 		price = 0,
 		level = 15,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -203,8 +203,8 @@ keywordHandler:addSpellKeyword({"lightmagicmissile"},
 		price = 0,
 		level = 15,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -215,8 +215,8 @@ keywordHandler:addSpellKeyword({"energyfield"},
 		price = 0,
 		level = 18,
 		vocation = {
-			VOCATION.CLIENT_ID.SORCERER,
-			VOCATION.CLIENT_ID.DRUID
+			VOCATION.BASE_ID.SORCERER,
+			VOCATION.BASE_ID.DRUID
 		}
 	}
 )
@@ -227,7 +227,7 @@ keywordHandler:addSpellKeyword({"deathstrike"},
 		spellName = "Death Strike",
 		price = 0,
 		level = 16,
-		vocation = VOCATION.CLIENT_ID.SORCERER
+		vocation = VOCATION.BASE_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"firewave"},
@@ -236,7 +236,7 @@ keywordHandler:addSpellKeyword({"firewave"},
 		spellName = "Fire Wave",
 		price = 0,
 		level = 18,
-		vocation = VOCATION.CLIENT_ID.SORCERER
+		vocation = VOCATION.BASE_ID.SORCERER
 	}
 )
 -- spells for druid
@@ -246,7 +246,7 @@ keywordHandler:addSpellKeyword({"icewave"},
 		spellName = "Ice Wave",
 		price = 0,
 		level = 18,
-		vocation = VOCATION.CLIENT_ID.DRUID
+		vocation = VOCATION.BASE_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"physicalstrike"},
@@ -255,7 +255,7 @@ keywordHandler:addSpellKeyword({"physicalstrike"},
 		spellName = "Physical Strike",
 		price = 0,
 		level = 16,
-		vocation = VOCATION.CLIENT_ID.DRUID
+		vocation = VOCATION.BASE_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"healfriend"},
@@ -264,7 +264,7 @@ keywordHandler:addSpellKeyword({"healfriend"},
 		spellName = "Heal Friend",
 		price = 0,
 		level = 18,
-		vocation = VOCATION.CLIENT_ID.DRUID
+		vocation = VOCATION.BASE_ID.DRUID
 	}
 )
 

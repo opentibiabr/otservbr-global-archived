@@ -9,12 +9,13 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/opentibiabr/otservbr-global)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/a71728d523ac4b23a9c0b974ae4ec5df)](https://www.codacy.com/gh/opentibiabr/otservbr-global/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=opentibiabr/otservbr-global&amp;utm_campaign=Badge_Grade)
+[![CodeQL](https://github.com/opentibiabr/otservbr-global/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions/workflows/codeql-analysis.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=opentibiabr_otservbr-global&metric=alert_status)](https://sonarcloud.io/dashboard?id=opentibiabr_otservbr-global)
 
 ## Builds
 
 [![Build status](https://ci.appveyor.com/api/projects/status/github/opentibiabr/otservbr-global?branch=develop&passingText=develop%20-%20OK&svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global/build/artifacts "Download nightly builds for Windows")
 
-[![Build on MacOS](https://github.com/opentibiabr/otservbr-global/workflows/Build%20on%20MacOS/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22Build+on+MacOS%22)
 [![Build on Ubuntu](https://github.com/opentibiabr/otservbr-global/workflows/Build%20on%20Ubuntu/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22Build+on+Ubuntu%22)
 [![Build on Windows](https://github.com/opentibiabr/otservbr-global/workflows/Build%20on%20Windows/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22Build+on+Windows%22)
 
@@ -28,7 +29,7 @@ You are subject to our code of conduct, read at [this link](https://github.com/o
 
 * **WARNING: YOU NEED TO UNZIP THE MAP BEFORE START THE SERVER.**
 * [Compiling on Windows](https://forums.otserv.com.br/index.php?/forums/topic/169235-windowsvc2019-compilando-sources-otservbr-global/), alternatively if you are ****not** going to change anything on the source** you can download the latest compiled version for windows from [nightly builds for Windows](https://ci.appveyor.com/project/opentibiabr/otservbr-global/build/artifacts).
-* Wiki: Compiling ([Debian](https://github.com/opentibiabr/otservbr-global/wiki/Compiling-on-Debian-GNU-Linux), [Ubuntu](https://github.com/opentibiabr/otservbr-global/wiki/Compiling-on-Ubuntu), [Windows](https://github.com/opentibiabr/otservbr-global/wiki/Compiling-on-Windows-(vcpkg)))
+* Wiki: Compiling ([Ubuntu/Debian](https://github.com/opentibiabr/otservbr-global/wiki/Compiling-on-Ubuntu-or-Debian-GNU-Linux), [Windows](https://github.com/opentibiabr/otservbr-global/wiki/Compiling-on-Windows-(vcpkg)))
 
 ### Issues
 
@@ -67,5 +68,3 @@ If you want to sponsor here, join on discord and send a message for one of our a
 [![Supported by OTServ Brasil](https://raw.githubusercontent.com/otbr/otserv-brasil/main/otbr.png)](https://forums.otserv.com.br)
 
 [![Protected by ServerCore](https://mktsc.servercore.com.br/protectedbyservercore.png)](https://bit.ly/1q2q4de)
-
-[![Supported by OTHispano](https://othispano.com/styles/purplefreak/logo3.png)](https://othispano.com/)
