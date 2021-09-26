@@ -56,8 +56,10 @@ body:
       label: What OS are you seeing the problem on?
       multiple: true
       options:
-        - Linux
-        - Windows
+        - Ubuntu 18.04
+        - Ubuntu 20.04
+        - Windows 7
+        - Windows 10
         - MacOS
     validations:
       required: true

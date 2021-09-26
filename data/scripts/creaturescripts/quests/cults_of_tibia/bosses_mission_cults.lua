@@ -1,7 +1,7 @@
 local bossesCults = CreatureEvent("BossesCults")
 function bossesCults.onKill(player, creature)
 	local bosses = {
-		["ravennous hunger"] = {storage = Storage.CultsOfTibia.Barkless.Mission, value = 6},
+		["ravenous hunger"] = {storage = Storage.CultsOfTibia.Barkless.Mission, value = 6},
 		["the souldespoiler"] = {storage = Storage.CultsOfTibia.Misguided.Mission, value = 4},
 		["essence of malice"] = {storage = Storage.CultsOfTibia.Humans.Mission, value = 2},
 		["the unarmored voidborn"] = {storage = Storage.CultsOfTibia.Orcs.Mission, value = 2},

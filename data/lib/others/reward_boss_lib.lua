@@ -60,6 +60,20 @@ function MonsterType.createLootItem(self, lootBlock, chance, lootTable)
 		end
 	end
 
+	local itemType = ItemType(lootBlock.itemId)
+	local decayTo = itemType:getDecayId()
+	local decayTime = itemType:getDecayTime()
+	if decayTo and decayTo >= 0 and decayTime and decayTime ~= 0 then
+		local transformDeEquipId = itemType:getTransformDeEquipId()
+		if transformDeEquipId and transformDeEquipId > 0 then
+			Spdlog.warn("[MonsterType.createLootItem] - Convert boss '" .. self:name() .. "' reward ID '" .. lootBlock.itemId .. "' to ID " .. transformDeEquipId .. ".")
+			lootBlock.itemId = transformDeEquipId
+		else
+			Spdlog.error("[MonsterType.createLootItem] Cannot add item " .. lootBlock.itemId .. " as boss " .. self:name() .. " reward. It has decay.")
+			return lootTable
+		end
+	end
+
 	while itemCount > 0 do
 		local n = math.min(itemCount, 100)
 		itemCount = itemCount - n

@@ -1828,11 +1828,35 @@ void ProtocolGame::parseBestiarysendMonsterData(NetworkMessage &msg)
 	newmsg.addByte(lootList.size());
 	for (LootBlock loot : lootList)
 	{
-		newmsg.addItemId(currentLevel > 1 ? loot.id : 0);
 		int8_t difficult = g_bestiary.calculateDifficult(loot.chance);
+		bool shouldAddItem = false;
+
+		switch (currentLevel)
+		{
+			case 1:
+				shouldAddItem = false;
+			break;
+			case 2:
+				if (difficult < 2)
+				{
+					shouldAddItem = true;
+				}
+				break;
+			case 3:
+				if (difficult < 3)
+				{
+					shouldAddItem = true;
+				}
+				break;
+			case 4:
+				shouldAddItem = true;
+				break;
+		}
+
+		newmsg.addItemId(shouldAddItem == true ? loot.id : 0);
 		newmsg.addByte(difficult);
 		newmsg.addByte(0); // 1 if special event - 0 if regular loot (?)
-		if (currentLevel > 1)
+		if (shouldAddItem == true)
 		{
 			newmsg.addString(loot.name);
 			newmsg.addByte(loot.countmax > 0 ? 0x1 : 0x0);
@@ -2766,19 +2790,16 @@ void ProtocolGame::sendCreatureType(const Creature *creature, uint8_t creatureTy
 	NetworkMessage msg;
 	msg.addByte(0x95);
 	msg.add<uint32_t>(creature->getID());
-	msg.addByte(creatureType);
-
-	if (player->getOperatingSystem() == CLIENTOS_WINDOWS)
-	{
-		msg.addByte(creatureType); // type or any byte idk
+	if (creatureType == CREATURETYPE_SUMMON_OTHERS) {
+		creatureType = CREATURETYPE_SUMMON_PLAYER;
 	}
-
-	if (creatureType == CREATURETYPE_SUMMONPLAYER)
-	{
-		const Creature *master = creature->getMaster();
-		if (master)
-		{
+	msg.addByte(creatureType); // type or any byte idk
+	if (creatureType == CREATURETYPE_SUMMON_PLAYER) {
+		const Creature* master = creature->getMaster();
+		if (master) {
 			msg.add<uint32_t>(master->getID());
+		} else {
+			msg.add<uint32_t>(0);
 		}
 	}
 
@@ -6052,7 +6073,7 @@ void ProtocolGame::AddCreature(NetworkMessage &msg, const Creature *creature, bo
 			msg.addByte(creatureType);
 		}
 
-		if (creatureType == CREATURETYPE_SUMMONPLAYER)
+		if (creatureType == CREATURETYPE_SUMMON_PLAYER)
 		{
 			const Creature *master = creature->getMaster();
 			if (master)
@@ -6134,7 +6155,7 @@ void ProtocolGame::AddCreature(NetworkMessage &msg, const Creature *creature, bo
 			const Player *masterPlayer = master->getPlayer();
 			if (masterPlayer)
 			{
-				creatureType = CREATURETYPE_SUMMONPLAYER;
+				creatureType = CREATURETYPE_SUMMON_PLAYER;
 			}
 		}
 	}
@@ -6148,7 +6169,7 @@ void ProtocolGame::AddCreature(NetworkMessage &msg, const Creature *creature, bo
 		msg.addByte(creatureType); // Type (for summons)
 	}
 
-	if (creatureType == CREATURETYPE_SUMMONPLAYER)
+	if (creatureType == CREATURETYPE_SUMMON_PLAYER)
 	{
 		const Creature *master = creature->getMaster();
 		if (master)

@@ -1,17 +1,23 @@
+local timers = {}
+
 local function summonHungry(creature)
-	local monster = Creature(creature)
+	local monster = Monster(creature)
 	local organic = false
-	if monster then
-		monster:remove()
-		local hungryBoss = Game.createMonster("the hungry baron from below", Position(33648, 32300, 15), true, true)
+	if monster and monster:getName():lower() == "the baron from below" then
+		local oldBossHealth = monster:getHealth()
+		monster:setType("The Hungry Baron From Below")
+		monster:addHealth(-(monster:getHealth() - oldBossHealth))
+		monster:teleportTo(Position(33648, 32300, 15))
 		local organicMatter = Game.createMonster("organic matter", Position(33647, 32300, 15), true, true)
-		if hungryBoss then
-			hungryBoss:registerEvent("the baron from below think")
-			hungryBoss:addHealth(-(hungryBoss:getHealth() - monster:getHealth()))
-			hungryBoss:say("Gulp!", TALKTYPE_MONSTER_SAY)
+		if organicMatter then
+			organicMatter:registerEvent("OrganicMatterKill")
+		end
+		if monster and monster:getName():lower() == "the hungry baron from below" then
+			monster:addHealth(-(monster:getHealth() - oldBossHealth))
+			monster:say("Gulp!", TALKTYPE_MONSTER_SAY)
 			addEvent(function()
-				if hungryBoss then
-					hungryBoss:say("Gulp!", TALKTYPE_MONSTER_SAY)
+				if monster then
+					monster:say("Gulp!", TALKTYPE_MONSTER_SAY)
 				end
 			end, 2*1000)
 			addEvent(function()
@@ -26,31 +32,22 @@ local function summonHungry(creature)
 				if organic == true then
 					local organicPosition = organicMatter:getPosition()
 					organicMatter:remove()
-					local hungryBossHealth = hungryBoss:getHealth()
-					local hungryBossPosition = hungryBoss:getPosition()
-					hungryBoss:remove()
-					local newBoss = Game.createMonster("the baron from below", hungryBossPosition, true, true)
-					if newBoss then
-						newBoss:registerEvent("the baron from below think")
-						newBoss:addHealth( - (newBoss:getHealth() - hungryBossHealth))
-						newBoss:addHealth(math.random(10000, 30000))
-						for i = 1, 4 do
-							Game.createMonster("Aggressive Matter", organicPosition, true, false)
-						end
+					local hungryBossHealth = monster:getHealth()
+					monster:setType("The Baron From Below")
+					monster:addHealth(-(monster:getHealth() - hungryBossHealth))
+					monster:addHealth(math.random(10000, 30000))
+					for i = 1, 4 do
+						Game.createMonster("Aggressive Matter", organicPosition, true, false)
 					end
 				else
-					local hungryBossHealth = hungryBoss:getHealth()
-					local hungryBossPosition = hungryBoss:getPosition()
-					hungryBoss:remove()
-					local newBoss = Game.createMonster("the baron from below", hungryBossPosition, true, true)
-					if newBoss then
-						newBoss:registerEvent("the baron from below think")
-						newBoss:addHealth( - (newBoss:getHealth() - hungryBossHealth))
-					end
+					local hungryBossHealth = monster:getHealth()
+					monster:setType("The Baron From Below")
+					monster:addHealth(-(monster:getHealth() - hungryBossHealth))
 				end
 			end, 10*1000)
 		end
 	end
+	timers[creature] = false
 end
 
 local theBaronFromBelowThink = CreatureEvent("TheBaronFromBelowThink")
@@ -60,15 +57,17 @@ function theBaronFromBelowThink.onThink(creature)
 	end
 
 	if creature:getName():lower() == "the baron from below" then
-		addEvent(summonHungry, 30*1000, creature:getId())
+		if not timers[creature:getId()] then
+			timers[creature:getId()] = addEvent(summonHungry, 30*1000, creature:getId())
+		end
 	end
 	return true
 end
 
 theBaronFromBelowThink:register()
 
-local theBaronFromBelowKill = CreatureEvent("TheBaronFromBelowKill")
-function theBaronFromBelowKill.onKill(player, creature)
+local organicMatterKill = CreatureEvent("OrganicMatterKill")
+function organicMatterKill.onKill(player, creature)
 	if not player:isPlayer() then
 		return true
 	end
@@ -84,4 +83,4 @@ function theBaronFromBelowKill.onKill(player, creature)
 	end
 end
 
-theBaronFromBelowKill:register()
+organicMatterKill:register()

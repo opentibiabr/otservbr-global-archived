@@ -28,15 +28,16 @@ local function removePet(creatureId, playerId)
 end
 
 function spell.onCastSpell(player, variant)
+	local playerPosition = player:getPosition()
 	if not player or not isPremium(player) then
-		player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		playerPosition:sendMagicEffect(CONST_ME_POFF)
 		player:sendCancelMessage("You need a premium account.")
 	return false
 	end
 
 	if #player:getSummons() >= 1 then
 		player:sendCancelMessage("You can't have other summons.")
-		player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		playerPosition:sendMagicEffect(CONST_ME_POFF)
 		return false
 	end
 
@@ -49,24 +50,22 @@ function spell.onCastSpell(player, variant)
 
 	if not familiarName then
 		player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-		player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		playerPosition:sendMagicEffect(CONST_ME_POFF)
 		return false
 	end
 
-	local myFamiliar = Game.createMonster(familiarName, player:getPosition(), true, false)
+	local myFamiliar = Game.createMonster(familiarName, playerPosition, true, false, player)
 	if not myFamiliar then
-		player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-		player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		player:sendCancelMessage(RETURNVALUE_NOTENOUGHROOM)
+		playerPosition:sendMagicEffect(CONST_ME_POFF)
 		return false
 	end
 
-	player:addSummon(myFamiliar)
 	myFamiliar:setOutfit({lookType = player:getFamiliarLooktype()})
-	--myFamiliar:reload()
 	myFamiliar:registerEvent("FamiliarDeath")
 	local deltaSpeed = math.max(player:getSpeed() - myFamiliar:getBaseSpeed(), 0)
 	myFamiliar:changeSpeed(deltaSpeed)
-	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
+	playerPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	myFamiliar:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	player:setStorageValue(Storage.PetSummon, os.time() + 15*60) -- 15 minutes from now
 	addEvent(removePet, 15*60*1000, myFamiliar:getId(), player:getId())
