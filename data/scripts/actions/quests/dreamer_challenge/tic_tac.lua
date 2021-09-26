@@ -6,7 +6,7 @@ function dreamerTicTac.onUse(player, item, fromPosition, target, toPosition, isH
 		return true
 	end
 
-	local position = {x = 32838, y = 32264, z = 14}
+	local position = Position(32838, 32264, 14)
 	if player:getStorageValue(Storage.DreamersChallenge.TicTac) < 1 then
 		player:setStorageValue(Storage.DreamersChallenge.TicTac, 1)
 		Game.createItem(2638, 8, position)

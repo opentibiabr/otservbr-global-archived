@@ -355,7 +355,7 @@ ReturnValue Combat::canDoCombat(Creature* attacker, Creature* target)
 				if (target->isSummon() && target->getMaster()->getPlayer() && target->getZone() == ZONE_NOPVP) {
 					return RETURNVALUE_ACTIONNOTPERMITTEDINANOPVPZONE;
 				}
-	
+
 			} else if (attacker->getMonster()) {
 				const Creature* targetMaster = target->getMaster();
 
@@ -864,6 +864,12 @@ void Combat::doCombatHealth(Creature* caster, Creature* target, CombatDamage& da
 			&& (caster == target || canCombat)
 			&& (params.impactEffect != CONST_ME_NONE)) {
 		g_game.addMagicEffect(target->getPosition(), params.impactEffect);
+	}
+
+	if (params.combatType == COMBAT_HEALING && target->getMonster()){
+		if (target != caster)		{
+			return;
+		}
 	}
 
 	if(caster && caster->getPlayer()){

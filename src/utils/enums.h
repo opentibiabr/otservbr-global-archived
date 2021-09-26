@@ -135,8 +135,7 @@ enum CreatureType_t : uint8_t {
 	CREATURETYPE_PLAYER = 0,
 	CREATURETYPE_MONSTER = 1,
 	CREATURETYPE_NPC = 2,
-	CREATURETYPE_SUMMONPLAYER = 3,
-	CREATURETYPE_SUMMON_OWN = 3,
+	CREATURETYPE_SUMMON_PLAYER = 3,
 	CREATURETYPE_SUMMON_OTHERS = 4,
 	CREATURETYPE_HIDDEN = 5,
 };
@@ -1070,10 +1069,10 @@ enum Webhook_Colors_t : uint32_t {
 enum SessionEndInformations : uint8_t {
 	// I'm guessing unknown types are ban/protocol error or something
 	// but since there aren't any difference from logout should we care?
-	SESSION_END_LOGOUT,
+	SESSION_END_LOGOUT, // work only with standard logout
 	SESSION_END_UNK2,
 	SESSION_END_FORCECLOSE,
-	SESSION_END_UNK3,
+	SESSION_END_LOGOUT2, // work with standard logout and offline training logout
 };
 
 /**

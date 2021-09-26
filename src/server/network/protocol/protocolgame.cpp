@@ -456,7 +456,7 @@ void ProtocolGame::logout(bool displayEffect, bool forced)
 	}
 
 	if (player->getProtocolVersion() >= 1264) {
-		sendSessionEndInformation(forced ? SESSION_END_FORCECLOSE : SESSION_END_LOGOUT);
+		sendSessionEndInformation(SESSION_END_LOGOUT2);
 	} else {
 		disconnect();
 	}
@@ -656,7 +656,20 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 
 	// Modules system
 	if(recvbyte != 0xD3){
-		g_dispatcher.addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player, msg, recvbyte)));
+		g_dispatcher.addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player->getID(), msg, recvbyte)));
+	}
+
+	g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::parsePacketFromDispatcher, getThis(), msg, recvbyte)));
+}
+
+void ProtocolGame::parsePacketFromDispatcher(NetworkMessage msg, uint8_t recvbyte)
+{
+	if (!acceptPackets || g_game.getGameState() == GAME_STATE_SHUTDOWN) {
+		return;
+	}
+
+	if (!player || player->isRemoved() || player->getHealth() <= 0) {
+		return;
 	}
 
 	switch (recvbyte) {
@@ -738,7 +751,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xCD: parseInspectionObject(msg); break;
 		case 0xD2: addGameTask(&Game::playerRequestOutfit, player->getID()); break;
 		//g_dispatcher.addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player, msg, recvbyte)));
-		case 0xD3: g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::parseSetOutfit, this, msg))); break;
+		case 0xD3: g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::parseSetOutfit, getThis(), msg))); break;
 		case 0xD4: parseToggleMount(msg); break;
 		case 0xD5: parseApplyImbuement(msg); break;
 		case 0xD6: parseClearingImbuement(msg); break;
@@ -794,8 +807,7 @@ void ProtocolGame::parseHotkeyEquip(NetworkMessage &msg)
 		return;
 	}
 	uint16_t spriteid = msg.get<uint16_t>();
-	addGameTask(&Game::onPressHotkeyEquip, player, spriteid);
-	return;
+	addGameTask(&Game::onPressHotkeyEquip, player->getID(), spriteid);
 }
 
 void ProtocolGame::GetTileDescription(const Tile *tile, NetworkMessage &msg)
@@ -1133,6 +1145,10 @@ void ProtocolGame::parseAutoWalk(NetworkMessage &msg)
 
 void ProtocolGame::parseSetOutfit(NetworkMessage &msg)
 {
+	if (!player || player->isRemoved()) {
+		return;
+	}
+
 	uint16_t startBufferPosition = msg.getBufferPosition();
 	if (version >= 1200) {
 		Module *outfitModule = g_modules->getEventByRecvbyte(0xD3, false);
@@ -1862,11 +1878,35 @@ void ProtocolGame::parseBestiarysendMonsterData(NetworkMessage &msg)
 	newmsg.addByte(lootList.size());
 	for (LootBlock loot : lootList)
 	{
-		newmsg.addItemId(currentLevel > 1 ? loot.id : 0);
 		int8_t difficult = g_bestiary.calculateDifficult(loot.chance);
+		bool shouldAddItem = false;
+
+		switch (currentLevel)
+		{
+			case 1:
+				shouldAddItem = false;
+			break;
+			case 2:
+				if (difficult < 2)
+				{
+					shouldAddItem = true;
+				}
+				break;
+			case 3:
+				if (difficult < 3)
+				{
+					shouldAddItem = true;
+				}
+				break;
+			case 4:
+				shouldAddItem = true;
+				break;
+		}
+
+		newmsg.addItemId(shouldAddItem == true ? loot.id : 0);
 		newmsg.addByte(difficult);
 		newmsg.addByte(0); // 1 if special event - 0 if regular loot (?)
-		if (currentLevel > 1)
+		if (shouldAddItem == true)
 		{
 			newmsg.addString(loot.name);
 			newmsg.addByte(loot.countmax > 0 ? 0x1 : 0x0);
@@ -2530,11 +2570,10 @@ void ProtocolGame::parseMarketBrowse(NetworkMessage &msg)
 	}
 	else
 	{
-	player->sendMarketEnter(player->getLastDepotId());
 		addGameTask(&Game::playerBrowseMarket, player->getID(), browseId);
 	}
 	if (version >= 1200){
-		 player->sendMarketEnter(player->getLastDepotId());
+		player->sendMarketEnter(player->getLastDepotId());
 	}
 }
 
@@ -2805,19 +2844,23 @@ void ProtocolGame::sendCreatureType(const Creature *creature, uint8_t creatureTy
 	NetworkMessage msg;
 	msg.addByte(0x95);
 	msg.add<uint32_t>(creature->getID());
-	msg.addByte(creatureType);
+
+	if (creatureType == CREATURETYPE_SUMMON_OTHERS) {
+		creatureType = CREATURETYPE_SUMMON_PLAYER;
+	}
 
 	if (player->getOperatingSystem() == CLIENTOS_WINDOWS && version >= 1200)
 	{
 		msg.addByte(creatureType); // type or any byte idk
 	}
 
-	if (creatureType == CREATURETYPE_SUMMONPLAYER && version >= 1200)
+	if (creatureType == CREATURETYPE_SUMMON_PLAYER && version >= 1200)
 	{
-		const Creature *master = creature->getMaster();
-		if (master)
-		{
+		const Creature* master = creature->getMaster();
+		if (master) {
 			msg.add<uint32_t>(master->getID());
+		} else {
+			msg.add<uint32_t>(0);
 		}
 	}
 
@@ -2916,7 +2959,7 @@ void ProtocolGame::sendCyclopediaCharacterGeneralStats()
 	msg.addByte(player->getSoul());
 	msg.add<uint16_t>(player->getStaminaMinutes());
 
-	Condition *condition = player->getCondition(CONDITION_REGENERATION);
+	Condition *condition = player->getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT);
 	msg.add<uint16_t>(condition ? condition->getTicks() / 1000 : 0x00);
 	msg.add<uint16_t>(player->getOfflineTrainingTime() / 60 / 1000);
 	msg.add<uint16_t>(player->getSpeed() / 2);
@@ -4106,19 +4149,23 @@ void ProtocolGame::sendCoinBalance()
 
 void ProtocolGame::updateCoinBalance()
 {
+	if (!player) {
+		return;
+	}
+
 	g_dispatcher.addTask(
-		createTask(std::bind([](ProtocolGame *client) {
-			if (client && client->player)
-			{
+		createTask(std::bind([](uint32_t playerId) {
+			Player* threadPlayer = g_game.getPlayerByID(playerId);
+			if (threadPlayer) {
 				account::Account account;
-				account.LoadAccountDB(client->player->getAccount());
+				account.LoadAccountDB(threadPlayer->getAccount());
 				uint32_t coins;
 				account.GetCoins(&coins);
-				client->player->coinBalance = coins;
-				client->sendCoinBalance();
+				threadPlayer->coinBalance = coins;
+				threadPlayer->sendCoinBalance();
 			}
 		},
-							 this)));
+		player->getID())));
 }
 
 void ProtocolGame::sendMarketLeave()
@@ -6226,7 +6273,7 @@ void ProtocolGame::AddCreature(NetworkMessage &msg, const Creature *creature, bo
 			msg.addByte(creatureType);
 		}
 
-		if (version >= 1200 && creatureType == CREATURETYPE_SUMMONPLAYER)
+		if (version >= 1200 && creatureType == CREATURETYPE_SUMMON_PLAYER)
 		{
 			const Creature *master = creature->getMaster();
 			if (master)
@@ -6310,7 +6357,7 @@ void ProtocolGame::AddCreature(NetworkMessage &msg, const Creature *creature, bo
 			const Player *masterPlayer = master->getPlayer();
 			if (masterPlayer)
 			{
-				creatureType = CREATURETYPE_SUMMONPLAYER;
+				creatureType = CREATURETYPE_SUMMON_PLAYER;
 			}
 		}
 	}
@@ -6324,7 +6371,7 @@ void ProtocolGame::AddCreature(NetworkMessage &msg, const Creature *creature, bo
 		msg.addByte(creatureType); // Type (for summons)
 	}
 
-	if (version >= 1200 && creatureType == CREATURETYPE_SUMMONPLAYER)
+	if (version >= 1200 && creatureType == CREATURETYPE_SUMMON_PLAYER)
 	{
 		const Creature *master = creature->getMaster();
 		if (master)
@@ -6413,7 +6460,7 @@ void ProtocolGame::AddPlayerStats(NetworkMessage &msg)
 
 	msg.add<uint16_t>(player->getBaseSpeed() / 2);
 
-	Condition* condition = player->getCondition(CONDITION_REGENERATION);
+	Condition *condition = player->getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT);
 	msg.add<uint16_t>(condition ? condition->getTicks() / 1000 : 0x00);
 
 	msg.add<uint16_t>(player->getOfflineTrainingTime() / 60 / 1000);
@@ -6929,6 +6976,11 @@ void ProtocolGame::sendOpenStash()
 
 void ProtocolGame::parseStashWithdraw(NetworkMessage &msg)
 {
+	if (!player->isSupplyStashMenuAvailable()) {
+		player->sendCancelMessage("You can't use supply stash right now.");
+		return;
+	}
+
 	if (player->isStashExhausted()) {
 		player->sendCancelMessage("You need to wait to do this again.");
 		return;
@@ -6941,28 +6993,28 @@ void ProtocolGame::parseStashWithdraw(NetworkMessage &msg)
 			uint16_t spriteId = msg.get<uint16_t>();
 			uint8_t stackpos = msg.getByte();
 			uint32_t count = msg.getByte();
-			addGameTask(&Game::playerStowItem, player, pos, spriteId, stackpos, count, false);
+			addGameTask(&Game::playerStowItem, player->getID(), pos, spriteId, stackpos, count, false);
 			break;
 		}
 		case SUPPLY_STASH_ACTION_STOW_CONTAINER: {
 			Position pos = msg.getPosition();
 			uint16_t spriteId = msg.get<uint16_t>();
 			uint8_t stackpos = msg.getByte();
-			addGameTask(&Game::playerStowItem, player, pos, spriteId, stackpos, 0, false);
+			addGameTask(&Game::playerStowItem, player->getID(), pos, spriteId, stackpos, 0, false);
 			break;
 		}
 		case SUPPLY_STASH_ACTION_STOW_STACK: {
 			Position pos = msg.getPosition();
 			uint16_t spriteId = msg.get<uint16_t>();
 			uint8_t stackpos = msg.getByte();
-			addGameTask(&Game::playerStowItem, player, pos, spriteId, stackpos, 0, true);
+			addGameTask(&Game::playerStowItem, player->getID(), pos, spriteId, stackpos, 0, true);
 			break;
 		}
 		case SUPPLY_STASH_ACTION_WITHDRAW: {
 			uint16_t spriteId = msg.get<uint16_t>();
 			uint32_t count = msg.get<uint32_t>();
 			uint8_t stackpos = msg.getByte();
-			addGameTask(&Game::playerStashWithdraw, player, spriteId, count, stackpos);
+			addGameTask(&Game::playerStashWithdraw, player->getID(), spriteId, count, stackpos);
 			break;
 		}
 		default:

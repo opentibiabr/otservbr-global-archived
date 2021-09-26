@@ -67,6 +67,34 @@ void webhook_send_message(std::string title, std::string message, int color) {
 	}
 }
 
+void webhook_send_specialmessage(std::string title, std::string message, int color, std::string url) {
+	if (url.empty()) {
+		return;
+	}
+
+	if (!init) {
+		SPDLOG_ERROR("Failed to send webhook message; Did not (successfully) init");
+		return;
+	}
+
+	if (title.empty() || message.empty()) {
+		SPDLOG_ERROR("Failed to send webhook message; "
+                     "title or message to send was empty");
+		return;
+	}
+
+	std::string payload = get_payload(title, message, color);
+	std::string response_body = "";
+	int response_code = webhook_send_message_(url.c_str(), payload.c_str(), &response_body);
+
+	if (response_code != 204 && response_code != -1) {
+		SPDLOG_ERROR("Failed to send webhook message; "
+                     "HTTP request failed with code: {}"
+                     "response body: {} request body: {}",
+                     response_code, response_body, payload);
+	}
+}
+
 static std::string get_payload(std::string title, std::string message, int color) {
 	time_t now;
 	time(&now);

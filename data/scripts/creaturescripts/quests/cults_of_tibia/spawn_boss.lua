@@ -5,7 +5,7 @@ function spawnBoss.onDeath(creature, target)
 	end
 
 	if creature:getName():lower() == "leiden" then
-		local monster = Game.createMonster("ravennous hunger", creature:getPosition())
+		local monster = Game.createMonster("ravenous hunger", creature:getPosition())
 	elseif creature:getName():lower() == "the sinister hermit" then
 		local monster = Game.createMonster("the souldespoiler", creature:getPosition())
 	end

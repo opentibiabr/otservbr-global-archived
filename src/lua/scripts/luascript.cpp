@@ -1547,8 +1547,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CREATURETYPE_PLAYER)
 	registerEnum(CREATURETYPE_MONSTER)
 	registerEnum(CREATURETYPE_NPC)
-	registerEnum(CREATURETYPE_SUMMONPLAYER)
-	registerEnum(CREATURETYPE_SUMMON_OWN)
+	registerEnum(CREATURETYPE_SUMMON_PLAYER)
 	registerEnum(CREATURETYPE_SUMMON_OTHERS)
 	registerEnum(CREATURETYPE_HIDDEN)
 
@@ -2064,7 +2063,6 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(RELOAD_TYPE_NPCS)
 	registerEnum(RELOAD_TYPE_RAIDS)
 	registerEnum(RELOAD_TYPE_SCRIPTS)
-	registerEnum(RELOAD_TYPE_SPELLS)
 	registerEnum(RELOAD_TYPE_STAGES)
 
 	registerEnum(ZONE_PROTECTION)
@@ -2131,6 +2129,18 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::WEATHER_THUNDER)
 	registerEnumIn("configKeys", ConfigManager::FREE_QUESTS)
 	registerEnumIn("configKeys", ConfigManager::ALL_CONSOLE_LOG)
+	registerEnumIn("configKeys", ConfigManager::SAVE_INTERVAL)
+	registerEnumIn("configKeys", ConfigManager::SAVE_INTERVAL_CLEAN_MAP)
+	registerEnumIn("configKeys", ConfigManager::SAVE_INTERVAL_TIME)
+	registerEnumIn("configKeys", ConfigManager::STAMINA_TRAINER)
+	registerEnumIn("configKeys", ConfigManager::STAMINA_PZ)
+	registerEnumIn("configKeys", ConfigManager::STAMINA_ORANGE_DELAY)
+	registerEnumIn("configKeys", ConfigManager::STAMINA_GREEN_DELAY)
+	registerEnumIn("configKeys", ConfigManager::STAMINA_TRAINER_DELAY)
+	registerEnumIn("configKeys", ConfigManager::STAMINA_PZ_GAIN)
+	registerEnumIn("configKeys", ConfigManager::STAMINA_TRAINER_GAIN)
+
+	registerEnumIn("configKeys", ConfigManager::SORT_LOOT_BY_CHANCE)
 
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_NOTIFY_MESSAGE)
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_NOTIFY_DURATION)
@@ -2201,6 +2211,18 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::RED_SKULL_DURATION)
 	registerEnumIn("configKeys", ConfigManager::BLACK_SKULL_DURATION)
 	registerEnumIn("configKeys", ConfigManager::ORANGE_SKULL_DURATION)
+
+	registerEnumIn("configKeys", ConfigManager::RATE_HEALTH_REGEN)
+	registerEnumIn("configKeys", ConfigManager::RATE_HEALTH_REGEN_SPEED)
+	registerEnumIn("configKeys", ConfigManager::RATE_MANA_REGEN)
+	registerEnumIn("configKeys", ConfigManager::RATE_MANA_REGEN_SPEED)
+	registerEnumIn("configKeys", ConfigManager::RATE_SOUL_REGEN)
+	registerEnumIn("configKeys", ConfigManager::RATE_SOUL_REGEN_SPEED)
+
+	registerEnumIn("configKeys", ConfigManager::RATE_SPELL_COOLDOWN)
+	registerEnumIn("configKeys", ConfigManager::RATE_ATTACK_SPEED)
+	registerEnumIn("configKeys", ConfigManager::RATE_OFFLINE_TRAINING_SPEED)
+	registerEnumIn("configKeys", ConfigManager::RATE_EXERCISE_TRAINING_SPEED)
 
 	registerEnumIn("configKeys", ConfigManager::RATE_MONSTER_HEALTH)
 	registerEnumIn("configKeys", ConfigManager::RATE_MONSTER_ATTACK)
@@ -2504,8 +2526,6 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Creature", "getMaster", LuaScriptInterface::luaCreatureGetMaster);
 	registerMethod("Creature", "setMaster", LuaScriptInterface::luaCreatureSetMaster);
-
-	registerMethod("Creature", "reload", LuaScriptInterface::luaCreatureReload);
 
 	registerMethod("Creature", "getLight", LuaScriptInterface::luaCreatureGetLight);
 	registerMethod("Creature", "setLight", LuaScriptInterface::luaCreatureSetLight);
@@ -2921,6 +2941,7 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Vocation", "getId", LuaScriptInterface::luaVocationGetId);
 	registerMethod("Vocation", "getClientId", LuaScriptInterface::luaVocationGetClientId);
+	registerMethod("Vocation", "getBaseId", LuaScriptInterface::luaGetBaseId);
 	registerMethod("Vocation", "getName", LuaScriptInterface::luaVocationGetName);
 	registerMethod("Vocation", "getDescription", LuaScriptInterface::luaVocationGetDescription);
 
@@ -2940,6 +2961,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Vocation", "getMaxSoul", LuaScriptInterface::luaVocationGetMaxSoul);
 	registerMethod("Vocation", "getSoulGainTicks", LuaScriptInterface::luaVocationGetSoulGainTicks);
 
+	registerMethod("Vocation", "getBaseAttackSpeed", LuaScriptInterface::luaVocationGetBaseAttackSpeed);
 	registerMethod("Vocation", "getAttackSpeed", LuaScriptInterface::luaVocationGetAttackSpeed);
 	registerMethod("Vocation", "getBaseSpeed", LuaScriptInterface::luaVocationGetBaseSpeed);
 
@@ -3319,6 +3341,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Spell", "needTarget", LuaScriptInterface::luaSpellNeedTarget);
 	registerMethod("Spell", "needWeapon", LuaScriptInterface::luaSpellNeedWeapon);
 	registerMethod("Spell", "needLearn", LuaScriptInterface::luaSpellNeedLearn);
+	registerMethod("Spell", "allowOnSelf", LuaScriptInterface::luaSpellAllowOnSelf);
+	registerMethod("Spell", "setPzLocked", LuaScriptInterface::luaSpellPzLocked);
 	registerMethod("Spell", "isSelfTarget", LuaScriptInterface::luaSpellSelfTarget);
 	registerMethod("Spell", "isBlocking", LuaScriptInterface::luaSpellBlocking);
 	registerMethod("Spell", "isAggressive", LuaScriptInterface::luaSpellAggressive);
@@ -3471,6 +3495,7 @@ void LuaScriptInterface::registerFunctions()
 	// Webhook
 	registerTable("Webhook");
 	registerMethod("Webhook", "send", LuaScriptInterface::webhookSend);
+	registerMethod("Webhook", "specialSend", LuaScriptInterface::webhookSpecialSend);
 }
 
 #undef registerEnum
@@ -4579,6 +4604,7 @@ SHIFTOP(RightShift, >> )
 const luaL_Reg LuaScriptInterface::luaConfigManagerTable[] = {
 	{"getString", LuaScriptInterface::luaConfigManagerGetString},
 	{"getNumber", LuaScriptInterface::luaConfigManagerGetNumber},
+	{"getFloat", LuaScriptInterface::luaConfigManagerGetFloat},
 	{"getBoolean", LuaScriptInterface::luaConfigManagerGetBoolean},
 	{nullptr, nullptr}
 };
@@ -4592,6 +4618,12 @@ int LuaScriptInterface::luaConfigManagerGetString(lua_State* L)
 int LuaScriptInterface::luaConfigManagerGetNumber(lua_State* L)
 {
 	lua_pushnumber(L, g_config.getNumber(getNumber<ConfigManager::integer_config_t>(L, -1)));
+	return 1;
+}
+
+int LuaScriptInterface::luaConfigManagerGetFloat(lua_State* L)
+{
+	lua_pushnumber(L, g_config.getFloat(getNumber<ConfigManager::floating_config_t>(L, -1)));
 	return 1;
 }
 
@@ -5307,11 +5339,22 @@ int LuaScriptInterface::luaGameCreateContainer(lua_State* L)
 
 int LuaScriptInterface::luaGameCreateMonster(lua_State* L)
 {
-	// Game.createMonster(monsterName, position[, extended = false[, force = false]])
+	// Game.createMonster(monsterName, position[, extended = false[, force = false[, master = nil]]])
 	Monster* monster = Monster::createMonster(getString(L, 1));
 	if (!monster) {
 		lua_pushnil(L);
 		return 1;
+	}
+
+	bool isSummon = false;
+	if (lua_gettop(L) >= 5) {
+		Creature* master = getCreature(L, 5);
+		if (master) {
+			monster->setMaster(master);
+			monster->setDropLoot(false);
+			monster->setSkillLoss(false);
+			isSummon = true;
+		}
 	}
 
 	const Position& position = getPosition(L, 2);
@@ -5321,7 +5364,11 @@ int LuaScriptInterface::luaGameCreateMonster(lua_State* L)
 		pushUserdata<Monster>(L, monster);
 		setMetatable(L, -1, "Monster");
 	} else {
-		delete monster;
+		if (isSummon) {
+			monster->setMaster(nullptr);
+		} else {
+			delete monster;
+		}
 		lua_pushnil(L);
 	}
 	return 1;
@@ -8267,28 +8314,6 @@ int LuaScriptInterface::luaCreatureSetMaster(lua_State* L)
 
 	pushBoolean(L, creature->setMaster(getCreature(L, 2)));
 	g_game.updateCreatureType(creature);
-	return 1;
-}
-
-int LuaScriptInterface::luaCreatureReload(lua_State* L)
-{
-	// creature:reload()
-	Creature* creature = getUserdata<Creature>(L, 1);
-	if (!creature) {
-		lua_pushnil(L);
-		return 1;
-	}
-
-	const Position& position = creature->getPosition();
-	SpectatorHashSet spectators;
-	g_game.map.getSpectators(spectators, position, false, true); // 3 parâmetro é multifloor, ver se há necessidade de usar.
-	for (Creature* spectator : spectators) {
-		Player* tmpPlayer = spectator->getPlayer();
-		if (tmpPlayer) {
-			tmpPlayer->reloadCreature(creature);
-		}
-	}
-
 	return 1;
 }
 
@@ -13210,6 +13235,18 @@ int LuaScriptInterface::luaVocationGetClientId(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaGetBaseId(lua_State* L)
+{
+	// vocation:getBaseId()
+	Vocation* vocation = getUserdata<Vocation>(L, 1);
+	if (vocation) {
+		lua_pushnumber(L, vocation->getBaseId());
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 int LuaScriptInterface::luaVocationGetName(lua_State* L)
 {
 	// vocation:getName()
@@ -13363,6 +13400,18 @@ int LuaScriptInterface::luaVocationGetSoulGainTicks(lua_State* L)
 	Vocation* vocation = getUserdata<Vocation>(L, 1);
 	if (vocation) {
 		lua_pushnumber(L, vocation->getSoulGainTicks());
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaVocationGetBaseAttackSpeed(lua_State* L)
+{
+	// vocation:getBaseAttackSpeed()
+	Vocation* vocation = getUserdata<Vocation>(L, 1);
+	if (vocation) {
+		lua_pushnumber(L, vocation->getBaseAttackSpeed());
 	} else {
 		lua_pushnil(L);
 	}
@@ -17955,6 +18004,40 @@ int LuaScriptInterface::luaSpellAggressive(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaSpellAllowOnSelf(lua_State* L)
+{
+	// spell:allowOnSelf(bool)
+	Spell* spell = getUserdata<Spell>(L, 1);
+	if (spell) {
+		if (lua_gettop(L) == 1) {
+			pushBoolean(L, spell->getAllowOnSelf());
+		} else {
+			spell->setAllowOnSelf(getBoolean(L, 2));
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaSpellPzLocked(lua_State* L)
+{
+	// spell:isPzLocked(bool)
+	Spell* spell = getUserdata<Spell>(L, 1);
+	if (spell) {
+		if (lua_gettop(L) == 1) {
+			pushBoolean(L, spell->getLockedPZ());
+		} else {
+			spell->setLockedPZ(getBoolean(L, 2));
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 int LuaScriptInterface::luaSpellVocation(lua_State* L)
 {
 	// spell:vocation(vocation)
@@ -19893,6 +19976,20 @@ int LuaScriptInterface::webhookSend(lua_State* L)
 	uint32_t color = getNumber<uint32_t>(L, 3, 0);
 
 	webhook_send_message(title, message, color);
+	lua_pushnil(L);
+
+	return 1;
+}
+
+int LuaScriptInterface::webhookSpecialSend(lua_State* L)
+{
+	// Webhook.specialSend(title, message, color, url)
+	std::string title = getString(L, 1);
+	std::string message = getString(L, 2);
+	uint32_t color = getNumber<uint32_t>(L, 3, 0);
+	std::string url = getString(L, 4);
+
+	webhook_send_specialmessage(title, message, color, url);
 	lua_pushnil(L);
 
 	return 1;

@@ -343,8 +343,13 @@ void Game::setGameState(GameState_t newState)
 	}
 }
 
-void Game::onPressHotkeyEquip(Player* player, uint16_t spriteid)
+void Game::onPressHotkeyEquip(uint32_t playerId, uint16_t spriteid)
 {
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return;
+	}
+
 	Item* item;
 	const ItemType& itemType = Item::items.getItemIdByClientId(spriteid);
 
@@ -3713,8 +3718,13 @@ void Game::playerBrowseField(uint32_t playerId, const Position& pos)
 	}
 }
 
-void Game::playerStowItem(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos, uint8_t count, bool allItems)
+void Game::playerStowItem(uint32_t playerId, const Position& pos, uint16_t spriteId, uint8_t stackpos, uint8_t count, bool allItems)
 {
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return;
+	}
+
 	if (!player->isPremium()) {
 		player->sendCancelMessage(RETURNVALUE_YOUNEEDPREMIUMACCOUNT);
 		return;
@@ -3737,8 +3747,13 @@ void Game::playerStowItem(Player* player, const Position& pos, uint16_t spriteId
 	player->stowItem(item, count, allItems);
 }
 
-void Game::playerStashWithdraw(Player* player, uint16_t spriteId, uint32_t count, uint8_t)
+void Game::playerStashWithdraw(uint32_t playerId, uint16_t spriteId, uint32_t count, uint8_t)
 {
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return;
+	}
+
 	if (player->hasFlag(PlayerFlag_CannotPickupItem)) {
 		return;
 	}
@@ -5178,11 +5193,15 @@ bool Game::internalCreatureTurn(Creature* creature, Direction dir)
 	}
 	creature->setDirection(dir);
 
-	//send to client
+	// Send to client
 	SpectatorHashSet spectators;
 	map.getSpectators(spectators, creature->getPosition(), true, true);
 	for (Creature* spectator : spectators) {
-		spectator->getPlayer()->sendCreatureTurn(creature);
+		Player* tmpPlayer = spectator->getPlayer();
+		if(!tmpPlayer) {
+			continue;
+		}
+		tmpPlayer->sendCreatureTurn(creature);
 	}
 	return true;
 }
@@ -5658,6 +5677,12 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 					continue;
 				}
 
+				if (damage.primary.type == COMBAT_HEALING && target && target->getMonster()) {
+					if (target != attacker) {
+						return false;
+					}
+				}
+				
 				if (tmpPlayer == attackerPlayer && attackerPlayer != targetPlayer) {
 					ss.str({});
 					ss << "You heal " << target->getNameDescription() << " for " << damageString;
@@ -6533,24 +6558,21 @@ void Game::checkImbuements()
 
 		bool needUpdate = false;
 		uint8_t slots = Item::items[item->getID()].imbuingSlots;
+		int32_t index = player ? player->getThingIndex(item) : -1;
 		for (uint8_t slot = 0; slot < slots; slot++) {
 			uint32_t info = item->getImbuement(slot);
 			int32_t duration = info >> 8;
 			int32_t newDuration = std::max(0, (duration - (EVENT_IMBUEMENTINTERVAL * EVENT_IMBUEMENT_BUCKETS) / 690));
 			if (duration > 0 && newDuration == 0) {
 				needUpdate = true;
-			}
-		}
-
-		int32_t index = player ? player->getThingIndex(item) : -1;
-		needUpdate = needUpdate && index != -1;
-
-		if (needUpdate) {
-			player->postRemoveNotification(item, player, index);
-			ReleaseItem(item);
-			it = imbuedItems[bucket].erase(it);
-			for (uint8_t slot = 0; slot < slots; slot++) {
-				item->setImbuement(slot, 0);
+				if (index != -1)
+				{
+					needUpdate = true;
+					player->postRemoveNotification(item, player, index);
+					ReleaseItem(item);
+					it = imbuedItems[bucket].erase(it);
+					item->setImbuement(slot, 0);
+				}
 			}
 		}
 
@@ -6791,17 +6813,32 @@ void Game::updateCreatureType(Creature* creature)
 		if (master) {
 			masterPlayer = master->getPlayer();
 			if (masterPlayer) {
-				creatureType = CREATURETYPE_SUMMONPLAYER;
+				creatureType = CREATURETYPE_SUMMON_OTHERS;
 			}
 		}
 	}
 
-	//send to clients
+	if (creature->isHealthHidden()) {
+		creatureType = CREATURETYPE_HIDDEN;
+	}
+
+	// Send to clients
 	SpectatorHashSet spectators;
 	map.getSpectators(spectators, creature->getPosition(), true, true);
 
-	for (Creature* spectator : spectators) {
-		spectator->getPlayer()->sendCreatureType(creature, creatureType);
+	if (creatureType == CREATURETYPE_SUMMON_OTHERS) {
+		for (Creature* spectator : spectators) {
+			Player* player = spectator->getPlayer();
+			if (masterPlayer == player) {
+				player->sendCreatureType(creature, CREATURETYPE_SUMMON_PLAYER);
+			} else {
+				player->sendCreatureType(creature, creatureType);
+			}
+		}
+	} else {
+		for (Creature* spectator : spectators) {
+			spectator->getPlayer()->sendCreatureType(creature, creatureType);
+		}
 	}
 }
 
@@ -7366,26 +7403,21 @@ void Game::playerNpcGreet(uint32_t playerId, uint32_t npcId)
 		return;
 	}
 
-	Creature* creature = getCreatureByID(npcId);
-	if (!creature) {
+	Npc* npc = getNpcByID(npcId);
+	if (!npc) {
 		return;
 	}
 
-	Npc* npc = creature->getNpc();
-	if(npc) {
-		SpectatorHashSet spectators;
-		spectators.insert(npc);
-		map.getSpectators(spectators, player->getPosition(), true, true);
-		internalCreatureSay(player, TALKTYPE_SAY, "Hi", false, &spectators);
-		spectators.clear();
-		spectators.insert(npc);
-		if (npc->getSpeechBubble() == SPEECHBUBBLE_TRADE) {
-			internalCreatureSay(player, TALKTYPE_PRIVATE_PN, "Trade", false, &spectators);
-		} else {
-			internalCreatureSay(player, TALKTYPE_PRIVATE_PN, "Sail", false, &spectators);
-        }
-
-		return;
+	SpectatorHashSet spectators;
+	spectators.insert(npc);
+	map.getSpectators(spectators, player->getPosition(), true, true);
+	internalCreatureSay(player, TALKTYPE_SAY, "hi", false, &spectators);
+	spectators.clear();
+	spectators.insert(npc);
+	if (npc->getSpeechBubble() == SPEECHBUBBLE_TRADE) {
+		internalCreatureSay(player, TALKTYPE_PRIVATE_PN, "trade", false, &spectators);
+	} else {
+		internalCreatureSay(player, TALKTYPE_PRIVATE_PN, "sail", false, &spectators);
 	}
 }
 
@@ -8632,14 +8664,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 		}
 		case RELOAD_TYPE_RAIDS: return raids.reload() && raids.startup();
 
-		case RELOAD_TYPE_SPELLS: {
-			if (!g_spells->reload()) {
-				SPDLOG_WARN("[Game::reload] - Failed to reload spells.");
-				std::terminate();
-			}
-			return true;
-		}
-
 		case RELOAD_TYPE_SCRIPTS: {
 			// commented out stuff is TODO, once we approach further in revscriptsys
 			g_actions->clear(true);
@@ -8655,11 +8679,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 		}
 
 		default: {
-			if (!g_spells->reload()) {
-				SPDLOG_WARN("[Game::reload] - Failed to reload spells.");
-				std::terminate();
-			}
-
+			
 			g_config.reload();
 			Npcs::reload();
 			raids.reload() && raids.startup();
