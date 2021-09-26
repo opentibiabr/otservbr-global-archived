@@ -17,7 +17,6 @@ function createSummon.onSay(player, words, param)
 		if monster:getOutfit().lookType == 0 then
 			monster:setOutfit({lookType = player:getFamiliarLooktype()})
 		end
-		monster:reload()
 		position:sendMagicEffect(CONST_ME_MAGIC_RED)
 	else
 		player:sendCancelMessage("There is not enough room.")
