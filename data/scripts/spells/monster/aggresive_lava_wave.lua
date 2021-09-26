@@ -42,7 +42,7 @@ function spell.onCastSpell(creature, var)
 	return combat:execute(creature, var)
 end
 
-spell:name("aggresiveLavaWave")
+spell:name("aggresive lava wave")
 spell:words("###464")
 spell:needLearn(true)
 spell:needDirection(true)
