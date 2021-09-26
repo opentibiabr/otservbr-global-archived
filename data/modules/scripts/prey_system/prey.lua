@@ -159,7 +159,10 @@ Prey.MonsterList = {
 	"Insect Swarm", "Insectoid Scout", "Insectoid Worker", "Kollos", "Lacewing Moth", "Ladybug", "Lancer Beetle",
 	"Larva", "Poison Spider", "Rotworm", "Sacred Spider", "Sandcrawler", "Scarab", "Scorpion", "Spider", "Spidris",
 	"Spidris Elite", "Spitter", "Swarmer", "Tarantula", "Terramite", "Tunnel Tyrant", "Wailing Widow", "Wasp",
-	"Waspoid", "Wiggler", "Terrified Elephant", "Burning Book", "Tainted Soul"
+	"Waspoid", "Wiggler", "Terrified Elephant", "Burning Book", "Tainted Soul", "Brachiodemon", "Infernal Demon",
+	"Infernal Phantom", "Branchy Crawler", "Mould Phantom", "Rotten Golem", "Bony Sea Devil", "Capricious Phantom",
+	"Hazardous Phantom", "Turbulent Elemental", "Cloak Of Terror", "Courage Leech", "Vibrant Phantom", "Distorted Phantom",
+	"Druid's Apparition", "Knight's Apparition", "Many Faces", "Paladin's Apparition", "Sorcerer's Apparition"
 }
 
 -- Communication functions
