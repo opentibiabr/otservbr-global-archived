@@ -117,7 +117,7 @@ monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 60},
 	{type = COMBAT_ENERGYDAMAGE, percent = 60},
 	{type = COMBAT_EARTHDAMAGE, percent = 60},
-	{type = COMBAT_FIREDAMAGE, percent = -100},
+	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
@@ -131,6 +131,10 @@ monster.immunities = {
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
+}
+
+monster.heals = {
+	{type = COMBAT_FIREDAMAGE, percent = 100},
 }
 
 mType.onThink = function(monster, interval)

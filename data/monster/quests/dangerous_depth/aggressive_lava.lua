@@ -4,7 +4,7 @@ local monster = {}
 monster.description = "an aggressive lava"
 monster.experience = 0
 monster.outfit = {
-	lookType = 614,
+	lookType = 1041,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -69,7 +69,7 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450},
-	{name ="aggresivelavawave", interval = 2000, chance = 30, minDamage = 0, maxDamage = -650, target = false}
+	{name ="aggressivelavawave", interval = 2000, chance = 30, minDamage = 0, maxDamage = -650, target = false}
 }
 
 monster.defenses = {
@@ -95,6 +95,10 @@ monster.immunities = {
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
+}
+
+monster.heals = {
+	{type = COMBAT_FIREDAMAGE, percent = 100}
 }
 
 mType:register(monster)

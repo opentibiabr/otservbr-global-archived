@@ -10,26 +10,31 @@ combat:setArea(createCombatArea({
 {0, 1, 1, 1, 0},
 }))
 
-function spellCallback(param)
-	local tile = Tile(Position(param.pos))
+local monsters = {
+	"the baron from below",
+	"the hungry baron from below",
+	"the duke of the depths",
+	"the fire empowered duke",
+	"fiery heart",
+	"aggressive lava",
+}
+
+function onTargetTile(cid, pos)
+	local tile = Tile(pos)
 	if tile then
-		if tile:getTopCreature() and tile:getTopCreature():isMonster() then
-			if tile:getTopCreature():getName():lower() == "the duke of the depths" or tile:getTopCreature():getName():lower() == "the duke of the depths immortal" then
-				tile:getTopCreature():addHealth(math.random(0, 2000))
+		local target = tile:getTopCreature()
+		if target and target ~= cid then
+			targetName = target:getName():lower()
+			casterName = cid:getName():lower()
+			if table.contains(monsters, targetName) and casterName ~= targetName then
+				target:addHealth(math.random(0, 650))
 			end
 		end
 	end
+	return true
 end
 
-function onTargetTile(cid, pos)
-	local param = {}
-	param.cid = cid
-	param.pos = pos
-	param.count = 0
-	spellCallback(param)
-end
-
-setCombatCallback(combat, CALLBACK_PARAM_TARGETTILE, "onTargetTile")
+combat:setCallback(CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
 local spell = Spell("instant")
 

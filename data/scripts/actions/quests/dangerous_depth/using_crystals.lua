@@ -152,7 +152,7 @@ local function sumonarLavasVI(i)
 	local spectator = Game.getSpectators(positionCenter, false, false, 20, 20, 20, 20)
 	for _, creature in pairs(spectator) do
 		if creature:isMonster() then
-			if creature:getName():lower() == "the duke of the depths" or creature:getName():lower() == "the duke of the depths immortal" then
+			if creature:getName():lower() == "the duke of the depths" or creature:getName():lower() == "the fire empowered duke" then
 				boss = true
 			end
 		end
@@ -196,17 +196,14 @@ local function sumonarFieryHearts()
 	end
 	if boss == true and contagemHearts == 0 then
 		for _, position in pairs(fieryHearts) do
-			Game.createMonster("Fiery Heart", position):registerEvent("fieryHearts")
+			fiery = Game.createMonster("Fiery Heart", position)
+			if fiery then
+				fiery:registerEvent("FieryHeartThink")
+			end
 		end
 		local oldBossHealth = bossId:getHealth()
-		local oldBossPosition = bossId:getPosition()
-		bossId:remove()
-		local newBoss = Game.createMonster("the duke of the depths immortal", oldBossPosition, false, true)
-		if newBoss then
-			newBoss:registerEvent("fieryHearts")
-			newBoss:registerEvent("healFireDamage")
-			newBoss:addHealth(-(newBoss:getHealth() - oldBossHealth))
-		end
+		bossId:setType("The Fire Empowered Duke")
+		bossId:addHealth(-(bossId:getHealth() - oldBossHealth))
 	end
 	if boss == true then
 		addEvent(sumonarFieryHearts, 40*1000)
@@ -375,7 +372,7 @@ local function startWarzoneIV()
 	addEvent(function()
 		local monstro = Game.createMonster("The Baron From Below", Position(33648, 32303, 15))
 			if monstro then
-				monstro:registerEvent("theBaronFromBelow")
+				monstro:registerEvent("TheBaronFromBelowThink")
 			end
 			addEvent(sumonarLavasIV, 15*1000, 5)
 			addEvent(lavaHoles, 15*1000, 1)
@@ -386,8 +383,7 @@ local function startWarzoneV()
 	addEvent(function()
 		local monstro = Game.createMonster("The Count Of The Core", Position(33681, 32334, 15))
 			if monstro then
-				monstro:registerEvent("healFireDamage")
-				monstro:registerEvent("emberBeasts")
+				monstro:registerEvent("SnailSlimeThink")
 			end
 		summonBeasts(5)
 		addEvent(startMachines, 10*1000)
@@ -399,7 +395,7 @@ local function startWarzoneVI()
 	addEvent(function()
 		local monstro = Game.createMonster("The Duke Of The Depths", Position(33712, 32303, 15))
 			if monstro then
-				monstro:registerEvent("healFireDamage")
+				monstro:registerEvent("FieryHeartThink")
 			end
 			addEvent(sumonarFieryHearts, 30*1000)
 			addEvent(sumonarLavasVI, 15*1000, 5)

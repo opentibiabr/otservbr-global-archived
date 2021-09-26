@@ -11,26 +11,26 @@ combat:setArea(createCombatArea({
 {3},
 }))
 
-function spellCallback(param)
-	local tile = Tile(Position(param.pos))
+local monsters = {
+	"the count of the core",
+}
+
+function onTargetTile(cid, pos)
+	local tile = Tile(pos)
 	if tile then
-		if tile:getTopCreature() and tile:getTopCreature():isMonster() then
-			if tile:getTopCreature():getName():lower() == "the count of the core" then
-				tile:getTopCreature():addHealth(math.random(0, 1500))
+		local target = tile:getTopCreature()
+		if target and target ~= cid then
+			targetName = target:getName():lower()
+			casterName = cid:getName():lower()
+			if table.contains(monsters, targetName) and casterName ~= targetName then
+				target:addHealth(math.random(0, 1500))
 			end
 		end
 	end
+	return true
 end
 
-function onTargetTile(cid, pos)
-	local param = {}
-	param.cid = cid
-	param.pos = pos
-	param.count = 0
-	spellCallback(param)
-end
-
-setCombatCallback(combat, CALLBACK_PARAM_TARGETTILE, "onTargetTile")
+combat:setCallback(CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
 local spell = Spell("instant")
 

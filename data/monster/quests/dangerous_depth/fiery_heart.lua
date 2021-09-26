@@ -62,7 +62,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="aggresivelavawave", interval = 2000, chance = 30, minDamage = 0, maxDamage = -550, target = false}
+	{name ="aggressivelavawave", interval = 2000, chance = 30, minDamage = 0, maxDamage = -550, target = false}
 }
 
 monster.defenses = {
@@ -74,7 +74,7 @@ monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
@@ -88,6 +88,10 @@ monster.immunities = {
 	{type = "outfit", condition = false},
 	{type = "invisible", condition = false},
 	{type = "bleed", condition = false}
+}
+
+monster.heals = {
+	{type = COMBAT_FIREDAMAGE, percent = 100}
 }
 
 mType:register(monster)
