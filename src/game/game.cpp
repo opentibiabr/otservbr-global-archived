@@ -1773,7 +1773,7 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 		if (updateItemIndex != -1) {
 			toCylinder->postAddNotification(updateItem, fromCylinder, updateItemIndex);
 		}
-		moveItem->startDecaying();
+		updateItem->startDecaying();
 	}
 
 	if (_moveItem) {
