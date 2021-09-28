@@ -22,6 +22,8 @@
 
 #include "items/item.h"
 
+#include <map>
+
 class Decay
 {
 	public:
@@ -37,4 +39,4 @@ class Decay
 
 extern Decay g_decay;
 
-#endif // SRC_ITEMS_DECAY_DECAY_H_
+#endif  // SRC_ITEMS_DECAY_DECAY_H_

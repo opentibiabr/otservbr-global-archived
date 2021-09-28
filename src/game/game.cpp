@@ -1952,7 +1952,7 @@ ReturnValue Game::internalRemoveItem(Item* item, int32_t count /*= -1*/, bool te
 
 		cylinder->postRemoveNotification(item, nullptr, index);
 	}
-  
+
 	Item* quiver = cylinder->getItem();
 	if (quiver && quiver->getWeaponType() == WEAPON_QUIVER
                && quiver->getHoldingPlayer()

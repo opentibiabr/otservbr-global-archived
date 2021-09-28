@@ -23,6 +23,10 @@
 #include "game/game.h"
 #include "game/scheduling/scheduler.h"
 
+#include <algorithm>
+#include <utility>
+#include <vector>
+
 extern Game g_game;
 Decay g_decay;
 
@@ -91,7 +95,7 @@ void Decay::checkDecay()
 	int64_t timestamp = OTSYS_TIME();
 
 	std::vector<Item*> tempItems;
-	tempItems.reserve(32); // Small preallocation
+	tempItems.reserve(32);  // Small preallocation
 
 	auto it = decayMap.begin(), end = decayMap.end();
 	while (it != end) {

@@ -672,7 +672,7 @@ class Game
 		std::map<uint32_t, uint32_t> stages;
 
 		std::vector<Creature*> checkCreatureLists[EVENT_CREATURECOUNT];
-		
+
 		std::list<Item*> imbuedItems[EVENT_IMBUEMENT_BUCKETS];
 
 		std::map<uint16_t, std::string> BestiaryList;
