@@ -62,7 +62,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="aggresive lava wave", interval = 2000, chance = 30, minDamage = 0, maxDamage = -550, target = false}
+	{name ="aggressivelavawave", interval = 2000, chance = 30, minDamage = 0, maxDamage = -550, target = false}
 }
 
 monster.defenses = {
