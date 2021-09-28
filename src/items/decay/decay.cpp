@@ -58,7 +58,7 @@ void Decay::stopDecay(Item* item, int64_t timestamp)
 		if (end == 1) {
 			if (item == decayItems[i]) {
 				if (item->hasAttribute(ITEM_ATTRIBUTE_DURATION)) {
-					//Incase we removed duration attribute don't assign new duration
+					// Incase we removed duration attribute don't assign new duration
 					item->setDuration(item->getDuration());
 				}
 				item->removeAttribute(ITEM_ATTRIBUTE_DECAYSTATE);
@@ -71,7 +71,7 @@ void Decay::stopDecay(Item* item, int64_t timestamp)
 		while (i < end) {
 			if (item == decayItems[i]) {
 				if (item->hasAttribute(ITEM_ATTRIBUTE_DURATION)) {
-					//Incase we removed duration attribute don't assign new duration
+					// Incase we removed duration attribute don't assign new duration
 					item->setDuration(item->getDuration());
 				}
 				item->removeAttribute(ITEM_ATTRIBUTE_DECAYSTATE);
@@ -91,7 +91,7 @@ void Decay::checkDecay()
 	int64_t timestamp = OTSYS_TIME();
 
 	std::vector<Item*> tempItems;
-	tempItems.reserve(32);// Small preallocation
+	tempItems.reserve(32); // Small preallocation
 
 	auto it = decayMap.begin(), end = decayMap.end();
 	while (it != end) {

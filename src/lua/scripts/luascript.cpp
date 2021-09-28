@@ -1590,6 +1590,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(ITEM_ATTRIBUTE_DOORID)
 	registerEnum(ITEM_ATTRIBUTE_SPECIAL)
 	registerEnum(ITEM_ATTRIBUTE_OPENCONTAINER)
+	registerEnum(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)
 	registerEnum(ITEM_ATTRIBUTE_DURATION_TIMESTAMP)
 
 	registerEnum(ITEM_TYPE_DEPOT)
