@@ -1788,6 +1788,7 @@
 		<attribute key="stopduration" value="1" />
 	</item>
 	<item id="2045" article="a" name="lit lamp">
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="3000" />
 		<attribute key="decayTo" value="2046" />
@@ -1804,6 +1805,7 @@
 		<attribute key="stopduration" value="1" />
 	</item>
 	<item id="2048" article="a" name="lit candlestick">
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="300" />
 		<attribute key="decayTo" value="2049" />
@@ -1822,34 +1824,40 @@
 		<attribute key="stopduration" value="1" />
 	</item>
 	<item id="2051" article="a" name="lit torch">
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="500" />
 		<attribute key="decayTo" value="2053" />
 		<attribute key="duration" value="600" />
 	</item>
 	<item id="2052" article="a" name="torch">
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="450" />
 		<attribute key="stopduration" value="1" />
 	</item>
 	<item id="2053" article="a" name="lit torch">
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="450" />
 		<attribute key="decayTo" value="2055" />
 		<attribute key="duration" value="300" />
 	</item>
 	<item id="2054" article="a" name="torch">
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="400" />
 		<attribute key="stopduration" value="1" />
 	</item>
 	<item id="2055" article="a" name="lit torch">
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="400" />
 		<attribute key="decayTo" value="2056" />
 		<attribute key="duration" value="300" />
 	</item>
 	<item id="2056" article="a" name="burnt down torch">
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="350" />
 		<attribute key="decayTo" value="0" />
@@ -2238,6 +2246,7 @@
 		<attribute key="showduration" value="1" />
 	</item>
 	<item id="2163" article="a" name="magic light wand">
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="1500" />
 		<attribute key="decayTo" value="0" />
@@ -9804,6 +9813,7 @@
 		<attribute key="duration" value="3000" />
 	</item>
 	<item id="5813" article="a" name="skull candle">
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="2200" />
 		<attribute key="stopduration" value="1" />
