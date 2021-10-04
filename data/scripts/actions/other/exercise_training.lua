@@ -6,7 +6,8 @@ function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, 
 
 	if target:isItem() and (isInArray(houseDummies, targetId) or isInArray(freeDummies, targetId)) then
 		if onExerciseTraining[playerId] then
-			player:sendTextMessage(MESSAGE_FAILURE, "You are already training.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This exercise dummy can only be used after a 30 second cooldown.")
+			leaveTraining(playerId)
 			return true
 		end
 
@@ -37,12 +38,19 @@ function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, 
 			end
 		end
 
+		if player:getStorageValue(Storage.isTraining) > os.time() then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This exercise dummy can only be used after a 30 second cooldown.")
+			return true
+		end
+
+		player:setStorageValue(Storage.isTraining, os.time() + 30)
 		local vocation = player:getVocation()
 		onExerciseTraining[playerId] = {}
-		onExerciseTraining[playerId].event = addEvent(exerciseEvent, vocation:getAttackSpeed(), playerId, targePos, item.itemid, targetId)
-		onExerciseTraining[playerId].dummyPos = targePos
-		player:sendTextMessage(MESSAGE_FAILURE, "You started training.")
-		player:setTraining(true)
+		if not onExerciseTraining[playerId].event then
+			onExerciseTraining[playerId].event = addEvent(exerciseEvent, 0, playerId, targePos, item.itemid, targetId)
+			onExerciseTraining[playerId].dummyPos = targePos
+			player:setTraining(true)
+		end
 		return true
 	end
 	return false

@@ -80,6 +80,7 @@ Reserved player action storage key ranges (const.h)
 
 Storage = {
 	-- General storages
+	isTraining = 30000,
 	NpcExhaust = 30001,
 	NpcExhaustOnBuy = 30002,
 	Dragonfetish = 30003,

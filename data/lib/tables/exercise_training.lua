@@ -31,13 +31,12 @@ exerciseWeaponsTable = {
 
 freeDummies = {32142, 32149}
 maxAllowedOnADummy = configManager.getNumber(configKeys.MAX_ALLOWED_ON_A_DUMMY)
-
-local houseDummies = {32143, 32144, 32145, 32146, 32147, 32148}
+houseDummies = {32143, 32144, 32145, 32146, 32147, 32148}
 
 local magicLevelRate = configManager.getNumber(configKeys.RATE_MAGIC)
 local skillLevelRate = configManager.getNumber(configKeys.RATE_SKILL)
 
-local function leaveTraining(playerId)
+function leaveTraining(playerId)
 	if onExerciseTraining[playerId] then
 		stopEvent(onExerciseTraining[playerId].event)
 		onExerciseTraining[playerId] = nil
@@ -53,14 +52,11 @@ end
 function exerciseEvent(playerId, tilePosition, weaponId, dummyId)
 	local player = Player(playerId)
 	if not player then
-		leaveTraining(playerId)
-		return
+		return leaveTraining(playerId)
 	end
 
 	if player:isTraining() == 0 then
-		player:sendTextMessage(MESSAGE_FAILURE, "Your training has stopped.")
-		leaveTraining(playerId)
-		return
+		return leaveTraining(playerId)
 	end
 
 	if not Tile(tilePosition):getItemById(dummyId) then
