@@ -22,12 +22,12 @@ function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, 
 			return true
 		end
 
-		local targePos = target:getPosition()
+		local targetPos = target:getPosition()
 
 		if isInArray(houseDummies, targetId) then
 			local playersOnDummy = 0
 			for _, playerTraining in pairs(onExerciseTraining) do
-				if playerTraining.dummyPos == targePos then
+				if playerTraining.dummyPos == targetPos then
 					playersOnDummy = playersOnDummy + 1
 				end
 	
@@ -47,8 +47,8 @@ function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, 
 		local vocation = player:getVocation()
 		onExerciseTraining[playerId] = {}
 		if not onExerciseTraining[playerId].event then
-			onExerciseTraining[playerId].event = addEvent(exerciseEvent, 0, playerId, targePos, item.itemid, targetId)
-			onExerciseTraining[playerId].dummyPos = targePos
+			onExerciseTraining[playerId].event = addEvent(exerciseEvent, 0, playerId, targetPos, item.itemid, targetId)
+			onExerciseTraining[playerId].dummyPos = targetPos
 			player:setTraining(true)
 		end
 		return true
