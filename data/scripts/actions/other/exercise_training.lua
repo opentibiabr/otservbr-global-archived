@@ -43,13 +43,12 @@ function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, 
 			return true
 		end
 
-		player:setStorageValue(Storage.isTraining, os.time() + 30)
-		local vocation = player:getVocation()
 		onExerciseTraining[playerId] = {}
 		if not onExerciseTraining[playerId].event then
 			onExerciseTraining[playerId].event = addEvent(exerciseEvent, 0, playerId, targetPos, item.itemid, targetId)
 			onExerciseTraining[playerId].dummyPos = targetPos
 			player:setTraining(true)
+			player:setStorageValue(Storage.isTraining, os.time() + 30)
 		end
 		return true
 	end
