@@ -6,7 +6,7 @@ local config = {
 		winNum = 500, -- 300% numbers
 	},
 	playerPosition = Position(32352, 32226, 7), -- NpcPos(x-2) player must stay on this position to talk with npc
-	dicerCounter = Position(32352, 32225, 7), --	NpcPos(x-1, y-1) 	counter position
+	dicerCounter = Position(32353, 32225, 7), --	NpcPos(x-1, y-1) 	counter position
 	diePos = Position(32354, 32225, 7) --NpcPos(y-1)
 }
 
