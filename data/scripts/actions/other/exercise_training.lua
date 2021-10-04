@@ -1,178 +1,65 @@
-local skills = {
-    [32384] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
-    [32385] = {id=SKILL_AXE,voc=4}, -- KNIGHT
-    [32386] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
-    [32387] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
-    [32388] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
-    [32389] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE}, -- SORCERER
-    [32124] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
-    [32125] = {id=SKILL_AXE,voc=4}, -- KNIGHT
-    [32126] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
-    [32127] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
-    [32128] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
-    [32129] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE}, -- SORCERER
-    [40114] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
-    [40115] = {id=SKILL_AXE,voc=4}, -- KNIGHT
-    [40116] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
-    [40117] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
-    [40118] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
-    [40119] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE}, -- SORCERER
-    [40120] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
-    [40121] = {id=SKILL_AXE,voc=4}, -- KNIGHT
-    [40122] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
-    [40123] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
-    [40124] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
-    [40125] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE} -- SORCERER
-}
-
-local houseDummies = {32143, 32144, 32145, 32146, 32147, 32148}
-local freeDummies = {32142, 32149}
-local skillRateDefault = configManager.getNumber(configKeys.RATE_SKILL)
-local magicRateDefault = configManager.getNumber(configKeys.RATE_MAGIC)
-
-local function removeExerciseWeapon(player, exercise)
-    exercise:remove(1)
-    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your training weapon vanished.")
-    stopEvent(training)
-    player:setStorageValue(Storage.isTraining,0)
-    player:setTraining(false)
-end
-
-local function startTraining(playerId, startPosition, itemid, tilePosition, bonusDummy, dummyId)
-    local player = Player(playerId)
-    if player ~= nil then
-        if Tile(tilePosition):getItemById(dummyId) then
-            local playerPosition = player:getPosition()
-            if startPosition:getDistance(playerPosition) == 0 and getTilePzInfo(playerPosition) then
-                if player:getItemCount(itemid) >= 1 then
-                    local exercise = player:getItemById(itemid,true)
-                    if exercise:isItem() then
-                        if exercise:hasAttribute(ITEM_ATTRIBUTE_CHARGES) then
-                            local charges_n = exercise:getAttribute(ITEM_ATTRIBUTE_CHARGES)
-                            if charges_n >= 1 then
-                                exercise:setAttribute(ITEM_ATTRIBUTE_CHARGES,(charges_n-1))
-
-                                local voc = player:getVocation()
-
-                                if skills[itemid].id == SKILL_MAGLEVEL then
-                                    local magicRate = getRateFromTable(magicLevelStages, player:getBaseMagicLevel(), magicRateDefault)
-                                    if not bonusDummy then
-                                        player:addManaSpent(math.ceil(500*magicRate))
-                                    else
-                                        player:addManaSpent(math.ceil(500*magicRate)*1.1) -- 10%
-                                    end
-                                else
-                                    local skillRate = getRateFromTable(skillsStages, player:getSkillLevel(skills[itemid].id), skillRateDefault)
-                                    if not bonusDummy then
-                                        player:addSkillTries(skills[itemid].id, 7*skillRate)
-                                    else
-                                        player:addSkillTries(skills[itemid].id, (7*skillRate)*1.1) -- 10%
-                                    end
-                                end
-                                    tilePosition:sendMagicEffect(CONST_ME_HITAREA)
-                                if skills[itemid].range then
-                                    playerPosition:sendDistanceEffect(tilePosition, skills[itemid].range)
-                                end
-                                if exercise:getAttribute(ITEM_ATTRIBUTE_CHARGES) == 0 then
-                                    removeExerciseWeapon(player, exercise)
-                                else
-                                    local training = addEvent(startTraining, voc:getBaseAttackSpeed() / configManager.getFloat(configKeys.RATE_EXERCISE_TRAINING_SPEED), playerId,startPosition,itemid,tilePosition,bonusDummy,dummyId)
-                                    player:setStorageValue(Storage.isTraining,1)
-                                    player:setTraining(true)
-                                end
-                            else
-                                removeExerciseWeapon(player, exercise)
-                            end
-                        end
-                    end
-                end
-            else
-                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your training has stopped.")
-                stopEvent(training)
-                player:setStorageValue(Storage.isTraining,0)
-                player:setTraining(false)
-            end
-        else
-            stopEvent(training)
-            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your training has stopped.")
-            player:setStorageValue(Storage.isTraining, 0)
-            player:setTraining(false)
-        end
-    else
-        stopEvent(training)
-        if player then
-            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your training has stopped.")
-            player:setStorageValue(Storage.isTraining,0)
-            player:setTraining(false)
-        end
-    end
-    return true
-end
-
 local exerciseTraining = Action()
 
 function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-    local startPos = player:getPosition()
-    if player:getStorageValue(Storage.isTraining) == 1 then
-        player:sendTextMessage(MESSAGE_FAILURE, "You are already training.")
-        return false
-    end
-    if target:isItem() then
-        if isInArray(houseDummies,target:getId()) then
-            if not skills[item.itemid].range and (startPos:getDistance(target:getPosition()) > 1) then
-                player:sendTextMessage(MESSAGE_FAILURE, "Get closer to the dummy.")
-                stopEvent(training)
-                return true
-            end
-            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You started training.")
-            startTraining(player:getId(),startPos,item.itemid,target:getPosition(), true, target:getId())
-        elseif isInArray(freeDummies, target:getId()) then
-            if not skills[item.itemid].range and (startPos:getDistance(target:getPosition()) > 1) then
-                player:sendTextMessage(MESSAGE_FAILURE, "Get closer to the dummy.")
-                stopEvent(training)
-                return true
-            end
-            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You started training.")
-            startTraining(player:getId(),startPos,item.itemid,target:getPosition(), false, target:getId())
-        end
-    end
-    return true
+	local playerId = player:getId()
+	local targetId = target:getId()
+
+	if target:isItem() and (isInArray(houseDummies, targetId) or isInArray(freeDummies, targetId)) then
+		if onExerciseTraining[playerId] then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This exercise dummy can only be used after a 30 second cooldown.")
+			leaveTraining(playerId)
+			return true
+		end
+
+		local playerPos = player:getPosition()
+		if not exerciseWeaponsTable[item.itemid].allowFarUse and (playerPos:getDistance(target:getPosition()) > 1) then
+			player:sendTextMessage(MESSAGE_FAILURE, "Get closer to the dummy.")
+			return true
+		end
+
+		if not getTilePzInfo(playerPos) then
+			player:sendTextMessage(MESSAGE_FAILURE, "You need to be in a protection zone.")
+			return true
+		end
+
+		local targetPos = target:getPosition()
+
+		if isInArray(houseDummies, targetId) then
+			local playersOnDummy = 0
+			for _, playerTraining in pairs(onExerciseTraining) do
+				if playerTraining.dummyPos == targetPos then
+					playersOnDummy = playersOnDummy + 1
+				end
+	
+				if playersOnDummy == maxAllowedOnADummy then
+					player:sendTextMessage(MESSAGE_FAILURE, "That exercise dummy is busy.")
+					return true
+				end
+			end
+		end
+
+		if player:getStorageValue(Storage.isTraining) > os.time() then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This exercise dummy can only be used after a 30 second cooldown.")
+			return true
+		end
+
+		onExerciseTraining[playerId] = {}
+		if not onExerciseTraining[playerId].event then
+			onExerciseTraining[playerId].event = addEvent(exerciseEvent, 0, playerId, targetPos, item.itemid, targetId)
+			onExerciseTraining[playerId].dummyPos = targetPos
+			player:setTraining(true)
+			player:setStorageValue(Storage.isTraining, os.time() + 30)
+		end
+		return true
+	end
+	return false
 end
 
-for id = 32124, 32126 do
-    exerciseTraining:id(id)
-end
-
-for id = 32127, 32129 do
-    exerciseTraining:id(id)
-    exerciseTraining:allowFarUse(true)
-end
-
-for id = 32384, 32386 do
-    exerciseTraining:id(id)
-end
-
-for id = 32387, 32389 do
-    exerciseTraining:id(id)
-    exerciseTraining:allowFarUse(true)
-end
-
-for id = 40114, 40116 do
-    exerciseTraining:id(id)
-end
-
-for id = 40117, 40119 do
-    exerciseTraining:id(id)
-    exerciseTraining:allowFarUse(true)
-end
-
-for id = 40120, 40122 do
-    exerciseTraining:id(id)
-end
-
-for id = 40123, 40125 do
-    exerciseTraining:id(id)
-    exerciseTraining:allowFarUse(true)
+for weaponId, weapon in pairs(exerciseWeaponsTable) do
+	exerciseTraining:id(weaponId)
+	if weapon.allowFarUse then
+		exerciseTraining:allowFarUse(true)
+	end
 end
 
 exerciseTraining:register()

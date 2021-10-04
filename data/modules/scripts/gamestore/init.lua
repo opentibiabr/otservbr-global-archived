@@ -1247,6 +1247,7 @@ function GameStore.processItemPurchase(player, offerId, offerCount)
 		return error({ code = 0, message = "Please make sure you have free slots in your store inbox."})
 	end
 end
+
 function GameStore.processChargesPurchase(player, itemtype, name, charges)
 	if player:getFreeCapacity() < ItemType(itemtype):getWeight(1) then
 		return error({ code = 0, message = "Please make sure you have free capacity to hold this item."})
