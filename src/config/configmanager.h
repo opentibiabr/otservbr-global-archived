@@ -154,6 +154,7 @@ class ConfigManager
 			STAMINA_TRAINER_DELAY,
 			STAMINA_PZ_GAIN,
 			STAMINA_TRAINER_GAIN,
+			MAX_ALLOWED_ON_A_DUMMY,
 
 			LAST_INTEGER_CONFIG /* this must be the last one */
 		};

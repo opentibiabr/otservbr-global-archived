@@ -1,6 +1,7 @@
 dofile('data/lib/tables/vocation.lua')
 dofile('data/lib/tables/achievements_lib.lua')
 dofile('data/lib/tables/door.lua')
+dofile('data/lib/tables/exercise_training.lua')
 dofile('data/lib/tables/hireling_items.lua')
 dofile('data/lib/tables/teleport_item_destinations.lua')
 dofile('data/lib/tables/town.lua')

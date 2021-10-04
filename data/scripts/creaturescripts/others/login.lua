@@ -206,8 +206,10 @@ function playerLogin.onLogin(player)
 	player:setStaminaXpBoost(staminaBonus)
 	player:setBaseXpGain(baseExp)
 
-	if player:getStorageValue(Storage.isTraining) == 1 then --Reset exercise weapon storage
-		player:setStorageValue(Storage.isTraining,0)
+	if onExerciseTraining[player:getId()] then -- onLogin & onLogout
+		stopEvent(onExerciseTraining[player:getId()].event)
+		onExerciseTraining[player:getId()] = nil
+		player:setTraining(false)
 	end
 	return true
 end

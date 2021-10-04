@@ -2139,6 +2139,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::STAMINA_TRAINER_DELAY)
 	registerEnumIn("configKeys", ConfigManager::STAMINA_PZ_GAIN)
 	registerEnumIn("configKeys", ConfigManager::STAMINA_TRAINER_GAIN)
+	registerEnumIn("configKeys", ConfigManager::MAX_ALLOWED_ON_A_DUMMY)
 
 	registerEnumIn("configKeys", ConfigManager::SORT_LOOT_BY_CHANCE)
 
@@ -2603,8 +2604,9 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "getCapacity", LuaScriptInterface::luaPlayerGetCapacity);
 	registerMethod("Player", "setCapacity", LuaScriptInterface::luaPlayerSetCapacity);
 
+	registerMethod("Player", "isTraining", LuaScriptInterface::luaPlayerGetIsTraining);
 	registerMethod("Player", "setTraining", LuaScriptInterface::luaPlayerSetTraining);
-
+	
 	registerMethod("Player", "getFreeCapacity", LuaScriptInterface::luaPlayerGetFreeCapacity);
 
 	registerMethod("Player", "getKills", LuaScriptInterface::luaPlayerGetKills);
@@ -9272,6 +9274,18 @@ int LuaScriptInterface::luaPlayerSetTraining(lua_State* L) {
 	return 1;
 }
 
+int LuaScriptInterface::luaPlayerGetIsTraining(lua_State* L)
+{
+	// player:isTraining()
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		lua_pushnumber(L, player->isExerciseTraining());
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 int LuaScriptInterface::luaPlayerGetFreeCapacity(lua_State* L)
 {
 	// player:getFreeCapacity()
@@ -12012,7 +12026,7 @@ int LuaScriptInterface::luaPlayerSetGhostMode(lua_State* L)
 	} else {
 		for (const auto& it : g_game.getPlayers()) {
 			if (!it.second->isAccessPlayer()) {
-				it.second->notifyStatusChange(player, VIPSTATUS_ONLINE);
+				it.second->notifyStatusChange(player, player->statusVipList);
 			}
 		}
 		IOLoginData::updateOnlineStatus(player->getGUID(), true);
