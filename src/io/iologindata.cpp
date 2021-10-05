@@ -32,38 +32,62 @@ extern ConfigManager g_config;
 extern Game g_game;
 extern Monsters g_monsters;
 
-bool IOLoginData::authenticateAccountPassword(const std::string& email, const std::string& password, account::Account *account) {
-	if (account::ERROR_NO != account->LoadAccountDB(email)) {
-		SPDLOG_ERROR("Email {} doesn't match any account.", email);
-		return false;
-	}
+bool IOLoginData::LoginServerAuthentication(const std::string& name,
+                                            const std::string& password) {
+  account::Account account;
+  if (account::ERROR_NO != account.LoadAccountDB(name)) {
+    return false;
+  }
 
-	std::string accountPassword;
-	account->GetPassword(&accountPassword);
-	if (transformToSHA1(password) != accountPassword) {
-			SPDLOG_ERROR("Password '{}' doesn't match any account", transformToSHA1(password));
-			return false;
-	}
+  std::string acc_password;
+  account.GetPassword(&acc_password);
+  if (transformToSHA1(password) != acc_password) {
+    return false;
+  }
 
-	return true;
+  return true;
 }
 
-bool IOLoginData::gameWorldAuthentication(const std::string& email, const std::string& password, std::string& characterName, uint32_t *accountId)
+uint32_t IOLoginData::gameworldAuthentication(const std::string& accountName, const std::string& password, std::string& characterName, bool useAccountName)
 {
-	account::Account account;
-	if (!IOLoginData::authenticateAccountPassword(email, password, &account)) {
-		return false;
-	}
+  Database& db = Database::getInstance();
 
-	account::Player player;
-	if (account::ERROR_NO != account.GetAccountPlayer(&player, characterName)) {
-		SPDLOG_ERROR("Player not found or deleted for account.");
-		return false;
-	}
+  std::ostringstream query;
+  query << "SELECT `id`, `password` FROM `accounts` WHERE ";
+  if (!useAccountName)
+    query << "`email`";
+  else
+    query << "`name`";
+  query << " = " << db.escapeString(accountName);
 
-	account.GetID(accountId);
+  
+  DBResult_ptr result = db.storeQuery(query.str());
+  if (!result) {
+    SPDLOG_ERROR("Account not found");
+    return 0;
+  }
 
-	return true;
+  if (transformToSHA1(password) != result->getString("password")) {
+    SPDLOG_ERROR("Wrong password {} != {}", transformToSHA1(password), result->getString("password"));
+    return 0;
+  }
+
+  uint32_t accountId = result->getNumber<uint32_t>("id");
+
+  query.str(std::string());
+  query << "SELECT `account_id`, `name`, `deletion` FROM `players` WHERE `name` = " << db.escapeString(characterName);
+  result = db.storeQuery(query.str());
+  if (!result) {
+    SPDLOG_ERROR("Not able to find player: {}", characterName);
+    return 0;
+  }
+
+  if (result->getNumber<uint32_t>("account_id") != accountId || result->getNumber<uint64_t>("deletion") != 0) {
+    SPDLOG_ERROR("Account mismatch or account has been marked as deleted");
+    return 0;
+  }
+  characterName = result->getString("name");
+  return accountId;
 }
 
 account::AccountType IOLoginData::getAccountType(uint32_t accountId)
@@ -265,10 +289,10 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
   Database& db = Database::getInstance();
 
-  uint32_t accountId = result->getNumber<uint32_t>("account_id");
+  uint32_t accno = result->getNumber<uint32_t>("account_id");
   account::Account acc;
   acc.SetDatabaseInterface(&db);
-  acc.LoadAccountDB(accountId);
+  acc.LoadAccountDB(accno);
 
   player->setGUID(result->getNumber<uint32_t>("id"));
   player->name = result->getString("name");

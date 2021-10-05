@@ -48,18 +48,23 @@ void ProtocolLogin::disconnectClient(const std::string& message, uint16_t versio
 	disconnect();
 }
 
-void ProtocolLogin::getCharacterList(const std::string& email, const std::string& password, uint16_t version)
+void ProtocolLogin::getCharacterList(const std::string& accountName, const std::string& password, uint16_t version)
 {
+	// Load Account Information
+	int result = 0;
 	account::Account account;
-	if (!IOLoginData::authenticateAccountPassword(email, password, &account)) {
-		disconnectClient("Email or password is not correct", version);
+	result = account.LoadAccountDB(accountName);
+
+  // Check Login Password
+	if (!IOLoginData::LoginServerAuthentication(accountName, password)) {
+		disconnectClient("Account name or password is not correct.", version);
 		return;
 	}
 
+	auto output = OutputMessagePool::getOutputMessage();
 	// Update premium days
 	Game::updatePremium(account);
 
-	auto output = OutputMessagePool::getOutputMessage();
 	const std::string& motd = g_config.getString(ConfigManager::MOTD);
 	if (!motd.empty()) {
 		// Add MOTD
@@ -72,7 +77,7 @@ void ProtocolLogin::getCharacterList(const std::string& email, const std::string
 
 	// Add session key
 	output->addByte(0x28);
-	output->addString(email + "\n" + password);
+	output->addString(accountName + "\n" + password);
 
 	// Add char list
 	std::vector<account::Player> players;
@@ -103,10 +108,10 @@ void ProtocolLogin::getCharacterList(const std::string& email, const std::string
 		output->addByte(1);
 		output->add<uint32_t>(0);
 	} else {
-	uint32_t days;
-	account.GetPremiumRemaningDays(&days);
-	output->addByte(0);
-	output->add<uint32_t>(time(nullptr) + (days * 86400));
+    uint32_t days;
+    account.GetPremiumRemaningDays(&days);
+    output->addByte(0);
+    output->add<uint32_t>(time(nullptr) + (days * 86400));
   }
 
 	send(output);
@@ -123,10 +128,9 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 
 	OperatingSystem_t operatingSystem = static_cast<OperatingSystem_t>(msg.get<uint16_t>());
 
-	if (operatingSystem <= CLIENTOS_NEW_MAC)
-		enableCompact();
-
 	uint16_t version = msg.get<uint16_t>();
+	if (version >= 1200 && operatingSystem <= CLIENTOS_NEW_MAC) 
+		enableCompact();
 
 	msg.skipBytes(17);
 	/*
@@ -177,9 +181,9 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 		return;
 	}
 
-	std::string email = msg.getString();
-	if (email.empty()) {
-		disconnectClient("Invalid email.", version);
+	std::string accountName = msg.getString();
+	if (accountName.empty()) {
+		disconnectClient("Invalid account name.", version);
 		return;
 	}
 
@@ -190,5 +194,5 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 	}
 
 	auto thisPtr = std::static_pointer_cast<ProtocolLogin>(shared_from_this());
-	g_dispatcher.addTask(createTask(std::bind(&ProtocolLogin::getCharacterList, thisPtr, email, password, version)));
+	g_dispatcher.addTask(createTask(std::bind(&ProtocolLogin::getCharacterList, thisPtr, accountName, password, version)));
 }
