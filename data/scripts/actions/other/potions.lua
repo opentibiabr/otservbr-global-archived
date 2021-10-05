@@ -222,6 +222,8 @@ local potions = {
 local flaskPotion = Action()
 
 function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	local client = player:getClient()
+
 	if type(target) == "userdata" and not target:isPlayer() then
 		return false
 	end
@@ -237,7 +239,11 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 
 	local potion = potions[item:getId()]
 	if potion.level and player:getLevel() < potion.level or potion.vocations and not table.contains(potion.vocations, player:getVocation():getBaseId()) and not (player:getGroup():getId() >= 2) then
-		player:say(potion.description, MESSAGE_POTION)
+		if client.version > 1100 then
+			player:say(potion.description, MESSAGE_POTION)
+		else
+			player:say(potion.description, TALKTYPE_MONSTER_SAY)
+		end
 		return true
 	end
 
@@ -260,7 +266,11 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 		end
 
 		player:addAchievementProgress('Potion Addict', 100000)
-		target:say("Aaaah...", MESSAGE_POTION)
+		if client.version > 1100 then
+			target:say("Aaaah...", MESSAGE_POTION)
+		else
+			target:say("Aaaah...", TALKTYPE_MONSTER_SAY)
+		end
 		player:addItem(potion.flask, 1)
 		player:addCondition(exhaust)
 		player:setStorageValue(38412, player:getStorageValue(38412)+1)
@@ -272,14 +282,22 @@ function flaskPotion.onUse(player, item, fromPosition, target, toPosition, isHot
 	if potion.func then
 		potion.func(player)
 		if potion.text then
-			player:say(potion.text, MESSAGE_POTION)
+			if client.version > 1100 then
+				player:say("Aaaah...", MESSAGE_POTION)
+			else
+				player:say("Aaaah...", TALKTYPE_MONSTER_SAY)
+			end
 		end
 		player:getPosition():sendMagicEffect(potion.effect)
 	end
 
 	if potion.condition then
 		player:addCondition(potion.condition)
-		player:say(potion.text, MESSAGE_POTION)
+		if client.version > 1100 then
+			player:say("Aaaah...", MESSAGE_POTION)
+		else
+			player:say("Aaaah...", TALKTYPE_MONSTER_SAY)
+		end
 		player:getPosition():sendMagicEffect(potion.effect)
 	end
 
