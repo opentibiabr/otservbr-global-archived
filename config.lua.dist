@@ -45,6 +45,7 @@ maxContainer = 100
 -- Version
 clientVersion = 1264
 clientVersionStr = "12.64"
+allowClientOld = true
 
 -- Depot Limit
 freeDepotLimit = 2000
@@ -128,7 +129,7 @@ maxMarketOffersAtATimePerPlayer = 100
 mysqlHost = "127.0.0.1"
 mysqlUser = "root"
 mysqlPass = ""
-mysqlDatabase = "otservbr-global"
+mysqlDatabase = "otservbr-global-archived"
 mysqlPort = 3306
 mysqlSock = ""
 
@@ -209,7 +210,7 @@ startupDatabaseOptimization = true
 -- Status server information
 ownerName = "OTServBR-Global"
 ownerEmail = ""
-url = "https://github.com/opentibiabr/otservbr-global"
+url = "https://github.com/opentibiabr/otservbr-global-archived"
 location = "South America"
 
 -- Sends Discord webhook notifications on startup, raids and shutdown.

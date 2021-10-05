@@ -163,7 +163,7 @@ static int webhook_send_message_(const char *url, const char *payload, std::stri
 	curl_easy_setopt(curl, CURLOPT_WRITEDATA, reinterpret_cast<void *>(&response_body));
 
 	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
-	curl_easy_setopt(curl, CURLOPT_USERAGENT, "otservbr-global (https://github.com/Hydractify/otservbr-global)");
+	curl_easy_setopt(curl, CURLOPT_USERAGENT, "otservbr-global-archived (https://github.com/Hydractify/otservbr-global-archived)");
 
 	CURLcode res = curl_easy_perform(curl);
 

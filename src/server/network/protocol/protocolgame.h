@@ -259,6 +259,7 @@ private:
 	void sendMagicEffect(const Position &pos, uint8_t type);
 	void sendRestingStatus(uint8_t protection);
 	void sendCreatureHealth(const Creature *creature);
+	void sendCreatureHelpers(uint32_t creatureId, uint16_t helpers);
 	void sendPartyCreatureUpdate(const Creature* target);
 	void sendPartyCreatureShield(const Creature* target);
 	void sendPartyCreatureSkull(const Creature* target);

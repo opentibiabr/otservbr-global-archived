@@ -237,6 +237,10 @@ DailyReward.loadDailyReward = function(playerId, source)
 	if not player then
 		return false
 	end
+	if player:getClient().version < 1200 then
+		player:sendCancelMessage("You need client 12 to use daily reward.")
+		return false
+	end
 	if source ~= 0 then
 		source = REWARD_FROM_SHRINE
 	else
@@ -360,6 +364,10 @@ DailyReward.processReward = function(playerId, source)
 end
 
 function Player.sendOpenRewardWall(self, shrine)
+	if self:getClient().version < 1200 then
+		player:sendCancelMessage("You need to use client 12 to access daily reward.")
+		return
+	end
 	local msg = NetworkMessage()
 	msg:addByte(ServerPackets.OpenRewardWall) -- initial packet
 	msg:addByte(shrine) -- isPlayer taking bonus from reward shrine (1) - taking it from a instant bonus reward (0)
@@ -531,6 +539,9 @@ function Player.sendError(self, error)
 end
 
 function Player.sendDailyRewardCollectionState(self, state)
+	if self:getClient().version < 1200 then
+		return
+	end
 	local msg = NetworkMessage()
 	msg:addByte(ServerPackets.DailyRewardCollectionState)
 	msg:addByte(state)
