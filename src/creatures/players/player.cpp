@@ -430,7 +430,11 @@ uint32_t Player::getClientIcons() const
 	uint32_t icons = 0;
 	for (Condition* condition : conditions) {
 		if (!isSuppress(condition->getType())) {
-			icons |= condition->getIcons();
+			if (getProtocolVersion() >= 1200 || condition->getIcons() < ICON_LESSERHEX) {
+				icons |= condition->getIcons();
+			} else if (getProtocolVersion() < 1200 && condition->getIcons() == ICON_NEWMANASHIELD){
+				icons |= ICON_MANASHIELD;
+			}
 		}
 	}
 
@@ -478,14 +482,21 @@ void Player::updateInventoryWeight()
 }
 
 void Player::setTraining(bool value) {
-	for (const auto& it : g_game.getPlayers()) {
-		if (!this->isInGhostMode() || it.second->isAccessPlayer()) {
-			it.second->notifyStatusChange(this, value ? VIPSTATUS_TRAINING : VIPSTATUS_ONLINE, false);
-		}
+    for (const auto& it : g_game.getPlayers()) {
+        if (!this->isInGhostMode() || it.second->isAccessPlayer()) {
+            if(getProtocolVersion() >= 1200) {
+                it.second->notifyStatusChange(this, value ? VIPSTATUS_TRAINING : VIPSTATUS_ONLINE, false);
+            } else {
+                it.second->notifyStatusChange(this, VIPSTATUS_ONLINE);
+            }
+        }
+    }
+
+	if(getProtocolVersion() >= 1200) {
+		this->statusVipList = VIPSTATUS_TRAINING;
 	}
 
-	this->statusVipList = VIPSTATUS_TRAINING;
-	setExerciseTraining(value);
+    setExerciseTraining(value);
 }
 
 void Player::addSkillAdvance(skills_t skill, uint64_t count)
@@ -1353,8 +1364,8 @@ void Player::onCreatureAppear(Creature* creature, bool isLogin)
 			}
 		}
 
-		// Reload bestiary tracker
-		refreshBestiaryTracker(getBestiaryTrackerList());
+		if(getProtocolVersion() >= 1200)
+			refreshBestiaryTracker(getBestiaryTrackerList());
 
 		g_game.checkPlayersRecord();
 		IOLoginData::updateOnlineStatus(guid, true);
