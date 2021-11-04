@@ -70,7 +70,7 @@ jobs:
           unzip -o data/world/world.zip -d data/world/
           rm data/world/world.zip
           cd ..
-          zip -r otservbr.zip otservbr-global
+          zip -r otservbr.zip otservbr-global-archived
 
       - name: Upload binary
         if: ${{ matrix.buildtype == 'Release' && github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/test' }}

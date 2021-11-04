@@ -129,7 +129,7 @@ bool ConfigManager::load()
 		string[MYSQL_HOST] = getGlobalString(L, "mysqlHost", "127.0.0.1");
 		string[MYSQL_USER] = getGlobalString(L, "mysqlUser", "root");
 		string[MYSQL_PASS] = getGlobalString(L, "mysqlPass", "");
-		string[MYSQL_DB] = getGlobalString(L, "mysqlDatabase", "otservbr-global");
+		string[MYSQL_DB] = getGlobalString(L, "mysqlDatabase", "otservbr-global-archived");
 		string[MYSQL_SOCK] = getGlobalString(L, "mysqlSock", "");
 		string[CLIENT_VERSION_STR] = getGlobalString(L, "clientVersionStr", "12.64");
 

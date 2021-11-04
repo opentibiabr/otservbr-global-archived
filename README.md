@@ -1,35 +1,35 @@
 # OTServ Brasil - Global Server
 
 [![Discord Channel](https://img.shields.io/discord/528117503952551936.svg?style=flat-square&logo=discord)](https://discord.gg/3NxYnyV)
-[![GitHub issues](https://img.shields.io/github/issues/opentibiabr/otservbr-global)](https://github.com/opentibiabr/otservbr-global/issues)
-[![GitHub pull request](https://img.shields.io/github/issues-pr/opentibiabr/otservbr-global)](https://github.com/opentibiabr/otservbr-global/pulls)
-[![Contributors](https://img.shields.io/github/contributors/opentibiabr/otservbr-global.svg?style=flat-square)](https://github.com/opentibiabr/otservbr-global/graphs/contributors)
-[![GitHub](https://img.shields.io/github/license/opentibiabr/otservbr-global)](https://github.com/opentibiabr/otservbr-global/blob/develop/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/opentibiabr/otservbr-global-archived)](https://github.com/opentibiabr/otservbr-global-archived/issues)
+[![GitHub pull request](https://img.shields.io/github/issues-pr/opentibiabr/otservbr-global-archived)](https://github.com/opentibiabr/otservbr-global-archived/pulls)
+[![Contributors](https://img.shields.io/github/contributors/opentibiabr/otservbr-global-archived.svg?style=flat-square)](https://github.com/opentibiabr/otservbr-global-archived/graphs/contributors)
+[![GitHub](https://img.shields.io/github/license/opentibiabr/otservbr-global-archived)](https://github.com/opentibiabr/otservbr-global-archived/blob/develop/LICENSE)
 
-![GitHub repo size](https://img.shields.io/github/repo-size/opentibiabr/otservbr-global)
+![GitHub repo size](https://img.shields.io/github/repo-size/opentibiabr/otservbr-global-archived)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a71728d523ac4b23a9c0b974ae4ec5df)](https://www.codacy.com/gh/opentibiabr/otservbr-global/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=opentibiabr/otservbr-global&amp;utm_campaign=Badge_Grade)
-[![CodeQL](https://github.com/opentibiabr/otservbr-global/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions/workflows/codeql-analysis.yml)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a71728d523ac4b23a9c0b974ae4ec5df)](https://www.codacy.com/gh/opentibiabr/otservbr-global-archived/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=opentibiabr/otservbr-global-archived&amp;utm_campaign=Badge_Grade)
+[![CodeQL](https://github.com/opentibiabr/otservbr-global-archived/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/opentibiabr/otservbr-global-archived/actions/workflows/codeql-analysis.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=opentibiabr_otservbr-global&metric=alert_status)](https://sonarcloud.io/dashboard?id=opentibiabr_otservbr-global)
 
 ## Builds
 
-[![Build status](https://ci.appveyor.com/api/projects/status/github/opentibiabr/otservbr-global?branch=develop&passingText=develop%20-%20OK&svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global/build/artifacts "Download nightly builds for Windows")
+[![Build status](https://ci.appveyor.com/api/projects/status/github/opentibiabr/otservbr-global-archived?branch=develop&passingText=develop%20-%20OK&svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global-archived/build/artifacts "Download nightly builds for Windows")
 
-[![Build on Ubuntu](https://github.com/opentibiabr/otservbr-global/workflows/Build%20on%20Ubuntu/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22Build+on+Ubuntu%22)
-[![Build on Windows](https://github.com/opentibiabr/otservbr-global/workflows/Build%20on%20Windows/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22Build+on+Windows%22)
+[![Build on Ubuntu](https://github.com/opentibiabr/otservbr-global-archived/workflows/Build%20on%20Ubuntu/badge.svg)](https://github.com/opentibiabr/otservbr-global-archived/actions?query=workflow%3A%22Build+on+Ubuntu%22)
+[![Build on Windows](https://github.com/opentibiabr/otservbr-global-archived/workflows/Build%20on%20Windows/badge.svg)](https://github.com/opentibiabr/otservbr-global-archived/actions?query=workflow%3A%22Build+on+Windows%22)
 
 ## Project
 
-OTServ Brasil - Global Server is a free and open-source MMORPG server emulator written in C++. It is a fork of the [Forgotten Server](https://github.com/otland/forgottenserver) project. To connect to the server and to take a stable experience, you can use our [own client](https://forums.otserv.com.br/index.php?/forums/topic/167933-otservbr-global-cliente-tibia-12/) and if you want to edit something, check our [customized tools](https://github.com/opentibiabr/tools).
+OTServ Brasil - Global Server is a free and open-source MMORPG server emulator written in C++. It is a fork of the [Forgotten Server](https://github.com/otland/forgottenserver) project. To connect to the server and to take a stable experience, you can use our [own client](https://forums.otserv.com.br/index.php?/forums/topic/167933-otservbr-global-archived-cliente-tibia-12/) and if you want to edit something, check our [customized tools](https://github.com/opentibiabr/tools).
 
-You are subject to our code of conduct, read at [this link](https://github.com/opentibiabr/otservbr-global/blob/develop/CODE_OF_CONDUCT.md).
+You are subject to our code of conduct, read at [this link](https://github.com/opentibiabr/otservbr-global-archived/blob/develop/CODE_OF_CONDUCT.md).
 
 ### Getting **Started**
 
 * **WARNING: YOU NEED TO UNZIP THE MAP BEFORE START THE SERVER.**
-* [Compiling on Windows](https://forums.otserv.com.br/index.php?/forums/topic/169235-windowsvc2019-compilando-sources-otservbr-global/), alternatively if you are ****not** going to change anything on the source** you can download the latest compiled version for windows from [nightly builds for Windows](https://ci.appveyor.com/project/opentibiabr/otservbr-global/build/artifacts).
-* Wiki: Compiling ([Ubuntu/Debian](https://github.com/opentibiabr/otservbr-global/wiki/Compiling-on-Ubuntu-or-Debian-GNU-Linux), [Windows](https://github.com/opentibiabr/otservbr-global/wiki/Compiling-on-Windows-(vcpkg)))
+* [Compiling on Windows](https://forums.otserv.com.br/index.php?/forums/topic/169235-windowsvc2019-compilando-sources-otservbr-global-archived/), alternatively if you are ****not** going to change anything on the source** you can download the latest compiled version for windows from [nightly builds for Windows](https://ci.appveyor.com/project/opentibiabr/otservbr-global-archived/build/artifacts).
+* Wiki: Compiling ([Ubuntu/Debian](https://github.com/opentibiabr/otservbr-global-archived/wiki/Compiling-on-Ubuntu-or-Debian-GNU-Linux), [Windows](https://github.com/opentibiabr/otservbr-global-archived/wiki/Compiling-on-Windows-(vcpkg)))
 
 ### Issues
 
@@ -37,7 +37,7 @@ We use the [issue tracker on GitHub](https://github.com/opentibiabr/OTServBR-Glo
 
 ### Pull requests
 
-Before [creating a pull request](https://github.com/opentibiabr/otservbr-global/pulls) please keep in mind:
+Before [creating a pull request](https://github.com/opentibiabr/otservbr-global-archived/pulls) please keep in mind:
 
   * Do not send Pull Request changing the map, as we can't review the changes it's better to use our [Discord](https://discord.gg/3NxYnyV) to talk about or send the map changes to the responsible for updating it.
   * Focus on fixing only one thing, mixing too much things on the same Pull Request make it harder to review, harder to test and if we need to revert the change it will remove other things together.
