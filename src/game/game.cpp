@@ -6531,7 +6531,6 @@ void Game::checkImbuements()
 
 		bool hasImbue = false;
 		uint8_t slots = Item::items[item->getID()].imbuingSlots;
-		int32_t index = player ? player->getThingIndex(item) : -1;
 		for (uint8_t slot = 0; slot < slots; slot++) {
 			uint32_t info = item->getImbuement(slot);
 			uint16_t id = info & 0xFF;
